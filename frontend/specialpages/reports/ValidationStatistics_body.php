@@ -44,8 +44,8 @@ class ValidationStatistics extends IncludableSpecialPage {
 			}
 			$css = 'wikitable flaggedrevs_stats_table';
 			$reviewChart = "<table class='$css' style='white-space: nowrap;'>\n";
-			$reviewChart .= "<tr align='center'>$headerRows</tr>\n";
-			$reviewChart .= "<tr align='center'>$dataRows</tr>\n";
+			$reviewChart .= "<tr style='text-align: center;'>$headerRows</tr>\n";
+			$reviewChart .= "<tr style='text-align: center;'>$dataRows</tr>\n";
 			$reviewChart .= "</table>\n";
 		} else {
 			$reviewChart = '';
@@ -128,7 +128,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 			$unreviewed = $lang->formatnum( max( 0, $unreviewed ) ); // lag between queries
 
 			$out->addHTML(
-				"<tr align='center'>
+				"<tr style='text-align: center;'>
 					<td>" .
 						htmlspecialchars( $NsText ) .
 					"</td>
