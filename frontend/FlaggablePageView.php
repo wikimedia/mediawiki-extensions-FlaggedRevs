@@ -1282,18 +1282,13 @@ class FlaggablePageView extends ContextSource {
 		$synced = $this->article->stableVersionIsSynced();
 		$pendingEdits = !$synced && $this->article->isStableShownByDefault();
 		// Set the edit tab names as needed...
-		if ( $pendingEdits ) {
+		if ( $pendingEdits && $this->showingStable() ) {
+			// bug 31489; direct user to current
 			if ( isset( $views['edit'] ) ) {
-				$views['edit']['text'] = $this->msg( 'revreview-edit' )->text();
-				if ( $this->showingStable() ) { // bug 31489; direct user to current
-					$views['edit']['href'] = $skin->getTitle()->getFullURL( 'action=edit' );
-				}
+				$views['edit']['href'] = $skin->getTitle()->getFullURL( 'action=edit' );
 			}
 			if ( isset( $views['viewsource'] ) ) {
-				$views['viewsource']['text'] = $this->msg( 'revreview-source' )->text();
-				if ( $this->showingStable() ) { // bug 31489; direct user to current
-					$views['viewsource']['href'] = $skin->getTitle()->getFullURL( 'action=edit' );
-				}
+				$views['viewsource']['href'] = $skin->getTitle()->getFullURL( 'action=edit' );
 			}
 		}
 		# Add "pending changes" tab if the page is not synced
