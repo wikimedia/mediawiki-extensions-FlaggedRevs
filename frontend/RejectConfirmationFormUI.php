@@ -160,7 +160,7 @@ class RejectConfirmationFormUI {
 			'wpReason', 120, $defaultSummary, [ 'maxlength' => 200 ] ) . "<br />";
 		$form .= Html::input( 'wpSubmit', wfMessage( 'revreview-reject-confirm' )->text(), 'submit' );
 		$form .= ' ';
-		$form .= Linker::link( $this->form->getPage(), wfMessage( 'revreview-reject-cancel' )->text(),
+		$form .= Linker::link( $this->form->getPage(), wfMessage( 'revreview-reject-cancel' )->escaped(),
 			[ 'onClick' => 'history.back(); return history.length <= 1;' ],
 			[ 'oldid' => $this->form->getRefId(), 'diff' => $this->form->getOldId() ] );
 		$form .= Xml::closeElement( 'form' );
