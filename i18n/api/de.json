@@ -13,6 +13,8 @@
 	"apihelp-query+configuredpages-param-default": "Die Standard-Seitenansicht-Version.",
 	"apihelp-query+configuredpages-param-limit": "Welche Gesamtanzahl an Seiten zurückgegeben werden sollen.",
 	"apihelp-query+flagged-example-1": "Ruft Seiteninformationen und den Markierungsstatus von [[Main Page]] ab",
+	"apihelp-query+flagged-example-2": "Ruft die Markierungsstatusse für Seiten ab, die mit „K“ beginnen",
+	"apihelp-query+oldreviewedpages-description": "Zählt Seiten auf, die ausstehende Änderungen zur Sichtung haben.",
 	"apihelp-query+oldreviewedpages-param-start": "Auflistung bei diesem Zeitstempel beginnen.",
 	"apihelp-query+oldreviewedpages-param-end": "Auflistung bei diesem Zeitstempel beenden.",
 	"apihelp-query+oldreviewedpages-param-filterwatched": "Wie für Seiten auf deiner Beobachtungsliste gefiltert werden soll.",
