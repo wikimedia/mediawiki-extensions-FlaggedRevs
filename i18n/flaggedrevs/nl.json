@@ -88,7 +88,6 @@
 	"revreview-depth-3": "Hoog",
 	"revreview-depth-4": "Uitgelicht",
 	"revreview-draft-title": "Deze pagina bevat ongecontroleerde wijzigingen",
-	"revreview-edit": "Bewerken",
 	"revreview-editnotice": "'''Uw wijzigingen worden aan lezers weergegeven als ze zijn gecontroleerd ([[{{MediaWiki:Validationpage}}|hulp]]).'''",
 	"revreview-submitedit": "Wijzigingen opslaan",
 	"revreview-submitedit-title": "Wijzigingen voor controle opslaan",
@@ -119,7 +118,6 @@
 	"revreview-quick-quality-same": "'''[[{{MediaWiki:Validationpage}}|Kwaliteitsversie]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} ongecontroleerde wijzigingen controleren]]",
 	"revreview-quick-see-quality": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} ongecontroleerde wijzigingen controleren]]",
-	"revreview-source": "Brontekst bekijken",
 	"revreview-basic-title": "Dit is een gecontroleerde versie van deze pagina",
 	"revreview-style": "Leesbaarheid",
 	"revreview-style-0": "Afgekeurd",
@@ -181,6 +179,6 @@
 	"revreview-unlocked-title": "Bewerkingen aan deze pagina hoeven niet gecontroleerd te worden.",
 	"revreview-locked": "'''Let op:''' Bewerkingen aan deze pagina moeten [[{{MediaWiki:Validationpage}}|gecontroleerd]] worden voordat ze worden weergegeven.",
 	"revreview-unlocked": "'''Let op:''' Bewerkingen aan deze pagina hoeven niet [[{{MediaWiki:Validationpage}}|gecontroleerd]] te worden voordat ze worden weergegeven.",
-	"log-show-hide-review": "Waarderingslogboek $1",
+	"log-show-hide-review": "waarderingslogboek $1",
 	"validationpage": "{{ns:help}}:Paginaredactie"
 }
