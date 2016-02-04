@@ -22,6 +22,7 @@
 	"apihelp-query+oldreviewedpages-param-category": "Nur Seiten in der angegebenen Kategorie anzeigen.",
 	"apihelp-query+oldreviewedpages-param-filterredir": "Wie nach Weiterleitungen gefiltert werden soll.",
 	"apihelp-query+oldreviewedpages-param-limit": "Welche Gesamtanzahl an Seiten zurückgegeben werden soll.",
+	"apihelp-query+oldreviewedpages-example-2": "Zeigt Informationen über einige alte gesichtete Seiten an",
 	"apihelp-query+reviewedpages-param-start": "Auflistung bei dieser Seitenkennung beginnen.",
 	"apihelp-query+reviewedpages-param-end": "Auflistung bei dieser Seitenkennung beenden.",
 	"apihelp-query+reviewedpages-param-namespace": "Die aufzulistenden Namensräume.",
