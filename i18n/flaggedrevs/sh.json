@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Kolega2357",
-			"OC Ripper"
+			"OC Ripper",
+			"Conquistador"
 		]
 	},
+	"flaggedrevs-prefs-stable": "Kada po zadanom prikazati stabilnu verziju stranica sa sadržajem",
 	"group-editor": "Uređivači",
 	"group-editor-member": "{{GENDER:$1|uređivač}}",
 	"group-reviewer": "Provjerivači",
@@ -14,6 +16,7 @@
 	"group-autoreview": "Autonadzornici",
 	"group-autoreview-member": "{{GENDER:$1|autonadzornik}}",
 	"grouppage-autoreview": "{{ns:project}}:Autonadzornici",
+	"review-logpagetext": "Ovo je evidencija provjerenih verzija stranica sa sadržajem.",
 	"right-autoreview": "Vlastite izmjene se automatski označavaju kao ''provjerene''",
 	"right-autoreviewrestore": "Automatski provjereno pri vraćanju",
 	"tooltip-ca-current": "Pogledajte ovu stranicu sa izmjenama na čekanju"
