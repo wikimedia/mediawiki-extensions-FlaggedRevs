@@ -380,7 +380,7 @@ class FlaggablePageView extends ContextSource {
 		}
 		# Wrap tag contents in a div
 		if ( $tag != '' ) {
-			$css = "{$tagClass} plainlinks noprint";
+			$css = "{$tagClass} plainlinks noprint nomobile";
 			$notice = "<div id=\"mw-fr-revisiontag\" class=\"{$css}\">{$tag}</div>\n";
 			$this->reviewNotice .= $notice;
 		}
