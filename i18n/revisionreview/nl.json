@@ -55,7 +55,7 @@
 	"revreview-sadv-reviewing-c": "U kunt aan andere gebruikers aangeven dat u deze wijzigingen $1.",
 	"revreview-adv-start-link": "aan het controleren bent",
 	"revreview-adv-stop-link": "niet aan het controleren bent",
-	"revreview-toolow": "'''U moet tenminste alle eigenschappen hoger instellen dan \"{{int:Revreview-accuracy-0}}\" om voor een versie aan te geven dat deze is gecontroleerd.'''\n\nKlik op \"{{int:revreview-submit-unreview}}\" om de waardering van een versie te verwijderen.\n\nKlik op de knop \"Terug\" in uw browser en probeer het opnieuw.",
+	"revreview-toolow": "'''U moet ten minste alle eigenschappen hoger instellen dan \"{{int:Revreview-accuracy-0}}\" om voor een versie aan te geven dat deze is gecontroleerd.'''\n\nKlik op \"{{int:revreview-submit-unreview}}\" om de waardering van een versie te verwijderen.\n\nKlik op de knop \"Terug\" in uw browser en probeer het opnieuw.",
 	"revreview-update": "'''[[{{MediaWiki:Validationpage}}|Controleer]] de ''onderstaande'' wijzigingen ten opzichte van de gepubliceerde versie.'''",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Uw wijzigingen zijn nog niet zichtbaar in de stabiele versie.</span>\n\nControleer alle wijzigingen hieronder om uw bewerkingen zichtbaar te maken in de stabiele versie.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Uw wijzigingen zijn nog niet opgenomen in de stabiele versie. Er moeten nog bewerkingen gecontroleerd worden.</span>\n\nControleer alle hieronder weergegeven wijzigingen om ook uw bewerking zichtbaar te maken in de stabiele versie.",
