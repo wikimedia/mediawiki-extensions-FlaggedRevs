@@ -57,7 +57,7 @@
 	"revreview-poss-conflict-c": "'''Aviso: O utilizador [[User:$1|$1]] começou a rever estas alterações às $3 de $2.'''",
 	"revreview-adv-reviewing-p": "Aviso: Os outros revisores podem ver que {{GENDER:$1|está}} a rever esta página.",
 	"revreview-adv-reviewing-c": "Aviso: Os outros revisores podem ver que {{GENDER:$1|está}} a rever estas alterações.",
-	"revreview-sadv-reviewing-p": "Você pode $1 aos outros utilizadores que está a revisar esta página.",
+	"revreview-sadv-reviewing-p": "Pode $1 os outros utilizadores de que está a rever estas alterações.",
 	"revreview-sadv-reviewing-c": "Pode $1 os outros utilizadores de que está a rever estas alterações.",
 	"revreview-adv-start-link": "informar",
 	"revreview-adv-stop-link": "parar de informar",
