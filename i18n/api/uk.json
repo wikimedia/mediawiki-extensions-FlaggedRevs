@@ -6,7 +6,7 @@
 			"Piramidion"
 		]
 	},
-	"apihelp-flagconfig-description": "Отримати базову інформацію про налаштування патрулювання на цьому сайті.\n\nНаступні параметри виводяться для кожного теґу:\n;name:Ключове ім'я теґу.\n;levels:Кількість рівнів, які має теґ (понад «не теґовано»).\n;tier2:Рівень, який має досягти теґ, щоб версія стала 2 типу (якість).\n;tier3:Рівень, який має досягти теґ, щоб версія стала 3 типу (чиста).\nВідпатрульовані версії мають неприсвоєний рівень кожного теґу. Найвищий тип, досягнутий кожним теґом — тип огляду усієї версії.",
+	"apihelp-flagconfig-description": "Отримати базову інформацію про налаштування патрулювання на цьому сайті.\n\nНаступні параметри виводяться для кожного теґу:\n;name:Ключове ім'я теґу.\n;levels:Кількість рівнів, які має теґ (понад «не теґовано»).\n;tier2:Рівень, який має досягти теґ, щоб версія стала 2 типу (якісна).\n;tier3:Рівень, який має досягти теґ, щоб версія стала 3 типу (чиста).\nПозначені версії мають присвоєний рівень кожного теґу. Найвищий тип, досягнутий кожним теґом — тип огляду усієї версії.",
 	"apihelp-flagconfig-example-1": "Отримати конфігурацію прапорців",
 	"apihelp-query+configuredpages-description": "Перелічити всі сторінки, що мають особливі конфігурації перевірки.",
 	"apihelp-query+configuredpages-param-start": "Почати перелік зі сторінки з цим ідентифікатором.",
@@ -36,7 +36,7 @@
 	"apihelp-query+reviewedpages-param-end": "Припинити перелік на сторінці з цим ідентифікатором.",
 	"apihelp-query+reviewedpages-param-namespace": "Простори назв, які слід перелічити.",
 	"apihelp-query+reviewedpages-param-filterredir": "Як фільтрувати перенаправлення",
-	"apihelp-query+reviewedpages-param-filterlevel": "Як фільтрувати за якістю (0=перевірено, 1=якість).",
+	"apihelp-query+reviewedpages-param-filterlevel": "Як фільтрувати за якістю (0=перевірена, 1=якісна).",
 	"apihelp-query+reviewedpages-param-limit": "Скільки всього сторінок виводити.",
 	"apihelp-query+reviewedpages-example-1": "Показати список перевірених сторінок",
 	"apihelp-query+reviewedpages-example-2": "Показати інформацію про деякі перевірені сторінки",
@@ -47,7 +47,7 @@
 	"apihelp-query+unreviewedpages-param-dir": "Напрямок сортування.",
 	"apihelp-query+unreviewedpages-param-namespace": "Простори назв, які слід перелічити.",
 	"apihelp-query+unreviewedpages-param-filterredir": "Як фільтрувати перенаправлення.",
-	"apihelp-query+unreviewedpages-param-filterlevel": "Як фільтрувати за якістю (0=перевірено, 1=якість).",
+	"apihelp-query+unreviewedpages-param-filterlevel": "Як фільтрувати за якістю (0=перевірена, 1=якісна).",
 	"apihelp-query+unreviewedpages-param-limit": "Скільки всього сторінок виводити.",
 	"apihelp-query+unreviewedpages-example-1": "Показати список неперевірених сторінок",
 	"apihelp-query+unreviewedpages-example-2": "Показати інформацію про деякі неперевірені сторінки",

@@ -5,13 +5,14 @@
 			"NickK",
 			"Prima klasy4na",
 			"Тест",
-			"Piramidion"
+			"Piramidion",
+			"Ата"
 		]
 	},
-	"pendingchanges": "Сторінки з нерецензованими змінами",
+	"pendingchanges": "Сторінки з неперевіреними змінами",
 	"pendingchanges-legend": "Список перевірених сторінок з неперевіреними версіями",
-	"pendingchanges-list": "Ця сторінка містить список [[{{MediaWiki:Validationpage}}|рецензованих]] сторінок, що мають одне або більше нерецензованих редагувань.",
-	"pendingchanges-none": "Зараз нема сторінок, що задовольняють цим умовам",
+	"pendingchanges-list": "Ця сторінка містить список [[{{MediaWiki:Validationpage}}|перевірених]] сторінок, що мають одне або більше неперевірені редагування.",
+	"pendingchanges-none": "Зараз нема сторінок, що відповідають цим критеріям",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|година|години|годин}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|день|дні|днів}})",
 	"pendingchanges-recent": "(менше 1 години)",

@@ -3,13 +3,14 @@
 		"authors": [
 			"Ahonc",
 			"Andriykopanytsia",
-			"Prima klasy4na"
+			"Prima klasy4na",
+			"Ата"
 		]
 	},
-	"reviewedversions": "Рецензовані версії",
+	"reviewedversions": "Перевірені версії",
 	"reviewedversions-leg1": "Список перевірених версій сторінки",
 	"reviewedversions-page": "Назва сторінки:",
 	"reviewedversions-none": "«[[:$1]]» не має перевірених версій.",
 	"reviewedversions-list": "{{PLURAL:$2|1=Лише одна версія сторінки «[[:$1]]» була перевірена|Такі версії сторінки «[[:$1]]» були перевірені}}:",
-	"reviewedversions-review": "Перевірена <i>$1</i> користувачем $2"
+	"reviewedversions-review": "Перевірена <i>$1</i> {{GENDER:$2|користувачем|користувачкою}} $2"
 }
