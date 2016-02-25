@@ -7,7 +7,7 @@
 			"Umherirrender"
 		]
 	},
-	"review_conflict_oldid": "Jemand hat bereits diese Version akzeptiert oder verworfen während Sie sie gelesen haben.",
+	"review_conflict_oldid": "Jemand hat bereits diese Version akzeptiert oder verworfen, während Sie sie gelesen haben.",
 	"revreview-check-flag-p-title": "Alle noch nicht markierten Änderungen, zusammen mit Ihrer Bearbeitung, akzeptieren. Dies sollte nur gemacht werden, sofern bereits alle bislang noch nicht markierten Änderungen angesehen wurden.",
 	"revreview-check-flag-y-title": "Markieren aller Änderungen, die Sie mit dieser Bearbeitung gemacht haben.",
 	"revreview-main": "Sie müssen eine Version zur Markierung auswählen.\n\nSiehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].",

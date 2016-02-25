@@ -9,7 +9,8 @@
 			"Metalhead64",
 			"Purodha",
 			"Umherirrender",
-			"Schniggendiller"
+			"Schniggendiller",
+			"XenonX3"
 		]
 	},
 	"revisionreview": "Versionen markieren",
@@ -20,7 +21,7 @@
 	"review_page_unreviewable": "Die Zielseite ist nicht prüfbar.",
 	"review_no_oldid": "Keine Versionsnummer angegeben.",
 	"review_bad_oldid": "Die angegebene Zielversionskennung existiert nicht.",
-	"review_conflict_oldid": "Jemand hat bereits diese Version akzeptiert oder verworfen während du sie gelesen hast.",
+	"review_conflict_oldid": "Jemand hat bereits diese Version akzeptiert oder verworfen, während du sie gelesen hast.",
 	"review_not_flagged": "Die Zielversion ist derzeit nicht markiert.",
 	"review_too_low": "Version kann nicht markiert werden, solange Felder noch als „unzureichend“ gekennzeichnet sind.",
 	"review_bad_key": "Der Wert des Markierungsparameters ist ungültig.",

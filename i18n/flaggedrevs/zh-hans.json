@@ -16,7 +16,8 @@
 			"Shirayuki",
 			"Waihorace",
 			"Xiaomingyan",
-			"阿pp"
+			"阿pp",
+			"飞舞回堂前"
 		]
 	},
 	"action-review": "复核版本",
@@ -189,7 +190,7 @@
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} 未复核页面]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} 待定更改]",
 	"revreview-locked-title": "对该页面的编辑需要复核。",
 	"revreview-unlocked-title": "对该页面的编辑不需要复核。",
-	"revreview-locked": "'''注意：'''该页面的编辑在显示给读者前必需[[{{MediaWiki:Validationpage}}|复核]]。",
+	"revreview-locked": "'''注意：'''该页面的编辑在显示给读者前必须[[{{MediaWiki:Validationpage}}|复核]]。",
 	"revreview-unlocked": "'''注意：'''该页面的编辑在显示给读者前不需要[[{{MediaWiki:Validationpage}}|复核]]。",
 	"log-show-hide-review": "$1复核日志",
 	"validationpage": "{{ns:help}}:页面确认"
