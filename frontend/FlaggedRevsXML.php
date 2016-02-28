@@ -198,7 +198,7 @@ class FlaggedRevsXML {
 	public static function addTagRatings( $flags, $prettyBox = false, $css = '' ) {
 		$tag = '';
 		if ( $prettyBox ) {
-			$tag .= "<table id='mw-fr-revisionratings-box' align='center' class='$css' cellpadding='0'>";
+			$tag .= "<table id='mw-fr-revisionratings-box' style='margin: auto;' class='$css' cellpadding='0'>";
 		}
 		foreach ( FlaggedRevs::getTags() as $quality ) {
 			// Give grep a chance to find the usages:
@@ -213,9 +213,9 @@ class FlaggedRevsXML {
 			if ( $prettyBox ) {
 				// Give grep a chance to find the usages:
 				// revreview-accuracy, revreview-depth, revreview-style
-				$tag .= "<tr><td class='fr-text' valign='middle'>" .
+				$tag .= "<tr><td class='fr-text' style='vertical-align: middle;'>" .
 					wfMessage( "revreview-$quality" )->escaped() .
-					"</td><td class='fr-value$levelmarker' valign='middle'>" .
+					"</td><td class='fr-value$levelmarker' style='vertical-align: middle;'>" .
 					$encValueText . "</td></tr>\n";
 			} else {
 				// Give grep a chance to find the usages:
