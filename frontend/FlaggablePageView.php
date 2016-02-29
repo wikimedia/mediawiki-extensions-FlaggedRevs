@@ -678,7 +678,6 @@ class FlaggablePageView extends ContextSource {
 
 		# Do not use the parser cache if it lacks mImageTimeKeys and there is a
 		# chance that a review form will be added to this page (which requires the versions).
-		$canReview = $this->article->getTitle()->userCan( 'review' );
 		if ( $parserOut ) {
 			# Cache hit. Note that redirects are not cached.
 			$this->out->addParserOutput( $parserOut );
