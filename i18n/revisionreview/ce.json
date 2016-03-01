@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Sasan700",
-			"Умар"
+			"Умар",
+			"Исмаил Садуев"
 		]
 	},
 	"revisionreview": "Версешка хьажар",
@@ -38,10 +39,10 @@
 	"revreview-submit": "Дахьийта хетарг",
 	"revreview-submitting": "ДӀаяхьийтар…",
 	"revreview-submit-review": "Верси бакъяр",
-	"revreview-submit-unreview": "Бакъяр дӀадаккхар",
+	"revreview-submit-unreview": "Бакъяр дӀадаккха",
 	"revreview-submit-reject": "Юха баха хийцамаш",
 	"revreview-submit-reviewed": "Кичча ю. Бакъйина!",
-	"revreview-submit-unreviewed": "Кичча ю. Верси бакъяр дӀадаьккхина!",
+	"revreview-submit-unreviewed": "Кийча ю. Бакъяр дӀадаьккхина!",
 	"revreview-successful": "'''Хаьржина верси [[:$1|$1]] кхиамца билгалла йира. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} чӀагӀъелла версешка хьажар])'''",
 	"revreview-successful2": "'''Хаьржиначу версийн тӀера [[:$1|$1]] дӀаяьккхина билгало.'''",
 	"revreview-adv-reviewing-p": "ДӀахьедар. Кхечу къобалечарна {{GENDER:$1|хьо}} хьокху агӀоне хьожуш хилар га там бу.",
