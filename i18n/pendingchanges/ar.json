@@ -5,14 +5,15 @@
 			"Ciphers",
 			"Meno25",
 			"OsamaK",
-			"Ouda"
+			"Ouda",
+			"محمد أحمد عبد الفتاح"
 		]
 	},
 	"pendingchanges": "صفحات لها تغييرات معلقة",
 	"pendingchanges-legend": "عرض الصفحات المراجعة ذات المراجعات غير المراجعة",
 	"pendingchanges-list": "تسرد هذه الصفحة الصفحات [[{{MediaWiki:Validationpage}}|المراجعة]] التي أجري عليها تعديل واحد أو أكثر بانتظار المراجعة.",
 	"pendingchanges-none": "لا توجد حاليا صفحات تطابق هذه المواصفات",
-	"pendingchanges-hours": "({{PLURAL:$1||ساعة واحد|ساعتان|$1 ساعات|$1 ساعة}})",
+	"pendingchanges-hours": "({{PLURAL:$1||ساعة واحدة|ساعتان|$1 ساعات|$1 ساعة}})",
 	"pendingchanges-days": "({{PLURAL:$1||يوم واحد|يومان|$1 أيام|$1 يومًا|$1 يوم}})",
 	"pendingchanges-recent": "(أقل من ساعة)",
 	"pendingchanges-category": "تصنيف:",
