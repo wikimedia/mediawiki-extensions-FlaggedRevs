@@ -7,7 +7,8 @@
 			"Sadrettin",
 			"Srhat",
 			"Szoszv",
-			"Vito Genovese"
+			"Vito Genovese",
+			"Rapsar"
 		]
 	},
 	"revisionreview": "Revizyonları incele",
@@ -49,7 +50,7 @@
 	"revreview-submit-reject": "Değişiklikleri reddet",
 	"revreview-submit-reviewed": "Tamam. Kabul edildi!",
 	"revreview-submit-unreviewed": "Tamam. Kabul edilmedi!",
-	"revreview-successful": "'''[[:$1|$1]] sayfasının revizyonu başarıyla bayraklandı. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} kararlı sürümleri gör])'''",
+	"revreview-successful": "'''[[:$1|$1]] sayfasındaki değişiklikler kontrol edildi olarak işaretlendi. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} kararlı sürümleri gör])'''",
 	"revreview-successful2": "'''[[:$1|$1]] sayfasının revizyon bayrağı başarıyla kaldırıldı.'''",
 	"revreview-poss-conflict-p": "''' Uyarı: [[User:$1|$1]] Bu sayfa üzerinde inceleme başlattı: $2 $3 .'' '",
 	"revreview-poss-conflict-c": "''' Uyarı: [[User:$1|$1]] Bu değişiklikler üzerinde inceleme başlattı: $2 $3 .'' '",

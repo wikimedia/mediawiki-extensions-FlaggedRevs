@@ -11,7 +11,8 @@
 			"Peter Bowman",
 			"Sp5uhe",
 			"Tsca",
-			"WTM"
+			"WTM",
+			"Chrumps"
 		]
 	},
 	"revisionreview": "Oznaczenie wersji",
@@ -54,7 +55,7 @@
 	"revreview-submit-reviewed": "Gotowe. Zaakceptowano!",
 	"revreview-submit-unreviewed": "Gotowe. Wycofano akceptację!",
 	"revreview-successful": "'''Wersja [[:$1|$1]] została pomyślnie oznaczona. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} zobacz wszystkie wersje przejrzane])'''",
-	"revreview-successful2": "'''Wersja [[:$1|$1]] została pomyślnie odznaczona.'''",
+	"revreview-successful2": "'''Wersja [[:$1|$1]] została odznaczona.'''",
 	"revreview-poss-conflict-p": "'''Uwaga – [[User:$1|$1]] {{GENDER:$1|rozpoczął|rozpoczęła|rozpoczął}} przeglądanie tej strony $2 o $3.'''",
 	"revreview-poss-conflict-c": "'''Uwaga – [[User:$1|$1]] {{GENDER:$1|rozpoczął|rozpoczęła|rozpoczął}} przeglądanie tych zmian $2 o $3.'''",
 	"revreview-adv-reviewing-p": "Uwaga – inni redaktorzy mogą zobaczyć, że {{GENDER:$1|rozpocząłeś|rozpoczęłaś}} przeglądanie tej strony.",
