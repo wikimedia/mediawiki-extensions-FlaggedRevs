@@ -6,7 +6,8 @@
 			"Ciphers",
 			"Meno25",
 			"OsamaK",
-			"زكريا"
+			"زكريا",
+			"Maroen1990"
 		]
 	},
 	"revisionreview": "مراجعة المراجعات",
@@ -49,7 +50,7 @@
 	"revreview-submit-reviewed": "تم. قبلت!",
 	"revreview-submit-unreviewed": "تم. لم يتم القبول!",
 	"revreview-successful": "'''عُلّمت مراجعة [[:$1|$1]] بنجاح. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} اعرض النسخ المستقرة])'''",
-	"revreview-successful2": "'''مراجعة [[:$1|$1]] تمت إزالة علمها بنجاح.'''",
+	"revreview-successful2": "'''مراجعة [[:$1|$1]] تمت إزالة علمها .'''",
 	"revreview-poss-conflict-p": "'''تحذير: بدأ [[User:$1|$1]] مراجعة هذه الصفحة في $2 عند $3.'''",
 	"revreview-poss-conflict-c": "'''تحذير: بدأ [[User:$1|$1]] مراجعة هذه النغييرات في $2 عند $3.'''",
 	"revreview-adv-reviewing-p": "تبصرة: سيكون المراجعون الآخرون على علم بمراجعتك لهذه الصفحة.",

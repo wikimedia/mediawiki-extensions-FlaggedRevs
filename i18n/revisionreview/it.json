@@ -52,7 +52,7 @@
 	"revreview-submit-reject": "Rifiuta modifiche",
 	"revreview-submit-reviewed": "Fatto. Accettata!",
 	"revreview-submit-unreviewed": "Fatto. Non accettata!",
-	"revreview-successful": "'''Versione di [[:$1|$1]] verificata con successo. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} visualizza versione stabile])'''",
+	"revreview-successful": "'''Versione di [[:$1|$1]] verificata. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} visualizza versione stabile])'''",
 	"revreview-successful2": "'''Versione di [[:$1|$1]] marcata come non verificata.'''",
 	"revreview-poss-conflict-p": "'''Attenzione: [[User:$1|$1]] ha iniziato a revisionare questa pagina in data $2 alle $3.'''",
 	"revreview-poss-conflict-c": "'''Attenzione: [[User:$1|$1]] ha iniziato a revisionare queste modifiche in data $2 alle $3.'''",
