@@ -2,13 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"MF-Warburg",
-			"SPQRobin"
+			"SPQRobin",
+			"Laurentianus"
 		]
 	},
 	"revreview-log": "Sententia:",
 	"revreview-submit-reject": "Reproba mutationes",
 	"revreview-reject-text-list": "Conficiendo hanc actionem '''reprobabis''' {{PLURAL:$1|mutationem istam|mutationes istas}} in [[:$2|$2]]:",
 	"revreview-reject-confirm": "Reproba eas mutationes",
-	"revreview-reject-summary-cur": "Reprobavit {{PLURAL:$1|ultimam mutationem|ultimas $1 mutationes}} (ab $2) et restituit emendationem $3 de $4",
-	"revreview-reject-summary-cur-short": "Reprobavit {{PLURAL:$1|ultimam mutationem|ultimas $1 mutationes}} et restituit emendationem $2 de $3"
+	"revreview-reject-summary-cur": "{{PLURAL:$1|Ultima recensio (a conlatore $2 facta) eversa est|Ultimae $1 recensiones (a conlatore $2 factae) eversae sunt}}, restituta est redactio $3 a conlatore $4 facta",
+	"revreview-reject-summary-cur-short": "{{PLURAL:$1|Novissima recensio eversa est|Novissimae $1 recensiones eversae sunt}}, restituta est redactio $2 a conlatore $3 facta"
 }
