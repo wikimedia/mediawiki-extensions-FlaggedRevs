@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Meno25",
-			"OsamaK"
+			"OsamaK",
+			"محمد أحمد عبد الفتاح"
 		]
 	},
-	"reviewedversions": "النسخ المُراجعة",
+	"reviewedversions": "النسخ المراجعة",
 	"reviewedversions-leg1": "عرض المراجعات المراجعة لصفحة",
 	"reviewedversions-page": "اسم الصفحة:",
 	"reviewedversions-none": "\"[[:$1]]\" لا يوجد بها مراجعات مراجعة.",

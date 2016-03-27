@@ -25,7 +25,8 @@
 			"The Evil IP address",
 			"Umherirrender",
 			"Xqt",
-			"✓"
+			"✓",
+			"Kurt Jansson"
 		]
 	},
 	"action-review": "Versionen markieren",
@@ -65,7 +66,7 @@
 	"revreview-hist-quality-auto": "automatisch geprüft",
 	"revreview-hist-basic-auto": "automatisch gesichtet",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} Markierung ausstehend]]'''",
-	"review-edit-diff": "'''Hinweis: Einige der noch nicht markierten Änderungen betreffen den Abschnitt des Textes, den du gerade bearbeitest.'''",
+	"review-edit-diff": "Frühere Änderungen an dem Text, den du gerade bearbeitest, wurden noch nicht gesichtet.",
 	"revreview-diff-toggle-show": "Änderungen anzeigen",
 	"revreview-diff-toggle-hide": "Änderungen verstecken",
 	"revreview-diff-toggle-title": "Schaltet die Anzeige der ausstehenden Änderungen zur stabilen Version um",
@@ -104,7 +105,6 @@
 	"revreview-depth-3": "hoch",
 	"revreview-depth-4": "exzellent",
 	"revreview-draft-title": "Unmarkierte Änderungen werden auf dieser Seite angezeigt",
-	"revreview-edit": "Bearbeiten",
 	"revreview-editnotice": "'''Deine Änderungen werden angezeigt, sobald ein dazu berechtigter Benutzer sie akzeptiert hat. ([[{{MediaWiki:Validationpage}}|Hilfe]])'''",
 	"revreview-submitedit": "Änderungen speichern",
 	"revreview-submitedit-title": "Deine Änderungen zur Markierung vorschlagen",
@@ -135,7 +135,6 @@
 	"revreview-quick-quality-same": "'''[[{{MediaWiki:Validationpage}}|Geprüft]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} weitere Änderungen sichten]]",
 	"revreview-quick-see-quality": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} weitere Änderungen prüfen]]",
-	"revreview-source": "Quelltext anzeigen",
 	"revreview-basic-title": "Dies ist eine gesichtete Version dieser Seite",
 	"revreview-style": "Lesbarkeit",
 	"revreview-style-0": "Unzureichend",
