@@ -324,7 +324,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			}
 			$article = new WikiPage( $this->page );
 			# Get text with changes after $oldRev up to and including $newRev removed
-			$new_text = $article->getUndoText( $newRev, $oldRev );
+			$new_text = $article->getUndoContent( $newRev, $oldRev );
 			if ( $new_text === false ) {
 				return 'review_cannot_undo';
 			}
@@ -332,7 +332,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 			# Actually make the edit...
 			$editStatus = $article->doEdit(
-				$new_text, $this->getComment(), 0, $baseRevId, $this->user );
+				ContentHandler::getContentText( $new_text ), $this->getComment(), 0, $baseRevId, $this->user );
 
 			$status = $editStatus->isOK() ? true : 'review_cannot_undo';
 
