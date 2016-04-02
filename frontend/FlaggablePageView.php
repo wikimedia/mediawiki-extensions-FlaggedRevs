@@ -1027,7 +1027,7 @@ class FlaggablePageView extends ContextSource {
 				}
 				if ( $text !== false && strcmp( $text, $editPage->textbox1 ) !== 0 ) {
 					$diffEngine = new DifferenceEngine( $this->article->getTitle() );
-					$diffBody = $diffEngine->generateDiffBody( $text, $editPage->textbox1 );
+					$diffBody = $diffEngine->generateTextDiffBody( $text, $editPage->textbox1 );
 					$diffHtml =
 						$this->msg( 'review-edit-diff' )->parse() . ' ' .
 						FlaggedRevsXML::diffToggle() .
