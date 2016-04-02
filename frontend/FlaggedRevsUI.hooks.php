@@ -219,7 +219,13 @@ class FlaggedRevsUIHooks {
 				list( $ignoreRedirect, $target ) = $tuple;
 			} else { // cache miss; fetch the stable rev text...
 				$text = $srev->getRevText();
-				$redirect = $fa->getRedirectURL( Title::newFromRedirectRecurse( $text ) );
+				$redirect = $fa->getRedirectURL(
+					ContentHandler::makeContent(
+						$text,
+						null,
+						CONTENT_MODEL_WIKITEXT
+					)->getUltimateRedirectTarget()
+				);
 				if ( $redirect ) {
 					$target = $redirect; // use stable redirect
 				} else {
