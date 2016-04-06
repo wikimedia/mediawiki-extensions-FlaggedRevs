@@ -3,7 +3,8 @@
 		"authors": [
 			"Haqmar",
 			"Рустам Нурыев",
-			"Вильданова Гюзель"
+			"Вильданова Гюзель",
+			"Ләйсән"
 		]
 	},
 	"action-review": "биттәрҙең өлгөләрен тикшереү",
@@ -38,7 +39,7 @@
 	"reviewer": "Тикшереүсе",
 	"revreview-accuracy": "Дөрөҫлөк",
 	"revreview-accuracy-0": "Етәрле түгел",
-	"revreview-accuracy-1": "Был урын тикшерелде",
+	"revreview-accuracy-1": "Һайланма тикшерелде",
 	"revreview-accuracy-2": "Дөрөҫ",
 	"revreview-accuracy-3": "сығанаҡтар менән",
 	"revreview-accuracy-4": "Һайланған",
