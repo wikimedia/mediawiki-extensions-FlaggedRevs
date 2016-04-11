@@ -8,6 +8,10 @@ class Stabilization extends UnlistedSpecialPage {
 		parent::__construct( 'Stabilization', 'stablesettings' );
 	}
 
+	public function doesWrites() {
+		return true;
+	}
+
 	public function execute( $par ) {
 		$out = $this->getOutput();
 		$user = $this->getUser();

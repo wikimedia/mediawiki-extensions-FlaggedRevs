@@ -8,6 +8,10 @@ class RevisionReview extends UnlistedSpecialPage {
 		parent::__construct( 'RevisionReview', 'review' );
 	}
 
+	public function doesWrites() {
+		return true;
+	}
+
 	public function execute( $par ) {
 		$out = $this->getOutput();
 		$user = $this->getUser();
