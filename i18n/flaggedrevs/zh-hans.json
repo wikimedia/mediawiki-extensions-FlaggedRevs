@@ -142,7 +142,7 @@
 	"revreview-visibility-synced": "'''该页面有最新的[[{{MediaWiki:Validationpage}}|稳定版本]]。你可以[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 配置]页面固定设置。'''",
 	"revreview-visibility-outdated": "'''该页面有过时的[[{{MediaWiki:Validationpage}}|稳定版本]]。你可以[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 配置]页面固定设置。'''",
 	"revreview-visibility-nostable": "'''该页面没有[[{{MediaWiki:Validationpage}}|稳定版本]]。你可以[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 配置]页面固定设置。'''",
-	"revreview-revnotfound": "无法找到你请求的该页面的旧版本。请检查你用于访问该页面的URL是否正确。",
+	"revreview-revnotfound": "无法找到您请求的该页面的旧版本。请检查您用于访问该页面的URL是否正确。",
 	"right-autoreview": "自动标记自己的编辑为“已复核”",
 	"right-autoreviewrestore": "回退自动复核",
 	"right-movestable": "移动有稳定版本的页面",
