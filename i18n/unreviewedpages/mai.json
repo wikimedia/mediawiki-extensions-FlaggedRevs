@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"बिप्लब आनन्द"
+		]
+	},
+	"action-unreviewedpages": "सब अनिरीक्षित पृष्ठक सूची देखी",
+	"unreviewedpages": "अनिरीक्षित पृष्ठ",
+	"unreviewedpages-legend": "अनिरीक्षित सामग्री पृष्ठसभक सूची देखाबी",
+	"unreviewedpages-category": "श्रेणी:",
+	"unreviewedpages-diff": "पुनरीक्षित करी",
+	"unreviewedpages-unwatched": "(केकरो ध्यानसूची मे नै)",
+	"unreviewedpages-watched": "($1 सक्रिय {{PLURAL:$1|प्रयोगकर्ता|प्रयोगकर्तासभ}} ध्यान राखनै अछि)"
+}
