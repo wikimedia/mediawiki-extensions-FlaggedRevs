@@ -4,7 +4,8 @@
 			"Christian List",
 			"Froztbyte",
 			"Jon Harald Søby",
-			"Tjernobyl"
+			"Tjernobyl",
+			"Sarrus"
 		]
 	},
 	"action-review": "gennemgå revisioner",
@@ -21,6 +22,7 @@
 	"flaggedrevs-pref-stable-1": "Vis altid den stabile version (hvis der findes én)",
 	"flaggedrevs-pref-stable-2": "Vis altid den nyeste version",
 	"flaggedrevs-prefs-watch": "Tilføj sider jeg gennemgår til min overvågningsliste",
+	"flaggedrevs-hidereviewed-show": "Vis",
 	"group-editor": "Skribenter",
 	"group-editor-member": "{{GENDER:$1|skribent}}",
 	"group-reviewer": "Korrekturlæsere",

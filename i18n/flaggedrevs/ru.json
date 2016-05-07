@@ -22,7 +22,8 @@
 			"Александр Сигачёв",
 			"Cinemantique",
 			"WindEwriX",
-			"MaxBioHazard"
+			"MaxBioHazard",
+			"Ләйсән"
 		]
 	},
 	"action-review": "проверка версий страниц",
@@ -101,11 +102,10 @@
 	"revreview-depth-3": "высокая",
 	"revreview-depth-4": "избранная",
 	"revreview-draft-title": "На этой странице показываются непроверенные изменения",
-	"revreview-edit": "Править",
-	"revreview-editnotice": "'''Сделанные вами изменения будут показаны читателям после того, как их утвердит уполномоченный участник''' ([[{{MediaWiki:Validationpage}}|подробнее]]).",
+	"revreview-editnotice": "'''Тулы хоҡуҡлы ҡатнашыусы раҫлағас, һеҙҙең үҙгәртеүҙәр уҡыусыларға күренәсәк''' ([[{{MediaWiki:Validationpage}}|тулыраҡ]]).",
 	"revreview-submitedit": "Записать изменения",
 	"revreview-submitedit-title": "Отправить свои исправления для проверки",
-	"revreview-edited": "'''Изменения будут показаны читателям после того, как их утвердит уполномоченный участник ([[{{MediaWiki:Validationpage}}|подробнее]]).'''\n\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|изменение ожидает|изменения ожидают|изменений ожидают}}] проверки ''(показаны ниже)''.",
+	"revreview-edited": "'''Тулы хоҡуҡлы ҡатнашыусы раҫлағас, һеҙҙең үҙгәртеүҙәр уҡыусыларға күренәсәк ([[{{MediaWiki:Validationpage}}|тулыраҡ]]).'''\n\nТикшереүҙе [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|үҙгәртеү көтә}}] ''(түбәндә күрһәтелгән)''.",
 	"revreview-edited-section": "Вернуться к разделу страницы под названием «[[#$1|$2]]».",
 	"revreview-newest-basic": "В этой версии [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|1=ожидает|ожидают}} проверки]] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|изменение|изменения|изменений}}].\n[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабильная версия] была [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>.",
 	"revreview-newest-basic-i": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Изменения шаблонов/файлов] этой версии [[{{MediaWiki:Validationpage}}|ожидают проверки]].\n[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабильная версия] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>.",
@@ -132,7 +132,6 @@
 	"revreview-quick-quality-same": "'''[[{{MediaWiki:Validationpage}}|Выверенная]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} показать непроверенные изменения]]",
 	"revreview-quick-see-quality": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} показать непроверенные изменения]]",
-	"revreview-source": "Просмотр разметки",
 	"revreview-basic-title": "Это досмотренная версия страницы",
 	"revreview-style": "Читаемость",
 	"revreview-style-0": "не указано",
