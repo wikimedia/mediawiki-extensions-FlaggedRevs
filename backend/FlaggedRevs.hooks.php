@@ -646,7 +646,9 @@ class FlaggedRevsHooks {
 			$frev = FlaggedRevision::newFromTitle( $rc->getTitle(), $revId, FR_MASTER );
 			// Reviewed => patrolled
 			if ( $frev ) {
-				RevisionReviewForm::updateRecentChanges( $rc, 'patrol', $frev );
+				DeferredUpdates::addCallableUpdate( function () use ( $rc, $frev ) {
+					RevisionReviewForm::updateRecentChanges( $rc, 'patrol', $frev );
+				} );
 				$rc->mAttribs['rc_patrolled'] = 1; // make sure irc/email notifs know status
 			}
 			return true;
