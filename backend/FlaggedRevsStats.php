@@ -8,7 +8,7 @@ class FlaggedRevsStats {
 	 * If no $timestamp is specified, then the latest will be used.
 	 *
 	 * @param $timestamp string|bool false TS_ timestamp
-	 * @return Array of current FR stats
+	 * @return array of current FR stats
 	 */
 	public static function getStats( $timestamp = false ) {
 		$data = array(); // initialize
@@ -81,9 +81,9 @@ class FlaggedRevsStats {
 		}
 
 		// Set key to limit duplicate updates...
-		$dbCache = wfGetCache( CACHE_DB );
-		$keySQL = wfMemcKey( 'flaggedrevs', 'statsUpdating' );
-		$dbCache->set( $keySQL, '1', $wgFlaggedRevsStatsAge );
+		$stash = ObjectCache::getMainStashInstance();
+		$keySQL = $stash->makeKey( 'flaggedrevs', 'statsUpdating' );
+		$stash->set( $keySQL, '1', $wgFlaggedRevsStatsAge );
 
 		// Get total, reviewed, and synced page count for each namespace
 		list( $ns_total, $ns_reviewed, $ns_synced ) = self::getPerNamespaceTotals();
@@ -93,9 +93,9 @@ class FlaggedRevsStats {
 		$avePET = self::getMeanPendingEditTime();
 
 		# Get wait (till review) time samples for anon edits...
-		$reviewDataAnon = self::getEditReviewTimes( $dbCache, 'anons' );
+		$reviewDataAnon = self::getEditReviewTimes( $stash, 'anons' );
 		# Get wait (till review) time samples for logged-in user edits...
-		$reviewDataUser = self::getEditReviewTimes( $dbCache, 'users' );
+		$reviewDataUser = self::getEditReviewTimes( $stash, 'users' );
 
 		$dbw = wfGetDB( DB_MASTER );
 		// The timestamp to identify this whole batch of data
@@ -184,9 +184,9 @@ class FlaggedRevsStats {
 		$dbw->insert( 'flaggedrevs_statistics', $dataSet, __FUNCTION__, array( 'IGNORE' ) );
 
 		// Stats are now up to date!
-		$key = wfMemcKey( 'flaggedrevs', 'statsUpdated' );
-		$dbCache->set( $key, '1', $wgFlaggedRevsStatsAge );
-		$dbCache->delete( $keySQL );
+		$key = $stash->makeKey( 'flaggedrevs', 'statsUpdated' );
+		$stash->set( $key, '1', $wgFlaggedRevsStatsAge );
+		$stash->delete( $keySQL );
 	}
 
 	private static function getPerNamespaceTotals() {
@@ -234,12 +234,12 @@ class FlaggedRevsStats {
 
 	/**
 	 * Get edit review time statistics (as recent as possible)
-	 * @param $dbCache cache object
+	 * @param $stash BagOStuff object
 	 * @param $users string "anons" or "users"
 	 * @throws Exception
-	 * @return Array associative
+	 * @return array associative
 	 */
-	private static function getEditReviewTimes( $dbCache, $users = 'anons' ) {
+	private static function getEditReviewTimes( $stash, $users = 'anons' ) {
 		$result = array(
 			'average'       => 0,
 			'median'        => 0,
@@ -345,7 +345,7 @@ class FlaggedRevsStats {
 		$timeCondition = "rev_timestamp BETWEEN $encMinTS AND $encMaxTS";
 		# Get mod for edit spread
 		$ecKey = wfMemcKey( 'flaggedrevs', 'rcEditCount', $users, $days );
-		$edits = (int)$dbCache->get( $ecKey );
+		$edits = (int)$stash->get( $ecKey );
 		if ( !$edits ) {
 			$edits = (int)$dbr->selectField( array('page','revision'),
 				'COUNT(*)',
@@ -356,7 +356,7 @@ class FlaggedRevsStats {
 					'page_namespace' => FlaggedRevs::getReviewNamespaces()
 				)
 			);
-			$dbCache->set( $ecKey, $edits, 14*24*3600 ); // cache for 2 weeks
+			$stash->set( $ecKey, $edits, 14*24*3600 ); // cache for 2 weeks
 		}
 		$mod = max( floor( $edits/$sampleSize ), 1 ); # $mod >= 1
 		# For edits that started off pending, how long do they take to get reviewed?
@@ -409,12 +409,12 @@ class FlaggedRevsStats {
 			$aveRT = ($secondsR + $secondsP)/$sampleSize; // sample mean
 			sort($times); // order smallest -> largest
 			// Sample median
-			$rank = round( count($times)/2 + .5 ) - 1;
+			$rank = intval( round( count($times)/2 + .5 ) - 1 );
 			$medianRT = $times[$rank];
 			// Make percentile tabulation data
 			$doPercentiles = array( 35, 45, 55, 65, 75, 85, 90, 95 );
 			foreach ( $doPercentiles as $percentile ) {
-				$rank = round( $percentile*count($times)/100 + .5 ) - 1;
+				$rank = intval( round( $percentile*count($times)/100 + .5 ) - 1 );
 				$rPerTable[$percentile] = $times[$rank];
 			}
 			$result['average']       = $aveRT;
