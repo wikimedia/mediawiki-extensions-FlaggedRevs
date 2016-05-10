@@ -650,7 +650,8 @@ class FlaggedRevsUIHooks {
 			array() : array( 'disabled' => 'disabled' );
 
 		# Get the current config/expiry
-		$config = FRPageConfig::getStabilitySettings( $article->getTitle(), FR_MASTER );
+		$mode = $wgRequest->wasPosted() ? FR_MASTER : 0;
+		$config = FRPageConfig::getStabilitySettings( $article->getTitle(), $mode );
 		$oldExpirySelect = ( $config['expiry'] == 'infinity' ) ? 'infinite' : 'existing';
 
 		# Load requested restriction level, default to current level...
