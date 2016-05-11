@@ -199,14 +199,14 @@ class ValidationStatistics extends IncludableSpecialPage {
 			return false;
 		}
 
-		$dbCache = wfGetCache( CACHE_DB );
-		$key = wfMemcKey( 'flaggedrevs', 'statsUpdated' );
-		$keySQL = wfMemcKey( 'flaggedrevs', 'statsUpdating' );
+		$stash = ObjectCache::getMainStashInstance();
+		$key = $stash->makeKey( 'flaggedrevs', 'statsUpdated' );
+		$keySQL = $stash->makeKey( 'flaggedrevs', 'statsUpdating' );
 		// If a cache update is needed, do so asynchronously.
 		// Don't trigger query while another is running.
-		if ( $dbCache->get( $key ) ) {
+		if ( $stash->get( $key ) ) {
 			wfDebugLog( 'ValidationStatistics', __METHOD__ . " skipping, got data" );
-		} elseif ( $dbCache->get( $keySQL ) ) {
+		} elseif ( $stash->get( $keySQL ) ) {
 			wfDebugLog( 'ValidationStatistics', __METHOD__ . " skipping, in progress" );
 		} else {
 			global $wgPhpCli;
@@ -299,16 +299,16 @@ class ValidationStatistics extends IncludableSpecialPage {
 	protected function getTopReviewers() {
 		global $wgFlaggedRevsStats;
 
-		$key = wfMemcKey( 'flaggedrevs', 'reviewTopUsers' );
-		$dbCache = wfGetCache( CACHE_DB );
-		$data = $dbCache->get( $key );
+		$stash = ObjectCache::getMainStashInstance();
+		$key = $stash->makeKey( 'flaggedrevs', 'reviewTopUsers' );
+		$data = $stash->get( $key );
 		if ( is_array( $data ) ) {
 			return $data; // cache hit
 		}
+
+		$dbr = wfGetDB( DB_SLAVE, 'vslow' );
 		$limit = (int)$wgFlaggedRevsStats['topReviewersCount'];
 		$seconds = 3600*$wgFlaggedRevsStats['topReviewersHours'];
-
-		$dbr = wfGetDB( DB_SLAVE );
 		$cutoff = $dbr->timestamp( time() - $seconds );
 		$res = $dbr->select( 'logging',
 			array( 'log_user', 'COUNT(*) AS reviews' ),
@@ -321,12 +321,14 @@ class ValidationStatistics extends IncludableSpecialPage {
 			__METHOD__,
 			array( 'GROUP BY' => 'log_user', 'ORDER BY' => 'reviews DESC', 'LIMIT' => $limit )
 		);
+
 		$data = array();
 		foreach ( $res as $row ) {
 			$data[$row->log_user] = $row->reviews;
 		}
+
 		// Save/cache users
-		$dbCache->set( $key, $data, 3600 );
+		$stash->set( $key, $data, 3600 );
 
 		return $data;
 	}
