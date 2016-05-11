@@ -657,18 +657,21 @@ class FlaggedRevsHooks {
 	}
 
 	public static function incrementRollbacks(
-		Page $article, $user, $goodRev, Revision $badRev
+		Page $article, User $user, $goodRev, Revision $badRev
 	) {
 		# Mark when a user reverts another user, but not self-reverts
-		$badUserId = $badRev->getRawUser();
+		$badUserId = $badRev->getUser( Revision::RAW );
 		if ( $badUserId && $user->getId() != $badUserId ) {
-			$p = FRUserCounters::getUserParams( $badUserId, FR_FOR_UPDATE );
-			if ( !isset( $p['revertedEdits'] ) ) {
-				$p['revertedEdits'] = 0;
-			}
-			$p['revertedEdits']++;
-			FRUserCounters::saveUserParams( $badUserId, $p );
+			DeferredUpdates::addCallableUpdate( function () use ( $badUserId ) {
+				$p = FRUserCounters::getUserParams( $badUserId, FR_FOR_UPDATE );
+				if ( !isset( $p['revertedEdits'] ) ) {
+					$p['revertedEdits'] = 0;
+				}
+				$p['revertedEdits']++;
+				FRUserCounters::saveUserParams( $badUserId, $p );
+			} );
 		}
+
 		return true;
 	}
 
