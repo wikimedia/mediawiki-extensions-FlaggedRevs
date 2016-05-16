@@ -2,10 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Joachim Mos",
-			"Slomox"
+			"Slomox",
+			"Servien"
 		]
 	},
 	"flaggedrevs": "Tekente Versionen",
+	"flaggedrevs-hidereviewed-hide": "versteken",
+	"flaggedrevs-hidereviewed-show": "Wiesen",
 	"review-logentry-app": "hett de Version $2 vun „[[$1]]“ markeert",
 	"revreview-accuracy-2": "akraat",
 	"revreview-auto": "(automaatsch)",
