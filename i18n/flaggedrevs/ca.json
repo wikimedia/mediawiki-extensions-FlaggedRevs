@@ -12,7 +12,8 @@
 			"Solde",
 			"Ssola",
 			"Toniher",
-			"Vriullop"
+			"Vriullop",
+			"Syum90"
 		]
 	},
 	"action-review": "supervisa les revisions",
@@ -33,7 +34,7 @@
 	"flaggedrevs-prefs-viewdiffs": "Mostra els canvis en curs dif quan s'està veient les últimes revisions no revistes",
 	"flaggedrevs-hidereviewed": "$1 canvis comprovats",
 	"group-editor": "Editors",
-	"group-editor-member": "{{GENDER:$1|contribuïdor|contribuïdora}}",
+	"group-editor-member": "{{GENDER:$1|editor|editora}}",
 	"group-reviewer": "Supervisors",
 	"group-reviewer-member": "{{GENDER:$1|supervisor|supervisora}}",
 	"grouppage-editor": "{{ns:project}}:Editor",
@@ -89,7 +90,6 @@
 	"revreview-depth-3": "Alt",
 	"revreview-depth-4": "Rellevant",
 	"revreview-draft-title": "S'han afixat els canvis en curs en aquesta pàgina",
-	"revreview-edit": "Modifica",
 	"revreview-editnotice": "'''Els vostres canvis seran afixats pels lectors un cop que un usuari autoritzat els acceptaran. ([[{{MediaWiki:Validationpage}}|ajuda]])'''",
 	"revreview-submitedit": "Envia els canvis",
 	"revreview-submitedit-title": "Sotmetre els canvis a aprovació.",
@@ -120,7 +120,6 @@
 	"revreview-quick-quality-same": "'''[[{{MediaWiki:Validationpage}}|Qualitat]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} comprovar els canvis en curs]]",
 	"revreview-quick-see-quality": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} comprovar els canvis en curs]]",
-	"revreview-source": "Mostra codi font",
 	"revreview-basic-title": "Això és una versió comprovada d'aquesta pàgina",
 	"revreview-style": "Llegibilitat",
 	"revreview-style-0": "Insuficient",
