@@ -27,7 +27,7 @@
 	"flaggedrevs-pref-stable-0": "שימוש בהגדרות ברירת המחדל של כל דף",
 	"flaggedrevs-pref-stable-1": "תמיד להציג את הגרסה היציבה (אם יש כזאת)",
 	"flaggedrevs-pref-stable-2": "תמיד להציג את הגרסה האחרונה",
-	"flaggedrevs-prefs-watch": "הוספת דפים שאני {{GENDER:|סוקר|סוקרת}} לרשימת המעקב",
+	"flaggedrevs-prefs-watch": "הוספת דפים שאני {{GENDER:|סוקר|סוקרת}} לרשימת המעקב שלי",
 	"flaggedrevs-prefs-editdiffs": "הצגת השוואת הגרסאות של השינויים הממתינים בעת עריכת דפים",
 	"flaggedrevs-prefs-viewdiffs": "הצגת השוואת הגרסאות של השינויים הממתינים בעת צפייה בגרסה הממתינה האחרונה",
 	"flaggedrevs-hidereviewed": "$1 עריכות שנסקרו",
