@@ -36,7 +36,6 @@ class FRPageConfig {
 			# Only apply the settings if they haven't expired
 			if ( !$expiry || $expiry < wfTimestampNow() ) {
 				$row = null; // expired
-				self::purgeExpiredConfigurations();
 			}
 		}
 		// Is there a non-expired row?
