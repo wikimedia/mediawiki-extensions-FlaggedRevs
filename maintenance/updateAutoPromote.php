@@ -19,7 +19,7 @@ class UpdateFRAutoPromote extends Maintenance {
 	}
 
 	public function execute() {
-		global $wgContentNamespaces, $wgFlaggedRevsAutopromote;
+		global $wgFlaggedRevsAutopromote;
 		$this->output( "Populating and updating flaggedrevs_promote table\n" );
 
 		$dbr = wfGetDB( DB_SLAVE );
@@ -55,7 +55,7 @@ class UpdateFRAutoPromote extends Maintenance {
 				$sres = $dbr->select( array('revision','page'), '1',
 					array( 'rev_user' => $user->getID(),
 						'page_id = rev_page',
-						'page_namespace' => $wgContentNamespaces ),
+						'page_namespace' => MWNamespace::getContentNamespaces() ),
 					__METHOD__,
 					array( 'LIMIT' => max($wgFlaggedRevsAutopromote['totalContentEdits'],500) )
 				);
@@ -64,7 +64,7 @@ class UpdateFRAutoPromote extends Maintenance {
 				$sres = $dbr->select( array('revision','page'), 'DISTINCT(rev_page)',
 					array( 'rev_user' => $user->getID(),
 						'page_id = rev_page', 
-						'page_namespace' => $wgContentNamespaces ),
+						'page_namespace' => MWNamespace::getContentNamespaces() ),
 					__METHOD__,
 					array( 'LIMIT' => max($wgFlaggedRevsAutopromote['uniqueContentPages'],50) )
 				);
