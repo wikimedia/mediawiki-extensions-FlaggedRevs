@@ -7,7 +7,8 @@
 			"Gorizon",
 			"Marmase",
 			"Mirzali",
-			"Xoser"
+			"Xoser",
+			"Kumkumuk"
 		]
 	},
 	"action-review": "çımraviyarnayışan qontrol ke",
@@ -28,7 +29,7 @@
 	"flaggedrevs-prefs-viewdiffs": "Wexto ke mı vurnayisane pelan kontrol keni ferqan mocneno",
 	"flaggedrevs-hidereviewed": "Bari vurnayışê $1",
 	"flaggedrevs-hidereviewed-hide": "Bınımne",
-	"flaggedrevs-hidereviewed-show": "Bımocne",
+	"flaggedrevs-hidereviewed-show": "Bıasene",
 	"group-editor": "Editori",
 	"group-editor-member": "{{GENDER:$1|editor}}",
 	"group-reviewer": "rexnekari",
@@ -86,7 +87,6 @@
 	"revreview-depth-3": "berz",
 	"revreview-depth-4": "Weçinaye",
 	"revreview-draft-title": "Vurnayişan ke cap nibiyo ena pele de mucnayiyo",
-	"revreview-edit": "Bıvurne",
 	"revreview-editnotice": "'''Vurnayışê şıma, mehalo ke yew xizmetkar qebul kerdışiya tepya do baso. ([[{{MediaWiki:Validationpage}}|Peşti bımocne]])'''",
 	"revreview-submitedit": "Vurnayişan qeyd bike",
 	"revreview-submitedit-title": "Seba qontroli vurnayişan tu qeyd bike",
@@ -117,7 +117,6 @@
 	"revreview-quick-quality-same": "'''[[{{MediaWiki:Validationpage}}|Qalite]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} vurnayışanê vıneteyan bıvine]]",
 	"revreview-quick-see-quality": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} vurnayışanê vıneteyan bıvine]]",
-	"revreview-source": "Çımey bıvêne",
 	"revreview-basic-title": "Ena yew versiyone qaliteya pele ya",
 	"revreview-style": "weniyayişê ey",
 	"revreview-style-0": "Tam niya",
