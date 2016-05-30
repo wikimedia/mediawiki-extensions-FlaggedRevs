@@ -116,7 +116,8 @@ class RevisionReview extends UnlistedSpecialPage {
 					} elseif ( $form->getAction() === 'unapprove' ) {
 						$out->addHTML( $this->deapprovalSuccessHTML( true ) );
 					} elseif ( $form->getAction() === 'reject' ) {
-						$out->redirect( $this->page->getFullUrl() );
+						$query = $this->page->isRedirect() ? [ 'redirect' => 'no' ] : [];
+						$out->redirect( $this->page->getFullUrl( $query ) );
 					}
 				// Failure...
 				} else {
