@@ -1,4 +1,9 @@
 {
-	"@metadata": [],
-	"revreview-revnotfound": "Nuorima poslapė versėjė narasta. Patėkrėnkėt URL, katro patekuot i šėta poslapi."
+	"@metadata": {
+		"authors": [
+			"Hugo.arg"
+		]
+	},
+	"revreview-revnotfound": "Nuorima poslapė versėjė narasta. Patėkrėnkėt URL, katro patekuot i šėta poslapi.",
+	"tooltip-ca-current": "Parveizietė tou poslapi so nepatikrintās pakeitėmās"
 }
