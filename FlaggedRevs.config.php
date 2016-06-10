@@ -82,6 +82,9 @@ $wgGroupPermissions['editor']['autoconfirmed']     = true;
 $wgGroupPermissions['editor']['editsemiprotected'] = true;
 $wgGroupPermissions['editor']['unreviewedpages']   = true;
 
+# Define rights granted to consumers
+$wgGrantPermissions['basic']['autoreview'] = true;
+
 # Define when users get automatically promoted to Editors. Set as false to disable.
 # Once users meet these requirements they will be promoted, unless previously demoted.
 $wgFlaggedRevsAutopromote = array(
