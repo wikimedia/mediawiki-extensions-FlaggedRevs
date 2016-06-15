@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Charmed94"
+			"Charmed94",
+			"Rancher"
 		]
 	},
 	"problemchanges": "Означене измене на чекању",
-	"problemchanges-legend": "Прелистај странице на чекању с означеним изменама за преглед",
+	"problemchanges-legend": "Списак страница са означеним изменама које чекају проверу",
 	"problemchanges-none": "Тренутно нема страница које испуњавају овај критеријум",
 	"problemchanges-category": "Категорија:"
 }

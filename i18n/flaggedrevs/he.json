@@ -142,7 +142,7 @@
 	"right-autoreviewrestore": "סקירה אוטומטית בעת ביצוע שחזור מהיר",
 	"right-movestable": "העברת דפים עם גרסאות יציבות",
 	"right-review": "סימון גרסאות כ\"בדוקות\"",
-	"right-stablesettings": "הגדרה כיצד הגרסה היציבה של הדף נבחרת ומוצגת",
+	"right-stablesettings": "הגדרה כיצד הגרסה היציבה של דפים נבחרת ומוצגת",
 	"right-validate": "סימון גרסאות כ\"איכותיות\"",
 	"right-unreviewedpages": "צפייה ב[[Special:UnreviewedPages|רשימת הדפים שלא נסקרו]]",
 	"rights-editor-revoke": "הסרת הרשאת עורך מ{{GRAMMAR:תחילית|[[$1]]}}",

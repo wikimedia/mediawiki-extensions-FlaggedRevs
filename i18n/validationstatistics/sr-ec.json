@@ -7,14 +7,15 @@
 			"Обрадовић Горан"
 		]
 	},
-	"validationstatistics-table": "Доле су приказане статистике за прегледање сваког именског простора, ''осим'' страница за преусмеравање. Странице се сматрају као „застареле“ ако имају измене које чекају на проверу. За „усклађене“ се сматрају оне странице које немају измене на чекању.",
+	"validationstatistics-table": "Испод је приказана статистика провере сваког именског простора ''осим'' страница за преусмеравање. Странице се сматрају као ''застареле'' ако имају непроверене измене, а као ''синхронизоване'' ако немају ниједну.",
 	"validationstatistics-ns": "Именски простор",
 	"validationstatistics-total": "Странице",
-	"validationstatistics-stable": "Прегледано",
-	"validationstatistics-latest": "Синхронизовано",
-	"validationstatistics-synced": "Усклађено/прегледано",
-	"validationstatistics-old": "Застарело",
-	"validationstatistics-utable": "Испод је списак {{PLURAL:$1|најактивнијег|$1 најактивнија|$1 најактивнијих}} прегледача {{PLURAL:$2|у последњих сат времена|у последња $2 сата|у последњих $2 сати}}.",
+	"validationstatistics-stable": "Проверене",
+	"validationstatistics-latest": "Синхронизоване",
+	"validationstatistics-synced": "Синхронизоване/проверене",
+	"validationstatistics-old": "Застареле",
+	"validationstatistics-unreviewed": "Непроверене",
+	"validationstatistics-utable": "Испод је списак {{PLURAL:$1|најактивнијег|$1 најактивнија|$1 најактивнијих}} ревизора {{PLURAL:$2|у последњих сат времена|у последња $2 сата|у последњих $2 сати}}.",
 	"validationstatistics-user": "Корисник",
-	"validationstatistics-reviews": "Прегледи"
+	"validationstatistics-reviews": "Провера"
 }

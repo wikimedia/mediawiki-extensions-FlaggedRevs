@@ -5,13 +5,14 @@
 			"Milicevic01",
 			"Millosh",
 			"Sasa Stefanovic",
-			"Михајло Анђелковић"
+			"Михајло Анђелковић",
+			"Rancher"
 		]
 	},
-	"reviewedversions": "Прегледана издања",
-	"reviewedversions-leg1": "Списак прегледаних ревизија за страну",
-	"reviewedversions-page": "Назив странице:",
-	"reviewedversions-none": "\"[[:$1]]\" нема прегледаних ревизија.",
-	"reviewedversions-list": "Следи списак {{PLURAL:$2|једине ревизије|ревизија}} из [[:$1]], {{PLURAL:$2|која је прегледана|које су прегледане}}:",
-	"reviewedversions-review": "Прегледано на <i>$1</i> од стране $2"
+	"reviewedversions": "Проверене верзије",
+	"reviewedversions-leg1": "Списак проверених ревизија страница",
+	"reviewedversions-page": "Име странице:",
+	"reviewedversions-none": "„[[:$1]]“ нема проверених ревизија.",
+	"reviewedversions-list": "{{PLURAL:$2|Проверена је следећа ревизија|Проверене су следеће ревизије}} странице [[:$1]]:",
+	"reviewedversions-review": "Проверио $2 дана <i>$1</i>"
 }

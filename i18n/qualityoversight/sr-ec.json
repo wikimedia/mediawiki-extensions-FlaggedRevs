@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Charmed94",
-			"Millosh"
+			"Millosh",
+			"Rancher"
 		]
 	},
-	"qualityoversight": "Напредни преглед извештаја",
+	"qualityoversight": "Детаљни дневник провера",
 	"qualityoversight-list": "На овој страни се налази списак недавно одобрених и потиснутих ревизија.",
-	"qualityoversight-legend": "Претрага извештаја недавних прегледа"
+	"qualityoversight-legend": "Претрага по дневнику провера"
 }
