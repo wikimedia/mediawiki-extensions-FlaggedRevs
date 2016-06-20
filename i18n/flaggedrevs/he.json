@@ -144,7 +144,7 @@
 	"right-review": "סימון גרסאות כ\"בדוקות\"",
 	"right-stablesettings": "הגדרה כיצד הגרסה היציבה של דפים נבחרת ומוצגת",
 	"right-validate": "סימון גרסאות כ\"איכותיות\"",
-	"right-unreviewedpages": "צפייה ב[[Special:UnreviewedPages|רשימת הדפים שלא נסקרו]]",
+	"right-unreviewedpages": "צפייה ברשימת הדפים שלא נסקרו",
 	"rights-editor-revoke": "הסרת הרשאת עורך מ{{GRAMMAR:תחילית|[[$1]]}}",
 	"specialpages-group-quality": "סקירת עריכות",
 	"stable-logentry-config": "קבע את הגדרות היציבות של \"$1\"",
