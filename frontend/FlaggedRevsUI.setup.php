@@ -153,7 +153,6 @@ class FlaggedRevsUISetup {
 		);
 		$modules['ext.flaggedRevs.review'] = array(
 			'scripts'       => array( 'ext.flaggedRevs.review.js' ),
-			'styles'        => array( 'ext.flaggedRevs.review.css' ),
 			'messages'      => array(
 				'savearticle', 'tooltip-save',
 				'revreview-submitedit', 'revreview-submitedit-title',
@@ -167,6 +166,12 @@ class FlaggedRevsUISetup {
 			'dependencies'  => array( 'mediawiki.util', 'mediawiki.notify', 'mediawiki.user', 'mediawiki.jqueryMsg' ),
 			'localBasePath' => $localModulePath,
 			'remoteExtPath' => $remoteModulePath,
+		);
+		$modules['ext.flaggedRevs.review.styles'] = array(
+			'styles'        => array( 'ext.flaggedRevs.review.css' ),
+			'localBasePath' => $localModulePath,
+			'remoteExtPath' => $remoteModulePath,
+			'position' => 'top',
 		);
 	}
 

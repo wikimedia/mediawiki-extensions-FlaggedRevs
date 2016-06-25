@@ -24,6 +24,7 @@ class FlaggedRevsUIHooks {
 		# Add review form JS for reviewers
 		if ( $wgUser->isAllowed( 'review' ) ) {
 			$wgOut->addModules( 'ext.flaggedRevs.review' );
+			$wgOut->addModuleStyles( 'ext.flaggedRevs.review.styles' );
 		}
 		return true;
 	}
