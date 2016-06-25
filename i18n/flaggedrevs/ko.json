@@ -10,7 +10,8 @@
 			"Yknok29",
 			"아라",
 			"Revi",
-			"IRTC1015"
+			"IRTC1015",
+			"Ykhwong"
 		]
 	},
 	"action-review": "편집 검토",
@@ -95,7 +96,6 @@
 	"revreview-depth-3": "좋음",
 	"revreview-depth-4": "알참",
 	"revreview-draft-title": "이 페이지에서 검토를 기다리고 있는 판이 표시되고 있습니다",
-	"revreview-edit": "편집",
 	"revreview-editnotice": "'''당신의 편집은 권한이 있는 사용자가 승인한 후에 배포될 것입니다. ([[{{MediaWiki:Validationpage}}|도움말]])'''",
 	"revreview-submitedit": "바뀜 제출",
 	"revreview-submitedit-title": "당신의 편집을 검토 요청하기",
@@ -126,7 +126,6 @@
 	"revreview-quick-quality-same": "'''[[{{MediaWiki:Validationpage}}|고품질판]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 검토 대기 중인 판 검토하기]]",
 	"revreview-quick-see-quality": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 검토 대기 중인 판 검토하기]]",
-	"revreview-source": "원본 보기",
 	"revreview-basic-title": "이 판은 이 문서의 검토된 판입니다",
 	"revreview-style": "가독성",
 	"revreview-style-0": "부적절",
@@ -143,7 +142,7 @@
 	"right-autoreviewrestore": "되돌리면서 자동으로 검토하기",
 	"right-movestable": "배포된 문서 이동하기",
 	"right-review": "편집을 \"검토된 판\"으로 표시",
-	"right-stablesettings": "어떻게 배포판이 선택되어 보여질 것인지 설정",
+	"right-stablesettings": "어떻게 배포판이 선택되어 표시될 것인지 설정",
 	"right-validate": "특정 판을 \"고품질판\"으로 표시하기",
 	"right-unreviewedpages": "[[Special:UnreviewedPages|검토되지 않은 문서의 목록]] 보기",
 	"rights-editor-revoke": "[[$1]]의 편집자 권한을 해제했습니다",
@@ -187,7 +186,7 @@
 	"revreview-locked-title": "이 문서에 대한 편집은 반드시 검토를 거쳐야 합니다.",
 	"revreview-unlocked-title": "이 문서에 대한 편집은 검토를 필요로 하지 않습니다.",
 	"revreview-locked": "'''참고:''' 이 문서에 편집이 배포되기 전에 반드시 [[{{MediaWiki:Validationpage}}|검토]]를 거쳐야 합니다.",
-	"revreview-unlocked": "'''알림''' 이 문서에 보여지기 전에 편집은 [[{{MediaWiki:Validationpage}}|검토]]가 필요하지 않습니다.",
+	"revreview-unlocked": "'''알림:''' 이 문서의 독자에게 표시되기 전에 편집은 [[{{MediaWiki:Validationpage}}|검토]]가 필요하지 않습니다.",
 	"log-show-hide-review": "문서 검토 기록 $1",
 	"validationpage": "{{ns:help}}:문서 검토"
 }
