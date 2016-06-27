@@ -11,40 +11,22 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 	/* User is reviewing this page? */
 	isUserReviewing: 0,
 
-	/* Startup function */
-	init: function () {
-		var form = $( '#mw-fr-reviewform' );
-
-		// Enable AJAX-based submit functionality to the review form on this page
-		$( '#mw-fr-submit-accept,#mw-fr-submit-unaccept' ).click( function () {
-			fr.submitRevisionReview( this, form );
-			return false; // don't do normal non-AJAX submit
-		} );
-
-		// Disable 'accept' button if the revision was already reviewed.
-		// This is used so that they can be re-enabled if a rating changes.
-		/*global jsReviewNeedsChange*/
-		// wtf? this is set in frontend/RevisionReviewFormUI by outputting JS
-		if ( typeof jsReviewNeedsChange !== 'undefined' && jsReviewNeedsChange === 1 ) {
-			$( '#mw-fr-submit-accept' ).prop( 'disabled', true );
-		}
-
-		// Setup <select> form option colors
-		fr.updateReviewFormColors( form );
-		// Update review form on change
-		form.find( 'input,select' ).change( function () {
-			fr.updateReviewForm( form );
-		} );
-
-		// Display "advertise" notice
-		fr.enableAjaxReviewActivity();
-		// "De-advertise" user as "no longer reviewing" on navigate-away
-		/*global window*/
-		$( window ).on( 'unload', function () {
-			if ( fr.isUserReviewing === 1 ) {
-				fr.deadvertiseReviewing();
+	/*
+	 * Update <select> color for the selected item/option
+	 */
+	updateReviewFormColors: function ( form ) {
+		for ( var tag in wgFlaggedRevsParams.tags ) { // for each tag
+			var select = form.find( "[name='wp" + tag + "']" ).eq( 0 );
+			// Look for a selector for this tag
+			if ( select.length && select.prop( 'nodeName' ) === 'SELECT' ) {
+				var selectedlevel = select.prop( 'selectedIndex' );
+				var value = select.children( 'option' ).eq( selectedlevel ).val();
+				select.prop( 'className', 'fr-rating-option-' + value );
+				// Fix FF one-time jitter bug of changing an <option>
+				select.prop( 'selectedIndex', null );
+				select.prop( 'selectedIndex', selectedlevel );
 			}
-		} );
+		}
 	},
 
 	/*
@@ -104,24 +86,6 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 	},
 
 	/*
-	 * Update <select> color for the selected item/option
-	 */
-	updateReviewFormColors: function ( form ) {
-		for ( var tag in wgFlaggedRevsParams.tags ) { // for each tag
-			var select = form.find( "[name='wp" + tag + "']" ).eq( 0 );
-			// Look for a selector for this tag
-			if ( select.length && select.prop( 'nodeName' ) === 'SELECT' ) {
-				var selectedlevel = select.prop( 'selectedIndex' );
-				var value = select.children( 'option' ).eq( selectedlevel ).val();
-				select.prop( 'className', 'fr-rating-option-' + value );
-				// Fix FF one-time jitter bug of changing an <option>
-				select.prop( 'selectedIndex', null );
-				select.prop( 'selectedIndex', selectedlevel );
-			}
-		}
-	},
-
-	/*
 	 * Lock review form from submissions (using during AJAX requests)
 	 */
 	lockReviewForm: function ( form ) {
@@ -141,69 +105,6 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 			}
 		}
 		form.find( 'textarea,select' ).prop( 'disabled', false );
-	},
-
-	/*
-	 * Submit a revision review via AJAX and update form elements.
-	*
-	 * Note: requestArgs build-up from radios/checkboxes
-	 * based on patch by Daniel Arnold (bug 13744)
-	 */
-	submitRevisionReview: function ( button, form ) {
-		var i;
-		fr.lockReviewForm( form ); // disallow submissions
-		// Build up arguments array and update submit button text...
-		var requestArgs = []; // array of strings of the format <"pname|pval">.
-		var inputs = form.find( 'input' );
-		for ( i = 0; i < inputs.length; i++ ) {
-			var input = inputs.eq( i );
-			// Different input types may occur depending on tags...
-			if ( input.prop( 'name' ) === 'title' || input.prop( 'name' ) === 'action' ) {
-				continue; // No need to send these...
-			} else if ( input.prop( 'type' ) === 'submit' ) {
-				if ( input.prop( 'id' ) === button.id ) {
-					requestArgs.push( input.prop( 'name' ) + '|1' );
-					// Show that we are submitting via this button
-					input.val( mw.msg( 'revreview-submitting' ) );
-				}
-			} else if ( input.prop( 'type' ) === 'checkbox' ) {
-				requestArgs.push( input.prop( 'name' ) + '|' + // must send a number
-					( input.prop( 'checked' ) ? input.val() : 0 ) );
-			} else if ( input.prop( 'type' ) === 'radio' ) {
-				if ( input.prop( 'checked' ) ) { // must be checked
-					requestArgs.push( input.prop( 'name' ) + '|' + input.val() );
-				}
-			} else {
-				requestArgs.push( input.prop( 'name' ) + '|' + input.val() ); // text/hiddens...
-			}
-		}
-		var selects = form.find( 'select' );
-		for ( i = 0; i < selects.length; i++ ) {
-			var select = selects.eq( i );
-			// Get the selected tag level...
-			if ( select.prop( 'selectedIndex' ) >= 0 ) {
-				var soption = select.find( 'option' ).eq( select.prop( 'selectedIndex' ) );
-				requestArgs.push( select.prop( 'name' ) + '|' + soption.val() );
-			}
-		}
-		// Send encoded function plus all arguments...
-		var post_data = 'action=ajax&rs=RevisionReview::AjaxReview';
-		for ( i = 0; i < requestArgs.length; i++ ) {
-			post_data += '&rsargs[]=' + encodeURIComponent( requestArgs[i] );
-		}
-		// Send POST request via AJAX!
-		$.ajax( {
-			url      : mw.util.wikiScript( 'index' ),
-			type     : 'POST',
-			data     : post_data,
-			dataType : 'html', // response type
-			success  : function ( response ) {
-				fr.postSubmitRevisionReview( form, response );
-			},
-			error    : function () {
-				fr.unlockReviewForm( form );
-			}
-		} );
 	},
 
 	/*
@@ -308,18 +209,103 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 	},
 
 	/*
-	 * Enable AJAX-based functionality to set that a user is reviewing a page/diff
+	 * Submit a revision review via AJAX and update form elements.
+	*
+	 * Note: requestArgs build-up from radios/checkboxes
+	 * based on patch by Daniel Arnold (bug 13744)
 	 */
-	enableAjaxReviewActivity: function () {
-		// User is already reviewing in another tab...
-		if ( $( '#mw-fr-user-reviewing' ).val() === 1 ) {
-			fr.isUserReviewing = 1;
-			fr.advertiseReviewing( null, true );
-		// User is not already reviewing this....
-		} else {
-			fr.deadvertiseReviewing( null, true );
+	submitRevisionReview: function ( button, form ) {
+		var i;
+		fr.lockReviewForm( form ); // disallow submissions
+		// Build up arguments array and update submit button text...
+		var requestArgs = []; // array of strings of the format <"pname|pval">.
+		var inputs = form.find( 'input' );
+		for ( i = 0; i < inputs.length; i++ ) {
+			var input = inputs.eq( i );
+			// Different input types may occur depending on tags...
+			if ( input.prop( 'name' ) === 'title' || input.prop( 'name' ) === 'action' ) {
+				continue; // No need to send these...
+			} else if ( input.prop( 'type' ) === 'submit' ) {
+				if ( input.prop( 'id' ) === button.id ) {
+					requestArgs.push( input.prop( 'name' ) + '|1' );
+					// Show that we are submitting via this button
+					input.val( mw.msg( 'revreview-submitting' ) );
+				}
+			} else if ( input.prop( 'type' ) === 'checkbox' ) {
+				requestArgs.push( input.prop( 'name' ) + '|' + // must send a number
+					( input.prop( 'checked' ) ? input.val() : 0 ) );
+			} else if ( input.prop( 'type' ) === 'radio' ) {
+				if ( input.prop( 'checked' ) ) { // must be checked
+					requestArgs.push( input.prop( 'name' ) + '|' + input.val() );
+				}
+			} else {
+				requestArgs.push( input.prop( 'name' ) + '|' + input.val() ); // text/hiddens...
+			}
 		}
-		$( '#mw-fr-reviewing-status' ).show();
+		var selects = form.find( 'select' );
+		for ( i = 0; i < selects.length; i++ ) {
+			var select = selects.eq( i );
+			// Get the selected tag level...
+			if ( select.prop( 'selectedIndex' ) >= 0 ) {
+				var soption = select.find( 'option' ).eq( select.prop( 'selectedIndex' ) );
+				requestArgs.push( select.prop( 'name' ) + '|' + soption.val() );
+			}
+		}
+		// Send encoded function plus all arguments...
+		var post_data = 'action=ajax&rs=RevisionReview::AjaxReview';
+		for ( i = 0; i < requestArgs.length; i++ ) {
+			post_data += '&rsargs[]=' + encodeURIComponent( requestArgs[i] );
+		}
+		// Send POST request via AJAX!
+		$.ajax( {
+			url      : mw.util.wikiScript( 'index' ),
+			type     : 'POST',
+			data     : post_data,
+			dataType : 'html', // response type
+			success  : function ( response ) {
+				fr.postSubmitRevisionReview( form, response );
+			},
+			error    : function () {
+				fr.unlockReviewForm( form );
+			}
+		} );
+	},
+
+	/*
+	 * Set reviewing status for this page/diff
+	 */
+	setReviewingStatus: function ( value ) {
+		var res = false,
+			// Get {previd,oldid} array for this page view.
+			// The previd value will be 0 if this is not a diff view.
+			inputRefId = $( '#mw-fr-input-refid' ),
+			oRevId = inputRefId ? inputRefId.val() : 0,
+			inputOldId = $( '#mw-fr-input-oldid' ),
+			nRevId = inputOldId ? inputOldId.val() : 0;
+		if ( nRevId > 0 ) {
+			// Send GET request via AJAX!
+			$.ajax( {
+				url     : mw.util.wikiScript( 'api' ),
+				data    : {
+					action    : 'reviewactivity',
+					previd    : oRevId,
+					oldid     : nRevId,
+					reviewing : value,
+					token     : mw.user.tokens.get( 'editToken' ),
+					format    : 'json'
+				},
+				type     : 'POST',
+				dataType : 'json', // response type
+				timeout  : 1700, // don't delay user exiting
+				success  : function ( data ) { res = data; },
+				async    : false
+			} );
+			if ( res && res.reviewactivity && res.reviewactivity.result === 'Success' ) {
+				fr.isUserReviewing = value;
+				return true;
+			}
+		}
+		return false;
 	},
 
 	/*
@@ -377,40 +363,54 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 	},
 
 	/*
-	 * Set reviewing status for this page/diff
+	 * Enable AJAX-based functionality to set that a user is reviewing a page/diff
 	 */
-	setReviewingStatus: function ( value ) {
-		var res = false,
-			// Get {previd,oldid} array for this page view.
-			// The previd value will be 0 if this is not a diff view.
-			inputRefId = $( '#mw-fr-input-refid' ),
-			oRevId = inputRefId ? inputRefId.val() : 0,
-			inputOldId = $( '#mw-fr-input-oldid' ),
-			nRevId = inputOldId ? inputOldId.val() : 0;
-		if ( nRevId > 0 ) {
-			// Send GET request via AJAX!
-			$.ajax( {
-				url     : mw.util.wikiScript( 'api' ),
-				data    : {
-					action    : 'reviewactivity',
-					previd    : oRevId,
-					oldid     : nRevId,
-					reviewing : value,
-					token     : mw.user.tokens.get( 'editToken' ),
-					format    : 'json'
-				},
-				type     : 'POST',
-				dataType : 'json', // response type
-				timeout  : 1700, // don't delay user exiting
-				success  : function ( data ) { res = data; },
-				async    : false
-			} );
-			if ( res && res.reviewactivity && res.reviewactivity.result === 'Success' ) {
-				fr.isUserReviewing = value;
-				return true;
-			}
+	enableAjaxReviewActivity: function () {
+		// User is already reviewing in another tab...
+		if ( $( '#mw-fr-user-reviewing' ).val() === 1 ) {
+			fr.isUserReviewing = 1;
+			fr.advertiseReviewing( null, true );
+		// User is not already reviewing this....
+		} else {
+			fr.deadvertiseReviewing( null, true );
 		}
-		return false;
+		$( '#mw-fr-reviewing-status' ).show();
+	},
+
+	/* Startup function */
+	init: function () {
+		var form = $( '#mw-fr-reviewform' );
+
+		// Enable AJAX-based submit functionality to the review form on this page
+		$( '#mw-fr-submit-accept,#mw-fr-submit-unaccept' ).click( function () {
+			fr.submitRevisionReview( this, form );
+			return false; // don't do normal non-AJAX submit
+		} );
+
+		// Disable 'accept' button if the revision was already reviewed.
+		// This is used so that they can be re-enabled if a rating changes.
+		/*global jsReviewNeedsChange*/
+		// wtf? this is set in frontend/RevisionReviewFormUI by outputting JS
+		if ( typeof jsReviewNeedsChange !== 'undefined' && jsReviewNeedsChange === 1 ) {
+			$( '#mw-fr-submit-accept' ).prop( 'disabled', true );
+		}
+
+		// Setup <select> form option colors
+		fr.updateReviewFormColors( form );
+		// Update review form on change
+		form.find( 'input,select' ).change( function () {
+			fr.updateReviewForm( form );
+		} );
+
+		// Display "advertise" notice
+		fr.enableAjaxReviewActivity();
+		// "De-advertise" user as "no longer reviewing" on navigate-away
+		/*global window*/
+		$( window ).on( 'unload', function () {
+			if ( fr.isUserReviewing === 1 ) {
+				fr.deadvertiseReviewing();
+			}
+		} );
 	}
 };
 

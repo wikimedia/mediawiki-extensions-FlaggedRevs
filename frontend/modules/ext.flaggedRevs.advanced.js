@@ -10,43 +10,6 @@ var fr = {
 	/* Dropdown collapse timer */
 	boxCollapseTimer: null,
 
-	/* Startup function */
-	init: function () {
-		// Enables rating detail box
-		var toggle = $( '#mw-fr-revisiontoggle' );
-
-		if ( toggle.length ) {
-			toggle.css( 'display', 'inline' ); // show toggle control
-			fr.hideBoxDetails(); // hide the initially displayed ratings
-		}
-
-		// Bar UI: Toggle the box when the toggle is clicked
-		$( '.fr-toggle-symbol#mw-fr-revisiontoggle' ).click( fr.toggleBoxDetails );
-
-		// Simple UI: Show the box on mouseOver
-		$( '.fr-toggle-arrow#mw-fr-revisiontoggle' ).mouseover( fr.onBoxMouseOver );
-		$( '.flaggedrevs_short#mw-fr-revisiontag' ).mouseout( fr.onBoxMouseOut );
-
-		// Enables diff detail box and toggle
-		toggle = $( '#mw-fr-difftoggle' );
-		if ( toggle.length ) {
-			toggle.css( 'display', 'inline' ); // show toggle control
-			$( '#mw-fr-stablediff' ).hide();
-		}
-		toggle.children( 'a' ).click( fr.toggleDiff );
-
-		// Enables log detail box and toggle
-		toggle = $( '#mw-fr-logtoggle' );
-		if ( toggle.length ) {
-			toggle.css( 'display', 'inline' ); // show toggle control
-			$( '#mw-fr-logexcerpt' ).hide();
-		}
-		toggle.children( 'a' ).click( fr.toggleLog );
-
-		// Enables changing of save button when "review this" checkbox changes
-		$( '#wpReviewEdit' ).click( fr.updateSaveButton );
-	},
-
 	/* Expands flag info box details */
 	showBoxDetails: function () {
 		$( '#mw-fr-revisiondetails' ).css( 'display', 'block' );
@@ -80,6 +43,29 @@ var fr = {
 	},
 
 	/**
+	 * Checks if mouseOut event is for a child of parentId
+	 * @param e {jQuery.Event}
+	 * @param parentId {String}
+	 * @return {Boolean} True if given event object originated from a (direct or indirect)
+	 * child element of an element with an id of parentId.
+	 */
+	isMouseOutBubble: function ( e, parentId ) {
+		var toNode = e.relatedTarget;
+
+		if ( toNode ) {
+			var nextParent = toNode.parentNode;
+			while ( nextParent ) {
+				if ( nextParent.id === parentId ) {
+					return true;
+				}
+				// next up
+				nextParent = nextParent.parentNode;
+			}
+		}
+		return false;
+	},
+
+	/**
 	 * Expands flag info box details on mouseOver
 	 * @context {jQuery}
 	 * @param e {jQuery.Event}
@@ -101,29 +87,6 @@ var fr = {
 			/*global window*/
 			fr.boxCollapseTimer = window.setTimeout( fr.hideBoxDetails, 150 );
 		}
-	},
-
-	/**
-	 * Checks if mouseOut event is for a child of parentId
-	 * @param e {jQuery.Event}
-	 * @param parentId {String}
-	 * @return {Boolean} True if given event object originated from a (direct or indirect)
-	 * child element of an element with an id of parentId.
-	 */
-	isMouseOutBubble: function ( e, parentId ) {
-		var toNode = e.relatedTarget;
-
-		if ( toNode ) {
-			var nextParent = toNode.parentNode;
-			while ( nextParent ) {
-				if ( nextParent.id === parentId ) {
-					return true;
-				}
-				// next up
-				nextParent = nextParent.parentNode;
-			}
-		}
-		return false;
 	},
 
 	/**
@@ -203,6 +166,43 @@ var fr = {
 			}
 			$save.updateTooltipAccessKeys();
 		}
+	},
+
+	/* Startup function */
+	init: function () {
+		// Enables rating detail box
+		var toggle = $( '#mw-fr-revisiontoggle' );
+
+		if ( toggle.length ) {
+			toggle.css( 'display', 'inline' ); // show toggle control
+			fr.hideBoxDetails(); // hide the initially displayed ratings
+		}
+
+		// Bar UI: Toggle the box when the toggle is clicked
+		$( '.fr-toggle-symbol#mw-fr-revisiontoggle' ).click( fr.toggleBoxDetails );
+
+		// Simple UI: Show the box on mouseOver
+		$( '.fr-toggle-arrow#mw-fr-revisiontoggle' ).mouseover( fr.onBoxMouseOver );
+		$( '.flaggedrevs_short#mw-fr-revisiontag' ).mouseout( fr.onBoxMouseOut );
+
+		// Enables diff detail box and toggle
+		toggle = $( '#mw-fr-difftoggle' );
+		if ( toggle.length ) {
+			toggle.css( 'display', 'inline' ); // show toggle control
+			$( '#mw-fr-stablediff' ).hide();
+		}
+		toggle.children( 'a' ).click( fr.toggleDiff );
+
+		// Enables log detail box and toggle
+		toggle = $( '#mw-fr-logtoggle' );
+		if ( toggle.length ) {
+			toggle.css( 'display', 'inline' ); // show toggle control
+			$( '#mw-fr-logexcerpt' ).hide();
+		}
+		toggle.children( 'a' ).click( fr.toggleLog );
+
+		// Enables changing of save button when "review this" checkbox changes
+		$( '#wpReviewEdit' ).click( fr.updateSaveButton );
 	}
 };
 
