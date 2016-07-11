@@ -8,7 +8,8 @@
 			"Rancher",
 			"Sasa Stefanovic",
 			"Жељко Тодоровић",
-			"Михајло Анђелковић"
+			"Михајло Анђелковић",
+			"Сербијана"
 		]
 	},
 	"action-review": "провера ревизија",
@@ -33,9 +34,9 @@
 	"group-editor": "Уредници",
 	"group-editor-member": "{{GENDER:$1|уредник|уредница}}",
 	"group-reviewer": "Ревизори",
-	"group-reviewer-member": "{{GENDER:$1|ревизор|ревизорка}}",
+	"group-reviewer-member": "{{GENDER:$1|брисач измена}}",
 	"grouppage-editor": "{{ns:project}}:Уредник",
-	"grouppage-reviewer": "{{ns:project}}:Ревизор",
+	"grouppage-reviewer": "{{ns:project}}:Брисачи измена",
 	"group-autoreview": "Ауторевизори",
 	"group-autoreview-member": "{{GENDER:$1|ауторевизор|ауторевизорка}}",
 	"grouppage-autoreview": "{{ns:project}}:Ауторевизори",
@@ -66,7 +67,7 @@
 	"review-logentry-diff2": "застареле измене",
 	"review-logpage": "Дневник провере ревизија",
 	"review-logpagetext": "Ово је дневник [[{{MediaWiki:Validationpage}}|проверених]] верзија страница.",
-	"reviewer": "Ревизор",
+	"reviewer": "Брисач измена",
 	"revreview-accuracy": "Тачност",
 	"revreview-accuracy-0": "Неадекватна",
 	"revreview-accuracy-1": "Проверена",

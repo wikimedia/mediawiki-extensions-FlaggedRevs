@@ -6,7 +6,8 @@
 			"Milicevic01",
 			"Rancher",
 			"Жељко Тодоровић",
-			"Михајло Анђелковић"
+			"Михајло Анђелковић",
+			"Сербијана"
 		]
 	},
 	"action-review": "pregledanje izmena",
@@ -30,9 +31,9 @@
 	"group-editor": "Urednici",
 	"group-editor-member": "{{GENDER:$1|urednik|urednica|urednik}}",
 	"group-reviewer": "Pregledači",
-	"group-reviewer-member": "{{GENDER:$1|pregledač}}",
+	"group-reviewer-member": "{{GENDER:$1|brisač izmena}}",
 	"grouppage-editor": "{{ns:project}}:Uređivač",
-	"grouppage-reviewer": "{{ns:project}}:Pregledač",
+	"grouppage-reviewer": "{{ns:project}}:Brisači izmena",
 	"revreview-hist-draft": "neproverena izmena",
 	"revreview-hist-pending": "neproverena izmena",
 	"revreview-hist-quality": "kvalitetna verzija",
@@ -53,7 +54,7 @@
 	"review-logentry-id": "revizija: $2",
 	"review-logentry-diff": "pregledane izmene",
 	"review-logpage": "Dnevnik pregledanja",
-	"reviewer": "Pregledač",
+	"reviewer": "Brisač izmena",
 	"revreview-accuracy": "Tačnost",
 	"revreview-accuracy-0": "Neadekvatne",
 	"revreview-accuracy-1": "Pregledano",
