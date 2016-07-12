@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Okras"
+			"Okras",
+			"Kaganer"
 		]
 	},
 	"apihelp-query+configuredpages-param-limit": "Сколько всего страниц возвращать.",
@@ -20,7 +21,7 @@
 	"apihelp-query+unreviewedpages-example-2": "Показать информацию о некоторых непроверенных страницах",
 	"apihelp-review-param-flag": "Установить флагу ''$1'' указанное значение.",
 	"apihelp-stabilize-param-reason": "Причина.",
-	"apihelp-stabilize-param-watch": "Включить эту страницу в список наблюдения.",
+	"apihelp-stabilize-param-watch": "Следить за этой страницей.",
 	"apihelp-stabilize-param-default": "Версия для показа по умолчанию.",
 	"apihelp-stabilize-param-autoreview": "Ограничение автопроверки."
 }

@@ -15,7 +15,7 @@
 	"validationstatistics-synced": "Синхронизоване/проверене",
 	"validationstatistics-old": "Застареле",
 	"validationstatistics-unreviewed": "Непроверене",
-	"validationstatistics-utable": "Испод је списак {{PLURAL:$1|најактивнијег|$1 најактивнија|$1 најактивнијих}} ревизора {{PLURAL:$2|у последњих сат времена|у последња $2 сата|у последњих $2 сати}}.",
+	"validationstatistics-utable": "Испод је списак {{PLURAL:$1|најактивнијег|$1 најактивнија|$1 најактивнијих}} патролера {{PLURAL:$2|у последњих сат времена|у последња $2 сата|у последњих $2 сати}}.",
 	"validationstatistics-user": "Корисник",
 	"validationstatistics-reviews": "Провера"
 }
