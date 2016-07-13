@@ -8,7 +8,8 @@
 			"Nike",
 			"Olli",
 			"Pxos",
-			"Str4nd"
+			"Str4nd",
+			"01miki10"
 		]
 	},
 	"revisionreview": "Versioiden arviointi",
@@ -51,7 +52,7 @@
 	"revreview-submit-reviewed": "Valmis. Hyväksytty!",
 	"revreview-submit-unreviewed": "Valmis. Arviointi poistettu!",
 	"revreview-successful": "'''Sivun [[:$1|$1]] versio on arvioitu onnistuneesti. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} näytä arvioidut versiot])'''",
-	"revreview-successful2": "'''Sivun [[:$1|$1]] version arviointimerkintä on nyt poistettu.'''",
+	"revreview-successful2": "'''Sivun [[:$1|$1]] version arviointimerkintä on poistettu.'''",
 	"revreview-poss-conflict-p": "'''Varoitus: Käyttäjä [[User:$1|$1]] on aloittanut tämän sivun arvioinnin $2 kello $3.'''",
 	"revreview-poss-conflict-c": "'''Varoitus: Käyttäjä [[User:$1|$1]] on aloittanut näiden muutosten arvioinnin $2 kello $3.'''",
 	"revreview-adv-reviewing-p": "Huomautus: Muut seulojat näkevät, että {{GENDER:$1|arvioit}} tätä sivua.",
