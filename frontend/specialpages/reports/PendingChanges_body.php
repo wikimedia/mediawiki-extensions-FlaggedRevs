@@ -114,6 +114,10 @@ class PendingChanges extends SpecialPage {
 
 	public function showPageList() {
 		$out = $this->getOutput();
+		if ( $this->pager->getNumRows() ) {
+			// To style output of ChangesList::showCharacterDifference
+			$out->addModuleStyles( 'mediawiki.special.changeslist' );
+		}
 		// Viewing the list normally...
 		if ( !$this->including() ) {
 			if ( $this->pager->getNumRows() ) {
