@@ -44,7 +44,7 @@
 	"revreview-submit-reject": "Ännerungen zréckweisen",
 	"revreview-submit-reviewed": "Fäerdeg. Nogekuckt!",
 	"revreview-submit-unreviewed": "Fäerdeg. Net méi nogekuckt!",
-	"revreview-successful": "'''D'Versioun [[:$1|$1]] gouf nogekuckt. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} Déi nogekuckte Versioune weisen])'''",
+	"revreview-successful": "'''D'Versioun [[:$1|$1]] gouf markéiert. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} Déi nogekuckte Versioune weisen])'''",
 	"revreview-successful2": "'''D'Markéierung vun der Versioun vu(n) [[:$1|$1]] gouf ewechgeholl.'''",
 	"revreview-poss-conflict-p": "'''Opgepasst: [[User:$1|$1]] huet den $2 ëm $3 ugefaang dës Säit nozekucken.'''",
 	"revreview-poss-conflict-c": "'''Opgepasst: [[User:$1|$1]] huet den $2 ëm $3 ugefaang dës Ännerungen nozekucken.'''",
