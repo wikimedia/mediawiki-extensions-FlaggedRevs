@@ -68,7 +68,7 @@
 	"revreview-log-details-hide": "자세한 내용 숨기기",
 	"revreview-log-details-title": "안정화 설정 기록 표시 여부를 설정하기",
 	"review-diff2stable": "모든 검토를 기다리고 있는 편집 보기",
-	"review-logentry-app": "사용자가 [[$1]] 문서의 판을 검토했습니다",
+	"review-logentry-app": "님이 [[$1]] 문서의 판을 검토했습니다",
 	"review-logentry-dis": "사용자가 [[$1]] 문서의 판에 대해 검토를 기각했습니다",
 	"review-logentry-id": "판: $2",
 	"review-logentry-diff": "검토한 편집의 차이",

@@ -17,7 +17,7 @@
 	"validationstatistics-lastupdate": "''다음과 같은 데이터가 마지막으로 $1 $2에 업데이트되었습니다.''",
 	"validationstatistics-pndtime": "숙련된 사용자가 확인한 편집을 ''{{int:validationstatistics-stable}}''으로 간주합니다.\n\n[[Special:OldReviewedPages|현재 검토가 진행 중인 편집이 있는 문서]]의 검토 평균 대기 시간은 '''$1'''입니다. 검토되지 않는 편집이 가장 오래되었을 때가 지연이 얼마나 걸리는지 측정합니다.",
 	"validationstatistics-revtime": "'''로그인하지 않은 사용자'''의 편집의 평균 대기 시간은 '''$1'''이고 중앙값은 '''$2'''입니다.\n$3",
-	"validationstatistics-table": "이름공간별 문서 검토 통계가 아래에 표시되며, 넘겨주기 문서는 ''제외''됩니다.\n문서들은 검토를 대기 중인 편집이 있으면 ''{{int:validationstatistics-old}}''로 취급됩니다.\n검토를 대기 중인 편집이 없으면 ''{{int:validationstatistics-latest}}''로 간주됩니다.",
+	"validationstatistics-table": "이름공간별 문서 검토 통계가 아래에 표시되며, 넘겨주기 문서는 ''제외''됩니다.\n문서들은 검토를 대기 중인 편집이 있으면 ''{{int:validationstatistics-old}}''으로 취급됩니다.\n검토를 대기 중인 편집이 없으면 ''{{int:validationstatistics-latest}}''으로 간주됩니다.",
 	"validationstatistics-ns": "이름공간",
 	"validationstatistics-total": "문서 수",
 	"validationstatistics-stable": "검토됨",
