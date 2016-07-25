@@ -64,5 +64,6 @@
 	"revreview-reject-summary-cur-short": "{{PLURAL:$1|De läzde Änderong|De läzde $1 Änderonge|Kein Änderonge}} aam Täx sin afjelehnt woode un de Version $2 {{GENDER:$3|vum|vum|vumm Metmaacher|vun dä|vum}} [[User:$3|$3]] es jäz retuur.",
 	"revreview-reject-summary-old-short": "{{PLURAL:$1|De eezde Änderong|De eezde $1 Änderonge|Kein Änderonge}} aam Täx noh dä de Version $2 {{GENDER:$4|vum|vum|vumm Metmaacher|vun dä|vum}} [[User:$3|$3]] sin afjelehnt woode.",
 	"revreview-tt-flag": "Donn heh di Versino aannämme, endämm dat De sähß, dat De se jeprööv häß.",
+	"revreview-tt-unflag": "Donn heh di Väsjohn afflehne un makkehr se als „onjepröhv“, wann de meijns.",
 	"revreview-tt-reject": "Heh di Änderonge aam Täx aflehne un uß dä Sigg widder eruß nämme"
 }
