@@ -4,7 +4,8 @@
 			"CERminator",
 			"KWiki",
 			"Srdjan m",
-			"Semso98"
+			"Semso98",
+			"Milicevic01"
 		]
 	},
 	"action-review": "pregledate revizije",
@@ -83,7 +84,7 @@
 	"revreview-depth-3": "Visok",
 	"revreview-depth-4": "Odabrano",
 	"revreview-draft-title": "Na ovoj stranici su prikazane izmjene na čekanju",
-	"revreview-editnotice": "'''Vaše izmjene bit će prikazane čitaocima nakon što ih prihvati potvrđeni korisnik. ([[{{MediaWiki:Validationpage}}|pomoć]])''",
+	"revreview-editnotice": "'''Vaše izmjene bit će prikazane čitaocima nakon što ih prihvati potvrđeni korisnik. ([[{{MediaWiki:Validationpage}}|pomoć]])'''",
 	"revreview-submitedit": "Pošalji promjene",
 	"revreview-submitedit-title": "Pošaljite svoje izmjene na pregled",
 	"revreview-edited": "'''Vaše izmjene bit će prikazane čitaocima kada ih autorizirani korisnik prihvati. ([[{{MediaWiki:Validationpage}}|pomoć]])'''\n\n{{PLURAL:$2|Postoji|Postoje}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2  {{PLURAL:$2|izmjena|izmjene|izmjena}}] na čekanju ''(prikazano ispod)'' {{PLURAL:$2|koja|koje}} čekaju na provjeru.",
