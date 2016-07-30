@@ -8,9 +8,9 @@
 			"Milicevic01"
 		]
 	},
-	"action-review": "pregledate revizije",
-	"editor": "Uređivač",
-	"flaggedrevs": "Provjerene revizije",
+	"action-review": "pregledate izmjene",
+	"editor": "Urednik",
+	"flaggedrevs": "Provjerene izmjene",
 	"flaggedrevs-watched-pending": "'''Molimo obratite pažnju!''' Trenutno ima [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} izmjena na čekanju] među stranicama za pregled na Vašem spisku praćenja.",
 	"flaggedrevs-desc": "Daje mogućnost Uređivačima da provjere revizije i stabiliziraju stranice",
 	"flaggedrevs-pref-UI": "Osnovni interfejs:",

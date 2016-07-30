@@ -97,7 +97,7 @@
 	"revreview-depth-4": "알참",
 	"revreview-draft-title": "이 페이지에서 검토를 기다리고 있는 판이 표시되고 있습니다",
 	"revreview-editnotice": "'''당신의 편집은 권한이 있는 사용자가 승인한 후에 배포될 것입니다. ([[{{MediaWiki:Validationpage}}|도움말]])'''",
-	"revreview-submitedit": "바뀜 제출",
+	"revreview-submitedit": "바뀐 내용 제출",
 	"revreview-submitedit-title": "당신의 편집을 검토 요청하기",
 	"revreview-edited": "'''당신의 편집은 권한이 있는 사용자가 승인한 후에 배포될 것입니다. ([[{{MediaWiki:Validationpage}}|도움말]])'''\n\n아래에 보이는 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 보류 중인 {{PLURAL:$2|바뀜}} $2개]가 검토를 기다리고 {{PLURAL:$2|있습니다}}.",
 	"revreview-edited-section": "\"[[#$1|$2]]\" 문단으로 돌아갑니다.",
