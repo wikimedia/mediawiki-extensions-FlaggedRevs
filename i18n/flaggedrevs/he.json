@@ -188,5 +188,13 @@
 	"revreview-locked": "'''הערה:''' עריכות בדף זה דורשות [[{{MediaWiki:Validationpage}}|סקירה]] לפני הצגתן לקוראים.",
 	"revreview-unlocked": "'''הערה:''' עריכות בדף זה אינן דורשות [[{{MediaWiki:Validationpage}}|סקירה]] לפני הצגתן לקוראים.",
 	"log-show-hide-review": "$1 יומן סקירות",
-	"validationpage": "{{ns:help}}:אישור דפים"
+	"validationpage": "{{ns:help}}:אישור דפים",
+	"log-action-filter-review": "סוג הסקירה:",
+	"log-action-filter-review-accept": "קבלה ידנית",
+	"log-action-filter-review-autoaccept": "קבלה אוטומטית",
+	"log-action-filter-review-unaccept": "ביטול קבלה אוטומטי",
+	"log-action-filter-stable": "סוג שינוי ההגדרה:",
+	"log-action-filter-stable-config": "הגדרה חדשה",
+	"log-action-filter-stable-modify": "הגדרה ששונתה",
+	"log-action-filter-stable-reset": "אתחול הגדרה"
 }

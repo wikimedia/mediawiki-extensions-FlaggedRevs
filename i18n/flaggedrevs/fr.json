@@ -23,7 +23,8 @@
 			"Tpt",
 			"Urhixidur",
 			"Verdy p",
-			"Zetud"
+			"Zetud",
+			"Wladek92"
 		]
 	},
 	"action-review": "relire les versions",
@@ -108,7 +109,6 @@
 	"revreview-depth-3": "Élevée",
 	"revreview-depth-4": "Remarquable",
 	"revreview-draft-title": "Les modifications en attente sont affichées sur cette page",
-	"revreview-edit": "Modifier",
 	"revreview-editnotice": "'''Vos modifications seront affichées aux lecteurs une fois qu’un utilisateur disposant des droits nécessaires les aura acceptées.\n([[{{MediaWiki:Validationpage}}|aide]])'''",
 	"revreview-submitedit": "Soumettez vos modifications",
 	"revreview-submitedit-title": "Soumettez vos modifications pour relecture",
@@ -139,7 +139,6 @@
 	"revreview-quick-quality-same": "'''[[{{MediaWiki:Validationpage}}|Qualité]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} relire les modifications en attente]]",
 	"revreview-quick-see-quality": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} relire les modifications en attente]]",
-	"revreview-source": "Voir le texte source",
 	"revreview-basic-title": "Ceci est une version vérifiée de cette page.",
 	"revreview-style": "Lisibilité",
 	"revreview-style-0": "Insuffisant",
@@ -202,5 +201,13 @@
 	"revreview-locked": "'''Note :''' les modifications doivent être [[{{MediaWiki:Validationpage}}|relues]] avant d’être affichées sur cette page.",
 	"revreview-unlocked": "'''Note :''' les modifications ne nécessitent pas de [[{{MediaWiki:Validationpage}}|relecture]] avant d’être affichées sur cette page.",
 	"log-show-hide-review": "$1 l’historique des relectures",
-	"validationpage": "{{ns:help}}:Validation de la page"
+	"validationpage": "{{ns:help}}:Validation de la page",
+	"log-action-filter-review": "Type de révision :",
+	"log-action-filter-review-accept": "Acceptation manuelle",
+	"log-action-filter-review-autoaccept": "Acceptation automatique",
+	"log-action-filter-review-unaccept": "Rejet manuel",
+	"log-action-filter-stable": "Type de modification de la configuration :",
+	"log-action-filter-stable-config": "Nouvelle configuration",
+	"log-action-filter-stable-modify": "Configuration modifiée",
+	"log-action-filter-stable-reset": "Réinitialisation de la configuration"
 }

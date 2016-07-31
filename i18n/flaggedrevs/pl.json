@@ -102,7 +102,6 @@
 	"revreview-depth-3": "wysoka",
 	"revreview-depth-4": "na medal",
 	"revreview-draft-title": "Na tej stronie wyświetlane są oczekujące zmiany",
-	"revreview-edit": "Edytuj",
 	"revreview-editnotice": "'''Dokonane przez Ciebie zmiany zostaną pokazane natychmiast po przejrzeniu przez uprawnionego użytkownika. ([[{{MediaWiki:Validationpage}}|pomoc]])'''",
 	"revreview-submitedit": "Zapisz zmiany",
 	"revreview-submitedit-title": "Zapisz swoją edycję i dołącz ją do zmian oczekujących na przejrzenie",
@@ -133,7 +132,6 @@
 	"revreview-quick-quality-same": "'''[[{{MediaWiki:Validationpage}}|Zweryfikowana]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} przejrzyj oczekujące zmiany]]",
 	"revreview-quick-see-quality": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} przejrzyj oczekujące zmiany]]",
-	"revreview-source": "Pokaż źródło",
 	"revreview-basic-title": "To jest wersja przejrzana tej strony",
 	"revreview-style": "Czytelność",
 	"revreview-style-0": "nieakceptowalna",
@@ -196,5 +194,10 @@
 	"revreview-locked": "Edycje muszą zostać [[{{MediaWiki:Validationpage}}|oznaczone]], zanim zostaną wyświetlone czytelnikom na tej stronie.",
 	"revreview-unlocked": "Edycje nie wymagają [[{{MediaWiki:Validationpage}}|oznaczenia]], by zostały wyświetlone na tej stronie.",
 	"log-show-hide-review": "$1 rejestr oznaczania",
-	"validationpage": "{{ns:help}}:Wersje oznaczone"
+	"validationpage": "{{ns:help}}:Wersje oznaczone",
+	"log-action-filter-review-accept": "Ręczna akceptacja",
+	"log-action-filter-review-autoaccept": "Automatyczna akceptacja",
+	"log-action-filter-stable": "Rodzaj zmiany konfiguracji:",
+	"log-action-filter-stable-config": "Nowa konfiguracja",
+	"log-action-filter-stable-reset": "Reset konfiguracji"
 }

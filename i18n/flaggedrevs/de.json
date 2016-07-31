@@ -197,5 +197,13 @@
 	"revreview-locked": "'''Hinweis:''' Bearbeitungen müssen [[{{MediaWiki:Validationpage}}|markiert]] werden, bevor sie Lesern dieser Seite angezeigt werden.",
 	"revreview-unlocked": "'''Hinweis:''' Bearbeitungen benötigen keine [[{{MediaWiki:Validationpage}}|Markierung]], bevor sie allen Lesern dieser Seite angezeigt werden.",
 	"log-show-hide-review": "Versionsmarkierungs-Logbuch $1",
-	"validationpage": "{{ns:help}}:Gesichtete und geprüfte Versionen"
+	"validationpage": "{{ns:help}}:Gesichtete und geprüfte Versionen",
+	"log-action-filter-review": "Typ der Sichtung:",
+	"log-action-filter-review-accept": "Manuelle Sichtung",
+	"log-action-filter-review-autoaccept": "Automatische Sichtung",
+	"log-action-filter-review-unaccept": "Manuelle Entfernung der Sichtung",
+	"log-action-filter-stable": "Typ der Konfigurationsänderung:",
+	"log-action-filter-stable-config": "Neue Konfiguration",
+	"log-action-filter-stable-modify": "Konfiguration verändert",
+	"log-action-filter-stable-reset": "Zurücksetzung der Konfiguration"
 }

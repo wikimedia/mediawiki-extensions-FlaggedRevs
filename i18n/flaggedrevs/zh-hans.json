@@ -193,5 +193,13 @@
 	"revreview-locked": "'''注意：'''该页面的编辑在显示给读者前必须[[{{MediaWiki:Validationpage}}|复核]]。",
 	"revreview-unlocked": "'''注意：'''该页面的编辑在显示给读者前不需要[[{{MediaWiki:Validationpage}}|复核]]。",
 	"log-show-hide-review": "$1复核日志",
-	"validationpage": "{{ns:help}}:页面确认"
+	"validationpage": "{{ns:help}}:页面确认",
+	"log-action-filter-review": "复核类型：",
+	"log-action-filter-review-accept": "手动接受",
+	"log-action-filter-review-autoaccept": "自动接受",
+	"log-action-filter-review-unaccept": "手动不接受",
+	"log-action-filter-stable": "配置更改的类型：",
+	"log-action-filter-stable-config": "新配置",
+	"log-action-filter-stable-modify": "已修改的配置",
+	"log-action-filter-stable-reset": "配置重置"
 }

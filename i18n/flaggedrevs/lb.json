@@ -175,5 +175,7 @@
 	"revreview-locked": "'''Opgepasst:''' Ännerunge mussen [[{{MediaWiki:Validationpage}}|nogekuckt ginn]] éier se op dëser Säit de Lieser gewise ginn.",
 	"revreview-unlocked": "'''Opgepasst:''' Ännerunge mussen net [[{{MediaWiki:Validationpage}}|nogekuckt]] ginn ier se op dëser Säit de Lieser gewise ginn.",
 	"log-show-hide-review": "Logbuch vun den nogekucke Verisoune $1",
-	"validationpage": "{{ns:help}}:Validatioun vun der Säit"
+	"validationpage": "{{ns:help}}:Validatioun vun der Säit",
+	"log-action-filter-review-accept": "Manuell akzeptéieren",
+	"log-action-filter-review-autoaccept": "Automatesch akzeptéieren"
 }

@@ -92,7 +92,6 @@
 	"revreview-depth-3": "مرتفع",
 	"revreview-depth-4": "مميز",
 	"revreview-draft-title": "التعديلات المعلقة معروضة في هذه الصفحة",
-	"revreview-edit": "عدل",
 	"revreview-editnotice": "'''ستظهر تغييراتك للقراء متى ما قبلها مستخدم مخول. ([[{{MediaWiki:Validationpage}}|مساعدة]])'''",
 	"revreview-submitedit": "أرسل التغييرات",
 	"revreview-submitedit-title": "أرسل تعديلاتك للمراجعة",
@@ -123,7 +122,6 @@
 	"revreview-quick-quality-same": "'''[[{{MediaWiki:Validationpage}}|الجودة]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}}راجع التغييرات المعلقة]]",
 	"revreview-quick-see-quality": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} راجع التغييرات المعلقة]]",
-	"revreview-source": "اعرض المصدر",
 	"revreview-basic-title": "هذه نسخة متحقق منها من هذه الصفحة",
 	"revreview-style": "القابلية للقراءة",
 	"revreview-style-0": "غير مقبول",
@@ -186,5 +184,6 @@
 	"revreview-locked": "'''ملاحظة:''' يجب أن [[{{MediaWiki:Validationpage}}|تراجع]] التعديلات على هذه الصفحة قبل أن تعرض للقراء.",
 	"revreview-unlocked": "'''ملاحظة:''' لا يجب أن [[{{MediaWiki:Validationpage}}|تراجع]] التعديلات على هذه الصفحة قبل أن تعرض للقراء.",
 	"log-show-hide-review": "$1 سجل المراجعة",
-	"validationpage": "{{ns:help}}:تحقيق الصفحة"
+	"validationpage": "{{ns:help}}:تحقيق الصفحة",
+	"log-action-filter-review": "نوع المراجعة:"
 }
