@@ -70,8 +70,18 @@ $wgDefaultUserOptions['flaggedrevsviewdiffs'] = false;
 
 # Add review log
 $wgLogTypes[] = 'review';
+$wgActionFilteredLogs['review'] = array(
+	'accept' => array( 'approve', 'approve2', 'approve-i', 'approve2-i' ),
+	'autoaccept' => array( 'approve-a', 'approve-ia' ),
+	'unaccept' => array( 'unapprove', 'unapprove2' ),
+);
 # Add stable version log
 $wgLogTypes[] = 'stable';
+$wgActionFilteredLogs['stable'] = array(
+	'config' => array( 'config' ),
+	'modify' => array( 'modify' ),
+	'reset' => array( 'reset' ),
+);
 
 # Log name and description as well as action handlers
 FlaggedRevsUISetup::defineLogBasicDescription( $wgLogNames, $wgLogHeaders, $wgFilterLogTypes );

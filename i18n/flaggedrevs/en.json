@@ -187,5 +187,13 @@
 	"accesskey-ca-current": "v",
 	"accesskey-ca-stable": "c",
 	"log-show-hide-review": "$1 review log",
-	"validationpage": "{{ns:help}}:Page validation"
+	"validationpage": "{{ns:help}}:Page validation",
+	"log-action-filter-review": "Type of review:",
+	"log-action-filter-review-accept": "Manual accept",
+	"log-action-filter-review-autoaccept": "Automatic accept",
+	"log-action-filter-review-unaccept": "Manual unaccept",
+	"log-action-filter-stable": "Type of configuration change:",
+	"log-action-filter-stable-config": "New configuration",
+	"log-action-filter-stable-modify": "Modified configuration",
+	"log-action-filter-stable-reset": "Configuration reset"
 }
