@@ -45,7 +45,7 @@
 	"revreview-hist-quality": "квалитетна ревизија",
 	"revreview-hist-basic": "проверена ревизија",
 	"revreview-hist-quality-user": "{{GENDER:$3|одобрио корисник|одобрила корисница}} [[User:$3|$3]]",
-	"revreview-hist-basic-user": "{{GENDER:$3|проверио корисник|проверила корисница}} [[User:$3|$3]]",
+	"revreview-hist-basic-user": "прегледао/ла [[User:$3|$3]]",
 	"revreview-hist-quality-auto": "аутоматски одобрено",
 	"revreview-hist-basic-auto": "аутоматски проверено",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} чека проверу]]'''",

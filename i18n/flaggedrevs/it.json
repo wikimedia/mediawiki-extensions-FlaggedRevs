@@ -184,5 +184,8 @@
 	"revreview-locked": "'''Nota:''' le modifiche a questa pagina devono essere [[{{MediaWiki:Validationpage}}|revisionate]] prima di essere mostrate ai lettori.",
 	"revreview-unlocked": "'''Nota:''' le modifiche a questa pagina non richiedono di essere [[{{MediaWiki:Validationpage}}|revisionate]] prima di essere mostrate ai lettori.",
 	"log-show-hide-review": "$1 log delle verifiche",
-	"validationpage": "{{ns:help}}:Validazione delle pagine"
+	"validationpage": "{{ns:help}}:Validazione delle pagine",
+	"log-action-filter-stable": "Tipo di modifica alla configurazione:",
+	"log-action-filter-stable-config": "Nuova configurazione",
+	"log-action-filter-stable-modify": "Configurazione modificata"
 }
