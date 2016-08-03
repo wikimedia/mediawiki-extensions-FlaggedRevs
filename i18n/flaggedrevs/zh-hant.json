@@ -13,7 +13,8 @@
 			"Wrightbus",
 			"Cwlin0416",
 			"LNDDYL",
-			"Zhxy 519"
+			"Zhxy 519",
+			"一個正常人"
 		]
 	},
 	"action-review": "審查修訂",
@@ -186,5 +187,13 @@
 	"revreview-locked": "'''注意：'''對本頁作出的編輯必須經[[{{MediaWiki:Validationpage}}|審查]]後方可向讀者顯示。",
 	"revreview-unlocked": "'''注意：'''對本頁作出的編輯無須經過[[{{MediaWiki:Validationpage}}|審查]]就可以向讀者顯示。",
 	"log-show-hide-review": "$1 審查日誌",
-	"validationpage": "{{ns:help}}:頁面檢驗"
+	"validationpage": "{{ns:help}}:頁面檢驗",
+	"log-action-filter-review": "複核類型：",
+	"log-action-filter-review-accept": "手動接受",
+	"log-action-filter-review-autoaccept": "自動接受",
+	"log-action-filter-review-unaccept": "手動不接受",
+	"log-action-filter-stable": "配置更改的類型：",
+	"log-action-filter-stable-config": "新配置",
+	"log-action-filter-stable-modify": "已修改的配置",
+	"log-action-filter-stable-reset": "配置重置"
 }
