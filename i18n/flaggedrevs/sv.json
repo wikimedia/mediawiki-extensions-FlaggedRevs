@@ -186,5 +186,9 @@
 	"revreview-locked": "'''OBS:''' Redigeringar måste [[{{MediaWiki:Validationpage}}|granskas]] innan de visas för läsare på den här sidan.",
 	"revreview-unlocked": "'''OBS:''' Redigeringar behöver inte [[{{MediaWiki:Validationpage}}|granskas]] innan de visas för läsare på den här sidan.",
 	"log-show-hide-review": "$1 granskningslogg",
-	"validationpage": "{{ns:help}}:Sidvalidering"
+	"validationpage": "{{ns:help}}:Sidvalidering",
+	"log-action-filter-review": "Typ av granskning:",
+	"log-action-filter-stable": "Typ av konfigurationsändring:",
+	"log-action-filter-stable-config": "Ny konfiguration",
+	"log-action-filter-stable-modify": "Ändrad konfiguration"
 }

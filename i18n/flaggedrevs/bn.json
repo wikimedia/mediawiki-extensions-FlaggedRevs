@@ -128,6 +128,7 @@
 	"revreview-lev-all": "যেকোনো",
 	"revreview-lev-basic": "পরীক্ষিত",
 	"revreview-lev-quality": "গুণ",
+	"revreview-lev-pristine": "আদিম",
 	"revreview-defaultfilter": "প্রাথমিক সংস্করণ:",
 	"revreview-def-all": "যেকোন",
 	"revreview-def-draft": "সাম্প্রতিক",
@@ -149,5 +150,7 @@
 	"revreview-locked": "'''নোট:''' এই পাতা পাঠকের কাছে প্রদর্শিত হবার আগে সম্পাদনাগুলি অবশ্যই [[{{MediaWiki:Validationpage}}|পর্যালোচিত]] হবে।",
 	"revreview-unlocked": "'''নোট:''' এই পাতা পাঠকের কাছে প্রদর্শিত হবার আগে সম্পাদনাগুলির [[{{MediaWiki:Validationpage}}|পর্যালোচনার]] প্রয়োজন হবে না।",
 	"log-show-hide-review": "পর্যালোচনা লগ $1",
-	"validationpage": "{{ns:help}}:নিবন্ধ বৈধকরণ"
+	"validationpage": "{{ns:help}}:নিবন্ধ বৈধকরণ",
+	"log-action-filter-review": "পর্যালোচনার ধরন:",
+	"log-action-filter-review-autoaccept": "স্বয়ংক্রিয় গ্রহণ"
 }
