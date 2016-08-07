@@ -557,27 +557,42 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			# If $wgUseNPPatrol is off, then not even those are used.
 			$conds['rc_type'] = RC_NEW; // reduce rows to UPDATE
 		}
+
+		$newPatrolState = null; // set rc_patrolled to this value
 		# If we accepted this rev, then mark prior revs as patrolled...
 		if ( $patrol === 'patrol' ) {
 			if ( $sTimestamp ) { // sanity check; should always be set
 				$conds[] = 'rc_timestamp <= ' . $dbw->addQuotes( $dbw->timestamp( $sTimestamp ) );
-				$dbw->update( 'recentchanges',
-					array( 'rc_patrolled' => 1 ),
-					$conds,
-					__METHOD__,
-					array( 'LIMIT' => $limit ) // performance
-				);
+				$newPatrolState = 1;
 			}
 		# If we un-accepted this rev, then mark now-pending revs as unpatrolled...
 		} elseif ( $patrol === 'unpatrol' ) {
 			if ( $sTimestamp ) {
 				$conds[] = 'rc_timestamp > ' . $dbw->addQuotes( $dbw->timestamp( $sTimestamp ) );
 			}
-			$dbw->update( 'recentchanges',
-				array( 'rc_patrolled' => 0 ),
-				$conds,
-				__METHOD__,
-				array( 'LIMIT' => $limit ) // performance
+			$newPatrolState = 0;
+		}
+
+		if ( $newPatrolState === null ) {
+			return; // leave alone
+		}
+
+		// Only update rows that need it
+		$conds['rc_patrolled'] = $newPatrolState ? 0 : 1;
+		// SELECT and update by PK to avoid lag
+		$rcIds = $dbw->selectFieldValues(
+			'recentchanges',
+			'rc_id',
+			$conds,
+			__METHOD__,
+			[ 'LIMIT' => $limit ]
+		);
+		if ( $rcIds ) {
+			$dbw->update(
+				'recentchanges',
+				[ 'rc_patrolled' => $newPatrolState ],
+				[ 'rc_id' => $rcIds ],
+				__METHOD__
 			);
 		}
 	}
