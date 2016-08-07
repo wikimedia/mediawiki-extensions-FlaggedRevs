@@ -23,7 +23,8 @@
 			"Cinemantique",
 			"WindEwriX",
 			"MaxBioHazard",
-			"Ләйсән"
+			"Ләйсән",
+			"Синкретик"
 		]
 	},
 	"action-review": "проверка версий страниц",
@@ -196,5 +197,9 @@
 	"revreview-locked": "'''Замечание.''' Правки должны быть [[{{MediaWiki:Validationpage}}|проверены]], прежде чем они будут показаны читателям этой страницы.",
 	"revreview-unlocked": "'''Замечание.''' Чтобы читатели этой страницы увидели сделанные изменения, их предварительная [[{{MediaWiki:Validationpage}}|проверка]] не требуется.",
 	"log-show-hide-review": "$1 журнал проверок",
-	"validationpage": "{{ns:help}}:Проверка страниц"
+	"validationpage": "{{ns:help}}:Проверка страниц",
+	"log-action-filter-stable": "Тип действия:",
+	"log-action-filter-stable-config": "Установка стабилизации",
+	"log-action-filter-stable-modify": "Изменение стабилизации",
+	"log-action-filter-stable-reset": "Снятие стабилизации"
 }

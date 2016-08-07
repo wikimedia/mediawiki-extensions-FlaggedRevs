@@ -25,7 +25,8 @@
 			"Sanbec",
 			"Translationista",
 			"XalD",
-			"Macofe"
+			"Macofe",
+			"Indiralena"
 		]
 	},
 	"action-review": "verificar ediciones",
@@ -110,7 +111,6 @@
 	"revreview-depth-3": "Elevada",
 	"revreview-depth-4": "Destacada",
 	"revreview-draft-title": "Los cambios pendientes se muestran en esta página",
-	"revreview-edit": "Editar",
 	"revreview-editnotice": "'''Tus cambios se mostrarán a los lectores una vez que un usuario autorizado los acepte. ([[{{MediaWiki:Validationpage}}|ayuda]])'''",
 	"revreview-submitedit": "Enviar cambios",
 	"revreview-submitedit-title": "Enviar tus cambios para revisión",
@@ -141,7 +141,6 @@
 	"revreview-quick-quality-same": "'''[[{{MediaWiki:Validationpage}}|Calidad]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} revisar cambios pendientes]]",
 	"revreview-quick-see-quality": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} revisar cambios pendientes]]",
-	"revreview-source": "Ver código fuente",
 	"revreview-basic-title": "Esta es una versión verificada de esta página",
 	"revreview-style": "Legibilidad",
 	"revreview-style-0": "Inadecuado",
@@ -204,5 +203,10 @@
 	"revreview-locked": "'''Atención:''' Las ediciones deben ser [[{{MediaWiki:Validationpage}}|revisadas]] antes de ser mostradas en esta página.",
 	"revreview-unlocked": "'''Atención:''' Las ediciones no requieren [[{{MediaWiki:Validationpage}}|revisión]] antes de ser mostradas en esta página.",
 	"log-show-hide-review": "$1 registro de revisiones",
-	"validationpage": "{{ns:help}}:Validación de página"
+	"validationpage": "{{ns:help}}:Validación de página",
+	"log-action-filter-review": "Tipo de revisión:",
+	"log-action-filter-stable": "Tipo de cambio de configuración:",
+	"log-action-filter-stable-config": "Configuración nueva",
+	"log-action-filter-stable-modify": "Configuración modificada",
+	"log-action-filter-stable-reset": "Restablecimiento de configuración"
 }
