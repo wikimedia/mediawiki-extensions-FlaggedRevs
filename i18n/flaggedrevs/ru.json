@@ -24,7 +24,8 @@
 			"WindEwriX",
 			"MaxBioHazard",
 			"Ләйсән",
-			"Синкретик"
+			"Синкретик",
+			"Ole Yves"
 		]
 	},
 	"action-review": "проверка версий страниц",
@@ -104,7 +105,7 @@
 	"revreview-depth-4": "избранная",
 	"revreview-draft-title": "На этой странице показываются непроверенные изменения",
 	"revreview-editnotice": "'''Сделанные вами изменения будут показаны читателям после того, как их утвердит уполномоченный участник''' ([[{{MediaWiki:Validationpage}}|подробнее]]).",
-	"revreview-submitedit": "Записать изменения",
+	"revreview-submitedit": "Записать страницу",
 	"revreview-submitedit-title": "Отправить свои исправления для проверки",
 	"revreview-edited": "'''Изменения будут показаны читателям после того, как их утвердит уполномоченный участник ([[{{MediaWiki:Validationpage}}|подробнее]]).'''\n\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|изменение ожидает|изменения ожидают|изменений ожидают}}] проверки ''(показаны ниже)''.",
 	"revreview-edited-section": "Вернуться к разделу страницы под названием «[[#$1|$2]]».",
