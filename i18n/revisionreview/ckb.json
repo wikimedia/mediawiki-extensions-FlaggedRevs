@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Calak"
+			"Calak",
+			"Sarchia"
 		]
 	},
 	"revisionreview": "بەسەرداچوونەوەی پێداچوونەوەکان",
@@ -59,7 +60,7 @@
 	"revreview-reject-text-revto": "ئەمە پەڕەکە دەگەڕێنێتەوە بۆ [{{fullurl:$1|oldid=$2}} وەشانی $3].",
 	"revreview-reject-summary": "کورتە:",
 	"revreview-reject-confirm": "ئەم گۆڕانکارییانە ڕەد بکەوە",
-	"revreview-reject-cancel": "ھەڵیوەشێنەوە",
+	"revreview-reject-cancel": "ھەڵوەشاندنەوە",
 	"revreview-reject-summary-cur": "دوایین {{PLURAL:$1|گۆڕانکاریی|$1 گۆڕانکاریی}} دەق ڕەد کرایەوە (لە لایەن $2) و گەڕێنرایەوە بۆ پێداچوونەوەی $3 لە لایەن $4",
 	"revreview-reject-summary-old": "یەکەمین {{PLURAL:$1|گۆڕانکاریی|$1 گۆڕانکاریی}} دەق ڕەد کرایەوە (لە لایەن $2) کە درێژەی پێداچوونەوەی $3 لە لایەن $4 بوو",
 	"revreview-reject-summary-cur-short": "دوایین {{PLURAL:$1|گۆڕانکاریی|$1 گۆڕانکاریی}} دەق ڕەد کرایەوە و گەڕێنرایەوە بۆ پێداچوونەوەی $2 لە لایەن $3",

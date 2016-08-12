@@ -53,6 +53,8 @@
 	"revreview-poss-conflict-c": "''' Tembe: [[User:$1|$1]] ena  vurnayış sero barıyayış suru kerdo: $2 $3 .'' '",
 	"revreview-adv-reviewing-p": "Malumat : Karberê bini vurnayışê {{GENDER:$1|barıyayışi}} şenê bıvinê",
 	"revreview-adv-reviewing-c": "Malumat : Karberê bini vurnayışê {{GENDER:$1|barıyayena şıma}} şenê bıvinê",
+	"revreview-sadv-reviewing-p": "Şıma şenê ena perer kontrol kerdışa xo karberan dê binan rê $1 ilan kerê",
+	"revreview-sadv-reviewing-c": "Şıma şenê ena perer vurnayışera xo karberan dê binan rê $1 ilan kerê",
 	"revreview-adv-start-link": "ilan bıke",
 	"revreview-adv-stop-link": "ilan meke",
 	"revreview-toolow": "'''Ti gani her nitelikan \"tam niya\" zafyer rate bike ke seba revizyon gani qontrol bibo.'''\n\nSeba weziyetê qontroli wedarnayişi, sazanê \"{{int:revreview-submit-unreview}}\" her ca de \"tam niya\" bike.\n\nMa rica keni \"peyser\" şı ra rayna cerbnayışi pıploxnê.",
@@ -60,10 +62,16 @@
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Vurnayişê şıma zerrê versiyonê sebiti de niya.</span>\n\nMa rica keni vurnayişanê xo peran versiyonê sebit biki bade kontrolê vurnayişi.\nTi belki tewr verni de vurnayişan teqib biki ya na \"peyser bêri\".",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Vurnayişê şıma zerrê versiyonê sebiti de niya.</span>\n\nMa rica keni vurnayişanê xo peran versiyonê sebit biki bade kontrolê vurnayişi.\nTi belki tewr verni de vurnayişan teqib biki ya na \"peyser bêri\".",
 	"revreview-update-includes": "Şabloni/dosyey biy rocaney (pelê etudkerdey qalındê):",
+	"revreview-reject-text-list": "Eger ke şıma enay qebul kerê se şıma dê  [[:$2|$2]]  {{PLURAL:$1|revizyon |revizyona}} '''red kerdış''' bıkerê:",
 	"revreview-reject-text-revto": "Ena per do peyser beriyo [{{fullurl:$1|oldid=$2}} tarix da $3]  revizyon",
 	"revreview-reject-summary": "Xulasa:",
 	"revreview-reject-confirm": "Nê vurnayışa red ke",
 	"revreview-reject-cancel": "Bıtexelne",
+	"revreview-reject-summary-cur": "Peyên {{PLURAL:$1|vurnayışê metini|$1 vurriyayışê metinan}} ({{PLURAL:$7|{{GENDER:$5|embaz}}}} $2) revizyonê $3 {{GENDER:$6|ra}} $4 vırazeno",
+	"revreview-reject-summary-old": "Peyên {{PLURAL:$1|vurnayışê metini|$1 vurriyayışê metinan}} ({{PLURAL:$7|{{GENDER:$5|embaz}}}} $2) revizyonê $3 {{GENDER:$6|ra}} $4 teqib keno",
+	"revreview-reject-summary-cur-short": "Red kerdeno peyên  {{PLURAL:$1|vurnayışê metini|$1 vurnayışê metinan}} u revizyonê $2 {{GENDER:$4|ra}} $3 vıraziya",
+	"revreview-reject-summary-old-short": "Red kerdeno peyên  {{PLURAL:$1|vurnayışê metini|$1 vurnayışê metinan}} u revizyonê $2 {{GENDER:$4|ra}} $3 teqib beno",
 	"revreview-tt-flag": "\"Qontrol\" nişan bike ke ena revizyon qebul bike",
-	"revreview-tt-unflag": "Nê çım ra ravyarnayışi \"Qontrol nêbiyo\" deye qebul meke"
+	"revreview-tt-unflag": "Nê çım ra ravyarnayışi \"Qontrol nêbiyo\" deye qebul meke",
+	"revreview-tt-reject": "Vuryayışanê çımey metini peyser bıgi u vurnayışi red ke"
 }

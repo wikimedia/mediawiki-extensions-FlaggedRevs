@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Calak"
+			"Calak",
+			"Sarchia"
 		]
 	},
 	"action-review": "بەسەرداچوونەوەی پێداچوونەوەکان",
@@ -75,12 +76,11 @@
 	"revreview-current": "گۆڕانکارییە ھەڵواسراوەکان",
 	"revreview-depth": "قووڵایی",
 	"revreview-depth-0": "نەگونجاو",
-	"revreview-depth-1": "سەرەکی",
+	"revreview-depth-1": "بنەڕەتی",
 	"revreview-depth-2": "ناونجی",
 	"revreview-depth-3": "بەرز",
 	"revreview-depth-4": "تایبەتی",
 	"revreview-draft-title": "گۆڕانکارییە ھەڵواسراوەکان لەم پەڕەیەدا پێشان دراون.",
-	"revreview-edit": "دەستکاری",
 	"revreview-editnotice": "'''گۆڕانکارییەکانت بە خوێنەران پێشان دەدرێ ھەر کە بەکارھێنەرێکی دەستەڵاتدار قەبووڵیان بکات. ([[{{MediaWiki:Validationpage}}|یارمەتی]])'''",
 	"revreview-submitedit": "گۆڕانکارییەکان تۆمار بکە",
 	"revreview-submitedit-title": "گۆڕانکارییەکانت بۆ بەسەرداچوونەوە تۆمار بکە",
@@ -111,7 +111,6 @@
 	"revreview-quick-quality-same": "'''[[{{MediaWiki:Validationpage}}|چاک]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} بەسەر گۆڕانکارییە ھەڵواسراوەکاندا بچۆوە]]",
 	"revreview-quick-see-quality": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} بەسەر گۆڕانکارییە ھەڵواسراوەکاندا بچۆوە]]",
-	"revreview-source": "سەرچاوەکەی ببینە",
 	"revreview-basic-title": "ئەمە وەشانێکی تاوتوێ‌کراوی ئەم پەڕەیەیە",
 	"revreview-style": "شیاویی خوێندنەوە",
 	"revreview-style-0": "نەگونجاو",

@@ -6,7 +6,8 @@
 			"Gorizon",
 			"Mirzali",
 			"Xoser",
-			"Marmase"
+			"Marmase",
+			"Kumkumuk"
 		]
 	},
 	"validationstatistics": "Pele istatîstîksê onay biyayisi",
@@ -21,7 +22,7 @@
 	"validationstatistics-latest": "Rocaniye biyo",
 	"validationstatistics-synced": "Rocaniye biyo/Kontrol biyo",
 	"validationstatistics-old": "Verên",
-	"validationstatistics-unreviewed": "Çım ra nêraviyarnayo",
+	"validationstatistics-unreviewed": "Nêbarıyaye",
 	"validationstatistics-utable": "Cêr dı {{PLURAL:$2|seate|$2 seatan}} dı tewr vêşi çım ra ravyarnayış keno $1 karberi liste benê.",
 	"validationstatistics-user": "Karber",
 	"validationstatistics-reviews": "Çımraraviyarnayışi"
