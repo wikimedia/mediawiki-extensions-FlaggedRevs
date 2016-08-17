@@ -6,7 +6,8 @@
 			"Matasg",
 			"Vpovilaitis",
 			"Reedy",
-			"Hugo.arg"
+			"Hugo.arg",
+			"Zygimantus"
 		]
 	},
 	"action-review": "vertinti versijas",
@@ -75,7 +76,6 @@
 	"revreview-depth-3": "Geras",
 	"revreview-depth-4": "Puikus",
 	"revreview-draft-title": "Šiame puslapyje pateikiami laukiantys patvirtinimo pakeitimai",
-	"revreview-edit": "Redaguoti",
 	"revreview-submitedit": "Siųsti pakeitimus",
 	"revreview-submitedit-title": "Siųsti pakeitimus perižiurai",
 	"revreview-oldrating": "Jis buvo įvertinatas",
@@ -89,7 +89,6 @@
 	"revreview-quick-quality-same": "'''[[{{MediaWiki:Validationpage}}|Įvertintas]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} patvirtinimo laukiantys pakeitimai]]",
 	"revreview-quick-see-quality": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} patvirtinimo laukiantys pakeitimai]]",
-	"revreview-source": "Peržiūrėti šaltinį",
 	"revreview-basic-title": "Tai šio puslapio patvirtinta versija",
 	"revreview-style": "Stilius",
 	"revreview-style-0": "Nenustatytas",
@@ -123,5 +122,8 @@
 	"flaggedrevs-protect-none": "Leisti visiems naudotojams",
 	"revreview-locked-title": "Šio puslapio redagavimo veiksmai reikalaują peržiūros.",
 	"revreview-unlocked-title": "Šio puslapio redagavimo veiksmai nereikalaują peržiūros.",
-	"validationpage": "{{ns:help}}:Puslapio vertinimas"
+	"validationpage": "{{ns:help}}:Puslapio vertinimas",
+	"log-action-filter-review-accept": "Rankinis priėmimas",
+	"log-action-filter-review-autoaccept": "Automatinis priėmimas",
+	"log-action-filter-stable-config": "Nauja konfigūracija"
 }
