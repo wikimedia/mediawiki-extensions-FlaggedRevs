@@ -1,14 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Muhammad Shuaib"
 		]
 	},
 	"revisionreview": "ترمیم کا جائزہ لیں",
 	"review_page_invalid": "ہدف صفحہ عنوان باطل ہے.",
 	"review_page_notexists": "ہدف کے صفحہ وجود نہیں.",
 	"review_bad_oldid": "ہدف کے ترمیمی وجود نہیں.",
-	"review_bad_key": "تحریک منہاج القرآن کے پیرامیٹر باطل شامل کئے جانے کے اہم.",
+	"review_bad_key": "پیرامیٹر کلید برائے نادرست اندراج",
 	"review_bad_tags": "مخصوص کردہ ٹیگ اقدار میں سے کچھ باطل ہیں.",
 	"review_denied": "اجازت کی تردید کی ہے ۔",
 	"review_param_missing": "ایک پیرامیٹر گمشدہ یا باطل ہے.",
