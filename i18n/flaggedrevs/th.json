@@ -5,7 +5,8 @@
 			"Korrawit",
 			"Octahedron80",
 			"Passawuth",
-			"Woraponboonkerd"
+			"Woraponboonkerd",
+			"Pon44695"
 		]
 	},
 	"editor": "ผู้แก้ไข",
@@ -21,7 +22,6 @@
 	"revreview-accuracy-3": "มีแหล่งที่มาที่ดี",
 	"revreview-accuracy-4": "แนะนำ",
 	"revreview-auto": "(อัตโนมัติ)",
-	"revreview-source": "ดูโค้ด",
 	"revreview-style": "การจัดเรียงให้อ่านง่าย",
 	"revreview-style-0": "ไม่ผ่าน",
 	"revreview-style-1": "ยอมรับได้",
@@ -30,5 +30,6 @@
 	"revreview-style-4": "แนะนำ",
 	"revreview-toggle-title": "ซ่อน/แสดงรายละเอียด",
 	"revreview-revnotfound": "ไม่พบรุ่นการปรับปรุงรุ่นเก่าที่ต้องการ กรุณาตรวจสอบยูอาร์แอลที่ใช้เข้ามายังหน้านี้",
-	"revreview-filter-all": "ทั้งหมด"
+	"revreview-filter-all": "ทั้งหมด",
+	"tooltip-ca-current": "ดูหน้านี้พร้อมขณะกำลังเปลี่ยนแปลง"
 }
