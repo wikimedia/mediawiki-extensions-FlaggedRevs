@@ -10,7 +10,7 @@
 	"apihelp-query+unreviewedpages-param-namespace": "Name amorden",
 	"apihelp-query+unreviewedpages-param-filterredir": "Qandë hetenayışa kes seni filtre ke no",
 	"apihelp-query+unreviewedpages-param-filterlevel": "Qalite filtre (0=kontrol, 1=qalite).",
-	"apihelp-query+unreviewedpages-param-limit": "Peyseri rë total dı çend peri.",
+	"apihelp-query+unreviewedpages-param-limit": "Raçarnayışi rê pêro piya çend peli.",
 	"apihelp-query+unreviewedpages-example-1": "listey peranë seyr nëbıyaya bıvëne",
 	"apihelp-stabilize-param-reason": "Sebeb.",
 	"apihelp-stabilize-param-watch": "Perer seyr kı",

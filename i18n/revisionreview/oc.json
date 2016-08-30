@@ -6,6 +6,7 @@
 	},
 	"revisionreview": "Tornar veire las versions",
 	"revreview-failed": "'''Impossible de relegir aquesta revision.'''",
+	"revreview-check-flag-u": "Acceptar aquesta pagina pas repassada",
 	"revreview-flag": "Avalorar aquesta version",
 	"revreview-invalid": "'''Cibla incorrècta :''' cap de version [[{{MediaWiki:Validationpage}}|relegida]] correspond pas al numèro indicat.",
 	"revreview-log": "Comentari al jornal :",
