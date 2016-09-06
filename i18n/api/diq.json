@@ -13,7 +13,7 @@
 	"apihelp-query+unreviewedpages-param-limit": "Raçarnayışi rê pêro piya çend peli.",
 	"apihelp-query+unreviewedpages-example-1": "listey peranë seyr nëbıyaya bıvëne",
 	"apihelp-stabilize-param-reason": "Sebeb.",
-	"apihelp-stabilize-param-watch": "Na pele seyr ke.",
+	"apihelp-stabilize-param-watch": "Na pele seyr ke",
 	"apihelp-stabilize-param-expiry-general": "Zemano kı nê eyaran rê deya yo.",
 	"apihelp-stabilize-param-title-general": "Qandë stabilize kerdışi rë sernamey perer",
 	"apihelp-stabilize-param-default": "Hesıbyaye revizyoni bıvin",

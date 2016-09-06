@@ -5,23 +5,24 @@
 			"Ciphers",
 			"Meno25",
 			"OsamaK",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"Shbib Al-Subaie"
 		]
 	},
 	"validationstatistics": "إحصاءات مراجعة الصفحة",
-	"validationstatistics-users": "على '''{{SITENAME}}''' حاليا {{PLURAL:$1||'''[[Special:ListUsers/editor|مستخدم واحد]]'''|'''[[Special:ListUsers/editor|مستخدمان]]'''|'''[[Special:ListUsers/editor|$1]]''' مستخدمين|'''[[Special:ListUsers/editor|$1]]''' مستخدمًا|'''[[Special:ListUsers/editor|$1]]''' مستخدم}} بصلاحية [[{{MediaWiki:Validationpage}}|محرر]].\n\nالمحررون هم مستخدمون موثوقون يمكنهم اعتماد مراجعات الصفحات.",
-	"validationstatistics-lastupdate": "''حدثت البيانات التالية آخر مرة يوم $1 عند $2.''",
-	"validationstatistics-pndtime": "تعتبر التعديلات التي فحصها مستخدمون معتمدون ''مراجعة''.\n\nإن متوسط التأخير في المراجعة لل​​[[Special:OldReviewedPages|صفحات التي هي في انتظار مراجعة]] هو ''' $1 '''، إن التأخير يعبر عن مدى قدم أقدم تعديل لم تتم مراجعته.",
-	"validationstatistics-revtime": "معدل الانتظار للتعديل من قبل ''المستخدمين غير المسجلين'' ليتم مراجعتها هو '''$1'''، والوسيط هو '''$2'''.\n$3",
-	"validationstatistics-table": "إحصاءات مراجعة الصفحات لكل نطاق معروضة بالأسفل، ''باستثناء'' صفحات التحويل. تعتبر الصفحات ''غير محدثة'' إذا كان لها تعديلات معلقة للمراجعة؛ تعتبر الصفحات ''متزامنة'' إذا لم يكن لها تعديلات معلقة للمراجعة.",
+	"validationstatistics-users": "في '''{{SITENAME}}''' حاليا {{PLURAL:$1||'''[[Special:ListUsers/editor|مستخدم واحد]]'''|'''[[Special:ListUsers/editor|مستخدمان]]'''|'''[[Special:ListUsers/editor|$1]]''' مستخدمين|'''[[Special:ListUsers/editor|$1]]''' مستخدمًا|'''[[Special:ListUsers/editor|$1]]''' مستخدم}} بصلاحية [[{{MediaWiki:Validationpage}}|محرر]].\n\nالمحررون هم مستخدمون موثوقون يمكنهم اعتماد مراجعات الصفحات.",
+	"validationstatistics-lastupdate": "''حدثت البيانات التالية آخر مرة يوم $1 عند الساعة $2.''",
+	"validationstatistics-pndtime": "تعتبر التعديلات التي فحصها مستخدمون معتمدون ''{{int:validationstatistics-stable}}''.\n\nمتوسط التأخير في المراجعة لل​​[[Special:OldReviewedPages|صفحات التي في انتظار المراجعة حاليًّا]] هو ''' $1 '''؛ التأخير يُقاس بالفترة التي مضت على أقدم تعديل لم يُراجع.",
+	"validationstatistics-revtime": "معدل الانتظار لتعديلات ''المستخدمين غير المسجلين'' حتى مراجعتها هو '''$1'''، والوسيط هو '''$2'''.\n$3",
+	"validationstatistics-table": "إحصاءات مراجعة الصفحات لكل نطاق معروضة بالأسفل، ''باستثناء'' صفحات التحويل. تعتبر الصفحات ''{{int:validationstatistics-old}}'' إذا كان لها تعديلات معلقة بانتظار المراجعة؛ تعتبر الصفحات ''{{int:validationstatistics-latest}}'' إذا لم يكن بها تعديلات معلقة بانتظار المراجعة.",
 	"validationstatistics-ns": "النطاق",
 	"validationstatistics-total": "الصفحات",
-	"validationstatistics-stable": "مراجع",
-	"validationstatistics-latest": "محدث",
-	"validationstatistics-synced": "تم تحديثه/تمت مراجعته",
-	"validationstatistics-old": "قديمة",
+	"validationstatistics-stable": "المراجعة",
+	"validationstatistics-latest": "المحدثة",
+	"validationstatistics-synced": "المحدثة/المراجعة",
+	"validationstatistics-old": "غير محدثة (تعديلات معلقة)",
 	"validationstatistics-unreviewed": "غير مراجعة",
 	"validationstatistics-utable": "بالأسفل قائمة بأكثر {{PLURAL:$1||مراجع نشاطا|مراجعين نشاطا|$1 مراجعين نشاطا|$1 مراجع نشاطا|$1 مراجعا نشاطا}} في {{PLURAL:$2||الساعة الأخيرة|الساعتين الأخيرتين|ال$2 ساعات الأخيرة|ال$2 ساعة الأخيرة}}.",
 	"validationstatistics-user": "المستخدم",
-	"validationstatistics-reviews": "مراجعات"
+	"validationstatistics-reviews": "المراجعات"
 }
