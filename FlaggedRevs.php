@@ -389,7 +389,7 @@ $wgResourceModules['ext.flaggedRevs.review'] = [
 		'revreview-submitting', 'actioncomplete', 'actionfailed',
 		'revreview-adv-reviewing-p', 'revreview-adv-reviewing-c',
 		'revreview-sadv-reviewing-p', 'revreview-sadv-reviewing-c',
-		'revreview-adv-start-link', 'revreview-adv-stop-link'
+		'revreview-adv-stop-link'
 	],
 	'dependencies'  => [
 		'mediawiki.util', 'mediawiki.notify', 'mediawiki.user', 'mediawiki.jqueryMsg'

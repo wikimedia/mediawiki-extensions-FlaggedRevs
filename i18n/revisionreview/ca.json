@@ -38,7 +38,6 @@
 	"revreview-submit-unreviewed": "Fet. Rebutjada.",
 	"revreview-successful": "''Revisió de [[:$1|$1]] correctament marcada. ([{{fullurl: {{#Special:ReviewedVersions}}|page=$2}} Veure les versions revisades])''",
 	"revreview-successful2": "'''S'ha depreciat amb èxit la revisió de [[:$1|$1]].'''",
-	"revreview-adv-start-link": "anuncia",
 	"revreview-adv-stop-link": "desfà l'anunci",
 	"revreview-update": "'''[[{{MediaWiki:Validationpage}}|Reviseu]] els canvis pendents ''(que es mostren a continuació)'' fets des de la versió acceptada.'''",
 	"revreview-update-includes": "S'han actualitzat algunes plantilles o fitxers (pàgines no revistes en negreta):",
