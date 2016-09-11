@@ -25,7 +25,8 @@
 			"MaxBioHazard",
 			"Ләйсән",
 			"Синкретик",
-			"Ole Yves"
+			"Ole Yves",
+			"Gamliel Fishkin"
 		]
 	},
 	"action-review": "проверка версий страниц",
@@ -47,7 +48,7 @@
 	"flaggedrevs-hidereviewed": "$1 проверенные правки",
 	"flaggedrevs-hidereviewed-hide": "Скрыть",
 	"flaggedrevs-hidereviewed-show": "Показать",
-	"group-editor": "Досматривающие",
+	"group-editor": "Патрулирующие",
 	"group-editor-member": "{{GENDER:$1|досматривающий|досматривающая}}",
 	"group-reviewer": "Выверяющие",
 	"group-reviewer-member": "{{GENDER:$1|выверяющий|выверяющая}}",
