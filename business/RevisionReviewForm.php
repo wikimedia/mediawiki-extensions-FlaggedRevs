@@ -331,8 +331,13 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			$baseRevId = $newRev->isCurrent() ? $oldRev->getId() : 0;
 
 			# Actually make the edit...
-			$editStatus = $article->doEdit(
-				ContentHandler::getContentText( $new_text ), $this->getComment(), 0, $baseRevId, $this->user );
+			$editStatus = $article->doEditContent(
+				ContentHandler::makeContent( $new_text, $article->getTitle() ),
+				$this->getComment(),
+				0,
+				$baseRevId,
+				$this->user
+			);
 
 			$status = $editStatus->isOK() ? true : 'review_cannot_undo';
 
