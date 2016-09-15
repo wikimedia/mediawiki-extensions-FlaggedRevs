@@ -366,7 +366,7 @@ class FlaggedRevsXML {
 			wfMessage( 'parentheses' )->rawParams( $toggle )->escaped() . '</span>';
 	}
 
-	/*
+	/**
 	 * Creates CSS draft page icon
 	 * @return string
 	 */
@@ -377,7 +377,7 @@ class FlaggedRevsXML {
 			" alt=\"$encTitle\" title=\"$encTitle\" />";
 	}
 	
-	/*
+	/**
 	 * Creates CSS stable page icon
 	 * @param bool $isQuality
 	 * @return string
@@ -392,7 +392,7 @@ class FlaggedRevsXML {
 			" alt=\"$encTitle\" title=\"$encTitle\" />";
 	}
 
-	/*
+	/**
 	 * Creates CSS lock icon if page is locked/unlocked
 	 * @param FlaggableWikiPage $flaggedArticle
 	 * @return string
@@ -412,7 +412,7 @@ class FlaggedRevsXML {
 		return '';
 	}
 
-	/*
+	/**
 	 * @param FlaggableWikiPage $flaggedArticle
 	 * @param FlaggedRevision $frev
 	 * @param int $revsSince
@@ -438,7 +438,7 @@ class FlaggedRevsXML {
 		return wfMessage( $msg, $frev->getRevId(), $time )->numParams( $revsSince );
 	}
 
-	/*
+	/**
 	 * @param Page $article
 	 * @return string
 	 * Creates a stability log excerpt
