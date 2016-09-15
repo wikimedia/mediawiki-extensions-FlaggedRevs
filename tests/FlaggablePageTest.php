@@ -24,12 +24,18 @@ class FlaggablePageTest extends PHPUnit_Framework_TestCase {
 	public function testPageDataFromTitle() {
 		$title = Title::makeTitle( NS_MAIN, "somePage" );
 		$article = new FlaggableWikiPage( $title );
-		
+
 		$user = $this->user;
-		$article->doEdit( "Some text to insert", "creating a page", EDIT_NEW, false, $user );
-		
+		$article->doEditContent(
+			ContentHandler::makeContent("Some text to insert", $title),
+			"creating a page",
+			EDIT_NEW,
+			false,
+			$user
+		);
+
 		$data = (array)$article->pageDataFromTitle( wfGetDB( DB_SLAVE ), $title );
-		
+
 		$this->assertEquals( true, array_key_exists( 'fpc_override', $data ),
 			"data->fpc_override field exists" );
 		$this->assertEquals( true, array_key_exists( 'fp_stable', $data ),
