@@ -427,7 +427,7 @@ class FlaggedRevsUIHooks {
 		} elseif ( isset( $row->fr_quality ) ) {
 			if ( !( $row->rev_deleted & Revision::DELETED_TEXT ) ) {
 				# Add link to stable version of *this* rev, if any
-				list( $link, $class ) = self::markHistoryRow( $title, $row );
+				list( $link, $class ) = self::markHistoryRow( $history, $title, $row );
 				# Space out and demark the stable revision
 				if ( $revId == $history->fr_stableRevId && $history->fr_pendingRevs ) {
 					$liClasses[] = 'fr-hist-stable-margin';
@@ -443,11 +443,12 @@ class FlaggedRevsUIHooks {
 
 	/**
 	 * Make stable version link and return the css
+	 * @param IContextSource $ctx
 	 * @param Title $title
-	 * @param Row $row, from history page
+	 * @param stdClass $row, from history page
 	 * @return array (string,string)
 	 */
-	protected static function markHistoryRow( Title $title, $row ) {
+	protected static function markHistoryRow( IContextSource $ctx, Title $title, $row ) {
 		if ( !isset( $row->fr_quality ) ) {
 			return array( "", "" ); // not reviewed
 		}
@@ -470,7 +471,7 @@ class FlaggedRevsUIHooks {
 		}
 		$name = isset( $row->reviewer ) ?
 			$row->reviewer : User::whoIs( $row->fr_user );
-		$link = wfMessage( $msg, $title->getPrefixedDBkey(), $row->rev_id, $name )->parse();
+		$link = $ctx->msg( $msg, $title->getPrefixedDBkey(), $row->rev_id, $name )->parse();
 		$link = "<span class='$css plainlinks'>[$link]</span>";
 		return array( $link, $liCss );
 	}
