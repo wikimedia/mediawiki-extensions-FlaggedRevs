@@ -47,7 +47,7 @@
 	"revreview-submit-reject": "Скасаваць зьмены",
 	"revreview-submit-reviewed": "Выканана. Зацьверджана!",
 	"revreview-submit-unreviewed": "Выканана. Зацьверджаньне зьнятае!",
-	"revreview-successful": "'''Вэрсія [[:$1|$1]] пасьпяхова пазначана. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} паказаць стабільныя вэрсіі])'''",
+	"revreview-successful": "'''Вэрсія [[:$1|$1]] пазначана. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} паказаць стабільныя вэрсіі])'''",
 	"revreview-successful2": "'''З вэрсіі [[:$1|$1]] было пасьпяхова зьнятае пазначэньне.'''",
 	"revreview-poss-conflict-p": "'''Папярэджаньне: [[User:$1|$1]] пачаў рэцэнзаваньне гэтай старонкі $2 у $3.'''",
 	"revreview-poss-conflict-c": "'''Папярэджаньне: [[User:$1|$1]] пачаў рэцэнзаваньне гэтых зьменаў $2 у $3.'''",
