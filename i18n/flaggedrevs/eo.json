@@ -36,7 +36,7 @@
 	"group-reviewer-member": "{{GENDER:$1|kontrolanto}}",
 	"grouppage-editor": "{{ns:project}}:Revizianto",
 	"grouppage-reviewer": "{{ns:project}}:Kontrolanto",
-	"group-autoreview": "Aŭtomataj kontrolantoj",
+	"group-autoreview": "Mempatrolatoj",
 	"group-autoreview-member": "{{GENDER:$1|mempatrolato}}",
 	"grouppage-autoreview": "{{ns:project}}:Aŭtomata kontrolanto",
 	"revreview-hist-draft": "nekontrolita versio",
