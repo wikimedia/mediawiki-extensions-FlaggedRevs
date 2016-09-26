@@ -54,7 +54,7 @@
 	"revreview-update-includes": "Neki predlošci/datoteke su ažurirane:",
 	"revreview-reject-text-list": "Dovršavanjem ove akcije, vi ćete '''odbiti''' {{PLURAL:$1|sljedeću promjenu|sljedeće promjene|sljedeće promjene}}:",
 	"revreview-reject-text-revto": "Ovime ćete vratiti stranicu natrag na [{{fullurl:$1|oldid=$2}} inačicu od $3].",
-	"revreview-reject-summary": "Uredi sažetak:",
+	"revreview-reject-summary": "Sažetak:",
 	"revreview-reject-confirm": "Odbaci ove promjene",
 	"revreview-reject-cancel": "Otkazati",
 	"revreview-reject-summary-cur": "{{PLURAL:$1|Odbijena posljednja izmjena|Odbijene posljednje $1 izmjene|Odbijeno posljednjih $1 izmjena}} (od strane $2) i vraćena inačica $3 suradnika $4",
