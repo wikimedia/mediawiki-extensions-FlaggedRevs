@@ -496,13 +496,14 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		# Delete from flaggedrevs table
 		$frev->delete();
 
-		# Update the article review log
-		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
-		FlaggedRevsLog::updateReviewLog( $this->page, $this->dims, $this->oldFlags,
-			$this->comment, $this->oldid, $oldSvId, false );
-
 		# Get the new stable version as of now
 		$sv = FlaggedRevision::determineStable( $this->page, FR_MASTER /*consistent*/ );
+
+		# Update the article review log
+		$svId = $sv ? $sv->getRevId() : 0;
+		FlaggedRevsLog::updateReviewLog( $this->page, $this->dims, $this->oldFlags,
+			$this->comment, $this->oldid, $svId, false );
+
 		# Update recent changes
 		self::updateRecentChanges( $frev->getRevision(), 'unpatrol', $sv );
 		# Update page and tracking tables and clear cache
