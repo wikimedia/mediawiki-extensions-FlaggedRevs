@@ -27,7 +27,7 @@
 	"flaggedrevs-prefs-watch": "Aldoni patrolitajn de mi paĝojn al mia atentaro",
 	"flaggedrevs-prefs-editdiffs": "Montri diferencon de kontrolenda versio kiam redaktante paĝojn",
 	"flaggedrevs-prefs-viewdiffs": "Montri diferencon de kontrolendaj ŝanĝoj rigardante la lastan kontrolendan revizion",
-	"flaggedrevs-hidereviewed": "$1 kontrolitajn redaktojn",
+	"flaggedrevs-hidereviewed": "$1 {{PLURAL:$1|patrolitan redakton|patrolitajn redaktojn}}",
 	"flaggedrevs-hidereviewed-hide": "Kaŝi",
 	"flaggedrevs-hidereviewed-show": "Montri",
 	"group-editor": "Patrolantoj",
