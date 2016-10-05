@@ -1,17 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Yekrats"
+			"Yekrats",
+			"Gamliel Fishkin"
 		]
 	},
 	"action-unreviewedpages": "vidi la liston de nekontrolitaj paĝoj",
-	"unreviewedpages": "Nereviziitaj paĝoj",
-	"unreviewedpages-legend": "Listigi nereviziitajn enhavajn paĝojn",
+	"unreviewedpages": "Nepatrolitaj paĝoj",
+	"unreviewedpages-legend": "Listigi nepatrolitajn enhavajn paĝojn",
 	"unreviewedpages-category": "Kategorio:",
 	"unreviewedpages-diff": "kontrolo",
 	"unreviewedpages-unwatched": "(malatentita)",
 	"unreviewedpages-watched": "($1 {{PLURAL:$1|aktiva uzanto|aktivaj uzantoj}} atentas)",
-	"unreviewedpages-list": "Ĉi tiu paĝo montras enhavajn paĝojn kiuj ''ne'' estas [[{{MediaWiki:Validationpage}}|kontrolitaj]] al la petita nivelo.",
+	"unreviewedpages-list": "Ĉi tiu paĝo listigas enhavajn paĝojn kiuj ankoraŭ ''ne'' estas [[{{MediaWiki:Validationpage}}|patrolitaj]] al la specifita nivelo.",
 	"unreviewedpages-none": "Nune neniuj paĝoj kongruas tiun kriterion",
 	"unreviewedpages-viewing": "(kontrolata)",
 	"unreviewedpages-hours": "($1 {{PLURAL:$1|horo|horoj}})",
