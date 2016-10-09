@@ -206,7 +206,7 @@ class FlaggedRevsSetup {
 
 		# ######## DB write operations #########
 		# Autopromote Editors
-		$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevsHooks::onArticleSaveComplete';
+		$wgHooks['PageContentSaveComplete'][] = 'FlaggedRevsHooks::onPageContentSaveComplete';
 		# Auto-reviewing
 		$wgHooks['RecentChange_save'][] = 'FlaggedRevsHooks::autoMarkPatrolled';
 		$wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevsHooks::maybeMakeEditReviewed';

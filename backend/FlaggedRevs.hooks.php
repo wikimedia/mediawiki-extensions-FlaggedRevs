@@ -850,8 +850,8 @@ class FlaggedRevsHooks {
 	 * Callback that autopromotes user according to the setting in
 	 * $wgFlaggedRevsAutopromote. This also handles user stats tallies.
 	 */
-	public static function onArticleSaveComplete(
-		Page $article, User $user, $text, $summary, $m, $a, $b, &$f, $rev
+	public static function onPageContentSaveComplete(
+		Page $article, User $user, $content, $summary, $m, $a, $b, &$f, $rev
 	) {
 		global $wgFlaggedRevsAutopromote, $wgFlaggedRevsAutoconfirm;
 		# Ignore NULL edits, edits by anon users, and MW role account edits
