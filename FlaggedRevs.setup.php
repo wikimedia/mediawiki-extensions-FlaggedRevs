@@ -211,7 +211,7 @@ class FlaggedRevsSetup {
 		$wgHooks['RecentChange_save'][] = 'FlaggedRevsHooks::autoMarkPatrolled';
 		$wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevsHooks::maybeMakeEditReviewed';
 		# Null edit review via checkbox
-		$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevsHooks::maybeNullEditReview';
+		$wgHooks['PageContentSaveComplete'][] = 'FlaggedRevsHooks::maybeNullEditReview';
 		# User edit tallies
 		$wgHooks['ArticleRollbackComplete'][] = 'FlaggedRevsHooks::incrementRollbacks';
 		$wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevsHooks::incrementReverts';

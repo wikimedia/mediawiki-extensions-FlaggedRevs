@@ -565,7 +565,7 @@ class FlaggedRevsHooks {
 	 * Note: called after edit ops are finished
 	 */
 	public static function maybeNullEditReview(
-		Page $article, $user, $text, $s, $m, $a, $b, $flags, $rev, &$status, $baseId
+		Page $article, $user, $content, $s, $m, $a, $b, $flags, $rev, &$status, $baseId
 	) {
 		global $wgRequest;
 		# Revision must *be* null (null edit). We also need the user who made the edit.
