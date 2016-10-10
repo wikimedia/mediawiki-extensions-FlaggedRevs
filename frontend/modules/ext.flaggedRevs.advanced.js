@@ -197,7 +197,10 @@ var fr = {
 		toggle = $( '#mw-fr-logtoggle' );
 		if ( toggle.length ) {
 			toggle.css( 'display', 'inline' ); // show toggle control
-			$( '#mw-fr-logexcerpt' ).hide();
+			if ( toggle.hasClass( 'fr-logtoggle-details' ) ) {
+				// hide in edit mode
+				$( '#mw-fr-logexcerpt' ).hide();
+			}
 		}
 		toggle.children( 'a' ).click( fr.toggleLog );
 

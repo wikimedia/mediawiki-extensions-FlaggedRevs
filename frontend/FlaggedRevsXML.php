@@ -349,7 +349,7 @@ class FlaggedRevsXML {
 	public static function logToggle() {
 		$toggle = '<a class="fr-toggle-text" title="' .
 			wfMessage( 'revreview-log-toggle-title' )->escaped() . '" >' .
-			wfMessage( 'revreview-log-toggle-show' )->escaped() . '</a>';
+			wfMessage( 'revreview-log-toggle-hide' )->escaped() . '</a>';
 		return '<span id="mw-fr-logtoggle" class="fr-logtoggle-excerpt" style="display:none;">' .
 			wfMessage( 'parentheses' )->rawParams( $toggle )->escaped() . '</span>';
 	}
