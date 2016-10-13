@@ -68,9 +68,9 @@
 	"revreview-reject-confirm": "Malaprobi ĉi tiujn ŝanĝojn",
 	"revreview-reject-cancel": "Nuligi",
 	"revreview-reject-summary-cur": "Malaprobis la {{PLURAL:$1|lastan tekstan ŝanĝon|$1 lastajn tekstajn ŝanĝojn}} (de $2) kaj restarigis revizion $3 de $4",
-	"revreview-reject-summary-old": "Malaprobis la {{PLURAL:$1|unuan tekstan ŝanĝon, kiu|unuajn $1 tekstajn ŝanĝojn, kiuj}} (de $2) sekvante version $3 de $4",
+	"revreview-reject-summary-old": "Malaprobis la {{PLURAL:$1|unuan tekstan ŝanĝon, kiu|unuajn $1 tekstajn ŝanĝojn, kiuj}} ({{PLURAL:$7|{{GENDER:$5|de}}}} $2) sekvis version $3 {{GENDER:$6|de}} $4",
 	"revreview-reject-summary-cur-short": "Malaprobis la {{PLURAL:$1|lastan tekstan ŝanĝon|$1 lastajn tekstajn ŝanĝojn}} kaj restarigis version $2 {{GENDER:$4|de}} $3",
-	"revreview-reject-summary-old-short": "Malaprobis la {{PLURAL:$1|unuan tekstan ŝanĝon, kiu|unuajn tekstajn $1 ŝanĝojn, kiuj}} sekvante version $2 de $3",
+	"revreview-reject-summary-old-short": "Malaprobis la {{PLURAL:$1|unuan tekstan ŝanĝon, kiu|unuajn tekstajn $1 ŝanĝojn, kiuj}} sekvis version $2 {{GENDER:$4|de}} $3",
 	"revreview-tt-flag": "Aprobi ĉi tiun revizion per markado kontrolita",
 	"revreview-tt-unflag": "Malaprobi ĉi tiun revizion per markado \"ne-kontrolita\"",
 	"revreview-tt-reject": "Malaprobi ĉi tiujn ŝanĝojn de informo-fontoj, malfarante ilin"
