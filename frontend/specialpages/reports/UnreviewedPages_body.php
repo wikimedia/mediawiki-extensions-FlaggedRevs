@@ -108,7 +108,7 @@ class UnreviewedPages extends SpecialPage {
 		$title = Title::newFromRow( $row );
 
 		$stxt = $underReview = $watching = '';
-		$link = Linker::link( $title, null, array(), 'redirect=no' );
+		$link = Linker::link( $title, null, array(), array( 'redirect' => 'no' ) );
 		$dirmark = $this->getLanguage()->getDirMark();
 		$hist = Linker::linkKnown(
 			$title,
