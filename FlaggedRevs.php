@@ -574,8 +574,7 @@ $wgHooks['ChangesListInsertArticleLink'][] = 'FlaggedRevsUIHooks::addToChangeLis
 
 # RC filter UIs
 $wgHooks['SpecialNewPagesFilters'][] = 'FlaggedRevsUIHooks::addHideReviewedFilter';
-$wgHooks['SpecialRecentChangesFilters'][] = 'FlaggedRevsUIHooks::addHideReviewedFilter';
-$wgHooks['SpecialWatchlistFilters'][] = 'FlaggedRevsUIHooks::addHideReviewedFilter';
+$wgHooks['ChangesListSpecialPageFilters'][] = 'FlaggedRevsUIHooks::addHideReviewedFilter';
 # Add notice tags to history
 $wgHooks['PageHistoryBeforeList'][] = 'FlaggedRevsUIHooks::addToHistView';
 # Diff-to-stable
