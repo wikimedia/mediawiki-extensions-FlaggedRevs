@@ -1092,4 +1092,11 @@ class FlaggedRevsHooks {
 
 		return true;
 	}
+
+	public static function onScribuntoExternalLibraries( $engine, array &$extraLibraries ) {
+		if( $engine == 'lua' ) {
+			$extraLibraries['mw.ext.FlaggedRevs'] = 'Scribunto_LuaFlaggedRevsLibrary';
+		}
+		return true;
+	}
 }
