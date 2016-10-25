@@ -4,12 +4,13 @@
 			"Michaello",
 			"Milicevic01",
 			"Жељко Тодоровић",
-			"Михајло Анђелковић"
+			"Михајло Анђелковић",
+			"Сербијана"
 		]
 	},
 	"stabilization-tab": "veteran",
 	"stabilization": "Stabilizacija strane",
-	"stabilization-text": "'''Promenite postavke ispod da biste podesili kako se izabira i prikazuje objavljeno izdanje stranice [[:$1|$1]].'''",
+	"stabilization-text": "'''Promenite podešavanja ispod da biste podesili kako se bira i prikazuje objavljeno izdanje stranice [[:$1|$1]].'''",
 	"stabilization-perm": "Vaš nalog nema dozvolu za izmenu podešavanja za stabilne verzije.\nOvde su trenutna podešavanja za [[:$1|$1]]:",
 	"stabilization-page": "Ime stranice:",
 	"stabilization-leg": "Potvrdi podešavanja za stabilnu verziju",

@@ -135,7 +135,7 @@
 	"revreview-visibility-synced": "'''Esta página tem uma [[{{MediaWiki:Validationpage}}|versão publicada]] atualizada; os parâmetros de estabilidade da página podem ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurados].'''",
 	"revreview-visibility-outdated": "'''Esta página tem uma [[{{MediaWiki:Validationpage}}|versão publicada]] desatualizada; os parâmetros de estabilidade da página podem ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurados].'''",
 	"revreview-visibility-nostable": "'''Esta página não tem uma [[{{MediaWiki:Validationpage}}|versão publicada]]; os parâmetros de estabilidade da página podem ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurados].'''",
-	"revreview-revnotfound": "Não foi encontrada a versão antiga desta página, que solicitou.\nVerifique a URL que usou para aceder a esta página.",
+	"revreview-revnotfound": "Não foi encontrada a versão antiga desta página, que solicitou.\nVerifique o URL que usou para aceder a esta página.",
 	"right-autoreview": "Ter as edições próprias marcadas automaticamente como \"verificadas\"",
 	"right-autoreviewrestore": "Rever automaticamente ao reverter",
 	"right-movestable": "Mover páginas publicadas",
