@@ -23,7 +23,8 @@
 			"Wpedzich",
 			"Žekřil71pl",
 			"Chrumps",
-			"Tar Lócesilion"
+			"Tar Lócesilion",
+			"Woytecr"
 		]
 	},
 	"action-review": "przeglądania wersji",
@@ -195,9 +196,12 @@
 	"revreview-unlocked": "Edycje nie wymagają [[{{MediaWiki:Validationpage}}|oznaczenia]], by zostały wyświetlone na tej stronie.",
 	"log-show-hide-review": "$1 rejestr oznaczania",
 	"validationpage": "{{ns:help}}:Wersje oznaczone",
+	"log-action-filter-review": "Typ przeglądu:",
 	"log-action-filter-review-accept": "Ręczna akceptacja",
 	"log-action-filter-review-autoaccept": "Automatyczna akceptacja",
+	"log-action-filter-review-unaccept": "Ręczne wycofanie akceptacji",
 	"log-action-filter-stable": "Rodzaj zmiany konfiguracji:",
 	"log-action-filter-stable-config": "Nowa konfiguracja",
+	"log-action-filter-stable-modify": "Modyfikacja konfiguracji",
 	"log-action-filter-stable-reset": "Reset konfiguracji"
 }
