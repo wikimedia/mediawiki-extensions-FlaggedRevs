@@ -6,6 +6,6 @@
 	},
 	"editor": "Morulaganyi",
 	"group-editor": "Barulaganyi",
-	"group-editor-member": "Morulaganyi",
+	"group-editor-member": "{{GENDER:$1|morulaganyi}}",
 	"grouppage-editor": "{{ns:project}}:Morulaganyi"
 }

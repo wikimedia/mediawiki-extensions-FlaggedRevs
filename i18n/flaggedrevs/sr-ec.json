@@ -40,7 +40,7 @@
 	"group-autoreview": "Ауторевизори",
 	"group-autoreview-member": "{{GENDER:$1|ауторевизор|ауторевизорка}}",
 	"grouppage-autoreview": "{{ns:project}}:Ауторевизори",
-	"revreview-hist-draft": "непроверена ревизија",
+	"revreview-hist-draft": "непроверена измена",
 	"revreview-hist-pending": "чека проверу",
 	"revreview-hist-quality": "квалитетна ревизија",
 	"revreview-hist-basic": "проверена ревизија",
