@@ -6,7 +6,9 @@
 			"Jiang123aa"
 		]
 	},
-	"apihelp-flagconfig-example-1": "检索标记配置",
+	"apihelp-flagconfig-description": "获取有关此网站复核标记配置的信息。\n\n为每个标记返回以下参数：\n;name:此标签的键名。\n;levels:标签拥有的级别数（“未标记”以上）。\n;tier2:标签必须触及等级2（优良）修订的级别。\n;tier3:标签必须触及等级3（原始）修订的级别。\n为每个标签标记有分配级别的修订。所有标签都满足的最高等级是实体修订的复核等级。",
+	"apihelp-flagconfig-example-1": "取得标记配置",
+	"apihelp-query+configuredpages-description": "列举所有拥有自定义复核配置的页面。",
 	"apihelp-query+configuredpages-param-start": "从此页面ID开始列出。",
 	"apihelp-query+configuredpages-param-end": "列出至此页面ID为止。",
 	"apihelp-query+configuredpages-param-namespace": "要列举的名字空间。",
@@ -18,6 +20,7 @@
 	"apihelp-query+flagged-description": "获取有关指定页面标记状态的信息。\n\n如果一个页面被标记，将返回以下参数：\n;stable_revid:最新稳定修订版本的修订ID。\n;level\n;level_text:页面的最高标记等级。\n;pending_since:如果当前有任何未复核的页面修订，就记下它们的首次时间戳。\n如果页面有保护配置，将返回以下参数：\n;protection_level:要让页面不需要复核，用户必须有的权限。\n;protection_expiry:保护何时到期。",
 	"apihelp-query+flagged-example-1": "获取[[Main Page]]的页面信息和标记状态",
 	"apihelp-query+flagged-example-2": "获取以“K”开头的页面的标记地位",
+	"apihelp-query+oldreviewedpages-description": "列举拥有等待更改修订版本的页面。",
 	"apihelp-query+oldreviewedpages-param-start": "从此时间戳开始列出。",
 	"apihelp-query+oldreviewedpages-param-end": "列出至此时间戳为止。",
 	"apihelp-query+oldreviewedpages-param-maxsize": "最大字符数变化大小。",
@@ -38,6 +41,7 @@
 	"apihelp-query+reviewedpages-example-1": "显示已复核页面的列表",
 	"apihelp-query+reviewedpages-example-2": "显示有关一些已复核页面的信息",
 	"apihelp-query+revisions-paramvalue-prop-flagged": "标记修订版本状态。",
+	"apihelp-query+unreviewedpages-description": "列举未复核提供质量等级的页面。",
 	"apihelp-query+unreviewedpages-param-start": "从此页面标题开始列出。",
 	"apihelp-query+unreviewedpages-param-end": "列出至此页面标题为止。",
 	"apihelp-query+unreviewedpages-param-dir": "排序方向。",
