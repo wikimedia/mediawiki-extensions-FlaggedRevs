@@ -176,5 +176,13 @@
 	"revreview-locked": "'''NAPOMENA:''' Izmjene moraju biti [[{{MediaWiki:Validationpage}}|pregledane]] prije prikazivanja čitaocima na ovoj stranici.",
 	"revreview-unlocked": "'''NAPOMENA:''' Izmjene ne moraju biti [[{{MediaWiki:Validationpage}}|pregledane]] prije prikazivanja čitaocima na ovoj stranici.",
 	"log-show-hide-review": "$1 zapisnik pregledavanja",
-	"validationpage": "{{ns:help}}:Provjera stranice"
+	"validationpage": "{{ns:help}}:Provjera stranice",
+	"log-action-filter-review": "Vrsta pregleda:",
+	"log-action-filter-review-accept": "Ručno pregledano",
+	"log-action-filter-review-autoaccept": "Automatski pregledano",
+	"log-action-filter-review-unaccept": "Ručno odbijeno",
+	"log-action-filter-stable": "Vrsta izmjene u konfiguraciji:",
+	"log-action-filter-stable-config": "Nova konfiguracija",
+	"log-action-filter-stable-modify": "Izmjena konfiguracije",
+	"log-action-filter-stable-reset": "Resetiranje konfiguracije"
 }
