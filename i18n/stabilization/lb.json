@@ -32,7 +32,7 @@
 	"stabilize_invalid_level": "Ne valabelen Niveau vun der Spär.",
 	"stabilize_expiry_invalid": "Net valabele Schlussdatum",
 	"stabilize_expiry_old": "Den Oflafdatum ass schonn eriwwer.",
-	"stabilize_denied": "Erlaabnes refuséiert",
+	"stabilize_denied": "Autorisatioun refuséiert",
 	"stabilize-expiring": "bis $1 (UTC)",
 	"stabilization-review": "Déi aktuell Versioun als nogekuckt markéieren"
 }
