@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Zygimantus"
+			"Zygimantus",
+			"Eitvys200"
 		]
 	},
-	"apihelp-stabilize-param-reason": "Priežastis."
+	"apihelp-stabilize-param-reason": "Priežastis.",
+	"apihelp-stabilize-param-watch": "Stebėti šį puslapį.",
+	"apihelp-stabilize-param-expiry-general": "Šių nustatymų pabaiga."
 }
