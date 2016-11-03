@@ -33,21 +33,23 @@ abstract class ApiStabilize extends ApiBase {
 		global $wgUser;
 		$params = $this->extractRequestParams();
 
-		if ( !isset( $params['title'] ) ) {
-			$this->dieUsageMsg( array( 'missingparam', 'title' ) );
-		} elseif ( !isset( $params['token'] ) ) {
-			$this->dieUsageMsg( array( 'missingparam', 'token' ) );
-		}
-
 		$this->title = Title::newFromText( $params['title'] );
 		if ( $this->title == null ) {
-			$this->dieUsage( "Invalid title given.", "invalidtitle" );
+			if ( is_callable( array( $this, 'dieWithError' ) ) ) {
+				$this->dieWithError( array( 'apierror-invelidtitle', wfEscapeWikiText( $params['title'] ) ) );
+			} else {
+				$this->dieUsage( "Invalid title given.", "invalidtitle" );
+			}
 		}
 
 		$errors = $this->title->getUserPermissionsErrors( 'stablesettings', $wgUser );
 		if ( $errors ) {
-			// We don't care about multiple errors, just report one of them
-			$this->dieUsageMsg( reset( $errors ) );
+			if ( is_callable( array( $this, 'errorArrayToStatus' ) ) ) {
+				$this->dieStatus( $this->errorArrayToStatus( $errors, $wgUser ) );
+			} else {
+				// We don't care about multiple errors, just report one of them
+				$this->dieUsageMsg( reset( $errors ) );
+			}
 		}
 
 		$this->doExecute(); // child class
@@ -89,12 +91,7 @@ class ApiStabilizeGeneral extends ApiStabilize {
 		$restriction = $params['autoreview'];
 
 		// Fill in config fields from URL params
-		if ( $params['default'] === null ) {
-			// Default version setting not optional
-			$this->dieUsageMsg( array( 'missingparam', 'default' ) );
-		} else {
-			$form->setOverride( $this->defaultFromKey( $params['default'] ) );
-		}
+		$form->setOverride( $this->defaultFromKey( $params['default'] ) );
 
 		$form->setReviewThis( $params['review'] ); # Auto-review option
 
@@ -107,7 +104,11 @@ class ApiStabilizeGeneral extends ApiStabilize {
 
 		$status = $form->submit(); // true/error message key
 		if ( $status !== true ) {
-			$this->dieUsageMsg( $this->msg( $status )->text() );
+			if ( is_callable( array( $this, 'dieWithError' ) ) ) {
+				$this->dieWithError( $status );
+			} else {
+				$this->dieUsage( $this->msg( $status )->text(), 'unknownerror' );
+			}
 		}
 
 		# Output success line with the title and config parameters
@@ -135,8 +136,8 @@ class ApiStabilizeGeneral extends ApiStabilize {
 		$autoreviewLevels[] = 'none';
 		$pars = array(
 			'default'     => array(
+				ApiBase::PARAM_REQUIRED => true,
 				ApiBase :: PARAM_TYPE => array( 'latest', 'stable' ),
-				ApiBase :: PARAM_DFLT => null,
 			),
 			'autoreview'  => array(
 				ApiBase :: PARAM_TYPE => $autoreviewLevels,
@@ -150,8 +151,11 @@ class ApiStabilizeGeneral extends ApiStabilize {
 			'reason'      => '',
 			'review'      => false,
 			'watch'       => null,
-			'token'       => null,
+			'token'       => array(
+				ApiBase::PARAM_REQUIRED => true,
+			),
 			'title'       => array(
+				ApiBase::PARAM_REQUIRED => true,
 				/** @todo Once support for MediaWiki < 1.25 is dropped, just use ApiBase::PARAM_HELP_MSG directly */
 				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'apihelp-stabilize-param-title-general',
 			),
@@ -228,7 +232,11 @@ class ApiStabilizeProtect extends ApiStabilize {
 
 		$status = $form->submit(); // true/error message key
 		if ( $status !== true ) {
-			$this->dieUsageMsg( $this->msg( $status )->text() );
+			if ( is_callable( array( $this, 'dieWithError' ) ) ) {
+				$this->dieWithError( $status );
+			} else {
+				$this->dieUsage( $this->msg( $status )->text(), 'unknownerror' );
+			}
 		}
 
 		# Output success line with the title and config parameters
@@ -255,8 +263,11 @@ class ApiStabilizeProtect extends ApiStabilize {
 			),
 			'reason'    => '',
 			'watch'     => null,
-			'token'     => null,
+			'token'     => array(
+				ApiBase::PARAM_REQUIRED => true,
+			),
 			'title'       => array(
+				ApiBase::PARAM_REQUIRED => true,
 				/** @todo Once support for MediaWiki < 1.25 is dropped, just use ApiBase::PARAM_HELP_MSG directly */
 				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'apihelp-stabilize-param-title-protect',
 			),

@@ -35,28 +35,50 @@ class ApiReviewActivity extends ApiBase {
 		$user = $this->getUser();
 		$params = $this->extractRequestParams();
 		// Check basic permissions
-		if ( !$user->isAllowed( 'review' ) ) {
-			$this->dieUsage( "You don't have the right to review revisions.",
-				'permissiondenied' );
-		} elseif ( $user->isBlocked( false ) ) {
-			$this->dieUsageMsg( array( 'blockedtext' ) );
+		if ( is_callable( array( $this, 'checkUserRightsAny' ) ) ) {
+			$this->checkUserRightsAny( 'review' );
+		} else {
+			if ( !$user->isAllowed( 'review' ) ) {
+				$this->dieUsage( "You don't have the right to review revisions.",
+					'permissiondenied' );
+			}
+		}
+
+		if ( $user->isBlocked( false ) ) {
+			if ( is_callable( array( $this, 'dieBlocked' ) ) ) {
+				$this->dieBlocked( $user->getBlock() );
+			} else {
+				$this->dieUsageMsg( array( 'blockedtext' ) );
+			}
 		}
 
 		$newRev = Revision::newFromId( $params['oldid'] );
 		if ( !$newRev || !$newRev->getTitle() ) {
-			$this->dieUsage( "Cannot find a revision with the specified ID.", 'notarget' );
+			if ( is_callable( array( $this, 'dieWithError' ) ) ) {
+				$this->dieWithError( array( 'apierror-nosuchrevid', $params['oldid'] ), 'notarget' );
+			} else {
+				$this->dieUsage( "Cannot find a revision with the specified ID.", 'notarget' );
+			}
 		}
 		$title = $newRev->getTitle();
 
 		$fa = FlaggableWikiPage::getTitleInstance( $title );
 		if ( !$fa->isReviewable() ) {
-			$this->dieUsage( "Provided page is not reviewable.", 'notreviewable' );
+			if ( is_callable( array( $this, 'dieWithError' ) ) ) {
+				$this->dieWithError( 'apierror-flaggedrevs-notreviewable', 'notreviewable' );
+			} else {
+				$this->dieUsage( "Provided page is not reviewable.", 'notreviewable' );
+			}
 		}
 
 		if ( $params['previd'] ) { // changes
 			$oldRev = Revision::newFromId( $params['previd'] );
 			if ( !$oldRev || $oldRev->getPage() != $newRev->getPage() ) {
-				$this->dieUsage( "Revisions do not belong to the same page.", 'notarget' );
+				if ( is_callable( array( $this, 'dieWithError' ) ) ) {
+					$this->dieWithError( 'apierror-flaggedrevs-notsamepage', 'notarget' );
+				} else {
+					$this->dieUsage( "Revisions do not belong to the same page.", 'notarget' );
+				}
 			}
 			// Mark as reviewing...
 			if ( $params['reviewing'] ) {
