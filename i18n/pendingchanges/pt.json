@@ -10,7 +10,7 @@
 		]
 	},
 	"pendingchanges": "Páginas com edições pendentes",
-	"pendingchanges-legend": "Listar as páginas sujeitas a revisão que têm edições pendentes",
+	"pendingchanges-legend": "Listar as páginas sujeitas a revisão, que têm edições pendentes",
 	"pendingchanges-list": "Esta página lista as [[{{MediaWiki:Validationpage}}|páginas sujeitas a revisão]] que têm edições pendentes.",
 	"pendingchanges-none": "De momento, não há páginas que satisfaçam estes critérios",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|hora|horas}})",
