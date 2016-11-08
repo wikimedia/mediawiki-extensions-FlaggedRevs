@@ -20,7 +20,7 @@
 	"revreview-submit-reviewed": "Fait. Aprovat !",
 	"revreview-submit-unreviewed": "Fait. Desaprovat !",
 	"revreview-successful": "'''La version seleccionada de [[:$1|$1]], es estada marcada d'una bandièra amb succès ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} Vejatz totas las versions establas])'''",
-	"revreview-successful2": "La version de [[:$1|$1]] a pogut se veire levar son drapèu amb succès.'''",
+	"revreview-successful2": "'''Revision de [[:$1|$1]] pas mai marcada.'''",
 	"revreview-adv-start-link": "far de publicitat",
 	"revreview-adv-stop-link": "anullar la publicitat",
 	"revreview-toolow": "Pels atributs çaijós, vos cal donar un puntatge mai elevat que « non aprobat » per que la version siá considerada coma revista. Per depreciar una version, metètz totes los camps a « non aprobat ».",
