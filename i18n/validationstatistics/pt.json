@@ -12,7 +12,7 @@
 		]
 	},
 	"validationstatistics": "Estatísticas da revisão de páginas",
-	"validationstatistics-users": "A '''{{SITENAME}}''' tem, neste momento, '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizador|utilizadores}} com permissões de [[{{MediaWiki:Validationpage}}|Editor]].\n\nEditores são utilizadores que podem rever as edições de páginas.",
+	"validationstatistics-users": "A wiki '''{{SITENAME}}''' tem, neste momento, '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizador|utilizadores}} com permissões de [[{{MediaWiki:Validationpage}}|Editor]].\n\nEditores são utilizadores que podem rever as edições de páginas.",
 	"validationstatistics-lastupdate": "''Os seguintes dados foram atualizados pela última vez a $1 às $2.''",
 	"validationstatistics-pndtime": "As edições verificadas por utilizadores estabelecidos são consideradas ''{{int:validationstatistics-stable}}''.\n\nO atraso médio de revisão das [[Special:OldReviewedPages|páginas com edições à espera de revisão]] é '''$1'''; este atraso mede o tempo que a edição pendente mais antiga ficou à espera de revisão.",
 	"validationstatistics-revtime": "O tempo médio de espera para revisão das edições de ''utilizadores não autenticados'' é '''$1'''; a mediana é '''$2'''.\n$3",
