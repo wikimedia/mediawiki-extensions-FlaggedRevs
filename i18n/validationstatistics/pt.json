@@ -22,7 +22,7 @@
 	"validationstatistics-stable": "Revistas",
 	"validationstatistics-latest": "Sincronizadas",
 	"validationstatistics-synced": "Sincronizadas/Revistas",
-	"validationstatistics-old": "Desactualizadas",
+	"validationstatistics-old": "Desatualizadas",
 	"validationstatistics-unreviewed": "Não revistas",
 	"validationstatistics-utable": "Abaixo está a lista {{PLURAL:$1|do revisor mais ativo|dos $1 revisores mais ativos}} {{PLURAL:$2|na última hora|nas últimas horas}}.",
 	"validationstatistics-user": "Utilizador",
