@@ -4,7 +4,8 @@
 			"Haqmar",
 			"Рустам Нурыев",
 			"Вильданова Гюзель",
-			"Ләйсән"
+			"Ләйсән",
+			"Zpizza"
 		]
 	},
 	"action-review": "биттәрҙең өлгөләрен тикшереү",
@@ -44,6 +45,8 @@
 	"revreview-accuracy-3": "сығанаҡтар менән",
 	"revreview-accuracy-4": "Һайланған",
 	"revreview-auto": "(автоматик рәүештә)",
+	"revreview-editnotice": "'''Тулы хоҡуҡлы ҡатнашыусы раҫлағас, һеҙҙең үҙгәртеүҙәр уҡыусыларға күренәсәк''' ([[{{MediaWiki:Validationpage}}|тулыраҡ]]).",
+	"revreview-edited": "'''Тулы хоҡуҡлы ҡатнашыусы раҫлағас, һеҙҙең үҙгәртеүҙәр уҡыусыларға күренәсәк ([[{{MediaWiki:Validationpage}}|тулыраҡ]]).'''\n\nТикшереүҙе [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|үҙгәртеү көтә}}] ''(түбәндә күрһәтелгән)''.",
 	"revreview-filter-all": "барыһы",
 	"revreview-filter-stable": "тотороҡло",
 	"revreview-statusfilter": "Раҫлау хәрәкәте:",
