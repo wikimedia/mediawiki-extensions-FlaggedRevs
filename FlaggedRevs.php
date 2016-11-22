@@ -118,6 +118,12 @@ $wgGroupPermissions['editor']['unreviewedpages']   = true;
 
 # Define rights granted to consumers
 $wgGrantPermissions['basic']['autoreview'] = true;
+$wgGrantPermissions['basic']['autoreviewrestore'] = true;
+$wgGrantPermissions['basic']['unreviewedpages'] = true;
+$wgGrantPermissions['patrol']['review'] = true;
+$wgGrantPermissions['patrol']['validate'] = true;
+$wgGrantPermissions['protect']['stablesettings'] = true;
+$wgGrantPermissions['editprotected']['movestable'] = true;
 
 # Define when users get automatically promoted to Editors. Set as false to disable.
 # Once users meet these requirements they will be promoted, unless previously demoted.
