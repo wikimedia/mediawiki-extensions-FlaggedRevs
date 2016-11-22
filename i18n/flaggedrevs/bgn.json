@@ -1,8 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Baloch Afghanistan"
+			"Baloch Afghanistan",
+			"Ibrahim khashrowdi"
 		]
 	},
+	"editor": "ایڈیٹور",
+	"flaggedrevs": "علامت دارین نخسه‌ئان",
+	"revreview-filter-all": "موچین",
 	"tooltip-ca-current": "ای تاکدیمی نشان داتین گۆ انتظارین تغیران"
 }
