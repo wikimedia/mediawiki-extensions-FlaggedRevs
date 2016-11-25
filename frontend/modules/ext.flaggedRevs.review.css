@@ -5,7 +5,7 @@
 
 /* Review form */
 .flaggedrevs_reviewform {
-	background-color: #f9f9f9;
+	background-color: #f8f9fa;
 	font-size: 90%;
 	clear: both;
 }
@@ -28,19 +28,19 @@
 }
 
 .fr-rating-option-0 {
-	background-color: #f5ecec;
+	background-color: #eaecf0;
 }
 .fr-rating-option-1 {
-	background-color: #f0f8ff;
+	background-color: #eaf3ff;
 }
 .fr-rating-option-2 {
-	background-color: #e1ffe1;
+	background-color: #d5fdf4;
 }
 .fr-rating-option-3 {
-	background-color: #fef0db;
+	background-color: #fef6e7;
 }
 .fr-rating-option-4 {
-	background-color: #ffffe3;
+	background-color: #f8f9fa;
 }
 
 #mw-fr-commentbox {
