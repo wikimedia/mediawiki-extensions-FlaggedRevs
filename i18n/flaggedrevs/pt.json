@@ -193,6 +193,6 @@
 	"log-action-filter-review-unaccept": "Não aprovação manual",
 	"log-action-filter-stable": "Tipo de alteração de configuração:",
 	"log-action-filter-stable-config": "Nova configuração",
-	"log-action-filter-stable-modify": "Configuração modificada",
+	"log-action-filter-stable-modify": "Alteração de configuração",
 	"log-action-filter-stable-reset": "Reinício de configuração"
 }

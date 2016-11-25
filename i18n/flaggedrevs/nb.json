@@ -12,7 +12,8 @@
 			"Nghtwlkr",
 			"Njardarlogar",
 			"Stigmj",
-			"Jeblad"
+			"Jeblad",
+			"Jon Harald Søby"
 		]
 	},
 	"action-review": "gjennomgå revisjoner",
@@ -91,7 +92,6 @@
 	"revreview-depth-3": "Høy",
 	"revreview-depth-4": "Utmerket",
 	"revreview-draft-title": "Ventende endringer vises på denne siden",
-	"revreview-edit": "Rediger",
 	"revreview-editnotice": "'''Endringene dine vil bli vist til leserne straks en autorisert bruker har godkjent dem. ([[{{MediaWiki:Validationpage}}|hjelp]])'''",
 	"revreview-submitedit": "Send endringer",
 	"revreview-submitedit-title": "Send endringene dine til gjennomgang",
@@ -122,7 +122,6 @@
 	"revreview-quick-quality-same": "'''[[{{MediaWiki:Validationpage}}|Kvalitet]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} gjennomgå ventende endringer]]",
 	"revreview-quick-see-quality": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} gjennomgå ventende endringer]]",
-	"revreview-source": "Vis kilde",
 	"revreview-basic-title": "Dette er en kontrollert versjon av denne siden",
 	"revreview-style": "Lesbarhet",
 	"revreview-style-0": "Utilstrekkelig",
@@ -185,5 +184,13 @@
 	"revreview-locked": "'''Merk:''' Redigeringer må [[{{MediaWiki:Validationpage}}|gjennomgås]] før de vises for lesere av denne siden.",
 	"revreview-unlocked": "'''Merk:''' Redigeringer krever ikke [[{{MediaWiki:Validationpage}}|gjennomgang]] før de vises for lesere av denne siden.",
 	"log-show-hide-review": "$1 gjennomgangslogg",
-	"validationpage": "{{ns:help}}:Sidegodkjenning"
+	"validationpage": "{{ns:help}}:Sidegodkjenning",
+	"log-action-filter-review": "Type granskning:",
+	"log-action-filter-review-accept": "Manuell akseptering",
+	"log-action-filter-review-autoaccept": "Automatisk akseptering",
+	"log-action-filter-review-unaccept": "Manuell fjerning av akseptering",
+	"log-action-filter-stable": "Type konfigurasjonsendring:",
+	"log-action-filter-stable-config": "Ny konfigurasjon",
+	"log-action-filter-stable-modify": "Modifisert konfigurasjon",
+	"log-action-filter-stable-reset": "Nullstilling av konfigurasjon"
 }

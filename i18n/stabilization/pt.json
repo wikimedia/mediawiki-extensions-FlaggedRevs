@@ -19,7 +19,7 @@
 	"stabilization-def1": "A versão publicada; se inexistente, então a edição mais recente",
 	"stabilization-def2": "A edição mais recente",
 	"stabilization-restrict": "Restrições da revisão automática",
-	"stabilization-restrict-none": "Nenhuma restrição extra",
+	"stabilization-restrict-none": "Sem restrições extra",
 	"stabilization-submit": "Confirmar",
 	"stabilization-notexists": "A página \"[[:$1|$1]]\" não existe.\nNão é possível configurá-la.",
 	"stabilization-notcontent": "A página \"[[:$1|$1]]\" não pode ser revista.\nNão é possível configurá-la.",
