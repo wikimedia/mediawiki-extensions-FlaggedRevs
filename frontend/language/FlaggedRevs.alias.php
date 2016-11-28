@@ -805,17 +805,17 @@ $specialPageAliases['tt-cyrl'] = array(
 
 /** Ukrainian (українська) */
 $specialPageAliases['uk'] = array(
-	'PendingChanges' => array( 'Сторінки_до_перевірки' ),
-	'ProblemChanges' => array( 'Неперевірені_зміни' ),
-	'QualityOversight' => array( 'Поглиблений_журнал_перевірок' ),
-	'ReviewedPages' => array( 'Перевірені_сторінки' ),
-	'RevisionReview' => array( 'Перевірка_версій' ),
-	'Stabilization' => array( 'Стабілізація' ),
-	'StablePages' => array( 'Стабілізовані_сторінки' ),
-	'ConfiguredPages' => array( 'Налаштовані_сторінки' ),
-	'ReviewedVersions' => array( 'Перевірені_версії' ),
-	'UnreviewedPages' => array( 'Неперевірені_сторінки' ),
-	'ValidationStatistics' => array( 'Статистика_перевірок' ),
+	'PendingChanges' => array( 'Сторінки_до_перевірки', 'Ожидающие_проверки_изменения', 'Устаревшие_проверенные_страницы' ),
+	'ProblemChanges' => array( 'Неперевірені_зміни', 'Непроверенные_изменения' ),
+	'QualityOversight' => array( 'Поглиблений_журнал_перевірок', 'Расширенный_журнал_проверок_версий' ),
+	'ReviewedPages' => array( 'Перевірені_сторінки', 'Проверенные_страницы' ),
+	'RevisionReview' => array( 'Перевірка_версій', 'Проверка_версий' ),
+	'Stabilization' => array( 'Стабілізація', 'Стабилизация' ),
+	'StablePages' => array( 'Стабілізовані_сторінки', 'Стабильные_страницы' ),
+	'ConfiguredPages' => array( 'Налаштовані_сторінки', 'Настроенные_страницы' ),
+	'ReviewedVersions' => array( 'Перевірені_версії', 'Проверенные_версии', 'Стабильные_версии' ),
+	'UnreviewedPages' => array( 'Неперевірені_сторінки', 'Непроверенные_страницы' ),
+	'ValidationStatistics' => array( 'Статистика_перевірок', 'Статистика_проверок' ),
 );
 
 /** Venetian (vèneto) */
