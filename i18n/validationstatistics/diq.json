@@ -8,7 +8,8 @@
 			"Xoser",
 			"Marmase",
 			"Kumkumuk",
-			"Asmen"
+			"Asmen",
+			"1917 Ekim Devrimi"
 		]
 	},
 	"validationstatistics": "Pele istatîstîksê onay biyayisi",
@@ -18,7 +19,7 @@
 	"validationstatistics-revtime": "Avaraj tecil seba vurnayişan pê ''karberanê ke hama ci nikewta'' qontrol beno '''$1'''; mediyan '''$2''' ya.\n$3",
 	"validationstatistics-table": "Qandê herunda nama istatistikê pela çım ra ravyarnayışi, peleyê hetenayışa ''tewr nêkerê''  cêr dı ratneyayê. Peleyê ke vurnayış pawenê ''noroc resnayışê cı qedyayo'', peleyê ke vurnayış nêpawena zi ''senkronize'' qebul benê.",
 	"validationstatistics-ns": "Heruna nami",
-	"validationstatistics-total": "Peli",
+	"validationstatistics-total": "Pelli",
 	"validationstatistics-stable": "Vêniya",
 	"validationstatistics-latest": "Rocaniye biyo",
 	"validationstatistics-synced": "Rocaniye biyo/Kontrol biyo",

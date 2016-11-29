@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Mirzali",
-			"Kumkumuk"
+			"Kumkumuk",
+			"1917 Ekim Devrimi"
 		]
 	},
 	"apihelp-flagconfig-example-1": "Veynd desmal vıraşten",
@@ -15,6 +16,9 @@
 	"apihelp-query+oldreviewedpages-param-namespace": "Caname amorden",
 	"apihelp-query+oldreviewedpages-param-filterredir": "Qandë hetenayışa kes seni filtre ke no",
 	"apihelp-query+oldreviewedpages-param-limit": "Raçarnayışi rê pêro piya çend peli.",
+	"apihelp-query+reviewedpages-param-start": "Kamiya perrer ra lista sergend nê.",
+	"apihelp-query+reviewedpages-param-end": "Kamiya perrer ra lista vındar nê.",
+	"apihelp-query+reviewedpages-param-namespace": "Caynamam amorê",
 	"apihelp-query+reviewedpages-param-filterredir": "Kes seni hetenayışi filtre keno",
 	"apihelp-query+reviewedpages-param-filterlevel": "Seni Qalite filtre beno (0=kontrol, 1=qalite).",
 	"apihelp-query+reviewedpages-param-limit": "Raçarnayışi rê pêro piya çend peli.",
