@@ -8,7 +8,7 @@ div.flaggedrevs_basic,
 div.flaggedrevs_quality,
 div.flaggedrevs_pristine,
 div.flaggedrevs_notice {
-	border: 1px solid #aaa;
+	border: 1px solid #a2a9b1;
 	padding: 5px;
 	font-weight: normal;
 	line-height: 1.5em;
@@ -20,23 +20,23 @@ div.flaggedrevs_short_basic img {
 	vertical-align: text-bottom;
 }
 div.flaggedrevs_basic {
-	background-color: #f0f8ff;
+	background-color: #eaf3ff;
 }
 div.flaggedrevs_quality {
-	background-color: #e1ffe1;
+	background-color: #d5fdf4;
 }
 div.flaggedrevs_pristine {
-	background-color: #ffffe3;
+	background-color: #fef6e7;
 }
 div.flaggedrevs_notice {
-	background-color: #f9f9f9;
+	background-color: #f8f9fa;
 }
 
 table.flaggedrevs_editnotice,
 table.flaggedrevs_viewnotice {
 	padding: 3px;
-	border: 2px solid #6cc8f3;
-	background-color: #f9f9f9;
+	border: 2px solid #a2a9b1;
+	background-color: #f8f9fa;
 	text-align: left;
 	width: 100%;
 	clear: both;
@@ -44,17 +44,17 @@ table.flaggedrevs_viewnotice {
 
 div.flaggedrevs_diffnotice,
 div.flaggedrevs_preview {
-	border: 1px solid #a7d7f9;
+	border: 1px solid #c8ccd1;
 	padding: 5px;
 	text-align: center;
 	clear: both;
 }
 div.flaggedrevs_diffnotice {
 	font-size: 85%;
-	background-color: #f9f9f9;
+	background-color: #f8f9fa;
 }
 div.flaggedrevs_preview {
-	background-color: #eaf2fd;
+	background-color: #eaf3ff;
 	color: black;
 }
 
@@ -64,8 +64,8 @@ span.flaggedrevs_important {
 }
 
 div.flaggedrevs_notes {
-	border: 1px solid #aaa;
-	background-color: #f9f9f9;
+	border: 1px solid #a2a9b1;
+	background-color: #f8f9fa;
 	padding: 5px;
 	font-size: 85%;
 	margin-left: 50px;
@@ -110,7 +110,7 @@ div.flaggedrevs_notes {
 
 /* Short User Interface */
 div.flaggedrevs_short {
-	border: 1px solid #ccc;
+	border: 1px solid #c8ccd1;
 	background-color: #ffffff;
 	font-size: 95%;
 	font-weight: normal;
@@ -137,7 +137,7 @@ div.flaggedrevs_short_basic {
 }
 
 div.flaggedrevs_short_details {
-	border: 1px solid #aaa;
+	border: 1px solid #a2a9b1;
 	background-color: #ffffff;
 	padding: 5px;
 	position: absolute;
@@ -204,23 +204,23 @@ div.flaggedrevs_short_details {
 
 /* Both User Interfaces */
 .flaggedrevs-color-0 {
-	background-color: #f9f9f9;
+	background-color: #f8f9fa;
 }
 .flaggedrevs-color-1 {
-	background-color: #f0f8ff;
+	background-color: #eaf3ff;
 }
 .flaggedrevs-color-2 {
-	background-color: #e1ffe1;
+	background-color: #d5fdf4;
 }
 .flaggedrevs-color-3 {
-	background-color: #ffffe3;
+	background-color: #fef6e7;
 }
 
 .flaggedrevs-pending {
-	background-color: #ffeeaa;
+	background-color: #fee7e6;
 }
 .flaggedrevs-unreviewed {
-	background-color: #faebd7;
+	background-color: #fef6e7;
 }
 
 a.fr-toggle-symbol {
@@ -266,27 +266,27 @@ img.flaggedrevs-icon {
 .fr-watchlist-pending-notice {
 	padding: 3px;
 	margin-bottom: 5px;
-	border: 1px solid #990000;
-	background-color: #FEECD7;
+	border: 1px solid #b32424;
+	background-color: #fee7e6;
 }
 
 /* Special pages */
 .fr-pending-long {
-	background-color: #f5ecec;
+	background-color: #eaecf0;
 }
 .fr-pending-long2 {
-	background-color: #f5dddd;
+	background-color: #fee7e6;
 }
 .fr-pending-long3 {
-	background-color: #e2caca;
+	background-color: #c8ccd1;
 }
 
 .fr-unreviewed-unwatched {
-	background-color: #faebd7;
+	background-color: #fee7e6;
 }
 
 span.fr-under-review {
-	background-color: yellow;
+	background-color: #fc3;
 	font-weight: bold;
 }
 
