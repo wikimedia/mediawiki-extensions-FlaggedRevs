@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kaganer"
+			"Kaganer",
+			"Wadorgurt"
 		]
 	},
 	"flaggedrevs-hidereviewed-show": "Возьматыны",
-	"revreview-filter-all": "ваньзэ"
+	"revreview-filter-all": "ваньзэ",
+	"tooltip-ca-current": "Эскерымтэ воштонъёсын та бамез учкыны"
 }

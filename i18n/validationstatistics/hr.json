@@ -5,7 +5,8 @@
 			"Ex13",
 			"Herr Mlinka",
 			"MaGa",
-			"SpeedyGonsales"
+			"SpeedyGonsales",
+			"Bugoslav"
 		]
 	},
 	"validationstatistics": "Statistike pregledavanja stranice",
@@ -20,6 +21,7 @@
 	"validationstatistics-latest": "Sinkronizirano",
 	"validationstatistics-synced": "Usklađeno/Ocijenjeno",
 	"validationstatistics-old": "Zastarjelo",
+	"validationstatistics-unreviewed": "Nepregledano",
 	"validationstatistics-utable": "Ispod je popis {{PLURAL:$1|najaktivnijeg|$1 najaktivnija|$1 najaktivnijih}} ocjenjivača u posljednjih {{PLURAL:$2|sat vremena|$2 sata|$2 sati}}.",
 	"validationstatistics-user": "Suradnik",
 	"validationstatistics-reviews": "Ocjene"
