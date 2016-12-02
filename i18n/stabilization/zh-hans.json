@@ -6,7 +6,8 @@
 			"Liangent",
 			"PhiLiP",
 			"Mywood",
-			"Impersonator 1"
+			"Impersonator 1",
+			"Liuxinyu970226"
 		]
 	},
 	"stabilization-tab": "检查",
@@ -37,7 +38,7 @@
 	"stabilize_invalid_level": "无效的保护级别。",
 	"stabilize_expiry_invalid": "无效的终止日期。",
 	"stabilize_expiry_old": "该终止时间已经过去。",
-	"stabilize_denied": "权限错误。",
+	"stabilize_denied": "权限被拒绝。",
 	"stabilize-expiring": "终止于$1（UTC）",
 	"stabilization-review": "将当前版本标记为已检查"
 }
