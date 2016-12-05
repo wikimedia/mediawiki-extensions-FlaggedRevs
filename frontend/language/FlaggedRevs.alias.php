@@ -128,6 +128,21 @@ $specialPageAliases['bjn'] = array(
 	'UnreviewedPages' => array( 'Tungkaran_nang_balum_ditinjau' ),
 );
 
+/** Bengali (বাংলা) */
+$specialPageAliases['bn'] = array(
+	'PendingChanges' => array( 'অমীমাংসিত_পরিবর্তন', 'পুরনো_পর্যালোচিত_পাতা' ),
+	'ProblemChanges' => array( 'সমস্যাযুক্ত_পরিবর্তন' ),
+	'QualityOversight' => array( 'উন্নত_পর্যালোচনা_লগ' ),
+	'ReviewedPages' => array( 'পর্যালোচিত_পাতা', 'পর্যালোচিত_পৃষ্ঠা' ),
+	'RevisionReview' => array( 'সংশোধন_পর্যালোচনা' ),
+	'Stabilization' => array( 'স্থিতিশীলতা' ),
+	'StablePages' => array( 'স্থিতিশীল_পাতাসমূহ' ),
+	'ConfiguredPages' => array( 'কনফিগারকৃত_পাতা' ),
+	'ReviewedVersions' => array( 'পর্যালোচিত_সংস্করণ', 'স্থিতিশীল_সংস্করণ' ),
+	'UnreviewedPages' => array( 'অপর্যালোচিত_পাতা', 'পর্যালোচনাবিহীন_পৃষ্ঠা'),
+	'ValidationStatistics' => array( 'বৈধকরণের_পরিসংখ্যান', 'বৈধকরণ_পরিসংখ্যান' ),
+);
+
 /** Breton (brezhoneg) */
 $specialPageAliases['br'] = array(
 	'ReviewedPages' => array( 'PajennoùAdwelet' ),
