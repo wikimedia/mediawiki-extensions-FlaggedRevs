@@ -203,14 +203,8 @@ class FlaggedRevsUIHooks {
 			if ( is_array( $tuple ) ) { // cache hit
 				list( $ignoreRedirect, $target ) = $tuple;
 			} else { // cache miss; fetch the stable rev text...
-				$text = $srev->getRevText();
-				$redirect = $fa->getRedirectURL(
-					ContentHandler::makeContent(
-						$text,
-						null,
-						CONTENT_MODEL_WIKITEXT
-					)->getUltimateRedirectTarget()
-				);
+				$content = $srev->getRevision()->getContent();
+				$redirect = $fa->getRedirectURL( $content->getUltimateRedirectTarget() );
 				if ( $redirect ) {
 					$target = $redirect; // use stable redirect
 				} else {

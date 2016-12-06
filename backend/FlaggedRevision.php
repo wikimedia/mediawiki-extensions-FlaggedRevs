@@ -493,7 +493,7 @@ class FlaggedRevision {
 	/**
 	 * Get text of the corresponding revision
 	 * Note: here for convenience
-	 * @return string|false revision timestamp in MW format
+	 * @return string|null Revision text, if available
 	 */
 	public function getRevText() {
 		return ContentHandler::getContentText( $this->mRevision->getContent() );
