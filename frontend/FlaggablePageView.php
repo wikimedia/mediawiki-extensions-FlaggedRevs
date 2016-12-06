@@ -751,10 +751,10 @@ class FlaggablePageView extends ContextSource {
 
 	// Show icons for draft/stable/old reviewed versions
 	protected function showRatingIcon() {
-		if ( FlaggedRevs::useOnlyIfProtected() ) {
+		if ( FlaggedRevs::useSimpleConfig() ) {
 			// If there is only one quality level and we have tabs to know
 			// which version we are looking at, then just use the lock icon...
-			return FlaggedRevs::qualityVersions();
+			return false;
 		}
 		return true;
 	}
@@ -1105,7 +1105,7 @@ class FlaggablePageView extends ContextSource {
 		if ( !$reqUser->isAllowed( 'review' ) ) {
 			return true;
 		}
-		if ( !FlaggedRevs::useOnlyIfProtected() ) {
+		if ( !FlaggedRevs::useSimpleConfig() ) {
 			# Add links to lists of unreviewed pages and pending changes in this category
 			$category = $this->article->getTitle()->getText();
 			$this->out->addSubtitle(
@@ -1200,7 +1200,7 @@ class FlaggablePageView extends ContextSource {
 	public function addStabilizationLink() {
 		$request = $this->getRequest();
 		$this->load();
-		if ( FlaggedRevs::useProtectionLevels() ) {
+		if ( FlaggedRevs::useSimpleConfig() ) {
 			return true; // simple custom levels set for action=protect
 		}
 		# Check only if the title is reviewable
@@ -1236,7 +1236,7 @@ class FlaggablePageView extends ContextSource {
 	public function setActionTabs( $skin, array &$actions ) {
 		$reqUser = $this->getUser();
 		$this->load();
-		if ( FlaggedRevs::useProtectionLevels() ) {
+		if ( FlaggedRevs::useSimpleConfig() ) {
 			return true; // simple custom levels set for action=protect
 		}
 		$title = $this->article->getTitle()->getSubjectPage();

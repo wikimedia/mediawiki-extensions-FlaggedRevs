@@ -24,7 +24,6 @@ class FlaggedRevs {
 	protected static $loaded = false;
 
 	protected static function load() {
-		global $wgFlaggedRevsTags, $wgFlaggedRevTags;
 		if ( self::$loaded ) {
 			return true;
 		}
@@ -32,6 +31,47 @@ class FlaggedRevs {
 			throw new Exception( 'FlaggedRevs config loaded too soon! Possibly before LocalSettings.php!' );
 		}
 		self::$loaded = true;
+
+		# Make sure that the restriction levels are unique
+		global $wgFlaggedRevsRestrictionLevels;
+		self::$restrictionLevels = array_unique( $wgFlaggedRevsRestrictionLevels );
+		self::$restrictionLevels = array_filter( self::$restrictionLevels, 'strlen' );
+
+		# Make sure no talk namespaces are in review namespace
+		global $wgFlaggedRevsNamespaces;
+		foreach ( $wgFlaggedRevsNamespaces as $ns ) {
+			if ( MWNamespace::isTalk( $ns ) ) {
+				throw new Exception( 'FlaggedRevs given talk namespace in $wgFlaggedRevsNamespaces!' );
+			} elseif ( $ns == NS_MEDIAWIKI ) {
+				throw new Exception( 'FlaggedRevs given NS_MEDIAWIKI in $wgFlaggedRevsNamespaces!' );
+			}
+		}
+		self::$reviewNamespaces = $wgFlaggedRevsNamespaces;
+
+		# Handle $wgFlaggedRevsAutoReview settings
+		global $wgFlaggedRevsAutoReview, $wgFlaggedRevsAutoReviewNew;
+		if ( is_int( $wgFlaggedRevsAutoReview ) ) {
+			self::$autoReviewConfig = $wgFlaggedRevsAutoReview;
+		} else { // b/c
+			if ( $wgFlaggedRevsAutoReview ) {
+				self::$autoReviewConfig = FR_AUTOREVIEW_CHANGES;
+			}
+			wfWarn( '$wgFlaggedRevsAutoReview is now a bitfield instead of a boolean.' );
+		}
+		if ( isset( $wgFlaggedRevsAutoReviewNew ) ) { // b/c
+			self::$autoReviewConfig = ( $wgFlaggedRevsAutoReviewNew )
+				? self::$autoReviewConfig |= FR_AUTOREVIEW_CREATION
+				: self::$autoReviewConfig & ~FR_AUTOREVIEW_CREATION;
+			wfWarn( '$wgFlaggedRevsAutoReviewNew is deprecated; use $wgFlaggedRevsAutoReview.' );
+		}
+
+		// When using a simple config, we don't need to initialize the other settings
+		if ( self::useSimpleConfig() ) {
+			return true;
+		}
+
+		# Handle levelled tags
+		global $wgFlaggedRevsTags, $wgFlaggedRevTags;
 		$flaggedRevsTags = null;
 		if ( isset( $wgFlaggedRevTags ) ) {
 			$flaggedRevsTags = $wgFlaggedRevTags; // b/c
@@ -89,42 +129,14 @@ class FlaggedRevs {
 			self::$minPL[$tag] = max( $minPL, 1 );
 			self::$minSL[$tag] = 1;
 		}
+
+		# Handle restrictions on tags
 		global $wgFlaggedRevsTagsRestrictions, $wgFlagRestrictions;
 		if ( isset( $wgFlagRestrictions ) ) {
 			self::$tagRestrictions = $wgFlagRestrictions; // b/c
 			wfWarn( 'Please use $wgFlaggedRevsTagsRestrictions instead of $wgFlagRestrictions in config.' );
 		} else {
 			self::$tagRestrictions = $wgFlaggedRevsTagsRestrictions;
-		}
-		# Make sure that the restriction levels are unique
-		global $wgFlaggedRevsRestrictionLevels;
-		self::$restrictionLevels = array_unique( $wgFlaggedRevsRestrictionLevels );
-		self::$restrictionLevels = array_filter( self::$restrictionLevels, 'strlen' );
-		# Make sure no talk namespaces are in review namespace
-		global $wgFlaggedRevsNamespaces;
-		foreach ( $wgFlaggedRevsNamespaces as $ns ) {
-			if ( MWNamespace::isTalk( $ns ) ) {
-				throw new Exception( 'FlaggedRevs given talk namespace in $wgFlaggedRevsNamespaces!' );
-			} elseif ( $ns == NS_MEDIAWIKI ) {
-				throw new Exception( 'FlaggedRevs given NS_MEDIAWIKI in $wgFlaggedRevsNamespaces!' );
-			}
-		}
-		self::$reviewNamespaces = $wgFlaggedRevsNamespaces;
-		# Handle $wgFlaggedRevsAutoReview settings
-		global $wgFlaggedRevsAutoReview, $wgFlaggedRevsAutoReviewNew;
-		if ( is_int( $wgFlaggedRevsAutoReview ) ) {
-			self::$autoReviewConfig = $wgFlaggedRevsAutoReview;
-		} else { // b/c
-			if ( $wgFlaggedRevsAutoReview ) {
-				self::$autoReviewConfig = FR_AUTOREVIEW_CHANGES;
-			}
-			wfWarn( '$wgFlaggedRevsAutoReview is now a bitfield instead of a boolean.' );
-		}
-		if ( isset( $wgFlaggedRevsAutoReviewNew ) ) { // b/c
-			self::$autoReviewConfig = ( $wgFlaggedRevsAutoReviewNew )
-				? self::$autoReviewConfig |= FR_AUTOREVIEW_CREATION
-				: self::$autoReviewConfig & ~FR_AUTOREVIEW_CREATION;
-			wfWarn( '$wgFlaggedRevsAutoReviewNew is deprecated; use $wgFlaggedRevsAutoReview.' );
 		}
 
 		return true;
@@ -237,7 +249,7 @@ class FlaggedRevs {
 	 */
 	public static function isStableShownByDefault() {
 		global $wgFlaggedRevsOverride;
-		if ( self::useOnlyIfProtected() ) {
+		if ( self::useSimpleConfig() ) {
 			return false; // must be configured per-page
 		}
 		return (bool)$wgFlaggedRevsOverride;
@@ -251,6 +263,14 @@ class FlaggedRevs {
 	public static function useOnlyIfProtected() {
 		global $wgFlaggedRevsProtection;
 		return (bool)$wgFlaggedRevsProtection;
+	}
+
+	/**
+	 * Whether simple configuration settings should be used
+	 * @return bool
+	 */
+	public static function useSimpleConfig() {
+		return self::useOnlyIfProtected();
 	}
 
 	/**
@@ -924,26 +944,34 @@ class FlaggedRevs {
 		# Get current stable version ID (for logging)
 		$oldSv = FlaggedRevision::newFromStable( $title, FR_MASTER );
 		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
-		# Set the auto-review tags from the prior stable version.
-		# Normally, this should already be done and given here...
-		if ( !is_array( $flags ) ) {
-			if ( $oldSv ) {
-				# Use the last stable version if $flags not given
-				if ( $user->isAllowed( 'bot' ) ) {
-					$flags = $oldSv->getTags(); // no change for bot edits
-				} else {
-					# Account for perms/tags...
-					$flags = self::getAutoReviewTags( $user, $oldSv->getTags() );
-				}
-			} else { // new page?
-				$flags = self::quickTags( FR_CHECKED ); // use minimal level
-			}
+
+		if ( self::useSimpleConfig() ) {
+			$flags = array();
+			$quality = FR_CHECKED;
+			$tags = '';
+		} else {
+			# Set the auto-review tags from the prior stable version.
+			# Normally, this should already be done and given here...
 			if ( !is_array( $flags ) ) {
-				return false; // can't auto-review this revision
+				if ( $oldSv ) {
+					# Use the last stable version if $flags not given
+					if ( $user->isAllowed( 'bot' ) ) {
+						$flags = $oldSv->getTags(); // no change for bot edits
+					} else {
+						# Account for perms/tags...
+						$flags = self::getAutoReviewTags( $user, $oldSv->getTags() );
+					}
+				} else { // new page?
+					$flags = self::quickTags( FR_CHECKED ); // use minimal level
+				}
+				if ( !is_array( $flags ) ) {
+					return false; // can't auto-review this revision
+				}
 			}
+
+			$quality = FlaggedRevs::getQualityTier( $flags, FR_CHECKED /* sanity */ );
+			$tags = FlaggedRevision::flattenRevisionTags( $flags );
 		}
-		# Get review property flags
-		$propFlags = $auto ? array( 'auto' ) : array();
 
 		# Note: this needs to match the prepareContentForEdit() call WikiPage::doEditContent.
 		# This is for consistency and also to avoid triggering a second parse otherwise.
@@ -975,16 +1003,16 @@ class FlaggedRevs {
 					}
 				}
 			}
-			foreach ( $poutput->getFileSearchOptions() as $dbKey => $info ) {
-				if ( !isset( $fVersions[$dbKey] ) ) {
-					$srev = FlaggedRevision::newFromStable( Title::makeTitle( NS_FILE, $dbKey ) );
-					if ( $srev && $srev->getFileTimestamp() ) { // use stable
-						$fVersions[$dbKey]['time'] = $srev->getFileTimestamp();
-						$fVersions[$dbKey]['sha1'] = $srev->getFileSha1();
-					} else { // use current
-						$fVersions[$dbKey]['time'] = $info['time'];
-						$fVersions[$dbKey]['sha1'] = $info['sha1'];
-					}
+		}
+		foreach ( $poutput->getFileSearchOptions() as $dbKey => $info ) {
+			if ( !isset( $fVersions[$dbKey] ) ) {
+				$srev = FlaggedRevision::newFromStable( Title::makeTitle( NS_FILE, $dbKey ) );
+				if ( $srev && $srev->getFileTimestamp() ) { // use stable
+					$fVersions[$dbKey]['time'] = $srev->getFileTimestamp();
+					$fVersions[$dbKey]['sha1'] = $srev->getFileSha1();
+				} else { // use current
+					$fVersions[$dbKey]['time'] = $info['time'];
+					$fVersions[$dbKey]['sha1'] = $info['sha1'];
 				}
 			}
 		}
@@ -1008,14 +1036,14 @@ class FlaggedRevs {
 			'rev'	      		=> $rev,
 			'user_id'	       	=> $user->getId(),
 			'timestamp'     	=> $rev->getTimestamp(), // same as edit time
-			'quality'      	 	=> FlaggedRevs::getQualityTier( $flags, 0 /* sanity */ ),
-			'tags'	       		=> FlaggedRevision::flattenRevisionTags( $flags ),
+			'quality'      	 	=> $quality,
+			'tags'	       		=> $tags,
 			'img_name'      	=> $fileData['name'],
 			'img_timestamp' 	=> $fileData['timestamp'],
 			'img_sha1'      	=> $fileData['sha1'],
 			'templateVersions' 	=> $tVersions,
 			'fileVersions'     	=> $fVersions,
-			'flags'             => implode( ',', $propFlags ),
+			'flags'             => $auto ? 'auto' : '',
 		) );
 		$flaggedRevision->insert();
 		# Update the article review log
