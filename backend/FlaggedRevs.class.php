@@ -1020,7 +1020,7 @@ class FlaggedRevs {
 		$flaggedRevision->insert();
 		# Update the article review log
 		FlaggedRevsLog::updateReviewLog( $title,
-			$flags, array(), '', $rev->getId(), $oldSvId, true, $auto );
+			$flags, array(), '', $rev->getId(), $oldSvId, true, $auto, $user );
 
 		# Update page and tracking tables and clear cache
 		FlaggedRevs::stableVersionUpdates( $article );

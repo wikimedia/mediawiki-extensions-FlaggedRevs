@@ -271,7 +271,8 @@ $wgExtensionMessagesFiles['FlaggedRevsAliases'] = "$langDir/FlaggedRevs.alias.ph
 # UI setup, forms, and HTML elements
 $wgAutoloadClasses['FlaggedRevsUISetup'] = "$frontendDir/FlaggedRevsUI.setup.php";
 $wgAutoloadClasses['FlaggablePageView'] = "$frontendDir/FlaggablePageView.php";
-$wgAutoloadClasses['FlaggedRevsLogView'] = "$frontendDir/FlaggedRevsLogView.php";
+$wgAutoloadClasses['FlaggedRevsReviewLogFormatter'] = "$frontendDir/FlaggedRevsReviewLogFormatter.php";
+$wgAutoloadClasses['FlaggedRevsStableLogFormatter'] = "$frontendDir/FlaggedRevsStableLogFormatter.php";
 $wgAutoloadClasses['FlaggedRevsXML'] = "$frontendDir/FlaggedRevsXML.php";
 $wgAutoloadClasses['RevisionReviewFormUI'] = "$frontendDir/RevisionReviewFormUI.php";
 $wgAutoloadClasses['RejectConfirmationFormUI'] = "$frontendDir/RejectConfirmationFormUI.php";
@@ -453,23 +454,23 @@ $wgLogHeaders['stable'] = 'stable-logpagetext';
 $wgFilterLogTypes['review'] = true;
 
 # Various actions are used for log filtering ...
-$wgLogActions['review/approve']  = 'review-logentry-app'; // checked (again)
-$wgLogActions['review/approve2']  = 'review-logentry-app'; // quality (again)
-$wgLogActions['review/approve-i']  = 'review-logentry-app'; // checked (first time)
-$wgLogActions['review/approve2-i']  = 'review-logentry-app'; // quality (first time)
-$wgLogActions['review/approve-a']  = 'review-logentry-app'; // checked (auto)
-$wgLogActions['review/approve2-a']  = 'review-logentry-app'; // quality (auto)
-$wgLogActions['review/approve-ia']  = 'review-logentry-app'; // checked (initial & auto)
-$wgLogActions['review/approve2-ia']  = 'review-logentry-app'; // quality (initial & auto)
-$wgLogActions['review/unapprove'] = 'review-logentry-dis'; // was checked
-$wgLogActions['review/unapprove2'] = 'review-logentry-dis'; // was quality
+$wgLogActionsHandlers['review/approve']  = 'FlaggedRevsReviewLogFormatter'; // checked (again)
+$wgLogActionsHandlers['review/approve2']  = 'FlaggedRevsReviewLogFormatter'; // quality (again)
+$wgLogActionsHandlers['review/approve-i']  = 'FlaggedRevsReviewLogFormatter'; // checked (first time)
+$wgLogActionsHandlers['review/approve2-i']  = 'FlaggedRevsReviewLogFormatter'; // quality (first time)
+$wgLogActionsHandlers['review/approve-a']  = 'FlaggedRevsReviewLogFormatter'; // checked (auto)
+$wgLogActionsHandlers['review/approve2-a']  = 'FlaggedRevsReviewLogFormatter'; // quality (auto)
+$wgLogActionsHandlers['review/approve-ia']  = 'FlaggedRevsReviewLogFormatter'; // checked (initial & auto)
+$wgLogActionsHandlers['review/approve2-ia']  = 'FlaggedRevsReviewLogFormatter'; // quality (initial & auto)
+$wgLogActionsHandlers['review/unapprove'] = 'FlaggedRevsReviewLogFormatter'; // was checked
+$wgLogActionsHandlers['review/unapprove2'] = 'FlaggedRevsReviewLogFormatter'; // was quality
+
+$wgLogActionsHandlers['stable/config'] = 'FlaggedRevsStableLogFormatter'; // customize
+$wgLogActionsHandlers['stable/modify'] = 'FlaggedRevsStableLogFormatter'; // re-customize
+$wgLogActionsHandlers['stable/reset'] = 'FlaggedRevsStableLogFormatter'; // reset
 
 # B/C ...
 $wgLogActions['rights/erevoke']  = 'rights-editor-revoke';
-
-$wgLogActionsHandlers['stable/config'] = 'FlaggedRevsLogView::stabilityLogText'; // customize
-$wgLogActionsHandlers['stable/modify'] = 'FlaggedRevsLogView::stabilityLogText'; // re-customize
-$wgLogActionsHandlers['stable/reset'] = 'FlaggedRevsLogView::stabilityLogText'; // reset
 
 # AJAX functions
 FlaggedRevsUISetup::defineAjaxFunctions( $wgAjaxExportList );
@@ -584,8 +585,6 @@ $wgHooks['DiffViewHeader'][] = 'FlaggedRevsUIHooks::onDiffViewHeader';
 $wgHooks['NewDifferenceEngine'][] = 'FlaggedRevsUIHooks::checkDiffUrl';
 # Local user account preference
 $wgHooks['GetPreferences'][] = 'FlaggedRevsUIHooks::onGetPreferences';
-# Review/stability log links
-$wgHooks['LogLine'][] = 'FlaggedRevsUIHooks::logLineLinks';
 # Add global JS vars
 $wgHooks['MakeGlobalVariablesScript'][] = 'FlaggedRevsUIHooks::injectGlobalJSVars';
 

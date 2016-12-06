@@ -142,22 +142,6 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
-	public static function logLineLinks(
-		$type, $action, $title, $params, &$comment, &$rv, $ts
-	) {
-		if ( !$title ) {
-			return true; // sanity check
-		}
-		// Stability log
-		if ( $type == 'stable' && FlaggedRevsLog::isStabilityAction( $action ) ) {
-			$rv .= FlaggedRevsLogView::stabilityLogLinks( $title, $ts, $params );
-		// Review log
-		} elseif ( $type == 'review' && FlaggedRevsLog::isReviewAction( $action ) ) {
-			$rv .= FlaggedRevsLogView::reviewLogLinks( $action, $title, $params );
-		}
-		return true;
-	}
-
 	public static function onImagePageFindFile( $imagePage, &$normalFile, &$displayFile ) {
 		$view = FlaggablePageView::singleton();
 		$view->imagePageFindFile( $normalFile, $displayFile );
