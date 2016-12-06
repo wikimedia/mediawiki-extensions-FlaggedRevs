@@ -71,5 +71,13 @@
 	"apihelp-stabilize-param-review": "Review this page.",
 	"apihelp-stabilize-param-protectlevel": "The review-protection level.",
 	"apihelp-stabilize-example-general": "Set [[Test]] to display the stable revision by default",
-	"apihelp-stabilize-example-protect": "Remove review-protection from [[Test]]"
+	"apihelp-stabilize-example-protect": "Remove review-protection from [[Test]]",
+	"apierror-flaggedrevs-notreviewable": "Provided page is not reviewable.",
+	"apierror-flaggedrevs-notsamepage": "Revisions do not belong to the same page.",
+	"apierror-flaggedrevs-pagedoesnotexist": "Provided page does not exist.",
+	"apierror-flaggedrevs-cantreview": "You don't have the necessary rights to set the specified flags.",
+	"apierror-flaggedrevs-toolow": "Either all or none of the flags have to be set to zero.",
+	"apierror-flaggedrevs-badflags": "The specified flags are not valid.",
+	"apierror-flaggedrevs-cantunreview": "You don't have the necessary rights to remove the flags.",
+	"apierror-flaggedrevs-noflaggedrev": "No flagged revision with the specified ID."
 }

@@ -60,7 +60,11 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 		}
 		if ( $params['filterwatched'] == 'watched' ) {
 			if ( !( $uid = $this->getUser()->getId() ) ) {
-				$this->dieUsage( 'You must be logged-in to have a watchlist', 'notloggedin' );
+				if ( is_callable( array( $this, 'dieWithError' ) ) ) {
+					$this->dieWithError( 'watchlistanontext', 'notloggedin' );
+				} else {
+					$this->dieUsage( 'You must be logged-in to have a watchlist', 'notloggedin' );
+				}
 			}
 			$this->addTables( 'watchlist' );
 			$this->addWhereFld( 'wl_user', $uid );
