@@ -75,12 +75,12 @@
 	"apihelp-stabilize-param-protectlevel": "{{doc-apihelp-param|stabilize|protectlevel|info=This message is used when $wgFlaggedRevsProtection is true}}",
 	"apihelp-stabilize-example-general": "{{doc-apihelp-example|stabilize|info=This message is used when $wgFlaggedRevsProtection is false}}",
 	"apihelp-stabilize-example-protect": "{{doc-apihelp-example|stabilize|info=This message is used when $wgFlaggedRevsProtection is true}}",
-	"apierror-flaggedrevs-badflags": "{{doc-apierror}}",
-	"apierror-flaggedrevs-cantreview": "{{doc-apierror}}",
-	"apierror-flaggedrevs-cantunreview": "{{doc-apierror}}",
-	"apierror-flaggedrevs-noflaggedrev": "{{doc-apierror}}",
 	"apierror-flaggedrevs-notreviewable": "{{doc-apierror}}",
 	"apierror-flaggedrevs-notsamepage": "{{doc-apierror}}",
 	"apierror-flaggedrevs-pagedoesnotexist": "{{doc-apierror}}",
-	"apierror-flaggedrevs-toolow": "{{doc-apierror}}"
+	"apierror-flaggedrevs-cantreview": "{{doc-apierror}}",
+	"apierror-flaggedrevs-toolow": "{{doc-apierror}}",
+	"apierror-flaggedrevs-badflags": "{{doc-apierror}}",
+	"apierror-flaggedrevs-cantunreview": "{{doc-apierror}}",
+	"apierror-flaggedrevs-noflaggedrev": "{{doc-apierror}}"
 }

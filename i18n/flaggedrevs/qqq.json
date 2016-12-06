@@ -73,7 +73,7 @@
 	"group-autoreview.js": "{{FlaggedRevs}}\n{{doc-group|autoreview|js}}",
 	"logentry-review-approve": "{{Flagged Revs}}\nlog entry for manually approving a revision",
 	"logentry-review-approve-auto": "{{Flagged Revs}}\nlog entry for automatically approving a revision",
-	"logentry-review-unapprove":  "{{Flagged Revs}}\nlog entry for deprecating a revision",
+	"logentry-review-unapprove": "{{Flagged Revs}}\nlog entry for deprecating a revision",
 	"logentry-stable-config": "{{Flagged Revs}}\nlog entry for enabling stabilisation config\n\nParameters:\n* $1 - link to target\n* $2 - user gender\n* $3 - link to user\n* $4 - summary of configuration changes",
 	"logentry-stable-modify": "{{Flagged Revs}}\nlog entry for modifying a stabilisation config\n\nParameters:\n* $1 - link to target\n* $2 - user gender\n* $3 - link to user\n* $4 - summary of configuration changes",
 	"logentry-stable-reset": "{{Flagged Revs}}\nlog entry for removing a stabilisation config\n\nParameters:\n* $1 - link to target\n* $2 - user gender\n* $3 - link to user\n* $4 - summary of configuration changes",
