@@ -154,6 +154,7 @@ class FlaggedRevsSetup {
 			}
 			if ( isset( $wgGroupPermissions['reviewer'] ) ) {
 				unset( $wgGroupPermissions['reviewer']['unreviewedpages'] );
+				unset( $wgGroupPermissions['reviewer']['validate'] );
 			}
 		}
 	}
