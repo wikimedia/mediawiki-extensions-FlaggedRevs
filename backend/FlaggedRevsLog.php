@@ -107,6 +107,37 @@ class FlaggedRevsLog {
 	}
 
 	/**
+	 * Record move of settings in stability log
+	 * @param Title $newTitle
+	 * @param Title $oldTitle
+	 * @param string $reason
+	 * @param User $user performing the action
+	 */
+	public static function updateStabilityLogOnMove( Title $newTitle, Title $oldTitle, $reason, $user ) {
+		$logEntry = new ManualLogEntry( 'stable', 'move_stable' );
+		$logEntry->setPerformer( $user );
+		$logEntry->setTarget( $newTitle );
+
+		// Build comment for log
+		$comment = wfMessage(
+			'prot_1movedto2',
+			$oldTitle->getPrefixedText(),
+			$newTitle->getPrefixedText()
+		)->inContentLanguage()->text();
+		if ( $reason ) {
+			$comment .= wfMessage( 'colon-separator' )->inContentLanguage()->text() . $reason;
+		}
+		$logEntry->setComment( $comment );
+
+		$logEntry->setParameters( array(
+			'4::oldtitle' => $oldTitle->getPrefixedText(),
+		) );
+
+		$logId = $logEntry->insert();
+		$logEntry->publish( $logId );
+	}
+
+	/**
 	 * Get log params (associate array) from a stability config
 	 * @param array $config
 	 * @return array (associative)

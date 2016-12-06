@@ -48,6 +48,7 @@
 	"logentry-stable-config": "$1 {{GENDER:$2|set}} stable version settings for $3 $4",
 	"logentry-stable-modify": "$1 {{GENDER:$2|changed}} stable version settings for $3 $4",
 	"logentry-stable-reset": "$1 {{GENDER:$2|reset}} stable version settings for $3 $4",
+	"logentry-stable-move_stable": "$1 {{GENDER:$2|moved}} stable version settings from $4 to $3",
 	"revreview-hist-draft": "unchecked revision",
 	"revreview-hist-pending": "pending revision",
 	"revreview-hist-quality": "quality revision",

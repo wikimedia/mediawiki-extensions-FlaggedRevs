@@ -468,6 +468,7 @@ $wgLogActionsHandlers['review/unapprove2'] = 'FlaggedRevsReviewLogFormatter'; //
 $wgLogActionsHandlers['stable/config'] = 'FlaggedRevsStableLogFormatter'; // customize
 $wgLogActionsHandlers['stable/modify'] = 'FlaggedRevsStableLogFormatter'; // re-customize
 $wgLogActionsHandlers['stable/reset'] = 'FlaggedRevsStableLogFormatter'; // reset
+$wgLogActionsHandlers['stable/move_stable'] = 'FlaggedRevsStableLogFormatter'; // move
 
 # B/C ...
 $wgLogActions['rights/erevoke']  = 'rights-editor-revoke';
