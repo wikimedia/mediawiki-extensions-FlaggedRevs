@@ -637,6 +637,12 @@ class FlaggedRevsHooks {
 		if ( empty( $rc->mAttribs['rc_this_oldid'] ) ) {
 			return true;
 		}
+		// don't autopatrol autoreviewed edits when using pending changes,
+		// otherwise edits by autoreviewed users on pending changes protected pages would be
+		// autopatrolled and could not be checked through RC patrol as on regular pages
+		if ( FlaggedRevs::useOnlyIfProtected() ) {
+			return true;
+		}
 		$fa = FlaggableWikiPage::getTitleInstance( $rc->getTitle() );
 		$fa->loadPageData( 'fromdbmaster' );
 		// Is the page reviewable?
