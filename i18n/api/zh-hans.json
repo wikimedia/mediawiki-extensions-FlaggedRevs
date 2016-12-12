@@ -75,5 +75,13 @@
 	"apihelp-stabilize-param-review": "复核此页面。",
 	"apihelp-stabilize-param-protectlevel": "复核保护级别。",
 	"apihelp-stabilize-example-general": "设置[[Test]]以显示通过默认的稳定修订",
-	"apihelp-stabilize-example-protect": "从[[Test]]移除复核保护"
+	"apihelp-stabilize-example-protect": "从[[Test]]移除复核保护",
+	"apierror-flaggedrevs-notreviewable": "提供的页面不可复核。",
+	"apierror-flaggedrevs-notsamepage": "修订版本不属于同一页面。",
+	"apierror-flaggedrevs-pagedoesnotexist": "提供的页面不存在。",
+	"apierror-flaggedrevs-cantreview": "您没有设置指定标记所需的权限。",
+	"apierror-flaggedrevs-toolow": "所有标记都必须（或都不能）设置为0。",
+	"apierror-flaggedrevs-badflags": "指定的标记无效。",
+	"apierror-flaggedrevs-cantunreview": "您没有移除标记所需的权限。",
+	"apierror-flaggedrevs-noflaggedrev": "没有指定ID修订版本的标记。"
 }

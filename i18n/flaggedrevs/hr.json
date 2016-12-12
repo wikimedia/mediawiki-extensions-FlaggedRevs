@@ -9,7 +9,8 @@
 			"Roberta F.",
 			"SpeedyGonsales",
 			"Tivek",
-			"Bugoslav"
+			"Bugoslav",
+			"Ivi104"
 		]
 	},
 	"action-review": "Ocijenjene izmjene",
@@ -22,7 +23,7 @@
 	"flaggedrevs-pref-UI-1": "Rabi male ikone i kratak prikaz statusa stranica",
 	"prefs-flaggedrevs-ui": "Ocjena uređivanja",
 	"flaggedrevs-prefs-stable": "Uvijek prikazuj kao zadanu stabilnu inačicu stranica sa sadržajem (ako postoji)",
-	"flaggedrevs-pref-stable-0": "Uporabite zadane postavke za sve stranice",
+	"flaggedrevs-pref-stable-0": "Koristite zadane postavke za sve stranice",
 	"flaggedrevs-pref-stable-1": "Uvijek prikaži provjerene inačice (ako postoji barem jedna provjerena inačica)",
 	"flaggedrevs-pref-stable-2": "Uvijek pokaži posljednju inačicu članka",
 	"flaggedrevs-prefs-watch": "Dodaj stranice koje ocijenim na moj popis praćenja",

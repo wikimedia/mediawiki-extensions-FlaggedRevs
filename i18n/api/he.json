@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80"
+			"Amire80",
+			"Guycn2"
 		]
 	},
 	"apihelp-flagconfig-description": "קבלת המידע הבסיסי על הגדרות דגל סקירה באתר הזה.\n\nהפרמטרים הבאים מוחזרים עבור כל תג:\n;name:שם המפתח של התג הזה.\n;levels:מספר הרמות שי לתג הזה (מעל \"not tagged\").\n;tier2:הרמה שהתג צריך להגיע אליה כדי להיות שכבה 2 (איכותי).\n;tier3:הרמה שהתג צריך להגיע אליה כדי להיות שכבה 3 (טהור).",
@@ -73,5 +74,9 @@
 	"apihelp-stabilize-param-review": "סקירת הדף הזה.",
 	"apihelp-stabilize-param-protectlevel": "רמת הגנת סקירה.",
 	"apihelp-stabilize-example-general": "הגדרת [[Test]] שיציג את המהדורה היציבה לפי בררת המחדל",
-	"apihelp-stabilize-example-protect": "הסרת הגנת סקירה מ־[[Test]]"
+	"apihelp-stabilize-example-protect": "הסרת הגנת סקירה מ־[[Test]]",
+	"apierror-flaggedrevs-notreviewable": "הדף שסופק אינו ניתן לסקירה.",
+	"apierror-flaggedrevs-notsamepage": "הגרסאות אינן שייכות לאותו הדף.",
+	"apierror-flaggedrevs-pagedoesnotexist": "הדף שסופק אינו קיים.",
+	"apierror-flaggedrevs-badflags": "הדגלים שסופקו אינם תקינים."
 }

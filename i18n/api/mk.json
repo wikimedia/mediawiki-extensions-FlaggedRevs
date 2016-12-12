@@ -73,5 +73,13 @@
 	"apihelp-stabilize-param-review": "Проверете ја страницава.",
 	"apihelp-stabilize-param-protectlevel": "Степен на заштита при проверка.",
 	"apihelp-stabilize-example-general": "Задајте го [[Test]] за да се прикажува стабилната преработка по основно",
-	"apihelp-stabilize-example-protect": "Отстрани ја заштитата при проверка од [[Test]]"
+	"apihelp-stabilize-example-protect": "Отстрани ја заштитата при проверка од [[Test]]",
+	"apierror-flaggedrevs-notreviewable": "Укажаната страница е непроверлива.",
+	"apierror-flaggedrevs-notsamepage": "Преработките не припаѓаат на иста страница.",
+	"apierror-flaggedrevs-pagedoesnotexist": "Укажаната страница на постои.",
+	"apierror-flaggedrevs-cantreview": "Ги немате потребните права за да ги задавате укажаните ознаки.",
+	"apierror-flaggedrevs-toolow": "Нула може да се зададе или на сите или на ниедна ознака.",
+	"apierror-flaggedrevs-badflags": "Укажаните ознаки се неважечки.",
+	"apierror-flaggedrevs-cantunreview": "Ги немате потребните права за да ги отстранувате ознаките.",
+	"apierror-flaggedrevs-noflaggedrev": "Нема означена преработка со укажаната назнака."
 }

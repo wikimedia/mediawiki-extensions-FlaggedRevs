@@ -59,6 +59,7 @@
 	"grouppage-autoreview": "{{ns:project}}:Passiver Sichter",
 	"logentry-review-approve": "$1 {{GENDER:$2|sichtete}} eine Version von $3",
 	"logentry-review-approve-auto": "$1 {{GENDER:$2|sichtete}} automatisch eine Version von $3",
+	"logentry-review-unapprove": "$1 {{GENDER:$2|markierte}} eine Version von $3 als veraltet",
 	"logentry-stable-config": "$1 {{GENDER:$2|legte}} die Einstellungen für gesichtete Versionen für $3 fest $4",
 	"logentry-stable-modify": "$1 {{GENDER:$2|änderte}} die Einstellungen für gesichtete Versionen für $3 $4",
 	"logentry-stable-reset": "$1 {{GENDER:$2|setzte}} die Einstellungen für gesichtete Versionen für $3 zurück $4",

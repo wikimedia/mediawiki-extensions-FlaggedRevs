@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ykhwong"
+		]
+	},
+	"apierror-flaggedrevs-notsamepage": "판들이 동일 문서에 속하지 않습니다.",
+	"apierror-flaggedrevs-pagedoesnotexist": "지정된 페이지가 존재하지 않습니다."
+}

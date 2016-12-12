@@ -55,5 +55,13 @@
 	"apihelp-stabilize-param-title-general": "Titel der zu stabilisierenden Seite.",
 	"apihelp-stabilize-param-default": "Anzuzeigende Standardversion.",
 	"apihelp-stabilize-param-review": "Überprüft diese Seite.",
-	"apihelp-stabilize-param-protectlevel": "Die Höhe des Überprüfungsschutzes."
+	"apihelp-stabilize-param-protectlevel": "Die Höhe des Überprüfungsschutzes.",
+	"apierror-flaggedrevs-notreviewable": "Die angegebene Seite kann nicht gesichtet werden.",
+	"apierror-flaggedrevs-notsamepage": "Die Versionen gehören nicht zur gleichen Seite.",
+	"apierror-flaggedrevs-pagedoesnotexist": "Die angegebene Seite ist nicht vorhanden.",
+	"apierror-flaggedrevs-cantreview": "Du hast keine ausreichenden Rechte, um die angegebenen Markierungen festzulegen.",
+	"apierror-flaggedrevs-toolow": "Entweder müssen alle oder keine der Markierungen auf null gesetzt werden.",
+	"apierror-flaggedrevs-badflags": "Die angegebenen Markierungen sind nicht gültig.",
+	"apierror-flaggedrevs-cantunreview": "Du hast keine ausreichenden Rechte, um die Markierungen zu entfernen.",
+	"apierror-flaggedrevs-noflaggedrev": "Keine markierte Version mit der angegebenen Kennung gefunden."
 }

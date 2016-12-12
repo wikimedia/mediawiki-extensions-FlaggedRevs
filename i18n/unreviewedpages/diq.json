@@ -6,15 +6,16 @@
 			"Marmase",
 			"Mirzali",
 			"Xoser",
-			"1917 Ekim Devrimi"
+			"1917 Ekim Devrimi",
+			"Gırd"
 		]
 	},
-	"action-unreviewedpages": "listey peranë seyr nëbıyaya bıvëne",
+	"action-unreviewedpages": "Lista pelanê çımranêviyarneyan bımocne",
 	"unreviewedpages": "Ripelî ke kontrol nibiyê",
 	"unreviewedpages-legend": "Listeyê tedeesteyî ke kontrol nibe",
-	"unreviewedpages-category": "Kategoriye:",
+	"unreviewedpages-category": "Kategori:",
 	"unreviewedpages-diff": "Çım berze cı",
-	"unreviewedpages-unwatched": "(seyr nêbeno)",
+	"unreviewedpages-unwatched": "(nêewniyao)",
 	"unreviewedpages-watched": "($1 activ {{PLURAL:$1|karber|karberî}} ho seyr keno)",
 	"unreviewedpages-list": "Na pela, sewiyeya ke waziyaya goreyê aye sewiya pelê muhtewayê ke [[{{MediaWiki:Validationpage}}|çım ser nêçariyêya]] liste kena.",
 	"unreviewedpages-none": "nê kriteran de peli çini",
