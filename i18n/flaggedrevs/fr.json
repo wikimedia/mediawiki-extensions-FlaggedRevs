@@ -64,6 +64,7 @@
 	"logentry-review-approve": "$1 {{GENDER:$2|a relu}} une version of $3",
 	"logentry-review-approve-auto": "$1 {{GENDER:$2|a relu}} automatiquement une version of $3",
 	"logentry-review-unapprove": "$1 {{GENDER:$2|a rendu obsolète}} une version de $3",
+	"logentry-stable-modify": "$1 {{GENDER:$2|a changé}} les paramètres de la version stable pour $3 $4",
 	"revreview-hist-draft": "version non vérifiée",
 	"revreview-hist-pending": "en attente de relecture",
 	"revreview-hist-quality": "version de qualité",

@@ -80,6 +80,8 @@
 	"apierror-flaggedrevs-notreviewable": "La page fournie n'est pas révisable.",
 	"apierror-flaggedrevs-notsamepage": "Les révisions n'appartiennent pas à la même page.",
 	"apierror-flaggedrevs-pagedoesnotexist": "La page fournie n'existe pas.",
+	"apierror-flaggedrevs-cantreview": "Vous n'avez pas les droits nécessaires pour initialiser les indicateurs spécifiés.",
+	"apierror-flaggedrevs-toolow": "Soit tous ou aucun des indicateurs doivent être mis à zéro.",
 	"apierror-flaggedrevs-badflags": "Les indicateurs spécifiés ne sont pas valides.",
 	"apierror-flaggedrevs-cantunreview": "Vous n'avez pas les droits nécessaires pour supprimer les étiquettes.",
 	"apierror-flaggedrevs-noflaggedrev": "Pas de révision trouvée avec l'ID spécifié."
