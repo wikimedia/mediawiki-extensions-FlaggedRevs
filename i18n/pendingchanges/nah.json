@@ -7,7 +7,7 @@
 			"Akapochtli"
 		]
 	},
-	"pendingchanges-days": "($1 {{PLURAL:$1|tònalli|tònaltin}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|tonalli|tonaltin}})",
 	"pendingchanges-category": "Tlaìxmatkàyòtlàlilòtl:",
 	"pendingchanges-watched": "($1 ayini(meh)  {{PLURAL:$1|tequitiuhqui tlen tlachixticah|tequitiuhqueh tlen tlachixticatcah}})"
 }
