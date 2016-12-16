@@ -50,6 +50,7 @@
 	"group-autoreview.js": "/* כל הסקריפטים הנכתבים כאן ייטענו עבור סקורי עריכות אוטומטית בלבד */",
 	"logentry-review-approve": "$1 {{GENDER:$2|סקר|סקרה}} גרסה של $3",
 	"logentry-review-approve-auto": "$1 {{GENDER:$2|סקר|סקרה}} גרסה של $3 באופן אוטומטי",
+	"logentry-review-unapprove": "$1 {{GENDER:$2|סימן|סימנה}} גרסה של $3 בתור  מיושנת",
 	"logentry-stable-config": "$1 {{GENDER:$2|קבע|קבעה}} את הגדרות הגרסה היציבה עבור $3 $4",
 	"logentry-stable-modify": "$1 {{GENDER:$2|שינה|שינתה}} את הגדרות הגרסה היציבה עבור $3 $4",
 	"logentry-stable-reset": "$1 {{GENDER:$2|איפס|איפסה}} את הגדרות הגרסה היציבה עבור $3 $4",
