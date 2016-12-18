@@ -47,6 +47,11 @@
 	"grouppage-autoreview": "{{ns:project}}:Automaattiseulotut käyttäjät",
 	"logentry-review-approve": "$1 {{GENDER:$2|arvioi}} version sivusta $3",
 	"logentry-review-approve-auto": "$1 {{GENDER:$2|arvioi}} automaattisesti version sivusta $3",
+	"logentry-review-unapprove": "$1 {{GENDER:$2|poisti arvioinnin}} versiosta $3",
+	"logentry-stable-config": "$1 {{GENDER:$2|määritti}} vakautusasetukset sivulle $3 $4",
+	"logentry-stable-modify": "$1 {{GENDER:$2|muutti}} vakautusasetuksia sivulla $3 $4",
+	"logentry-stable-reset": "$1 {{GENDER:$2|poisti}} vakautuksen sivulta $3 $4",
+	"logentry-stable-move_stable": "$1 {{GENDER:$2|siirsi}} vakautusasetukset sivulta $4 sivulle $3",
 	"revreview-hist-draft": "arvioimaton versio",
 	"revreview-hist-pending": "odottaa arviointia",
 	"revreview-hist-quality": "laadukas versio",
@@ -184,5 +189,13 @@
 	"revreview-locked": "'''Huomautus:''' Tähän sivuun tehdyt muokkaukset näkyvät lukijoille vasta niiden [[{{MediaWiki:Validationpage}}|arvioinnin]] jälkeen.",
 	"revreview-unlocked": "'''Huomautus:''' Muokkaukset eivät vaadi [[{{MediaWiki:Validationpage}}|arviointia]] näkyäkseen tällä sivulla.",
 	"log-show-hide-review": "$1 arviointiloki",
-	"validationpage": "{{ns:help}}:Sivujen arviointi"
+	"validationpage": "{{ns:help}}:Sivujen arviointi",
+	"log-action-filter-review": "Arvioinnin luonne:",
+	"log-action-filter-review-accept": "Käsin tehty hyväksyminen",
+	"log-action-filter-review-autoaccept": "Automaattinen hyväksyminen",
+	"log-action-filter-review-unaccept": "Käsin tehty arvioinnin poistaminen",
+	"log-action-filter-stable": "Asetusmuutosten luonne:",
+	"log-action-filter-stable-config": "Uudet asetukset",
+	"log-action-filter-stable-modify": "Muutetut asetukset",
+	"log-action-filter-stable-reset": "Asetusten poistaminen"
 }

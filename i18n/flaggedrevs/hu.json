@@ -53,6 +53,7 @@
 	"grouppage-autoreview": "{{ns:project}}:Automatikusan megerősített szerkesztő",
 	"logentry-review-approve": "$1 {{GENDER:$2|ellenőrzötté tette}} a(z) $3 egy változatát",
 	"logentry-review-approve-auto": "$1 automatikusan {{GENDER:$2|ellenőrzötté tette}} a(z) $3 egy változatát",
+	"logentry-review-unapprove": "$1 {{GENDER:$2|elavulttá tette}} a(z) $3 egy változatát",
 	"revreview-hist-draft": "nem ellenőrzött változat",
 	"revreview-hist-pending": "ellenőrzés folyamatban",
 	"revreview-hist-quality": "minőségi változat",
