@@ -58,6 +58,7 @@
 	"group-autoreview": "Автодосматривающие",
 	"group-autoreview-member": "{{GENDER:$1|автодосматривающий|автодосматривающая}}",
 	"grouppage-autoreview": "{{ns:project}}:Автодосматривающие",
+	"logentry-stable-config": "$1 стабилизировал{{GENDER:$2||а}} страницу $3 $4",
 	"revreview-hist-draft": "непроверенная версия",
 	"revreview-hist-pending": "ожидает проверки",
 	"revreview-hist-quality": "выверенная версия",
