@@ -16,7 +16,7 @@
 	"pendingchanges-onwatchlist": "Страници на мојот список на набљудувања",
 	"pendingchanges-stable": "Основна е стабилната верзија",
 	"pendingchanges-diff": "оцени",
-	"pendingchanges-size": "Макс. промена (во бајти):",
+	"pendingchanges-size": "Најг. промена (во бајти):",
 	"pendingchanges-unwatched": "(ненабљудувана)",
 	"pendingchanges-watched": "({{PLURAL:$1|набљудува $1 активен корисник|набљудуваат $1 активни корисници}})",
 	"pendingchanges-viewing": "(во проверка)"

@@ -8,7 +8,8 @@
 			"Marmase",
 			"Mirzali",
 			"Xoser",
-			"Kumkumuk"
+			"Kumkumuk",
+			"1917 Ekim Devrimi"
 		]
 	},
 	"action-review": "çımraviyarnayışan qontrol ke",
@@ -39,6 +40,7 @@
 	"group-autoreview": "Listey Pakan",
 	"group-autoreview-member": "{{GENDER:$1|Kontrol biyaye karber}}",
 	"grouppage-autoreview": "{{ns:project}}:çımserçarnayox",
+	"logentry-review-approve": "$1 {{GENDER:$2|çım eşt }} versiyon da $3",
 	"revreview-hist-draft": "çımraviyarnayışo qontrolnêbiyae",
 	"revreview-hist-pending": "qontrol ho vindeno",
 	"revreview-hist-quality": "revizyonê qaliteyi",

@@ -75,5 +75,13 @@
 	"apihelp-stabilize-param-review": "Перевірити цю сторінку.",
 	"apihelp-stabilize-param-protectlevel": "Рівень захисту від перевірок.",
 	"apihelp-stabilize-example-general": "Встановити для сторінки [[Test]] відображення стабільної версії за замовчуванням",
-	"apihelp-stabilize-example-protect": "Прибрати захист від перевірок сторінки [[Test]]"
+	"apihelp-stabilize-example-protect": "Прибрати захист від перевірок сторінки [[Test]]",
+	"apierror-flaggedrevs-notreviewable": "Вказана сторінка недоступна для перевірки.",
+	"apierror-flaggedrevs-notsamepage": "Версії не належать до однієї сторінки.",
+	"apierror-flaggedrevs-pagedoesnotexist": "Вказана сторінка не існує.",
+	"apierror-flaggedrevs-cantreview": "У Вас немає необхідних прав для встановлення вказаних прапорців.",
+	"apierror-flaggedrevs-toolow": "Нульове значення має бути встановлене або для всіх прапорців, або для жодного.",
+	"apierror-flaggedrevs-badflags": "Вказані прапорці недійсні.",
+	"apierror-flaggedrevs-cantunreview": "У Вас немає необхідних прав для вилучення прапорців.",
+	"apierror-flaggedrevs-noflaggedrev": "Немає позначеної версії із вказаним ідентифікатором."
 }

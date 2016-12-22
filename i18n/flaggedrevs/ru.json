@@ -27,7 +27,8 @@
 			"Синкретик",
 			"Ole Yves",
 			"Gamliel Fishkin",
-			"INS Pirat"
+			"INS Pirat",
+			"Sealle"
 		]
 	},
 	"action-review": "проверка версий страниц",
@@ -59,6 +60,8 @@
 	"group-autoreview-member": "{{GENDER:$1|автодосматривающий|автодосматривающая}}",
 	"grouppage-autoreview": "{{ns:project}}:Автодосматривающие",
 	"logentry-stable-config": "$1 стабилизировал{{GENDER:$2||а}} страницу $3 $4",
+	"logentry-stable-modify": "$1 {{GENDER:$2|изменил|изменила}} настройки стабильной версии для $3 $4",
+	"logentry-stable-reset": "$1 сбросил {{GENDER:$2||а}} настройки стабильной версии для $3 $4",
 	"revreview-hist-draft": "непроверенная версия",
 	"revreview-hist-pending": "ожидает проверки",
 	"revreview-hist-quality": "выверенная версия",

@@ -21,7 +21,7 @@
 	"apihelp-query+oldreviewedpages-description": "Наброј ги страниците што имаат промени кои чекаат на проверка.",
 	"apihelp-query+oldreviewedpages-param-start": "Почни го исписот од овој датум и време.",
 	"apihelp-query+oldreviewedpages-param-end": "Запри го исписот на овој датум и време.",
-	"apihelp-query+oldreviewedpages-param-maxsize": "Макс. големина на промената во број на знаци.",
+	"apihelp-query+oldreviewedpages-param-maxsize": "Најголема промена во бројот на знаци.",
 	"apihelp-query+oldreviewedpages-param-filterwatched": "Како да се филтрираат страници во вашите набљудувања.",
 	"apihelp-query+oldreviewedpages-param-namespace": "Именскиот простор што се набројува.",
 	"apihelp-query+oldreviewedpages-param-category": "Прикажи страници само во дадената категорија.",
