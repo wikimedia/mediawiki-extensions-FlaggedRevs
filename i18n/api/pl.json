@@ -7,8 +7,10 @@
 	"apihelp-query+configuredpages-param-limit": "Łączna liczba stron do zwrócenia.",
 	"apihelp-query+oldreviewedpages-param-category": "Pokaż strony tylko w danej kategorii.",
 	"apihelp-query+oldreviewedpages-param-limit": "Łączna liczba stron do zwrócenia.",
+	"apihelp-query+reviewedpages-param-filterredir": "Jak filtrować przekierowania",
 	"apihelp-query+reviewedpages-param-limit": "Łączna liczba stron do zwrócenia.",
 	"apihelp-query+unreviewedpages-param-dir": "Kierunek sortowania.",
+	"apihelp-query+unreviewedpages-param-filterredir": "Jaki filtrować przekierowania.",
 	"apihelp-query+unreviewedpages-param-limit": "Łączna liczba stron do zwrócenia.",
 	"apihelp-stabilize-param-reason": "Powód.",
 	"apihelp-stabilize-param-watch": "Obserwuj tę stronę."
