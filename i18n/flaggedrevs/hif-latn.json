@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Girmitya"
+			"Girmitya",
+			"Abdul Kadir"
 		]
 	},
-	"revreview-revnotfound": "Jon panna ke aap mangta rahaa, uske purana badlao nai mila.\nAap jon URL ke use kar ke ii panna ke acess karaa hai, uske check karo."
+	"revreview-revnotfound": "Jon panna ke aap mangta rahaa, uske purana badlao nai mila.\nAap jon URL ke use kar ke ii panna ke acess karaa hai, uske check karo.",
+	"tooltip-ca-current": "View this page with the pending changes"
 }
