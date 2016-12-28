@@ -8,11 +8,15 @@
 		]
 	},
 	"apihelp-flagconfig-example-1": "Veynd desmal vıraşten",
+	"apihelp-query+configuredpages-description": "Hısusiy çım eşten vıraştena peran hemın numre kerdış",
 	"apihelp-query+configuredpages-param-start": "Kamiya perrer ra lista sergend nê.",
 	"apihelp-query+configuredpages-param-end": "Kamiya perrer ra lista vındar nê.",
 	"apihelp-query+configuredpages-param-namespace": "Caynamam amorê",
 	"apihelp-query+configuredpages-param-default": "Hesabyayê versiyonê perrer bıvin.",
+	"apihelp-query+configuredpages-param-autoreview": "Tenganeya çım eşten/otomatik çım eşten",
 	"apihelp-query+configuredpages-param-limit": "Raçarnayışi rê pêro piya çend peli.",
+	"apihelp-query+configuredpages-example-1": "Hısusiy çım eşten vıraştena peran listey motneno",
+	"apihelp-query+configuredpages-example-2": "Heqa hısusiy çım eşten vıraştena tay peran malumat gêno",
 	"apihelp-query+oldreviewedpages-param-maxsize": "Amora ebata karakterer bıvurnë",
 	"apihelp-query+oldreviewedpages-param-namespace": "Caname amorden",
 	"apihelp-query+oldreviewedpages-param-filterredir": "Qandë hetenayışa kes seni filtre ke no",
@@ -46,5 +50,6 @@
 	"apihelp-stabilize-param-autoreview": "Sinirê oto-qontrol.",
 	"apihelp-stabilize-param-review": "Ena pele kontrol ke.",
 	"apihelp-stabilize-param-protectlevel": "Sewiyay kontrol - staryaye.",
-	"apihelp-stabilize-example-protect": "[[Test]]  ra kontrol-star kerıdşi wedarnê"
+	"apihelp-stabilize-example-protect": "[[Test]]  ra kontrol-star kerıdşi wedarnê",
+	"apierror-flaggedrevs-pagedoesnotexist": "Pera ardera da wunayên çıni ya."
 }
