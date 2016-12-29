@@ -120,7 +120,7 @@ class RejectConfirmationFormUI {
 		)->numParams( count( $rejectAuthors ) )->inContentLanguage()->text();
 		// If the message is too big, then fallback to the shorter one
 		$colonSeparator = wfMessage( 'colon-separator' )->text();
-		$maxLen = 255 - count( $colonSeparator ) - count( $comment );
+		$maxLen = 255 - strlen( $colonSeparator ) - strlen( $comment );
 		if ( strlen( $defaultSummary ) > $maxLen ) {
 			$msg = $newRev->isCurrent()
 				? 'revreview-reject-summary-cur-short' 
