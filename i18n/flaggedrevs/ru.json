@@ -72,7 +72,7 @@
 	"revreview-hist-quality-user": "подтверждена {{GENDER:$3|участником|участницей}} [[User:$3|$3]]",
 	"revreview-hist-basic-user": "проверена {{GENDER:$3|участником|участницей}} [[User:$3|$3]]",
 	"revreview-hist-quality-auto": "подтверждена автоматически",
-	"revreview-hist-basic-auto": "досмотрена автоматически",
+	"revreview-hist-basic-auto": "отпатрулирована автоматически",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} ожидает проверки]]'''",
 	"review-edit-diff": "'''ПРЕДУПРЕЖДЕНИЕ. ''Некоторые'' из ожидающих проверки изменений относятся к редактируемой вами части страницы.'''",
 	"revreview-diff-toggle-show": "показать эти изменения",
