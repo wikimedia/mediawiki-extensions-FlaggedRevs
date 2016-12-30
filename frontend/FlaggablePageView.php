@@ -828,15 +828,15 @@ class FlaggablePageView extends ContextSource {
 				$multiNotice . "</td></tr>";
 		}
 		return
-			"<table border='0' width='98%' cellpadding='0' cellspacing='4' class='$tableClass'>" .
+			"<table border='0' cellpadding='0' cellspacing='4' style='width: 98%;' class='$tableClass'>" .
 				"<col class='diff-marker' />" .
 				"<col class='diff-content' />" .
 				"<col class='diff-marker' />" .
 				"<col class='diff-content' />" .
 				"<tr>" .
-					"<td colspan='2' width='50%' style='text-align: center;' class='diff-otitle'><b>" .
+					"<td colspan='2' style='text-align: center; width: 50%;' class='diff-otitle'><b>" .
 						$leftStatus . "</b></td>" .
-					"<td colspan='2' width='50%' style='text-align: center;' class='diff-ntitle'><b>" .
+					"<td colspan='2' style='text-align: center; width: 50%;' class='diff-ntitle'><b>" .
 						$rightStatus . "</b></td>" .
 				"</tr>" .
 				$multiNotice .
@@ -1612,13 +1612,13 @@ class FlaggablePageView extends ContextSource {
 		if ( $oldRev && $newRev ) {
 			list( $msg, $class ) = self::getDiffRevMsgAndClass( $oldRev, $srev );
 			$table .= "<table class='fr-diff-ratings'><tr>";
-			$table .= "<td width='50%' style='text-align: center;'>";
+			$table .= "<td style='text-align: center; width: 50%;'>";
 			// @todo i18n FIXME: Hard coded brackets
 			$table .= "<span class='$class'>[" .
 				wfMessage( $msg )->escaped() . "]</span>";
 
 			list( $msg, $class ) = self::getDiffRevMsgAndClass( $newRev, $srev );
-			$table .= "</td><td width='50%' style='text-align: center;'>";
+			$table .= "</td><td style='text-align: center; width: 50%;'>";
 			// @todo i18n FIXME: Hard coded brackets
 			$table .= "<span class='$class'>[" .
 				wfMessage( $msg )->escaped() . "]</span>";
