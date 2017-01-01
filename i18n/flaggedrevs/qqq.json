@@ -221,12 +221,12 @@
 	"accesskey-ca-stable": "{{FlaggedRevs}}\n{{doc-accesskey}}",
 	"log-show-hide-review": "{{Flagged Revs}}\nParameters:\n* $1 - one of {{msg-mw|Show}} or {{msg-mw|Hide}}\n{{Related|Log-show-hide}}",
 	"validationpage": "{{Flagged Revs-small}}\n{{doc-important|Do not translate the <code><nowiki>{{ns:help}}:</nowiki></code> part, including the colon.}}\nLink to the general help page.",
-	"log-action-filter-review": "Which type of action to filter for in this log\n{{Related|Log-action-filter}}",
-	"log-action-filter-review-accept": "Action to filter for in this log\n{{Related|Log-action-filter}}",
-	"log-action-filter-review-autoaccept": "Action to filter for in this log\n{{Related|Log-action-filter}}",
-	"log-action-filter-review-unaccept": "Action to filter for in this log\n{{Related|Log-action-filter}}",
-	"log-action-filter-stable": "Which type of action to filter for in this log\n{{Related|Log-action-filter}}",
-	"log-action-filter-stable-config": "Action to filter for in this log\n{{Related|Log-action-filter}}",
-	"log-action-filter-stable-modify": "Action to filter for in this log\n{{Related|Log-action-filter}}",
-	"log-action-filter-stable-reset": "Action to filter for in this log\n{{Related|Log-action-filter}}"
+	"log-action-filter-review": "{{doc-log-action-filter-type|review}}\n{{Related|Log-action-filter}}",
+	"log-action-filter-review-accept": "{{doc-log-action-filter-action|review|accept}}\n{{Related|Log-action-filter}}",
+	"log-action-filter-review-autoaccept": "{{doc-log-action-filter-action|review|autoaccept}}\n{{Related|Log-action-filter}}",
+	"log-action-filter-review-unaccept": "{{doc-log-action-filter-action|review|unaccept}}\n{{Related|Log-action-filter}}",
+	"log-action-filter-stable": "{{doc-log-action-filter-type|stable}}\n{{Related|Log-action-filter}}",
+	"log-action-filter-stable-config": "{{doc-log-action-filter-action|stable|config}}\n{{Related|Log-action-filter}}",
+	"log-action-filter-stable-modify": "{{doc-log-action-filter-action|stable|modify}}\n{{Related|Log-action-filter}}",
+	"log-action-filter-stable-reset": "{{doc-log-action-filter-action|stable|reset}}\n{{Related|Log-action-filter}}"
 }

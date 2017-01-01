@@ -6,7 +6,8 @@
 			"Event",
 			"Laaknor",
 			"Nghtwlkr",
-			"Jeblad"
+			"Jeblad",
+			"Jon Harald Søby"
 		]
 	},
 	"revisionreview": "Gjennomgå revisjoner",
@@ -68,10 +69,10 @@
 	"revreview-reject-summary": "Sammendrag:",
 	"revreview-reject-confirm": "Avvis disse endringene",
 	"revreview-reject-cancel": "Avbryt",
-	"revreview-reject-summary-cur": "Forkastet {{PLURAL:$1|den siste tekstendringen|de siste $1 tekstendringene}} (av $2) og gjenopprettet revisjon $3 av $4",
-	"revreview-reject-summary-old": "Forkastet {{PLURAL:$1|den første tekstendringen|de første $1 tekstendringene}} (av $2) som fulgte revisjon $3 av $4",
-	"revreview-reject-summary-cur-short": "Forkastet {{PLURAL:$1|den siste tekstendringen|de siste $1 tekstendringene}} og gjenopprettet revisjon $2 av $3",
-	"revreview-reject-summary-old-short": "Forkastet {{PLURAL:$1|den første tekstendringen|de første $1 tekstendringene}} som fulgte revisjon $2 av $3",
+	"revreview-reject-summary-cur": "Forkastet {{PLURAL:$1|den siste tekstendringen|de siste $1 tekstendringene}} ({{PLURAL:$7|{{GENDER:$5|av}}}} $2) og gjenopprettet revisjon $3 {{GENDER:$6|av}} $4",
+	"revreview-reject-summary-old": "Forkastet {{PLURAL:$1|den første tekstendringen|de første $1 tekstendringene}} ({{PLURAL:$7|{{GENDER:$5|av}}}} $2) som fulgte revisjon $3 {{GENDER:$6|av}} $4",
+	"revreview-reject-summary-cur-short": "Forkastet {{PLURAL:$1|den siste tekstendringen|de siste $1 tekstendringene}} og gjenopprettet revisjon $2 {{GENDER:$4|av}} $3",
+	"revreview-reject-summary-old-short": "Forkastet {{PLURAL:$1|den første tekstendringen|de første $1 tekstendringene}} som fulgte revisjon $2 {{GENDER:$4|av}} $3",
 	"revreview-tt-flag": "Godkjenn denne revisjonen ved å merke den som kontrollert",
 	"revreview-tt-unflag": "Underkjenn denne revisjonen ved å merke den som «ukontrollert»",
 	"revreview-tt-reject": "Avvis disse kildetekstendringene ved å tilbakestille dem"
