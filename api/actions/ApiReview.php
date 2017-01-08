@@ -113,6 +113,19 @@ class ApiReview extends ApiBase {
 		if ( $status === true ) {
 			$this->getResult()->addValue(
 				null, $this->getModuleName(), array( 'result' => 'Success' ) );
+		# Generic failures
+		} elseif ( $status === 'review_page_notexists' ) {
+			if ( is_callable( array( $this, 'dieWithError' ) ) ) {
+				$this->dieWithError( 'apierror-flaggedrevs-pagedoesnotexist', 'notarget' );
+			} else {
+				$this->dieUsage( "Provided page does not exist.", 'notarget' );
+			}
+		} elseif ( $status === 'review_page_unreviewable' ) {
+			if ( is_callable( array( $this, 'dieWithError' ) ) ) {
+				$this->dieWithError( 'apierror-flaggedrevs-notreviewable', 'notreviewable' );
+			} else {
+				$this->dieUsage( "Provided page is not reviewable.", 'notreviewable' );
+			}
 		# Approve-specific failures
 		} elseif ( $form->getAction() === 'approve' ) {
 			if ( $status === 'review_denied' ) {
@@ -177,21 +190,6 @@ class ApiReview extends ApiBase {
 					$this->dieWithError( array( 'apierror-unknownerror-nocode' ), 'unknownerror' );
 				} else {
 					$this->dieUsageMsg( array( 'unknownerror', '' ) );
-				}
-			}
-		# Generic failures
-		} else {
-			if ( $status === 'review_page_unreviewable' ) {
-				if ( is_callable( array( $this, 'dieWithError' ) ) ) {
-					$this->dieWithError( 'apierror-flaggedrevs-notreviewable', 'notreviewable' );
-				} else {
-					$this->dieUsage( "Provided page is not reviewable.", 'notreviewable' );
-				}
-			} elseif ( $status === 'review_page_notexists' ) {
-				if ( is_callable( array( $this, 'dieWithError' ) ) ) {
-					$this->dieWithError( 'apierror-flaggedrevs-pagedoesnotexist', 'notarget' );
-				} else {
-					$this->dieUsage( "Provided page does not exist.", 'notarget' );
 				}
 			}
 		}
