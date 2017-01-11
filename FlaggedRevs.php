@@ -474,7 +474,8 @@ $wgLogActionsHandlers['stable/move_stable'] = 'FlaggedRevsStableLogFormatter'; /
 $wgLogActions['rights/erevoke']  = 'rights-editor-revoke';
 
 # AJAX functions
-FlaggedRevsUISetup::defineAjaxFunctions( $wgAjaxExportList );
+$wgAjaxExportList[] = 'RevisionReview::AjaxReview';
+$wgAjaxExportList[] = 'FlaggablePageView::AjaxBuildDiffHeaderItems';
 
 # Special case page cache invalidations
 $wgJobClasses['flaggedrevs_CacheUpdate'] = 'FRExtraCacheUpdateJob';

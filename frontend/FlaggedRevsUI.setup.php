@@ -83,14 +83,4 @@ class FlaggedRevsUISetup {
 			}
 		}
 	}
-
-	/**
-	 * Define AJAX dispatcher functions
-	 * @param $ajaxExportList Array $wgAjaxExportList
-	 * @return void
-	 */
-	public static function defineAjaxFunctions( &$ajaxExportList ) {
-		$ajaxExportList[] = 'RevisionReview::AjaxReview';
-		$ajaxExportList[] = 'FlaggablePageView::AjaxBuildDiffHeaderItems';
-	}
 }
