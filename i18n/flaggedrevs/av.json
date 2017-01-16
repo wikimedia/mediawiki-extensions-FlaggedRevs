@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Умар"
+			"Умар",
+			"Аль-Гимравий"
 		]
 	},
-	"revreview-edit": "Хисизабизе"
+	"flaggedrevs-hidereviewed-show": "Бихьизабизе"
 }
