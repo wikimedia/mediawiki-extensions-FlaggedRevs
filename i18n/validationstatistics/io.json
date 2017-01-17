@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Malafaya"
+			"Malafaya",
+			"Robin van der Vliet"
 		]
 	},
 	"validationstatistics-ns": "Nomaro",
 	"validationstatistics-total": "Pagini",
-	"validationstatistics-user": "Uzanto"
+	"validationstatistics-user": "Uzero"
 }
