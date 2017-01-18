@@ -49,7 +49,7 @@ while ( true ) {
 		$dbw->update( 'flaggedrevs', 
 			array( /* SET */
 				'fr_text' => '',
-				'fr_flags' => 'utf-8,dynamic',
+				'fr_flags' => 'dynamic',
 			),
 			array( /* WHERE */
 				'fr_page_id' => $row->fr_page_id,

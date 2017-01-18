@@ -57,9 +57,8 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedrevs (
   -- colon separated tag:value pairs
   fr_tags mediumblob NOT NULL,
   -- Comma-separated list of flags:
-  -- dynamic: no text, templates must be fetched
+  -- dynamic: conversion marker for inclusion handling (legacy schema had fr_text with PST text)
   -- auto: revision reviewed automatically
-  -- utf8: in UTF-8
   fr_flags tinyblob NOT NULL,
   -- Parameters for revisions of File pages:
   -- Name of included image (NULL if n/a)
