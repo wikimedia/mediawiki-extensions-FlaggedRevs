@@ -3,7 +3,8 @@
 		"authors": [
 			"Macofe",
 			"Fitoschido",
-			"Ryo567"
+			"Ryo567",
+			"Dgstranz"
 		]
 	},
 	"apihelp-query+configuredpages-description": "Enumerar todas las páginas que tienen configuraciones de revisiones personalizadas.",
@@ -61,5 +62,8 @@
 	"apihelp-stabilize-param-autoreview": "Restricción de autorevisión.",
 	"apihelp-stabilize-param-review": "Revisar esta página.",
 	"apihelp-stabilize-param-protectlevel": "Nivel de la protección de revisión.",
-	"apihelp-stabilize-example-protect": "Quitar la protección de revisión de [[Test]]"
+	"apihelp-stabilize-example-protect": "Quitar la protección de revisión de [[Test]]",
+	"apierror-flaggedrevs-notreviewable": "La página proporcionada no es revisable.",
+	"apierror-flaggedrevs-notsamepage": "Las revisiones no pertenecen a la misma página.",
+	"apierror-flaggedrevs-pagedoesnotexist": "La página proporcionada no existe."
 }
