@@ -175,7 +175,7 @@
 			var $toggle = $( '#mw-fr-revisiontoggle' );
 
 			if ( $toggle.length ) {
-				$toggle.css( 'display', 'inline' ); // show toggle control
+				$toggle.css( 'display', 'inline-block' ); // show toggle control
 				fr.hideBoxDetails(); // hide the initially displayed ratings
 			}
 
@@ -189,7 +189,7 @@
 			// Enables diff detail box and toggle
 			$toggle = $( '#mw-fr-difftoggle' );
 			if ( $toggle.length ) {
-				$toggle.css( 'display', 'inline' ); // show toggle control
+				$toggle.css( 'display', 'inline-block' ); // show toggle control
 				$( '#mw-fr-stablediff' ).hide();
 			}
 			$toggle.children( 'a' ).click( fr.toggleDiff );
@@ -197,7 +197,7 @@
 			// Enables log detail box and toggle
 			$toggle = $( '#mw-fr-logtoggle' );
 			if ( $toggle.length ) {
-				$toggle.css( 'display', 'inline' ); // show toggle control
+				$toggle.css( 'display', 'inline-block' ); // show toggle control
 				if ( $toggle.hasClass( 'fr-logtoggle-details' ) ) {
 					// hide in edit mode
 					$( '#mw-fr-logexcerpt' ).hide();

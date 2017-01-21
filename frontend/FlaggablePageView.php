@@ -53,6 +53,15 @@ class FlaggablePageView extends ContextSource {
 			if ( $this->article == null ) {
 				throw new Exception( 'FlaggablePageView has no context article!' );
 			}
+			$this->getOutput()->enableOOUI();
+			$this->getOutput()->addModuleStyles(
+				[
+					'oojs-ui.styles.icons-moderation',
+					'oojs-ui.styles.icons-movement',
+					'oojs-ui.styles.icons-content',
+					'oojs-ui.styles.icons-alerts',
+				]
+			);
 			$this->out = $this->getOutput(); // convenience
 		}
 	}
