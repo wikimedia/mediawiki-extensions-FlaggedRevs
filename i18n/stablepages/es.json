@@ -6,10 +6,11 @@
 			"Dferg",
 			"MarcoAurelio",
 			"McDutchie",
-			"Translationista"
+			"Translationista",
+			"AlvaroMolina"
 		]
 	},
-	"stablepages": "Páginas usando aprobación para la edición",
+	"stablepages": "Páginas usando el sistema de cambios pendientes para la edición",
 	"stablepages-list": "Debajo está una lista de páginas los cuales solo ciertos usuarios pueden hacer ediciones que no requieren revisión.\nLas ediciones hechas por otros usuarios no son mostradas a los lectores por defecto hasta que un usuario autorizado los revise.",
 	"stablepages-none": "No hay páginas en esta lista",
 	"stablepages-config": "Configuración",
