@@ -217,7 +217,7 @@ div.flaggedrevs_short_details {
 }
 
 .flaggedrevs-pending {
-	background-color: #fee7e6;
+	background-color: #fff2cc; /* equals WikimediaUI's Yellow50 `#fc3` at 0.25 opacity */
 }
 .flaggedrevs-unreviewed {
 	background-color: #fef6e7;
