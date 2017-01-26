@@ -6,6 +6,7 @@
  * of templates and files (to determine template inclusion and thumbnails)
  */
 class FlaggedRevision {
+	/** @var Revision */
 	private $mRevision;         // base revision
 	private $mTemplates;        // included template versions
 	private $mFiles;            // included file versions
@@ -477,7 +478,7 @@ class FlaggedRevision {
 	 * @return string|false revision timestamp in MW format
 	 */
 	public function getRevText() {
-		return $this->mRevision->getText();
+		return ContentHandler::getContentText( $this->mRevision->getContent() );
 	}
 
 	/**
