@@ -6,23 +6,41 @@
  * of templates and files (to determine template inclusion and thumbnails)
  */
 class FlaggedRevision {
-	/** @var Revision */
-	private $mRevision;         // base revision
-	private $mTemplates;        // included template versions
-	private $mFiles;            // included file versions
-	private $mFileSha1;         // file version sha-1 (for revisions of File pages)
-	private $mFileTimestamp;    // file version timestamp (for revisions of File pages)
+
+	/** @var Revision base revision */
+	private $mRevision;
+	/** @var array|null included template versions */
+	private $mTemplates;
+	/** @var array|null included file versions */
+	private $mFiles;
+	/** @var string|null file version sha-1 (for revisions of File pages) */
+	private $mFileSha1;
+	/** @var string|null file version timestamp (for revisions of File pages) */
+	private $mFileTimestamp;
+
 	/* Flagging metadata */
-	private $mTimestamp;        // review timestamp
-	private $mQuality;          // review tier
-	private $mTags;             // review tags
-	private $mFlags;            // flags (for auto-review ect...)
-	private $mUser;             // reviewing user
-	private $mFileName;         // file name when reviewed
+
+	/** @var mixed review timestamp */
+	private $mTimestamp;
+	/** @var int review tier */
+	private $mQuality;
+	/** @var array review tags */
+	private $mTags;
+	/** @var string[] flags (for auto-review ect...) */
+	private $mFlags;
+	/** @var int reviewing user */
+	private $mUser;
+	/** @var string|null file name when reviewed */
+	private $mFileName;
+
 	/* Redundant fields for lazy-loading */
-	private $mTitle;            // page title
-	private $mStableTemplates;  // stable versions of template version used
-	private $mStableFiles;      // stable versions of file versions used
+
+	/** @var Title|null page title */
+	private $mTitle;
+	/** @var array|null stable versions of template version used */
+	private $mStableTemplates;
+	/** @var array|null stable versions of file versions used */
+	private $mStableFiles;
 
 	/**
 	 * @param Row|array $row (DB row or array)
