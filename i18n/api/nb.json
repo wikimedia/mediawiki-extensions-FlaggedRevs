@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Jeblad"
+			"Jeblad",
+			"Jon Harald Søby"
 		]
 	},
 	"apihelp-flagconfig-example-1": "Hent flaggkonfigurasjon",
@@ -70,5 +71,11 @@
 	"apihelp-stabilize-param-review": "Gjennomgå denne siden.",
 	"apihelp-stabilize-param-protectlevel": "Gjennomgangs-begrensingens nivå.",
 	"apihelp-stabilize-example-general": "Sett [[Test]] til å vise den stabile revisjonen som standard",
-	"apihelp-stabilize-example-protect": "Fjern gjennomgangs-beskyttelse fra [[Test]]"
+	"apihelp-stabilize-example-protect": "Fjern gjennomgangs-beskyttelse fra [[Test]]",
+	"apierror-flaggedrevs-notsamepage": "Revisjonene tilhører ikke samme side.",
+	"apierror-flaggedrevs-pagedoesnotexist": "Den gitte siden eksisterer ikke.",
+	"apierror-flaggedrevs-cantreview": "Du har ikke de nødvendige rettighetene til å sette de gitte flaggene.",
+	"apierror-flaggedrevs-toolow": "Enten alle eller ingen av flaggene har blitt satt til null.",
+	"apierror-flaggedrevs-badflags": "De gitte flaggene er ikke gyldige.",
+	"apierror-flaggedrevs-cantunreview": "Du har ikke de nødendige rettighetene til å fjerne flaggene."
 }
