@@ -12,6 +12,10 @@
 	"apihelp-query+unreviewedpages-param-dir": "Kierunek sortowania.",
 	"apihelp-query+unreviewedpages-param-filterredir": "Jaki filtrować przekierowania.",
 	"apihelp-query+unreviewedpages-param-limit": "Łączna liczba stron do zwrócenia.",
+	"apihelp-query+unreviewedpages-example-1": "Pokaż listę nieprzejrzanych stron",
 	"apihelp-stabilize-param-reason": "Powód.",
-	"apihelp-stabilize-param-watch": "Obserwuj tę stronę."
+	"apihelp-stabilize-param-watch": "Obserwuj tę stronę.",
+	"apihelp-stabilize-param-review": "Przejrzyj tę stronę.",
+	"apierror-flaggedrevs-badflags": "Wybrane znaczniki nie są poprawne.",
+	"apierror-flaggedrevs-cantunreview": "Nie masz odpowiednich uprawnień do usuwania znaczników."
 }

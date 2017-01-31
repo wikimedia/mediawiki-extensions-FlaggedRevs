@@ -73,5 +73,13 @@
 	"apihelp-stabilize-param-review": "Revisar esta páxina.",
 	"apihelp-stabilize-param-protectlevel": "El nivel de la protección de revisión.",
 	"apihelp-stabilize-example-general": "Fixar [[Test]] p'amosar la revisión estable predeterminada",
-	"apihelp-stabilize-example-protect": "Quitar la protección de revisión de [[Test]]"
+	"apihelp-stabilize-example-protect": "Quitar la protección de revisión de [[Test]]",
+	"apierror-flaggedrevs-notreviewable": "La páxina proporcionada nun ye revisable.",
+	"apierror-flaggedrevs-notsamepage": "Les revisiones nun pertenecen a la mesma páxina.",
+	"apierror-flaggedrevs-pagedoesnotexist": "La páxina proporcionada nun esiste.",
+	"apierror-flaggedrevs-cantreview": "Nun tienes los permisos necesarios pa configurar los marcadores especificaos.",
+	"apierror-flaggedrevs-toolow": "Tienen que ponese a cero tolos marcadores o nengunu.",
+	"apierror-flaggedrevs-badflags": "Los marcadores especificaos nun son válidos.",
+	"apierror-flaggedrevs-cantunreview": "Nun tienes los permisos necesarios pa desaniciar los marcadores.",
+	"apierror-flaggedrevs-noflaggedrev": "Nun hai nenguna revisión marcada cola ID especificada."
 }
