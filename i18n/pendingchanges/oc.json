@@ -5,7 +5,7 @@
 		]
 	},
 	"pendingchanges": "Paginas qu'an de modificacions en espèra",
-	"pendingchanges-legend": "Listas de paginas revistas amb de versions pas visadas.",
+	"pendingchanges-legend": "Listas de paginas revistas amb de versions de repassar.",
 	"pendingchanges-list": "Aquesta pagina fa la lista de las [[{{MediaWiki:Validationpage}}|paginas ja repassadas]] qu'an una o mai d'una modificacion en espèra d'examèn.",
 	"pendingchanges-none": "Existís actualament pas cap de pagina respectant aquestes critèris",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|ora|oras}})",
