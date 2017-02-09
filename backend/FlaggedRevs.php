@@ -1008,16 +1008,16 @@ class FlaggedRevs {
 					}
 				}
 			}
-		}
-		foreach ( $poutput->getFileSearchOptions() as $dbKey => $info ) {
-			if ( !isset( $fVersions[$dbKey] ) ) {
-				$srev = FlaggedRevision::newFromStable( Title::makeTitle( NS_FILE, $dbKey ) );
-				if ( $srev && $srev->getFileTimestamp() ) { // use stable
-					$fVersions[$dbKey]['time'] = $srev->getFileTimestamp();
-					$fVersions[$dbKey]['sha1'] = $srev->getFileSha1();
-				} else { // use current
-					$fVersions[$dbKey]['time'] = $info['time'];
-					$fVersions[$dbKey]['sha1'] = $info['sha1'];
+			foreach ( $poutput->getFileSearchOptions() as $dbKey => $info ) {
+				if ( !isset( $fVersions[$dbKey] ) ) {
+					$srev = FlaggedRevision::newFromStable( Title::makeTitle( NS_FILE, $dbKey ) );
+					if ( $srev && $srev->getFileTimestamp() ) { // use stable
+						$fVersions[$dbKey]['time'] = $srev->getFileTimestamp();
+						$fVersions[$dbKey]['sha1'] = $srev->getFileSha1();
+					} else { // use current
+						$fVersions[$dbKey]['time'] = $info['time'];
+						$fVersions[$dbKey]['sha1'] = $info['sha1'];
+					}
 				}
 			}
 		}
