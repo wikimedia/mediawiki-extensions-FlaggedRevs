@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"CERminator"
+			"CERminator",
+			"Srdjan m"
 		]
 	},
+	"action-unreviewedpages": "pregledate spisak neprovjerenih stranica",
 	"unreviewedpages": "Neprovjerene stranice",
 	"unreviewedpages-legend": "Spisak nepregledanih stranica sadržaja",
 	"unreviewedpages-category": "Kategorija:",
