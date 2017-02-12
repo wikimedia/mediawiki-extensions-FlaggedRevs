@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Arystanbek"
+			"Arystanbek",
+			"Vito Genovese"
 		]
 	},
 	"apihelp-flagconfig-example-1": "Bayrak yapılandırma getir",
@@ -47,7 +48,7 @@
 	"apihelp-query+unreviewedpages-example-1": "İncelenmemiş sayfalar listesini göster",
 	"apihelp-query+unreviewedpages-example-2": "Haritayı biraz incelenmemiş sayfaları hakkında bilgi",
 	"apihelp-review-description": "Onaylama veya de-onaylıyor tarafından bir Gözden Geçirme gözden geçirin.",
-	"apihelp-review-param-revid": "Hangi bayraklar set Revizyon NUMARASI.",
+	"apihelp-review-param-revid": "Bayrakların ayarlanacağı revizyon kimliği.",
 	"apihelp-review-param-comment": "Bu değerlendirme için yorum.s",
 	"apihelp-review-param-unapprove": "Set, revizyon yerine onaylanmamış kabul edilecektir.",
 	"apihelp-review-param-flag": "Bu bayrak kümesi \"$1\" için belirtilen değer.",
