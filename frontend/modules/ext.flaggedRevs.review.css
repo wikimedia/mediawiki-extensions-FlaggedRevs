@@ -19,6 +19,7 @@
 	color: GrayText;
 }
 
+/* stylelint-disable-next-line selector-no-id */
 #mw-fr-confirmreview {
 	white-space: nowrap;
 }
@@ -43,6 +44,7 @@
 	background-color: #f8f9fa;
 }
 
+/* stylelint-disable-next-line selector-no-id */
 #mw-fr-commentbox {
 	margin-right: 1.5em;
 }
