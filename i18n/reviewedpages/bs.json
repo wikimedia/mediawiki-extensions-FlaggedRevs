@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"CERminator"
+			"CERminator",
+			"Srdjan m"
 		]
 	},
 	"reviewedpages": "Provjerene stranice",
@@ -9,5 +10,5 @@
 	"reviewedpages-list": "Ovaj spisak sadrži [[{{MediaWiki:Validationpage}}|pregledane]] stranice čiji ''najveći dostignuti'' nivo pregleda (revizije) je ujedno traženi nivo. Dati link na posljednju reviziju tog nivoa.",
 	"reviewedpages-none": "Nema stranica na ovom spisku",
 	"reviewedpages-all": "pregledane verzije",
-	"reviewedpages-best": "najbolja revizija"
+	"reviewedpages-best": "najbolja izmjena"
 }

@@ -4,7 +4,8 @@
 			"H92",
 			"Laaknor",
 			"Nghtwlkr",
-			"Jeblad"
+			"Jeblad",
+			"Jon Harald Søby"
 		]
 	},
 	"stabilization-tab": "kvalitet",
@@ -26,7 +27,7 @@
 	"stabilization-expiry": "Utgår:",
 	"stabilization-othertime": "Annen tid:",
 	"stabilization-def-short": "Standard",
-	"stabilization-def-short-0": "Nåværende",
+	"stabilization-def-short-0": "Gjeldende",
 	"stabilization-def-short-1": "Stabil",
 	"stabilize_page_invalid": "Målsidens tittel er ugyldig.",
 	"stabilize_page_notexists": "Målsiden finnes ikke.",

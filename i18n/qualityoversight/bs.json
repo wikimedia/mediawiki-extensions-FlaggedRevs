@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"CERminator"
+			"CERminator",
+			"Srdjan m"
 		]
 	},
 	"qualityoversight": "Napredni zapisnik pregleda",
 	"qualityoversight-list": "Ova stranica prikazuje nedavna odobrenja i uklanjanja revizija.",
-	"qualityoversight-legend": "Traži nedavne zapise pregleda"
+	"qualityoversight-legend": "Pretraga nedavnih zapisnika pregleda"
 }

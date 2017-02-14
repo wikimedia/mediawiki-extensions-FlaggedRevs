@@ -11,11 +11,11 @@
 	"stabilization-perm": "Vaš račun nema dopuštenje da mijenja konfiguraciju objavljene verzije.\nOvdje su trenutne postavke za [[:$1|$1]]:",
 	"stabilization-page": "Naslov stranice:",
 	"stabilization-leg": "Potvrdite postavke objavljene verzije",
-	"stabilization-def": "Revizija prikazana kao pretpostavljena stranica",
-	"stabilization-def1": "Stabilna verzija, ako je nema, onda posljednja revizija",
-	"stabilization-def2": "Posljednja revizija",
-	"stabilization-restrict": "Ograničenja za preglede/automatske preglede",
-	"stabilization-restrict-none": "Bez posebnih ograničenja",
+	"stabilization-def": "Verzija prikazana na podrazumijevanom prikazu stranice",
+	"stabilization-def1": "Stabilna verzija; ako ne postoji, onda najnovija izmjena",
+	"stabilization-def2": "Najnovija izmjena",
+	"stabilization-restrict": "Ograničenja provjera i automatskih provjera",
+	"stabilization-restrict-none": "Bez dodatnih ograničenja",
 	"stabilization-submit": "Potvrdi",
 	"stabilization-notexists": "Nema stranice pod nazivom \"[[:$1|$1]]\".\nNije moguća konfiguracija.",
 	"stabilization-notcontent": "Stranica \"[[:$1|$1]]\" ne može biti provjerena.\nNije moguća konfiguracija.",
@@ -35,5 +35,5 @@
 	"stabilize_expiry_old": "Ovo vrijeme isticanja je već prošlo.",
 	"stabilize_denied": "Pristup odbijen.",
 	"stabilize-expiring": "ističe $1 (UTC)",
-	"stabilization-review": "Označite trenutnu reviziju provjerenom"
+	"stabilization-review": "Označite trenutnu izmjenu provjerenom"
 }
