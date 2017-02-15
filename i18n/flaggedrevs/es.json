@@ -65,6 +65,8 @@
 	"group-reviewer.js": "/* El código Javascript colocado en esta página sólo afectará a los usuarios con permisos de revisor */",
 	"group-autoreview.css": "/* El código CSS incluido en esta página sólo afectará a los usuarios con permisos de autorevisor */",
 	"group-autoreview.js": "/* El código JS incluido en esta página sólo afectará a los usuarios con los permisos de autorevisor */",
+	"logentry-review-approve": "$1 {{GENDER:$2|revisó}} una versión de $3",
+	"logentry-review-approve-auto": "$1 {{GÉNERO:$2|revisó}} automáticamente una versión de $3",
 	"revreview-hist-draft": "versión sin revisar",
 	"revreview-hist-pending": "a espera de revisión",
 	"revreview-hist-quality": "versión aprobada",
