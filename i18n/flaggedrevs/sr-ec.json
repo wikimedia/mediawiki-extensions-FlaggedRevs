@@ -9,7 +9,8 @@
 			"Sasa Stefanovic",
 			"Жељко Тодоровић",
 			"Михајло Анђелковић",
-			"Сербијана"
+			"Сербијана",
+			"Srdjan m"
 		]
 	},
 	"action-review": "провера ревизија",
@@ -45,7 +46,7 @@
 	"revreview-hist-quality": "квалитетна ревизија",
 	"revreview-hist-basic": "проверена ревизија",
 	"revreview-hist-quality-user": "{{GENDER:$3|одобрио корисник|одобрила корисница}} [[User:$3|$3]]",
-	"revreview-hist-basic-user": "прегледао/ла [[User:$3|$3]]",
+	"revreview-hist-basic-user": "{{GENDER:$3|прегледао|прегледала}} [[User:$3|$3]]",
 	"revreview-hist-quality-auto": "аутоматски одобрено",
 	"revreview-hist-basic-auto": "аутоматски проверено",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} чека проверу]]'''",
@@ -60,8 +61,6 @@
 	"revreview-log-details-hide": "сакриј детаље",
 	"revreview-log-details-title": "Приказ дневника за подешавања стабилности",
 	"review-diff2stable": "Погледај све непроверене измене",
-	"review-logentry-app": "је проверио верзију странице [[$1]]",
-	"review-logentry-dis": "је означио верзију странице [[$1]] као застарелу",
 	"review-logentry-id": "ревизија: $2",
 	"review-logentry-diff": "проверене измене",
 	"review-logentry-diff2": "застареле измене",
@@ -74,7 +73,6 @@
 	"revreview-accuracy-2": "Добра",
 	"revreview-accuracy-3": "Добро поткрепљено изворима",
 	"revreview-accuracy-4": "Сјајна",
-	"revreview-auto": "(аутоматски)",
 	"revreview-basic": "Ово је [[{{MediaWiki:Validationpage}}|стабилна верзија]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] дана <i>$2</i>.\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|измена чека проверу|измене чекају проверу|измена чека проверу}}].",
 	"revreview-basic-i": "Ово је [[{{MediaWiki:Validationpage}}|стабилна верзија]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] дана <i>$2</i>.\nПостоје непроверене [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} измене у шаблонима или датотекама].",
 	"revreview-basic-old": "Ово је [[{{MediaWiki:Validationpage}}|проверена]] верзија ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} списак свих]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] дана <i>$2</i>.\nМожда су направљене нове [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} измене].",

@@ -10,7 +10,8 @@
 			"SpeedyGonsales",
 			"Tivek",
 			"Bugoslav",
-			"Ivi104"
+			"Ivi104",
+			"Srdjan m"
 		]
 	},
 	"action-review": "Ocijenjene izmjene",
@@ -46,7 +47,7 @@
 	"revreview-hist-quality": "kvalitetna izmjena",
 	"revreview-hist-basic": "pregledano",
 	"revreview-hist-quality-user": "potvrdio [[User:$3|$3]]",
-	"revreview-hist-basic-user": "pregledao [[User:$3|$3]]",
+	"revreview-hist-basic-user": "{{GENDER:$3|pregledao|pregledala}} [[User:$3|$3]]",
 	"revreview-hist-quality-auto": "automatski odobreno",
 	"revreview-hist-basic-auto": "automatski pregledana",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} čeka provjeru]]'''",

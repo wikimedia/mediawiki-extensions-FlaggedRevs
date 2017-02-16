@@ -32,7 +32,8 @@
 			"Umherirrender",
 			"Yekrats",
 			"Тест",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Srdjan m"
 		]
 	},
 	"action-review": "{{Flagged Revs}}\n{{doc-action|review}}",
@@ -83,7 +84,7 @@
 	"revreview-hist-quality": "{{Flagged Revs-small}}\nThe accuracy \"quality\", as displayed on the page history after a revision with this setting. This implies that the revision was accepted.",
 	"revreview-hist-basic": "{{Flagged Revs-small}}\nThe accuracy \"checked\", as displayed on the page history after a revision with this setting. This implies that the revision was accepted.",
 	"revreview-hist-quality-user": "{{Flagged Revs}}\nShown on history pages next to revisions that were marked as \"quality\".\n\nParameters:\n* $1 - (Unused) prefixed DB key\n* $2 - (Unused) revision ID\n* $3 - username\n{{Related|Revreview-hist}}",
-	"revreview-hist-basic-user": "{{Flagged Revs}}\nShown on history pages next to revisions marked as \"checked\".\n\nParameters:\n* $1 - (Unused) prefixed DB key\n* $2 - (Unused) revision ID\n* $3 - username\n{{Related|Revreview-hist}}",
+	"revreview-hist-basic-user": "{{Flagged Revs}}\nShown on history pages next to revisions marked as \"checked\".\n\nParameters:\n* $1 - (Unused) prefixed DB key\n* $2 - (Unused) revision ID\n* $3 - username, can be used for GENDER\n{{Related|Revreview-hist}}",
 	"revreview-hist-quality-auto": "{{Flagged Revs}}\nShown on history pages for revisions that were automatically marked as \"quality\".\n\nParameters:\n* $1 - (Unused) prefixed DB key\n* $2 - (Unused) revision ID\n* $3 - (Unused) username\n{{Related|Revreview-hist}}",
 	"revreview-hist-basic-auto": "{{Flagged Revs}}\nShown on history pages for revisions that were automatically marked as \"checked\".\n\nParameters:\n* $1 - (Unused) prefixed DB key\n* $2 - (Unused) revision ID\n* $3 - (Unused) username\n{{Related|Revreview-hist}}",
 	"revreview-hist-pending-difflink": "{{Flagged Revs}}\nShown on history pages for revisions that were made *after* the latest accepted revision.\n\nRefers to {{msg-mw|Flaggedrevs-diffonly}}\n\nParameters:\n* $1 - the page name\n* $2 - number, stable revision ID\n* $3 - number, revision ID",

@@ -7,7 +7,8 @@
 			"Rancher",
 			"Жељко Тодоровић",
 			"Михајло Анђелковић",
-			"Сербијана"
+			"Сербијана",
+			"Srdjan m"
 		]
 	},
 	"action-review": "pregledanje izmena",
@@ -39,7 +40,7 @@
 	"revreview-hist-quality": "kvalitetna verzija",
 	"revreview-hist-basic": "proverena izmena",
 	"revreview-hist-quality-user": "odobrio/-la [[User:$3|$3]]",
-	"revreview-hist-basic-user": "pregledao/la [[User:$3|$3]]",
+	"revreview-hist-basic-user": "{{GENDER:$3|pregledao|pregledala}} [[User:$3|$3]]",
 	"revreview-hist-basic-auto": "automatski pregledano",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} čeka proveru]]'''",
 	"review-edit-diff": "'''Napomena: neke od izmena koje su na čekanju imaju uticaj na deo stranice koji uređujete.'''",
@@ -49,8 +50,6 @@
 	"revreview-log-details-show": "prikaži detalje",
 	"revreview-log-details-hide": "sakrij detalje",
 	"review-diff2stable": "Pogledaj sve izmene na čekanju",
-	"review-logentry-app": "je pregledao izdanje stranice [[$1]]",
-	"review-logentry-dis": "označi kao zastarelo izdanje stranice [[$1]]",
 	"review-logentry-id": "revizija: $2",
 	"review-logentry-diff": "pregledane izmene",
 	"review-logpage": "Dnevnik pregledanja",
@@ -61,7 +60,6 @@
 	"revreview-accuracy-2": "Tačno",
 	"revreview-accuracy-3": "Sa dobrim izvorima",
 	"revreview-accuracy-4": "Izabrani",
-	"revreview-auto": "(automatski)",
 	"revreview-basic": "Ovo je [[{{MediaWiki:Validationpage}}|objavljena verzija]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} proverena] dana <i>$2</i>.\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|izmena čeka na|izmene čekaju na|izmena čeka na}}] pregled.",
 	"revreview-basic-i": "Ovo je [[{{MediaWiki:Validationpage}}|objavljena verzija]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} proverena] dana <i>$2</i>.\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} izmene šablona/datoteke] čekaju na pregled.",
 	"revreview-basic-old": "Ovo je [[{{MediaWiki:Validationpage}}|proverena]] verzija ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} ceo spisak]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobren] dana <i>$2</i>.\nMožda su napravljene nove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} izmene].",
