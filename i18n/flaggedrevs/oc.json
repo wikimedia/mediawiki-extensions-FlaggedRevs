@@ -42,7 +42,7 @@
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} en espèra de relectura]]'''",
 	"revreview-diff-toggle-show": "far veire los cambiaments",
 	"revreview-diff-toggle-hide": "amagar los cambiaments",
-	"revreview-diff-toggle-title": "Bascuolar l'afichatge entre las modificacions en espèra e la version publicada",
+	"revreview-diff-toggle-title": "Bascular l'afichatge entre las modificacions en espèra e la version publicada",
 	"revreview-log-toggle-show": "far veire lo jornal d'estabilitat",
 	"revreview-log-toggle-hide": "amagar lo jornal d'estabilitat",
 	"revreview-log-toggle-title": "Bascuolar l'afichatge del jornal dels paramètres d'estabilitat",
