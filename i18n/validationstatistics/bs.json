@@ -2,22 +2,24 @@
 	"@metadata": {
 		"authors": [
 			"CERminator",
-			"KWiki"
+			"KWiki",
+			"Srdjan m"
 		]
 	},
-	"validationstatistics": "Statistike provjera stranice",
-	"validationstatistics-users": "'''{{SITENAME}}''' trenutno ima '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|korisnika|korisnika}} sa pravima [[{{MediaWiki:Validationpage}}|urednika]].\n\nUrednici su potvrđeni korisnici koji mogu izvršavati provjere revizija stranice.",
+	"validationstatistics": "Statistike pregleda",
+	"validationstatistics-users": "'''{{SITENAME}}''' trenutno ima '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|korisnika}} s [[{{MediaWiki:Validationpage}}|uređivačkim]] pravima.\n\nUrednici su potvrđeni korisnici koji mogu pregledavati izmjene stranica.",
 	"validationstatistics-lastupdate": "''Sljedeći podaci posljednji su put ažurirani $1 u $2.''",
-	"validationstatistics-pndtime": "Izmjene koje su pregledali potvrđeni korisnici se smatraju ''pregledane''.\n\nProsječno čekanje za [[Special:OldReviewedPages|stranice sa nepregledanim izmjenama na čekanju]] je '''$1'''; čekanje mjeri koliko dugo najstarija izmjena na čekanju stoji nepregledana.",
-	"validationstatistics-revtime": "Prosječno čekanje izmjena od strane ''korisnika koji nisu prijavljeni'' za pregled je '''$1''';medijan je '''$2'''. \n$3",
-	"validationstatistics-table": "Statistike pregleda stranica za svaki imenski prostor su prikazane ispod, ''isključujući'' stranice preusmjeravanja. Stranice se smatraju ''neažurnim'' ako imaju izmjene na čekanju; stranice se smatraju ''ažurnim'' ako nemaju izmjena koje čekaju.",
+	"validationstatistics-pndtime": "Izmjene koje su pregledali potvrđeni korisnici dobijaju status ''{{int:validationstatistics-stable}}''.\n\nProsječno čekanje za [[Special:OldReviewedPages|stranice sa nepregledanim izmjenama na čekanju]] je '''$1'''; čekanje mjeri koliko dugo najstarija izmjena na čekanju stoji nepregledana.",
+	"validationstatistics-revtime": "Prosječno čekanje izmjena od strane ''korisnika koji nisu prijavljeni'' za pregled je '''$1'''; srednja vrijednost je '''$2'''. \n$3",
+	"validationstatistics-table": "Ispod su prikazane statistike pregleda za svaki imenski prostor ''isključujući'' preusmjerenja.\nStranice dobijaju status ''{{int:validationstatistics-old}}'' ako imaju izmjene na čekanju;\nstranice dobijaju status ''{{int:validationstatistics-latest}}'' ako nema izmjena na čekanju.",
 	"validationstatistics-ns": "Imenski prostor",
 	"validationstatistics-total": "Stranice",
-	"validationstatistics-stable": "Provjereno",
+	"validationstatistics-stable": "Pregledano",
 	"validationstatistics-latest": "Sinhronizirano",
-	"validationstatistics-synced": "Sinhronizirano/provjereno",
-	"validationstatistics-old": "Zastarijelo",
-	"validationstatistics-utable": "Ispod je spisak {{PLURAL:$1|najaktivnijeg provjerivača|$1 najaktivnija provjerivača|$1 najaktivnijih provjerivača}} u zadnjih {{PLURAL:$2|sat vremena|$2 sata|$2 sati}}.",
+	"validationstatistics-synced": "Sinhronizirano/pregledano",
+	"validationstatistics-old": "Zastarjelo",
+	"validationstatistics-unreviewed": "Nepregledano",
+	"validationstatistics-utable": "Ispod je spisak {{PLURAL:$1|najaktivnijeg pregledavača|$1 najaktivnija pregledavača|$1 najaktivnijih pregledavača}} u {{PLURAL:$2|posljednjih sat vremena|posljednja $2 sata|posljednjih $2 sati}}.",
 	"validationstatistics-user": "Korisnik",
 	"validationstatistics-reviews": "Pregledi"
 }

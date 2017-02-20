@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"CERminator"
+			"CERminator",
+			"Srdjan m"
 		]
 	},
 	"stablepages": "Stranice koristeći odobravanje izmjena",
-	"stablepages-list": "Ispod je spisak stranica koje samo određeni korisnici mogu ih mijenjati a te izmjene ne zahtjevaju provjeru.\nIzmjene drugih korisnika nisu prikazane čitaocima po postavkama dok ih ne provjeri autorizovani korisnik.",
+	"stablepages-list": "Ovo je spisak stranica koje samo određeni korisnici mogu mijenjati a te izmjene ne zahtijevaju pregled.\nIzmjene drugih korisnika nisu prikazane čitaocima po predodređenim postavkama dok ih ne pregleda ovlašteni korisnik.",
 	"stablepages-none": "Nema stranica na ovom spisku",
 	"stablepages-config": "Podešavanje",
-	"stablepages-indef": "Samo bez isteka roka"
+	"stablepages-indef": "Samo beskonačan rok isteka"
 }

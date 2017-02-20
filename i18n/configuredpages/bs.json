@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"CERminator"
+			"CERminator",
+			"Srdjan m"
 		]
 	},
-	"configuredpages": "Stranice sa postavkama provjere",
-	"configuredpages-list": "Ispod je spisak stranica koje su podešene da imaju različite postavke odobrenja različite u odnosu na standard stranice.\nNeke postavke mogu promijeniti vidljivost vezije koja je prikazana čitaocu ili može dalje onemogućiti ko može načiniti izmjene koje ne traže provjeru.",
+	"configuredpages": "Stranice s postavkama pregleda",
+	"configuredpages-list": "Ovaj spisak sadrži stranice koje su podešene da imaju različite postavke odobrenja u odnosu na predodređene postavke sajta.\nNeke postavke mogu promijeniti verziju koja će se prikazati čitaocima ili dalje ograničiti ko može vršiti izmjene koje ne treba pregledavati.",
 	"configuredpages-none": "Nema stranica na ovom spisku.",
 	"configuredpages-config": "Podešavanje",
 	"configuredpages-def-draft": "posljednja verzija",

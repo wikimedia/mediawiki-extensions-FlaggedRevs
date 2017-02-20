@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"CERminator",
-			"KWiki"
+			"KWiki",
+			"Srdjan m"
 		]
 	},
 	"pendingchanges": "Stranice sa izmjenama na čekanju",
-	"pendingchanges-legend": "Spisak pregledanih stranica s revizijama koje čekaju na provjeru",
+	"pendingchanges-legend": "Spisak pregledanih stranica s izmjenama koje čekaju pregled",
 	"pendingchanges-list": "Ova stranica prikazuje [[{{MediaWiki:Validationpage}}|pregledane]] stranice koje imaju jednu ili više izmjena na čekanju.",
 	"pendingchanges-none": "Trenutno nema stranica koje zadovoljavaju ove kriterije",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|sat|sata|sati}})",
@@ -18,6 +19,6 @@
 	"pendingchanges-diff": "pregled",
 	"pendingchanges-size": "Najveća izmjena (bajta):",
 	"pendingchanges-unwatched": "(nepregledano)",
-	"pendingchanges-watched": "($1 {{PLURAL:$1|aktivni korisnik|aktivna korisnika|aktivnih korisnika}} pregleda)",
-	"pendingchanges-viewing": "(u provjeri)"
+	"pendingchanges-watched": "($1 {{PLURAL:$1|aktivni korisnik prati|aktivna korisnika prate|aktivnih korisnika prati}})",
+	"pendingchanges-viewing": "(pod pregledom)"
 }
