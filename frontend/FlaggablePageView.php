@@ -238,7 +238,7 @@ class FlaggablePageView extends ContextSource {
 	public function displayTag() {
 		$this->load();
 		// Sanity check that this is a reviewable page
-		if ( $this->article->isReviewable() ) {
+		if ( $this->article->isReviewable() && $this->reviewNotice ) {
 			$this->out->addSubtitle( $this->reviewNotice );
 		}
 		return true;
