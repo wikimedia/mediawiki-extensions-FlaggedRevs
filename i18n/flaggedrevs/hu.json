@@ -191,5 +191,13 @@
 	"revreview-locked": "'''Megjegyzés:''' a szerkesztéseket [[{{MediaWiki:Validationpage}}|ellenőrizni]] kell, mielőtt megjelennek ezen a lapon.",
 	"revreview-unlocked": "'''Megjegyzés:''' a szerkesztéseket nem kell [[{{MediaWiki:Validationpage}}|ellenőrizni]], mielőtt megjelennek ezen a lapon.",
 	"log-show-hide-review": "ellenőrzési napló $1",
-	"validationpage": "{{ns:help}}:Jelölt lapváltozatok"
+	"validationpage": "{{ns:help}}:Jelölt lapváltozatok",
+	"log-action-filter-review": "Ellenőrzés típusa:",
+	"log-action-filter-review-accept": "Kézi elfogadás",
+	"log-action-filter-review-autoaccept": "Automatikus elfogadás",
+	"log-action-filter-review-unaccept": "Kézi visszautasítás",
+	"log-action-filter-stable": "Konfigurációs változás típusa:",
+	"log-action-filter-stable-config": "Új konfiguráció",
+	"log-action-filter-stable-modify": "Konfiguráció módosítása",
+	"log-action-filter-stable-reset": "Konfiguráció visszaállítása"
 }

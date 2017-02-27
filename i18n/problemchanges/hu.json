@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Glanthor Reviol",
-			"Tgr"
+			"Tgr",
+			"Tacsipacsi"
 		]
 	},
 	"problemchanges": "Felcímkézett ellenőrizetlen szerkesztések",
+	"problemchanges-list": "Ez a lap azokat az [[{{MediaWiki:Validationpage}}|ellenőrzött]] lapokat listázza, amikben egy vagy több felcímkézett lap ellenőrzésre vár (lásd az [[Special:Tags|érvényes címkék listáját]]).",
 	"problemchanges-legend": "Ellenőrizetlen felcímkézett változtatásokat tartalmazó lapok listája",
 	"problemchanges-none": "Jelenleg nincs a feltételeknek megfelelő lap",
 	"problemchanges-category": "Kategória:"
