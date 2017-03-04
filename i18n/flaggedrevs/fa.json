@@ -43,6 +43,9 @@
 	"group-autoreview": "کاربران مرورگر خودکار",
 	"group-autoreview-member": "{{GENDER:$1|کاربر مرورگر خودکار}}",
 	"grouppage-autoreview": "{{ns:project}}:کاربران مرورگر خودکار",
+	"logentry-review-approve": "$1 نسخه‌ای از $3 را {{GENDER:$2|بازبینی کرد}}",
+	"logentry-review-approve-auto": "$1 به صورت خودکار نسخه‌ای از $3 را {{GENDER:$2|بازبینی کرد}}",
+	"logentry-review-unapprove": "$1 از نسخهٔ $3 {{GENDER:$2|راضی نیست}}",
 	"logentry-stable-config": "$1 تنظیمات نسخهٔ پایدار $3 $4 را تعیین {{GENDER:$2|کرد}}",
 	"logentry-stable-modify": "$1 تنظیمات نسخهٔ پایدار $3 $4 را تغییر {{GENDER:$2|داد}}",
 	"logentry-stable-reset": "$1 تنظیمات نسخهٔ پایدار $3 $4 را از نو {{GENDER:$2|کرد}}",
@@ -184,5 +187,13 @@
 	"revreview-locked": "'''توجه:''' ویرایش‌ها باید پیش از نمایش دادە شدن به خوانندگان در این صفحه، [[{{MediaWiki:Validationpage}}|بازبینی]] شوند.",
 	"revreview-unlocked": "'''توجه:''' .ویرایش‌ها بایذ قبل از اینکه نمایش یابند در آن صفحه  [[{{MediaWiki:Validationpage}}|بازبینی]] شوند.",
 	"log-show-hide-review": "$1 سیاههٔ بازبینی",
-	"validationpage": "{{ns:help}}:اعتبار صفحه"
+	"validationpage": "{{ns:help}}:اعتبار صفحه",
+	"log-action-filter-review": "نوع بازبینی:",
+	"log-action-filter-review-accept": "تائید دستی",
+	"log-action-filter-review-autoaccept": "تائید خودکار",
+	"log-action-filter-review-unaccept": "عدم تائید دستی",
+	"log-action-filter-stable": "نوع تغییر تنظیمات:",
+	"log-action-filter-stable-config": "تنظیمات جدید",
+	"log-action-filter-stable-modify": "تنظیمات تغییریافته",
+	"log-action-filter-stable-reset": "بازگردانی تنظیمات"
 }
