@@ -5,7 +5,8 @@
 			"Dnik",
 			"Ex13",
 			"Herr Mlinka",
-			"SpeedyGonsales"
+			"SpeedyGonsales",
+			"Bugoslav"
 		]
 	},
 	"stabilization-tab": "vet",
@@ -13,7 +14,7 @@
 	"stabilization-text": "'''Promijenite postavke kako biste prilagodili kako će važeća inačica članka [[:$1|$1]] biti odabrana i prikazana.'''",
 	"stabilization-perm": "Vaš suradnički račun nema prava mijenjanja postavki važeće inačice članka.\nSlijede važeće postavke za [[:$1|$1]]:",
 	"stabilization-page": "Ime stranice:",
-	"stabilization-leg": "Potvrdi postavke važeće inačice",
+	"stabilization-leg": "Potvrdi postavke vrijedeće inačice",
 	"stabilization-def": "Inačica koja se prikazuje kao zadana",
 	"stabilization-def1": "Stabilna inačica; ako je nema, onda najnovija inačica",
 	"stabilization-def2": "Najnovija inačica",
