@@ -232,13 +232,19 @@ class ValidationStatistics extends IncludableSpecialPage {
 
 	protected function getEditorCount() {
 		return $this->db->selectField( 'user_groups', 'COUNT(*)',
-			array( 'ug_group' => 'editor' ),
+			array(
+				'ug_group' => 'editor',
+				'ug_expiry IS NULL OR ug_expiry >= ' . $this->db->addQuotes( $this->db->timestamp() )
+			),
 			__METHOD__ );
 	}
 
 	protected function getReviewerCount() {
 		return $this->db->selectField( 'user_groups', 'COUNT(*)',
-			array( 'ug_group' => 'reviewer' ),
+			array(
+				'ug_group' => 'reviewer',
+				'ug_expiry IS NULL OR ug_expiry >= ' . $this->db->addQuotes( $this->db->timestamp() )
+			),
 			__METHOD__ );
 	}
 
