@@ -436,6 +436,7 @@ $wgActionFilteredLogs['stable'] = [
 	'config' => [ 'config' ],
 	'modify' => [ 'modify' ],
 	'reset' => [ 'reset' ],
+	'move_stable' => [ 'move_stable' ],
 ];
 
 # Log name and description as well as action handlers
