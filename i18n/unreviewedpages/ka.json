@@ -3,7 +3,8 @@
 		"authors": [
 			"BRUTE",
 			"David1010",
-			"გიორგიმელა"
+			"გიორგიმელა",
+			"Otogi"
 		]
 	},
 	"action-unreviewedpages": "შეუმოწმებელი გვერდების სიის ხილვა",
@@ -13,7 +14,7 @@
 	"unreviewedpages-diff": "შემოწმება",
 	"unreviewedpages-unwatched": "(არავის კონტროლის სიაში არ არის)",
 	"unreviewedpages-watched": "({{PLURAL:$1|აკონტროლებს $1 აქტიური მომხმარებელი|აკონტროლებს $1 აქტიური მომხმარებელი}})",
-	"unreviewedpages-list": "ამ გვერდზე მოყვანილია სტატიების სია რომლებიც ჯერ არ [[{{MediaWiki:Validationpage}}|შეფასებულა]] მითითებულ დონეზე.",
+	"unreviewedpages-list": "ამ გვერდზე მოყვანილია სტატიების სია, რომლებიც ჯერ არ [[{{MediaWiki:Validationpage}}|შეფასებულა]] მითითებულ დონეზე.",
 	"unreviewedpages-none": "ამჟამად არ არის გვერდი, რომელიც შეესაბამება ამ კრიტერიუმებს",
 	"unreviewedpages-viewing": "(მიმდინარეობს შემოწმება)",
 	"unreviewedpages-hours": "($1 {{PLURAL:$1|საათი|საათი}})",
