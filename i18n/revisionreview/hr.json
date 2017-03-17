@@ -5,7 +5,8 @@
 			"Dnik",
 			"Ex13",
 			"MaGa",
-			"SpeedyGonsales"
+			"SpeedyGonsales",
+			"Bugoslav"
 		]
 	},
 	"revisionreview": "Ocijeni inačice",
@@ -52,10 +53,10 @@
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Vaše izmjene još uvijek nisu u stabilnoj inačici.</span>\n\nMolimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u stabilnoj inačici.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Vaše izmjene još uvijek nisu u stabilnoj inačici. Postoje ranije izmjene koje su na čekanju za provjeru</span>\n\nMolimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u stabilnoj inačici.",
 	"revreview-update-includes": "Neki predlošci/datoteke su ažurirane:",
-	"revreview-reject-text-list": "Dovršavanjem ove akcije, vi ćete '''odbiti''' {{PLURAL:$1|sljedeću promjenu|sljedeće promjene|sljedeće promjene}}:",
+	"revreview-reject-text-list": "Dovršetkom ove radnje '''odbacit ćete''' iz teksta {{PLURAL:$1|sljedeću izmjenu|sljedeće izmjene|sljedećih izmjena}} stranice [[:$2|$2]]:",
 	"revreview-reject-text-revto": "Ovime ćete vratiti stranicu natrag na [{{fullurl:$1|oldid=$2}} inačicu od $3].",
 	"revreview-reject-summary": "Sažetak:",
-	"revreview-reject-confirm": "Odbaci ove promjene",
+	"revreview-reject-confirm": "Odbaci ove izmjene",
 	"revreview-reject-cancel": "Otkazati",
 	"revreview-reject-summary-cur": "{{PLURAL:$1|Odbijena posljednja izmjena|Odbijene posljednje $1 izmjene|Odbijeno posljednjih $1 izmjena}} (od strane $2) i vraćena inačica $3 suradnika $4",
 	"revreview-reject-summary-old": "{{PLURAL:$1|Odbijena prva izmjena|Odbijene prve $1 izmjene|Odbijeno prvih $1 izmjena}} (od strane $2) koje su načinjene nakon inačice $3 suradnika $4",
@@ -63,5 +64,5 @@
 	"revreview-reject-summary-old-short": "{{PLURAL:$1|Odbijena prva izmjena|Odbijene prve $1 izmjene|Odbijeno prvih $1 izmjena}} koje su načinjene nakon inačice $2 suradnika $3",
 	"revreview-tt-flag": "Prihvati ovu inačicu označavajući je ''provjerenom''",
 	"revreview-tt-unflag": "Poništi ovu inačicu označavajući je ''neprovjerenom''",
-	"revreview-tt-reject": "Odbaci ove promjene tako što ćete ih ukloniti"
+	"revreview-tt-reject": "Odbacite ove izmjene teksta tako što ćete ih ukloniti"
 }
