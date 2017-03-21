@@ -68,7 +68,7 @@
 	"logentry-review-approve": "$1 ha {{GENDER:$2|revisado}} una versión de $3",
 	"logentry-review-approve-auto": "$1 ha {{GENDER:$2|revisado}} automáticamente una versión de $3",
 	"logentry-review-unapprove": "$1 ha {{GENDER:$2|desaprobado}} una versión de $3",
-	"logentry-stable-config": "$1 {{GENDER:$2|fijó}} los parámetros de configuración de la versión estable para $3 $4",
+	"logentry-stable-config": "$1 {{GENDER:$2|configuró}} los parámetros de versión estable para $3 $4",
 	"logentry-stable-modify": "$1 {{GENDER:$2|modificó}} los parámetros de versión estable para $3 $4",
 	"logentry-stable-reset": "$1 {{GENDER:$2|restableció}} los parámetros de versión estable para $3 $4",
 	"logentry-stable-move_stable": "$1 {{GENDER:$2|trasladó}} los parámetros de versión estable de $4 a $3",
