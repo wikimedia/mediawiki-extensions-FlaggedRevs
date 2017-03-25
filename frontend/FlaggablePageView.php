@@ -1877,7 +1877,7 @@ class FlaggablePageView extends ContextSource {
 	 * (a) there are currently any revisions pending (bug 16713)
 	 * (b) this is an unreviewed page (bug 23970)
 	 */
-	public function addReviewCheck( EditPage $editPage, array &$checkboxes, &$tabindex ) {
+	public function addReviewCheck( EditPage $editPage, array &$checkboxes, &$tabindex = null ) {
 		$this->load();
 		$request = $this->getRequest();
 		$title = $this->article->getTitle(); // convenience
@@ -1891,31 +1891,46 @@ class FlaggablePageView extends ContextSource {
 			# the user decide if he/she wants it reviewed on the spot. One might
 			# do this if he/she just saw the diff-to-stable and *then* decided to edit.
 			# Note: check not shown when editing old revisions, which is confusing.
-			$checkbox = Xml::check(
-				'wpReviewEdit',
-				$request->getCheck( 'wpReviewEdit' ),
-				array( 'tabindex' => ++$tabindex, 'id' => 'wpReviewEdit' )
+			$name = 'wpReviewEdit';
+			$options = array(
+				'label-message' => null,
+				'id' => 'wpReviewEdit',
+				'default' => $request->getCheck( $name ),
+				'title-message' => null,
+				'legacy-name' => 'reviewed',
 			);
-			$attribs = array( 'for' => 'wpReviewEdit' );
 			// For reviewed pages...
 			if ( $this->article->getStable() ) {
 				// For pending changes...
 				if ( $this->article->revsArePending() ) {
 					$n = $this->article->getPendingRevCount();
-					$attribs['title'] = $this->msg( 'revreview-check-flag-p-title' )->text();
-					$labelMsg = $this->msg( 'revreview-check-flag-p' )->numParams( $n )->parse();
+					$options['title-message'] = 'revreview-check-flag-p-title';
+					$options['label-message'] = $this->msg( 'revreview-check-flag-p' )->numParams( $n );
 				// For just the user's changes...
 				} else {
-					$attribs['title'] = $this->msg( 'revreview-check-flag-y-title' )->parse();
-					$labelMsg = $this->msg( 'revreview-check-flag-y' )->parse();
+					$options['title-message'] = 'revreview-check-flag-y-title';
+					$options['label-message'] = 'revreview-check-flag-y';
 				}
 			// For unreviewed pages...
 			} else {
-				$attribs['title'] = $this->msg( 'revreview-check-flag-u-title' )->text();
-				$labelMsg = $this->msg( 'revreview-check-flag-u' )->parse();
+				$options['title-message'] = 'revreview-check-flag-u-title';
+				$options['label-message'] = 'revreview-check-flag-u';
 			}
-			$label = Xml::element( 'label', $attribs, $labelMsg );
-			$checkboxes['reviewed'] = $checkbox . '&#160;' . $label;
+			if ( $tabindex === null ) {
+				// New style
+				$checkboxes[$name] = $options;
+			} else {
+				// Old style
+				$checkbox = Xml::check(
+					$name,
+					$options['default'],
+					array( 'tabindex' => ++$tabindex, 'id' => $options['id'] )
+				);
+				$attribs = array( 'for' => $options['id'] );
+				$attribs['title'] = $this->msg( $options['title-message'] )->text();
+				$label = Xml::tags( 'label', $attribs, $this->msg( $options['label-message'] )->parse() );
+				$checkboxes[ $options['legacy-name'] ] = $checkbox . '&#160;' . $label;
+			}
 		}
 		return true;
 	}
