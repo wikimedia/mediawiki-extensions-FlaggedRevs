@@ -76,7 +76,7 @@
 	"revreview-hist-quality-auto": "подтверждена автоматически",
 	"revreview-hist-basic-auto": "отпатрулирована автоматически",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} ожидает проверки]]'''",
-	"review-edit-diff": "'''ПРЕДУПРЕЖДЕНИЕ. ''Некоторые'' из ожидающих проверки изменений относятся к редактируемой вами части страницы.'''",
+	"review-edit-diff": "'''Внимание: ''некоторые'' из ожидающих проверки изменений относятся к редактируемой вами части страницы.'''",
 	"revreview-diff-toggle-show": "показать эти изменения",
 	"revreview-diff-toggle-hide": "скрыть эти изменения",
 	"revreview-diff-toggle-title": "Переключить отображение непроверенных изменений к стабильной версии",
