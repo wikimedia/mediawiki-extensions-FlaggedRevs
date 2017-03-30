@@ -15,7 +15,8 @@
 			"Vitorvicentevalente",
 			"He7d3r",
 			"Cainamarques",
-			"Opraco"
+			"Opraco",
+			"AlvaroMolina"
 		]
 	},
 	"action-review": "rever edições",
@@ -46,6 +47,9 @@
 	"group-autoreview": "Utilizadores revistos automaticamente",
 	"group-autoreview-member": "{{GENDER:$1|utilizador revisto automaticamente|utilizadora revista automaticamente|utilizador(a) revisto(a) automaticamente}}",
 	"grouppage-autoreview": "{{ns:project}}:Utilizadores revistos automaticamente",
+	"logentry-stable-config": "$1 {{GENDER:$2|configurou}} os parâmetros da versão estavel para $3 $4",
+	"logentry-stable-modify": "$1 {{GENDER:$2|modificou}} os parâmetros de versão estavel para $3 $4",
+	"logentry-stable-reset": "$1 {{GENDER:$2|restableceu}} os parâmetros de versão estavel para $3 $4",
 	"revreview-hist-draft": "edição não verificada",
 	"revreview-hist-pending": "revisão pendente",
 	"revreview-hist-quality": "edição de qualidade",
@@ -66,8 +70,6 @@
 	"revreview-log-details-hide": "esconder detalhes",
 	"revreview-log-details-title": "Alternar a apresentação do registo das configurações de estabilidade",
 	"review-diff2stable": "Ver alterações pendentes à versão publicada",
-	"review-logentry-app": "reviu uma versão de [[$1]]",
-	"review-logentry-dis": "reprovou uma versão da página [[$1]]",
 	"review-logentry-id": "edição: $2",
 	"review-logentry-diff": "alterações revistas",
 	"review-logentry-diff2": "alterações reprovadas",
@@ -80,7 +82,6 @@
 	"revreview-accuracy-2": "Precisa",
 	"revreview-accuracy-3": "Bem referenciada",
 	"revreview-accuracy-4": "Exemplar",
-	"revreview-auto": "(automático)",
 	"revreview-basic": "Esta é a [[{{MediaWiki:Validationpage}}|versão publicada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] a <i>$2</i>.\n{{PLURAL:$3|Existe|Existem}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|alteração pendente|alterações pendentes}}] a aguardar revisão.",
 	"revreview-basic-i": "Esta é a [[{{MediaWiki:Validationpage}}|versão publicada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] a <i>$2</i>.\nExistem [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} alterações a predefinições ou ficheiros] a aguardar revisão.",
 	"revreview-basic-old": "Esta é uma versão [[{{MediaWiki:Validationpage}}|verificada]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} listar todas]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] a <i>$2</i>.\n     Podem existir [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} alterações] recentes.",

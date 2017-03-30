@@ -13,7 +13,8 @@
 			"Ssola",
 			"Toniher",
 			"Vriullop",
-			"Syum90"
+			"Syum90",
+			"AlvaroMolina"
 		]
 	},
 	"action-review": "supervisa les revisions",
@@ -42,6 +43,9 @@
 	"group-autoreview": "Supervisors automàtics",
 	"group-autoreview-member": "{{GENDER:$1|supervisor automàtic|supervisora automàtica}}",
 	"grouppage-autoreview": "{{ns:project}}:Supervisors automàtics",
+	"logentry-stable-config": "$1 {{GENDER:$2|va configurar}} els paràmetres de versió estable per $3 $4",
+	"logentry-stable-modify": "$1 {{GENDER:$2|va modificar}} els paràmetres de versió estable per $3 $4",
+	"logentry-stable-reset": "$1 {{GENDER:$2|va restablir}} els paràmetres de versió estable per $3 $4",
 	"revreview-hist-draft": "canvi no comprovat",
 	"revreview-hist-pending": "canvi en curs",
 	"revreview-hist-quality": "versió de qualitat",
@@ -62,8 +66,6 @@
 	"revreview-log-details-hide": "amaga detalls",
 	"revreview-log-details-title": "Alterna la visualització de la configuració del registre d'estabilitat",
 	"review-diff2stable": "Visualitza tots els canvis en curs",
-	"review-logentry-app": "ha comprovat una versió de [[$1]]",
-	"review-logentry-dis": "ha menyspreat una versió de [[$1]]",
 	"review-logentry-id": "revisió: $2",
 	"review-logentry-diff": "canvis revisats",
 	"review-logentry-diff2": "canvis menyspreats",
@@ -76,7 +78,6 @@
 	"revreview-accuracy-2": "Precisa",
 	"revreview-accuracy-3": "Bones fonts",
 	"revreview-accuracy-4": "Ben presentada",
-	"revreview-auto": "(automàtic)",
 	"revreview-basic": "Això és [[{{MediaWiki:Validationpage}}|la versió estable]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} comprovada] a <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|canvi|canvis}}] en curs {{PLURAL:$3|atén|atenen}} una revisió.",
 	"revreview-basic-i": "Això és la [[{{MediaWiki:Validationpage}}|versió estable]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} comprovada] el <i>$2</i>.\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Canvis a la plantilla o al fitxer] atenen una revista.",
 	"revreview-basic-old": "Això és una versió [[{{MediaWiki:Validationpage}}|comprovada]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} llista completa]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] el <i>$2</i>.\nPotser va haver-hi nous [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} canvis].",
