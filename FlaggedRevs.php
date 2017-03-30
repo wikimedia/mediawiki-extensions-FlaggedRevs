@@ -558,7 +558,11 @@ $wgHooks['TitleGetEditNotices'][] = 'FlaggedRevsUIHooks::getEditNotices';
 # Tweak submit button name/title
 $wgHooks['EditPageBeforeEditButtons'][] = 'FlaggedRevsUIHooks::onBeforeEditButtons';
 # Autoreview information from form
-$wgHooks['EditPageBeforeEditChecks'][] = 'FlaggedRevsUIHooks::addReviewCheck';
+if ( version_compare( $wgVersion, '1.29', '<' ) ) {
+	$wgHooks['EditPageBeforeEditChecks'][] = 'FlaggedRevsUIHooks::onEditPageBeforeEditChecks';
+} else {
+	$wgHooks['EditPageGetCheckboxesDefinition'][] = 'FlaggedRevsUIHooks::onEditPageGetCheckboxesDefinition';
+}
 $wgHooks['EditPage::showEditForm:fields'][] = 'FlaggedRevsUIHooks::addRevisionIDField';
 # Add draft link to section edit error
 $wgHooks['EditPageNoSuchSection'][] = 'FlaggedRevsUIHooks::onNoSuchSection';
