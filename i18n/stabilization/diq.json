@@ -6,7 +6,8 @@
 			"Erdemaslancan",
 			"Mirzali",
 			"Xoser",
-			"1917 Ekim Devrimi"
+			"1917 Ekim Devrimi",
+			"Asmen"
 		]
 	},
 	"stabilization-tab": "vet",
@@ -39,5 +40,5 @@
 	"stabilize_expiry_old": "Wextê qedîyayîş penî de mend.",
 	"stabilize_denied": "Destur nedano.",
 	"stabilize-expiring": "$1 (UTC) de qediyeno",
-	"stabilization-review": "Versiyonê penî ke kontrol biyo ay nisan bike"
+	"stabilization-review": "Versiyono peyêno ke kontrol biyo, ey nışan bıke"
 }
