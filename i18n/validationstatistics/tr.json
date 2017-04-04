@@ -22,7 +22,7 @@
 	"validationstatistics-synced": "Eşitlenmiş/Gözden geçirilmiş",
 	"validationstatistics-old": "Eski",
 	"validationstatistics-unreviewed": "İncelenmeyen",
-	"validationstatistics-utable": "Aşağıda {{PLURAL:$2|saatte|$2 saatte}} en çok inceleme yapan $1 kullanıcı listelenmektedir.",
+	"validationstatistics-utable": "Aşağıda son $2 saatteki en etkin $1 inceleyicinin listesi bulunmaktadır.",
 	"validationstatistics-user": "Kullanıcı",
 	"validationstatistics-reviews": "İncelemeler"
 }

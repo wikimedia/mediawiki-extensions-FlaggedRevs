@@ -20,6 +20,8 @@
 	"revreview-submit-reject": "Dəyişiklikləri rədd et",
 	"revreview-submit-reviewed": "Hazırdır. Qəbul edildi!",
 	"revreview-submit-unreviewed": "Hazırdır. Qəbul edilmə ləğv edildi!",
+	"revreview-adv-start-link": "elan ver",
+	"revreview-adv-stop-link": "elanı ləğv et",
 	"revreview-reject-summary": "Xülasə:",
 	"revreview-reject-confirm": "Bu dəyişiklikləri rədd et",
 	"revreview-reject-cancel": "Ləğv et"

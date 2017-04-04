@@ -5,6 +5,13 @@
 			"Wertuose"
 		]
 	},
+	"pendingchanges-hours": "($1 {{PLURAL:$1|saat|saat}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|gün|gün}})",
+	"pendingchanges-recent": "(1 saatdan az)",
 	"pendingchanges-category": "Kateqoriya:",
-	"pendingchanges-size": "Maksimal dəyişiklik (baytlarla):"
+	"pendingchanges-onwatchlist": "İzləmə siyahımdakı səhifələr",
+	"pendingchanges-diff": "yoxlama",
+	"pendingchanges-size": "Maksimal dəyişiklik (baytlarla):",
+	"pendingchanges-unwatched": "(izlənmir)",
+	"pendingchanges-watched": "($1 aktiv {{PLURAL:$1|istifadəçi|istifadəçi}} izləyir)"
 }
