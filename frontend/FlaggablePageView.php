@@ -1800,11 +1800,13 @@ class FlaggablePageView extends ContextSource {
 			$dom = new DOMDocument();
 			$dom->loadXML( $buttons['save'] ); // load button XML from hook
 			foreach ( $dom->getElementsByTagName( 'input' ) as $input ) { // one <input>
-				$input->setAttribute( 'value', $this->msg( 'revreview-submitedit' )->text() );
-				// @todo i18n FIXME: Hard coded brackets.
-				$input->setAttribute( 'title', // keep accesskey
-					$this->msg( 'revreview-submitedit-title' )->text() .
-						' [' . $this->msg( 'accesskey-save' )->text() . ']' );
+				$buttonLabel = $this->msg( 'revreview-submitedit' )->text();
+				$input->setAttribute( 'value', $buttonLabel );
+				// This attempts to re-implement Linker::titleAttrib(); TODO, consider a re-use pattern
+				$buttonTitle = $this->msg( 'revreview-submitedit-title' )->text() . ' ' .
+					$this->msg( 'brackets', $this->msg( 'accesskey-save' )->text() )->text();
+				$input->setAttribute( 'title', $buttonTitle ); // keep accesskey
+
 				# Change submit button text & title
 				$buttons['save'] = $dom->saveXML( $dom->documentElement );
 			}
