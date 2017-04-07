@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Irwangatot",
-			"Kandar"
+			"Kandar",
+			"Uchup19"
 		]
 	},
 	"editor": "Éditor",
@@ -14,7 +15,6 @@
 	"revreview-accuracy-0": "Teu disatujuan",
 	"revreview-accuracy-2": "Akurat",
 	"revreview-accuracy-4": "Petingan",
-	"revreview-auto": "(otomatis)",
 	"revreview-depth": "Jero",
 	"revreview-depth-0": "Teu disatujuan",
 	"revreview-depth-1": "Dasar",
@@ -28,6 +28,7 @@
 	"right-stablesettings": "Ngatur kumaha vérsi stabil dipilih sarta dipintonkeun",
 	"rights-editor-revoke": "nyabut status éditor ti [[$1]]",
 	"stable-logpage": "Log vérsi stabil",
+	"tooltip-ca-current": "Tempo ieu kaca dina parobahan nu kaengkeun",
 	"tooltip-ca-stable": "Témbongkeun vérsi stabil ieu kaca",
 	"validationpage": "{{ns:help}}:Validasi artikel"
 }
