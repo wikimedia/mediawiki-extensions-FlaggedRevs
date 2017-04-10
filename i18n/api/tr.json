@@ -60,7 +60,7 @@
 	"apihelp-stabilize-description-general": "Sayfa istikrar ayarlarını değiştirmek.",
 	"apihelp-stabilize-description-protect": "Yapılandırma-koruma inceleme sayfası için ayarlar.",
 	"apihelp-stabilize-param-reason": "Sebep:",
-	"apihelp-stabilize-param-watch": "Bu sayfayı izle",
+	"apihelp-stabilize-param-watch": "Bu sayfayı izle.",
 	"apihelp-stabilize-param-expiry-general": "Bu ayarlar için verilen süre.",
 	"apihelp-stabilize-param-title-general": "Stabilize edilmesi için sayfanın Başlığı."
 }
