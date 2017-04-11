@@ -39,7 +39,7 @@
 	"revreview-check-flag-u": "接受此未复核页面",
 	"revreview-check-flag-u-title": "接受此页面的该版本。请只在审阅了整个页面后才使用此功能。",
 	"revreview-check-flag-y": "接受我的更改",
-	"revreview-check-flag-y-title": "接受你在此页面的所有更改",
+	"revreview-check-flag-y-title": "接受您在此页面的所有更改。",
 	"revreview-flag": "复核该版本",
 	"revreview-reflag": "重新复核该版本",
 	"revreview-invalid": "'''无效的目标：'''没有与指定ID对应的[[{{MediaWiki:Validationpage}}|已复审]]版本。",
