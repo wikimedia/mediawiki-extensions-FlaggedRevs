@@ -1439,6 +1439,10 @@ class FlaggablePageView extends ContextSource {
 	 * (c) When comparing the stable revision to the current:
 	 *   (i)  Show a tag with some explanation for the diff
 	 *   (ii) List any template/file changes pending review
+	 *
+	 * @param $diff
+	 * @param Revision $oldRev
+	 * @param Revision $newRev
 	 */
 	public function addToDiffView( $diff, $oldRev, $newRev ) {
 		global $wgMemc, $wgParserCacheExpireTime;
@@ -1495,7 +1499,7 @@ class FlaggablePageView extends ContextSource {
 					// Reviewer just edited...
 					if ( $request->getInt( 'shownotice' )
 						&& $newRev->isCurrent()
-						&& $newRev->getRawUserText() == $reqUser->getName() )
+						&& $newRev->getUserText( Revision::RAW ) == $reqUser->getName() )
 					{
 						$title = $this->article->getTitle(); // convenience
 						// @TODO: make diff class cache this

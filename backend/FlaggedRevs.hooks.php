@@ -690,6 +690,13 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
+	/**
+	 * @param Page $article
+	 * @param Revision $rev
+	 * @param bool $baseRevId
+	 * @param null $user
+	 * @return bool
+	 */
 	public static function incrementReverts(
 		Page $article, $rev, $baseRevId = false, $user = null
 	) {
@@ -699,10 +706,10 @@ class FlaggedRevsHooks {
 		if ( $rev && $undid && $user->isAllowed( 'autoreview' ) ) {
 			// Note: $rev->getTitle() might be undefined (no rev id?)
 			$badRev = Revision::newFromTitle( $article->getTitle(), $undid );
-			if ( $badRev && $badRev->getRawUser() // by logged-in user
-				&& $badRev->getRawUser() != $rev->getRawUser() ) // no self-reverts
+			if ( $badRev && $badRev->getUser( Revision::RAW ) // by logged-in user
+				&& $badRev->getUser( Revision::RAW ) != $rev->getUser( Revision::RAW ) ) // no self-reverts
 			{
-				FRUserCounters::incCount( $badRev->getRawUser(), 'revertedEdits' );
+				FRUserCounters::incCount( $badRev->getUser( Revision::RAW ), 'revertedEdits' );
 			}
 		}
 		return true;
