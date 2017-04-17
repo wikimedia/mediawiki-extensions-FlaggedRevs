@@ -6,7 +6,8 @@
 			"Michawiki",
 			"Raimond Spekking",
 			"The Evil IP address",
-			"Umherirrender"
+			"Umherirrender",
+			"FriedhelmW"
 		]
 	},
 	"pendingchanges": "Seiten mit unmarkierten Änderungen",
@@ -17,11 +18,11 @@
 	"pendingchanges-days": "($1 {{PLURAL:$1|Tag|Tage}})",
 	"pendingchanges-recent": "(weniger als 1 Stunde)",
 	"pendingchanges-category": "Kategorie:",
-	"pendingchanges-onwatchlist": "Seiten auf meiner Beobachtungsliste",
+	"pendingchanges-onwatchlist": "nur Seiten auf meiner Beobachtungsliste",
 	"pendingchanges-stable": "Die stabile Version ist Standard",
 	"pendingchanges-diff": "sichten",
 	"pendingchanges-size": "Maximale Änderungsgröße in Byte:",
 	"pendingchanges-unwatched": "(unbeobachtet)",
-	"pendingchanges-watched": "(von $1 {{PLURAL:$1|aktivem Benutzer|aktiven Benutzern}} beobachtet)",
+	"pendingchanges-watched": "(von {{PLURAL:$1|einem aktiven Benutzer|$1 aktiven Benutzern}} beobachtet)",
 	"pendingchanges-viewing": "(wird überprüft)"
 }

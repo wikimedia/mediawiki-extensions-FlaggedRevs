@@ -5,7 +5,8 @@
 			"Merlissimo",
 			"Metalhead64",
 			"Raimond Spekking",
-			"Umherirrender"
+			"Umherirrender",
+			"FriedhelmW"
 		]
 	},
 	"action-unreviewedpages": "die Liste der ungesichteten Seiten einzusehen",
@@ -14,7 +15,7 @@
 	"unreviewedpages-category": "Kategorie:",
 	"unreviewedpages-diff": "sichten",
 	"unreviewedpages-unwatched": "(unbeobachtet)",
-	"unreviewedpages-watched": "(von $1 {{PLURAL:$1|aktivem Benutzer|aktiven Benutzern}} beobachtet)",
+	"unreviewedpages-watched": "(von {{PLURAL:$1|einem aktiven Benutzer|$1 aktiven Benutzern}} beobachtet)",
 	"unreviewedpages-list": "Diese Spezialseite zeigt Seiten, die bisher noch nicht in der angegebenen Stufe [[{{MediaWiki:Validationpage}}|markiert]] wurden.",
 	"unreviewedpages-none": "Es gibt keine Seiten, die den eingegebenen Kriterien entsprechen.",
 	"unreviewedpages-viewing": "(wird gesichtet)",
