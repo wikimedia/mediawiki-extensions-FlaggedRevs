@@ -277,11 +277,43 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
-	public static function addHideReviewedFilter( $specialPage, &$filters ) {
-		if ( !FlaggedRevs::useSimpleConfig() ) {
-			$filters['hideReviewed'] = array(
-				'msg' => 'flaggedrevs-hidereviewed', 'default' => false );
+	/**
+	 * Registers a filter to hide edits that have been reviewed through
+	 * FlaggedRevs.
+	 *
+	 * @param ChangesListSpecialPage $specialPage Special page, such as
+	 *   Special:RecentChanges or Special:Watchlist
+	 */
+	public static function addHideReviewedFilter( ChangesListSpecialPage $specialPage ) {
+		if ( FlaggedRevs::useSimpleConfig() ) {
+			return true;
 		}
+		// TODO: Use the new structured UI: T162902
+		$flaggedRevsUnstructuredGroup = new ChangesListBooleanFilterGroup(
+			[
+				'name' => 'flaggedRevsUnstructured',
+				'priority' => -1,
+				'filters' => [
+					[
+						'name' => 'hideReviewed',
+						'showHide' => 'flaggedrevs-hidereviewed',
+						'default' => false,
+						'queryCallable' => function ( $specialClassName, $ctx, $dbr, &$tables,
+							&$fields, &$conds, &$query_options, &$join_conds ) {
+
+								return FlaggedRevsUIHooks::modifyChangesListQuery(
+									$conds,
+									$tables,
+									$join_conds,
+									$fields
+								);
+						},
+					],
+				],
+			]
+		);
+
+		$specialPage->registerFilterGroup( $flaggedRevsUnstructuredGroup );
 		return true;
 	}
 
@@ -346,12 +378,6 @@ class FlaggedRevsUIHooks {
 		$queryInfo['fields'][] = 'fp_pending_since';
 		$queryInfo['join_conds']['flaggedpages'] = array( 'LEFT JOIN', "fp_page_id = rev_page" );
 		return true;
-	}
-
-	public static function modifyRecentChangesQuery(
-		&$conds, &$tables, &$join_conds, $opts, &$query_opts, &$fields
-	) {
-		return self::modifyChangesListQuery( $conds, $tables, $join_conds, $fields );
 	}
 
 	public static function modifyNewPagesQuery(

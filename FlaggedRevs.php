@@ -572,16 +572,14 @@ $wgHooks['ArticleUpdateBeforeRedirect'][] = 'FlaggedRevsUIHooks::injectPostEditU
 # Mark items in page history
 $wgHooks['PageHistoryPager::getQueryInfo'][] = 'FlaggedRevsUIHooks::addToHistQuery';
 $wgHooks['PageHistoryLineEnding'][] = 'FlaggedRevsUIHooks::addToHistLine';
-# Select extra info & filter items in RC
-$wgHooks['SpecialRecentChangesQuery'][] = 'FlaggedRevsUIHooks::modifyRecentChangesQuery';
+# Select extra info & filter items on Special:NewPages
 $wgHooks['SpecialNewpagesConditions'][] = 'FlaggedRevsUIHooks::modifyNewPagesQuery';
-$wgHooks['SpecialWatchlistQuery'][] = 'FlaggedRevsUIHooks::modifyChangesListQuery';
 # Mark items in RC
 $wgHooks['ChangesListInsertArticleLink'][] = 'FlaggedRevsUIHooks::addToChangeListLine';
 
 # RC filter UIs
 $wgHooks['SpecialNewPagesFilters'][] = 'FlaggedRevsUIHooks::addHideReviewedFilter';
-$wgHooks['ChangesListSpecialPageFilters'][] = 'FlaggedRevsUIHooks::addHideReviewedFilter';
+$wgHooks['ChangesListSpecialPageStructuredFilters'][] = 'FlaggedRevsUIHooks::addHideReviewedFilter';
 # Add notice tags to history
 $wgHooks['PageHistoryBeforeList'][] = 'FlaggedRevsUIHooks::addToHistView';
 # Diff-to-stable
