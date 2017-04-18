@@ -19,7 +19,7 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 			return true;
 		}
 		if ( !in_array( 'ids', $params['prop'] ) ) {
-			if ( is_callable( array( $module, 'dieWithError' ) ) ) {
+			if ( is_callable( [ $module, 'dieWithError' ] ) ) {
 				$module->dieWithError(
 					[ 'apierror-invalidparammix-mustusewith', 'rvprop=flagged', 'rvprop=ids' ], 'missingparam'
 				);
@@ -32,7 +32,7 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 		// we will need this later to add data to the result array 
 		$result = $module->getResult();
 		if ( defined( 'ApiResult::META_CONTENT' ) ) {
-			$data = (array)$result->getResultData( array( 'query', 'pages' ), array( 'Strip' => 'all' ) );
+			$data = (array)$result->getResultData( [ 'query', 'pages' ], [ 'Strip' => 'all' ] );
 		} else {
 			$data = $result->getData();
 			if ( !isset( $data['query'] ) || !isset( $data['query']['pages'] ) ) {
@@ -55,23 +55,23 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 		// Construct SQL Query
 		$db = $module->getDB();
 		$module->resetQueryParams();
-		$module->addTables( array( 'flaggedrevs', 'user' ) );
-		$module->addFields( array(
+		$module->addTables( [ 'flaggedrevs', 'user' ] );
+		$module->addFields( [
 			'fr_page_id',
 			'fr_rev_id',
 			'fr_timestamp',
 			'fr_quality',
 			'fr_tags',
 			'user_name'
-		) );
+		] );
 		$module->addWhere( 'fr_user=user_id' );
 
-		$where = array();
+		$where = [];
 		// Construct WHERE-clause to avoid multiplying the number of scanned rows
 		// as flaggedrevs table has composite primary key (fr_page_id,fr_rev_id)
 		foreach ( $pageids as $pageid => $revids ) {
-			$where[] = $db->makeList( array( 'fr_page_id' => $pageid,
-				'fr_rev_id' => array_keys( $revids ) ), LIST_AND );
+			$where[] = $db->makeList( [ 'fr_page_id' => $pageid,
+				'fr_rev_id' => array_keys( $revids ) ], LIST_AND );
 		}
 		$module->addWhere( $db->makeList( $where, LIST_OR ) );
 
@@ -80,15 +80,15 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 		// Add flagging data to result array
 		foreach( $res as $row ) {
 			$index = $pageids[$row->fr_page_id][$row->fr_rev_id];
-			$data = array(
+			$data = [
 				'user' 			=> $row->user_name,
 				'timestamp' 	=> wfTimestamp( TS_ISO_8601, $row->fr_timestamp ),
 				'level' 		=> intval( $row->fr_quality ),
 				'level_text' 	=> FlaggedRevs::getQualityLevelText( $row->fr_quality ),
 				'tags' 			=> FlaggedRevision::expandRevisionTags( $row->fr_tags )
-			);
+			];
 			$result->addValue(
-				array( 'query', 'pages', $row->fr_page_id, 'revisions', $index ),
+				[ 'query', 'pages', $row->fr_page_id, 'revisions', $index ],
 				'flagged',
 				$data
 			);

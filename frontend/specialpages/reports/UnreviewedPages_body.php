@@ -44,17 +44,17 @@ class UnreviewedPages extends SpecialPage {
 			$this->getLanguage()->formatNum( $this->pager->getNumRows() ) );
 
 		# show/hide links
-		$showhide = array( $this->msg( 'show' )->escaped(), $this->msg( 'hide' )->escaped() );
+		$showhide = [ $this->msg( 'show' )->escaped(), $this->msg( 'hide' )->escaped() ];
 		$onoff = 1 - $this->hideRedirs;
-		$link = Linker::link( $this->getPageTitle(), $showhide[$onoff], array(),
-			array( 'hideredirs' => $onoff, 'category' => $this->category,
-				'namespace' => $this->namespace )
+		$link = Linker::link( $this->getPageTitle(), $showhide[$onoff], [],
+			[ 'hideredirs' => $onoff, 'category' => $this->category,
+				'namespace' => $this->namespace ]
 		);
 		$showhideredirs = $this->msg( 'whatlinkshere-hideredirs' )->rawParams( $link )->escaped();
 
 		# Add form...
-		$form = Html::openElement( 'form', array( 'name' => 'unreviewedpages',
-			'action' => $wgScript, 'method' => 'get' ) ) . "\n";
+		$form = Html::openElement( 'form', [ 'name' => 'unreviewedpages',
+			'action' => $wgScript, 'method' => 'get' ] ) . "\n";
 		$form .= "<fieldset><legend>" . $this->msg( 'unreviewedpages-legend' )->escaped() . "</legend>\n";
 		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBKey() ) . "\n";
 		# Add dropdowns as needed
@@ -67,7 +67,7 @@ class UnreviewedPages extends SpecialPage {
 		$form .=
 			"<span style='white-space: nowrap;'>" .
 			Xml::label( $this->msg( 'unreviewedpages-category' )->text(), 'category' ) . '&#160;' .
-			Xml::input( 'category', 30, $this->category, array( 'id' => 'category' ) ) .
+			Xml::input( 'category', 30, $this->category, [ 'id' => 'category' ] ) .
 			'</span><br />';
 		$form .= $showhideredirs . '&#160;&#160;';
 		$form .= Xml::submitButton( $this->msg( 'allpagessubmit' )->text() );
@@ -78,7 +78,7 @@ class UnreviewedPages extends SpecialPage {
 		if ( !$this->live ) {
 			$dbr = wfGetDB( DB_SLAVE );
 			$ts = $dbr->selectField( 'querycache_info', 'qci_timestamp',
-				array( 'qci_type' => 'fr_unreviewedpages' ), __METHOD__ );
+				[ 'qci_type' => 'fr_unreviewedpages' ], __METHOD__ );
 			if ( $ts ) {
 				$ts = wfTimestamp( TS_MW, $ts );
 				$td = $this->getLanguage()->timeanddate( $ts );
@@ -108,13 +108,13 @@ class UnreviewedPages extends SpecialPage {
 		$title = Title::newFromRow( $row );
 
 		$stxt = $underReview = $watching = '';
-		$link = Linker::link( $title, null, array(), array( 'redirect' => 'no' ) );
+		$link = Linker::link( $title, null, [], [ 'redirect' => 'no' ] );
 		$dirmark = $this->getLanguage()->getDirMark();
 		$hist = Linker::linkKnown(
 			$title,
 			$this->msg( 'hist' )->escaped(),
-			array(),
-			array( 'action' => 'history' )
+			[],
+			[ 'action' => 'history' ]
 		);
 		if ( !is_null( $size = $row->page_len ) ) {
 			$stxt = ( $size == 0 )
@@ -180,9 +180,9 @@ class UnreviewedPages extends SpecialPage {
 		}
 		# Get est. of fraction of pages that are reviewed
 		$dbr = wfGetDB( DB_SLAVE );
-		$reviewedpages = $dbr->estimateRowCount( 'flaggedpages', '*', array(), __METHOD__ );
+		$reviewedpages = $dbr->estimateRowCount( 'flaggedpages', '*', [], __METHOD__ );
 		$pages = $dbr->estimateRowCount( 'page', '*',
-			array( 'page_namespace' => $namespaces ),
+			[ 'page_namespace' => $namespaces ],
 			__METHOD__
 		);
 		$ratio = $pages / ( $pages - $reviewedpages );
@@ -201,25 +201,25 @@ class UnreviewedPages extends SpecialPage {
 		}
 		$dbr = wfGetDB( DB_SLAVE );
 
-		$insertRows = array();
+		$insertRows = [];
 		// Find pages that were never reviewed at all...
 		$res = $dbr->select(
-			array( 'page', 'flaggedpages' ),
-			array( 'page_namespace', 'page_title', 'page_id' ),
-			array( 'page_namespace' => $rNamespaces, 
+			[ 'page', 'flaggedpages' ],
+			[ 'page_namespace', 'page_title', 'page_id' ],
+			[ 'page_namespace' => $rNamespaces, 
 				'page_is_redirect' => 0, // no redirects
-				'fp_page_id IS NULL' ),
+				'fp_page_id IS NULL' ],
 			__METHOD__,
-			array( 'LIMIT' => 5000 ),
-			array( 'flaggedpages' => array( 'LEFT JOIN', 'fp_page_id = page_id' ) )
+			[ 'LIMIT' => 5000 ],
+			[ 'flaggedpages' => [ 'LEFT JOIN', 'fp_page_id = page_id' ] ]
 		);
 		foreach ( $res as $row ) {
-			$insertRows[] = array(
+			$insertRows[] = [
 				'qc_type'       => 'fr_unreviewedpages',
 				'qc_namespace'  => $row->page_namespace,
 				'qc_title'      => $row->page_title,
 				'qc_value'      => $row->page_id
-			);
+			];
 		}
 		$dbr->freeResult( $res );
 
@@ -227,55 +227,55 @@ class UnreviewedPages extends SpecialPage {
 		$lbFactory = \MediaWiki\MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		$dbw->startAtomic( __METHOD__ );
 		# Clear out any old cached data
-		$dbw->delete( 'querycache', array( 'qc_type' => 'fr_unreviewedpages' ), __METHOD__ );
+		$dbw->delete( 'querycache', [ 'qc_type' => 'fr_unreviewedpages' ], __METHOD__ );
 		# Insert new data...
 		if ( $insertRows ) {
 			$dbw->insert( 'querycache', $insertRows, __METHOD__ );
 		}
 		# Update the querycache_info record for the page
 		$dbw->delete( 'querycache_info',
-			array( 'qci_type' => 'fr_unreviewedpages' ), __METHOD__ );
+			[ 'qci_type' => 'fr_unreviewedpages' ], __METHOD__ );
 		$dbw->insert( 'querycache_info',
-			array( 'qci_type' => 'fr_unreviewedpages', 'qci_timestamp' => $dbw->timestamp() ),
+			[ 'qci_type' => 'fr_unreviewedpages', 'qci_timestamp' => $dbw->timestamp() ],
 			__METHOD__
 		);
 		$dbw->endAtomic( __METHOD__ );
 		$lbFactory->commitMasterChanges( __METHOD__ );
 
-		$insertRows = array();
+		$insertRows = [];
 		// Find pages that were never marked as "quality"...
 		$res = $dbr->select(
-			array( 'page', 'flaggedpages' ),
-			array( 'page_namespace', 'page_title', 'page_id' ),
-			array( 'page_namespace' => $rNamespaces, 
+			[ 'page', 'flaggedpages' ],
+			[ 'page_namespace', 'page_title', 'page_id' ],
+			[ 'page_namespace' => $rNamespaces, 
 				'page_is_redirect' => 0, // no redirects
-				'fp_page_id IS NULL OR fp_quality = 0' ),
+				'fp_page_id IS NULL OR fp_quality = 0' ],
 			__METHOD__,
-			array( 'LIMIT' => 5000 ),
-			array( 'flaggedpages' => array('LEFT JOIN','fp_page_id = page_id') )
+			[ 'LIMIT' => 5000 ],
+			[ 'flaggedpages' => ['LEFT JOIN','fp_page_id = page_id'] ]
 		);
 		foreach ( $res as $row ) {
-			$insertRows[] = array(
+			$insertRows[] = [
 				'qc_type'       => 'fr_unreviewedpages_q',
 				'qc_namespace'  => $row->page_namespace,
 				'qc_title'      => $row->page_title,
 				'qc_value'      => $row->page_id
-			);
+			];
 		}
 		$dbr->freeResult( $res );
 
 		$dbw->startAtomic( __METHOD__ );
 		# Clear out any old cached data
-		$dbw->delete( 'querycache', array( 'qc_type' => 'fr_unreviewedpages_q' ), __METHOD__ );
+		$dbw->delete( 'querycache', [ 'qc_type' => 'fr_unreviewedpages_q' ], __METHOD__ );
 		# Insert new data...
 		if ( $insertRows ) {
 			$dbw->insert( 'querycache', $insertRows, __METHOD__ );
 		}
 		# Update the querycache_info record for the page
 		$dbw->delete( 'querycache_info',
-			array( 'qci_type' => 'fr_unreviewedpages_q' ), __METHOD__ );
+			[ 'qci_type' => 'fr_unreviewedpages_q' ], __METHOD__ );
 		$dbw->insert( 'querycache_info',
-			array( 'qci_type' => 'fr_unreviewedpages_q', 'qci_timestamp' => $dbw->timestamp() ),
+			[ 'qci_type' => 'fr_unreviewedpages_q', 'qci_timestamp' => $dbw->timestamp() ],
 			__METHOD__ );
 		$dbw->endAtomic( __METHOD__ );
 		$lbFactory->commitMasterChanges( __METHOD__ );
@@ -315,7 +315,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		$this->showredirs = (bool)$redirs;
 		parent::__construct();
 		// Don't get too expensive
-		$this->mLimitsShown = array( 20, 50 );
+		$this->mLimitsShown = [ 20, 50 ];
 		$this->setLimit( $this->mLimit ); // apply max limit
 	}
 
@@ -331,8 +331,8 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		if ( !$this->live ) {
 			return $this->getQueryCacheInfo();
 		}
-		$fields = array( 'page_namespace', 'page_title', 'page_len', 'page_id',
-			'MIN(rev_timestamp) AS creation' );
+		$fields = [ 'page_namespace', 'page_title', 'page_len', 'page_id',
+			'MIN(rev_timestamp) AS creation' ];
 		# Filter by level
 		if ( $this->level == 1 ) {
 			$conds[] = "fp_page_id IS NULL OR fp_quality = 0";
@@ -347,7 +347,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		}
 		# Filter by category
 		if ( $this->category != '' ) {
-			$tables = array( 'categorylinks', 'page', 'flaggedpages', 'revision' );
+			$tables = [ 'categorylinks', 'page', 'flaggedpages', 'revision' ];
 			$fields[] = 'cl_sortkey';
 			$conds['cl_to'] = $this->category;
 			$conds[] = 'cl_from = page_id';
@@ -360,31 +360,31 @@ class UnreviewedPagesPager extends AlphabeticPager {
 				$conds['cl_type'] = 'page';
 			}
 			$this->mIndexField = 'cl_sortkey';
-			$useIndex = array( 'categorylinks' => 'cl_sortkey' );
+			$useIndex = [ 'categorylinks' => 'cl_sortkey' ];
 			$groupBy = 'cl_sortkey,cl_from';
 		} else {
-			$tables = array( 'page', 'flaggedpages', 'revision' );
+			$tables = [ 'page', 'flaggedpages', 'revision' ];
 			$this->mIndexField = 'page_title';
-			$useIndex = array( 'page' => 'name_title' );
+			$useIndex = [ 'page' => 'name_title' ];
 			$groupBy = 'page_title';
 		}
 		$useIndex['revision'] = 'page_timestamp'; // sigh...
-		return array(
+		return [
 			'tables'  => $tables,
 			'fields'  => $fields,
 			'conds'   => $conds,
-			'options' => array( 'USE INDEX' => $useIndex, 'GROUP BY' => $groupBy ),
-			'join_conds' => array(
-				'revision'     => array( 'LEFT JOIN', 'rev_page=page_id' ), // Get creation date
-				'flaggedpages' => array( 'LEFT JOIN', 'fp_page_id=page_id' )
-			)
-		);
+			'options' => [ 'USE INDEX' => $useIndex, 'GROUP BY' => $groupBy ],
+			'join_conds' => [
+				'revision'     => [ 'LEFT JOIN', 'rev_page=page_id' ], // Get creation date
+				'flaggedpages' => [ 'LEFT JOIN', 'fp_page_id=page_id' ]
+			]
+		];
 	}
 
 	function getQueryCacheInfo() {
 		$conds = $this->mConds;
-		$fields = array( 'page_namespace', 'page_title', 'page_len', 'page_id',
-			'qc_value', 'MIN(rev_timestamp) AS creation' );
+		$fields = [ 'page_namespace', 'page_title', 'page_len', 'page_id',
+			'qc_value', 'MIN(rev_timestamp) AS creation' ];
 		# Re-join on flaggedpages to double-check since things
 		# could have changed since the cache date. Also, use
 		# the proper cache for this level.
@@ -404,7 +404,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		$this->mIndexField = 'qc_value'; // page_id
 		# Filter by category
 		if ( $this->category != '' ) {
-			$tables = array( 'page', 'categorylinks', 'querycache', 'flaggedpages', 'revision' );
+			$tables = [ 'page', 'categorylinks', 'querycache', 'flaggedpages', 'revision' ];
 			$conds['cl_to'] = $this->category;
 			$conds[] = 'cl_from = qc_value'; // page_id
 			# Note: single NS always specified
@@ -416,23 +416,23 @@ class UnreviewedPagesPager extends AlphabeticPager {
 				$conds['cl_type'] = 'page';
 			}
 		} else {
-			$tables = array( 'page', 'querycache', 'flaggedpages', 'revision' );
+			$tables = [ 'page', 'querycache', 'flaggedpages', 'revision' ];
 		}
-		$useIndex = array( 'querycache' => 'qc_type', 'page' => 'PRIMARY',
-			'revision' => 'page_timestamp' ); // sigh...
-		return array(
+		$useIndex = [ 'querycache' => 'qc_type', 'page' => 'PRIMARY',
+			'revision' => 'page_timestamp' ]; // sigh...
+		return [
 			'tables'  => $tables,
 			'fields'  => $fields,
 			'conds'   => $conds,
-			'options' => array( 'USE INDEX' => $useIndex, 'GROUP BY' => 'qc_value' ),
-			'join_conds' => array(
-				'querycache'    => array( 'LEFT JOIN', 'qc_value=page_id' ),
-				'revision'      => array( 'LEFT JOIN', 'rev_page=page_id' ), // Get creation date
-				'flaggedpages'  => array( 'LEFT JOIN', 'fp_page_id=page_id' ),
-				'categorylinks' => array( 'LEFT JOIN',
-					array( 'cl_from=page_id', 'cl_to' => $this->category ) )
-			)
-		);
+			'options' => [ 'USE INDEX' => $useIndex, 'GROUP BY' => 'qc_value' ],
+			'join_conds' => [
+				'querycache'    => [ 'LEFT JOIN', 'qc_value=page_id' ],
+				'revision'      => [ 'LEFT JOIN', 'rev_page=page_id' ], // Get creation date
+				'flaggedpages'  => [ 'LEFT JOIN', 'fp_page_id=page_id' ],
+				'categorylinks' => [ 'LEFT JOIN',
+					[ 'cl_from=page_id', 'cl_to' => $this->category ] ]
+			]
+		];
 	}
 
 	function getIndexField() {

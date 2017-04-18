@@ -44,7 +44,7 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 		$params = $this->extractRequestParams();
 
 		// Construct SQL Query
-		$this->addTables( array( 'page', 'flaggedpages' ) );
+		$this->addTables( [ 'page', 'flaggedpages' ] );
 		$this->addWhereFld( 'page_namespace', $params['namespace'] );
 		if ( $params['filterredir'] == 'redirects' ) {
 			$this->addWhereFld( 'page_is_redirect', 1 );
@@ -64,7 +64,7 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 		$this->addWhere( 'page_id=fp_page_id' );
 
 		if ( is_null( $resultPageSet ) ) {
-			$this->addFields( array (
+			$this->addFields( [
 				'page_id',
 				'page_namespace',
 				'page_title',
@@ -73,7 +73,7 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 				'fp_page_id',
 				'fp_quality',
 				'fp_stable'
-			) );
+			] );
 		} else {
 			$this->addFields( $resultPageSet->getPageTableFields() );
 			$this->addFields ( 'fp_page_id' );
@@ -83,7 +83,7 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 		$this->addOption( 'LIMIT', $limit + 1 );
 		$res = $this->select( __METHOD__ );
 
-		$data = array ();
+		$data = [];
 		$count = 0;
 		foreach( $res as $row ) {
 			if ( ++$count > $limit ) {
@@ -95,7 +95,7 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 
 			if ( is_null( $resultPageSet ) ) {
 				$title = Title::newFromRow( $row );
-				$data[] = array(
+				$data[] = [
 					'pageid' 		=> intval( $row->page_id ),
 					'ns' 			=> intval( $title->getNamespace() ),
 					'title' 		=> $title->getPrefixedText(),
@@ -103,7 +103,7 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 					'stable_revid' 	=> intval( $row->fp_stable ),
 					'flagged_level' => intval( $row->fp_quality ),
 					'flagged_level_text' => FlaggedRevs::getQualityLevelText( $row->fp_quality )
-				);
+				];
 			} else {
 				$resultPageSet->processDbRow( $row );
 			}
@@ -122,69 +122,69 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 
 	public function getAllowedParams() {
 		$namespaces = FlaggedRevs::getReviewNamespaces();
-		return array (
-			'start' => array (
+		return [
+			'start' => [
 				ApiBase::PARAM_TYPE => 'integer'
-			),
-			'end' => array (
+			],
+			'end' => [
 				ApiBase::PARAM_TYPE => 'integer'
-			),
-			'dir' => array (
+			],
+			'dir' => [
 				ApiBase::PARAM_DFLT => 'newer',
-				ApiBase::PARAM_TYPE => array (
+				ApiBase::PARAM_TYPE => [
 					'newer',
 					'older'
-				),
+				],
 				/** @todo Once support for MediaWiki < 1.25 is dropped, just use ApiBase::PARAM_HELP_MSG directly */
 				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'api-help-param-direction',
-			),
-			'namespace' => array (
+			],
+			'namespace' => [
 				ApiBase::PARAM_DFLT => !$namespaces ?
 					NS_MAIN : $namespaces[0],
 				ApiBase::PARAM_TYPE => 'namespace',
 				ApiBase::PARAM_ISMULTI => true,
-			),
-			'filterredir' => array (
+			],
+			'filterredir' => [
 				ApiBase::PARAM_DFLT => 'all',
-				ApiBase::PARAM_TYPE => array (
+				ApiBase::PARAM_TYPE => [
 					'redirects',
 					'nonredirects',
 					'all'
-				)
-			),
-			'filterlevel' =>  array (
+				]
+			],
+			'filterlevel' =>  [
 				ApiBase::PARAM_DFLT => null,
 				ApiBase::PARAM_TYPE => 'integer',
 				ApiBase::PARAM_MIN  => 0,
 				ApiBase::PARAM_MAX  => 2,
-			),
-			'limit' => array (
+			],
+			'limit' => [
 				ApiBase::PARAM_DFLT => 10,
 				ApiBase::PARAM_TYPE => 'limit',
 				ApiBase::PARAM_MIN  => 1,
 				ApiBase::PARAM_MAX  => ApiBase::LIMIT_BIG1,
 				ApiBase::PARAM_MAX2 => ApiBase::LIMIT_BIG2
-			)
-		);
+			]
+		];
 	}
 
 	/**
 	 * @deprecated since MediaWiki core 1.25
 	 */
 	public function getParamDescription() {
-		return array (
+		return [
 			'start' 		=> 'Start listing at this page id.',
 			'end' 			=> 'Stop listing at this page id.',
 			'namespace' 	=> 'The namespaces to enumerate.',
 			'filterredir' 	=> 'How to filter for redirects',
 			'filterlevel' 	=> 'How to filter by quality (0=checked,1=quality)',
 			'limit' 		=> 'How many total pages to return.',
-			'dir' 			=> array(
+			'dir' 			=> [
 				'In which direction to list.',
 				'*newer: list the newest pages first',
 				'*older: list the oldest pages first'
-			)
-		);
+			]
+		];
 	}
 
 	/**
@@ -198,23 +198,23 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 	 * @deprecated since MediaWiki core 1.25
 	 */
 	public function getExamples() {
-		return array (
+		return [
 			'Show a list of reviewed pages',
 			' api.php?action=query&list=reviewedpages&rpnamespace=0&rpfilterlevel=0',
 			'Show info about some reviewed pages',
 			' api.php?action=query&generator=reviewedpages&grplimit=4&prop=info',
-		);
+		];
 	}
 
 	/**
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=query&list=reviewedpages&rpnamespace=0&rpfilterlevel=0'
 				=> 'apihelp-query+reviewedpages-example-1',
 			'action=query&generator=reviewedpages&grplimit=4&prop=info'
 				=> 'apihelp-query+reviewedpages-example-2',
-		);
+		];
 	}
 }

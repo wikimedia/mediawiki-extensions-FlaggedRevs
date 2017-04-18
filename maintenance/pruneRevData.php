@@ -64,9 +64,9 @@ class PruneFRIncludeData extends Maintenance {
 				// Get the newest X ($newerRevs) flagged revs for this page
 				$sres = $db->select( 'flaggedrevs',
 					'fr_rev_id',
-					array( 'fr_page_id' => $row->fp_page_id ),
+					[ 'fr_page_id' => $row->fp_page_id ],
 					__METHOD__,
-					array( 'ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => $newerRevs )
+					[ 'ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => $newerRevs ]
 				);
 				// See if there are older revs that can be pruned...
 				if ( $db->numRows( $sres ) == $newerRevs ) {
@@ -78,17 +78,17 @@ class PruneFRIncludeData extends Maintenance {
 					$db->freeResult( $sres );
 					$sres = $db->select( 'flaggedrevs',
 						'fr_rev_id',
-						array(
+						[
 							'fr_page_id' => $row->fp_page_id,
 							'fr_rev_id < '.$oldestId, // not in the newest X
 							'fr_timestamp < '.$db->addQuotes( $cutoff ) // not reviewed recently
-						),
+						],
 						__METHOD__,
 						// Sanity check (start with the oldest)
-						array( 'ORDER BY' => 'fr_rev_id ASC', 'LIMIT' => 5000 )
+						[ 'ORDER BY' => 'fr_rev_id ASC', 'LIMIT' => 5000 ]
 					);
 					// Build an array of these rev Ids
-					$revsClearIncludes = array();
+					$revsClearIncludes = [];
 					foreach ( $sres as $srow ) {
 						$revsClearIncludes[] = $srow->fr_rev_id;
 					}
@@ -98,12 +98,12 @@ class PruneFRIncludeData extends Maintenance {
 					if ( $prune ) {
 						$db->begin();
 						$db->delete( 'flaggedtemplates',
-							array('ft_rev_id' => $revsClearIncludes),
+							['ft_rev_id' => $revsClearIncludes],
 							__METHOD__
 						);
 						$tDeleted += $db->affectedRows();
 						$db->delete( 'flaggedimages',
-							array('fi_rev_id' => $revsClearIncludes),
+							['fi_rev_id' => $revsClearIncludes],
 							__METHOD__
 						);
 						$fDeleted += $db->affectedRows();
@@ -112,12 +112,12 @@ class PruneFRIncludeData extends Maintenance {
 					} elseif ( count( $revsClearIncludes ) ) {
 						$tDeleted += $db->selectField( 'flaggedtemplates',
 							'COUNT(*)',
-							array('ft_rev_id' => $revsClearIncludes),
+							['ft_rev_id' => $revsClearIncludes],
 							__METHOD__
 						);
 						$fDeleted += $db->selectField( 'flaggedimages',
 							'COUNT(*)',
-							array('fi_rev_id' => $revsClearIncludes),
+							['fi_rev_id' => $revsClearIncludes],
 							__METHOD__
 						);
 					}

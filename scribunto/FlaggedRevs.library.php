@@ -2,11 +2,11 @@
 
 class Scribunto_LuaFlaggedRevsLibrary extends Scribunto_LuaLibraryBase {
 	public function register() {
-		$lib = array(
-			'getStabilitySettings' => array( $this, 'getStabilitySettings' ),
-		);
+		$lib = [
+			'getStabilitySettings' => [ $this, 'getStabilitySettings' ],
+		];
 
-		return $this->getEngine()->registerInterface( __DIR__ . '/mw.ext.FlaggedRevs.lua', $lib, array() );
+		return $this->getEngine()->registerInterface( __DIR__ . '/mw.ext.FlaggedRevs.lua', $lib, [] );
 	}
 
 	public function getStabilitySettings( $pagename = null ) {
@@ -14,19 +14,19 @@ class Scribunto_LuaFlaggedRevsLibrary extends Scribunto_LuaLibraryBase {
 		if ( $pagename ) {
 			$title = Title::newFromText( $pagename );
 			if ( !( $title instanceof Title ) ) {
-				return array( null );
+				return [ null ];
 			}
 		} else {
 			$title = $this->getTitle();
 		}
 		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
-			return array( null );
+			return [ null ];
 		}
 		$page = FlaggableWikiPage::getTitleInstance( $title );
 		if ( !$page->isDataLoaded() ) {
 			$this->incrementExpensiveFunctionCount();
 		}
-		return array( $page->getStabilitySettings() );
+		return [ $page->getStabilitySettings() ];
 	}
 
 }

@@ -14,7 +14,7 @@ class FRPageConfig {
 			wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 		$row = $db->selectRow( 'flaggedpage_config',
 			self::selectFields(),
-			array( 'fpc_page_id' => $title->getArticleID() ),
+			[ 'fpc_page_id' => $title->getArticleID() ],
 			__METHOD__
 		);
 		return self::getVisibilitySettingsFromRow( $row );
@@ -24,7 +24,7 @@ class FRPageConfig {
 	 * @return array basic select fields for FRPageConfig DB row
 	 */
 	public static function selectFields() {
-		return array( 'fpc_override', 'fpc_level', 'fpc_expiry' );
+		return [ 'fpc_override', 'fpc_level', 'fpc_expiry' ];
 	}
 
 	/**
@@ -44,11 +44,11 @@ class FRPageConfig {
 			if ( !self::isValidRestriction( $row->fpc_level ) ) {
 				$level = ''; // site default; ignore fpc_level
 			}
-			$config = array(
+			$config = [
 				'override'   => $row->fpc_override ? 1 : 0,
 				'autoreview' => $level,
 				'expiry'	 => $expiry // TS_MW
-			);
+			];
 			# If there are protection levels defined check if this is valid...
 			if ( FlaggedRevs::useProtectionLevels() ) {
 				$level = self::getProtectionLevel( $config );
@@ -69,12 +69,12 @@ class FRPageConfig {
 	 * @return array
 	 */
 	public static function getDefaultVisibilitySettings() {
-		return array(
+		return [
 			# Keep this consistent: 1 => override, 0 => don't
 			'override'   => FlaggedRevs::isStableShownByDefault() ? 1 : 0,
 			'autoreview' => '',
 			'expiry'     => 'infinity'
-		);
+		];
 	}
 
 	/**
@@ -92,7 +92,7 @@ class FRPageConfig {
 		# If setting to site default values and there is a row then erase it
 		if ( self::configIsReset( $config ) ) {
 			$dbw->delete( 'flaggedpage_config',
-				array( 'fpc_page_id' => $title->getArticleID() ),
+				[ 'fpc_page_id' => $title->getArticleID() ],
 				__METHOD__
 			);
 			$changed = ( $dbw->affectedRows() != 0 ); // did this do anything?
@@ -101,8 +101,8 @@ class FRPageConfig {
 			$dbExpiry = $dbw->encodeExpiry( $config['expiry'] );
 			# Get current config...
 			$oldRow = $dbw->selectRow( 'flaggedpage_config',
-				array( 'fpc_override', 'fpc_level', 'fpc_expiry' ),
-				array( 'fpc_page_id' => $title->getArticleID() ),
+				[ 'fpc_override', 'fpc_level', 'fpc_expiry' ],
+				[ 'fpc_page_id' => $title->getArticleID() ],
 				__METHOD__,
 				'FOR UPDATE' // lock
 			);
@@ -115,14 +115,14 @@ class FRPageConfig {
 			# If the new config is different, replace the old row...
 			if ( $changed ) {
 				$dbw->replace( 'flaggedpage_config',
-					array( 'PRIMARY' ),
-					array(
+					[ 'PRIMARY' ],
+					[
 						'fpc_page_id'  => $title->getArticleID(),
 						'fpc_select'   => -1, // unused
 						'fpc_override' => (int)$config['override'],
 						'fpc_level'    => $config['autoreview'],
 						'fpc_expiry'   => $dbExpiry
-					),
+					],
 					__METHOD__
 				);
 			}
@@ -196,15 +196,15 @@ class FRPageConfig {
 		$config = self::getDefaultVisibilitySettings(); // config is to be reset
 		$encCutoff = $dbw->addQuotes( $dbw->timestamp() );
 		$ret = $dbw->select(
-			array( 'flaggedpage_config', 'page' ),
-			array( 'fpc_page_id', 'page_namespace', 'page_title' ),
-			array( 'page_id = fpc_page_id', 'fpc_expiry < ' . $encCutoff ),
+			[ 'flaggedpage_config', 'page' ],
+			[ 'fpc_page_id', 'page_namespace', 'page_title' ],
+			[ 'page_id = fpc_page_id', 'fpc_expiry < ' . $encCutoff ],
 			__METHOD__
-			// array( 'FOR UPDATE' )
+			// [ 'FOR UPDATE' ]
 		);
 		# Figured out to do with each page...
-		$pagesClearConfig = array();
-		$pagesClearTracking = $titlesClearTracking = array();
+		$pagesClearConfig = [];
+		$pagesClearTracking = $titlesClearTracking = [];
 		foreach ( $ret as $row ) {
 			# If FlaggedRevs got "turned off" (in protection config)
 			# for this page, then clear it from the tracking tables...
@@ -217,7 +217,7 @@ class FRPageConfig {
 		# Clear the expired config for these pages...
 		if ( count( $pagesClearConfig ) ) {
 			$dbw->delete( 'flaggedpage_config',
-				array( 'fpc_page_id' => $pagesClearConfig, 'fpc_expiry < ' . $encCutoff ),
+				[ 'fpc_page_id' => $pagesClearConfig, 'fpc_expiry < ' . $encCutoff ],
 				__METHOD__
 			);
 		}
@@ -226,8 +226,8 @@ class FRPageConfig {
 		if ( count( $pagesClearTracking ) ) {
 			FlaggedRevs::clearTrackingRows( $pagesClearTracking );
 			$dbw->update( 'page',
-				array( 'page_touched' => $dbw->timestamp() ),
-				array( 'page_id' => $pagesClearTracking ),
+				[ 'page_touched' => $dbw->timestamp() ],
+				[ 'page_id' => $pagesClearTracking ],
 				__METHOD__
 			);
 		}

@@ -21,7 +21,7 @@ class ReviewedPages extends SpecialPage {
 		$this->hideRedirs = $request->getBool( 'hideredirs', true );
 
 		$this->pager = new ReviewedPagesPager(
-			$this, array(), $this->type, $this->namespace, $this->hideRedirs );
+			$this, [], $this->type, $this->namespace, $this->hideRedirs );
 
 		$this->showForm();
 		$this->showPageList();
@@ -36,18 +36,18 @@ class ReviewedPages extends SpecialPage {
 				$this->getLanguage()->formatNum( $this->pager->getNumRows() ) );
 		}
 		$form = Html::openElement( 'form',
-			array( 'name' => 'reviewedpages', 'action' => $wgScript, 'method' => 'get' ) );
+			[ 'name' => 'reviewedpages', 'action' => $wgScript, 'method' => 'get' ] );
 		$form .= "<fieldset><legend>" . $this->msg( 'reviewedpages-leg' )->escaped() . "</legend>\n";
 
 		// show/hide links
-		$showhide = array( $this->msg( 'show' )->escaped(), $this->msg( 'hide' )->escaped() );
+		$showhide = [ $this->msg( 'show' )->escaped(), $this->msg( 'hide' )->escaped() ];
 		$onoff = 1 - $this->hideRedirs;
-		$link = Linker::link( $this->getPageTitle(), $showhide[$onoff], array(),
-			 array( 'hideredirs' => $onoff, 'namespace' => $this->namespace )
+		$link = Linker::link( $this->getPageTitle(), $showhide[$onoff], [],
+			 [ 'hideredirs' => $onoff, 'namespace' => $this->namespace ]
 		);
 		$showhideredirs = $this->msg( 'whatlinkshere-hideredirs' )->rawParams( $link )->escaped();
 
-		$fields = array();
+		$fields = [];
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		if ( count( $namespaces ) > 1 ) {
 			$fields[] = FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . ' ';
@@ -98,7 +98,7 @@ class ReviewedPages extends SpecialPage {
 		$list = Linker::linkKnown(
 			SpecialPage::getTitleFor( 'ReviewedVersions' ),
 			$this->msg( 'reviewedpages-all' )->escaped(),
-			array(),
+			[],
 			'page=' . $title->getPrefixedUrl()
 		);
 		# Link to highest tier rev
@@ -107,7 +107,7 @@ class ReviewedPages extends SpecialPage {
 			$best = Linker::linkKnown(
 				$title,
 				$this->msg( 'reviewedpages-best' )->escaped(),
-				array(),
+				[],
 				'stableid=best'
 			);
 			$best = " [$best]";
@@ -127,7 +127,7 @@ class ReviewedPages extends SpecialPage {
 class ReviewedPagesPager extends AlphabeticPager {
 	public $mForm, $mConds, $namespace, $type;
 
-	function __construct( $form, $conds = array(), $type = 0, $namespace = 0, $hideRedirs = 1 ) {
+	function __construct( $form, $conds = [], $type = 0, $namespace = 0, $hideRedirs = 1 ) {
 		$this->mForm = $form;
 		$this->mConds = $conds;
 		$this->type = $type;
@@ -159,11 +159,11 @@ class ReviewedPagesPager extends AlphabeticPager {
 			$conds['page_is_redirect'] = 0;
 		}
 		$conds['page_namespace'] = $this->namespace; // Sanity check NS
-		return array(
-			'tables' => array( 'flaggedpages', 'page' ),
+		return [
+			'tables' => [ 'flaggedpages', 'page' ],
 			'fields' => 'page_namespace,page_title,page_len,fp_page_id',
 			'conds'  => $conds,
-		);
+		];
 	}
 
 	function getIndexField() {

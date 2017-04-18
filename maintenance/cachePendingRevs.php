@@ -24,15 +24,15 @@ class CachePendingRevs extends Maintenance {
 		global $wgUser;
 		$dbr = wfGetDB( DB_SLAVE );
 		$ret = $dbr->select(
-			array( 'flaggedpages', 'revision', 'page' ),
-			array_merge( Revision::selectFields(), array( $dbr->tableName( 'page' ) . '.*' ) ),
-			array( 'fp_pending_since IS NOT NULL',
+			[ 'flaggedpages', 'revision', 'page' ],
+			array_merge( Revision::selectFields(), [ $dbr->tableName( 'page' ) . '.*' ] ),
+			[ 'fp_pending_since IS NOT NULL',
 				'page_id = fp_page_id',
 				'rev_page = fp_page_id',
 				'rev_timestamp >= fp_pending_since'
-			),
+			],
 			__METHOD__,
-			array( 'ORDER BY' => 'fp_pending_since DESC' )
+			[ 'ORDER BY' => 'fp_pending_since DESC' ]
 		);
 		foreach ( $ret as $row ) {
 			$title = Title::newFromRow( $row );

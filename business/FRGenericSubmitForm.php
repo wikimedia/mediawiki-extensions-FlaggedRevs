@@ -55,7 +55,7 @@ abstract class FRGenericSubmitForm {
 		}
 
 		$result = '';
-		if( !Hooks::run( 'FlaggedRevsFRGenericSubmitFormReady', array( $this, &$result ) ) ) {
+		if( !Hooks::run( 'FlaggedRevsFRGenericSubmitFormReady', [ $this, &$result ] ) ) {
 			return $result;
 		}
 

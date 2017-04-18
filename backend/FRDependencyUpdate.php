@@ -27,7 +27,7 @@ class FRDependencyUpdate {
 	 * @param integer $mode FRDependencyUpdate::IMMEDIATE/FRDependencyUpdate::DEFERRED
 	 */
 	public function doUpdate( $mode = self::IMMEDIATE ) {
-		$deps = array();
+		$deps = [];
 		# Get any links that are only in the stable version...
 		$cLinks = $this->getCurrentVersionLinks();
 		foreach ( $this->sLinks as $ns => $titles ) {
@@ -69,8 +69,8 @@ class FRDependencyUpdate {
 				JobQueueGroup::singleton()->push( EnqueueJob::newFromLocalJobs(
 					new JobSpecification(
 						'flaggedrevs_CacheUpdate',
-						array( 'type' => 'updatelinks' ),
-						array( 'removeDuplicates' => true ),
+						[ 'type' => 'updatelinks' ],
+						[ 'removeDuplicates' => true ],
 						$this->title
 					)
 				) );
@@ -102,14 +102,14 @@ class FRDependencyUpdate {
 		$db = ( $flags & FR_MASTER ) ?
 			wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 		$res = $db->select( 'flaggedrevs_tracking',
-			array( 'ftr_namespace', 'ftr_title' ),
-			array( 'ftr_from' => $this->title->getArticleID() ),
+			[ 'ftr_namespace', 'ftr_title' ],
+			[ 'ftr_from' => $this->title->getArticleID() ],
 			__METHOD__
 		);
-		$arr = array();
+		$arr = [];
 		foreach( $res as $row ) {
 			if ( !isset( $arr[$row->ftr_namespace] ) ) {
-				$arr[$row->ftr_namespace] = array();
+				$arr[$row->ftr_namespace] = [];
 			}
 			$arr[$row->ftr_namespace][$row->ftr_title] = 1;
 		}
@@ -121,7 +121,7 @@ class FRDependencyUpdate {
 	 * @return array
 	 */
 	protected function getDepInsertions( array $existing, array $new ) {
-		$arr = array();
+		$arr = [];
 		foreach ( $new as $ns => $dbkeys ) {
 			if ( isset( $existing[$ns] ) ) {
 				$diffs = array_diff_key( $dbkeys, $existing[$ns] );
@@ -129,11 +129,11 @@ class FRDependencyUpdate {
 				$diffs = $dbkeys;
 			}
 			foreach ( $diffs as $dbk => $id ) {
-				$arr[] = array(
+				$arr[] = [
 					'ftr_from'      => $this->title->getArticleID(),
 					'ftr_namespace' => $ns,
 					'ftr_title'     => $dbk
-				);
+				];
 			}
 		}
 		return $arr;
@@ -144,7 +144,7 @@ class FRDependencyUpdate {
 	 * @return mixed (array/false)
 	 */
 	protected function getDepDeletions( array $existing, array $new ) {
-		$del = array();
+		$del = [];
 		foreach ( $existing as $ns => $dbkeys ) {
 			if ( isset( $new[$ns] ) ) {
 				$del[$ns] = array_diff_key( $existing[$ns], $new[$ns] );
@@ -155,7 +155,7 @@ class FRDependencyUpdate {
 		if ( $del ) {
 			$clause = self::makeWhereFrom2d( $del, wfGetDB( DB_MASTER ) );
 			if ( $clause ) {
-				return array( $clause, 'ftr_from' => $this->title->getArticleID() );
+				return [ $clause, 'ftr_from' => $this->title->getArticleID() ];
 			}
 		}
 		return false;
@@ -170,7 +170,7 @@ class FRDependencyUpdate {
 
 	protected static function addDependency( array &$deps, $ns, $dbKey ) {
 		if ( !isset( $deps[$ns] ) ) {
-			$deps[$ns] = array();
+			$deps[$ns] = [];
 		}
 		$deps[$ns][$dbKey] = 1;
 	}
@@ -182,14 +182,14 @@ class FRDependencyUpdate {
 	protected function getCurrentVersionLinks() {
 		$dbr = wfGetDB( DB_SLAVE );
 		$res = $dbr->select( 'pagelinks',
-			array( 'pl_namespace', 'pl_title' ),
-			array( 'pl_from' => $this->title->getArticleID() ),
+			[ 'pl_namespace', 'pl_title' ],
+			[ 'pl_from' => $this->title->getArticleID() ],
 			__METHOD__
 		);
-		$arr = array();
+		$arr = [];
 		foreach( $res as $row ) {
 			if ( !isset( $arr[$row->pl_namespace] ) ) {
-				$arr[$row->pl_namespace] = array();
+				$arr[$row->pl_namespace] = [];
 			}
 			$arr[$row->pl_namespace][$row->pl_title] = 1;
 		}
@@ -203,14 +203,14 @@ class FRDependencyUpdate {
 	protected function getCurrentVersionTemplates() {
 		$dbr = wfGetDB( DB_SLAVE );
 		$res = $dbr->select( 'templatelinks',
-			array( 'tl_namespace', 'tl_title' ),
-			array( 'tl_from' => $this->title->getArticleID() ),
+			[ 'tl_namespace', 'tl_title' ],
+			[ 'tl_from' => $this->title->getArticleID() ],
 			__METHOD__
 		);
-		$arr = array();
+		$arr = [];
 		foreach( $res as $row ) {
 			if ( !isset( $arr[$row->tl_namespace] ) ) {
-				$arr[$row->tl_namespace] = array();
+				$arr[$row->tl_namespace] = [];
 			}
 			$arr[$row->tl_namespace][$row->tl_title] = 1;
 		}
@@ -224,11 +224,11 @@ class FRDependencyUpdate {
 	protected function getCurrentVersionImages() {
 		$dbr = wfGetDB( DB_SLAVE );
 		$res = $dbr->select( 'imagelinks',
-			array( 'il_to' ),
-			array( 'il_from' => $this->title->getArticleID() ),
+			[ 'il_to' ],
+			[ 'il_from' => $this->title->getArticleID() ],
 			__METHOD__
 		);
-		$arr = array();
+		$arr = [];
 		foreach( $res as $row ) {
 			$arr[$row->il_to] = 1;
 		}
@@ -242,11 +242,11 @@ class FRDependencyUpdate {
 	protected function getCurrentVersionCategories() {
 		$dbr = wfGetDB( DB_SLAVE );
 		$res = $dbr->select( 'categorylinks',
-			array( 'cl_to', 'cl_sortkey' ),
-			array( 'cl_from' => $this->title->getArticleID() ),
+			[ 'cl_to', 'cl_sortkey' ],
+			[ 'cl_from' => $this->title->getArticleID() ],
 			__METHOD__
 		);
-		$arr = array();
+		$arr = [];
 		foreach( $res as $row ) {
 			$arr[$row->cl_to] = $row->cl_sortkey;
 		}

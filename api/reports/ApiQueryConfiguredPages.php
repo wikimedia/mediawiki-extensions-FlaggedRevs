@@ -44,7 +44,7 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 		$params = $this->extractRequestParams();
 
 		// Construct SQL Query
-		$this->addTables( array( 'page', 'flaggedpage_config', 'flaggedpages' ) );
+		$this->addTables( [ 'page', 'flaggedpage_config', 'flaggedpages' ] );
 		if ( isset( $params['namespace'] ) ) {
 			$this->addWhereFld( 'page_namespace', $params['namespace'] );
 		}
@@ -65,13 +65,13 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 			$params['start'],
 			$params['end']
 		);
-		$this->addJoinConds( array(
-			'flaggedpage_config' => array( 'INNER JOIN', 'page_id=fpc_page_id' ),
-			'flaggedpages' 		 => array( 'LEFT JOIN', 'page_id=fp_page_id' )
-		) );
+		$this->addJoinConds( [
+			'flaggedpage_config' => [ 'INNER JOIN', 'page_id=fpc_page_id' ],
+			'flaggedpages' 		 => [ 'LEFT JOIN', 'page_id=fp_page_id' ]
+		] );
 
 		if ( is_null( $resultPageSet ) ) {
-			$this->addFields( array(
+			$this->addFields( [
 				'page_id',
 				'page_namespace',
 				'page_title',
@@ -82,7 +82,7 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 				'fpc_level',
 				'fpc_expiry',
 				'fp_stable'
-			) );
+			] );
 		} else {
 			$this->addFields( $resultPageSet->getPageTableFields() );
 			$this->addFields( 'fpc_page_id' );
@@ -92,7 +92,7 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 		$this->addOption( 'LIMIT', $limit + 1 );
 		$res = $this->select( __METHOD__ );
 
-		$data = array();
+		$data = [];
 		$count = 0;
 		foreach( $res as $row ) {
 			if ( ++$count > $limit ) {
@@ -104,7 +104,7 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 
 			if ( is_null( $resultPageSet ) ) {
 				$title = Title::newFromRow( $row );
-				$data[] = array(
+				$data[] = [
 					'pageid' 			 => intval( $row->page_id ),
 					'ns' 				 => intval( $row->page_namespace ),
 					'title' 			 => $title->getPrefixedText(),
@@ -114,7 +114,7 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 					'autoreview'		 => $row->fpc_level,
 					'expiry'			 => ( $row->fpc_expiry === 'infinity' ) ?
 						'infinity' : wfTimestamp( TS_ISO_8601, $row->fpc_expiry ),
-				);
+				];
 			} else {
 				$resultPageSet->processDbRow( $row );
 			}
@@ -135,59 +135,59 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 		// Replace '' with more readable 'none' in autoreview restiction levels
 		$autoreviewLevels = FlaggedRevs::getRestrictionLevels();
 		$autoreviewLevels[] = 'none';
-		return array(
-			'start' => array(
+		return [
+			'start' => [
 				ApiBase::PARAM_TYPE 	=> 'integer'
-			),
-			'end' => array(
+			],
+			'end' => [
 				ApiBase::PARAM_TYPE 	=> 'integer'
-			),
-			'dir' => array(
+			],
+			'dir' => [
 				ApiBase::PARAM_DFLT 	=> 'newer',
-				ApiBase::PARAM_TYPE 	=> array( 'newer', 'older' ),
+				ApiBase::PARAM_TYPE 	=> [ 'newer', 'older' ],
 				/** @todo Once support for MediaWiki < 1.25 is dropped, just use ApiBase::PARAM_HELP_MSG directly */
 				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'api-help-param-direction',
-			),
-			'namespace' => array(
+			],
+			'namespace' => [
 				ApiBase::PARAM_DFLT 	=> null,
 				ApiBase::PARAM_TYPE 	=> 'namespace',
 				ApiBase::PARAM_ISMULTI 	=> true,
-			),
-			'default' => array(
+			],
+			'default' => [
 				ApiBase :: PARAM_DFLT 	=> null,
-				ApiBase :: PARAM_TYPE 	=> array( 'latest', 'stable' ),
-			),
-			'autoreview' => array(
+				ApiBase :: PARAM_TYPE 	=> [ 'latest', 'stable' ],
+			],
+			'autoreview' => [
 				ApiBase :: PARAM_DFLT 	=> null,
 				ApiBase :: PARAM_TYPE 	=> $autoreviewLevels,
-			),
-			'limit' => array(
+			],
+			'limit' => [
 				ApiBase::PARAM_DFLT 	=> 10,
 				ApiBase::PARAM_TYPE 	=> 'limit',
 				ApiBase::PARAM_MIN  	=> 1,
 				ApiBase::PARAM_MAX  	=> ApiBase::LIMIT_BIG1,
 				ApiBase::PARAM_MAX2 	=> ApiBase::LIMIT_BIG2
-			)
-		);
+			]
+		];
 	}
 
 	/**
 	 * @deprecated since MediaWiki core 1.25
 	 */
 	public function getParamDescription() {
-		return array(
+		return [
 			'start' 		=> 'Start listing at this page id.',
 			'end' 			=> 'Stop listing at this page id.',
 			'namespace' 	=> 'The namespaces to enumerate.',
 			'default'   	=> 'The default page view version.',
 			'autoreview'	=> 'Review/autoreview restriction level.',
 			'limit' 		=> 'How many total pages to return.',
-			'dir' 			=> array(
+			'dir' 			=> [
 				'In which direction to list.',
 				'*newer: list the newest pages first',
 				'*older: list the oldest pages first'
-			)
-		);
+			]
+		];
 	}
 
 	/**
@@ -201,23 +201,23 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 	 * @deprecated since MediaWiki core 1.25
 	 */
 	public function getExamples() {
-		return array(
+		return [
 			'Show a list of pages with custom review configurations',
 			' api.php?action=query&list=configuredpages&cpnamespace=0',
 			'Get some info about pages with custom review configurations',
 			' api.php?action=query&generator=configuredpages&gcplimit=4&prop=info',
-		);
+		];
 	}
 
 	/**
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=query&list=configuredpages&cpnamespace=0'
 				=> 'apihelp-query+configuredpages-example-1',
 			'action=query&generator=configuredpages&gcplimit=4&prop=info'
 				=> 'apihelp-query+configuredpages-example-2',
-		);
+		];
 	}
 }

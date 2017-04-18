@@ -71,9 +71,9 @@ class PurgeReviewablePages extends Maintenance {
 		while ( $blockEnd <= $end ) {
 			$this->output( "... doing page_id from $blockStart to $blockEnd\n" );
 			$res = $db->select( 'page', '*', 
-				array(
+				[
 					"page_id BETWEEN $blockStart AND $blockEnd",
-					'page_namespace' => $wgFlaggedRevsNamespaces ),
+					'page_namespace' => $wgFlaggedRevsNamespaces ],
 				__FUNCTION__
 			);
 			# Go through and append each purgeable page...

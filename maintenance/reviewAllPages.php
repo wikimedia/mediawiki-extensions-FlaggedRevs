@@ -56,11 +56,11 @@ class ReviewAllPages extends Maintenance {
 
 		while ( $blockEnd <= $end ) {
 			$this->output( "...doing page_id from $blockStart to $blockEnd\n" );
-			$res = $db->select( array( 'page', 'revision' ),
+			$res = $db->select( [ 'page', 'revision' ],
 				'*', 
-				array( "page_id BETWEEN $blockStart AND $blockEnd",
+				[ "page_id BETWEEN $blockStart AND $blockEnd",
 					'page_namespace' => FlaggedRevs::getReviewNamespaces(),
-					'rev_id = page_latest' ),
+					'rev_id = page_latest' ],
 				__METHOD__
 			);
 			# Go through and autoreview the current version of every page...

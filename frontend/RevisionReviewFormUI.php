@@ -78,7 +78,7 @@ class RevisionReviewFormUI {
 		global $wgLang;
 		$revId = $this->rev->getId();
 		if ( $this->rev->isDeleted( Revision::DELETED_TEXT ) ) {
-			return array( '', 'review_bad_oldid' ); # The revision must be valid and public
+			return [ '', 'review_bad_oldid' ]; # The revision must be valid and public
 		}
 		$article = $this->article; // convenience
 
@@ -113,23 +113,23 @@ class RevisionReviewFormUI {
 		}
 
 		# Disable form for unprivileged users
-		$disabled = array();
+		$disabled = [];
 		if ( !$article->getTitle()->quickUserCan( 'review' ) ||
 			!FlaggedRevs::userCanSetFlags( $this->user, $flags ) )
 		{
-			$disabled = array( 'disabled' => 'disabled' );
+			$disabled = [ 'disabled' => 'disabled' ];
 		}
 
 		# Begin form...
 		$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
 		$action = $reviewTitle->getLocalUrl( 'action=submit' );
-		$params = array( 'method' => 'post', 'action' => $action, 'id' => 'mw-fr-reviewform' );
+		$params = [ 'method' => 'post', 'action' => $action, 'id' => 'mw-fr-reviewform' ];
 		$form = Xml::openElement( 'form', $params ) . "\n";
 		$form .= Xml::openElement( 'fieldset',
-			array( 'class' => 'flaggedrevs_reviewform noprint' ) ) . "\n";
+			[ 'class' => 'flaggedrevs_reviewform noprint' ] ) . "\n";
 		# Add appropriate legend text
 		$legendMsg = $frev ? 'revreview-reflag' : 'revreview-flag';
-		$form .= Xml::openElement( 'legend', array( 'id' => 'mw-fr-reviewformlegend' ) );
+		$form .= Xml::openElement( 'legend', [ 'id' => 'mw-fr-reviewformlegend' ] );
 		$form .= "<strong>" . wfMessage( $legendMsg )->escaped() . "</strong>";
 		$form .= Xml::closeElement( 'legend' ) . "\n";
 		# Show explanatory text
@@ -161,11 +161,11 @@ class RevisionReviewFormUI {
 
 		# Start rating controls
 		$css = $disabled ? 'fr-rating-controls-disabled' : 'fr-rating-controls';
-		$form .= Xml::openElement( 'p', array( 'class' => $css, 'id' => 'fr-rating-controls') ) . "\n";
+		$form .= Xml::openElement( 'p', [ 'class' => $css, 'id' => 'fr-rating-controls'] ) . "\n";
 
 		# Add main checkboxes/selects
 		$form .= Xml::openElement( 'span',
-			array( 'id' => 'mw-fr-ratingselects', 'class' => 'fr-rating-options' ) ) . "\n";
+			[ 'id' => 'mw-fr-ratingselects', 'class' => 'fr-rating-options' ] ) . "\n";
 		$form .= self::ratingInputs( $this->user, $flags, (bool)$disabled, (bool)$frev ) . "\n";
 		$form .= Xml::closeElement( 'span' ) . "\n";
 
@@ -175,13 +175,13 @@ class RevisionReviewFormUI {
 		}
 
 		# Start comment & buttons
-		$form .= Xml::openElement( 'span', array( 'id' => 'mw-fr-confirmreview' ) ) . "\n";
+		$form .= Xml::openElement( 'span', [ 'id' => 'mw-fr-confirmreview' ] ) . "\n";
 
 		# Hide comment input if needed
 		if ( !$disabled ) {
 			$form .= Xml::inputLabel(
 				wfMessage( 'revreview-log' )->text(), 'wpReason', 'mw-fr-commentbox', 40, '',
-				array( 'maxlength' => 255, 'class' => 'fr-comment-box' )
+				[ 'maxlength' => 255, 'class' => 'fr-comment-box' ]
 			);
 		}
 
@@ -219,13 +219,13 @@ class RevisionReviewFormUI {
 		# Hidden params
 		$form .= Html::hidden( 'title', $reviewTitle->getPrefixedText() ) . "\n";
 		$form .= Html::hidden( 'target', $article->getTitle()->getPrefixedDBKey() ) . "\n";
-		$form .= Html::hidden( 'refid', $priorRevId, array( 'id' => 'mw-fr-input-refid' ) ) . "\n";
-		$form .= Html::hidden( 'oldid', $revId, array( 'id' => 'mw-fr-input-oldid' ) ) . "\n";
+		$form .= Html::hidden( 'refid', $priorRevId, [ 'id' => 'mw-fr-input-refid' ] ) . "\n";
+		$form .= Html::hidden( 'oldid', $revId, [ 'id' => 'mw-fr-input-oldid' ] ) . "\n";
 		$form .= Html::hidden( 'wpEditToken', $this->user->getEditToken() ) . "\n";
 		$form .= Html::hidden( 'changetime', $reviewTime,
-			array( 'id' => 'mw-fr-input-changetime' ) ) . "\n"; // id for JS
+			[ 'id' => 'mw-fr-input-changetime' ] ) . "\n"; // id for JS
 		$form .= Html::hidden( 'userreviewing', (int)($u === $this->user->getName()),
-			array( 'id' => 'mw-fr-user-reviewing' ) ) . "\n"; // id for JS
+			[ 'id' => 'mw-fr-user-reviewing' ] ) . "\n"; // id for JS
 		# Add review parameters
 		$form .= Html::hidden( 'templateParams', $templateParams ) . "\n";
 		$form .= Html::hidden( 'imageParams', $imageParams ) . "\n";
@@ -240,7 +240,7 @@ class RevisionReviewFormUI {
 		$form .= Xml::closeElement( 'fieldset' ) . "\n";
 		$form .= Xml::closeElement( 'form' ) . "\n";
 
-		return array( $form, true /* ok */ );
+		return [ $form, true /* ok */ ];
 	}
 
 	/*
@@ -277,7 +277,7 @@ class RevisionReviewFormUI {
 		if ( FlaggedRevs::binaryFlagging() ) {
 			return '';
 		}
-		$items = array();
+		$items = [];
 		# Build rating form...
 		if ( $disabled ) {
 			// Display the value for each tag as text
@@ -300,16 +300,16 @@ class RevisionReviewFormUI {
 				}
 				# Show label as needed
 				if ( !FlaggedRevs::binaryFlagging() ) {
-					$item .= Xml::tags( 'label', array( 'for' => "wp$quality" ),
+					$item .= Xml::tags( 'label', [ 'for' => "wp$quality" ],
 						FlaggedRevs::getTagMsg( $quality ) ) . ":\n";
 				}
 				# If the sum of qualities of all flags is above 6, use drop down boxes.
 				# 6 is an arbitrary value choosen according to screen space and usability.
 				if ( $size > 6 ) {
-					$attribs = array( 'name' => "wp$quality", 'id' => "wp$quality" );
+					$attribs = [ 'name' => "wp$quality", 'id' => "wp$quality" ];
 					$item .= Xml::openElement( 'select', $attribs ) . "\n";
 					foreach ( $levels as $i => $name ) {
-						$optionClass = array( 'class' => "fr-rating-option-$i" );
+						$optionClass = [ 'class' => "fr-rating-option-$i" ];
 						$item .= Xml::option( FlaggedRevs::getTagMsg( $name ), $i,
 							( $i == $selected ), $optionClass ) . "\n";
 					}
@@ -317,15 +317,15 @@ class RevisionReviewFormUI {
 				# If there are more than two levels, current user gets radio buttons
 				} elseif ( $numLevels > 2 ) {
 					foreach ( $levels as $i => $name ) {
-						$attribs = array( 'class' => "fr-rating-option-$i" );
+						$attribs = [ 'class' => "fr-rating-option-$i" ];
 						$item .= Xml::radioLabel( FlaggedRevs::getTagMsg( $name ), "wp$quality",
 							$i, "wp$quality" . $i, ( $i == $selected ), $attribs ) . "\n";
 					}
 				# Otherwise make checkboxes (two levels available for current user)
 				} elseif ( $numLevels == 2 ) {
 					$i = $minLevel;
-					$attribs = array( 'class' => "fr-rating-option-$i" );
-					$attribs = $attribs + array( 'value' => $i );
+					$attribs = [ 'class' => "fr-rating-option-$i" ];
+					$attribs = $attribs + [ 'value' => $i ];
 					$item .= Xml::checkLabel( wfMessage( 'revreview-' . $levels[$i] )->text(),
 						"wp$quality", "wp$quality", ( $selected == $i ), $attribs ) . "\n";
 				}
@@ -336,16 +336,16 @@ class RevisionReviewFormUI {
 	}
 
 	protected static function ratingFormTags( $user, $selected ) {
-		$labels = array();
-		$minLevels = array();
+		$labels = [];
+		$minLevels = [];
 		# Build up all levels available to user
 		foreach ( FlaggedRevs::getDimensions() as $tag => $levels ) {
 			if ( isset( $selected[$tag] ) &&
 				!FlaggedRevs::userCanSetTag( $user, $tag, $selected[$tag] ) )
 			{
-				return array( false, false ); // form will have to be disabled
+				return [ false, false ]; // form will have to be disabled
 			}
-			$labels[$tag] = array(); // applicable tag levels
+			$labels[$tag] = []; // applicable tag levels
 			$minLevels[$tag] = false; // first non-zero level number
 			foreach ( $levels as $i => $msg ) {
 				# Some levels may be restricted or not applicable...
@@ -357,10 +357,10 @@ class RevisionReviewFormUI {
 				$labels[$tag][$i] = $msg; // set label
 			}
 			if ( !$minLevels[$tag] ) {
-				return array( false, false ); // form will have to be disabled
+				return [ false, false ]; // form will have to be disabled
 			}
 		}
-		return array( $labels, $minLevels );
+		return [ $labels, $minLevels ];
 	}
 
 	/**
@@ -374,7 +374,7 @@ class RevisionReviewFormUI {
 	protected static function submitButtons(
 		$rejectId, $frev, $disabled, $reviewIncludes = false
 	) {
-		$disAttrib = array( 'disabled' => 'disabled' );
+		$disAttrib = [ 'disabled' => 'disabled' ];
 		# ACCEPT BUTTON: accept a revision
 		# We may want to re-review to change:
 		# (a) notes (b) tags (c) pending template/file changes
@@ -386,35 +386,35 @@ class RevisionReviewFormUI {
 			$needsChange = ( $frev && !$reviewIncludes );
 		}
 		$s = Xml::submitButton( wfMessage( 'revreview-submit-review' )->escaped(),
-			array(
+			[
 				'name'      => 'wpApprove',
 				'id'        => 'mw-fr-submit-accept',
 				'accesskey' => wfMessage( 'revreview-ak-review' )->text(),
 				'title'     => wfMessage( 'revreview-tt-flag' )->text() . ' [' .
 					wfMessage( 'revreview-ak-review' )->text() . ']'
-			) + ( ( $disabled || !$applicable ) ? $disAttrib : array() )
+			] + ( ( $disabled || !$applicable ) ? $disAttrib : [] )
 		);
 		# REJECT BUTTON: revert from a pending revision to the stable
 		if ( $rejectId ) {
 			$s .= ' ';
 			$s .= Xml::submitButton( wfMessage( 'revreview-submit-reject' )->escaped(),
-				array(
+				[
 					'name'  => 'wpReject',
 					'id'    => 'mw-fr-submit-reject',
 					'title' => wfMessage( 'revreview-tt-reject' )->text(),
-				) + ( $disabled ? $disAttrib : array() )
+				] + ( $disabled ? $disAttrib : [] )
 			);
 		}
 		# UNACCEPT BUTTON: revoke a revisions acceptance
 		# Hide if revision is not flagged
 		$s .= ' ';
 		$s .= Xml::submitButton( wfMessage( 'revreview-submit-unreview' )->escaped(),
-			array(
+			[
 				'name'  => 'wpUnapprove',
 				'id'    => 'mw-fr-submit-unaccept',
 				'title' => wfMessage( 'revreview-tt-unflag' )->text(),
 				'style' => $frev ? '' : 'display:none'
-			) + ( $disabled ? $disAttrib : array() )
+			] + ( $disabled ? $disAttrib : [] )
 		) . "\n";
 		// Disable buttons unless state changes in some cases (non-JS compatible)
 		$s .= '<script type="text/javascript">var jsReviewNeedsChange = ' .
@@ -433,6 +433,6 @@ class RevisionReviewFormUI {
 		if ( $this->templateIDs === null || $this->imageSHA1Keys === null ) {
 			throw new Exception( "Template or file versions not provided to review form; call setIncludeVersions()." );
 		}
-		return array( $this->templateIDs, $this->imageSHA1Keys );
+		return [ $this->templateIDs, $this->imageSHA1Keys ];
 	}
 }

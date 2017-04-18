@@ -35,8 +35,8 @@ abstract class ApiStabilize extends ApiBase {
 
 		$this->title = Title::newFromText( $params['title'] );
 		if ( $this->title == null ) {
-			if ( is_callable( array( $this, 'dieWithError' ) ) ) {
-				$this->dieWithError( array( 'apierror-invelidtitle', wfEscapeWikiText( $params['title'] ) ) );
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+				$this->dieWithError( [ 'apierror-invelidtitle', wfEscapeWikiText( $params['title'] ) ] );
 			} else {
 				$this->dieUsage( "Invalid title given.", "invalidtitle" );
 			}
@@ -44,7 +44,7 @@ abstract class ApiStabilize extends ApiBase {
 
 		$errors = $this->title->getUserPermissionsErrors( 'stablesettings', $wgUser );
 		if ( $errors ) {
-			if ( is_callable( array( $this, 'errorArrayToStatus' ) ) ) {
+			if ( is_callable( [ $this, 'errorArrayToStatus' ] ) ) {
 				$this->dieStatus( $this->errorArrayToStatus( $errors, $wgUser ) );
 			} else {
 				// We don't care about multiple errors, just report one of them
@@ -104,7 +104,7 @@ class ApiStabilizeGeneral extends ApiStabilize {
 
 		$status = $form->submit(); // true/error message key
 		if ( $status !== true ) {
-			if ( is_callable( array( $this, 'dieWithError' ) ) ) {
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
 				$this->dieWithError( $status );
 			} else {
 				$this->dieUsage( $this->msg( $status )->text(), 'unknownerror' );
@@ -112,7 +112,7 @@ class ApiStabilizeGeneral extends ApiStabilize {
 		}
 
 		# Output success line with the title and config parameters
-		$res = array();
+		$res = [];
 		$res['title'] = $this->title->getPrefixedText();
 		$res['default'] = $params['default'];
 		$res['autoreview'] = $params['autoreview'];
@@ -134,32 +134,32 @@ class ApiStabilizeGeneral extends ApiStabilize {
 		// Replace '' with more readable 'none' in autoreview restiction levels
 		$autoreviewLevels = FlaggedRevs::getRestrictionLevels();
 		$autoreviewLevels[] = 'none';
-		$pars = array(
-			'default'     => array(
+		$pars = [
+			'default'     => [
 				ApiBase::PARAM_REQUIRED => true,
-				ApiBase :: PARAM_TYPE => array( 'latest', 'stable' ),
-			),
-			'autoreview'  => array(
+				ApiBase :: PARAM_TYPE => [ 'latest', 'stable' ],
+			],
+			'autoreview'  => [
 				ApiBase :: PARAM_TYPE => $autoreviewLevels,
 				ApiBase :: PARAM_DFLT => 'none',
-			),
-			'expiry'      => array(
+			],
+			'expiry'      => [
 				ApiBase::PARAM_DFLT => 'infinite',
 				/** @todo Once support for MediaWiki < 1.25 is dropped, just use ApiBase::PARAM_HELP_MSG directly */
 				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'apihelp-stabilize-param-expiry-general',
-			),
+			],
 			'reason'      => '',
 			'review'      => false,
 			'watch'       => null,
-			'token'       => array(
+			'token'       => [
 				ApiBase::PARAM_REQUIRED => true,
-			),
-			'title'       => array(
+			],
+			'title'       => [
 				ApiBase::PARAM_REQUIRED => true,
 				/** @todo Once support for MediaWiki < 1.25 is dropped, just use ApiBase::PARAM_HELP_MSG directly */
 				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'apihelp-stabilize-param-title-general',
-			),
-		);
+			],
+		];
 		return $pars;
 	}
 
@@ -167,7 +167,7 @@ class ApiStabilizeGeneral extends ApiStabilize {
 	 * @deprecated since MediaWiki core 1.25
 	 */
 	public function getParamDescription() {
-		return array(
+		return [
 			'default'       => 'Default revision to show',
 			'autoreview'    => 'Auto-review restriction',
 			'expiry'        => 'Expiry for these settings',
@@ -176,7 +176,7 @@ class ApiStabilizeGeneral extends ApiStabilize {
 			'review'        => 'Review this page',
 			'watch'         => 'Watch this page',
 			'token'         => 'An edit token retrieved through prop=info'
-		);
+		];
 	}
 
 	/**
@@ -201,10 +201,10 @@ class ApiStabilizeGeneral extends ApiStabilize {
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=stabilize&title=Test&default=stable&reason=Test&token=123ABC'
 				=> 'apihelp-stabilize-example-general',
-		);
+		];
 	}
 }
 
@@ -232,7 +232,7 @@ class ApiStabilizeProtect extends ApiStabilize {
 
 		$status = $form->submit(); // true/error message key
 		if ( $status !== true ) {
-			if ( is_callable( array( $this, 'dieWithError' ) ) ) {
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
 				$this->dieWithError( $status );
 			} else {
 				$this->dieUsage( $this->msg( $status )->text(), 'unknownerror' );
@@ -240,7 +240,7 @@ class ApiStabilizeProtect extends ApiStabilize {
 		}
 
 		# Output success line with the title and config parameters
-		$res = array();
+		$res = [];
 		$res['title'] = $this->title->getPrefixedText();
 		$res['protectlevel'] = $params['protectlevel'];
 		$res['expiry'] = $wgContLang->formatExpiry( $form->getExpiry(), TS_ISO_8601 );
@@ -251,41 +251,41 @@ class ApiStabilizeProtect extends ApiStabilize {
 		// Replace '' with more readable 'none' in autoreview restiction levels
 		$autoreviewLevels = FlaggedRevs::getRestrictionLevels();
 		$autoreviewLevels[] = 'none';
-		return array(
-			'protectlevel' => array(
+		return [
+			'protectlevel' => [
 				ApiBase :: PARAM_TYPE => $autoreviewLevels,
 				ApiBase :: PARAM_DFLT => 'none',
-			),
-			'expiry'      => array(
+			],
+			'expiry'      => [
 				ApiBase::PARAM_DFLT => 'infinite',
 				/** @todo Once support for MediaWiki < 1.25 is dropped, just use ApiBase::PARAM_HELP_MSG directly */
 				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'apihelp-stabilize-param-expiry-protect',
-			),
+			],
 			'reason'    => '',
 			'watch'     => null,
-			'token'     => array(
+			'token'     => [
 				ApiBase::PARAM_REQUIRED => true,
-			),
-			'title'       => array(
+			],
+			'title'       => [
 				ApiBase::PARAM_REQUIRED => true,
 				/** @todo Once support for MediaWiki < 1.25 is dropped, just use ApiBase::PARAM_HELP_MSG directly */
 				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'apihelp-stabilize-param-title-protect',
-			),
-		);
+			],
+		];
 	}
 
 	/**
 	 * @deprecated since MediaWiki core 1.25
 	 */
 	public function getParamDescription() {
-		return array(
+		return [
 			'protectlevel'  => 'The review-protection level',
 			'expiry'        => 'Review-protection expiry',
 			'title'         => 'Title of page to be review-protected',
 			'reason'        => 'Reason',
 			'watch'         => 'Watch this page',
 			'token'         => 'An edit token retrieved through prop=info',
-		);
+		];
 	}
 
 	/**
@@ -307,9 +307,9 @@ class ApiStabilizeProtect extends ApiStabilize {
 	}
 
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=stabilize&title=Test&protectlevel=none&reason=Test&token=123ABC'
 				=> 'apihelp-stabilize-example-protect',
-		);
+		];
 	}
 }

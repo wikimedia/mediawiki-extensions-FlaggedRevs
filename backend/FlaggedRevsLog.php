@@ -18,7 +18,7 @@ class FlaggedRevsLog {
 		$comment, $revId, $stableId, $approve, $auto = false, $user
 	) {
 		# Tag rating list (e.g. accuracy=x, depth=y, style=z)
-		$ratings = array();
+		$ratings = [];
 		# Skip rating list if flagging is just an 0/1 feature...
 		if ( !FlaggedRevs::binaryFlagging() ) {
 			// Give grep a chance to find the usages:
@@ -64,9 +64,9 @@ class FlaggedRevsLog {
 		$logEntry->setComment( $comment );
 
 		# Param format is <rev id, old stable id, rev timestamp>
-		$logEntry->setParameters( array( $revId, $stableId, $ts ) );
+		$logEntry->setParameters( [ $revId, $stableId, $ts ] );
 		# Make log easily searchable by rev_id
-		$logEntry->setRelations( array( 'rev_id' => $revId ) );
+		$logEntry->setRelations( [ 'rev_id' => $revId ] );
 
 		$logid = $logEntry->insert();
 		if ( !$auto ) {
@@ -129,9 +129,9 @@ class FlaggedRevsLog {
 		}
 		$logEntry->setComment( $comment );
 
-		$logEntry->setParameters( array(
+		$logEntry->setParameters( [
 			'4::oldtitle' => $oldTitle->getPrefixedText(),
-		) );
+		] );
 
 		$logId = $logEntry->insert();
 		$logEntry->publish( $logId );
@@ -157,7 +157,7 @@ class FlaggedRevsLog {
 	 * @return array (associative)
 	 */
 	public static function expandParams( array $pars ) {
-		$res = array();
+		$res = [];
 		$pars = array_filter( $pars, 'strlen' );
 		foreach ( $pars as $paramAndValue ) {
 			list( $param, $value ) = explode( '=', $paramAndValue, 2 );

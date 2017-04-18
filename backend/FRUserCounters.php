@@ -11,7 +11,7 @@ class FRUserCounters {
 	 * @return array
 	 */
 	public static function getUserParams( $uid, $flags = 0, $dBName = false ) {
-		$p = array();
+		$p = [];
 		$row = self::fetchParamsRow( $uid, $flags, $dBName );
 		if ( $row ) {
 			$p = self::expandParams( $row->frp_user_params );
@@ -41,7 +41,7 @@ class FRUserCounters {
 	 */
 	protected static function setUnitializedFields( array &$p ) {
 		if ( !isset( $p['uniqueContentPages'] ) ) {
-			$p['uniqueContentPages'] = array();
+			$p['uniqueContentPages'] = [];
 		}
 		if ( !isset( $p['totalContentEdits'] ) ) {
 			$p['totalContentEdits'] = 0;
@@ -62,16 +62,16 @@ class FRUserCounters {
 	 * @return mixed (false or Row)
 	 */
 	protected static function fetchParamsRow( $uid, $flags = 0, $dBName = false ) {
-		$options = array();
+		$options = [];
 		if ( $flags & FR_MASTER || $flags & FR_FOR_UPDATE ) {
-			$db = wfGetDB( DB_MASTER, array(), $dBName );
+			$db = wfGetDB( DB_MASTER, [], $dBName );
 			if ( $flags & FR_FOR_UPDATE ) $options[] = 'FOR UPDATE';
 		} else {
-			$db = wfGetDB( DB_SLAVE, array(), $dBName );
+			$db = wfGetDB( DB_SLAVE, [], $dBName );
 		}
 		return $db->selectRow( 'flaggedrevs_promote',
 			'frp_user_params',
-			array( 'frp_user_id' => $uid ),
+			[ 'frp_user_id' => $uid ],
 			__METHOD__,
 			$options
 		);
@@ -85,11 +85,11 @@ class FRUserCounters {
 	 * @return bool success
 	 */
 	public static function saveUserParams( $uid, array $params, $dBName = false ) {
-		$dbw = wfGetDB( DB_MASTER, array(), $dBName );
+		$dbw = wfGetDB( DB_MASTER, [], $dBName );
 		$dbw->replace( 'flaggedrevs_promote',
-			array( 'frp_user_id' ),
-			array( 'frp_user_id' => $uid,
-				'frp_user_params' => self::flattenParams( $params ) ),
+			[ 'frp_user_id' ],
+			[ 'frp_user_id' => $uid,
+				'frp_user_params' => self::flattenParams( $params ) ],
 			__METHOD__
 		);
 		return ( $dbw->affectedRows() > 0 );
@@ -99,7 +99,7 @@ class FRUserCounters {
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->delete(
 			'flaggedrevs_promote',
-			array( 'frp_user_id' => $user->getId() ),
+			[ 'frp_user_id' => $user->getId() ],
 			__METHOD__
 		);
 	}
@@ -142,7 +142,7 @@ class FRUserCounters {
 	 * @return string
 	 */
 	protected static function flattenParams( array $params ) {
-		$flatRows = array();
+		$flatRows = [];
 		foreach ( $params as $key => $value ) {
 			if ( strpos( $key, '=' ) !== false || strpos( $key, "\n" ) !== false ) {
 				throw new Exception( "flattenParams() - key cannot use '=' or newline" );
@@ -163,7 +163,7 @@ class FRUserCounters {
 	 * @return array
 	 */
 	protected static function expandParams( $flatPars ) {
-		$p = array(); // init
+		$p = []; // init
 		$flatPars = explode( "\n", trim( $flatPars ) );
 		foreach ( $flatPars as $pair ) {
 			$m = explode( '=', trim( $pair ), 2 );
@@ -171,7 +171,7 @@ class FRUserCounters {
 			$value = isset( $m[1] ) ? $m[1] : null;
 			if ( $key === 'uniqueContentPages' ) { // list
 				$value = ( $value === '' )
-					? array() // explode() would make array( 0 => '')
+					? [] // explode() would make [ 0 => '' ]
 					: array_map( 'intval', explode( ',', $value ) );
 			} else {
 				$value = intval( $value );

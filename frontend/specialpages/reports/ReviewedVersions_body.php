@@ -31,7 +31,7 @@ class ReviewedVersions extends UnlistedSpecialPage {
 			$out->addWikiMsg( 'reviewedversions-none', $this->page->getPrefixedText() );
 			return;
 		}
-		$pager = new ReviewedVersionsPager( $this, array(), $this->page );
+		$pager = new ReviewedVersionsPager( $this, [], $this->page );
 		$num = $pager->getNumRows();
 		if ( $num ) {
 			$out->addWikiMsg( 'reviewedversions-list',
@@ -63,8 +63,8 @@ class ReviewedVersions extends UnlistedSpecialPage {
 		$link = Linker::link(
 			$this->page,
 			$rdatim,
-			array(),
-			array( 'stableid' => $row->fr_rev_id )
+			[],
+			[ 'stableid' => $row->fr_rev_id ]
 		);
 		return '<li>' . $link . ' (' . $review . ') <strong>[' . $lev . ']</strong></li>';
 	}
@@ -76,7 +76,7 @@ class ReviewedVersions extends UnlistedSpecialPage {
 class ReviewedVersionsPager extends ReverseChronologicalPager {
 	public $mForm, $mConds;
 
-	function __construct( $form, $conds = array(), $title ) {
+	function __construct( $form, $conds = [], $title ) {
 		$this->mForm = $form;
 		$this->mConds = $conds;
 		$this->pageID = $title->getArticleID();
@@ -95,11 +95,11 @@ class ReviewedVersionsPager extends ReverseChronologicalPager {
 		$conds[] = 'fr_rev_id = rev_id';
 		$conds[] = $db->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0';
 		$conds[] = 'fr_user = user_id';
-		return array(
-			'tables'  => array( 'flaggedrevs', 'revision', 'user' ),
+		return [
+			'tables'  => [ 'flaggedrevs', 'revision', 'user' ],
 			'fields'  => 'fr_rev_id,fr_timestamp,rev_timestamp,fr_quality,fr_user,user_name',
 			'conds'   => $conds
-		);
+		];
 	}
 
 	function getIndexField() {

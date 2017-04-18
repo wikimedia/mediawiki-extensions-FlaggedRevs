@@ -37,33 +37,33 @@ class ApiQueryFlagged extends ApiQueryBase {
 
 		// Construct SQL Query
 		$this->addTables( 'flaggedpages' );
-		$this->addFields( array(
+		$this->addFields( [
 			'fp_page_id', 'fp_stable', 'fp_quality', 'fp_pending_since'
-		) );
+		] );
 		$this->addWhereFld( 'fp_page_id', $pageids );
 		$res = $this->select( __METHOD__ );
 
 		$result = $this->getResult();
 		foreach( $res as $row ) {
-			$data = array(
+			$data = [
 				'stable_revid' 	=> intval( $row->fp_stable ),
 				'level' 		=> intval( $row->fp_quality ),
 				'level_text' 	=> FlaggedRevs::getQualityLevelText( $row->fp_quality )
-			);
+			];
 			if ( $row->fp_pending_since ) {
 				$data['pending_since'] = wfTimestamp( TS_ISO_8601, $row->fp_pending_since );
 			}
 
-			$result->addValue( array( 'query', 'pages', $row->fp_page_id ), 'flagged', $data );
+			$result->addValue( [ 'query', 'pages', $row->fp_page_id ], 'flagged', $data );
 		}
 
 		$this->resetQueryParams();
 		$this->addTables( 'flaggedpage_config' );
-		$this->addFields( array( 'fpc_page_id', 'fpc_level', 'fpc_expiry' ) );
+		$this->addFields( [ 'fpc_page_id', 'fpc_level', 'fpc_expiry' ] );
 		$this->addWhereFld( 'fpc_page_id', $pageids );
 		foreach ( $this->select( __METHOD__ ) as $row ) {
-			$result->addValue( array( 'query', 'pages', $row->fpc_page_id, 'flagged' ), 'protection_level', $row->fpc_level );
-			$result->addValue( array( 'query', 'pages', $row->fpc_page_id, 'flagged' ), 'protection_expiry', $wgContLang->formatExpiry( $row->fpc_expiry, TS_ISO_8601 ) );
+			$result->addValue( [ 'query', 'pages', $row->fpc_page_id, 'flagged' ], 'protection_level', $row->fpc_level );
+			$result->addValue( [ 'query', 'pages', $row->fpc_page_id, 'flagged' ], 'protection_expiry', $wgContLang->formatExpiry( $row->fpc_expiry, TS_ISO_8601 ) );
 		}
 
 		return true;
@@ -74,14 +74,14 @@ class ApiQueryFlagged extends ApiQueryBase {
 	}
 
 	public function getAllowedParams() {
-		return array();
+		return [];
 	}
 
 	/**
 	 * @deprecated since MediaWiki core 1.25
 	 */
 	public function getDescription() {
-		return array(
+		return [
 			'Get information about the flagging status of the given pages.',
 			'If a page is flagged, the following parameters are returned:',
 			'* stable_revid      : The revision id of the latest stable revision',
@@ -91,28 +91,28 @@ class ApiQueryFlagged extends ApiQueryBase {
 			'If the page has protection configuration, the following parameters are returned:',
 			'* protection_level  : The right a user must have to not require review on the page',
 			'* protection_expiry : When the protection expires'
-		);
+		];
 	}
 
 	/**
 	 * @deprecated since MediaWiki core 1.25
 	 */
 	public function getExamples() {
-		return array (
+		return [
 			'api.php?action=query&prop=info|flagged&titles=Main%20Page',
 			'api.php?action=query&generator=allpages&gapfrom=K&prop=flagged'
-		);
+		];
 	}
 
 	/**
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=query&prop=info|flagged&titles=Main%20Page'
 				=> 'apihelp-query+flagged-example-1',
 			'action=query&generator=allpages&gapfrom=K&prop=flagged'
 				=> 'apihelp-query+flagged-example-2',
-		);
+		];
 	}
 }

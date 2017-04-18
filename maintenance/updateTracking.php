@@ -73,9 +73,9 @@ class UpdateFRTracking extends Maintenance {
 			$cond = "rev_id BETWEEN $blockStart AND $blockEnd 
 				AND fr_rev_id = rev_id AND page_id = rev_page";
 			$res = $db->select(
-				array( 'revision', 'flaggedrevs', 'page' ),
-				array( 'fr_rev_id', 'fr_tags', 'fr_quality', 'page_namespace', 'page_title',
-					'fr_img_name', 'fr_img_timestamp', 'fr_img_sha1', 'rev_page'), 
+				[ 'revision', 'flaggedrevs', 'page' ],
+				[ 'fr_rev_id', 'fr_tags', 'fr_quality', 'page_namespace', 'page_title',
+					'fr_img_name', 'fr_img_timestamp', 'fr_img_sha1', 'rev_page'], 
 				$cond,
 				__METHOD__
 			);
@@ -92,8 +92,8 @@ class UpdateFRTracking extends Maintenance {
 				# Check for file version to see if it's stored the old way...
 				if ( $row->page_namespace == NS_FILE && !$file ) {
 					$irow = $db->selectRow( 'flaggedimages',
-						array( 'fi_img_timestamp', 'fi_img_sha1' ),
-						array( 'fi_rev_id' => $row->fr_rev_id, 'fi_name' => $row->page_title ),
+						[ 'fi_img_timestamp', 'fi_img_sha1' ],
+						[ 'fi_rev_id' => $row->fr_rev_id, 'fi_name' => $row->page_title ],
 						__METHOD__ );
 					$fileTime = $irow ? $irow->fi_img_timestamp : null;
 					$fileSha1 = $irow ? $irow->fi_img_sha1 : null;
@@ -101,8 +101,8 @@ class UpdateFRTracking extends Maintenance {
 					# Fill in from current if broken
 					if ( !$irow ) {
 						$crow = $db->selectRow( 'image',
-							array( 'img_timestamp', 'img_sha1' ),
-							array( 'img_name' => $row->page_title ),
+							[ 'img_timestamp', 'img_sha1' ],
+							[ 'img_name' => $row->page_title ],
 							__METHOD__ );
 						$fileTime = $crow ? $crow->img_timestamp : null;
 						$fileSha1 = $crow ? $crow->img_sha1 : null;
@@ -118,13 +118,13 @@ class UpdateFRTracking extends Maintenance {
 				{
 					# Update the row...
 					$db->update( 'flaggedrevs',
-						array(
+						[
 							'fr_quality'        => $quality,
 							'fr_img_name'       => $file,
 							'fr_img_sha1'       => $fileSha1,
 							'fr_img_timestamp'  => $fileTime
-						),
-						array( 'fr_rev_id' => $row->fr_rev_id ),
+						],
+						[ 'fr_rev_id' => $row->fr_rev_id ],
 						__METHOD__
 					);
 					$changed++;
@@ -165,7 +165,7 @@ class UpdateFRTracking extends Maintenance {
 			$this->output( "...doing page_id from $blockStart to $blockEnd\n" );
 			$cond = "page_id BETWEEN $blockStart AND $blockEnd";
 			$res = $db->select( 'page',
-				array( 'page_id', 'page_namespace', 'page_title', 'page_latest' ),
+				[ 'page_id', 'page_namespace', 'page_title', 'page_latest' ],
 				$cond, __METHOD__ );
 			# Go through and update the de-normalized references...
 			$db->begin();
@@ -186,9 +186,9 @@ class UpdateFRTracking extends Maintenance {
 				}
 				# Get the latest revision
 				$revRow = $db->selectRow( 'revision', '*',
-					array( 'rev_page' => $row->page_id ),
+					[ 'rev_page' => $row->page_id ],
 					__METHOD__,
-					array( 'ORDER BY' => 'rev_timestamp DESC' ) );
+					[ 'ORDER BY' => 'rev_timestamp DESC' ] );
 				# Correct page_latest if needed (import/files made plenty of bad rows)
 				if ( $revRow ) {
 					$revision = new Revision( $revRow );
@@ -206,10 +206,10 @@ class UpdateFRTracking extends Maintenance {
 			$db->freeResult( $res );
 			# Remove manual config settings that simply restate the site defaults
 			$db->delete( 'flaggedpage_config',
-				array( "fpc_page_id BETWEEN $blockStart AND $blockEnd",
+				[ "fpc_page_id BETWEEN $blockStart AND $blockEnd",
 					'fpc_override'  => intval( FlaggedRevs::isStableShownByDefault() ),
 					'fpc_level'     => ''
-				),
+				],
 				__METHOD__
 			);
 			$deleted = $deleted + $db->affectedRows();
@@ -248,8 +248,8 @@ class UpdateFRTracking extends Maintenance {
 			$db->begin();
 			# Remove padding garbage and such...turn to NULL instead
 			$db->update( 'flaggedimages',
-				array( 'fi_img_timestamp' => null ),
-				array( $cond, "fi_img_timestamp = '' OR LOCATE( '\\0', fi_img_timestamp )" ),
+				[ 'fi_img_timestamp' => null ],
+				[ $cond, "fi_img_timestamp = '' OR LOCATE( '\\0', fi_img_timestamp )" ],
 				__METHOD__
 			);
 			if ( $db->affectedRows() > 0 ) {

@@ -54,7 +54,7 @@ class FRUserActivityTest extends PHPUnit_Framework_TestCase {
 		$page = 110;
 
 		FRUserActivity::clearAllReviewingPage( $page ); // clear
-		$this->assertEquals( array( null, null ),
+		$this->assertEquals( [ null, null ],
 			FRUserActivity::getUserReviewingPage( $page ),
 			"Not reviewing page" );
 
@@ -76,7 +76,7 @@ class FRUserActivityTest extends PHPUnit_Framework_TestCase {
 		$newid = 11910;
 
 		FRUserActivity::clearAllReviewingDiff( $oldid, $newid ); // clear
-		$this->assertEquals( array( null, null ),
+		$this->assertEquals( [ null, null ],
 			FRUserActivity::getUserReviewingDiff( $oldid, $newid ),
 			"Not reviewing diff" );
 

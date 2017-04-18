@@ -26,14 +26,14 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 # Stable constant to let extensions be aware that this is enabled
 define( 'FLAGGED_REVISIONS', true );
 
-$wgExtensionCredits['specialpage'][] = array(
+$wgExtensionCredits['specialpage'][] = [
 	'path'           => __FILE__,
 	'name'           => 'Flagged Revisions',
-	'author'         => array( 'Aaron Schulz', 'Joerg Baach' ),
+	'author'         => [ 'Aaron Schulz', 'Joerg Baach' ],
 	'url'            => 'https://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 	'license-name'   => 'GPL-2.0+',
-);
+];
 
 # Load global constants
 require( dirname( __FILE__ ) . '/FlaggedRevs.defines.php' );
@@ -45,10 +45,10 @@ $wgSimpleFlaggedRevsUI = true; // @TODO: remove when ready
 $wgFlaggedRevsLowProfile = true; // @TODO: remove with new icon UI?
 
 # Allowed namespaces of reviewable pages
-$wgFlaggedRevsNamespaces = array( NS_MAIN, NS_FILE, NS_TEMPLATE );
+$wgFlaggedRevsNamespaces = [ NS_MAIN, NS_FILE, NS_TEMPLATE ];
 # Pages exempt from reviewing. No flagging UI will be shown for them.
-$wgFlaggedRevsWhitelist = array();
-# $wgFlaggedRevsWhitelist = array( 'Main_Page' );
+$wgFlaggedRevsWhitelist = [];
+# $wgFlaggedRevsWhitelist = [ 'Main_Page' ];
 
 # Is a "stable version" used as the default display
 # version for all pages in reviewable namespaces?
@@ -56,7 +56,7 @@ $wgFlaggedRevsOverride = true;
 # Below are groups that see the current revision by default.
 # This makes editing easier since the users always start off
 # viewing the latest version of pages.
-$wgFlaggedRevsExceptions = array( 'user' ); // @TODO: remove when ready (and expand pref)
+$wgFlaggedRevsExceptions = [ 'user' ]; // @TODO: remove when ready (and expand pref)
 
 # Auto-review settings for edits/new pages:
 # FR_AUTOREVIEW_NONE
@@ -76,32 +76,32 @@ $wgFlaggedRevsAutoReview = FR_AUTOREVIEW_CREATION_AND_CHANGES;
 # and set the minimum level to have it become a "quality" or "pristine" version.
 # NOTE: When setting up new dimensions or levels, you will need to add some
 #       MediaWiki messages for the UI to show properly; any sysop can do this.
-$wgFlaggedRevsTags = array(
-	'accuracy' => array( 'levels' => 3, 'quality' => 2, 'pristine' => 4 ),
-	'depth'    => array( 'levels' => 3, 'quality' => 1, 'pristine' => 4 ),
-	'style'    => array( 'levels' => 3, 'quality' => 1, 'pristine' => 4 ),
-);
+$wgFlaggedRevsTags = [
+	'accuracy' => [ 'levels' => 3, 'quality' => 2, 'pristine' => 4 ],
+	'depth'    => [ 'levels' => 3, 'quality' => 1, 'pristine' => 4 ],
+	'style'    => [ 'levels' => 3, 'quality' => 1, 'pristine' => 4 ],
+];
 # For each tag, define the highest tag level that is unlocked by
 # having certain rights. For example, having 'review' rights may
 # allow for "depth" to be rated up to second level.
 # NOTE: Users cannot lower revision tags from a level they can't set.
 # NOTE: Users with 'validate' (Reviewers) can set all tags to all levels.
-$wgFlaggedRevsTagsRestrictions = array(
-	'accuracy' => array( 'review' => 1, 'autoreview' => 1 ),
-	'depth'    => array( 'review' => 2, 'autoreview' => 2 ),
-	'style'    => array( 'review' => 3, 'autoreview' => 3 ),
-);
+$wgFlaggedRevsTagsRestrictions = [
+	'accuracy' => [ 'review' => 1, 'autoreview' => 1 ],
+	'depth'    => [ 'review' => 2, 'autoreview' => 2 ],
+	'style'    => [ 'review' => 3, 'autoreview' => 3 ],
+];
 # For each tag, what is the highest level that it can be auto-reviewed to?
 # $wgFlaggedRevsAutoReview must be enabled for this to apply.
-$wgFlaggedRevsTagsAuto = array(
+$wgFlaggedRevsTagsAuto = [
 	'accuracy' => 1, 'depth' => 1, 'style' => 1
-);
+];
 
 # Restriction levels for 'autoreview'/'review' rights.
 # When a level is selected for a page, an edit made by a user
 # will not be auto-reviewed if the user lacks the specified permission.
 # Levels are set at the Stabilization special page.
-$wgFlaggedRevsRestrictionLevels = array( '', 'sysop' );
+$wgFlaggedRevsRestrictionLevels = [ '', 'sysop' ];
 # Set this to use FlaggedRevs *only* as a protection-like mechanism.
 # This will disable Stabilization and show the above restriction levels
 # on the protection form of pages. Each level has the stable version shown by default.
@@ -127,7 +127,7 @@ $wgGrantPermissions['editprotected']['movestable'] = true;
 
 # Define when users get automatically promoted to Editors. Set as false to disable.
 # Once users meet these requirements they will be promoted, unless previously demoted.
-$wgFlaggedRevsAutopromote = array(
+$wgFlaggedRevsAutopromote = [
 	'days'                  => 60, # days since registration
 	'edits'                 => 250, # total edit count
 	'excludeLastDays'       => 1, # exclude the last X days of edits from below edit counts
@@ -141,14 +141,14 @@ $wgFlaggedRevsAutopromote = array(
 	'userpageBytes'         => 0, # size of userpage (use 0 to not require a userpage)
 	'neverBlocked'          => true, # username was never blocked before?
 	'maxRevertedEditRatio'  => .03, # max fraction of edits reverted via "rollback"/"undo"
-);
+];
 
 # Define when users get to have their own edits auto-reviewed. Set to false to disable.
 # This can be used for newer, semi-trusted users to improve workflow.
 # It is done by granting some users the implicit 'autoreview' group.
 $wgFlaggedRevsAutoconfirm = false;
 /* (example usage)
-$wgFlaggedRevsAutoconfirm = array(
+$wgFlaggedRevsAutoconfirm = [
 	'days'                  => 30, # days since registration
 	'edits'                 => 50, # total edit count
 	'excludeLastDays'       => 2, # exclude the last X days of edits from below edit counts
@@ -161,7 +161,7 @@ $wgFlaggedRevsAutoconfirm = array(
 	'editComments'          => 20, # how many edit comments used?
 	'email'                 => false, # user must be emailconfirmed?
 	'neverBlocked'          => true, # Can users that were blocked be promoted?
-);
+];
 */
 
 # Defines extra rights for advanced reviewer class (Reviewers)
@@ -198,10 +198,10 @@ $wgFlaggedRevsOversightAge = 30 * 24 * 3600;
 $wgFlaggedRevsStatsAge = 2 * 3600; // 2 hours
 
 # Configurable information to collect and display at Special:ValidationStatistics
-$wgFlaggedRevsStats = array(
+$wgFlaggedRevsStats = [
 	'topReviewersCount' => 5, # how many top reviewers to list
 	'topReviewersHours' => 1, # how many hours of the last reviews to count
-);
+];
 
 # How to handle templates and files used in stable versions:
 # FR_INCLUDES_CURRENT
@@ -369,27 +369,27 @@ $wgAutoloadClasses['FlaggedRevsTestHooks'] = "$testDir/FlaggedRevsTest.hooks.php
 # Define JS/CSS modules and file locations
 $localModulePath = dirname( __FILE__ ) . '/frontend/modules/';
 $remoteModulePath = 'FlaggedRevs/frontend/modules';
-$wgResourceModules['ext.flaggedRevs.basic'] = array(
+$wgResourceModules['ext.flaggedRevs.basic'] = [
 	'position'		=> 'top',
-	'styles'        => array( 'ext.flaggedRevs.basic.css' ),
+	'styles'        => [ 'ext.flaggedRevs.basic.css' ],
 	'localBasePath' => $localModulePath,
 	'remoteExtPath' => $remoteModulePath,
-);
-$wgResourceModules['ext.flaggedRevs.advanced'] = array(
-	'scripts'       => array( 'ext.flaggedRevs.advanced.js' ),
-	'messages'      => array(
+];
+$wgResourceModules['ext.flaggedRevs.advanced'] = [
+	'scripts'       => [ 'ext.flaggedRevs.advanced.js' ],
+	'messages'      => [
 		'revreview-toggle-show', 'revreview-toggle-hide',
 		'revreview-diff-toggle-show', 'revreview-diff-toggle-hide',
 		'revreview-log-toggle-show', 'revreview-log-toggle-hide',
 		'revreview-log-details-show', 'revreview-log-details-hide'
-	),
-	'dependencies'  => array( 'jquery.accessKeyLabel' ),
+	],
+	'dependencies'  => [ 'jquery.accessKeyLabel' ],
 	'localBasePath' => $localModulePath,
 	'remoteExtPath' => $remoteModulePath,
-);
-$wgResourceModules['ext.flaggedRevs.review'] = array(
-	'scripts'       => array( 'ext.flaggedRevs.review.js' ),
-	'messages'      => array(
+];
+$wgResourceModules['ext.flaggedRevs.review'] = [
+	'scripts'       => [ 'ext.flaggedRevs.review.js' ],
+	'messages'      => [
 		'savearticle', 'tooltip-save',
 		'revreview-submitedit', 'revreview-submitedit-title',
 		'revreview-submit-review', 'revreview-submit-unreview',
@@ -398,17 +398,17 @@ $wgResourceModules['ext.flaggedRevs.review'] = array(
 		'revreview-adv-reviewing-p', 'revreview-adv-reviewing-c',
 		'revreview-sadv-reviewing-p', 'revreview-sadv-reviewing-c',
 		'revreview-adv-start-link', 'revreview-adv-stop-link'
-	),
-	'dependencies'  => array( 'mediawiki.util', 'mediawiki.notify', 'mediawiki.user', 'mediawiki.jqueryMsg' ),
+	],
+	'dependencies'  => [ 'mediawiki.util', 'mediawiki.notify', 'mediawiki.user', 'mediawiki.jqueryMsg' ],
 	'localBasePath' => $localModulePath,
 	'remoteExtPath' => $remoteModulePath,
-);
-$wgResourceModules['ext.flaggedRevs.review.styles'] = array(
-	'styles'        => array( 'ext.flaggedRevs.review.css' ),
+];
+$wgResourceModules['ext.flaggedRevs.review.styles'] = [
+	'styles'        => [ 'ext.flaggedRevs.review.css' ],
 	'localBasePath' => $localModulePath,
 	'remoteExtPath' => $remoteModulePath,
 	'position' => 'top',
-);
+];
 
 # Define user rights
 $wgAvailableRights[] = 'review'; # review pages to basic quality levels
@@ -431,18 +431,18 @@ $wgDefaultUserOptions['flaggedrevsviewdiffs'] = false;
 
 # Add review log
 $wgLogTypes[] = 'review';
-$wgActionFilteredLogs['review'] = array(
-	'accept' => array( 'approve', 'approve2', 'approve-i', 'approve2-i' ),
-	'autoaccept' => array( 'approve-a', 'approve-ia' ),
-	'unaccept' => array( 'unapprove', 'unapprove2' ),
-);
+$wgActionFilteredLogs['review'] = [
+	'accept' => [ 'approve', 'approve2', 'approve-i', 'approve2-i' ],
+	'autoaccept' => [ 'approve-a', 'approve-ia' ],
+	'unaccept' => [ 'unapprove', 'unapprove2' ],
+];
 # Add stable version log
 $wgLogTypes[] = 'stable';
-$wgActionFilteredLogs['stable'] = array(
-	'config' => array( 'config' ),
-	'modify' => array( 'modify' ),
-	'reset' => array( 'reset' ),
-);
+$wgActionFilteredLogs['stable'] = [
+	'config' => [ 'config' ],
+	'modify' => [ 'modify' ],
+	'reset' => [ 'reset' ],
+];
 
 # Log name and description as well as action handlers
 $wgLogNames['review'] = 'review-logpage';

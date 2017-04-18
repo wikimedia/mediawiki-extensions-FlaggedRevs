@@ -21,7 +21,7 @@ class ConfiguredPages extends SpecialPage {
 		$this->autoreview = $request->getVal( 'restriction', '' );
 
 		$this->pager = new ConfiguredPagesPager(
-			$this, array(), $this->namespace, $this->override, $this->autoreview );
+			$this, [], $this->namespace, $this->override, $this->autoreview );
 
 		$this->showForm();
 		$this->showPageList();
@@ -34,7 +34,7 @@ class ConfiguredPages extends SpecialPage {
 		$this->getOutput()->addWikiMsg( 'configuredpages-list',
 			$this->getLanguage()->formatNum( $this->pager->getNumRows() ) );
 
-		$fields = array();
+		$fields = [];
 		# Namespace selector
 		if ( count( FlaggedRevs::getReviewNamespaces() ) > 1 ) {
 			$fields[] = FlaggedRevsXML::getNamespaceMenu( $this->namespace, '' );
@@ -47,7 +47,7 @@ class ConfiguredPages extends SpecialPage {
 		}
 
 		$form = Html::openElement( 'form',
-			array( 'name' => 'configuredpages', 'action' => $wgScript, 'method' => 'get' ) );
+			[ 'name' => 'configuredpages', 'action' => $wgScript, 'method' => 'get' ] );
 		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBKey() );
 		$form .= "<fieldset><legend>" . $this->msg( 'configuredpages' )->escaped() . "</legend>\n";
 		$form .= implode( '&#160;', $fields ) . '<br/>';
@@ -76,7 +76,7 @@ class ConfiguredPages extends SpecialPage {
 		$config = Linker::linkKnown(
 			SpecialPage::getTitleFor( 'Stabilization' ),
 			$this->msg( 'configuredpages-config' )->escaped(),
-			array(),
+			[],
 			'page=' . $title->getPrefixedUrl()
 		);
 		# Show which version is the default (stable or draft)
@@ -122,7 +122,7 @@ class ConfiguredPagesPager extends AlphabeticPager {
 	 * @param int $override (null for "either")
 	 * @param string $autoreview ('' for "all", 'none' for no restriction)
 	 */
-	function __construct( $form, $conds = array(), $namespace, $override, $autoreview ) {
+	function __construct( $form, $conds = [], $namespace, $override, $autoreview ) {
 		$this->mForm = $form;
 		$this->mConds = $conds;
 		# Must be content pages...
@@ -165,13 +165,13 @@ class ConfiguredPagesPager extends AlphabeticPager {
 		# Be sure not to include expired items
 		$encCutoff = $this->mDb->addQuotes( $this->mDb->timestamp() );
 		$conds[] = "fpc_expiry > {$encCutoff}";
-		return array(
-			'tables' => array( 'flaggedpage_config', 'page' ),
-			'fields' => array( 'page_namespace', 'page_title', 'fpc_override',
-				'fpc_expiry', 'fpc_page_id', 'fpc_level' ),
+		return [
+			'tables' => [ 'flaggedpage_config', 'page' ],
+			'fields' => [ 'page_namespace', 'page_title', 'fpc_override',
+				'fpc_expiry', 'fpc_page_id', 'fpc_level' ],
 			'conds'  => $conds,
-			'options' => array()
-		);
+			'options' => []
+		];
 	}
 
 	function getIndexField() {

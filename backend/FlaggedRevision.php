@@ -103,7 +103,7 @@ class FlaggedRevision {
 		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
 			return null; // short-circuit
 		}
-		$options = array();
+		$options = [];
 		# User master/slave as appropriate...
 		if ( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
 			$db = wfGetDB( DB_MASTER );
@@ -118,15 +118,15 @@ class FlaggedRevision {
 		}
 		# Skip deleted revisions
 		$row = $db->selectRow(
-			array( 'flaggedrevs', 'revision' ),
+			[ 'flaggedrevs', 'revision' ],
 			self::selectFields(),
-			array(
+			[
 				'fr_page_id' => $pageId,
 				'fr_rev_id'  => $revId,
 				'rev_id = fr_rev_id',
 				'rev_page = fr_page_id', // sanity
 				$db->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0'
-			),
+			],
 			__METHOD__,
 			$options
 		);
@@ -151,7 +151,7 @@ class FlaggedRevision {
 		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
 			return null; // short-circuit
 		}
-		$options = array();
+		$options = [];
 		# User master/slave as appropriate...
 		if ( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
 			$db = wfGetDB( DB_MASTER );
@@ -166,15 +166,15 @@ class FlaggedRevision {
 		}
 		# Check tracking tables
 		$row = $db->selectRow(
-			array( 'flaggedpages', 'flaggedrevs', 'revision' ),
+			[ 'flaggedpages', 'flaggedrevs', 'revision' ],
 			self::selectFields(),
-			array(
+			[
 				'fp_page_id' => $pageId,
 				'fr_rev_id = fp_stable',
 				'rev_id = fr_rev_id',
 				'rev_page = fr_page_id', // sanity
 				$db->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0', // sanity
-			),
+			],
 			__METHOD__,
 			$options
 		);
@@ -194,7 +194,7 @@ class FlaggedRevision {
 	 * @return FlaggedRevision|null (null on failure)
 	 */
 	public static function newFromId( $revId, $flags = 0 ) {
-		$options = array();
+		$options = [];
 		# User master/slave as appropriate...
 		if ( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
 			$db = wfGetDB( DB_MASTER );
@@ -207,15 +207,15 @@ class FlaggedRevision {
 		}
 		# Skip deleted revisions
 		$row = $db->selectRow(
-			array( 'flaggedrevs', 'revision', 'page' ),
+			[ 'flaggedrevs', 'revision', 'page' ],
 			self::selectFields(),
-			array(
+			[
 				'fr_rev_id' => $revId,
 				'rev_id = fr_rev_id',
 				'rev_page = fr_page_id', // sanity
 				'page_id = rev_page',
 				$db->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0',
-			),
+			],
 			__METHOD__,
 			$options
 		);
@@ -248,12 +248,12 @@ class FlaggedRevision {
 	 * @return FlaggedRevision|null (null on failure)
 	 */
 	public static function determineStable(
-		Title $title, $flags = 0, $config = array(), $precedence = 'latest'
+		Title $title, $flags = 0, $config = [], $precedence = 'latest'
 	) {
 		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
 			return null; // short-circuit
 		}
-		$options = array();
+		$options = [];
 		# User master/slave as appropriate...
 		if ( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
 			$db = wfGetDB( DB_MASTER );
@@ -275,12 +275,12 @@ class FlaggedRevision {
 				return null; // page is not reviewable; no stable version
 			}
 		}
-		$baseConds = array(
+		$baseConds = [
 			'fr_page_id' => $pageId,
 			'rev_id = fr_rev_id',
 			'rev_page = fr_page_id', // sanity
 			$db->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0'
-		);
+		];
 		$options['ORDER BY'] = 'fr_rev_timestamp DESC';
 
 		$row = null;
@@ -288,9 +288,9 @@ class FlaggedRevision {
 			# Look for the latest pristine revision...
 			if ( FlaggedRevs::pristineVersions() ) {
 				$prow = $db->selectRow(
-					array( 'flaggedrevs', 'revision' ),
+					[ 'flaggedrevs', 'revision' ],
 					self::selectFields(),
-					array_merge( $baseConds, array( 'fr_quality' => FR_PRISTINE ) ),
+					array_merge( $baseConds, [ 'fr_quality' => FR_PRISTINE ] ),
 					__METHOD__,
 					$options
 				);
@@ -303,12 +303,12 @@ class FlaggedRevision {
 			} elseif ( FlaggedRevs::qualityVersions() ) {
 				// If we found a pristine rev above, this one must be newer...
 				$newerClause = $row
-					? array( 'fr_rev_timestamp > '.$db->addQuotes( $row->fr_rev_timestamp ) )
-					: array();
+					? [ 'fr_rev_timestamp > '.$db->addQuotes( $row->fr_rev_timestamp ) ]
+					: [];
 				$qrow = $db->selectRow(
-					array( 'flaggedrevs', 'revision' ),
+					[ 'flaggedrevs', 'revision' ],
 					self::selectFields(),
-					array_merge( $baseConds, array( 'fr_quality' => FR_QUALITY ), $newerClause ),
+					array_merge( $baseConds, [ 'fr_quality' => FR_QUALITY ], $newerClause ),
 					__METHOD__,
 					$options
 				);
@@ -318,7 +318,7 @@ class FlaggedRevision {
 		# Do we have one? If not, try the latest reviewed revision...
 		if ( !$row ) {
 			$row = $db->selectRow(
-				array( 'flaggedrevs', 'revision' ),
+				[ 'flaggedrevs', 'revision' ],
 				self::selectFields(),
 				$baseConds,
 				__METHOD__,
@@ -341,30 +341,30 @@ class FlaggedRevision {
 	public function insert() {
 		$dbw = wfGetDB( DB_MASTER );
 		# Set any flagged revision flags
-		$this->mFlags = array_merge( $this->mFlags, array( 'dynamic' ) ); // legacy
+		$this->mFlags = array_merge( $this->mFlags, [ 'dynamic' ] ); // legacy
 		# Build the template/file inclusion data chunks
-		$tmpInsertRows = array();
-		$fileInsertRows = array();
+		$tmpInsertRows = [];
+		$fileInsertRows = [];
 		# Avoid saving this data if we don't use it to stabilize pages
 		if ( FlaggedRevs::inclusionSetting() !== FR_INCLUDES_CURRENT ) {
 			foreach ( (array)$this->mTemplates as $namespace => $titleAndID ) {
 				foreach ( $titleAndID as $dbkey => $id ) {
-					$tmpInsertRows[] = array(
+					$tmpInsertRows[] = [
 						'ft_rev_id'     => $this->getRevId(),
 						'ft_namespace'  => (int)$namespace,
 						'ft_title'      => $dbkey,
 						'ft_tmp_rev_id' => (int)$id
-					);
+					];
 				}
 			}
 			foreach ( (array)$this->mFiles as $dbkey => $timeSHA1 ) {
-				$fileInsertRows[] = array(
+				$fileInsertRows[] = [
 					'fi_rev_id'         => $this->getRevId(),
 					'fi_name'           => $dbkey,
 					'fi_img_sha1'       => strval( $timeSHA1['sha1'] ),
 					'fi_img_timestamp'  => $timeSHA1['time'] ? // false => NULL
 						$dbw->timestamp( $timeSHA1['time'] ) : null
-				);
+				];
 			}
 		}
 		# Sanity check for partial revisions
@@ -372,7 +372,7 @@ class FlaggedRevision {
 			return false; // bogus entry
 		}
 		# Our new review entry
-		$revRow = array(
+		$revRow = [
 			'fr_page_id'       => $this->getPage(),
 			'fr_rev_id'        => $this->getRevId(),
 			'fr_rev_timestamp' => $dbw->timestamp( $this->getRevTimestamp() ),
@@ -384,7 +384,7 @@ class FlaggedRevision {
 			'fr_img_name'      => $this->mFileName,
 			'fr_img_timestamp' => $dbw->timestampOrNull( $this->mFileTimestamp ),
 			'fr_img_sha1'      => $this->mFileSha1
-		);
+		];
 		# Update the main flagged revisions table...
 		$dbw->insert( 'flaggedrevs', $revRow, __METHOD__, 'IGNORE' );
 		if ( !$dbw->affectedRows() ) {
@@ -410,12 +410,12 @@ class FlaggedRevision {
 		$dbw = wfGetDB( DB_MASTER );
 		# Delete from flaggedrevs table
 		$dbw->delete( 'flaggedrevs',
-			array( 'fr_rev_id' => $this->getRevId() ), __METHOD__ );
+			[ 'fr_rev_id' => $this->getRevId() ], __METHOD__ );
 		# Wipe versioning params...
 		$dbw->delete( 'flaggedtemplates',
-			array( 'ft_rev_id' => $this->getRevId() ), __METHOD__ );
+			[ 'ft_rev_id' => $this->getRevId() ], __METHOD__ );
 		$dbw->delete( 'flaggedimages',
-			array( 'fi_rev_id' => $this->getRevId() ), __METHOD__ );
+			[ 'fi_rev_id' => $this->getRevId() ], __METHOD__ );
 		return true;
 	}
 
@@ -426,9 +426,9 @@ class FlaggedRevision {
 	public static function selectFields() {
 		return array_merge(
 			Revision::selectFields(),
-			array( 'fr_rev_id', 'fr_page_id', 'fr_rev_timestamp',
+			[ 'fr_rev_id', 'fr_page_id', 'fr_rev_timestamp',
 				'fr_user', 'fr_timestamp', 'fr_quality', 'fr_tags', 'fr_flags',
-				'fr_img_name', 'fr_img_sha1', 'fr_img_timestamp' )
+				'fr_img_name', 'fr_img_sha1', 'fr_img_timestamp' ]
 		);
 	}
 
@@ -560,17 +560,17 @@ class FlaggedRevision {
 	 */
 	public function getTemplateVersions( $flags = 0 ) {
 		if ( $this->mTemplates == null ) {
-			$this->mTemplates = array();
+			$this->mTemplates = [];
 			$db = ( $flags & FR_MASTER ) ?
 				wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 			$res = $db->select( 'flaggedtemplates',
-				array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id' ),
-				array( 'ft_rev_id' => $this->getRevId() ),
+				[ 'ft_namespace', 'ft_title', 'ft_tmp_rev_id' ],
+				[ 'ft_rev_id' => $this->getRevId() ],
 				__METHOD__
 			);
 			foreach ( $res as $row ) {
 				if ( !isset( $this->mTemplates[$row->ft_namespace] ) ) {
-					$this->mTemplates[$row->ft_namespace] = array();
+					$this->mTemplates[$row->ft_namespace] = [];
 				}
 				$this->mTemplates[$row->ft_namespace][$row->ft_title] = $row->ft_tmp_rev_id;
 			}
@@ -581,17 +581,17 @@ class FlaggedRevision {
 	/**
 	 * Get original template versions at time of review
 	 * @param int $flags FR_MASTER
-	 * @return array file versions (dbKey => array('time' => MW timestamp,'sha1' => sha1) )
+	 * @return array file versions (dbKey => ['time' => MW timestamp,'sha1' => sha1] )
 	 * Note: false used for file timestamp/sha1 if it didn't exist
 	 */
 	public function getFileVersions( $flags = 0 ) {
 		if ( $this->mFiles == null ) {
-			$this->mFiles = array();
+			$this->mFiles = [];
 			$db = ( $flags & FR_MASTER ) ?
 				wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 			$res = $db->select( 'flaggedimages',
-				array( 'fi_name', 'fi_img_timestamp', 'fi_img_sha1' ),
-				array( 'fi_rev_id' => $this->getRevId() ),
+				[ 'fi_name', 'fi_img_timestamp', 'fi_img_sha1' ],
+				[ 'fi_rev_id' => $this->getRevId() ],
 				__METHOD__
 			);
 			foreach ( $res as $row ) {
@@ -601,7 +601,7 @@ class FlaggedRevision {
 					$reviewedTS = wfTimestamp( TS_MW, $fi_img_timestamp );
 					$reviewedSha1 = strval( $row->fi_img_sha1 );
 				}
-				$this->mFiles[$row->fi_name] = array();
+				$this->mFiles[$row->fi_name] = [];
 				$this->mFiles[$row->fi_name]['time'] = $reviewedTS;
 				$this->mFiles[$row->fi_name]['sha1'] = $reviewedSha1;
 			}
@@ -617,24 +617,24 @@ class FlaggedRevision {
 	 */
 	public function getStableTemplateVersions( $flags = 0 ) {
 		if ( $this->mStableTemplates == null ) {
-			$this->mStableTemplates = array();
+			$this->mStableTemplates = [];
 			$db = ( $flags & FR_MASTER ) ?
 				wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 			$res = $db->select(
-				array( 'flaggedtemplates', 'page', 'flaggedpages' ),
-				array( 'ft_namespace', 'ft_title', 'fp_stable' ),
-				array( 'ft_rev_id' => $this->getRevId() ),
+				[ 'flaggedtemplates', 'page', 'flaggedpages' ],
+				[ 'ft_namespace', 'ft_title', 'fp_stable' ],
+				[ 'ft_rev_id' => $this->getRevId() ],
 				__METHOD__,
-				array(),
-				array(
-					'page' => array( 'LEFT JOIN',
-						'page_namespace = ft_namespace AND page_title = ft_title'),
-					'flaggedpages' => array( 'LEFT JOIN', 'fp_page_id = page_id' )
-				)
+				[],
+				[
+					'page' => [ 'LEFT JOIN',
+						'page_namespace = ft_namespace AND page_title = ft_title'],
+					'flaggedpages' => [ 'LEFT JOIN', 'fp_page_id = page_id' ]
+				]
 			);
 			foreach ( $res as $row ) {
 				if ( !isset( $this->mStableTemplates[$row->ft_namespace] ) ) {
-					$this->mStableTemplates[$row->ft_namespace] = array();
+					$this->mStableTemplates[$row->ft_namespace] = [];
 				}
 				$revId = (int)$row->fp_stable; // 0 => none
 				$this->mStableTemplates[$row->ft_namespace][$row->ft_title] = $revId;
@@ -646,26 +646,26 @@ class FlaggedRevision {
 	/**
 	 * Get the current stable version of the files used at time of review
 	 * @param int $flags FR_MASTER
-	 * @return array file versions (dbKey => array('time' => MW timestamp,'sha1' => sha1) )
+	 * @return array file versions (dbKey => ['time' => MW timestamp,'sha1' => sha1] )
 	 * Note: false used for file timestamp/sha1 if it didn't exist
 	 */
 	public function getStableFileVersions( $flags = 0 ) {
 		if ( $this->mStableFiles == null ) {
-			$this->mStableFiles = array();
+			$this->mStableFiles = [];
 			$db = ( $flags & FR_MASTER ) ?
 				wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 			$res = $db->select(
-				array( 'flaggedimages', 'page', 'flaggedpages', 'flaggedrevs' ),
-				array( 'fi_name', 'fr_img_timestamp', 'fr_img_sha1' ),
-				array( 'fi_rev_id' => $this->getRevId() ),
+				[ 'flaggedimages', 'page', 'flaggedpages', 'flaggedrevs' ],
+				[ 'fi_name', 'fr_img_timestamp', 'fr_img_sha1' ],
+				[ 'fi_rev_id' => $this->getRevId() ],
 				__METHOD__,
-				array(),
-				array(
-					'page'          => array( 'LEFT JOIN',
-					'page_namespace = ' . NS_FILE . ' AND page_title = fi_name' ),
-					'flaggedpages'  => array( 'LEFT JOIN', 'fp_page_id = page_id' ),
-					'flaggedrevs'   => array( 'LEFT JOIN', 'fr_rev_id = fp_stable' )
-				)
+				[],
+				[
+					'page'          => [ 'LEFT JOIN',
+					'page_namespace = ' . NS_FILE . ' AND page_title = fi_name' ],
+					'flaggedpages'  => [ 'LEFT JOIN', 'fp_page_id = page_id' ],
+					'flaggedrevs'   => [ 'LEFT JOIN', 'fr_rev_id = fp_stable' ]
+				]
 			);
 			foreach ( $res as $row ) {
 				$reviewedTS = $reviewedSha1 = false;
@@ -673,7 +673,7 @@ class FlaggedRevision {
 					$reviewedTS = wfTimestamp( TS_MW, $row->fr_img_timestamp );
 					$reviewedSha1 = strval( $row->fr_img_sha1 );
 				}
-				$this->mStableFiles[$row->fi_name] = array();
+				$this->mStableFiles[$row->fi_name] = [];
 				$this->mStableFiles[$row->fi_name]['time'] = $reviewedTS;
 				$this->mStableFiles[$row->fi_name]['sha1'] = $reviewedSha1;
 			}
@@ -697,7 +697,7 @@ class FlaggedRevision {
 	 */
 	public function findPendingTemplateChanges() {
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
-			return array(); // short-circuit
+			return []; // short-circuit
 		}
 		$dbr = wfGetDB( DB_SLAVE );
 		# Only get templates with stable or "review time" versions.
@@ -708,21 +708,21 @@ class FlaggedRevision {
 			$reviewed = "ft_title IS NOT NULL";
 		}
 		$ret = $dbr->select(
-			array( 'templatelinks', 'flaggedtemplates', 'page', 'flaggedpages' ),
-			array( 'tl_namespace', 'tl_title', 'fp_stable', 'ft_tmp_rev_id', 'page_latest' ),
-			array( 'tl_from' => $this->getPage(), $reviewed ), // current version templates
+			[ 'templatelinks', 'flaggedtemplates', 'page', 'flaggedpages' ],
+			[ 'tl_namespace', 'tl_title', 'fp_stable', 'ft_tmp_rev_id', 'page_latest' ],
+			[ 'tl_from' => $this->getPage(), $reviewed ], // current version templates
 			__METHOD__,
-			array(), /* OPTIONS */
-			array(
-				'flaggedtemplates'  => array( 'LEFT JOIN',
-					array( 'ft_rev_id' => $this->getRevId(),
-						'ft_namespace = tl_namespace AND ft_title = tl_title' ) ),
-				'page'              => array( 'LEFT JOIN',
-					'page_namespace = tl_namespace AND page_title = tl_title' ),
-				'flaggedpages'      => array( 'LEFT JOIN', 'fp_page_id = page_id' )
-			)
+			[], /* OPTIONS */
+			[
+				'flaggedtemplates'  => [ 'LEFT JOIN',
+					[ 'ft_rev_id' => $this->getRevId(),
+						'ft_namespace = tl_namespace AND ft_title = tl_title' ] ],
+				'page'              => [ 'LEFT JOIN',
+					'page_namespace = tl_namespace AND page_title = tl_title' ],
+				'flaggedpages'      => [ 'LEFT JOIN', 'fp_page_id = page_id' ]
+			]
 		);
-		$tmpChanges = array();
+		$tmpChanges = [];
 		foreach ( $ret as $row ) { // each template
 			$revIdDraft = (int)$row->page_latest; // may be NULL
 			$revIdStable = (int)$row->fp_stable; // may be NULL
@@ -733,7 +733,7 @@ class FlaggedRevision {
 			if ( self::templateChanged( $revIdDraft, $revIdUsed ) ) {
 				$title = Title::makeTitleSafe( $row->tl_namespace, $row->tl_title );
 				if ( !$title->equals( $this->getTitle() ) ) { // bug 42297
-					$tmpChanges[] = array( $title, $revIdUsed, (bool)$revIdStable );
+					$tmpChanges[] = [ $title, $revIdUsed, (bool)$revIdStable ];
 				}
 			}
 		}
@@ -788,7 +788,7 @@ class FlaggedRevision {
 	 */
 	public function findPendingFileChanges( $noForeign = false ) {
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
-			return array(); // short-circuit
+			return []; // short-circuit
 		}
 		$dbr = wfGetDB( DB_SLAVE );
 		# Only get templates with stable or "review time" versions.
@@ -799,21 +799,21 @@ class FlaggedRevision {
 			$reviewed = "fi_name IS NOT NULL";
 		}
 		$ret = $dbr->select(
-			array( 'imagelinks', 'flaggedimages', 'page', 'flaggedpages', 'flaggedrevs' ),
-			array( 'il_to', 'fi_img_timestamp', 'fr_img_timestamp' ),
-			array( 'il_from' => $this->getPage(), $reviewed ), // current version files
+			[ 'imagelinks', 'flaggedimages', 'page', 'flaggedpages', 'flaggedrevs' ],
+			[ 'il_to', 'fi_img_timestamp', 'fr_img_timestamp' ],
+			[ 'il_from' => $this->getPage(), $reviewed ], // current version files
 				__METHOD__,
-			array(), /* OPTIONS */
-			array(
-				'flaggedimages' => array( 'LEFT JOIN',
-					array( 'fi_rev_id' => $this->getRevId(), 'fi_name = il_to' ) ),
-				'page'          => array( 'LEFT JOIN',
-					'page_namespace = ' . NS_FILE . ' AND page_title = il_to' ),
-				'flaggedpages'  => array( 'LEFT JOIN', 'fp_page_id = page_id' ),
-				'flaggedrevs'   => array( 'LEFT JOIN', 'fr_rev_id = fp_stable' )
-			)
+			[], /* OPTIONS */
+			[
+				'flaggedimages' => [ 'LEFT JOIN',
+					[ 'fi_rev_id' => $this->getRevId(), 'fi_name = il_to' ] ],
+				'page'          => [ 'LEFT JOIN',
+					'page_namespace = ' . NS_FILE . ' AND page_title = il_to' ],
+				'flaggedpages'  => [ 'LEFT JOIN', 'fp_page_id = page_id' ],
+				'flaggedrevs'   => [ 'LEFT JOIN', 'fr_rev_id = fp_stable' ]
+			]
 		);
-		$fileChanges = array();
+		$fileChanges = [];
 		foreach ( $ret as $row ) { // each file
 			$reviewedTS = trim( $row->fi_img_timestamp ); // may have \0's
 			$reviewedTS = $reviewedTS ? wfTimestamp( TS_MW, $reviewedTS ) : null;
@@ -824,7 +824,7 @@ class FlaggedRevision {
 			$title = Title::makeTitleSafe( NS_FILE, $row->il_to );
 			if ( self::fileChanged( $title, $usedTS, $noForeign ) ) {
 				if ( !$title->equals( $this->getTitle() ) ) { // bug 42297
-					$fileChanges[] = array( $title, $usedTS, (bool)$stableTS );
+					$fileChanges[] = [ $title, $usedTS, (bool)$stableTS ];
 				}
 			}
 		}
@@ -855,7 +855,7 @@ class FlaggedRevision {
 			}
 			$deleted = $usedTS // included file deleted after review
 				&& $file->getTimestamp() != $usedTS
-				&& !wfFindFile( $title, array( 'time' => $usedTS ) );
+				&& !wfFindFile( $title, [ 'time' => $usedTS ] );
 		} else { // file doesn't exists
 			$updated = false;
 			$deleted = (bool)$usedTS; // included file deleted after review
@@ -873,9 +873,9 @@ class FlaggedRevision {
 	 */
 	public function findTemplateChanges( array $newTemplates ) {
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
-			return array(); // short-circuit
+			return []; // short-circuit
 		}
-		$tmpChanges = array();
+		$tmpChanges = [];
 		$rTemplates = $this->getTemplateVersions();
 		$sTemplates = $this->getStableTemplateVersions();
 		foreach ( $newTemplates as $ns => $tmps ) {
@@ -892,7 +892,7 @@ class FlaggedRevision {
 				$revIdUsed = self::templateIdUsed( $revIdStable, $revIdReviewed );
 				# Check for edits/creations/deletions...
 				if ( self::templateChanged( $revIdDraft, $revIdUsed ) ) {
-					$tmpChanges[] = array( $title, $revIdUsed, (bool)$revIdStable );
+					$tmpChanges[] = [ $title, $revIdUsed, (bool)$revIdStable ];
 				}
 			}
 		}
@@ -910,9 +910,9 @@ class FlaggedRevision {
 	 */
 	public function findFileChanges( array $newFiles, $noForeign = false ) {
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
-			return array(); // short-circuit
+			return []; // short-circuit
 		}
-		$fileChanges = array();
+		$fileChanges = [];
 		$rFiles = $this->getFileVersions();
 		$sFiles = $this->getStableFileVersions();
 		foreach ( $newFiles as $dbKey => $sha1Time ) {
@@ -927,7 +927,7 @@ class FlaggedRevision {
 			# Check for edits/creations/deletions...
 			$title = Title::makeTitleSafe( NS_FILE, $dbKey );
 			if ( self::fileChanged( $title, $usedTS, $noForeign ) ) {
-				$fileChanges[] = array( $title, $usedTS, (bool)$stableTS );
+				$fileChanges[] = [ $title, $usedTS, (bool)$stableTS ];
 			}
 		}
 		return $fileChanges;
@@ -944,7 +944,7 @@ class FlaggedRevision {
 			wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 		return $db->selectField( 'flaggedrevs',
 			'fr_quality',
-			array( 'fr_rev_id' => $rev_id ),
+			[ 'fr_rev_id' => $rev_id ],
 			__METHOD__
 		);
 	}
@@ -965,7 +965,7 @@ class FlaggedRevision {
 	 * @return array
 	 */
 	public static function expandRevisionTags( $tags ) {
-		$flags = array();
+		$flags = [];
 		foreach ( FlaggedRevs::getTags() as $tag ) {
 			$flags[$tag] = 0; // init all flags values to zero
 		}

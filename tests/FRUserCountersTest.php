@@ -26,30 +26,30 @@ class FRUserCountersTest extends PHPUnit_Framework_TestCase {
 	public function testGetAndSaveUserParams() {
 		$this->tablesUsed[] = 'flaggedrevs_autopromote';
 		$p = FRUserCounters::getUserParams( -1 );
-		$expected = array(
-			'uniqueContentPages' 	=> array(),
+		$expected = [
+			'uniqueContentPages' 	=> [],
 			'totalContentEdits'  	=> 0,
 			'editComments' 			=> 0,
 			'revertedEdits' 		=> 0
-		);
+		];
 		$this->assertEquals( $expected, $p, "Initial params" );
 
-		$expected = array(
-			'uniqueContentPages'	=> array(),
+		$expected = [
+			'uniqueContentPages'	=> [],
 			'totalContentEdits' 	=> 666,
 			'editComments' 			=> 666,
 			'revertedEdits' 		=> 13
-		);
+		];
 		FRUserCounters::saveUserParams( 1, $expected );
 		$ps = FRUserCounters::getUserParams( 1 );
 		$this->assertEquals( $expected, $ps, "Param save and fetch from DB 1" );
 
-		$expected = array(
-			'uniqueContentPages'	=> array(23,55),
+		$expected = [
+			'uniqueContentPages'	=> [23,55],
 			'totalContentEdits' 	=> 666,
 			'editComments' 			=> 666,
 			'revertedEdits' 		=> 13
-		);
+		];
 		FRUserCounters::saveUserParams( 1, $expected );
 		$ps = FRUserCounters::getUserParams( 1 );
 		$this->assertEquals( $expected, $ps, "Param save and fetch from DB 2" );

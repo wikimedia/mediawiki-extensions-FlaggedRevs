@@ -149,8 +149,8 @@ class FlaggableWikiPage extends WikiPage {
 				wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 			$srevTS = $db->timestamp( $srev->getRevTimestamp() );
 			$count = $db->selectField( 'revision', 'COUNT(*)',
-				array( 'rev_page' => $this->getId(),
-					'rev_timestamp > ' . $db->addQuotes( $srevTS ) ), // bug 15515
+				[ 'rev_page' => $this->getId(),
+					'rev_timestamp > ' . $db->addQuotes( $srevTS ) ], // bug 15515
 				__METHOD__ );
 			# Save result to cache...
 			$data = FlaggedRevs::makeMemcObj( "{$sRevId}-{$count}" );
@@ -318,18 +318,18 @@ class FlaggableWikiPage extends WikiPage {
 	public function getBestFlaggedRevId() {
 		$dbr = wfGetDB( DB_SLAVE );
 		# Get the highest quality revision (not necessarily this one).
-		$oldid = $dbr->selectField( array( 'flaggedrevs', 'revision' ),
+		$oldid = $dbr->selectField( [ 'flaggedrevs', 'revision' ],
 			'fr_rev_id',
-			array(
+			[
 				'fr_page_id' => $this->getId(),
 				'rev_page = fr_page_id', // sanity
 				'rev_id = fr_rev_id',
 				$dbr->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0'
-			),
+			],
 			__METHOD__,
-			array(
+			[
 				'ORDER BY' 	=> 'fr_quality DESC, fr_rev_timestamp DESC'
-			)
+			]
 		);
 		return (int)$oldid;
 	}
@@ -345,8 +345,8 @@ class FlaggableWikiPage extends WikiPage {
 		JobQueueGroup::singleton()->push( EnqueueJob::newFromLocalJobs(
 			new JobSpecification(
 				'flaggedrevs_CacheUpdate',
-				array( 'type' => 'updatesyncstate' ),
-				array( 'removeDuplicates' => true ),
+				[ 'type' => 'updatesyncstate' ],
+				[ 'removeDuplicates' => true ],
 				$this->getTitle()
 			)
 		) );
@@ -359,19 +359,19 @@ class FlaggableWikiPage extends WikiPage {
 	 * @param array $options
 	 * @return mixed Database result resource, or false on failure
 	 */
-	protected function pageData( $dbr, $conditions, $options = array() ) {
+	protected function pageData( $dbr, $conditions, $options = [] ) {
 		$row = $dbr->selectRow(
-			array( 'page', 'flaggedpages', 'flaggedpage_config' ),
+			[ 'page', 'flaggedpages', 'flaggedpage_config' ],
 			array_merge(
 				WikiPage::selectFields(),
 				FRPageConfig::selectFields(),
-				array( 'fp_pending_since', 'fp_stable', 'fp_reviewed' ) ),
+				[ 'fp_pending_since', 'fp_stable', 'fp_reviewed' ] ),
 			$conditions,
 			__METHOD__,
 			$options,
-			array(
-				'flaggedpages' 		 => array( 'LEFT JOIN', 'fp_page_id = page_id' ),
-				'flaggedpage_config' => array( 'LEFT JOIN', 'fpc_page_id = page_id' ) )
+			[
+				'flaggedpages' 		 => [ 'LEFT JOIN', 'fp_page_id = page_id' ],
+				'flaggedpage_config' => [ 'LEFT JOIN', 'fpc_page_id = page_id' ] ]
 		);
 		return $row;
 	}
@@ -432,15 +432,15 @@ class FlaggableWikiPage extends WikiPage {
 		if ( $srev->getQuality() === FlaggedRevs::highestReviewTier() ) {
 			$maxQuality = $srev->getQuality(); // save a query
 		} else {
-			$maxQuality = $dbw->selectField( array( 'flaggedrevs', 'revision' ),
+			$maxQuality = $dbw->selectField( [ 'flaggedrevs', 'revision' ],
 				'fr_quality',
-				array( 'fr_page_id' => $this->getId(),
+				[ 'fr_page_id' => $this->getId(),
 					'rev_id = fr_rev_id',
 					'rev_page = fr_page_id',
 					$dbw->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0'
-				),
+				],
 				__METHOD__,
-				array( 'ORDER BY' => 'fr_quality DESC', 'LIMIT' => 1 )
+				[ 'ORDER BY' => 'fr_quality DESC', 'LIMIT' => 1 ]
 			);
 			$maxQuality = max( $maxQuality, $srev->getQuality() ); // sanity
 		}
@@ -450,11 +450,11 @@ class FlaggableWikiPage extends WikiPage {
 			$timestamp = $dbw->timestamp( $rev->getTimestamp() );
 			$nextEditTS = $dbw->selectField( 'revision',
 				'rev_timestamp',
-				array(
+				[
 					'rev_page' => $this->getId(),
-					"rev_timestamp > " . $dbw->addQuotes( $timestamp ) ),
+					"rev_timestamp > " . $dbw->addQuotes( $timestamp ) ],
 				__METHOD__,
-				array( 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 1 )
+				[ 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 1 ]
 			);
 			if ( $nextEditTS ) { // sanity check
 				$nextTimestamp = $nextEditTS;
@@ -468,14 +468,14 @@ class FlaggableWikiPage extends WikiPage {
 		);
 		# Alter table metadata
 		$dbw->replace( 'flaggedpages',
-			array( 'fp_page_id' ),
-			array(
+			[ 'fp_page_id' ],
+			[
 				'fp_page_id'       => $this->getId(),
 				'fp_stable'        => $rev->getId(),
 				'fp_reviewed'      => $synced ? 1 : 0,
 				'fp_quality'       => ( $maxQuality === false ) ? null : $maxQuality,
 				'fp_pending_since' => $dbw->timestampOrNull( $nextTimestamp )
-			),
+			],
 			__METHOD__
 		);
 		# Update pending edit tracking table
@@ -493,9 +493,9 @@ class FlaggableWikiPage extends WikiPage {
 		}
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->delete( 'flaggedpages',
-			array( 'fp_page_id' => $this->getId() ), __METHOD__ );
+			[ 'fp_page_id' => $this->getId() ], __METHOD__ );
 		$dbw->delete( 'flaggedpage_pending',
-			array( 'fpp_page_id' => $this->getId() ), __METHOD__ );
+			[ 'fpp_page_id' => $this->getId() ], __METHOD__ );
 	}
 
 	/**
@@ -504,7 +504,7 @@ class FlaggableWikiPage extends WikiPage {
 	 * @param int $latest Latest revision
 	 */
 	protected static function updatePendingList( $pageId, $latest ) {
-		$data = array();
+		$data = [];
 		# Get the highest tier used on this wiki
 		$level = FlaggedRevs::highestReviewTier();
 
@@ -519,18 +519,18 @@ class FlaggableWikiPage extends WikiPage {
 			# for better INDEX usage. However, in order to treat a rev as the
 			# latest tier X rev, we make sure it is newer than all tier (X+1) revs.
 			$row = $dbw->selectRow(
-				array( 'flaggedrevs', 'revision' ),
-				array( 'fr_rev_id', 'rev_timestamp' ),
-				array(
+				[ 'flaggedrevs', 'revision' ],
+				[ 'fr_rev_id', 'rev_timestamp' ],
+				[
 					'fr_page_id' => $pageId,
 					'fr_quality' => $level, // this level
 					'fr_rev_timestamp > ' . $dbw->addQuotes( $higherLevelTS ),
 					'rev_id = fr_rev_id', // rev exists
 					'rev_page = fr_page_id', // sanity
 					$dbw->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0'
-				),
+				],
 				__METHOD__,
-				array( 'ORDER BY' => 'fr_rev_timestamp DESC', 'LIMIT' => 1 )
+				[ 'ORDER BY' => 'fr_rev_timestamp DESC', 'LIMIT' => 1 ]
 			);
 			# If there is a revision of this level, track it...
 			# Revisions accepted to one tier count as accepted
@@ -547,23 +547,23 @@ class FlaggableWikiPage extends WikiPage {
 				# Get the timestamp of the edit after this version (if any)
 				$nextTimestamp = $dbw->selectField( 'revision',
 					'rev_timestamp',
-					array( 'rev_page' => $pageId, "rev_timestamp > " . $dbw->addQuotes( $ts ) ),
+					[ 'rev_page' => $pageId, "rev_timestamp > " . $dbw->addQuotes( $ts ) ],
 					__METHOD__,
-					array( 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 1 )
+					[ 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 1 ]
 				);
-				$data[] = array(
+				$data[] = [
 					'fpp_page_id'       => $pageId,
 					'fpp_quality'       => $level,
 					'fpp_rev_id'        => $id,
 					'fpp_pending_since' => $nextTimestamp
-				);
+				];
 				$higherLevelId = $id;
 				$higherLevelTS = $ts;
 			}
 			$level--;
 		}
 		# Clear any old junk, and insert new rows
-		$dbw->delete( 'flaggedpage_pending', array( 'fpp_page_id' => $pageId ), __METHOD__ );
+		$dbw->delete( 'flaggedpage_pending', [ 'fpp_page_id' => $pageId ], __METHOD__ );
 		$dbw->insert( 'flaggedpage_pending', $data, __METHOD__ );
 	}
 }

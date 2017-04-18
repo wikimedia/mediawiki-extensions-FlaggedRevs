@@ -44,7 +44,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 		$params = $this->extractRequestParams();
 
 		// Construct SQL Query
-		$this->addTables( array( 'page', 'flaggedpages', 'revision' ) );
+		$this->addTables( [ 'page', 'flaggedpages', 'revision' ] );
 		$this->addWhereFld( 'page_namespace', $params['namespace'] );
 		if ( $params['filterredir'] == 'redirects' ) {
 			$this->addWhereFld( 'page_is_redirect', 1 );
@@ -60,7 +60,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 		}
 		if ( $params['filterwatched'] == 'watched' ) {
 			if ( !( $uid = $this->getUser()->getId() ) ) {
-				if ( is_callable( array( $this, 'dieWithError' ) ) ) {
+				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
 					$this->dieWithError( 'watchlistanontext', 'notloggedin' );
 				} else {
 					$this->dieUsage( 'You must be logged-in to have a watchlist', 'notloggedin' );
@@ -90,7 +90,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 		}
 
 		if ( is_null( $resultPageSet ) ) {
-			$this->addFields( array(
+			$this->addFields( [
 				'page_id',
 				'page_namespace',
 				'page_title',
@@ -100,7 +100,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 				'fp_stable',
 				'fp_pending_since',
 				'fp_quality'
-			) );
+			] );
 		} else {
 			$this->addFields( $resultPageSet->getPageTableFields() );
 			$this->addFields ( 'fp_pending_since' );
@@ -110,7 +110,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 		$this->addOption( 'LIMIT', $limit + 1 );
 		$res = $this->select( __METHOD__ );
 
-		$data = array();
+		$data = [];
 		$count = 0;
 		foreach( $res as $row ) {
 			if ( ++$count > $limit ) {
@@ -127,7 +127,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 				$title = Title::newFromRow( $row );
 				$underReview = FRUserActivity::diffIsUnderReview(
 					$row->fp_stable, $row->page_latest );
-				$data[] = array(
+				$data[] = [
 					'pageid' 			=> intval( $row->page_id ),
 					'ns' 				=> intval( $row->page_namespace ),
 					'title' 			=> $title->getPrefixedText(),
@@ -138,7 +138,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 					'flagged_level_text' => FlaggedRevs::getQualityLevelText( $row->fp_quality ),
 					'diff_size' 		=> (int)$row->page_len - (int)$row->rev_len,
 					'under_review' 		=> $underReview
-				);
+				];
 			} else {
 				$resultPageSet->processDbRow( $row );
 			}
@@ -162,55 +162,55 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 
 	public function getAllowedParams() {
 		$namespaces = FlaggedRevs::getReviewNamespaces();
-		return array(
-			'start' => array(
+		return [
+			'start' => [
 				ApiBase::PARAM_TYPE => 'timestamp'
-			),
-			'end' => array(
+			],
+			'end' => [
 				ApiBase::PARAM_TYPE => 'timestamp'
-			),
-			'dir' => array(
+			],
+			'dir' => [
 				ApiBase::PARAM_DFLT => 'newer',
-				ApiBase::PARAM_TYPE => array( 'newer', 'older' ),
+				ApiBase::PARAM_TYPE => [ 'newer', 'older' ],
 				/** @todo Once support for MediaWiki < 1.25 is dropped, just use ApiBase::PARAM_HELP_MSG directly */
 				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'api-help-param-direction',
-			),
-			'maxsize' => array(
+			],
+			'maxsize' => [
 				ApiBase::PARAM_TYPE => 'integer',
 				ApiBase::PARAM_DFLT => null,
 				ApiBase::PARAM_MIN 	=> 0
-			),
-			'filterwatched' => array(
+			],
+			'filterwatched' => [
 				ApiBase::PARAM_DFLT => 'all',
-				ApiBase::PARAM_TYPE => array( 'watched', 'all' )
-			),
-			'namespace' => array(
+				ApiBase::PARAM_TYPE => [ 'watched', 'all' ]
+			],
+			'namespace' => [
 				ApiBase::PARAM_DFLT => !$namespaces ? NS_MAIN : $namespaces[0],
 				ApiBase::PARAM_TYPE => 'namespace',
 				ApiBase::PARAM_ISMULTI => true,
-			),
-			'category' => array(
+			],
+			'category' => [
 				ApiBase::PARAM_TYPE => 'string'
-			),
-			'filterredir' => array(
+			],
+			'filterredir' => [
 				ApiBase::PARAM_DFLT => 'all',
-				ApiBase::PARAM_TYPE => array( 'redirects', 'nonredirects', 'all' )
-			),
-			'limit' => array(
+				ApiBase::PARAM_TYPE => [ 'redirects', 'nonredirects', 'all' ]
+			],
+			'limit' => [
 				ApiBase::PARAM_DFLT => 10,
 				ApiBase::PARAM_TYPE => 'limit',
 				ApiBase::PARAM_MIN 	=> 1,
 				ApiBase::PARAM_MAX 	=> ApiBase::LIMIT_BIG1,
 				ApiBase::PARAM_MAX2 => ApiBase::LIMIT_BIG2
-			)
-		);
+			]
+		];
 	}
 
 	/**
 	 * @deprecated since MediaWiki core 1.25
 	 */
 	public function getParamDescription() {
-		return array(
+		return [
 			'start' 	  	=> 'Start listing at this timestamp.',
 			'end'			=> 'Stop listing at this timestamp.',
 			'namespace' 	=> 'The namespaces to enumerate.',
@@ -219,12 +219,12 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 			'category'      => 'Show pages only in the given category.',
 			'filterwatched' => 'How to filter for pages on your watchlist.',
 			'limit' 		=> 'How many total pages to return.',
-			'dir' 			=> array(
+			'dir' 			=> [
 				'In which direction to list.',
 				'*newer: list the longest waiting pages first',
 				'*older: list the newest items first'
-			)
-		);
+			]
+		];
 	}
 
 	/**
@@ -238,23 +238,23 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 	 * @deprecated since MediaWiki core 1.25
 	 */
 	public function getExamples() {
-		return array(
+		return [
 			'Show a list of pages with pending unreviewed changes',
 			' api.php?action=query&list=oldreviewedpages&ornamespace=0',
 			'Show info about some old reviewed pages',
 			' api.php?action=query&generator=oldreviewedpages&gorlimit=4&prop=info',
-		);
+		];
 	}
 
 	/**
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=query&list=oldreviewedpages&ornamespace=0'
 				=> 'apihelp-query+oldreviewedpages-example-1',
 			'action=query&generator=oldreviewedpages&gorlimit=4&prop=info'
 				=> 'apihelp-query+oldreviewedpages-example-2',
-		);
+		];
 	}
 }

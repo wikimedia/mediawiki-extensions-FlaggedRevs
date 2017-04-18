@@ -73,14 +73,14 @@ class ValidationStatistics extends IncludableSpecialPage {
 		# Show per-namespace stats table...
 		$out->addWikiMsg( 'validationstatistics-table' );
 		$out->addHTML(
-			Xml::openElement( 'table', array( 'class' => 'wikitable flaggedrevs_stats_table' ) )
+			Xml::openElement( 'table', [ 'class' => 'wikitable flaggedrevs_stats_table' ] )
 		);
 		$out->addHTML( "<tr>\n" );
 		// Headings (for a positive grep result):
 		// validationstatistics-ns, validationstatistics-total, validationstatistics-stable,
 		// validationstatistics-latest, validationstatistics-synced, validationstatistics-old,
 		// validationstatistics-unreviewed
-		$msgs = array( 'ns', 'total', 'stable', 'latest', 'synced', 'old' ); // our headings
+		$msgs = [ 'ns', 'total', 'stable', 'latest', 'synced', 'old' ]; // our headings
 		if ( !$wgFlaggedRevsProtection ) {
 			$msgs[] = 'unreviewed';
 		}
@@ -149,8 +149,8 @@ class ValidationStatistics extends IncludableSpecialPage {
 					<td>" .
 						Linker::linkKnown( SpecialPage::getTitleFor( 'PendingChanges' ),
 							htmlspecialchars( $outdated ),
-							array(),
-							array( 'namespace' => $namespace )
+							[],
+							[ 'namespace' => $namespace ]
 						) .
 					"</td>"
 			);
@@ -159,8 +159,8 @@ class ValidationStatistics extends IncludableSpecialPage {
 					<td>" .
 						Linker::linkKnown( SpecialPage::getTitleFor( 'UnreviewedPages' ),
 							htmlspecialchars( $unreviewed ),
-							array(),
-							array( 'namespace' => $namespace )
+							[],
+							[ 'namespace' => $namespace ]
 						) .
 					"</td>"
 				);
@@ -232,19 +232,19 @@ class ValidationStatistics extends IncludableSpecialPage {
 
 	protected function getEditorCount() {
 		return $this->db->selectField( 'user_groups', 'COUNT(*)',
-			array(
+			[
 				'ug_group' => 'editor',
 				'ug_expiry IS NULL OR ug_expiry >= ' . $this->db->addQuotes( $this->db->timestamp() )
-			),
+			],
 			__METHOD__ );
 	}
 
 	protected function getReviewerCount() {
 		return $this->db->selectField( 'user_groups', 'COUNT(*)',
-			array(
+			[
 				'ug_group' => 'reviewer',
 				'ug_expiry IS NULL OR ug_expiry >= ' . $this->db->addQuotes( $this->db->timestamp() )
-			),
+			],
 			__METHOD__ );
 	}
 
@@ -317,18 +317,18 @@ class ValidationStatistics extends IncludableSpecialPage {
 		$seconds = 3600*$wgFlaggedRevsStats['topReviewersHours'];
 		$cutoff = $dbr->timestamp( time() - $seconds );
 		$res = $dbr->select( 'logging',
-			array( 'log_user', 'COUNT(*) AS reviews' ),
-			array(
+			[ 'log_user', 'COUNT(*) AS reviews' ],
+			[
 				'log_type' => 'review', // page reviews
 				// manual approvals (filter on log_action)
-				'log_action' => array( 'approve', 'approve2', 'approve-i', 'approve2-i' ),
+				'log_action' => [ 'approve', 'approve2', 'approve-i', 'approve2-i' ],
 				'log_timestamp >= ' . $dbr->addQuotes( $cutoff ) // last hour
-			),
+			],
 			__METHOD__,
-			array( 'GROUP BY' => 'log_user', 'ORDER BY' => 'reviews DESC', 'LIMIT' => $limit )
+			[ 'GROUP BY' => 'log_user', 'ORDER BY' => 'reviews DESC', 'LIMIT' => $limit ]
 		);
 
-		$data = array();
+		$data = [];
 		foreach ( $res as $row ) {
 			$data[$row->log_user] = $row->reviews;
 		}

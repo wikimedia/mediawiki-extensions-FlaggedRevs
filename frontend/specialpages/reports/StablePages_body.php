@@ -17,7 +17,7 @@ class StablePages extends SpecialPage {
 		$this->autoreview = $request->getVal( 'restriction', '' );
 		$this->indef = $request->getBool( 'indef', false );
 
-		$this->pager = new StablePagesPager( $this, array(),
+		$this->pager = new StablePagesPager( $this, [],
 			$this->namespace, $this->autoreview, $this->indef );
 
 		$this->showForm();
@@ -30,7 +30,7 @@ class StablePages extends SpecialPage {
 		$this->getOutput()->addWikiMsg( 'stablepages-list',
 			$this->getLanguage()->formatNum( $this->pager->getNumRows() ) );
 
-		$fields = array();
+		$fields = [];
 		// Namespace selector
 		if ( count( FlaggedRevs::getReviewNamespaces() ) > 1 ) {
 			$fields[] = FlaggedRevsXML::getNamespaceMenu( $this->namespace, '' );
@@ -43,7 +43,7 @@ class StablePages extends SpecialPage {
 			'stablepages-indef', $this->indef );
 
 		$form = Html::openElement( 'form',
-			array( 'name' => 'stablepages', 'action' => $wgScript, 'method' => 'get' ) );
+			[ 'name' => 'stablepages', 'action' => $wgScript, 'method' => 'get' ] );
 		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBKey() );
 		$form .= "<fieldset><legend>" . $this->msg( 'stablepages' )->text() . "</legend>\n";
 		$form .= implode( '&#160;', $fields ) . '&nbsp';
@@ -70,17 +70,17 @@ class StablePages extends SpecialPage {
 		// Link to page
 		$link = Linker::link( $title );
 		// Helpful utility links
-		$utilLinks = array();
+		$utilLinks = [];
 		$utilLinks[] = Linker::link(
 			$title,
 			$this->msg( 'stablepages-config' )->escaped(),
-			array(), array( 'action' => 'protect' ), 'known' );
+			[], [ 'action' => 'protect' ], 'known' );
 		$utilLinks[] = Linker::link( $title,
 			$this->msg( 'history' )->escaped(),
-			array(), array( 'action' => 'history' ), 'known' );
+			[], [ 'action' => 'history' ], 'known' );
 		$utilLinks[] = Linker::link( SpecialPage::getTitleFor( 'Log', 'stable' ),
 			$this->msg( 'stable-logpage' )->escaped(),
-			array(), array( 'page' => $title->getPrefixedText() ), 'known' );
+			[], [ 'page' => $title->getPrefixedText() ], 'known' );
 		// Autoreview/review restriction level
 		$restr = '';
 		if ( $row->fpc_level != '' ) {
@@ -120,7 +120,7 @@ class StablePagesPager extends AlphabeticPager {
 	 * @param string $autoreview ('' for "all", 'none' for no restriction)
 	 * @param $indef
 	 */
-	function __construct( $form, $conds = array(), $namespace, $autoreview, $indef ) {
+	function __construct( $form, $conds = [], $namespace, $autoreview, $indef ) {
 		$this->mForm = $form;
 		$this->mConds = $conds;
 		$this->indef = $indef;
@@ -162,13 +162,13 @@ class StablePagesPager extends AlphabeticPager {
 			$encCutoff = $this->mDb->addQuotes( $this->mDb->timestamp() );
 			$conds[] = "fpc_expiry > {$encCutoff}";
 		}
-		return array(
-			'tables' => array( 'flaggedpage_config', 'page' ),
-			'fields' => array( 'page_namespace', 'page_title', 'fpc_override',
-				'fpc_expiry', 'fpc_page_id', 'fpc_level' ),
+		return [
+			'tables' => [ 'flaggedpage_config', 'page' ],
+			'fields' => [ 'page_namespace', 'page_title', 'fpc_override',
+				'fpc_expiry', 'fpc_page_id', 'fpc_level' ],
 			'conds'  => $conds,
-			'options' => array()
-		);
+			'options' => []
+		];
 	}
 
 	function getIndexField() {

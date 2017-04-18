@@ -9,7 +9,7 @@ $IP = getenv( 'MW_INSTALL_PATH' );
 if ( strval( $IP ) == '' ) {
 	$IP = dirname( __FILE__ ) . '/../../..';
 }
-$optionsWithArgs = array( 'backup' );
+$optionsWithArgs = [ 'backup' ];
 require( "$IP/maintenance/commandLine.inc" );
 
 $pageId = 0;
@@ -33,28 +33,28 @@ if ( !$backupFile ) {
 
 while ( true ) {
 	$res = $dbr->select( 'flaggedrevs', '*', 
-		array(
+		[
 			"fr_page_id > $pageId OR (fr_page_id = $pageId AND fr_rev_id > $revId)",
 			"fr_flags NOT LIKE '%dynamic%'",
-		), __METHOD__, array( 'LIMIT' => $batchSize )
+		], __METHOD__, [ 'LIMIT' => $batchSize ]
 	);
 	if ( !$res->numRows() ) {
 		break;
 	}
 	foreach ( $res as $row ) {
 		$flags = explode( ',', $row->fr_flags );
-		$backupRecord = array( $row->fr_page_id, $row->fr_rev_id, $row->fr_flags, $row->fr_text );
+		$backupRecord = [ $row->fr_page_id, $row->fr_rev_id, $row->fr_flags, $row->fr_text ];
 		fwrite( $backupFile, implode( "\t", array_map( 'rawurlencode', $backupRecord ) ) . "\n" );
 
 		$dbw->update( 'flaggedrevs', 
-			array( /* SET */
+			[ /* SET */
 				'fr_text' => '',
 				'fr_flags' => 'dynamic',
-			),
-			array( /* WHERE */
+			],
+			[ /* WHERE */
 				'fr_page_id' => $row->fr_page_id,
 				'fr_rev_id' => $row->fr_rev_id,
-			),
+			],
 			__METHOD__
 		);
 	}

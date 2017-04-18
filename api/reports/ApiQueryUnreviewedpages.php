@@ -44,7 +44,7 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 		$params = $this->extractRequestParams();
 
 		// Construct SQL Query
-		$this->addTables( array( 'page', 'flaggedpages' ) );
+		$this->addTables( [ 'page', 'flaggedpages' ] );
 		$this->addWhereFld( 'page_namespace', $params['namespace'] );
 		if ( $params['filterredir'] == 'redirects' ) {
 			$this->addWhereFld( 'page_is_redirect', 1 );
@@ -61,23 +61,23 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 			$params['end']
 		);
 		$this->addJoinConds(
-			array( 'flaggedpages' => array ( 'LEFT JOIN', 'fp_page_id=page_id' ) )
+			[ 'flaggedpages' => [ 'LEFT JOIN', 'fp_page_id=page_id' ] ]
 		);
 		$this->addWhere( 'fp_page_id IS NULL OR
 			fp_quality < ' . intval( $params['filterlevel'] ) );
 		$this->addOption(
 			'USE INDEX',
-			array( 'page' => 'name_title', 'flaggedpages' => 'PRIMARY' )
+			[ 'page' => 'name_title', 'flaggedpages' => 'PRIMARY' ]
 		);
 
 		if ( is_null( $resultPageSet ) ) {
-			$this->addFields( array (
+			$this->addFields( [
 				'page_id',
 				'page_namespace',
 				'page_title',
 				'page_len',
 				'page_latest',
-			) );
+			] );
 		} else {
 			$this->addFields( $resultPageSet->getPageTableFields() );
 		}
@@ -86,7 +86,7 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 		$this->addOption( 'LIMIT', $limit + 1 );
 		$res = $this->select( __METHOD__ );
 
-		$data = array ();
+		$data = [];
 		$count = 0;
 		foreach( $res as $row ) {
 			if ( ++$count > $limit ) {
@@ -98,13 +98,13 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 
 			if ( is_null( $resultPageSet ) ) {
 				$title = Title::newFromRow( $row );
-				$data[] = array(
+				$data[] = [
 					'pageid'        => intval( $row->page_id ),
 					'ns'            => intval( $title->getNamespace() ),
 					'title'         => $title->getPrefixedText(),
 					'revid'         => intval( $row->page_latest ),
 					'under_review'  => FRUserActivity::pageIsUnderReview( $row->page_id )
-				);
+				];
 			} else {
 				$resultPageSet->processDbRow( $row );
 			}
@@ -123,51 +123,51 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 
 	public function getAllowedParams() {
 		$namespaces = FlaggedRevs::getReviewNamespaces();
-		return array (
-			'start' => array (
+		return [
+			'start' => [
 				ApiBase::PARAM_TYPE => 'string'
-			),
-			'end' => array (
+			],
+			'end' => [
 				ApiBase::PARAM_TYPE => 'string'
-			),
-			'dir' => array(
+			],
+			'dir' => [
 				ApiBase::PARAM_DFLT => 'ascending',
-				ApiBase::PARAM_TYPE => array( 'ascending', 'descending' ),
-			),
-			'namespace' => array (
+				ApiBase::PARAM_TYPE => [ 'ascending', 'descending' ],
+			],
+			'namespace' => [
 				ApiBase::PARAM_DFLT => !$namespaces ? NS_MAIN : $namespaces[0],
 				ApiBase::PARAM_TYPE => 'namespace',
 				ApiBase::PARAM_ISMULTI => true,
-			),
-			'filterredir' => array (
+			],
+			'filterredir' => [
 				ApiBase::PARAM_DFLT => 'all',
-				ApiBase::PARAM_TYPE => array (
+				ApiBase::PARAM_TYPE => [
 					'redirects',
 					'nonredirects',
 					'all'
-				)
-			),
-			'filterlevel' =>  array (
+				]
+			],
+			'filterlevel' =>  [
 				ApiBase::PARAM_DFLT => 0,
 				ApiBase::PARAM_TYPE => 'integer',
 				ApiBase::PARAM_MIN  => 0,
 				ApiBase::PARAM_MAX  => 2,
-			),
-			'limit' => array (
+			],
+			'limit' => [
 				ApiBase::PARAM_DFLT => 10,
 				ApiBase::PARAM_TYPE => 'limit',
 				ApiBase::PARAM_MIN => 1,
 				ApiBase::PARAM_MAX => ApiBase::LIMIT_BIG1,
 				ApiBase::PARAM_MAX2 => ApiBase::LIMIT_BIG2
-			)
-		);
+			]
+		];
 	}
 
 	/**
 	 * @deprecated since MediaWiki core 1.25
 	 */
 	public function getParamDescription() {
-		return array (
+		return [
 			'start'         => 'Start listing at this page title.',
 			'end'           => 'Stop listing at this page title.',
 			'dir'           => 'Direction to sort in',
@@ -175,7 +175,7 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 			'filterredir'   => 'How to filter for redirects',
 			'filterlevel'   => 'How to filter by quality (0=checked,1=quality)',
 			'limit'         => 'How many total pages to return.',
-		);
+		];
 	}
 
 	/**
@@ -189,23 +189,23 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 	 * @deprecated since MediaWiki core 1.25
 	 */
 	public function getExamples() {
-		return array (
+		return [
 			'Show a list of unreviewed pages',
 			' api.php?action=query&list=unreviewedpages&urnamespace=0&urfilterlevel=0',
 			'Show info about some unreviewed pages',
 			' api.php?action=query&generator=unreviewedpages&urnamespace=0&gurlimit=4&prop=info',
-		);
+		];
 	}
 
 	/**
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=query&list=unreviewedpages&urnamespace=0&urfilterlevel=0'
 				=> 'apihelp-query+unreviewedpages-example-1',
 			'action=query&generator=unreviewedpages&urnamespace=0&gurlimit=4&prop=info'
 				=> 'apihelp-query+unreviewedpages-example-2',
-		);
+		];
 	}
 }

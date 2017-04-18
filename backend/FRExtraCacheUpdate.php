@@ -43,7 +43,7 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 		}
 		$numBatches = ceil( $numRows / $this->mRowsPerJob );
 		$realBatchSize = ceil( $numRows / $numBatches );
-		$jobs = array();
+		$jobs = [];
 		do {
 			$first = $last = false; // first/last page_id of this batch
 			# Get $realBatchSize items (or less if not enough)...
@@ -63,12 +63,12 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 			}
 			# Insert batch into the queue if there is anything there
 			if ( $first ) {
-				$params = array(
+				$params = [
 					'type'  => 'purge',
 					'table' => $this->mTable,
 					'start' => $first,
 					'end'   => $last,
-				);
+				];
 				$jobs[] = new FRExtraCacheUpdateJob( $this->mTitle, $params );
 			}
 			$start = $id; // Where the last ID left off
@@ -82,8 +82,8 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 	}
 
 	public function getToCondition() {
-		return array( 'ftr_namespace' => $this->mTitle->getNamespace(),
-			'ftr_title' => $this->mTitle->getDBkey() );
+		return [ 'ftr_namespace' => $this->mTitle->getNamespace(),
+			'ftr_title' => $this->mTitle->getDBkey() ];
 	}
 
 	/**
@@ -99,7 +99,7 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 
 		while ( !$done ) {
 			# Get all IDs in this query into an array
-			$ids = array();
+			$ids = [];
 			for ( $i = 0; $i < $this->mRowsPerQuery; $i++ ) {
 				$row = $res->fetchRow();
 				if ( $row ) {
@@ -111,8 +111,8 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 			}
 			if ( count( $ids ) == 0 ) break;
 			# Update page_touched
-			$dbw->update( 'page', array( 'page_touched' => $timestamp ),
-				array( 'page_id' => $ids ), __METHOD__ );
+			$dbw->update( 'page', [ 'page_touched' => $timestamp ],
+				[ 'page_id' => $ids ], __METHOD__ );
 			# Update static caches
 			if ( $wgUseSquid || $wgUseFileCache ) {
 				$titles = Title::newFromIDs( $ids );

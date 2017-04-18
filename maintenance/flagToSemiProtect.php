@@ -65,12 +65,12 @@ class FlagProtectToSemiProtect extends Maintenance {
 		while ( $blockEnd <= $end ) {
 			$this->output( "...doing fpc_page_id from $blockStart to $blockEnd\n" );
 			$res = $db->select(
-				array( 'flaggedpage_config', 'page' ),
-				array( 'fpc_page_id', 'fpc_level', 'fpc_expiry' ), 
-				array( "fpc_page_id BETWEEN $blockStart AND $blockEnd",
+				[ 'flaggedpage_config', 'page' ],
+				[ 'fpc_page_id', 'fpc_level', 'fpc_expiry' ], 
+				[ "fpc_page_id BETWEEN $blockStart AND $blockEnd",
 					'page_namespace' => $wgFlaggedRevsNamespaces,
 					'page_id = fpc_page_id',
-					"fpc_level != ''" ),
+					"fpc_level != ''" ],
 				__FUNCTION__
 			);
 			# Go through and protect each page...
@@ -86,8 +86,8 @@ class FlagProtectToSemiProtect extends Maintenance {
 					: wfTimestamp( TS_MW, $row->fpc_expiry );
 				# Build the new protection settings
 				$cascade = 0;
-				$limit = $expiry = array();
-				$desc = array(); // for output
+				$limit = $expiry = [];
+				$desc = []; // for output
 				foreach ( $title->getRestrictionTypes() as $type ) {
 					# Get existing restrictions for this action
 					$oldLimit = $title->getRestrictions( $type ); // array

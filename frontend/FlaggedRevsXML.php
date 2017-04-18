@@ -35,7 +35,7 @@ class FlaggedRevsXML {
 		$s .= "\n<select id='namespace' name='namespace' class='namespaceselector'>\n";
 		$arr = $wgContLang->getFormattedNamespaces();
 		if ( !is_null( $all ) ) {
-			$arr = array( $all => wfMessage( 'namespacesall' )->text() ) + $arr; // should be first
+			$arr = [ $all => wfMessage( 'namespacesall' )->text() ] + $arr; // should be first
 		}
 		foreach ( $arr as $index => $name ) {
 			# Content pages only (except 'all')
@@ -44,10 +44,10 @@ class FlaggedRevsXML {
 			}
 			$name = $index !== 0 ? $name : wfMessage( 'blanknamespace' )->text();
 			if ( $index === $selected ) {
-				$s .= "\t" . Xml::element( "option", array( "value" => $index,
-					"selected" => "selected" ), $name ) . "\n";
+				$s .= "\t" . Xml::element( "option", [ "value" => $index,
+					"selected" => "selected" ], $name ) . "\n";
 			} else {
-				$s .= "\t" . Xml::element( "option", array( "value" => $index ), $name ) . "\n";
+				$s .= "\t" . Xml::element( "option", [ "value" => $index ], $name ) . "\n";
 			}
 		}
 		$s .= "</select>\n";
@@ -65,7 +65,7 @@ class FlaggedRevsXML {
 		$selected = null, $all = 'revreview-filter-all', $max = 2
 	) {
 		$s = "<label for='wpLevel'>" . wfMessage( 'revreview-levelfilter' )->escaped() . "</label>\n";
-		$s .= Xml::openElement( 'select', array( 'name' => 'level', 'id' => 'wpLevel' ) );
+		$s .= Xml::openElement( 'select', [ 'name' => 'level', 'id' => 'wpLevel' ] );
 		if ( $all !== false ) {
 			$s .= Xml::option( wfMessage( $all )->text(), - 1, $selected === - 1 );
 		}
@@ -92,7 +92,7 @@ class FlaggedRevsXML {
 		}
 		$s = Xml::label( wfMessage( 'revreview-defaultfilter' )->text(), 'wpStable' ) . "\n";
 		$s .= Xml::openElement( 'select',
-			array( 'name' => 'stable', 'id' => 'wpStable' ) );
+			[ 'name' => 'stable', 'id' => 'wpStable' ] );
 		$s .= Xml::option( wfMessage( 'revreview-def-all' )->text(), '', $selected == '' );
 		$s .= Xml::option( wfMessage( 'revreview-def-stable' )->text(), 1, $selected === 1 );
 		$s .= Xml::option( wfMessage( 'revreview-def-draft' )->text(), 0, $selected === 0 );
@@ -111,7 +111,7 @@ class FlaggedRevsXML {
 		}
 		$s = Xml::label( wfMessage( 'revreview-restrictfilter' )->text(), 'wpRestriction' ) . "\n";
 		$s .= Xml::openElement( 'select',
-			array( 'name' => 'restriction', 'id' => 'wpRestriction' ) );
+			[ 'name' => 'restriction', 'id' => 'wpRestriction' ] );
 		$s .= Xml::option( wfMessage( 'revreview-restriction-any' )->text(), '', $selected == '' );
 		if ( !FlaggedRevs::useProtectionLevels() ) {
 			# All "protected" pages have a protection level, not "none"
@@ -140,7 +140,7 @@ class FlaggedRevsXML {
 	 */
 	public static function getStatusFilterMenu( $selected = null ) {
 		$s = "<label for='wpStatus'>" . wfMessage( 'revreview-statusfilter' )->escaped() . "</label>\n";
-		$s .= Xml::openElement( 'select', array( 'name' => 'status', 'id' => 'wpStatus' ) );
+		$s .= Xml::openElement( 'select', [ 'name' => 'status', 'id' => 'wpStatus' ] );
 		$s .= Xml::option( wfMessage( "revreview-filter-all" )->text(), - 1, $selected === - 1 );
 		$s .= Xml::option( wfMessage( "revreview-filter-approved" )->text(), 1, $selected === 1 );
 		$s .= Xml::option( wfMessage( "revreview-filter-reapproved" )->text(), 2, $selected === 2 );
@@ -156,7 +156,7 @@ class FlaggedRevsXML {
 	 */
 	public static function getAutoFilterMenu( $selected = null ) {
 		$s = "<label for='wpApproved'>" . wfMessage( 'revreview-typefilter' )->escaped() . "</label>\n";
-		$s .= Xml::openElement( 'select', array( 'name' => 'automatic', 'id' => 'wpApproved' ) );
+		$s .= Xml::openElement( 'select', [ 'name' => 'automatic', 'id' => 'wpApproved' ] );
 		$s .= Xml::option( wfMessage( "revreview-filter-all" )->text(), - 1, $selected === - 1 );
 		$s .= Xml::option( wfMessage( "revreview-filter-manual" )->text(), 0, $selected === 0 );
 		$s .= Xml::option( wfMessage( "revreview-filter-auto" )->text(), 1, $selected === 1 );
@@ -287,10 +287,10 @@ class FlaggedRevsXML {
 		// For rel-absolute child div (the fly-out)
 		$box .= '<div id="mw-fr-revisiondetails-wrapper" style="position:relative;">';
 		$box .= Xml::openElement( 'div',
-			array(
+			[
 				'id'    => 'mw-fr-revisiondetails',
 				'class' => 'flaggedrevs_short_details',
-				'style' => 'display:none' )
+				'style' => 'display:none' ]
 		);
 		$box .= $html; // details text
 		# Add any rating tags as needed...
@@ -445,10 +445,10 @@ class FlaggedRevsXML {
 	 */
 	public static function stabilityLogExcerpt( $article ) {
 		$logHtml = '';
-		$params = array(
+		$params = [
 			'lim'   => 1,
 			'flags' => LogEventsList::NO_EXTRA_USER_LINKS
-		);
+		];
 		LogEventsList::showLogExtract( $logHtml, 'stable',
 			$article->getTitle()->getPrefixedText(), '', $params );
 		return "<div id=\"mw-fr-logexcerpt\">$logHtml</div>";

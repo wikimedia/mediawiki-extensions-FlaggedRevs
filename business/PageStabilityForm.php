@@ -14,7 +14,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	protected $override = -1;           # Default version
 	protected $autoreview = '';         # Autoreview restrictions...
 
-	protected $oldConfig = array(); # Old page config
+	protected $oldConfig = []; # Old page config
 
 	public function getPage() {
 		return $this->page;
@@ -302,7 +302,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		$oldLatest = $nullRev->getParentId();
 		$article->updateRevisionOn( $dbw, $nullRev, $oldLatest );
 		Hooks::run( 'NewRevisionFromEditComplete',
-			array( $article, $nullRev, $oldLatest, $this->user ) );
+			[ $article, $nullRev, $oldLatest, $this->user ] );
 
 		# Return null Revision object for autoreview check
 		return $nullRev;
@@ -316,7 +316,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		if ( $this->getState() == self::FORM_UNREADY ) {
 			throw new Exception( __CLASS__ . " input fields not set yet.\n");
 		}
-		if ( $this->oldConfig === array() && $this->page ) {
+		if ( $this->oldConfig === [] && $this->page ) {
 			$this->oldConfig = FRPageConfig::getStabilitySettings( $this->page );
 		}
 		return $this->oldConfig;
@@ -327,11 +327,11 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	 * @return array
 	 */
 	public function getNewConfig() {
-		return array(
+		return [
 			'override'   => $this->override,
 			'autoreview' => $this->autoreview,
 			'expiry'     => $this->getExpiry(), // TS_MW/infinity
-		);
+		];
 	}
 
 	/**
@@ -408,10 +408,10 @@ class PageStabilityProtectForm extends PageStabilityForm {
 			? 1 // edits require review before being published
 			: (int)FlaggedRevs::isStableShownByDefault(); // site default
 		# Check that settings are a valid protection level...
-		$newConfig = array(
+		$newConfig = [
 			'override'   => $this->override,
 			'autoreview' => $this->autoreview
-		);
+		];
 		if ( FRPageConfig::getProtectionLevel( $newConfig ) == 'invalid' ) {
 			return 'stabilize_invalid_level'; // double-check configuration
 		}

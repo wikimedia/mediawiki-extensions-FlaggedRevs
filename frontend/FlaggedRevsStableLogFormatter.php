@@ -16,7 +16,7 @@ class FlaggedRevsStableLogFormatter extends LogFormatter {
 			$settings = $this->entry->isLegacy() ? FlaggedRevsLog::expandParams( $settings ) : $settings;
 			$params[3] = self::stabilitySettings( $settings , false );
 		} else {
-			$oldName = $this->makePageLink( Title::newFromText( $params[3] ), array( 'redirect' => 'no' ) );
+			$oldName = $this->makePageLink( Title::newFromText( $params[3] ), [ 'redirect' => 'no' ] );
 			$params[3] = Message::rawParam( $oldName );
 		}
 		return $params;
@@ -27,8 +27,8 @@ class FlaggedRevsStableLogFormatter extends LogFormatter {
 		$hist = Linker::link(
 			$this->entry->getTarget(),
 			wfMessage( 'hist' )->escaped(),
-			array(),
-			array( 'action' => 'history', 'offset' => $this->entry->getTimestamp() )
+			[],
+			[ 'action' => 'history', 'offset' => $this->entry->getTimestamp() ]
 		);
 		$hist = wfMessage( 'parentheses' )->rawParams( $hist )->escaped();
 		return $hist;
@@ -44,7 +44,7 @@ class FlaggedRevsStableLogFormatter extends LogFormatter {
 	 */
 	public static function stabilitySettings( array $pars, $forContent ) {
 		global $wgLang, $wgContLang;
-		$set = array();
+		$set = [];
 		$settings = '';
 		$langObj = $forContent ? $wgContLang : $wgLang;
 		// Protection-based or deferral-based configs (precedence never changed)...

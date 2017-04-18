@@ -6,18 +6,18 @@
  */
 class FlaggedRevs {
 	# Tag name/level config
-	protected static $dimensions = array();
-	protected static $minSL = array();
-	protected static $minQL = array();
-	protected static $minPL = array();
+	protected static $dimensions = [];
+	protected static $minSL = [];
+	protected static $minQL = [];
+	protected static $minPL = [];
 	protected static $qualityVersions = false;
 	protected static $pristineVersions = false;
-	protected static $tagRestrictions = array();
+	protected static $tagRestrictions = [];
 	protected static $binaryFlagging = true;
 	# Namespace config
-	protected static $reviewNamespaces = array();
+	protected static $reviewNamespaces = [];
 	# Restriction levels/config
-	protected static $restrictionLevels = array();
+	protected static $restrictionLevels = [];
 	# Autoreview config
 	protected static $autoReviewConfig = 0;
 
@@ -107,7 +107,7 @@ class FlaggedRevs {
 				wfWarn( 'Please update the format of $wgFlaggedRevsTags in config.' );
 			}
 			# Set FlaggedRevs tags
-			self::$dimensions[$tag] = array();
+			self::$dimensions[$tag] = [];
 			for ( $i = 0; $i <= $ratingLevels; $i++ ) {
 				self::$dimensions[$tag][$i] = "{$tag}-{$i}";
 			}
@@ -320,7 +320,7 @@ class FlaggedRevs {
 
 	/**
 	 * Get the associative array of tag dimensions
-	 * (tags => array(levels => msgkey))
+	 * (tags => [levels => msgkey])
 	 * @return array
 	 */
 	public static function getTags() {
@@ -330,7 +330,7 @@ class FlaggedRevs {
 
 	/**
 	 * Get the associative array of tag restrictions
-	 * (tags => array(rights => levels))
+	 * (tags => [rights => levels])
 	 * @return array
 	 */
 	public static function getTagRestrictions() {
@@ -355,7 +355,7 @@ class FlaggedRevs {
 	public static function getTagLevels( $tag ) {
 		self::load();
 		return isset( self::$dimensions[$tag] ) ?
-			self::$dimensions[$tag] : array();
+			self::$dimensions[$tag] : [];
 	}
 
 	/**
@@ -391,11 +391,11 @@ class FlaggedRevs {
 	 * @return string
 	 */
 	public static function getQualityLevelText( $level ) {
-		static $levelText = array(
+		static $levelText = [
 			0 => 'stable',
 			1 => 'quality',
 			2 => 'pristine'
-		);
+		];
 		if ( isset( $levelText[$level] ) ) {
 			return $levelText[$level];
 		} else {
@@ -410,11 +410,11 @@ class FlaggedRevs {
 	public static function diffOnlyCGI() {
 		$val = trim( wfMessage( 'flaggedrevs-diffonly' )->inContentLanguage()->text() );
 		if ( strpos( $val, '&diffonly=1' ) !== false ) {
-			return array( 'diffonly' => 1 );
+			return [ 'diffonly' => 1 ];
 		} elseif ( strpos( $val, '&diffonly=0' ) !== false ) {
-			return array( 'diffonly' => 0);
+			return [ 'diffonly' => 0];
 		}
-		return array();
+		return [];
 	}
 
 	# ################ Permission functions #################
@@ -487,7 +487,7 @@ class FlaggedRevs {
 	 * @param array $oldflags, pre-existing flags
 	 * @return bool
 	 */
-	public static function userCanSetFlags( $user, array $flags, $oldflags = array() ) {
+	public static function userCanSetFlags( $user, array $flags, $oldflags = [] ) {
 		if ( !$user->isAllowed( 'review' ) ) {
 			return false; // User is not able to review pages
 		}
@@ -558,7 +558,7 @@ class FlaggedRevs {
 		$work = new PoolCounterWorkViaCallback(
 			'ArticleView', // use standard parse PoolCounter config
 			$keyPrefix . ':revid:' . $frev->getRevId(),
-			array(
+			[
 				'doWork' => function () use ( $frev, $pOpts ) {
 					return FlaggedRevs::parseStableRevision( $frev, $pOpts );
 				},
@@ -573,7 +573,7 @@ class FlaggedRevs {
 				'error' => function ( Status $status ) {
 					return $status;
 				},
-			)
+			]
 		);
 
 		return $work->execute();
@@ -685,9 +685,9 @@ class FlaggedRevs {
 	 */
 	public static function clearTrackingRows( $pageId ) {
 		$dbw = wfGetDB( DB_MASTER );
-		$dbw->delete( 'flaggedpages', array( 'fp_page_id' => $pageId ), __METHOD__ );
-		$dbw->delete( 'flaggedrevs_tracking', array( 'ftr_from' => $pageId ), __METHOD__ );
-		$dbw->delete( 'flaggedpage_pending', array( 'fpp_page_id' => $pageId ), __METHOD__ );
+		$dbw->delete( 'flaggedpages', [ 'fp_page_id' => $pageId ], __METHOD__ );
+		$dbw->delete( 'flaggedrevs_tracking', [ 'ftr_from' => $pageId ], __METHOD__ );
+		$dbw->delete( 'flaggedpage_pending', [ 'fpp_page_id' => $pageId ], __METHOD__ );
 	}
 
 	/**
@@ -707,7 +707,7 @@ class FlaggedRevs {
 	 */
 	public static function clearStableOnlyDeps( $pageId ) {
 		$dbw = wfGetDB( DB_MASTER );
-		$dbw->delete( 'flaggedrevs_tracking', array( 'ftr_from' => $pageId ), __METHOD__ );
+		$dbw->delete( 'flaggedrevs_tracking', [ 'ftr_from' => $pageId ], __METHOD__ );
 	}
 
 	/**
@@ -756,8 +756,8 @@ class FlaggedRevs {
 		if ( $rcid ) {
 			$dbw = wfGetDB( DB_MASTER );
 			$dbw->update( 'recentchanges',
-				array( 'rc_patrolled' => 1 ),
-				array( 'rc_id' => $rcid ),
+				[ 'rc_patrolled' => 1 ],
+				[ 'rc_id' => $rcid ],
 				__METHOD__
 			);
 			return true;
@@ -773,7 +773,7 @@ class FlaggedRevs {
 	 * @return Object (val,time) tuple
 	 */
 	public static function makeMemcObj( $val ) {
-		$data = (object) array();
+		$data = (object) [];
 		$data->value = $val;
 		$data->time = wfTimestampNow();
 		return $data;
@@ -879,7 +879,7 @@ class FlaggedRevs {
 		if ( !self::autoReviewEdits() ) {
 			return null; // shouldn't happen
 		}
-		$flags = array();
+		$flags = [];
 		foreach ( self::getTags() as $tag ) {
 			# Try to keep this tag val the same as the stable rev's
 			$val = isset( $oldFlags[$tag] ) ? $oldFlags[$tag] : 1;
@@ -946,7 +946,7 @@ class FlaggedRevs {
 		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
 
 		if ( self::useSimpleConfig() ) {
-			$flags = array();
+			$flags = [];
 			$quality = FR_CHECKED;
 			$tags = '';
 		} else {
@@ -989,8 +989,8 @@ class FlaggedRevs {
 			$tVersions = $poutput->getTemplateIds();
 			$fVersions = $poutput->getFileSearchOptions();
 		} else {
-			$tVersions = $oldSv ? $oldSv->getTemplateVersions() : array();
-			$fVersions = $oldSv ? $oldSv->getFileVersions() : array();
+			$tVersions = $oldSv ? $oldSv->getTemplateVersions() : [];
+			$fVersions = $oldSv ? $oldSv->getFileVersions() : [];
 			foreach ( $poutput->getTemplateIds() as $ns => $pages ) {
 				foreach ( $pages as $dbKey => $revId ) {
 					if ( !isset( $tVersions[$ns][$dbKey] ) ) {
@@ -1018,12 +1018,12 @@ class FlaggedRevs {
 		}
 
 		# If this is an image page, get the corresponding file version info...
-		$fileData = array( 'name' => null, 'timestamp' => null, 'sha1' => null );
+		$fileData = [ 'name' => null, 'timestamp' => null, 'sha1' => null ];
 		if ( $title->getNamespace() == NS_FILE ) {
 			# We must use WikiFilePage process cache on upload or get bitten by slave lag
 			$file = ( $article instanceof WikiFilePage || $article instanceof ImagePage )
 				? $article->getFile() // uses up-to-date process cache on new uploads
-				: wfFindFile( $title, array( 'bypassCache' => true ) ); // skip cache; bug 31056
+				: wfFindFile( $title, [ 'bypassCache' => true ] ); // skip cache; bug 31056
 			if ( is_object( $file ) && $file->exists() ) {
 				$fileData['name'] = $title->getDBkey();
 				$fileData['timestamp'] = $file->getTimestamp();
@@ -1032,7 +1032,7 @@ class FlaggedRevs {
 		}
 
 		# Our review entry
-		$flaggedRevision = new FlaggedRevision( array(
+		$flaggedRevision = new FlaggedRevision( [
 			'rev'	      		=> $rev,
 			'user_id'	       	=> $user->getId(),
 			'timestamp'     	=> $rev->getTimestamp(), // same as edit time
@@ -1044,11 +1044,11 @@ class FlaggedRevs {
 			'templateVersions' 	=> $tVersions,
 			'fileVersions'     	=> $fVersions,
 			'flags'             => $auto ? 'auto' : '',
-		) );
+		] );
 		$flaggedRevision->insert();
 		# Update the article review log
 		FlaggedRevsLog::updateReviewLog( $title,
-			$flags, array(), '', $rev->getId(), $oldSvId, true, $auto, $user );
+			$flags, [], '', $rev->getId(), $oldSvId, true, $auto, $user );
 
 		# Update page and tracking tables and clear cache
 		FlaggedRevs::stableVersionUpdates( $article );
@@ -1062,14 +1062,14 @@ class FlaggedRevs {
 	public static function getJSTagParams() {
 		self::load();
 		# Param to pass to JS function to know if tags are at quality level
-		$tagsJS = array();
+		$tagsJS = [];
 		foreach ( self::$dimensions as $tag => $x ) {
-			$tagsJS[$tag] = array();
+			$tagsJS[$tag] = [];
 			$tagsJS[$tag]['levels'] = count( $x ) - 1;
 			$tagsJS[$tag]['quality'] = self::$minQL[$tag];
 			$tagsJS[$tag]['pristine'] = self::$minPL[$tag];
 		}
-		$params = array( 'tags' => (object)$tagsJS );
+		$params = [ 'tags' => (object)$tagsJS ];
 		return (object)$params;
 	}
 }

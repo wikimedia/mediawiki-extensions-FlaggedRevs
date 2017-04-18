@@ -19,15 +19,15 @@ class RejectConfirmationFormUI {
 		global $wgLang, $wgContLang;
 		$status = $this->form->checkTarget();
 		if ( $status !== true ) {
-			return array( '', $status ); // not a reviewable existing page
+			return [ '', $status ]; // not a reviewable existing page
 		}
 		$oldRev = $this->oldRev; // convenience
 		$newRev = $this->newRev; // convenience
 		# Do not mess with archived/deleted revisions
 		if ( !$oldRev || $newRev->isDeleted( Revision::DELETED_TEXT ) ) {
-			return array( '', 'review_bad_oldid' );
+			return [ '', 'review_bad_oldid' ];
 		} elseif ( !$newRev || $newRev->isDeleted( Revision::DELETED_TEXT ) ) {
-			return array( '', 'review_bad_oldid' );
+			return [ '', 'review_bad_oldid' ];
 		}
 
 		$form = '<div class="plainlinks">';
@@ -35,26 +35,26 @@ class RejectConfirmationFormUI {
 		$dbr = wfGetDB( DB_SLAVE );
 		$res = $dbr->select( 'revision',
 			Revision::selectFields(),
-			array(
+			[
 				'rev_page' => $oldRev->getPage(),
 				'rev_timestamp > ' . $dbr->addQuotes(
 					$dbr->timestamp( $oldRev->getTimestamp() ) ),
 				'rev_timestamp <= ' . $dbr->addQuotes(
 					$dbr->timestamp( $newRev->getTimestamp() ) )
-			),
+			],
 			__METHOD__,
-			array( 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 251 ) // sanity check
+			[ 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 251 ] // sanity check
 		);
 		if ( !$dbr->numRows( $res ) ) {
-			return array( '', 'review_bad_oldid' );
+			return [ '', 'review_bad_oldid' ];
 		} elseif ( $dbr->numRows( $res ) > 250 ) {
-			return array( '', 'review_reject_excessive' );
+			return [ '', 'review_reject_excessive' ];
 		}
 
 		$contribs = SpecialPage::getTitleFor( 'Contributions' )->getPrefixedText();
 
 		$lastTextId = 0;
-		$rejectIds = $rejectAuthors = array();
+		$rejectIds = $rejectAuthors = [];
 		foreach ( $res as $row ) {
 			$rev = new Revision( $row );
 			if ( $rev->getTextId() != $lastTextId ) { // skip null edits
@@ -70,7 +70,7 @@ class RejectConfirmationFormUI {
 		$rejectAuthors = array_values( array_unique( $rejectAuthors ) );
 
 		if ( !$rejectIds ) { // all null edits? (this shouldn't happen)
-			return array( '', 'review_reject_nulledits' );
+			return [ '', 'review_reject_nulledits' ];
 		}
 
 		// List of revisions being undone...
@@ -144,7 +144,7 @@ class RejectConfirmationFormUI {
 
 		$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
 		$form .= Xml::openElement( 'form',
-			array( 'method' => 'POST', 'action' => $reviewTitle->getFullUrl() ) );
+			[ 'method' => 'POST', 'action' => $reviewTitle->getFullUrl() ] );
 		$form .= Html::hidden( 'action', 'reject' );
 		$form .= Html::hidden( 'wpReject', 1 );
 		$form .= Html::hidden( 'wpRejectConfirm', 1 );
@@ -154,14 +154,14 @@ class RejectConfirmationFormUI {
 		$form .= Html::hidden( 'wpEditToken', $this->form->getUser()->getEditToken() );
 		$form .= Html::hidden( 'changetime', $newRev->getTimestamp() );
 		$form .= Xml::inputLabel( wfMessage( 'revreview-reject-summary' )->text(), 'wpReason',
-			'wpReason', 120, $defaultSummary, array( 'maxlength' => 200 ) ) . "<br />";
+			'wpReason', 120, $defaultSummary, [ 'maxlength' => 200 ] ) . "<br />";
 		$form .= Html::input( 'wpSubmit', wfMessage( 'revreview-reject-confirm' )->text(), 'submit' );
 		$form .= ' ';
 		$form .= Linker::link( $this->form->getPage(), wfMessage( 'revreview-reject-cancel' )->text(),
-			array( 'onClick' => 'history.back(); return history.length <= 1;' ),
-			array( 'oldid' => $this->form->getRefId(), 'diff' => $this->form->getOldId() ) );
+			[ 'onClick' => 'history.back(); return history.length <= 1;' ],
+			[ 'oldid' => $this->form->getRefId(), 'diff' => $this->form->getOldId() ] );
 		$form .= Xml::closeElement( 'form' );
 
-		return array( $form, true );
+		return [ $form, true ];
 	}
 }

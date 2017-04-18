@@ -3,9 +3,9 @@
  * Internationalization file for magic words.
  */
 
-$magicWords = array();
+$magicWords = [];
 
-$magicWords['en'] = array(
-	'pagesusingpendingchanges' => array( 0, 'pagesusingpendingchanges' ),
-	'pendingchangelevel' => array( 0, 'pendingchangelevel' ),
-);
+$magicWords['en'] = [
+	'pagesusingpendingchanges' => [ 0, 'pagesusingpendingchanges' ],
+	'pendingchangelevel' => [ 0, 'pendingchangelevel' ],
+];

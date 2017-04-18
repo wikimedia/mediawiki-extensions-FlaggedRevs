@@ -12,8 +12,8 @@ class FlaggedRevsHooks {
 		# This hook is called after insertOn() however, in which case it is set
 		# as a new one.
 		$dbw->update( 'flaggedrevs',
-			array( 'fr_page_id' => $revision->getPage() ),
-			array( 'fr_page_id' => $oldPageID, 'fr_rev_id' => $revision->getID() ),
+			[ 'fr_page_id' => $revision->getPage() ],
+			[ 'fr_page_id' => $oldPageID, 'fr_rev_id' => $revision->getID() ],
 			__METHOD__
 		);
 		return true;
@@ -28,22 +28,22 @@ class FlaggedRevsHooks {
 		# Get flagged revisions from old page id that point to destination page
 		$dbw = wfGetDB( DB_MASTER );
 		$result = $dbw->select(
-			array( 'flaggedrevs', 'revision' ),
-			array( 'fr_rev_id' ),
-			array( 'fr_page_id' => $oldPageID,
+			[ 'flaggedrevs', 'revision' ],
+			[ 'fr_rev_id' ],
+			[ 'fr_page_id' => $oldPageID,
 				'fr_rev_id = rev_id',
-				'rev_page' => $newPageID ),
+				'rev_page' => $newPageID ],
 			__METHOD__
 		);
 		# Update these rows
-		$revIDs = array();
+		$revIDs = [];
 		foreach( $result as $row ) {
 			$revIDs[] = $row->fr_rev_id;
 		}
 		if ( !empty( $revIDs ) ) {
 			$dbw->update( 'flaggedrevs',
-				array( 'fr_page_id' => $newPageID ),
-				array( 'fr_page_id' => $oldPageID, 'fr_rev_id' => $revIDs ),
+				[ 'fr_page_id' => $newPageID ],
+				[ 'fr_page_id' => $oldPageID, 'fr_rev_id' => $revIDs ],
 				__METHOD__
 			);
 		}
@@ -402,7 +402,7 @@ class FlaggedRevsHooks {
 		# Is the page manually checked off to be reviewed?
 		if ( $editTimestamp
 			&& $wgRequest->getCheck( 'wpReviewEdit' )
-			&& $title->getUserPermissionsErrors( 'review', $user ) === array() )
+			&& $title->getUserPermissionsErrors( 'review', $user ) === [] )
 		{
 			if ( self::editCheckReview( $fa, $rev, $user, $editTimestamp ) ) {
 				return true; // reviewed...done!
@@ -437,7 +437,7 @@ class FlaggedRevsHooks {
 		# Case A: this user can auto-review edits. Check if either:
 		# (a) this new revision creates a new page and new page autoreview is enabled
 		# (b) this new revision is based on an old, reviewed, revision
-		if ( $title->getUserPermissionsErrors( 'autoreview', $user ) === array() ) {
+		if ( $title->getUserPermissionsErrors( 'autoreview', $user ) === [] ) {
 			# For rollback/null edits, use the previous ID as the alternate base ID.
 			# Otherwise, use the 'altBaseRevId' parameter passed in by the request.
 			$altBaseRevId = $isOldRevCopy ? $prevRevId : $wgRequest->getInt( 'altBaseRevId' );
@@ -484,7 +484,7 @@ class FlaggedRevsHooks {
 				$isOldRevCopy && // rollback or null edit
 				$baseRevId != $prevRevId && // not a null edit
 				$baseRevId == $srev->getRevId() && // restored stable rev
-				$title->getUserPermissionsErrors( 'autoreviewrestore', $user ) === array()
+				$title->getUserPermissionsErrors( 'autoreviewrestore', $user ) === []
 			);
 			# Check for self-reversions (checks text hashes)...
 			if ( !$reviewableChange ) {
@@ -542,23 +542,23 @@ class FlaggedRevsHooks {
 		$dbw = wfGetDB( DB_MASTER );
 		# Such a revert requires 1+ revs between it and the stable
 		$revertedRevs = $dbw->selectField( 'revision', '1',
-			array(
+			[
 				'rev_page' => $rev->getPage(),
 				'rev_id > ' . intval( $baseRevId ), // stable rev
 				'rev_id < ' . intval( $rev->getId() ), // this rev
 				'rev_user_text' => $user->getName()
-			), __METHOD__
+			], __METHOD__
 		);
 		if ( !$revertedRevs ) {
 			return false; // can't be a revert
 		}
 		# Check that this user is ONLY reverting his/herself.
 		$otherUsers = $dbw->selectField( 'revision', '1',
-			array(
+			[
 				'rev_page' => $rev->getPage(),
 				'rev_id > ' . intval( $baseRevId ),
 				'rev_user_text != ' . $dbw->addQuotes( $user->getName() )
-			), __METHOD__
+			], __METHOD__
 		);
 		if ( $otherUsers ) {
 			return false; // only looking for self-reverts
@@ -731,9 +731,9 @@ class FlaggedRevsHooks {
 		# Check the oldest edit
 		$dbr = wfGetDB( DB_SLAVE );
 		$lower = $dbr->selectField( 'revision', 'rev_timestamp',
-			array( 'rev_user' => $user->getId() ),
+			[ 'rev_user' => $user->getId() ],
 			__METHOD__,
-			array( 'ORDER BY' => 'rev_timestamp ASC', 'USE INDEX' => 'user_timestamp' )
+			[ 'ORDER BY' => 'rev_timestamp ASC', 'USE INDEX' => 'user_timestamp' ]
 		);
 		# Recursively check for an edit $spacingReq seconds later, until we are done.
 		if ( $lower ) {
@@ -741,10 +741,10 @@ class FlaggedRevsHooks {
 			while ( $lower && $benchmarks < $pointsReq ) {
 				$next = wfTimestamp( TS_UNIX, $lower ) + $spacingReq;
 				$lower = $dbr->selectField( 'revision', 'rev_timestamp',
-					array( 'rev_user' => $user->getId(),
-						'rev_timestamp > ' . $dbr->addQuotes( $dbr->timestamp( $next ) ) ),
+					[ 'rev_user' => $user->getId(),
+						'rev_timestamp > ' . $dbr->addQuotes( $dbr->timestamp( $next ) ) ],
 						__METHOD__,
-					array( 'ORDER BY' => 'rev_timestamp ASC', 'USE INDEX' => 'user_timestamp' )
+					[ 'ORDER BY' => 'rev_timestamp ASC', 'USE INDEX' => 'user_timestamp' ]
 				);
 				if ( $lower !== false ) {
 					$benchmarks++;
@@ -770,10 +770,10 @@ class FlaggedRevsHooks {
 	protected static function reviewedEditsCheck( User $user, $editsReq, $seconds = 0 ) {
 		$dbr = wfGetDB( DB_SLAVE );
 		// Get cutoff timestamp (excludes edits that are too recent)
-		$baseConds = array(
+		$baseConds = [
 			'rev_user' => $user->getId(),
 			'rev_timestamp < ' . $dbr->addQuotes( $dbr->timestamp( time() - $seconds ) )
-		);
+		];
 		// Get the lower cutoff to avoid scanning over many rows.
 		// Users with many revisions will only have the last 10k inspected.
 		$lowCutoff = false;
@@ -783,26 +783,26 @@ class FlaggedRevsHooks {
 				'rev_timestamp',
 				$baseConds,
 				__METHOD__,
-				array( 'ORDER BY' => 'rev_timestamp DESC', 'OFFSET' => 9999, 'LIMIT' => 1 )
+				[ 'ORDER BY' => 'rev_timestamp DESC', 'OFFSET' => 9999, 'LIMIT' => 1 ]
 			);
 		}
 		$lowCutoff = $lowCutoff ?: 1; // default to UNIX 1970
 		// Get revs from pages that have a reviewed rev of equal or higher timestamp
 		$res = $dbr->select(
-			array( 'revision', 'flaggedpages' ),
+			[ 'revision', 'flaggedpages' ],
 			'1',
 			array_merge(
 				$baseConds,
-				array(
+				[
 					'fp_page_id = rev_page',
 					// bug 15515
 					'fp_pending_since IS NULL OR fp_pending_since > rev_timestamp',
 					// Avoid too much scanning
 					'rev_timestamp > ' . $dbr->addQuotes( $dbr->timestamp( $lowCutoff ) )
-				)
+				]
 			),
 			__METHOD__,
-			array( 'LIMIT' => $editsReq )
+			[ 'LIMIT' => $editsReq ]
 		);
 
 		return ( $dbr->numRows( $res ) >= $editsReq );
@@ -813,12 +813,12 @@ class FlaggedRevsHooks {
 	 */
 	protected static function wasPreviouslyBlocked( User $user, $cutoff_unixtime = 0 ) {
 		$dbr = wfGetDB( DB_SLAVE );
-		$conds = array(
+		$conds = [
 			'log_namespace' => NS_USER,
 			'log_title'     => $user->getUserPage()->getDBkey(),
 			'log_type'      => 'block',
 			'log_action'    => 'block'
-		);
+		];
 		if ( $cutoff_unixtime > 0 ) {
 			# Hint to improve NS,title,timestamp INDEX use
 			$encCutoff = $dbr->addQuotes( $dbr->timestamp( $cutoff_unixtime ) );
@@ -833,9 +833,9 @@ class FlaggedRevsHooks {
 		$encCutoff = $dbr->addQuotes( $dbr->timestamp( time() - $seconds ) );
 		# Check all recent edits...
 		$res = $dbr->select( 'revision', '1',
-			array( 'rev_user' => $uid, "rev_timestamp > $encCutoff" ),
+			[ 'rev_user' => $uid, "rev_timestamp > $encCutoff" ],
 			__METHOD__,
-			array( 'LIMIT' => $limit + 1 ) // hit as few rows as possible
+			[ 'LIMIT' => $limit + 1 ] // hit as few rows as possible
 		);
 		return $dbr->numRows( $res );
 	}
@@ -845,14 +845,14 @@ class FlaggedRevsHooks {
 		# Get cutoff timestamp (edits that are too recent)
 		$encCutoff = $dbr->addQuotes( $dbr->timestamp( time() - $seconds ) );
 		# Check all recent content edits...
-		$res = $dbr->select( array( 'revision', 'page' ), '1',
-			array( 'rev_user' => $uid,
+		$res = $dbr->select( [ 'revision', 'page' ], '1',
+			[ 'rev_user' => $uid,
 				"rev_timestamp > $encCutoff",
 				'rev_page = page_id',
-				'page_namespace' => MWNamespace::getContentNamespaces() ),
+				'page_namespace' => MWNamespace::getContentNamespaces() ],
 			__METHOD__,
-			array( 'LIMIT' => $limit + 1,
-				'USE INDEX' => array( 'revision' => 'user_timestamp' ) )
+			[ 'LIMIT' => $limit + 1,
+				'USE INDEX' => [ 'revision' => 'user_timestamp' ] ]
 		);
 		return $dbr->numRows( $res );
 	}
@@ -1031,12 +1031,12 @@ class FlaggedRevsHooks {
 		if ( $namespaces ) {
 			$tables[] = 'flaggedpages';
 			$opts['ORDER BY'] = 'fp_page_id ASC';
-			$opts['USE INDEX'] = array( 'flaggedpages' => 'PRIMARY' );
-			$join['page'] = array( 'INNER JOIN',
-				array( 'page_id = fp_page_id', 'page_namespace' => $namespaces )
-			);
-			$join['revision'] = array( 'INNER JOIN',
-				'rev_page = fp_page_id AND rev_id = fp_stable' );
+			$opts['USE INDEX'] = [ 'flaggedpages' => 'PRIMARY' ];
+			$join['page'] = [ 'INNER JOIN',
+				[ 'page_id = fp_page_id', 'page_namespace' => $namespaces ]
+			];
+			$join['revision'] = [ 'INNER JOIN',
+				'rev_page = fp_page_id AND rev_id = fp_stable' ];
 		}
 		return false; // final
 	}
@@ -1044,13 +1044,13 @@ class FlaggedRevsHooks {
 	public static function gnsmQueryModifier(
 		array $params, array &$joins, array &$conditions, array &$tables
 	) {
-		$filterSet = array( GoogleNewsSitemap::OPT_ONLY => true,
+		$filterSet = [ GoogleNewsSitemap::OPT_ONLY => true,
 			GoogleNewsSitemap::OPT_EXCLUDE => true
-		);
+		];
 		# Either involves the same JOIN here...
 		if ( isset( $filterSet[ $params['stable'] ] ) || isset( $filterSet[ $params['quality'] ] ) ) {
 			$tables[] = 'flaggedpages';
-			$joins['flaggedpages'] = array( 'LEFT JOIN', 'page_id = fp_page_id' );
+			$joins['flaggedpages'] = [ 'LEFT JOIN', 'page_id = fp_page_id' ];
 		}
 
 		switch( $params['stable'] ) {
@@ -1095,7 +1095,7 @@ class FlaggedRevsHooks {
 	 * @return bool
 	 */
 	public static function onUserMergeAccountFields( array &$updateFields ) {
-		$updateFields[] = array( 'flaggedrevs', 'fr_user' );
+		$updateFields[] = [ 'flaggedrevs', 'fr_user' ];
 
 		return true;
 	}

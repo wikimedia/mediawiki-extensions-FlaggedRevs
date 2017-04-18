@@ -123,17 +123,17 @@ class Stabilization extends UnlistedSpecialPage {
 		);
 		$scExpiryOptions = $this->msg( 'protect-expiry-options' )->inContentLanguage()->text();
 		$showProtectOptions = ( $scExpiryOptions !== '-' && $form->isAllowed() );
-		$dropdownOptions = array(); // array of <label,value>
+		$dropdownOptions = []; // array of <label,value>
 		# Add the current expiry as a dropdown option
 		if ( $oldConfig['expiry'] && $oldConfig['expiry'] != 'infinity' ) {
 			$timestamp = $this->getLanguage()->timeanddate( $oldConfig['expiry'] );
 			$d = $this->getLanguage()->date( $oldConfig['expiry'] );
 			$t = $this->getLanguage()->time( $oldConfig['expiry'] );
-			$dropdownOptions[] = array(
-				$this->msg( 'protect-existing-expiry', $timestamp, $d, $t )->text(), 'existing' );
+			$dropdownOptions[] = [
+				$this->msg( 'protect-existing-expiry', $timestamp, $d, $t )->text(), 'existing' ];
 		}
 		# Add "other time" expiry dropdown option
-		$dropdownOptions[] = array( $this->msg( 'protect-othertime-op' )->text(), 'othertime' );
+		$dropdownOptions[] = [ $this->msg( 'protect-othertime-op' )->text(), 'othertime' ];
 		# Add custom expiry dropdown options (from MediaWiki message)
 		foreach( explode( ',', $scExpiryOptions ) as $option ) {
 			if ( strpos( $option, ":" ) === false ) {
@@ -141,7 +141,7 @@ class Stabilization extends UnlistedSpecialPage {
 			} else {
 				list( $show, $value ) = explode( ":", $option );
 			}
-			$dropdownOptions[] = array( $show, $value );
+			$dropdownOptions[] = [ $show, $value ];
 		}
 		
 		# Actually build the options HTML...
@@ -154,8 +154,8 @@ class Stabilization extends UnlistedSpecialPage {
 		}
 
 		# Build up the form...
-		$s .= Xml::openElement( 'form', array( 'name' => 'stabilization',
-			'action' => $this->getPageTitle()->getLocalUrl(), 'method' => 'post' ) );
+		$s .= Xml::openElement( 'form', [ 'name' => 'stabilization',
+			'action' => $this->getPageTitle()->getLocalUrl(), 'method' => 'post' ] );
 		# Add stable version override and selection options
 		$s .=
 			Xml::fieldset( $this->msg( 'stabilization-def' )->text(), false ) . "\n" .
@@ -182,18 +182,18 @@ class Stabilization extends UnlistedSpecialPage {
 					"</td>
 					<td class='mw-input'>" .
 						Xml::tags( 'select',
-							array(
+							[
 								'id'        => 'mwStabilizeExpirySelection',
 								'name'      => 'wpExpirySelection',
 								'onchange'  => 'onFRChangeExpiryDropdown()',
-							) + $this->disabledAttr(),
+							] + $this->disabledAttr(),
 							$expiryFormOptions ) .
 					"</td>
 				</tr>";
 		}
 		# Add custom expiry field to form...
-		$attribs = array( 'id' => "mwStabilizeExpiryOther",
-			'onkeyup' => 'onFRChangeExpiryField()' ) + $this->disabledAttr();
+		$attribs = [ 'id' => "mwStabilizeExpiryOther",
+			'onkeyup' => 'onFRChangeExpiryField()' ] + $this->disabledAttr();
 		$s .= "
 			<tr>
 				<td class='mw-label'>" .
@@ -207,8 +207,8 @@ class Stabilization extends UnlistedSpecialPage {
 		# Add comment input and submit button
 		if ( $form->isAllowed() ) {
 			$watchLabel = $this->msg( 'watchthis' )->parse();
-			$watchAttribs = array( 'accesskey' => $this->msg( 'accesskey-watch' )->text(),
-				'id' => 'wpWatchthis' );
+			$watchAttribs = [ 'accesskey' => $this->msg( 'accesskey-watch' )->text(),
+				'id' => 'wpWatchthis' ];
 			$watchChecked = ( $user->getOption( 'watchdefault' )
 				|| $user->isWatched( $title ) );
 			$reviewLabel = $this->msg( 'stabilization-review' )->parse();
@@ -228,20 +228,20 @@ class Stabilization extends UnlistedSpecialPage {
 					'</td>
 					<td class="mw-input">' .
 						Xml::input( 'wpReason', 70, $form->getReasonExtra(),
-							array( 'id' => 'wpReason', 'maxlength' => 255 ) ) .
+							[ 'id' => 'wpReason', 'maxlength' => 255 ] ) .
 					'</td>
 				</tr>
 				<tr>
 					<td></td>
 					<td class="mw-input">' .
 						Xml::check( 'wpReviewthis', $form->getReviewThis(),
-							array( 'id' => 'wpReviewthis' ) ) .
+							[ 'id' => 'wpReviewthis' ] ) .
 						"<label for='wpReviewthis'>{$reviewLabel}</label>" .
 						'&#160;&#160;&#160;&#160;&#160;' .
 						Xml::check( 'wpWatchthis', $watchChecked, $watchAttribs ) .
 						"&#160;<label for='wpWatchthis' " .
 						Xml::expandAttributes(
-							array( 'title' => Linker::titleAttrib( 'watch', 'withaccess' ) ) ) .
+							[ 'title' => Linker::titleAttrib( 'watch', 'withaccess' ) ] ) .
 						">{$watchLabel}</label>" .
 					'</td>
 				</tr>
@@ -265,7 +265,7 @@ class Stabilization extends UnlistedSpecialPage {
 		$out->addHTML( Xml::element( 'h2', null,
 			htmlspecialchars( $log->getName() ) ) );
 		LogEventsList::showLogExtract( $out, 'stable',
-			$title->getPrefixedText(), '', array( 'lim' => 25 ) );
+			$title->getPrefixedText(), '', [ 'lim' => 25 ] );
 
 		# Add some javascript for expiry dropdowns
 		$out->addScript(
@@ -281,7 +281,7 @@ class Stabilization extends UnlistedSpecialPage {
 	}
 
 	protected function buildSelector( $selected ) {
-		$allowedLevels = array();
+		$allowedLevels = [];
 		$levels = FlaggedRevs::getRestrictionLevels();
 		array_unshift( $levels, '' ); // Add a "none" level
 		foreach ( $levels as $key ) {
@@ -295,11 +295,11 @@ class Stabilization extends UnlistedSpecialPage {
 			$allowedLevels[] = $key;
 		}
 		$id = 'mwProtect-level-autoreview';
-		$attribs = array(
+		$attribs = [
 			'id' => $id,
 			'name' => $id,
 			'size' => count( $allowedLevels ),
-		) + $this->disabledAttr();
+		] + $this->disabledAttr();
 
 		$out = Xml::openElement( 'select', $attribs );
 		foreach ( $allowedLevels as $key ) {
@@ -331,7 +331,7 @@ class Stabilization extends UnlistedSpecialPage {
 	// If the this form is disabled, then return the "disabled" attr array
 	protected function disabledAttr() {
 		return $this->form->isAllowed()
-			? array()
-			: array( 'disabled' => 'disabled' );
+			? []
+			: [ 'disabled' => 'disabled' ];
 	}
 }

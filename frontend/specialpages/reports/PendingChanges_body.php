@@ -53,11 +53,11 @@ class PendingChanges extends SpecialPage {
 
 	protected function setSyndicated() {
 		$request = $this->getRequest();
-		$queryParams = array(
+		$queryParams = [
 			'namespace' => $request->getIntOrNull( 'namespace' ),
 			'level'     => $request->getIntOrNull( 'level' ),
 			'category'  => $request->getVal( 'category' ),
-		);
+		];
 		$this->getOutput()->setSyndicated( true );
 		$this->getOutput()->setFeedAppendQuery( wfArrayToCgi( $queryParams ) );
 	}
@@ -69,12 +69,12 @@ class PendingChanges extends SpecialPage {
 		$this->getOutput()->addWikiMsg( 'pendingchanges-list',
 			$this->getLanguage()->formatNum( $this->pager->getNumRows() ) );
 
-		$form = Html::openElement( 'form', array( 'name' => 'pendingchanges',
-			'action' => $wgScript, 'method' => 'get' ) ) . "\n";
+		$form = Html::openElement( 'form', [ 'name' => 'pendingchanges',
+			'action' => $wgScript, 'method' => 'get' ] ) . "\n";
 		$form .= "<fieldset><legend>" . $this->msg( 'pendingchanges-legend' )->escaped() . "</legend>\n";
 		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBKey() ) . "\n";
 
-		$items = array();
+		$items = [];
 		if ( count( FlaggedRevs::getReviewNamespaces() ) > 1 ) {
 			$items[] = "<span style='white-space: nowrap;'>" .
 				FlaggedRevsXML::getNamespaceMenu( $this->namespace, '' ) . '</span>';
@@ -86,25 +86,25 @@ class PendingChanges extends SpecialPage {
 		}
 		if ( !FlaggedRevs::isStableShownByDefault() && !FlaggedRevs::useOnlyIfProtected() ) {
 			$items[] = "<span style='white-space: nowrap;'>" .
-				Xml::check( 'stable', $this->stable, array( 'id' => 'wpStable' ) ) .
+				Xml::check( 'stable', $this->stable, [ 'id' => 'wpStable' ] ) .
 				Xml::label( $this->msg( 'pendingchanges-stable' )->text(), 'wpStable' ) . '</span>';
 		}
 		if ( $items ) {
 			$form .= implode( ' ', $items ) . '<br />';
 		}
 
-		$items = array();
+		$items = [];
 		$items[] =
 			Xml::label( $this->msg( "pendingchanges-category" )->text(), 'wpCategory' ) . '&#160;' .
-			Xml::input( 'category', 30, $this->category, array( 'id' => 'wpCategory' ) );
+			Xml::input( 'category', 30, $this->category, [ 'id' => 'wpCategory' ] );
 		if ( $this->getUser()->getId() ) {
-			$items[] = Xml::check( 'watched', $this->watched, array( 'id' => 'wpWatched' ) ) .
+			$items[] = Xml::check( 'watched', $this->watched, [ 'id' => 'wpWatched' ] ) .
 				Xml::label( $this->msg( 'pendingchanges-onwatchlist' )->text(), 'wpWatched' );
 		}
 		$form .= implode( ' ', $items ) . '<br />';
 		$form .=
 			Xml::label( $this->msg( 'pendingchanges-size' )->text(), 'wpSize' ) .
-			Xml::input( 'size', 4, $this->size, array( 'id' => 'wpSize' ) ) . ' ' .
+			Xml::input( 'size', 4, $this->size, [ 'id' => 'wpSize' ] ) . ' ' .
 			Xml::submitButton( $this->msg( 'allpagessubmit' )->text() ) . "\n";
 		$form .= "</fieldset>";
 		$form .= Html::closeElement( 'form' ) . "\n";
@@ -145,7 +145,7 @@ class PendingChanges extends SpecialPage {
 			if ( is_numeric( $bit ) ) {
 				$limit = intval( $bit );
 			}
-			$m = array();
+			$m = [];
 			if ( preg_match( '/^limit=(\d+)$/', $bit, $m ) ) {
 				$limit = intval( $m[1] );
 			}
@@ -228,13 +228,13 @@ class PendingChanges extends SpecialPage {
 		$link = Linker::link( $title );
 		$hist = Linker::linkKnown( $title,
 			$this->msg( 'hist' )->escaped(),
-			array(),
-			array( 'action' => 'history' )
+			[],
+			[ 'action' => 'history' ]
 		);
 		$review = Linker::linkKnown( $title,
 			$this->msg( 'pendingchanges-diff' )->escaped(),
-			array(),
-			array( 'diff' => 'cur', 'oldid' => $row->stable ) + FlaggedRevs::diffOnlyCGI()
+			[],
+			[ 'diff' => 'cur', 'oldid' => $row->stable ] + FlaggedRevs::diffOnlyCGI()
 		);
 		# Show quality level if there are several
 		if ( FlaggedRevs::qualityVersions() ) {
@@ -334,7 +334,7 @@ class PendingChangesPager extends AlphabeticPager {
 
 		parent::__construct();
 		# Don't get too expensive
-		$this->mLimitsShown = array( 20, 50, 100 );
+		$this->mLimitsShown = [ 20, 50, 100 ];
 		$this->setLimit( $this->mLimit ); // apply max limit
 	}
 
@@ -357,8 +357,8 @@ class PendingChangesPager extends AlphabeticPager {
 	}
 
 	function getQueryInfo() {
-		$tables = array( 'page', 'revision' );
-		$fields = array( 'page_namespace', 'page_title', 'page_len', 'rev_len', 'page_latest' );
+		$tables = [ 'page', 'revision' ];
+		$fields = [ 'page_namespace', 'page_title', 'page_len', 'rev_len', 'page_latest' ];
 		# Show outdated "stable" versions
 		if ( $this->level < 0 ) {
 			$tables[] = 'flaggedpages';
@@ -427,11 +427,11 @@ class PendingChangesPager extends AlphabeticPager {
 			$conds[] = 'GREATEST(page_len,rev_len)-LEAST(page_len,rev_len) <= ' .
 				intval( $this->size );
 		}
-		return array(
+		return [
 			'tables'  => $tables,
 			'fields'  => $fields,
 			'conds'   => $conds
-		);
+		];
 	}
 
 	function getIndexField() {

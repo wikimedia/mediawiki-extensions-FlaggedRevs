@@ -38,8 +38,8 @@ class FlaggedRevsReviewLogFormatter extends LogFormatter {
 				$links .= Linker::linkKnown(
 					$title,
 					wfMessage( $msg )->escaped(),
-					array(),
-					array( 'oldid' => $oldStable, 'diff' => $revId )
+					[],
+					[ 'oldid' => $oldStable, 'diff' => $revId ]
 				);
 				$links .= ')';
 			}
@@ -52,8 +52,8 @@ class FlaggedRevsReviewLogFormatter extends LogFormatter {
 			$links .= Linker::linkKnown(
 				$title,
 				wfMessage( 'review-logentry-id', $revId, $time )->escaped(),
-				array(),
-				array( 'oldid' => $revId, 'diff' => 'prev' ) + FlaggedRevs::diffOnlyCGI()
+				[],
+				[ 'oldid' => $revId, 'diff' => 'prev' ] + FlaggedRevs::diffOnlyCGI()
 			);
 			$links .= ')';
 		}

@@ -32,15 +32,15 @@ class ApiFlagConfig extends ApiBase {
 		$this->getMain()->setCacheMode( 'public' );
 		$minQLTags = FlaggedRevs::quickTags( FR_QUALITY );
 		$minPLTags = FlaggedRevs::quickTags( FR_PRISTINE );
-		$data = array();
+		$data = [];
 		foreach ( FlaggedRevs::getDimensions() as $tag => $levels ) {
-			$data[] = array(
+			$data[] = [
 				'name'   => $tag,
 				'levels' => count( $levels ) - 1, // exclude '0' level
 				'tier1'  => 1,
 				'tier2'  => $minQLTags[$tag],
 				'tier3'  => $minPLTags[$tag]
-			);
+			];
 		}
 		$result = $this->getResult();
 		$result->setIndexedTagName( $data, 'tag' );
@@ -56,14 +56,14 @@ class ApiFlagConfig extends ApiBase {
  	}
 
 	public function getAllowedParams() {
-		return array();
+		return [];
 	}
 
 	/**
 	 * @deprecated since MediaWiki core 1.25
 	 */
 	public function getDescription() {
-		return array(
+		return [
 			'Get basic information about review flag configuration for this site.',
 			'The following parameters are returned for each tag:',
 			'* name 	: The key name of this tag',
@@ -72,7 +72,7 @@ class ApiFlagConfig extends ApiBase {
 			'* tier3 	: Level the tag must reach for a revision to be tier 3 (pristine)',
 			'Flagged revisions have an assigned level for each tag. The highest tier',
 			'that all the tags meet is the review tier of the entire revision.'
-		);
+		];
 	}
 
 	/**
@@ -86,9 +86,9 @@ class ApiFlagConfig extends ApiBase {
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=flagconfig'
 				=> 'apihelp-flagconfig-example-1',
-		);
+		];
 	}
 }

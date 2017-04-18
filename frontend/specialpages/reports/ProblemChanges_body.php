@@ -45,11 +45,11 @@ class ProblemChanges extends SpecialPage {
 	
 	protected function setSyndicated() {
 		$request = $this->getRequest();
-		$queryParams = array(
+		$queryParams = [
 			'level'     => $request->getIntOrNull( 'level' ),
 			'tag'       => $request->getVal( 'tag' ),
 			'category'  => $request->getVal( 'category' ),
-		);
+		];
 		$this->getOutput()->setSyndicated( true );
 		$this->getOutput()->setFeedAppendQuery( wfArrayToCgi( $queryParams ) );
 	}
@@ -61,8 +61,8 @@ class ProblemChanges extends SpecialPage {
 		$this->getOutput()->addWikiMsg( 'problemchanges-list',
 			$this->getLanguage()->formatNum( $this->pager->getNumRows() ) );
 
-		$form = Html::openElement( 'form', array( 'name' => 'problemchanges',
-			'action' => $wgScript, 'method' => 'get' ) ) . "\n";
+		$form = Html::openElement( 'form', [ 'name' => 'problemchanges',
+			'action' => $wgScript, 'method' => 'get' ] ) . "\n";
 		$form .= "<fieldset><legend>" . $this->msg( 'problemchanges-legend' )->escaped() . "</legend>\n";
 		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBKey() ) . "\n";
 		$form .=
@@ -74,12 +74,12 @@ class ProblemChanges extends SpecialPage {
 			);
 		$tagForm = ChangeTags::buildTagFilterSelector( $this->tag );
 		if ( count( $tagForm ) ) {
-			$form .= Xml::tags( 'td', array( 'class' => 'mw-label' ), $tagForm[0] );
-			$form .= Xml::tags( 'td', array( 'class' => 'mw-input' ), $tagForm[1] );
+			$form .= Xml::tags( 'td', [ 'class' => 'mw-label' ], $tagForm[0] );
+			$form .= Xml::tags( 'td', [ 'class' => 'mw-input' ], $tagForm[1] );
 		}
 		$form .= '<br />' .
 			Xml::label( $this->msg( "problemchanges-category" )->text(), 'wpCategory' ) . '&#160;' .
-			Xml::input( 'category', 30, $this->category, array( 'id' => 'wpCategory' ) ) . ' ';
+			Xml::input( 'category', 30, $this->category, [ 'id' => 'wpCategory' ] ) . ' ';
 		$form .= Xml::submitButton( $this->msg( 'allpagessubmit' )->text() ) . "\n";
 		$form .= '</fieldset>';
 		$form .= Html::closeElement( 'form' ) . "\n";
@@ -115,7 +115,7 @@ class ProblemChanges extends SpecialPage {
 		foreach ( $bits as $bit ) {
 			if ( is_numeric( $bit ) )
 				$limit = intval( $bit );
-			$m = array();
+			$m = [];
 			if ( preg_match( '/^limit=(\d+)$/', $bit, $m ) )
 				$limit = intval( $m[1] );
 			if ( preg_match( '/^category=(.+)$/', $bit, $m ) )
@@ -192,8 +192,8 @@ class ProblemChanges extends SpecialPage {
 		$link = Linker::link( $title );
 		$review = Linker::linkKnown( $title,
 			$this->msg( 'pendingchanges-diff' )->escaped(),
-			array(),
-			array( 'diff' => 'cur', 'oldid' => $row->stable ) + FlaggedRevs::diffOnlyCGI()
+			[],
+			[ 'diff' => 'cur', 'oldid' => $row->stable ] + FlaggedRevs::diffOnlyCGI()
 		);
 		# Show quality level if there are several
 		if ( FlaggedRevs::qualityVersions() ) {
@@ -258,14 +258,14 @@ class ProblemChanges extends SpecialPage {
 	 * @return Array
 	 */
 	protected static function getChangeTags( $pageId, $revId ) {
-		$tags = array();
+		$tags = [];
 		$dbr = wfGetDB( DB_SLAVE );
 		$res = $dbr->select(
-			array( 'revision', 'change_tag' ),
+			[ 'revision', 'change_tag' ],
 			'DISTINCT(ct_tag)', // unique tags
-			array( 'rev_page' => $pageId,
+			[ 'rev_page' => $pageId,
 				'rev_id > ' . intval( $revId ),
-				'rev_id = ct_rev_id' ),
+				'rev_id = ct_rev_id' ],
 			__METHOD__
 		);
 		foreach( $res as $row ) {
@@ -306,7 +306,7 @@ class ProblemChangesPager extends AlphabeticPager {
 		$this->category = $category ? str_replace( ' ', '_', $category ) : null;
 		parent::__construct();
 		// Don't get to expensive
-		$this->mLimitsShown = array( 20, 50, 100 );
+		$this->mLimitsShown = [ 20, 50, 100 ];
 		$this->setLimit( $this->mLimit ); // apply max limit
 	}
 
@@ -323,8 +323,8 @@ class ProblemChangesPager extends AlphabeticPager {
 	}
 
 	function getQueryInfo() {
-		$tables = array( 'revision', 'change_tag', 'page' );
-		$fields = array( 'page_namespace' , 'page_title', 'page_latest' );
+		$tables = [ 'revision', 'change_tag', 'page' ];
+		$fields = [ 'page_namespace' , 'page_title', 'page_latest' ];
 		# Show outdated "stable" pages
 		if ( $this->level < 0 ) {
 			$fields[] = 'fp_stable AS stable';
@@ -339,8 +339,8 @@ class ProblemChangesPager extends AlphabeticPager {
 				$conds['ct_tag'] = $this->tag;
 			}
 			$conds[] = 'page_id = fp_page_id';
-			$useIndex = array(
-				'flaggedpages' => 'fp_pending_since', 'change_tag' => 'change_tag_rev_tag' );
+			$useIndex = [
+				'flaggedpages' => 'fp_pending_since', 'change_tag' => 'change_tag_rev_tag' ];
 			# Filter by category
 			if ( $this->category != '' ) {
 				array_unshift( $tables, 'categorylinks' ); // order matters
@@ -350,7 +350,7 @@ class ProblemChangesPager extends AlphabeticPager {
 			}
 			array_unshift( $tables, 'flaggedpages' ); // order matters
 			$this->mIndexField = 'fp_pending_since';
-			$this->mExtraSortFields = array( 'fp_page_id' );
+			$this->mExtraSortFields = [ 'fp_page_id' ];
 			$groupBy = 'fp_pending_since,fp_page_id';
 		# Show outdated pages for a specific review level
 		} else {
@@ -364,8 +364,8 @@ class ProblemChangesPager extends AlphabeticPager {
 			$conds[] = 'rev_id > fpp_rev_id';
 			$conds[] = 'rev_id = ct_rev_id';
 			$conds['ct_tag'] = $this->tag;
-			$useIndex = array(
-				'flaggedpage_pending' => 'fpp_quality_pending', 'change_tag' => 'change_tag_rev_tag' );
+			$useIndex = [
+				'flaggedpage_pending' => 'fpp_quality_pending', 'change_tag' => 'change_tag_rev_tag' ];
 			# Filter by review level
 			$conds['fpp_quality'] = $this->level;
 			# Filter by category
@@ -377,18 +377,18 @@ class ProblemChangesPager extends AlphabeticPager {
 			}
 			array_unshift( $tables, 'flaggedpage_pending' ); // order matters
 			$this->mIndexField = 'fpp_pending_since';
-			$this->mExtraSortFields = array( 'fpp_page_id' );
+			$this->mExtraSortFields = [ 'fpp_page_id' ];
 			$groupBy = 'fpp_pending_since,fpp_page_id';
 		}
 		$fields[] = $this->mIndexField; // Pager needs this
 		$conds['page_namespace'] = $this->namespace; // sanity check NS
-		return array(
+		return [
 			'tables'  => $tables,
 			'fields'  => $fields,
 			'conds'   => $conds,
-			'options' => array( 'USE INDEX' => $useIndex,
-				'GROUP BY' => $groupBy, 'STRAIGHT_JOIN' )
-		);
+			'options' => [ 'USE INDEX' => $useIndex,
+				'GROUP BY' => $groupBy, 'STRAIGHT_JOIN' ]
+		];
 	}
 
 	function getIndexField() {

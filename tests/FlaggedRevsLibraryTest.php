@@ -13,26 +13,26 @@ class FlaggedRevsLibraryTest extends Scribunto_LuaEngineTestBase {
 
 		$title = Title::newFromText( 'Page without FR' );
 		$article = FlaggableWikiPage::getTitleInstance( $title );
-		$pageConfig->setValue( $article, array(
+		$pageConfig->setValue( $article, [
 			'override'   => 0,
 			'autoreview' => '',
 			'expiry'     => 'infinity'
-		) );
+		] );
 		$mDataLoaded->setValue( $article, true );
 
 		$title = Title::newFromText( 'Page with FR' );
 		$article = FlaggableWikiPage::getTitleInstance( $title );
-		$pageConfig->setValue( $article, array(
+		$pageConfig->setValue( $article, [
 			'override'   => 1,
 			'autoreview' => 'autoconfirmed',
 			'expiry'     => '20370101000000'
-		) );
+		] );
 		$mDataLoaded->setValue( $article, true );
 	}
 
 	function getTestModules() {
-		 return parent::getTestModules() + array(
+		 return parent::getTestModules() + [
 			 'FlaggedRevsLibraryTest' => __DIR__ . '/FlaggedRevsLibraryTests.lua'
-		 );
+		 ];
 	}
 }

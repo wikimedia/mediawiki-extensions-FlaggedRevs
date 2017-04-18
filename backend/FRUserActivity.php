@@ -24,9 +24,9 @@ class FRUserActivity {
 		# Get number of active editors watching this page...
 		$dbr = wfGetDB( DB_SLAVE );
 		$count = (int)$dbr->selectField(
-			array( 'watchlist', 'user' ),
+			[ 'watchlist', 'user' ],
 			'COUNT(*)',
-			array(
+			[
 				'wl_namespace' => $title->getNamespace(),
 				'wl_title'     => $title->getDBkey(),
 				'wl_user = user_id',
@@ -36,7 +36,7 @@ class FRUserActivity {
 					'user_name = rc_user_text',
 					'rc_timestamp > ' . $dbr->timestamp( time() - 86400 * $wgActiveUserDays )
 				) . ')'
-			),
+			],
 			__METHOD__
 		);
 
@@ -56,8 +56,8 @@ class FRUserActivity {
 		$val = ObjectCache::getMainStashInstance()->get( $key );
 
 		return ( count( $val ) == 3 )
-			? array( $val[0], $val[1] )
-			: array( null, null );
+			? [ $val[0], $val[1] ]
+			: [ null, null ];
 	}
 
 	/**
@@ -117,8 +117,8 @@ class FRUserActivity {
 		$val = ObjectCache::getMainStashInstance()->get( $key );
 
 		return ( count( $val ) == 3 )
-			? array( $val[0], $val[1] )
-			: array( null, null );
+			? [ $val[0], $val[1] ]
+			: [ null, null ];
 	}
 
 	/**
@@ -189,11 +189,11 @@ class FRUserActivity {
 					list( $u, $ts, $cnt ) = $oldVal;
 					if ( $u === $user->getName() ) { // by this user
 						$wasSet = true;
-						return array( $u, $ts, $cnt + 1 ); // inc counter
+						return [ $u, $ts, $cnt + 1 ]; // inc counter
 					}
 				} else { // no flag set
 					$wasSet = true;
-					return array( $user->getName(), wfTimestampNow(), 1 );
+					return [ $user->getName(), wfTimestampNow(), 1 ];
 				}
 
 				return false; // do nothing
@@ -226,7 +226,7 @@ class FRUserActivity {
 					if ( $cnt <= 1 ) {
 						$stash->delete( $key );
 					} else {
-						return array( $u, $ts, $cnt - 1 ); // dec counter
+						return [ $u, $ts, $cnt - 1 ]; // dec counter
 					}
 				}
 

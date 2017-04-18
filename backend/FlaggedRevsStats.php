@@ -11,18 +11,18 @@ class FlaggedRevsStats {
 	 * @return array of current FR stats
 	 */
 	public static function getStats( $timestamp = false ) {
-		$data = array(); // initialize
+		$data = []; // initialize
 		$data['reviewLag-anon-sampleSize'] = '-';
 		$data['reviewLag-anon-average'] = '-';
 		$data['reviewLag-anon-median'] = '-';
-		$data['reviewLag-anon-percentile'] = array();
+		$data['reviewLag-anon-percentile'] = [];
 		$data['reviewLag-user-sampleSize'] = '-';
 		$data['reviewLag-user-average'] = '-';
 		$data['reviewLag-user-median'] = '-';
-		$data['reviewLag-user-percentile'] = array();
-		$data['totalPages-NS'] = array();
-		$data['reviewedPages-NS'] = array();
-		$data['syncedPages-NS'] = array();
+		$data['reviewLag-user-percentile'] = [];
+		$data['totalPages-NS'] = [];
+		$data['reviewedPages-NS'] = [];
+		$data['syncedPages-NS'] = [];
 		$data['pendingLag-average'] = '-';
 		$data['statTimestamp'] = '-';
 
@@ -35,8 +35,8 @@ class FlaggedRevsStats {
 			$data['statTimestamp'] = wfTimestamp( TS_MW, $timestamp );
 
 			$res = $dbr->select( 'flaggedrevs_statistics',
-				array( 'frs_stat_key', 'frs_stat_val' ),
-				array( 'frs_timestamp' => $dbr->timestamp( $timestamp ) ),
+				[ 'frs_stat_key', 'frs_stat_val' ],
+				[ 'frs_timestamp' => $dbr->timestamp( $timestamp ) ],
 				__METHOD__
 			);
 			foreach ( $res as $row ) {
@@ -101,87 +101,87 @@ class FlaggedRevsStats {
 		// The timestamp to identify this whole batch of data
 		$encDataTimestamp = $dbw->timestamp();
 
-		$dataSet = array();
+		$dataSet = [];
 		// Data range for samples...
-		$dataSet[] = array(
+		$dataSet[] = [
 			'frs_stat_key'  => 'reviewLag-anon-sampleStartTimestamp',
 			'frs_stat_val'  => $reviewDataAnon['sampleStartTS'], // unix
-			'frs_timestamp' => $encDataTimestamp );
-		$dataSet[] = array(
+			'frs_timestamp' => $encDataTimestamp ];
+		$dataSet[] = [
 			'frs_stat_key'  => 'reviewLag-user-sampleStartTimestamp',
 			'frs_stat_val'  => $reviewDataUser['sampleStartTS'], // unix
-			'frs_timestamp' => $encDataTimestamp );
-		$dataSet[] = array(
+			'frs_timestamp' => $encDataTimestamp ];
+		$dataSet[] = [
 			'frs_stat_key'  => 'reviewLag-anon-sampleEndTimestamp',
 			'frs_stat_val'  => $reviewDataAnon['sampleEndTS'], // unix
-			'frs_timestamp' => $encDataTimestamp );
-		$dataSet[] = array(
+			'frs_timestamp' => $encDataTimestamp ];
+		$dataSet[] = [
 			'frs_stat_key'  => 'reviewLag-user-sampleEndTimestamp',
 			'frs_stat_val'  => $reviewDataUser['sampleEndTS'], // unix
-			'frs_timestamp' => $encDataTimestamp );
+			'frs_timestamp' => $encDataTimestamp ];
 		// All-namespace percentiles...
 		foreach( $reviewDataAnon['percTable'] as $percentile => $seconds ) {
-			$dataSet[] = array(
+			$dataSet[] = [
 				'frs_stat_key'  => 'reviewLag-anon-percentile:'.(int)$percentile,
 				'frs_stat_val'  => $seconds,
-				'frs_timestamp' => $encDataTimestamp );
+				'frs_timestamp' => $encDataTimestamp ];
 		}
 		foreach( $reviewDataUser['percTable'] as $percentile => $seconds ) {
-			$dataSet[] = array(
+			$dataSet[] = [
 				'frs_stat_key'  => 'reviewLag-user-percentile:'.(int)$percentile,
 				'frs_stat_val'  => $seconds,
-				'frs_timestamp' => $encDataTimestamp );
+				'frs_timestamp' => $encDataTimestamp ];
 		}
 		// Sample sizes...
-		$dataSet[] = array(
+		$dataSet[] = [
 			'frs_stat_key'  => 'reviewLag-anon-sampleSize',
 			'frs_stat_val'  => $reviewDataAnon['sampleSize'],
-			'frs_timestamp' => $encDataTimestamp );
-		$dataSet[] = array(
+			'frs_timestamp' => $encDataTimestamp ];
+		$dataSet[] = [
 			'frs_stat_key'  => 'reviewLag-user-sampleSize',
 			'frs_stat_val'  => $reviewDataUser['sampleSize'],
-			'frs_timestamp' => $encDataTimestamp );
+			'frs_timestamp' => $encDataTimestamp ];
 
 		// All-namespace ave/med review lag & ave pending lag stats...
-		$dataSet[] = array(
+		$dataSet[] = [
 			'frs_stat_key'  => 'reviewLag-anon-average',
 			'frs_stat_val'  => $reviewDataAnon['average'],
-			'frs_timestamp' => $encDataTimestamp );
-		$dataSet[] = array(
+			'frs_timestamp' => $encDataTimestamp ];
+		$dataSet[] = [
 			'frs_stat_key'  => 'reviewLag-user-average',
 			'frs_stat_val'  => $reviewDataUser['average'],
-			'frs_timestamp' => $encDataTimestamp );
-		$dataSet[] = array(
+			'frs_timestamp' => $encDataTimestamp ];
+		$dataSet[] = [
 			'frs_stat_key'  => 'reviewLag-anon-median',
 			'frs_stat_val'  => $reviewDataAnon['median'],
-			'frs_timestamp' => $encDataTimestamp );
-		$dataSet[] = array(
+			'frs_timestamp' => $encDataTimestamp ];
+		$dataSet[] = [
 			'frs_stat_key'  => 'reviewLag-user-median',
 			'frs_stat_val'  => $reviewDataUser['median'],
-			'frs_timestamp' => $encDataTimestamp );
-		$dataSet[] = array(
+			'frs_timestamp' => $encDataTimestamp ];
+		$dataSet[] = [
 			'frs_stat_key'  => 'pendingLag-average',
 			'frs_stat_val'  => $avePET,
-			'frs_timestamp' => $encDataTimestamp );
+			'frs_timestamp' => $encDataTimestamp ];
 
 		// Per-namespace total/reviewed/synced stats...
 		foreach( $rNamespaces as $namespace ) {
-			$dataSet[] = array(
+			$dataSet[] = [
 				'frs_stat_key'  => 'totalPages-NS:'.(int)$namespace,
 				'frs_stat_val'  => isset($ns_total[$namespace]) ? $ns_total[$namespace] : 0,
-				'frs_timestamp' => $encDataTimestamp );
-			$dataSet[] = array(
+				'frs_timestamp' => $encDataTimestamp ];
+			$dataSet[] = [
 				'frs_stat_key'  => 'reviewedPages-NS:'.(int)$namespace,
 				'frs_stat_val'  => isset($ns_reviewed[$namespace]) ? $ns_reviewed[$namespace] : 0,
-				'frs_timestamp' => $encDataTimestamp );
-			$dataSet[] = array(
+				'frs_timestamp' => $encDataTimestamp ];
+			$dataSet[] = [
 				'frs_stat_key'  => 'syncedPages-NS:'.(int)$namespace,
 				'frs_stat_val'  => isset($ns_synced[$namespace]) ? $ns_synced[$namespace] : 0,
-				'frs_timestamp' => $encDataTimestamp );
+				'frs_timestamp' => $encDataTimestamp ];
 		}
 
 		// Save the data...
-		$dbw->insert( 'flaggedrevs_statistics', $dataSet, __FUNCTION__, array( 'IGNORE' ) );
+		$dbw->insert( 'flaggedrevs_statistics', $dataSet, __FUNCTION__, [ 'IGNORE' ] );
 
 		// Stats are now up to date!
 		$key = $stash->makeKey( 'flaggedrevs', 'statsUpdated' );
@@ -190,26 +190,26 @@ class FlaggedRevsStats {
 	}
 
 	private static function getPerNamespaceTotals() {
-		$ns_total = $ns_reviewed = $ns_synced = array();
+		$ns_total = $ns_reviewed = $ns_synced = [];
 		// Get total, reviewed, and synced page count for each namespace
 		$dbr = wfGetDB( DB_SLAVE, 'vslow' );
-		$res = $dbr->select( array( 'page', 'flaggedpages' ),
-			array( 'page_namespace',
+		$res = $dbr->select( [ 'page', 'flaggedpages' ],
+			[ 'page_namespace',
 				'COUNT(*) AS total',
 				'COUNT(fp_page_id) AS reviewed',
-				'COUNT(fp_pending_since) AS pending' ),
-			array( 'page_is_redirect' => 0,
-				'page_namespace' => FlaggedRevs::getReviewNamespaces() ),
+				'COUNT(fp_pending_since) AS pending' ],
+			[ 'page_is_redirect' => 0,
+				'page_namespace' => FlaggedRevs::getReviewNamespaces() ],
 			__METHOD__,
-			array( 'GROUP BY' => 'page_namespace' ),
-			array( 'flaggedpages' => array( 'LEFT JOIN', 'fp_page_id = page_id' ) )
+			[ 'GROUP BY' => 'page_namespace' ],
+			[ 'flaggedpages' => [ 'LEFT JOIN', 'fp_page_id = page_id' ] ]
 		);
 		foreach ( $res as $row ) {
 			$ns_total[$row->page_namespace] = (int)$row->total;
 			$ns_reviewed[$row->page_namespace] = (int)$row->reviewed;
 			$ns_synced[$row->page_namespace] = (int)$row->reviewed - (int)$row->pending;
 		}
-		return array( $ns_total, $ns_reviewed, $ns_synced );
+		return [ $ns_total, $ns_reviewed, $ns_synced ];
 	}
 
 	// @TODO: maybe put in core?
@@ -222,12 +222,12 @@ class FlaggedRevsStats {
 		$nowUnix = wfTimestamp( TS_UNIX ); // current time in UNIX TS
 		$unixTimeCall = self::dbUnixTime( $dbr, 'fp_pending_since' );
 		return (int)$dbr->selectField(
-			array( 'flaggedpages', 'page' ),
+			[ 'flaggedpages', 'page' ],
 			"AVG( $nowUnix - $unixTimeCall )",
-			array( 'fp_pending_since IS NOT NULL',
+			[ 'fp_pending_since IS NOT NULL',
 				'fp_page_id = page_id',
 				'page_namespace' => FlaggedRevs::getReviewNamespaces() // sanity
-			),
+			],
 			__METHOD__
 		);
 	}
@@ -240,25 +240,25 @@ class FlaggedRevsStats {
 	 * @return array associative
 	 */
 	private static function getEditReviewTimes( $stash, $users = 'anons' ) {
-		$result = array(
+		$result = [
 			'average'       => 0,
 			'median'        => 0,
-			'percTable'     => array(),
+			'percTable'     => [],
 			'sampleSize'    => 0,
 			'sampleStartTS' => null,
 			'sampleEndTS'   => null
-		);
+		];
 		if ( FlaggedRevs::useSimpleConfig() ) {
 			return $result; // disabled
 		}
 
-		$rPerTable = array(); // review wait percentiles
+		$rPerTable = []; // review wait percentiles
 		# Only go so far back...otherwise we will get garbage values due to
 		# the fact that FlaggedRevs wasn't enabled until after a while.
 		$dbr = wfGetDB( DB_SLAVE, 'vslow' );
 		$installedUnix = (int)$dbr->selectField( 'logging',
 			self::dbUnixTime( $dbr, 'MIN(log_timestamp)' ),
-			array('log_type' => 'review')
+			['log_type' => 'review']
 		);
 		if ( !$installedUnix ) {
 			$installedUnix = wfTimestamp( TS_UNIX ); // now
@@ -272,16 +272,16 @@ class FlaggedRevsStats {
 		$encLastTS = $encInstalled;
 		while ( true ) { // should almost always be ~1 pass
 			# Get the page with the worst pending lag...
-			$row = $dbr->selectRow( array( 'flaggedpage_pending', 'flaggedrevs' ),
-				array( 'fpp_page_id', 'fpp_rev_id', 'fpp_pending_since', 'fr_timestamp' ),
-				array(
+			$row = $dbr->selectRow( [ 'flaggedpage_pending', 'flaggedrevs' ],
+				[ 'fpp_page_id', 'fpp_rev_id', 'fpp_pending_since', 'fr_timestamp' ],
+				[
 					'fpp_quality' => 0, // "checked"
 					'fpp_pending_since > '.$encInstalled, // needs actual display lag
 					'fr_page_id = fpp_page_id AND fr_rev_id = fpp_rev_id',
 					'fpp_pending_since > '.$encLastTS, // skip failed rows
-				),
+				],
 				__METHOD__,
-				array( 'ORDER BY' => 'fpp_pending_since ASC' )
+				[ 'ORDER BY' => 'fpp_pending_since ASC' ]
 			);
 			if ( !$row ) {
 				break;
@@ -289,10 +289,10 @@ class FlaggedRevsStats {
 			# Find the newest revision at the time the page was reviewed,
 			# this is the one that *should* have been reviewed.
 			$idealRev = (int)$dbr->selectField( 'revision', 'rev_id',
-				array( 'rev_page' => $row->fpp_page_id,
-					'rev_timestamp < '.$dbr->addQuotes( $row->fr_timestamp ) ),
+				[ 'rev_page' => $row->fpp_page_id,
+					'rev_timestamp < '.$dbr->addQuotes( $row->fr_timestamp ) ],
 				__METHOD__,
-				array( 'ORDER BY' => 'rev_timestamp DESC', 'LIMIT' => 1 )
+				[ 'ORDER BY' => 'rev_timestamp DESC', 'LIMIT' => 1 ]
 			);
 			if ( $row->fpp_rev_id >= $idealRev ) {
 				$worstLagTS = $row->fpp_pending_since;
@@ -322,7 +322,7 @@ class FlaggedRevsStats {
 		$encMinTS = $dbr->addQuotes( $dbr->timestamp( $minTSUnix ) );
 		# Approximate the number rows to scan
 		$rows = $dbr->estimateRowCount( 'revision', '1',
-			array( $userCondition, "rev_timestamp BETWEEN $encMinTS AND $encMaxTS" ) );
+			[ $userCondition, "rev_timestamp BETWEEN $encMinTS AND $encMaxTS" ] );
 		# If the range doesn't have many rows (like on small wikis), use 30 days
 		if ( $rows < 500 ) {
 			$days = 30;
@@ -330,7 +330,7 @@ class FlaggedRevsStats {
 			$encMinTS = $dbr->addQuotes( $dbr->timestamp( $minTSUnix ) );
 			# Approximate rows to scan
 			$rows = $dbr->estimateRowCount( 'revision', '1',
-				array( $userCondition, "rev_timestamp BETWEEN $encMinTS AND $encMaxTS" ) );
+				[ $userCondition, "rev_timestamp BETWEEN $encMinTS AND $encMaxTS" ] );
 			# If the range doesn't have many rows (like on really tiny wikis), use 90 days
 			if ( $rows < 500 ) {
 				$days = 90;
@@ -347,14 +347,14 @@ class FlaggedRevsStats {
 		$ecKey = wfMemcKey( 'flaggedrevs', 'rcEditCount', $users, $days );
 		$edits = (int)$stash->get( $ecKey );
 		if ( !$edits ) {
-			$edits = (int)$dbr->selectField( array('page','revision'),
+			$edits = (int)$dbr->selectField( ['page','revision'],
 				'COUNT(*)',
-				array(
+				[
 					$userCondition,
 					$timeCondition, // in time range
 					'page_id = rev_page',
 					'page_namespace' => FlaggedRevs::getReviewNamespaces()
-				)
+				]
 			);
 			$stash->set( $ecKey, $edits, 14*24*3600 ); // cache for 2 weeks
 		}
@@ -363,32 +363,32 @@ class FlaggedRevsStats {
 		# Edits started off pending if made when a flagged rev of the page already existed.
 		# Get the *first* reviewed rev *after* each edit and get the time difference.
 		$sql = $dbr->selectSQLText(
-			array( 'revision' ),
-			array(
+			[ 'revision' ],
+			[
 				'rev_timestamp AS rt', // time revision was made
 				'(' . $dbr->selectSQLText( 'flaggedrevs',
 					'MIN(fr_timestamp)',
-					array(
+					[
 						'fr_page_id = rev_page',
-						'fr_rev_timestamp >= rev_timestamp' ),
+						'fr_rev_timestamp >= rev_timestamp' ],
 					__METHOD__
 				) . ') AS nft' // time when revision was first reviewed
-			),
-			array(
+			],
+			[
 				$userCondition,
 				$timeCondition,
 				"(rev_id % $mod) = 0",
 				'rev_parent_id > 0', // optimize (exclude new pages)
 				'EXISTS (' . $dbr->selectSQLText( 'flaggedrevs',
 					'*',
-					array( // page was reviewed when this revision was made
+					[ // page was reviewed when this revision was made
 						'fr_page_id = rev_page',
 						'fr_rev_timestamp < rev_timestamp', // before this revision
 						'fr_rev_id < rev_id', // not imported later
-						'fr_timestamp < rev_timestamp' ), // page reviewed before revision
+						'fr_timestamp < rev_timestamp' ], // page reviewed before revision
 					__METHOD__
 				) . ')'
-			),
+			],
 			__METHOD__
 		);
 		// foreach ( $dbr->query( "EXPLAIN $sql" ) as $row ) { print_r( $row ); }
@@ -396,7 +396,7 @@ class FlaggedRevsStats {
 
 		$secondsR = 0; // total wait seconds for edits later reviewed
 		$secondsP = 0; // total wait seconds for edits still pending
-		$times = array();
+		$times = [];
 		if ( $dbr->numRows( $res ) ) {
 			# Get the elapsed times revs were pending (flagged time - edit time)
 			foreach ( $res as $row ) {
@@ -412,7 +412,7 @@ class FlaggedRevsStats {
 			$rank = intval( round( count($times)/2 + .5 ) - 1 );
 			$medianRT = $times[$rank];
 			// Make percentile tabulation data
-			$doPercentiles = array( 35, 45, 55, 65, 75, 85, 90, 95 );
+			$doPercentiles = [ 35, 45, 55, 65, 75, 85, 90, 95 ];
 			foreach ( $doPercentiles as $percentile ) {
 				$rank = intval( round( $percentile*count($times)/100 + .5 ) - 1 );
 				$rPerTable[$percentile] = $times[$rank];

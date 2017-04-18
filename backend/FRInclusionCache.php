@@ -10,7 +10,7 @@ class FRInclusionCache {
 	 * @param Revision $rev
 	 * @param User $user
 	 * @param string $regen use 'regen' to force regeneration
-	 * @return array( templateIds, fileSHA1Keys )
+	 * @return [ templateIds, fileSHA1Keys ]
 	 * templateIds like ParserOutput->mTemplateIds
 	 * fileSHA1Keys like ParserOutput->mImageTimeKeys
 	 */
@@ -66,7 +66,7 @@ class FRInclusionCache {
 			}
 
 			# Get the template/file versions used...
-			$versions = array( $pOut->getTemplateIds(), $pOut->getFileSearchOptions() );
+			$versions = [ $pOut->getTemplateIds(), $pOut->getFileSearchOptions() ];
 			# Save to cache (check cache expiry for dynamic elements)...
 			$data = FlaggedRevs::makeMemcObj( $versions );
 			$wgMemc->set( $key, $data, $pOut->getCacheExpiry() );
@@ -123,7 +123,7 @@ class FRInclusionCache {
 		global $wgMemc;
 		$key = self::getCacheKey( $title, $revId );
 		# Get the template/file versions used...
-		$versions = array( $pOut->getTemplateIds(), $pOut->getFileSearchOptions() );
+		$versions = [ $pOut->getTemplateIds(), $pOut->getFileSearchOptions() ];
 		# Save to cache (check cache expiry for dynamic elements)...
 		$data = FlaggedRevs::makeMemcObj( $versions );
 		$wgMemc->set( $key, $data, $pOut->getCacheExpiry() );
