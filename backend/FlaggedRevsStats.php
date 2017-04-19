@@ -120,13 +120,13 @@ class FlaggedRevsStats {
 			'frs_stat_val'  => $reviewDataUser['sampleEndTS'], // unix
 			'frs_timestamp' => $encDataTimestamp ];
 		// All-namespace percentiles...
-		foreach( $reviewDataAnon['percTable'] as $percentile => $seconds ) {
+		foreach ( $reviewDataAnon['percTable'] as $percentile => $seconds ) {
 			$dataSet[] = [
 				'frs_stat_key'  => 'reviewLag-anon-percentile:'.(int)$percentile,
 				'frs_stat_val'  => $seconds,
 				'frs_timestamp' => $encDataTimestamp ];
 		}
-		foreach( $reviewDataUser['percTable'] as $percentile => $seconds ) {
+		foreach ( $reviewDataUser['percTable'] as $percentile => $seconds ) {
 			$dataSet[] = [
 				'frs_stat_key'  => 'reviewLag-user-percentile:'.(int)$percentile,
 				'frs_stat_val'  => $seconds,
@@ -165,18 +165,18 @@ class FlaggedRevsStats {
 			'frs_timestamp' => $encDataTimestamp ];
 
 		// Per-namespace total/reviewed/synced stats...
-		foreach( $rNamespaces as $namespace ) {
+		foreach ( $rNamespaces as $namespace ) {
 			$dataSet[] = [
 				'frs_stat_key'  => 'totalPages-NS:'.(int)$namespace,
-				'frs_stat_val'  => isset($ns_total[$namespace]) ? $ns_total[$namespace] : 0,
+				'frs_stat_val'  => isset( $ns_total[$namespace] ) ? $ns_total[$namespace] : 0,
 				'frs_timestamp' => $encDataTimestamp ];
 			$dataSet[] = [
 				'frs_stat_key'  => 'reviewedPages-NS:'.(int)$namespace,
-				'frs_stat_val'  => isset($ns_reviewed[$namespace]) ? $ns_reviewed[$namespace] : 0,
+				'frs_stat_val'  => isset( $ns_reviewed[$namespace] ) ? $ns_reviewed[$namespace] : 0,
 				'frs_timestamp' => $encDataTimestamp ];
 			$dataSet[] = [
 				'frs_stat_key'  => 'syncedPages-NS:'.(int)$namespace,
-				'frs_stat_val'  => isset($ns_synced[$namespace]) ? $ns_synced[$namespace] : 0,
+				'frs_stat_val'  => isset( $ns_synced[$namespace] ) ? $ns_synced[$namespace] : 0,
 				'frs_timestamp' => $encDataTimestamp ];
 		}
 
@@ -258,7 +258,7 @@ class FlaggedRevsStats {
 		$dbr = wfGetDB( DB_SLAVE, 'vslow' );
 		$installedUnix = (int)$dbr->selectField( 'logging',
 			self::dbUnixTime( $dbr, 'MIN(log_timestamp)' ),
-			['log_type' => 'review']
+			[ 'log_type' => 'review' ]
 		);
 		if ( !$installedUnix ) {
 			$installedUnix = wfTimestamp( TS_UNIX ); // now
@@ -339,7 +339,7 @@ class FlaggedRevsStats {
 		}
 		$sampleSize = 1500; // sample size
 		# Sanity check the starting timestamp
-		$minTSUnix = max($minTSUnix,$installedUnix);
+		$minTSUnix = max( $minTSUnix, $installedUnix );
 		$encMinTS = $dbr->addQuotes( $dbr->timestamp( $minTSUnix ) );
 		# Get timestamp boundaries
 		$timeCondition = "rev_timestamp BETWEEN $encMinTS AND $encMaxTS";
@@ -347,7 +347,7 @@ class FlaggedRevsStats {
 		$ecKey = wfMemcKey( 'flaggedrevs', 'rcEditCount', $users, $days );
 		$edits = (int)$stash->get( $ecKey );
 		if ( !$edits ) {
-			$edits = (int)$dbr->selectField( ['page','revision'],
+			$edits = (int)$dbr->selectField( [ 'page','revision' ],
 				'COUNT(*)',
 				[
 					$userCondition,
@@ -400,21 +400,21 @@ class FlaggedRevsStats {
 		if ( $dbr->numRows( $res ) ) {
 			# Get the elapsed times revs were pending (flagged time - edit time)
 			foreach ( $res as $row ) {
-				$time = wfTimestamp(TS_UNIX,$row->nft) - wfTimestamp(TS_UNIX,$row->rt);
+				$time = wfTimestamp( TS_UNIX, $row->nft ) - wfTimestamp( TS_UNIX, $row->rt );
 				$time = max( $time, 0 ); // sanity
 				$secondsR += $time;
 				$times[] = $time;
 			}
-			$sampleSize = count($times);
-			$aveRT = ($secondsR + $secondsP)/$sampleSize; // sample mean
-			sort($times); // order smallest -> largest
+			$sampleSize = count( $times );
+			$aveRT = ( $secondsR + $secondsP )/$sampleSize; // sample mean
+			sort( $times ); // order smallest -> largest
 			// Sample median
-			$rank = intval( round( count($times)/2 + .5 ) - 1 );
+			$rank = intval( round( count( $times )/2 + .5 ) - 1 );
 			$medianRT = $times[$rank];
 			// Make percentile tabulation data
 			$doPercentiles = [ 35, 45, 55, 65, 75, 85, 90, 95 ];
 			foreach ( $doPercentiles as $percentile ) {
-				$rank = intval( round( $percentile*count($times)/100 + .5 ) - 1 );
+				$rank = intval( round( $percentile*count( $times )/100 + .5 ) - 1 );
 				$rPerTable[$percentile] = $times[$rank];
 			}
 			$result['average']       = $aveRT;

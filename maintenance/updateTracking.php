@@ -5,10 +5,10 @@
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
-	$IP = dirname(__FILE__).'/../../..';
+	$IP = dirname( __FILE__ ).'/../../..';
 }
 
-require_once( "$IP/maintenance/Maintenance.php" );
+require_once ( "$IP/maintenance/Maintenance.php" );
 
 class UpdateFRTracking extends Maintenance {
 
@@ -75,7 +75,7 @@ class UpdateFRTracking extends Maintenance {
 			$res = $db->select(
 				[ 'revision', 'flaggedrevs', 'page' ],
 				[ 'fr_rev_id', 'fr_tags', 'fr_quality', 'page_namespace', 'page_title',
-					'fr_img_name', 'fr_img_timestamp', 'fr_img_sha1', 'rev_page'], 
+					'fr_img_name', 'fr_img_timestamp', 'fr_img_sha1', 'rev_page' ],
 				$cond,
 				__METHOD__
 			);
@@ -140,7 +140,7 @@ class UpdateFRTracking extends Maintenance {
 		$this->output( "fr_quality and fr_img_* columns update complete ..." .
 			" {$count} rows [{$changed} changed]\n" );
 	}
-	
+
 	protected function update_flaggedpages( $start = null ) {
 		$this->output( "Populating and correcting flaggedpages/flaggedpage_config columns\n" );
 
@@ -265,4 +265,4 @@ class UpdateFRTracking extends Maintenance {
 }
 
 $maintClass = "UpdateFRTracking";
-require_once( RUN_MAINTENANCE_IF_MAIN );
+require_once ( RUN_MAINTENANCE_IF_MAIN );

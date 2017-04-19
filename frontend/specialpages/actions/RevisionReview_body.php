@@ -213,7 +213,7 @@ class RevisionReview extends UnlistedSpecialPage {
 					wfMessage( 'revreview-submission-invalid' )->parse();
 			}
 			list( $par, $val ) = $set;
-			switch( $par )
+			switch ( $par )
 			{
 				case "target":
 					$title = Title::newFromURL( $val );
@@ -228,7 +228,7 @@ class RevisionReview extends UnlistedSpecialPage {
 					$form->setValidatedParams( $val );
 					break;
 				case "templateParams":
-					$form->setTemplateParams( $val);
+					$form->setTemplateParams( $val );
 					break;
 				case "imageParams":
 					$form->setFileParams( $val );

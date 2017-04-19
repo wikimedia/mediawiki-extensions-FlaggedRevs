@@ -5,10 +5,10 @@
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
-	$IP = dirname(__FILE__).'/../../..';
+	$IP = dirname( __FILE__ ).'/../../..';
 }
 
-require_once( "$IP/maintenance/Maintenance.php" );
+require_once ( "$IP/maintenance/Maintenance.php" );
 
 class FixBug28348 extends Maintenance {
 
@@ -40,7 +40,7 @@ class FixBug28348 extends Maintenance {
 		$end += $this->mBatchSize - 1;
 		$blockStart = $start;
 		$blockEnd = $start + $this->mBatchSize - 1;
-	
+
 		$count = $changed = 0;
 		while ( $blockEnd <= $end ) {
 			$this->output( "...doing fi_rev_id from $blockStart to $blockEnd\n" );
@@ -98,4 +98,4 @@ class FixBug28348 extends Maintenance {
 }
 
 $maintClass = "FixBug28348";
-require_once( RUN_MAINTENANCE_IF_MAIN );
+require_once ( RUN_MAINTENANCE_IF_MAIN );

@@ -49,7 +49,7 @@ class Stabilization extends UnlistedSpecialPage {
 		# Watch checkbox
 		$form->setWatchThis( (bool)$request->getCheck( 'wpWatchthis' ) );
 		# Get auto-review option...
-		$form->setReviewThis( $request->getCheck( 'wpReviewthis') );
+		$form->setReviewThis( $request->getCheck( 'wpReviewthis' ) );
 		# Reason
 		$form->setReasonExtra( $request->getText( 'wpReason' ) );
 		$form->setReasonSelection( $request->getVal( 'wpReasonSelection' ) );
@@ -135,7 +135,7 @@ class Stabilization extends UnlistedSpecialPage {
 		# Add "other time" expiry dropdown option
 		$dropdownOptions[] = [ $this->msg( 'protect-othertime-op' )->text(), 'othertime' ];
 		# Add custom expiry dropdown options (from MediaWiki message)
-		foreach( explode( ',', $scExpiryOptions ) as $option ) {
+		foreach ( explode( ',', $scExpiryOptions ) as $option ) {
 			if ( strpos( $option, ":" ) === false ) {
 				$show = $value = $option;
 			} else {
@@ -143,7 +143,7 @@ class Stabilization extends UnlistedSpecialPage {
 			}
 			$dropdownOptions[] = [ $show, $value ];
 		}
-		
+
 		# Actually build the options HTML...
 		$expiryFormOptions = '';
 		foreach ( $dropdownOptions as $option ) {
@@ -285,7 +285,7 @@ class Stabilization extends UnlistedSpecialPage {
 		$levels = FlaggedRevs::getRestrictionLevels();
 		array_unshift( $levels, '' ); // Add a "none" level
 		foreach ( $levels as $key ) {
-			# Don't let them choose levels they can't set, 
+			# Don't let them choose levels they can't set,
 			# but *show* them all when the form is disabled.
 			if ( $this->form->isAllowed()
 				&& !FlaggedRevs::userCanSetAutoreviewLevel( $this->getUser(), $key ) )

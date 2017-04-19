@@ -14,7 +14,7 @@ class FlaggedRevsStableLogFormatter extends LogFormatter {
 			# Add setting change description as a param
 			$settings = $this->entry->getParameters();
 			$settings = $this->entry->isLegacy() ? FlaggedRevsLog::expandParams( $settings ) : $settings;
-			$params[3] = self::stabilitySettings( $settings , false );
+			$params[3] = self::stabilitySettings( $settings, false );
 		} else {
 			$oldName = $this->makePageLink( Title::newFromText( $params[3] ), [ 'redirect' => 'no' ] );
 			$params[3] = Message::rawParam( $oldName );
@@ -75,8 +75,8 @@ class FlaggedRevsStableLogFormatter extends LogFormatter {
 		# Expiry is a MW timestamp or 'infinity'
 		if ( isset( $pars['expiry'] ) && $pars['expiry'] != 'infinity' ) {
 			$expiry_description = wfMessage( 'stabilize-expiring',
-				$langObj->timeanddate( $pars['expiry'], false, false ) ,
-				$langObj->date( $pars['expiry'], false, false ) ,
+				$langObj->timeanddate( $pars['expiry'], false, false ),
+				$langObj->date( $pars['expiry'], false, false ),
 				$langObj->time( $pars['expiry'], false, false )
 			)->inLanguage( $langObj )->text();
 			if ( $settings != '' ) $settings .= ' ';

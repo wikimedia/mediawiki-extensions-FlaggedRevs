@@ -5,10 +5,10 @@
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
-	$IP = dirname(__FILE__).'/../../..';
+	$IP = dirname( __FILE__ ).'/../../..';
 }
 
-require_once( "$IP/maintenance/Maintenance.php" );
+require_once ( "$IP/maintenance/Maintenance.php" );
 
 class ReviewAllPages extends Maintenance {
 
@@ -57,7 +57,7 @@ class ReviewAllPages extends Maintenance {
 		while ( $blockEnd <= $end ) {
 			$this->output( "...doing page_id from $blockStart to $blockEnd\n" );
 			$res = $db->select( [ 'page', 'revision' ],
-				'*', 
+				'*',
 				[ "page_id BETWEEN $blockStart AND $blockEnd",
 					'page_namespace' => FlaggedRevs::getReviewNamespaces(),
 					'rev_id = page_latest' ],
@@ -93,4 +93,4 @@ class ReviewAllPages extends Maintenance {
 }
 
 $maintClass = "ReviewAllPages";
-require_once( RUN_MAINTENANCE_IF_MAIN );
+require_once ( RUN_MAINTENANCE_IF_MAIN );

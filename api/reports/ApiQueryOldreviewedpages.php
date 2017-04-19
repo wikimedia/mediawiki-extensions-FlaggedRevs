@@ -103,7 +103,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 			] );
 		} else {
 			$this->addFields( $resultPageSet->getPageTableFields() );
-			$this->addFields ( 'fp_pending_since' );
+			$this->addFields( 'fp_pending_since' );
 		}
 
 		$limit = $params['limit'];
@@ -112,7 +112,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 
 		$data = [];
 		$count = 0;
-		foreach( $res as $row ) {
+		foreach ( $res as $row ) {
 			if ( ++$count > $limit ) {
 				// We've reached the one extra which shows that there are
 				// additional pages to be had. Stop here...
@@ -144,7 +144,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 			}
 		}
 
-		if ( is_null(  $resultPageSet ) ) {
+		if ( is_null( $resultPageSet ) ) {
 			$result = $this->getResult();
 			$result->setIndexedTagName( $data, 'p' );
 			$result->addValue( 'query', $this->getModuleName(), $data );

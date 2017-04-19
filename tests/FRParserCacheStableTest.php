@@ -19,7 +19,8 @@ class FRParserCacheStableTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * Constructs the test case.
 	 */
-	public function __construct() {}
+	public function __construct() {
+	}
 
 	// Tests for ParserCache changes - make sure stable keys are different
 	public function testGetParserOutputKey() {

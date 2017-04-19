@@ -115,8 +115,8 @@ class ApiReviewActivity extends ApiBase {
 	}
 
 	public function isWriteMode() {
- 		return true;
- 	}
+			return true;
+	}
 
 	public function getAllowedParams() {
 		return [

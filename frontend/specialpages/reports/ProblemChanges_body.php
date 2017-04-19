@@ -42,7 +42,7 @@ class ProblemChanges extends SpecialPage {
 			$this->showPageList();
 		}
 	}
-	
+
 	protected function setSyndicated() {
 		$request = $this->getRequest();
 		$queryParams = [
@@ -125,7 +125,7 @@ class ProblemChanges extends SpecialPage {
 		}
 		return $limit;
 	}
-	
+
 	/**
 	 * Output a subscription feed listing recent edits to this page.
 	 * @param string $type
@@ -156,7 +156,7 @@ class ProblemChanges extends SpecialPage {
 		}
 		$feed->outFooter();
 	}
-	
+
 	protected function feedTitle() {
 		global $wgContLanguageCode, $wgSitename;
 
@@ -184,10 +184,10 @@ class ProblemChanges extends SpecialPage {
 			return null;
 		}
 	}
-	
+
 	public function formatRow( $row ) {
 		$css = $quality = $tags = $underReview = '';
-		
+
 		$title = Title::newFromRow( $row );
 		$link = Linker::link( $title );
 		$review = Linker::linkKnown( $title,
@@ -247,10 +247,10 @@ class ProblemChanges extends SpecialPage {
 				$this->msg( 'pendingchanges-viewing' )->escaped() . '</span>';
 		}
 
-		return( "<li{$css}>{$link} ({$review}) <i>{$age}</i>" .
+		return ( "<li{$css}>{$link} ({$review}) <i>{$age}</i>" .
 			"{$quality}{$tags}{$watching}{$underReview}</li>" );
 	}
-	
+
 	/**
 	 * Get the tags of the revisions of a page after a certain rev
 	 * @param integer $pageId, page ID
@@ -268,17 +268,18 @@ class ProblemChanges extends SpecialPage {
 				'rev_id = ct_rev_id' ],
 			__METHOD__
 		);
-		foreach( $res as $row ) {
+		foreach ( $res as $row ) {
 			$tags[] = $row->ct_tag;
 		}
 		return $tags;
 	}
 
 	protected static function getLineClass( $hours, $uw ) {
-		if ( $uw == 0 )
+		if ( $uw == 0 ) {
 			return 'fr-unreviewed-unwatched';
-		else
+		} else {
 			return "";
+		}
 	}
 
 	protected function getGroupName() {
@@ -295,8 +296,8 @@ class ProblemChangesPager extends AlphabeticPager {
 
 	const PAGE_LIMIT = 100; // Don't get too expensive
 
-	function __construct( $form, $level = - 1, $category = '', $tag = '' )
-	{
+	function __construct( $form, $level = - 1, $category = '', $tag = '' ) {
+
 		$this->mForm = $form;
 		# Must be a content page...
 		$this->namespace = FlaggedRevs::getReviewNamespaces();

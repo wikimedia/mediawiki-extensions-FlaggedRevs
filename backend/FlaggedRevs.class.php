@@ -412,7 +412,7 @@ class FlaggedRevs {
 		if ( strpos( $val, '&diffonly=1' ) !== false ) {
 			return [ 'diffonly' => 1 ];
 		} elseif ( strpos( $val, '&diffonly=0' ) !== false ) {
-			return [ 'diffonly' => 0];
+			return [ 'diffonly' => 0 ];
 		}
 		return [];
 	}

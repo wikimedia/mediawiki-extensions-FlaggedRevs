@@ -44,7 +44,7 @@ class ApiQueryFlagged extends ApiQueryBase {
 		$res = $this->select( __METHOD__ );
 
 		$result = $this->getResult();
-		foreach( $res as $row ) {
+		foreach ( $res as $row ) {
 			$data = [
 				'stable_revid' 	=> intval( $row->fp_stable ),
 				'level' 		=> intval( $row->fp_quality ),

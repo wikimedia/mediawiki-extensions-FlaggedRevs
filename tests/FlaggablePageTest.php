@@ -19,7 +19,8 @@ class FlaggablePageTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * Constructs the test case.
 	 */
-	public function __construct() {}
+	public function __construct() {
+	}
 
 	public function testPageDataFromTitle() {
 		$title = Title::makeTitle( NS_MAIN, "somePage" );
@@ -27,7 +28,7 @@ class FlaggablePageTest extends PHPUnit_Framework_TestCase {
 
 		$user = $this->user;
 		$article->doEditContent(
-			ContentHandler::makeContent("Some text to insert", $title),
+			ContentHandler::makeContent( "Some text to insert", $title ),
 			"creating a page",
 			EDIT_NEW,
 			false,

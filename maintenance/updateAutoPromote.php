@@ -5,10 +5,10 @@
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
-	$IP = dirname(__FILE__).'/../../..';
+	$IP = dirname( __FILE__ ).'/../../..';
 }
 
-require_once( "$IP/maintenance/Maintenance.php" );
+require_once ( "$IP/maintenance/Maintenance.php" );
 
 class UpdateFRAutoPromote extends Maintenance {
 
@@ -48,25 +48,25 @@ class UpdateFRAutoPromote extends Maintenance {
 					[ 'rev_user' => $user->getID(),
 						"rev_comment NOT LIKE '/*%*/'" ], // manual comments only
 					__METHOD__,
-					[ 'LIMIT' => max($wgFlaggedRevsAutopromote['editComments'],500) ]
+					[ 'LIMIT' => max( $wgFlaggedRevsAutopromote['editComments'], 500 ) ]
 				);
 				$p['editComments'] = $dbr->numRows( $sres );
 				# Get content page edits
-				$sres = $dbr->select( ['revision','page'], '1',
+				$sres = $dbr->select( [ 'revision','page' ], '1',
 					[ 'rev_user' => $user->getID(),
 						'page_id = rev_page',
 						'page_namespace' => MWNamespace::getContentNamespaces() ],
 					__METHOD__,
-					[ 'LIMIT' => max($wgFlaggedRevsAutopromote['totalContentEdits'],500) ]
+					[ 'LIMIT' => max( $wgFlaggedRevsAutopromote['totalContentEdits'], 500 ) ]
 				);
 				$p['totalContentEdits'] = $dbr->numRows( $sres );
 				# Get unique content pages edited
-				$sres = $dbr->select( ['revision','page'], 'DISTINCT(rev_page)',
+				$sres = $dbr->select( [ 'revision','page' ], 'DISTINCT(rev_page)',
 					[ 'rev_user' => $user->getID(),
-						'page_id = rev_page', 
+						'page_id = rev_page',
 						'page_namespace' => MWNamespace::getContentNamespaces() ],
 					__METHOD__,
-					[ 'LIMIT' => max($wgFlaggedRevsAutopromote['uniqueContentPages'],50) ]
+					[ 'LIMIT' => max( $wgFlaggedRevsAutopromote['uniqueContentPages'], 50 ) ]
 				);
 				$p['uniqueContentPages'] = [];
 				foreach ( $sres as $innerRow ) {
@@ -89,4 +89,4 @@ class UpdateFRAutoPromote extends Maintenance {
 }
 
 $maintClass = "UpdateFRAutoPromote";
-require_once( RUN_MAINTENANCE_IF_MAIN );
+require_once ( RUN_MAINTENANCE_IF_MAIN );

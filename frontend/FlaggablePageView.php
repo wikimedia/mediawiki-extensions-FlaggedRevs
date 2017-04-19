@@ -32,8 +32,10 @@ class FlaggablePageView extends ContextSource {
 		}
 		return self::$instance;
 	}
-	protected function __construct() { }
-	protected function __clone() { }
+	protected function __construct() {
+	}
+	protected function __clone() {
+	}
 
 	/*
 	 * Clear the FlaggablePageView for this request.
@@ -733,7 +735,7 @@ class FlaggablePageView extends ContextSource {
 
 	protected function showPoolError( Status $status ) {
 		$this->out->enableClientCache( false );
-		$this->out->setRobotPolicy('noindex,nofollow' );
+		$this->out->setRobotPolicy( 'noindex,nofollow' );
 
 		$errortext = $status->getWikiText( false, 'view-pool-error' );
 		$this->out->addWikiText( '<div class="errorbox">' . $errortext . '</div>' );
@@ -942,7 +944,7 @@ class FlaggablePageView extends ContextSource {
 		$log = $this->stabilityLogNotice( false );
 		if ( $log ) {
 			$notices[$this->article->isPageLocked() ? 'revreview-locked' : 'revreview-unlocked'] = $log;
-		} else if ( $this->editWillRequireReview( $editPage ) ) {
+		} elseif ( $this->editWillRequireReview( $editPage ) ) {
 			$notices['revreview-editnotice'] = $this->msg( 'revreview-editnotice' )->parseAsBlock();
 		}
 		$frev = $this->article->getStableRev();

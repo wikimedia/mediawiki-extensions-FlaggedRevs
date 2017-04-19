@@ -36,7 +36,7 @@ $wgExtensionCredits['specialpage'][] = [
 ];
 
 # Load global constants
-require( dirname( __FILE__ ) . '/FlaggedRevs.defines.php' );
+require ( dirname( __FILE__ ) . '/FlaggedRevs.defines.php' );
 
 # This will only distinguish "checked", "quality", and unreviewed
 # A small icon will show in the upper right hand corner
@@ -165,7 +165,7 @@ $wgFlaggedRevsAutoconfirm = [
 */
 
 # Defines extra rights for advanced reviewer class (Reviewers)
-$wgGroupPermissions['reviewer']['validate']          = true;
+$wgGroupPermissions['reviewer']['validate'] = true;
 # Let this stand alone just in case...
 $wgGroupPermissions['reviewer']['review']            = true;
 $wgGroupPermissions['reviewer']['autoreview']        = true;
@@ -471,7 +471,7 @@ $wgLogActionsHandlers['stable/reset'] = 'FlaggedRevsStableLogFormatter'; // rese
 $wgLogActionsHandlers['stable/move_stable'] = 'FlaggedRevsStableLogFormatter'; // move
 
 # B/C ...
-$wgLogActions['rights/erevoke']  = 'rights-editor-revoke';
+$wgLogActions['rights/erevoke'] = 'rights-editor-revoke';
 
 # AJAX functions
 $wgAjaxExportList[] = 'RevisionReview::AjaxReview';

@@ -5,10 +5,10 @@
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
-	$IP = dirname(__FILE__).'/../../..';
+	$IP = dirname( __FILE__ ).'/../../..';
 }
 
-require_once( "$IP/maintenance/Maintenance.php" );
+require_once ( "$IP/maintenance/Maintenance.php" );
 
 class FlagProtectToSemiProtect extends Maintenance {
 
@@ -54,7 +54,7 @@ class FlagProtectToSemiProtect extends Maintenance {
 		$start = $db->selectField( 'flaggedpage_config', 'MIN(fpc_page_id)', false, __FUNCTION__ );
 		$end = $db->selectField( 'flaggedpage_config', 'MAX(fpc_page_id)', false, __FUNCTION__ );
 		if ( is_null( $start ) || is_null( $end ) ) {
-			$this->output(  "...flaggedpage_config table seems to be empty.\n" );
+			$this->output( "...flaggedpage_config table seems to be empty.\n" );
 			return;
 		}
 		# Do remaining chunk
@@ -66,7 +66,7 @@ class FlagProtectToSemiProtect extends Maintenance {
 			$this->output( "...doing fpc_page_id from $blockStart to $blockEnd\n" );
 			$res = $db->select(
 				[ 'flaggedpage_config', 'page' ],
-				[ 'fpc_page_id', 'fpc_level', 'fpc_expiry' ], 
+				[ 'fpc_page_id', 'fpc_level', 'fpc_expiry' ],
 				[ "fpc_page_id BETWEEN $blockStart AND $blockEnd",
 					'page_namespace' => $wgFlaggedRevsNamespaces,
 					'page_id = fpc_page_id',
@@ -114,7 +114,7 @@ class FlagProtectToSemiProtect extends Maintenance {
 					$expiry[$type] = $newExpiry;
 					$desc[] = "{$type}={$newLimit}: {$newExpiry}";
 				}
-				
+
 				$db->begin();
 				$article = new WikiPage( $title );
 				$ok = $article->doUpdateRestrictions( $limit, $reason, $cascade, $expiry, $user );
@@ -135,4 +135,4 @@ class FlagProtectToSemiProtect extends Maintenance {
 }
 
 $maintClass = "FlagProtectToSemiProtect";
-require_once( RUN_MAINTENANCE_IF_MAIN );
+require_once ( RUN_MAINTENANCE_IF_MAIN );

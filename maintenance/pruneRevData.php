@@ -5,16 +5,16 @@
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
-	$IP = dirname(__FILE__).'/../../..';
+	$IP = dirname( __FILE__ ).'/../../..';
 }
 
-require_once( "$IP/maintenance/Maintenance.php" );
+require_once ( "$IP/maintenance/Maintenance.php" );
 
 class PruneFRIncludeData extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
-		$this->mDescription = "This script clears template/image data for reviewed versions" . 
+		$this->mDescription = "This script clears template/image data for reviewed versions" .
 			"that are 1+ month old and have 50+ newer versions in page. By default," .
 			"it will just output how many rows can be deleted. Use the 'prune' option " .
 			"to actually delete them.";
@@ -49,9 +49,9 @@ class PruneFRIncludeData extends Maintenance {
 		$end += $this->mBatchSize - 1; # Do remaining chunk
 		$blockStart = $start;
 		$blockEnd = $start + $this->mBatchSize - 1;
-		
+
 		$tDeleted = $fDeleted = 0; // tallies
-		
+
 		$newerRevs = 50;
 		$cutoff = $db->timestamp( time() - 3600 );
 		while ( $blockEnd <= $end ) {
@@ -98,12 +98,12 @@ class PruneFRIncludeData extends Maintenance {
 					if ( $prune ) {
 						$db->begin();
 						$db->delete( 'flaggedtemplates',
-							['ft_rev_id' => $revsClearIncludes],
+							[ 'ft_rev_id' => $revsClearIncludes ],
 							__METHOD__
 						);
 						$tDeleted += $db->affectedRows();
 						$db->delete( 'flaggedimages',
-							['fi_rev_id' => $revsClearIncludes],
+							[ 'fi_rev_id' => $revsClearIncludes ],
 							__METHOD__
 						);
 						$fDeleted += $db->affectedRows();
@@ -112,12 +112,12 @@ class PruneFRIncludeData extends Maintenance {
 					} elseif ( count( $revsClearIncludes ) ) {
 						$tDeleted += $db->selectField( 'flaggedtemplates',
 							'COUNT(*)',
-							['ft_rev_id' => $revsClearIncludes],
+							[ 'ft_rev_id' => $revsClearIncludes ],
 							__METHOD__
 						);
 						$fDeleted += $db->selectField( 'flaggedimages',
 							'COUNT(*)',
-							['fi_rev_id' => $revsClearIncludes],
+							[ 'fi_rev_id' => $revsClearIncludes ],
 							__METHOD__
 						);
 					}
@@ -144,4 +144,4 @@ class PruneFRIncludeData extends Maintenance {
 }
 
 $maintClass = "PruneFRIncludeData";
-require_once( RUN_MAINTENANCE_IF_MAIN );
+require_once ( RUN_MAINTENANCE_IF_MAIN );

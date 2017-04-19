@@ -200,8 +200,8 @@ class ApiReview extends ApiBase {
 	}
 
 	public function isWriteMode() {
- 		return true;
- 	}
+			return true;
+	}
 
 	public function getAllowedParams() {
 		$pars = [
@@ -253,7 +253,7 @@ class ApiReview extends ApiBase {
 		return 'csrf';
 	}
 
-    public function getTokenSalt() {
+	public function getTokenSalt() {
 		return '';
 	}
 

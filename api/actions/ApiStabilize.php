@@ -62,8 +62,8 @@ abstract class ApiStabilize extends ApiBase {
 	}
 
 	public function isWriteMode() {
- 		return true;
- 	}
+			return true;
+	}
 
 	public function needsToken() {
 		return 'csrf';

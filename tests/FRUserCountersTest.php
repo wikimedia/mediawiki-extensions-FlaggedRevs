@@ -21,7 +21,8 @@ class FRUserCountersTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * Constructs the test case.
 	 */
-	public function __construct() {}
+	public function __construct() {
+	}
 
 	public function testGetAndSaveUserParams() {
 		$this->tablesUsed[] = 'flaggedrevs_autopromote';
@@ -45,7 +46,7 @@ class FRUserCountersTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals( $expected, $ps, "Param save and fetch from DB 1" );
 
 		$expected = [
-			'uniqueContentPages'	=> [23,55],
+			'uniqueContentPages'	=> [ 23,55 ],
 			'totalContentEdits' 	=> 666,
 			'editComments' 			=> 666,
 			'revertedEdits' 		=> 13

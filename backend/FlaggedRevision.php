@@ -628,7 +628,7 @@ class FlaggedRevision {
 				[],
 				[
 					'page' => [ 'LEFT JOIN',
-						'page_namespace = ft_namespace AND page_title = ft_title'],
+						'page_namespace = ft_namespace AND page_title = ft_title' ],
 					'flaggedpages' => [ 'LEFT JOIN', 'fp_page_id = page_id' ]
 				]
 			);

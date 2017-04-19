@@ -151,12 +151,12 @@ class StablePagesPager extends AlphabeticPager {
 		$conds = $this->mConds;
 		$conds[] = 'page_id = fpc_page_id';
 		$conds['fpc_override'] = 1;
-		if( $this->autoreview !== null ) {
+		if ( $this->autoreview !== null ) {
 			$conds['fpc_level'] = $this->autoreview;
 		}
 		$conds['page_namespace'] = $this->namespace;
 		// Be sure not to include expired items
-		if( $this->indef ) {
+		if ( $this->indef ) {
 			$conds['fpc_expiry'] = $this->mDb->getInfinity();
 		} else {
 			$encCutoff = $this->mDb->addQuotes( $this->mDb->timestamp() );

@@ -18,7 +18,8 @@ class FRInclusionManager {
 		}
 		return self::$instance;
 	}
-	protected function __clone() { }
+	protected function __clone() {
+	}
 
 	protected function __construct() {
 		$this->stableVersions['templates'] = [];

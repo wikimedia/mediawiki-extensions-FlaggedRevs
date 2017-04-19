@@ -64,7 +64,7 @@ class QualityOversight extends SpecialPage {
 			$out->addWikiMsg( 'logempty' );
 		}
 	}
-	
+
 	private function showForm() {
 		global $wgScript;
 
@@ -88,7 +88,7 @@ class QualityOversight extends SpecialPage {
 			'</p></fieldset>' . Xml::closeElement( 'form' )
 		);
 	}
-	
+
 	/*
 	 * Get actions for IN clause
 	 * @return array

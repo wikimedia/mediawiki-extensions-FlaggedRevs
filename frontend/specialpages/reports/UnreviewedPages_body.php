@@ -12,7 +12,7 @@ class UnreviewedPages extends SpecialPage {
 
 		$this->setHeaders();
 		if ( !$this->getUser()->isAllowed( 'unreviewedpages' ) ) {
-			throw new PermissionsError ( 'unreviewedpages' );
+			throw new PermissionsError( 'unreviewedpages' );
 		}
 
 		$this->currentUnixTS = wfTimestamp( TS_UNIX ); // now
@@ -155,19 +155,20 @@ class UnreviewedPages extends SpecialPage {
 				$this->msg( 'unreviewedpages-viewing' )->escaped() . '</span>';
 		}
 
-		return( "<li{$css}>{$link} $dirmark {$stxt} ({$hist})" .
+		return ( "<li{$css}>{$link} $dirmark {$stxt} ({$hist})" .
 			"{$age}{$watching}{$underReview}</li>" );
 	}
 
 	protected static function getLineClass( $hours, $uw ) {
-		if ( $uw == 0 )
+		if ( $uw == 0 ) {
 			return 'fr-unreviewed-unwatched';
-		elseif ( $hours > 20 * 24 )
+		} elseif ( $hours > 20 * 24 ) {
 			return 'fr-pending-long2';
-		elseif ( $hours > 7 * 24 )
+		} elseif ( $hours > 7 * 24 ) {
 			return 'fr-pending-long';
-		else
+		} else {
 			return "";
+		}
 	}
 
 	/**
@@ -206,7 +207,7 @@ class UnreviewedPages extends SpecialPage {
 		$res = $dbr->select(
 			[ 'page', 'flaggedpages' ],
 			[ 'page_namespace', 'page_title', 'page_id' ],
-			[ 'page_namespace' => $rNamespaces, 
+			[ 'page_namespace' => $rNamespaces,
 				'page_is_redirect' => 0, // no redirects
 				'fp_page_id IS NULL' ],
 			__METHOD__,
@@ -247,12 +248,12 @@ class UnreviewedPages extends SpecialPage {
 		$res = $dbr->select(
 			[ 'page', 'flaggedpages' ],
 			[ 'page_namespace', 'page_title', 'page_id' ],
-			[ 'page_namespace' => $rNamespaces, 
+			[ 'page_namespace' => $rNamespaces,
 				'page_is_redirect' => 0, // no redirects
 				'fp_page_id IS NULL OR fp_quality = 0' ],
 			__METHOD__,
 			[ 'LIMIT' => 5000 ],
-			[ 'flaggedpages' => ['LEFT JOIN','fp_page_id = page_id'] ]
+			[ 'flaggedpages' => [ 'LEFT JOIN','fp_page_id = page_id' ] ]
 		);
 		foreach ( $res as $row ) {
 			$insertRows[] = [

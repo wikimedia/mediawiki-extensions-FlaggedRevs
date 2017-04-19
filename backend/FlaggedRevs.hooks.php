@@ -37,7 +37,7 @@ class FlaggedRevsHooks {
 		);
 		# Update these rows
 		$revIDs = [];
-		foreach( $result as $row ) {
+		foreach ( $result as $row ) {
 			$revIDs[] = $row->fr_rev_id;
 		}
 		if ( !empty( $revIDs ) ) {
@@ -756,7 +756,7 @@ class FlaggedRevsHooks {
 		} else {
 			// Does not add time for the last required edit point; it could be a
 			// fraction of $spacingReq depending on the last actual edit point time.
-			return ( $spacingReq * ($pointsReq - $benchmarks - 1) );
+			return ( $spacingReq * ( $pointsReq - $benchmarks - 1 ) );
 		}
 	}
 
@@ -824,7 +824,7 @@ class FlaggedRevsHooks {
 			$encCutoff = $dbr->addQuotes( $dbr->timestamp( $cutoff_unixtime ) );
 			$conds[] = "log_timestamp >= $encCutoff";
 		}
-		return (bool)$dbr->selectField( 'logging', '1', $conds, __METHOD__  );
+		return (bool)$dbr->selectField( 'logging', '1', $conds, __METHOD__ );
 	}
 
 	protected static function recentEditCount( $uid, $seconds, $limit ) {
@@ -902,7 +902,7 @@ class FlaggedRevsHooks {
 	 */
 	public static function checkAutoPromoteCond( $cond, array $params, User $user, &$result ) {
 		global $wgMemc;
-		switch( $cond ) {
+		switch ( $cond ) {
 			case APCOND_FR_EDITSUMMARYCOUNT:
 				$p = FRUserCounters::getParams( $user );
 				$result = ( $p && $p['editComments'] >= $params[0] );
@@ -1053,7 +1053,7 @@ class FlaggedRevsHooks {
 			$joins['flaggedpages'] = [ 'LEFT JOIN', 'page_id = fp_page_id' ];
 		}
 
-		switch( $params['stable'] ) {
+		switch ( $params['stable'] ) {
 			case GoogleNewsSitemap::OPT_ONLY:
 				$conditions[] = 'fp_stable IS NOT NULL ';
 				break;
@@ -1062,7 +1062,7 @@ class FlaggedRevsHooks {
 				break;
 		}
 
-		switch( $params['quality'] ) {
+		switch ( $params['quality'] ) {
 			case GoogleNewsSitemap::OPT_ONLY:
 				$conditions[] = 'fp_quality >= 1';
 				break;
@@ -1116,7 +1116,7 @@ class FlaggedRevsHooks {
 	}
 
 	public static function onScribuntoExternalLibraries( $engine, array &$extraLibraries ) {
-		if( $engine == 'lua' ) {
+		if ( $engine == 'lua' ) {
 			$extraLibraries['mw.ext.FlaggedRevs'] = 'Scribunto_LuaFlaggedRevsLibrary';
 		}
 		return true;

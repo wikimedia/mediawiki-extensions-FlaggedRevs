@@ -1,15 +1,15 @@
 <?php
 
 abstract class FlaggedRevsApiHooks extends ApiQueryBase {
-	
-	public static function addApiRevisionParams ( &$module, &$params ) {
+
+	public static function addApiRevisionParams( &$module, &$params ) {
 		if ( !$module instanceof ApiQueryRevisions ) {
 			return true;
 		}
 		$params['prop'][ApiBase::PARAM_TYPE][] = 'flagged';
 		return true;
 	}
-	
+
 	public static function addApiRevisionData( &$module ) {
 		if ( !$module instanceof ApiQueryRevisions ) {
 			return true;
@@ -29,7 +29,7 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 		}
 		// Get all requested pageids/revids in a mapping:
 		// pageid => revid => array_index of the revision
-		// we will need this later to add data to the result array 
+		// we will need this later to add data to the result array
 		$result = $module->getResult();
 		if ( defined( 'ApiResult::META_CONTENT' ) ) {
 			$data = (array)$result->getResultData( [ 'query', 'pages' ], [ 'Strip' => 'all' ] );
@@ -78,7 +78,7 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 		$res = $module->select( __METHOD__ );
 
 		// Add flagging data to result array
-		foreach( $res as $row ) {
+		foreach ( $res as $row ) {
 			$index = $pageids[$row->fr_page_id][$row->fr_rev_id];
 			$data = [
 				'user' 			=> $row->user_name,

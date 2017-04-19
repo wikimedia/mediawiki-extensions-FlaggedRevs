@@ -161,7 +161,7 @@ class RevisionReviewFormUI {
 
 		# Start rating controls
 		$css = $disabled ? 'fr-rating-controls-disabled' : 'fr-rating-controls';
-		$form .= Xml::openElement( 'p', [ 'class' => $css, 'id' => 'fr-rating-controls'] ) . "\n";
+		$form .= Xml::openElement( 'p', [ 'class' => $css, 'id' => 'fr-rating-controls' ] ) . "\n";
 
 		# Add main checkboxes/selects
 		$form .= Xml::openElement( 'span',
@@ -224,7 +224,7 @@ class RevisionReviewFormUI {
 		$form .= Html::hidden( 'wpEditToken', $this->user->getEditToken() ) . "\n";
 		$form .= Html::hidden( 'changetime', $reviewTime,
 			[ 'id' => 'mw-fr-input-changetime' ] ) . "\n"; // id for JS
-		$form .= Html::hidden( 'userreviewing', (int)($u === $this->user->getName()),
+		$form .= Html::hidden( 'userreviewing', (int)( $u === $this->user->getName() ),
 			[ 'id' => 'mw-fr-user-reviewing' ] ) . "\n"; // id for JS
 		# Add review parameters
 		$form .= Html::hidden( 'templateParams', $templateParams ) . "\n";

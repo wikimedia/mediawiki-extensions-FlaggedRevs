@@ -172,7 +172,7 @@ class FlaggedRevsXML {
 		if ( $quality === false ) {
 			return 'flaggedrevs-color-0';
 		}
-		switch( $quality ) {
+		switch ( $quality ) {
 			case 2:
 				$css = 'flaggedrevs-color-3';
 				break;
@@ -376,7 +376,7 @@ class FlaggedRevsXML {
 		return "<img class=\"flaggedrevs-icon\" src=\"$encPath/1.png\"" .
 			" alt=\"$encTitle\" title=\"$encTitle\" />";
 	}
-	
+
 	/**
 	 * Creates CSS stable page icon
 	 * @param bool $isQuality

@@ -107,7 +107,7 @@ class FRDependencyUpdate {
 			__METHOD__
 		);
 		$arr = [];
-		foreach( $res as $row ) {
+		foreach ( $res as $row ) {
 			if ( !isset( $arr[$row->ftr_namespace] ) ) {
 				$arr[$row->ftr_namespace] = [];
 			}
@@ -187,7 +187,7 @@ class FRDependencyUpdate {
 			__METHOD__
 		);
 		$arr = [];
-		foreach( $res as $row ) {
+		foreach ( $res as $row ) {
 			if ( !isset( $arr[$row->pl_namespace] ) ) {
 				$arr[$row->pl_namespace] = [];
 			}
@@ -208,7 +208,7 @@ class FRDependencyUpdate {
 			__METHOD__
 		);
 		$arr = [];
-		foreach( $res as $row ) {
+		foreach ( $res as $row ) {
 			if ( !isset( $arr[$row->tl_namespace] ) ) {
 				$arr[$row->tl_namespace] = [];
 			}
@@ -229,7 +229,7 @@ class FRDependencyUpdate {
 			__METHOD__
 		);
 		$arr = [];
-		foreach( $res as $row ) {
+		foreach ( $res as $row ) {
 			$arr[$row->il_to] = 1;
 		}
 		return $arr;
@@ -247,7 +247,7 @@ class FRDependencyUpdate {
 			__METHOD__
 		);
 		$arr = [];
-		foreach( $res as $row ) {
+		foreach ( $res as $row ) {
 			$arr[$row->cl_to] = $row->cl_sortkey;
 		}
 		return $arr;

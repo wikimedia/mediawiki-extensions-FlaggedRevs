@@ -314,7 +314,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	 */
 	public function getOldConfig() {
 		if ( $this->getState() == self::FORM_UNREADY ) {
-			throw new Exception( __CLASS__ . " input fields not set yet.\n");
+			throw new Exception( __CLASS__ . " input fields not set yet.\n" );
 		}
 		if ( $this->oldConfig === [] && $this->page ) {
 			$this->oldConfig = FRPageConfig::getStabilitySettings( $this->page );

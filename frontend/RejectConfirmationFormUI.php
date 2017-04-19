@@ -108,7 +108,7 @@ class RejectConfirmationFormUI {
 		}
 		// NOTE: *-cur msg wording not safe for (unlikely) edit auto-merge
 		$msg = $newRev->isCurrent()
-			? 'revreview-reject-summary-cur' 
+			? 'revreview-reject-summary-cur'
 			: 'revreview-reject-summary-old';
 		$defaultSummary = wfMessage( $msg,
 			$wgContLang->formatNum( count( $rejectIds ) ),
@@ -123,7 +123,7 @@ class RejectConfirmationFormUI {
 		$maxLen = 255 - strlen( $colonSeparator ) - strlen( $comment );
 		if ( strlen( $defaultSummary ) > $maxLen ) {
 			$msg = $newRev->isCurrent()
-				? 'revreview-reject-summary-cur-short' 
+				? 'revreview-reject-summary-cur-short'
 				: 'revreview-reject-summary-old-short';
 			$defaultSummary = wfMessage( $msg,
 				$wgContLang->formatNum( count( $rejectIds ) ),

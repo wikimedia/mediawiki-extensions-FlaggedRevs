@@ -5,10 +5,10 @@
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
-	$IP = dirname(__FILE__).'/../../..';
+	$IP = dirname( __FILE__ ).'/../../..';
 }
 
-require_once( "$IP/maintenance/Maintenance.php" );
+require_once ( "$IP/maintenance/Maintenance.php" );
 
 class PurgeReviewablePages extends Maintenance {
 
@@ -70,7 +70,7 @@ class PurgeReviewablePages extends Maintenance {
 		$count = 0;
 		while ( $blockEnd <= $end ) {
 			$this->output( "... doing page_id from $blockStart to $blockEnd\n" );
-			$res = $db->select( 'page', '*', 
+			$res = $db->select( 'page', '*',
 				[
 					"page_id BETWEEN $blockStart AND $blockEnd",
 					'page_namespace' => $wgFlaggedRevsNamespaces ],
@@ -127,4 +127,4 @@ class PurgeReviewablePages extends Maintenance {
 }
 
 $maintClass = "PurgeReviewablePages";
-require_once( RUN_MAINTENANCE_IF_MAIN );
+require_once ( RUN_MAINTENANCE_IF_MAIN );

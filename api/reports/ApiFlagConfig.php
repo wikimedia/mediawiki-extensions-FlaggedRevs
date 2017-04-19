@@ -52,8 +52,8 @@ class ApiFlagConfig extends ApiBase {
 	}
 
 	public function isWriteMode() {
- 		return false;
- 	}
+			return false;
+	}
 
 	public function getAllowedParams() {
 		return [];

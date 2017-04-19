@@ -94,7 +94,7 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 
 		$data = [];
 		$count = 0;
-		foreach( $res as $row ) {
+		foreach ( $res as $row ) {
 			if ( ++$count > $limit ) {
 				// We've reached the one extra which shows that there are
 				// additional pages to be had. Stop here...

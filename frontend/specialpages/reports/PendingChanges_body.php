@@ -282,7 +282,7 @@ class PendingChanges extends SpecialPage {
 				$this->msg( 'pendingchanges-viewing' )->escaped() . '</span>';
 		}
 
-		return( "<li{$css}>{$link} ({$hist}) {$stxt} ({$review}) <i>{$age}</i>" .
+		return ( "<li{$css}>{$link} ({$hist}) {$stxt} ({$review}) <i>{$age}</i>" .
 			"{$quality}{$watching}{$underReview}</li>" );
 	}
 
@@ -309,8 +309,8 @@ class PendingChangesPager extends AlphabeticPager {
 	const PAGE_LIMIT = 100; // Don't get too expensive
 
 	function __construct( $form, $namespace, $level = - 1, $category = '',
-		$size = null, $watched = false, $stable = false )
-	{
+		$size = null, $watched = false, $stable = false ) {
+
 		$this->mForm = $form;
 		# Must be a content page...
 		$vnamespaces = FlaggedRevs::getReviewNamespaces();
@@ -345,7 +345,7 @@ class PendingChangesPager extends AlphabeticPager {
 	function formatRow( $row ) {
 		return $this->mForm->formatRow( $row );
 	}
-	
+
 	function getDefaultQuery() {
 		$query = parent::getDefaultQuery();
 		$query['category'] = $this->category;
