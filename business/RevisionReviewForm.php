@@ -551,8 +551,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * @return void
 	 */
 	public static function updateRecentChanges( $rev, $patrol, $srev ) {
-		global $wgUseRCPatrol;
-
 		if ( $rev instanceof RecentChange ) {
 			$pageId = $rev->mAttribs['rc_cur_id'];
 		} else {
@@ -563,11 +561,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		$dbw = wfGetDB( DB_MASTER );
 		$limit = 100; // sanity limit to avoid slave lag (most useful when FR is first enabled)
 		$conds = [ 'rc_cur_id' => $pageId ];
-		if ( !$wgUseRCPatrol ) {
-			# No sense in updating all the rows, only the new page one is used.
-			# If $wgUseNPPatrol is off, then not even those are used.
-			$conds['rc_type'] = RC_NEW; // reduce rows to UPDATE
-		}
 
 		$newPatrolState = null; // set rc_patrolled to this value
 		# If we accepted this rev, then mark prior revs as patrolled...
