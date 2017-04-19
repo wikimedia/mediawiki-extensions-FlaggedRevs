@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<ruleset>
+	<rule ref="vendor/mediawiki/mediawiki-codesniffer/MediaWiki"/>
+	<file>.</file>
+	<arg name="extensions" value="php,php5,inc"/>
+	<arg name="encoding" value="utf8"/>
+	<exclude-pattern>vendor</exclude-pattern>
+        <rule ref="Generic.Arrays.DisallowLongArraySyntax.Found">
+                <severity>0</severity>
+        </rule>
+        <rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall.NotAllowed">
+                <severity>0</severity>
+        </rule>
+        <rule ref="Generic.ControlStructures.InlineControlStructure.NotAllowed">
+                <severity>0</severity>
+        </rule>
+        <rule ref="Generic.Files.LineLength.TooLong">
+                <severity>0</severity>
+        </rule>
+        <rule ref="Generic.Formatting.MultipleStatementAlignment.IncorrectWarning">
+                <severity>0</severity>
+        </rule>
+        <rule ref="Generic.Functions.FunctionCallArgumentSpacing.NoSpaceAfterComma">
+                <severity>0</severity>
+        </rule>
+        <rule ref="Generic.Functions.FunctionCallArgumentSpacing.SpaceBeforeComma">
+                <severity>0</severity>
+        </rule>
+        <rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie.BraceOnNewLine">
+                <severity>0</severity>
+        </rule>
+        <rule ref="Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed">
+                <severity>0</severity>
+        </rule>
+        <rule ref="MediaWiki.ControlStructures.AssignmentInControlStructures.AssignmentInControlStructures">
+                <severity>0</severity>
+        </rule>
+        <rule ref="MediaWiki.ControlStructures.IfElseStructure.SpaceAfterElse">
+                <severity>0</severity>
+        </rule>
+        <rule ref="MediaWiki.ControlStructures.IfElseStructure.SpaceBeforeElse">
+                <severity>0</severity>
+        </rule>
+        <rule ref="MediaWiki.NamingConventions.ValidGlobalName.wgPrefix">
+                <severity>0</severity>
+        </rule>
+        <rule ref="MediaWiki.Usage.DirUsage.FunctionFound">
+                <severity>0</severity>
+        </rule>
+        <rule ref="MediaWiki.VariableAnalysis.UnusedGlobalVariables">
+                <severity>0</severity>
+        </rule>
+        <rule ref="MediaWiki.WhiteSpace.MultipleEmptyLines.MultipleEmptyLines">
+                <severity>0</severity>
+        </rule>
+        <rule ref="MediaWiki.WhiteSpace.SpaceAfterControlStructure.Incorrect">
+                <severity>0</severity>
+        </rule>
+	<rule ref="MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis">
+		<severity>0</severity>
+	</rule>
+        <rule ref="MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis">
+                <severity>0</severity>
+        </rule>
+        <rule ref="MediaWiki.WhiteSpace.SpaceyParenthesis.SpaceBeforeOpeningParenthesis">
+                <severity>0</severity>
+        </rule>
+        <rule ref="PSR2.ControlStructures.ElseIfDeclaration.NotAllowed">
+                <severity>0</severity>
+        </rule>
+        <rule ref="PSR2.Methods.MethodDeclaration.AbstractAfterVisibility">
+                <severity>0</severity>
+        </rule>
+        <rule ref="Squiz.Classes.ValidClassName.NotCamelCaps">
+                <severity>0</severity>
+        </rule>
+        <rule ref="Squiz.WhiteSpace.LanguageConstructSpacing.Incorrect">
+                <severity>0</severity>
+        </rule>
+        <rule ref="Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore">
+                <severity>0</severity>
+        </rule>
+        <rule ref="Squiz.WhiteSpace.ScopeClosingBrace.Indent">
+                <severity>0</severity>
+        </rule>
+        <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine">
+                <severity>0</severity>
+        </rule>
+</ruleset>
