@@ -15,7 +15,7 @@
 	"apihelp-query+configuredpages-param-limit": "Dönüş için toplamda kaç sayfa.",
 	"apihelp-query+configuredpages-example-1": "Özel inceleme yapılandırmaları ile sayfaların listesini göster",
 	"apihelp-query+configuredpages-example-2": "Bazı özel inceleme yapılandırmaları ile sayfaları hakkında bilgi alın",
-	"apihelp-query+flagged-example-1": "[[Ana Sayfa]] sayfasına bilgi ve bayrak statüsü",
+	"apihelp-query+flagged-example-1": "[[Main Page]] sayfasının sayfa bilgilerini ve işaretleme durumunu al",
 	"apihelp-query+flagged-example-2": "Sayfalar \"K\"ile başlayan bayrak durumları olsun",
 	"apihelp-query+oldreviewedpages-description": "Sıralar sayfaları inceleme bekleyen değişiklikler var.",
 	"apihelp-query+oldreviewedpages-param-start": "Bu tarihler de Listeleme başlayın.",
