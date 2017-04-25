@@ -25,7 +25,7 @@
 	"review_reject_nulledits": "Non pote rejectar iste cambiamentos proque tote iste versiones contine nulle modification.",
 	"revreview-check-flag-p": "Acceptar iste version (incluse $1 {{PLURAL:$1|modification|modificationes}} pendente)",
 	"revreview-check-flag-p-title": "Acceptar tote le modificationes actualmente pendente con tu proprie modification. Usa isto solmente si tu ha ja vidite tote le diff de modificationes pendente.",
-	"revreview-check-flag-u": "Acceptar iste pagina non revidite",
+	"revreview-check-flag-u": "Marcar iste pagina como revidite per te",
 	"revreview-check-flag-u-title": "Acceptar iste version del pagina. Solmente usa isto si tu ha ja vidite tote le pagina.",
 	"revreview-check-flag-y": "Acceptar iste modificationes",
 	"revreview-check-flag-y-title": "Acceptar tote le alterationes que tu ha facite in iste modification.",

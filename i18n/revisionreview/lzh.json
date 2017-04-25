@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Itsmine"
+			"Itsmine",
+			"逆襲的天邪鬼"
 		]
 	},
+	"revreview-flag": "校閱此文",
 	"revreview-submit": "成",
 	"revreview-submitting": "在處理"
 }
