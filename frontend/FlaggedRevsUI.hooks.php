@@ -278,6 +278,22 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
+	 * Registers a filter on Special:NewPages to hide edits that have been reviewed
+	 * through FlaggedRevs.
+	 *
+	 * @param SpecialPage $specialPage Special page
+	 * @param array $filters Array of filters
+	 */
+	public static function addHideReviewedUnstructuredFilter( $specialPage, &$filters ) {
+		if ( !FlaggedRevs::useSimpleConfig() ) {
+			$filters['hideReviewed'] = [
+				'msg' => 'flaggedrevs-hidereviewed', 'default' => false
+			];
+		}
+		return true;
+	}
+
+	/**
 	 * Registers a filter to hide edits that have been reviewed through
 	 * FlaggedRevs.
 	 *
