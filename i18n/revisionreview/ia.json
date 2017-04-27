@@ -67,7 +67,7 @@
 	"revreview-reject-summary-old": "Rejectava le prime {{PLURAL:$1|modification|$1 modificationes}} de texto ({{PLURAL:$7|{{GENDER:$5|per}}}} $2) que sequeva le version $3 {{GENDER:$6|per}} $4",
 	"revreview-reject-summary-cur-short": "Rejectava le ultime {{PLURAL:$1|modification|$1 modificationes}} de texto e restaurava le version $2 {{GENDER:$4|per}} $3",
 	"revreview-reject-summary-old-short": "Rejectava le prime {{PLURAL:$1|modification|$1 modificationes}} de texto que sequeva le version $2 {{GENDER:$4|per}} $3",
-	"revreview-tt-flag": "Approbar iste version per marcar lo como verificate",
-	"revreview-tt-unflag": "Cessar de acceptar iste version per marcar lo como como \"non verificate\"",
+	"revreview-tt-flag": "Approbar iste version per marcar lo como revidite",
+	"revreview-tt-unflag": "Dismarcar iste version como revidite",
 	"revreview-tt-reject": "Rejectar iste modificationes de texto per reverter los"
 }

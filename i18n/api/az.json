@@ -1,10 +1,23 @@
 {
 	"@metadata": {
 		"authors": [
-			"Cekli829"
+			"Cekli829",
+			"Baskervill"
 		]
 	},
+	"apihelp-flagconfig-example-1": "Bayraq konfiqurasiyasını seçin",
+	"apihelp-query+configuredpages-param-namespace": "Nömrələnəcək ad fəzaları",
+	"apihelp-query+configuredpages-param-limit": "Geri qayıtmaq üçün ümumi səhifə sayı",
+	"apihelp-query+configuredpages-example-1": "Xüsusi baxış konfiqurasiyalarına sahib səhifələrin siyahısını göstər",
+	"apihelp-query+configuredpages-example-2": "Xüsusi baxış konfiqurasiyaları olan səhifələr haqqında məlumat almaq",
+	"apihelp-query+flagged-example-1": "[[Əsas səhifə]] üçün informasiya və bayraq statusunun öyrənilməsi.",
+	"apihelp-query+flagged-example-2": "\"K\" ilə başlayan səhifələr üçün bayraq statusunun alınması.",
+	"apihelp-query+oldreviewedpages-description": "Yoxlanılmağı gözləyən səhifələrin nömrələnməsi.",
 	"apihelp-query+unreviewedpages-param-dir": "Sıralama istiqaməti.",
+	"apihelp-review-param-comment": "Baxılması üçün şərh yazın.",
+	"apihelp-review-param-unapprove": "Əgər qərarsızsınızsa, təftiş təsdiq edilmədən təsdiqlənəcək",
+	"apihelp-review-param-flag": "''$1' dəyərində olan bayrağı seçin",
+	"apihelp-review-example-1": "12345 təftişi üçün \"Ok\" şərhini əlavə edin",
 	"apihelp-stabilize-param-reason": "Səbəb.",
 	"apihelp-stabilize-param-watch": "Bu səhifəni izlə.",
 	"apihelp-stabilize-param-review": "Bu səhifəni yoxla."

@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kandar"
+			"Kandar",
+			"Uchup19"
 		]
 	},
-	"revreview-log": "Kamandang:"
+	"revreview-log": "Kamandang:",
+	"revreview-reject-cancel": "Bolay"
 }
