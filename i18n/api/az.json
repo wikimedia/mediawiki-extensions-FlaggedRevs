@@ -10,7 +10,7 @@
 	"apihelp-query+configuredpages-param-limit": "Geri qayıtmaq üçün ümumi səhifə sayı",
 	"apihelp-query+configuredpages-example-1": "Xüsusi baxış konfiqurasiyalarına sahib səhifələrin siyahısını göstər",
 	"apihelp-query+configuredpages-example-2": "Xüsusi baxış konfiqurasiyaları olan səhifələr haqqında məlumat almaq",
-	"apihelp-query+flagged-example-1": "[[Əsas səhifə]] üçün informasiya və bayraq statusunun öyrənilməsi.",
+	"apihelp-query+flagged-example-1": "[[Əsas səhifə]] üçün informasiya və bayraq statusunun öyrənilməsi",
 	"apihelp-query+flagged-example-2": "\"K\" ilə başlayan səhifələr üçün bayraq statusunun alınması.",
 	"apihelp-query+oldreviewedpages-description": "Yoxlanılmağı gözləyən səhifələrin nömrələnməsi.",
 	"apihelp-query+unreviewedpages-param-dir": "Sıralama istiqaməti.",

@@ -6,7 +6,7 @@
 		]
 	},
 	"pendingchanges": "Paginas con modificationes pendente",
-	"pendingchanges-legend": "Listar le paginas revidite con versiones attendente revision",
+	"pendingchanges-legend": "Listar le paginas revidite con modificationes pendente",
 	"pendingchanges-list": "Iste pagina lista le paginas [[{{MediaWiki:Validationpage}}|revidite]] que ha un o plus modificationes attendente revision.",
 	"pendingchanges-none": "Al momento non existe paginas que satisface iste criterios",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|hora|horas}})",

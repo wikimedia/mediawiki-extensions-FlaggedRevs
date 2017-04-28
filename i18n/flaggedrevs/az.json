@@ -71,6 +71,7 @@
 	"revreview-submitedit": "Dəyişiklikləri təsdiq et",
 	"revreview-edited-section": "Bölmə adı \"[[#$1|$2]]\" olan səhifəyə qayıdın.",
 	"revreview-oldrating": "Dərəcələndirmə:",
+	"revreview-quality-title": "Bu səhifənin keyfiyyətli versiyasıdır",
 	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|Təsdiqlənmiş]]'''",
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Təsdiqlənmiş]]'''",
 	"revreview-quick-invalid": "Etibarsız revizyon nömrəsi",
@@ -95,6 +96,7 @@
 	"stable-logpage": "Təsdiqləmə gündəliyi",
 	"revreview-filter-all": "bütün",
 	"revreview-filter-stable": "qərarlı",
+	"revreview-statusfilter": "Yoxlama fəaliyyəti",
 	"revreview-filter-approved": "Təsdiqlənmiş",
 	"revreview-filter-reapproved": "Yenidən təsdiqlənmiş",
 	"revreview-filter-unapproved": "Təsdiqdən çıxarılmış",
@@ -110,6 +112,7 @@
 	"revreview-def-all": "hər hansı",
 	"revreview-def-draft": "Ən sonuncu",
 	"revreview-def-stable": "qərarlı",
+	"revreview-restrictfilter": "Avtomatik yoxlama məhdudiyyəti",
 	"revreview-restriction-any": "hər hansı",
 	"revreview-restriction-none": "heç biri",
 	"revreview-reviewlink": "yoxlanılmamış redaktələr",
@@ -122,6 +125,12 @@
 	"flaggedrevs-protect-none": "Bütün istifadəçilərə icazə ver",
 	"log-show-hide-review": "yoxlama günlüyü $1",
 	"validationpage": "{{ns:help}}:Səhifənin təsdiqlənməsi",
+	"log-action-filter-review": "Yoxlama növü:",
+	"log-action-filter-review-accept": "Əl ilə qəbul et",
+	"log-action-filter-review-autoaccept": "Avtomatik qəbul et",
+	"log-action-filter-review-unaccept": "Əl ilə qəbul edilməz",
+	"log-action-filter-stable": "Konfiqurasiya dəyişikliyinin növü:",
 	"log-action-filter-stable-config": "Yeni konfiqurasiya",
-	"log-action-filter-stable-modify": "Dəyişdirilmiş konfiqurasiya"
+	"log-action-filter-stable-modify": "Dəyişdirilmiş konfiqurasiya",
+	"log-action-filter-stable-reset": "Konfiqurasiyanın sıfırlanması"
 }
