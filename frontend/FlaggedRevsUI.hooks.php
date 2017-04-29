@@ -317,12 +317,9 @@ class FlaggedRevsUIHooks {
 						'queryCallable' => function ( $specialClassName, $ctx, $dbr, &$tables,
 							&$fields, &$conds, &$query_options, &$join_conds ) {
 
-								return FlaggedRevsUIHooks::modifyChangesListQuery(
-									$conds,
-									$tables,
-									$join_conds,
-									$fields
-								);
+							FlaggedRevsUIHooks::hideReviewedChangesUnconditionally(
+								$conds
+							);
 						},
 					],
 				],
@@ -399,22 +396,80 @@ class FlaggedRevsUIHooks {
 	public static function modifyNewPagesQuery(
 		$specialPage, $opts, &$conds, &$tables, &$fields, &$join_conds
 	) {
-		return self::modifyChangesListQuery( $conds, $tables, $join_conds, $fields );
+		self::makeAllQueryChanges( $conds, $tables, $join_conds, $fields );
+
+		return true;
 	}
 
-	public static function modifyChangesListQuery(
+	public static function modifyChangesListSpecialPageQuery(
+		$name, &$tables, &$fields, &$conds, &$query_options, &$join_conds, $opts ) {
+
+		self::addMetadataQueryJoins( $tables, $join_conds, $fields );
+	}
+
+	/**
+	 * Make all query changes, both joining for FlaggedRevs metadata and conditionally
+	 * hiding reviewed changes
+	 *
+	 * @param array &$conds Query conditions
+	 * @param array &$tables Tables to query
+	 * @param array &$join_conds Query join conditions
+	 * @param array &$fields Fields to query
+	 */
+	public static function makeAllQueryChanges(
 		array &$conds, array &$tables, array &$join_conds, array &$fields
 	) {
-		global $wgRequest;
+		self::addMetadataQueryJoins( $tables, $join_conds, $fields );
+		self::hideReviewedChangesIfNeeded( $conds );
+	}
+
+	/**
+	 * Add FlaggedRevs metadata by adding fields and joins
+	 *
+	 * @param array &$conds Query conditions
+	 * @param array &$tables Tables to query
+	 * @param array &$join_conds Query join conditions
+	 * @param array &$fields Fields to query
+	 */
+	public static function addMetadataQueryJoins(
+		array &$tables, array &$join_conds, array &$fields
+	) {
 		$tables[] = 'flaggedpages';
 		$fields[] = 'fp_stable';
 		$fields[] = 'fp_pending_since';
 		$join_conds['flaggedpages'] = [ 'LEFT JOIN', 'fp_page_id = rc_cur_id' ];
+	}
+
+	/**
+	 * Checks the request variable and hides reviewed changes if requested
+	 *
+	 * Must already be joined into the FlaggedRevs tables.
+	 *
+	 * @param array &$conds Query conditions
+	 */
+	public static function hideReviewedChangesIfNeeded(
+		array &$conds
+	) {
+		global $wgRequest;
+
 		if ( $wgRequest->getBool( 'hideReviewed' ) && !FlaggedRevs::useSimpleConfig() ) {
-			// Don't filter external changes as FlaggedRevisions doesn't apply to those
-			$conds[] = 'rc_timestamp >= fp_pending_since OR fp_stable IS NULL OR rc_type = ' . RC_EXTERNAL;
+			self::hideReviewedChangesUnconditionally( $conds );
 		}
-		return true;
+	}
+
+	/**
+	 * Hides reviewed changes unconditionally; assumes you have checked whether to do
+	 * so already
+	 *
+	 * Must already be joined into the FlaggedRevs tables.
+	 *
+	 * @param array &$conds Query conditions
+	 */
+	public static function hideReviewedChangesUnconditionally(
+		array &$conds
+	) {
+		// Don't filter external changes as FlaggedRevisions doesn't apply to those
+		$conds[] = 'rc_timestamp >= fp_pending_since OR fp_stable IS NULL OR rc_type = ' . RC_EXTERNAL;
 	}
 
 	public static function addToHistLine( HistoryPager $history, $row, &$s, &$liClasses ) {

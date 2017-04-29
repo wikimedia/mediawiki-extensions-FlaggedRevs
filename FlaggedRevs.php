@@ -573,6 +573,7 @@ $wgHooks['ArticleUpdateBeforeRedirect'][] = 'FlaggedRevsUIHooks::injectPostEditU
 $wgHooks['PageHistoryPager::getQueryInfo'][] = 'FlaggedRevsUIHooks::addToHistQuery';
 $wgHooks['PageHistoryLineEnding'][] = 'FlaggedRevsUIHooks::addToHistLine';
 # Select extra info & filter items on Special:NewPages
+$wgHooks['ChangesListSpecialPageQuery'][] = 'FlaggedRevsUIHooks::modifyChangesListSpecialPageQuery';
 $wgHooks['SpecialNewpagesConditions'][] = 'FlaggedRevsUIHooks::modifyNewPagesQuery';
 # Mark items in RC
 $wgHooks['ChangesListInsertArticleLink'][] = 'FlaggedRevsUIHooks::addToChangeListLine';
