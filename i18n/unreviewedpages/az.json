@@ -9,6 +9,7 @@
 	"unreviewedpages": "İncələnməmiş səhifələr",
 	"unreviewedpages-category": "Kateqoriya:",
 	"unreviewedpages-diff": "yoxlama",
+	"unreviewedpages-none": "Bu kriteriyalara müvafiq olan bir səhifə mövcud deyil.",
 	"unreviewedpages-hours": "$1 {{PLURAL:$1|saat|saat}}",
 	"unreviewedpages-days": "$1 {{PLURAL:$1|gün|gün}}",
 	"unreviewedpages-recent": "(1 saatdan az)"

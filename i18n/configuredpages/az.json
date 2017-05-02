@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Vugar 1981"
+			"Vugar 1981",
+			"Cekli829"
 		]
 	},
 	"configuredpages": "Yoxlama nizamlaması olan səhifələr",
+	"configuredpages-list": "Yenidən baxılma tələbi olmayan dəyişiklikləri məhdudlaşdıra bilən oxuculara nümayiş etdirilən versiya üzrə bəzi dəyişikliklər edilə bilər.",
 	"configuredpages-none": "Bu siyahıda səhifə yoxdur.",
 	"configuredpages-config": "Nizamlamalar",
 	"configuredpages-def-draft": "son versiya",
