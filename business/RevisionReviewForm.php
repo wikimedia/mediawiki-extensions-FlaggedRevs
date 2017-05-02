@@ -384,7 +384,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 				&& $newRev->getUser( Revision::RAW ) )
 			{
 				if ( $newRev->getUser( Revision::RAW ) != $this->user->getId() ) { // no self-reverts
-					FRUserCounters::incCount( getUser( Revision::RAW ), 'revertedEdits' );
+					FRUserCounters::incCount( $newRev->getUser( Revision::RAW ), 'revertedEdits' );
 				}
 			}
 		}
