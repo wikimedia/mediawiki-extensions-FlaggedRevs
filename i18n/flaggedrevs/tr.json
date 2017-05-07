@@ -21,7 +21,7 @@
 		]
 	},
 	"action-review": "revizyonları inceler",
-	"editor": "Devriye",
+	"editor": "Editör",
 	"flaggedrevs": "İşaretlenmiş Sürümler",
 	"flaggedrevs-watched-pending": "Şu anda izleme listenizdeki incelenmiş sayfaların [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} bekleyen değişiklikleri] mevcut. '''İlgilenmeniz gerekiyor!'''",
 	"flaggedrevs-desc": "Editörlere revizyonları inceleme ve sayfaları kararlı hale getirme yeteneği verir",

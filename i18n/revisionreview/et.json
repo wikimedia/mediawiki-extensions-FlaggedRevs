@@ -51,7 +51,7 @@
 	"revreview-sadv-reviewing-c": "Saad $1 teistele kasutajatele, et vaatad neid muudatusi üle.",
 	"revreview-adv-start-link": "teatada",
 	"revreview-adv-stop-link": "jäta teatamata",
-	"revreview-toolow": "'''Et arvata lehekülg ülevaadatuks, pead andma kõigile tunnustele kõrgema hinde kui \"ebarahuldav\".'''\n\nEt eemaldada redaktsioonilt ülevaadatud olek, klõpsa \"{{int:revreview-submit-unreview}}\".\n\nPalun klõpsa veebilehitseja ''tagasi''-nuppu ja proovi uuesti.",
+	"revreview-toolow": "'''Et arvata lehekülg ülevaadatuks, pead andma kõigile tunnustele kõrgema hinde kui \"ebarahuldav\".'''\n\nEt eemaldada redaktsioonilt ülevaadatud olek, klõpsa \"{{int:revreview-submit-unreview}}\".\n\nPalun klõpsa brauseri ''tagasi''-nuppu ja proovi uuesti.",
 	"revreview-update": "'''Palun [[{{MediaWiki:Validationpage}}|vaata üle]] kõik alates püsivast versioonist tehtud ootel muudatused ''(näidatud allpool)''.'''",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Sinu muudatused pole veel püsivas versioonis.</span>\n\nOma muudatuste püsivas versioonis kuvamiseks vaata palun kõik allpool näidatud muudatused üle.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Sinu muudatused pole veel püsivas versioonis. Osa varasemaid muudatusi ootab ülevaatamist.</span>\n\nOma muudatuste püsivas versioonis kuvamiseks vaata palun kõik allpool näidatud muudatused üle.",
