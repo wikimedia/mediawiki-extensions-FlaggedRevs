@@ -65,7 +65,7 @@
 	"revreview-reject-text-revto": "Ovim ćete vratiti stranicu na [{{fullurl:$1|oldid=$2}} verziju od $3].",
 	"revreview-reject-summary": "Sažetak:",
 	"revreview-reject-confirm": "Odbij ove izmjene",
-	"revreview-reject-cancel": "Odustani",
+	"revreview-reject-cancel": "Otkaži",
 	"revreview-reject-summary-cur": "{{PLURAL:$1|Odbijena posljednja izmjena|Odbijene posljednje $1 izmjene|Odbijeno posljednjih $1 izmjena}} teksta {{PLURAL:$7|{{GENDER:$5|korisnika|korisnice}}}} $2 i vraćeno na izmjenu $3 {{GENDER:$6|korisnika|korisnice}} $4",
 	"revreview-reject-summary-old": "{{PLURAL:$1|Odbijena prva izmjena|Odbijene prve $1 izmjene|Odbijeno prvih $1 izmjena}} teksta {{PLURAL:$7|{{GENDER:$5|korisnika|korisnice}}}} $2 {{PLURAL:$1|koja je načinjena|koje su načinjene}} nakon izmjene $3 {{GENDER:$6|korisnika|korisnice}} $4",
 	"revreview-reject-summary-cur-short": "{{PLURAL:$1|Odbijena posljednja izmjena|Odbijene posljednje $1 izmjene|Odbijeno posljednjih $1 izmjena}} teksta i vraćeno na izmjenu $2 {{GENDER:$4|korisnika|korisnice}} $3",

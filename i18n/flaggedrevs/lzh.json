@@ -3,7 +3,8 @@
 		"authors": [
 			"Itsmine",
 			"Omnipaedista",
-			"Jason924tw"
+			"Jason924tw",
+			"逆襲的天邪鬼"
 		]
 	},
 	"editor": "分校官",
@@ -14,6 +15,8 @@
 	"group-reviewer-member": "總校官",
 	"grouppage-editor": "{{ns:project}}:分校官",
 	"grouppage-reviewer": "{{ns:project}}:總校官",
+	"group-autoreview": "自校者",
+	"group-autoreview-member": "自校者",
 	"revreview-hist-draft": "底本",
 	"revreview-hist-pending": "待審",
 	"revreview-hist-quality": "校正本",
@@ -22,7 +25,6 @@
 	"revreview-accuracy-4": "卓著",
 	"revreview-current": "底本",
 	"revreview-draft-title": "底本",
-	"revreview-edit": "纂",
 	"revreview-newest-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3易]於此[[{{MediaWiki:Validationpage}}|待審]]。今[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 初定本][{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 辨]於$2。",
 	"revreview-noflagged": "此為底本，未經[[{{MediaWiki:Validationpage}}|審校]]。",
 	"revreview-quick-basic": "'''[[{{MediaWiki:Validationpage}}|初定本]]'''",

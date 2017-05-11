@@ -5,7 +5,16 @@
 			"逆襲的天邪鬼"
 		]
 	},
-	"revreview-flag": "校閱此文",
+	"revisionreview": "審校更易",
+	"revreview-failed": "'''未能審校此本。'''",
+	"revreview-check-flag-p": "接受此本（含$1未審之更易）",
+	"revreview-flag": "審校此文",
+	"revreview-reflag": "重審此本",
+	"revreview-log": "註：",
 	"revreview-submit": "成",
-	"revreview-submitting": "在處理"
+	"revreview-submitting": "在處理",
+	"revreview-submit-review": "核准此本",
+	"revreview-submit-reject": "拒其更易",
+	"revreview-submit-reviewed": "成也，已核准！",
+	"revreview-tt-reject": "拒其更易且悔之"
 }
