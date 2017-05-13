@@ -23,7 +23,7 @@
 	"review_cannot_reject": "Non pote rejectar iste modificationes proque alcuno jam acceptava alcunes (o totes) de iste modificationes.",
 	"review_reject_excessive": "Non pote rejectar iste numero de modificationes a un vice.",
 	"review_reject_nulledits": "Non pote rejectar iste cambiamentos proque tote iste versiones contine nulle modification.",
-	"revreview-check-flag-p": "Acceptar iste version (incluse $1 {{PLURAL:$1|modification|modificationes}} pendente)",
+	"revreview-check-flag-p": "Marcar iste version como revidite per te (con inclusion de $1 {{PLURAL:$1|modification|modificationes}} pendente)",
 	"revreview-check-flag-p-title": "Acceptar le resultato del modificationes pendente e le modificationes que tu ha facite hic. Usa isto solmente si tu ha jam vidite tote le diff de modificationes pendente.",
 	"revreview-check-flag-u": "Marcar iste pagina como revidite per te",
 	"revreview-check-flag-u-title": "Acceptar iste version del pagina. Solmente usa isto si tu ha jam vidite tote le pagina.",

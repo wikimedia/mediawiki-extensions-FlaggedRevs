@@ -25,7 +25,7 @@
 	"review_cannot_reject": "Deze wijzigingen kunnen niet afgekeurd worden omdat een aantal van de wijzigingen al geaccepteerd is.",
 	"review_reject_excessive": "Het is niet mogelijk zoveel wijzigingen tegelijk af te keuren.",
 	"review_reject_nulledits": "Kan deze wijzigingen niet verwerpen omdat alle versies nulbewerkingen zijn.",
-	"revreview-check-flag-p": "Deze versie accepteren (inclusief $1 ongecontroleerde {{PLURAL:$1|bewerking|bewerkingen}})",
+	"revreview-check-flag-p": "Deze versie accepteren (omvat $1 ongecontroleerde {{PLURAL:$1|bewerking|bewerkingen}})",
 	"revreview-check-flag-p-title": "Alle ongecontroleerde wijzigingen samen met uw wijzigingen publiceren.\nGebruik dit alleen als u de ongecontroleerde wijzigingen hebt bekeken.",
 	"revreview-check-flag-u": "Deze ongecontroleerde pagina accepteren",
 	"revreview-check-flag-u-title": "Deze versie van de pagina accepteren.\nGebruik dit alleen als u de hele pagina al hebt gezien.",
