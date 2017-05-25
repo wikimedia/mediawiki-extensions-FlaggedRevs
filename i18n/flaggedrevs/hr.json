@@ -45,7 +45,7 @@
 	"revreview-hist-draft": "neprovjerena inačica",
 	"revreview-hist-pending": "čeka na provjeru",
 	"revreview-hist-quality": "kvalitetna izmjena",
-	"revreview-hist-basic": "proviđena izmjena",
+	"revreview-hist-basic": "pregledana izmjena",
 	"revreview-hist-quality-user": "potvrdio [[User:$3|$3]]",
 	"revreview-hist-basic-user": "{{GENDER:$3|providio|providjela}} [[User:$3|$3]]",
 	"revreview-hist-quality-auto": "automatski odobreno",
