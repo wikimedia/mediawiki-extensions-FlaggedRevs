@@ -2,6 +2,8 @@
 /**
  * Cache for stable version outputs of the PHP parser
  */
+use MediaWiki\MediaWikiServices;
+
 class FRParserCacheStable extends ParserCache {
 	/**
 	 * Get an instance of this object
@@ -9,8 +11,11 @@ class FRParserCacheStable extends ParserCache {
 	public static function singleton() {
 		static $instance;
 		if ( !isset( $instance ) ) {
-			global $parserMemc;
-			$instance = new self( $parserMemc );
+			global $wgCacheEpoch;
+			$instance = new self(
+				MediaWikiServices::getInstance()->getParserCache()->getCacheStorage(),
+				$wgCacheEpoch
+			);
 		}
 		return $instance;
 	}
