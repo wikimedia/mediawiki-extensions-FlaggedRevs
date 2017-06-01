@@ -49,7 +49,7 @@
 	"revreview-successful": "'''Inačica od [[:$1|$1]] uspješno je označena. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vidi važeće inačice])'''",
 	"revreview-successful2": "'''Inačica od [[:$1|$1]] uspješno je označena.'''",
 	"revreview-toolow": "'''Morate ocijeniti svaki atribut članka višom ocjenom od \"Ne zadovoljava\" kako bi inačica bila pregledana/ocijenjena.'''\n\nZa uklanjanje pregledanog statusa inačice, kliknite na ''unaccept''.\n\nMolimo kliknite gumb \"natrag\" u Vašem web pregledniku i pokušajte opet.",
-	"revreview-update": "'''Molimo [[{{MediaWiki:Validationpage}}|ocijenite]] sve promjene ''(prikazane dolje)'' učinjene nakon važeće inačice.'''",
+	"revreview-update": "'''Molimo [[{{MediaWiki:Validationpage}}|ocijenite]] sve promjene ''(prikazane dolje)'' učinjene nakon vrijedeće inačice.'''",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Vaše izmjene još uvijek nisu u stabilnoj inačici.</span>\n\nMolimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u stabilnoj inačici.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Vaše izmjene još uvijek nisu u stabilnoj inačici. Postoje ranije izmjene koje su na čekanju za provjeru</span>\n\nMolimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u stabilnoj inačici.",
 	"revreview-update-includes": "Neki predlošci/datoteke su ažurirane:",
