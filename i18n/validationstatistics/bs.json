@@ -7,7 +7,7 @@
 		]
 	},
 	"validationstatistics": "Statistike pregleda",
-	"validationstatistics-users": "'''{{SITENAME}}''' trenutno ima '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|korisnika}} s [[{{MediaWiki:Validationpage}}|uređivačkim]] pravima.\n\nUrednici su potvrđeni korisnici koji mogu pregledavati izmjene stranica.",
+	"validationstatistics-users": "'''{{SITENAME}}''' trenutno ima '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|korisnika}} s [[{{MediaWiki:Validationpage}}|uredničkim]] pravima.\n\nUrednici su potvrđeni korisnici koji mogu pregledavati izmjene stranica.",
 	"validationstatistics-lastupdate": "''Sljedeći podaci posljednji su put ažurirani $1 u $2.''",
 	"validationstatistics-pndtime": "Izmjene koje su pregledali potvrđeni korisnici dobijaju status ''{{int:validationstatistics-stable}}''.\n\nProsječno čekanje za [[Special:OldReviewedPages|stranice sa nepregledanim izmjenama na čekanju]] je '''$1'''; čekanje mjeri koliko dugo najstarija izmjena na čekanju stoji nepregledana.",
 	"validationstatistics-revtime": "Prosječno čekanje izmjena od strane ''korisnika koji nisu prijavljeni'' za pregled je '''$1'''; srednja vrijednost je '''$2'''. \n$3",
