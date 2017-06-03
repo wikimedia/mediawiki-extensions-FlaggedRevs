@@ -149,7 +149,7 @@
 	"stable-logentry-modify": "promijenjene postavke stabilne inačice za \"$1\"",
 	"stable-logentry-reset": "poništi postavke vrijedeće inačice članka \"$1\"",
 	"stable-log-restriction": "Automatski pregledano: zahtijeva \"$1\" dozvolu",
-	"stable-logpage": "Evidencija stabilnih inačica",
+	"stable-logpage": "Evidencija vrijedećih inačica",
 	"stable-logpagetext": "Ovo je evidencija o ocijenjenim izmjenama stranica i njihovim [[{{MediaWiki:Validationpage}}|stabilnim inačicama]].",
 	"revreview-filter-all": "sve",
 	"revreview-filter-stable": "stabilno",
