@@ -56,7 +56,7 @@
 	"revreview-hist-quality-user": "potvrdio [[User:$3|$3]]",
 	"revreview-hist-basic-user": "{{GENDER:$3|providio|providjela}} [[User:$3|$3]]",
 	"revreview-hist-quality-auto": "automatski odobreno",
-	"revreview-hist-basic-auto": "automatski pregledana",
+	"revreview-hist-basic-auto": "automatski provjerena",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} čeka provjeru]]'''",
 	"review-edit-diff": "'''NAPOMENA: ''Neke'' izmjene koje su na čekanju imaju utjecaj na odlomak stranice koju uređujete.'''",
 	"revreview-diff-toggle-show": "prikaži promjene",
