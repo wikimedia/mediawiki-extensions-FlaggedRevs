@@ -113,15 +113,19 @@ class ProblemChanges extends SpecialPage {
 		$bits = preg_split( '/\s*,\s*/', trim( $par ) );
 		$limit = false;
 		foreach ( $bits as $bit ) {
-			if ( is_numeric( $bit ) )
+			if ( is_numeric( $bit ) ) {
 				$limit = intval( $bit );
+			}
 			$m = [];
-			if ( preg_match( '/^limit=(\d+)$/', $bit, $m ) )
+			if ( preg_match( '/^limit=(\d+)$/', $bit, $m ) ) {
 				$limit = intval( $m[1] );
-			if ( preg_match( '/^category=(.+)$/', $bit, $m ) )
+			}
+			if ( preg_match( '/^category=(.+)$/', $bit, $m ) ) {
 				$this->category = $m[1];
-			if ( preg_match( '/^tagfilter=(.+)$/', $bit, $m ) )
+			}
+			if ( preg_match( '/^tagfilter=(.+)$/', $bit, $m ) ) {
 				$this->tag = $m[1];
+			}
 		}
 		return $limit;
 	}

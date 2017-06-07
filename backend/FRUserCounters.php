@@ -65,7 +65,9 @@ class FRUserCounters {
 		$options = [];
 		if ( $flags & FR_MASTER || $flags & FR_FOR_UPDATE ) {
 			$db = wfGetDB( DB_MASTER, [], $dBName );
-			if ( $flags & FR_FOR_UPDATE ) $options[] = 'FOR UPDATE';
+			if ( $flags & FR_FOR_UPDATE ) {
+				$options[] = 'FOR UPDATE';
+			}
 		} else {
 			$db = wfGetDB( DB_SLAVE, [], $dBName );
 		}

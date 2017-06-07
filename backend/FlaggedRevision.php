@@ -107,7 +107,9 @@ class FlaggedRevision {
 		# User master/slave as appropriate...
 		if ( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
 			$db = wfGetDB( DB_MASTER );
-			if ( $flags & FR_FOR_UPDATE ) $options[] = 'FOR UPDATE';
+			if ( $flags & FR_FOR_UPDATE ) {
+				$options[] = 'FOR UPDATE';
+			}
 			$pageId = $title->getArticleID( Title::GAID_FOR_UPDATE );
 		} else {
 			$db = wfGetDB( DB_SLAVE );
@@ -155,7 +157,9 @@ class FlaggedRevision {
 		# User master/slave as appropriate...
 		if ( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
 			$db = wfGetDB( DB_MASTER );
-			if ( $flags & FR_FOR_UPDATE ) $options[] = 'FOR UPDATE';
+			if ( $flags & FR_FOR_UPDATE ) {
+				$options[] = 'FOR UPDATE';
+			}
 			$pageId = $title->getArticleID( Title::GAID_FOR_UPDATE );
 		} else {
 			$db = wfGetDB( DB_SLAVE );
@@ -198,7 +202,9 @@ class FlaggedRevision {
 		# User master/slave as appropriate...
 		if ( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
 			$db = wfGetDB( DB_MASTER );
-			if ( $flags & FR_FOR_UPDATE ) $options[] = 'FOR UPDATE';
+			if ( $flags & FR_FOR_UPDATE ) {
+				$options[] = 'FOR UPDATE';
+			}
 		} else {
 			$db = wfGetDB( DB_SLAVE );
 		}
@@ -257,7 +263,9 @@ class FlaggedRevision {
 		# User master/slave as appropriate...
 		if ( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
 			$db = wfGetDB( DB_MASTER );
-			if ( $flags & FR_FOR_UPDATE ) $options[] = 'FOR UPDATE';
+			if ( $flags & FR_FOR_UPDATE ) {
+				$options[] = 'FOR UPDATE';
+			}
 			$pageId = $title->getArticleID( Title::GAID_FOR_UPDATE );
 		} else {
 			$db = wfGetDB( DB_SLAVE );
