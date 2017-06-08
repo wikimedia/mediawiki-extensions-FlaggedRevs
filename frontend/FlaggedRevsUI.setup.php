@@ -49,38 +49,19 @@ class FlaggedRevsUISetup {
 	}
 
 	/**
-	 * Register FlaggedRevs special pages as needed.
-	 * @param $pages Array $wgSpecialPages (list of special pages)
-	 * @param $updates Array $wgSpecialPageCacheUpdates (assoc array of special page updaters)
+	 * Register FlaggedRevs special page cache updates as needed.
+	 * @param array $updates $wgSpecialPageCacheUpdates (assoc array of special page updaters)
 	 * @return void
 	 */
-	public static function defineSpecialPages( array &$pages, array &$updates ) {
-		global $wgFlaggedRevsProtection, $wgFlaggedRevsNamespaces, $wgUseTagFilter;
+	public static function defineSpecialPageCacheUpdates( array &$updates ) {
+		global $wgFlaggedRevsProtection, $wgFlaggedRevsNamespaces;
 
 		// Show special pages only if FlaggedRevs is enabled on some namespaces
 		if ( count( $wgFlaggedRevsNamespaces ) ) {
-			$pages['RevisionReview'] = 'RevisionReview'; // unlisted
-			$pages['ReviewedVersions'] = 'ReviewedVersions'; // unlisted
-			$pages['PendingChanges'] = 'PendingChanges';
-			// Show tag filtered pending edit page if there are tags
-			if ( $wgUseTagFilter ) {
-				$pages['ProblemChanges'] = 'ProblemChanges';
-			}
 			if ( !$wgFlaggedRevsProtection ) {
-				$pages['ReviewedPages'] = 'ReviewedPages';
-				$pages['UnreviewedPages'] = 'UnreviewedPages';
 				$updates['UnreviewedPages'] = 'UnreviewedPages::updateQueryCache';
 			}
-			$pages['QualityOversight'] = 'QualityOversight';
-			$pages['ValidationStatistics'] = 'ValidationStatistics';
 			$updates['ValidationStatistics'] = 'FlaggedRevsStats::updateCache';
-			// Protect levels define allowed stability settings
-			if ( $wgFlaggedRevsProtection ) {
-				$pages['StablePages'] = 'StablePages';
-			} else {
-				$pages['ConfiguredPages'] = 'ConfiguredPages';
-				$pages['Stabilization'] = 'Stabilization'; // unlisted
-			}
 		}
 	}
 }
