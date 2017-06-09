@@ -28,7 +28,7 @@
 	"review_reject_excessive": "Ne možete odbiti tako velik broj uređivanja odjednom.",
 	"revreview-check-flag-p": "Prihvati ovu verziju (uključujući $1 {{PLURAL:$1|izmjenu|izmjene|izmjena}} na čekanju)",
 	"revreview-check-flag-p-title": "Prihvati sve trenutne promjene na čekanju zajedno s vašim vlastitim izmjenama. Rabite ovo samo ako ste već pregledali sve razlike promjena na čekanju.",
-	"revreview-check-flag-u": "Prihvati ovu nepregledanu stranicu",
+	"revreview-check-flag-u": "Prihvati ovu neocijenjenu stranicu",
 	"revreview-check-flag-u-title": "Prihvati ovu inačicu stranice. Rabite ovo samo ako ste pregledali cijelu stranicu.",
 	"revreview-check-flag-y": "Prihvati ove izmjene",
 	"revreview-check-flag-y-title": "Prihvati sve izmjene koje ste napravili u ovom uređivanju.",
