@@ -181,7 +181,9 @@ class UpdateFRTracking extends Maintenance {
 				# Somethings broke? Delete the row...
 				} else {
 					$article->clearStableVersion();
-					if ( $db->affectedRows() > 0 ) $deleted++;
+					if ( $db->affectedRows() > 0 ) {
+						$deleted++;
+					}
 					$changed = (bool)$oldFrev;
 				}
 				# Get the latest revision

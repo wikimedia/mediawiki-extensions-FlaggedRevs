@@ -462,7 +462,9 @@ class FlaggablePageView extends ContextSource {
 		} else { // draft != stable
 			# The user may want the diff (via prefs)
 			$diffToggle = $this->getTopDiffToggle( $srev, $quality );
-			if ( $diffToggle != '' ) $diffToggle = " $diffToggle";
+			if ( $diffToggle != '' ) {
+				$diffToggle = " $diffToggle";
+			}
 			# Make sure there is always a notice bar when viewing the draft.
 			if ( $this->useSimpleUI() ) { // we already one for detailed UI
 				$this->setPendingNotice( $srev, $diffToggle );
@@ -987,7 +989,9 @@ class FlaggablePageView extends ContextSource {
 		$items = [];
 		# Show stabilization log
 		$log = $this->stabilityLogNotice();
-		if ( $log ) $items[] = $log;
+		if ( $log ) {
+			$items[] = $log;
+		}
 		# Check the newest stable version
 		$frev = $this->article->getStableRev();
 		if ( $frev ) {
@@ -1427,7 +1431,9 @@ class FlaggablePageView extends ContextSource {
 		$msg .= ( $revsSince == 0 ) ? '-i' : '';
 		# Add bar msg to the top of the page...
 		$css = 'plainlinks';
-		if ( $background ) $css .= ' flaggedrevs_preview';
+		if ( $background ) {
+			$css .= ' flaggedrevs_preview';
+		}
 		// Messages: revreview-newest-quality-i, revreview-newest-basic-i
 		$msgHTML = $this->msg( $msg, $srev->getRevId(), $time )->numParams( $revsSince )->parse();
 		$this->reviewNotice .= "<div id='mw-fr-reviewnotice' class='$css'>" .

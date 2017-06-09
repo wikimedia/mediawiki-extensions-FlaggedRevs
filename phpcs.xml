@@ -8,9 +8,6 @@
         <rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall.NotAllowed">
                 <severity>0</severity>
         </rule>
-        <rule ref="Generic.ControlStructures.InlineControlStructure.NotAllowed">
-                <severity>0</severity>
-        </rule>
         <rule ref="Generic.Files.LineLength.TooLong">
                 <severity>0</severity>
         </rule>

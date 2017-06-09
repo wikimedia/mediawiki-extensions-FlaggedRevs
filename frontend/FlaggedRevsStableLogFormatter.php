@@ -79,7 +79,9 @@ class FlaggedRevsStableLogFormatter extends LogFormatter {
 				$langObj->date( $pars['expiry'], false, false ),
 				$langObj->time( $pars['expiry'], false, false )
 			)->inLanguage( $langObj )->text();
-			if ( $settings != '' ) $settings .= ' ';
+			if ( $settings != '' ) {
+				$settings .= ' ';
+			}
 			$settings .= wfMessage( 'parentheses', $expiry_description )->inLanguage( $langObj )->text();
 		}
 		return htmlspecialchars( $settings );

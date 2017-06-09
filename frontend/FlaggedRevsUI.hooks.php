@@ -221,7 +221,9 @@ class FlaggedRevsUIHooks {
 			$clearEnvironment = $article->isRedirect();
 		}
 		# Environment will change in MediaWiki::initializeArticle
-		if ( $clearEnvironment ) $view->clear();
+		if ( $clearEnvironment ) {
+			$view->clear();
+		}
 
 		return true;
 	}
@@ -510,9 +512,13 @@ class FlaggedRevsUIHooks {
 			}
 		}
 		# Style the row as needed
-		if ( $class ) $s = "<span class='$class'>$s</span>";
+		if ( $class ) {
+			$s = "<span class='$class'>$s</span>";
+		}
 		# Add stable old version link
-		if ( $link ) $s .= " $link";
+		if ( $link ) {
+			$s .= " $link";
+		}
 		return true;
 	}
 
@@ -744,7 +750,9 @@ class FlaggedRevsUIHooks {
 		$expirySelect = $wgRequest->getVal( 'mwStabilizeExpirySelection', $oldExpirySelect );
 		# Load the requested expiry time (field)
 		$expiryOther = $wgRequest->getVal( 'mwStabilizeExpiryOther', '' );
-		if ( $expiryOther != '' ) $expirySelect = 'othertime'; // mutual exclusion
+		if ( $expiryOther != '' ) {
+			$expirySelect = 'othertime'; // mutual exclusion
+		}
 
 		# Add an extra row to the protection fieldset tables.
 		# Includes restriction dropdown and expiry dropdown & field.

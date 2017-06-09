@@ -53,8 +53,9 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 				if ( $row ) {
 					$id = $row[0];
 					$last = $id; // $id is the last page_id of this batch
-					if ( $first === false )
+					if ( $first === false ) {
 						$first = $id; // set first page_id of this batch
+					}
 				# Out of rows?
 				} else {
 					$id = false;
@@ -91,7 +92,9 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 	 */
 	public function invalidateIDs( ResultWrapper $res ) {
 		global $wgUseFileCache, $wgUseSquid;
-		if ( $res->numRows() == 0 ) return; // sanity check
+		if ( $res->numRows() == 0 ) {
+			return; // sanity check
+		}
 
 		$dbw = wfGetDB( DB_MASTER );
 		$timestamp = $dbw->timestamp();
@@ -109,7 +112,9 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 					break;
 				}
 			}
-			if ( count( $ids ) == 0 ) break;
+			if ( count( $ids ) == 0 ) {
+				break;
+			}
 			# Update page_touched
 			$dbw->update( 'page', [ 'page_touched' => $timestamp ],
 				[ 'page_id' => $ids ], __METHOD__ );

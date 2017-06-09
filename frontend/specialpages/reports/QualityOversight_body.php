@@ -142,8 +142,9 @@ class QualityOversight extends SpecialPage {
 		}
 		$showActions = [];
 		foreach ( $actions as $action => $show ) {
-			if ( $show )
+			if ( $show ) {
 				$showActions[] = $action;
+			}
 		}
 		return $showActions;
 	}
