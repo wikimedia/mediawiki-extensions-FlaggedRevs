@@ -5,7 +5,6 @@
  * @file
  * @ingroup Extensions
  */
-// @codingStandardsIgnoreFile
 
 $specialPageAliases = [];
 
@@ -139,7 +138,7 @@ $specialPageAliases['bn'] = [
 	'StablePages' => [ 'স্থিতিশীল_পাতাসমূহ' ],
 	'ConfiguredPages' => [ 'কনফিগারকৃত_পাতা' ],
 	'ReviewedVersions' => [ 'পর্যালোচিত_সংস্করণ', 'স্থিতিশীল_সংস্করণ' ],
-	'UnreviewedPages' => [ 'অপর্যালোচিত_পাতা', 'পর্যালোচনাবিহীন_পৃষ্ঠা'],
+	'UnreviewedPages' => [ 'অপর্যালোচিত_পাতা', 'পর্যালোচনাবিহীন_পৃষ্ঠা' ],
 	'ValidationStatistics' => [ 'বৈধকরণের_পরিসংখ্যান', 'বৈধকরণ_পরিসংখ্যান' ],
 ];
 
