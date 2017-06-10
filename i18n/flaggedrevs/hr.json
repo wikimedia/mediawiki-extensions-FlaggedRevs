@@ -180,7 +180,7 @@
 	"tooltip-ca-default": "Postavke osiguranja kvalitete",
 	"flaggedrevs-protect-legend": "Automatski pregled uređivanja ([[{{MediaWiki:Validationpage}}|pomoć]])",
 	"flaggedrevs-protect-none": "Omogući svim suradnicima",
-	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Nepregledane stranice]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Izmjene na čekanju]",
+	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Neprovjerene stranice]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Izmjene na čekanju za provjeru]",
 	"revreview-locked-title": "Izmjene na ovoj stranici zahtijevaju pregled.",
 	"revreview-unlocked-title": "Izmjene ove stranice ne zahtijevaju ocjenjivanje.",
 	"revreview-locked": "'''NAPOMENA:''' Izmjene moraju biti [[{{MediaWiki:Validationpage}}|ocijenjene]] prije nego što će se prikazati na ovoj stranici.",
