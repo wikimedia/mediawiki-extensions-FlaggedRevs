@@ -51,7 +51,7 @@
 	"apihelp-query+unreviewedpages-param-limit": "Сколько страниц вернуть.",
 	"apihelp-query+unreviewedpages-example-1": "Показать список непроверенных страниц",
 	"apihelp-query+unreviewedpages-example-2": "Показать информацию о некоторых непроверенных страницах",
-	"apihelp-review-description": "Проверка версии с помощью подтверждения или неподтверждения её.",
+	"apihelp-review-description": "Проверка версии посредством подтверждения или неподтверждения её.",
 	"apihelp-review-param-revid": "Идентификатор проверяемой версии.",
 	"apihelp-review-param-comment": "Комментарий к проверке.",
 	"apihelp-review-param-unapprove": "Если задано, версия будет не подтверждена.",

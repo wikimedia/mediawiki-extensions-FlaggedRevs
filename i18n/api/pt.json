@@ -1,9 +1,20 @@
 {
 	"@metadata": {
 		"authors": [
-			"Vitorvicentevalente"
+			"Vitorvicentevalente",
+			"Hamilton Abreu"
 		]
 	},
+	"apihelp-flagconfig-description": "Obter informação básica sobre a configuração dos marcadores automáticos deste site.\n\nOs seguintes parâmetros são devolvidos para cada marcador:\n;name:O nome de chave do marcador.\n;levels:Número de níveis que o marcador tem (para além de \"não marcado\").\n;tier2:Nível que o marcador tem de atingir para uma revisão ser de grupo 2 (qualidade).\n;tier3:Nível que o marcador tem de atingir para uma revisão ser de grupo 3 (impecável).\nAs revisões marcadas têm um nível atribuído para cada marcador. O grupo mais alto atingido por todos os marcadores é o grupo de revisão de toda a revisão.",
+	"apihelp-flagconfig-example-1": "Obter a configuração do marcador",
+	"apihelp-query+configuredpages-description": "Enumerar todas as páginas que têm configurações de revisão personalizadas.",
+	"apihelp-query+configuredpages-param-start": "Começar a listagem neste identificador de página.",
+	"apihelp-query+configuredpages-param-end": "Terminar a listagem neste identificador de página.",
+	"apihelp-query+configuredpages-param-namespace": "Os espaços nominais a serem enumerados.",
+	"apihelp-query+configuredpages-param-autoreview": "Nível de restrição de revisão/revisão automática",
+	"apihelp-query+configuredpages-param-limit": "O número total de páginas a serem devolvidas.",
+	"apihelp-query+configuredpages-example-1": "Mostrar uma lista de páginas com configurações de revisão personalizadas",
+	"apihelp-query+configuredpages-example-2": "Obter alguma informação sobre páginas com configurações de revisão personalizadas",
 	"apihelp-query+reviewedpages-param-namespace": "Os domínios a enumerar.",
 	"apihelp-stabilize-param-reason": "Motivo.",
 	"apihelp-stabilize-param-watch": "Vigiar esta página."
