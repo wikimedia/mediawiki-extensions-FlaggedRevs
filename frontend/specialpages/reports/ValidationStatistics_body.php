@@ -211,7 +211,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 		} else {
 			global $wgPhpCli;
 			$ext = !empty( $wgPhpCli ) ? $wgPhpCli : 'php';
-			$path = wfEscapeShellArg( dirname( __FILE__ ) . '/../maintenance/updateStats.php' );
+			$path = wfEscapeShellArg( __DIR__ . '/../maintenance/updateStats.php' );
 			$wiki = wfEscapeShellArg( wfWikiId() );
 			$devNull = wfIsWindows() ? "NUL:" : "/dev/null";
 			$commandLine = "$ext $path --wiki=$wiki > $devNull &";

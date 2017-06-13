@@ -6,7 +6,7 @@
 
 $IP = getenv( 'MW_INSTALL_PATH' );
 if ( strval( $IP ) == '' ) {
-	$IP = dirname( __FILE__ ) . '/../../..';
+	$IP = __DIR__ . '/../../..';
 }
 $optionsWithArgs = [ 'backup' ];
 require ( "$IP/maintenance/commandLine.inc" );

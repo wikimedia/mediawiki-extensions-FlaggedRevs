@@ -5,7 +5,7 @@
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
-	$IP = dirname( __FILE__ ).'/../../..';
+	$IP = __DIR__ . '/../../..';
 }
 
 require_once ( "$IP/maintenance/Maintenance.php" );
@@ -93,7 +93,7 @@ class PopulateFRRevTimestamp extends Maintenance {
 	}
 
 	protected function last_pos_file() {
-		return dirname( __FILE__ ) . "/popRevTimestampLast-" . wfWikiID();
+		return __DIR__ . "/popRevTimestampLast-" . wfWikiID();
 	}
 }
 

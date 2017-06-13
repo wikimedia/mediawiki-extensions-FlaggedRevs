@@ -4,14 +4,14 @@
  */
 class FlaggedRevsTestHooks {
 	public static function getUnitTests( &$files ) {
-		$files[] = dirname( __FILE__ ) . '/FRInclusionManagerTest.php';
-		$files[] = dirname( __FILE__ ) . '/FRUserCountersTest.php';
-		$files[] = dirname( __FILE__ ) . '/FRUserActivityTest.php';
-		$files[] = dirname( __FILE__ ) . '/FRParserCacheStableTest.php';
-		$files[] = dirname( __FILE__ ) . '/FlaggablePageTest.php';
-		$files[] = dirname( __FILE__ ) . '/FlaggedRevsSetupTest.php';
+		$files[] = __DIR__ . '/FRInclusionManagerTest.php';
+		$files[] = __DIR__ . '/FRUserCountersTest.php';
+		$files[] = __DIR__ . '/FRUserActivityTest.php';
+		$files[] = __DIR__ . '/FRParserCacheStableTest.php';
+		$files[] = __DIR__ . '/FlaggablePageTest.php';
+		$files[] = __DIR__ . '/FlaggedRevsSetupTest.php';
 		if ( class_exists( 'Scribunto_LuaEngineTestBase' ) ) {
-			$files[] = dirname( __FILE__ ) . '/FlaggedRevsLibraryTest.php';
+			$files[] = __DIR__ . '/FlaggedRevsLibraryTest.php';
 		}
 		return true;
 	}
