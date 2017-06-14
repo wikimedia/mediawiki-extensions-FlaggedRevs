@@ -6,7 +6,7 @@ class FlaggedRevsUpdaterHooks {
 	public static function addSchemaUpdates( DatabaseUpdater $du ) {
 		global $wgDBtype;
 		if ( $wgDBtype == 'mysql' ) {
-			$base = dirname( __FILE__ ) . '/mysql';
+			$base = __DIR__ . '/mysql';
 			// Initial install tables (current schema)
 			$du->addExtensionUpdate( [ 'addTable',
 				'flaggedrevs', "$base/FlaggedRevs.sql", true ] );
@@ -36,7 +36,7 @@ class FlaggedRevsUpdaterHooks {
 			$du->addExtensionUpdate( [ 'addTable',
 				'flaggedrevs_statistics', "$base/patch-flaggedrevs_statistics.sql", true ] );
 		} elseif ( $wgDBtype == 'postgres' ) {
-			$base = dirname( __FILE__ ) . '/postgres';
+			$base = __DIR__ . '/postgres';
 			// Initial install tables (current schema)
 			$du->addExtensionUpdate( [ 'addTable',
 				'flaggedrevs', "$base/FlaggedRevs.pg.sql", true ] );
@@ -66,7 +66,7 @@ class FlaggedRevsUpdaterHooks {
 			$du->addExtensionUpdate( [ 'addTable',
 				'flaggedrevs_statistics', "$base/patch-flaggedrevs_statistics.sql", true ] );
 		} elseif ( $wgDBtype == 'sqlite' ) {
-			$base = dirname( __FILE__ ) . '/mysql';
+			$base = __DIR__ . '/mysql';
 			$du->addExtensionUpdate( [ 'addTable',
 				'flaggedrevs', "$base/FlaggedRevs.sql", true ] );
 		}
@@ -90,7 +90,7 @@ class FlaggedRevsUpdaterHooks {
 			$du->output( "...fr_rev_timestamp already exists.\n" );
 			return;
 		}
-		$scriptDir = dirname( __FILE__ ) . "/../../maintenance/populateRevTimestamp.php";
+		$scriptDir = __DIR__ . "/../../maintenance/populateRevTimestamp.php";
 		if ( !file_exists( $scriptDir ) ) {
 			$du->output( "...populateRevTimestamp.php missing! Aborting fr_rev_timestamp update.\n" );
 			return; // sanity; all or nothing

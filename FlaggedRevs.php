@@ -36,7 +36,7 @@ $wgExtensionCredits['specialpage'][] = [
 ];
 
 # Load global constants
-require ( dirname( __FILE__ ) . '/FlaggedRevs.defines.php' );
+require ( __DIR__ . '/FlaggedRevs.defines.php' );
 
 # This will only distinguish "checked", "quality", and unreviewed
 # A small icon will show in the upper right hand corner
@@ -217,7 +217,7 @@ $wgFlaggedRevsStats = [
 # In such cases, we select the current (unreviewed) revision. Likewise for files.
 $wgFlaggedRevsHandleIncludes = FR_INCLUDES_STABLE;
 
-$dir = dirname( __FILE__ );
+$dir = __DIR__;
 
 # Basic directory layout
 $backendDir       = "$dir/backend";
@@ -367,7 +367,7 @@ $wgAutoloadClasses['FlaggedRevsTestHooks'] = "$testDir/FlaggedRevsTest.hooks.php
 ### End ###
 
 # Define JS/CSS modules and file locations
-$localModulePath = dirname( __FILE__ ) . '/frontend/modules/';
+$localModulePath = __DIR__ . '/frontend/modules/';
 $remoteModulePath = 'FlaggedRevs/frontend/modules';
 $wgResourceModules['ext.flaggedRevs.basic'] = [
 	'position'		=> 'top',

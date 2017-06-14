@@ -17,9 +17,6 @@
         <rule ref="MediaWiki.NamingConventions.ValidGlobalName.wgPrefix">
                 <severity>0</severity>
         </rule>
-        <rule ref="MediaWiki.Usage.DirUsage.FunctionFound">
-                <severity>0</severity>
-        </rule>
         <rule ref="MediaWiki.VariableAnalysis.UnusedGlobalVariables">
                 <severity>0</severity>
         </rule>
