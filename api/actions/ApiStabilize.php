@@ -186,8 +186,25 @@ class ApiStabilizeGeneral extends ApiStabilize {
 		return 'Change page stability settings';
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.30
+	 */
 	protected function getDescriptionMessage() {
-		return parent::getDescriptionMessage() . '-general';
+		return [ [
+			"apihelp-{$this->getModulePath()}-description-general",
+			"apihelp-{$this->getModulePath()}-summary-general",
+		] ];
+	}
+
+	protected function getSummaryMessage() {
+		return "apihelp-{$this->getModulePath()}-summary-general";
+	}
+
+	protected function getExtendedDescription() {
+		return [ [
+			"apihelp-{$this->getModulePath()}-extended-description-general",
+			'api-help-no-extended-description',
+		] ];
 	}
 
 	/**
@@ -295,8 +312,25 @@ class ApiStabilizeProtect extends ApiStabilize {
 		return 'Configure review-protection settings for a page';
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.30
+	 */
 	protected function getDescriptionMessage() {
-		return parent::getDescriptionMessage() . '-protect';
+		return [ [
+			"apihelp-{$this->getModulePath()}-description-protect",
+			"apihelp-{$this->getModulePath()}-summary-protect",
+		] ];
+	}
+
+	protected function getSummaryMessage() {
+		return "apihelp-{$this->getModulePath()}-summary-protect";
+	}
+
+	protected function getExtendedDescription() {
+		return [ [
+			"apihelp-{$this->getModulePath()}-extended-description-protect",
+			'api-help-no-extended-description',
+		] ];
 	}
 
 	/**
