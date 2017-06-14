@@ -265,7 +265,6 @@ $wgAutoloadClasses['PageStabilityProtectForm'] = "$businessDir/PageStabilityForm
 ### Presentation classes ###
 # Main i18n file and special page alias file
 $wgMessagesDirs['FlaggedRevs'] = __DIR__ . '/i18n/flaggedrevs';
-$wgExtensionMessagesFiles['FlaggedRevs'] = "$langDir/FlaggedRevs.i18n.php";
 $wgExtensionMessagesFiles['FlaggedRevsMagic'] = "$langDir/FlaggedRevs.i18n.magic.php";
 $wgExtensionMessagesFiles['FlaggedRevsAliases'] = "$langDir/FlaggedRevs.alias.php";
 # UI setup, forms, and HTML elements
@@ -279,54 +278,43 @@ $wgAutoloadClasses['RejectConfirmationFormUI'] = "$frontendDir/RejectConfirmatio
 # Revision review UI
 $wgAutoloadClasses['RevisionReview'] = "$spActionDir/RevisionReview_body.php";
 $wgMessagesDirs['RevisionReview'] = __DIR__ . '/i18n/revisionreview';
-$wgExtensionMessagesFiles['RevisionReview'] = "$langDir/RevisionReview.i18n.php";
 # Stable version config UI
 $wgAutoloadClasses['Stabilization'] = "$spActionDir/Stabilization_body.php";
 $wgMessagesDirs['Stabilization'] = __DIR__ . '/i18n/stabilization';
-$wgExtensionMessagesFiles['Stabilization'] = "$langDir/Stabilization.i18n.php";
 # Reviewed versions list
 $wgAutoloadClasses['ReviewedVersions'] = "$spReportDir/ReviewedVersions_body.php";
 $wgAutoloadClasses['ReviewedVersionsPager'] = "$spReportDir/ReviewedVersions_body.php";
 $wgMessagesDirs['ReviewedVersions'] = __DIR__ . '/i18n/reviewedversions';
-$wgExtensionMessagesFiles['ReviewedVersions'] = "$langDir/ReviewedVersions.i18n.php";
 # Unreviewed pages list
 $wgAutoloadClasses['UnreviewedPages'] = "$spReportDir/UnreviewedPages_body.php";
 $wgAutoloadClasses['UnreviewedPagesPager'] = "$spReportDir/UnreviewedPages_body.php";
 $wgMessagesDirs['UnreviewedPages'] = __DIR__ . '/i18n/unreviewedpages';
-$wgExtensionMessagesFiles['UnreviewedPages'] = "$langDir/UnreviewedPages.i18n.php";
 # Pages with pending changes list
 $wgAutoloadClasses['PendingChanges'] = "$spReportDir/PendingChanges_body.php";
 $wgAutoloadClasses['PendingChangesPager'] = "$spReportDir/PendingChanges_body.php";
 $wgMessagesDirs['PendingChanges'] = __DIR__ . '/i18n/pendingchanges';
-$wgExtensionMessagesFiles['PendingChanges'] = "$langDir/PendingChanges.i18n.php";
 # Pages with tagged pending changes list
 $wgAutoloadClasses['ProblemChanges'] = "$spReportDir/ProblemChanges_body.php";
 $wgAutoloadClasses['ProblemChangesPager'] = "$spReportDir/ProblemChanges_body.php";
 $wgMessagesDirs['ProblemChanges'] = __DIR__ . '/i18n/problemchanges';
-$wgExtensionMessagesFiles['ProblemChanges'] = "$langDir/ProblemChanges.i18n.php";
 # Reviewed pages list
 $wgAutoloadClasses['ReviewedPages'] = "$spReportDir/ReviewedPages_body.php";
 $wgAutoloadClasses['ReviewedPagesPager'] = "$spReportDir/ReviewedPages_body.php";
 $wgMessagesDirs['ReviewedPages'] = __DIR__ . '/i18n/reviewedpages';
-$wgExtensionMessagesFiles['ReviewedPages'] = "$langDir/ReviewedPages.i18n.php";
 # Stable pages list (for protection config)
 $wgAutoloadClasses['StablePages'] = "$spReportDir/StablePages_body.php";
 $wgAutoloadClasses['StablePagesPager'] = "$spReportDir/StablePages_body.php";
 $wgMessagesDirs['StablePages'] = __DIR__ . '/i18n/stablepages';
-$wgExtensionMessagesFiles['StablePages'] = "$langDir/StablePages.i18n.php";
 # Configured pages list (non-protection config)
 $wgAutoloadClasses['ConfiguredPages'] = "$spReportDir/ConfiguredPages_body.php";
 $wgAutoloadClasses['ConfiguredPagesPager'] = "$spReportDir/ConfiguredPages_body.php";
 $wgMessagesDirs['ConfiguredPages'] = __DIR__ . '/i18n/configuredpages';
-$wgExtensionMessagesFiles['ConfiguredPages'] = "$langDir/ConfiguredPages.i18n.php";
 # Filterable review log page to oversee reviews
 $wgAutoloadClasses['QualityOversight'] = "$spReportDir/QualityOversight_body.php";
 $wgMessagesDirs['QualityOversight'] = __DIR__ . '/i18n/qualityoversight';
-$wgExtensionMessagesFiles['QualityOversight'] = "$langDir/QualityOversight.i18n.php";
 # Review statistics
 $wgAutoloadClasses['ValidationStatistics'] = "$spReportDir/ValidationStatistics_body.php";
 $wgMessagesDirs['ValidationStatistics'] = __DIR__ . '/i18n/validationstatistics';
-$wgExtensionMessagesFiles['ValidationStatistics'] = "$langDir/ValidationStatistics.i18n.php";
 ### End ###
 
 ### API classes ###
