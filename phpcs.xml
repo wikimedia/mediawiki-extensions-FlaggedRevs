@@ -17,9 +17,6 @@
         <rule ref="MediaWiki.NamingConventions.ValidGlobalName.wgPrefix">
                 <severity>0</severity>
         </rule>
-        <rule ref="MediaWiki.VariableAnalysis.UnusedGlobalVariables">
-                <severity>0</severity>
-        </rule>
         <rule ref="PSR2.Methods.MethodDeclaration.AbstractAfterVisibility">
                 <severity>0</severity>
         </rule>

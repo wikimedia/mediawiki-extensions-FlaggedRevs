@@ -126,7 +126,7 @@ class FlaggedRevsSetup {
 	 * @return void
 	 */
 	public static function setAPIModules() {
-		global $wgAPIModules, $wgAPIListModules, $wgAPIPropModules;
+		global $wgAPIModules, $wgAPIListModules;
 		global $wgFlaggedRevsProtection;
 
 		if ( $wgFlaggedRevsProtection ) {
