@@ -85,7 +85,8 @@ class ReviewedPages extends SpecialPage {
 		$link = Linker::link( $title ); # Link to page
 		$dirmark = $this->getLanguage()->getDirMark(); # Direction mark
 		$stxt = ''; # Size (bytes)
-		if ( !is_null( $size = $row->page_len ) ) {
+		$size = $row->page_len;
+		if ( !is_null( $size ) ) {
 			if ( $size == 0 ) {
 				$stxt = ' <small>' . $this->msg( 'historyempty' )->escaped() . '</small>';
 			} else {

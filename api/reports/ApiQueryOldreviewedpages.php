@@ -59,7 +59,8 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 				intval( $params['maxsize'] ) );
 		}
 		if ( $params['filterwatched'] == 'watched' ) {
-			if ( !( $uid = $this->getUser()->getId() ) ) {
+			$uid = $this->getUser()->getId();
+			if ( !$uid ) {
 				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
 					$this->dieWithError( 'watchlistanontext', 'notloggedin' );
 				} else {

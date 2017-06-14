@@ -116,7 +116,8 @@ class UnreviewedPages extends SpecialPage {
 			[],
 			[ 'action' => 'history' ]
 		);
-		if ( !is_null( $size = $row->page_len ) ) {
+		$size = $row->page_len;
+		if ( !is_null( $size ) ) {
 			$stxt = ( $size == 0 )
 				? $this->msg( 'historyempty' )->escaped()
 				: $this->msg( 'historysize' )->numParams( $size )->escaped();
