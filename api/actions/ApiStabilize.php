@@ -55,7 +55,7 @@ abstract class ApiStabilize extends ApiBase {
 		$this->doExecute(); // child class
 	}
 
-	public abstract function doExecute();
+	abstract public function doExecute();
 
 	public function mustBePosted() {
 		return true;
