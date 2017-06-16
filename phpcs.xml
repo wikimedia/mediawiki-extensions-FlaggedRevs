@@ -5,13 +5,15 @@
 	<arg name="extensions" value="php,php5,inc"/>
 	<arg name="encoding" value="utf8"/>
 	<exclude-pattern>vendor</exclude-pattern>
+	<rule ref="MediaWiki.NamingConventions.ValidGlobalName">
+		<properties>
+			<property name="ignoreList" type="array" value="$parserMemc,$mediaWiki" />
+		</properties>
+	</rule>
         <rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall.NotAllowed">
                 <severity>0</severity>
         </rule>
         <rule ref="Generic.Files.LineLength.TooLong">
-                <severity>0</severity>
-        </rule>
-        <rule ref="MediaWiki.NamingConventions.ValidGlobalName.wgPrefix">
                 <severity>0</severity>
         </rule>
         <rule ref="Squiz.Classes.ValidClassName.NotCamelCaps">
