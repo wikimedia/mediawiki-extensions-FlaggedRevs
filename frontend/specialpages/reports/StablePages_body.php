@@ -67,19 +67,22 @@ class StablePages extends SpecialPage {
 
 	public function formatRow( $row ) {
 		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
+		$linkRenderer = $this->getLinkRenderer();
 		// Link to page
-		$link = Linker::link( $title );
+		$link = $linkRenderer->makeLink( $title );
 		// Helpful utility links
 		$utilLinks = [];
-		$utilLinks[] = Linker::link(
+		$utilLinks[] = $linkRenderer->makeLink(
 			$title,
-			$this->msg( 'stablepages-config' )->escaped(),
+			$this->msg( 'stablepages-config' )->text(),
 			[], [ 'action' => 'protect' ], 'known' );
-		$utilLinks[] = Linker::link( $title,
-			$this->msg( 'history' )->escaped(),
+		$utilLinks[] = $linkRenderer->makeLink(
+			$title,
+			$this->msg( 'history' )->text(),
 			[], [ 'action' => 'history' ], 'known' );
-		$utilLinks[] = Linker::link( SpecialPage::getTitleFor( 'Log', 'stable' ),
-			$this->msg( 'stable-logpage' )->escaped(),
+		$utilLinks[] = $linkRenderer->makeLink(
+			SpecialPage::getTitleFor( 'Log', 'stable' ),
+			$this->msg( 'stable-logpage' )->text(),
 			[], [ 'page' => $title->getPrefixedText() ], 'known' );
 		// Autoreview/review restriction level
 		$restr = '';

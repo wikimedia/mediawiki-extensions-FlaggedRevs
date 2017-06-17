@@ -127,6 +127,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 			$unreviewed = intval( $total ) - intval( $reviewed );
 			$unreviewed = $lang->formatnum( max( 0, $unreviewed ) ); // lag between queries
 
+			$linkRenderer = $this->getLinkRenderer();
 			$out->addHTML(
 				"<tr style='text-align: center;'>
 					<td>" .
@@ -147,8 +148,9 @@ class ValidationStatistics extends IncludableSpecialPage {
 						$percSynced .
 					"</td>
 					<td>" .
-						Linker::linkKnown( SpecialPage::getTitleFor( 'PendingChanges' ),
-							htmlspecialchars( $outdated ),
+						$linkRenderer->makeKnownLink(
+							SpecialPage::getTitleFor( 'PendingChanges' ),
+							$outdated,
 							[],
 							[ 'namespace' => $namespace ]
 						) .
@@ -157,8 +159,9 @@ class ValidationStatistics extends IncludableSpecialPage {
 			if ( !$wgFlaggedRevsProtection ) {
 				$out->addHTML( "
 					<td>" .
-						Linker::linkKnown( SpecialPage::getTitleFor( 'UnreviewedPages' ),
-							htmlspecialchars( $unreviewed ),
+						$linkRenderer->makeKnownLink(
+							SpecialPage::getTitleFor( 'UnreviewedPages' ),
+							$unreviewed,
 							[],
 							[ 'namespace' => $namespace ]
 						) .

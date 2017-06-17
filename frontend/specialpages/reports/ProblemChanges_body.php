@@ -193,9 +193,11 @@ class ProblemChanges extends SpecialPage {
 		$css = $quality = $tags = $underReview = '';
 
 		$title = Title::newFromRow( $row );
-		$link = Linker::link( $title );
-		$review = Linker::linkKnown( $title,
-			$this->msg( 'pendingchanges-diff' )->escaped(),
+		$linkRenderer = $this->getLinkRenderer();
+		$link = $linkRenderer->makeLink( $title );
+		$review = $linkRenderer->makeKnownLink(
+			$title,
+			$this->msg( 'pendingchanges-diff' )->text(),
 			[],
 			[ 'diff' => 'cur', 'oldid' => $row->stable ] + FlaggedRevs::diffOnlyCGI()
 		);

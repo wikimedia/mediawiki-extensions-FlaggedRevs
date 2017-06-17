@@ -40,9 +40,9 @@ class ReviewedPages extends SpecialPage {
 		$form .= "<fieldset><legend>" . $this->msg( 'reviewedpages-leg' )->escaped() . "</legend>\n";
 
 		// show/hide links
-		$showhide = [ $this->msg( 'show' )->escaped(), $this->msg( 'hide' )->escaped() ];
+		$showhide = [ $this->msg( 'show' )->text(), $this->msg( 'hide' )->text() ];
 		$onoff = 1 - $this->hideRedirs;
-		$link = Linker::link( $this->getPageTitle(), $showhide[$onoff], [],
+		$link = $this->getLinkRenderer()->makeLink( $this->getPageTitle(), $showhide[$onoff], [],
 			 [ 'hideredirs' => $onoff, 'namespace' => $this->namespace ]
 		);
 		$showhideredirs = $this->msg( 'whatlinkshere-hideredirs' )->rawParams( $link )->escaped();
@@ -82,7 +82,8 @@ class ReviewedPages extends SpecialPage {
 
 	public function formatRow( $row ) {
 		$title = Title::newFromRow( $row );
-		$link = Linker::link( $title ); # Link to page
+		$linkRenderer = $this->getLinkRenderer();
+		$link = $linkRenderer->makeLink( $title ); # Link to page
 		$dirmark = $this->getLanguage()->getDirMark(); # Direction mark
 		$stxt = ''; # Size (bytes)
 		$size = $row->page_len;
@@ -96,18 +97,18 @@ class ReviewedPages extends SpecialPage {
 			}
 		}
 		# Link to list of reviewed versions for page
-		$list = Linker::linkKnown(
+		$list = $linkRenderer->makeKnownLink(
 			SpecialPage::getTitleFor( 'ReviewedVersions' ),
-			$this->msg( 'reviewedpages-all' )->escaped(),
+			$this->msg( 'reviewedpages-all' )->text(),
 			[],
 			'page=' . $title->getPrefixedUrl()
 		);
 		# Link to highest tier rev
 		$best = '';
 		if ( FlaggedRevs::qualityVersions() ) {
-			$best = Linker::linkKnown(
+			$best = $linkRenderer->makeKnownLink(
 				$title,
-				$this->msg( 'reviewedpages-best' )->escaped(),
+				$this->msg( 'reviewedpages-best' )->text(),
 				[],
 				'stableid=best'
 			);
