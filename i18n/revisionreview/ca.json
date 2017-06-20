@@ -7,7 +7,8 @@
 			"SMP",
 			"Toniher",
 			"පසිඳු කාවින්ද",
-			"Fitoschido"
+			"Fitoschido",
+			"AlvaroMolina"
 		]
 	},
 	"revisionreview": "Revisa les revisions",
@@ -44,6 +45,7 @@
 	"revreview-reject-summary": "Resum:",
 	"revreview-reject-confirm": "Rebutja aquests canvis",
 	"revreview-reject-cancel": "Cancel·lar",
+	"revreview-reject-summary-cur": "Es van rebutjar els últims {{PLURAL:$1|canvi de text|$1 canvis de text}} ({{PLURAL:$7|{{GENDER:$5|de}}}} $2) i es va restaurar la revisió $3 {{GENDER:$6|de}} $4",
 	"revreview-tt-flag": "Accepta aquesta revisió marcant-la com a “revisada”",
 	"revreview-tt-unflag": "No accepta aquesta revisió marcant-la com a ”insuficient”",
 	"revreview-tt-reject": "Rebutja aquests canvis del text de la font desfent-los."
