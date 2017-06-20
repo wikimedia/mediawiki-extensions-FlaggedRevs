@@ -288,8 +288,8 @@ class Stabilization extends UnlistedSpecialPage {
 			# Don't let them choose levels they can't set,
 			# but *show* them all when the form is disabled.
 			if ( $this->form->isAllowed()
-				&& !FlaggedRevs::userCanSetAutoreviewLevel( $this->getUser(), $key ) )
-			{
+				&& !FlaggedRevs::userCanSetAutoreviewLevel( $this->getUser(), $key )
+			) {
 				continue;
 			}
 			$allowedLevels[] = $key;

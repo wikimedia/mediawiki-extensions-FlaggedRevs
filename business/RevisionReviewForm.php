@@ -381,8 +381,8 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			# If this undid one edit by another logged-in user, update user tallies
 			if ( $status === true
 				&& $newRev->getParentId() == $oldRev->getId()
-				&& $newRev->getUser( Revision::RAW ) )
-			{
+				&& $newRev->getUser( Revision::RAW )
+			) {
 				if ( $newRev->getUser( Revision::RAW ) != $this->user->getId() ) { // no self-reverts
 					FRUserCounters::incCount( $newRev->getUser( Revision::RAW ), 'revertedEdits' );
 				}
@@ -439,8 +439,8 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			$oldFrev->getFileSha1() == $fileData['sha1'] &&
 			$oldFrev->getFileTimestamp() == $fileData['timestamp'] &&
 			$oldFrev->getTemplateVersions( FR_MASTER ) == $tmpVersions &&
-			$oldFrev->getFileVersions( FR_MASTER ) == $fileVersions )
-		{
+			$oldFrev->getFileVersions( FR_MASTER ) == $fileVersions
+		) {
 			return true; // don't record if the same
 		}
 

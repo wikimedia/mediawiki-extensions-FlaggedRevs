@@ -115,8 +115,8 @@ class RevisionReviewFormUI {
 		# Disable form for unprivileged users
 		$disabled = [];
 		if ( !$article->getTitle()->quickUserCan( 'review' ) ||
-			!FlaggedRevs::userCanSetFlags( $this->user, $flags ) )
-		{
+			!FlaggedRevs::userCanSetFlags( $this->user, $flags )
+		) {
 			$disabled = [ 'disabled' => 'disabled' ];
 		}
 
@@ -341,8 +341,8 @@ class RevisionReviewFormUI {
 		# Build up all levels available to user
 		foreach ( FlaggedRevs::getDimensions() as $tag => $levels ) {
 			if ( isset( $selected[$tag] ) &&
-				!FlaggedRevs::userCanSetTag( $user, $tag, $selected[$tag] ) )
-			{
+				!FlaggedRevs::userCanSetTag( $user, $tag, $selected[$tag] )
+			) {
 				return [ false, false ]; // form will have to be disabled
 			}
 			$labels[$tag] = []; // applicable tag levels

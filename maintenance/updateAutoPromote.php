@@ -8,7 +8,7 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = __DIR__ . '/../../..';
 }
 
-require_once ( "$IP/maintenance/Maintenance.php" );
+require_once "$IP/maintenance/Maintenance.php";
 
 class UpdateFRAutoPromote extends Maintenance {
 
@@ -26,7 +26,7 @@ class UpdateFRAutoPromote extends Maintenance {
 		$dbw = wfGetDB( DB_MASTER );
 		$start = $dbr->selectField( 'user', 'MIN(user_id)', false, __METHOD__ );
 		$end = $dbr->selectField( 'user', 'MAX(user_id)', false, __METHOD__ );
-		if ( is_null( $start ) || is_null( $end ) ){
+		if ( is_null( $start ) || is_null( $end ) ) {
 			$this->output( "...user table seems to be empty.\n" );
 			return;
 		}
@@ -89,4 +89,4 @@ class UpdateFRAutoPromote extends Maintenance {
 }
 
 $maintClass = "UpdateFRAutoPromote";
-require_once ( RUN_MAINTENANCE_IF_MAIN );
+require_once RUN_MAINTENANCE_IF_MAIN;

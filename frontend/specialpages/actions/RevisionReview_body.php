@@ -213,8 +213,7 @@ class RevisionReview extends UnlistedSpecialPage {
 					wfMessage( 'revreview-submission-invalid' )->parse();
 			}
 			list( $par, $val ) = $set;
-			switch ( $par )
-			{
+			switch ( $par ) {
 				case "target":
 					$title = Title::newFromURL( $val );
 					break;

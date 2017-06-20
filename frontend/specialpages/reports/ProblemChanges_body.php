@@ -301,7 +301,6 @@ class ProblemChangesPager extends AlphabeticPager {
 	const PAGE_LIMIT = 100; // Don't get too expensive
 
 	function __construct( $form, $level = - 1, $category = '', $tag = '' ) {
-
 		$this->mForm = $form;
 		# Must be a content page...
 		$this->namespace = FlaggedRevs::getReviewNamespaces();

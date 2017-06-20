@@ -1,7 +1,7 @@
 <?php
-/*
-* Defines global constants, some of which are used in LocalSettings.php
-*/
+/**
+ * Defines global constants, some of which are used in LocalSettings.php
+ */
 
 # Query SELECT parameters...
 define( 'FR_FOR_UPDATE', 1 );

@@ -8,7 +8,7 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = __DIR__ . '/../../..';
 }
 
-require_once ( "$IP/maintenance/Maintenance.php" );
+require_once "$IP/maintenance/Maintenance.php";
 
 class UpdateFRTracking extends Maintenance {
 
@@ -114,8 +114,8 @@ class UpdateFRTracking extends Maintenance {
 				if ( $quality != $row->fr_quality
 					|| $file != $row->fr_img_name
 					|| $fileSha1 != $row->fr_img_sha1
-					|| $fileTime != $row->fr_img_timestamp )
-				{
+					|| $fileTime != $row->fr_img_timestamp
+				) {
 					# Update the row...
 					$db->update( 'flaggedrevs',
 						[
@@ -267,4 +267,4 @@ class UpdateFRTracking extends Maintenance {
 }
 
 $maintClass = "UpdateFRTracking";
-require_once ( RUN_MAINTENANCE_IF_MAIN );
+require_once RUN_MAINTENANCE_IF_MAIN;

@@ -499,8 +499,8 @@ class FlaggedRevs {
 			} elseif ( !self::userCanSetTag( $user, $qal, $flags[$qal] ) ) {
 				return false; // user cannot set proposed flag
 			} elseif ( isset( $oldflags[$qal] )
-				&& !self::userCanSetTag( $user, $qal, $oldflags[$qal] ) )
-			{
+				&& !self::userCanSetTag( $user, $qal, $oldflags[$qal] )
+			) {
 				return false; // user cannot change old flag
 			}
 		}
@@ -715,7 +715,7 @@ class FlaggedRevs {
 	 * Updates squid cache for a title. Defers till after main commit().
 	 */
 	public static function purgeSquid( Title $title ) {
-		DeferredUpdates::addCallableUpdate( function() use ( $title ) {
+		DeferredUpdates::addCallableUpdate( function () use ( $title ) {
 			$title->purgeSquid();
 			HTMLFileCache::clearFileCache( $title );
 		} );
@@ -773,7 +773,7 @@ class FlaggedRevs {
 	 * @return Object (val,time) tuple
 	 */
 	public static function makeMemcObj( $val ) {
-		$data = (object) [];
+		$data = (object)[];
 		$data->value = $val;
 		$data->time = wfTimestampNow();
 		return $data;

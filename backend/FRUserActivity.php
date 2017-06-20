@@ -1,7 +1,7 @@
 <?php
-/*
-* Class of utility functions for getting/tracking user activity
-*/
+/**
+ * Class of utility functions for getting/tracking user activity
+ */
 class FRUserActivity {
 	const PAGE_REVIEW_SEC = 1200; // 20*60
 	const CHANGE_REVIEW_SEC = 360; // 6*60
@@ -184,7 +184,7 @@ class FRUserActivity {
 
 		ObjectCache::getMainStashInstance()->merge(
 			$key,
-			function( BagOStuff $stash, $key, $oldVal ) use ( $user, &$wasSet ) {
+			function ( BagOStuff $stash, $key, $oldVal ) use ( $user, &$wasSet ) {
 				if ( count( $oldVal ) == 3 ) { // flag set
 					list( $u, $ts, $cnt ) = $oldVal;
 					if ( $u === $user->getName() ) { // by this user
@@ -215,7 +215,7 @@ class FRUserActivity {
 
 		ObjectCache::getMainStashInstance()->merge(
 			$key,
-			function( BagOStuff $stash, $key, $oldVal ) use ( $user, &$wasSet ) {
+			function ( BagOStuff $stash, $key, $oldVal ) use ( $user, &$wasSet ) {
 				if ( count( $oldVal ) != 3 ) {
 					return false; // flag not set
 				}

@@ -402,8 +402,8 @@ class FlaggedRevsHooks {
 		# Is the page manually checked off to be reviewed?
 		if ( $editTimestamp
 			&& $wgRequest->getCheck( 'wpReviewEdit' )
-			&& $title->getUserPermissionsErrors( 'review', $user ) === [] )
-		{
+			&& $title->getUserPermissionsErrors( 'review', $user ) === []
+		) {
 			if ( self::editCheckReview( $fa, $rev, $user, $editTimestamp ) ) {
 				return true; // reviewed...done!
 			}
@@ -707,8 +707,8 @@ class FlaggedRevsHooks {
 			// Note: $rev->getTitle() might be undefined (no rev id?)
 			$badRev = Revision::newFromTitle( $article->getTitle(), $undid );
 			if ( $badRev && $badRev->getUser( Revision::RAW ) // by logged-in user
-				&& $badRev->getUser( Revision::RAW ) != $rev->getUser( Revision::RAW ) ) // no self-reverts
-			{
+				&& $badRev->getUser( Revision::RAW ) != $rev->getUser( Revision::RAW ) // no self-reverts
+			) {
 				FRUserCounters::incCount( $badRev->getUser( Revision::RAW ), 'revertedEdits' );
 			}
 		}
@@ -884,7 +884,7 @@ class FlaggedRevsHooks {
 			return true;
 		}
 
-		DeferredUpdates::addCallableUpdate( function() use ( $user, $article, $summary ) {
+		DeferredUpdates::addCallableUpdate( function () use ( $user, $article, $summary ) {
 			$p = FRUserCounters::getUserParams( $user->getId(), FR_FOR_UPDATE );
 			$changed = FRUserCounters::updateUserParams( $p, $article, $summary );
 			if ( $changed ) {

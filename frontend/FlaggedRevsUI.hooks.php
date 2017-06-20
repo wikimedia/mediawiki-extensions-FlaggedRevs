@@ -267,8 +267,8 @@ class FlaggedRevsUIHooks {
 	public static function onSkinAfterContent( &$data ) {
 		global $wgOut;
 		if ( $wgOut->isArticleRelated()
-			&& FlaggablePageView::globalArticleInstance() != null )
-		{
+			&& FlaggablePageView::globalArticleInstance() != null
+		) {
 			$view = FlaggablePageView::singleton();
 			// Only use this hook if we want to append the form.
 			// We *prepend* the form for diffs, so skip that case here.
@@ -317,8 +317,8 @@ class FlaggedRevsUIHooks {
 						'showHide' => 'flaggedrevs-hidereviewed',
 						'default' => false,
 						'queryCallable' => function ( $specialClassName, $ctx, $dbr, &$tables,
-							&$fields, &$conds, &$query_options, &$join_conds ) {
-
+							&$fields, &$conds, &$query_options, &$join_conds
+						) {
 							FlaggedRevsUIHooks::hideReviewedChangesUnconditionally(
 								$conds
 							);
@@ -404,8 +404,8 @@ class FlaggedRevsUIHooks {
 	}
 
 	public static function modifyChangesListSpecialPageQuery(
-		$name, &$tables, &$fields, &$conds, &$query_options, &$join_conds, $opts ) {
-
+		$name, &$tables, &$fields, &$conds, &$query_options, &$join_conds, $opts
+	) {
 		self::addMetadataQueryJoins( $tables, $join_conds, $fields );
 	}
 
@@ -598,8 +598,8 @@ class FlaggedRevsUIHooks {
 			} elseif ( isset( $row->fr_quality ) ) {
 				$classes[] = FlaggedRevsXML::getQualityColor( $row->fr_quality );
 			} elseif ( isset( $row->fp_pending_since )
-				&& $row->rev_timestamp >= $row->fp_pending_since ) // bug 15515
-			{
+				&& $row->rev_timestamp >= $row->fp_pending_since // bug 15515
+			) {
 				$classes[] = 'flaggedrevs-pending';
 			} elseif ( !isset( $row->fp_stable ) ) {
 				$classes[] = 'flaggedrevs-unreviewed';
@@ -613,8 +613,8 @@ class FlaggedRevsUIHooks {
 		$title = $rc->getTitle(); // convenience
 		if ( !FlaggedRevs::inReviewNamespace( $title )
 			|| empty( $rc->mAttribs['rc_this_oldid'] ) // rev, not log
-			|| !array_key_exists( 'fp_stable', $rc->mAttribs ) )
-		{
+			|| !array_key_exists( 'fp_stable', $rc->mAttribs )
+		) {
 			return true; // confirm that page is in reviewable namespace
 		}
 		$rlink = $css = '';
@@ -628,8 +628,8 @@ class FlaggedRevsUIHooks {
 			}
 		// page is reviewed and has pending edits (use timestamps; bug 15515)
 		} elseif ( isset( $rc->mAttribs['fp_pending_since'] ) &&
-			$rc->mAttribs['rc_timestamp'] >= $rc->mAttribs['fp_pending_since'] )
-		{
+			$rc->mAttribs['rc_timestamp'] >= $rc->mAttribs['fp_pending_since']
+		) {
 			$rlink = Linker::link(
 				$title,
 				wfMessage( 'revreview-reviewlink' )->escaped(),

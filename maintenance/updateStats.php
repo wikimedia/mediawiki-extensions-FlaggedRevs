@@ -8,7 +8,7 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = __DIR__ . '/../../..';
 }
 
-require_once ( "$IP/maintenance/Maintenance.php" );
+require_once "$IP/maintenance/Maintenance.php";
 
 class UpdateFlaggedRevsStats extends Maintenance {
 
@@ -30,4 +30,4 @@ class UpdateFlaggedRevsStats extends Maintenance {
 }
 
 $maintClass = "UpdateFlaggedRevsStats";
-require_once ( RUN_MAINTENANCE_IF_MAIN );
+require_once RUN_MAINTENANCE_IF_MAIN;

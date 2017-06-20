@@ -409,8 +409,8 @@ class FlaggablePageView extends ContextSource {
 				return; // stable version - index this
 			} elseif ( !$request->getVal( 'stableid' )
 				&& $this->out->getRevisionId() == $this->article->getStable()
-				&& $this->article->stableVersionIsSynced() )
-			{
+				&& $this->article->stableVersionIsSynced()
+			) {
 				return; // draft that is synced with the stable version - index this
 			}
 			$this->out->setRobotPolicy( 'noindex,nofollow' ); // don't index this version
@@ -475,8 +475,8 @@ class FlaggablePageView extends ContextSource {
 		if ( $request->getVal( 'shownotice' )
 			&& $this->article->getUserText( Revision::RAW ) == $reqUser->getName()
 			&& $this->article->revsArePending()
-			&& !$reqUser->isAllowed( 'review' ) )
-		{
+			&& !$reqUser->isAllowed( 'review' )
+		) {
 			$revsSince = $this->article->getPendingRevCount();
 			$pending = $prot;
 			if ( $this->showRatingIcon() ) {
@@ -1256,8 +1256,8 @@ class FlaggablePageView extends ContextSource {
 			!isset( $actions['protect'] ) &&
 			!isset( $actions['unprotect'] ) &&
 			$reqUser->isAllowed( 'stablesettings' ) &&
-			$title->exists() )
-		{
+			$title->exists()
+		) {
 			$stableTitle = SpecialPage::getTitleFor( 'Stabilization' );
 			// Add the tab
 			$actions['default'] = [
@@ -1342,8 +1342,8 @@ class FlaggablePageView extends ContextSource {
 				$tabs['draft']['class'] .= ' selected';
 			// Are there *just* pending template/file changes.
 			} elseif ( $this->article->onlyTemplatesOrFilesPending()
-				&& $this->out->getRevisionId() == $this->article->getStable() )
-			{
+				&& $this->out->getRevisionId() == $this->article->getStable()
+			) {
 				$tabs['draft']['class'] .= ' selected';
 			// Otherwise, fallback to regular tab behavior
 			} else {
@@ -1476,8 +1476,8 @@ class FlaggablePageView extends ContextSource {
 		# (b) list template/file changes if only includes are pending
 		if ( $srev
 			&& $this->isDiffFromStable
-			&& !$this->article->stableVersionIsSynced() ) // pending changes
-		{
+			&& !$this->article->stableVersionIsSynced() // pending changes
+		) {
 			$changeText = '';
 			# Page not synced only due to includes?
 			if ( !$this->article->revsArePending() ) {
@@ -1507,8 +1507,8 @@ class FlaggablePageView extends ContextSource {
 					// Reviewer just edited...
 					if ( $request->getInt( 'shownotice' )
 						&& $newRev->isCurrent()
-						&& $newRev->getUserText( Revision::RAW ) == $reqUser->getName() )
-					{
+						&& $newRev->getUserText( Revision::RAW ) == $reqUser->getName()
+					) {
 						$title = $this->article->getTitle(); // convenience
 						// @TODO: make diff class cache this
 						$n = $title->countRevisionsBetween( $oldRev, $newRev );

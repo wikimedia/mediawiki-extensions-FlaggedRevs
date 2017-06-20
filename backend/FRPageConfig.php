@@ -1,7 +1,7 @@
 <?php
-/*
-* Page stability configuration functions
-*/
+/**
+ * Page stability configuration functions
+ */
 class FRPageConfig {
 	/**
 	 * Get visibility settings/restrictions for a page
@@ -157,8 +157,8 @@ class FRPageConfig {
 		$defaultConfig = self::getDefaultVisibilitySettings();
 		# Check if the page is not protected at all...
 		if ( $config['override'] == $defaultConfig['override']
-			&& $config['autoreview'] == '' )
-		{
+			&& $config['autoreview'] == ''
+		) {
 			return "none"; // not protected
 		}
 		# All protection levels have 'override' on

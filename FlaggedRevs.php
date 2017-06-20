@@ -1,22 +1,22 @@
 <?php
-/*
- (c) Aaron Schulz, Joerg Baach, 2007-2008 GPL
-
- This program is free software; you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation; either version 2 of the License, or
- (at your option) any later version.
-
- This program is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- GNU General Public License for more details.
-
- You should have received a copy of the GNU General Public License along
- with this program; if not, write to the Free Software Foundation, Inc.,
- 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
- http://www.gnu.org/copyleft/gpl.html
-*/
+/**
+ * (c) Aaron Schulz, Joerg Baach, 2007-2008 GPL
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * http://www.gnu.org/copyleft/gpl.html
+ */
 
 if ( !defined( 'MEDIAWIKI' ) ) {
 	echo "FlaggedRevs extension\n";
@@ -36,7 +36,7 @@ $wgExtensionCredits['specialpage'][] = [
 ];
 
 # Load global constants
-require ( __DIR__ . '/FlaggedRevs.defines.php' );
+require __DIR__ . '/FlaggedRevs.defines.php';
 
 # This will only distinguish "checked", "quality", and unreviewed
 # A small icon will show in the upper right hand corner
@@ -147,22 +147,24 @@ $wgFlaggedRevsAutopromote = [
 # This can be used for newer, semi-trusted users to improve workflow.
 # It is done by granting some users the implicit 'autoreview' group.
 $wgFlaggedRevsAutoconfirm = false;
-/* (example usage)
-$wgFlaggedRevsAutoconfirm = [
-	'days'                  => 30, # days since registration
-	'edits'                 => 50, # total edit count
-	'excludeLastDays'       => 2, # exclude the last X days of edits from below edit counts
-	'benchmarks'            => 7, # number of "spread out" edits
-	'spacing'               => 3, # number of days between these edits (the "spread")
-	// Either totalContentEdits reqs OR totalCheckedEdits requirements needed
-	'totalContentEdits'     => 150, # $wgContentNamespaces edits OR...
-	'totalCheckedEdits'     => 50, # ...Edits before the stable version of pages
-	'uniqueContentPages'    => 8, # $wgContentNamespaces unique pages edited
-	'editComments'          => 20, # how many edit comments used?
-	'email'                 => false, # user must be emailconfirmed?
-	'neverBlocked'          => true, # Can users that were blocked be promoted?
-];
-*/
+
+/**
+ * @example
+ * $wgFlaggedRevsAutoconfirm = [
+ * 	'days'                  => 30, # days since registration
+ * 	'edits'                 => 50, # total edit count
+ * 	'excludeLastDays'       => 2, # exclude the last X days of edits from below edit counts
+ * 	'benchmarks'            => 7, # number of "spread out" edits
+ * 	'spacing'               => 3, # number of days between these edits (the "spread")
+ * 	// Either totalContentEdits reqs OR totalCheckedEdits requirements needed
+ * 	'totalContentEdits'     => 150, # $wgContentNamespaces edits OR...
+ * 	'totalCheckedEdits'     => 50, # ...Edits before the stable version of pages
+ * 	'uniqueContentPages'    => 8, # $wgContentNamespaces unique pages edited
+ * 	'editComments'          => 20, # how many edit comments used?
+ * 	'email'                 => false, # user must be emailconfirmed?
+ * 	'neverBlocked'          => true, # Can users that were blocked be promoted?
+ * ];
+ */
 
 # Defines extra rights for advanced reviewer class (Reviewers)
 $wgGroupPermissions['reviewer']['validate'] = true;
@@ -600,7 +602,7 @@ $wgAPIModules['flagconfig'] = 'ApiFlagConfig';
  * Note: avoid calls to FlaggedRevs class here for performance.
  * @return void
  */
-$wgExtensionFunctions[] = function() {
+$wgExtensionFunctions[] = function () {
 	# LocalSettings.php loaded, safe to load config
 	FlaggedRevsSetup::setReady();
 

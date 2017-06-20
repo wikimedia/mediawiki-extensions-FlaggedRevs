@@ -199,13 +199,13 @@ class FRUserCounters {
 			# Don't let this get bloated for no reason
 			$maxUniquePages = 50; // some flexibility
 			if ( is_array( $wgFlaggedRevsAutoconfirm ) &&
-				$wgFlaggedRevsAutoconfirm['uniqueContentPages'] > $maxUniquePages )
-			{
+				$wgFlaggedRevsAutoconfirm['uniqueContentPages'] > $maxUniquePages
+			) {
 				$maxUniquePages = $wgFlaggedRevsAutoconfirm['uniqueContentPages'];
 			}
 			if ( is_array( $wgFlaggedRevsAutopromote ) &&
-				$wgFlaggedRevsAutopromote['uniqueContentPages'] > $maxUniquePages )
-			{
+				$wgFlaggedRevsAutopromote['uniqueContentPages'] > $maxUniquePages
+			) {
 				$maxUniquePages = $wgFlaggedRevsAutopromote['uniqueContentPages'];
 			}
 			if ( count( $pages ) < $maxUniquePages // limit the size of this
