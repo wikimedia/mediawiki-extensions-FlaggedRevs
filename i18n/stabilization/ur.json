@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Obaid Raza"
 		]
 	},
 	"stabilization": "صفحہ استحکام",
@@ -11,7 +12,7 @@
 	"stabilization-submit": "اس بات کی تصدیق",
 	"stabilization-comment": "وجہ:",
 	"stabilization-otherreason": "دوسری وجہ:",
-	"stabilization-expiry": "ختم ہوگا:",
+	"stabilization-expiry": "وقت اختتام:",
 	"stabilization-othertime": "دوسرے وقت:",
 	"stabilization-def-short": "پہلے سے طے شدہ",
 	"stabilization-def-short-0": "موجودہ",
