@@ -86,6 +86,7 @@
 	"apierror-flaggedrevs-notsamepage": "As revisións non pertencen á mesma páxina.",
 	"apierror-flaggedrevs-pagedoesnotexist": "A páxina proporcionada non existe.",
 	"apierror-flaggedrevs-cantreview": "Non ten os dereitos necesarios para inicializar os indicadores especificados.",
+	"apierror-flaggedrevs-toolow": "Ou todas ou ningunha das marcas teñen que fixarse a cero.",
 	"apierror-flaggedrevs-badflags": "Os indicadores especificados non son válidos.",
 	"apierror-flaggedrevs-cantunreview": "Non ten os dereitos necesarios para eliminar os indicadores."
 }
