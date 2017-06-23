@@ -215,7 +215,7 @@ class Stabilization extends UnlistedSpecialPage {
 
 			$s .= ' <tr>
 					<td class="mw-label">' .
-						xml::label( $this->msg( 'stabilization-comment' )->text(),
+						Xml::label( $this->msg( 'stabilization-comment' )->text(),
 							'wpReasonSelection' ) .
 					'</td>
 					<td class="mw-input">' .
