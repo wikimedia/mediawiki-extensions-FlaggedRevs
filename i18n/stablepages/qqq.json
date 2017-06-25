@@ -11,7 +11,7 @@
 		]
 	},
 	"stablepages": "{{Flagged Revs}}\nSpecial page name for [[Special:StablePages]], which lists pages where edits require review before being displayed to readers",
-	"stablepages-list": "{{Flagged Revs}}\nShown on the page [[Special:StablePages]].\nThis text is shown on [http://flaggedrevs.labs.wikimedia.org/wiki/Special:StablePages Special:StablePages].\n\nParameters:\n* $1 - (optional) Number of items in the list, to be used with PLURAL, when unavoidable.",
+	"stablepages-list": "{{Flagged Revs}}\nShown on the page [[Special:StablePages]].\nThis text is shown on Special:StablePages.\n\nParameters:\n* $1 - (optional) Number of items in the list, to be used with PLURAL, when unavoidable.",
 	"stablepages-none": "{{Flagged Revs}}\nShown on the page [[Special:StablePages]].\n{{Identical|There are no pages in this list}}",
 	"stablepages-config": "{{Flagged Revs}}\nShown on the page [[Special:StablePages]].\nText for the link to change the FlaggedRevs configuration for a specific page. Links to [[Special:Stabilization]].\n{{Identical|Configuration}}",
 	"stablepages-indef": "{{Flagged Revs}}\nShown on the page [[Special:StablePages]].\nLabel use on checkbox filter to only show pages where edits will require review indefinetely"
