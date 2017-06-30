@@ -33,6 +33,12 @@
 	"group-autoreview-member": "{{GENDER:$1|autorevisore}}",
 	"grouppage-autoreview": "{{ns:project}}:Autorevisore",
 	"logentry-review-approve": "$1 {{GENDER:$2|reviste}} 'na versiona nove de $3",
+	"logentry-review-approve-auto": "$1 automaticamende {{GENDER:$2|reviste}} 'na versione de $3",
+	"logentry-review-unapprove": "$1 {{GENDER:$2|sconsigliate}} 'na versione de $3",
+	"logentry-stable-config": "$1 {{GENDER:$2|'mbostate}} 'na versiona secure pe $3 $4",
+	"logentry-stable-modify": "$1 {{GENDER:$2|cangiate}} 'na versiona secure pe $3 $4",
+	"logentry-stable-reset": "$1 {{GENDER:$2|azzerate}} 'na versiona secure pe $3 $4",
+	"logentry-stable-move_stable": "$1 {{GENDER:$2|spustate}} 'na versiona secure pe $3 $4",
 	"revreview-hist-draft": "revisione none verificate",
 	"revreview-hist-pending": "reviste pendende",
 	"revreview-hist-quality": "revisione de qualità",
@@ -172,5 +178,13 @@
 	"revreview-locked": "'''Vide Bbuène:''' Le cangiaminde onna essere [[{{MediaWiki:Validationpage}}|reviste]] apprime ca avènene fatte vedè a le letture sus a sta pàgene.",
 	"revreview-unlocked": "'''Note:''' Le cangiaminde non ge richiedene [[{{MediaWiki:Validationpage}}|reviste]] apprime ca avènene fatte vedè sus a sta pàgene.",
 	"log-show-hide-review": "$1 archivie de le rivisitaziune",
-	"validationpage": "{{ns:help}}:Validazione d'a vôsce"
+	"validationpage": "{{ns:help}}:Validazione d'a vôsce",
+	"log-action-filter-review": "Tipe de revisione:",
+	"log-action-filter-review-accept": "Accette a màne",
+	"log-action-filter-review-autoaccept": "Accette automateche",
+	"log-action-filter-review-unaccept": "Scitte a màne",
+	"log-action-filter-stable": "Tipe de cangiamende a 'a configurazione:",
+	"log-action-filter-stable-config": "Configurazione nove",
+	"log-action-filter-stable-modify": "Configurazione cangiate",
+	"log-action-filter-stable-reset": "Azzere 'a configurazione"
 }
