@@ -109,15 +109,15 @@ class FlaggedRevsSetup {
 	}
 
 	/**
-	 * Set special pages
+	 * Set special page cache updates
 	 *
 	 * @return void
 	 */
-	public static function setSpecialPages() {
-		global $wgSpecialPages, $wgSpecialPageCacheUpdates;
+	public static function setSpecialPageCacheUpdates() {
+		global $wgSpecialPageCacheUpdates;
 
-		FlaggedRevsUISetup::defineSpecialPages(
-			$wgSpecialPages, $wgSpecialPageCacheUpdates );
+		FlaggedRevsUISetup::defineSpecialPageCacheUpdates(
+			$wgSpecialPageCacheUpdates );
 	}
 
 	/**

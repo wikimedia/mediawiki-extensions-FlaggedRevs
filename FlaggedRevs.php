@@ -468,6 +468,9 @@ $wgAjaxExportList[] = 'FlaggablePageView::AjaxBuildDiffHeaderItems';
 # Special case page cache invalidations
 $wgJobClasses['flaggedrevs_CacheUpdate'] = 'FRExtraCacheUpdateJob';
 
+# Register our special pages
+$wgHooks['SpecialPage_initList'][] = 'FlaggedRevsUIHooks::onSpecialPage_initList';
+
 # Add flagging data to ApiQueryRevisions
 $wgHooks['APIGetAllowedParams'][] = 'FlaggedRevsApiHooks::addApiRevisionParams';
 $wgHooks['APIQueryAfterExecute'][] = 'FlaggedRevsApiHooks::addApiRevisionData';
@@ -605,7 +608,7 @@ $wgExtensionFunctions[] = function() {
 	FlaggedRevsSetup::setAutopromoteConfig();
 
 	# Register special pages (some are conditional)
-	FlaggedRevsSetup::setSpecialPages();
+	FlaggedRevsSetup::setSpecialPageCacheUpdates();
 	# Conditional API modules
 	FlaggedRevsSetup::setAPIModules();
 	# Load hooks that aren't always set

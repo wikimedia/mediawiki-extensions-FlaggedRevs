@@ -914,4 +914,32 @@ class FlaggedRevsUIHooks {
 		}
 		return true;
 	}
+
+	public static function onSpecialPage_initList( array &$list ) {
+		global $wgFlaggedRevsProtection, $wgFlaggedRevsNamespaces, $wgUseTagFilter;
+
+		// Show special pages only if FlaggedRevs is enabled on some namespaces
+		if ( count( $wgFlaggedRevsNamespaces ) ) {
+			$list['RevisionReview'] = 'RevisionReview'; // unlisted
+			$list['ReviewedVersions'] = 'ReviewedVersions'; // unlisted
+			$list['PendingChanges'] = 'PendingChanges';
+			// Show tag filtered pending edit page if there are tags
+			if ( $wgUseTagFilter ) {
+				$list['ProblemChanges'] = 'ProblemChanges';
+			}
+			if ( !$wgFlaggedRevsProtection ) {
+				$list['ReviewedPages'] = 'ReviewedPages';
+				$list['UnreviewedPages'] = 'UnreviewedPages';
+			}
+			$list['QualityOversight'] = 'QualityOversight';
+			$list['ValidationStatistics'] = 'ValidationStatistics';
+			// Protect levels define allowed stability settings
+			if ( $wgFlaggedRevsProtection ) {
+				$list['StablePages'] = 'StablePages';
+			} else {
+				$list['ConfiguredPages'] = 'ConfiguredPages';
+				$list['Stabilization'] = 'Stabilization'; // unlisted
+			}
+		}
+	}
 }
