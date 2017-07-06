@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Cgboeree"
+			"Cgboeree",
+			"Katxis"
 		]
 	},
-	"tooltip-ca-current": "Vide esta paje con la cambia espetante"
+	"tooltip-ca-current": "Mostra esta paje con cambias espetante."
 }
