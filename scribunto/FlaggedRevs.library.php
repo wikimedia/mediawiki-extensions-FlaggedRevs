@@ -6,11 +6,15 @@ class Scribunto_LuaFlaggedRevsLibrary extends Scribunto_LuaLibraryBase {
 			'getStabilitySettings' => [ $this, 'getStabilitySettings' ],
 		];
 
-		return $this->getEngine()->registerInterface( __DIR__ . '/mw.ext.FlaggedRevs.lua', $lib, [] );
+		return $this->getEngine()->registerInterface(
+			__DIR__ . '/mw.ext.FlaggedRevs.lua', $lib, []
+		);
 	}
 
 	public function getStabilitySettings( $pagename = null ) {
-		$this->checkTypeOptional( 'mw.ext.FlaggedRevs.getStabilitySettings', 1, $pagename, 'string', null );
+		$this->checkTypeOptional(
+			'mw.ext.FlaggedRevs.getStabilitySettings', 1, $pagename, 'string', null
+		);
 		if ( $pagename ) {
 			$title = Title::newFromText( $pagename );
 			if ( !( $title instanceof Title ) ) {

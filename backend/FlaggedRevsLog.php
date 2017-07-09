@@ -23,9 +23,10 @@ class FlaggedRevsLog {
 		if ( !FlaggedRevs::binaryFlagging() ) {
 			// Give grep a chance to find the usages:
 			// revreview-accuracy, revreview-depth, revreview-style,
-			// revreview-accuracy-0, revreview-accuracy-1, revreview-accuracy-2, revreview-accuracy-3, revreview-accuracy-4,
-			// revreview-depth-0, revreview-depth-1, revreview-depth-2, revreview-depth-3, revreview-depth-4,
-			// revreview-style-0, revreview-style-1, revreview-style-2, revreview-style-3, revreview-style-4
+			// revreview-accuracy-0, revreview-accuracy-1, revreview-accuracy-2,
+			// revreview-accuracy-3, revreview-accuracy-4, revreview-depth-0, revreview-depth-1,
+			// revreview-depth-2, revreview-depth-3, revreview-depth-4, revreview-style-0,
+			// revreview-style-1, revreview-style-2, revreview-style-3, revreview-style-4
 			foreach ( $dims as $quality => $level ) {
 				$ratings[] = wfMessage( "revreview-$quality" )->inContentLanguage()->text() .
 					wfMessage( 'colon-separator' )->inContentLanguage()->text() .
@@ -113,7 +114,9 @@ class FlaggedRevsLog {
 	 * @param string $reason
 	 * @param User $user performing the action
 	 */
-	public static function updateStabilityLogOnMove( Title $newTitle, Title $oldTitle, $reason, $user ) {
+	public static function updateStabilityLogOnMove(
+		Title $newTitle, Title $oldTitle, $reason, $user
+	) {
 		$logEntry = new ManualLogEntry( 'stable', 'move_stable' );
 		$logEntry->setPerformer( $user );
 		$logEntry->setTarget( $newTitle );

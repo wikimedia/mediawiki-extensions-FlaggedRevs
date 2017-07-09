@@ -76,7 +76,9 @@ class FixBug28348 extends Maintenance {
 					# Check if the fi_img_timestamp value is off by 1 second...
 					$file = RepoGroup::singleton()->findFileFromKey( $sha1, [ 'time' => $time ] );
 					if ( $file ) {
-						$this->output( "fixed file {$row->fi_name} reference in rev ID {$row->fi_rev_id}\n" );
+						$this->output(
+							"fixed file {$row->fi_name} reference in rev ID {$row->fi_rev_id}\n"
+						);
 						# Fix the fi_img_timestamp value...
 						$db->update( 'flaggedimages',
 							[ 'fi_img_timestamp' => $db->timestamp( $time ) ],
@@ -93,7 +95,9 @@ class FixBug28348 extends Maintenance {
 			$blockEnd += $this->mBatchSize;
 			wfWaitForSlaves( 5 );
 		}
-		$this->output( "fi_img_timestamp column fixes complete ... {$count} rows [{$changed} changed]\n" );
+		$this->output(
+			"fi_img_timestamp column fixes complete ... {$count} rows [{$changed} changed]\n"
+		);
 	}
 }
 

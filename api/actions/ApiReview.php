@@ -132,8 +132,10 @@ class ApiReview extends ApiBase {
 				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
 					$this->dieWithError( 'apierror-flaggedrevs-cantreview', 'permissiondenied' );
 				} else {
-					$this->dieUsage( "You don't have the necessary rights to set the specified flags.",
-						'permissiondenied' );
+					$this->dieUsage(
+						"You don't have the necessary rights to set the specified flags.",
+						'permissiondenied'
+					);
 				}
 			} elseif ( $status === 'review_too_low' ) {
 				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
@@ -146,8 +148,10 @@ class ApiReview extends ApiBase {
 				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
 					$this->dieWithError( 'apierror-flaggedrevs-cantreview', 'permissiondenied' );
 				} else {
-					$this->dieUsage( "You don't have the necessary rights to set the specified flags.",
-						'permissiondenied' );
+					$this->dieUsage(
+						"You don't have the necessary rights to set the specified flags.",
+						'permissiondenied'
+					);
 				}
 			} elseif ( $status === 'review_bad_tags' ) {
 				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
@@ -211,7 +215,8 @@ class ApiReview extends ApiBase {
 			'unapprove' => false
 		];
 		if ( !FlaggedRevs::binaryFlagging() ) {
-			/** @todo Once support for MediaWiki < 1.25 is dropped, just use ApiBase::PARAM_HELP_MSG directly */
+			/** @todo Once support for MediaWiki < 1.25 is dropped,
+			 * just use ApiBase::PARAM_HELP_MSG directly */
 			$key = constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '';
 			foreach ( FlaggedRevs::getDimensions() as $flagname => $levels ) {
 				$pars['flag_' . $flagname] = [

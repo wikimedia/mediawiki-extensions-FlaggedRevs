@@ -64,7 +64,8 @@ class FlaggedRevsXML {
 	public static function getLevelMenu(
 		$selected = null, $all = 'revreview-filter-all', $max = 2
 	) {
-		$s = "<label for='wpLevel'>" . wfMessage( 'revreview-levelfilter' )->escaped() . "</label>\n";
+		$s = "<label for='wpLevel'>" . wfMessage( 'revreview-levelfilter' )->escaped() .
+			"</label>\n";
 		$s .= Xml::openElement( 'select', [ 'name' => 'level', 'id' => 'wpLevel' ] );
 		if ( $all !== false ) {
 			$s .= Xml::option( wfMessage( $all )->text(), - 1, $selected === - 1 );
@@ -139,7 +140,8 @@ class FlaggedRevsXML {
 	 * @return string
 	 */
 	public static function getStatusFilterMenu( $selected = null ) {
-		$s = "<label for='wpStatus'>" . wfMessage( 'revreview-statusfilter' )->escaped() . "</label>\n";
+		$s = "<label for='wpStatus'>" . wfMessage( 'revreview-statusfilter' )->escaped() .
+			"</label>\n";
 		$s .= Xml::openElement( 'select', [ 'name' => 'status', 'id' => 'wpStatus' ] );
 		$s .= Xml::option( wfMessage( "revreview-filter-all" )->text(), - 1, $selected === - 1 );
 		$s .= Xml::option( wfMessage( "revreview-filter-approved" )->text(), 1, $selected === 1 );
@@ -155,7 +157,8 @@ class FlaggedRevsXML {
 	 * @return string
 	 */
 	public static function getAutoFilterMenu( $selected = null ) {
-		$s = "<label for='wpApproved'>" . wfMessage( 'revreview-typefilter' )->escaped() . "</label>\n";
+		$s = "<label for='wpApproved'>" . wfMessage( 'revreview-typefilter' )->escaped() .
+			"</label>\n";
 		$s .= Xml::openElement( 'select', [ 'name' => 'automatic', 'id' => 'wpApproved' ] );
 		$s .= Xml::option( wfMessage( "revreview-filter-all" )->text(), - 1, $selected === - 1 );
 		$s .= Xml::option( wfMessage( "revreview-filter-manual" )->text(), 0, $selected === 0 );
@@ -198,13 +201,15 @@ class FlaggedRevsXML {
 	public static function addTagRatings( $flags, $prettyBox = false, $css = '' ) {
 		$tag = '';
 		if ( $prettyBox ) {
-			$tag .= "<table id='mw-fr-revisionratings-box' style='margin: auto;' class='$css' cellpadding='0'>";
+			$tag .= "<table id='mw-fr-revisionratings-box' style='margin: auto;' class='$css' " .
+				"cellpadding='0'>";
 		}
 		foreach ( FlaggedRevs::getTags() as $quality ) {
 			// Give grep a chance to find the usages:
-			// revreview-accuracy-0, revreview-accuracy-1, revreview-accuracy-2, revreview-accuracy-3, revreview-accuracy-4,
-			// revreview-depth-0, revreview-depth-1, revreview-depth-2, revreview-depth-3, revreview-depth-4,
-			// revreview-style-0, revreview-style-1, revreview-style-2, revreview-style-3, revreview-style-4
+			// revreview-accuracy-0, revreview-accuracy-1, revreview-accuracy-2,
+			// revreview-accuracy-3, revreview-accuracy-4, revreview-depth-0, revreview-depth-1,
+			// revreview-depth-2, revreview-depth-3, revreview-depth-4, revreview-style-0,
+			// revreview-style-1, revreview-style-2, revreview-style-3, revreview-style-4
 			$level = isset( $flags[$quality] ) ? $flags[$quality] : 0;
 			$encValueText = wfMessage( "revreview-$quality-$level" )->escaped();
 			$level = $flags[$quality];
@@ -323,7 +328,8 @@ class FlaggedRevsXML {
 	 */
 	public static function ratingToggle() {
 		return '<a id="mw-fr-revisiontoggle" class="fr-toggle-symbol"' .
-			' style="display:none;" title="' . wfMessage( 'revreview-toggle-title' )->escaped() . '" >' .
+			' style="display:none;" title="' .
+			wfMessage( 'revreview-toggle-title' )->escaped() . '" >' .
 			wfMessage( 'revreview-toggle-show' )->escaped() . '</a>';
 	}
 

@@ -482,7 +482,8 @@ class FlaggablePageView extends ContextSource {
 			if ( $this->showRatingIcon() ) {
 				$pending .= FlaggedRevsXML::draftStatusIcon();
 			}
-			$pending .= $this->msg( 'revreview-edited', $srev->getRevId() )->numParams( $revsSince )->parse();
+			$pending .= $this->msg( 'revreview-edited', $srev->getRevId() )
+				->numParams( $revsSince )->parse();
 			$anchor = $request->getVal( 'fromsection' );
 			if ( $anchor != null ) {
 				// Hack: reverse some of the Sanitizer::escapeId() encoding
@@ -490,7 +491,8 @@ class FlaggablePageView extends ContextSource {
 					[ ':' , '.' ], [ '%3A', '%' ], $anchor
 				) );
 				$section = str_replace( '_', ' ', $section ); // prettify
-				$pending .= $this->msg( 'revreview-edited-section', $anchor, $section )->parseAsBlock();
+				$pending .= $this->msg( 'revreview-edited-section', $anchor, $section )
+					->parseAsBlock();
 			}
 			# Notice should always use subtitle
 			$this->reviewNotice = "<div id='mw-fr-reviewnotice' " .
@@ -508,12 +510,14 @@ class FlaggablePageView extends ContextSource {
 					$msg = $quality ?
 						'revreview-quick-quality-same' :
 						'revreview-quick-basic-same';
-					$msgHTML = $this->msg( $msg, $srev->getRevId() )->numParams( $revsSince )->parse();
+					$msgHTML = $this->msg( $msg, $srev->getRevId() )
+						->numParams( $revsSince )->parse();
 				} else {
 					$msg = $quality ?
 						'revreview-quick-see-quality' :
 						'revreview-quick-see-basic';
-					$msgHTML = $this->msg( $msg, $srev->getRevId() )->numParams( $revsSince )->parse();
+					$msgHTML = $this->msg( $msg, $srev->getRevId() )
+						->numParams( $revsSince )->parse();
 				}
 				$icon = '';
 				# For protection based configs, show lock only if it's not redundant.
@@ -538,7 +542,8 @@ class FlaggablePageView extends ContextSource {
 					// Messages: revreview-newest-quality-i, revreview-newest-basic-i
 					$msg .= ( $revsSince == 0 ) ? '-i' : '';
 				}
-				$msgHTML = $this->msg( $msg, $srev->getRevId(), $time )->numParams( $revsSince )->parse();
+				$msgHTML = $this->msg( $msg, $srev->getRevId(), $time )
+					->numParams( $revsSince )->parse();
 				$icon = $synced ?
 					FlaggedRevsXML::stableStatusIcon( $quality ) :
 					FlaggedRevsXML::draftStatusIcon();
@@ -582,7 +587,8 @@ class FlaggablePageView extends ContextSource {
 					$msg = $quality ?
 						'revreview-quick-quality-old' :
 						'revreview-quick-basic-old';
-					$msgHTML = $this->msg( $msg, $frev->getRevId() )->numParams( $revsSince )->parse();
+					$msgHTML = $this->msg( $msg, $frev->getRevId() )
+						->numParams( $revsSince )->parse();
 				}
 				$msgHTML = $prot . $icon . $msgHTML;
 				$tag = FlaggedRevsXML::prettyRatingBox( $frev, $msgHTML,
@@ -653,7 +659,8 @@ class FlaggablePageView extends ContextSource {
 						'revreview-quick-basic';
 					# Uses messages 'revreview-quick-quality-same', 'revreview-quick-basic-same'
 					$msg = $synced ? "{$msg}-same" : $msg;
-					$msgHTML = $this->msg( $msg, $srev->getRevId() )->numParams( $revsSince )->parse();
+					$msgHTML = $this->msg( $msg, $srev->getRevId() )
+						->numParams( $revsSince )->parse();
 				}
 				$msgHTML = $prot . $icon . $msgHTML;
 				$tag = FlaggedRevsXML::prettyRatingBox( $srev, $msgHTML,
@@ -670,7 +677,8 @@ class FlaggablePageView extends ContextSource {
 					$msg .= '-i';
 				}
 				$tag = $prot . $icon;
-				$tag .= $this->msg( $msg, $srev->getRevId(), $time )->numParams( $revsSince )->parse();
+				$tag .= $this->msg( $msg, $srev->getRevId(), $time )
+					->numParams( $revsSince )->parse();
 				if ( !empty( $flags ) ) {
 					$tag .= FlaggedRevsXML::ratingToggle();
 					$tag .= "<div id='mw-fr-revisiondetails'>" .
@@ -832,16 +840,17 @@ class FlaggablePageView extends ContextSource {
 				$multiNotice . "</td></tr>";
 		}
 		return
-			"<table border='0' cellpadding='0' cellspacing='4' style='width: 98%;' class='$tableClass'>" .
+			"<table border='0' cellpadding='0' cellspacing='4' style='width: 98%;' " .
+				"class='$tableClass'>" .
 				"<col class='diff-marker' />" .
 				"<col class='diff-content' />" .
 				"<col class='diff-marker' />" .
 				"<col class='diff-content' />" .
 				"<tr>" .
-					"<td colspan='2' style='text-align: center; width: 50%;' class='diff-otitle'><b>" .
-						$leftStatus . "</b></td>" .
-					"<td colspan='2' style='text-align: center; width: 50%;' class='diff-ntitle'><b>" .
-						$rightStatus . "</b></td>" .
+					"<td colspan='2' style='text-align: center; width: 50%;' class='diff-otitle'>" .
+						"<b>" . $leftStatus . "</b></td>" .
+					"<td colspan='2' style='text-align: center; width: 50%;' class='diff-ntitle'>" .
+						"<b>" . $rightStatus . "</b></td>" .
 				"</tr>" .
 				$multiNotice .
 				$diffBody .
@@ -898,7 +907,9 @@ class FlaggablePageView extends ContextSource {
 		$displayFile = wfFindFile( $title, [ 'time' => $time ] );
 		# If none found, try current
 		if ( !$displayFile ) {
-			wfDebug( __METHOD__ . ": {$title->getPrefixedDBkey()}: $time not found, using current\n" );
+			wfDebug(
+				__METHOD__ . ": {$title->getPrefixedDBkey()}: $time not found, using current\n"
+			);
 			$displayFile = wfFindFile( $title );
 			# If none found, use a valid local placeholder
 			if ( !$displayFile ) {
@@ -945,15 +956,20 @@ class FlaggablePageView extends ContextSource {
 		// HACK this duplicates logic from addToEditView()
 		$log = $this->stabilityLogNotice( false );
 		if ( $log ) {
-			$notices[$this->article->isPageLocked() ? 'revreview-locked' : 'revreview-unlocked'] = $log;
+			$notices[$this->article->isPageLocked()
+				? 'revreview-locked'
+				: 'revreview-unlocked'] = $log;
 		} elseif ( $this->editWillRequireReview( $editPage ) ) {
 			$notices['revreview-editnotice'] = $this->msg( 'revreview-editnotice' )->parseAsBlock();
 		}
 		$frev = $this->article->getStableRev();
 		if ( $frev && $this->article->revsArePending() ) {
 			$revsSince = $this->article->getPendingRevCount();
-			$pendingMsg = FlaggedRevsXML::pendingEditNoticeMessage( $this->article, $frev, $revsSince );
-			$notices[$pendingMsg->getKey()] = '<div class="plainlinks">' . $pendingMsg->parseAsBlock() . '</div>';
+			$pendingMsg = FlaggedRevsXML::pendingEditNoticeMessage(
+				$this->article, $frev, $revsSince
+			);
+			$notices[$pendingMsg->getKey()] = '<div class="plainlinks">'
+				. $pendingMsg->parseAsBlock() . '</div>';
 		}
 		$latestId = $this->article->getLatest();
 		$revId  = $oldid ? $oldid : $latestId;
@@ -969,7 +985,9 @@ class FlaggablePageView extends ContextSource {
 				FlaggedRevsXML::diffToggle( $diffUrl );
 		}
 
-		if ( $this->article->onlyTemplatesOrFilesPending() && $this->article->getPendingRevCount() == 0 ) {
+		if ( $this->article->onlyTemplatesOrFilesPending() &&
+			$this->article->getPendingRevCount() == 0
+		) {
 			$this->setPendingNotice( $frev, '', false );
 			$notices['review-transclusions'] = $this->reviewNotice;
 		}
@@ -1173,7 +1191,8 @@ class FlaggablePageView extends ContextSource {
 			$form->setFileVersion( $this->out->getFileVersion() );
 			# $wgOut might not have the inclusion IDs, such as for diffs with diffonly=1.
 			# If they're lacking, then we use getRevIncludes() to get the draft inclusion versions.
-			# Note: showStableVersion() already makes sure that $wgOut has the stable inclusion versions.
+			# Note: showStableVersion() already makes sure that $wgOut
+			# has the stable inclusion versions.
 			if ( $this->out->getRevisionId() == $rev->getId() ) {
 				$tmpVers = $this->out->getTemplateIds();
 				$fileVers = $this->out->getFileSearchOptions();
@@ -1219,15 +1238,18 @@ class FlaggablePageView extends ContextSource {
 			# Give a link to the page to configure the stable version
 			$frev = $this->article->getStableRev();
 			if ( $frev && $frev->getRevId() == $this->article->getLatest() ) {
-				$this->out->prependHTML( "<span class='revreview-visibility revreview-visibility-synced plainlinks'>" .
+				$this->out->prependHTML(
+					"<span class='revreview-visibility revreview-visibility-synced plainlinks'>" .
 					$this->msg( 'revreview-visibility-synced',
 						$title->getPrefixedText() )->parse() . "</span>" );
 			} elseif ( $frev ) {
-				$this->out->prependHTML( "<span class='revreview-visibility revreview-visibility-outdated plainlinks'>" .
+				$this->out->prependHTML(
+					"<span class='revreview-visibility revreview-visibility-outdated plainlinks'>" .
 					$this->msg( 'revreview-visibility-outdated',
 						$title->getPrefixedText() )->parse() . "</span>" );
 			} else {
-				$this->out->prependHTML( "<span class='revreview-visibility revreview-visibility-nostable plainlinks'>" .
+				$this->out->prependHTML(
+					"<span class='revreview-visibility revreview-visibility-nostable plainlinks'>" .
 					$this->msg( 'revreview-visibility-nostable',
 						$title->getPrefixedText() )->parse() . "</span>" );
 			}
@@ -1418,10 +1440,13 @@ class FlaggablePageView extends ContextSource {
 	 * Adds a notice saying that this revision is pending review
 	 * @param FlaggedRevision $srev The stable version
 	 * @param string $diffToggle either "" or " <diff toggle><diff div>"
-	 * @param boolean $background Whether to add the 'flaggedrevs_preview' CSS class (the blue background)
+	 * @param boolean $background Whether to add the 'flaggedrevs_preview' CSS class
+	 *   (the blue background)
 	 * @return void
 	 */
-	public function setPendingNotice( FlaggedRevision $srev, $diffToggle = '', $background = true ) {
+	public function setPendingNotice(
+		FlaggedRevision $srev, $diffToggle = '', $background = true
+	) {
 		$this->load();
 		$time = $this->getLanguage()->date( $srev->getTimestamp(), true );
 		$revsSince = $this->article->getPendingRevCount();
@@ -1521,7 +1546,8 @@ class FlaggablePageView extends ContextSource {
 					} else {
 						$msg = 'revreview-update'; // generic "please review" notice...
 					}
-					$this->diffNoticeBox = $this->msg( $msg )->parseAsBlock(); // add as part of form
+					// add as part of form
+					$this->diffNoticeBox = $this->msg( $msg )->parseAsBlock();
 				}
 				# Add include change list...
 				if ( count( $changeList ) ) { // just inclusion changes
@@ -1806,7 +1832,9 @@ class FlaggablePageView extends ContextSource {
 			return true; // edit will go live or be reviewed on save
 		}
 		if ( extension_loaded( 'domxml' ) ) {
-			wfDebug( "Warning: you have the obsolete domxml extension for PHP. Please remove it!\n" );
+			wfDebug(
+				"Warning: you have the obsolete domxml extension for PHP. Please remove it!\n"
+			);
 			return true; # PECL extension conflicts with the core DOM extension (see bug 13770)
 		} elseif ( isset( $buttons['save'] ) && extension_loaded( 'dom' ) ) {
 			$dom = new DOMDocument();
@@ -1814,7 +1842,8 @@ class FlaggablePageView extends ContextSource {
 			foreach ( $dom->getElementsByTagName( 'input' ) as $input ) { // one <input>
 				$buttonLabel = $this->msg( 'revreview-submitedit' )->text();
 				$input->setAttribute( 'value', $buttonLabel );
-				// This attempts to re-implement Linker::titleAttrib(); TODO, consider a re-use pattern
+				// This attempts to re-implement Linker::titleAttrib();
+				// TODO, consider a re-use pattern
 				$buttonTitle = $this->msg( 'revreview-submitedit-title' )->text() . ' ' .
 					$this->msg( 'brackets', $this->msg( 'accesskey-save' )->text() )->text();
 				$input->setAttribute( 'title', $buttonTitle ); // keep accesskey
@@ -1919,7 +1948,8 @@ class FlaggablePageView extends ContextSource {
 				if ( $this->article->revsArePending() ) {
 					$n = $this->article->getPendingRevCount();
 					$options['title-message'] = 'revreview-check-flag-p-title';
-					$options['label-message'] = $this->msg( 'revreview-check-flag-p' )->numParams( $n );
+					$options['label-message'] = $this->msg( 'revreview-check-flag-p' )
+						->numParams( $n );
 				// For just the user's changes...
 				} else {
 					$options['title-message'] = 'revreview-check-flag-y-title';
@@ -1942,7 +1972,8 @@ class FlaggablePageView extends ContextSource {
 				);
 				$attribs = [ 'for' => $options['id'] ];
 				$attribs['title'] = $this->msg( $options['title-message'] )->text();
-				$label = Xml::tags( 'label', $attribs, $this->msg( $options['label-message'] )->parse() );
+				$label = Xml::tags( 'label', $attribs,
+					$this->msg( $options['label-message'] )->parse() );
 				$checkboxes[ $options['legacy-name'] ] = $checkbox . '&#160;' . $label;
 			}
 		}

@@ -173,7 +173,8 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 			'dir' => [
 				ApiBase::PARAM_DFLT => 'newer',
 				ApiBase::PARAM_TYPE => [ 'newer', 'older' ],
-				/** @todo Once support for MediaWiki < 1.25 is dropped, just use ApiBase::PARAM_HELP_MSG directly */
+				/** @todo Once support for MediaWiki < 1.25 is dropped,
+				 * just use ApiBase::PARAM_HELP_MSG directly */
 				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'api-help-param-direction',
 			],
 			'maxsize' => [

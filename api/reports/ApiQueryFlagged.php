@@ -62,8 +62,16 @@ class ApiQueryFlagged extends ApiQueryBase {
 		$this->addFields( [ 'fpc_page_id', 'fpc_level', 'fpc_expiry' ] );
 		$this->addWhereFld( 'fpc_page_id', $pageids );
 		foreach ( $this->select( __METHOD__ ) as $row ) {
-			$result->addValue( [ 'query', 'pages', $row->fpc_page_id, 'flagged' ], 'protection_level', $row->fpc_level );
-			$result->addValue( [ 'query', 'pages', $row->fpc_page_id, 'flagged' ], 'protection_expiry', $wgContLang->formatExpiry( $row->fpc_expiry, TS_ISO_8601 ) );
+			$result->addValue(
+				[ 'query', 'pages', $row->fpc_page_id, 'flagged' ],
+				'protection_level',
+				$row->fpc_level
+			);
+			$result->addValue(
+				[ 'query', 'pages', $row->fpc_page_id, 'flagged' ],
+				'protection_expiry',
+				$wgContLang->formatExpiry( $row->fpc_expiry, TS_ISO_8601 )
+			);
 		}
 
 		return true;

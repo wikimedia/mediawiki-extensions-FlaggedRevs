@@ -14,8 +14,10 @@ class PurgeReviewablePages extends Maintenance {
 
 	public function __construct() {
 		$this->mDescription = "Use to purge squid/file cache for all reviewable pages";
-		$this->addOption( 'makelist', "Build the list of reviewable pages to pagesToPurge.list", false, false );
-		$this->addOption( 'purgelist', "Purge the list of pages in pagesToPurge.list", false, false );
+		$this->addOption( 'makelist',
+			"Build the list of reviewable pages to pagesToPurge.list", false, false );
+		$this->addOption( 'purgelist',
+			"Purge the list of pages in pagesToPurge.list", false, false );
 		$this->setBatchSize( 1000 );
 	}
 

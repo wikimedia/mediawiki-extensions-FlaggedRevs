@@ -272,8 +272,10 @@ $wgExtensionMessagesFiles['FlaggedRevsAliases'] = "$langDir/FlaggedRevs.alias.ph
 # UI setup, forms, and HTML elements
 $wgAutoloadClasses['FlaggedRevsUISetup'] = "$frontendDir/FlaggedRevsUI.setup.php";
 $wgAutoloadClasses['FlaggablePageView'] = "$frontendDir/FlaggablePageView.php";
-$wgAutoloadClasses['FlaggedRevsReviewLogFormatter'] = "$frontendDir/FlaggedRevsReviewLogFormatter.php";
-$wgAutoloadClasses['FlaggedRevsStableLogFormatter'] = "$frontendDir/FlaggedRevsStableLogFormatter.php";
+$wgAutoloadClasses['FlaggedRevsReviewLogFormatter'] =
+	"$frontendDir/FlaggedRevsReviewLogFormatter.php";
+$wgAutoloadClasses['FlaggedRevsStableLogFormatter'] =
+	"$frontendDir/FlaggedRevsStableLogFormatter.php";
 $wgAutoloadClasses['FlaggedRevsXML'] = "$frontendDir/FlaggedRevsXML.php";
 $wgAutoloadClasses['RevisionReviewFormUI'] = "$frontendDir/RevisionReviewFormUI.php";
 $wgAutoloadClasses['RejectConfirmationFormUI'] = "$frontendDir/RejectConfirmationFormUI.php";
@@ -389,7 +391,9 @@ $wgResourceModules['ext.flaggedRevs.review'] = [
 		'revreview-sadv-reviewing-p', 'revreview-sadv-reviewing-c',
 		'revreview-adv-start-link', 'revreview-adv-stop-link'
 	],
-	'dependencies'  => [ 'mediawiki.util', 'mediawiki.notify', 'mediawiki.user', 'mediawiki.jqueryMsg' ],
+	'dependencies'  => [
+		'mediawiki.util', 'mediawiki.notify', 'mediawiki.user', 'mediawiki.jqueryMsg'
+	],
 	'localBasePath' => $localModulePath,
 	'remoteExtPath' => $remoteModulePath,
 ];
@@ -446,12 +450,16 @@ $wgFilterLogTypes['review'] = true;
 # Various actions are used for log filtering ...
 $wgLogActionsHandlers['review/approve']  = 'FlaggedRevsReviewLogFormatter'; // checked (again)
 $wgLogActionsHandlers['review/approve2']  = 'FlaggedRevsReviewLogFormatter'; // quality (again)
-$wgLogActionsHandlers['review/approve-i']  = 'FlaggedRevsReviewLogFormatter'; // checked (first time)
-$wgLogActionsHandlers['review/approve2-i']  = 'FlaggedRevsReviewLogFormatter'; // quality (first time)
+$wgLogActionsHandlers['review/approve-i']  =
+	'FlaggedRevsReviewLogFormatter'; // checked (first time)
+$wgLogActionsHandlers['review/approve2-i']  =
+	'FlaggedRevsReviewLogFormatter'; // quality (first time)
 $wgLogActionsHandlers['review/approve-a']  = 'FlaggedRevsReviewLogFormatter'; // checked (auto)
 $wgLogActionsHandlers['review/approve2-a']  = 'FlaggedRevsReviewLogFormatter'; // quality (auto)
-$wgLogActionsHandlers['review/approve-ia']  = 'FlaggedRevsReviewLogFormatter'; // checked (initial & auto)
-$wgLogActionsHandlers['review/approve2-ia']  = 'FlaggedRevsReviewLogFormatter'; // quality (initial & auto)
+$wgLogActionsHandlers['review/approve-ia']  =
+	'FlaggedRevsReviewLogFormatter'; // checked (initial & auto)
+$wgLogActionsHandlers['review/approve2-ia']  =
+	'FlaggedRevsReviewLogFormatter'; // quality (initial & auto)
 $wgLogActionsHandlers['review/unapprove'] = 'FlaggedRevsReviewLogFormatter'; // was checked
 $wgLogActionsHandlers['review/unapprove2'] = 'FlaggedRevsReviewLogFormatter'; // was quality
 
@@ -554,7 +562,8 @@ $wgHooks['EditPageBeforeEditButtons'][] = 'FlaggedRevsUIHooks::onBeforeEditButto
 if ( version_compare( $wgVersion, '1.29', '<' ) ) {
 	$wgHooks['EditPageBeforeEditChecks'][] = 'FlaggedRevsUIHooks::onEditPageBeforeEditChecks';
 } else {
-	$wgHooks['EditPageGetCheckboxesDefinition'][] = 'FlaggedRevsUIHooks::onEditPageGetCheckboxesDefinition';
+	$wgHooks['EditPageGetCheckboxesDefinition'][] =
+		'FlaggedRevsUIHooks::onEditPageGetCheckboxesDefinition';
 }
 $wgHooks['EditPage::showEditForm:fields'][] = 'FlaggedRevsUIHooks::addRevisionIDField';
 # Add draft link to section edit error

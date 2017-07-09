@@ -19,7 +19,9 @@ class RevisionReviewFormUI {
 	 * @param FlaggableWikiPage $article
 	 * @param Revision $rev
 	 */
-	public function __construct( IContextSource $context, FlaggableWikiPage $article, Revision $rev ) {
+	public function __construct(
+		IContextSource $context, FlaggableWikiPage $article, Revision $rev
+	) {
 		$this->user = $context->getUser();
 		$this->request = $context->getRequest();
 		$this->article = $article;
@@ -251,7 +253,9 @@ class RevisionReviewFormUI {
 		if ( $this->refRev ) {
 			$priorId = $this->refRev->getId();
 			if ( $priorId == $this->article->getStable() && $priorId != $this->rev->getId() ) {
-				if ( $this->rev->getContent( Revision::RAW ) != $this->refRev->getContent( Revision::RAW ) ) {
+				if ( $this->rev->getContent( Revision::RAW ) !=
+					$this->refRev->getContent( Revision::RAW )
+				) {
 					return $priorId; // left rev must be stable and right one newer
 				}
 			}
@@ -424,14 +428,18 @@ class RevisionReviewFormUI {
 
 	protected function getFileVersion() {
 		if ( $this->fileVersion === null ) {
-			throw new Exception( "File page file version not provided to review form; call setFileVersion()." );
+			throw new Exception(
+				"File page file version not provided to review form; call setFileVersion()."
+			);
 		}
 		return $this->fileVersion;
 	}
 
 	protected function getIncludeVersions() {
 		if ( $this->templateIDs === null || $this->imageSHA1Keys === null ) {
-			throw new Exception( "Template or file versions not provided to review form; call setIncludeVersions()." );
+			throw new Exception(
+				"Template or file versions not provided to review form; call setIncludeVersions()."
+			);
 		}
 		return [ $this->templateIDs, $this->imageSHA1Keys ];
 	}
