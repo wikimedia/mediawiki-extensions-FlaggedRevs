@@ -3,7 +3,8 @@
 		"authors": [
 			"Ansumang",
 			"Kaustubh",
-			"Siddhartha Ghai"
+			"Siddhartha Ghai",
+			"Sfic"
 		]
 	},
 	"revisionreview": "अवतरण पुनरीक्षण",
@@ -59,7 +60,7 @@
 	"revreview-update": "'''कृपया स्थिर अवतरण के बाद से हुए सभी ''(नीचे दिखाए गए)'' बदलावों को [[{{MediaWiki:Validationpage}}|पुनरीक्षित]] करें।'''",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">आपके बदलाव अभी स्थिर अवतरण में नहीं हैं।</span>\n\nआपके बदलाव स्थिर अवतरण में दिखाने के लिए कृपया नीचे दिखाए गए सभी बदलावों का पुनरीक्षण करें।",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">आपके बदलाव अभी स्थिर अवतरण में नहीं हैं। इससे पहले के बदलावों का पुनरीक्षण बाकी है।</span>\n\nआपके बदलाव स्थिर अवतरण में दिखाने के लिए कृपया नीचे दिखाए गए सभी बदलावों का पुनरीक्षण करें।",
-	"revreview-update-includes": "साँचे/फ़ाइलें अद्यतित (अनिरीक्षित पृष्ठ बोल्ड में):",
+	"revreview-update-includes": "साँचे/फ़ाइलें अद्यतित हुए (अनिरीक्षित पृष्ठ गहरे रंग में):",
 	"revreview-reject-text-list": "यह कार्य कर के आप [[:$2|$2]] के निम्न {{PLURAL:$1|अवतरण|अवतरणों}} के स्रोत पाठ में बदलावों को '''अस्वीकार''' करेंगे:",
 	"revreview-reject-text-revto": "इससे पृष्ठ [{{fullurl:$1|oldid=$2}} $3 के अवतरण] पर वापिस चला जाएगा।",
 	"revreview-reject-summary": "सारांश:",
