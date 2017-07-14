@@ -15,7 +15,8 @@
 			"He7d3r",
 			"Cainamarques",
 			"Luk3",
-			"TheEduGobi"
+			"TheEduGobi",
+			"Felipe L. Ewald"
 		]
 	},
 	"action-review": "revisar edições",
@@ -128,6 +129,8 @@
 	"revreview-style-2": "Boa",
 	"revreview-style-3": "Concisa",
 	"revreview-style-4": "Exemplar",
+	"revreview-toggle-show": "(+)",
+	"revreview-toggle-hide": "(-)",
 	"revreview-toggle-title": "exibir/ocultar detalhes",
 	"revreview-visibility-synced": "'''Esta página tem uma [[{{MediaWiki:Validationpage}}|versão publicada]] atualizada; os parâmetros de estabilidade da página podem ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurados].'''",
 	"revreview-visibility-outdated": "'''Esta página tem uma [[{{MediaWiki:Validationpage}}|versão publicada]] desatualizada; os parâmetros de estabilidade da página podem ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurados].'''",

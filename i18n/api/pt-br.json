@@ -4,11 +4,18 @@
 			"Felipe L. Ewald"
 		]
 	},
+	"apihelp-query+configuredpages-param-namespace": "O espaço nominal para enumerar.",
 	"apihelp-query+configuredpages-param-limit": "Quantas páginas a serem retornadas.",
+	"apihelp-query+oldreviewedpages-param-namespace": "O espaço nominal para enumerar.",
 	"apihelp-query+oldreviewedpages-param-filterredir": "Como filtrar redirecionamentos.",
 	"apihelp-query+oldreviewedpages-param-limit": "Quantas páginas a serem retornadas.",
+	"apihelp-query+reviewedpages-param-namespace": "O espaço nominal para enumerar.",
 	"apihelp-query+reviewedpages-param-filterredir": "Como filtrar redirecionamentos.",
 	"apihelp-query+reviewedpages-param-limit": "Quantas páginas a serem retornadas.",
+	"apihelp-query+unreviewedpages-param-dir": "Direção para classificar.",
+	"apihelp-query+unreviewedpages-param-namespace": "O espaço nominal para enumerar.",
 	"apihelp-query+unreviewedpages-param-filterredir": "Como filtrar redirecionamentos.",
-	"apihelp-query+unreviewedpages-param-limit": "Quantas páginas a serem retornadas."
+	"apihelp-query+unreviewedpages-param-limit": "Quantas páginas a serem retornadas.",
+	"apihelp-stabilize-description-general": "Mudar configurações de estabilidade da página.",
+	"apihelp-stabilize-summary-general": "Mudar configurações de estabilidade da página."
 }
