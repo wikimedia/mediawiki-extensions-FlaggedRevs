@@ -17,5 +17,6 @@
 	"apihelp-query+unreviewedpages-param-filterredir": "Como filtrar redirecionamentos.",
 	"apihelp-query+unreviewedpages-param-limit": "Quantas páginas a serem retornadas.",
 	"apihelp-stabilize-description-general": "Mudar configurações de estabilidade da página.",
-	"apihelp-stabilize-summary-general": "Mudar configurações de estabilidade da página."
+	"apihelp-stabilize-summary-general": "Mudar configurações de estabilidade da página.",
+	"apihelp-stabilize-param-reason": "Motivo."
 }

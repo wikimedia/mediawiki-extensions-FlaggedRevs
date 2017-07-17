@@ -4,10 +4,11 @@
 			"Eduardo.mps",
 			"Giro720",
 			"Luckas",
-			"Luckas Blade"
+			"Luckas Blade",
+			"Felipe L. Ewald"
 		]
 	},
-	"stabilization-tab": "cgq",
+	"stabilization-tab": "vet",
 	"stabilization": "Configurações da Garantia de Qualidade",
 	"stabilization-text": "'''Altere os parâmetros abaixo para ajustar a forma como a versão publicada de [[:$1|$1]] é selecionada e apresentada.'''",
 	"stabilization-perm": "A sua conta não tem permissão para alterar a configuração da versão publicada.\nOs parâmetros atuais da página [[:$1|$1]] são:",
@@ -17,7 +18,7 @@
 	"stabilization-def1": "A edição publicada; se inexistente, então a revisão mais recente",
 	"stabilization-def2": "A edição mais recente",
 	"stabilization-restrict": "Restrições da revisão automática",
-	"stabilization-restrict-none": "sem restrições extras",
+	"stabilization-restrict-none": "Sem restrições extras",
 	"stabilization-submit": "Confirmar",
 	"stabilization-notexists": "A página \"[[:$1|$1]]\" não existe.\nNão é possível configurá-la.",
 	"stabilization-notcontent": "A página \"[[:$1|$1]]\" não pode ser analisada.\nNão é possível configurá-la.",
