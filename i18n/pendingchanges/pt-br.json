@@ -3,7 +3,8 @@
 		"authors": [
 			"Eduardo.mps",
 			"Giro720",
-			"Luckas"
+			"Luckas",
+			"Felipe L. Ewald"
 		]
 	},
 	"pendingchanges": "Páginas com alterações pendentes",
@@ -19,6 +20,6 @@
 	"pendingchanges-diff": "analisar",
 	"pendingchanges-size": "Tamanho máximo da alteração (em bytes):",
 	"pendingchanges-unwatched": "(não-vigiada)",
-	"pendingchanges-watched": "($1 {{PLURAL:$1|usuário ativo|usuários ativos}} vigiando)",
+	"pendingchanges-watched": "(vigiada por $1 {{PLURAL:$1|usuários ativo|usuários ativos}})",
 	"pendingchanges-viewing": "(sob análise)"
 }

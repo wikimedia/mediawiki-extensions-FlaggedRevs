@@ -7,7 +7,8 @@
 			"Opraco",
 			"Teles",
 			"Cainamarques",
-			"!Silent"
+			"!Silent",
+			"Felipe L. Ewald"
 		]
 	},
 	"validationstatistics": "Estatísticas da revisão de páginas",
@@ -18,7 +19,7 @@
 	"validationstatistics-table": "São apresentadas abaixo estatísticas das revisões de páginas em cada domínio, '''excluindo''' páginas de redirecionamento.\nAs páginas são consideradas ''{{int:validationstatistics-old}}'' se tiverem edições à espera de revisão;\nas páginas são consideradas ''{{int:validationstatistics-latest}}'' se não tiverem edições em espera.",
 	"validationstatistics-ns": "Espaço nominal",
 	"validationstatistics-total": "Páginas",
-	"validationstatistics-stable": "Analisadas",
+	"validationstatistics-stable": "Revisada",
 	"validationstatistics-latest": "Sincronizadas",
 	"validationstatistics-synced": "Sincronizadas/Analisadas",
 	"validationstatistics-old": "Desatualizadas",

@@ -3,7 +3,8 @@
 		"authors": [
 			"Eduardo.mps",
 			"Giro720",
-			"Raylton P. Sousa"
+			"Raylton P. Sousa",
+			"Felipe L. Ewald"
 		]
 	},
 	"action-unreviewedpages": "ver a lista de páginas não revisadas",
@@ -14,7 +15,7 @@
 	"unreviewedpages-unwatched": "(não-vigiada)",
 	"unreviewedpages-watched": "(vigiada por $1 {{PLURAL:$1|usuários ativo|usuários ativos}})",
 	"unreviewedpages-list": "Esta página lista as páginas de conteúdo que ''ainda'' não foram [[{{MediaWiki:Validationpage}}|revisadas]] até ao nível escolhido.",
-	"unreviewedpages-none": "No momento não há páginas que se enquadrem nestes critérios",
+	"unreviewedpages-none": "Atualmente não existem páginas que satisfaçam estes critérios",
 	"unreviewedpages-viewing": "(sob análise)",
 	"unreviewedpages-hours": "($1 {{PLURAL:$1|hora|horas}})",
 	"unreviewedpages-days": "($1 {{PLURAL:$1|dia|dias}})",

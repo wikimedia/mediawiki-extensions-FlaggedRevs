@@ -4,11 +4,15 @@
 			"Felipe L. Ewald"
 		]
 	},
+	"apihelp-query+configuredpages-param-start": "Começar listando desse ID de página.",
+	"apihelp-query+configuredpages-param-end": "Parar a listagem neste ID de página.",
 	"apihelp-query+configuredpages-param-namespace": "O espaço nominal para enumerar.",
 	"apihelp-query+configuredpages-param-limit": "Quantas páginas a serem retornadas.",
 	"apihelp-query+oldreviewedpages-param-namespace": "O espaço nominal para enumerar.",
 	"apihelp-query+oldreviewedpages-param-filterredir": "Como filtrar redirecionamentos.",
 	"apihelp-query+oldreviewedpages-param-limit": "Quantas páginas a serem retornadas.",
+	"apihelp-query+reviewedpages-param-start": "Começar listando desse ID de página.",
+	"apihelp-query+reviewedpages-param-end": "Parar a listagem neste ID de página.",
 	"apihelp-query+reviewedpages-param-namespace": "O espaço nominal para enumerar.",
 	"apihelp-query+reviewedpages-param-filterredir": "Como filtrar redirecionamentos.",
 	"apihelp-query+reviewedpages-param-limit": "Quantas páginas a serem retornadas.",
