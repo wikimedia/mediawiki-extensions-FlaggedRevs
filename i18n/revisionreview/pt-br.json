@@ -49,7 +49,7 @@
 	"revreview-submit-reject": "Rejeitar as alterações",
 	"revreview-submit-reviewed": "Feito. Aprovada!",
 	"revreview-submit-unreviewed": "Feito. Aprovação anulada!",
-	"revreview-successful": "'''A edição de [[:$1|$1]] foi marcada.  ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} ver as versões revisadas])'''",
+	"revreview-successful": "'''A edição de [[:$1|$1]] foi marcada. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} ver as versões revisadas])'''",
 	"revreview-successful2": "'''A edição de [[:$1|$1]] foi desmarcada.'''",
 	"revreview-poss-conflict-p": "'''Aviso: O usuário [[User:$1|$1]] começou a revisar esta página às $3 de $2.'''",
 	"revreview-poss-conflict-c": "'''Aviso: O usuário [[User:$1|$1]] começou a revisar estas alterações às $3 de $2.'''",
