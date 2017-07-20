@@ -52,7 +52,7 @@
 	"revreview-hist-quality-auto": "automatski pregledano",
 	"revreview-hist-basic-auto": "automatski pregledano",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} čeka pregled]]'''",
-	"review-edit-diff": "'''Napomena: ''Neke'' izmjene koje su na čekanju imaju utjecaj na područje stranice koje uređujete.'''",
+	"review-edit-diff": "'''Napomena: ''Neke'' izmjene koje su na čekanju odnose se na dio stranice koje uređujete.'''",
 	"revreview-diff-toggle-show": "prikaži te izmjene",
 	"revreview-diff-toggle-hide": "sakrij te izmjene",
 	"revreview-diff-toggle-title": "Uključivanje/isključivanje prikaza izmjena na čekanju u odnosu na stabilnu verziju",

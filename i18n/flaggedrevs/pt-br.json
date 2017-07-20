@@ -187,5 +187,11 @@
 	"revreview-unlocked": "'''Nota:''' As edições não precisam ser [[{{MediaWiki:Validationpage}}|revisadas]] antes de serem apresentadas aos leitores nesta página.",
 	"log-show-hide-review": "$1 registro de revisões",
 	"validationpage": "{{ns:help}}:Validação de páginas",
-	"log-action-filter-review-accept": "Aceitar manualmente"
+	"log-action-filter-review": "Tipo de revisão:",
+	"log-action-filter-review-accept": "Aceitar manualmente",
+	"log-action-filter-review-autoaccept": "Aceitar automaticamente",
+	"log-action-filter-review-unaccept": "Desacordo manual",
+	"log-action-filter-stable-config": "Nova configuração",
+	"log-action-filter-stable-modify": "Configuração modificada",
+	"log-action-filter-stable-reset": "Configuração redefinida"
 }

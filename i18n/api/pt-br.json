@@ -20,7 +20,10 @@
 	"apihelp-query+unreviewedpages-param-namespace": "O espaço nominal para enumerar.",
 	"apihelp-query+unreviewedpages-param-filterredir": "Como filtrar redirecionamentos.",
 	"apihelp-query+unreviewedpages-param-limit": "Quantas páginas a serem retornadas.",
+	"apihelp-review-param-comment": "Comentário para a revisão.",
 	"apihelp-stabilize-description-general": "Mudar configurações de estabilidade da página.",
 	"apihelp-stabilize-summary-general": "Mudar configurações de estabilidade da página.",
-	"apihelp-stabilize-param-reason": "Motivo."
+	"apihelp-stabilize-param-reason": "Motivo.",
+	"apihelp-stabilize-param-watch": "Vigiar esta página",
+	"apihelp-stabilize-param-review": "Revisar esta página."
 }
