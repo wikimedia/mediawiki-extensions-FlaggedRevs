@@ -4,7 +4,9 @@
 			"Joetaras"
 		]
 	},
+	"apihelp-query+configuredpages-param-namespace": "Le namespace da nuemrà.",
 	"apihelp-stabilize-param-reason": "Mutive.",
 	"apihelp-stabilize-param-watch": "'Ndruche sta pàgene.",
-	"apihelp-stabilize-param-expiry-general": "Scadenze pe ste 'mbostaziune."
+	"apihelp-stabilize-param-expiry-general": "Scadenze pe ste 'mbostaziune.",
+	"apierror-flaggedrevs-noflaggedrev": "Nisciuna revisione signate cu stu ID."
 }
