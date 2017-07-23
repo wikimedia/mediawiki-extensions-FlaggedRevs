@@ -517,7 +517,7 @@ class FlaggedRevs {
 		if ( $right == '' ) {
 			return true; // no restrictions (none)
 		}
-		if ( !in_array( $right, FlaggedRevs::getRestrictionLevels() ) ) {
+		if ( !in_array( $right, self::getRestrictionLevels() ) ) {
 			return false; // invalid restriction level
 		}
 		# Don't let them choose levels above their own rights
@@ -647,14 +647,14 @@ class FlaggedRevs {
 			# Empty flaggedrevs data for this page if there is no stable version
 			$article->clearStableVersion();
 			# Check if pages using this need to be refreshed...
-			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
+			if ( self::inclusionSetting() == FR_INCLUDES_STABLE ) {
 				$changed = (bool)$oldSv;
 			}
 		} else {
 			# Update flagged page related fields
 			$article->updateStableVersion( $sv, $editInfo ? $editInfo->revid : null );
 			# Check if pages using this need to be invalidated/purged...
-			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
+			if ( self::inclusionSetting() == FR_INCLUDES_STABLE ) {
 				$changed = (
 					!$oldSv ||
 					$sv->getRevId() != $oldSv->getRevId() ||
@@ -668,7 +668,7 @@ class FlaggedRevs {
 			}
 		}
 		# Lazily rebuild dependancies on next parse (we invalidate below)
-		FlaggedRevs::clearStableOnlyDeps( $title->getArticleID() );
+		self::clearStableOnlyDeps( $title->getArticleID() );
 		# Clear page cache unless this is hooked via ArticleEditUpdates, in
 		# which case these updates will happen already with tuned timestamps
 		if ( !$editInfo ) {
@@ -969,7 +969,7 @@ class FlaggedRevs {
 				}
 			}
 
-			$quality = FlaggedRevs::getQualityTier( $flags, FR_CHECKED /* sanity */ );
+			$quality = self::getQualityTier( $flags, FR_CHECKED /* sanity */ );
 			$tags = FlaggedRevision::flattenRevisionTags( $flags );
 		}
 
@@ -985,7 +985,7 @@ class FlaggedRevs {
 		# version of this page. If a pending version of a template/file is currently vandalism,
 		# we try to avoid storing its ID as the "review time" version so it won't show up when
 		# someone views the page. If not possible, this stores the current template/file.
-		if ( FlaggedRevs::inclusionSetting() === FR_INCLUDES_CURRENT ) {
+		if ( self::inclusionSetting() === FR_INCLUDES_CURRENT ) {
 			$tVersions = $poutput->getTemplateIds();
 			$fVersions = $poutput->getFileSearchOptions();
 		} else {
@@ -1051,7 +1051,7 @@ class FlaggedRevs {
 			$flags, [], '', $rev->getId(), $oldSvId, true, $auto, $user );
 
 		# Update page and tracking tables and clear cache
-		FlaggedRevs::stableVersionUpdates( $article );
+		self::stableVersionUpdates( $article );
 
 		return true;
 	}

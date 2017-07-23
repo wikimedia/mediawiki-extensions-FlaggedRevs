@@ -139,11 +139,11 @@ class ApiStabilizeGeneral extends ApiStabilize {
 		$pars = [
 			'default'     => [
 				ApiBase::PARAM_REQUIRED => true,
-				ApiBase :: PARAM_TYPE => [ 'latest', 'stable' ],
+				ApiBase::PARAM_TYPE => [ 'latest', 'stable' ],
 			],
 			'autoreview'  => [
-				ApiBase :: PARAM_TYPE => $autoreviewLevels,
-				ApiBase :: PARAM_DFLT => 'none',
+				ApiBase::PARAM_TYPE => $autoreviewLevels,
+				ApiBase::PARAM_DFLT => 'none',
 			],
 			'expiry'      => [
 				ApiBase::PARAM_DFLT => 'infinite',
@@ -276,8 +276,8 @@ class ApiStabilizeProtect extends ApiStabilize {
 		$autoreviewLevels[] = 'none';
 		return [
 			'protectlevel' => [
-				ApiBase :: PARAM_TYPE => $autoreviewLevels,
-				ApiBase :: PARAM_DFLT => 'none',
+				ApiBase::PARAM_TYPE => $autoreviewLevels,
+				ApiBase::PARAM_DFLT => 'none',
 			],
 			'expiry'      => [
 				ApiBase::PARAM_DFLT => 'infinite',

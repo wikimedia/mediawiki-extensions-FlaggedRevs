@@ -155,12 +155,12 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 				ApiBase::PARAM_ISMULTI 	=> true,
 			],
 			'default' => [
-				ApiBase :: PARAM_DFLT 	=> null,
-				ApiBase :: PARAM_TYPE 	=> [ 'latest', 'stable' ],
+				ApiBase::PARAM_DFLT 	=> null,
+				ApiBase::PARAM_TYPE 	=> [ 'latest', 'stable' ],
 			],
 			'autoreview' => [
-				ApiBase :: PARAM_DFLT 	=> null,
-				ApiBase :: PARAM_TYPE 	=> $autoreviewLevels,
+				ApiBase::PARAM_DFLT 	=> null,
+				ApiBase::PARAM_TYPE 	=> $autoreviewLevels,
 			],
 			'limit' => [
 				ApiBase::PARAM_DFLT 	=> 10,

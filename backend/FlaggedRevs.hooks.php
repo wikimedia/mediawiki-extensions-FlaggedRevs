@@ -249,7 +249,7 @@ class FlaggedRevsHooks {
 
 	public static function onParserGetVariableValueSwitch( &$parser, &$cache, &$word, &$ret ) {
 		if ( $word == 'pendingchangelevel' ) {
-			$ret = FlaggedRevsHooks::parserPendingChangeLevel( $parser );
+			$ret = self::parserPendingChangeLevel( $parser );
 		}
 		return true;
 	}

@@ -133,7 +133,7 @@ class FRUserCounters {
 			$p[$param] = 0;
 		}
 		$p[$param]++;
-		FRUserCounters::saveUserParams( $uid, $p );
+		self::saveUserParams( $uid, $p );
 	}
 
 	/**

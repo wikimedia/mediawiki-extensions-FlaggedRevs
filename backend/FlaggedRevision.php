@@ -441,14 +441,14 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * @return integer revision ID
+	 * @return int revision ID
 	 */
 	public function getRevId() {
 		return $this->mRevision->getId();
 	}
 
 	/**
-	 * @return integer page ID
+	 * @return int page ID
 	 */
 	public function getPage() {
 		return $this->mRevision->getPage();
@@ -508,14 +508,14 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * @return integer the user ID of the reviewer
+	 * @return int the user ID of the reviewer
 	 */
 	public function getUser() {
 		return $this->mUser;
 	}
 
 	/**
-	 * @return integer quality level (FR_CHECKED,FR_QUALITY,FR_PRISTINE)
+	 * @return int quality level (FR_CHECKED,FR_QUALITY,FR_PRISTINE)
 	 */
 	public function getQuality() {
 		return $this->mQuality;
