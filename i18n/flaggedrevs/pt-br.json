@@ -47,6 +47,8 @@
 	"group-autoreview": "Autorrevisores",
 	"group-autoreview-member": "{{GENDER:$1|usuário autorrevisor|usuária autorrevisora|usuário(a) autorrevisor(a)}}",
 	"grouppage-autoreview": "{{ns:project}}:Autorrevisor",
+	"logentry-review-unapprove": "$1 {{GENDER:$2|Depreciou}} uma versão de $3",
+	"logentry-stable-modify": "$1 {{GENDER:$2|alterou}} configurações estáveis da versão para $3 $4",
 	"revreview-hist-draft": "edição não verificada",
 	"revreview-hist-pending": "revisão pendente",
 	"revreview-hist-quality": "edição de qualidade",
@@ -191,6 +193,7 @@
 	"log-action-filter-review-accept": "Aceitar manualmente",
 	"log-action-filter-review-autoaccept": "Aceitar automaticamente",
 	"log-action-filter-review-unaccept": "Desacordo manual",
+	"log-action-filter-stable": "Tipo de mudança de configuração:",
 	"log-action-filter-stable-config": "Nova configuração",
 	"log-action-filter-stable-modify": "Configuração modificada",
 	"log-action-filter-stable-reset": "Configuração redefinida"
