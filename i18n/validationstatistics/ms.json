@@ -3,15 +3,16 @@
 		"authors": [
 			"Anakmalaysia",
 			"Aviator",
-			"Kurniasan"
+			"Kurniasan",
+			"Jeluang Terluang"
 		]
 	},
 	"validationstatistics": "Statistik kajian semula laman",
 	"validationstatistics-users": "'''{{SITENAME}}''' kini mempunyai '''[[Special:ListUsers/editor|$1]]''' orang pengguna yang mempunyai hak [[{{MediaWiki:Validationpage}}|Penyunting]].\n\nPenyunting merupakan pengguna berpengalaman yang boleh membuat pemeriksaan mengejut pada laman-laman.",
 	"validationstatistics-lastupdate": "''Data berikut kali terakhir dikemas kini pada $1, $2.''",
-	"validationstatistics-pndtime": "Suntingan yang telah diperiksa oleh pengguna-pengguna yang mantap adalah dianggap sebagai ''{{int:validationstatistics-stable}}''.\n\nPurata masa tangguhan kaji semula untuk [[Special:OldReviewedPages|laman-laman yang mempunyai suntingan yang sedang menunggu untuk dikaji semula]] ialah '''$1'''; masa tangguhan diukur berdasarkan berapa lama suntingan tergantung yang terlama dibiarkan tanpa kaji semula.",
+	"validationstatistics-pndtime": "Suntingan yang telah diperiksa oleh pengguna-pengguna yang mantap dianggap sebagai ''{{int:validationstatistics-stable}}''.\n\nPurata masa tangguhan kaji semula untuk [[Special:OldReviewedPages|laman-laman yang mempunyai suntingan yang sedang menunggu untuk dikaji semula]] ialah '''$1'''; masa tangguhan diukur berdasarkan berapa lama suntingan tergantung yang terlama dibiarkan tanpa kaji semula.",
 	"validationstatistics-revtime": "Purata masa menunggu untuk suntingan oleh ''pengguna yang tidak log masuk'' untuk dikaji semula ialah '''$1'''; mediannya ialah '''$2'''.\n$3",
-	"validationstatistics-table": "Statistik kaji semula laman untuk setiap ruang nama ditunjukkan di bawah, ''tidak termasuk'' laman lencongan.\n\nLaman yang mempunyai suntingan yang menunggu semakan adalah ''{{int:validationstatistics-old}}'', sementara laman yang tiada yang sedemikian dianggap ''{{int:validationstatistics-latest}}''.",
+	"validationstatistics-table": "Statistik kaji semula laman untuk setiap ruang nama ditunjukkan di bawah, ''tidak termasuk'' laman lencongan.\n\nLaman yang mempunyai suntingan yang menunggu semakan ialah ''{{int:validationstatistics-old}}'', sementara laman yang tiada yang sedemikian dianggap ''{{int:validationstatistics-latest}}''.",
 	"validationstatistics-ns": "Ruang nama",
 	"validationstatistics-total": "Laman",
 	"validationstatistics-stable": "Dikaji semula",

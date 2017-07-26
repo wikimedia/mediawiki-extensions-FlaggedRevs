@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Calak",
-			"Sarchia"
+			"Sarchia",
+			"Lost Whispers"
 		]
 	},
 	"action-review": "بەسەرداچوونەوەی پێداچوونەوەکان",
@@ -33,6 +34,7 @@
 	"group-autoreview": "بەکارھێنەرانی تاوتوێکراوی خۆگەڕ",
 	"group-autoreview-member": "{{GENDER:$1|بەکارھێنەری تاوتوێکراوی خۆگەڕ}}",
 	"grouppage-autoreview": "{{ns:project}}:بەکارھێنەرانی تاوتوێکراوی خۆگەر",
+	"logentry-stable-config": "$1 {{GENDER:$2|ھەڵبژاردەی}} وەشانی جێگیری بۆ $3 $4 دانا",
 	"revreview-hist-draft": "وەشانی تاوتوێ‌نەکراو",
 	"revreview-hist-pending": "وەشانی ھەڵواسراو",
 	"revreview-hist-quality": "پێداچوونەوەی چاک",
@@ -53,8 +55,6 @@
 	"revreview-log-details-hide": "وردەکارییەکان بشارەوە",
 	"revreview-log-details-title": "پێشاندانی لۆگی ڕێکخستنەکانی جێگرتوویی بگۆڕە",
 	"review-diff2stable": "ھەموو گۆڕانکارییە ھەڵواسراوەکان ببینە",
-	"review-logentry-app": "بەسەر وەشانێکی [[$1]]دا چووە",
-	"review-logentry-dis": "وەشانێکی ناڕەوای [[$1]]",
 	"review-logentry-id": "پێداچوونەوە: $2",
 	"review-logentry-diff": "گۆڕانکارییە بەسەرداچووەکان",
 	"review-logentry-diff2": "گۆڕانکارییە ناڕەواکان",
@@ -67,7 +67,6 @@
 	"revreview-accuracy-2": "ڕێک",
 	"revreview-accuracy-3": "بە سەرچاوەی باش",
 	"revreview-accuracy-4": "تایبەتی",
-	"revreview-auto": "(خۆگەڕ)",
 	"revreview-basic": "ئەمە [[{{MediaWiki:Validationpage}}|وەشانی جێگرتوو]]ە، لە <i>$2</i>دا [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تاوتوێ کراوە].\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|گۆڕانکاریی}} ھەڵواسراو] چاوەڕێی بەسەرداچوونەوە{{PLURAL:$3|یە|ن}}.",
 	"revreview-basic-i": "ئەمە [[{{MediaWiki:Validationpage}}|وەشانی جێگرتوو]]ە، لە <i>$2</i>دا [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تاوتوێ کراوە].\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} گۆڕانکارییەکانی داڕێژە/پەڕگە] چاوەڕێی بەسەرداچوونەوەن.",
 	"revreview-basic-old": "ئەمە وەشانێکی [[{{MediaWiki:Validationpage}}|تاوتوێ‌کراو]]ە ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} ھەمووی پێرست بکە])، لە <i>$2</i>دا [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} پەسند کراوە].\nلەوانەیە [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} گۆڕانکاری]ی نوێی تێدا کرابێت.",

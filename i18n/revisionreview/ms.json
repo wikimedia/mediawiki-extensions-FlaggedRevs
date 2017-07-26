@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Anakmalaysia",
-			"Aviator"
+			"Aviator",
+			"Jeluang Terluang"
 		]
 	},
 	"revisionreview": "Kaji semula semakan",
@@ -23,7 +24,7 @@
 	"review_cannot_undo": "Perubahan ini tidak boleh dibatalkan kerana suntingan tergantung yang selanjutnya telah mengubah bahagian-bahagian yang sama.",
 	"review_cannot_reject": "Perubahan ini tidak boleh ditolak kerana sesetengah (atau semua) suntingan telah diterima oleh seseorang.",
 	"review_reject_excessive": "Tidak boleh menolak begini banyak suntingan dalam sekali.",
-	"review_reject_nulledits": "Perubahan ini tidak boleh ditolak kerana semua semakan adalah suntingan nol.",
+	"review_reject_nulledits": "Perubahan ini tidak boleh ditolak kerana semua semakan ialah suntingan nol.",
 	"revreview-check-flag-p": "Terima versi ini (termasuk $1 perubahan tergantung)",
 	"revreview-check-flag-p-title": "Terima hasil perubahan tergantung dan perubahan yang anda lakukan di sini. Gunakan yang ini hanya jika anda sudah melihat seluruh laman perbezaan semakan tergantung.",
 	"revreview-check-flag-u": "Terima laman yang belum dikaji semula ini",
