@@ -159,7 +159,7 @@
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} অপর্যালোচিত পাতা]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} অমীমাংসিত পরিবর্তন]",
 	"revreview-locked-title": "এই পাতায় করা সম্পাদনাগুলির পর্যালোচনা প্রয়োজন।",
 	"revreview-unlocked-title": "এই পাতায় করা সম্পাদনাগুলির পর্যালোচনার প্রয়োজন হবে না।",
-	"revreview-locked": "'''নোট:''' এই পাতা পাঠকের কাছে প্রদর্শিত হবার আগে সম্পাদনাগুলি অবশ্যই [[{{MediaWiki:Validationpage}}|পর্যালোচিত]] হবে।",
+	"revreview-locked": "'''টীকা:''' এই পাতা পাঠকের কাছে প্রদর্শিত হবার আগে সম্পাদনাগুলি অবশ্যই [[{{MediaWiki:Validationpage}}|পর্যালোচিত]] হতে হবে।",
 	"revreview-unlocked": "'''নোট:''' এই পাতা পাঠকের কাছে প্রদর্শিত হবার আগে সম্পাদনাগুলির [[{{MediaWiki:Validationpage}}|পর্যালোচনার]] প্রয়োজন হবে না।",
 	"log-show-hide-review": "পর্যালোচনা লগ $1",
 	"validationpage": "{{ns:help}}:নিবন্ধ বৈধকরণ",
