@@ -25,6 +25,7 @@ class FlaggedRevsUpdaterHooks {
 			$du->addExtensionUpdate( [ 'FlaggedRevsUpdaterHooks::doFlaggedRevsRevTimestamp',
 				"$base/patch-fr_page_rev-index.sql" ] );
 			$du->addExtensionTable( 'flaggedrevs_statistics', "$base/patch-flaggedrevs_statistics.sql" );
+			$du->addExtensionIndex( 'flaggedrevs', 'fr_user', "$base/patch-fr_user-index.sql" );
 
 		} elseif ( $wgDBtype == 'postgres' ) {
 			$base = __DIR__ . '/postgres';
@@ -46,6 +47,7 @@ class FlaggedRevsUpdaterHooks {
 			$du->addExtensionUpdate( [ 'FlaggedRevsUpdaterHooks::doFlaggedRevsRevTimestamp',
 				"$base/patch-fr_page_rev-index.sql" ] );
 			$du->addExtensionTable( 'flaggedrevs_statistics', "$base/patch-flaggedrevs_statistics.sql" );
+			$du->addExtensionIndex( 'flaggedrevs', 'fr_user', "$base/patch-fr_user-index.sql" );
 
 		} elseif ( $wgDBtype == 'sqlite' ) {
 			$base = __DIR__ . '/mysql';

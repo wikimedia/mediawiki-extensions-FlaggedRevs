@@ -43,6 +43,7 @@ CREATE INDEX page_time ON flaggedrevs (fr_page_id,fr_rev_timestamp);
 CREATE INDEX page_qal_rev ON flaggedrevs (fr_page_id,fr_quality,fr_rev_id);
 CREATE INDEX page_qal_time ON flaggedrevs (fr_page_id,fr_quality,fr_rev_timestamp);
 CREATE INDEX fr_img_sha1 ON flaggedrevs (fr_img_sha1);
+CREATE INDEX fr_user ON flaggedrevs (fr_user);
 
 CREATE TABLE flaggedtemplates (
   ft_rev_id      BIGINT   NOT NULL DEFAULT 0 ,
