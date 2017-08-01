@@ -8,67 +8,48 @@ class FlaggedRevsUpdaterHooks {
 		if ( $wgDBtype == 'mysql' ) {
 			$base = __DIR__ . '/mysql';
 			// Initial install tables (current schema)
-			$du->addExtensionUpdate( [ 'addTable',
-				'flaggedrevs', "$base/FlaggedRevs.sql", true ] );
+			$du->addExtensionTable( 'flaggedrevs', "$base/FlaggedRevs.sql" );
+
 			// Updates (in order)...
-			$du->addExtensionUpdate( [ 'addField',
-				'flaggedpage_config', 'fpc_expiry', "$base/patch-fpc_expiry.sql", true ] );
-			$du->addExtensionUpdate( [ 'addIndex',
-				'flaggedpage_config', 'fpc_expiry', "$base/patch-expiry-index.sql", true ] );
-			$du->addExtensionUpdate( [ 'addTable',
-				'flaggedrevs_promote', "$base/patch-flaggedrevs_promote.sql", true ] );
-			$du->addExtensionUpdate( [ 'addTable',
-				'flaggedpages', "$base/patch-flaggedpages.sql", true ] );
-			$du->addExtensionUpdate( [ 'addField',
-				'flaggedrevs', 'fr_img_name', "$base/patch-fr_img_name.sql", true ] );
-			$du->addExtensionUpdate( [ 'addTable',
-				'flaggedrevs_tracking', "$base/patch-flaggedrevs_tracking.sql", true ] );
-			$du->addExtensionUpdate( [ 'addField',
-				'flaggedpages', 'fp_pending_since', "$base/patch-fp_pending_since.sql", true ] );
-			$du->addExtensionUpdate( [ 'addField',
-				'flaggedpage_config', 'fpc_level', "$base/patch-fpc_level.sql", true ] );
-			$du->addExtensionUpdate( [ 'addTable',
-				'flaggedpage_pending', "$base/patch-flaggedpage_pending.sql", true ] );
+			$du->addExtensionField( 'flaggedpage_config', 'fpc_expiry', "$base/patch-fpc_expiry.sql" );
+			$du->addExtensionIndex( 'flaggedpage_config', 'fpc_expiry', "$base/patch-expiry-index.sql" );
+			$du->addExtensionTable( 'flaggedrevs_promote', "$base/patch-flaggedrevs_promote.sql" );
+			$du->addExtensionTable( 'flaggedpages', "$base/patch-flaggedpages.sql" );
+			$du->addExtensionField( 'flaggedrevs', 'fr_img_name', "$base/patch-fr_img_name.sql" );
+			$du->addExtensionTable( 'flaggedrevs_tracking', "$base/patch-flaggedrevs_tracking.sql" );
+			$du->addExtensionField( 'flaggedpages', 'fp_pending_since', "$base/patch-fp_pending_since.sql" );
+			$du->addExtensionField( 'flaggedpage_config', 'fpc_level', "$base/patch-fpc_level.sql" );
+			$du->addExtensionTable( 'flaggedpage_pending', "$base/patch-flaggedpage_pending.sql" );
 			$du->addExtensionUpdate( [ 'FlaggedRevsUpdaterHooks::doFlaggedImagesTimestampNULL',
 				"$base/patch-fi_img_timestamp.sql" ] );
 			$du->addExtensionUpdate( [ 'FlaggedRevsUpdaterHooks::doFlaggedRevsRevTimestamp',
 				"$base/patch-fr_page_rev-index.sql" ] );
-			$du->addExtensionUpdate( [ 'addTable',
-				'flaggedrevs_statistics', "$base/patch-flaggedrevs_statistics.sql", true ] );
+			$du->addExtensionTable( 'flaggedrevs_statistics', "$base/patch-flaggedrevs_statistics.sql" );
+
 		} elseif ( $wgDBtype == 'postgres' ) {
 			$base = __DIR__ . '/postgres';
 			// Initial install tables (current schema)
-			$du->addExtensionUpdate( [ 'addTable',
-				'flaggedrevs', "$base/FlaggedRevs.pg.sql", true ] );
+			$du->addExtensionTable( 'flaggedrevs', "$base/FlaggedRevs.pg.sql" );
+
 			// Updates (in order)...
-			$du->addExtensionUpdate( [ 'addField',
-				'flaggedpage_config', 'fpc_expiry', "TIMESTAMPTZ NULL" ] );
-			$du->addExtensionUpdate( [ 'addIndex',
-				'flaggedpage_config', 'fpc_expiry', "$base/patch-expiry-index.sql", true ] );
-			$du->addExtensionUpdate( [ 'addTable',
-				'flaggedrevs_promote', "$base/patch-flaggedrevs_promote.sql", true ] );
-			$du->addExtensionUpdate( [ 'addTable',
-				'flaggedpages', "$base/patch-flaggedpages.sql", true ] );
-			$du->addExtensionUpdate( [ 'addIndex',
-				'flaggedrevs', 'fr_img_sha1', "$base/patch-fr_img_name.sql", true ] );
-			$du->addExtensionUpdate( [ 'addTable',
-				'flaggedrevs_tracking', "$base/patch-flaggedrevs_tracking.sql", true ] );
-			$du->addExtensionUpdate( [ 'addIndex',
-				'flaggedpages', 'fp_pending_since', "$base/patch-fp_pending_since.sql", true ] );
-			$du->addExtensionUpdate( [ 'addField',
-				'flaggedpage_config', 'fpc_level', "TEXT NULL" ] );
-			$du->addExtensionUpdate( [ 'addTable',
-				'flaggedpage_pending', "$base/patch-flaggedpage_pending.sql", true ] );
+			$du->addExtensionField( 'flaggedpage_config', 'fpc_expiry', "TIMESTAMPTZ NULL" );
+			$du->addExtensionIndex( 'flaggedpage_config', 'fpc_expiry', "$base/patch-expiry-index.sql" );
+			$du->addExtensionTable( 'flaggedrevs_promote', "$base/patch-flaggedrevs_promote.sql" );
+			$du->addExtensionTable( 'flaggedpages', "$base/patch-flaggedpages.sql" );
+			$du->addExtensionIndex( 'flaggedrevs', 'fr_img_sha1', "$base/patch-fr_img_name.sql" );
+			$du->addExtensionTable( 'flaggedrevs_tracking', "$base/patch-flaggedrevs_tracking.sql" );
+			$du->addExtensionIndex( 'flaggedpages', 'fp_pending_since', "$base/patch-fp_pending_since.sql" );
+			$du->addExtensionField( 'flaggedpage_config', 'fpc_level', "TEXT NULL" );
+			$du->addExtensionTable( 'flaggedpage_pending', "$base/patch-flaggedpage_pending.sql" );
 			$du->addExtensionUpdate( [ 'FlaggedRevsUpdaterHooks::doFlaggedImagesTimestampNULL',
 				"$base/patch-fi_img_timestamp.sql" ] );
 			$du->addExtensionUpdate( [ 'FlaggedRevsUpdaterHooks::doFlaggedRevsRevTimestamp',
 				"$base/patch-fr_page_rev-index.sql" ] );
-			$du->addExtensionUpdate( [ 'addTable',
-				'flaggedrevs_statistics', "$base/patch-flaggedrevs_statistics.sql", true ] );
+			$du->addExtensionTable( 'flaggedrevs_statistics', "$base/patch-flaggedrevs_statistics.sql" );
+
 		} elseif ( $wgDBtype == 'sqlite' ) {
 			$base = __DIR__ . '/mysql';
-			$du->addExtensionUpdate( [ 'addTable',
-				'flaggedrevs', "$base/FlaggedRevs.sql", true ] );
+			$du->addExtensionTable( 'flaggedrevs', "$base/FlaggedRevs.sql" );
 		}
 		return true;
 	}
