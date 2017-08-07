@@ -1,14 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"Michaello"
+			"Michaello",
+			"Сербијана"
 		]
 	},
 	"revisionreview": "Pregled verzija",
 	"review_page_invalid": "Naslov ciljane strane je neispravan.",
 	"review_page_notexists": "Ciljana strana ne postoji.",
 	"review_page_unreviewable": "Ciljana strana se ne može pregledati.",
-	"revreview-flag": "Pregled ove verzije",
+	"revreview-flag": "Proveri ovu izmenu",
+	"revreview-reflag": "Ponovo proveri ovu izmenu",
 	"revreview-invalid": "'''Loš cilj:''' nijedna [[{{MediaWiki:Validationpage}}|pregledana]] verzije ne poseduje dati redni broj.",
 	"revreview-log": "Komentar:",
 	"revreview-main": "Morate izabrati određenu izmenu stranice sa sadržajem da biste je proverili.\nPogledajte [[Special:Unreviewedpages|spisak nepregledanih stranica]].",
