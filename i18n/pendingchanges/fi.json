@@ -9,7 +9,8 @@
 			"Nike",
 			"Olli",
 			"Pxos",
-			"ZeiP"
+			"ZeiP",
+			"Alluk."
 		]
 	},
 	"pendingchanges": "Sivut, joilla on arviointia odottavia muutoksia",
@@ -23,7 +24,7 @@
 	"pendingchanges-onwatchlist": "Tarkkailulistallani olevat sivut",
 	"pendingchanges-stable": "Vakautettu versio oletuksena",
 	"pendingchanges-diff": "arvioi",
-	"pendingchanges-size": "Enimmäismuutos (tavua):",
+	"pendingchanges-size": "Enimmäismuutos (merkkiä):",
 	"pendingchanges-unwatched": "(tarkkailematon)",
 	"pendingchanges-watched": "($1 aktiivisen {{PLURAL:$1|käyttäjän}} tarkkailema)",
 	"pendingchanges-viewing": "(arvioitavana)"
