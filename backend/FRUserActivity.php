@@ -176,7 +176,7 @@ class FRUserActivity {
 	/**
 	 * @param string $key
 	 * @param User $user
-	 * @param integer $ttlSec
+	 * @param int $ttlSec
 	 * @return bool
 	 */
 	protected static function incUserReviewingItem( $key, User $user, $ttlSec ) {
@@ -207,7 +207,7 @@ class FRUserActivity {
 	/**
 	 * @param string $key
 	 * @param User $user
-	 * @param integer $ttlSec
+	 * @param int $ttlSec
 	 * @return bool
 	 */
 	protected static function decUserReviewingItem( $key, User $user, $ttlSec ) {

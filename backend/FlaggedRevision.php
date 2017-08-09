@@ -145,7 +145,7 @@ class FlaggedRevision {
 	 * Get a FlaggedRevision of the stable version of a title.
 	 * Note: will return NULL if the revision is deleted, though this
 	 * should never happen as fp_stable is updated as revs are deleted.
-	 * @param Title $title, page title
+	 * @param Title $title page title
 	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
 	 * @return FlaggedRevision|null (null on failure)
 	 */
@@ -235,7 +235,7 @@ class FlaggedRevision {
 
 	/**
 	 * Get the ID of the stable version of a title.
-	 * @param Title $title, page title
+	 * @param Title $title page title
 	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
 	 * @return int (0 on failure)
 	 */
@@ -247,9 +247,9 @@ class FlaggedRevision {
 	/**
 	 * Get a FlaggedRevision of the stable version of a title.
 	 * Skips tracking tables to figure out new stable version.
-	 * @param Title $title, page title
+	 * @param Title $title page title
 	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
-	 * @param array $config, optional page config (use to skip queries)
+	 * @param array $config optional page config (use to skip queries)
 	 * @param string $precedence (latest,quality,pristine)
 	 * @return FlaggedRevision|null (null on failure)
 	 */

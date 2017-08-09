@@ -265,9 +265,9 @@ class RevisionReviewFormUI {
 
 	/**
 	 * @param User $user
-	 * @param array $flags, selected flags
-	 * @param bool $disabled, form disabled
-	 * @param bool $reviewed, rev already reviewed
+	 * @param array $flags selected flags
+	 * @param bool $disabled form disabled
+	 * @param bool $reviewed rev already reviewed
 	 * @return string
 	 * Generates a main tag inputs (checkboxes/radios/selects) for review form
 	 */
@@ -370,9 +370,9 @@ class RevisionReviewFormUI {
 	/**
 	 * Generates review form submit buttons
 	 * @param int $rejectId left rev ID for "reject" on diffs
-	 * @param FlaggedRevision $frev, the flagged revision, if any
-	 * @param bool $disabled, is the form disabled?
-	 * @param bool $reviewIncludes, force the review button to be usable?
+	 * @param FlaggedRevision $frev the flagged revision, if any
+	 * @param bool $disabled is the form disabled?
+	 * @param bool $reviewIncludes force the review button to be usable?
 	 * @return string
 	 */
 	protected static function submitButtons(

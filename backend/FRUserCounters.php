@@ -37,7 +37,7 @@ class FRUserCounters {
 
 	/**
 	 * Initializes unset param fields to their starting values
-	 * @param array $p
+	 * @param array &$p
 	 */
 	protected static function setUnitializedFields( array &$p ) {
 		if ( !isset( $p['uniqueContentPages'] ) ) {
@@ -185,7 +185,7 @@ class FRUserCounters {
 
 	/**
 	 * Update users params array for a user on edit
-	 * @param array $p user params
+	 * @param array &$p user params
 	 * @param Page $article the article just edited
 	 * @param string $summary edit summary
 	 * @return bool anything changed

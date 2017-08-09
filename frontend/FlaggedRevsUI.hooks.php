@@ -48,7 +48,7 @@ class FlaggedRevsUIHooks {
 
 	/**
 	 * Add FlaggedRevs css for relevant special pages.
-	 * @param OutputPage $out
+	 * @param OutputPage &$out
 	 * @return bool
 	 */
 	protected static function injectStyleForSpecial( &$out ) {
@@ -90,6 +90,9 @@ class FlaggedRevsUIHooks {
 
 	/**
 	 * Add user preferences (uses prefs-flaggedrevs, prefs-flaggedrevs-ui msgs)
+	 * @param User $user
+	 * @param array &$preferences
+	 * @return true
 	 */
 	public static function onGetPreferences( $user, array &$preferences ) {
 		// Box or bar UI
@@ -284,7 +287,7 @@ class FlaggedRevsUIHooks {
 	 * through FlaggedRevs.
 	 *
 	 * @param SpecialPage $specialPage Special page
-	 * @param array $filters Array of filters
+	 * @param array &$filters Array of filters
 	 */
 	public static function addHideReviewedUnstructuredFilter( $specialPage, &$filters ) {
 		if ( !FlaggedRevs::useSimpleConfig() ) {
@@ -428,7 +431,6 @@ class FlaggedRevsUIHooks {
 	/**
 	 * Add FlaggedRevs metadata by adding fields and joins
 	 *
-	 * @param array &$conds Query conditions
 	 * @param array &$tables Tables to query
 	 * @param array &$join_conds Query join conditions
 	 * @param array &$fields Fields to query
@@ -526,7 +528,7 @@ class FlaggedRevsUIHooks {
 	 * Make stable version link and return the css
 	 * @param IContextSource $ctx
 	 * @param Title $title
-	 * @param stdClass $row, from history page
+	 * @param stdClass $row from history page
 	 * @return array (string,string)
 	 */
 	protected static function markHistoryRow( IContextSource $ctx, Title $title, $row ) {
@@ -583,10 +585,10 @@ class FlaggedRevsUIHooks {
 	/**
 	 * Intercept contribution entries and format them to FlaggedRevs standards
 	 *
-	 * @param $contribs SpecialPage object for contributions
-	 * @param $ret string the HTML line
-	 * @param $row Row the DB row for this line
-	 * @param $classes the classes to add to the surrounding <li>
+	 * @param SpecialPage $contribs SpecialPage object for contributions
+	 * @param string &$ret the HTML line
+	 * @param stdClass $row Row the DB row for this line
+	 * @param array &$classes the classes to add to the surrounding <li>
 	 * @return bool
 	 */
 	public static function addToContribsLine( $contribs, &$ret, $row, &$classes ) {

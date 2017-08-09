@@ -257,8 +257,8 @@ class ProblemChanges extends SpecialPage {
 
 	/**
 	 * Get the tags of the revisions of a page after a certain rev
-	 * @param integer $pageId, page ID
-	 * @param integer $revId, rev ID
+	 * @param int $pageId page ID
+	 * @param int $revId rev ID
 	 * @return Array
 	 */
 	protected static function getChangeTags( $pageId, $revId ) {

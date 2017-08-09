@@ -162,7 +162,7 @@ class FlaggablePageView extends ContextSource {
 
 	/**
 	 * Should this user see the draft revision of pages by default?
-	 * @param $user User
+	 * @param User $user
 	 * @return bool
 	 */
 	protected function userViewsDraftByDefault( $user ) {
@@ -186,7 +186,7 @@ class FlaggablePageView extends ContextSource {
 
 	/**
 	 * Is this a view page action (including diffs)?
-	 * @param $request WebRequest
+	 * @param WebRequest $request
 	 * @return bool
 	 */
 	protected function isPageViewOrDiff( WebRequest $request ) {
@@ -199,7 +199,7 @@ class FlaggablePageView extends ContextSource {
 
 	/**
 	 * Is this a view page action (not including diffs)?
-	 * @param $request WebRequest
+	 * @param WebRequest $request
 	 * @return bool
 	 */
 	protected function isPageView( WebRequest $request ) {
@@ -209,7 +209,7 @@ class FlaggablePageView extends ContextSource {
 
 	/**
 	 * Is this a web request to just *view* the *default* version of a page?
-	 * @param $request WebRequest
+	 * @param WebRequest $request
 	 * @return bool
 	 */
 	protected function isDefaultPageView( WebRequest $request ) {
@@ -227,7 +227,7 @@ class FlaggablePageView extends ContextSource {
 
 	/**
 	 * Is this a view page action?
-	 * @param $action string from MediaWiki::getAction()
+	 * @param string $action string from MediaWiki::getAction()
 	 * @return bool
 	 */
 	protected static function isViewAction( $action ) {
@@ -236,6 +236,7 @@ class FlaggablePageView extends ContextSource {
 
 	/**
 	 * Output review notice
+	 * @return true
 	 */
 	public function displayTag() {
 		$this->load();
@@ -249,6 +250,7 @@ class FlaggablePageView extends ContextSource {
 	/**
 	 * Add a stable link when viewing old versions of an article that
 	 * have been reviewed. (e.g. for &oldid=x urls)
+	 * @return true
 	 */
 	public function addStableLink() {
 		$request = $this->getRequest();
@@ -298,6 +300,9 @@ class FlaggablePageView extends ContextSource {
 	 * Replaces a page with the last stable version if possible
 	 * Adds stable version status/info tags and notes
 	 * Adds a quick review form on the bottom if needed
+	 * @param bool &$outputDone
+	 * @param bool &$useParserCache
+	 * @return bool
 	 */
 	public function setPageContent( &$outputDone, &$useParserCache ) {
 		$request = $this->getRequest();
@@ -418,8 +423,8 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	 * @param $tag review box/bar info
-	 * @param $prot protection notice
+	 * @param string &$tag review box/bar info
+	 * @param string $prot protection notice
 	 * Tag output function must be called by caller
 	 */
 	protected function showUnreviewedPage( &$tag, $prot ) {
@@ -440,7 +445,7 @@ class FlaggablePageView extends ContextSource {
 	 * Tag output function must be called by caller
 	 * Parser cache control deferred to caller
 	 * @param FlaggedRevision $srev stable version
-	 * @param string $tag review box/bar info
+	 * @param string &$tag review box/bar info
 	 * @param string $prot protection notice icon
 	 * @return void
 	 */
@@ -556,7 +561,7 @@ class FlaggablePageView extends ContextSource {
 	 * Tag output function must be called by caller
 	 * Parser cache control deferred to caller
 	 * @param FlaggedRevision $frev selected flagged revision
-	 * @param string $tag review box/bar info
+	 * @param string &$tag review box/bar info
 	 * @param string $prot protection notice icon
 	 * @return ParserOutput
 	 */
@@ -626,7 +631,7 @@ class FlaggablePageView extends ContextSource {
 	 * Tag output function must be called by caller
 	 * Parser cache control deferred to caller
 	 * @param \FlaggedRevision|\stable $srev stable version
-	 * @param string $tag review box/bar info
+	 * @param string &$tag review box/bar info
 	 * @param string $prot protection notice
 	 * @return ParserOutput
 	 */
@@ -773,8 +778,8 @@ class FlaggablePageView extends ContextSource {
 
 	/**
 	 * Get collapsible diff-to-stable html to add to the review notice as needed
-	 * @param FlaggedRevision $srev, stable version
-	 * @param bool $quality, revision is quality
+	 * @param FlaggedRevision $srev stable version
+	 * @param bool $quality revision is quality
 	 * @return string, the html line (either "" or "<diff toggle><diff div>")
 	 */
 	protected function getTopDiffToggle( FlaggedRevision $srev, $quality ) {
@@ -865,6 +870,8 @@ class FlaggablePageView extends ContextSource {
 	 * If no stable version is required, the reference parameters will not be set
 	 *
 	 * Depends on $request
+	 * @param File|null &$normalFile
+	 * @param File|null &$displayFile
 	 */
 	public function imagePageFindFile( &$normalFile, &$displayFile ) {
 		$request = $this->getRequest();
@@ -995,6 +1002,8 @@ class FlaggablePageView extends ContextSource {
 
 	/**
 	 * Adds stable version tags to page when editing
+	 * @param EditPage $editPage
+	 * @return bool
 	 */
 	public function addToEditView( EditPage $editPage ) {
 		global $wgParser;
@@ -1147,7 +1156,7 @@ class FlaggablePageView extends ContextSource {
 	 * Add review form to pages when necessary on a regular page view (action=view).
 	 * If $output is an OutputPage then this prepends the form onto it.
 	 * If $output is a string then this appends the review form to it.
-	 * @param mixed string|OutputPage
+	 * @param string|OutputPage &$output
 	 * @return bool
 	 */
 	public function addReviewForm( &$output ) {
@@ -1260,6 +1269,9 @@ class FlaggablePageView extends ContextSource {
 	/**
 	 * Modify an array of action links, as used by SkinTemplateNavigation and
 	 * SkinTemplateTabs, to inlude flagged revs UI elements
+	 * @param Skin $skin
+	 * @param array &$actions
+	 * @return bool
 	 */
 	public function setActionTabs( $skin, array &$actions ) {
 		$reqUser = $this->getUser();
@@ -1294,7 +1306,7 @@ class FlaggablePageView extends ContextSource {
 	/**
 	 * Modify an array of tab links to include flagged revs UI elements
 	 * @param Skin $skin
-	 * @param array $views
+	 * @param array &$views
 	 * @param string $type ('flat' for SkinTemplateTabs, 'nav' for SkinTemplateNavigation)
 	 * @return bool
 	 */
@@ -1440,7 +1452,7 @@ class FlaggablePageView extends ContextSource {
 	 * Adds a notice saying that this revision is pending review
 	 * @param FlaggedRevision $srev The stable version
 	 * @param string $diffToggle either "" or " <diff toggle><diff div>"
-	 * @param boolean $background Whether to add the 'flaggedrevs_preview' CSS class
+	 * @param bool $background Whether to add the 'flaggedrevs_preview' CSS class (the blue background)
 	 *   (the blue background)
 	 * @return void
 	 */
@@ -1473,7 +1485,7 @@ class FlaggablePageView extends ContextSource {
 	 *   (i)  Show a tag with some explanation for the diff
 	 *   (ii) List any template/file changes pending review
 	 *
-	 * @param $diff
+	 * @param string $diff
 	 * @param Revision $oldRev
 	 * @param Revision $newRev
 	 */

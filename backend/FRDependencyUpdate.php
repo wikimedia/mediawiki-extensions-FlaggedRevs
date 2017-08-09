@@ -24,7 +24,7 @@ class FRDependencyUpdate {
 	}
 
 	/**
-	 * @param integer $mode FRDependencyUpdate::IMMEDIATE/FRDependencyUpdate::DEFERRED
+	 * @param int $mode FRDependencyUpdate::IMMEDIATE/FRDependencyUpdate::DEFERRED
 	 */
 	public function doUpdate( $mode = self::IMMEDIATE ) {
 		$deps = [];
