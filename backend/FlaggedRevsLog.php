@@ -7,9 +7,9 @@ class FlaggedRevsLog {
 	 * @param array $dims
 	 * @param array $oldDims
 	 * @param string $comment
-	 * @param int $revId, revision ID
-	 * @param int $stableId, prior stable revision ID
-	 * @param bool $approve, approved? (otherwise unapproved)
+	 * @param int $revId revision ID
+	 * @param int $stableId prior stable revision ID
+	 * @param bool $approve approved? (otherwise unapproved)
 	 * @param bool $auto
 	 * @param User $user performing the action
 	 */

@@ -7,7 +7,7 @@
 class FlaggedRevsUISetup {
 	/**
 	 * Register FlaggedRevs hooks.
-	 * @param $hooks Array $wgHooks (assoc array of hooks and handlers)
+	 * @param array &$hooks Array $wgHooks (assoc array of hooks and handlers)
 	 * @return void
 	 */
 	public static function defineHookHandlers( array &$hooks ) {
@@ -50,7 +50,7 @@ class FlaggedRevsUISetup {
 
 	/**
 	 * Register FlaggedRevs special page cache updates as needed.
-	 * @param array $updates $wgSpecialPageCacheUpdates (assoc array of special page updaters)
+	 * @param array &$updates $wgSpecialPageCacheUpdates (assoc array of special page updaters)
 	 * @return void
 	 */
 	public static function defineSpecialPageCacheUpdates( array &$updates ) {

@@ -762,9 +762,9 @@ class FlaggedRevsHooks {
 
 	/**
 	 * Check if a user has enough implicitly reviewed edits (before stable version)
-	 * @param $user User
-	 * @param $editsReq int
-	 * @param $seconds int
+	 * @param User $user
+	 * @param int $editsReq
+	 * @param int $seconds
 	 * @return bool
 	 */
 	protected static function reviewedEditsCheck( User $user, $editsReq, $seconds = 0 ) {
@@ -1076,8 +1076,8 @@ class FlaggedRevsHooks {
 
 	/**
 	 * Handler for EchoGetDefaultNotifiedUsers hook.
-	 * @param $event EchoEvent to get implicitly subscribed users for
-	 * @param &$users Array to append implicitly subscribed users to.
+	 * @param EchoEvent $event EchoEvent to get implicitly subscribed users for
+	 * @param array &$users Array to append implicitly subscribed users to.
 	 * @return bool true in all cases
 	 */
 	public static function onEchoGetDefaultNotifiedUsers( $event, &$users ) {
@@ -1091,7 +1091,7 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	 * @param array $updateFields
+	 * @param array &$updateFields
 	 * @return bool
 	 */
 	public static function onUserMergeAccountFields( array &$updateFields ) {

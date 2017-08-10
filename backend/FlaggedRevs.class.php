@@ -483,8 +483,8 @@ class FlaggedRevs {
 	 * Returns true if a user can set $flags for a revision via review.
 	 * Requires the same for $oldflags if given.
 	 * @param User $user
-	 * @param array $flags, suggested flags
-	 * @param array $oldflags, pre-existing flags
+	 * @param array $flags suggested flags
+	 * @param array $oldflags pre-existing flags
 	 * @return bool
 	 */
 	public static function userCanSetFlags( $user, array $flags, $oldflags = [] ) {
@@ -615,9 +615,9 @@ class FlaggedRevs {
 	/**
 	 * Update the page tables with a new stable version.
 	 * @param WikiPage|Title $page
-	 * @param FlaggedRevision|null $sv, the new stable version (optional)
-	 * @param FlaggedRevision|null $oldSv, the old stable version (optional)
-	 * @param Object editInfo Article edit info about the current revision (optional)
+	 * @param FlaggedRevision|null $sv the new stable version (optional)
+	 * @param FlaggedRevision|null $oldSv the old stable version (optional)
+	 * @param Object $editInfo Article edit info about the current revision (optional)
 	 * @return bool stable version text/file changed and FR_INCLUDES_STABLE
 	 * @throws Exception
 	 */
@@ -693,7 +693,7 @@ class FlaggedRevs {
 	/**
 	 * @param Page $article
 	 * @param ParserOutput $stableOut
-	 * @param integer $mode FRDependencyUpdate::DEFERRED/FRDependencyUpdate::IMMEDIATE
+	 * @param int $mode FRDependencyUpdate::DEFERRED/FRDependencyUpdate::IMMEDIATE
 	 * Updates the stable-only cache dependency table
 	 */
 	public static function updateStableOnlyDeps( Page $article, ParserOutput $stableOut, $mode ) {

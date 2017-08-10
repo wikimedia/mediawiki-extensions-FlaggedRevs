@@ -15,8 +15,8 @@ class FlaggedRevsXML {
 
 	/**
 	 * Get a selector of reviewable namespaces
-	 * @param int $selected, namespace selected
-	 * @param $all Mixed: Value of an item denoting all namespaces, or null to omit
+	 * @param int $selected namespace selected
+	 * @param mixed $all Value of an item denoting all namespaces, or null to omit
 	 * @return string
 	 */
 	public static function getNamespaceMenu( $selected = null, $all = null ) {
@@ -56,8 +56,8 @@ class FlaggedRevsXML {
 
 	/**
 	 * Get a selector of review levels. Used for filters.
-	 * @param int $selected, selected level
-	 * @param string $all, all selector msg?
+	 * @param int $selected selected level
+	 * @param string $all all selector msg?
 	 * @param int $max max level?
 	 * @return string
 	 */
@@ -136,7 +136,7 @@ class FlaggedRevsXML {
 
 	/**
 	 * Get a selector of "approved"/"unapproved". Used for filters.
-	 * @param int $selected, selected level
+	 * @param int $selected selected level
 	 * @return string
 	 */
 	public static function getStatusFilterMenu( $selected = null ) {
@@ -153,7 +153,7 @@ class FlaggedRevsXML {
 
 	/**
 	 * Get a selector of "auto"/"manual". Used for filters.
-	 * @param int $selected, selected level
+	 * @param int $selected selected level
 	 * @return string
 	 */
 	public static function getAutoFilterMenu( $selected = null ) {
@@ -169,7 +169,7 @@ class FlaggedRevsXML {
 
 	/**
 	 * @param int $quality
-	 * @return string, css color for this quality
+	 * @return string css color for this quality
 	 */
 	public static function getQualityColor( $quality ) {
 		if ( $quality === false ) {
@@ -194,7 +194,7 @@ class FlaggedRevsXML {
 	/**
 	 * @param array $flags
 	 * @param bool $prettyBox
-	 * @param string $css, class to wrap box in
+	 * @param string $css class to wrap box in
 	 * @return string
 	 * Generates a review box/tag
 	 */
@@ -238,11 +238,11 @@ class FlaggedRevsXML {
 	}
 
 	/**
-	 * @param FlaggedRevision $frev, the reviewed version
+	 * @param FlaggedRevision $frev the reviewed version
 	 * @param string $shtml Short message HTML
-	 * @param int $revsSince, revisions since review
+	 * @param int $revsSince revisions since review
 	 * @param string $type (stable/draft/oldstable)
-	 * @param bool $synced, does stable=current and this is one of them?
+	 * @param bool $synced does stable=current and this is one of them?
 	 * @return string
 	 * Generates a review box using a table using FlaggedRevsXML::addTagRatings()
 	 */
@@ -335,7 +335,7 @@ class FlaggedRevsXML {
 
 	/**
 	 * Generates (show/hide) JS toggle HTML
-	 * @param  $href string|null If set, make the toggle link link to this URL and don't hide it
+	 * @param string|null $href If set, make the toggle link link to this URL and don't hide it
 	 * @return string
 	 */
 	public static function diffToggle( $href = null ) {
@@ -432,6 +432,10 @@ class FlaggedRevsXML {
 
 	/**
 	 * Same as pendingEditNotice(), but returns a Message object.
+	 * @param FlaggableWikiPage $flaggedArticle
+	 * @param FlaggedRevision $frev
+	 * @param int $revsSince
+	 * @return Message
 	 */
 	public static function pendingEditNoticeMessage( $flaggedArticle, $frev, $revsSince ) {
 		global $wgLang;

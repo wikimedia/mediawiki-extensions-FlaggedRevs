@@ -528,7 +528,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * @param string $tmpP
 	 * @param string $imgP
 	 * @param string $imgV
-	 * @param integer $rid rev ID
+	 * @param int $rid rev ID
 	 * @param string $sessKey Session key
 	 * @return string
 	 */
@@ -545,9 +545,9 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 *
 	 * RecentChange should only be passed in when an RC item is saved.
 	 *
-	 * @param $rev Revision|RecentChange
-	 * @param $patrol string "patrol" or "unpatrol"
-	 * @param $srev FlaggedRevision|null The new stable version
+	 * @param Revision|RecentChange $rev
+	 * @param string $patrol "patrol" or "unpatrol"
+	 * @param FlaggedRevision|null $srev The new stable version
 	 * @return void
 	 */
 	public static function updateRecentChanges( $rev, $patrol, $srev ) {
@@ -603,10 +603,10 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 	/**
 	 * Get template and image parameters from parser output to use on forms.
-	 * @param $templateIDs Array (from ParserOutput/OutputPage->mTemplateIds)
-	 * @param $imageSHA1Keys Array (from ParserOutput/OutputPage->mImageTimeKeys)
-	 * @param $fileVersion Array|null version of file for File: pages (time,sha1)
-	 * @return [ templateParams, imageParams, fileVersion ]
+	 * @param array $templateIDs Array (from ParserOutput/OutputPage->mTemplateIds)
+	 * @param array $imageSHA1Keys Array (from ParserOutput/OutputPage->mImageTimeKeys)
+	 * @param array|null $fileVersion Array|null version of file for File: pages (time,sha1)
+	 * @return array [ templateParams, imageParams, fileVersion ]
 	 */
 	public static function getIncludeParams(
 		array $templateIDs, array $imageSHA1Keys, $fileVersion
