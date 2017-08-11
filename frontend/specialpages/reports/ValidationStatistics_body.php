@@ -314,7 +314,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 
 		$dbr = wfGetDB( DB_SLAVE, 'vslow' );
 		$limit = (int)$wgFlaggedRevsStats['topReviewersCount'];
-		$seconds = 3600*$wgFlaggedRevsStats['topReviewersHours'];
+		$seconds = 3600 * $wgFlaggedRevsStats['topReviewersHours'];
 		$cutoff = $dbr->timestamp( time() - $seconds );
 		$res = $dbr->select( 'logging',
 			[ 'log_user', 'COUNT(*) AS reviews' ],

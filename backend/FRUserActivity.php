@@ -41,7 +41,7 @@ class FRUserActivity {
 		);
 
 		# Save new value to cache (more aggresive for larger counts)
-		$wgMemc->set( $key, $count, ( $count > 100 ) ? 30*60 : 5*60 );
+		$wgMemc->set( $key, $count, ( $count > 100 ) ? 30 * 60 : 5 * 60 );
 
 		return $count;
 	}

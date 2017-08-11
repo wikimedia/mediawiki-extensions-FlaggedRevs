@@ -1003,7 +1003,7 @@ class FlaggedRevsHooks {
 				break;
 			case APCOND_FR_MAXREVERTEDEDITRATIO:
 				$p = FRUserCounters::getParams( $user );
-				$result = ( $p && $params[0]*$user->getEditCount() >= $p['revertedEdits'] );
+				$result = ( $p && $params[0] * $user->getEditCount() >= $p['revertedEdits'] );
 				break;
 			case APCOND_FR_NEVERDEMOTED: // b/c
 				$p = FRUserCounters::getParams( $user );

@@ -153,7 +153,7 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 					'all'
 				]
 			],
-			'filterlevel' =>  [
+			'filterlevel' => [
 				ApiBase::PARAM_DFLT => null,
 				ApiBase::PARAM_TYPE => 'integer',
 				ApiBase::PARAM_MIN  => 0,

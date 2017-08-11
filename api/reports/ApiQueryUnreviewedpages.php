@@ -147,7 +147,7 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 					'all'
 				]
 			],
-			'filterlevel' =>  [
+			'filterlevel' => [
 				ApiBase::PARAM_DFLT => 0,
 				ApiBase::PARAM_TYPE => 'integer',
 				ApiBase::PARAM_MIN  => 0,

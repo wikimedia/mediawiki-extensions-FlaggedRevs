@@ -22,7 +22,7 @@ class FlaggedRevsReviewLogFormatter extends LogFormatter {
 
 	public function getActionLinks() {
 		$title = $this->entry->getTarget();
-		$params =  $this->entry->getParameters();
+		$params = $this->entry->getParameters();
 		$links = '';
 		# Show link to page with oldid=x as well as the diff to the former stable rev.
 		# Param format is <rev id, last stable id, rev timestamp>.

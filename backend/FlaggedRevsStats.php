@@ -318,7 +318,7 @@ class FlaggedRevsStats {
 		$encMaxTS = $dbr->addQuotes( $dbr->timestamp( $maxTSUnix ) );
 		# Use a one week time range
 		$days = 7;
-		$minTSUnix = $maxTSUnix - $days*86400;
+		$minTSUnix = $maxTSUnix - $days * 86400;
 		$encMinTS = $dbr->addQuotes( $dbr->timestamp( $minTSUnix ) );
 		# Approximate the number rows to scan
 		$rows = $dbr->estimateRowCount( 'revision', '1',
@@ -326,7 +326,7 @@ class FlaggedRevsStats {
 		# If the range doesn't have many rows (like on small wikis), use 30 days
 		if ( $rows < 500 ) {
 			$days = 30;
-			$minTSUnix = $maxTSUnix - $days*86400;
+			$minTSUnix = $maxTSUnix - $days * 86400;
 			$encMinTS = $dbr->addQuotes( $dbr->timestamp( $minTSUnix ) );
 			# Approximate rows to scan
 			$rows = $dbr->estimateRowCount( 'revision', '1',
@@ -334,7 +334,7 @@ class FlaggedRevsStats {
 			# If the range doesn't have many rows (like on really tiny wikis), use 90 days
 			if ( $rows < 500 ) {
 				$days = 90;
-				$minTSUnix = $maxTSUnix - $days*86400;
+				$minTSUnix = $maxTSUnix - $days * 86400;
 			}
 		}
 		$sampleSize = 1500; // sample size
@@ -356,9 +356,9 @@ class FlaggedRevsStats {
 					'page_namespace' => FlaggedRevs::getReviewNamespaces()
 				]
 			);
-			$stash->set( $ecKey, $edits, 14*24*3600 ); // cache for 2 weeks
+			$stash->set( $ecKey, $edits, 14 * 24 * 3600 ); // cache for 2 weeks
 		}
-		$mod = max( floor( $edits/$sampleSize ), 1 ); # $mod >= 1
+		$mod = max( floor( $edits / $sampleSize ), 1 ); # $mod >= 1
 		# For edits that started off pending, how long do they take to get reviewed?
 		# Edits started off pending if made when a flagged rev of the page already existed.
 		# Get the *first* reviewed rev *after* each edit and get the time difference.
@@ -406,15 +406,15 @@ class FlaggedRevsStats {
 				$times[] = $time;
 			}
 			$sampleSize = count( $times );
-			$aveRT = ( $secondsR + $secondsP )/$sampleSize; // sample mean
+			$aveRT = ( $secondsR + $secondsP ) / $sampleSize; // sample mean
 			sort( $times ); // order smallest -> largest
 			// Sample median
-			$rank = intval( round( count( $times )/2 + .5 ) - 1 );
+			$rank = intval( round( count( $times ) / 2 + .5 ) - 1 );
 			$medianRT = $times[$rank];
 			// Make percentile tabulation data
 			$doPercentiles = [ 35, 45, 55, 65, 75, 85, 90, 95 ];
 			foreach ( $doPercentiles as $percentile ) {
-				$rank = intval( round( $percentile*count( $times )/100 + .5 ) - 1 );
+				$rank = intval( round( $percentile * count( $times ) / 100 + .5 ) - 1 );
 				$rPerTable[$percentile] = $times[$rank];
 			}
 			$result['average']       = $aveRT;

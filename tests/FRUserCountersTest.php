@@ -64,7 +64,7 @@ class FRUserCountersTest extends PHPUnit_Framework_TestCase {
 
 		$copyP = $p;
 		FRUserCounters::updateUserParams( $copyP, $article, "Manual edit comment" );
-		$this->assertEquals( $p['editComments']+1, $copyP['editComments'], "Manual summary" );
+		$this->assertEquals( $p['editComments'] + 1, $copyP['editComments'], "Manual summary" );
 
 		$copyP = $p;
 		FRUserCounters::updateUserParams( $copyP, $article, "/* section */" );
@@ -72,7 +72,7 @@ class FRUserCountersTest extends PHPUnit_Framework_TestCase {
 
 		$copyP = $p;
 		FRUserCounters::updateUserParams( $copyP, $article, "edit summary" );
-		$this->assertEquals( $p['totalContentEdits']+1, $copyP['totalContentEdits'],
+		$this->assertEquals( $p['totalContentEdits'] + 1, $copyP['totalContentEdits'],
 			"Content edit count on content edit" );
 
 		$expected = $p['uniqueContentPages'];
@@ -85,7 +85,7 @@ class FRUserCountersTest extends PHPUnit_Framework_TestCase {
 
 		$copyP = $p;
 		FRUserCounters::updateUserParams( $copyP, $article, "Manual edit comment" );
-		$this->assertEquals( $p['editComments']+1, $copyP['editComments'], "Manual summary" );
+		$this->assertEquals( $p['editComments'] + 1, $copyP['editComments'], "Manual summary" );
 
 		$copyP = $p;
 		FRUserCounters::updateUserParams( $copyP, $article, "/* section */" );
