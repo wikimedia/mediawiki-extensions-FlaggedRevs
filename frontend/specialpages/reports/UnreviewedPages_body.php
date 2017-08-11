@@ -44,9 +44,9 @@ class UnreviewedPages extends SpecialPage {
 			$this->getLanguage()->formatNum( $this->pager->getNumRows() ) );
 
 		# show/hide links
-		$showhide = [ $this->msg( 'show' )->escaped(), $this->msg( 'hide' )->escaped() ];
+		$showhide = [ $this->msg( 'show' )->text(), $this->msg( 'hide' )->text() ];
 		$onoff = 1 - $this->hideRedirs;
-		$link = Linker::link( $this->getPageTitle(), $showhide[$onoff], [],
+		$link = $this->getLinkRenderer()->makeLink( $this->getPageTitle(), $showhide[$onoff], [],
 			[ 'hideredirs' => $onoff, 'category' => $this->category,
 				'namespace' => $this->namespace ]
 		);
@@ -108,11 +108,12 @@ class UnreviewedPages extends SpecialPage {
 		$title = Title::newFromRow( $row );
 
 		$stxt = $underReview = $watching = '';
-		$link = Linker::link( $title, null, [], [ 'redirect' => 'no' ] );
+		$linkRenderer = $this->getLinkRenderer();
+		$link = $linkRenderer->makeLink( $title, null, [], [ 'redirect' => 'no' ] );
 		$dirmark = $this->getLanguage()->getDirMark();
-		$hist = Linker::linkKnown(
+		$hist = $linkRenderer->makeKnownLink(
 			$title,
-			$this->msg( 'hist' )->escaped(),
+			$this->msg( 'hist' )->text(),
 			[],
 			[ 'action' => 'history' ]
 		);

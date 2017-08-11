@@ -60,7 +60,7 @@ class ReviewedVersions extends UnlistedSpecialPage {
 		$lev = ( $row->fr_quality >= 1 )
 			? $this->msg( 'revreview-hist-quality' )->escaped()
 			: $this->msg( 'revreview-hist-basic' )->escaped();
-		$link = Linker::link(
+		$link = $this->getLinkRenderer()->makeLink(
 			$this->page,
 			$rdatim,
 			[],

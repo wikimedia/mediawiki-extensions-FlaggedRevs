@@ -225,14 +225,17 @@ class PendingChanges extends SpecialPage {
 		$title = Title::newFromRow( $row );
 		$stxt = ChangesList::showCharacterDifference( $row->rev_len, $row->page_len );
 		# Page links...
-		$link = Linker::link( $title );
-		$hist = Linker::linkKnown( $title,
-			$this->msg( 'hist' )->escaped(),
+		$linkRenderer = $this->getLinkRenderer();
+		$link = $linkRenderer->makeLink( $title );
+		$hist = $linkRenderer->makeKnownLink(
+			$title,
+			$this->msg( 'hist' )->text(),
 			[],
 			[ 'action' => 'history' ]
 		);
-		$review = Linker::linkKnown( $title,
-			$this->msg( 'pendingchanges-diff' )->escaped(),
+		$review = $linkRenderer->makeKnownLink(
+			$title,
+			$this->msg( 'pendingchanges-diff' )->text(),
 			[],
 			[ 'diff' => 'cur', 'oldid' => $row->stable ] + FlaggedRevs::diffOnlyCGI()
 		);

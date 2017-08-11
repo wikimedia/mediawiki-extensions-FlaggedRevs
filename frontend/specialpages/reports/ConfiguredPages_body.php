@@ -71,11 +71,12 @@ class ConfiguredPages extends SpecialPage {
 	public function formatRow( $row ) {
 		$title = Title::newFromRow( $row );
 		# Link to page
-		$link = Linker::link( $title );
+		$linkRenderer = $this->getLinkRenderer();
+		$link = $linkRenderer->makeLink( $title );
 		# Link to page configuration
-		$config = Linker::linkKnown(
+		$config = $linkRenderer->makeKnownLink(
 			SpecialPage::getTitleFor( 'Stabilization' ),
-			$this->msg( 'configuredpages-config' )->escaped(),
+			$this->msg( 'configuredpages-config' )->text(),
 			[],
 			'page=' . $title->getPrefixedUrl()
 		);

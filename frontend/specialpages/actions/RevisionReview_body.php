@@ -182,11 +182,12 @@ class RevisionReview extends UnlistedSpecialPage {
 	}
 
 	protected function getSpecialLinks() {
+		$linkRenderer = $this->getLinkRenderer();
 		$s = '<p>' . $this->msg( 'returnto' )->rawParams(
-			Linker::linkKnown( SpecialPage::getTitleFor( 'UnreviewedPages' ) )
+			$linkRenderer->makeKnownLink( SpecialPage::getTitleFor( 'UnreviewedPages' ) )
 		)->escaped() . '</p>';
 		$s .= '<p>' . $this->msg( 'returnto' )->rawParams(
-			Linker::linkKnown( SpecialPage::getTitleFor( 'PendingChanges' ) )
+			$linkRenderer->makeKnownLink( SpecialPage::getTitleFor( 'PendingChanges' ) )
 		)->escaped() . '</p>';
 		return $s;
 	}
