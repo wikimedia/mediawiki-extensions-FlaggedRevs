@@ -34,6 +34,7 @@
 	"group-autoreview": "بەکارھێنەرانی تاوتوێکراوی خۆگەڕ",
 	"group-autoreview-member": "{{GENDER:$1|بەکارھێنەری تاوتوێکراوی خۆگەڕ}}",
 	"grouppage-autoreview": "{{ns:project}}:بەکارھێنەرانی تاوتوێکراوی خۆگەر",
+	"logentry-review-approve-auto": "$1 بە خۆگەڕی بەسەر وەشانێکی 3$دا چوویەوە",
 	"logentry-stable-config": "$1 {{GENDER:$2|ھەڵبژاردەی}} وەشانی جێگیری بۆ $3 $4 دانا",
 	"revreview-hist-draft": "وەشانی تاوتوێ نەکراو",
 	"revreview-hist-pending": "وەشانی ھەڵواسراو",

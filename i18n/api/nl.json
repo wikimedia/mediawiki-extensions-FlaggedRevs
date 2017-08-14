@@ -2,9 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Sjoerddebruin",
-			"Robin0van0der0vliet"
+			"Robin0van0der0vliet",
+			"Mainframe98",
+			"Robin van der Vliet"
 		]
 	},
+	"apihelp-query+unreviewedpages-param-dir": "Richting om in te sorteren.",
+	"apihelp-query+unreviewedpages-param-namespace": "De naamruimte om door te lopen.",
 	"apihelp-stabilize-param-reason": "Reden.",
 	"apihelp-stabilize-param-watch": "Deze pagina volgen."
 }

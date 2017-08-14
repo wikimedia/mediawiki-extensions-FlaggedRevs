@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sahran"
+			"Sahran",
+			"Uzdil"
 		]
 	},
 	"validationstatistics-ns": "ئات بوشلۇقى",
 	"validationstatistics-total": "بەتلەر",
-	"validationstatistics-old": "زاماندىن قالغان",
+	"validationstatistics-old": "ۋاقىتى ئۆتكەن",
 	"validationstatistics-user": "ئىشلەتكۈچى",
 	"validationstatistics-reviews": "باھالار"
 }

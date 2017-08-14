@@ -15,7 +15,8 @@
 			"زكريا",
 			"محمد أحمد عبد الفتاح",
 			"Shbib Al-Subaie",
-			"علاء"
+			"علاء",
+			"ديفيد"
 		]
 	},
 	"action-review": "راجع المراجعات",
@@ -76,7 +77,7 @@
 	"reviewer": "مراجع",
 	"revreview-accuracy": "الدقة",
 	"revreview-accuracy-0": "غير مقبول",
-	"revreview-accuracy-1": "منظورة",
+	"revreview-accuracy-1": "تم الفحص",
 	"revreview-accuracy-2": "دقيقة",
 	"revreview-accuracy-3": "مصادرها جيدة",
 	"revreview-accuracy-4": "مميزة",

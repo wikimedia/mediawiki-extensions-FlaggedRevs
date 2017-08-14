@@ -65,7 +65,7 @@
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">השינויים שלך עדיין אינם בגרסה היציבה. יש שינויים קודמים שממתינים לסקירה.</span>\n\nנא לסקור את כל השינויים המופיעים להלן כדי שהעריכות שלך תופענה בגרסה היציבה.",
 	"revreview-update-includes": "עודכנו תבניות או קבצים (הדפים שלא נסקרו מובלטים):",
 	"revreview-reject-text-list": "השלמת פעולה זו '''תדחה''' את השינויים בקוד המקור של {{PLURAL:$1|הגרסה הבאה|הגרסאות הבאות}} של [[:$2|$2]]:",
-	"revreview-reject-text-revto": "פעולה זו תשחזר את העמוד בחזרה לגרסה [{{fullurl:$1|oldid=$2}} מתאריך $3].",
+	"revreview-reject-text-revto": "פעולה זו תשחזר את הדף בחזרה לגרסה [{{fullurl:$1|oldid=$2}} מתאריך $3].",
 	"revreview-reject-summary": "תקציר העריכה:",
 	"revreview-reject-confirm": "דחיית שינויים אלה",
 	"revreview-reject-cancel": "ביטול",
