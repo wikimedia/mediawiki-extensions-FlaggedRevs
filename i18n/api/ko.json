@@ -5,6 +5,8 @@
 		]
 	},
 	"apihelp-stabilize-summary-general": "문서 안정성 설정을 변경합니다.",
+	"apihelp-stabilize-param-reason": "이유입니다.",
+	"apihelp-stabilize-param-watch": "이 문서를 주시합니다.",
 	"apierror-flaggedrevs-notsamepage": "판들이 동일 문서에 속하지 않습니다.",
 	"apierror-flaggedrevs-pagedoesnotexist": "지정된 페이지가 존재하지 않습니다."
 }

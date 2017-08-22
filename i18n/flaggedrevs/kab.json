@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Agurzil"
+			"Agurzil",
+			"Belkacem77"
 		]
 	},
-	"revreview-revnotfound": "Tasiwelt taqdimt n usebter-agi i testeqsiḍ ulac-it.\nSsenqed URL i tesseqdac."
+	"revreview-revnotfound": "Tasiwelt taqdimt n usebter-agi i testeqsiḍ ulac-it.\nSsenqed URL i tesseqdac.",
+	"revreview-restriction-none": "ulac",
+	"tooltip-ca-current": "Wali ibeddilen yettraǧun n usebter-agi"
 }
