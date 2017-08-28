@@ -6,5 +6,6 @@
 	},
 	"editor": "Eiditor",
 	"grouppage-editor": "{{ns:project}}:Eiditor",
-	"grouppage-reviewer": "{{ns:project}}:Rebisor"
+	"grouppage-reviewer": "{{ns:project}}:Rebisor",
+	"revreview-levelfilter": "Nible:"
 }
