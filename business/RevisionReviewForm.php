@@ -271,8 +271,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * @return mixed (true on success, error string on failure)
 	 */
 	public function doSubmit() {
-		global $wgContLang;
-
 		# Double-check permissions
 		if ( !$this->isAllowed() ) {
 			return 'review_denied';
@@ -332,8 +330,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			}
 			$baseRevId = $newRev->isCurrent() ? $oldRev->getId() : 0;
 
-			# Truncate for whole multibyte characters
-			$comment = $wgContLang->truncate( $this->getComment(), 255 );
+			$comment = $this->getComment();
 
 			# Actually make the edit...
 			$editStatus = $article->doEditContent(
