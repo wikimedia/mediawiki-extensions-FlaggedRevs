@@ -101,7 +101,7 @@ class ReviewedPages extends SpecialPage {
 			SpecialPage::getTitleFor( 'ReviewedVersions' ),
 			$this->msg( 'reviewedpages-all' )->text(),
 			[],
-			'page=' . $title->getPrefixedUrl()
+			[ 'page' => $title->getPrefixedUrl() ]
 		);
 		# Link to highest tier rev
 		$best = '';
@@ -110,7 +110,7 @@ class ReviewedPages extends SpecialPage {
 				$title,
 				$this->msg( 'reviewedpages-best' )->text(),
 				[],
-				'stableid=best'
+				[ 'stableid' => 'best' ]
 			);
 			$best = " [$best]";
 		}

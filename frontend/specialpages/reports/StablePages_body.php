@@ -72,18 +72,18 @@ class StablePages extends SpecialPage {
 		$link = $linkRenderer->makeLink( $title );
 		// Helpful utility links
 		$utilLinks = [];
-		$utilLinks[] = $linkRenderer->makeLink(
+		$utilLinks[] = $linkRenderer->makeKnownLink(
 			$title,
 			$this->msg( 'stablepages-config' )->text(),
-			[], [ 'action' => 'protect' ], 'known' );
-		$utilLinks[] = $linkRenderer->makeLink(
+			[], [ 'action' => 'protect' ] );
+		$utilLinks[] = $linkRenderer->makeKnownLink(
 			$title,
 			$this->msg( 'history' )->text(),
-			[], [ 'action' => 'history' ], 'known' );
-		$utilLinks[] = $linkRenderer->makeLink(
+			[], [ 'action' => 'history' ] );
+		$utilLinks[] = $linkRenderer->makeKnownLink(
 			SpecialPage::getTitleFor( 'Log', 'stable' ),
 			$this->msg( 'stable-logpage' )->text(),
-			[], [ 'page' => $title->getPrefixedText() ], 'known' );
+			[], [ 'page' => $title->getPrefixedText() ] );
 		// Autoreview/review restriction level
 		$restr = '';
 		if ( $row->fpc_level != '' ) {
