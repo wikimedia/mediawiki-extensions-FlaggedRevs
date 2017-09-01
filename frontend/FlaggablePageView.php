@@ -780,7 +780,7 @@ class FlaggablePageView extends ContextSource {
 	 * Get collapsible diff-to-stable html to add to the review notice as needed
 	 * @param FlaggedRevision $srev stable version
 	 * @param bool $quality revision is quality
-	 * @return string, the html line (either "" or "<diff toggle><diff div>")
+	 * @return string the html line (either "" or "<diff toggle><diff div>")
 	 */
 	protected function getTopDiffToggle( FlaggedRevision $srev, $quality ) {
 		$reqUser = $this->getUser();

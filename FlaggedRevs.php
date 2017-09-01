@@ -140,7 +140,7 @@ $wgFlaggedRevsAutopromote = [
 	'editComments'          => 50, # number of manual edit summaries used
 	'userpageBytes'         => 0, # size of userpage (use 0 to not require a userpage)
 	'neverBlocked'          => true, # username was never blocked before?
-	'maxRevertedEditRatio'  => .03, # max fraction of edits reverted via "rollback"/"undo"
+	'maxRevertedEditRatio'  => 0.03, # max fraction of edits reverted via "rollback"/"undo"
 ];
 
 # Define when users get to have their own edits auto-reviewed. Set to false to disable.

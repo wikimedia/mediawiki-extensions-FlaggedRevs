@@ -529,7 +529,7 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * @return string, filename accosciated with this revision.
+	 * @return string filename accosciated with this revision.
 	 * This returns NULL for non-image page revisions.
 	 */
 	public function getFileName() {
@@ -537,7 +537,7 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * @return string, sha1 key accosciated with this revision.
+	 * @return string sha1 key accosciated with this revision.
 	 * This returns NULL for non-image page revisions.
 	 */
 	public function getFileSha1() {
@@ -545,7 +545,7 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * @return string, timestamp accosciated with this revision.
+	 * @return string timestamp accosciated with this revision.
 	 * This returns NULL for non-image page revisions.
 	 */
 	public function getFileTimestamp() {

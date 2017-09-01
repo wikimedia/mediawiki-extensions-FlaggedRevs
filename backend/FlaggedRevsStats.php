@@ -409,12 +409,12 @@ class FlaggedRevsStats {
 			$aveRT = ( $secondsR + $secondsP ) / $sampleSize; // sample mean
 			sort( $times ); // order smallest -> largest
 			// Sample median
-			$rank = intval( round( count( $times ) / 2 + .5 ) - 1 );
+			$rank = intval( round( count( $times ) / 2 + 0.5 ) - 1 );
 			$medianRT = $times[$rank];
 			// Make percentile tabulation data
 			$doPercentiles = [ 35, 45, 55, 65, 75, 85, 90, 95 ];
 			foreach ( $doPercentiles as $percentile ) {
-				$rank = intval( round( $percentile * count( $times ) / 100 + .5 ) - 1 );
+				$rank = intval( round( $percentile * count( $times ) / 100 + 0.5 ) - 1 );
 				$rPerTable[$percentile] = $times[$rank];
 			}
 			$result['average']       = $aveRT;

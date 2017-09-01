@@ -797,7 +797,7 @@ class FlaggedRevs {
 
 	/**
 	 * @param array $flags
-	 * @return bool, is this revision at basic review condition?
+	 * @return bool is this revision at basic review condition?
 	 */
 	public static function isChecked( array $flags ) {
 		self::load();
@@ -806,7 +806,7 @@ class FlaggedRevs {
 
 	/**
 	 * @param array $flags
-	 * @return bool, is this revision at quality review condition?
+	 * @return bool is this revision at quality review condition?
 	 */
 	public static function isQuality( array $flags ) {
 		self::load();
@@ -815,7 +815,7 @@ class FlaggedRevs {
 
 	/**
 	 * @param array $flags
-	 * @return bool, is this revision at pristine review condition?
+	 * @return bool is this revision at pristine review condition?
 	 */
 	public static function isPristine( array $flags ) {
 		self::load();
