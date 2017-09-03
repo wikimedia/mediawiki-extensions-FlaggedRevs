@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bunukwiki"
+			"Bunukwiki",
+			"Benel"
 		]
 	},
 	"flaggedrevs-hidereviewed-hide": "midimut",
+	"revreview-restriction-none": "nayi’",
 	"tooltip-ca-current": "ciwsace kina ayzaay a kasabelih, amiciwsya henay a sasumaday"
 }
