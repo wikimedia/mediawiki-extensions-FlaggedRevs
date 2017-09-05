@@ -26,7 +26,7 @@
 	<arg name="encoding" value="UTF-8" />
 	<rule ref="MediaWiki.NamingConventions.ValidGlobalName">
 		<properties>
-			<property name="ignoreList" type="array" value="$parserMemc,$mediaWiki" />
+			<property name="ignoreList" type="array" value="$mediaWiki" />
 		</properties>
 	</rule>
 </ruleset>
