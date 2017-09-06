@@ -5,9 +5,11 @@
 class FlaggedRevsUIHooks {
 	/**
 	 * Add FlaggedRevs css/js.
+	 *
+	 * @param OutputPage $out
+	 * @return bool
 	 */
-	protected static function injectStyleAndJS() {
-		global $wgOut, $wgUser;
+	protected static function injectStyleAndJS( OutputPage $out ) {
 		static $loadedModules = false;
 		if ( $loadedModules ) {
 			return true; // don't double-load
@@ -19,16 +21,23 @@ class FlaggedRevsUIHooks {
 			return true;
 		}
 		# Add main CSS & JS files
-		$wgOut->addModuleStyles( 'ext.flaggedRevs.basic' );
-		$wgOut->addModules( 'ext.flaggedRevs.advanced' );
+		$out->addModuleStyles( 'ext.flaggedRevs.basic' );
+		$out->addModules( 'ext.flaggedRevs.advanced' );
 		# Add review form JS for reviewers
-		if ( $wgUser->isAllowed( 'review' ) ) {
-			$wgOut->addModules( 'ext.flaggedRevs.review' );
-			$wgOut->addModuleStyles( 'ext.flaggedRevs.review.styles' );
+		if ( $out->getUser()->isAllowed( 'review' ) ) {
+			$out->addModules( 'ext.flaggedRevs.review' );
+			$out->addModuleStyles( 'ext.flaggedRevs.review.styles' );
 		}
 		return true;
 	}
 
+	/**
+	 * Hook: MakeGlobalVariablesScript
+	 *
+	 * @param array &$globalVars
+	 * @param OutputPage $out
+	 * @return bool
+	 */
 	public static function injectGlobalJSVars( array &$globalVars, OutputPage $out ) {
 		# Get the review tags on this wiki
 		$rTags = FlaggedRevs::getJSTagParams();
@@ -80,7 +89,7 @@ class FlaggedRevsUIHooks {
 				}
 			}
 			$view->setRobotPolicy(); // set indexing policy
-			self::injectStyleAndJS(); // full CSS/JS
+			self::injectStyleAndJS( $out ); // full CSS/JS
 		} else {
 			self::maybeAddBacklogNotice( $out ); // RC/Watchlist notice
 			self::injectStyleForSpecial( $out ); // try special page CSS
@@ -667,8 +676,16 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
-	public static function onDiffViewHeader( $diff, $oldRev, $newRev ) {
-		self::injectStyleAndJS();
+	/**
+	 * Hook: DiffViewHeader
+	 *
+	 * @param DifferenceEngine $diff
+	 * @param Revision|null $oldRev
+	 * @param Revision $newRev
+	 * @return bool
+	 */
+	public static function onDiffViewHeader( DifferenceEngine $diff, $oldRev, $newRev ) {
+		self::injectStyleAndJS( $diff->getOutput() );
 		$view = FlaggablePageView::singleton();
 		$view->setViewFlags( $diff, $oldRev, $newRev );
 		$view->addToDiffView( $diff, $oldRev, $newRev );
