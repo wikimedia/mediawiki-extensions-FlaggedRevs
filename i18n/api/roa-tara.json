@@ -5,6 +5,7 @@
 		]
 	},
 	"apihelp-query+configuredpages-param-namespace": "Le namespace da nuemrà.",
+	"apihelp-query+configuredpages-param-limit": "Quanda pàggene adda turnà.",
 	"apihelp-stabilize-param-reason": "Mutive.",
 	"apihelp-stabilize-param-watch": "'Ndruche sta pàgene.",
 	"apihelp-stabilize-param-expiry-general": "Scadenze pe ste 'mbostaziune.",
