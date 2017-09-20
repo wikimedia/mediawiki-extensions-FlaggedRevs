@@ -31,12 +31,11 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedpage_pending (
   fpp_rev_id integer unsigned NOT NULL,
   -- Time of the first edit after the last revision reviewed to this level
   fpp_pending_since varbinary(14) NOT NULL,
-  
+
   PRIMARY KEY (fpp_page_id,fpp_quality)
 ) /*$wgDBTableOptions*/;
 
-CREATE INDEX /*i*/fpp_quality_pending
-	ON /*_*/flaggedpage_pending (fpp_quality,fpp_pending_since);
+CREATE INDEX /*i*/fpp_quality_pending ON /*_*/flaggedpage_pending (fpp_quality,fpp_pending_since);
 
 -- This stores all of our revision reviews; it is the main table
 -- The template/file version data is stored in the next two tables
@@ -53,7 +52,7 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedrevs (
   fr_timestamp varbinary(14) NOT NULL,
   -- Store the precedence level
   fr_quality tinyint(1) NOT NULL default 0,
-  -- Store tag metadata as newline separated, 
+  -- Store tag metadata as newline separated,
   -- colon separated tag:value pairs
   fr_tags mediumblob NOT NULL,
   -- Comma-separated list of flags:
@@ -74,6 +73,7 @@ CREATE INDEX /*i*/fr_page_time ON /*_*/flaggedrevs (fr_page_id,fr_rev_timestamp)
 CREATE INDEX /*i*/fr_page_qal_rev ON /*_*/flaggedrevs (fr_page_id,fr_quality,fr_rev_id);
 CREATE INDEX /*i*/fr_page_qal_time ON /*_*/flaggedrevs (fr_page_id,fr_quality,fr_rev_timestamp);
 CREATE INDEX /*i*/fr_img_sha1 ON /*_*/flaggedrevs (fr_img_sha1);
+CREATE INDEX /*i*/fr_user ON /*_*/flaggedrevs (fr_user);
 
 -- This stores all of our transclusion revision pointers
 CREATE TABLE IF NOT EXISTS /*_*/flaggedtemplates (
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedtemplates (
   ft_title varchar(255) binary NOT NULL default '',
   -- Revisions ID used when reviewed
   ft_tmp_rev_id integer unsigned NULL,
-  
+
   PRIMARY KEY (ft_rev_id,ft_namespace,ft_title)
 ) /*$wgDBTableOptions*/;
 
@@ -96,7 +96,7 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedimages (
   fi_img_timestamp varbinary(14) NULL,
   -- Statistically unique SHA-1 key
   fi_img_sha1 varbinary(32) NOT NULL default '',
-  
+
   PRIMARY KEY (fi_rev_id,fi_name)
 ) /*$wgDBTableOptions*/;
 
@@ -126,10 +126,8 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedrevs_tracking (
   ftr_title varchar(255) binary NOT NULL default ''
 ) /*$wgDBTableOptions*/;
 
-CREATE UNIQUE INDEX /*i*/frt_from_namespace_title
-	ON /*_*/flaggedrevs_tracking (ftr_from,ftr_namespace,ftr_title);
-CREATE INDEX /*i*/frt_namespace_title_from
-	ON /*_*/flaggedrevs_tracking (ftr_namespace,ftr_title,ftr_from);
+CREATE UNIQUE INDEX /*i*/frt_from_namespace_title ON /*_*/flaggedrevs_tracking (ftr_from,ftr_namespace,ftr_title);
+CREATE INDEX /*i*/frt_namespace_title_from ON /*_*/flaggedrevs_tracking (ftr_namespace,ftr_title,ftr_from);
 
 -- This stores user demotions and stats
 CREATE TABLE IF NOT EXISTS /*_*/flaggedrevs_promote (
