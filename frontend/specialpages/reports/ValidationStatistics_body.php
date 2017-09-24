@@ -14,7 +14,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 		$lang = $this->getLanguage();
 
 		$this->setHeaders();
-		$this->db = wfGetDB( DB_SLAVE );
+		$this->db = wfGetDB( DB_REPLICA );
 
 		$this->maybeUpdate();
 
@@ -315,7 +315,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 			return $data; // cache hit
 		}
 
-		$dbr = wfGetDB( DB_SLAVE, 'vslow' );
+		$dbr = wfGetDB( DB_REPLICA, 'vslow' );
 		$limit = (int)$wgFlaggedRevsStats['topReviewersCount'];
 		$seconds = 3600 * $wgFlaggedRevsStats['topReviewersHours'];
 		$cutoff = $dbr->timestamp( time() - $seconds );

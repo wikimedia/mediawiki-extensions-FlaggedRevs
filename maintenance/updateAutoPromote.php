@@ -23,7 +23,7 @@ class UpdateFRAutoPromote extends Maintenance {
 		$this->output( "Populating and updating flaggedrevs_promote table\n" );
 
 		$commentQuery = CommentStore::newKey( 'rev_comment' )->getJoin();
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$dbw = wfGetDB( DB_MASTER );
 		$start = $dbr->selectField( 'user', 'MIN(user_id)', false, __METHOD__ );
 		$end = $dbr->selectField( 'user', 'MAX(user_id)', false, __METHOD__ );

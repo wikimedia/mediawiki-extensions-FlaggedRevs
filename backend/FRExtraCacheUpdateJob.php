@@ -41,7 +41,7 @@ class FRExtraCacheUpdateJob extends Job {
 			$conds[] = "$fromField <= {$this->params['end']}";
 		}
 		# Run query to get page Ids
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$res = $dbr->select( $this->params['table'], $fromField, $conds, __METHOD__ );
 		# Invalidate the pages
 		$update->invalidateIDs( $res );

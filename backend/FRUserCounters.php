@@ -69,7 +69,7 @@ class FRUserCounters {
 				$options[] = 'FOR UPDATE';
 			}
 		} else {
-			$db = wfGetDB( DB_SLAVE, [], $dBName );
+			$db = wfGetDB( DB_REPLICA, [], $dBName );
 		}
 		return $db->selectRow( 'flaggedrevs_promote',
 			'frp_user_params',

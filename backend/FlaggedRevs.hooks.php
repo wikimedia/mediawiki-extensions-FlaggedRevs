@@ -729,7 +729,7 @@ class FlaggedRevsHooks {
 		# Convert days to seconds...
 		$spacingReq = $spacingReq * 24 * 3600;
 		# Check the oldest edit
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$lower = $dbr->selectField( 'revision', 'rev_timestamp',
 			[ 'rev_user' => $user->getId() ],
 			__METHOD__,
@@ -768,7 +768,7 @@ class FlaggedRevsHooks {
 	 * @return bool
 	 */
 	protected static function reviewedEditsCheck( User $user, $editsReq, $seconds = 0 ) {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		// Get cutoff timestamp (excludes edits that are too recent)
 		$baseConds = [
 			'rev_user' => $user->getId(),
@@ -812,7 +812,7 @@ class FlaggedRevsHooks {
 	 * Checks if $user was previously blocked since $cutoff_unixtime
 	 */
 	protected static function wasPreviouslyBlocked( User $user, $cutoff_unixtime = 0 ) {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$conds = [
 			'log_namespace' => NS_USER,
 			'log_title'     => $user->getUserPage()->getDBkey(),
@@ -828,7 +828,7 @@ class FlaggedRevsHooks {
 	}
 
 	protected static function recentEditCount( $uid, $seconds, $limit ) {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		# Get cutoff timestamp (edits that are too recent)
 		$encCutoff = $dbr->addQuotes( $dbr->timestamp( time() - $seconds ) );
 		# Check all recent edits...
@@ -841,7 +841,7 @@ class FlaggedRevsHooks {
 	}
 
 	protected static function recentContentEditCount( $uid, $seconds, $limit ) {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		# Get cutoff timestamp (edits that are too recent)
 		$encCutoff = $dbr->addQuotes( $dbr->timestamp( time() - $seconds ) );
 		# Check all recent content edits...

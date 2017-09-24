@@ -890,7 +890,7 @@ class FlaggablePageView extends ContextSource {
 			// B/C, may be stored in associated image version metadata table
 			// @TODO: remove, updateTracking.php does this
 			if ( !$time ) {
-				$dbr = wfGetDB( DB_SLAVE );
+				$dbr = wfGetDB( DB_REPLICA );
 				$time = $dbr->selectField( 'flaggedimages',
 					'fi_img_timestamp',
 					[ 'fi_rev_id' => $frev->getRevId(),

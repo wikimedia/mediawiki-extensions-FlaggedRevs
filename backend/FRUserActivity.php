@@ -22,7 +22,7 @@ class FRUserActivity {
 		}
 
 		# Get number of active editors watching this page...
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$count = (int)$dbr->selectField(
 			[ 'watchlist', 'user' ],
 			'COUNT(*)',

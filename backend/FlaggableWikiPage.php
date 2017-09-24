@@ -146,7 +146,7 @@ class FlaggableWikiPage extends WikiPage {
 		# Otherwise, fetch result from DB as needed...
 		if ( is_null( $count ) ) {
 			$db = ( $flags & FR_MASTER ) ?
-				wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
+				wfGetDB( DB_MASTER ) : wfGetDB( DB_REPLICA );
 			$srevTS = $db->timestamp( $srev->getRevTimestamp() );
 			$count = $db->selectField( 'revision', 'COUNT(*)',
 				[ 'rev_page' => $this->getId(),
@@ -316,7 +316,7 @@ class FlaggableWikiPage extends WikiPage {
 	 * @return int
 	 */
 	public function getBestFlaggedRevId() {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		# Get the highest quality revision (not necessarily this one).
 		$oldid = $dbr->selectField( [ 'flaggedrevs', 'revision' ],
 			'fr_rev_id',
@@ -387,7 +387,7 @@ class FlaggableWikiPage extends WikiPage {
 		if ( $data === 'fromdb' || $data === 'fromdbmaster' ) {
 			$db = ( $data == 'fromdbmaster' )
 				? wfGetDB( DB_MASTER )
-				: wfGetDB( DB_SLAVE );
+				: wfGetDB( DB_REPLICA );
 			$data = $this->pageDataFromTitle( $db, $this->mTitle );
 		}
 		# Load in primary page data...

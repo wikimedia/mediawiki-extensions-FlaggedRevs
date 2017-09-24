@@ -35,7 +35,7 @@ class FlaggablePageTest extends PHPUnit_Framework_TestCase {
 			$user
 		);
 
-		$data = (array)$article->pageDataFromTitle( wfGetDB( DB_SLAVE ), $title );
+		$data = (array)$article->pageDataFromTitle( wfGetDB( DB_REPLICA ), $title );
 
 		$this->assertEquals( true, array_key_exists( 'fpc_override', $data ),
 			"data->fpc_override field exists" );

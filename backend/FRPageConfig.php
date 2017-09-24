@@ -11,7 +11,7 @@ class FRPageConfig {
 	 */
 	public static function getStabilitySettings( Title $title, $flags = 0 ) {
 		$db = ( $flags & FR_MASTER ) ?
-			wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
+			wfGetDB( DB_MASTER ) : wfGetDB( DB_REPLICA );
 		$row = $db->selectRow( 'flaggedpage_config',
 			self::selectFields(),
 			[ 'fpc_page_id' => $title->getArticleID() ],
@@ -33,7 +33,7 @@ class FRPageConfig {
 	 */
 	public static function getVisibilitySettingsFromRow( $row ) {
 		if ( $row ) {
-			$expiry = wfGetDB( DB_SLAVE )->decodeExpiry( $row->fpc_expiry );
+			$expiry = wfGetDB( DB_REPLICA )->decodeExpiry( $row->fpc_expiry );
 			# Only apply the settings if they haven't expired
 			if ( !$expiry || $expiry < wfTimestampNow() ) {
 				$row = null; // expired

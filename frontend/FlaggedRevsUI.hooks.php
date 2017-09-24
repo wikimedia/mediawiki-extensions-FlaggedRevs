@@ -575,7 +575,7 @@ class FlaggedRevsUIHooks {
 		# Quality level for old versions selected all at once.
 		# Commons queries cannot be done all at once...
 		if ( !$file->isOld() || !$file->isLocal() ) {
-			$dbr = wfGetDB( DB_SLAVE );
+			$dbr = wfGetDB( DB_REPLICA );
 			$quality = $dbr->selectField( 'flaggedrevs', 'fr_quality',
 				[ 'fr_img_sha1' => $file->getSha1(),
 					'fr_img_timestamp' => $dbr->timestamp( $file->getTimestamp() ) ],
@@ -719,7 +719,7 @@ class FlaggedRevsUIHooks {
 		$watchlist = SpecialPage::getTitleFor( 'Watchlist' );
 		# Add notice to watchlist about pending changes...
 		if ( $out->getTitle()->equals( $watchlist ) && $namespaces ) {
-			$dbr = wfGetDB( DB_SLAVE, 'watchlist' ); // consistency with watchlist
+			$dbr = wfGetDB( DB_REPLICA, 'watchlist' ); // consistency with watchlist
 			$watchedOutdated = (bool)$dbr->selectField(
 				[ 'watchlist', 'page', 'flaggedpages' ],
 				'1', // existence

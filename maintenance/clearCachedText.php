@@ -14,7 +14,7 @@ require "$IP/maintenance/commandLine.inc";
 $pageId = 0;
 $revId = 0;
 
-$dbr = wfGetDB( DB_SLAVE );
+$dbr = wfGetDB( DB_REPLICA );
 $dbw = wfGetDB( DB_MASTER );
 $batchSize = 1000;
 $maxPage = $dbr->selectField( 'flaggedrevs', 'MAX(fr_page_id)', '', __METHOD__ );

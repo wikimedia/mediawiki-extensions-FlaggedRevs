@@ -21,7 +21,7 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 
 	public function doUpdate() {
 		# Fetch the IDs
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$res = $dbr->select( $this->mTable, $this->getFromField(),
 			$this->getToCondition(), __METHOD__ );
 		# Check if there is anything to do...

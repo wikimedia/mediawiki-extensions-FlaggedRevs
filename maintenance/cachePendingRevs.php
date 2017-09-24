@@ -22,7 +22,7 @@ class CachePendingRevs extends Maintenance {
 
 	public function execute() {
 		global $wgUser;
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$ret = $dbr->select(
 			[ 'flaggedpages', 'revision', 'page' ],
 			array_merge( Revision::selectFields(), [ $dbr->tableName( 'page' ) . '.*' ] ),

@@ -32,7 +32,7 @@ class RejectConfirmationFormUI {
 
 		$form = '<div class="plainlinks">';
 
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$res = $dbr->select( 'revision',
 			Revision::selectFields(),
 			[

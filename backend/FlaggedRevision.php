@@ -112,7 +112,7 @@ class FlaggedRevision {
 			}
 			$pageId = $title->getArticleID( Title::GAID_FOR_UPDATE );
 		} else {
-			$db = wfGetDB( DB_SLAVE );
+			$db = wfGetDB( DB_REPLICA );
 			$pageId = $title->getArticleID();
 		}
 		if ( !$pageId || !$revId ) {
@@ -162,7 +162,7 @@ class FlaggedRevision {
 			}
 			$pageId = $title->getArticleID( Title::GAID_FOR_UPDATE );
 		} else {
-			$db = wfGetDB( DB_SLAVE );
+			$db = wfGetDB( DB_REPLICA );
 			$pageId = $title->getArticleID();
 		}
 		if ( !$pageId ) {
@@ -206,7 +206,7 @@ class FlaggedRevision {
 				$options[] = 'FOR UPDATE';
 			}
 		} else {
-			$db = wfGetDB( DB_SLAVE );
+			$db = wfGetDB( DB_REPLICA );
 		}
 		if ( !$revId ) {
 			return null; // short-circuit query
@@ -268,7 +268,7 @@ class FlaggedRevision {
 			}
 			$pageId = $title->getArticleID( Title::GAID_FOR_UPDATE );
 		} else {
-			$db = wfGetDB( DB_SLAVE );
+			$db = wfGetDB( DB_REPLICA );
 			$pageId = $title->getArticleID();
 		}
 		if ( !$pageId ) {
@@ -570,7 +570,7 @@ class FlaggedRevision {
 		if ( $this->mTemplates == null ) {
 			$this->mTemplates = [];
 			$db = ( $flags & FR_MASTER ) ?
-				wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
+				wfGetDB( DB_MASTER ) : wfGetDB( DB_REPLICA );
 			$res = $db->select( 'flaggedtemplates',
 				[ 'ft_namespace', 'ft_title', 'ft_tmp_rev_id' ],
 				[ 'ft_rev_id' => $this->getRevId() ],
@@ -596,7 +596,7 @@ class FlaggedRevision {
 		if ( $this->mFiles == null ) {
 			$this->mFiles = [];
 			$db = ( $flags & FR_MASTER ) ?
-				wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
+				wfGetDB( DB_MASTER ) : wfGetDB( DB_REPLICA );
 			$res = $db->select( 'flaggedimages',
 				[ 'fi_name', 'fi_img_timestamp', 'fi_img_sha1' ],
 				[ 'fi_rev_id' => $this->getRevId() ],
@@ -627,7 +627,7 @@ class FlaggedRevision {
 		if ( $this->mStableTemplates == null ) {
 			$this->mStableTemplates = [];
 			$db = ( $flags & FR_MASTER ) ?
-				wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
+				wfGetDB( DB_MASTER ) : wfGetDB( DB_REPLICA );
 			$res = $db->select(
 				[ 'flaggedtemplates', 'page', 'flaggedpages' ],
 				[ 'ft_namespace', 'ft_title', 'fp_stable' ],
@@ -661,7 +661,7 @@ class FlaggedRevision {
 		if ( $this->mStableFiles == null ) {
 			$this->mStableFiles = [];
 			$db = ( $flags & FR_MASTER ) ?
-				wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
+				wfGetDB( DB_MASTER ) : wfGetDB( DB_REPLICA );
 			$res = $db->select(
 				[ 'flaggedimages', 'page', 'flaggedpages', 'flaggedrevs' ],
 				[ 'fi_name', 'fr_img_timestamp', 'fr_img_sha1' ],
@@ -707,7 +707,7 @@ class FlaggedRevision {
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
 			return []; // short-circuit
 		}
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		# Only get templates with stable or "review time" versions.
 		# Note: ft_tmp_rev_id is nullable (for deadlinks), so use ft_title
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
@@ -798,7 +798,7 @@ class FlaggedRevision {
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
 			return []; // short-circuit
 		}
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		# Only get templates with stable or "review time" versions.
 		# Note: fi_img_timestamp is nullable (for deadlinks), so use fi_name
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
@@ -949,7 +949,7 @@ class FlaggedRevision {
 	 */
 	public static function getRevQuality( $rev_id, $flags = 0 ) {
 		$db = ( $flags & FR_MASTER ) ?
-			wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
+			wfGetDB( DB_MASTER ) : wfGetDB( DB_REPLICA );
 		return $db->selectField( 'flaggedrevs',
 			'fr_quality',
 			[ 'fr_rev_id' => $rev_id ],

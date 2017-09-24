@@ -100,7 +100,7 @@ class FRDependencyUpdate {
 	 */
 	protected function getExistingDeps( $flags = 0 ) {
 		$db = ( $flags & FR_MASTER ) ?
-			wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
+			wfGetDB( DB_MASTER ) : wfGetDB( DB_REPLICA );
 		$res = $db->select( 'flaggedrevs_tracking',
 			[ 'ftr_namespace', 'ftr_title' ],
 			[ 'ftr_from' => $this->title->getArticleID() ],
@@ -180,7 +180,7 @@ class FRDependencyUpdate {
 	 * @return array (ns => dbKey => 1)
 	 */
 	protected function getCurrentVersionLinks() {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$res = $dbr->select( 'pagelinks',
 			[ 'pl_namespace', 'pl_title' ],
 			[ 'pl_from' => $this->title->getArticleID() ],
@@ -201,7 +201,7 @@ class FRDependencyUpdate {
 	 * @return array (ns => dbKey => 1)
 	 */
 	protected function getCurrentVersionTemplates() {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$res = $dbr->select( 'templatelinks',
 			[ 'tl_namespace', 'tl_title' ],
 			[ 'tl_from' => $this->title->getArticleID() ],
@@ -222,7 +222,7 @@ class FRDependencyUpdate {
 	 * @return array (dbKey => 1)
 	 */
 	protected function getCurrentVersionImages() {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$res = $dbr->select( 'imagelinks',
 			[ 'il_to' ],
 			[ 'il_from' => $this->title->getArticleID() ],
@@ -240,7 +240,7 @@ class FRDependencyUpdate {
 	 * @return array (category => sortkey)
 	 */
 	protected function getCurrentVersionCategories() {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$res = $dbr->select( 'categorylinks',
 			[ 'cl_to', 'cl_sortkey' ],
 			[ 'cl_from' => $this->title->getArticleID() ],

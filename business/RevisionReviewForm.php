@@ -345,7 +345,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 			if ( $editStatus->isOK() && class_exists( 'EchoEvent' ) && $editStatus->value['revision'] ) {
 				$affectedRevisions = []; // revid -> userid
-				$revisions = wfGetDB( DB_SLAVE )->select(
+				$revisions = wfGetDB( DB_REPLICA )->select(
 					'revision',
 					[ 'rev_id', 'rev_user' ],
 					[
