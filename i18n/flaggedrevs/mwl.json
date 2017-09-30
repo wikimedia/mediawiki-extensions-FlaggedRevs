@@ -8,5 +8,6 @@
 	"flaggedrevs-hidereviewed-show": "Amostrar",
 	"grouppage-editor": "{{ns:project}}:Eiditor",
 	"grouppage-reviewer": "{{ns:project}}:Rebisor",
-	"revreview-levelfilter": "Nible:"
+	"revreview-levelfilter": "Nible:",
+	"tooltip-ca-current": "Ber esta páigina culas altaraçones pendientes"
 }

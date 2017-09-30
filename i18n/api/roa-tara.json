@@ -6,6 +6,8 @@
 	},
 	"apihelp-query+configuredpages-param-namespace": "Le namespace da nuemrà.",
 	"apihelp-query+configuredpages-param-limit": "Quanda pàggene adda turnà.",
+	"apihelp-query+oldreviewedpages-param-start": "Accuminze a elengà da stu tiembe de stambe.",
+	"apihelp-query+oldreviewedpages-param-end": "Spicce de elengà a stu tiembe de stambe.",
 	"apihelp-stabilize-param-reason": "Mutive.",
 	"apihelp-stabilize-param-watch": "'Ndruche sta pàgene.",
 	"apihelp-stabilize-param-expiry-general": "Scadenze pe ste 'mbostaziune.",
