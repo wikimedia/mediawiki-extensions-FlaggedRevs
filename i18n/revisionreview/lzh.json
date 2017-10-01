@@ -9,6 +9,7 @@
 	"revisionreview": "審校更易",
 	"revreview-failed": "'''未能審校此本。'''",
 	"revreview-check-flag-p": "接受此本（含$1未審之更易）",
+	"revreview-check-flag-u": "校畢",
 	"revreview-flag": "審校此本",
 	"revreview-reflag": "校勘",
 	"revreview-log": "註：",
