@@ -9,6 +9,7 @@
 	},
 	"editor": "分校官",
 	"flaggedrevs": "校勘本",
+	"flaggedrevs-hidereviewed": "$1 已校勘者",
 	"group-editor": "分校官",
 	"group-editor-member": "分校官",
 	"group-reviewer": "總校官",
