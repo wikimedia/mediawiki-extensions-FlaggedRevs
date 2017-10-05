@@ -8,7 +8,7 @@
 	},
 	"revisionreview": "審校更易",
 	"revreview-failed": "'''未能審校此本。'''",
-	"revreview-check-flag-p": "接受此本（含$1未審之更易）",
+	"revreview-check-flag-p": "校畢",
 	"revreview-check-flag-u": "校畢",
 	"revreview-flag": "審校此本",
 	"revreview-reflag": "校勘",
@@ -29,6 +29,6 @@
 	"revreview-reject-summary": "概要：",
 	"revreview-reject-confirm": "撤銷",
 	"revreview-reject-cancel": "棄",
-	"revreview-tt-flag": "接受此本並標「已審」",
+	"revreview-tt-flag": "校畢並示",
 	"revreview-tt-reject": "撤回"
 }
