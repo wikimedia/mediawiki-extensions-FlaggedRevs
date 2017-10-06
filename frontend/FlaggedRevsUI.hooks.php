@@ -383,7 +383,7 @@ class FlaggedRevsUIHooks {
 			# order by, then append the rest of them to our two. It would be
 			# REALLY nice if we handled this automagically in makeSelectOptions()
 			# or something *sigh*
-			$groupBy = OldLocalFile::selectFields();
+			$groupBy = OldLocalFile::getQueryInfo()['fields'];
 			unset( $groupBy[ array_search( 'oi_name', $groupBy ) ] );
 			unset( $groupBy[ array_search( 'oi_timestamp', $groupBy ) ] );
 			$opts['GROUP BY'] = 'oi_name,oi_timestamp,' . implode( ',', $groupBy );

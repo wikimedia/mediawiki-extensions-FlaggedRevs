@@ -119,18 +119,18 @@ class FlaggedRevision {
 			return null; // short-circuit query
 		}
 		# Skip deleted revisions
+		$frQuery = self::getQueryInfo();
 		$row = $db->selectRow(
-			[ 'flaggedrevs', 'revision' ],
-			self::selectFields(),
+			$frQuery['tables'],
+			$frQuery['fields'],
 			[
 				'fr_page_id' => $pageId,
 				'fr_rev_id'  => $revId,
-				'rev_id = fr_rev_id',
-				'rev_page = fr_page_id', // sanity
 				$db->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0'
 			],
 			__METHOD__,
-			$options
+			$options,
+			$frQuery['joins']
 		);
 		# Sorted from highest to lowest, so just take the first one if any
 		if ( $row ) {
@@ -169,18 +169,18 @@ class FlaggedRevision {
 			return null; // short-circuit query
 		}
 		# Check tracking tables
+		$frQuery = self::getQueryInfo();
 		$row = $db->selectRow(
-			[ 'flaggedpages', 'flaggedrevs', 'revision' ],
-			self::selectFields(),
+			array_merge( [ 'flaggedpages' ], $frQuery['tables'] ),
+			$frQuery['fields'],
 			[
 				'fp_page_id' => $pageId,
 				'fr_rev_id = fp_stable',
-				'rev_id = fr_rev_id',
-				'rev_page = fr_page_id', // sanity
 				$db->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0', // sanity
 			],
 			__METHOD__,
-			$options
+			$options,
+			$frQuery['joins']
 		);
 		if ( $row ) {
 			$frev = new self( $row );
@@ -212,18 +212,17 @@ class FlaggedRevision {
 			return null; // short-circuit query
 		}
 		# Skip deleted revisions
+		$frQuery = self::getQueryInfo();
 		$row = $db->selectRow(
-			[ 'flaggedrevs', 'revision', 'page' ],
-			self::selectFields(),
+			$frQuery['tables'],
+			$frQuery['fields'],
 			[
 				'fr_rev_id' => $revId,
-				'rev_id = fr_rev_id',
-				'rev_page = fr_page_id', // sanity
-				'page_id = rev_page',
 				$db->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0',
 			],
 			__METHOD__,
-			$options
+			$options,
+			$frQuery['joins']
 		);
 		if ( $row ) {
 			$frev = new self( $row );
@@ -291,16 +290,18 @@ class FlaggedRevision {
 		];
 		$options['ORDER BY'] = 'fr_rev_timestamp DESC';
 
+		$frQuery = self::getQueryInfo();
 		$row = null;
 		if ( $precedence !== 'latest' ) {
 			# Look for the latest pristine revision...
 			if ( FlaggedRevs::pristineVersions() ) {
 				$prow = $db->selectRow(
-					[ 'flaggedrevs', 'revision' ],
-					self::selectFields(),
+					$frQuery['tables'],
+					$frQuery['fields'],
 					array_merge( $baseConds, [ 'fr_quality' => FR_PRISTINE ] ),
 					__METHOD__,
-					$options
+					$options,
+					$frQuery['joins']
 				);
 				# Looks like a plausible revision
 				$row = $prow ? $prow : $row;
@@ -314,11 +315,12 @@ class FlaggedRevision {
 					? [ 'fr_rev_timestamp > '.$db->addQuotes( $row->fr_rev_timestamp ) ]
 					: [];
 				$qrow = $db->selectRow(
-					[ 'flaggedrevs', 'revision' ],
-					self::selectFields(),
+					$frQuery['tables'],
+					$frQuery['fields'],
 					array_merge( $baseConds, [ 'fr_quality' => FR_QUALITY ], $newerClause ),
 					__METHOD__,
-					$options
+					$options,
+					$frQuery['joins']
 				);
 				$row = $qrow ? $qrow : $row;
 			}
@@ -326,11 +328,12 @@ class FlaggedRevision {
 		# Do we have one? If not, try the latest reviewed revision...
 		if ( !$row ) {
 			$row = $db->selectRow(
-				[ 'flaggedrevs', 'revision' ],
-				self::selectFields(),
+				$frQuery['tables'],
+				$frQuery['fields'],
 				$baseConds,
 				__METHOD__,
-				$options
+				$options,
+				$frQuery['joins']
 			);
 			if ( !$row ) {
 				return null;
@@ -428,16 +431,25 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * Get select fields for FlaggedRevision DB row (flaggedrevs/revision tables)
+	 * Get query info for FlaggedRevision DB row (flaggedrevs/revision tables)
 	 * @return array
 	 */
-	public static function selectFields() {
-		return array_merge(
-			Revision::selectFields(),
-			[ 'fr_rev_id', 'fr_page_id', 'fr_rev_timestamp',
+	public static function getQueryInfo() {
+		$revQuery = Revision::getQueryInfo();
+		return [
+			'tables' => array_merge( [ 'flaggedrevs' ], $revQuery['tables'] ),
+			'fields' => array_merge( $revQuery['fields'], [
+				'fr_rev_id', 'fr_page_id', 'fr_rev_timestamp',
 				'fr_user', 'fr_timestamp', 'fr_quality', 'fr_tags', 'fr_flags',
-				'fr_img_name', 'fr_img_sha1', 'fr_img_timestamp' ]
-		);
+				'fr_img_name', 'fr_img_sha1', 'fr_img_timestamp'
+			] ),
+			'joins' => [
+				'revision' => [ 'JOIN', [
+					'rev_id = fr_rev_id',
+					'rev_page = fr_page_id', // sanity
+				] ],
+			],
+		];
 	}
 
 	/**
