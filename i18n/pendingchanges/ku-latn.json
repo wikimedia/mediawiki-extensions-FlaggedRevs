@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"George Animal"
+			"George Animal",
+			"Ghybu"
 		]
 	},
+	"pendingchanges-days": "($1 {{PLURAL:$1|roj|roj}})",
 	"pendingchanges-category": "Kategorî:"
 }
