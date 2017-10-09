@@ -3,7 +3,8 @@
 		"authors": [
 			"Aelske",
 			"Matthias",
-			"Ooswesthoesbes"
+			"Ooswesthoesbes",
+			"Pahles"
 		]
 	},
 	"action-review": "controleer",
@@ -23,6 +24,7 @@
 	"flaggedrevs-prefs-editdiffs": "Tuin bie 't bewirke van pagina's de ongecontroleerde versjille mit de gepubliceerde versie",
 	"flaggedrevs-prefs-viewdiffs": "Tuin bie 't bekieke van leste versie versjille mit gecontroleerde versie",
 	"flaggedrevs-hidereviewed": "$1 gecontroleerde bewerkinge",
+	"flaggedrevs-hidereviewed-show": "Tuin",
 	"group-editor": "Bewèrkers",
 	"group-editor-member": "Bewèrker",
 	"group-reviewer": "Bekiekers",
@@ -52,8 +54,6 @@
 	"revreview-log-details-hide": "verberg details",
 	"revreview-log-details-title": "Zèt de stabiliteitsinstellingenlogboekwaergaaf aan of oet",
 	"review-diff2stable": "Verschille tusse stabiele en huidige versies bekijke",
-	"review-logentry-app": "bekeek [[$1]]",
-	"review-logentry-dis": "haet een versie van [[$1]] óngeldig gemaak",
 	"review-logentry-id": "versie: $2",
 	"review-logentry-diff": "wijziginge gecontroleerd",
 	"review-logentry-diff2": "verajerde wieziginge",
@@ -66,7 +66,6 @@
 	"revreview-accuracy-2": "Nejkeurig",
 	"revreview-accuracy-3": "Good van brónne veurzeen",
 	"revreview-accuracy-4": "Oetgelich",
-	"revreview-auto": "(automatisch)",
 	"revreview-basic": "Dit is de lets [[{{MediaWiki:Validationpage}}|beoordeilde]] versie, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gekeurd] op <i>$2</i>. De [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} hujige] kin [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bewerk] waere; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|versie|versies}}] {{PLURAL:$3|wach|wachte}} op 'n beoordeiling.",
 	"revreview-basic-i": "Dit is de [[{{MediaWiki:Validationpage}}|gepubliceerde versie]] die is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gecontroleerd] op <i>$2</i>.\nd'r Zeen ongecontroleerde [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} wieziginge in gebroekde sjablone en bestenj].",
 	"revreview-basic-old": "Dit is 'n [[{{MediaWiki:Validationpage}}|gepubliceerde versie]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} bekiek alle]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goodgekeurd] op <i>$2</i>.\nd'r Kinne nuuj [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} wieziginge] gemaak zeen.",
@@ -80,7 +79,6 @@
 	"revreview-depth-3": "Hoog",
 	"revreview-depth-4": "Oetgelich",
 	"revreview-draft-title": "Dees pagina bevat óngecontroleerde wieziginge",
-	"revreview-edit": "Bewirk",
 	"revreview-editnotice": "'''Dien wieziginge waere waergaeve naodet 'ne gebroeker dees haet gecontroleerd. ([[{{MediaWiki:Validationpage}}|?]])'''",
 	"revreview-submitedit": "Slaon verangering óp",
 	"revreview-submitedit-title": "Slaon verangering óp ter controle",
@@ -111,7 +109,6 @@
 	"revreview-quick-quality-same": "'''[[{{MediaWiki:Validationpage}}|Kwaliteitsversie]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} ongecontroleerde wieziginge controlere]]",
 	"revreview-quick-see-quality": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} ongecontroleerde wieziginge controlere]]",
-	"revreview-source": "Bekiek bróntèks",
 	"revreview-basic-title": "Dit is 'n gecontroleerde versie van dees pagina",
 	"revreview-style": "Laesbaarheid",
 	"revreview-style-0": "Aafgekäördj",
