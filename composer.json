@@ -1,4 +1,7 @@
 {
+	"name": "wikifab/flagged-revs",
+	"description": "The Flagged Revisions extension allows for Editor and Reviewer users to rate revisions of articles and set those revisions as the default revision to show upon normal page view.",
+	"type": "mediawiki-extension",
 	"require-dev": {
 		"jakub-onderka/php-parallel-lint": "1.0.0",
 		"mediawiki/mediawiki-codesniffer": "17.0.0",
