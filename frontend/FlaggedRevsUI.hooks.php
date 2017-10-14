@@ -73,8 +73,11 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
-	/*
+	/**
 	 * Add tag notice, CSS/JS, protect form link, and set robots policy
+	 * @param OutputPage &$out
+	 * @param Skin &$skin
+	 * @return true
 	 */
 	public static function onBeforePageDisplay( &$out, &$skin ) {
 		if ( $out->getTitle()->getNamespace() != NS_SPECIAL ) {
@@ -160,8 +163,13 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
-	// MonoBook et al: $contentActions is all the tabs
-	// Vector et al: $contentActions is all the action tabs...unused
+	/**
+	 * MonoBook et al: $contentActions is all the tabs
+	 * Vector et al: $contentActions is all the action tabs...unused
+	 * @param Skin $skin
+	 * @param array &$contentActions
+	 * @return true
+	 */
 	public static function onSkinTemplateTabs( Skin $skin, array &$contentActions ) {
 		if ( $skin instanceof SkinVector ) {
 			// *sigh*...skip, dealt with in setNavigation()
@@ -175,7 +183,12 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
-	// Vector et al: $links is all the tabs (2 levels)
+	/**
+	 * Vector et al: $links is all the tabs (2 levels)
+	 * @param Skin $skin
+	 * @param array &$links
+	 * @return true
+	 */
 	public static function onSkinTemplateNavigation( Skin $skin, array &$links ) {
 		if ( FlaggablePageView::globalArticleInstance() != null ) {
 			$view = FlaggablePageView::singleton();
@@ -297,6 +310,7 @@ class FlaggedRevsUIHooks {
 	 *
 	 * @param SpecialPage $specialPage Special page
 	 * @param array &$filters Array of filters
+	 * @return true
 	 */
 	public static function addHideReviewedUnstructuredFilter( $specialPage, &$filters ) {
 		if ( !FlaggedRevs::useSimpleConfig() ) {
@@ -313,6 +327,7 @@ class FlaggedRevsUIHooks {
 	 *
 	 * @param ChangesListSpecialPage $specialPage Special page, such as
 	 *   Special:RecentChanges or Special:Watchlist
+	 * @return true
 	 */
 	public static function addHideReviewedFilter( ChangesListSpecialPage $specialPage ) {
 		if ( FlaggedRevs::useSimpleConfig() ) {
@@ -664,7 +679,15 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
-	// diff=review param (bug 16923)
+	/**
+	 * diff=review param (bug 16923)
+	 * @param Title $titleObj
+	 * @param int &$mOldid
+	 * @param int &$mNewid
+	 * @param string $old
+	 * @param string $new
+	 * @return true
+	 */
 	public static function checkDiffUrl( $titleObj, &$mOldid, &$mNewid, $old, $new ) {
 		if ( $new === 'review' && isset( $titleObj ) ) {
 			$sRevId = FlaggedRevision::getStableRevId( $titleObj );
@@ -741,8 +764,13 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
-	// Add selector of review "protection" options
-	// Code stolen from Stabilization (which was stolen from ProtectionForm)
+	/**
+	 * Add selector of review "protection" options
+	 * Code stolen from Stabilization (which was stolen from ProtectionForm)
+	 * @param Page $article
+	 * @param string &$output
+	 * @return true
+	 */
 	public static function onProtectionForm( Page $article, &$output ) {
 		global $wgUser, $wgOut, $wgRequest, $wgLang;
 		if ( !$article->exists() ) {
@@ -888,7 +916,12 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
-	// Add stability log extract to protection form
+	/**
+	 * Add stability log extract to protection form
+	 * @param Page $article
+	 * @param OutputPage $out
+	 * @return true
+	 */
 	public static function insertStabilityLog( Page $article, OutputPage $out ) {
 		if ( !$article->exists() ) {
 			return true; // nothing to do
@@ -902,7 +935,12 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
-	// Update stability config from request
+	/**
+	 * Update stability config from request
+	 * @param Page $article
+	 * @param string &$errorMsg
+	 * @return true
+	 */
 	public static function onProtectionSave( Page $article, &$errorMsg ) {
 		global $wgUser, $wgRequest;
 		if ( !$article->exists() ) {

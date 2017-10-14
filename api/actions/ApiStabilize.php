@@ -221,7 +221,7 @@ class ApiStabilizeGeneral extends ApiStabilize {
 	}
 
 	/**
-	 * @see ApiBase::getExamplesMessages()
+	 * @inheritDoc
 	 */
 	protected function getExamplesMessages() {
 		return [

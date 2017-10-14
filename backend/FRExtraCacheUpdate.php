@@ -89,6 +89,7 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 
 	/**
 	 * Invalidate a set of IDs, right now
+	 * @param ResultWrapper $res
 	 */
 	public function invalidateIDs( ResultWrapper $res ) {
 		global $wgUseFileCache, $wgUseSquid;

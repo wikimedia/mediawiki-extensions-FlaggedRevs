@@ -17,7 +17,7 @@ class FlaggableWikiPage extends WikiPage {
 
 	/**
 	 * Get a FlaggableWikiPage for a given title
-	 * @param $title Title
+	 * @param Title $title
 	 * @return FlaggableWikiPage
 	 */
 	public static function getTitleInstance( Title $title ) {
@@ -299,7 +299,7 @@ class FlaggableWikiPage extends WikiPage {
 		return $this->pageConfig;
 	}
 
-	/*
+	/**
 	 * Get the fp_reviewed value for this page
 	 * @return bool
 	 */
@@ -354,8 +354,8 @@ class FlaggableWikiPage extends WikiPage {
 
 	/**
 	 * Fetch a page record with the given conditions
-	 * @param $dbr Database object
-	 * @param $conditions Array
+	 * @param IDatabase $dbr Database object
+	 * @param array $conditions
 	 * @param array $options
 	 * @return mixed Database result resource, or false on failure
 	 */

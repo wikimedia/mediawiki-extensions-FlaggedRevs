@@ -175,6 +175,7 @@ class UnreviewedPages extends SpecialPage {
 
 	/**
 	 * There may be many pages, most of which are reviewed
+	 * @return bool
 	 */
 	public static function generalQueryOK() {
 		$namespaces = FlaggedRevs::getReviewNamespaces();
@@ -193,7 +194,7 @@ class UnreviewedPages extends SpecialPage {
 		return ( $ratio <= 400 );
 	}
 
-	/*
+	/**
 	 * Run an update to the cached query rows
 	 * @return void
 	 */

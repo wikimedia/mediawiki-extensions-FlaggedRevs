@@ -245,7 +245,7 @@ class RevisionReviewFormUI {
 		return [ $form, true /* ok */ ];
 	}
 
-	/*
+	/**
 	 * If the REJECT button should show then get the ID of the last good rev
 	 * @return int
 	 */
