@@ -341,9 +341,9 @@ class FlaggedRevision {
 		return $frev;
 	}
 
-	/*
+	/**
 	 * Insert a FlaggedRevision object into the database
-	*
+	 *
 	 * @return bool success
 	 */
 	public function insert() {
@@ -409,9 +409,9 @@ class FlaggedRevision {
 		return true;
 	}
 
-	/*
+	/**
 	 * Remove a FlaggedRevision object from the database
-	*
+	 *
 	 * @return bool success
 	 */
 	public function delete() {

@@ -5,6 +5,10 @@
 class FlaggedRevsHooks {
 	/**
 	 * Update flaggedrevs table on revision restore
+	 * @param Title $title
+	 * @param Revision $revision
+	 * @param int $oldPageID
+	 * @return true
 	 */
 	public static function onRevisionRestore( $title, Revision $revision, $oldPageID ) {
 		$dbw = wfGetDB( DB_MASTER );
@@ -21,6 +25,9 @@ class FlaggedRevsHooks {
 
 	/**
 	 * Update flaggedrevs page/tracking tables (revision moving)
+	 * @param Title $sourceTitle
+	 * @param Title $destTitle
+	 * @return true
 	 */
 	public static function onArticleMergeComplete( Title $sourceTitle, Title $destTitle ) {
 		$oldPageID = $sourceTitle->getArticleID();
@@ -58,6 +65,13 @@ class FlaggedRevsHooks {
 	/**
 	 * (a) Update flaggedrevs page/tracking tables
 	 * (b) Autoreview pages moved into reviewable namespaces (bug 19379)
+	 * @param Title $otitle
+	 * @param Title $ntitle
+	 * @param User $user
+	 * @param int $pageId
+	 * @param int $redirid
+	 * @param string $reason
+	 * @return true
 	 */
 	public static function onTitleMoveComplete(
 		Title $otitle, Title $ntitle, $user, $pageId, $redirid, $reason
@@ -99,6 +113,9 @@ class FlaggedRevsHooks {
 	 * (a) Update flaggedrevs page/tracking tables
 	 * (b) Pages with stable versions that use this page will be purged
 	 * Note: pages with current versions that use this page should already be purged
+	 * @param Page $article
+	 * @param array $editInfo
+	 * @return true
 	 */
 	public static function onArticleEditUpdates( Page $article, $editInfo ) {
 		FlaggedRevs::stableVersionUpdates( $article->getTitle(), null, null, $editInfo );
@@ -110,6 +127,11 @@ class FlaggedRevsHooks {
 	 * (a) Update flaggedrevs page/tracking tables
 	 * (b) Pages with stable versions that use this page will be purged
 	 * Note: pages with current versions that use this page should already be purged
+	 * @param Page $article
+	 * @param User $user
+	 * @param string $reason
+	 * @param int $id
+	 * @return true
 	 */
 	public static function onArticleDelete( Page $article, $user, $reason, $id ) {
 		FlaggedRevs::clearTrackingRows( $id );
@@ -121,6 +143,8 @@ class FlaggedRevsHooks {
 	 * (a) Update flaggedrevs page/tracking tables
 	 * (b) Pages with stable versions that use this page will be purged
 	 * Note: pages with current versions that use this page should already be purged
+	 * @param Title $title
+	 * @return true
 	 */
 	public static function onArticleUndelete( Title $title ) {
 		FlaggedRevs::stableVersionUpdates( $title );
@@ -132,6 +156,8 @@ class FlaggedRevsHooks {
 	 * (a) Update flaggedrevs page/tracking tables
 	 * (b) Pages with stable versions that use this page will be purged
 	 * Note: pages with current versions that use this page should already be purged
+	 * @param File $file
+	 * @return true
 	 */
 	public static function onFileUpload( File $file ) {
 		FlaggedRevs::stableVersionUpdates( $file->getTitle() );
@@ -141,6 +167,8 @@ class FlaggedRevsHooks {
 
 	/**
 	 * Update flaggedrevs page/tracking tables
+	 * @param Title $title
+	 * @return true
 	 */
 	public static function onRevisionDelete( Title $title ) {
 		$changed = FlaggedRevs::stableVersionUpdates( $title );
@@ -153,6 +181,11 @@ class FlaggedRevsHooks {
 	/**
 	 * Select the desired templates based on the selected stable revision IDs
 	 * Note: $parser can be false
+	 * @param Parser $parser
+	 * @param Title $title
+	 * @param bool &$skip
+	 * @param int &$id
+	 * @return true
 	 */
 	public static function parserFetchStableTemplate( $parser, Title $title, &$skip, &$id ) {
 		if ( !( $parser instanceof Parser ) ) {
@@ -188,6 +221,11 @@ class FlaggedRevsHooks {
 
 	/**
 	 * Select the desired images based on the selected stable version time/SHA-1
+	 * @param Parser $parser
+	 * @param Title $title
+	 * @param array &$options
+	 * @param array &$query
+	 * @return true
 	 */
 	public static function parserFetchStableFile( $parser, Title $title, &$options, &$query ) {
 		if ( !( $parser instanceof Parser ) ) {
@@ -309,6 +347,11 @@ class FlaggedRevsHooks {
 
 	/**
 	 * Check page move and patrol permissions for FlaggedRevs
+	 * @param Title $title
+	 * @param User $user
+	 * @param string $action
+	 * @param bool &$result
+	 * @return true
 	 */
 	public static function onGetUserPermissionsErrors( Title $title, $user, $action, &$result ) {
 		if ( $result === false ) {
@@ -380,6 +423,11 @@ class FlaggedRevsHooks {
 	 *
 	 * Note: RC items not inserted yet, RecentChange_save hook does rc_patrolled bit...
 	 * Note: $article one of Article, ImagePage, Category page as appropriate.
+	 * @param Page $article
+	 * @param Revision $rev
+	 * @param int|false $baseRevId
+	 * @param User|null $user
+	 * @return true
 	 */
 	public static function maybeMakeEditReviewed(
 		Page $article, $rev, $baseRevId = false, $user = null
@@ -500,8 +548,15 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
-	// Review $rev if $editTimestamp matches the previous revision's timestamp.
-	// Otherwise, review the revision that has $editTimestamp as its timestamp value.
+	/**
+	 * Review $rev if $editTimestamp matches the previous revision's timestamp.
+	 * Otherwise, review the revision that has $editTimestamp as its timestamp value.
+	 * @param Page $article
+	 * @param Revision $rev
+	 * @param User $user
+	 * @param string $editTimestamp
+	 * @return bool
+	 */
 	protected static function editCheckReview(
 		Page $article, $rev, $user, $editTimestamp
 	) {
@@ -532,6 +587,11 @@ class FlaggedRevsHooks {
 
 	/**
 	 * Check if a user reverted himself to the stable version
+	 * @param Revision $rev
+	 * @param Revision $srev
+	 * @param int $baseRevId
+	 * @param User $user
+	 * @return bool
 	 */
 	protected static function isSelfRevertToStable(
 		Revision $rev, $srev, $baseRevId, $user
@@ -572,6 +632,18 @@ class FlaggedRevsHooks {
 	 * (a) Null undo or rollback
 	 * (b) Null edit with review box checked
 	 * Note: called after edit ops are finished
+	 * @param Page $article
+	 * @param User $user
+	 * @param Content $content
+	 * @param string $s
+	 * @param bool $m
+	 * @param string $a
+	 * @param bool $b
+	 * @param int $flags
+	 * @param Revision $rev
+	 * @param bool &$status
+	 * @param int $baseId
+	 * @return true
 	 */
 	public static function maybeNullEditReview(
 		Page $article, $user, $content, $s, $m, $a, $b, $flags, $rev, &$status, $baseId
@@ -641,6 +713,8 @@ class FlaggedRevsHooks {
 
 	/**
 	 * Mark auto-reviewed edits as patrolled
+	 * @param RecentChange &$rc
+	 * @return true
 	 */
 	public static function autoMarkPatrolled( RecentChange &$rc ) {
 		if ( empty( $rc->mAttribs['rc_this_oldid'] ) ) {
@@ -810,6 +884,9 @@ class FlaggedRevsHooks {
 
 	/**
 	 * Checks if $user was previously blocked since $cutoff_unixtime
+	 * @param User $user
+	 * @param int $cutoff_unixtime = 0
+	 * @return bool
 	 */
 	protected static function wasPreviouslyBlocked( User $user, $cutoff_unixtime = 0 ) {
 		$dbr = wfGetDB( DB_REPLICA );
@@ -859,6 +936,9 @@ class FlaggedRevsHooks {
 
 	/**
 	 * Grant 'autoreview' rights to users with the 'bot' right
+	 * @param User $user
+	 * @param array &$rights
+	 * @return true
 	 */
 	public static function onUserGetRights( $user, array &$rights ) {
 		# Make sure bots always have the 'autoreview' right
@@ -871,6 +951,16 @@ class FlaggedRevsHooks {
 	/**
 	 * Callback that autopromotes user according to the setting in
 	 * $wgFlaggedRevsAutopromote. This also handles user stats tallies.
+	 * @param Page $article
+	 * @param User $user
+	 * @param Content $content
+	 * @param string $summary
+	 * @param bool $m
+	 * @param string $a
+	 * @param bool $b
+	 * @param int &$f
+	 * @param Revision $rev
+	 * @return true
 	 */
 	public static function onPageContentSaveComplete(
 		Page $article, User $user, $content, $summary, $m, $a, $b, &$f, $rev
@@ -897,8 +987,13 @@ class FlaggedRevsHooks {
 
 	/**
 	 * Check an autopromote condition that is defined by FlaggedRevs
-	*
+	 *
 	 * Note: some unobtrusive caching is used to avoid DB hits.
+	 * @param int $cond
+	 * @param array $params
+	 * @param User $user
+	 * @param bool &$result
+	 * @return true
 	 */
 	public static function checkAutoPromoteCond( $cond, array $params, User $user, &$result ) {
 		global $wgMemc;

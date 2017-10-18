@@ -137,7 +137,11 @@ class PendingChanges extends SpecialPage {
 		}
 	}
 
-	// set pager parameters from $par, return pager limit
+	/**
+	 * Set pager parameters from $par, return pager limit
+	 * @param string $par
+	 * @return bool|int
+	 */
 	protected function parseParams( $par ) {
 		$bits = preg_split( '/\s*,\s*/', trim( $par ) );
 		$limit = false;

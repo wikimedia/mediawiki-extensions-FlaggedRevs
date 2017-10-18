@@ -49,7 +49,7 @@ class CachePendingRevs extends Maintenance {
 
 	/**
 	 * Log the cache message
-	 * @param $msg String The message to log
+	 * @param string $msg The message to log
 	 */
 	private function cachePendingRevsLog( $msg ) {
 		$this->output( wfTimestamp( TS_DB ) . " $msg\n" );

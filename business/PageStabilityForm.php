@@ -264,6 +264,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	 * Do history & log updates:
 	 * (a) Add a new stability log entry
 	 * (b) Add a null edit like the log entry
+	 * @param FlaggableWikiPage $article
 	 * @return Revision
 	 */
 	protected function updateLogsAndHistory( FlaggableWikiPage $article ) {

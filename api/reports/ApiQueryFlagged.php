@@ -113,7 +113,7 @@ class ApiQueryFlagged extends ApiQueryBase {
 	}
 
 	/**
-	 * @see ApiBase::getExamplesMessages()
+	 * @inheritDoc
 	 */
 	protected function getExamplesMessages() {
 		return [

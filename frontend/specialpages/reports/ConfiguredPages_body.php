@@ -118,7 +118,9 @@ class ConfiguredPages extends SpecialPage {
 class ConfiguredPagesPager extends AlphabeticPager {
 	public $mForm, $mConds, $namespace, $override, $autoreview;
 
-	/*
+	/**
+	 * @param SpecialPage $form
+	 * @param array $conds
 	 * @param int $namespace (null for "all")
 	 * @param int $override (null for "either")
 	 * @param string $autoreview ('' for "all", 'none' for no restriction)

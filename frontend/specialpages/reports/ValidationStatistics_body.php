@@ -304,7 +304,10 @@ class ValidationStatistics extends IncludableSpecialPage {
 		return $stats['statTimestamp'];
 	}
 
-	// top X reviewers in the last Y hours
+	/**
+	 * Get top X reviewers in the last Y hours
+	 * @return array
+	 */
 	protected function getTopReviewers() {
 		global $wgFlaggedRevsStats;
 
