@@ -58,7 +58,7 @@
 	"flaggedrevs-hidereviewed-show": "{{doc-actionlink}}\nOption text in [[Special:RecentChanges]] in conjunction with {{msg-mw|flaggedrevs-hidereviewed}}.\n\nSee also:\n* {{msg-mw|flaggedrevs-hidereviewed-hide}}\n{{Identical|Show}}",
 	"flaggedrevs-rcfilters-need-review-label": "Label for the filter for showing edits that require review.",
 	"flaggedrevs-rcfilters-need-review-desc": "Description for the filter for showing edits that require review.",
-	"flaggedrevs-rcfilters-reviewed-label": "Label for the filter for showing edits that have been reviewed.",
+	"flaggedrevs-rcfilters-reviewed-label": "Label for the filter for showing edits that have been reviewed.\n{{Identical|Reviewed}}",
 	"flaggedrevs-rcfilters-reviewed-desc": "Description for the filter for showing edits that have been reviewed.",
 	"flaggedrevs-rcfilters-not-reviewable-label": "Label for the filter for showing edits of all types that don't require review.",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "Description for the filter for showing edits of all types that don't require review.",

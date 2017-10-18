@@ -17,7 +17,8 @@
 			"Waihorace",
 			"Xiaomingyan",
 			"阿pp",
-			"飞舞回堂前"
+			"飞舞回堂前",
+			"NeverBehave"
 		]
 	},
 	"action-review": "复核版本",
@@ -39,6 +40,12 @@
 	"flaggedrevs-hidereviewed": "$1已复核编辑",
 	"flaggedrevs-hidereviewed-hide": "隐藏",
 	"flaggedrevs-hidereviewed-show": "显示",
+	"flaggedrevs-rcfilters-need-review-label": "需要复核",
+	"flaggedrevs-rcfilters-need-review-desc": "编辑需要复核。",
+	"flaggedrevs-rcfilters-reviewed-label": "已复核",
+	"flaggedrevs-rcfilters-reviewed-desc": "已经复核的编辑。",
+	"flaggedrevs-rcfilters-not-reviewable-label": "没有需要复核的主题",
+	"flaggedrevs-rcfilters-not-reviewable-desc": "所有不需要复核的类型的更改。",
 	"group-editor": "编者",
 	"group-editor-member": "{{GENDER:$1|编者}}",
 	"group-reviewer": "复核员",

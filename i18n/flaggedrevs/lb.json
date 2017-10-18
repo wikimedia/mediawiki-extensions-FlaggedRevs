@@ -26,6 +26,7 @@
 	"flaggedrevs-hidereviewed": "$1 huet d'Ännerungen nogekuckt",
 	"flaggedrevs-hidereviewed-hide": "Verstoppen",
 	"flaggedrevs-hidereviewed-show": "Weisen",
+	"flaggedrevs-rcfilters-reviewed-label": "Nogekuckt",
 	"group-editor": "Editeuren",
 	"group-editor-member": "{{GENDER:$1|Editeur}}",
 	"group-reviewer": "Reviseuren",
