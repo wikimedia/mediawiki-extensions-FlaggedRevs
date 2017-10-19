@@ -5,7 +5,8 @@
 			"Froztbyte",
 			"Jon Harald Søby",
 			"Tjernobyl",
-			"Sarrus"
+			"Sarrus",
+			"Joedalton"
 		]
 	},
 	"action-review": "gennemgå revisioner",
@@ -23,6 +24,7 @@
 	"flaggedrevs-pref-stable-2": "Vis altid den nyeste version",
 	"flaggedrevs-prefs-watch": "Tilføj sider jeg gennemgår til min overvågningsliste",
 	"flaggedrevs-hidereviewed-show": "Vis",
+	"flaggedrevs-rcfilters-reviewed-desc": "Redigeringer som er blevet korrekturlæst.",
 	"group-editor": "Skribenter",
 	"group-editor-member": "{{GENDER:$1|skribent}}",
 	"group-reviewer": "Korrekturlæsere",
@@ -42,7 +44,6 @@
 	"review-logentry-id": "revision: $2",
 	"reviewer": "Korrekturlæser",
 	"revreview-accuracy-4": "Fremhævet",
-	"revreview-auto": "(automatisk)",
 	"revreview-style-0": "Utilstrækkelig",
 	"revreview-style-1": "Acceptabel",
 	"revreview-style-2": "God",

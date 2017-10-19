@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Helix84",
-			"TomášPolonec"
+			"TomášPolonec",
+			"Pmikolas44"
 		]
 	},
 	"action-review": "skontrolovať revízie",
@@ -22,6 +23,9 @@
 	"flaggedrevs-prefs-editdiffs": "Zobrazovať pri upravovaní stránky rozdiel so zmenami čakajúcimi na schválenie",
 	"flaggedrevs-prefs-viewdiffs": "Zobrazovať rozdiel so zmenami čakajúcimi na schválenie pri zobrazení poslednej revízie čakajúcej na schválenie",
 	"flaggedrevs-hidereviewed": "$1 {{PLURAL:$1|skontrolovaná úprava|skontrolované úpravy|skontrolovaných úprav}}",
+	"flaggedrevs-rcfilters-reviewed-label": "Skontrolované",
+	"flaggedrevs-rcfilters-reviewed-desc": "Úpravy, ktoré boli skontrolované.",
+	"flaggedrevs-rcfilters-not-reviewable-label": "Nepodlieha kontrole",
 	"group-editor": "Redaktori",
 	"group-editor-member": "redaktor",
 	"group-reviewer": "Revízori",
@@ -51,8 +55,6 @@
 	"revreview-log-details-hide": "skryť podrobnosti",
 	"revreview-log-details-title": "Prepnúť zobrazenie nastavenia záznamu stability",
 	"review-diff2stable": "Zobraziť všetky čakajúce zmeny",
-	"review-logentry-app": "skontroloval verziu [[$1]]",
-	"review-logentry-dis": "zavrhol verziu [[$1]]",
 	"review-logentry-id": "revízia: $2",
 	"review-logentry-diff": "zmeny skontrolované",
 	"review-logentry-diff2": "zastaralé zmeny",
@@ -65,7 +67,6 @@
 	"revreview-accuracy-2": "presná",
 	"revreview-accuracy-3": "dobre uvedené zdroje",
 	"revreview-accuracy-4": "odporúčaný",
-	"revreview-auto": "(automatické)",
 	"revreview-basic": "Toto je [[{{MediaWiki:Validationpage}}|stabilná verzia]] tejto stránky, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} videná] <i>$2</i>.\n[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Aktuálna verzia] obsahuje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|navrhovanú zmenu čakajúcu|navrhované zmeny čakajúce|navrhovaných zmien čakajúcich}}] na revíziu.",
 	"revreview-basic-i": "Toto je [[{{MediaWiki:Validationpage}}|stabilná verzia]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} skontrolovaná] <i>$2</i>.\n[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} návrh] obsahuje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Zmeny šablóny/súboru] čakajú na schválenie.",
 	"revreview-basic-old": "Toto je [[{{MediaWiki:Validationpage}}|videná]] revízia ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} zobraziť všetky]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>.\nJe možné, že boli vykonané ďalšie [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} zmeny].",
@@ -79,7 +80,6 @@
 	"revreview-depth-3": "vysoká",
 	"revreview-depth-4": "odporúčaný",
 	"revreview-draft-title": "Táto stránka zobrazuje čakajúce zmeny",
-	"revreview-edit": "Upraviť",
 	"revreview-editnotice": "'''Vaše úpravy budú [[{{MediaWiki:Validationpage}}|zverejnené]], keď ich oprávnený používateľ [[{{MediaWiki:Validationpage}}|skontroluje]].'''",
 	"revreview-submitedit": "Odoslať zmeny",
 	"revreview-submitedit-title": "Odoslať vaše zmeny na kontrolu",
@@ -110,7 +110,6 @@
 	"revreview-quick-quality-same": "'''[[{{MediaWiki:Validationpage}}|Kvalitná stránka]]'''",
 	"revreview-quick-see-basic": "'''[[{{MediaWiki:Validationpage}}|Návrh]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabilná verzia]]\n[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} porovnať]]",
 	"revreview-quick-see-quality": "'''[[{{MediaWiki:Validationpage}}|Návrh]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabilná verzia]]\n[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} porovnať]]",
-	"revreview-source": "Zdroj konceptu",
 	"revreview-basic-title": "Toto je videná stránka",
 	"revreview-style": "Čitateľnosť",
 	"revreview-style-0": "neschválené",
