@@ -12,7 +12,8 @@
 			"Sahim",
 			"Wayiran",
 			"Calak",
-			"Alirezaaa"
+			"Alirezaaa",
+			"Ommmmid"
 		]
 	},
 	"action-review": "بازبینی نسخه‌ها",
@@ -34,6 +35,7 @@
 	"flaggedrevs-hidereviewed": "$1 ویرایش بازبینی‌شده",
 	"flaggedrevs-hidereviewed-hide": "پنهان‌ کردن",
 	"flaggedrevs-hidereviewed-show": "نمایش",
+	"flaggedrevs-rcfilters-need-review-label": "نیازمند بررسی",
 	"group-editor": "ویرایشگران",
 	"group-editor-member": "{{GENDER:$1|ویرایشگر}}",
 	"group-reviewer": "بازبینی‌کنندگان",
