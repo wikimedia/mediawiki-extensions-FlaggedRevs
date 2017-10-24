@@ -30,7 +30,8 @@
 			"INS Pirat",
 			"Sealle",
 			"Alex Great",
-			"Mailman"
+			"Mailman",
+			"Kareyac"
 		]
 	},
 	"action-review": "проверка версий страниц",
@@ -52,6 +53,7 @@
 	"flaggedrevs-hidereviewed": "$1 проверенные правки",
 	"flaggedrevs-hidereviewed-hide": "Скрыть",
 	"flaggedrevs-hidereviewed-show": "Показать",
+	"flaggedrevs-rcfilters-reviewed-label": "Проверено",
 	"group-editor": "Патрулирующие",
 	"group-editor-member": "{{GENDER:$1|досматривающий|досматривающая}}",
 	"group-reviewer": "Выверяющие",
