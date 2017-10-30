@@ -1901,25 +1901,13 @@ class FlaggablePageView extends ContextSource {
 		if ( !$this->editWillRequireReview( $editPage ) ) {
 			return true; // edit will go live or be reviewed on save
 		}
-		if ( extension_loaded( 'domxml' ) ) {
-			wfDebug(
-				"Warning: you have the obsolete domxml extension for PHP. Please remove it!\n"
-			);
-			return true; # PECL extension conflicts with the core DOM extension (see bug 13770)
-		} elseif ( isset( $buttons['save'] ) && extension_loaded( 'dom' ) ) {
-			$dom = new DOMDocument();
-			$dom->loadXML( $buttons['save'] ); // load button XML from hook
-			foreach ( $dom->getElementsByTagName( 'input' ) as $input ) { // one <input>
+		if ( isset( $buttons['save'] ) ) {
+			// This relies on MediaWiki 1.29+ as these are OOUI ButtonInputWidgets:
+			if ( is_a( $buttons['save'], 'OOUI\ButtonInputWidget' ) ) {
 				$buttonLabel = $this->msg( 'revreview-submitedit' )->text();
-				$input->setAttribute( 'value', $buttonLabel );
-				// This attempts to re-implement Linker::titleAttrib();
-				// TODO, consider a re-use pattern
-				$buttonTitle = $this->msg( 'revreview-submitedit-title' )->text() . ' ' .
-					$this->msg( 'brackets', $this->msg( 'accesskey-save' )->text() )->text();
-				$input->setAttribute( 'title', $buttonTitle ); // keep accesskey
-
-				# Change submit button text & title
-				$buttons['save'] = $dom->saveXML( $dom->documentElement );
+				$buttons['save']->setLabel( $buttonLabel );
+				$buttonTitle = $this->msg( 'revreview-submitedit-title' )->text();
+				$buttons['save']->setTitle( $buttonTitle );
 			}
 		}
 		return true;
