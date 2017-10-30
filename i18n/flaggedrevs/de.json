@@ -27,7 +27,8 @@
 			"Xqt",
 			"✓",
 			"Kurt Jansson",
-			"Schniggendiller"
+			"Schniggendiller",
+			"WhatamIdoing"
 		]
 	},
 	"action-review": "Versionen markieren",
@@ -117,7 +118,7 @@
 	"revreview-depth-4": "exzellent",
 	"revreview-draft-title": "Unmarkierte Änderungen werden auf dieser Seite angezeigt",
 	"revreview-editnotice": "'''Deine Änderungen werden angezeigt, sobald ein dazu berechtigter Benutzer sie akzeptiert hat. ([[{{MediaWiki:Validationpage}}|Hilfe]])'''",
-	"revreview-submitedit": "Änderungen speichern",
+	"revreview-submitedit": "Änderungen übertragen",
 	"revreview-submitedit-title": "Deine Änderungen zur Markierung vorschlagen",
 	"revreview-edited": "'''Deine Änderungen werden angezeigt, sobald ein dazu berechtigter Benutzer sie akzeptiert hat. ([[{{MediaWiki:Validationpage}}|Hilfe]])'''\n\nMomentan {{PLURAL:$2|gibt}} es [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 unmarkierte {{PLURAL:$2|Änderung|Änderungen}}], die noch markiert werden {{PLURAL:$2|muss|müssen}}.",
 	"revreview-edited-section": "Zurück zum Seitenabschnitt „[[#$1|$2]]“.",
