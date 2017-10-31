@@ -360,18 +360,21 @@ class FlaggableWikiPage extends WikiPage {
 	 * @return mixed Database result resource, or false on failure
 	 */
 	protected function pageData( $dbr, $conditions, $options = [] ) {
+		$pageQuery = WikiPage::getQueryInfo();
 		$row = $dbr->selectRow(
-			[ 'page', 'flaggedpages', 'flaggedpage_config' ],
+			array_merge( $pageQuery['tables'], [ 'flaggedpages', 'flaggedpage_config' ] ),
 			array_merge(
-				WikiPage::selectFields(),
+				$pageQuery['fields'],
 				FRPageConfig::selectFields(),
-				[ 'fp_pending_since', 'fp_stable', 'fp_reviewed' ] ),
+				[ 'fp_pending_since', 'fp_stable', 'fp_reviewed' ]
+			),
 			$conditions,
 			__METHOD__,
 			$options,
-			[
+			$pageQuery['joins'] + [
 				'flaggedpages' 		 => [ 'LEFT JOIN', 'fp_page_id = page_id' ],
-				'flaggedpage_config' => [ 'LEFT JOIN', 'fpc_page_id = page_id' ] ]
+				'flaggedpage_config' => [ 'LEFT JOIN', 'fpc_page_id = page_id' ],
+			]
 		);
 		return $row;
 	}

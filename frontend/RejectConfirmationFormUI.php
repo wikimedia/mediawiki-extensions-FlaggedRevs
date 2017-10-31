@@ -33,8 +33,10 @@ class RejectConfirmationFormUI {
 		$form = '<div class="plainlinks">';
 
 		$dbr = wfGetDB( DB_REPLICA );
-		$res = $dbr->select( 'revision',
-			Revision::selectFields(),
+		$revQuery = Revision::getQueryInfo();
+		$res = $dbr->select(
+			$revQuery['tables'],
+			$revQuery['fields'],
 			[
 				'rev_page' => $oldRev->getPage(),
 				'rev_timestamp > ' . $dbr->addQuotes(
@@ -43,7 +45,8 @@ class RejectConfirmationFormUI {
 					$dbr->timestamp( $newRev->getTimestamp() ) )
 			],
 			__METHOD__,
-			[ 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 251 ] // sanity check
+			[ 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 251 ], // sanity check
+			$revQuery['joins']
 		);
 		if ( !$dbr->numRows( $res ) ) {
 			return [ '', 'review_bad_oldid' ];
