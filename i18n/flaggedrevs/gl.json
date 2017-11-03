@@ -34,6 +34,7 @@
 	"flaggedrevs-rcfilters-reviewed-label": "Revisada",
 	"flaggedrevs-rcfilters-reviewed-desc": "Edicións que xa foron revisadas.",
 	"flaggedrevs-rcfilters-not-reviewable-label": "Non hai edicións para revisar",
+	"flaggedrevs-rcfilters-not-reviewable-desc": "Cambios de tódolos tipos que non precisan revisión.",
 	"group-editor": "Editores",
 	"group-editor-member": "{{GENDER:$1|editor|editora}}",
 	"group-reviewer": "Revisores",
