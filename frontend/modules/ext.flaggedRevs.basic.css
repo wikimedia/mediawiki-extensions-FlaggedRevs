@@ -224,7 +224,6 @@ div.flaggedrevs_short_details {
 }
 
 a.fr-toggle-symbol {
-	color: #00f;
 	white-space: nowrap;
 	font-family: monospace;
 	font-weight: bold;
@@ -233,7 +232,6 @@ a.fr-toggle-symbol {
 }
 
 a.fr-toggle-text {
-	color: #00f;
 	font-weight: bold;
 	cursor: pointer;
 }
