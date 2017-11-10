@@ -124,7 +124,7 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 				$titles = Title::newFromIDs( $ids );
 				# Update squid cache
 				if ( $wgUseSquid ) {
-					$u = SquidUpdate::newFromTitles( $titles );
+					$u = CdnCacheUpdate::newFromTitles( $titles );
 					$u->doUpdate();
 				}
 				# Update file cache
