@@ -20,7 +20,8 @@
 			"JulesWinnfield-hu",
 			"Csega",
 			"Tacsipacsi",
-			"Csigabi"
+			"Csigabi",
+			"Bencemac"
 		]
 	},
 	"action-review": "változatok ellenőrzése",
@@ -42,6 +43,12 @@
 	"flaggedrevs-hidereviewed": "ellenőrzött szerkesztések $1",
 	"flaggedrevs-hidereviewed-hide": "elrejtése",
 	"flaggedrevs-hidereviewed-show": "megjelenítése",
+	"flaggedrevs-rcfilters-need-review-label": "Ellenőrizendő",
+	"flaggedrevs-rcfilters-need-review-desc": "Szerkesztések, amelyek ellenőrzésre várnak.",
+	"flaggedrevs-rcfilters-reviewed-label": "Ellenőrzött",
+	"flaggedrevs-rcfilters-reviewed-desc": "Szerkesztések, amelyek ellenőrizve lettek.",
+	"flaggedrevs-rcfilters-not-reviewable-label": "Automatikusan ellenőrzött szerkesztések",
+	"flaggedrevs-rcfilters-not-reviewable-desc": "Szerkesztések, amelyeket nem kell ellenőrizni (min. megerősített szerkesztői jog).",
 	"group-editor": "járőrök",
 	"group-editor-member": "járőr",
 	"group-reviewer": "lektorok",

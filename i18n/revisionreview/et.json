@@ -24,7 +24,7 @@
 	"revreview-check-flag-p": "Kiida see redaktsioon heaks (sisaldab {{PLURAL:$1|üht|$1}} ootel muudatust)",
 	"revreview-check-flag-p-title": "Kiida kõik praegu ootel olevad muudatused heaks, kaasa arvatud su enda muudatus. Kasuta seda ainult siis, kui oled juba kõiki erinevusi ootel muudatuste ja püsiva versiooni vahel näinud.",
 	"revreview-check-flag-u": "Kiida see ülevaatamata lehekülg heaks",
-	"revreview-check-flag-u-title": "Kiida käesolev lehekülje versioon heaks. Kasuta seda ainult siis, kui oled juba kogu lehekülge näinud.",
+	"revreview-check-flag-u-title": "Kiida see lehekülje versioon heaks. Kasuta seda ainult siis, kui oled juba kogu lehekülge näinud.",
 	"revreview-check-flag-y": "Kiida need muudatused heaks",
 	"revreview-check-flag-y-title": "Kiida kõik enda tehtud muudatused selles redaktsioonis heaks.",
 	"revreview-flag": "Redaktsiooni ülevaatamine",

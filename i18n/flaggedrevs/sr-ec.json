@@ -10,7 +10,8 @@
 			"Жељко Тодоровић",
 			"Михајло Анђелковић",
 			"Сербијана",
-			"Srdjan m"
+			"Srdjan m",
+			"Prevodim"
 		]
 	},
 	"action-review": "провера ревизија",
@@ -32,6 +33,12 @@
 	"flaggedrevs-hidereviewed": "$1 проверене измене",
 	"flaggedrevs-hidereviewed-hide": "Сакриј",
 	"flaggedrevs-hidereviewed-show": "Прикажи",
+	"flaggedrevs-rcfilters-need-review-label": "Потребна потврда",
+	"flaggedrevs-rcfilters-need-review-desc": "Промене које захтевају потврду.",
+	"flaggedrevs-rcfilters-reviewed-label": "Потврђено",
+	"flaggedrevs-rcfilters-reviewed-desc": "Потврђене промене.",
+	"flaggedrevs-rcfilters-not-reviewable-label": "Није подложно потврђивању.",
+	"flaggedrevs-rcfilters-not-reviewable-desc": "Промене свих типова које не захтевају потврђивање.",
 	"group-editor": "Уредници",
 	"group-editor-member": "{{GENDER:$1|уредник|уредница}}",
 	"group-reviewer": "Прегледачи",
