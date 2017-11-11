@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Rancher"
+			"Rancher",
+			"Prevodim"
 		]
 	},
+	"apihelp-query+unreviewedpages-param-dir": "Смер сортирања.",
 	"apihelp-stabilize-param-reason": "Разлог.",
 	"apihelp-stabilize-param-watch": "Надгледајте ову страницу.",
 	"apihelp-stabilize-param-expiry-general": "Истек ових подешавања.",

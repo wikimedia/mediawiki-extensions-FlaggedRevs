@@ -7,7 +7,8 @@
 			"Sasa Stefanovic",
 			"Жељко Тодоровић",
 			"Михајло Анђелковић",
-			"Сербијана"
+			"Сербијана",
+			"Prevodim"
 		]
 	},
 	"revisionreview": "Провера ревизија",
@@ -18,6 +19,10 @@
 	"review_no_oldid": "Није наведен ID ревизије.",
 	"review_bad_oldid": "Одредишна ревизија не постоји.",
 	"review_not_flagged": "Одредишна ревизија није означена као проверена.",
+	"review_denied": "Приступ је одбијен.",
+	"review_param_missing": "Параметар недостаје или није валидан.",
+	"revreview-check-flag-y": "Прихвати моје измене",
+	"revreview-check-flag-y-title": "Прихватите све измене које сте овде направили.",
 	"revreview-flag": "Провери ову измену",
 	"revreview-reflag": "Поново провери ову измену",
 	"revreview-invalid": "'''Лош циљ:''' ниједна [[{{MediaWiki:Validationpage}}|прегледана]] верзије не поседује дати редни број.",
@@ -33,5 +38,7 @@
 	"revreview-submit-reviewed": "Готово. Одобрено!",
 	"revreview-submit-unreviewed": "Готово. Уклоњено одобрење!",
 	"revreview-successful2": "'''Са ревизије странице [[:$1|$1]] је уклоњена ознака.'''",
-	"revreview-update-includes": "Ажурирани шаблони/датотеке (непрегледане странице су подебљане):"
+	"revreview-update-includes": "Ажурирани шаблони/датотеке (непрегледане странице су подебљане):",
+	"revreview-reject-summary": "Опис:",
+	"revreview-reject-cancel": "Откажи"
 }

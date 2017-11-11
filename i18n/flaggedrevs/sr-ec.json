@@ -48,6 +48,13 @@
 	"group-autoreview": "Ауторевизори",
 	"group-autoreview-member": "{{GENDER:$1|ауторевизор|ауторевизорка}}",
 	"grouppage-autoreview": "{{ns:project}}:Ауторевизори",
+	"logentry-review-approve": "$1 је {{GENDER:$2|отпремио|отпремила}} верзију за $3",
+	"logentry-review-approve-auto": "$1 је аутоматски {{GENDER:$2|потврдио|потврдила}} верзију измене $3",
+	"logentry-review-unapprove": "$1 је {{GENDER:$2|означио|означила}} верзију измене $3 као застарелу",
+	"logentry-stable-config": "$1 је {{GENDER:$2|поставио|поставила}} подешавања стабилне верзије за $3 $4",
+	"logentry-stable-modify": "$1 је {{GENDER:$2|променио|променила}} подешавања стабилне верзије за $3 $4",
+	"logentry-stable-reset": "$1 је {{GENDER:$2|рестартовао|рестартовала}} подешавања стабилне верзије за $3 $4",
+	"logentry-stable-move_stable": "$1 је {{GENDER:$2|померио|померила}} подешавања стабилне верзије за $3 $4",
 	"revreview-hist-draft": "непроверена измена",
 	"revreview-hist-pending": "чека проверу",
 	"revreview-hist-quality": "квалитетна ревизија",
@@ -187,5 +194,13 @@
 	"revreview-locked": "'''Напомена:''' измене морају бити [[{{MediaWiki:Validationpage}}|проверене]] пре него што буду приказане читаоцима.",
 	"revreview-unlocked": "'''Напомена:''' измене не морају бити [[{{MediaWiki:Validationpage}}|проверене]] пре него што буду приказане читаоцима.",
 	"log-show-hide-review": "$1 дневник провера",
-	"validationpage": "{{ns:help}}:Провера странице"
+	"validationpage": "{{ns:help}}:Провера странице",
+	"log-action-filter-review": "Тип потврде:",
+	"log-action-filter-review-accept": "Ручно прихватање",
+	"log-action-filter-review-autoaccept": "Аутоматско прихватање",
+	"log-action-filter-review-unaccept": "Ручно одбијање",
+	"log-action-filter-stable": "Тип промене конфигурације:",
+	"log-action-filter-stable-config": "Нова конфигурација",
+	"log-action-filter-stable-modify": "Измењена конфигурација",
+	"log-action-filter-stable-reset": "Ресетовање конфигурације"
 }
