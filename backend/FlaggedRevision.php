@@ -175,12 +175,13 @@ class FlaggedRevision {
 			$frQuery['fields'],
 			[
 				'fp_page_id' => $pageId,
-				'fr_rev_id = fp_stable',
 				$db->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0', // sanity
 			],
 			__METHOD__,
 			$options,
-			$frQuery['joins']
+			[
+				'flaggedrevs' => [ 'JOIN', 'fr_rev_id = fp_stable' ],
+			] + $frQuery['joins']
 		);
 		if ( $row ) {
 			$frev = new self( $row );
@@ -448,7 +449,7 @@ class FlaggedRevision {
 					'rev_id = fr_rev_id',
 					'rev_page = fr_page_id', // sanity
 				] ],
-			],
+			] + $revQuery['joins'],
 		];
 	}
 
