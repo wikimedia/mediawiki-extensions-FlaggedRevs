@@ -143,7 +143,7 @@
 	"right-stablesettings": "Postavljanje kako će se važeća inačica odabirati i prikazivati",
 	"right-validate": "Označavanje inačica po kakvoći",
 	"right-unreviewedpages": "Pregled [[Special:UnreviewedPages|popisa neocijenjenih stranica]]",
-	"rights-editor-revoke": "oduzet status urednika suradniku [[$1]]",
+	"rights-editor-revoke": "uklonio/uklonila je status uređivača suradniku [[$1]]",
 	"specialpages-group-quality": "Ocjena uređivanja",
 	"stable-logentry-config": "odredi postavke vrijedeće inačice stranice \"$1\"",
 	"stable-logentry-modify": "promijenjene postavke stabilne inačice za \"$1\"",
