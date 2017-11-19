@@ -7,7 +7,7 @@
 	},
 	"pendingchanges": "Талламбанза хийцамаш болу агӀонаш",
 	"pendingchanges-legend": "Талламбанза версеш йолу теллина агӀонийн могӀам",
-	"pendingchanges-list": "ХӀокху агӀонгахь гойту хьажа дезаш нисдарш долу [[{{MediaWiki:Validationpage}}|хьажжина]] агӀонаш.",
+	"pendingchanges-list": "ХӀокху агӀонгахь гойту талламбанза нисдарш долу [[{{MediaWiki:Validationpage}}|талламбина]] агӀонаш.",
 	"pendingchanges-none": "ХӀинца йолу хана иштта хьал долу агӀонаш яц",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|сахьт}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|де}})",
