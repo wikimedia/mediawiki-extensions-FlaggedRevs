@@ -342,14 +342,12 @@ class FlaggableWikiPage extends WikiPage {
 			return;
 		}
 
-		JobQueueGroup::singleton()->push( EnqueueJob::newFromLocalJobs(
-			new JobSpecification(
-				'flaggedrevs_CacheUpdate',
-				[ 'type' => 'updatesyncstate' ],
-				[ 'removeDuplicates' => true ],
-				$this->getTitle()
+		JobQueueGroup::singleton()->push(
+			new FRExtraCacheUpdateJob(
+				$this->getTitle(),
+				[ 'type' => 'updatesyncstate' ]
 			)
-		) );
+		);
 	}
 
 	/**
