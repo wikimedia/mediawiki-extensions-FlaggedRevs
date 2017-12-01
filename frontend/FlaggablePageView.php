@@ -619,11 +619,10 @@ class FlaggablePageView extends ContextSource {
 
 		# Get the new stable parser output...
 		$pOpts = $this->article->makeParserOptions( $reqUser );
-		$pOpts->setEditSection( false ); // old revision
 		$parserOut = FlaggedRevs::parseStableRevision( $frev, $pOpts );
 
 		# Parse and output HTML
-		$this->out->addParserOutput( $parserOut );
+		$this->out->addParserOutput( $parserOut, [ 'enableSectionEditLinks' => false ] );
 
 		return $parserOut;
 	}
@@ -695,8 +694,9 @@ class FlaggablePageView extends ContextSource {
 
 		# Get parsed stable version and output HTML
 		$pOpts = $this->article->makeParserOptions( $reqUser );
+		$poOpts = [];
 		if ( !$this->article->getTitle()->quickUserCan( 'edit', $reqUser ) ) {
-			$pOpts->setEditSection( false );
+			$poOpts['enableSectionEditLinks'] = false;
 		}
 		$parserCache = FRParserCacheStable::singleton();
 		$parserOut = $parserCache->get( $this->article, $pOpts );
@@ -705,7 +705,7 @@ class FlaggablePageView extends ContextSource {
 		# chance that a review form will be added to this page (which requires the versions).
 		if ( $parserOut ) {
 			# Cache hit. Note that redirects are not cached.
-			$this->out->addParserOutput( $parserOut );
+			$this->out->addParserOutput( $parserOut, $poOpts );
 		} else {
 			$parserOut = false;
 			# Get the new stable parser output...
@@ -732,7 +732,7 @@ class FlaggablePageView extends ContextSource {
 			# Update the stable version cache
 			$parserCache->save( $parserOut, $this->article, $pOpts );
 			# Add the stable output to the page view
-			$this->out->addParserOutput( $parserOut );
+			$this->out->addParserOutput( $parserOut, $poOpts );
 			# Update the stable version dependancies
 			if ( !wfReadOnly() ) {
 				FlaggedRevs::updateStableOnlyDeps(
