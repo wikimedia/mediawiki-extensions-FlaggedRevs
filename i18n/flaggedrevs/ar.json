@@ -42,6 +42,7 @@
 	"flaggedrevs-rcfilters-need-review-desc": "التعديلات بحاجة للمراجعة.",
 	"flaggedrevs-rcfilters-reviewed-label": "المراجعة",
 	"flaggedrevs-rcfilters-reviewed-desc": "التعديلات التي تمت مراجعتها.",
+	"flaggedrevs-rcfilters-not-reviewable-label": "لا تحتاج للمراجعة",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "التغييرات من كل الأنواع التي لا تحتاج للمراجعة.",
 	"group-editor": "محررون",
 	"group-editor-member": "{{GENDER:$1|محرر|محررة}}",
