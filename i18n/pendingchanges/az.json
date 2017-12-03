@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Cekli829",
-			"Wertuose"
+			"Wertuose",
+			"Şeyx Şamil"
 		]
 	},
 	"pendingchanges-none": "Bu kriteriyalara müvafiq olan bir səhifə mövcud deyil",
@@ -14,5 +15,6 @@
 	"pendingchanges-diff": "yoxlama",
 	"pendingchanges-size": "Maksimal dəyişiklik (baytlarla):",
 	"pendingchanges-unwatched": "(izlənmir)",
-	"pendingchanges-watched": "($1 aktiv {{PLURAL:$1|istifadəçi|istifadəçi}} izləyir)"
+	"pendingchanges-watched": "($1 aktiv {{PLURAL:$1|istifadəçi|istifadəçi}} izləyir)",
+	"pendingchanges-viewing": "Baxış altında"
 }
