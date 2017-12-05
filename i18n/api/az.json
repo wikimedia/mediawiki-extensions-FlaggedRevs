@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Cekli829",
-			"Baskervill"
+			"Baskervill",
+			"Wertuose"
 		]
 	},
 	"apihelp-flagconfig-description": "Bu sayt üçün bildiriş konfiqurasiyasına yenidən baxmaq haqqında sadə məlumatları əldə edin. \n\nHər bir işarələmə üçün aşağıdakı parametrlər təyin edilir. \n;ad:Bu işarələmənin əsas adı\n;səviyyələr:İşarələmə səviyyələrinin sayı (yuxarıda \"işarələnməmiş\") \n;2-ci dərəcə:yenidən baxılma üçün səviyyənin işarələnməsi 2-ci səviyyəyə (keyfiyyət) çatdırılmalıdır.\n;3-cü dərəcə:yenidən baxılma üçün səviyyənin işarələnməsi 3-cü səviyyəyə (yeni) çatdırılmalıdır.\nBildirişli versiyada hər bir bildiriş üçün müəyyən səviyyə təyin edilmişdir. Bütün işarələnmələrin toplandığı ən yüksək səviyyə ümumi təkrar baxış üçün təkrar səviyyə hesab olunur.",
@@ -14,13 +15,14 @@
 	"apihelp-query+configuredpages-param-limit": "Geri qayıtmaq üçün ümumi səhifə sayı",
 	"apihelp-query+configuredpages-example-1": "Xüsusi baxış konfiqurasiyalarına sahib səhifələrin siyahısını göstər",
 	"apihelp-query+configuredpages-example-2": "Xüsusi baxış konfiqurasiyaları olan səhifələr haqqında məlumat almaq",
-	"apihelp-query+flagged-example-1": "[[Əsas səhifə]] üçün informasiya və bayraq statusunun öyrənilməsi",
+	"apihelp-query+flagged-example-1": "[[Ana Səhifə]]yə dair səhifə məlumatlarını və patrullanma statusunu öyrən",
 	"apihelp-query+flagged-example-2": "\"K\" ilə başlayan səhifələr üçün bayraq statusunun alınması.",
 	"apihelp-query+oldreviewedpages-description": "Yoxlanılmağı gözləyən səhifələrin nömrələnməsi.",
 	"apihelp-query+oldreviewedpages-param-start": "Bu vaxt damğası üzrə siyahılaşdırmanı başlamaq.",
 	"apihelp-query+oldreviewedpages-param-maxsize": "Maksimum xarakter sayı ölçünü dəyişir.",
 	"apihelp-query+oldreviewedpages-param-filterwatched": "İzləmə siyahısında səhifələr üzrə filteri necə həyata keçirməli.",
 	"apihelp-query+oldreviewedpages-param-namespace": "Nömrələnəcək ad fəzaları.",
+	"apihelp-query+oldreviewedpages-param-category": "Yalnız bu kateqoriyaya daxil olan şəkilləri göstər.",
 	"apihelp-query+oldreviewedpages-param-filterredir": "Yenidən yönləndirmələr üçün filtləmə qaydası.",
 	"apihelp-query+oldreviewedpages-param-limit": "Geri qaytarılan səhifələrin ümumi sayı.",
 	"apihelp-query+oldreviewedpages-example-2": "Bəzi əvvəlki yoxlanılan səhifələr haqqında məlumat göstərmək",

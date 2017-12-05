@@ -38,6 +38,6 @@
 	"stabilize_expiry_invalid": "Neispravan datum isticanja.",
 	"stabilize_expiry_old": "Ovo vrijeme isticanja je već prošlo.",
 	"stabilize_denied": "Pristup odbijen.",
-	"stabilize-expiring": "ističe $1 (UTC)",
+	"stabilize-expiring": "istječe $1 (UTC)",
 	"stabilization-review": "Označite trenutačnu inačicu pregledanom"
 }

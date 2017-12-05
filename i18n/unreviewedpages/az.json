@@ -3,13 +3,18 @@
 		"authors": [
 			"Cekli829",
 			"Khan27",
-			"Vugar 1981"
+			"Vugar 1981",
+			"Wertuose"
 		]
 	},
 	"unreviewedpages": "İncələnməmiş səhifələr",
 	"unreviewedpages-category": "Kateqoriya:",
 	"unreviewedpages-diff": "yoxlama",
+	"unreviewedpages-unwatched": "(izlənmir)",
+	"unreviewedpages-watched": "($1 aktiv {{PLURAL:$1|istifadəçi}} izləyir)",
+	"unreviewedpages-list": "Bu səhifədə, müəyyən edilmiş səviyyəyə görə [[{{MediaWiki:Validationpage}}|yoxlanmamış]] məzmun səhifələri sıralanıb.",
 	"unreviewedpages-none": "Bu kriteriyalara müvafiq olan bir səhifə mövcud deyil.",
+	"unreviewedpages-viewing": "(yoxlanılır)",
 	"unreviewedpages-hours": "$1 {{PLURAL:$1|saat|saat}}",
 	"unreviewedpages-days": "$1 {{PLURAL:$1|gün|gün}}",
 	"unreviewedpages-recent": "(1 saatdan az)"

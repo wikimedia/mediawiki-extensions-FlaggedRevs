@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Snakesteuben",
-			"Robin0van0der0vliet"
+			"Robin0van0der0vliet",
+			"Robin van der Vliet"
 		]
 	},
 	"editor": "Redakteur",
@@ -15,7 +16,6 @@
 	"review-logentry-id": "ferzje: $2",
 	"reviewer": "Einredakteur",
 	"revreview-depth-0": "Ôfkeurd",
-	"revreview-edit": "Bewurkje",
 	"revreview-style-2": "Goed",
 	"revreview-revnotfound": "De âlde ferzje fan dizze side dêr't jo om frege hawwe, is der net.\nGean nei of de keppeling dy jo brûkt hawwe wol goed is.",
 	"revreview-restriction-none": "gjin"
