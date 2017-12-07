@@ -49,6 +49,7 @@
 	"apihelp-review-example-1": "Version 12345 mit dem Kommentar „Ok“ sichten",
 	"apihelp-reviewactivity-param-oldid": "Die Kennung der Version, die überprüft werden soll.",
 	"apihelp-stabilize-description-general": "Ändert die Einstellungen zur Seitenstabilität.",
+	"apihelp-stabilize-summary-general": "Ändert die Einstellungen für die Seitenstabilität.",
 	"apihelp-stabilize-param-reason": "Grund.",
 	"apihelp-stabilize-param-watch": "Beobachtet diese Seite.",
 	"apihelp-stabilize-param-expiry-general": "Ablauf für diese Einstellungen.",
