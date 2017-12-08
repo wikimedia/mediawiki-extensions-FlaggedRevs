@@ -746,7 +746,7 @@ class FlaggedRevsHooks {
 	}
 
 	public static function incrementRollbacks(
-		Page $article, User $user, $goodRev, Revision $badRev
+		WikiPage $article, User $user, $goodRev, Revision $badRev
 	) {
 		# Mark when a user reverts another user, but not self-reverts
 		$badUserId = $badRev->getUser( Revision::RAW );
