@@ -951,7 +951,8 @@ class FlaggedRevsHooks {
 	/**
 	 * Callback that autopromotes user according to the setting in
 	 * $wgFlaggedRevsAutopromote. This also handles user stats tallies.
-	 * @param Page $article
+	 *
+	 * @param WikiPage $wikiPage
 	 * @param User $user
 	 * @param Content $content
 	 * @param string $summary
@@ -960,10 +961,11 @@ class FlaggedRevsHooks {
 	 * @param bool $b
 	 * @param int &$f
 	 * @param Revision $rev
+	 *
 	 * @return true
 	 */
 	public static function onPageContentSaveComplete(
-		Page $article, User $user, $content, $summary, $m, $a, $b, &$f, $rev
+		WikiPage $wikiPage, User $user, $content, $summary, $m, $a, $b, &$f, $rev
 	) {
 		global $wgFlaggedRevsAutopromote, $wgFlaggedRevsAutoconfirm;
 		# Ignore NULL edits, edits by anon users, and MW role account edits
@@ -974,9 +976,9 @@ class FlaggedRevsHooks {
 			return true;
 		}
 
-		DeferredUpdates::addCallableUpdate( function () use ( $user, $article, $summary ) {
+		DeferredUpdates::addCallableUpdate( function () use ( $user, $wikiPage, $summary ) {
 			$p = FRUserCounters::getUserParams( $user->getId(), FR_FOR_UPDATE );
-			$changed = FRUserCounters::updateUserParams( $p, $article, $summary );
+			$changed = FRUserCounters::updateUserParams( $p, $wikiPage, $summary );
 			if ( $changed ) {
 				FRUserCounters::saveUserParams( $user->getId(), $p ); // save any updates
 			}
