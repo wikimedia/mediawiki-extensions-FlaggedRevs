@@ -113,13 +113,15 @@ class FlaggedRevsHooks {
 	 * (a) Update flaggedrevs page/tracking tables
 	 * (b) Pages with stable versions that use this page will be purged
 	 * Note: pages with current versions that use this page should already be purged
-	 * @param Page $article
+	 *
+	 * @param WikiPage $wikiPage
 	 * @param array $editInfo
+	 *
 	 * @return true
 	 */
-	public static function onArticleEditUpdates( Page $article, $editInfo ) {
-		FlaggedRevs::stableVersionUpdates( $article->getTitle(), null, null, $editInfo );
-		FlaggedRevs::extraHTMLCacheUpdate( $article->getTitle() );
+	public static function onArticleEditUpdates( WikiPage $wikiPage, $editInfo ) {
+		FlaggedRevs::stableVersionUpdates( $wikiPage->getTitle(), null, null, $editInfo );
+		FlaggedRevs::extraHTMLCacheUpdate( $wikiPage->getTitle() );
 		return true;
 	}
 
