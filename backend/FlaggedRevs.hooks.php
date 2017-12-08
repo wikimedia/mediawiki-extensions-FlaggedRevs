@@ -632,7 +632,8 @@ class FlaggedRevsHooks {
 	 * (a) Null undo or rollback
 	 * (b) Null edit with review box checked
 	 * Note: called after edit ops are finished
-	 * @param Page $article
+	 *
+	 * @param WikiPage $wikiPage
 	 * @param User $user
 	 * @param Content $content
 	 * @param string $s
@@ -643,10 +644,11 @@ class FlaggedRevsHooks {
 	 * @param Revision $rev
 	 * @param bool &$status
 	 * @param int $baseId
+	 *
 	 * @return true
 	 */
 	public static function maybeNullEditReview(
-		Page $article, $user, $content, $s, $m, $a, $b, $flags, $rev, &$status, $baseId
+		WikiPage $wikiPage, $user, $content, $s, $m, $a, $b, $flags, $rev, &$status, $baseId
 	) {
 		global $wgRequest;
 		# Revision must *be* null (null edit). We also need the user who made the edit.
@@ -658,12 +660,12 @@ class FlaggedRevsHooks {
 		if ( !$baseId && !$reviewEdit ) {
 			return true; // short-circuit
 		}
-		$fa = FlaggableWikiPage::getTitleInstance( $article->getTitle() );
+		$fa = FlaggableWikiPage::getTitleInstance( $wikiPage->getTitle() );
 		$fa->loadPageData( 'fromdbmaster' );
 		if ( !$fa->isReviewable() ) {
 			return true; // page is not reviewable
 		}
-		$title = $article->getTitle(); // convenience
+		$title = $wikiPage->getTitle(); // convenience
 		# Get the current revision ID
 		$rev = Revision::newFromTitle( $title, false, Revision::READ_LATEST );
 		if ( !$rev ) {
@@ -679,7 +681,7 @@ class FlaggedRevsHooks {
 			# We avoid auto-reviewing null edits to avoid confusion (bug 28476).
 			if ( $frev && !$revIsNull ) {
 				# Review this revision of the page...
-				$ok = FlaggedRevs::autoReviewEdit( $article, $user, $rev, $flags );
+				$ok = FlaggedRevs::autoReviewEdit( $wikiPage, $user, $rev, $flags );
 				if ( $ok ) {
 					FlaggedRevs::markRevisionPatrolled( $rev ); // reviewed -> patrolled
 					FlaggedRevs::extraHTMLCacheUpdate( $title );
@@ -702,7 +704,7 @@ class FlaggedRevsHooks {
 				}
 			}
 			# Review this revision of the page...
-			$ok = FlaggedRevs::autoReviewEdit( $article, $user, $rev, $flags, false /* manual */ );
+			$ok = FlaggedRevs::autoReviewEdit( $wikiPage, $user, $rev, $flags, false /* manual */ );
 			if ( $ok ) {
 				FlaggedRevs::markRevisionPatrolled( $rev ); // reviewed -> patrolled
 				FlaggedRevs::extraHTMLCacheUpdate( $title );
