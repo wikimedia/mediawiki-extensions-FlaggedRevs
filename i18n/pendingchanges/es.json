@@ -8,7 +8,8 @@
 			"MarcoAurelio",
 			"Sanbec",
 			"Translationista",
-			"Macofe"
+			"Macofe",
+			"Fitoschido"
 		]
 	},
 	"pendingchanges": "Páginas con cambios pendientes",
@@ -20,7 +21,7 @@
 	"pendingchanges-recent": "(menos de 1 hora)",
 	"pendingchanges-category": "Categoría:",
 	"pendingchanges-onwatchlist": "Páginas en mi lista de seguimiento",
-	"pendingchanges-stable": "La versión estable se muestra por defecto",
+	"pendingchanges-stable": "La versión estable es la predeterminada",
 	"pendingchanges-diff": "revisar",
 	"pendingchanges-size": "Cambio máximo (bytes):",
 	"pendingchanges-unwatched": "(no vigilado)",
