@@ -11,14 +11,15 @@
 			"Sherbrooke",
 			"Verdy p",
 			"Wladek92",
-			"AlvaroMolina"
+			"AlvaroMolina",
+			"Urhixidur"
 		]
 	},
 	"revisionreview": "Relire les versions",
 	"revreview-failed": "'''Impossible de relire cette révision.'''",
 	"revreview-submission-invalid": "L’envoi était incomplet ou non valide.",
 	"review_page_invalid": "Le titre de la page cible est invalide.",
-	"review_page_notexists": "La page cible n'existe page.",
+	"review_page_notexists": "La page cible n'existe pas.",
 	"review_page_unreviewable": "La page cible ne peut pas être relue.",
 	"review_no_oldid": "Aucun ID de révision n'a été spécifié.",
 	"review_bad_oldid": "La révision cible n'existe pas.",
