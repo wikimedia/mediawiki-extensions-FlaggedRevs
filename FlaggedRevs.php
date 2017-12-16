@@ -337,7 +337,7 @@ $wgAutoloadClasses['ApiQueryUnreviewedpages'] = "$apiReportDir/ApiQueryUnreviewe
 # ReviewedPages for API
 $wgAutoloadClasses['ApiQueryReviewedpages'] = "$apiReportDir/ApiQueryReviewedpages.php";
 # ConfiguredPages for API
-$wgAutoloadClasses['ApiQueryConfiguredpages'] = "$apiReportDir/ApiQueryConfiguredPages.php";
+$wgAutoloadClasses['ApiQueryConfiguredpages'] = "$apiReportDir/ApiQueryConfiguredpages.php";
 # Flag metadata for pages for API
 $wgAutoloadClasses['ApiQueryFlagged'] = "$apiReportDir/ApiQueryFlagged.php";
 # Site flag config for API
