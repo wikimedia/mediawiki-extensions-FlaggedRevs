@@ -3,10 +3,11 @@
 		"authors": [
 			"Borislav",
 			"DCLXVI",
-			"Spiritia"
+			"Spiritia",
+			"StanProg"
 		]
 	},
-	"reviewedversions": "Преглед на устойчивите версии",
+	"reviewedversions": "Проверени версии",
 	"reviewedversions-leg1": "Преглед на рецензираните версии на страницата",
 	"reviewedversions-page": "Име на страницата:",
 	"reviewedversions-none": "Страницата „[[:$1]]“ няма рецензирани версии.",
