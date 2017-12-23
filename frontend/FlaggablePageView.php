@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\MediaWikiServices;
+
 /**
  * Class representing a web view of a MediaWiki page
  */
@@ -710,8 +713,9 @@ class FlaggablePageView extends ContextSource {
 			$parserOut = false;
 			# Get the new stable parser output...
 			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT && $synced ) {
+				$parserCache = MediaWikiServices::getInstance()->getParserCache();
 				# We can try the current version cache, since they are the same revision
-				$parserOut = ParserCache::singleton()->get( $this->article, $pOpts );
+				$parserOut = $parserCache->get( $this->article, $pOpts );
 			}
 
 			if ( !$parserOut ) {
