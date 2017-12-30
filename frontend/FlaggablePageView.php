@@ -833,8 +833,7 @@ class FlaggablePageView extends ContextSource {
 			}
 			$diffEngine->showDiffStyle(); // add CSS
 			$this->isDiffFromStable = true; // alter default review form tags
-			return
-				FlaggedRevsXML::diffToggle() .
+			return FlaggedRevsXML::diffToggle() .
 				"<div id='mw-fr-stablediff'>\n" .
 				$this->getFormattedDiff( $diffBody, $multiNotice, $leftNote, $rightNote ) .
 				"</div>\n";
@@ -859,8 +858,7 @@ class FlaggablePageView extends ContextSource {
 			$multiNotice = "<tr><td colspan='4' style='text-align: center;' class='diff-multi'>" .
 				$multiNotice . "</td></tr>";
 		}
-		return
-			"<table border='0' cellpadding='0' cellspacing='4' style='width: 98%;' " .
+		return "<table border='0' cellpadding='0' cellspacing='4' style='width: 98%;' " .
 				"class='$tableClass'>" .
 				"<col class='diff-marker' />" .
 				"<col class='diff-content' />" .

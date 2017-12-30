@@ -115,7 +115,7 @@ class FlaggedRevs {
 				self::$binaryFlagging = false; // more than one level
 			}
 			# Sanity checks
-			if ( !is_integer( $minQL ) || !is_integer( $minPL ) ) {
+			if ( !is_int( $minQL ) || !is_int( $minPL ) ) {
 				throw new Exception( 'FlaggedRevs given invalid tag value!' );
 			}
 			if ( $minQL > $ratingLevels ) {
