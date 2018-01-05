@@ -200,7 +200,7 @@
 	"revreview-reviewlink": "modifications en attente",
 	"revreview-reviewlink-title": "Voir le diff de toutes les modifications en attente",
 	"revreview-unreviewedpage": "Page non vérifiée",
-	"tooltip-ca-current": "Voir les changements en attente de cette page",
+	"tooltip-ca-current": "Voir les changements en attente sur cette page",
 	"tooltip-ca-stable": "Voir la version publiée de cette page",
 	"tooltip-ca-default": "Paramètres pour l'assurance-qualité",
 	"flaggedrevs-protect-legend": "Relecture automatique des modifications ([[{{MediaWiki:Validationpage}}|aide]])",
