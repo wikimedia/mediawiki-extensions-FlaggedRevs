@@ -3,6 +3,9 @@
  * Class containing update methods for tracking links that
  * are only in the stable version of pages. Used only for caching.
  */
+
+use Wikimedia\Rdbms\IDatabase;
+
 class FRDependencyUpdate {
 	protected $title;
 	protected $sLinks;
