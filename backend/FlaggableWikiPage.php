@@ -379,7 +379,7 @@ class FlaggableWikiPage extends WikiPage {
 
 	/**
 	 * Set the page field data loaded from some source
-	 * @param \Database|string $data Database row object or "fromdb"
+	 * @param stdClass|string $data Database row object or "fromdb"
 	 * @return void
 	 */
 	public function loadPageData( $data = 'fromdb' ) {
