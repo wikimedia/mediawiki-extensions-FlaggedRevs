@@ -3,12 +3,18 @@
 		"authors": [
 			"Cekli829",
 			"Baskervill",
-			"Wertuose"
+			"Wertuose",
+			"Neriman2003"
 		]
 	},
 	"apihelp-flagconfig-description": "Bu sayt üçün bildiriş konfiqurasiyasına yenidən baxmaq haqqında sadə məlumatları əldə edin. \n\nHər bir işarələmə üçün aşağıdakı parametrlər təyin edilir. \n;ad:Bu işarələmənin əsas adı\n;səviyyələr:İşarələmə səviyyələrinin sayı (yuxarıda \"işarələnməmiş\") \n;2-ci dərəcə:yenidən baxılma üçün səviyyənin işarələnməsi 2-ci səviyyəyə (keyfiyyət) çatdırılmalıdır.\n;3-cü dərəcə:yenidən baxılma üçün səviyyənin işarələnməsi 3-cü səviyyəyə (yeni) çatdırılmalıdır.\nBildirişli versiyada hər bir bildiriş üçün müəyyən səviyyə təyin edilmişdir. Bütün işarələnmələrin toplandığı ən yüksək səviyyə ümumi təkrar baxış üçün təkrar səviyyə hesab olunur.",
+	"apihelp-flagconfig-summary": "Bu sayt üçün nəzərdən keçirilmiş bayraq konfiqurasiyası haqqında əsas məlumatı əldə edin.",
+	"apihelp-flagconfig-extended-description": "Hər bir tag üçün aşağıdakı parametrlər qaytarılır:\nadı: Bu etiketin əsas adı.\n; səviyyələr: Etiketin səviyyələrinin sayı (\"tagged deyil\" yuxarıda).\n;2-ci səviyyə: Etiketin düzəldilməsi 2-ci dərəcəli səviyyədə olması üçün keyfiyyətə çatmalıdır.\n;3-cü səviyyə: Etiketin düzəldilməsi 3-cü dərəcəli (prisitine) bir revizyona çatmalıdır.\nBayraqlı versiyalar hər bir tag üçün təyin edilmiş səviyyəyə malikdir. Bütün etiketlərin ən yüksək səviyyədə olması bütün təftişin nəzərdən keçirilməsidir.",
 	"apihelp-flagconfig-example-1": "Bayraq konfiqurasiyasını seçin",
 	"apihelp-query+configuredpages-description": "Xüsusi baxış konfiqurasiyaları olan bütün səhifələrin nömrələnməsi.",
+	"apihelp-query+configuredpages-summary": "Xüsusi baxış konfiqurasiyalarına malik olan bütün səhifələri qeyd edin.",
+	"apihelp-query+configuredpages-param-start": "Bu səhifədə ID siyahısına başlayın.",
+	"apihelp-query+configuredpages-param-end": "Bu səhifədə ID siyahısını dayandırın.",
 	"apihelp-query+configuredpages-param-namespace": "Nömrələnəcək ad fəzaları",
 	"apihelp-query+configuredpages-param-default": "Defolt səhifənin görünüş versiyası.",
 	"apihelp-query+configuredpages-param-autoreview": "Təkrar baxış/avro-baxış üzrə məhdudiyyət səviyyəsi.",

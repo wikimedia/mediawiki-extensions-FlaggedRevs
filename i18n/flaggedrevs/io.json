@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Malafaya"
+			"Malafaya",
+			"Joao Xavier"
 		]
 	},
 	"revreview-accuracy": "Exakteso",
@@ -18,5 +19,6 @@
 	"revreview-def-draft": "maxim nova",
 	"revreview-def-stable": "stabila",
 	"revreview-restriction-any": "ula",
-	"revreview-restriction-none": "nula"
+	"revreview-restriction-none": "nula",
+	"tooltip-ca-current": "Vidar ica pagino kun la chanji qui bezonas aprobo"
 }
