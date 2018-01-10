@@ -54,8 +54,6 @@ class FlaggedRevision {
 			$this->mTags = self::expandRevisionTags( strval( $row->fr_tags ) );
 			$this->mFlags = explode( ',', $row->fr_flags );
 			$this->mUser = intval( $row->fr_user );
-			# Base Revision object
-			$this->mRevision = new Revision( $row );
 			# Image page revision relevant params
 			$this->mFileName = $row->fr_img_name ? $row->fr_img_name : null;
 			$this->mFileSha1 = $row->fr_img_sha1 ? $row->fr_img_sha1 : null;
@@ -65,6 +63,8 @@ class FlaggedRevision {
 			$this->mTitle = isset( $row->page_namespace ) && isset( $row->page_title )
 				? Title::makeTitleSafe( $row->page_namespace, $row->page_title )
 				: null;
+			# Base Revision object
+			$this->mRevision = new Revision( $row, Revision::READ_NORMAL, $this->mTitle );
 		} elseif ( is_array( $row ) ) {
 			$this->mTimestamp = $row['timestamp'];
 			$this->mQuality = intval( $row['quality'] );
