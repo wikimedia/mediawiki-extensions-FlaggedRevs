@@ -11,7 +11,8 @@
 			"아라",
 			"Revi",
 			"IRTC1015",
-			"Ykhwong"
+			"Ykhwong",
+			"Bluemersen"
 		]
 	},
 	"action-review": "편집 검토",
@@ -141,7 +142,7 @@
 	"revreview-visibility-outdated": "'''이 문서에는 오래 된 [[{{MediaWiki:Validationpage}}|배포판]]이 있습니다; 문서 [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 배포 설정]을 할 수 있습니다.'''",
 	"revreview-visibility-nostable": "'''이 문서에는 [[{{MediaWiki:Validationpage}}|배포판]]이 없습니다; 문서 [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 배포 설정]을 할 수 있습니다.",
 	"revreview-revnotfound": "요청한 문서의 과거 판을 찾지 못했습니다.\n이 문서에 접속하는 데 사용하는 URL을 확인하세요.",
-	"right-autoreview": "자신의 편집을 자동적으로 \"검토된 판\"으로 표시",
+	"right-autoreview": "자신의 편집을 자동으로 \"검토된 판\"으로 표시",
 	"right-autoreviewrestore": "되돌리면서 자동으로 검토하기",
 	"right-movestable": "배포된 문서 이동하기",
 	"right-review": "편집을 \"검토된 판\"으로 표시",
