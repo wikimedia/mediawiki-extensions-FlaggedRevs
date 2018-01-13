@@ -47,7 +47,7 @@
 	"apihelp-query+reviewedpages-param-limit": "Geri qaytarılan səhifələrin ümumi sayı.",
 	"apihelp-query+reviewedpages-example-1": "Baxılmış səhifələrin siyahısını göstər",
 	"apihelp-query+reviewedpages-example-2": "Bəzə əvvəlki yoxlanılan səhifələr haqqında məlumat göstərmək",
-	"apihelp-query+revisions-paramvalue-prop-flagged": "Revizyonun bayraqlı vəziyyəti.",
+	"apihelp-query+revisions-paramvalue-prop-flagged": "Revizyonun patrullanmış vəziyyəti.",
 	"apihelp-query+unreviewedpages-description": "Verilmiş bir keyfiyyət səviyyəsinə nəzərdən keçirilməmiş səhifələri səciyyələndir.",
 	"apihelp-query+unreviewedpages-summary": "Verilmiş bir keyfiyyət səviyyəsinə nəzərdən keçirilməmiş səhifələri səciyyələndirir.",
 	"apihelp-query+unreviewedpages-param-start": "Bu səhifədə ID siyahılaşdırmanı başlamaq",
@@ -61,7 +61,7 @@
 	"apihelp-query+unreviewedpages-example-2": "Bəzi rəysiz səhifələr haqqında məlumatı göstərin",
 	"apihelp-review-description": "Versiyanı təsdiq eymək və ya təsdiq etməməklə yoxlanışı həyata keçirmək",
 	"apihelp-review-summary": "Versiyanı təsdiq eymək və ya təsdiq etməməklə yoxlanışı həyata keçirmək",
-	"apihelp-review-param-revid": "Bayraqları təyin etmək üçün ID yenilənib.",
+	"apihelp-review-param-revid": "İşarələri təyin etmək üçün ID yenilənib.",
 	"apihelp-review-param-comment": "Baxılması üçün şərh yazın.",
 	"apihelp-review-param-unapprove": "Əgər qərarsızsınızsa, təftiş təsdiq edilmədən təsdiqlənəcək",
 	"apihelp-review-param-flag": "''$1' dəyərində olan bayrağı seçin",
@@ -95,5 +95,5 @@
 	"apierror-flaggedrevs-toolow": "Bildirişlərin hamısının və ya heç birinin 0 səviyyəsində təyin edilməsi.",
 	"apierror-flaggedrevs-badflags": "Göstərilən bayraqlar etibarlı deyil.",
 	"apierror-flaggedrevs-cantunreview": "Bildirişləri ləğv etmək üçün hüquqlara sahib olmağınıza ehtiyac yoxdur.",
-	"apierror-flaggedrevs-noflaggedrev": "Göstərilən ID ilə bayraqlı bir versiya yoxdur."
+	"apierror-flaggedrevs-noflaggedrev": "Göstərilən ID ilə patrullanmış bir versiya yoxdur."
 }
