@@ -16,7 +16,8 @@
 			"Cainamarques",
 			"Luk3",
 			"TheEduGobi",
-			"Felipe L. Ewald"
+			"Felipe L. Ewald",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"action-review": "revisar edições",
@@ -38,6 +39,12 @@
 	"flaggedrevs-hidereviewed": "$1 edições revistas",
 	"flaggedrevs-hidereviewed-hide": "Ocultar",
 	"flaggedrevs-hidereviewed-show": "Mostrar",
+	"flaggedrevs-rcfilters-need-review-label": "Necessitam revisão",
+	"flaggedrevs-rcfilters-need-review-desc": "Edições que precisam de ser revistas.",
+	"flaggedrevs-rcfilters-reviewed-label": "Revisado",
+	"flaggedrevs-rcfilters-reviewed-desc": "Edições que foram revistas.",
+	"flaggedrevs-rcfilters-not-reviewable-label": "Não sujeitas a revisão",
+	"flaggedrevs-rcfilters-not-reviewable-desc": "Mudanças de todos os tipos que não requerem revisão.",
 	"group-editor": "Editores",
 	"group-editor-member": "{{GENDER:$1|editor|editora|editor(a)}}",
 	"group-reviewer": "Revisores",
