@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Snævar",
-			"Spacebirdy"
+			"Spacebirdy",
+			"Sveinn í Felli"
 		]
 	},
 	"review_denied": "Heimild hafnað.",
@@ -27,7 +28,7 @@
 	"revreview-submit-reviewed": "Búið. Samþykkt!",
 	"revreview-poss-conflict-p": "'''Viðvörun: [[User:$1|$1]] hóf að yfirfara síðuna $2 kl. $3.'''",
 	"revreview-poss-conflict-c": "'''Viðvörun: [[User:$1|$1]] hóf að yfirfara þessar breytingar $2 kl. $3.'''",
-	"revreview-adv-reviewing-p": "Tilkynning: Aðrir ritstjórar geta séð að þú sért að yfirfara þessa síðu.",
+	"revreview-adv-reviewing-p": "Tilkynning: Aðrir ritstjórar geta séð að {{GENDER:$1|þú}} sért að yfirfara þessa síðu.",
 	"revreview-adv-reviewing-c": "Tilkynning: Aðrir ritsjórar geta séð að þú sért að yfirfara þessar breytingar.",
 	"revreview-sadv-reviewing-p": "Þú getur $1 að þú sért að yfirfara þessa síðu.",
 	"revreview-sadv-reviewing-c": "Þú getur $1 að þú sért að yfirfara þessar breytingar.",
