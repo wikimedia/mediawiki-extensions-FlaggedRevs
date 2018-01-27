@@ -6,7 +6,8 @@
 			"Rancher",
 			"Sasa Stefanovic",
 			"Жељко Тодоровић",
-			"Михајло Анђелковић"
+			"Михајло Анђелковић",
+			"Acamicamacaraca"
 		]
 	},
 	"reviewedpages": "Проверене странице",
@@ -17,5 +18,5 @@
 	"reviewedpages-lev-1": "{{int:revreview-lev-quality}}",
 	"reviewedpages-lev-2": "{{int:revreview-lev-pristine}}",
 	"reviewedpages-all": "проверене верзије",
-	"reviewedpages-best": "најбоља ревизија"
+	"reviewedpages-best": "најбоља измена"
 }

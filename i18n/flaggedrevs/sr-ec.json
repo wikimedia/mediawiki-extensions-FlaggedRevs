@@ -11,10 +11,11 @@
 			"Михајло Анђелковић",
 			"Сербијана",
 			"Srdjan m",
-			"Prevodim"
+			"Prevodim",
+			"Acamicamacaraca"
 		]
 	},
-	"action-review": "провера ревизија",
+	"action-review": "провера измена",
 	"editor": "Уредник",
 	"flaggedrevs": "Означене ревизије",
 	"flaggedrevs-watched-pending": "Број измена које чекају на одобравање: [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}}]. '''Обратите пажњу!'''",
@@ -78,7 +79,7 @@
 	"review-logentry-id": "ревизија: $2",
 	"review-logentry-diff": "проверене измене",
 	"review-logentry-diff2": "застареле измене",
-	"review-logpage": "Дневник провере ревизија",
+	"review-logpage": "Дневник провере измена",
 	"review-logpagetext": "Ово је дневник [[{{MediaWiki:Validationpage}}|проверених]] верзија страница.",
 	"reviewer": "Прегледач",
 	"revreview-accuracy": "Тачност",

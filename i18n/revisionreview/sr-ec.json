@@ -8,10 +8,11 @@
 			"Жељко Тодоровић",
 			"Михајло Анђелковић",
 			"Сербијана",
-			"Prevodim"
+			"Prevodim",
+			"Acamicamacaraca"
 		]
 	},
-	"revisionreview": "Провера ревизија",
+	"revisionreview": "Провера измена",
 	"revreview-failed": "'''Не могу да проверим ову ревизију.'''",
 	"review_page_invalid": "Наслов одредишне странице је неисправан.",
 	"review_page_notexists": "Одредишна страница не постоји.",

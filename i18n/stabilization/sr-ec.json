@@ -7,7 +7,8 @@
 			"Жељко Тодоровић",
 			"Михајло Анђелковић",
 			"Milicevic01",
-			"Сербијана"
+			"Сербијана",
+			"Acamicamacaraca"
 		]
 	},
 	"stabilization-tab": "конфиг.",
@@ -18,7 +19,7 @@
 	"stabilization-leg": "Потврди подешавања за стабилну верзију",
 	"stabilization-def": "Верзија приказана на подразумеваном приказу стране.",
 	"stabilization-def1": "Стабилно издање; ако не постоји, онда последња измена",
-	"stabilization-def2": "Последња ревизија",
+	"stabilization-def2": "Последња измена",
 	"stabilization-restrict": "Ограничења провере/самопровере",
 	"stabilization-restrict-none": "Без додатних ограничења",
 	"stabilization-submit": "Прихвати",
