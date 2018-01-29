@@ -2,18 +2,21 @@
 	"@metadata": {
 		"authors": [
 			"Rancher",
-			"Prevodim"
+			"Prevodim",
+			"Acamicamacaraca",
+			"Zoranzoki21"
 		]
 	},
 	"apihelp-query+unreviewedpages-param-dir": "Смер сортирања.",
 	"apihelp-stabilize-param-reason": "Разлог.",
-	"apihelp-stabilize-param-watch": "Надгледајте ову страницу.",
+	"apihelp-stabilize-param-watch": "Надгледај ову страницу.",
 	"apihelp-stabilize-param-expiry-general": "Истек ових подешавања.",
-	"apihelp-stabilize-param-expiry-protect": "Истек заштите од провера.",
+	"apihelp-stabilize-param-expiry-protect": "Истек заштите од прегледа.",
 	"apihelp-stabilize-param-title-general": "Наслов странице која треба да се стабилизује.",
-	"apihelp-stabilize-param-title-protect": "Наслов странице коју треба заштитити од провера.",
-	"apihelp-stabilize-param-default": "Подразумевана ревизија за приказ.",
-	"apihelp-stabilize-param-autoreview": "Ограничење самопровере.",
-	"apihelp-stabilize-param-review": "Проверите ову страницу.",
-	"apihelp-stabilize-param-protectlevel": "Ниво заштите од провера."
+	"apihelp-stabilize-param-title-protect": "Наслов странице коју треба заштитити од прегледа.",
+	"apihelp-stabilize-param-default": "Подразумевана измена за приказ.",
+	"apihelp-stabilize-param-autoreview": "Ограничење самопрегледа.",
+	"apihelp-stabilize-param-review": "Прегледај ову страницу.",
+	"apihelp-stabilize-param-protectlevel": "Ниво заштите од прегледа.",
+	"apierror-flaggedrevs-pagedoesnotexist": "Дата страница не постоји."
 }

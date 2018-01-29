@@ -3,10 +3,11 @@
 		"authors": [
 			"Rancher",
 			"Жељко Тодоровић",
-			"Михајло Анђелковић"
+			"Михајло Анђелковић",
+			"Acamicamacaraca"
 		]
 	},
 	"configuredpages-config": "Подешавање",
-	"configuredpages-def-draft": "последња верзија",
-	"configuredpages-def-stable": "стабилна верзија"
+	"configuredpages-def-draft": "последња измена",
+	"configuredpages-def-stable": "стабилна измена"
 }

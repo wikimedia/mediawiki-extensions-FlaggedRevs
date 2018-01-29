@@ -6,19 +6,21 @@
 			"Rancher",
 			"Sasa Stefanovic",
 			"Жељко Тодоровић",
-			"Михајло Анђелковић"
+			"Михајло Анђелковић",
+			"Acamicamacaraca"
 		]
 	},
-	"unreviewedpages": "Непрегледане стране.",
+	"action-unreviewedpages": "списак непрегледаних страница",
+	"unreviewedpages": "Непрегледане странице.",
 	"unreviewedpages-legend": "Списак непрегледаних страница са садржајем.",
 	"unreviewedpages-category": "Категорија:",
-	"unreviewedpages-diff": "провери",
+	"unreviewedpages-diff": "прегледај",
 	"unreviewedpages-unwatched": "(ненадзирано)",
 	"unreviewedpages-watched": "($1 {{PLURAL:$1|активан корисник надгледа|активних корисника надгледају}})",
 	"unreviewedpages-list": "На овој страници су наведене странице са садржајем које још ''нису'' [[{{MediaWiki:Validationpage}}|прегледане]] до одређеног нивоа.",
 	"unreviewedpages-none": "Не постоји ниједна страница која се поклапа са овим критеријумима.",
-	"unreviewedpages-viewing": "(у фази провере)",
-	"unreviewedpages-hours": "($1 {{PLURAL:$1|сат|сати}})",
+	"unreviewedpages-viewing": "(под прегледом)",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|сат|сата}})",
 	"unreviewedpages-days": "($1 {{PLURAL:$1|дан|дана}})",
 	"unreviewedpages-recent": "(мање од једног сата)"
 }

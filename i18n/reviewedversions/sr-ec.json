@@ -6,13 +6,14 @@
 			"Millosh",
 			"Sasa Stefanovic",
 			"Михајло Анђелковић",
-			"Rancher"
+			"Rancher",
+			"Acamicamacaraca"
 		]
 	},
-	"reviewedversions": "Проверене верзије",
-	"reviewedversions-leg1": "Списак проверених ревизија страница",
+	"reviewedversions": "Прегледане измене",
+	"reviewedversions-leg1": "Списак прегледаних измена страница",
 	"reviewedversions-page": "Име странице:",
-	"reviewedversions-none": "„[[:$1]]“ нема проверених ревизија.",
-	"reviewedversions-list": "{{PLURAL:$2|Проверена је следећа ревизија|Проверене су следеће ревизије}} странице [[:$1]]:",
-	"reviewedversions-review": "Проверио $2 дана <i>$1</i>"
+	"reviewedversions-none": "„[[:$1]]“ нема прегледаних измена.",
+	"reviewedversions-list": "Ово је списак {{PLURAL:$2|једне измене|измене|измена}} странице [[:$1]] {{PLURAL:$2|која је прегледана|које су прегледане}}:",
+	"reviewedversions-review": "Прегледао $2 дана <i>$1</i>"
 }
