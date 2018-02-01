@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"Tacsipacsi"
+		]
+	},
+	"apihelp-flagconfig-description": "Alapvető információk lekérése a jelölt lapváltozatok konfigurációjáról ezen a wikin.\n\nMinden címkéhez a következő paramétereket adja vissza:\n;name: A címke kulcsának neve.\n;levels: A címkéhez beállítható szintek száma (a „megjelöletlen” állapoton kívül).\n;tier2: A címke által elérendő szint, hogy egy változat 2. minőségi szintű legyen (minőségi).\n;tier3: A címke által elérendő szint, hogy egy változat 3. minőségi szintű legyen (kiemelkedő).\nA jelölt lapváltozatok minden címkéhez rendelkeznek egy szinttel. A legmagasabb olyan minőségi szintet kapják, aminek az összes címke megfelel.",
+	"apihelp-flagconfig-summary": "Alapvető információk lekérése a jelölt lapváltozatok konfigurációjáról ezen a wikin.",
+	"apihelp-flagconfig-extended-description": "Minden címkéhez a következő paramétereket adja vissza:\n;name: A címke kulcsának neve.\n;levels: A címkéhez beállítható szintek száma (a „megjelöletlen” állapoton kívül).\n;tier2: A címke által elérendő szint, hogy egy változat 2. minőségi szintű legyen (minőségi).\n;tier3: A címke által elérendő szint, hogy egy változat 3. minőségi szintű legyen (kiemelkedő).\nA jelölt lapváltozatok minden címkéhez rendelkeznek egy szinttel. A legmagasabb olyan minőségi szintet kapják, aminek az összes címke megfelel.",
+	"apihelp-flagconfig-example-1": "Címkekonfiguráció lekérése",
+	"apihelp-query+configuredpages-description": "Az összes egyéni átnézési beállítással rendelkező lap visszaadása.",
+	"apihelp-query+configuredpages-summary": "Az összes egyéni átnézési beállítással rendelkező lap visszaadása.",
+	"apihelp-query+configuredpages-param-start": "Listázás ettől a lapazonosítótól.",
+	"apihelp-query+configuredpages-param-end": "Listázás eddig a lapazonosítóig.",
+	"apihelp-query+configuredpages-param-namespace": "A listázandó névterek.",
+	"apihelp-query+configuredpages-param-default": "Az alapértelmezetten megjelenítendő változat.",
+	"apihelp-query+configuredpages-param-autoreview": "Ellenőrzés/automatikus ellenőrzés korlátozási szintje.",
+	"apihelp-query+configuredpages-param-limit": "A visszaadandó lapok maximális száma.",
+	"apihelp-query+configuredpages-example-1": "Az egyéni átnézési beállítással rendelkező lapok listázása",
+	"apihelp-query+configuredpages-example-2": "Információk lekérése az egyéni átnézési beállítással rendelkező lapokról",
+	"apihelp-query+flagged-description": "Információk lekérése a megadott lapok megjelölési státuszáról.\n\nHa egy lap meg van jelölve, a következő paramétereket adja vissza:\n;stable_revid: Az utolsó stabil változat változatazonosítója.\n;level\n;level_text: A lap legmagasabb jelölése.\n;pending_since: Ha vannak ellenőrizetlen változatai a lapnak, az első ilyen időbélyege.\nHa a lapnak van védelmi konfigurációja, a következő paramétereket is visszaadja:\n;protection_level: Az a jogosultság, amivel egy felhasználónak rendelkeznie kell, hogy ne kelljen ellenőrizni a szerkesztését.\n;protection_expiry: A védelem lejáratának időpontja.",
+	"apihelp-query+flagged-summary": "Információk lekérése a megadott lapok megjelölési státuszáról.",
+	"apihelp-query+flagged-extended-description": "Ha egy lap meg van jelölve, a következő paramétereket adja vissza:\n;stable_revid: Az utolsó stabil változat változatazonosítója.\n;level\n;level_text: A lap legmagasabb jelölése.\n;pending_since: Ha vannak ellenőrizetlen változatai a lapnak, az első ilyen időbélyege.\nHa a lapnak van védelmi konfigurációja, a következő paramétereket is visszaadja:\n;protection_level: Az a jogosultság, amivel egy felhasználónak rendelkeznie kell, hogy ne kelljen ellenőrizni a szerkesztését.\n;protection_expiry: A védelem lejáratának időpontja.",
+	"apihelp-query+flagged-example-1": "Lapinformációk és megjelölési státusz lekérése a [[Main Page]] lapról",
+	"apihelp-query+flagged-example-2": "Megjelölési státusz lekérése a „K”-val kezdődő című lapokról"
+}
