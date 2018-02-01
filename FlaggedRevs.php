@@ -32,7 +32,7 @@ $wgExtensionCredits['specialpage'][] = [
 	'author'         => [ 'Aaron Schulz', 'Joerg Baach' ],
 	'url'            => 'https://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
-	'license-name'   => 'GPL-2.0+',
+	'license-name'   => 'GPL-2.0-or-later',
 ];
 
 # Load global constants
