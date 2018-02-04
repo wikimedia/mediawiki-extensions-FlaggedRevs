@@ -77,7 +77,7 @@
 	"revreview-hist-quality-auto": "已自动认可",
 	"revreview-hist-basic-auto": "已自动复核",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} 待复核]]'''",
-	"review-edit-diff": "'''注意：某些待定更改会影响你正在编辑的页面区域。'''",
+	"review-edit-diff": "'''注意：某些待定更改会影响您正在编辑的页面区域。'''",
 	"revreview-diff-toggle-show": "显示这些更改",
 	"revreview-diff-toggle-hide": "隐藏这些更改",
 	"revreview-diff-toggle-title": "切换显示待定更改为稳定版本",
