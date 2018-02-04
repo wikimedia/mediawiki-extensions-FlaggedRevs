@@ -118,8 +118,8 @@
 			var changeTime, $asubmit, $usubmit, $rsubmit, $diffNotice, $tagBox, $diffUIParams,
 				requestArgs, urlParams, i, l,
 				msg = response.substr( 6 ), // remove <err#> or <suc#>
-			// Read new "last change time" timestamp for conflict handling
-			// @TODO: pass last-chage-time data using JSON or something not retarded
+				// Read new "last change time" timestamp for conflict handling
+				// @TODO: pass last-chage-time data using JSON or something not retarded
 				m = msg.match( /^<lct#(\d*)>(.*)/m );
 			if ( m ) {
 				msg = m[ 2 ]; // remove tag from msg
