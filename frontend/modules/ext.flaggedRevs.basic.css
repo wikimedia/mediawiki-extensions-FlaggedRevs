@@ -302,12 +302,12 @@ span.fr-under-review {
 }
 
 /* Diff items */
-/* stylelint-disable-next-line selector-no-id */
+/* stylelint-disable-next-line selector-max-id */
 #mw-fr-diff-headeritems {
 	direction: ltr;
 }
 
-/* stylelint-disable-next-line selector-no-id */
+/* stylelint-disable-next-line selector-max-id */
 #mw-fr-stablediff {
 	background-color: #fff;
 	text-align: left; /* bug 35202 */
