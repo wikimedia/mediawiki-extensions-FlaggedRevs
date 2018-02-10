@@ -29,6 +29,7 @@
 	"revreview-style-4": "แนะนำ",
 	"revreview-toggle-title": "ซ่อน/แสดงรายละเอียด",
 	"revreview-revnotfound": "ไม่พบรุ่นการปรับปรุงรุ่นเก่าที่ต้องการ กรุณาตรวจสอบยูอาร์แอลที่ใช้เข้ามายังหน้านี้",
+	"right-autoreviewrestore": "ทบทวนอัตโนมัติซึ่งการย้อนรวดเดียว",
 	"revreview-filter-all": "ทั้งหมด",
 	"tooltip-ca-current": "ดูหน้านี้พร้อมขณะกำลังเปลี่ยนแปลง"
 }
