@@ -218,5 +218,6 @@
 	"log-action-filter-stable": "Typ der Konfigurationsänderung:",
 	"log-action-filter-stable-config": "Neue Konfiguration",
 	"log-action-filter-stable-modify": "Konfiguration verändert",
-	"log-action-filter-stable-reset": "Zurücksetzung der Konfiguration"
+	"log-action-filter-stable-reset": "Zurücksetzung der Konfiguration",
+	"log-action-filter-stable-move_stable": "Konfiguration verschoben"
 }
