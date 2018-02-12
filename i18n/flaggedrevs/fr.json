@@ -219,5 +219,6 @@
 	"log-action-filter-stable": "Type de modification de la configuration :",
 	"log-action-filter-stable-config": "Nouvelle configuration",
 	"log-action-filter-stable-modify": "Configuration modifiée",
-	"log-action-filter-stable-reset": "Réinitialisation de la configuration"
+	"log-action-filter-stable-reset": "Réinitialisation de la configuration",
+	"log-action-filter-stable-move_stable": "Configuration modifiée"
 }

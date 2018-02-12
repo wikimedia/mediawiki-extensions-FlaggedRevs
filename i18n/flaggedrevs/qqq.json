@@ -33,7 +33,8 @@
 			"Yekrats",
 			"Тест",
 			"Liuxinyu970226",
-			"Srdjan m"
+			"Srdjan m",
+			"A2093064"
 		]
 	},
 	"action-review": "{{Flagged Revs}}\n{{doc-action|review}}",
@@ -236,5 +237,5 @@
 	"log-action-filter-stable-config": "{{doc-log-action-filter-action|stable|config}}\n{{Related|Log-action-filter}}",
 	"log-action-filter-stable-modify": "{{doc-log-action-filter-action|stable|modify}}\n{{Related|Log-action-filter}}",
 	"log-action-filter-stable-reset": "{{doc-log-action-filter-action|stable|reset}}\n{{Related|Log-action-filter}}",
-	"log-action-filter-stable-move_stable": "{{doc-log-action-filter-action|stable|move_stable}}\n{{Related|Log-action-filter}}"
+	"log-action-filter-stable-move_stable": "{{doc-log-action-filter-action|stable|move_stable}}"
 }

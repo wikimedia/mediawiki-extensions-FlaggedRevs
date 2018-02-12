@@ -16,7 +16,8 @@
 			"He7d3r",
 			"Cainamarques",
 			"Opraco",
-			"AlvaroMolina"
+			"AlvaroMolina",
+			"Athena in Wonderland"
 		]
 	},
 	"action-review": "rever edições",
@@ -205,5 +206,6 @@
 	"log-action-filter-stable": "Tipo de alteração de configuração:",
 	"log-action-filter-stable-config": "Nova configuração",
 	"log-action-filter-stable-modify": "Alteração de configuração",
-	"log-action-filter-stable-reset": "Reinício de configuração"
+	"log-action-filter-stable-reset": "Reinício de configuração",
+	"log-action-filter-stable-move_stable": "Configuração movida"
 }

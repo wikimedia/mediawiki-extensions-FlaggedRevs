@@ -14,7 +14,8 @@
 			"Cwlin0416",
 			"LNDDYL",
 			"Zhxy 519",
-			"一個正常人"
+			"一個正常人",
+			"A2093064"
 		]
 	},
 	"action-review": "審查修訂",
@@ -193,5 +194,6 @@
 	"log-action-filter-stable": "配置更改的類型：",
 	"log-action-filter-stable-config": "新配置",
 	"log-action-filter-stable-modify": "已修改的配置",
-	"log-action-filter-stable-reset": "配置重置"
+	"log-action-filter-stable-reset": "配置重置",
+	"log-action-filter-stable-move_stable": "已移動的配置"
 }
