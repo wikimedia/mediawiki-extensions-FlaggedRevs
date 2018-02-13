@@ -18,7 +18,7 @@
 	"stabilization-page": "Назив странице:",
 	"stabilization-leg": "Потврди подешавања за стабилну измену",
 	"stabilization-def": "Измена приказана на подразумеваном приказу стране.",
-	"stabilization-def1": "Стабилна измена; ако не постоји, онда последња измена",
+	"stabilization-def1": "Стабилна верзија; ако не постоји, онда последња измена",
 	"stabilization-def2": "Последња измена",
 	"stabilization-restrict": "Ограничења прегледа/самопрегледа",
 	"stabilization-restrict-none": "Без додатних ограничења",
