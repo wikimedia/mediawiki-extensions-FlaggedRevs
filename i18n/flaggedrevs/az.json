@@ -99,8 +99,11 @@
 	"revreview-editnotice": "Səlahiyyətli istifadəçi onları qəbul etdikdən sonra '' 'dəyişikliklər oxuculara göstəriləcək. ([[{{MediaWiki:Validationpage}}|yardım]])'''",
 	"revreview-submitedit": "Dəyişiklikləri təsdiq et",
 	"revreview-submitedit-title": "Yenidən baxılması üçün dəyişiklikləri təsdiq etmək",
+	"revreview-edited": "Səlahiyyətli istifadəçi onları qəbul etdikdən sonra '' 'dəyişikliklər oxuculara göstəriləcək. ([[{{MediaWiki: Validationpage}}|kömək]]) '' ''\n\n{{PLURAL:$2|bu|bunlar}} {{fullwiki:{{FULLPAGENAMEE}}|oldid=$1& diff=cur{{MediaWiki:flaggedrevs-diffonly}}}}$2 {{PLURAL:$2| dəyişikliklər}} '' (aşağıda göstərilən) '' nəzərdən keçirilir.",
 	"revreview-edited-section": "Bölmə adı \"[[#$1|$2]]\" olan səhifəyə qayıdın.",
 	"revreview-newest-basic": "[[{{fullturl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki: flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|{{MediaWiki: Validationpage}}|gözləmə nəzərdən keçirilir]].\n[{{Fullurl:{{FULLPAGENAMEE}}|sabit = 1}}}}stabil versiyası] [{{fullurl: {{Special: Log}}}}|type=görünüş&page= {{FULLPAGENAMEE}}]<i>$2</i>.",
+	"revreview-newest-basic-i": "[{{MediaWiki: Validmentpage}} dəyişiklik gözləyir] [{{MediaWiki: Validationpage}} Bu versiyada] [{{fullurl: {{FULLPAGENAMEE}}|oldid = $1& diff = cur {{MediaWiki: flaggedrevs-diffonly}}}} Şablon/fayl dəyişiklikləri].\n[{{FULLURL: {{FULLPAGENAMEE}} stable = 1}} stabil versiya], [{{fullurl: {{#Xüsusi:Log}}|type = review & page = {{FULLPAGENAMEE}}}} yoxlanıldı] <i>$2</i> tərəfindən.",
+	"revreview-newest-quality": "[{{fullurl:{{FULLPAGENAMEE}}}|oldid=$1&diff=cur{{MediaWiki: flaggedrevs-diffonly}}}}$3{{PLURAL:$3|{{MediaWiki: Validationpage}}}}|gözləmə nəzərdən keçirilir]].\n{{Fullurl: {{FULLPAGENAMEE}}|stable = 1}} sabit versiya [[{{fullurl:{{Xüsusi:Log}}|tip =baxış&səhifə = {{FULLPAGENAMEE}}}] <i>$2 </i>.",
 	"revreview-oldrating": "Qiymətləndirildi:",
 	"revreview-quality-title": "Bu səhifənin keyfiyyətli versiyasıdır",
 	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|Təsdiqlənmiş]]'''",
@@ -176,5 +179,6 @@
 	"log-action-filter-stable": "Konfiqurasiya dəyişikliyinin növü:",
 	"log-action-filter-stable-config": "Yeni konfiqurasiya",
 	"log-action-filter-stable-modify": "Dəyişdirilmiş konfiqurasiya",
-	"log-action-filter-stable-reset": "Konfiqurasiyanın sıfırlanması"
+	"log-action-filter-stable-reset": "Konfiqurasiyanın sıfırlanması",
+	"log-action-filter-stable-move_stable": "Tənzimlənən konfiqurasiya"
 }

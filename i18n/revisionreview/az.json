@@ -36,7 +36,7 @@
 	"revreview-reflag": "Bu versiyanı təkrar yoxla",
 	"revreview-invalid": "'''Yararsız hədəf:''' yox [[{{MediaWiki:Validationpage}}| nəzərdən keçirilmiş]] reviziyası verilən ID-ə uyğun gəlir.",
 	"revreview-log": "Şərh:",
-	"revreview-main": "[[Xüsusi: Qeyri-baxılmayan səhifələr] görünməmiş səhifələrin siyahısı]]na baxın.",
+	"revreview-main": "[[Xüsusi:Qeyri-baxılmayan səhifələr|görünməmiş səhifələrin siyahısı]]na baxın.",
 	"revreview-stable1": "Bu səhifənin [{{fullurl:$1|stableid=$2}} patrullanmış versiyası] və bu səhifənin [{{fullurl:$1|sabit=1}} sabit versiyası] olub olmadığını görə bilərsiniz.",
 	"revreview-stable2": "Bu səhifənin [{{fullurl:$1|sabit=1}} sabit versiyasını] görmək istəyə bilərsiniz.",
 	"revreview-submit": "Təsdiq et",

@@ -23,7 +23,7 @@
 	"apihelp-query+configuredpages-example-2": "Xüsusi baxış konfiqurasiyaları olan səhifələr haqqında məlumat almaq",
 	"apihelp-query+flagged-summary": "Verilən səhifələrin patrullanma statusu haqqında məlumat əldə edin.",
 	"apihelp-query+flagged-extended-description": "Bir səhifə işarələnəndə, aşağıdakı parametrlər qaytarılır:\n;sabitdir: Ən son istiqrarlı reviziyanın təftiş kodu.\n;səviyyə\n;səviyyəli_mətn: Səhifənin ən yüksək səviyyədə göstəricisi.\n; o_zamandan_bəri_gözləmək: Əgər o səhifəyə baxılmayan hər hansı bir revizyon yoxdursa, onlardan birinin vaxt damğasını saxlayır.\nSəhifədə müdafiə qalxanı varsa, aşağıdakı parametrlər qaytarılır:\n;müdafiə_səviyyəsi: Bir istifadəçi səhifəni nəzərdən keçirməyi tələb etməməlidir.\n;qorunmanın_müddəti: qorunmanın müddəti başa çatdıqda.",
-	"apihelp-query+flagged-example-1": "[[Ana Səhifə]]yə dair səhifə məlumatlarını və patrullanma statusunu öyrən.",
+	"apihelp-query+flagged-example-1": "[[Main Page|Ana səhifə]]yə dair səhifə məlumatlarını və patrullanma statusunu öyrən.",
 	"apihelp-query+flagged-example-2": "\"K\" ilə başlayan səhifələr üçün bayraq statusunun alınması.",
 	"apihelp-query+oldreviewedpages-description": "Yoxlanılmağı gözləyən səhifələrin nömrələnməsi.",
 	"apihelp-query+oldreviewedpages-summary": "Yoxlanılmağı gözləyən səhifələrin nömrələnməsi.",
