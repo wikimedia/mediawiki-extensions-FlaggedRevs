@@ -199,5 +199,6 @@
 	"log-action-filter-stable": "Tipu de cambéu de configuración:",
 	"log-action-filter-stable-config": "Configuración nueva",
 	"log-action-filter-stable-modify": "Configuración cambiada",
-	"log-action-filter-stable-reset": "Reestablecimientu de configuración"
+	"log-action-filter-stable-reset": "Reestablecimientu de configuración",
+	"log-action-filter-stable-move_stable": "Configuración treslladada"
 }
