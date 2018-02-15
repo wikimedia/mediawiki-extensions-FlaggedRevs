@@ -1,6 +1,6 @@
 <?php
 
-class FlaggablePageTest extends PHPUnit_Framework_TestCase {
+class FlaggablePageTest extends PHPUnit\Framework\TestCase {
 	/**
 	 * Prepares the environment before running a test.
 	 */

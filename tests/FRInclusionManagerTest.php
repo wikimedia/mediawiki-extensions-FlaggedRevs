@@ -1,6 +1,6 @@
 <?php
 
-class FRInclusionManagerTest extends PHPUnit_Framework_TestCase {
+class FRInclusionManagerTest extends PHPUnit\Framework\TestCase {
 	/* starting input */
 	protected static $inputTemplates = [
 		10 	=> [ 'XX' => '1242', 'YY' => '0', 'KK' => false ],

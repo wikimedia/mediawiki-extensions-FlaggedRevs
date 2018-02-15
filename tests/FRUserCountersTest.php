@@ -3,7 +3,7 @@
 /**
  * @group Database
  */
-class FRUserCountersTest extends PHPUnit_Framework_TestCase {
+class FRUserCountersTest extends PHPUnit\Framework\TestCase {
 	/**
 	 * Prepares the environment before running a test.
 	 */

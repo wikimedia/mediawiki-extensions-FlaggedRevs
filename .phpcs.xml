@@ -6,6 +6,7 @@
 		<exclude name="Squiz.Classes.ValidClassName.NotCamelCaps" />
 		<exclude name="Squiz.Scope.MethodScope.Missing" />
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingParamComment" />
+		<exclude name="MediaWiki.Commenting.MissingCovers.MissingCovers" />
 		<exclude name="MediaWiki.Files.ClassMatchesFilename.NotMatch" />
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationProtected" />
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic" />

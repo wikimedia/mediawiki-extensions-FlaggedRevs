@@ -1,6 +1,6 @@
 <?php
 
-class FRUserActivityTest extends PHPUnit_Framework_TestCase {
+class FRUserActivityTest extends PHPUnit\Framework\TestCase {
 	/**
 	 * Prepares the environment before running a test.
 	 */
