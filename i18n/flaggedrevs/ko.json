@@ -197,5 +197,6 @@
 	"log-action-filter-review-autoaccept": "자동 수락",
 	"log-action-filter-stable": "구성 변경 종류:",
 	"log-action-filter-stable-config": "새 구성",
-	"log-action-filter-stable-reset": "구성 초기화"
+	"log-action-filter-stable-reset": "구성 초기화",
+	"log-action-filter-stable-move_stable": "구성을 이동했습니다"
 }
