@@ -10,7 +10,8 @@
 			"LNDDYL",
 			"Cwlin0416",
 			"Zhxy 519",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Hello903hello"
 		]
 	},
 	"revisionreview": "審查修訂",
@@ -52,8 +53,8 @@
 	"revreview-submit-reject": "拒絕變更",
 	"revreview-submit-reviewed": "完成，已接受！",
 	"revreview-submit-unreviewed": "完成，已取消接受！",
-	"revreview-successful": "'''已成功標記 [[:$1|$1]] 的修訂。 ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} 檢視已審查的版本])'''",
-	"revreview-successful2": "'''已成功取消標記 [[:$1|$1]] 的修訂。'''",
+	"revreview-successful": "'''已標記 [[:$1|$1]] 的修訂。 ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} 檢視已審查的版本])'''",
+	"revreview-successful2": "'''已取消標記 [[:$1|$1]] 的修訂。'''",
 	"revreview-poss-conflict-p": "'''警告：[[User:$1|$1]] 於 $2 $3 開始審查此頁面。'''",
 	"revreview-poss-conflict-c": "'''警告：[[User:$1|$1]] 於 $2 $3 開始審查這些更改。'''",
 	"revreview-adv-reviewing-p": "注意：其他審查員可以看到{{GENDER:$1|您}}正在審查此頁面。",
