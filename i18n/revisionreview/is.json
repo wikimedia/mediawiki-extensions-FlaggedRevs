@@ -6,6 +6,7 @@
 			"Sveinn í Felli"
 		]
 	},
+	"revisionreview": "Skoða yfirfarnar breytingar",
 	"review_denied": "Heimild hafnað.",
 	"review_cannot_undo": "Mistókst að taka aftur þessar breytingar því aðrar óskoðaðar útgáfur breyttu sama hluta síðunnar.",
 	"review_cannot_reject": "Höfnun breytingana mistókst því einhver hefur þegar samþykkt sumar (eða allar) breytingarnar.",
@@ -29,9 +30,9 @@
 	"revreview-poss-conflict-p": "'''Viðvörun: [[User:$1|$1]] hóf að yfirfara síðuna $2 kl. $3.'''",
 	"revreview-poss-conflict-c": "'''Viðvörun: [[User:$1|$1]] hóf að yfirfara þessar breytingar $2 kl. $3.'''",
 	"revreview-adv-reviewing-p": "Tilkynning: Aðrir ritstjórar geta séð að {{GENDER:$1|þú}} sért að yfirfara þessa síðu.",
-	"revreview-adv-reviewing-c": "Tilkynning: Aðrir ritsjórar geta séð að þú sért að yfirfara þessar breytingar.",
-	"revreview-sadv-reviewing-p": "Þú getur $1 að þú sért að yfirfara þessa síðu.",
-	"revreview-sadv-reviewing-c": "Þú getur $1 að þú sért að yfirfara þessar breytingar.",
+	"revreview-adv-reviewing-c": "Tilkynning: Aðrir ritstjórar geta séð að {{GENDER:$1|þú}} sért að yfirfara þessar breytingar.",
+	"revreview-sadv-reviewing-p": "Þú getur $1 til annarra notenda að þú sért að yfirfara þessa síðu.",
+	"revreview-sadv-reviewing-c": "Þú getur $1 til annarra notenda að þú sért að yfirfara þessar breytingar.",
 	"revreview-adv-start-link": "tilkynnt",
 	"revreview-update": "'''Vinsamlegast [[{{MediaWiki:Validationpage}}|farðu yfir]] allar óskoðaðar breytingar ''(sýndar hér fyrir neðan)'' síðan að síðasta breytingin var gerð.'''",
 	"revreview-update-includes": "Snið/skrár uppfærð (óskoðaðar síður eru feitletraðar):",
@@ -41,7 +42,7 @@
 	"revreview-reject-confirm": "Hafna þessum breytingum",
 	"revreview-reject-cancel": "Hætta við",
 	"revreview-reject-summary-cur": "Hafnaði síðustu $1 {{PLURAL:$1|breytingu|breytingum}} ({{PLURAL:$7|{{GENDER:$5|eftir}}}} $2) og breytti aftur til útgáfu $3 {{GENDER:$6|eftir}} $4",
-	"revreview-reject-summary-cur-short": "Hafnaði síðustu $1 {{PLURAL:$1|breytingu|breytingum}} og breytti aftur til útgáfu $2 eftir $3",
+	"revreview-reject-summary-cur-short": "Hafnaði síðustu $1 {{PLURAL:$1|breytingu|breytingum}} og breytti aftur til útgáfu $2 {{GENDER:$4|eftir}} $3",
 	"revreview-tt-flag": "Samþykkja þessa útgáfu með því að merkja hana sem „skoðaða\"",
 	"revreview-tt-unflag": "Hafna þessari útgáfu með því að merkja hana sem „óskoðaða\"",
 	"revreview-tt-reject": "Hafna breytingu á texta með því að taka breytinguna aftur"
