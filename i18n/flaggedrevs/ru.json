@@ -31,7 +31,8 @@
 			"Sealle",
 			"Alex Great",
 			"Mailman",
-			"Kareyac"
+			"Kareyac",
+			"Mouse21"
 		]
 	},
 	"action-review": "проверка версий страниц",
@@ -53,7 +54,12 @@
 	"flaggedrevs-hidereviewed": "$1 проверенные правки",
 	"flaggedrevs-hidereviewed-hide": "Скрыть",
 	"flaggedrevs-hidereviewed-show": "Показать",
+	"flaggedrevs-rcfilters-need-review-label": "Нужен обзор",
+	"flaggedrevs-rcfilters-need-review-desc": "Редактирование, требующее пересмотра.",
 	"flaggedrevs-rcfilters-reviewed-label": "Проверено",
+	"flaggedrevs-rcfilters-reviewed-desc": "Редактирование, которые были рассмотрены.",
+	"flaggedrevs-rcfilters-not-reviewable-label": "Не подлежит рассмотрению",
+	"flaggedrevs-rcfilters-not-reviewable-desc": "Изменения всех типов, которые не требуют пересмотра.",
 	"group-editor": "Патрулирующие",
 	"group-editor-member": "{{GENDER:$1|досматривающий|досматривающая}}",
 	"group-reviewer": "Выверяющие",
@@ -217,5 +223,6 @@
 	"log-action-filter-stable": "Тип действия:",
 	"log-action-filter-stable-config": "Установка стабилизации",
 	"log-action-filter-stable-modify": "Изменение стабилизации",
-	"log-action-filter-stable-reset": "Снятие стабилизации"
+	"log-action-filter-stable-reset": "Снятие стабилизации",
+	"log-action-filter-stable-move_stable": "Перемещенная конфигурация"
 }
