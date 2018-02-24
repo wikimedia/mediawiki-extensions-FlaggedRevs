@@ -343,7 +343,10 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 			$status = $editStatus->isOK() ? true : 'review_cannot_undo';
 
-			if ( $editStatus->isOK() && class_exists( 'EchoEvent' ) && $editStatus->value['revision'] ) {
+			if ( $editStatus->isOK() &&
+				$editStatus->value['revision'] &&
+				ExtensionRegistry::getInstance()->isLoaded( 'Echo' )
+			) {
 				$affectedRevisions = []; // revid -> userid
 				$revisions = wfGetDB( DB_REPLICA )->select(
 					'revision',

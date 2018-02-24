@@ -10,7 +10,7 @@ class FlaggedRevsTestHooks {
 		$files[] = __DIR__ . '/FRParserCacheStableTest.php';
 		$files[] = __DIR__ . '/FlaggablePageTest.php';
 		$files[] = __DIR__ . '/FlaggedRevsSetupTest.php';
-		if ( class_exists( 'Scribunto_LuaEngineTestBase' ) ) {
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'Scribunto' ) ) {
 			$files[] = __DIR__ . '/FlaggedRevsLibraryTest.php';
 		}
 		return true;
