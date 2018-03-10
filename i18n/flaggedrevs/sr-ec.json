@@ -12,7 +12,8 @@
 			"Сербијана",
 			"Srdjan m",
 			"Prevodim",
-			"Acamicamacaraca"
+			"Acamicamacaraca",
+			"Obsuser"
 		]
 	},
 	"action-review": "преглед измена",
@@ -203,5 +204,6 @@
 	"log-action-filter-stable": "Тип промене конфигурације:",
 	"log-action-filter-stable-config": "Нова конфигурација",
 	"log-action-filter-stable-modify": "Измењена конфигурација",
-	"log-action-filter-stable-reset": "Ресетовање конфигурације"
+	"log-action-filter-stable-reset": "Ресетовање конфигурације",
+	"log-action-filter-stable-move_stable": "Премештена конфигурација"
 }
