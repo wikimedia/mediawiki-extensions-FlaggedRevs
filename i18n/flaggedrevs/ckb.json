@@ -38,6 +38,7 @@
 	"logentry-review-approve-auto": "$1 بە خۆگەڕی بەسەر وەشانێکی 3$دا چوویەوە",
 	"logentry-stable-config": "$1 {{GENDER:$2|ھەڵبژاردەی}} وەشانی جێگیری بۆ $3 $4 دانا",
 	"logentry-stable-reset": "$1 {{GENDER:$2|ھەڵبژاردەی}} وەشانی جێگیری سەر $3 $4ی لابرد",
+	"logentry-stable-move_stable": "$1 $2 ھەڵبژاردەی وەشانی جێگیری لە $4ەوە گواستەوە بۆ $3",
 	"revreview-hist-draft": "وەشانی تاوتوێ نەکراو",
 	"revreview-hist-pending": "وەشانی ھەڵواسراو",
 	"revreview-hist-quality": "پێداچوونەوەی چاک",
