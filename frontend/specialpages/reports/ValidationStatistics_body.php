@@ -322,8 +322,10 @@ class ValidationStatistics extends IncludableSpecialPage {
 		$limit = (int)$wgFlaggedRevsStats['topReviewersCount'];
 		$seconds = 3600 * $wgFlaggedRevsStats['topReviewersHours'];
 		$cutoff = $dbr->timestamp( time() - $seconds );
-		$res = $dbr->select( 'logging',
-			[ 'log_user', 'COUNT(*) AS reviews' ],
+		$actorQuery = ActorMigration::newMigration()->getJoin( 'log_user' );
+		$res = $dbr->select(
+			[ 'logging' ] + $actorQuery['tables'],
+			[ 'user' => $actorQuery['fields']['log_user'], 'COUNT(*) AS reviews' ],
 			[
 				'log_type' => 'review', // page reviews
 				// manual approvals (filter on log_action)
@@ -331,12 +333,17 @@ class ValidationStatistics extends IncludableSpecialPage {
 				'log_timestamp >= ' . $dbr->addQuotes( $cutoff ) // last hour
 			],
 			__METHOD__,
-			[ 'GROUP BY' => 'log_user', 'ORDER BY' => 'reviews DESC', 'LIMIT' => $limit ]
+			[
+				'GROUP BY' => $actorQuery['fields']['log_user'],
+				'ORDER BY' => 'reviews DESC',
+				'LIMIT' => $limit
+			],
+			$actorQuery['joins']
 		);
 
 		$data = [];
 		foreach ( $res as $row ) {
-			$data[$row->log_user] = $row->reviews;
+			$data[$row->user] = $row->reviews;
 		}
 
 		// Save/cache users

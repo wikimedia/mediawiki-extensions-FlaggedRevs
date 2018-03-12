@@ -252,6 +252,9 @@ class FlaggedRevsStats {
 			return $result; // disabled
 		}
 
+		$actorMigration = ActorMigration::newMigration();
+		$actorQuery = $actorMigration->getJoin( 'rev_user' );
+
 		$rPerTable = []; // review wait percentiles
 		# Only go so far back...otherwise we will get garbage values due to
 		# the fact that FlaggedRevs wasn't enabled until after a while.
@@ -305,9 +308,9 @@ class FlaggedRevsStats {
 		}
 		# User condition (anons/users)
 		if ( $users === 'anons' ) {
-			$userCondition = 'rev_user = 0';
+			$userCondition = $actorMigration->isAnon( $actorQuery['fields']['rev_user'] );
 		} elseif ( $users === 'users' ) {
-			$userCondition = 'rev_user > 0';
+			$userCondition = $actorMigration->isNotAnon( $actorQuery['fields']['rev_user'] );
 		} else {
 			throw new Exception( 'Invalid $users param given.' );
 		}
@@ -321,16 +324,28 @@ class FlaggedRevsStats {
 		$minTSUnix = $maxTSUnix - $days * 86400;
 		$encMinTS = $dbr->addQuotes( $dbr->timestamp( $minTSUnix ) );
 		# Approximate the number rows to scan
-		$rows = $dbr->estimateRowCount( 'revision', '1',
-			[ $userCondition, "rev_timestamp BETWEEN $encMinTS AND $encMaxTS" ] );
+		$rows = $dbr->estimateRowCount(
+			[ 'revision' ] + $actorQuery['tables'],
+			'1',
+			[ $userCondition, "rev_timestamp BETWEEN $encMinTS AND $encMaxTS" ],
+			__METHOD__,
+			[],
+			$actorQuery['joins']
+		);
 		# If the range doesn't have many rows (like on small wikis), use 30 days
 		if ( $rows < 500 ) {
 			$days = 30;
 			$minTSUnix = $maxTSUnix - $days * 86400;
 			$encMinTS = $dbr->addQuotes( $dbr->timestamp( $minTSUnix ) );
 			# Approximate rows to scan
-			$rows = $dbr->estimateRowCount( 'revision', '1',
-				[ $userCondition, "rev_timestamp BETWEEN $encMinTS AND $encMaxTS" ] );
+			$rows = $dbr->estimateRowCount(
+				[ 'revision' ] + $actorQuery['tables'],
+				'1',
+				[ $userCondition, "rev_timestamp BETWEEN $encMinTS AND $encMaxTS" ],
+				__METHOD__,
+				[],
+				$actorQuery['joins']
+			);
 			# If the range doesn't have many rows (like on really tiny wikis), use 90 days
 			if ( $rows < 500 ) {
 				$days = 90;
@@ -347,14 +362,17 @@ class FlaggedRevsStats {
 		$ecKey = wfMemcKey( 'flaggedrevs', 'rcEditCount', $users, $days );
 		$edits = (int)$stash->get( $ecKey );
 		if ( !$edits ) {
-			$edits = (int)$dbr->selectField( [ 'page','revision' ],
+			$edits = (int)$dbr->selectField(
+				[ 'page','revision' ] + $actorQuery['tables'],
 				'COUNT(*)',
 				[
 					$userCondition,
 					$timeCondition, // in time range
-					'page_id = rev_page',
 					'page_namespace' => FlaggedRevs::getReviewNamespaces()
-				]
+				],
+				__METHOD__,
+				[],
+				[ 'page' => [ 'JOIN', 'page_id = rev_page' ] ] + $actorQuery['joins']
 			);
 			$stash->set( $ecKey, $edits, 14 * 24 * 3600 ); // cache for 2 weeks
 		}
@@ -363,7 +381,7 @@ class FlaggedRevsStats {
 		# Edits started off pending if made when a flagged rev of the page already existed.
 		# Get the *first* reviewed rev *after* each edit and get the time difference.
 		$sql = $dbr->selectSQLText(
-			[ 'revision' ],
+			[ 'revision' ] + $actorQuery['tables'],
 			[
 				'rev_timestamp AS rt', // time revision was made
 				'(' . $dbr->selectSQLText( 'flaggedrevs',
@@ -389,7 +407,9 @@ class FlaggedRevsStats {
 					__METHOD__
 				) . ')'
 			],
-			__METHOD__
+			__METHOD__,
+			[],
+			$actorQuery['joins']
 		);
 		// foreach ( $dbr->query( "EXPLAIN $sql" ) as $row ) { print_r( $row ); }
 		$res = $dbr->query( $sql );

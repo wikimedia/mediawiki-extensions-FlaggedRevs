@@ -348,9 +348,10 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 				ExtensionRegistry::getInstance()->isLoaded( 'Echo' )
 			) {
 				$affectedRevisions = []; // revid -> userid
+				$revQuery = Revision::getQueryInfo();
 				$revisions = wfGetDB( DB_REPLICA )->select(
-					'revision',
-					[ 'rev_id', 'rev_user' ],
+					$revQuery['tables'],
+					[ 'rev_id', 'rev_user' => $revQuery['fields']['rev_user'] ],
 					[
 						'rev_id <= ' . $newRev->getId(),
 						'rev_timestamp <= ' . $newRev->getTimestamp(),
@@ -358,7 +359,9 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 						'rev_timestamp > ' . $oldRev->getTimestamp(),
 						'rev_page' => $article->getId(),
 					],
-					__METHOD__
+					__METHOD__,
+					[],
+					$revQuery['joins']
 				);
 				foreach ( $revisions as $row ) {
 					$affectedRevisions[$row->rev_id] = $row->rev_user;
