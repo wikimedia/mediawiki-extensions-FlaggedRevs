@@ -56,6 +56,11 @@
 	"grouppage-autoreview": "{{ns:project}}:مراجع تلقائي",
 	"logentry-review-approve": "$1 {{GENDER:$2|راجع}} نسخة من $3",
 	"logentry-review-approve-auto": "$1 {{GENDER:$2|راجع}} بشكل تلقائي نسخة من $3",
+	"logentry-review-unapprove": "$1 {{GENDER:$2|راجع}} نسخة $3",
+	"logentry-stable-config": "$1 {{GENDER:$2|عين}} إعدادات النسخة الثابتة لـ$3 $4",
+	"logentry-stable-modify": "$1 {{GENDER:$2|غير}} إعدادات النسخة الثابتة لـ$3 $4",
+	"logentry-stable-reset": "$1 {{GENDER:$2|أعاد تعيين}} إعدادات النسخة الثابتة لـ$3 $4",
+	"logentry-stable-move_stable": "$1 {{GENDER:$2|نقل}} إعدادات النسخة الثابتة من $3 إلى $4",
 	"revreview-hist-draft": "مراجعة غير مفحوصة",
 	"revreview-hist-pending": "مراجعة موقفة",
 	"revreview-hist-quality": "مراجعة جودة",
@@ -197,5 +202,10 @@
 	"log-action-filter-review": "نوع المراجعة:",
 	"log-action-filter-review-accept": "قبول يدوي",
 	"log-action-filter-review-autoaccept": "قبول آلي",
-	"log-action-filter-review-unaccept": "رفض يدوي"
+	"log-action-filter-review-unaccept": "رفض يدوي",
+	"log-action-filter-stable": "نوع تغيير التكوين:",
+	"log-action-filter-stable-config": "التكوين الجديد",
+	"log-action-filter-stable-modify": "التكوين المعدل",
+	"log-action-filter-stable-reset": "إعادة ضبط التكوين",
+	"log-action-filter-stable-move_stable": "التكوين المنقول"
 }
