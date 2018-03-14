@@ -3,11 +3,13 @@
 		"authors": [
 			"Charmed94",
 			"Rancher",
-			"Acamicamacaraca"
+			"Acamicamacaraca",
+			"BadDog"
 		]
 	},
 	"problemchanges": "Означене измене на чекању",
+	"problemchanges-list": "Ова страница приказује [[{{MediaWiki:Validationpage}}|прегледане]] странице које имају једну или више означених измена које чекају преглед. Доступан је списак [[Special:Tags|исправних ознака измена]].",
 	"problemchanges-legend": "Списак страница са означеним изменама које чекају преглед",
-	"problemchanges-none": "Тренутно нема страница које испуњавају овај критеријум",
+	"problemchanges-none": "Тренутно нема страница које испуњавају овај критеријум.",
 	"problemchanges-category": "Категорија:"
 }
