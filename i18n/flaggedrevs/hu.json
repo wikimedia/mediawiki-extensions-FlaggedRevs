@@ -210,5 +210,6 @@
 	"log-action-filter-stable": "Konfigurációs változás típusa:",
 	"log-action-filter-stable-config": "Új konfiguráció",
 	"log-action-filter-stable-modify": "Konfiguráció módosítása",
-	"log-action-filter-stable-reset": "Konfiguráció visszaállítása"
+	"log-action-filter-stable-reset": "Konfiguráció visszaállítása",
+	"log-action-filter-stable-move_stable": "Konfiguráció mozgatása"
 }
