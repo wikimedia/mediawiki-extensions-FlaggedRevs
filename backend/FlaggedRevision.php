@@ -274,7 +274,7 @@ class FlaggedRevision {
 		if ( !$pageId ) {
 			return null; // short-circuit query
 		}
-		# Get visiblity settings to see if page is reviewable...
+		# Get visibility settings to see if page is reviewable...
 		if ( FlaggedRevs::useOnlyIfProtected() ) {
 			if ( empty( $config ) ) {
 			   $config = FRPageConfig::getStabilitySettings( $title, $flags );

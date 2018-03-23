@@ -289,7 +289,7 @@ class FlaggableWikiPage extends WikiPage {
 	}
 
 	/**
-	 * Get visiblity restrictions on page
+	 * Get visibility restrictions on page
 	 * @return array (select,override)
 	 */
 	public function getStabilitySettings() {
