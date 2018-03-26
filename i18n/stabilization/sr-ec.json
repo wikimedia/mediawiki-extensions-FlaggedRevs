@@ -8,7 +8,8 @@
 			"Михајло Анђелковић",
 			"Milicevic01",
 			"Сербијана",
-			"Acamicamacaraca"
+			"Acamicamacaraca",
+			"BadDog"
 		]
 	},
 	"stabilization-tab": "конфиг.",
@@ -20,11 +21,11 @@
 	"stabilization-def": "Измена приказана на подразумеваном приказу стране.",
 	"stabilization-def1": "Стабилна верзија; ако не постоји, онда последња измена",
 	"stabilization-def2": "Последња измена",
-	"stabilization-restrict": "Ограничења прегледа/самопрегледа",
+	"stabilization-restrict": "Ограничења провере/самопровере",
 	"stabilization-restrict-none": "Без додатних ограничења",
 	"stabilization-submit": "Прихвати",
 	"stabilization-notexists": "Нема странице под називом „[[:$1|$1]]“.\nПодешавање није могуће.",
-	"stabilization-notcontent": "Страница „[[:$1|$1]]“ не може бити прегледана. Подешавање није могуће.",
+	"stabilization-notcontent": "Страница „[[:$1|$1]]“ не може бити проверена. Подешавање није могуће.",
 	"stabilization-comment": "Разлог:",
 	"stabilization-otherreason": "Други разлог:",
 	"stabilization-expiry": "Истиче:",
@@ -34,12 +35,12 @@
 	"stabilization-def-short-1": "Стабилно",
 	"stabilize_page_invalid": "Наслов циљане стране је неисправан.",
 	"stabilize_page_notexists": "Циљна страница не постоји.",
-	"stabilize_page_unreviewable": "Одредишна страница није у именском простору које је подложно прегледу.",
-	"stabilize_invalid_autoreview": "Неисправно ограничење аутоматских прегледа.",
+	"stabilize_page_unreviewable": "Одредишна страница није у именском простору који је подложан провери.",
+	"stabilize_invalid_autoreview": "Неисправно ограничење аутоматских провера.",
 	"stabilize_invalid_level": "Неисправан ниво заштите.",
 	"stabilize_expiry_invalid": "Лош датум истицања.",
 	"stabilize_expiry_old": "Време истицања је већ прошло.",
 	"stabilize_denied": "Приступ је одбијен.",
 	"stabilize-expiring": "истиче $1 (UTC)",
-	"stabilization-review": "Означи тренутну измену као прегледану"
+	"stabilization-review": "Означи тренутну измену као проверену"
 }

@@ -6,12 +6,13 @@
 			"Rancher",
 			"Жељко Тодоровић",
 			"Михајло Анђелковић",
-			"Acamicamacaraca"
+			"Acamicamacaraca",
+			"BadDog"
 		]
 	},
 	"pendingchanges": "Странице са изменама на чекању",
-	"pendingchanges-legend": "Списак прегледаних страница са изменама које чекају преглед",
-	"pendingchanges-list": "Ова страница приказује [[{{MediaWiki:Validationpage}}|прегледане]] странице које имају једну или више измена на чекању.",
+	"pendingchanges-legend": "Списак проверених страница са изменама које чекају проверу",
+	"pendingchanges-list": "Ова страница приказује [[{{MediaWiki:Validationpage}}|проверене]] странице које имају једну или више измена на чекању.",
 	"pendingchanges-none": "Тренутно нема страница које испуњавају ове критеријуме",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|сат|сати}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|дан|дана}})",
@@ -19,9 +20,9 @@
 	"pendingchanges-category": "Категорија:",
 	"pendingchanges-onwatchlist": "Странице на мом списку надгледања",
 	"pendingchanges-stable": "Стабилна верзија је подразумевана",
-	"pendingchanges-diff": "преглед",
+	"pendingchanges-diff": "провера",
 	"pendingchanges-size": "Највећа измена (у бајтовима):",
 	"pendingchanges-unwatched": "(ненадгледано)",
 	"pendingchanges-watched": "($1 {{PLURAL:$1|активан корисник|активна корисника|активна корисника|активна корисника|активних корисника}} гледа)",
-	"pendingchanges-viewing": "(под прегледом)"
+	"pendingchanges-viewing": "(под провером)"
 }

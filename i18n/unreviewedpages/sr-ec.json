@@ -7,19 +7,20 @@
 			"Sasa Stefanovic",
 			"Жељко Тодоровић",
 			"Михајло Анђелковић",
-			"Acamicamacaraca"
+			"Acamicamacaraca",
+			"BadDog"
 		]
 	},
-	"action-unreviewedpages": "списак непрегледаних страница",
-	"unreviewedpages": "Непрегледане странице.",
-	"unreviewedpages-legend": "Списак непрегледаних страница са садржајем.",
+	"action-unreviewedpages": "списак непроверених страница",
+	"unreviewedpages": "Непроверене странице",
+	"unreviewedpages-legend": "Списак непроверених страница са садржајем",
 	"unreviewedpages-category": "Категорија:",
-	"unreviewedpages-diff": "прегледај",
+	"unreviewedpages-diff": "провери",
 	"unreviewedpages-unwatched": "(ненадзирано)",
 	"unreviewedpages-watched": "($1 {{PLURAL:$1|активан корисник надгледа|активних корисника надгледају}})",
-	"unreviewedpages-list": "На овој страници су наведене странице са садржајем које још ''нису'' [[{{MediaWiki:Validationpage}}|прегледане]] до одређеног нивоа.",
+	"unreviewedpages-list": "На овој страници су наведене странице са садржајем које још ''нису'' [[{{MediaWiki:Validationpage}}|проверене]] до одређеног нивоа.",
 	"unreviewedpages-none": "Не постоји ниједна страница која се поклапа са овим критеријумима.",
-	"unreviewedpages-viewing": "(под прегледом)",
+	"unreviewedpages-viewing": "(под провером)",
 	"unreviewedpages-hours": "($1 {{PLURAL:$1|сат|сата}})",
 	"unreviewedpages-days": "($1 {{PLURAL:$1|дан|дана}})",
 	"unreviewedpages-recent": "(мање од једног сата)"

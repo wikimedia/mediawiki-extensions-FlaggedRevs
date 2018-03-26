@@ -7,6 +7,7 @@
 			"Predatorix"
 		]
 	},
+	"apihelp-flagconfig-example-1": "Ruft die Markierungskonfiguration ab",
 	"apihelp-query+configuredpages-param-start": "Auflistung bei dieser Seitenkennung beginnen.",
 	"apihelp-query+configuredpages-param-end": "Auflistung bei dieser Seitenkennung beenden.",
 	"apihelp-query+configuredpages-param-namespace": "Die aufzuzählenden Namensräume.",

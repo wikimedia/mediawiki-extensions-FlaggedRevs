@@ -4,10 +4,11 @@
 			"Charmed94",
 			"Millosh",
 			"Rancher",
-			"Acamicamacaraca"
+			"Acamicamacaraca",
+			"BadDog"
 		]
 	},
-	"qualityoversight": "Детаљни дневник прегледа",
+	"qualityoversight": "Напредни дневник провере",
 	"qualityoversight-list": "На овој страни се налази списак недавно одобрених и застарелих измена.",
-	"qualityoversight-legend": "Претражи скорашње прегледе у дневнику"
+	"qualityoversight-legend": "Претражи скорашње провере у дневнику"
 }
