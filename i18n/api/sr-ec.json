@@ -15,6 +15,10 @@
 	"apihelp-query+oldreviewedpages-param-filterredir": "Како да филтрирате преусмерења.",
 	"apihelp-query+reviewedpages-example-1": "Прикажи списак проверених страница",
 	"apihelp-query+unreviewedpages-param-dir": "Смер сортирања.",
+	"apihelp-query+unreviewedpages-param-filterredir": "Како да филтрирате преусмерења.",
+	"apihelp-query+unreviewedpages-example-1": "Прикажи списак непроверених страница",
+	"apihelp-review-param-comment": "Коментар за проверу",
+	"apihelp-review-example-1": "Прихвати измену 12345 са коментаром „Ок”",
 	"apihelp-stabilize-param-reason": "Разлог.",
 	"apihelp-stabilize-param-watch": "Надгледај ову страницу.",
 	"apihelp-stabilize-param-expiry-general": "Истек ових подешавања.",
@@ -25,5 +29,9 @@
 	"apihelp-stabilize-param-autoreview": "Ограничење самопровере.",
 	"apihelp-stabilize-param-review": "Провери ову страницу.",
 	"apihelp-stabilize-param-protectlevel": "Ниво заштите од провере.",
-	"apierror-flaggedrevs-pagedoesnotexist": "Дата страница не постоји."
+	"apierror-flaggedrevs-notreviewable": "Наведена страница није прегледива.",
+	"apierror-flaggedrevs-pagedoesnotexist": "Дата страница не постоји.",
+	"apierror-flaggedrevs-badflags": "Наведене ознаке нису исправне.",
+	"apierror-flaggedrevs-cantunreview": "Ви немате потребна права да уклоните ознаке.",
+	"apierror-flaggedrevs-noflaggedrev": "Нема прегледане измене са наведеним ID-ом."
 }
