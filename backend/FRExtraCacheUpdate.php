@@ -1,4 +1,7 @@
 <?php
+
+use Wikimedia\Rdbms\ResultWrapper;
+
 /**
  * Class containing cache update methods and job construction
  * for the special case of purging pages due to dependancies
