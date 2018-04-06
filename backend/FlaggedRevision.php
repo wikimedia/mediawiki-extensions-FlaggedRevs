@@ -43,9 +43,8 @@ class FlaggedRevision {
 	private $mStableFiles;
 
 	/**
-	 * @param Row|array $row (DB row or array)
+	 * @param stdClass|array $row DB row or array
 	 * @throws Exception
-	 * @return \FlaggedRevision
 	 */
 	public function __construct( $row ) {
 		if ( is_object( $row ) ) {
@@ -956,7 +955,7 @@ class FlaggedRevision {
 
 	/**
 	 * @param int $rev_id
-	 * @param \FR_MASTER|int $flags FR_MASTER
+	 * @param int $flags FR_MASTER
 	 * @return mixed (int or false)
 	 * Get quality of a revision
 	 */
@@ -972,7 +971,7 @@ class FlaggedRevision {
 
 	/**
 	 * @param int $rev_id
-	 * @param \FR_MASTER|int $flags FR_MASTER
+	 * @param int $flags FR_MASTER
 	 * @return bool
 	 * Useful for quickly pinging to see if a revision is flagged
 	 */

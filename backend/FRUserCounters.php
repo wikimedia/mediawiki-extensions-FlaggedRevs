@@ -125,7 +125,6 @@ class FRUserCounters {
 	 * Increments a count for a user
 	 * @param int $uid User id
 	 * @param string $param Count name
-	 * @return string
 	 */
 	public static function incCount( $uid, $param ) {
 		$p = self::getUserParams( $uid, FR_FOR_UPDATE );

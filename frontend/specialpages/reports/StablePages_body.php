@@ -117,7 +117,7 @@ class StablePagesPager extends AlphabeticPager {
 	public $mForm, $mConds, $namespace, $override;
 
 	/**
-	 * @param IContextSource $form
+	 * @param StablePages $form
 	 * @param array $conds
 	 * @param int $namespace (null for "all")
 	 * @param string $autoreview ('' for "all", 'none' for no restriction)

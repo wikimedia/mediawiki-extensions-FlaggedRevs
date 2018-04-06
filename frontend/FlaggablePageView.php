@@ -6,24 +6,47 @@ use MediaWiki\MediaWikiServices;
  * Class representing a web view of a MediaWiki page
  */
 class FlaggablePageView extends ContextSource {
-	/** @var OutputPage */
+
+	/** @var OutputPage|null */
 	protected $out = null;
-	/** @var FlaggableWikiPage */
+
+	/** @var FlaggableWikiPage|null */
 	protected $article = null;
 
-	protected $diffRevs = null; // assoc array of old and new Revisions for diffs
-	protected $oldRevIncludes = null; // ( array of templates, array of file)
+	/** @var array|null of old and new Revisions for diffs */
+	protected $diffRevs = null;
+
+	/** @var array|null [ array of templates, array of file ] */
+	protected $oldRevIncludes = null;
+
+	/** @var bool */
 	protected $isReviewableDiff = false;
+
+	/** @var bool */
 	protected $isDiffFromStable = false;
+
+	/** @var bool */
 	protected $isMultiPageDiff = false;
+
+	/** @var string */
 	protected $reviewNotice = '';
+
+	/** @var string */
 	protected $diffNoticeBox = '';
+
+	/** @var string */
 	protected $diffIncChangeBox = '';
+
+	/** @var Revision|false */
 	protected $reviewFormRev = false;
 
+	/** @var bool */
 	protected $loaded = false;
+
+	/** @var bool */
 	protected $noticesDone = false;
 
+	/** @var self|null */
 	protected static $instance = null;
 
 	/**
@@ -633,7 +656,7 @@ class FlaggablePageView extends ContextSource {
 	/**
 	 * Tag output function must be called by caller
 	 * Parser cache control deferred to caller
-	 * @param \FlaggedRevision|\stable $srev stable version
+	 * @param FlaggedRevision $srev stable version
 	 * @param string &$tag review box/bar info
 	 * @param string $prot protection notice
 	 * @return ParserOutput
@@ -1506,9 +1529,9 @@ class FlaggablePageView extends ContextSource {
 	 *   (i)  Show a tag with some explanation for the diff
 	 *   (ii) List any template/file changes pending review
 	 *
-	 * @param string $diff
-	 * @param Revision $oldRev
-	 * @param Revision $newRev
+	 * @param DifferenceEngine $diff
+	 * @param Revision|null $oldRev
+	 * @param Revision|null $newRev
 	 * @return true
 	 */
 	public function addToDiffView( $diff, $oldRev, $newRev ) {
@@ -1795,9 +1818,9 @@ class FlaggablePageView extends ContextSource {
 
 	/**
 	 * Set $this->isDiffFromStable and $this->isMultiPageDiff fields
-	 * @param string $diff
-	 * @param Revision|false $oldRev
-	 * @param Revision|false $newRev
+	 * @param DifferenceEngine $diff
+	 * @param Revision|null $oldRev
+	 * @param Revision|null $newRev
 	 * @return true
 	 */
 	public function setViewFlags( $diff, $oldRev, $newRev ) {
@@ -1829,9 +1852,9 @@ class FlaggablePageView extends ContextSource {
 
 	/**
 	 * Is a diff from $oldRev to $newRev a diff-to-stable?
-	 * @param bool $srev
-	 * @param Revision $oldRev
-	 * @param Revision $newRev
+	 * @param FlaggedRevision|false $srev
+	 * @param Revision|false $oldRev
+	 * @param Revision|false $newRev
 	 * @return bool
 	 */
 	protected static function isDiffToStable( $srev, $oldRev, $newRev ) {
@@ -1846,7 +1869,7 @@ class FlaggablePageView extends ContextSource {
 	 * Redirect users out to review the changes to the stable version.
 	 * Only for people who can review and for pages that have a stable version.
 	 * @param string &$sectionAnchor
-	 * @param array &$extraQuery
+	 * @param string &$extraQuery
 	 * @return true
 	 */
 	public function injectPostEditURLParams( &$sectionAnchor, &$extraQuery ) {

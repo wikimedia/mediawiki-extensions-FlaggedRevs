@@ -13,7 +13,7 @@ class FRInclusionCache {
 	 * @param Revision $rev
 	 * @param User $user
 	 * @param string $regen use 'regen' to force regeneration
-	 * @return [ templateIds, fileSHA1Keys ]
+	 * @return array [ templateIds, fileSHA1Keys ]
 	 * templateIds like ParserOutput->mTemplateIds
 	 * fileSHA1Keys like ParserOutput->mImageTimeKeys
 	 */

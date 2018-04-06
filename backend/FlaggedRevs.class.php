@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\Edit\PreparedEdit;
+
 /**
  * Class containing utility functions for a FlaggedRevs environment
  *
@@ -350,7 +353,7 @@ class FlaggedRevs {
 	/**
 	 * Get the levels for a tag. Gives map of level to message name.
 	 * @param string $tag
-	 * @return associative array (integer -> string)
+	 * @return array (integer -> string)
 	 */
 	public static function getTagLevels( $tag ) {
 		self::load();
@@ -617,7 +620,7 @@ class FlaggedRevs {
 	 * @param WikiPage|Title $page
 	 * @param FlaggedRevision|null $sv the new stable version (optional)
 	 * @param FlaggedRevision|null $oldSv the old stable version (optional)
-	 * @param Object $editInfo Article edit info about the current revision (optional)
+	 * @param PreparedEdit|null $editInfo Article edit info about the current revision (optional)
 	 * @return bool stable version text/file changed and FR_INCLUDES_STABLE
 	 * @throws Exception
 	 */
@@ -913,7 +916,7 @@ class FlaggedRevs {
 	/**
 	 * Is this page in reviewable namespace?
 	 * Note: this checks $wgFlaggedRevsWhitelist
-	 * @param Title, $title
+	 * @param Title $title
 	 * @return bool
 	 */
 	public static function inReviewNamespace( Title $title ) {
@@ -944,7 +947,7 @@ class FlaggedRevs {
 	 * @param WikiPage $article
 	 * @param User $user
 	 * @param Revision $rev
-	 * @param array $flags
+	 * @param array|null $flags
 	 * @param bool $auto
 	 * @return true
 	 */

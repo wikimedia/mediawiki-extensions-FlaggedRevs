@@ -226,7 +226,7 @@ class FlaggedRevsHooks {
 	 * @param Parser $parser
 	 * @param Title $title
 	 * @param array &$options
-	 * @param array &$query
+	 * @param string &$query
 	 * @return true
 	 */
 	public static function parserFetchStableFile( $parser, Title $title, &$options, &$query ) {
@@ -590,7 +590,7 @@ class FlaggedRevsHooks {
 	/**
 	 * Check if a user reverted himself to the stable version
 	 * @param Revision $rev
-	 * @param Revision $srev
+	 * @param FlaggedRevision $srev
 	 * @param int $baseRevId
 	 * @param User $user
 	 * @return bool

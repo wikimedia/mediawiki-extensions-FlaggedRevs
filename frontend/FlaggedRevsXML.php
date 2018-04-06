@@ -84,7 +84,7 @@ class FlaggedRevsXML {
 
 	/**
 	 * Get a <select> of default page version (stable or draft). Used for filters.
-	 * @param int $selected (0=draft, 1=stable, null=either )
+	 * @param int|null $selected (0=draft, 1=stable, null=either )
 	 * @return string
 	 */
 	public static function getDefaultFilterMenu( $selected = null ) {
@@ -136,7 +136,7 @@ class FlaggedRevsXML {
 
 	/**
 	 * Get a selector of "approved"/"unapproved". Used for filters.
-	 * @param int $selected selected level
+	 * @param int|null $selected selected level
 	 * @return string
 	 */
 	public static function getStatusFilterMenu( $selected = null ) {
@@ -153,7 +153,7 @@ class FlaggedRevsXML {
 
 	/**
 	 * Get a selector of "auto"/"manual". Used for filters.
-	 * @param int $selected selected level
+	 * @param int|null $selected selected level
 	 * @return string
 	 */
 	public static function getAutoFilterMenu( $selected = null ) {
