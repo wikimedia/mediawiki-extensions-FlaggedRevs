@@ -9,7 +9,8 @@
 			"Peter17",
 			"PieRRoMaN",
 			"Verdy p",
-			"Zetud"
+			"Zetud",
+			"The RedBurn"
 		]
 	},
 	"validationstatistics": "Statistiques de relecture des pages",
@@ -27,5 +28,5 @@
 	"validationstatistics-unreviewed": "Non relu",
 	"validationstatistics-utable": "Ci-dessous figure {{PLURAL:$1|le relecteur le plus actif|les $1 relecteurs les plus actifs}} dans {{PLURAL:$2|la dernière heure|les $2 dernières heures}}.",
 	"validationstatistics-user": "Utilisateur",
-	"validationstatistics-reviews": "Relecteurs"
+	"validationstatistics-reviews": "Relectures"
 }
