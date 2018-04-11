@@ -1,10 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Malafaya"
+			"Malafaya",
+			"Joao Xavier"
 		]
 	},
 	"stabilization-page": "Nomo di la pagino:",
+	"stabilization-leg": "Konfirmez parametri de la versiono stabila",
+	"stabilization-submit": "Konfirmez",
 	"stabilization-comment": "Motivo:",
 	"stabilization-otherreason": "Altra motivo:",
 	"stabilization-othertime": "Altra tempo:",
