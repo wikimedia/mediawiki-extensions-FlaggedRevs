@@ -27,6 +27,7 @@
 	"flaggedrevs-hidereviewed": "$1টি পর্যবেক্ষণকৃত সম্পাদনা",
 	"flaggedrevs-hidereviewed-hide": "আড়াল করো",
 	"flaggedrevs-hidereviewed-show": "দেখাও",
+	"flaggedrevs-rcfilters-need-review-label": "পর্যালোচনা প্রয়োজন",
 	"flaggedrevs-rcfilters-reviewed-label": "পর্যালোচিত",
 	"group-editor": "সম্পাদকগণ",
 	"group-editor-member": "{{GENDER:$1|সম্পাদক}}",
