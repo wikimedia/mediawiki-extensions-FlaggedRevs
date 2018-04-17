@@ -17,6 +17,8 @@
 	"apihelp-query+unreviewedpages-param-dir": "Смер сортирања.",
 	"apihelp-query+unreviewedpages-param-filterredir": "Како да филтрирате преусмерења.",
 	"apihelp-query+unreviewedpages-example-1": "Прикажи списак непроверених страница",
+	"apihelp-review-description": "Проверите измену одобравањем или одбијањем исте.",
+	"apihelp-review-summary": "Проверите измену одобравањем или одбијањем исте.",
 	"apihelp-review-param-comment": "Коментар за проверу",
 	"apihelp-review-example-1": "Прихвати измену 12345 са коментаром „Ок”",
 	"apihelp-stabilize-param-reason": "Разлог.",
