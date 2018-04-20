@@ -218,9 +218,10 @@ class ApiReview extends ApiBase {
 			 * just use ApiBase::PARAM_HELP_MSG directly */
 			$key = constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '';
 			foreach ( FlaggedRevs::getDimensions() as $flagname => $levels ) {
+				$strLevels = array_map( 'strval', array_keys( $levels ) );
 				$pars['flag_' . $flagname] = [
 					ApiBase::PARAM_DFLT => 1, // default
-					ApiBase::PARAM_TYPE => array_keys( $levels ), // array of allowed values
+					ApiBase::PARAM_TYPE => $strLevels, // array of allowed values
 					$key => [ 'apihelp-review-param-flag', $flagname ],
 				];
 			}
