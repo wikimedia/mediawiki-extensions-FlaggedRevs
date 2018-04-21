@@ -16,12 +16,6 @@ class FlaggablePageTest extends PHPUnit\Framework\TestCase {
 		parent::tearDown();
 	}
 
-	/**
-	 * Constructs the test case.
-	 */
-	public function __construct() {
-	}
-
 	public function testPageDataFromTitle() {
 		$title = Title::makeTitle( NS_MAIN, "somePage" );
 		$article = new FlaggableWikiPage( $title );

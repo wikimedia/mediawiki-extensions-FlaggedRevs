@@ -18,12 +18,6 @@ class FRUserCountersTest extends PHPUnit\Framework\TestCase {
 		parent::tearDown();
 	}
 
-	/**
-	 * Constructs the test case.
-	 */
-	public function __construct() {
-	}
-
 	public function testGetAndSaveUserParams() {
 		$this->tablesUsed[] = 'flaggedrevs_autopromote';
 		$p = FRUserCounters::getUserParams( -1 );
