@@ -18,12 +18,6 @@ class FRUserActivityTest extends PHPUnit\Framework\TestCase {
 		parent::tearDown();
 	}
 
-	/**
-	 * Constructs the test case.
-	 */
-	public function __construct() {
-	}
-
 	public function testPageIsUnderReview() {
 		$page = 110;
 

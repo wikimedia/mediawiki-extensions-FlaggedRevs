@@ -73,12 +73,6 @@ class FRInclusionManagerTest extends PHPUnit\Framework\TestCase {
 		FRInclusionManager::singleton()->clear();
 	}
 
-	/**
-	 * Constructs the test case.
-	 */
-	public function __construct() {
-	}
-
 	public function testManagerInitial() {
 		$im = FRInclusionManager::singleton();
 		$this->assertEquals( false, $im->parserOutputIsStabilized(), "Starts off empty" );
