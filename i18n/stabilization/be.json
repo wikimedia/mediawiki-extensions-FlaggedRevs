@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Хомелка"
+			"Хомелка",
+			"Artsiom91"
 		]
 	},
 	"stabilization-tab": "(кк)",
@@ -27,7 +28,7 @@
 	"stabilization-def-short-1": "Апублікаваная",
 	"stabilize_page_invalid": "Недапушчальная назва мэтавай старонкі.",
 	"stabilize_page_notexists": "Мэтавая старонка не існуе.",
-	"stabilize_page_unreviewable": "Мэтавая старонка не знаходзіцца ў правяраемай прасторы імёнаў.",
+	"stabilize_page_unreviewable": "Мэтавая старонка не знаходзіцца ў правяраемай прасторы назваў.",
 	"stabilize_invalid_autoreview": "Памылковыя абмежаванні аўтаправеркі",
 	"stabilize_invalid_level": "Памылковы ўзровень абароны.",
 	"stabilize_expiry_invalid": "Памылковая дата заканчэння.",
