@@ -35,6 +35,7 @@
 	"group-autoreview": "Аўтадаглядальнікі",
 	"group-autoreview-member": "{{GENDER:$1|аўтадаглядальнік|аўтадаглядальніца}}",
 	"grouppage-autoreview": "{{ns:project}}:Аўтадаглядальнікі",
+	"logentry-review-approve-auto": "$1 аўтаматычна {{GENDER:$2|даглядзеў|даглядзела}} версію старонкі $3",
 	"revreview-hist-draft": "неправераная версія",
 	"revreview-hist-pending": "чакае праверкі",
 	"revreview-hist-quality": "Вывераная версія",
