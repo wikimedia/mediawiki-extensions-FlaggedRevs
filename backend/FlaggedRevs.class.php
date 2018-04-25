@@ -1058,7 +1058,7 @@ class FlaggedRevs {
 			'templateVersions' 	=> $tVersions,
 			'fileVersions'     	=> $fVersions,
 			'flags'             => $auto ? 'auto' : '',
-		] );
+		], $title );
 		$flaggedRevision->insert();
 		# Update the article review log
 		FlaggedRevsLog::updateReviewLog( $title,

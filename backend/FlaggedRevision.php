@@ -44,9 +44,11 @@ class FlaggedRevision {
 
 	/**
 	 * @param stdClass|array $row DB row or array
+	 * @param Title|null $title
+	 *
 	 * @throws Exception
 	 */
-	public function __construct( $row ) {
+	public function __construct( $row, Title $title = null ) {
 		if ( is_object( $row ) ) {
 			$this->mTimestamp = $row->fr_timestamp;
 			$this->mQuality = intval( $row->fr_quality );
@@ -59,9 +61,13 @@ class FlaggedRevision {
 			$this->mFileTimestamp = $row->fr_img_timestamp ?
 				$row->fr_img_timestamp : null;
 			# Optional fields
-			$this->mTitle = isset( $row->page_namespace ) && isset( $row->page_title )
-				? Title::makeTitleSafe( $row->page_namespace, $row->page_title )
-				: null;
+			if ( $title ) {
+				$this->mTitle = $title;
+			} else {
+				$this->mTitle = isset( $row->page_namespace ) && isset( $row->page_title )
+					? Title::makeTitleSafe( $row->page_namespace, $row->page_title )
+					: null;
+			}
 			# Base Revision object
 			$this->mRevision = new Revision( $row, Revision::READ_NORMAL, $this->mTitle );
 		} elseif ( is_array( $row ) ) {
@@ -133,8 +139,7 @@ class FlaggedRevision {
 		);
 		# Sorted from highest to lowest, so just take the first one if any
 		if ( $row ) {
-			$frev = new self( $row );
-			$frev->mTitle = $title;
+			$frev = new self( $row, $title );
 			return $frev;
 		}
 		return null;
@@ -183,8 +188,7 @@ class FlaggedRevision {
 			] + $frQuery['joins']
 		);
 		if ( $row ) {
-			$frev = new self( $row );
-			$frev->mTitle = $title;
+			$frev = new self( $row, $title );
 			return $frev;
 		}
 		return null;
@@ -225,8 +229,7 @@ class FlaggedRevision {
 			$frQuery['joins']
 		);
 		if ( $row ) {
-			$frev = new self( $row );
-			$frev->mTitle = Title::newFromRow( $row );
+			$frev = new self( $row, Title::newFromRow( $row ) );
 			return $frev;
 		}
 		return null;
@@ -339,8 +342,7 @@ class FlaggedRevision {
 				return null;
 			}
 		}
-		$frev = new self( $row );
-		$frev->mTitle = $title;
+		$frev = new self( $row, $title );
 		return $frev;
 	}
 
