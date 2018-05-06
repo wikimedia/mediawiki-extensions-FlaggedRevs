@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Liuxinyu970226"
+		]
+	},
+	"validationstatistics-users": "'''{{SITENAME}}''' 目前有 '''[[Special:ListUsers/editor|$1]]''' 位{{PLURAL:$1|用戶}}擁有[[{{MediaWiki:Validationpage}}|編輯者]]的權限。\n\n編輯者是經過認可能夠抽樣檢查頁面修訂的用戶。",
+	"validationstatistics-user": "用戶"
+}
