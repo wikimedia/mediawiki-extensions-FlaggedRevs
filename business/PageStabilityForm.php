@@ -229,7 +229,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	public function doSubmit() {
 		# Double-check permissions
 		if ( !$this->isAllowed() ) {
-			return 'stablize_denied';
+			return 'stabilize_denied';
 		}
 		# Parse and cleanup the expiry time given...
 		$expiry = $this->getExpiry();
