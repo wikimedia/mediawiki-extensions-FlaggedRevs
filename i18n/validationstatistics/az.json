@@ -3,10 +3,16 @@
 		"authors": [
 			"Cekli829",
 			"Vugar 1981",
-			"Şeyx Şamil"
+			"Şeyx Şamil",
+			"Neriman2003"
 		]
 	},
 	"validationstatistics": "Səhifəyə baxış statistikası",
+	"validationstatistics-users": "'''{{SITENAME}}'''-nın [[{{MediaWiki:Validationpage}}|Editor]] hüququ olan '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|istifadəçisi}} var.",
+	"validationstatistics-lastupdate": "''İzlənilən məlumat sonuncu dəfə $1 tarixində saat $2-də yeniləndi.''",
+	"validationstatistics-pndtime": "Müəyyən edilmiş istifadəçilər tərəfindən yoxlanılan redaktələr ''{{int:validationstatistics-stable}}'' hesab edilir.\n\nHazırda [[Special:OldReviewedPages|yoxlanmağı gözləyən səhifələr]] üçün orta qiymətləndirmə '''$1''' təşkil edir; gecikmə tədbirləri ən gec gözləmənin redaktə edilmədiyi müddətdir.",
+	"validationstatistics-revtime": "''Daxil olmamış istifadəçilər'' tərəfindən edilən redaktələrin orta qiymətləndirməsi '''$1'''; median '''$2'''-dir.\n$3",
+	"validationstatistics-table": "Hər bir adlar fəzası üçün səhifə baxış statistikası aşağıda göstərilmişdir, istiqamətləndirmələr istisna olmaqla.\nSəhifələr, yoxlanmağı gözləyən redaktələri varsa, ''{{int:validationstatistics-old}}'' qəbul edilir;\nƏgər yoxlanmağı gözləyən redaktələri yoxdursa ,''{{int:validationstatistics-latest}}'' qəbul edilir.",
 	"validationstatistics-ns": "Adlar fəzası",
 	"validationstatistics-total": "Səhifələr",
 	"validationstatistics-stable": "Yoxlanıldı",

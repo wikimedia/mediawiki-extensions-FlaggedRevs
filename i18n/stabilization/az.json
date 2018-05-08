@@ -4,16 +4,24 @@
 			"Cekli829",
 			"Vago",
 			"Vugar 1981",
-			"Wertuose"
+			"Wertuose",
+			"Neriman2003"
 		]
 	},
 	"stabilization-tab": "vet",
 	"stabilization": "Səhifənin stabilləşdirilməsi",
 	"stabilization-text": "[[:$1|$1]]  üçün yoxlanılmış versiyanın seçilib görüntülənməsini nizamlamaq üçün nizamlamaları dəyişin",
+	"stabilization-perm": "Hesabınızın stabil versiya konfiqurasiyasını dəyiştirmək icazəsi yoxdur.\n[[:$1|$1]] üçün mövcud parametrlər:",
 	"stabilization-page": "Səhifə adı:",
+	"stabilization-leg": "Stabil versiya parametrlərini təsdiqlə",
+	"stabilization-def": "Standart səhifə görünüşündə təftiş göstərilir",
+	"stabilization-def1": "Stabil versiya: əgər mövcud deyilsə, o zaman son təftişdədir",
 	"stabilization-def2": "Son yoxlama",
+	"stabilization-restrict": "Baxış/avtomatik baxış məhdudiyyətləri",
 	"stabilization-restrict-none": "Başqa əlavə məhdudiyyət yoxdur",
 	"stabilization-submit": "Təsdiq et",
+	"stabilization-notexists": "''[[:$1|$1]]'' adlı səhifə yoxdur.\nHeç bir konfiqurasiya mümkün deyil.",
+	"stabilization-notcontent": "\"[[:$1|$1]]\" adlı səhifə nəzərdən keçirilə bilməz.\nHeç bir konfiqurasiya mümkün deyil.",
 	"stabilization-comment": "Səbəb:",
 	"stabilization-otherreason": "Digər səbəb:",
 	"stabilization-expiry": "Vaxtı bitib:",
@@ -21,8 +29,14 @@
 	"stabilization-def-short": "Susmaya görə",
 	"stabilization-def-short-0": "Hazırkı",
 	"stabilization-def-short-1": "Stabil",
+	"stabilize_page_invalid": "Seçilmiş səhifə adı etibarsızdır.",
+	"stabilize_page_notexists": "Tələb olunan səhifə mövcud deyil.",
+	"stabilize_page_unreviewable": "Tələb olunan səhifə nəzərdən keçirilə bilən adlar fəzasında deyil.",
+	"stabilize_invalid_autoreview": "Etibarsız avto-baxış məhdudiyyəti.",
 	"stabilize_invalid_level": "Keçərsiz mühafizə səviyyəsi",
 	"stabilize_expiry_invalid": "Yanlış bitmə tarixi.",
+	"stabilize_expiry_old": "Bitmə vaxtı sona çatıb.",
 	"stabilize_denied": "İcazə yoxdur.",
-	"stabilize-expiring": "$1 (UTC)-da bitir"
+	"stabilize-expiring": "$1 (UTC)-da bitir",
+	"stabilization-review": "Mövcud təftişi yoxlanmış olaraq işarələ"
 }

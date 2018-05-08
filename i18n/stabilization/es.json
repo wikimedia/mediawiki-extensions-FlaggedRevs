@@ -13,7 +13,8 @@
 			"Translationista",
 			"Macofe",
 			"Ciencia Al Poder",
-			"Indiralena"
+			"Indiralena",
+			"Fitoschido"
 		]
 	},
 	"stabilization-tab": "vetar",
@@ -24,7 +25,7 @@
 	"stabilization-leg": "Confirmar la configuración de la versión estable",
 	"stabilization-def": "Revisión mostrada en la vista de página por defecto",
 	"stabilization-def1": "La versión estable; si no está presente, entonces la última revisión",
-	"stabilization-def2": "La última revisión",
+	"stabilization-def2": "La revisión más reciente",
 	"stabilization-restrict": "Restricciones de revisión/autorevisión",
 	"stabilization-restrict-none": "Sin restricciones extras",
 	"stabilization-submit": "Confirmar",
