@@ -4,7 +4,8 @@
 			"Cekli829",
 			"Vugar 1981",
 			"Wertuose",
-			"Neriman2003"
+			"Neriman2003",
+			"Serkanland"
 		]
 	},
 	"revisionreview": "Redaktələri yoxlayar",
@@ -56,6 +57,7 @@
 	"revreview-sadv-reviewing-c": "Bu redaktələri nəzərdən keçirən digər istifadəçilərə $1 bilərsən.",
 	"revreview-adv-start-link": "elan ver",
 	"revreview-adv-stop-link": "elanı ləğv et",
+	"revreview-toolow": "'''Siz yoxlanılmanın keçirilmiş olduğunu göstərmək üçün simvolların hər birini \"qeyri-kafi\"dən daha artıq dəyərləndirməlisiniz.'''\n\nYoxlamanın baxış statusunu silmək üçün, klikləyin: \"{{int:revreview-submit-unreview}}\".\n\nBrauzerinizdəki \"geriyə\" düyməsinə basın və yenidən yoxlayın.",
 	"revreview-update": "'''Lütfən, sabit versiyadan sonra hazırlanan hər hansı gözlənilən dəyişiklikləri (aşağıda göstərilən)[[{{MediaWiki:Validationpage}}|nəzərdən keçirin.]]'''",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Sizin dəyişiklikləriniz hələ sabit versiyada deyil.</span>\n\nLütfən, dəyişikliklərinizi stabil versiyada görmək üçün aşağıda göstərilən bütün dəyişiklikləri nəzərdən keçirin.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Sizin dəyişiklikləriniz hələ sabit versiyada deyil. Yoxlanmağı gözləyən əvvəlki dəyişikliklər var.</span>\n\nLütfən, dəyişikliklərinizi stabil versiyada görmək üçün aşağıda göstərilən bütün dəyişiklikləri nəzərdən keçirin.",

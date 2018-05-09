@@ -2,11 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Cekli829",
-			"Neriman2003"
+			"Neriman2003",
+			"Serkanland"
 		]
 	},
 	"stablepages": "Düzəlişləri təsdiq edən səhifələr",
 	"stablepages-list": "Bu səhifə yalnız müəyyən istifadəçilərin nəzərdən keçirməyi tələb etməyən düzəlişlər edə biləcəyi səhifələrdir.\nDigər istifadəçilər tərəfindən edilən redaktələr, səlahiyyətli bir istifadəçi onları nəzərdən keçirənə qədər oxuculara göstərilmir.",
 	"stablepages-none": "Bu siyahıda səhifə yoxdur.",
-	"stablepages-config": "Nizamlamalar"
+	"stablepages-config": "Nizamlamalar",
+	"stablepages-indef": "Ancaq qeyri-müəyyən bitmə müddəti"
 }
