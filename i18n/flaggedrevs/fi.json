@@ -23,7 +23,7 @@
 	"flaggedrevs": "Merkityt versiot",
 	"flaggedrevs-watched-pending": "Tarkkailulistallasi olevilla arvioiduilla sivuilla on [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} odottavia muutoksia]. '''Huomiotasi tarvitaan!'''",
 	"flaggedrevs-desc": "Antaa seulojille mahdollisuuden arvioida muutoksia ja vakauttaa sivuja.",
-	"flaggedrevs-pref-UI": "Peruskäyttöliittymä",
+	"flaggedrevs-pref-UI": "Peruskäyttöliittymä:",
 	"flaggedrevs-pref-UI-0": "Käytä yksityiskohtaisia tietoja sivujen arvioinnin tilasta",
 	"flaggedrevs-pref-UI-1": "Käytä pieniä kuvakkeita ja vähän tekstiä sivujen arvioinnin tilan näyttämiseen",
 	"prefs-flaggedrevs-ui": "Muutosten arviointi",
