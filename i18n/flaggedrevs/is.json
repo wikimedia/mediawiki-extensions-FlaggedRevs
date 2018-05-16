@@ -46,7 +46,7 @@
 	"review-logentry-id": "útgáfa: $2",
 	"review-logentry-diff": "breytingar yfirfarnar",
 	"review-logentry-diff2": "breytingum hafnað",
-	"review-logpage": "Yfirferðar skrá",
+	"review-logpage": "Atvikaskrá yfirferðar",
 	"review-logpagetext": "Þetta er skrá yfir útgáfur síðna sem hafa verið [[{{MediaWiki:Validationpage}}|skoðaðar]].",
 	"reviewer": "Ritstjóri",
 	"revreview-accuracy": "Nákvæmni",
