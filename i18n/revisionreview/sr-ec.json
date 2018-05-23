@@ -60,7 +60,6 @@
 	"revreview-adv-reviewing-c": "Напомена: други проверавачи могу видети да {{GENDER:$1|Ви}} проверавате ове измене.",
 	"revreview-sadv-reviewing-p": "Можете $1 другим корисницима да проверавате ову страницу.",
 	"revreview-sadv-reviewing-c": "Можете $1 другим корисницима да проверавате ове измене.",
-	"revreview-adv-start-link": "дати до знања",
 	"revreview-adv-stop-link": "откажи",
 	"revreview-update": "'''[[{{MediaWiki:Validationpage}}|Погледајте]] све измене на чекању ''(приказане испод)'' направљене након стабилне измене.'''",
 	"revreview-update-includes": "Ажурирани шаблони/датотеке (непроверене странице су подебљане):",

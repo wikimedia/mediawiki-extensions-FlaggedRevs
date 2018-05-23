@@ -51,7 +51,6 @@
 	"revreview-adv-reviewing-c": "Napomena: Drugi ocjenivači mogu vidjeti da {{GENDER:$1|Vi}} provjeravate ove izmjene.",
 	"revreview-sadv-reviewing-p": "Drugim suradnicima možete $1, da provjeravate ovu stranicu.",
 	"revreview-sadv-reviewing-c": "Drugim suradnicima možete $1, da provjeravate ove izmjene.",
-	"revreview-adv-start-link": "dati na znanje",
 	"revreview-adv-stop-link": "prestani oglašavati",
 	"revreview-toolow": "'''Morate ocijeniti svaki atribut članka višom ocjenom od \"Ne zadovoljava\" kako bi inačica bila pregledana/ocijenjena.'''\n\nZa uklanjanje pregledanog statusa inačice, kliknite na ''unaccept''.\n\nMolimo kliknite gumb \"natrag\" u Vašem web pregledniku i pokušajte opet.",
 	"revreview-update": "'''Molimo [[{{MediaWiki:Validationpage}}|ocijenite]] sve promjene ''(prikazane dolje)'' učinjene nakon vrijedeće inačice.'''",

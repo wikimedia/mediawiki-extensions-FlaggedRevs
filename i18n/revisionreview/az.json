@@ -55,7 +55,6 @@
 	"revreview-adv-reviewing-c": "Diqqət: Digər istifadəçilər bu redaktələri  {{GENDER:$1|yoxladığınızı}} görə bilərlər.",
 	"revreview-sadv-reviewing-p": "Bu səhifəni nəzərdən keçirən digər istifadəçilərə $1 bilərsən.",
 	"revreview-sadv-reviewing-c": "Bu redaktələri nəzərdən keçirən digər istifadəçilərə $1 bilərsən.",
-	"revreview-adv-start-link": "elan ver",
 	"revreview-adv-stop-link": "elanı ləğv et",
 	"revreview-toolow": "'''Siz yoxlanılmanın keçirilmiş olduğunu göstərmək üçün simvolların hər birini \"qeyri-kafi\"dən daha artıq dəyərləndirməlisiniz.'''\n\nYoxlamanın baxış statusunu silmək üçün, klikləyin: \"{{int:revreview-submit-unreview}}\".\n\nBrauzerinizdəki \"geriyə\" düyməsinə basın və yenidən yoxlayın.",
 	"revreview-update": "'''Lütfən, sabit versiyadan sonra hazırlanan hər hansı gözlənilən dəyişiklikləri (aşağıda göstərilən)[[{{MediaWiki:Validationpage}}|nəzərdən keçirin.]]'''",
