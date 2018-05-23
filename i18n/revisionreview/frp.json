@@ -49,7 +49,6 @@
 	"revreview-poss-conflict-c": "'''Atencion : [[User:$1|$1]] s’at betâ a revêre celos changements lo $2 a $3.'''",
 	"revreview-adv-reviewing-p": "Nota : d’ôtros rèvisors pôvont vêre que vos ègzamenâd cela pâge.",
 	"revreview-adv-reviewing-c": "Nota : d’ôtros rèvisors pôvont vêre que vos ègzamenâd celos changements.",
-	"revreview-adv-start-link": "fâre de recllâma",
 	"revreview-adv-stop-link": "anular la recllâma",
 	"revreview-toolow": "'''Vos dête afèctar una èstimacion ples hôta que « ensufisent » por que la vèrsion seye considèrâ coment revua.'''\n\nPor enlevar lo statut de rèvision d’una vèrsion, clicâd dessus « dèsaprovar ».\n\nVolyéd utilisar lo boton « Devant » de voutron navigator et pués tornâd èprovar.",
 	"revreview-update": "'''Volyéd [[{{MediaWiki:Validationpage}}|revêre]] tôs los changements en atenta ''(vêde ce-desot)'' fêts a la vèrsion stâbla.'''",

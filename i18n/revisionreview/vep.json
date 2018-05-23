@@ -29,7 +29,6 @@
 	"revreview-submit-unreview": "Heitta vahvištoitand",
 	"revreview-successful": "'''Valitud [[:$1|$1]]-versii om znamoitud satusekahas. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} stabiližiden versijoiden kacund])'''",
 	"revreview-successful2": "'''Virg om heittud [[:$1|$1]]-versijaspäi.'''",
-	"revreview-adv-start-link": "reklamiruida",
 	"revreview-toolow": "Pidab kirjutada kaikuččiden znamoičedoiden täht korktemb tazopind, mi \"vähehk\", miše versii lugetihe kodvdud.\nMiše heitta necen versijan kodvindan tunduz, paingat \"ei ole znamoitud\".\nOlgat hüväd, paingat kaclimes \"Tagaze\"-painim, miše kirjutada znamoičendad udes.",
 	"revreview-update": "Olgat hüväd, [[{{MediaWiki:Validationpage}}|kodvgat]] toižetused \"(alemba ozutadud)\" vahvištoittud versijaha.",
 	"revreview-update-includes": "Udištadud šablonad/failad (kodvmatomad oma anttud sanktal šriftal):",

@@ -330,17 +330,21 @@
 			msgkey = $( '#mw-fr-input-refid' ).length ?
 				'revreview-adv-reviewing-c' : // diff
 				'revreview-adv-reviewing-p'; // page
-			$underReview = $(
-				'<span class="fr-under-review">' + mw.message( msgkey, mw.user ).escaped() + '</span>' );
+			$underReview = $( '<span>' )
+				.addClass( 'fr-under-review' )
+				.text( mw.msg( msgkey, mw.user ) );
 			// Update notice to say that user is advertising...
 			$( '#mw-fr-reviewing-status' )
 				.empty()
-				.append( $underReview )
-				.append( ' (' + mw.html.element( 'a',
-					{ id: 'mw-fr-reviewing-stop' }, mw.msg( 'revreview-adv-stop-link' ) ) + ')' )
-				.find( '#mw-fr-reviewing-stop' )
-				.css( 'cursor', 'pointer' )
-				.click( fr.deadvertiseReviewing );
+				.append(
+					$underReview,
+					' (',
+					$( '<a>' )
+						.text( mw.msg( 'revreview-adv-stop-link' ) )
+						.css( 'cursor', 'pointer' )
+						.click( fr.deadvertiseReviewing ),
+					')'
+				);
 		},
 
 		/*
@@ -357,17 +361,9 @@
 			msgkey = $( '#mw-fr-input-refid' ).length ?
 				'revreview-sadv-reviewing-c' : // diff
 				'revreview-sadv-reviewing-p'; // page
-			$underReview = $(
-				'<span class="fr-make-under-review">' +
-				mw.message( msgkey )
-					.escaped()
-					.replace( /\$1/, mw.html.element( 'a',
-						{ id: 'mw-fr-reviewing-start' }, mw.msg( 'revreview-adv-start-link' ) ) ) +
-				'</span>'
-			);
-			$underReview.find( '#mw-fr-reviewing-start' )
-				.css( 'cursor', 'pointer' )
-				.click( fr.advertiseReviewing );
+			$underReview = $( '<span>' )
+				.addClass( 'fr-make-under-review' )
+				.msg( msgkey, fr.advertiseReviewing );
 			// Update notice to say that user is not advertising...
 			$( '#mw-fr-reviewing-status' ).empty().append( $underReview );
 		},

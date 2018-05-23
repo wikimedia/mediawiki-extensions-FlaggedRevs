@@ -49,7 +49,6 @@
 	"revreview-submit-unreviewed": "Hotovo. Neakceptováno!",
 	"revreview-successful": "'''Vybraná revize stránky [[:$1|$1]] byla úspěšně označena. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} zobrazit stabilní verze])'''",
 	"revreview-successful2": "'''Označení revize stránky [[:$1|$1]] bylo úspěšně zrušeno.'''",
-	"revreview-adv-start-link": "inzerovat",
 	"revreview-adv-stop-link": "vzít zpět inzerování",
 	"revreview-toolow": "Aby byla verze označena jako posouzená, musíte označit každou vlastnost lepším hodnocením než \"neschváleno\". Pokud chcete verzi odmítnout nechte ve všech polích hodnocení \"neschváleno\".",
 	"revreview-update": "[[{{MediaWiki:Validationpage}}|Posuďte]] prosím všechny změny ''(zobrazené níže)'' provedené od posledního [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválení] stabilní verze.<br />\n'''Některé šablony nebo soubory byly změněny:'''",
