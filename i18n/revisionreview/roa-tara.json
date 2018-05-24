@@ -50,7 +50,7 @@
 	"revreview-adv-reviewing-p": "Notizie: Otre revisitature ponne vedè ce {{GENDER:$1|tu}} ste revisione sta pàgene.",
 	"revreview-adv-reviewing-c": "Notizie: Otre revisitature ponne vedè ce {{GENDER:$1|tu}} ste revisione ste cangiaminde.",
 	"revreview-sadv-reviewing-p": "Tu puè [$1 pubblecizze] cumme revisitatore de sta pàgene a otre utinde.",
-	"revreview-sadv-reviewing-c": "Tu puè [$1 pubblecizze] cumme revisitatore de ste cangiaminde a otre utinde.",
+	"revreview-sadv-reviewing-c": "Tu puè [$1 pubblecezzà] a otre utinde ca tu ste revide ste cangiaminde.",
 	"revreview-adv-stop-link": "no-pubblecezzà",
 	"revreview-toolow": "'''Tu ninde ninde a valutà ognedune de le attrebbute cchiù ierte de ''inadeguate'' purcé 'na revisione pò essere considerate reviste.'''\n\nPe luà 'u state de reviste de 'na revisione, cazze sus a \"{{int:revreview-submit-unreview}}\".\n\nPe piacere cazze 'u buttone \"back\" d'u browser tune e pruève arrete.",
 	"revreview-update": "'''Pe piacere [[{{MediaWiki:Validationpage}}|revide]] ogne cangiamende pendende ''(le vide aqquà sotte)'' fatte da 'a versiona secure.'''",

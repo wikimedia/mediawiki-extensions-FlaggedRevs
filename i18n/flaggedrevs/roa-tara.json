@@ -192,5 +192,6 @@
 	"log-action-filter-stable": "Tipe de cangiamende a 'a configurazione:",
 	"log-action-filter-stable-config": "Configurazione nove",
 	"log-action-filter-stable-modify": "Configurazione cangiate",
-	"log-action-filter-stable-reset": "Azzere 'a configurazione"
+	"log-action-filter-stable-reset": "Azzere 'a configurazione",
+	"log-action-filter-stable-move_stable": "Configurazione spustate"
 }
