@@ -15,8 +15,8 @@ class FlaggedRevsXML {
 
 	/**
 	 * Get a selector of reviewable namespaces
-	 * @param int $selected namespace selected
-	 * @param mixed $all Value of an item denoting all namespaces, or null to omit
+	 * @param int|null $selected namespace selected
+	 * @param mixed|null $all Value of an item denoting all namespaces, or null to omit
 	 * @return string
 	 */
 	public static function getNamespaceMenu( $selected = null, $all = null ) {
@@ -56,7 +56,7 @@ class FlaggedRevsXML {
 
 	/**
 	 * Get a selector of review levels. Used for filters.
-	 * @param int $selected selected level
+	 * @param int|null $selected selected level
 	 * @param string $all all selector msg?
 	 * @param int $max max level?
 	 * @return string
