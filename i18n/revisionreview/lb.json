@@ -51,7 +51,7 @@
 	"revreview-adv-reviewing-p": "Notiz: Aner Benotzer gesinn datt {{GENDER:$1|Dir}} dës Säit nokuckt.",
 	"revreview-adv-reviewing-c": "Notiz: Aner Benotzer gesinn datt {{GENDER:$1|Dir}} dës Ännerungen nokuckt",
 	"revreview-sadv-reviewing-p": "Dir kënnt aner Benotzer [$1 bekanntginn] datt Dir dës Säit nokuckt.",
-	"revreview-sadv-reviewing-c": "Dir kënnt aner Benotzer [$1 bekanntginn] datt Dir dës Ännerungen nokuckt.",
+	"revreview-sadv-reviewing-c": "Dir kënnt aner Benotzer [$1 dorophiweisen] datt Dir dës Ännerungen nokuckt.",
 	"revreview-adv-stop-link": "bekanntginn zréckzéien",
 	"revreview-toolow": "'''Dir musst fir all Attribut hei drënner eng Bewäertung ofginn déi besser ass wéi \"net adequat\" fir datt eng Versioun als nogekuckt betruecht ka ginn.'''\n\nFir de Statut nogekuckt vun enger Versioun ewechzehuelen klickt op \"{{int:revreview-submit-unreview}}\".\n\nKlickt w.e.g op den ''Zréck''-Knäppche vun Ärem Browser a versicht et nach eng Kéier.",
 	"revreview-update": "'''[[{{MediaWiki:Validationpage}}|Kuckt]] w.e.g. all Ännerungen no ''(déi ënnendrënner gewise sinn)'' déi no der publizéiert Versioun gemaach goufen.'''",
