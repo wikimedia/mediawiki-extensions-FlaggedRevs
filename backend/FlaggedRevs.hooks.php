@@ -603,24 +603,35 @@ class FlaggedRevsHooks {
 		}
 		$dbw = wfGetDB( DB_MASTER );
 		# Such a revert requires 1+ revs between it and the stable
-		$revertedRevs = $dbw->selectField( 'revision', '1',
+		$revWhere = ActorMigration::newMigration()->getWhere( $dbw, 'rev_user', $user );
+		$revertedRevs = $dbw->selectField(
+			[ 'revision' ] + $revWhere['tables'],
+			'1',
 			[
 				'rev_page' => $rev->getPage(),
 				'rev_id > ' . intval( $baseRevId ), // stable rev
 				'rev_id < ' . intval( $rev->getId() ), // this rev
-				'rev_user_text' => $user->getName()
-			], __METHOD__
+				$revWhere['conds']
+			],
+			__METHOD__,
+			[],
+			$revWhere['joins']
 		);
 		if ( !$revertedRevs ) {
 			return false; // can't be a revert
 		}
 		# Check that this user is ONLY reverting his/herself.
-		$otherUsers = $dbw->selectField( 'revision', '1',
+		$otherUsers = $dbw->selectField(
+			[ 'revision' ] + $revWhere['tables'],
+			'1',
 			[
 				'rev_page' => $rev->getPage(),
 				'rev_id > ' . intval( $baseRevId ),
-				'rev_user_text != ' . $dbw->addQuotes( $user->getName() )
-			], __METHOD__
+				'NOT( ' . $revWhere['conds'] . ' )'
+			],
+			__METHOD__,
+			[],
+			$revWhere['joins']
 		);
 		if ( $otherUsers ) {
 			return false; // only looking for self-reverts
@@ -794,6 +805,51 @@ class FlaggedRevsHooks {
 	}
 
 	/**
+	 * Get query data for making efficient queries based on rev_user and
+	 * rev_timestamp in an actor table world.
+	 * @param IDatabase $dbr
+	 * @param User $user
+	 * @return array
+	 */
+	private static function getQueryData( $dbr, $user ) {
+		$revWhere = ActorMigration::newMigration()->getWhere( $dbr, 'rev_user', $user );
+		$queryData = [];
+		foreach ( $revWhere['orconds'] as $key => $cond ) {
+			if ( $key === 'actor' ) {
+				$data = [
+					'tables' => [ 'revision' ] + $revWhere['tables'],
+					'tsField' => 'revactor_timestamp',
+					'cond' => $cond,
+					'joins' => $revWhere['joins'],
+					'useIndex' => [ 'temp_rev_user' => 'rev_actor_timestamp' ],
+				];
+				$data['joins']['temp_rev_user'][0] = 'JOIN';
+			} elseif ( $key === 'username' ) {
+				// Ignore this, shouldn't happen
+				continue;
+			} elseif ( $key === 'userid' ) {
+				$data = [
+					'tables' => [ 'revision' ],
+					'tsField' => 'rev_timestamp',
+					'cond' => $cond,
+					'joins' => [],
+					'useIndex' => [ 'revision' => 'rev_user_timestamp' ],
+				];
+			} else { // future migration from revision_actor_temp to rev_actor
+				$data = [
+					'tables' => [ 'revision' ],
+					'tsField' => 'rev_timestamp',
+					'cond' => $cond,
+					'joins' => [],
+					'useIndex' => [ 'revision' => 'rev_actor_timestamp' ],
+				];
+			}
+			$queryData[] = $data;
+		}
+		return $queryData;
+	}
+
+	/**
 	 * Check if a user meets the edit spacing requirements.
 	 * If the user does not, return a *lower bound* number of seconds
 	 * that must elapse for it to be possible for the user to meet them.
@@ -803,27 +859,42 @@ class FlaggedRevsHooks {
 	 * @return mixed (true if passed, int seconds on failure)
 	 */
 	protected static function editSpacingCheck( User $user, $spacingReq, $pointsReq ) {
+		$dbr = wfGetDB( DB_REPLICA );
+		$queryData = self::getQueryData( $dbr, $user );
+
 		$benchmarks = 0; // actual edit points
 		# Convert days to seconds...
 		$spacingReq = $spacingReq * 24 * 3600;
 		# Check the oldest edit
-		$dbr = wfGetDB( DB_REPLICA );
-		$lower = $dbr->selectField( 'revision', 'rev_timestamp',
-			[ 'rev_user' => $user->getId() ],
-			__METHOD__,
-			[ 'ORDER BY' => 'rev_timestamp ASC', 'USE INDEX' => 'user_timestamp' ]
-		);
+		$lower = false;
+		foreach ( $queryData as $data ) {
+			$ts = $dbr->selectField(
+				$data['tables'],
+				$data['tsField'],
+				$data['cond'],
+				__METHOD__,
+				[ 'ORDER BY' => $data['tsField'] . ' ASC', 'USE INDEX' => $data['useIndex'] ],
+				$data['joins']
+			);
+			$lower = $lower && $ts ? min( $lower, $ts ) : ( $lower ?: $ts );
+		}
 		# Recursively check for an edit $spacingReq seconds later, until we are done.
 		if ( $lower ) {
 			$benchmarks++; // the first edit above counts
 			while ( $lower && $benchmarks < $pointsReq ) {
 				$next = wfTimestamp( TS_UNIX, $lower ) + $spacingReq;
-				$lower = $dbr->selectField( 'revision', 'rev_timestamp',
-					[ 'rev_user' => $user->getId(),
-						'rev_timestamp > ' . $dbr->addQuotes( $dbr->timestamp( $next ) ) ],
+				$lower = false;
+				foreach ( $queryData as $data ) {
+					$ts = $dbr->selectField(
+						$data['tables'],
+						$data['tsField'],
+						[ $data['cond'], $data['tsField'] . ' > ' . $dbr->addQuotes( $dbr->timestamp( $next ) ) ],
 						__METHOD__,
-					[ 'ORDER BY' => 'rev_timestamp ASC', 'USE INDEX' => 'user_timestamp' ]
-				);
+						[ 'ORDER BY' => $data['tsField'] . ' ASC', 'USE INDEX' => $data['useIndex'] ],
+						$data['joins']
+					);
+					$lower = $lower && $ts ? min( $lower, $ts ) : ( $lower ?: $ts );
+				}
 				if ( $lower !== false ) {
 					$benchmarks++;
 				}
@@ -847,43 +918,56 @@ class FlaggedRevsHooks {
 	 */
 	protected static function reviewedEditsCheck( User $user, $editsReq, $seconds = 0 ) {
 		$dbr = wfGetDB( DB_REPLICA );
+		$queryData = self::getQueryData( $dbr, $user );
 		// Get cutoff timestamp (excludes edits that are too recent)
-		$baseConds = [
-			'rev_user' => $user->getId(),
-			'rev_timestamp < ' . $dbr->addQuotes( $dbr->timestamp( time() - $seconds ) )
-		];
+		foreach ( $queryData as $k => $data ) {
+			$queryData[$k]['conds'] = [
+				$data['cond'],
+				$data['tsField'] . ' < ' . $dbr->addQuotes( $dbr->timestamp( time() - $seconds ) )
+			];
+		}
 		// Get the lower cutoff to avoid scanning over many rows.
 		// Users with many revisions will only have the last 10k inspected.
 		$lowCutoff = false;
 		if ( $user->getEditCount() > 10000 ) {
-			$lowCutoff = $dbr->selectField(
-				'revision',
-				'rev_timestamp',
-				$baseConds,
-				__METHOD__,
-				[ 'ORDER BY' => 'rev_timestamp DESC', 'OFFSET' => 9999, 'LIMIT' => 1 ]
-			);
+			$lowCutoff = false;
+			foreach ( $queryData as $data ) {
+				$lowCutoff = max( $lowCutoff, $dbr->selectField(
+					$data['tables'],
+					$data['tsField'],
+					$data['conds'],
+					__METHOD__,
+					[ 'ORDER BY' => $data['tsField'] . ' DESC', 'OFFSET' => 9999, 'LIMIT' => 1 ],
+					$data['joins']
+				) );
+			}
 		}
 		$lowCutoff = $lowCutoff ?: 1; // default to UNIX 1970
 		// Get revs from pages that have a reviewed rev of equal or higher timestamp
-		$res = $dbr->select(
-			[ 'revision', 'flaggedpages' ],
-			'1',
-			array_merge(
-				$baseConds,
-				[
-					'fp_page_id = rev_page',
-					// bug 15515
-					'fp_pending_since IS NULL OR fp_pending_since > rev_timestamp',
-					// Avoid too much scanning
-					'rev_timestamp > ' . $dbr->addQuotes( $dbr->timestamp( $lowCutoff ) )
-				]
-			),
-			__METHOD__,
-			[ 'LIMIT' => $editsReq ]
-		);
-
-		return ( $dbr->numRows( $res ) >= $editsReq );
+		$ct = 0;
+		foreach ( $queryData as $data ) {
+			if ( $ct >= $editsReq ) {
+				break;
+			}
+			$res = $dbr->select(
+				array_merge( $data['tables'], [ 'flaggedpages' ] ),
+				'1',
+				array_merge(
+					$data['conds'],
+					[
+						// bug 15515
+						'fp_pending_since IS NULL OR fp_pending_since > ' . $data['tsField'],
+						// Avoid too much scanning
+						$data['tsField'] . ' > ' . $dbr->addQuotes( $dbr->timestamp( $lowCutoff ) )
+					]
+				),
+				__METHOD__,
+				[ 'LIMIT' => $editsReq - $ct ],
+				[ 'flaggedpages' => [ 'JOIN', 'fp_page_id = rev_page' ] ] + $data['joins']
+			);
+			$ct += $dbr->numRows( $res );
+		}
+		return ( $ct >= $editsReq );
 	}
 
 	/**
@@ -910,32 +994,54 @@ class FlaggedRevsHooks {
 
 	protected static function recentEditCount( $uid, $seconds, $limit ) {
 		$dbr = wfGetDB( DB_REPLICA );
+		$queryData = self::getQueryData( $dbr, User::newFromId( $uid ) );
 		# Get cutoff timestamp (edits that are too recent)
 		$encCutoff = $dbr->addQuotes( $dbr->timestamp( time() - $seconds ) );
 		# Check all recent edits...
-		$res = $dbr->select( 'revision', '1',
-			[ 'rev_user' => $uid, "rev_timestamp > $encCutoff" ],
-			__METHOD__,
-			[ 'LIMIT' => $limit + 1 ] // hit as few rows as possible
-		);
-		return $dbr->numRows( $res );
+		$ct = 0;
+		foreach ( $queryData as $data ) {
+			if ( $ct > $limit ) {
+				break;
+			}
+			$res = $dbr->select(
+				$data['tables'],
+				'1',
+				[ $data['cond'], $data['tsField'] . ' > ' . $encCutoff ],
+				__METHOD__,
+				[ 'LIMIT' => $limit + 1 - $ct ],
+				$data['joins']
+			);
+			$ct += $dbr->numRows( $res );
+		}
+		return $ct;
 	}
 
 	protected static function recentContentEditCount( $uid, $seconds, $limit ) {
 		$dbr = wfGetDB( DB_REPLICA );
+		$queryData = self::getQueryData( $dbr, User::newFromId( $uid ) );
 		# Get cutoff timestamp (edits that are too recent)
 		$encCutoff = $dbr->addQuotes( $dbr->timestamp( time() - $seconds ) );
 		# Check all recent content edits...
-		$res = $dbr->select( [ 'revision', 'page' ], '1',
-			[ 'rev_user' => $uid,
-				"rev_timestamp > $encCutoff",
-				'rev_page = page_id',
-				'page_namespace' => MWNamespace::getContentNamespaces() ],
-			__METHOD__,
-			[ 'LIMIT' => $limit + 1,
-				'USE INDEX' => [ 'revision' => 'user_timestamp' ] ]
-		);
-		return $dbr->numRows( $res );
+		$ct = 0;
+		foreach ( $queryData as $data ) {
+			if ( $ct > $limit ) {
+				break;
+			}
+			$res = $dbr->select(
+				array_merge( $data['tables'], [ 'page' ] ),
+				'1',
+				[
+					$data['cond'],
+					"{$data['tsField']} > $encCutoff",
+					'page_namespace' => MWNamespace::getContentNamespaces()
+				],
+				__METHOD__,
+				[ 'LIMIT' => $limit + 1 - $ct, 'USE INDEX' => $data['useIndex'] ],
+				[ 'page' => [ 'JOIN', 'rev_page = page_id' ] ] + $data['joins']
+			);
+			$ct += $dbr->numRows( $res );
+		}
+		return $ct;
 	}
 
 	/**

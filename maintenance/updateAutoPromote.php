@@ -22,7 +22,8 @@ class UpdateFRAutoPromote extends Maintenance {
 		global $wgFlaggedRevsAutopromote;
 		$this->output( "Populating and updating flaggedrevs_promote table\n" );
 
-		$commentQuery = CommentStore::newKey( 'rev_comment' )->getJoin();
+		$revQuery = Revision::getQueryInfo();
+		$revPageQuery = Revision::getQueryInfo( [ 'page' ] );
 		$dbr = wfGetDB( DB_REPLICA );
 		$dbw = wfGetDB( DB_MASTER );
 		$start = $dbr->selectField( 'user', 'MIN(user_id)', false, __METHOD__ );
@@ -45,35 +46,42 @@ class UpdateFRAutoPromote extends Maintenance {
 				$p = FRUserCounters::getUserParams( $user->getId(), FR_FOR_UPDATE );
 				$oldp = $p;
 				# Get edit comments used
+				$revWhere = ActorMigration::newMigration()->getWhere( $dbr, 'rev_user', $user );
 				$sres = $dbr->select(
-					[ 'revision' ] + $commentQuery['tables'],
+					$revQuery['tables'],
 					'1',
 					[
-						'rev_user' => $user->getID(),
+						$revWhere['conds'],
 						// @todo Should there be a "rev_comment != ''" here too?
-						$commentQuery['fields']['rev_comment_text'] . " NOT LIKE '/*%*/'", // manual comments only
+						$revWhere['fields']['rev_comment_text'] . " NOT LIKE '/*%*/'", // manual comments only
 					],
 					__METHOD__,
 					[ 'LIMIT' => max( $wgFlaggedRevsAutopromote['editComments'], 500 ) ],
-					$commentQuery['joins']
+					$revQuery['joins']
 				);
 				$p['editComments'] = $dbr->numRows( $sres );
 				# Get content page edits
-				$sres = $dbr->select( [ 'revision','page' ], '1',
-					[ 'rev_user' => $user->getID(),
-						'page_id = rev_page',
+				$sres = $dbr->select(
+					$revPageQuery['tables'],
+					'1',
+					[
+						$revWhere['conds'],
 						'page_namespace' => MWNamespace::getContentNamespaces() ],
 					__METHOD__,
-					[ 'LIMIT' => max( $wgFlaggedRevsAutopromote['totalContentEdits'], 500 ) ]
+					[ 'LIMIT' => max( $wgFlaggedRevsAutopromote['totalContentEdits'], 500 ) ],
+					$revPageQuery['joins']
 				);
 				$p['totalContentEdits'] = $dbr->numRows( $sres );
 				# Get unique content pages edited
-				$sres = $dbr->select( [ 'revision','page' ], 'DISTINCT(rev_page)',
-					[ 'rev_user' => $user->getID(),
-						'page_id = rev_page',
+				$sres = $dbr->select(
+					$revPageQuery['tables'],
+					'DISTINCT(rev_page)',
+					[
+						$revWhere['conds'],
 						'page_namespace' => MWNamespace::getContentNamespaces() ],
 					__METHOD__,
-					[ 'LIMIT' => max( $wgFlaggedRevsAutopromote['uniqueContentPages'], 50 ) ]
+					[ 'LIMIT' => max( $wgFlaggedRevsAutopromote['uniqueContentPages'], 50 ) ],
+					$revPageQuery['joins']
 				);
 				$p['uniqueContentPages'] = [];
 				foreach ( $sres as $innerRow ) {
