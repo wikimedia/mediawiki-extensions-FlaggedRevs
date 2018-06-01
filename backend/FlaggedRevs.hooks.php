@@ -821,7 +821,7 @@ class FlaggedRevsHooks {
 					'tsField' => 'revactor_timestamp',
 					'cond' => $cond,
 					'joins' => $revWhere['joins'],
-					'useIndex' => [ 'temp_rev_user' => 'rev_actor_timestamp' ],
+					'useIndex' => [ 'temp_rev_user' => 'actor_timestamp' ],
 				];
 				$data['joins']['temp_rev_user'][0] = 'JOIN';
 			} elseif ( $key === 'username' ) {
@@ -833,7 +833,7 @@ class FlaggedRevsHooks {
 					'tsField' => 'rev_timestamp',
 					'cond' => $cond,
 					'joins' => [],
-					'useIndex' => [ 'revision' => 'rev_user_timestamp' ],
+					'useIndex' => [ 'revision' => 'user_timestamp' ],
 				];
 			} else { // future migration from revision_actor_temp to rev_actor
 				$data = [
@@ -841,7 +841,7 @@ class FlaggedRevsHooks {
 					'tsField' => 'rev_timestamp',
 					'cond' => $cond,
 					'joins' => [],
-					'useIndex' => [ 'revision' => 'rev_actor_timestamp' ],
+					'useIndex' => [ 'revision' => 'actor_timestamp' ],
 				];
 			}
 			$queryData[] = $data;
