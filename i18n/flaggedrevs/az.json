@@ -13,7 +13,7 @@
 	"action-review": "təftişləri yoxla",
 	"editor": "Redaktor",
 	"flaggedrevs": "İşarələnmiş yoxlamalar",
-	"flaggedrevs-watched-pending": "Gözləmə siyahınıza nəzərdən keçirilmiş səhifələr üçün [{{fullurl:{{#Special:OldReviewedPages}}|izlənildi=1}}] hazırda dəyişikliklər var. '''Diqqət lazımdır'''",
+	"flaggedrevs-watched-pending": "İzləmə siyahınızda nəzərdən keçirilmiş səhifələr üçün [{{fullurl:{{#Special:OldReviewedPages}}|izlənildi=1}}] hazırda dəyişikliklər var. '''Diqqətiniz lazımdır'''",
 	"flaggedrevs-desc": "Redaktorlara redaktələri araşdırma və səhifələrin stabil vəziyyətə gətirmə imkanı verir.",
 	"flaggedrevs-pref-UI": "Əsas interfeys:",
 	"flaggedrevs-pref-UI-0": "Səhifələrin yoxlanma vəziyyətini göstərmək üçün detallı qutulardan istifadə et",
