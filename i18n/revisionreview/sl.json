@@ -51,7 +51,7 @@
 	"revreview-adv-reviewing-p": "Obvestilo: Drugi pregledovalci lahko vidijo, da {{GENDER:$1|pregledujete}} to stran.",
 	"revreview-adv-reviewing-c": "Obvestilo: Drugi pregledovalci lahko vidijo, da {{GENDER:$1|pregledujete}} te spremembe.",
 	"revreview-sadv-reviewing-p": "Drugim uporabnikom lahko [$1 razglasi], da pregledujete to stran.",
-	"revreview-sadv-reviewing-c": "Drugim uporabnikom lahko [$1 razglasi], da pregledujete te spremembe.",
+	"revreview-sadv-reviewing-c": "Drugim uporabnikom lahko [$1 razglasite], da pregledujete te spremembe.",
 	"revreview-adv-stop-link": "prenehaj razglaševati",
 	"revreview-toolow": "'''Vse atribute morate oceniti višje od »neustrezno«, če želite redakcijo označiti kot pregledano.'''\n\nZa odstranitev stanja pregleda redakcije kliknite »{{int:revreview-submit-unreview}}«.\n\nProsimo, kliknite gumb »nazaj« v vašem brskalniku in poskusite znova.",
 	"revreview-update": "'''Prosimo, [[{{MediaWiki:Validationpage}}|preglejte]] vse spremembe na čakanju ''(prikazane spodaj)'', ki so bile napravljene po ustaljeni redakciji.'''",
