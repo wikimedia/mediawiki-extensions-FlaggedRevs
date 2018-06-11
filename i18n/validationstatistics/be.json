@@ -3,7 +3,8 @@
 		"authors": [
 			"Дзяніс Тутэйшы",
 			"Хомелка",
-			"Artsiom91"
+			"Artsiom91",
+			"Maksim L."
 		]
 	},
 	"validationstatistics": "Статыстыка праверак старонак",
@@ -16,7 +17,7 @@
 	"validationstatistics-total": "Старонак",
 	"validationstatistics-stable": "Правераныя",
 	"validationstatistics-latest": "Пераправераныя",
-	"validationstatistics-synced": "Доля пераправераных у правераных",
+	"validationstatistics-synced": "Доля перадагледжаных у дагледжаных",
 	"validationstatistics-old": "Састарэлыя",
 	"validationstatistics-utable": "Ніжэй прыведзены пералік з $1 найбольш актыўных вывяраючых за апошнюю гадзіну.",
 	"validationstatistics-user": "Удзельнік",

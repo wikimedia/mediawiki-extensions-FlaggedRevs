@@ -51,7 +51,7 @@
 	"logentry-stable-modify": "$1 {{GENDER:$2|dəyişdirildi}} $3 $4 sabit versiya parametrləri",
 	"logentry-stable-reset": "$1 {{GENDER:$2|sıfırla}} $3 $4 sabit versiya parametrləri",
 	"logentry-stable-move_stable": "$1 sabit versiya parametrlərini $4-dən $3-ə {{GENDER:$2|daşıdı}}",
-	"revreview-hist-draft": "yoxlanılmış versiya",
+	"revreview-hist-draft": "yoxlanılmamış versiya",
 	"revreview-hist-pending": "gözləyən versiya",
 	"revreview-hist-quality": "keyfiyyətli versiya",
 	"revreview-hist-basic": "yoxlanılmış versiya",
