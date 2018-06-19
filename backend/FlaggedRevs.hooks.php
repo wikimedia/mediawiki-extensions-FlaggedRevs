@@ -181,47 +181,6 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	 * Select the desired templates based on the selected stable revision IDs
-	 * Note: $parser can be false
-	 * @param Parser $parser
-	 * @param Title $title
-	 * @param bool &$skip
-	 * @param int &$id
-	 * @return true
-	 */
-	public static function parserFetchStableTemplate( $parser, Title $title, &$skip, &$id ) {
-		if ( !( $parser instanceof Parser ) ) {
-			return true; // nothing to do
-		}
-		if ( $title->getNamespace() < 0 || $title->getNamespace() == NS_MEDIAWIKI ) {
-			return true; // nothing to do (bug 29579 for NS_MEDIAWIKI)
-		}
-		$incManager = FRInclusionManager::singleton();
-		if ( !$incManager->parserOutputIsStabilized() ) {
-			return true; // trigger for stable version parsing only
-		}
-		$id = false; // current version
-		# Check for the version of this template used when reviewed...
-		$maybeId = $incManager->getReviewedTemplateVersion( $title );
-		if ( $maybeId !== null ) {
-			$id = (int)$maybeId; // use if specified (even 0)
-		}
-		# Check for stable version of template if this feature is enabled...
-		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
-			$maybeId = $incManager->getStableTemplateVersion( $title );
-			# Take the newest of these two...
-			if ( $maybeId && $maybeId > $id ) {
-				$id = (int)$maybeId;
-			}
-		}
-		# If $id is zero, don't bother loading it (use blue/red link)
-		if ( $id === 0 ) {
-			$skip = true;
-		}
-		return true;
-	}
-
-	/**
 	 * Select the desired images based on the selected stable version time/SHA-1
 	 * @param Parser $parser
 	 * @param Title $title
