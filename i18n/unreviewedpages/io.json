@@ -8,5 +8,6 @@
 	"unreviewedpages-category": "Kategorio:",
 	"unreviewedpages-watched": "($1 aktiva {{PLURAL:$1|uzero|uzeri}} vigilanta)",
 	"unreviewedpages-hours": "($1 {{PLURAL:$1|horo|hori}})",
-	"unreviewedpages-days": "($1 {{PLURAL:$1|dio|dii}})"
+	"unreviewedpages-days": "($1 {{PLURAL:$1|dio|dii}})",
+	"unreviewedpages-recent": "(min kam 1 horo)"
 }
