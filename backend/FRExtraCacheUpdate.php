@@ -1,6 +1,6 @@
 <?php
 
-use Wikimedia\Rdbms\ResultWrapper;
+use Wikimedia\Rdbms\IResultWrapper;
 
 /**
  * Class containing cache update methods and job construction
@@ -39,7 +39,7 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 		}
 	}
 
-	protected function insertJobs( ResultWrapper $res ) {
+	protected function insertJobs( IResultWrapper $res ) {
 		$numRows = $res->numRows();
 		if ( !$numRows ) {
 			return; // sanity check
@@ -92,9 +92,9 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 
 	/**
 	 * Invalidate a set of IDs, right now
-	 * @param ResultWrapper $res
+	 * @param IResultWrapper $res
 	 */
-	public function invalidateIDs( ResultWrapper $res ) {
+	public function invalidateIDs( IResultWrapper $res ) {
 		global $wgUseFileCache, $wgUseSquid;
 		if ( $res->numRows() == 0 ) {
 			return; // sanity check
