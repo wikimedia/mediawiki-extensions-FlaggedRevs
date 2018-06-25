@@ -382,16 +382,15 @@ class FlaggableWikiPage extends WikiPage {
 
 	/**
 	 * Set the page field data loaded from some source
-	 * @param stdClass|string $data Database row object or "fromdb"
+	 * @param stdClass|string|int $data Database row object or "fromdb" or "fromdbmaster"
 	 * @return void
 	 */
-	public function loadPageData( $data = 'fromdb' ) {
+	public function loadPageData( $data = self::READ_NORMAL ) {
 		$this->mDataLoaded = true; // sanity
 		# Fetch data from DB as needed...
-		if ( $data === 'fromdb' || $data === 'fromdbmaster' ) {
-			$db = ( $data == 'fromdbmaster' )
-				? wfGetDB( DB_MASTER )
-				: wfGetDB( DB_REPLICA );
+		$from = WikiPage::convertSelectType( $data );
+		if ( $from === self::READ_NORMAL || $from === self::READ_LATEST ) {
+			$db = wfGetDB( $from === self::READ_LATEST ? DB_MASTER : DB_REPLICA );
 			$data = $this->pageDataFromTitle( $db, $this->mTitle );
 		}
 		# Load in primary page data...

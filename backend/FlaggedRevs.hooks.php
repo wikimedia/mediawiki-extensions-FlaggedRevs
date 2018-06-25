@@ -80,7 +80,7 @@ class FlaggedRevsHooks {
 			if ( !FlaggedRevs::inReviewNamespace( $otitle ) ) {
 				if ( FlaggedRevs::autoReviewNewPages() ) {
 					$fa = FlaggableWikiPage::getTitleInstance( $ntitle );
-					$fa->loadPageData( 'fromdbmaster' );
+					$fa->loadPageData( FlaggableWikiPage::READ_LATEST );
 					// Re-validate NS/config (new title may not be reviewable)
 					if ( $fa->isReviewable() && $ntitle->userCan( 'autoreview' ) ) {
 						// Auto-review such edits like new pages...
@@ -92,7 +92,7 @@ class FlaggedRevsHooks {
 				}
 			} else {
 				$fa = FlaggableWikiPage::getTitleInstance( $ntitle );
-				$fa->loadPageData( 'fromdbmaster' );
+				$fa->loadPageData( FlaggableWikiPage::READ_LATEST );
 				$config = $fa->getStabilitySettings();
 				// Insert a stable log entry if page doesn't have default wiki settings
 				if ( !FRPageConfig::configIsReset( $config ) ) {
@@ -439,7 +439,7 @@ class FlaggedRevsHooks {
 		$title = $article->getTitle(); // convenience
 		# Edit must be non-null, to a reviewable page, with $user set
 		$fa = FlaggableWikiPage::getTitleInstance( $title );
-		$fa->loadPageData( 'fromdbmaster' );
+		$fa->loadPageData( FlaggableWikiPage::READ_LATEST );
 		if ( !$rev || !$user || !$fa->isReviewable() ) {
 			return true;
 		}
@@ -674,7 +674,7 @@ class FlaggedRevsHooks {
 			return true; // short-circuit
 		}
 		$fa = FlaggableWikiPage::getTitleInstance( $wikiPage->getTitle() );
-		$fa->loadPageData( 'fromdbmaster' );
+		$fa->loadPageData( FlaggableWikiPage::READ_LATEST );
 		if ( !$fa->isReviewable() ) {
 			return true; // page is not reviewable
 		}
@@ -742,7 +742,7 @@ class FlaggedRevsHooks {
 			return true;
 		}
 		$fa = FlaggableWikiPage::getTitleInstance( $rc->getTitle() );
-		$fa->loadPageData( 'fromdbmaster' );
+		$fa->loadPageData( FlaggableWikiPage::READ_LATEST );
 		// Is the page reviewable?
 		if ( $fa->isReviewable() ) {
 			$revId = $rc->mAttribs['rc_this_oldid'];
