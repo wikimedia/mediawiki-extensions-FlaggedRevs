@@ -6,6 +6,7 @@
 			"Joao Xavier"
 		]
 	},
+	"validationstatistics-users": "'''{{SITENAME}}''' nune havas '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|uzero|uzeri}} kun [[{{MediaWiki:Validationpage}}|editera yuri]].\n\nEditeri esas redakteri qui povas revizar la pagini.",
 	"validationstatistics-ns": "Nomaro",
 	"validationstatistics-total": "Pagini",
 	"validationstatistics-old": "Sen aktualigi",
