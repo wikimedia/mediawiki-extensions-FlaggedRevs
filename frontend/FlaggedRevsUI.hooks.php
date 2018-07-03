@@ -527,7 +527,8 @@ class FlaggedRevsUIHooks {
 			$groupBy = OldLocalFile::getQueryInfo()['fields'];
 			unset( $groupBy[ array_search( 'oi_name', $groupBy ) ] );
 			unset( $groupBy[ array_search( 'oi_timestamp', $groupBy ) ] );
-			$opts['GROUP BY'] = 'oi_name,oi_timestamp,' . implode( ',', $groupBy );
+			array_unshift( $groupBy, 'oi_name', 'oi_timestamp' );
+			$opts['GROUP BY'] = implode( ',', $groupBy );
 
 			$join_conds['flaggedrevs'] = [ 'LEFT JOIN',
 				'oi_sha1 = fr_img_sha1 AND oi_timestamp = fr_img_timestamp' ];
