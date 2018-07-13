@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"BukhariSaeed"
 		]
 	},
 	"action-review": "ترمیم کا جائزہ لیں",
@@ -13,6 +14,7 @@
 	"flaggedrevs-pref-stable-0": "ہر صفحے کے لئے پہلے سے طے شدہ ترتیبات کو استعمال کریں",
 	"flaggedrevs-pref-stable-2": "ہمیشہ تازہ ترین ورژن دکھائیں",
 	"flaggedrevs-prefs-watch": "صفحات میں میری زیرنظرفہرست کا جائزہ لیں شامل کریں",
+	"flaggedrevs-hidereviewed-hide": "چھپائیں",
 	"group-editor": "ایڈیٹرز",
 	"group-reviewer": "مبصرین",
 	"revreview-hist-pending": "زیر التواء ترمیمی",
