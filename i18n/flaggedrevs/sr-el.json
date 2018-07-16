@@ -8,7 +8,8 @@
 			"Жељко Тодоровић",
 			"Михајло Анђелковић",
 			"Сербијана",
-			"Srdjan m"
+			"Srdjan m",
+			"Zoranzoki21"
 		]
 	},
 	"action-review": "pregledanje izmena",
@@ -143,7 +144,7 @@
 	"revreview-reviewlink": "neproverene izmene",
 	"revreview-reviewlink-title": "Pogledaj razliku između svih izmena na čekanju",
 	"revreview-unreviewedpage": "neproverena strana",
-	"tooltip-ca-current": "Pregled stranice s izmenama na čekanju",
+	"tooltip-ca-current": "Pogledaj ovu stranicu sa izmenama na čekanju",
 	"tooltip-ca-stable": "Pregled objavljenog izdanja ove stranice",
 	"tooltip-ca-default": "Podešavanja obezbeđivanja kvaliteta.",
 	"flaggedrevs-protect-legend": "Automatska provera izmena ([[{{MediaWiki:Validationpage}}|pomoć]])",
