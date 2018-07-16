@@ -1,4 +1,6 @@
 <?php
+use MediaWiki\MediaWikiServices;
+
 /**
  * Class of utility functions for getting/tracking user activity
  */
@@ -188,10 +190,11 @@ class FRUserActivity {
 	protected static function incUserReviewingItem( $key, User $user, $ttlSec ) {
 		$wasSet = false; // was changed?
 
-		ObjectCache::getMainStashInstance()->merge(
+		$now = wfTimestampNow();
+		MediaWikiServices::getInstance()->getMainObjectStash()->merge(
 			$key,
-			function ( BagOStuff $stash, $key, $oldVal ) use ( $user, &$wasSet ) {
-				if ( count( $oldVal ) == 3 ) { // flag set
+			function ( BagOStuff $stash, $key, $oldVal ) use ( $user, &$wasSet, $now ) {
+				if ( is_array( $oldVal ) && count( $oldVal ) == 3 ) { // flag set
 					list( $u, $ts, $cnt ) = $oldVal;
 					if ( $u === $user->getName() ) { // by this user
 						$wasSet = true;
@@ -199,7 +202,7 @@ class FRUserActivity {
 					}
 				} else { // no flag set
 					$wasSet = true;
-					return [ $user->getName(), wfTimestampNow(), 1 ];
+					return [ $user->getName(), $now, 1 ];
 				}
 
 				return false; // do nothing
@@ -219,10 +222,10 @@ class FRUserActivity {
 	protected static function decUserReviewingItem( $key, User $user, $ttlSec ) {
 		$wasSet = false; // was changed?
 
-		ObjectCache::getMainStashInstance()->merge(
+		MediaWikiServices::getInstance()->getMainObjectStash()->merge(
 			$key,
 			function ( BagOStuff $stash, $key, $oldVal ) use ( $user, &$wasSet ) {
-				if ( count( $oldVal ) != 3 ) {
+				if ( is_array( $oldVal ) && count( $oldVal ) != 3 ) {
 					return false; // flag not set
 				}
 
