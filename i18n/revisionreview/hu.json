@@ -60,6 +60,7 @@
 	"revreview-adv-reviewing-c": "Figyelem: A többi szerkesztő látja, hogy éppen {{GENDER:$1|ellenőrzöd}} ezeket a változásokat.",
 	"revreview-sadv-reviewing-p": "[$1 Jelezheted] a többi szerkesztő számára, hogy dolgozol a lap ellenőrzésén.",
 	"revreview-sadv-reviewing-c": "[$1 Jelezheted] a többi szerkesztő számára, hogy dolgozol a változások ellenőrzésén.",
+	"revreview-adv-start-link": "Jelezheted",
 	"revreview-adv-stop-link": "jelzés visszavonása",
 	"revreview-toolow": "'''Ahhoz, hogy egy változat ellenőrzöttnek tekinthető legyen, minden tulajdonságot magasabbra kell értékelned a „nem ellenőrzött” szintnél.'''\n\nNem ellenőrzöttnek való visszaminősítéshez állítsd az összes mezőt „{{int:revreview-submit-unreview}}” értékre.\n\nKattints a böngésződ „Vissza” gombjára, majd próbáld újra.",
 	"revreview-update": "'''Kérlek, [[{{MediaWiki:Validationpage}}|ellenőrizd]] a közzétett változat utáni, még függőben lévő változtatásokat ''(lásd alább).'''''",

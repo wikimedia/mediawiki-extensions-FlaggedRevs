@@ -57,6 +57,7 @@
 	"revreview-adv-reviewing-c": "Merk: Andre patruljører kan se at {{GENDER:$1|du}} patruljerer disse endringene.",
 	"revreview-sadv-reviewing-p": "Du kan [$1 annonsere] deg selv som patruljør av denne siden til andre brukere.",
 	"revreview-sadv-reviewing-c": "Du kan [$1 annonsere] deg selv som patruljør av disse endringene til andre brukere.",
+	"revreview-adv-start-link": "annonsere",
 	"revreview-adv-stop-link": "avannonsere",
 	"revreview-toolow": "'''Du må vurdere hver av egenskapene til høyere enn «utilstrekkelig» for at revisjonen skal bli vurdert som revidert.'''\n\nFor å fjerne revideringsstatusen til en revisjon, klikk på «{{int:revreview-submit-unreview}}».\n\nKlikk på «tilbake»-knappen i nettleseren din og prøv igjen.",
 	"revreview-update": "'''Vennligst [[{{MediaWiki:Validationpage}}|revider]] ventende endringer ''(vist nedenfor)'' som har blitt gjort siden den stabile versjonen.'''",

@@ -53,6 +53,7 @@
 	"revreview-adv-reviewing-c": "Chú ý: Những người duyệt bài khác có thể xem rằng {{GENDER:$1}}bạn đang duyệt các thay đổi này.",
 	"revreview-sadv-reviewing-p": "Bạn có thể [$1 báo] cho người ta biết rằng bạn đang duyệt trang này.",
 	"revreview-sadv-reviewing-c": "Bạn có thể [$1 báo] cho người ta biết rằng bạn đang duyệt các thay đổi này.",
+	"revreview-adv-start-link": "báo",
 	"revreview-adv-stop-link": "ngừng báo",
 	"revreview-toolow": "'''Mỗi thuộc tính cần phải cao hơn “kém” để cho phiên bản có thể được xem là được duyệt.'''\n\nĐể rút cờ được duyệt của một phiên bản, hãy bấm “{{int:revreview-submit-unreview}}”.\n\nXin hãy bấm nút “Lùi” trong trình duyệt và thử lại.",
 	"revreview-update": "'''Xin hãy [[{{MediaWiki:Validationpage}}|duyệt]] những thay đổi đang chờ ''(dưới đây)'' đã được thực hiện từ khi phiên bản ổn định.'''",

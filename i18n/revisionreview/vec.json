@@ -53,6 +53,7 @@
 	"revreview-adv-reviewing-c": "Òcio: Altri contribudori i pol vedare che {{GENDER:$1|te si}} drio riexaminar sti canbiamenti.",
 	"revreview-sadv-reviewing-p": "Te pol [$1 segnała] che te si drio revixionar sta pàjina a altri utenti.",
 	"revreview-sadv-reviewing-c": "Te pol [$1 segnała] che te si drio revixionar sti canbiamenti a altri utenti.",
+	"revreview-adv-start-link": "segnała",
 	"revreview-adv-stop-link": "anuła ła segnałasion",
 	"revreview-toolow": "'''Ti ga da segnar ognuno dei atributi cuà soto piesè alto de \"No aprovà\" parché la revixion la sia considerà verifegà.'''\n\nPar anular el stato de na revision, struca \"{{int:revreview-submit-unreview}}\".\n\nPar piaser struca el boton \"indrìo\" del to browser e pròa da novo.",
 	"revreview-update": "'''Par piaser [[{{MediaWiki:Validationpage}}|verifica]] tuti i canbiamenti ''(mostrà qua soto)'' fati rispeto a la version stabile.'''",

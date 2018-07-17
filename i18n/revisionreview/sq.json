@@ -12,6 +12,7 @@
 	"revreview-submit-unreviewed": "U bë. Refuzuar!",
 	"revreview-successful": "'''Shqyrtimi i faqesë ''[[:$1|$1]]'' u shënua me sukses ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} shiko të gjithë versionet të shqyrtuara]).'''",
 	"revreview-sadv-reviewing-c": "Ju mund të [$1 advertise] tek përdoruesit tjerë se po i rishikoni këto ndryshime.",
+	"revreview-adv-start-link": "reklamoni",
 	"revreview-reject-cancel": "Anulo",
 	"revreview-reject-summary-cur": "Refuzoi {{PLURAL:$1|ndryshimin|$1 ndryshimet}} e fundit të tekstit ({{PLURAL:$7|{{GENDER:$5|nga}}}} $2) dhe riktheu rishikimin $3 {{GENDER:$6|nga}} $4",
 	"revreview-reject-summary-old": "Refuzoi {{PLURAL:$1|ndryshimin e parë|$1 ndryshimet e para}} të tekstit ({{PLURAL:$7|{{GENDER:$5|nga}}}} $2) që {{PLURAL:$1|pasohet nga|$1 pasohen nga}} rishikimi $3 {{GENDER:$6|nga}} $4",

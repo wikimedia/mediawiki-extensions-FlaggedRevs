@@ -54,6 +54,7 @@
 	"revreview-adv-reviewing-c": "Napomena: Drugi pregledavači mogu vidjeti da {{GENDER:$1|Vi}} pregledavate ove izmjene.",
 	"revreview-sadv-reviewing-p": "Možete drugim korisnicima [$1 dati do znanja] da pregledavate ovu stranicu.",
 	"revreview-sadv-reviewing-c": "Možete drugim korisnicima [$1 dati do znanja] da pregledavate ove izmjene.",
+	"revreview-adv-start-link": "dati do znanja",
 	"revreview-adv-stop-link": "poništi",
 	"revreview-toolow": "'''Morate ocijeniti svaku od ispod navedenih ocjena više od \"neadekvatno\" da bi se izmjena smatrala pregledanom.'''\n\nDa biste s verzije uklonili status \"pregledano\", kliknite na \"{{int:revreview-submit-unreview}}\".\n\nPritisnite dugme \"nazad\" u svom pregledniku i pokušajte ponovo.",
 	"revreview-update": "'''[[{{MediaWiki:Validationpage}}|Pregledajte]] sve izmjene na čekanju ''(prikazane ispod)'' načinjene nakon stabilne verzije.'''",

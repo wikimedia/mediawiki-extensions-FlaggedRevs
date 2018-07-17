@@ -53,6 +53,7 @@
 	"revreview-adv-reviewing-c": "Let op: andere gebruikers zien dat {{GENDER:$1|u}} bezig bent met het beoordelen van deze wijzigingen.",
 	"revreview-sadv-reviewing-p": "U kunt aan andere gebruikers aangeven dat u deze pagina [$1 aan het controleren bent].",
 	"revreview-sadv-reviewing-c": "U kunt aan andere gebruikers aangeven dat u deze wijzigingen [$1 aan het controleren bent].",
+	"revreview-adv-start-link": "aan het controleren bent",
 	"revreview-adv-stop-link": "niet aan het controleren bent",
 	"revreview-toolow": "'''U moet ten minste alle eigenschappen hoger instellen dan \"{{int:Revreview-accuracy-0}}\" om voor een versie aan te geven dat deze is gecontroleerd.'''\n\nKlik op \"{{int:revreview-submit-unreview}}\" om de waardering van een versie te verwijderen.\n\nKlik op de knop \"Terug\" in uw browser en probeer het opnieuw.",
 	"revreview-update": "'''[[{{MediaWiki:Validationpage}}|Controleer]] de ''onderstaande'' wijzigingen ten opzichte van de gepubliceerde versie.'''",

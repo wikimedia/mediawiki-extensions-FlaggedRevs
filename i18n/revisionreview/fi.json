@@ -59,6 +59,7 @@
 	"revreview-adv-reviewing-c": "Huomautus: Muut seulojat näkevät, että {{GENDER:$1|arvioit}} näitä muutoksia.",
 	"revreview-sadv-reviewing-p": "Voit [$1 ilmoittaa] muille käyttäjille, että arvioit tätä sivua.",
 	"revreview-sadv-reviewing-c": "Voit [$1 ilmoittaa] muille käyttäjille, että olet arvioimassa näitä muutoksia.",
+	"revreview-adv-start-link": "ilmoittaa",
 	"revreview-adv-stop-link": "älä ilmoita muille",
 	"revreview-toolow": "'''Sinun täytyy arvioida kaikki alla olevat kohdat paremmalla arvolla kuin ”puutteellinen”, jotta versio katsottaisiin arvioiduksi.'''\n\nPoistaaksesi version arviointitilan napsauta ”{{int:revreview-submit-unreview}}”.\n\nPalaa selaimen takaisin-painikkeella ja yritä uudelleen.",
 	"revreview-update": "'''[[{{MediaWiki:Validationpage}}|Arvioi]] kaikki odottavat muutokset ''(näytetään alla)'', jotka on tehty vakaan version jälkeen.'''",

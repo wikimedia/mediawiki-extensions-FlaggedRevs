@@ -23,6 +23,7 @@
 	"revreview-adv-reviewing-c": "{{GENDER:$1|閣下}}校閱之舉，已通傳諸校官。",
 	"revreview-sadv-reviewing-p": "如患不便，可[$1 傳報]他人，本文正在校閱。",
 	"revreview-sadv-reviewing-c": "如患不便，可[$1 傳報]他人，本文正在校閱。",
+	"revreview-adv-start-link": "傳報",
 	"revreview-adv-stop-link": "撤銷",
 	"revreview-update": "'''有勞[[{{MediaWiki:Validationpage}}|校勘]]。'''",
 	"revreview-update-includes": "文章所用模檔，業已更新。粗體所示，未有校勘者也︰",

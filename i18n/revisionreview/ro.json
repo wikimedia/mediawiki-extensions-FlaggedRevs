@@ -46,6 +46,7 @@
 	"revreview-successful2": "'''Revizuirea [[:$1|$1]] invalidată cu succes.'''",
 	"revreview-poss-conflict-p": "'''Avertisment: [[User:$1|$1]] a început revizuirea acestei pagini pe $2 la $3.'''",
 	"revreview-poss-conflict-c": "'''Avertisment: [[User:$1|$1]] a început revizuirea acestor schimbări pe $2 la $3.'''",
+	"revreview-adv-start-link": "faceți publicitate",
 	"revreview-adv-stop-link": "anulați publicitatea",
 	"revreview-reject-text-revto": "Acesta va reveni pagina înapoi la [{{fullurl:$1|oldid=$2}} versiunea din $3].",
 	"revreview-reject-summary": "Rezumat:",

@@ -57,6 +57,7 @@
 	"revreview-adv-reviewing-c": "Perhatian: Peninjau lainnya dapat melihat bahwa {{GENDER:$1|Anda}} sedang meninjau perubahan ini.",
 	"revreview-sadv-reviewing-p": "Anda dapat [$1 mengiklankan] kepada pengguna lainnya bahwa Anda sedang meninjau halaman ini.",
 	"revreview-sadv-reviewing-c": "Anda dapat [$1 mengiklankan] kepada pengguna lainnya bahwa Anda sedang meninjau perubahan ini.",
+	"revreview-adv-start-link": "mengiklankan",
 	"revreview-adv-stop-link": "menghentikan pengiklanan",
 	"revreview-toolow": "'''Anda harus menilai setiap atribut lebih tinggi daripada \"tidak memadai\" agar revisi dianggap telah ditinjau.''' \n\nUntuk menghapus status tinjauan revisi, klik \"{{int:revreview-submit-unreview}}\". \n\nSilakan tekan tombol \"back\" pada peramban Anda dan coba lagi.",
 	"revreview-update": "'''Mohon [[{{MediaWiki:Validationpage}}|tinjau]] semua perubahan tertunda ''(ditampilkan di bawah)'' yang dibuat sejak versi stabil dimuat.'''",

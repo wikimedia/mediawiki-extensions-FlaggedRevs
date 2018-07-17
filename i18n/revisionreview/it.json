@@ -60,6 +60,7 @@
 	"revreview-adv-reviewing-c": "Nota: altri revisori sono in grado di vedere che {{GENDER:$1|}}esamini queste modifiche.",
 	"revreview-sadv-reviewing-p": "Puoi [$1 segnalare] agli altri utenti che stai revisionando questa pagina.",
 	"revreview-sadv-reviewing-c": "Puoi [$1 segnalare] agli altri utenti che stai revisionando queste modifiche.",
+	"revreview-adv-start-link": "segnalare",
 	"revreview-adv-stop-link": "annulla",
 	"revreview-toolow": "'''È necessario valutare ognuno degli attributi superiori ad \"inadeguato\" al fine di rendere definitiva una versione.'''\n\nPer rimuovere lo stato di verifica di una versione, fare clic su \"{{int:revreview-submit-unreview}}\".\n\nSi prega di premere il pulsante \"indietro\" del tuo browser e riprovare.",
 	"revreview-update": "'''[[{{MediaWiki:Validationpage}}|Revisiona]] le modifiche in sospeso ''(mostrate di seguito)'' apportate dalla versione stabile.'''",

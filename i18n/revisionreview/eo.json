@@ -56,6 +56,7 @@
 	"revreview-adv-reviewing-c": "Notu: aliaj reviziantoj povas vidi ke {{GENDER:$1|vi}} revizias ĉi tiujn ŝanĝojn.",
 	"revreview-sadv-reviewing-p": "Vi povas [$1 anonci] al aliaj uzantoj ke vi patrolas ĉi tiun paĝon.",
 	"revreview-sadv-reviewing-c": "Vi povas [$1 anonci] al aliaj uzantoj ke vi patrolas ĉi tiujn ŝanĝojn.",
+	"revreview-adv-start-link": "anonci",
 	"revreview-adv-stop-link": "malanonci",
 	"revreview-toolow": "''Vi devas taksi ĉiun el la jenaj atribuoj almenaŭ pli alta ol \"adekvata\" por revizio esti konsiderata kiel kontrolita.'''\n\nForigi reviziatan statuson de revizio, klaku \"{{int:revreview-submit-unreview}}\".\n\nBonvolu klaki la \"reiri\" butonon en via retumilo kaj reprovu.",
 	"revreview-update": "Bonvolu [[{{MediaWiki:Validationpage}}|kontroli]] iujn kontrolendajn ŝanĝojn ''(montritajn suben)'' faritajn ekde la aprobita versio:'''",

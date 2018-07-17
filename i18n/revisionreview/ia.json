@@ -51,6 +51,7 @@
 	"revreview-adv-reviewing-c": "Nota: Altere revisores pote vider que {{GENDER:$1|tu}} revide iste cambiamentos.",
 	"revreview-sadv-reviewing-p": "Tu pote [$1 annunciar] al altere usatores que tu revide iste pagina.",
 	"revreview-sadv-reviewing-c": "Tu pote [$1 annunciar] al altere usatores que tu revide iste cambiamentos.",
+	"revreview-adv-start-link": "annunciar",
 	"revreview-adv-stop-link": "cessar de annunciar",
 	"revreview-toolow": "'''Tu debe evalutar cata un del attributos como plus alte que \"inadequate\" a fin que un version sia considerate como revidite.'''\n\nPro remover le stato de revision de un version, clicca sur \"{{int:revreview-submit-unreview}}\".\n\nPer favor preme le button \"retro\" in tu navigator e reproba.",
 	"revreview-update": "'''Per favor [[{{MediaWiki:Validationpage}}|revide]] omne modificationes pendente ''(monstrate hic infra)'' facite post le version stabile.'''",

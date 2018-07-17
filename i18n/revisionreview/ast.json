@@ -52,6 +52,7 @@
 	"revreview-adv-reviewing-c": "Avisu: Otros revisores puen ver que {{GENDER:$1|vusté}} ta revisando estos cambios.",
 	"revreview-sadv-reviewing-p": "Puedes [$1 anunciar] a otros usuarios que tas revisando esta páxina.",
 	"revreview-sadv-reviewing-c": "Puedes [$1 anunciar] a otros usuarios que tas revisando estos cambios.",
+	"revreview-adv-start-link": "anunciar",
 	"revreview-adv-stop-link": "dexar d'anunciar",
 	"revreview-toolow": "'''Tienes de calificar caún de los atributos más alto que \"non afayadizu\" pa qu'una revisión se considere revisada.'''\n\nPa desaniciar l'estáu d'una revisión, calca \"{{int:revreview-submit-unreview}}\".\n\nCalca nel botón \"atrás\" del restolador ya intentalo otra vuelta.",
 	"revreview-update": "'''Por favor [[{{MediaWiki:Validationpage}}|revisa]] tolos cambios pendientes que ''(s'amuesen abaxo)'' fechos dende la versión estable.'''",

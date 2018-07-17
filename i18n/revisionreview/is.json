@@ -33,6 +33,7 @@
 	"revreview-adv-reviewing-c": "Tilkynning: Aðrir ritstjórar geta séð að {{GENDER:$1|þú}} sért að yfirfara þessar breytingar.",
 	"revreview-sadv-reviewing-p": "Þú getur [$1 tilkynnt] til annarra notenda að þú sért að yfirfara þessa síðu.",
 	"revreview-sadv-reviewing-c": "Þú getur [$1 tilkynnt] til annarra notenda að þú sért að yfirfara þessar breytingar.",
+	"revreview-adv-start-link": "tilkynnt",
 	"revreview-update": "'''Vinsamlegast [[{{MediaWiki:Validationpage}}|farðu yfir]] allar óskoðaðar breytingar ''(sýndar hér fyrir neðan)'' síðan að síðasta breytingin var gerð.'''",
 	"revreview-update-includes": "Snið/skrár uppfærð (óskoðaðar síður eru feitletraðar):",
 	"revreview-reject-text-list": "Með þessari aðgerð munt þú '''hafna''' frumtexta eftirfarandi {{PLURAL:$1|útgáfu|útgáfna}} [[:$2|$2]]:",

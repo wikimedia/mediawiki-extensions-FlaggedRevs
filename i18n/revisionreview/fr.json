@@ -62,6 +62,7 @@
 	"revreview-adv-reviewing-c": "Remarque: D'autres relecteurs peuvent voir que {{GENDER:$1|vous}} examinez ces modifications.",
 	"revreview-sadv-reviewing-p": "Vous pouvez [$1 annoncer] aux autres utilisateurs que vous relisez cette page.",
 	"revreview-sadv-reviewing-c": "Vous pouvez [$1 annoncer] aux autres utilisateurs que vous relisez ces modifications.",
+	"revreview-adv-start-link": "faire de la publicité",
 	"revreview-adv-stop-link": "annuler la publicité",
 	"revreview-toolow": "'''Vous devez affecter à chacun des attributs une évaluation plus élevée que « inappropriée » pour que la relecture soit prise en compte comme acceptée.'''\n\nPour enlever l’état de relecture d’une version, cliquez sur « {{int:revreview-submit-unreview}} ».\n\nVeuillez utiliser le bouton « Retour » de votre navigateur puis essayez de nouveau.",
 	"revreview-update": "Veuillez [[{{MediaWiki:Validationpage}}|relire]] toutes les modifications ''(voir ci-dessous)'' apportées à la version acceptée.",

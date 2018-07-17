@@ -63,6 +63,7 @@
 	"revreview-adv-reviewing-c": "Uwaga – inni redaktorzy mogą zobaczyć, że {{GENDER:$1|rozpocząłeś|rozpoczęłaś}} przeglądanie tych zmian.",
 	"revreview-sadv-reviewing-p": "Możesz [$1 poinformować] innych użytkowników, o tym że jesteś w trakcie przeglądania tej strony.",
 	"revreview-sadv-reviewing-c": "Możesz [$1 poinformować] innych użytkowników o tym, że jesteś w trakcie przeglądania tych zmian.",
+	"revreview-adv-start-link": "poinformować",
 	"revreview-adv-stop-link": "wycofaj informowanie",
 	"revreview-toolow": "'''Musisz ocenić każdy z atrybutów wyżej niż „nieakceptowalny”, aby oznaczyć wersję jako zweryfikowaną.'''\n\nAby wycofać zweryfikowanie kliknij na „Cofnij akceptację wersji”.\n\nKliknij przycisk „Wstecz” w przeglądarce i spróbuj ponownie.",
 	"revreview-update": "'''Proszę [[{{MediaWiki:Validationpage}}|przejrzeć]] zmiany ''(patrz niżej)'' dokonane od momentu ostatniego oznaczenia wersji.'''",
