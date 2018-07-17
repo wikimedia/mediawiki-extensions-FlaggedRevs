@@ -196,7 +196,7 @@
 	"revreview-ak-review": "s",
 	"accesskey-ca-current": "v",
 	"accesskey-ca-stable": "c",
-	"log-show-hide-review": "$1 review log",
+	"logeventslist-review-log": "Review log",
 	"validationpage": "{{ns:help}}:Page validation",
 	"log-action-filter-review": "Type of review:",
 	"log-action-filter-review-accept": "Manual accept",

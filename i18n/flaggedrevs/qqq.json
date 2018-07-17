@@ -227,7 +227,7 @@
 	"revreview-ak-review": "{{FlaggedRevs}}\n{{notranslate}}",
 	"accesskey-ca-current": "{{FlaggedRevs}}\n{{doc-accesskey}}\nSee also:\n* {{msg-mw|Revreview-current}}\n* {{msg-mw|Accesskey-ca-current}}\n* {{msg-mw|Tooltip-ca-current}}",
 	"accesskey-ca-stable": "{{FlaggedRevs}}\n{{doc-accesskey}}",
-	"log-show-hide-review": "{{Flagged Revs}}\nParameters:\n* $1 - one of {{msg-mw|Show}} or {{msg-mw|Hide}}\n{{Related|Log-show-hide}}",
+	"logeventslist-review-log": "Review log option label on [[Special:Log]]",
 	"validationpage": "{{Flagged Revs-small}}\n{{doc-important|Do not translate the <code><nowiki>{{ns:help}}:</nowiki></code> part, including the colon.}}\nLink to the general help page.",
 	"log-action-filter-review": "{{doc-log-action-filter-type|review}}\n{{Related|Log-action-filter}}",
 	"log-action-filter-review-accept": "{{doc-log-action-filter-action|review|accept}}\n{{Related|Log-action-filter}}",
