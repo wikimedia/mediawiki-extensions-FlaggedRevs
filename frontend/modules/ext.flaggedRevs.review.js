@@ -314,6 +314,24 @@
 		return false;
 	}
 
+	// Adapted from mw.jqueryMsg#extlink
+	function makeButtonLink( label, callback ) {
+		return $( '<a>' )
+			.text( label )
+			.attr( {
+				role: 'button',
+				tabindex: 0
+			} )
+			.on( 'click keypress', function ( e ) {
+				if (
+					e.type === 'click' ||
+					e.type === 'keypress' && e.which === 13
+				) {
+					callback.call( this, e );
+				}
+			} );
+	}
+
 	/*
 	 * Flag users as "now reviewing"
 	 */
@@ -337,11 +355,8 @@
 			.append(
 				$underReview,
 				' (',
-				$( '<a>' )
-					.text( mw.msg( 'revreview-adv-stop-link' ) )
-					.css( 'cursor', 'pointer' )
-					// eslint-disable-next-line no-use-before-define
-					.click( deadvertiseReviewing ),
+				// eslint-disable-next-line no-use-before-define
+				makeButtonLink( mw.msg( 'revreview-adv-stop-link' ), deadvertiseReviewing ),
 				')'
 			);
 	}
@@ -362,7 +377,15 @@
 			'revreview-sadv-reviewing-p'; // page
 		$underReview = $( '<span>' )
 			.addClass( 'fr-make-under-review' )
-			.msg( msgkey, advertiseReviewing );
+			.msg(
+				msgkey,
+				// The 'revreview-sadv-reviewing-*' messages normally use $1 as link
+				// target. An older version (still on some wikis), used $1 plainly, with
+				// the link+label passed in. To support both, pass the link with old label.
+				// If $1 is a link target, jqueryMsg uses the link but discards its label.
+				// If $1 is plain, the link is used with the old revreview-adv-start-link label.
+				makeButtonLink( mw.msg( 'revreview-adv-start-link' ), advertiseReviewing )
+			);
 		// Update notice to say that user is not advertising...
 		$( '#mw-fr-reviewing-status' ).empty().append( $underReview );
 	}
