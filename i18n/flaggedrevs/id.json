@@ -184,6 +184,5 @@
 	"revreview-unlocked-title": "Suntingan terhadap halaman ini tidak membutuhkan tinjauan.",
 	"revreview-locked": "'''Catatan:''' Suntingan harus [[{{MediaWiki:Validationpage}}|ditinjau]] sebelum ditampilkan kepada pembaca laman ini.",
 	"revreview-unlocked": "'''Catatan:''' Suntingan tidak perlu [[{{MediaWiki:Validationpage}}|ditinjau]] sebelum ditampilkan kepada pembaca laman ini.",
-	"log-show-hide-review": "$1 log peninjau",
 	"validationpage": "{{ns:help}}:Validasi halaman"
 }

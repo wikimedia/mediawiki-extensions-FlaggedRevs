@@ -208,7 +208,6 @@
 	"revreview-unlocked-title": "La ediciones a esta página no requieren revisión.",
 	"revreview-locked": "'''Atención:''' Las ediciones deben ser [[{{MediaWiki:Validationpage}}|revisadas]] antes de ser mostradas en esta página.",
 	"revreview-unlocked": "'''Atención:''' Las ediciones no requieren [[{{MediaWiki:Validationpage}}|revisión]] antes de ser mostradas en esta página.",
-	"log-show-hide-review": "$1 registro de revisiones",
 	"validationpage": "{{ns:help}}:Validación de página",
 	"log-action-filter-review": "Tipo de revisión:",
 	"log-action-filter-stable": "Tipo de cambio de configuración:",

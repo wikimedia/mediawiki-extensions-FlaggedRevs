@@ -168,6 +168,5 @@
 	"revreview-unlocked-title": "I canbiamenti no i ga bisogno de èssar verificà.",
 	"revreview-locked": "'''Ocio''': I canbiamenti i ga da èssar [[{{MediaWiki:Validationpage}}|verificà]] prima de vegner mostrà ai letori su sta pagina.",
 	"revreview-unlocked": "'''Ocio''': I canbiamenti no i ga bisogno de èssar [[{{MediaWiki:Validationpage}}|verificà]] prima de vegner mostrà ai letori su sta pagina.",
-	"log-show-hide-review": "$1 registro de le revision",
 	"validationpage": "{{ns:help}}:Validassion dele pàxene"
 }

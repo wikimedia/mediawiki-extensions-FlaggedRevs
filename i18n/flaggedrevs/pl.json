@@ -204,7 +204,6 @@
 	"revreview-unlocked-title": "Zmiany treści tej strony nie wymagają przejrzenia.",
 	"revreview-locked": "Edycje muszą zostać [[{{MediaWiki:Validationpage}}|oznaczone]], zanim zostaną wyświetlone czytelnikom na tej stronie.",
 	"revreview-unlocked": "Edycje nie wymagają [[{{MediaWiki:Validationpage}}|oznaczenia]], by zostały wyświetlone na tej stronie.",
-	"log-show-hide-review": "$1 rejestr oznaczania",
 	"validationpage": "{{ns:help}}:Wersje oznaczone",
 	"log-action-filter-review": "Typ przeglądu:",
 	"log-action-filter-review-accept": "Ręczna akceptacja",

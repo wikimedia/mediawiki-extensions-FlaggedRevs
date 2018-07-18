@@ -147,6 +147,5 @@
 	"revreview-unlocked-title": "Бу сирэй уларытыылара тургутууну эрэйбэттэр.",
 	"revreview-locked": "'''Быһаарыы.''' Уларытыылар ааҕааччыларга көстүөхтэрин иннинэ [[{{MediaWiki:Validationpage}}|тургутуллуохтаахтар]].",
 	"revreview-unlocked": "'''Быһаарыы.''' Уларытыылар ааҕааччыларга көстүөхтэрин иннинэ [[{{MediaWiki:Validationpage}}|тургутуллуулара]] ирдэммэт.",
-	"log-show-hide-review": "$1 тургутуу сурунаала",
 	"validationpage": "{{ns:help}}:Сирэйдэри тургутуу"
 }

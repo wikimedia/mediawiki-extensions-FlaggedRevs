@@ -191,7 +191,6 @@
 	"revreview-unlocked-title": "Izmjene ove stranice ne zahtijevaju ocjenjivanje.",
 	"revreview-locked": "'''NAPOMENA:''' Izmjene moraju biti [[{{MediaWiki:Validationpage}}|ocijenjene]] prije nego što će se prikazati na ovoj stranici.",
 	"revreview-unlocked": "'''NAPOMENA:'''Izmjene ne zahtijevaju [[{{MediaWiki:Validationpage}}|ocjenjivanje]] prije nego što će se prikazati na ovoj stranici.",
-	"log-show-hide-review": "$1 evidenciju ocjenjivanja",
 	"validationpage": "{{ns:help}}:Ocjenjivanje članaka",
 	"log-action-filter-review": "Vrsta proviđenja:",
 	"log-action-filter-review-accept": "Ručno proviđeno",

@@ -175,7 +175,6 @@
 	"revreview-unlocked-title": "Le modificationes in iste pagina non require revision.",
 	"revreview-locked": "'''Nota:''' Le modificationes debe esser [[{{MediaWiki:Validationpage}}|revidite]] ante de esser monstrate al lectores in iste pagina.",
 	"revreview-unlocked": "'''Nota:''' Le modificationes non require [[{{MediaWiki:Validationpage}}|revision]] ante de esser monstrate al lectores in iste pagina.",
-	"log-show-hide-review": "$1 le registro de revisiones",
 	"validationpage": "{{ns:help}}:Validation de paginas",
 	"log-action-filter-review": "Typo de revision:",
 	"log-action-filter-review-accept": "Marcate manualmente como revidite",

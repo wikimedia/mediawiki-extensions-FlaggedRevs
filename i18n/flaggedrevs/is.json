@@ -126,7 +126,6 @@
 	"tooltip-ca-current": "Skoða síðuna með óskoðuðum breytingum",
 	"tooltip-ca-stable": "Skoða stöðuga útgáfu síðunnar",
 	"flaggedrevs-protect-none": "Leyfa öllum notendum",
-	"log-show-hide-review": "$1 yfirferðarskrá",
 	"validationpage": "{{ns:help}}:Siðustaðfesting",
 	"log-action-filter-stable-config": "Ný uppsetning"
 }

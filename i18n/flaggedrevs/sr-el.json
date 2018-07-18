@@ -152,6 +152,5 @@
 	"revreview-locked-title": "Izmene na ovoj stranici zahtevaju pregled.",
 	"revreview-unlocked-title": "Izmene na ovoj stranici ne zahtevaju pregled.",
 	"revreview-locked": "'''Napomena:''' Izmene moraju biti [[{{MediaWiki:Validationpage}}|proverene]] pre prikazivanja čitaocima na ovoj stranici.",
-	"log-show-hide-review": "$1 dnevnik pregledanja",
 	"validationpage": "{{ns:help}}:Provera stranice"
 }

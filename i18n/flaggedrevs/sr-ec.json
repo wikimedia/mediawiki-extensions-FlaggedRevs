@@ -196,7 +196,6 @@
 	"revreview-unlocked-title": "Измене на овој страници не захтевају проверу.",
 	"revreview-locked": "'''Напомена:''' измене морају бити [[{{MediaWiki:Validationpage}}|проверене]] пре него што буду приказане читаоцима.",
 	"revreview-unlocked": "'''Напомена:''' измене не морају бити [[{{MediaWiki:Validationpage}}|проверене]] пре него што буду приказане читаоцима.",
-	"log-show-hide-review": "$1 дневник провере",
 	"validationpage": "{{ns:help}}:Провера странице",
 	"log-action-filter-review": "Врста провере:",
 	"log-action-filter-review-accept": "Ручно прихватање",

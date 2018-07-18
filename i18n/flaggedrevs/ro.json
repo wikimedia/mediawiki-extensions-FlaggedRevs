@@ -133,6 +133,5 @@
 	"flaggedrevs-protect-none": "Permiteți tuturor utilizatorilor",
 	"revreview-locked-title": "Modificările pe această pagină necesită revizuire.",
 	"revreview-unlocked-title": "Modificările pe această pagină nu necesită revizuire.",
-	"log-show-hide-review": "jurnal de revizualizare $1",
 	"validationpage": "{{ns:help}}:Validare pagină"
 }

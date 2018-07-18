@@ -167,6 +167,5 @@
 	"revreview-unlocked-title": "Los changements sur ceta pâge ont pas fôta d’una rèvision.",
 	"revreview-locked": "'''Nota :''' los changements dêvont étre [[{{MediaWiki:Validationpage}}|revus]] devant qu’étre montrâs ux liésors sur ceta pâge.",
 	"revreview-unlocked": "'''Nota :''' los changements ont pas fôta d’una [[{{MediaWiki:Validationpage}}|rèvision]] devant qu’étre montrâs ux liésors sur ceta pâge.",
-	"log-show-hide-review": "$1 lo jornal de les rèvisions",
 	"validationpage": "{{ns:help}}:Validacion de la pâge"
 }

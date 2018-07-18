@@ -176,6 +176,5 @@
 	"revreview-unlocked-title": "Änderunge möße nit nohjekik wääde, iih dat se op hee dä Sigg för der nomaale Lässer aanjezeish wääde.",
 	"revreview-locked": "'''Opjepaß:''' Änderunge möße [[{{MediaWiki:Validationpage}}|nohjekik sin]], iih dat se op hee dä Sigg för der nommaale Lässer aanjezeish wääde.",
 	"revreview-unlocked": "'''Opjepaß:''' Änderunge möße nit [[{{MediaWiki:Validationpage}}|nohjekik wääde]], iih dat se op hee dä Sigg för der nomaale Lässer aanjezeish wääde.",
-	"log-show-hide-review": "$1 et {{int:review-logpage}}",
 	"validationpage": "{{ns:help}}:Nohjeloorte, jeprööfte un beschtäteschte Versione vun Sigge"
 }

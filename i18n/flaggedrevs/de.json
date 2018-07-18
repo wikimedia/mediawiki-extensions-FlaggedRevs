@@ -209,7 +209,7 @@
 	"revreview-unlocked-title": "Bearbeitungen dieser Seite müssen nicht markiert werden.",
 	"revreview-locked": "'''Hinweis:''' Bearbeitungen müssen [[{{MediaWiki:Validationpage}}|markiert]] werden, bevor sie Lesern dieser Seite angezeigt werden.",
 	"revreview-unlocked": "'''Hinweis:''' Bearbeitungen benötigen keine [[{{MediaWiki:Validationpage}}|Markierung]], bevor sie allen Lesern dieser Seite angezeigt werden.",
-	"log-show-hide-review": "Versionsmarkierungs-Logbuch $1",
+	"logeventslist-review-log": "Versionsmarkierungs-Logbuch",
 	"validationpage": "{{ns:help}}:Gesichtete und geprüfte Versionen",
 	"log-action-filter-review": "Typ der Sichtung:",
 	"log-action-filter-review-accept": "Manuelle Sichtung",

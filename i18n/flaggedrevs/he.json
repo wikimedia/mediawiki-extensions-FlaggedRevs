@@ -196,7 +196,6 @@
 	"revreview-unlocked-title": "עריכות בדף הזה אינן דורשות סקירה.",
 	"revreview-locked": "'''הערה:''' עריכות בדף זה דורשות [[{{MediaWiki:Validationpage}}|סקירה]] לפני הצגתן לקוראים.",
 	"revreview-unlocked": "'''הערה:''' עריכות בדף זה אינן דורשות [[{{MediaWiki:Validationpage}}|סקירה]] לפני הצגתן לקוראים.",
-	"log-show-hide-review": "$1 יומן סקירות",
 	"validationpage": "{{ns:help}}:אישור דפים",
 	"log-action-filter-review": "סוג הסקירה:",
 	"log-action-filter-review-accept": "קבלה ידנית",

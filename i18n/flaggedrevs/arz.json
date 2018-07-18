@@ -137,6 +137,5 @@
 	"revreview-unlocked-title": "التعديلات لا تتطلب مراجعه قبل أن يتم عرضها فى هذه الصفحة!",
 	"revreview-locked": "التعديلات يجب أن تتم مراجعتها قبل أن يتم عرضها فى هذه الصفحة!",
 	"revreview-unlocked": "'''ملاحظه:''' التعديلات مش بتحتاج [[{{MediaWiki:Validationpage}}|مراجعه]] قبل ما تتنشر على الصفحه دى.",
-	"log-show-hide-review": "$1 سجل المراجعة",
 	"validationpage": "{{ns:help}}:تحقيق الصفحة"
 }

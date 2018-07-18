@@ -182,6 +182,5 @@
 	"revreview-unlocked-title": "Canvis en aquesta pàgina no necessiten cap revisió.",
 	"revreview-locked": "'''Avís''': canvis han ser [[{{MediaWiki:Validationpage}}|aprovats]] abans de ser afixats als lectors d'aquesta pàgina",
 	"revreview-unlocked": "'''Avís:''' Canvis no necessiten cap [[{{MediaWiki:Validationpage}}|approbació]] abans de ser afixats als lectors d'aquesta pàgina.",
-	"log-show-hide-review": "$1 registre de revisió",
 	"validationpage": "{{ns:help}}:Aprovació de les pàgines"
 }

@@ -190,7 +190,6 @@
 	"revreview-unlocked-title": "Các sửa đổi tại trang này không cần chờ được duyệt.",
 	"revreview-locked": "'''Lưu ý:''' Các sửa đổi phải được [[{{MediaWiki:Validationpage}}|duyệt]] trước khi được hiển thị tại trang này.",
 	"revreview-unlocked": "'''Lưu ý:''' Các sửa đổi không cần được [[{{MediaWiki:Validationpage}}|duyệt]] trước khi được hiển thị tại trang này.",
-	"log-show-hide-review": "$1 nhật trình duyệt",
 	"validationpage": "{{ns:help}}:Phê chuẩn trang",
 	"log-action-filter-review": "Kiểu xem qua:",
 	"log-action-filter-review-accept": "Chấp nhận thủ công",

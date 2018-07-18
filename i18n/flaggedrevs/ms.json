@@ -171,6 +171,5 @@
 	"revreview-unlocked-title": "Suntingan pada laman ini tidak perlu dikaji semula.",
 	"revreview-locked": "'''Perhatian:''' Suntingan mestilah [[{{MediaWiki:Validationpage}}|dikaji semula]] sebelum dipaparkan kepada pembaca laman ini.",
 	"revreview-unlocked": "'''Perhatian:''' Suntingan tidak perlu [[{{MediaWiki:Validationpage}}|dikaji semula]] sebelum dipaparkan kepada pembaca laman ini.",
-	"log-show-hide-review": "$1 log kaji semula",
 	"validationpage": "{{ns:help}}:Pengesahan rencana"
 }

@@ -139,6 +139,5 @@
 	"tooltip-ca-default": "నాణ్యతా భరోసా అమరికలు",
 	"flaggedrevs-protect-legend": "స్వయంచాలక మార్పుల సమీక్ష ([[{{MediaWiki:Validationpage}}|సహాయం]])",
 	"flaggedrevs-protect-none": "అందరు వాడుకరులను అనుమతించు",
-	"log-show-hide-review": "సమీక్షల చిట్టాని $1",
 	"validationpage": "{{ns:help}}:పేజీ సరిచూత"
 }

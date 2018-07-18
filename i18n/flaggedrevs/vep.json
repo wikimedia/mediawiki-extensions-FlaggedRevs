@@ -166,6 +166,5 @@
 	"revreview-unlocked-title": "Necen lehtpolen redakcijoid ei pida kodvda.",
 	"revreview-locked": "'''Homaituz.''' Redakcijad pidab [[{{MediaWiki:Validationpage}}|kodvda]], edel ku ned ozutaškatas necen lehtpolen lugijoile.",
 	"revreview-unlocked": "'''Homaituz.''' Redakcijoid ei pida [[{{MediaWiki:Validationpage}}|kodvda]], edel ku ned ozutaškatas necen lehtpolen lugijoile.",
-	"log-show-hide-review": "$1 kodvindoiden aigkirj",
 	"validationpage": "{{ns:help}}:Lehtpoliden kodvind"
 }

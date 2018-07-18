@@ -155,6 +155,5 @@
 	"revreview-unlocked-title": "Özgerdişleriň bu sahypada görkezilmänkä gözden geçirilmegi talap edilmeýär.",
 	"revreview-locked": "Özgerdişler bu sahypada görkezilmänkä [[{{MediaWiki:Validationpage}}|gözden geçirilmelidir]].",
 	"revreview-unlocked": "Özgerdişleriň bu sahypada görkezilmänkä [[{{MediaWiki:Validationpage}}|gözden geçirilmegi]] talap edilmeýär.",
-	"log-show-hide-review": "gözden geçirme gündeligini $1",
 	"validationpage": "{{ns:help}}:Sahypa barlamasy"
 }

@@ -33,7 +33,8 @@
 			"Mailman",
 			"Kareyac",
 			"Mouse21",
-			"Stjn"
+			"Stjn",
+			"Vlad5250"
 		]
 	},
 	"action-review": "проверка версий страниц",
@@ -215,7 +216,7 @@
 	"revreview-unlocked-title": "Правки этой страницы не требуют проверки.",
 	"revreview-locked": "'''Замечание.''' Правки должны быть [[{{MediaWiki:Validationpage}}|проверены]], прежде чем они будут показаны читателям этой страницы.",
 	"revreview-unlocked": "'''Замечание.''' Чтобы читатели этой страницы увидели сделанные изменения, их предварительная [[{{MediaWiki:Validationpage}}|проверка]] не требуется.",
-	"log-show-hide-review": "$1 журнал проверок",
+	"logeventslist-review-log": "Журнал проверок версий",
 	"validationpage": "{{ns:help}}:Проверка страниц",
 	"log-action-filter-review": "Тип действия:",
 	"log-action-filter-review-accept": "Ручное подтверждение",

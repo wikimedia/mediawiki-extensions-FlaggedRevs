@@ -175,7 +175,6 @@
 	"revreview-unlocked-title": "Úpravy nevyžadují posouzení, než se zobrazí na této stránce.",
 	"revreview-locked": "'''Poznámka:''' Úpravy vyžadují [[{{MediaWiki:Validationpage}}|posouzení]], než se zobrazí na této stránce.",
 	"revreview-unlocked": "'''Poznámka:''' Úpravy nevyžadují [[{{MediaWiki:Validationpage}}|posouzení]], než se zobrazí na této stránce.",
-	"log-show-hide-review": "$1 záznam posouzení",
 	"validationpage": "{{ns:help}}:Ověřování stránek",
 	"log-action-filter-stable-move_stable": "Konfigurace přemístěna"
 }

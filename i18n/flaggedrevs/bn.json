@@ -164,7 +164,7 @@
 	"revreview-unlocked-title": "এই পাতায় করা সম্পাদনাগুলির পর্যালোচনার প্রয়োজন হবে না।",
 	"revreview-locked": "'''টীকা:''' এই পাতা পাঠকের কাছে প্রদর্শিত হবার আগে সম্পাদনাগুলি অবশ্যই [[{{MediaWiki:Validationpage}}|পর্যালোচিত]] হতে হবে।",
 	"revreview-unlocked": "'''নোট:''' এই পাতা পাঠকের কাছে প্রদর্শিত হবার আগে সম্পাদনাগুলির [[{{MediaWiki:Validationpage}}|পর্যালোচনার]] প্রয়োজন হবে না।",
-	"log-show-hide-review": "পর্যালোচনা লগ $1",
+	"logeventslist-review-log": "নিরীক্ষণ লগ",
 	"validationpage": "{{ns:help}}:নিবন্ধ বৈধকরণ",
 	"log-action-filter-review": "পর্যালোচনার ধরন:",
 	"log-action-filter-review-accept": "ম্যানুয়াল গ্রহণ",

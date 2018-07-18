@@ -198,7 +198,6 @@
 	"revreview-unlocked-title": "Зміни цієї сторінки не потребують перевірки.",
 	"revreview-locked": "'''Примітка:''' Редагування повинні бути [[{{MediaWiki:Validationpage}}|перевірені]] перед тим, як будуть показані читачам на цій сторінці.",
 	"revreview-unlocked": "'''Примітка:''' Редагування не потребують [[{{MediaWiki:Validationpage}}|перевірки]] перед тим, як будуть показані читачам на цій сторінці.",
-	"log-show-hide-review": "$1 журнал перевірок",
 	"validationpage": "{{ns:help}}:Перевірка сторінки",
 	"log-action-filter-review": "Тип огляду:",
 	"log-action-filter-review-accept": "Ручне затвердження",

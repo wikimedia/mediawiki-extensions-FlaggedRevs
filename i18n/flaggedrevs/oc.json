@@ -158,6 +158,5 @@
 	"revreview-unlocked-title": "Las modificacions d'aquesta pagina necessitan pas de relectura.",
 	"revreview-locked": "'''Nòta :''' las modificacions devon èsser [[{{MediaWiki:Validationpage}}|repassadas]] abans d’èsser afichadas sus aquesta pagina.",
 	"revreview-unlocked": "'''Nòta :''' las modificacions necessitan pas cap de [[{{MediaWiki:Validationpage}}|relecturas]] abans d’èsser afichadas sus aquesta pagina.",
-	"log-show-hide-review": "$1 l'istoric de las relecturas",
 	"validationpage": "{{ns:help}}:Validacion de la pagina"
 }

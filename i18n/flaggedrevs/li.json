@@ -178,6 +178,5 @@
 	"tooltip-ca-default": "Instellinge kwaliteitsbewaking",
 	"flaggedrevs-protect-legend": "Controleer automatisch bewerkinge ([[{{MediaWiki:Validationpage}}|?]])",
 	"flaggedrevs-protect-none": "Staon alle gebroekers toe",
-	"log-show-hide-review": "Waarderingslogbook $1",
 	"validationpage": "{{ns:help}}:Pazjenaredaksie"
 }

@@ -169,6 +169,5 @@
 	"revreview-unlocked-title": "Změny na toś tom boku njepominaju se pśeglědanje.",
 	"revreview-locked": "'''Glědaj:''' Změny muse se [[{{MediaWiki:Validationpage}}|pśeglědaś]], pjerwjej až pokazuju se cytarjam na toś tom boku.",
 	"revreview-unlocked": "'''Glědaj:''' Změny njetrjebaju [[{{MediaWiki:Validationpage}}|pśeglědanje]], pjerwjej až pokazuju se cytarjam na toś tom boku.",
-	"log-show-hide-review": "Protokol pśespytanjow $1",
 	"validationpage": "{{ns:help}}:Wobwěsćenje bokow"
 }

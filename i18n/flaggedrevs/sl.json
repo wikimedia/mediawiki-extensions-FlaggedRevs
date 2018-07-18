@@ -168,6 +168,5 @@
 	"revreview-unlocked-title": "Urejanja te strani ne zahtevajo pregleda.",
 	"revreview-locked": "'''Opomba:''' Urejanja morajo biti [[{{MediaWiki:Validationpage}}|pregledana]], preden so prikazana bralcem na tej strani.",
 	"revreview-unlocked": "'''Opomba:''' Urejanja ne rabijo biti [[{{MediaWiki:Validationpage}}|pregledana]], preden so prikazana bralcem na tej strani.",
-	"log-show-hide-review": "$1 dnevnik pregledov",
 	"validationpage": "{{ns:help}}:Vrednotenje strani"
 }

@@ -187,7 +187,6 @@
 	"revreview-unlocked-title": "Redigeringer av denne siden krever ikke gjennomgang.",
 	"revreview-locked": "'''Merk:''' Redigeringer må [[{{MediaWiki:Validationpage}}|gjennomgås]] før de vises for lesere av denne siden.",
 	"revreview-unlocked": "'''Merk:''' Redigeringer krever ikke [[{{MediaWiki:Validationpage}}|gjennomgang]] før de vises for lesere av denne siden.",
-	"log-show-hide-review": "$1 gjennomgangslogg",
 	"validationpage": "{{ns:help}}:Sidegodkjenning",
 	"log-action-filter-review": "Type granskning:",
 	"log-action-filter-review-accept": "Manuell akseptering",

@@ -169,6 +169,5 @@
 	"revreview-unlocked-title": "Změny na tutej stronje njewužaduja sej přepruwowanje.",
 	"revreview-locked": "'''Kedźbu:''' Změny dyrbja so [[{{MediaWiki:Validationpage}}|přepruwować]], prjedy hač so čitarjam na tutej stronje pokazaja.",
 	"revreview-unlocked": "'''Kedźbu: Změny wužaduja sej [[{{MediaWiki:Validationpage}}|přepruwowanje]], prjedy hač čitarjam na tutej stronje pokazaja.",
-	"log-show-hide-review": "Protokol kontrolow $1",
 	"validationpage": "{{ns:help}}:Přehladanje strony"
 }

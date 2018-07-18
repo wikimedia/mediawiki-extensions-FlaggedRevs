@@ -175,6 +175,5 @@
 	"revreview-unlocked-title": "Redaktoj al ĉi tiu paĝoj ne bezonas kontroladon.",
 	"revreview-locked": "Redaktoj devas esti [[{{MediaWiki:Validationpage}}|kontrolitaj]] antaŭ montrataj al legantoj en ĉi tiu paĝo.",
 	"revreview-unlocked": "'''Notu:''' Redaktoj ne devigas [[{{MediaWiki:Validationpage}}|kontroladon]] antaŭ montrante al legantoj de ĉi tiu paĝo.",
-	"log-show-hide-review": "$1 protokolo pri kontrolado",
 	"validationpage": "{{ns:help}}:Validigo de paĝo"
 }

@@ -168,6 +168,5 @@
 	"revreview-unlocked-title": "Le modìfiche a sta pàgina-sì a l'han nen da manca d'esse revisionà.",
 	"revreview-locked": "'''Nòta.''' Le modìfiche a devo esse [[{{MediaWiki:Validationpage}}|revisionà]] prima d'esse smonùe ai letor su costa pàgina.",
 	"revreview-unlocked": "'''Nòta.''' Le modìfiche a l'han nen da manca ëd na [[{{MediaWiki:Validationpage}}|revision]] prima d'esse smonùe ai letor su costa pàgina.",
-	"log-show-hide-review": "$1 registr ëd le revision",
 	"validationpage": "{{ns:help}}:Validassion ëd la pàgina"
 }

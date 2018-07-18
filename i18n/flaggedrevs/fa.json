@@ -189,7 +189,6 @@
 	"revreview-unlocked-title": "ویرایش‌های این صفحه نیازی به بازبینی ندارند.",
 	"revreview-locked": "'''توجه:''' ویرایش‌ها باید پیش از نمایش دادە شدن به خوانندگان در این صفحه، [[{{MediaWiki:Validationpage}}|بازبینی]] شوند.",
 	"revreview-unlocked": "'''توجه:''' .ویرایش‌ها بایذ قبل از اینکه نمایش یابند در آن صفحه  [[{{MediaWiki:Validationpage}}|بازبینی]] شوند.",
-	"log-show-hide-review": "$1 سیاههٔ بازبینی",
 	"validationpage": "{{ns:help}}:اعتبار صفحه",
 	"log-action-filter-review": "نوع بازبینی:",
 	"log-action-filter-review-accept": "تائید دستی",

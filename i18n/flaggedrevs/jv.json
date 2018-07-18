@@ -111,6 +111,5 @@
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Kaca sing durung kaulas]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Suntingan katundha]",
 	"revreview-locked-title": "Suntingan kaca iki mbutuhaké pangulasan.",
 	"revreview-unlocked-title": "Suntingan kaca iki ora mbutuhaké pangulasan.",
-	"log-show-hide-review": "$1 log pangulasan",
 	"validationpage": "{{ns:help}}:Validation kaca"
 }

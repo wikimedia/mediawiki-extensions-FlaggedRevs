@@ -193,7 +193,6 @@
 	"revreview-unlocked-title": "As edicións feitas nesta páxina non necesitan revisión.",
 	"revreview-locked": "'''Nota:''' As edicións deben ser [[{{MediaWiki:Validationpage}}|revisadas]] antes de se mostraren aos lectores nesta páxina.",
 	"revreview-unlocked": "'''Nota:''' As edicións non necesitan [[{{MediaWiki:Validationpage}}|revisión]] antes de se mostraren aos lectores nesta páxina.",
-	"log-show-hide-review": "$1 o rexistro de revisións",
 	"validationpage": "{{ns:help}}:Validación das páxinas",
 	"log-action-filter-review": "Tipo de revisiónː",
 	"log-action-filter-review-accept": "Aceptación manual",

@@ -197,7 +197,6 @@
 	"revreview-unlocked-title": "لا يتطلب تعديل هذه الصفحة أن تراجع.",
 	"revreview-locked": "'''ملاحظة:''' يجب أن [[{{MediaWiki:Validationpage}}|تراجع]] التعديلات على هذه الصفحة قبل أن تعرض للقراء.",
 	"revreview-unlocked": "'''ملاحظة:''' لا يجب أن [[{{MediaWiki:Validationpage}}|تراجع]] التعديلات على هذه الصفحة قبل أن تعرض للقراء.",
-	"log-show-hide-review": "$1 سجل المراجعة",
 	"validationpage": "{{ns:help}}:تحقيق الصفحة",
 	"log-action-filter-review": "نوع المراجعة:",
 	"log-action-filter-review-accept": "قبول يدوي",

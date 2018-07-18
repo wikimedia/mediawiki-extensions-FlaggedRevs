@@ -186,7 +186,6 @@
 	"revreview-unlocked-title": "Izmjene na ovoj stranici ne zahtijevaju pregled.",
 	"revreview-locked": "'''Napomena:''' Izmjene moraju biti [[{{MediaWiki:Validationpage}}|pregledane]] prije nego što budu prikazane čitaocima.",
 	"revreview-unlocked": "'''Napomena:''' Izmjene ne moraju biti [[{{MediaWiki:Validationpage}}|pregledane]] prije nego što budu prikazane čitaocima.",
-	"log-show-hide-review": "$1 zapisnik pregledavanja",
 	"validationpage": "{{ns:help}}:Pregled stranice",
 	"log-action-filter-review": "Vrsta pregleda:",
 	"log-action-filter-review-accept": "Ručno pregledano",

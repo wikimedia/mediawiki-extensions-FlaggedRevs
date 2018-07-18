@@ -170,6 +170,5 @@
 	"revreview-unlocked-title": "Bearbeitige an däre Syte mien nit iberprieft wäre.",
 	"revreview-locked": "'''Wichtig''': Bearbeitige mien [[{{MediaWiki:Validationpage}}|iberprieft]], voreb si fir Läser uf däre Syte aazeigt wäre.",
 	"revreview-unlocked": "'''Wichtig''': Bearbeitige bruuche nit [[{{MediaWiki:Validationpage}}|iberprieft]] wäre, voreb si fir Läser uf däre Syte aazeigt wäre.",
-	"log-show-hide-review": "Versionsmarkierigs-Logbuech $1",
 	"validationpage": "{{ns:project}}:Gesichtete und geprüfte Versionen"
 }

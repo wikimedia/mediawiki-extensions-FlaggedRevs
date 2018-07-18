@@ -191,6 +191,5 @@
 	"revreview-unlocked-title": "このページの編集には査読は必要ありません。",
 	"revreview-locked": "'''注意:''' 編集がこのページの読者に表示される前に[[{{MediaWiki:Validationpage}}|査読]]がなされなければなりません。",
 	"revreview-unlocked": "編集がこのページの読者に表示される前に[[{{MediaWiki:Validationpage}}|査読]]がなされる必要はありません。",
-	"log-show-hide-review": "査読記録を$1",
 	"validationpage": "{{ns:help}}:ページの判定"
 }

@@ -177,7 +177,6 @@
 	"revreview-unlocked-title": "Bewerkingen aan deze pagina hoeven niet gecontroleerd te worden.",
 	"revreview-locked": "'''Let op:''' Bewerkingen aan deze pagina moeten [[{{MediaWiki:Validationpage}}|gecontroleerd]] worden voordat ze worden weergegeven.",
 	"revreview-unlocked": "'''Let op:''' Bewerkingen aan deze pagina hoeven niet [[{{MediaWiki:Validationpage}}|gecontroleerd]] te worden voordat ze worden weergegeven.",
-	"log-show-hide-review": "waarderingslogboek $1",
 	"validationpage": "{{ns:help}}:Paginaredactie",
 	"log-action-filter-review-accept": "Handmatig geaccepteerd",
 	"log-action-filter-review-autoaccept": "Automatisch geaccepteerd",

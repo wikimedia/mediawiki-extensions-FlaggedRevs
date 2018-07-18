@@ -186,7 +186,6 @@
 	"revreview-unlocked-title": "Verniya mucnayîşê ena pele vurnayîşan gani niyo ke kontrol bibi.",
 	"revreview-locked": "'''Diqet:''' Verniya mucnayîşê ena pele wendekaran re, vurnayîşan gani [[{{MediaWiki:Validationpage}}|kontrol]] bibi.",
 	"revreview-unlocked": "Verniya mucnayîşê ena pele wendekaran re, vurnayîşan gani niyo ke [[{{MediaWiki:Validationpage}}|kontrol]] bibi.",
-	"log-show-hide-review": "rocaneya çım serçarnayişi $1",
 	"validationpage": "{{ns:help}}:tesdiq kerdışê peli",
 	"log-action-filter-review": "Babetê verqayti:",
 	"log-action-filter-review-accept": "Berdestname qebul ke",
