@@ -11,7 +11,8 @@
 			"Glavkos",
 			"Omnipaedista",
 			"ZaDiak",
-			"Protnet"
+			"Protnet",
+			"Nikosgranturismogt"
 		]
 	},
 	"action-review": "επισκόπηση εκδόσεων",
@@ -184,5 +185,6 @@
 	"revreview-unlocked-title": "Επεξεργασίες σε αυτή τη σελίδα απαιτούν επιθεώρηση.",
 	"revreview-locked": "'''Σημείωση:''' Οι επεξεργασίες θα πρέπει να  [[{{MediaWiki:Validationpage}}|επιθεωρούνται]] πριν να εμφανιστούν στους αναγνώστες σε αυτή τη σελίδα.",
 	"revreview-unlocked": "'''Σημείωση:''' Οι επεξεργασίες δεν απαιτούν  [[{{MediaWiki:Validationpage}}|επιθεώρηση]] πριν να εμφανιστούν στους αναγνώστες σε αυτήν την σελίδα.",
+	"logeventslist-review-log": "Αρχείο επιθεωρήσεων",
 	"validationpage": "{{ns:help}}:Επικύρωση σελίδας"
 }

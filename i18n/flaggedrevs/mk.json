@@ -189,6 +189,7 @@
 	"revreview-unlocked-title": "Уредувањата на оваа страница не бараат преглед.",
 	"revreview-locked": "'''Напомена:''' Уредувањата мора да се [[{{MediaWiki:Validationpage}}|проверат]] пред да бидат видливи за читателите на оваа страница.",
 	"revreview-unlocked": "'''Напомена:''' Уредувањата не бараат [[{{MediaWiki:Validationpage}}|проверка]] пред да бидат видливи за читателите на оваа страница.",
+	"logeventslist-review-log": "Дневник на оценувања",
 	"validationpage": "{{ns:help}}:Проверка на страница",
 	"log-action-filter-review": "Вид на проверка:",
 	"log-action-filter-review-accept": "Рачно прифаќање",

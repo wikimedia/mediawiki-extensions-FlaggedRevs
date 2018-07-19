@@ -205,6 +205,7 @@
 	"revreview-unlocked-title": "As edições a esta página não precisam de ser revisadas.",
 	"revreview-locked": "'''Nota:''' As edições precisam ser [[{{MediaWiki:Validationpage}}|revisadas]] antes de serem apresentadas aos leitores nesta página.",
 	"revreview-unlocked": "'''Nota:''' As edições não precisam ser [[{{MediaWiki:Validationpage}}|revisadas]] antes de serem apresentadas aos leitores nesta página.",
+	"logeventslist-review-log": "Registro de análise de edições",
 	"validationpage": "{{ns:help}}:Validação de páginas",
 	"log-action-filter-review": "Tipo de revisão:",
 	"log-action-filter-review-accept": "Aceitar manualmente",
