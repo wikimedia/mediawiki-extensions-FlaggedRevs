@@ -187,6 +187,7 @@
 	"revreview-unlocked-title": "Bu səhifədəki dəyişiklikləri yoxlamağa ehtiyac yoxdur.",
 	"revreview-locked": "'''Qeyd:''' Dəyişikliklər bu səhifədəki oxuculara göstərilməzdən əvvəl [[{{MediaWiki:Validationpage}}|nəzərdən keçirilmiş]] olmalıdır.",
 	"revreview-unlocked": "'' 'Qeyd:' '' Dəyişikliklər bu səhifədəki oxuculara göstərilməzdən əvvəl [[{{MediaWiki:Validationpage}}|baxış]] tələb etmir.",
+	"logeventslist-review-log": "İncələmə gündəliyi",
 	"validationpage": "{{ns:help}}:Səhifənin təsdiqlənməsi",
 	"log-action-filter-review": "Yoxlama növü:",
 	"log-action-filter-review-accept": "Əl ilə qəbul et",
