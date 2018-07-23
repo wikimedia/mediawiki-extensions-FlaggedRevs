@@ -405,9 +405,12 @@ class FlaggablePageView extends ContextSource {
 			$tagTypeClass = 'flaggedrevs_unreviewed';
 		}
 		# Some checks for which tag CSS to use
+		$nomobile = 'nomobile';
 		if ( $this->useSimpleUI() ) {
 			$tagClass = 'flaggedrevs_short';
 		} else {
+			// As it is the only message for non-simple UI, it must be displayed
+			$nomobile = '';
 			if ( !$frev ) {
 				$tagClass = 'flaggedrevs_notice';
 			} elseif ( FlaggedRevs::isPristine( $frev->getTags() ) ) {
@@ -421,7 +424,7 @@ class FlaggablePageView extends ContextSource {
 		# Wrap tag contents in a div, with class indicating sync status and
 		# whether stable version is shown (for customization of the notice)
 		if ( $tag != '' ) {
-			$css = "{$tagClass} {$tagTypeClass} plainlinks noprint nomobile";
+			$css = "{$tagClass} {$tagTypeClass} plainlinks noprint {$nomobile}";
 			$notice = "<div id=\"mw-fr-revisiontag\" class=\"{$css}\">{$tag}</div>\n";
 			$this->reviewNotice .= $notice;
 		}

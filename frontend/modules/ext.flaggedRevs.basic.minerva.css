@@ -1,0 +1,15 @@
+/**
+ * FlaggedRevs Minerva stylesheet
+ * @author stjn
+ */
+
+/* Standard User Interface */
+.flaggedrevs_basic,
+.flaggedrevs_preview {
+	color: #72777d;
+	font-size: 0.8em;
+}
+
+.flaggedrevs-icon {
+	display: none;
+}
