@@ -1,12 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Lloffiwr"
+			"Lloffiwr",
+			"Rance"
 		]
 	},
 	"revreview-log-details-hide": "ficha maelezo mengine",
 	"revreview-style-2": "Nzuri",
 	"revreview-filter-all": "zote",
 	"revreview-filter-auto": "Kwa kujiendesha",
-	"revreview-restriction-none": "usichague"
+	"revreview-restriction-none": "usichague",
+	"logeventslist-review-log": "Tathmini taarifa"
 }
