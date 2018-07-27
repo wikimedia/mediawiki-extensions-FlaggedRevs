@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"AnakngAraw"
+			"AnakngAraw",
+			"Sky Harbor"
 		]
 	},
 	"action-review": "Suriing muli ang mga binago",
@@ -174,5 +175,6 @@
 	"revreview-unlocked-title": "Hindi nangangailangan ng muling pagsusuri ang mga pagbabago sa pahinang ito.",
 	"revreview-locked": "'''Paunawa:''' Dapat na [[{{MediaWiki:Validationpage}}|suriin]] ang mga pagbabago bago ipakita sa mga mambabasa ng pahinang ito.",
 	"revreview-unlocked": "'''Paunawa:''' Hindi nangangailangan ng [[{{MediaWiki:Validationpage}}|pagsusuri]] ang mga pagbabago bago ipakita sa mga mambabasa ng pahinang ito.",
+	"logeventslist-review-log": "Suriin ang log",
 	"validationpage": "{{ns:help}}:Pagpapatunay ng pahina"
 }
