@@ -1925,7 +1925,7 @@ class FlaggablePageView extends ContextSource {
 	/**
 	 * If submitting the edit will leave it pending, then change the button text
 	 * Note: interacts with 'review pending changes' checkbox
-	 * @TODO: would be nice if hook passed in button attribs, not XML
+	 * @todo would be nice if hook passed in button attribs, not XML
 	 * @param EditPage $editPage
 	 * @param array &$buttons
 	 * @return true
