@@ -170,5 +170,6 @@
 	"revreview-unlocked-title": "Sellel leheküljel tehtud muudatused ei vaja ülevaatamist.",
 	"revreview-locked": "'''Märkus:''' Sellel leheküljel peab muudatused enne lugejatele kuvamist [[{{MediaWiki:Validationpage}}|üle vaatama]].",
 	"revreview-unlocked": "'''Märkus:''' Sellel leheküljel ei pea muudatusi enne lugejatele kuvamist [[{{MediaWiki:Validationpage}}|üle vaatama]].",
+	"logeventslist-review-log": "Ülevaatuslogi",
 	"validationpage": "{{ns:help}}:Lehekülgede ülevaatus"
 }

@@ -204,6 +204,7 @@
 	"revreview-unlocked-title": "Zmiany treści tej strony nie wymagają przejrzenia.",
 	"revreview-locked": "Edycje muszą zostać [[{{MediaWiki:Validationpage}}|oznaczone]], zanim zostaną wyświetlone czytelnikom na tej stronie.",
 	"revreview-unlocked": "Edycje nie wymagają [[{{MediaWiki:Validationpage}}|oznaczenia]], by zostały wyświetlone na tej stronie.",
+	"logeventslist-review-log": "Rejestr oznaczania",
 	"validationpage": "{{ns:help}}:Wersje oznaczone",
 	"log-action-filter-review": "Typ przeglądu:",
 	"log-action-filter-review-accept": "Ręczna akceptacja",
@@ -212,5 +213,6 @@
 	"log-action-filter-stable": "Rodzaj zmiany konfiguracji:",
 	"log-action-filter-stable-config": "Nowa konfiguracja",
 	"log-action-filter-stable-modify": "Modyfikacja konfiguracji",
-	"log-action-filter-stable-reset": "Reset konfiguracji"
+	"log-action-filter-stable-reset": "Reset konfiguracji",
+	"log-action-filter-stable-move_stable": "Przeniesienie konfiguracji"
 }
