@@ -18,7 +18,8 @@
 			"Rapsar",
 			"Mavrikant",
 			"Asmen",
-			"Diyapazon"
+			"Diyapazon",
+			"HakanIST"
 		]
 	},
 	"action-review": "revizyonları inceler",
@@ -168,7 +169,7 @@
 	"revreview-filter-auto": "Otomatik",
 	"revreview-filter-manual": "Manuel",
 	"revreview-levelfilter": "Düzey:",
-	"revreview-lev-all": "yewê nê yewê",
+	"revreview-lev-all": "herhangi",
 	"revreview-lev-basic": "kontrol edilmiş",
 	"revreview-lev-quality": "kaliteli",
 	"revreview-lev-pristine": "asıl",
