@@ -363,8 +363,8 @@ $localModulePath = __DIR__ . '/frontend/modules/';
 $remoteModulePath = 'FlaggedRevs/frontend/modules';
 $wgResourceModules['ext.flaggedRevs.basic'] = [
 	'position'		=> 'top',
-	'styles'        => [ 'ext.flaggedRevs.basic.css' ],
 	'skinStyles'    => [
+		'default' => [ 'ext.flaggedRevs.basic.css' ],
 		'minerva' => [ 'ext.flaggedRevs.basic.minerva.css' ],
 	],
 	'targets'       => [ 'desktop', 'mobile' ],
