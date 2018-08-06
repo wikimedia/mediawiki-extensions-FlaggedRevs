@@ -14,7 +14,8 @@
 			"Macofe",
 			"Ciencia Al Poder",
 			"Indiralena",
-			"Fitoschido"
+			"Fitoschido",
+			"Jelou"
 		]
 	},
 	"stabilization-tab": "vetar",
@@ -34,7 +35,7 @@
 	"stabilization-comment": "Razón:",
 	"stabilization-otherreason": "Otro motivo:",
 	"stabilization-expiry": "Vence:",
-	"stabilization-othertime": "Otra vez:",
+	"stabilization-othertime": "En otro momento:",
 	"stabilization-def-short": "Predeterminado",
 	"stabilization-def-short-0": "Actual",
 	"stabilization-def-short-1": "Estable",
@@ -46,6 +47,6 @@
 	"stabilize_expiry_invalid": "La fecha de vencimiento no es válida.",
 	"stabilize_expiry_old": "Este tiempo de vencimiento ya ha pasado.",
 	"stabilize_denied": "Permiso denegado.",
-	"stabilize-expiring": "vence el $1 (UTC)",
+	"stabilize-expiring": "expira el $1 (UTC)",
 	"stabilization-review": "Marcar la versión actual verificada"
 }

@@ -7,7 +7,8 @@
 			"Vivaelcelta",
 			"Xosé",
 			"Fitoschido",
-			"Elisardojm"
+			"Elisardojm",
+			"Banjo"
 		]
 	},
 	"action-review": "revisar revisións",
@@ -193,6 +194,7 @@
 	"revreview-unlocked-title": "As edicións feitas nesta páxina non necesitan revisión.",
 	"revreview-locked": "'''Nota:''' As edicións deben ser [[{{MediaWiki:Validationpage}}|revisadas]] antes de se mostraren aos lectores nesta páxina.",
 	"revreview-unlocked": "'''Nota:''' As edicións non necesitan [[{{MediaWiki:Validationpage}}|revisión]] antes de se mostraren aos lectores nesta páxina.",
+	"logeventslist-review-log": "Rexistro de revisións",
 	"validationpage": "{{ns:help}}:Validación das páxinas",
 	"log-action-filter-review": "Tipo de revisiónː",
 	"log-action-filter-review-accept": "Aceptación manual",
@@ -201,5 +203,6 @@
 	"log-action-filter-stable": "Tipo de modificación da configuraciónː",
 	"log-action-filter-stable-config": "Nova configuración",
 	"log-action-filter-stable-modify": "Configuración modificada",
-	"log-action-filter-stable-reset": "Reinicialización da configuración"
+	"log-action-filter-stable-reset": "Reinicialización da configuración",
+	"log-action-filter-stable-move_stable": "Configuración modificada"
 }

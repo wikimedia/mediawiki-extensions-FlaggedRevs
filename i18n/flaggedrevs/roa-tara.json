@@ -183,6 +183,7 @@
 	"revreview-unlocked-title": "Le cangiaminde 'a sta pàgene non ge abbesognene de reviste.",
 	"revreview-locked": "'''Vide Bbuène:''' Le cangiaminde onna essere [[{{MediaWiki:Validationpage}}|reviste]] apprime ca avènene fatte vedè a le letture sus a sta pàgene.",
 	"revreview-unlocked": "'''Note:''' Le cangiaminde non ge richiedene [[{{MediaWiki:Validationpage}}|reviste]] apprime ca avènene fatte vedè sus a sta pàgene.",
+	"logeventslist-review-log": "Archivije de le revisitaminde",
 	"validationpage": "{{ns:help}}:Validazione d'a vôsce",
 	"log-action-filter-review": "Tipe de revisione:",
 	"log-action-filter-review-accept": "Accette a màne",

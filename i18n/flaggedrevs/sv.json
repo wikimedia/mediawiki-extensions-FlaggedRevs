@@ -190,6 +190,7 @@
 	"revreview-unlocked-title": "Redigeringar av den här sidan kräver inte granskning.",
 	"revreview-locked": "'''OBS:''' Redigeringar måste [[{{MediaWiki:Validationpage}}|granskas]] innan de visas för läsare på den här sidan.",
 	"revreview-unlocked": "'''OBS:''' Redigeringar behöver inte [[{{MediaWiki:Validationpage}}|granskas]] innan de visas för läsare på den här sidan.",
+	"logeventslist-review-log": "Granskningslogg",
 	"validationpage": "{{ns:help}}:Sidvalidering",
 	"log-action-filter-review": "Typ av granskning:",
 	"log-action-filter-review-accept": "Manuell acceptering",

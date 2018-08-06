@@ -44,7 +44,7 @@
 	"revreview-log": "Коментар:",
 	"revreview-main": "Морате изабрати одређену измену странице са садржајем да бисте је проверили.\nПогледајте [[Special:Unreviewedpages|списак непроверених страница]].",
 	"revreview-stable1": "Можда желите погледати [{{fullurl:$1|stableid=$2}} ову означену измену] и проверити да ли сада постоји [{{fullurl:$1|stable=1}} стабилна верзија] ове странице.",
-	"revreview-stable2": "Можда бисте хтели да видите [{{fullurl:$1|stable=1}} стабилну верзију] ове странице.",
+	"revreview-stable2": "Можда желите да погледате [{{fullurl:$1|stable=1}} стабилну верзију] ове странице.",
 	"revreview-submit": "Пошаљи",
 	"revreview-submitting": "Шаљем…",
 	"revreview-submit-review": "Прихвати измену",

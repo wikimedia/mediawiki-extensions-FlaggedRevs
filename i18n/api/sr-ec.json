@@ -30,7 +30,7 @@
 	"apihelp-stabilize-param-default": "Подразумевана измена за приказ.",
 	"apihelp-stabilize-param-autoreview": "Ограничење самопровере.",
 	"apihelp-stabilize-param-review": "Провери ову страницу.",
-	"apihelp-stabilize-param-protectlevel": "Ниво заштите од провере.",
+	"apihelp-stabilize-param-protectlevel": "Ниво заштите од прегледа.",
 	"apierror-flaggedrevs-notreviewable": "Наведена страница није прегледива.",
 	"apierror-flaggedrevs-pagedoesnotexist": "Дата страница не постоји.",
 	"apierror-flaggedrevs-badflags": "Наведене ознаке нису исправне.",

@@ -190,6 +190,7 @@
 	"revreview-unlocked-title": "Les ediciones d'esta páxina nun necesiten revisión.",
 	"revreview-locked": "'''Avisu:''' Les ediciones tienen de [[{{MediaWiki:Validationpage}}|revisase]] enantes de que s'amuesen a los llectores d'esta páxina.",
 	"revreview-unlocked": "'''Avisu:''' Les ediciones nun necesiten [[{{MediaWiki:Validationpage}}|revisión]] enantes de que s'amuesen a los llectores d'esta páxina.",
+	"logeventslist-review-log": "Rexistru de revisiones",
 	"validationpage": "{{ns:help}}:Convalidación de la páxina",
 	"log-action-filter-review": "Tipu de revisión:",
 	"log-action-filter-review-accept": "Aceptación manual",

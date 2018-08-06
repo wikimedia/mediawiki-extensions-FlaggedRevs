@@ -181,5 +181,6 @@
 	"revreview-unlocked-title": "ამ გვერდის რედაქტირებები არ უნდა მოინიშნონ.",
 	"revreview-locked": "'''ყურადღება:''' გამოქვეყნებამდე შეტანილი ცვლილება [[{{MediaWiki:Validationpage}}|შემოწმდეს]].",
 	"revreview-unlocked": "'''ყურადღება:''' რედაქტირებებს არ ჭირდება [[{{MediaWiki:Validationpage}}|მონიშვნა]], სანამ ისინი ყველა მკითხველისათვის ნაჩვენები არ იქნება.",
+	"logeventslist-review-log": "მიმოხილვის ჟურნალი",
 	"validationpage": "{{ns:help}}:გვერდების შემოწმება"
 }
