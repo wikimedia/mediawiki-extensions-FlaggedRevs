@@ -63,7 +63,7 @@ class FRUserActivity {
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingPage', $pageId );
 		$val = ObjectCache::getMainStashInstance()->get( $key );
 
-		return ( count( $val ) == 3 )
+		return is_array( $val ) && count( $val ) == 3
 			? [ $val[0], $val[1] ]
 			: [ null, null ];
 	}
@@ -124,7 +124,7 @@ class FRUserActivity {
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
 		$val = ObjectCache::getMainStashInstance()->get( $key );
 
-		return ( count( $val ) == 3 )
+		return is_array( $val ) && count( $val ) == 3
 			? [ $val[0], $val[1] ]
 			: [ null, null ];
 	}
