@@ -25,7 +25,7 @@
 	"stabilization-restrict-none": "Без додатних ограничења",
 	"stabilization-submit": "Прихвати",
 	"stabilization-notexists": "Нема странице под називом „[[:$1|$1]]“.\nПодешавање није могуће.",
-	"stabilization-notcontent": "Страница „[[:$1|$1]]“ не може бити проверена. Подешавање није могуће.",
+	"stabilization-notcontent": "Страница „[[:$1|$1]]“ не може да буде прегледана.\nПодешавање није могуће.",
 	"stabilization-comment": "Разлог:",
 	"stabilization-otherreason": "Други разлог:",
 	"stabilization-expiry": "Истиче:",

@@ -17,6 +17,7 @@
 	"apihelp-stabilize-param-reason": "Powód.",
 	"apihelp-stabilize-param-watch": "Obserwuj tę stronę.",
 	"apihelp-stabilize-param-review": "Przejrzyj tę stronę.",
+	"apierror-flaggedrevs-cantreview": "Nie masz wymaganych uprawnień do ustawiania określonych flag.",
 	"apierror-flaggedrevs-badflags": "Wybrane znaczniki nie są poprawne.",
 	"apierror-flaggedrevs-cantunreview": "Nie masz odpowiednich uprawnień do usuwania znaczników."
 }
