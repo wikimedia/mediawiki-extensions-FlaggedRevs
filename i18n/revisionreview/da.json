@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Peter Alberti"
+			"Peter Alberti",
+			"Saederup92"
 		]
 	},
+	"revreview-log": "Kommentar:",
 	"revreview-submit": "Indsend",
 	"revreview-submitting": "Indsender…"
 }

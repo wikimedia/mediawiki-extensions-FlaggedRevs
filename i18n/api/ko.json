@@ -4,9 +4,10 @@
 			"Ykhwong"
 		]
 	},
+	"apihelp-query+configuredpages-param-namespace": "열거할 이름공간입니다.",
 	"apihelp-query+reviewedpages-param-namespace": "열거할 이름공간입니다.",
 	"apihelp-query+reviewedpages-param-filterredir": "넘겨주기를 위한 필터링 방법",
-	"apihelp-query+reviewedpages-param-limit": "반활한 총 문서 수입니다.",
+	"apihelp-query+reviewedpages-param-limit": "반환할 총 문서 수입니다.",
 	"apihelp-query+reviewedpages-example-1": "검토된 문서 목록 보기",
 	"apihelp-stabilize-summary-general": "문서 안정성 설정을 변경합니다.",
 	"apihelp-stabilize-param-reason": "이유입니다.",

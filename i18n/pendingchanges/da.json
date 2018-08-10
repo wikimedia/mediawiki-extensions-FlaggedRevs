@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Tjernobyl"
+			"Tjernobyl",
+			"Saederup92"
 		]
 	},
+	"pendingchanges-hours": "($1 {{PLURAL:$1|time|timer}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|dag|dage}})",
 	"pendingchanges-recent": "(mindre end 1 time)",
 	"pendingchanges-category": "Kategori:"
 }

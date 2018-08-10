@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Froztbyte"
+			"Froztbyte",
+			"Saederup92"
 		]
 	},
 	"configuredpages-none": "Der er ingen sider i denne liste.",
 	"configuredpages-config": "Konfiguration",
+	"configuredpages-def-draft": "seneste version",
 	"configuredpages-def-stable": "publiseret version"
 }

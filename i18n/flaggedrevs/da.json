@@ -6,7 +6,8 @@
 			"Jon Harald Søby",
 			"Tjernobyl",
 			"Sarrus",
-			"Joedalton"
+			"Joedalton",
+			"Saederup92"
 		]
 	},
 	"action-review": "gennemgå revisioner",
@@ -23,6 +24,7 @@
 	"flaggedrevs-pref-stable-1": "Vis altid den stabile version (hvis der findes én)",
 	"flaggedrevs-pref-stable-2": "Vis altid den nyeste version",
 	"flaggedrevs-prefs-watch": "Tilføj sider jeg gennemgår til min overvågningsliste",
+	"flaggedrevs-hidereviewed-hide": "Skjul",
 	"flaggedrevs-hidereviewed-show": "Vis",
 	"flaggedrevs-rcfilters-reviewed-desc": "Redigeringer som er blevet korrekturlæst.",
 	"group-editor": "Skribenter",
@@ -39,11 +41,14 @@
 	"revreview-hist-quality": "kvalitetsversion",
 	"revreview-hist-basic": "kontrolleret revision",
 	"revreview-hist-quality-user": "godkendt af [[User:$3|$3]]",
+	"revreview-diff-toggle-show": "vis disse ændringer",
+	"revreview-diff-toggle-hide": "skjul disse ændringer",
 	"revreview-log-details-show": "vis detaljer",
 	"revreview-log-details-hide": "skjul detaljer",
 	"review-logentry-id": "revision: $2",
 	"reviewer": "Korrekturlæser",
 	"revreview-accuracy-4": "Fremhævet",
+	"revreview-depth": "Dybde",
 	"revreview-style-0": "Utilstrækkelig",
 	"revreview-style-1": "Acceptabel",
 	"revreview-style-2": "God",
