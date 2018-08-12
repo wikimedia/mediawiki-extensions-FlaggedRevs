@@ -16,7 +16,8 @@
 			"Ата",
 			"Тест",
 			"Lockal",
-			"Piramidion"
+			"Piramidion",
+			"Vlad5250"
 		]
 	},
 	"action-review": "перевірка версій",
@@ -53,6 +54,12 @@
 	"group-autoreview": "Авторедактори",
 	"group-autoreview-member": "{{GENDER:$1|авторедактор|авторедакторка}}",
 	"grouppage-autoreview": "{{ns:project}}:Авторедактор",
+	"group-editor.css": "/* Розміщений тут CSS-код буде використаний тільки для редакторів */",
+	"group-editor.js": "/* Розміщений тут код JavaScript буде завантажений тільки для редакторів */",
+	"group-reviewer.css": "/* Розміщений тут CSS-код буде використаний тільки для рецензентів */",
+	"group-reviewer.js": "/* Розміщений тут код JavaScript буде завантажений тільки для рецензентів */",
+	"group-autoreview.css": "/* Розміщений тут CSS-код буде використаний для тільки для авторедакторів */",
+	"group-autoreview.js": "/* Розміщений тут код JavaScript буде завантажений тільки для авторедакторів */",
 	"logentry-review-approve": "$1 {{GENDER:$2|перевірив|перевірила}} версію $3",
 	"logentry-review-approve-auto": "$1 автоматично {{GENDER:$2|перевірив|перевірила}} версію $3",
 	"logentry-review-unapprove": "$1 {{GENDER:$2|зняв|зняла}} позначку про перевірку версії $3",
