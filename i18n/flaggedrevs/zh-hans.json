@@ -18,7 +18,8 @@
 			"Xiaomingyan",
 			"阿pp",
 			"飞舞回堂前",
-			"NeverBehave"
+			"NeverBehave",
+			"Hanyanbo98"
 		]
 	},
 	"action-review": "复核版本",
@@ -204,6 +205,7 @@
 	"revreview-unlocked-title": "对该页面的编辑不需要复核。",
 	"revreview-locked": "'''注意：'''该页面的编辑在显示给读者前必须[[{{MediaWiki:Validationpage}}|复核]]。",
 	"revreview-unlocked": "'''注意：'''该页面的编辑在显示给读者前不需要[[{{MediaWiki:Validationpage}}|复核]]。",
+	"logeventslist-review-log": "复核日志",
 	"validationpage": "{{ns:help}}:页面确认",
 	"log-action-filter-review": "复核类型：",
 	"log-action-filter-review-accept": "手动接受",
