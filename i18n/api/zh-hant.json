@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Liuxinyu970226",
-			"Kly"
+			"Kly",
+			"LNDDYL"
 		]
 	},
 	"apihelp-flagconfig-description": "取得此站台有關審查標記設置的基本資訊。\n\n替各標記回傳以下參數：\n;name：此標記的鍵值名稱。\n;levels：標記的級別號碼（「未標記」以上）。\n;tier2：標記必須達到 2（優質）的修訂之級別。\n;tier3：標記必須達到 3（原始）的修訂之級別。\n各標籤的已標記修訂需分配到級別修訂。所有標籤都符合的最高等級，是整體修訂的修訂等級。",
@@ -17,7 +18,7 @@
 	"apihelp-query+configuredpages-param-default": "預設頁面檢視版本。",
 	"apihelp-query+configuredpages-param-autoreview": "審查/自動審查限制級別。",
 	"apihelp-query+configuredpages-param-limit": "要回傳的頁面總數。",
-	"apihelp-query+configuredpages-example-1": "設定有自定義審查設置的頁面清單",
+	"apihelp-query+configuredpages-example-1": "顯示包含自訂檢閱設定的頁面清單",
 	"apihelp-query+configuredpages-example-2": "取得一些可自定義審查設置的頁面相關資訊。",
 	"apihelp-query+flagged-description": "取得有關指定頁面標記狀態的資訊。\n\n若頁面被標記，會回傳以下參數：\n;stable_revid：最新穩定版本修訂的 ID。\n;level\n;level_text：頁面的最高標誌級別。\n;pending_since:若頁面目前有任何未審査修訂，所保存的首次時間戳記。\n若頁面有保護設置，會回傳以下參數：\n;protection_level：不需審查頁面時使用者所需權限。\n;protection_expiry：保護的逾期時間。",
 	"apihelp-query+flagged-summary": "取得指定頁面標記狀態的相關資訊。",
