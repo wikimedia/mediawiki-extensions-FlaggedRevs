@@ -605,11 +605,46 @@ class FlaggedRevs {
 		if ( $content === null ) {
 			return null; // missing revision
 		}
+
+		// Make this parse use reviewed/stable versions of templates
+		$oldCurrentRevisionCallback = $pOpts->setCurrentRevisionCallback(
+			function ( $title, $parser = false ) use ( &$oldCurrentRevisionCallback, $incManager ) {
+				if ( !( $parser instanceof Parser ) ) {
+					return true; // nothing to do
+				}
+				if ( $title->getNamespace() < 0 || $title->getNamespace() == NS_MEDIAWIKI ) {
+					return true; // nothing to do (bug 29579 for NS_MEDIAWIKI)
+				}
+				$id = false; // current version
+				# Check for the version of this template used when reviewed...
+				$maybeId = $incManager->getReviewedTemplateVersion( $title );
+				if ( $maybeId !== null ) {
+					$id = (int)$maybeId; // use if specified (even 0)
+				}
+				# Check for stable version of template if this feature is enabled...
+				if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
+					$maybeId = $incManager->getStableTemplateVersion( $title );
+					# Take the newest of these two...
+					if ( $maybeId && $maybeId > $id ) {
+						$id = (int)$maybeId;
+					}
+				}
+				# Found a reviewed/stable revision
+				if ( $id !== false ) {
+					# If $id is zero, don't bother loading it (page does not exist)
+					return $id === 0 ? null : Revision::newFromId( $id );
+				}
+				# Otherwise, fall back to default behavior (load latest revision)
+				return call_user_func( $oldCurrentRevisionCallback, $title, $parser );
+			}
+		);
+
 		$parserOut = $content->getParserOutput( $frev->getTitle(), $frev->getRevId(), $pOpts );
 		# Stable parse done!
 		if ( $resetManager ) {
 			$incManager->clear(); // reset the FRInclusionManager as needed
 		}
+		$pOpts->setCurrentRevisionCallback( $oldCurrentRevisionCallback );
 		return $parserOut;
 	}
 

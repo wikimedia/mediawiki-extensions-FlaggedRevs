@@ -492,8 +492,8 @@ $wgHooks['APIQueryAfterExecute'][] = 'FlaggedRevsApiHooks::addApiRevisionData';
 # ########
 
 # ######## Parser #########
-# Parser hooks, selects the desired images/templates
-$wgHooks['BeforeParserFetchTemplateAndtitle'][] = 'FlaggedRevsHooks::parserFetchStableTemplate';
+# Parser hooks, selects the desired images
+# (Templates are handled by setCurrentRevisionCallback() set in FlaggedRevs::parseStableRevision())
 $wgHooks['BeforeParserFetchFileAndTitle'][] = 'FlaggedRevsHooks::parserFetchStableFile';
 # ########
 
