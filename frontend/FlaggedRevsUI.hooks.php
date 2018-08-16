@@ -114,8 +114,8 @@ class FlaggedRevsUIHooks {
 				'section' => 'rc/flaggedrevs-ui',
 				'label-message' => 'flaggedrevs-pref-UI',
 				'options' => [
-					wfMessage( 'flaggedrevs-pref-UI-0' )->text() => 0,
-					wfMessage( 'flaggedrevs-pref-UI-1' )->text() => 1,
+					wfMessage( 'flaggedrevs-pref-UI-0' )->escaped() => 0,
+					wfMessage( 'flaggedrevs-pref-UI-1' )->escaped() => 1,
 				],
 			];
 		// Default versions...
@@ -125,9 +125,9 @@ class FlaggedRevsUIHooks {
 				'section' => 'rc/flaggedrevs-ui',
 				'label-message' => 'flaggedrevs-prefs-stable',
 				'options' => [
-					wfMessage( 'flaggedrevs-pref-stable-0' )->text() => FR_SHOW_STABLE_DEFAULT,
-					wfMessage( 'flaggedrevs-pref-stable-1' )->text() => FR_SHOW_STABLE_ALWAYS,
-					wfMessage( 'flaggedrevs-pref-stable-2' )->text() => FR_SHOW_STABLE_NEVER,
+					wfMessage( 'flaggedrevs-pref-stable-0' )->escaped() => FR_SHOW_STABLE_DEFAULT,
+					wfMessage( 'flaggedrevs-pref-stable-1' )->escaped() => FR_SHOW_STABLE_ALWAYS,
+					wfMessage( 'flaggedrevs-pref-stable-2' )->escaped() => FR_SHOW_STABLE_NEVER,
 				],
 			];
 		// Review-related rights...
@@ -1057,7 +1057,7 @@ class FlaggedRevsUIHooks {
 		}
 		# Show relevant lines from the stability log:
 		$logPage = new LogPage( 'stable' );
-		$out->addHTML( Xml::element( 'h2', null, $logPage->getName() ) );
+		$out->addHTML( Xml::element( 'h2', null, $logPage->getName()->text() ) );
 		LogEventsList::showLogExtract( $out, 'stable', $article->getTitle()->getPrefixedText() );
 		return true;
 	}

@@ -1704,14 +1704,14 @@ class FlaggablePageView extends ContextSource {
 		# Make a link to the full diff-to-stable if:
 		# (a) Actual revs are pending and (b) We are not viewing the full diff-to-stable
 		if ( $article->revsArePending() && !$fullStableDiff ) {
-			$review = Linker::linkKnown(
+			$reviewLink = Linker::linkKnown(
 				$article->getTitle(),
 				wfMessage( 'review-diff2stable' )->escaped(),
 				[],
 				[ 'oldid' => $srev->getRevId(), 'diff' => 'cur' ] + FlaggedRevs::diffOnlyCGI()
 			);
-			$review = wfMessage( 'parentheses' )->rawParams( $review )->escaped();
-			$review = "<div class='fr-diff-to-stable' style='text-align: center;'>$review</div>";
+			$reviewWrapped = wfMessage( 'parentheses' )->rawParams( $reviewLink )->escaped();
+			$review = "<div class='fr-diff-to-stable' style='text-align: center;'>reviewWrapped</div>";
 		}
 		return $review;
 	}

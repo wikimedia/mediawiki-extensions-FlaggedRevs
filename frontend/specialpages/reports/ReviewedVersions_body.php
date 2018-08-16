@@ -51,12 +51,12 @@ class ReviewedVersions extends UnlistedSpecialPage {
 		$fdatim = $this->getLanguage()->timeanddate( wfTimestamp( TS_MW, $row->fr_timestamp ), true );
 		$fdate = $this->getLanguage()->date( wfTimestamp( TS_MW, $row->fr_timestamp ), true );
 		$ftime = $this->getLanguage()->time( wfTimestamp( TS_MW, $row->fr_timestamp ), true );
-		$review = $this->msg( 'reviewedversions-review' )->rawParams(
-			$fdatim,
-			Linker::userLink( $row->fr_user, $row->user_name ) .
-			' ' . Linker::userToolLinks( $row->fr_user, $row->user_name ),
-			$fdate, $ftime, $row->user_name
-		)->text();
+		$review = $this->msg( 'reviewedversions-review' )
+			->params( $fdatim )
+			->rawParams( Linker::userLink( $row->fr_user, $row->user_name ) .
+				' ' . Linker::userToolLinks( $row->fr_user, $row->user_name ) )
+			->params( $fdate, $ftime, $row->user_name )
+			->escaped();
 		$lev = ( $row->fr_quality >= 1 )
 			? $this->msg( 'revreview-hist-quality' )->escaped()
 			: $this->msg( 'revreview-hist-basic' )->escaped();
