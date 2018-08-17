@@ -942,7 +942,7 @@ class FlaggablePageView extends ContextSource {
 		}
 		if ( !$time ) {
 			# Try request parameter
-			$time = $request->getVal( 'filetimestamp', false );
+			$time = MWTimestamp::convert( TS_MW, $request->getVal( 'filetimestamp', false ) );
 		}
 
 		if ( !$time ) {
