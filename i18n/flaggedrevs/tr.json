@@ -46,6 +46,7 @@
 	"flaggedrevs-rcfilters-reviewed-label": "İncelenmiş",
 	"flaggedrevs-rcfilters-reviewed-desc": "İncelenmiş değişiklikler",
 	"flaggedrevs-rcfilters-not-reviewable-label": "İncelemeye tâbi değil",
+	"flaggedrevs-rcfilters-not-reviewable-desc": "İnceleme gerektirmeyen her tür değişiklik.",
 	"group-editor": "Devriyeler",
 	"group-editor-member": "{{GENDER:$1|editör}}",
 	"group-reviewer": "İnceleyiciler",
@@ -193,5 +194,9 @@
 	"revreview-unlocked-title": "Bu sayfada yapılan değişiklikler gözden geçirme gerektirmemektedir.",
 	"revreview-locked": "'''Uyarı:''' bu sayfada okuyuculara gösterilmeden önce değişiklikler [[{{MediaWiki:Validationpage}}|gözden geçirilmelidir]].",
 	"revreview-unlocked": "'''Uyarı:''' Değişikliklerin okuyuculara gösterilmeden önce [[{{MediaWiki:Validationpage}}|gözden geçirilmesine]] gerek yoktur.",
-	"validationpage": "{{ns:help}}:Sayfa doğrulaması"
+	"validationpage": "{{ns:help}}:Sayfa doğrulaması",
+	"log-action-filter-review": "İnceleme türü:",
+	"log-action-filter-review-accept": "Elle onay",
+	"log-action-filter-review-autoaccept": "Otomatik onay",
+	"log-action-filter-review-unaccept": "Elle onayı geri alma"
 }
