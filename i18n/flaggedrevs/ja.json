@@ -16,7 +16,8 @@
 			"Rxy",
 			"2nd-player",
 			"Azeha",
-			"Otokoume"
+			"Otokoume",
+			"Suyama"
 		]
 	},
 	"action-review": "特定版の査読",
@@ -38,6 +39,8 @@
 	"flaggedrevs-hidereviewed": "査読済編集を$1",
 	"flaggedrevs-hidereviewed-hide": "非表示",
 	"flaggedrevs-hidereviewed-show": "表示",
+	"flaggedrevs-rcfilters-need-review-label": "査読が必要",
+	"flaggedrevs-rcfilters-reviewed-label": "査読済",
 	"group-editor": "編集者",
 	"group-editor-member": "編集者",
 	"group-reviewer": "査読者",
