@@ -35,5 +35,5 @@
 	"apierror-flaggedrevs-pagedoesnotexist": "Дата страница не постоји.",
 	"apierror-flaggedrevs-badflags": "Наведене ознаке нису исправне.",
 	"apierror-flaggedrevs-cantunreview": "Ви немате потребна права да уклоните ознаке.",
-	"apierror-flaggedrevs-noflaggedrev": "Нема прегледане ревизије са наведеним ID-ом."
+	"apierror-flaggedrevs-noflaggedrev": "Нема означене ревизије са наведеним ID-ом."
 }

@@ -19,7 +19,8 @@
 			"Mavrikant",
 			"Asmen",
 			"Diyapazon",
-			"HakanIST"
+			"HakanIST",
+			"Hedda"
 		]
 	},
 	"action-review": "revizyonları inceler",
@@ -58,6 +59,7 @@
 	"grouppage-autoreview": "{{ns:project}}:Otomatik kontrol edilmiş kullanıcılar",
 	"logentry-review-approve": "$1, $3 sayfasının bir sürümünü {{GENDER:$2|inceledi}}",
 	"logentry-review-approve-auto": "$1, $3 sayfasının bir sürümünü otomatik olarak {{GENDER:$2|inceledi}}",
+	"logentry-review-unapprove": "$1, $3 sayfasının bir sürümünü {{GENDER:$2|reddetti}}",
 	"revreview-hist-draft": "kontrol edilmemiş revizyon",
 	"revreview-hist-pending": "bekleyen revizyon",
 	"revreview-hist-quality": "kaliteli revizyon",
@@ -194,9 +196,15 @@
 	"revreview-unlocked-title": "Bu sayfada yapılan değişiklikler gözden geçirme gerektirmemektedir.",
 	"revreview-locked": "'''Uyarı:''' bu sayfada okuyuculara gösterilmeden önce değişiklikler [[{{MediaWiki:Validationpage}}|gözden geçirilmelidir]].",
 	"revreview-unlocked": "'''Uyarı:''' Değişikliklerin okuyuculara gösterilmeden önce [[{{MediaWiki:Validationpage}}|gözden geçirilmesine]] gerek yoktur.",
+	"logeventslist-review-log": "İnceleme günlüğü",
 	"validationpage": "{{ns:help}}:Sayfa doğrulaması",
 	"log-action-filter-review": "İnceleme türü:",
 	"log-action-filter-review-accept": "Elle onay",
 	"log-action-filter-review-autoaccept": "Otomatik onay",
-	"log-action-filter-review-unaccept": "Elle onayı geri alma"
+	"log-action-filter-review-unaccept": "Elle onayı geri alma",
+	"log-action-filter-stable": "Yapılandırma değişikliğinin türü:",
+	"log-action-filter-stable-config": "Yeni yapılandırma",
+	"log-action-filter-stable-modify": "Değiştirilmiş yapılandırma",
+	"log-action-filter-stable-reset": "Yapılandırma sıfırlama",
+	"log-action-filter-stable-move_stable": "Taşınan yapılandırma"
 }
