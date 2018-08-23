@@ -610,10 +610,12 @@ class FlaggedRevs {
 		$oldCurrentRevisionCallback = $pOpts->setCurrentRevisionCallback(
 			function ( $title, $parser = false ) use ( &$oldCurrentRevisionCallback, $incManager ) {
 				if ( !( $parser instanceof Parser ) ) {
-					return true; // nothing to do
+					// nothing to do
+					return call_user_func( $oldCurrentRevisionCallback, $title, $parser );
 				}
 				if ( $title->getNamespace() < 0 || $title->getNamespace() == NS_MEDIAWIKI ) {
-					return true; // nothing to do (bug 29579 for NS_MEDIAWIKI)
+					// nothing to do (bug 29579 for NS_MEDIAWIKI)
+					return call_user_func( $oldCurrentRevisionCallback, $title, $parser );
 				}
 				$id = false; // current version
 				# Check for the version of this template used when reviewed...
