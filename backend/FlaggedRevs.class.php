@@ -617,6 +617,10 @@ class FlaggedRevs {
 					// nothing to do (bug 29579 for NS_MEDIAWIKI)
 					return call_user_func( $oldCurrentRevisionCallback, $title, $parser );
 				}
+				if ( !$incManager->parserOutputIsStabilized() ) {
+					// nothing to do
+					return call_user_func( $oldCurrentRevisionCallback, $title, $parser );
+				}
 				$id = false; // current version
 				# Check for the version of this template used when reviewed...
 				$maybeId = $incManager->getReviewedTemplateVersion( $title );
