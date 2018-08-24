@@ -2,6 +2,7 @@
 
 /**
  * @group Database
+ * @covers FRUserCounters
  */
 class FRUserCountersTest extends PHPUnit\Framework\TestCase {
 	/**

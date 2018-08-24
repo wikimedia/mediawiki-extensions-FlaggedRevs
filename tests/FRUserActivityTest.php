@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @covers FRUserActivity
+ */
 class FRUserActivityTest extends PHPUnit\Framework\TestCase {
 	/**
 	 * Prepares the environment before running a test.

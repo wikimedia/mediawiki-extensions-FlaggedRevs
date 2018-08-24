@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @covers FRInclusionManager
+ */
 class FRInclusionManagerTest extends PHPUnit\Framework\TestCase {
 	/* starting input */
 	protected static $inputTemplates = [

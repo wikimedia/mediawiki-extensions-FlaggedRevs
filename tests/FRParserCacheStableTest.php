@@ -2,6 +2,9 @@
 
 use Wikimedia\TestingAccessWrapper;
 
+/**
+ * @covers FRParserCacheStable
+ */
 class FRParserCacheStableTest extends PHPUnit\Framework\TestCase {
 
 	/**
