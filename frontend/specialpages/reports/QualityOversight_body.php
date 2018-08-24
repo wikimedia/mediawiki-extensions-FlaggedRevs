@@ -121,7 +121,7 @@ class QualityOversight extends SpecialPage {
 			$actions['approve2-i'] = 0;
 			$actions['unapprove'] = 0;
 			$actions['unapprove2'] = 0;
-		} elseif ( $this->status === 3 ) { // depreciated
+		} elseif ( $this->status === 3 ) { // deprecated
 			$actions['approve'] = 0;
 			$actions['approve-a'] = 0;
 			$actions['approve-i'] = 0;

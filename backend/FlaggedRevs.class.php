@@ -362,7 +362,7 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * Get the the UI name for a value of a tag
+	 * Get the UI name for a value of a tag
 	 * @param string $tag
 	 * @param int $value
 	 * @return string
@@ -711,7 +711,7 @@ class FlaggedRevs {
 				FRInclusionCache::setRevIncludes( $title, $editInfo->revid, $editInfo->output );
 			}
 		}
-		# Lazily rebuild dependancies on next parse (we invalidate below)
+		# Lazily rebuild dependencies on next parse (we invalidate below)
 		self::clearStableOnlyDeps( $title->getArticleID() );
 		# Clear page cache unless this is hooked via ArticleEditUpdates, in
 		# which case these updates will happen already with tuned timestamps
