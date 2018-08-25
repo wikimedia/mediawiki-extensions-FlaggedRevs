@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @covers FlaggableWikiPage
+ */
 class FlaggablePageTest extends PHPUnit\Framework\TestCase {
 	/**
 	 * Prepares the environment before running a test.
