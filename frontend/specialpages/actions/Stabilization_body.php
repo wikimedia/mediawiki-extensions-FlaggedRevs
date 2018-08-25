@@ -77,7 +77,7 @@ class Stabilization extends UnlistedSpecialPage {
 			if ( $status === true ) {
 				$out->redirect( $title->getFullUrl() );
 			} else {
-				$this->showForm( $this->msg( $status )->text() );
+				$this->showForm( $this->msg( $status )->escaped() );
 			}
 		# Form GET request...
 		} else {
@@ -116,7 +116,7 @@ class Stabilization extends UnlistedSpecialPage {
 		$reasonDropDown = Xml::listDropDown(
 			'wpReasonSelection',
 			$defaultReasons->inContentLanguage()->text(),
-			$this->msg( 'protect-otherreason-op' )->inContentLanguage()->text(),
+			$this->msg( 'protect-otherreason-op' )->inContentLanguage()->escaped(),
 			$form->getReasonSelection(),
 			'mwStabilize-reason',
 			4
@@ -158,26 +158,26 @@ class Stabilization extends UnlistedSpecialPage {
 			'action' => $this->getPageTitle()->getLocalUrl(), 'method' => 'post' ] );
 		# Add stable version override and selection options
 		$s .=
-			Xml::fieldset( $this->msg( 'stabilization-def' )->text(), false ) . "\n" .
-			Xml::radioLabel( $this->msg( 'stabilization-def1' )->text(), 'wpStableconfig-override', 1,
+			Xml::fieldset( $this->msg( 'stabilization-def' )->escaped(), false ) . "\n" .
+			Xml::radioLabel( $this->msg( 'stabilization-def1' )->escaped(), 'wpStableconfig-override', 1,
 				'default-stable', 1 == $form->getOverride(), $this->disabledAttr() ) .
 				'<br />' . "\n" .
-			Xml::radioLabel( $this->msg( 'stabilization-def2' )->text(), 'wpStableconfig-override', 0,
+			Xml::radioLabel( $this->msg( 'stabilization-def2' )->escaped(), 'wpStableconfig-override', 0,
 				'default-current', 0 == $form->getOverride(), $this->disabledAttr() ) . "\n" .
 			Xml::closeElement( 'fieldset' );
 		# Add autoreview restriction select
-		$s .= Xml::fieldset( $this->msg( 'stabilization-restrict' )->text(), false ) .
+		$s .= Xml::fieldset( $this->msg( 'stabilization-restrict' )->escaped(), false ) .
 			$this->buildSelector( $form->getAutoreview() ) .
 			Xml::closeElement( 'fieldset' ) .
 
-			Xml::fieldset( $this->msg( 'stabilization-leg' )->text(), false ) .
+			Xml::fieldset( $this->msg( 'stabilization-leg' )->escaped(), false ) .
 			Xml::openElement( 'table' );
 		# Add expiry dropdown to form...
 		if ( $showProtectOptions && $form->isAllowed() ) {
 			$s .= "
 				<tr>
 					<td class='mw-label'>" .
-						Xml::label( $this->msg( 'stabilization-expiry' )->text(),
+						Xml::label( $this->msg( 'stabilization-expiry' )->escaped(),
 							'mwStabilizeExpirySelection' ) .
 					"</td>
 					<td class='mw-input'>" .
@@ -197,7 +197,7 @@ class Stabilization extends UnlistedSpecialPage {
 		$s .= "
 			<tr>
 				<td class='mw-label'>" .
-					Xml::label( $this->msg( 'stabilization-othertime' )->text(),
+					Xml::label( $this->msg( 'stabilization-othertime' )->escaped(),
 						'mwStabilizeExpiryOther' ) .
 				'</td>
 				<td class="mw-input">' .
@@ -215,7 +215,7 @@ class Stabilization extends UnlistedSpecialPage {
 
 			$s .= ' <tr>
 					<td class="mw-label">' .
-						Xml::label( $this->msg( 'stabilization-comment' )->text(),
+						Xml::label( $this->msg( 'stabilization-comment' )->escaped(),
 							'wpReasonSelection' ) .
 					'</td>
 					<td class="mw-input">' .
@@ -224,7 +224,7 @@ class Stabilization extends UnlistedSpecialPage {
 				</tr>
 				<tr>
 					<td class="mw-label">' .
-						Xml::label( $this->msg( 'stabilization-otherreason' )->text(), 'wpReason' ) .
+						Xml::label( $this->msg( 'stabilization-otherreason' )->escaped(), 'wpReason' ) .
 					'</td>
 					<td class="mw-input">' .
 						Xml::input( 'wpReason', 70, $form->getReasonExtra(),
@@ -248,7 +248,7 @@ class Stabilization extends UnlistedSpecialPage {
 				<tr>
 					<td></td>
 					<td class="mw-submit">' .
-						Xml::submitButton( $this->msg( 'stabilization-submit' )->text() ) .
+						Xml::submitButton( $this->msg( 'stabilization-submit' )->escaped() ) .
 					'</td>
 				</tr>' . Xml::closeElement( 'table' ) .
 				Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBKey() ) .
@@ -263,7 +263,7 @@ class Stabilization extends UnlistedSpecialPage {
 
 		$log = new LogPage( 'stable' );
 		$out->addHTML( Xml::element( 'h2', null,
-			htmlspecialchars( $log->getName() ) ) );
+			$log->getName()->setContext( $this->getContext() )->text() ) );
 		LogEventsList::showLogExtract( $out, 'stable',
 			$title->getPrefixedText(), '', [ 'lim' => 25 ] );
 

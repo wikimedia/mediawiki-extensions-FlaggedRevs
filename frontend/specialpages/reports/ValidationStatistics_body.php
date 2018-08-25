@@ -99,7 +99,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 			}
 
 			$NsText = $wgContLang->getFormattedNsText( $namespace );
-			$NsText = $NsText ? $NsText : $this->msg( 'blanknamespace' )->escaped();
+			$NsText = $NsText ? $NsText : $this->msg( 'blanknamespace' )->text();
 
 			$percRev = intval( $total ) == 0
 				? '-' // devision by zero
@@ -109,14 +109,14 @@ class ValidationStatistics extends IncludableSpecialPage {
 							'%4.2f',
 							100 * intval( $reviewed ) / intval( $total )
 						) )->escaped()
-				)->text();
+				)->escaped();
 			$percLatest = intval( $total ) == 0
 				? '-' // devision by zero
 				: $this->msg( 'parentheses',
 					$this->msg( 'percent' )
 						->numParams( sprintf( '%4.2f', 100 * intval( $synced ) / intval( $total )
 						) )->escaped()
-				)->text();
+				)->escaped();
 			$percSynced = intval( $reviewed ) == 0
 				? '-' // devision by zero
 				: $this->msg( 'percent' )
@@ -186,7 +186,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 				'</th><th>' . $this->msg( 'validationstatistics-reviews' )->escaped() . '</th></tr>';
 			foreach ( $data as $userId => $reviews ) {
 				$reviewChart .= '<tr><td>' . htmlspecialchars( User::whois( $userId ) ) .
-					'</td><td>' . $lang->formatNum( $reviews ) . '</td></tr>';
+					'</td><td>' . htmlspecialchars( $lang->formatNum( $reviews ) ) . '</td></tr>';
 			}
 			$reviewChart .= "</table>\n";
 			$out->addHTML( $reviewChart );

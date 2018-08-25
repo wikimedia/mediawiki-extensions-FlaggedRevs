@@ -51,7 +51,7 @@ class FlaggedRevsStableLogFormatter extends LogFormatter {
 		if ( !isset( $pars['precedence'] ) ) {
 			if ( isset( $pars['autoreview'] ) && strlen( $pars['autoreview'] ) ) {
 				$set[] = wfMessage( 'stable-log-restriction', $pars['autoreview'] )->inLanguage(
-					$langObj )->text();
+					$langObj )->escaped();
 			}
 		// General case...
 		} else {
@@ -59,10 +59,10 @@ class FlaggedRevsStableLogFormatter extends LogFormatter {
 			if ( isset( $pars['override'] ) ) {
 				// Give grep a chance to find the usages:
 				// stabilization-def-short-0, stabilization-def-short-1
-				$set[] = wfMessage( 'stabilization-def-short' )->inLanguage( $langObj )->text() .
-					wfMessage( 'colon-separator' )->inLanguage( $langObj )->text() .
+				$set[] = wfMessage( 'stabilization-def-short' )->inLanguage( $langObj )->escaped() .
+					wfMessage( 'colon-separator' )->inLanguage( $langObj )->escaped() .
 					wfMessage( 'stabilization-def-short-' . $pars['override'] )
-						->inLanguage( $langObj )->text();
+						->inLanguage( $langObj )->escaped();
 			}
 			// Autoreview restriction
 			if ( isset( $pars['autoreview'] ) && strlen( $pars['autoreview'] ) ) {
@@ -78,12 +78,13 @@ class FlaggedRevsStableLogFormatter extends LogFormatter {
 				$langObj->timeanddate( $pars['expiry'], false, false ),
 				$langObj->date( $pars['expiry'], false, false ),
 				$langObj->time( $pars['expiry'], false, false )
-			)->inLanguage( $langObj )->text();
+			)->inLanguage( $langObj )->escaped();
 			if ( $settings != '' ) {
 				$settings .= ' ';
 			}
-			$settings .= wfMessage( 'parentheses', $expiry_description )->inLanguage( $langObj )->text();
+			$settings .= wfMessage( 'parentheses' )->rawParams( $expiry_description )
+				->inLanguage( $langObj )->escaped();
 		}
-		return htmlspecialchars( $settings );
+		return $settings;
 	}
 }
