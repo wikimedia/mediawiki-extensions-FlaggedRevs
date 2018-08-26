@@ -23,6 +23,12 @@
 	"flaggedrevs-hidereviewed": "$1 modificationes revidite",
 	"flaggedrevs-hidereviewed-hide": "Celar",
 	"flaggedrevs-hidereviewed-show": "Monstrar",
+	"flaggedrevs-rcfilters-need-review-label": "Require revision",
+	"flaggedrevs-rcfilters-need-review-desc": "Modificationes que require revision.",
+	"flaggedrevs-rcfilters-reviewed-label": "Revidite",
+	"flaggedrevs-rcfilters-reviewed-desc": "Modificationes que ha essite revidite.",
+	"flaggedrevs-rcfilters-not-reviewable-label": "Non subjecte a revision",
+	"flaggedrevs-rcfilters-not-reviewable-desc": "Modificationes de tote le typos que non require revision.",
 	"group-editor": "Redactores",
 	"group-editor-member": "{{GENDER:$1|redactor|redactrice}}",
 	"group-reviewer": "Revisores",
@@ -175,6 +181,7 @@
 	"revreview-unlocked-title": "Le modificationes in iste pagina non require revision.",
 	"revreview-locked": "'''Nota:''' Le modificationes debe esser [[{{MediaWiki:Validationpage}}|revidite]] ante de esser monstrate al lectores in iste pagina.",
 	"revreview-unlocked": "'''Nota:''' Le modificationes non require [[{{MediaWiki:Validationpage}}|revision]] ante de esser monstrate al lectores in iste pagina.",
+	"logeventslist-review-log": "Registro de revision",
 	"validationpage": "{{ns:help}}:Validation de paginas",
 	"log-action-filter-review": "Typo de revision:",
 	"log-action-filter-review-accept": "Marcate manualmente como revidite",
@@ -183,5 +190,6 @@
 	"log-action-filter-stable": "Typo de cambio de configuration:",
 	"log-action-filter-stable-config": "Nove configuration",
 	"log-action-filter-stable-modify": "Configuration modificate",
-	"log-action-filter-stable-reset": "Configuration reinitialisate"
+	"log-action-filter-stable-reset": "Configuration reinitialisate",
+	"log-action-filter-stable-move_stable": "Configuration displaciate"
 }
