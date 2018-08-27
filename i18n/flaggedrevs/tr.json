@@ -20,7 +20,8 @@
 			"Asmen",
 			"Diyapazon",
 			"HakanIST",
-			"Hedda"
+			"Hedda",
+			"TmY e12"
 		]
 	},
 	"action-review": "revizyonları inceler",
@@ -147,9 +148,9 @@
 	"revreview-visibility-outdated": "'''Bu sayfanın tarihi geçmiş bir [[{{MediaWiki:Validationpage}}|kararlı sürümü]] mevcut. Sayfa kararlılık ayarları [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} yapılandırılabilir].'''",
 	"revreview-visibility-nostable": "'''Bu sayfanın [[{{MediaWiki:Validationpage}}|kararlı bir sürümü]] bulunmuyor. Sayfa kararlılık ayarları [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} yapılandırılabilir].'''",
 	"revreview-revnotfound": "İstemiş olduğunuz sayfanın eski sürümü bulunamadı. \nLütfen bu sayfaya erişmek için kullandığınız URL'yi kontrol edin.",
-	"right-autoreview": "Kendi revizyonlarını otomatik olarak kontrol edilmiş işaretler",
+	"right-autoreview": "Değişikliklerini otomatik olarak kontrol edilmiş işaretle",
 	"right-autoreviewrestore": "Geri döndürürken otomatik gözden geçir",
-	"right-movestable": "Kararlı sürümleri olan sayfaları taşır",
+	"right-movestable": "Kararlı sürümleri olan sayfaları taşı",
 	"right-review": "Revizyonları \"kontrol edilmiş\" olarak işaretler",
 	"right-stablesettings": "Kararlı sürümün nasıl seçilip görüntüleneceğini ayarlar",
 	"right-validate": "Revizyonları \"kaliteli\" olarak işaretler",

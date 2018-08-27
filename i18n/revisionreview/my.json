@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ninjastrikers"
+			"Ninjastrikers",
+			"Dr Lotus Black"
 		]
 	},
-	"revreview-reject-summary": "အကျဉ်းချုပ်:"
+	"revreview-reject-summary": "အကျဉ်းချုပ်:",
+	"revreview-reject-cancel": "မလုပ်တော့ပါ"
 }

@@ -195,6 +195,7 @@
 	"revreview-unlocked-title": "Tälle sivulle tehtävät muutokset eivät edellytä arviointia.",
 	"revreview-locked": "'''Huomautus:''' Tähän sivuun tehdyt muokkaukset näkyvät lukijoille vasta niiden [[{{MediaWiki:Validationpage}}|arvioinnin]] jälkeen.",
 	"revreview-unlocked": "'''Huomautus:''' Muokkaukset eivät vaadi [[{{MediaWiki:Validationpage}}|arviointia]] näkyäkseen tällä sivulla.",
+	"logeventslist-review-log": "Arviointiloki",
 	"validationpage": "{{ns:help}}:Sivujen arviointi",
 	"log-action-filter-review": "Arvioinnin luonne:",
 	"log-action-filter-review-accept": "Käsin tehty hyväksyminen",
