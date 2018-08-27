@@ -4,10 +4,10 @@ use Wikimedia\Rdbms\IResultWrapper;
 
 /**
  * Class containing cache update methods and job construction
- * for the special case of purging pages due to dependancies
+ * for the special case of purging pages due to dependencies
  * contained only in the stable version of pages.
  *
- * These dependancies should be limited in number as most pages should
+ * These dependencies should be limited in number as most pages should
  * have a stable version synced with the current version.
  */
 class FRExtraCacheUpdate implements DeferrableUpdate {

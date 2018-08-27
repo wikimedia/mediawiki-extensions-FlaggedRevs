@@ -763,7 +763,7 @@ class FlaggablePageView extends ContextSource {
 			$parserCache->save( $parserOut, $this->article, $pOpts );
 			# Add the stable output to the page view
 			$this->out->addParserOutput( $parserOut, $poOpts );
-			# Update the stable version dependancies
+			# Update the stable version dependencies
 			if ( !wfReadOnly() ) {
 				FlaggedRevs::updateStableOnlyDeps(
 					$this->article, $parserOut, FRDependencyUpdate::DEFERRED );

@@ -199,7 +199,7 @@ class UpdateFRTracking extends Maintenance {
 					}
 				}
 				if ( $changed ) {
-					# Lazily rebuild dependancies on next parse (we invalidate below)
+					# Lazily rebuild dependencies on next parse (we invalidate below)
 					FlaggedRevs::clearStableOnlyDeps( $title );
 					$title->invalidateCache();
 				}

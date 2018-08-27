@@ -95,7 +95,7 @@ class FRDependencyUpdate {
 	}
 
 	/**
-	 * Get existing cache dependancies
+	 * Get existing cache dependencies
 	 * @param int $flags FR_MASTER
 	 * @return array (ns => dbKey => 1)
 	 */
@@ -118,7 +118,7 @@ class FRDependencyUpdate {
 	}
 
 	/**
-	 * Get INSERT rows for cache dependancies in $new but not in $existing
+	 * Get INSERT rows for cache dependencies in $new but not in $existing
 	 * @param array $existing
 	 * @param array $new
 	 * @return array

@@ -206,7 +206,7 @@ class RevisionReview extends UnlistedSpecialPage {
 		$title = null; // target page
 		$editToken = ''; // edit token
 		// Each ajax url argument is of the form param|val.
-		// This means that there is no ugly order dependance.
+		// This means that there is no ugly order dependence.
 		foreach ( $args as $arg ) {
 			$set = explode( '|', $arg, 2 );
 			if ( count( $set ) != 2 ) {
