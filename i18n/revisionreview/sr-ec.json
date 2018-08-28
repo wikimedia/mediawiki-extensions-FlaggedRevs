@@ -10,7 +10,8 @@
 			"Сербијана",
 			"Prevodim",
 			"Acamicamacaraca",
-			"BadDog"
+			"BadDog",
+			"Zoranzoki21"
 		]
 	},
 	"revisionreview": "Провера ревизија",
@@ -58,7 +59,7 @@
 	"revreview-poss-conflict-c": "'''Упозорење: [[User:$1|$1]] је почео проверу ових промена на дан $2 у $3.'''",
 	"revreview-adv-reviewing-p": "Напомена: други проверавачи могу видети да {{GENDER:$1|Ви}} проверавате ову страницу.",
 	"revreview-adv-reviewing-c": "Напомена: други проверавачи могу видети да {{GENDER:$1|Ви}} проверавате ове промене.",
-	"revreview-sadv-reviewing-p": "Можете $1 другим корисницима да проверавате ову страницу.",
+	"revreview-sadv-reviewing-p": "Можете [$1 огласити] другим корисницима да проверавате ову страницу.",
 	"revreview-sadv-reviewing-c": "Можете [$1 огласити] другим корисницима да проверавате ове промене.",
 	"revreview-adv-start-link": "дати до знања",
 	"revreview-adv-stop-link": "откажи",
