@@ -265,9 +265,13 @@ class ProblemChanges extends SpecialPage {
 	 * Get the tags of the revisions of a page after a certain rev
 	 * @param int $pageId page ID
 	 * @param int $revId rev ID
-	 * @return Array
+	 * @return array
 	 */
 	protected static function getChangeTags( $pageId, $revId ) {
+		global $wgChangeTagsSchemaMigrationStage;
+		if ( $wgChangeTagsSchemaMigrationStage > MIGRATION_WRITE_BOTH ) {
+			return self::getChangeTagsNewBackEnd( $pageId, $revId );
+		}
 		$tags = [];
 		$dbr = wfGetDB( DB_REPLICA );
 		$res = $dbr->select(
@@ -280,6 +284,30 @@ class ProblemChanges extends SpecialPage {
 		);
 		foreach ( $res as $row ) {
 			$tags[] = $row->ct_tag;
+		}
+		return $tags;
+	}
+
+	/**
+	 * See self::getChangeTags
+	 * @param int $pageId page ID
+	 * @param int $revId rev ID
+	 * @return array
+	 */
+	private static function getChangeTagsNewBackEnd( $pageId, $revId ) {
+		$tags = [];
+		$dbr = wfGetDB( DB_REPLICA );
+		$res = $dbr->select(
+			[ 'revision', 'change_tag', 'change_tag_def' ],
+			'DISTINCT(ctd_name)', // unique tags
+			[ 'rev_page' => $pageId,
+				'rev_id > ' . intval( $revId ),
+				'rev_id = ct_rev_id',
+				'ct_tag_id = ctd_id' ],
+			__METHOD__
+		);
+		foreach ( $res as $row ) {
+			$tags[] = $row->ctd_name;
 		}
 		return $tags;
 	}
@@ -333,7 +361,15 @@ class ProblemChangesPager extends AlphabeticPager {
 	}
 
 	function getQueryInfo() {
+		global $wgChangeTagsSchemaMigrationStage;
 		$tables = [ 'revision', 'change_tag', 'page' ];
+		$conds = [];
+
+		if ( $wgChangeTagsSchemaMigrationStage > MIGRATION_WRITE_BOTH ) {
+			$tables[] = 'change_tag_def';
+			$conds[] = 'ctd_id = ct_tag_id';
+		}
+
 		$fields = [ 'page_namespace' , 'page_title', 'page_latest' ];
 		# Show outdated "stable" pages
 		if ( $this->level < 0 ) {
@@ -346,7 +382,11 @@ class ProblemChangesPager extends AlphabeticPager {
 			$conds[] = 'rev_id > fp_stable';
 			$conds[] = 'ct_rev_id = rev_id';
 			if ( $this->tag != '' ) {
-				$conds['ct_tag'] = $this->tag;
+				if ( $wgChangeTagsSchemaMigrationStage > MIGRATION_WRITE_BOTH ) {
+					$conds['ctd_name'] = $this->tag;
+				} else {
+					$conds['ct_tag'] = $this->tag;
+				}
 			}
 			$conds[] = 'page_id = fp_page_id';
 			$useIndex = [
@@ -373,7 +413,11 @@ class ProblemChangesPager extends AlphabeticPager {
 			$conds[] = 'rev_page = page_id';
 			$conds[] = 'rev_id > fpp_rev_id';
 			$conds[] = 'rev_id = ct_rev_id';
-			$conds['ct_tag'] = $this->tag;
+			if ( $wgChangeTagsSchemaMigrationStage > MIGRATION_WRITE_BOTH ) {
+				$conds['ctd_name'] = $this->tag;
+			} else {
+				$conds['ct_tag'] = $this->tag;
+			}
 			$useIndex = [
 				'flaggedpage_pending' => 'fpp_quality_pending', 'change_tag' => 'change_tag_rev_tag' ];
 			# Filter by review level
