@@ -17,17 +17,17 @@
 	"apihelp-query+unreviewedpages-param-dir": "Смер сортирања.",
 	"apihelp-query+unreviewedpages-param-filterredir": "Како да филтрирате преусмерења.",
 	"apihelp-query+unreviewedpages-example-1": "Прикажи списак непроверених страница",
-	"apihelp-review-description": "Проверите ревизију одобравањем или одбијањем исте.",
+	"apihelp-review-description": "Проверите измену одобравањем или одбијањем исте.",
 	"apihelp-review-summary": "Проверите измену одобравањем или одбијањем исте.",
 	"apihelp-review-param-comment": "Коментар за проверу",
-	"apihelp-review-example-1": "Одобри ревизију 12345 са коментаром „У реду”",
+	"apihelp-review-example-1": "Одобри измену 12345 са коментаром „У реду”",
 	"apihelp-stabilize-param-reason": "Разлог.",
 	"apihelp-stabilize-param-watch": "Надгледај ову страницу.",
 	"apihelp-stabilize-param-expiry-general": "Истек ових подешавања.",
 	"apihelp-stabilize-param-expiry-protect": "Истек заштите од провере.",
 	"apihelp-stabilize-param-title-general": "Наслов странице која треба да се стабилизује.",
 	"apihelp-stabilize-param-title-protect": "Наслов странице коју треба заштитити од провере.",
-	"apihelp-stabilize-param-default": "Подразумевана ревизија за приказ.",
+	"apihelp-stabilize-param-default": "Подразумевана измена за приказ.",
 	"apihelp-stabilize-param-autoreview": "Ограничење самопровере.",
 	"apihelp-stabilize-param-review": "Провери ову страницу.",
 	"apihelp-stabilize-param-protectlevel": "Ниво заштите од прегледа.",
@@ -35,5 +35,5 @@
 	"apierror-flaggedrevs-pagedoesnotexist": "Дата страница не постоји.",
 	"apierror-flaggedrevs-badflags": "Наведене ознаке нису исправне.",
 	"apierror-flaggedrevs-cantunreview": "Ви немате потребна права да уклоните ознаке.",
-	"apierror-flaggedrevs-noflaggedrev": "Нема означене ревизије са наведеним ID-ом."
+	"apierror-flaggedrevs-noflaggedrev": "Нема означене измене са наведеним ID-ом."
 }

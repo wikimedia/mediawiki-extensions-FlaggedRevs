@@ -19,7 +19,7 @@
 	"stabilization-page": "Назив странице:",
 	"stabilization-leg": "Потврди подешавања за стабилну измену",
 	"stabilization-def": "Ревизија приказана на подразумеваном приказу странице.",
-	"stabilization-def1": "Стабилна верзија; ако не постоји, онда последња ревизија",
+	"stabilization-def1": "Стабилна верзија; ако не постоји, онда последња измена",
 	"stabilization-def2": "Последња измена",
 	"stabilization-restrict": "Ограничења провере/самопровере",
 	"stabilization-restrict-none": "Без додатних ограничења",
@@ -42,5 +42,5 @@
 	"stabilize_expiry_old": "Време истицања је већ прошло.",
 	"stabilize_denied": "Приступ је одбијен.",
 	"stabilize-expiring": "истиче $1 (UTC)",
-	"stabilization-review": "Означи актуелну ревизију као проверену"
+	"stabilization-review": "Означи актуелну измену као проверену"
 }

@@ -12,9 +12,9 @@
 		]
 	},
 	"reviewedversions": "Проверене верзије",
-	"reviewedversions-leg1": "Списак проверених ревизија страница",
+	"reviewedversions-leg1": "Списак проверених измена страница",
 	"reviewedversions-page": "Име странице:",
-	"reviewedversions-none": "„[[:$1]]“ нема проверених ревизија.",
-	"reviewedversions-list": "Ово је списак {{PLURAL:$2|једне ревизије|ревизије|ревизија}} странице [[:$1]] {{PLURAL:$2|која је проверена|које су проверене}}:",
+	"reviewedversions-none": "„[[:$1]]“ нема проверених измена.",
+	"reviewedversions-list": "Ово је списак {{PLURAL:$2|једне измене|измене|измена}} странице [[:$1]] {{PLURAL:$2|која је проверена|које су проверене}}:",
 	"reviewedversions-review": "Проверио $2 на дан <i>$1</i>"
 }
