@@ -1711,7 +1711,7 @@ class FlaggablePageView extends ContextSource {
 				[ 'oldid' => $srev->getRevId(), 'diff' => 'cur' ] + FlaggedRevs::diffOnlyCGI()
 			);
 			$reviewWrapped = wfMessage( 'parentheses' )->rawParams( $reviewLink )->escaped();
-			$review = "<div class='fr-diff-to-stable' style='text-align: center;'>reviewWrapped</div>";
+			$review = "<div class='fr-diff-to-stable' style='text-align: center;'>$reviewWrapped</div>";
 		}
 		return $review;
 	}
