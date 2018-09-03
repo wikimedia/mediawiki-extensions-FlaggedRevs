@@ -198,5 +198,6 @@
 	"log-action-filter-stable": "نوع تغییر تنظیمات:",
 	"log-action-filter-stable-config": "تنظیمات جدید",
 	"log-action-filter-stable-modify": "تنظیمات تغییریافته",
-	"log-action-filter-stable-reset": "بازگردانی تنظیمات"
+	"log-action-filter-stable-reset": "بازگردانی تنظیمات",
+	"log-action-filter-stable-move_stable": "پیکربندی منتقل‌شده"
 }
