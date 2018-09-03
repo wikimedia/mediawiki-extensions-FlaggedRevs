@@ -315,7 +315,7 @@ class FlaggedRevision {
 			} elseif ( FlaggedRevs::qualityVersions() ) {
 				// If we found a pristine rev above, this one must be newer...
 				$newerClause = $row
-					? [ 'fr_rev_timestamp > '.$db->addQuotes( $row->fr_rev_timestamp ) ]
+					? [ 'fr_rev_timestamp > ' . $db->addQuotes( $row->fr_rev_timestamp ) ]
 					: [];
 				$qrow = $db->selectRow(
 					$frQuery['tables'],

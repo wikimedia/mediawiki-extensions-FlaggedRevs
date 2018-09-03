@@ -122,13 +122,13 @@ class FlaggedRevsStats {
 		// All-namespace percentiles...
 		foreach ( $reviewDataAnon['percTable'] as $percentile => $seconds ) {
 			$dataSet[] = [
-				'frs_stat_key'  => 'reviewLag-anon-percentile:'.(int)$percentile,
+				'frs_stat_key'  => 'reviewLag-anon-percentile:' . (int)$percentile,
 				'frs_stat_val'  => $seconds,
 				'frs_timestamp' => $encDataTimestamp ];
 		}
 		foreach ( $reviewDataUser['percTable'] as $percentile => $seconds ) {
 			$dataSet[] = [
-				'frs_stat_key'  => 'reviewLag-user-percentile:'.(int)$percentile,
+				'frs_stat_key'  => 'reviewLag-user-percentile:' . (int)$percentile,
 				'frs_stat_val'  => $seconds,
 				'frs_timestamp' => $encDataTimestamp ];
 		}
@@ -167,15 +167,15 @@ class FlaggedRevsStats {
 		// Per-namespace total/reviewed/synced stats...
 		foreach ( $rNamespaces as $namespace ) {
 			$dataSet[] = [
-				'frs_stat_key'  => 'totalPages-NS:'.(int)$namespace,
+				'frs_stat_key'  => 'totalPages-NS:' . (int)$namespace,
 				'frs_stat_val'  => isset( $ns_total[$namespace] ) ? $ns_total[$namespace] : 0,
 				'frs_timestamp' => $encDataTimestamp ];
 			$dataSet[] = [
-				'frs_stat_key'  => 'reviewedPages-NS:'.(int)$namespace,
+				'frs_stat_key'  => 'reviewedPages-NS:' . (int)$namespace,
 				'frs_stat_val'  => isset( $ns_reviewed[$namespace] ) ? $ns_reviewed[$namespace] : 0,
 				'frs_timestamp' => $encDataTimestamp ];
 			$dataSet[] = [
-				'frs_stat_key'  => 'syncedPages-NS:'.(int)$namespace,
+				'frs_stat_key'  => 'syncedPages-NS:' . (int)$namespace,
 				'frs_stat_val'  => isset( $ns_synced[$namespace] ) ? $ns_synced[$namespace] : 0,
 				'frs_timestamp' => $encDataTimestamp ];
 		}
@@ -279,9 +279,9 @@ class FlaggedRevsStats {
 				[ 'fpp_page_id', 'fpp_rev_id', 'fpp_pending_since', 'fr_timestamp' ],
 				[
 					'fpp_quality' => 0, // "checked"
-					'fpp_pending_since > '.$encInstalled, // needs actual display lag
+					'fpp_pending_since > ' . $encInstalled, // needs actual display lag
 					'fr_page_id = fpp_page_id AND fr_rev_id = fpp_rev_id',
-					'fpp_pending_since > '.$encLastTS, // skip failed rows
+					'fpp_pending_since > ' . $encLastTS, // skip failed rows
 				],
 				__METHOD__,
 				[ 'ORDER BY' => 'fpp_pending_since ASC' ]
@@ -293,7 +293,7 @@ class FlaggedRevsStats {
 			# this is the one that *should* have been reviewed.
 			$idealRev = (int)$dbr->selectField( 'revision', 'rev_id',
 				[ 'rev_page' => $row->fpp_page_id,
-					'rev_timestamp < '.$dbr->addQuotes( $row->fr_timestamp ) ],
+					'rev_timestamp < ' . $dbr->addQuotes( $row->fr_timestamp ) ],
 				__METHOD__,
 				[ 'ORDER BY' => 'rev_timestamp DESC', 'LIMIT' => 1 ]
 			);

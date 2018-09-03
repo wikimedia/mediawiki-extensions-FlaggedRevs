@@ -80,8 +80,8 @@ class PruneFRIncludeData extends Maintenance {
 						'fr_rev_id',
 						[
 							'fr_page_id' => $row->fp_page_id,
-							'fr_rev_id < '.$oldestId, // not in the newest X
-							'fr_timestamp < '.$db->addQuotes( $cutoff ) // not reviewed recently
+							'fr_rev_id < ' . $oldestId, // not in the newest X
+							'fr_timestamp < ' . $db->addQuotes( $cutoff ) // not reviewed recently
 						],
 						__METHOD__,
 						// Sanity check (start with the oldest)

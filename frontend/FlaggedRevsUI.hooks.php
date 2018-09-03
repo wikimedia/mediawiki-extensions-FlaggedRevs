@@ -424,7 +424,7 @@ class FlaggedRevsUIHooks {
 
 					$namespaces = FlaggedRevs::getReviewNamespaces();
 					$needReviewCond = 'rc_timestamp >= fp_pending_since OR fp_stable IS NULL';
-					$reviewedCond = '(fp_pending_since IS NULL OR rc_timestamp < fp_pending_since) '.
+					$reviewedCond = '(fp_pending_since IS NULL OR rc_timestamp < fp_pending_since) ' .
 						'AND fp_stable IS NOT NULL';
 					$notReviewableCond = 'rc_namespace NOT IN (' . $dbr->makeList( $namespaces ) .
 						') OR rc_type = ' . $dbr->addQuotes( RC_EXTERNAL );
