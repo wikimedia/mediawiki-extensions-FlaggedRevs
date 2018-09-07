@@ -34,8 +34,8 @@ class UpdateFRAutoPromote extends Maintenance {
 		}
 		$count = 0;
 		$changed = 0;
-		for ( $blockStart = $start; $blockStart <= $end; $blockStart += $this->mBatchSize ) {
-			$blockEnd = min( $end, $blockStart + $this->mBatchSize - 1 );
+		for ( $blockStart = (int)$start; $blockStart <= $end; $blockStart += (int)$this->mBatchSize ) {
+			$blockEnd = (int)min( $end, $blockStart + $this->mBatchSize - 1 );
 			$this->output( "...doing user_id from $blockStart to $blockEnd\n" );
 			$cond = "user_id BETWEEN $blockStart AND $blockEnd\n";
 			$res = $dbr->select( 'user', '*', $cond, __METHOD__ );

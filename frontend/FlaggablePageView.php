@@ -2032,7 +2032,7 @@ class FlaggablePageView extends ContextSource {
 			$name = 'wpReviewEdit';
 			$options = [
 				'label-message' => null,
-				'id' => 'wpReviewEdit',
+				'id' => $name,
 				'default' => $request->getCheck( $name ),
 				'title-message' => null,
 				'legacy-name' => 'reviewed',
@@ -2063,9 +2063,9 @@ class FlaggablePageView extends ContextSource {
 				$checkbox = Xml::check(
 					$name,
 					$options['default'],
-					[ 'tabindex' => ++$tabindex, 'id' => $options['id'] ]
+					[ 'tabindex' => ++$tabindex, 'id' => $name ]
 				);
-				$attribs = [ 'for' => $options['id'] ];
+				$attribs = [ 'for' => $name ];
 				$attribs['title'] = $this->msg( $options['title-message'] )->text();
 				$label = Xml::tags( 'label', $attribs,
 					$this->msg( $options['label-message'] )->parse() );

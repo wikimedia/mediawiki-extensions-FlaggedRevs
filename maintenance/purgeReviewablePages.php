@@ -66,8 +66,8 @@ class PurgeReviewablePages extends Maintenance {
 		}
 		# Do remaining chunk
 		$end += $this->mBatchSize - 1;
-		$blockStart = $start;
-		$blockEnd = $start + $this->mBatchSize - 1;
+		$blockStart = (int)$start;
+		$blockEnd = (int)( $start + $this->mBatchSize - 1 );
 
 		$count = 0;
 		while ( $blockEnd <= $end ) {
