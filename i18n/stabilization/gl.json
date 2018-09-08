@@ -3,12 +3,13 @@
 		"authors": [
 			"Alma",
 			"Toliño",
-			"Xosé"
+			"Xosé",
+			"Elisardojm"
 		]
 	},
 	"stabilization-tab": "(qa)",
 	"stabilization": "Estabilización da páxina",
-	"stabilization-text": "'''Mude a configuración a continuación para axustar a forma na que a versión publicada de \"[[:$1|$1]]\" se selecciona e mostra.'''",
+	"stabilization-text": "'''Mude a configuración a continuación para axustar a forma na que a versión publicada de \"[[:$1|$1]]\" se selecciona e amosa.'''",
 	"stabilization-perm": "A súa conta non ten os permisos necesarios para mudar a configuración da versión publicada.\nVelaquí está a configuración actual de \"[[:$1|$1]]\":",
 	"stabilization-page": "Nome da páxina:",
 	"stabilization-leg": "Confirmar as configuración da versión publicada",
