@@ -30,6 +30,15 @@ if ( !$backupFile ) {
 	exit( 1 );
 }
 
+/**
+ * @suppress SecurityCheck-XSS
+ * @param int $pageId
+ * @param int $maxPage
+ */
+function wfPrintProgress( $pageId, $maxPage ) {
+	echo "$pageId / $maxPage\n";
+}
+
 while ( true ) {
 	$res = $dbr->select( 'flaggedrevs', '*',
 		[
@@ -60,5 +69,5 @@ while ( true ) {
 	$pageId = $row->fr_page_id;
 	$revId = $row->fr_rev_id;
 	wfWaitForSlaves( 5 );
-	echo "$pageId / $maxPage\n";
+	wfPrintProgress( $pageId, $maxPage );
 }
