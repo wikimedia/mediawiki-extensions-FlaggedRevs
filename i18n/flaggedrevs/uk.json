@@ -205,6 +205,7 @@
 	"revreview-unlocked-title": "Зміни цієї сторінки не потребують перевірки.",
 	"revreview-locked": "'''Примітка:''' Редагування повинні бути [[{{MediaWiki:Validationpage}}|перевірені]] перед тим, як будуть показані читачам на цій сторінці.",
 	"revreview-unlocked": "'''Примітка:''' Редагування не потребують [[{{MediaWiki:Validationpage}}|перевірки]] перед тим, як будуть показані читачам на цій сторінці.",
+	"logeventslist-review-log": "Журнал перевірок",
 	"validationpage": "{{ns:help}}:Перевірка сторінки",
 	"log-action-filter-review": "Тип огляду:",
 	"log-action-filter-review-accept": "Ручне затвердження",
@@ -213,5 +214,6 @@
 	"log-action-filter-stable": "Тип зміни конфігурації:",
 	"log-action-filter-stable-config": "Нова конфігурація",
 	"log-action-filter-stable-modify": "Змінена конфігурація",
-	"log-action-filter-stable-reset": "Скидання конфігурації"
+	"log-action-filter-stable-reset": "Скидання конфігурації",
+	"log-action-filter-stable-move_stable": "Перенесена конфігурація"
 }
