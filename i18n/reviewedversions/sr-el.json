@@ -9,6 +9,6 @@
 	"reviewedversions-leg1": "Spisak pregledanih verzija za stranu.",
 	"reviewedversions-page": "Ime stranice:",
 	"reviewedversions-none": "\"[[:$1]]\" nema pregledanih verzija.",
-	"reviewedversions-list": "Sledi spisak {{PLURAL:$2|edine revizije|revizija}} iz [[:$1]], {{PLURAL:$2|koja je pregledana|koje su pregledane}}:",
+	"reviewedversions-list": "Sledi spisak {{PLURAL:$2|jedine izmene|izmena}} iz [[:$1]], {{PLURAL:$2|koja je pregledana|koje su pregledane}}:",
 	"reviewedversions-review": "Pregledano na <i>$1</i> od strane saradnika $2."
 }

@@ -7,11 +7,11 @@
 	},
 	"reviewedpages": "Pregledane stranice",
 	"reviewedpages-leg": "Svrstaj strane koje su pregledane",
-	"reviewedpages-list": "Ovi spiskovi sadrže [[{{MediaWiki:Validationpage}}|pregledane]] stranice čiji ''najviši dostignut'' nivo pregleda (revizije) je određeni nivo.\nVeza je data najnovijoj reviziji tog nivoa.",
+	"reviewedpages-list": "Ovi spiskovi sadrže [[{{MediaWiki:Validationpage}}|pregledane]] stranice čiji ''najviši dostignut'' nivo pregleda (izmene) je određeni nivo.\nVeza je data najnovijoj izmeni tog nivoa.",
 	"reviewedpages-none": "Nema strana u ovom spisku.",
 	"reviewedpages-lev-0": "Pregledano",
 	"reviewedpages-lev-1": "Kvalitet",
 	"reviewedpages-lev-2": "Izabrani",
 	"reviewedpages-all": "pregledane verzije",
-	"reviewedpages-best": "najbolja revizija"
+	"reviewedpages-best": "najbolja izmena"
 }
