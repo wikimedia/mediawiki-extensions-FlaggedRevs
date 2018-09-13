@@ -1,9 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Reza1615"
+			"Reza1615",
+			"Ladsgroup"
 		]
 	},
+	"apihelp-review-param-comment": "نظر برای بازبینی",
 	"apihelp-stabilize-param-reason": "دلیل.",
-	"apihelp-stabilize-param-watch": "پی‌گیری این صفحه."
+	"apihelp-stabilize-param-watch": "پی‌گیری این صفحه.",
+	"apihelp-stabilize-param-review": "بازبینی این صفحه",
+	"apihelp-stabilize-param-protectlevel": "مرحله حفاظت بازبینی",
+	"apierror-flaggedrevs-pagedoesnotexist": "صفحه داده‌شده وجود ندارد."
 }
