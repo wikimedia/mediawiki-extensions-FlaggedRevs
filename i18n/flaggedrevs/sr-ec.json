@@ -161,7 +161,7 @@
 	"stable-logentry-reset": "је {{GENDER:$1|поништио|поништила}} подешавања стабилне измене за „$1“",
 	"stable-log-restriction": "Аутоматска провера: захтева право „$1“",
 	"stable-logpage": "Евиденција стабилности",
-	"stable-logpagetext": "Ово је евиденција о променама подешавања [[{{MediaWiki:Validationpage}}|стабилних верзија]] страница.",
+	"stable-logpagetext": "Ово је дневник промена подешавања [[{{MediaWiki:Validationpage}}|стабилних верзија]] страница.",
 	"revreview-filter-all": "све",
 	"revreview-filter-stable": "стабилно",
 	"revreview-statusfilter": "Провера:",

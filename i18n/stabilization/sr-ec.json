@@ -42,5 +42,5 @@
 	"stabilize_expiry_old": "Време истицања је већ прошло.",
 	"stabilize_denied": "Приступ је одбијен.",
 	"stabilize-expiring": "истиче $1 (UTC)",
-	"stabilization-review": "Означи актуелну измену као проверену"
+	"stabilization-review": "Означи тренутну измену као проверену"
 }
