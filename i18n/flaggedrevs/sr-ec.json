@@ -14,7 +14,8 @@
 			"Prevodim",
 			"Acamicamacaraca",
 			"Obsuser",
-			"BadDog"
+			"BadDog",
+			"Vlad5250"
 		]
 	},
 	"action-review": "проверавате измене",
@@ -147,12 +148,12 @@
 	"revreview-visibility-outdated": "'''Ова страница има застарелу [[{{MediaWiki:Validationpage}}|стабилну измену]]; можете [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} променити] подешавања стабилности страница.'''",
 	"revreview-visibility-nostable": "'''Ова страница нема [[{{MediaWiki:Validationpage}}|стабилну измену]]; можете [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} променити] подешавања стабилности страница.'''",
 	"revreview-revnotfound": "Не могу да пронађем старију измену странице.\nПроверите исправност URL адресе која Вас је довела до ове странице.",
-	"right-autoreview": "Аутоматско означавање властитих измена „провереним“",
-	"right-autoreviewrestore": "Аутоматски проверено при враћању",
-	"right-movestable": "Премештање страница са стабилним изменама",
-	"right-review": "Означавање измена као „проверене”",
+	"right-autoreview": "аутоматско означавање властитих измена „провереним“",
+	"right-autoreviewrestore": "аутоматски проверено при враћању",
+	"right-movestable": "премештање страница са стабилним изменама",
+	"right-review": "означавање измена као „проверене”",
 	"right-stablesettings": "подешавање избора и приказа стабилних верзија",
-	"right-validate": "Означавање измена као „квалитетне”",
+	"right-validate": "означавање измена као „квалитетне”",
 	"right-unreviewedpages": "преглед [[Special:UnreviewedPages|списка непроверених страница]]",
 	"rights-editor-revoke": "је {{GENDER:$1|уклонио|уклонила}} статус уредника кориснику [[$1]]",
 	"specialpages-group-quality": "Провера измена",
