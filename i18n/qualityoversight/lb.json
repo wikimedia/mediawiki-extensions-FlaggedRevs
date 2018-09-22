@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Les Meloures"
 		]
 	},
 	"qualityoversight": "Erweidert Logbuch vun den nogekuckte Versiounen",
-	"qualityoversight-list": "Op dëser Säit stinn déi rezenste Säiten déi fräigi goufen an denen hir Markéierung opgehuewe gouf.",
+	"qualityoversight-list": "Op dëser Säit stinn déi rezentst Säiten déi fräigi goufen an deenen hir Markéierung opgehuewe gouf.",
 	"qualityoversight-legend": "Am Logbuch vun den nogekuckte Säite sichen"
 }
