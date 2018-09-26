@@ -37,6 +37,7 @@
 	"flaggedrevs-hidereviewed-show": "نمایش",
 	"flaggedrevs-rcfilters-need-review-label": "نیازمند بررسی",
 	"flaggedrevs-rcfilters-reviewed-label": "بازبینی‌شده",
+	"flaggedrevs-rcfilters-not-reviewable-label": "هیچ موضوعی برای بازبینی نیست",
 	"group-editor": "ویرایشگران",
 	"group-editor-member": "{{GENDER:$1|ویرایشگر}}",
 	"group-reviewer": "بازبینی‌کنندگان",
