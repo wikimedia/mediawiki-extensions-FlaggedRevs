@@ -389,8 +389,21 @@ class ProblemChangesPager extends AlphabeticPager {
 				}
 			}
 			$conds[] = 'page_id = fp_page_id';
-			$useIndex = [
-				'flaggedpages' => 'fp_pending_since', 'change_tag' => 'change_tag_rev_tag' ];
+			$useIndex = [ 'flaggedpages' => 'fp_pending_since' ];
+			if ( $wgChangeTagsSchemaMigrationStage > MIGRATION_WRITE_BOTH ) {
+				$useIndex['change_tag'] = 'change_tag_rev_tag_id';
+			} else {
+				if ( wfGetDB( DB_REPLICA )->indexExists(
+					'change_tag',
+					'change_tag_rev_tag_nonuniq',
+					__METHOD__ )
+				) {
+					$useIndex['change_tag'] = 'change_tag_rev_tag_nonuniq';
+				} else {
+					$useIndex['change_tag'] = 'change_tag_rev_tag_id';
+				}
+			}
+
 			# Filter by category
 			if ( $this->category != '' ) {
 				array_unshift( $tables, 'categorylinks' ); // order matters
