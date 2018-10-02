@@ -400,7 +400,7 @@ class ProblemChangesPager extends AlphabeticPager {
 				) {
 					$useIndex['change_tag'] = 'change_tag_rev_tag_nonuniq';
 				} else {
-					$useIndex['change_tag'] = 'change_tag_rev_tag_id';
+					$useIndex['change_tag'] = 'change_tag_rev_tag';
 				}
 			}
 
