@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Froztbyte",
-			"Jon Harald Søby"
+			"Jon Harald Søby",
+			"Saederup92"
 		]
 	},
+	"stabilization-page": "Sidenavn:",
 	"stabilization-def2": "Den seneste version",
 	"stabilization-submit": "Bekræft",
 	"stabilization-notexists": "Der findes ingen side kaldet \"[[:$1|$1]]\".\nIngen konfigurering er mulig.",

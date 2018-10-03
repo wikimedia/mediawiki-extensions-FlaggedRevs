@@ -5,7 +5,9 @@
 			"Saederup92"
 		]
 	},
+	"revreview-check-flag-y": "Accepter mine ændringer",
 	"revreview-log": "Kommentar:",
 	"revreview-submit": "Indsend",
-	"revreview-submitting": "Indsender…"
+	"revreview-submitting": "Indsender…",
+	"revreview-reject-cancel": "Annullér"
 }

@@ -4,5 +4,8 @@
 			"Saederup92"
 		]
 	},
-	"apihelp-stabilize-param-reason": "Begrundelse."
+	"apihelp-stabilize-param-reason": "Begrundelse.",
+	"apihelp-stabilize-param-watch": "Overvåg denne side.",
+	"apihelp-stabilize-param-review": "Gennemgå denne side.",
+	"apierror-flaggedrevs-pagedoesnotexist": "Den angivne side findes ikke."
 }
