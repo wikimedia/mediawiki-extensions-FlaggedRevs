@@ -191,6 +191,7 @@
 	"revreview-unlocked-title": "Izmjene ove stranice ne zahtijevaju ocjenjivanje.",
 	"revreview-locked": "'''NAPOMENA:''' Izmjene moraju biti [[{{MediaWiki:Validationpage}}|ocijenjene]] prije nego što će se prikazati na ovoj stranici.",
 	"revreview-unlocked": "'''NAPOMENA:'''Izmjene ne zahtijevaju [[{{MediaWiki:Validationpage}}|ocjenjivanje]] prije nego što će se prikazati na ovoj stranici.",
+	"logeventslist-review-log": "Evidencija ocjenjivanja",
 	"validationpage": "{{ns:help}}:Ocjenjivanje članaka",
 	"log-action-filter-review": "Vrsta proviđenja:",
 	"log-action-filter-review-accept": "Ručno proviđeno",
@@ -199,5 +200,6 @@
 	"log-action-filter-stable": "Vrsta mijenjanja postavki:",
 	"log-action-filter-stable-config": "Nova postavka",
 	"log-action-filter-stable-modify": "Promjena postavki",
-	"log-action-filter-stable-reset": "Vraćanje postavki na predodređeno"
+	"log-action-filter-stable-reset": "Vraćanje postavki na predodređeno",
+	"log-action-filter-stable-move_stable": "Premještena konfiguracija"
 }
