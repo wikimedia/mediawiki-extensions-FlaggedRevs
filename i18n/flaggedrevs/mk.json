@@ -3,7 +3,8 @@
 		"authors": [
 			"Bjankuloski06",
 			"Brainmachine",
-			"Brest"
+			"Brest",
+			"Vlad5250"
 		]
 	},
 	"action-review": "проверка на преработки",
@@ -146,7 +147,7 @@
 	"right-review": "Означување на преработки како „проверени“",
 	"right-stablesettings": "Нагодување како објавената верзија ќе се избира и прикажува",
 	"right-validate": "Означи преработки како „квалитетни“",
-	"right-unreviewedpages": "Погледајте го [[Special:UnreviewedPages|списокот на непроверени статии]]",
+	"right-unreviewedpages": "Преглед на [[Special:UnreviewedPages|списокот на непроверени статии]]",
 	"rights-editor-revoke": "одземен уреднички статус на [[$1]]",
 	"specialpages-group-quality": "Одобрување на уредувања",
 	"stable-logentry-config": "поставени нагодувања за стабилната верзија на „$1“",
