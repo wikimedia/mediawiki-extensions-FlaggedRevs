@@ -365,7 +365,7 @@ class FlaggablePageView extends ContextSource {
 		}
 		// $reqId is null if nothing requested, false if invalid
 		if ( $reqId === false ) {
-			$this->out->addWikiText( $this->msg( 'revreview-invalid' )->text() );
+			$this->out->addWikiMsg( 'revreview-invalid' );
 			$this->out->returnToMain( false, $this->article->getTitle() );
 			# Tell MW that parser output is done
 			$outputDone = true;
@@ -793,7 +793,7 @@ class FlaggablePageView extends ContextSource {
 
 		$this->out->addWikiMsg( 'missing-article',
 			$this->article->getTitle()->getPrefixedText(),
-			$this->msg( 'missingarticle-rev', $revId )->text()
+			$this->msg( 'missingarticle-rev', $revId )->plain()
 		);
 	}
 

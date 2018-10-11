@@ -79,7 +79,7 @@ class RevisionReview extends UnlistedSpecialPage {
 		if ( $request->wasPosted() ) {
 			// Check the edit token...
 			if ( !$confirmed ) {
-				$out->addWikiText( $this->msg( 'sessionfailure' )->text() );
+				$out->addWikiMsg( 'sessionfailure' );
 				$out->returnToMain( false, $this->page );
 				return;
 			}
@@ -93,7 +93,7 @@ class RevisionReview extends UnlistedSpecialPage {
 				// Failure...
 				} else {
 					if ( $status === 'review_page_unreviewable' ) {
-						$out->addWikiText( $this->msg( 'revreview-main' )->text() );
+						$out->addWikiMsg( 'revreview-main' );
 						return;
 					} elseif ( $status === 'review_page_notexists' ) {
 						$out->showErrorPage( 'internalerror', 'nopagetext' );
@@ -122,7 +122,7 @@ class RevisionReview extends UnlistedSpecialPage {
 				// Failure...
 				} else {
 					if ( $status === 'review_page_unreviewable' ) {
-						$out->addWikiText( $this->msg( 'revreview-main' )->text() );
+						$out->addWikiMsg( 'revreview-main' );
 						return;
 					} elseif ( $status === 'review_page_notexists' ) {
 						$out->showErrorPage( 'internalerror', 'nopagetext' );
@@ -136,7 +136,7 @@ class RevisionReview extends UnlistedSpecialPage {
 					} elseif ( $status === 'review_not_flagged' ) {
 						$out->redirect( $this->page->getFullUrl() ); // already unflagged
 					} elseif ( $status === 'review_too_low' ) {
-						$out->addWikiText( $this->msg( 'revreview-toolow' )->text() );
+						$out->addWikiMsg( 'revreview-toolow' );
 					} else {
 						$out->showErrorPage( 'internalerror', $status );
 					}
