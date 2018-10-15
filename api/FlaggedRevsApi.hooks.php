@@ -19,13 +19,9 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 			return true;
 		}
 		if ( !in_array( 'ids', $params['prop'] ) ) {
-			if ( is_callable( [ $module, 'dieWithError' ] ) ) {
-				$module->dieWithError(
-					[ 'apierror-invalidparammix-mustusewith', 'rvprop=flagged', 'rvprop=ids' ], 'missingparam'
-				);
-			} else {
-				$module->dieUsage( 'if rvprop=flagged is set, you must also set rvprop=ids', 'missingparam' );
-			}
+			$module->dieWithError(
+				[ 'apierror-invalidparammix-mustusewith', 'rvprop=flagged', 'rvprop=ids' ], 'missingparam'
+			);
 		}
 		// Get all requested pageids/revids in a mapping:
 		// pageid => revid => array_index of the revision

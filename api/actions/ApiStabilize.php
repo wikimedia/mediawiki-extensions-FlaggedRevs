@@ -35,23 +35,14 @@ abstract class ApiStabilize extends ApiBase {
 
 		$this->title = Title::newFromText( $params['title'] );
 		if ( $this->title == null ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError(
-					[ 'apierror-invelidtitle', wfEscapeWikiText( $params['title'] ) ]
-				);
-			} else {
-				$this->dieUsage( "Invalid title given.", "invalidtitle" );
-			}
+			$this->dieWithError(
+				[ 'apierror-invelidtitle', wfEscapeWikiText( $params['title'] ) ]
+			);
 		}
 
 		$errors = $this->title->getUserPermissionsErrors( 'stablesettings', $wgUser );
 		if ( $errors ) {
-			if ( is_callable( [ $this, 'errorArrayToStatus' ] ) ) {
-				$this->dieStatus( $this->errorArrayToStatus( $errors, $wgUser ) );
-			} else {
-				// We don't care about multiple errors, just report one of them
-				$this->dieUsageMsg( reset( $errors ) );
-			}
+			$this->dieStatus( $this->errorArrayToStatus( $errors, $wgUser ) );
 		}
 
 		$this->doExecute(); // child class
@@ -106,11 +97,7 @@ class ApiStabilizeGeneral extends ApiStabilize {
 
 		$status = $form->submit(); // true/error message key
 		if ( $status !== true ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( $status );
-			} else {
-				$this->dieUsage( $this->msg( $status )->text(), 'unknownerror' );
-			}
+			$this->dieWithError( $status );
 		}
 
 		# Output success line with the title and config parameters
@@ -255,11 +242,7 @@ class ApiStabilizeProtect extends ApiStabilize {
 
 		$status = $form->submit(); // true/error message key
 		if ( $status !== true ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( $status );
-			} else {
-				$this->dieUsage( $this->msg( $status )->text(), 'unknownerror' );
-			}
+			$this->dieWithError( $status );
 		}
 
 		# Output success line with the title and config parameters

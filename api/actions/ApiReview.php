@@ -35,32 +35,17 @@ class ApiReview extends ApiBase {
 	public function execute() {
 		$params = $this->extractRequestParams();
 		// Check basic permissions
-		if ( is_callable( [ $this, 'checkUserRightsAny' ] ) ) {
-			$this->checkUserRightsAny( 'review' );
-		} else {
-			if ( !$this->getUser()->isAllowed( 'review' ) ) {
-				$this->dieUsage( "You don't have the right to review revisions.",
-					'permissiondenied' );
-			}
-		}
+		$this->checkUserRightsAny( 'review' );
 
 		if ( $this->getUser()->isBlocked( false ) ) {
-			if ( is_callable( [ $this, 'dieBlocked' ] ) ) {
-				$this->dieBlocked( $this->getUser()->getBlock() );
-			} else {
-				$this->dieUsageMsg( [ 'blockedtext' ] );
-			}
+			$this->dieBlocked( $this->getUser()->getBlock() );
 		}
 
 		// Get target rev and title
 		$revid = (int)$params['revid'];
 		$rev = Revision::newFromId( $revid );
 		if ( !$rev ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( [ 'apierror-nosuchrevid', $revid ], 'notarget' );
-			} else {
-				$this->dieUsage( "Cannot find a revision with the specified ID.", 'notarget' );
-			}
+			$this->dieWithError( [ 'apierror-nosuchrevid', $revid ], 'notarget' );
 		}
 		$title = $rev->getTitle();
 
@@ -114,86 +99,34 @@ class ApiReview extends ApiBase {
 				null, $this->getModuleName(), [ 'result' => 'Success' ] );
 		# Generic failures
 		} elseif ( $status === 'review_page_notexists' ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-flaggedrevs-pagedoesnotexist', 'notarget' );
-			} else {
-				$this->dieUsage( "Provided page does not exist.", 'notarget' );
-			}
+			$this->dieWithError( 'apierror-flaggedrevs-pagedoesnotexist', 'notarget' );
 		} elseif ( $status === 'review_page_unreviewable' ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-flaggedrevs-notreviewable', 'notreviewable' );
-			} else {
-				$this->dieUsage( "Provided page is not reviewable.", 'notreviewable' );
-			}
+			$this->dieWithError( 'apierror-flaggedrevs-notreviewable', 'notreviewable' );
 		# Approve-specific failures
 		} elseif ( $form->getAction() === 'approve' ) {
 			if ( $status === 'review_denied' ) {
-				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-					$this->dieWithError( 'apierror-flaggedrevs-cantreview', 'permissiondenied' );
-				} else {
-					$this->dieUsage(
-						"You don't have the necessary rights to set the specified flags.",
-						'permissiondenied'
-					);
-				}
+				$this->dieWithError( 'apierror-flaggedrevs-cantreview', 'permissiondenied' );
 			} elseif ( $status === 'review_too_low' ) {
-				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-					$this->dieWithError( 'apierror-flaggedrevs-toolow', 'mixedapproval' );
-				} else {
-					$this->dieUsage( "Either all or none of the flags have to be set to zero.",
-						'mixedapproval' );
-				}
+				$this->dieWithError( 'apierror-flaggedrevs-toolow', 'mixedapproval' );
 			} elseif ( $status === 'review_bad_key' ) {
-				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-					$this->dieWithError( 'apierror-flaggedrevs-cantreview', 'permissiondenied' );
-				} else {
-					$this->dieUsage(
-						"You don't have the necessary rights to set the specified flags.",
-						'permissiondenied'
-					);
-				}
+				$this->dieWithError( 'apierror-flaggedrevs-cantreview', 'permissiondenied' );
 			} elseif ( $status === 'review_bad_tags' ) {
-				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-					$this->dieWithError( 'apierror-flaggedrevs-badflags', 'invalidtags' );
-				} else {
-					$this->dieUsage( "The specified flags are not valid.", 'invalidtags' );
-				}
+				$this->dieWithError( 'apierror-flaggedrevs-badflags', 'invalidtags' );
 			} elseif ( $status === 'review_bad_oldid' ) {
-				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-					$this->dieWithError( [ 'apierror-nosuchrevid', $revid ], 'notarget' );
-				} else {
-					$this->dieUsage( "No revision with the specified ID.", 'notarget' );
-				}
+				$this->dieWithError( [ 'apierror-nosuchrevid', $revid ], 'notarget' );
 			} else {
 				// FIXME: review_param_missing? better msg?
-				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-					$this->dieWithError( [ 'apierror-unknownerror-nocode' ], 'unknownerror' );
-				} else {
-					$this->dieUsageMsg( [ 'unknownerror', '' ] );
-				}
+				$this->dieWithError( [ 'apierror-unknownerror-nocode' ], 'unknownerror' );
 			}
 		# De-approve specific failure
 		} elseif ( $form->getAction() === 'unapprove' ) {
 			if ( $status === 'review_denied' ) {
-				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-					$this->dieWithError( 'apierror-flaggedrevs-cantunreview', 'permissiondenied' );
-				} else {
-					$this->dieUsage( "You don't have the necessary rights to remove the flags.",
-						'permissiondenied' );
-				}
+				$this->dieWithError( 'apierror-flaggedrevs-cantunreview', 'permissiondenied' );
 			} elseif ( $status === 'review_not_flagged' ) {
-				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-					$this->dieWithError( 'apierror-flaggedrevs-noflaggedrev', 'notarget' );
-				} else {
-					$this->dieUsage( "No flagged revision with the specified ID.", 'notarget' );
-				}
+				$this->dieWithError( 'apierror-flaggedrevs-noflaggedrev', 'notarget' );
 			} else {
 				// FIXME: review_param_missing? better msg?
-				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-					$this->dieWithError( [ 'apierror-unknownerror-nocode' ], 'unknownerror' );
-				} else {
-					$this->dieUsageMsg( [ 'unknownerror', '' ] );
-				}
+				$this->dieWithError( [ 'apierror-unknownerror-nocode' ], 'unknownerror' );
 			}
 		}
 	}

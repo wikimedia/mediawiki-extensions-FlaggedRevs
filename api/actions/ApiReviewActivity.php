@@ -35,50 +35,27 @@ class ApiReviewActivity extends ApiBase {
 		$user = $this->getUser();
 		$params = $this->extractRequestParams();
 		// Check basic permissions
-		if ( is_callable( [ $this, 'checkUserRightsAny' ] ) ) {
-			$this->checkUserRightsAny( 'review' );
-		} else {
-			if ( !$user->isAllowed( 'review' ) ) {
-				$this->dieUsage( "You don't have the right to review revisions.",
-					'permissiondenied' );
-			}
-		}
+		$this->checkUserRightsAny( 'review' );
 
 		if ( $user->isBlocked( false ) ) {
-			if ( is_callable( [ $this, 'dieBlocked' ] ) ) {
-				$this->dieBlocked( $user->getBlock() );
-			} else {
-				$this->dieUsageMsg( [ 'blockedtext' ] );
-			}
+			$this->dieBlocked( $user->getBlock() );
 		}
 
 		$newRev = Revision::newFromId( $params['oldid'] );
 		if ( !$newRev || !$newRev->getTitle() ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( [ 'apierror-nosuchrevid', $params['oldid'] ], 'notarget' );
-			} else {
-				$this->dieUsage( "Cannot find a revision with the specified ID.", 'notarget' );
-			}
+			$this->dieWithError( [ 'apierror-nosuchrevid', $params['oldid'] ], 'notarget' );
 		}
 		$title = $newRev->getTitle();
 
 		$fa = FlaggableWikiPage::getTitleInstance( $title );
 		if ( !$fa->isReviewable() ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-flaggedrevs-notreviewable', 'notreviewable' );
-			} else {
-				$this->dieUsage( "Provided page is not reviewable.", 'notreviewable' );
-			}
+			$this->dieWithError( 'apierror-flaggedrevs-notreviewable', 'notreviewable' );
 		}
 
 		if ( $params['previd'] ) { // changes
 			$oldRev = Revision::newFromId( $params['previd'] );
 			if ( !$oldRev || $oldRev->getPage() != $newRev->getPage() ) {
-				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-					$this->dieWithError( 'apierror-flaggedrevs-notsamepage', 'notarget' );
-				} else {
-					$this->dieUsage( "Revisions do not belong to the same page.", 'notarget' );
-				}
+				$this->dieWithError( 'apierror-flaggedrevs-notsamepage', 'notarget' );
 			}
 			// Mark as reviewing...
 			if ( $params['reviewing'] ) {
