@@ -4,7 +4,8 @@
 			"Borislav",
 			"DCLXVI",
 			"Spiritia",
-			"Turin"
+			"Turin",
+			"StanProg"
 		]
 	},
 	"review_page_invalid": "Заглавието на целевата страница е невалидно.",
@@ -25,6 +26,6 @@
 	"revreview-submit-unreviewed": "Готово. Неприето!",
 	"revreview-update-includes": "Актуализирани шаблони/файлове (непрегледаните страници са в получер шрифт):",
 	"revreview-reject-summary": "Резюме:",
-	"revreview-reject-cancel": "Отказване",
+	"revreview-reject-cancel": "Отказ",
 	"revreview-tt-flag": "Приемете тази версия, като я отбележите като \"проверена\""
 }
