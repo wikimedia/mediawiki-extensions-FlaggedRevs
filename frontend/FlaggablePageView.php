@@ -784,7 +784,7 @@ class FlaggablePageView extends ContextSource {
 		$this->out->setRobotPolicy( 'noindex,nofollow' );
 
 		$errortext = $status->getWikiText( false, 'view-pool-error' );
-		$this->out->addWikiText( '<div class="errorbox">' . $errortext . '</div>' );
+		$this->out->wrapWikiTextAsInterface( 'errorbox', $errortext );
 	}
 
 	protected function showMissingRevError( $revId ) {
