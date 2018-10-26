@@ -277,7 +277,7 @@ class RevisionReview extends UnlistedSpecialPage {
 		# Basic permission checks...
 		$permErrors = $title->getUserPermissionsErrors( 'review', $wgUser, false );
 		if ( $permErrors ) {
-			return '<err#>' . $wgOut->parse(
+			return '<err#>' . $wgOut->parseAsInterface(
 				$wgOut->formatPermissionsErrorMessage( $permErrors, 'review' )
 			);
 		}

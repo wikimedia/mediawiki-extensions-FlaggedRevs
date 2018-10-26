@@ -3,7 +3,7 @@ http://www.mediawiki.org/wiki/Extension:FlaggedRevs
 
 ==Prerequisites==
 * Downloaded the extension from GIT
-* MediaWiki 1.32+
+* MediaWiki 1.33+
 * Shell access
 
 == Setup ==
