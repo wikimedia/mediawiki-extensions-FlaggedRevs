@@ -1243,7 +1243,10 @@ class FlaggablePageView extends ContextSource {
 			# If they're lacking, then we use getRevIncludes() to get the draft inclusion versions.
 			# Note: showStableVersion() already makes sure that $wgOut
 			# has the stable inclusion versions.
-			if ( $this->out->getRevisionId() == $rev->getId() ) {
+			if ( FlaggedRevs::inclusionSetting() === FR_INCLUDES_CURRENT ) {
+				$tmpVers = []; // unused
+				$fileVers = []; // unused
+			} elseif ( $this->out->getRevisionId() == $rev->getId() ) {
 				$tmpVers = $this->out->getTemplateIds();
 				$fileVers = $this->out->getFileSearchOptions();
 			} elseif ( $this->oldRevIncludes ) { // e.g. diffonly=1, stable diff
@@ -1582,13 +1585,15 @@ class FlaggablePageView extends ContextSource {
 					$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
 				}
 			# Otherwise, check for includes pending on top of edits pending...
-			} else {
+			} elseif ( FlaggedRevs::inclusionSetting() !== FR_INCLUDES_CURRENT ) {
 				$incs = FRInclusionCache::getRevIncludes( $this->article, $newRev, $reqUser );
 				$this->oldRevIncludes = $incs; // process cache
 				# Add a list of links to each changed template...
 				$changeList = self::fetchTemplateChanges( $srev, $incs[0] );
 				# Add a list of links to each changed file...
 				$changeList = array_merge( $changeList, self::fetchFileChanges( $srev, $incs[1] ) );
+			} else {
+				$changeList = []; // unused
 			}
 			# If there are pending revs or templates/files changes, notify the user...
 			if ( $this->article->revsArePending() || count( $changeList ) ) {

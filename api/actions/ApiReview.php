@@ -77,8 +77,13 @@ class ApiReview extends ApiBase {
 				$fileVer = null;
 			}
 			// Now get the template and image parameters needed
-			list( $templateIds, $fileTimeKeys ) =
-				FRInclusionCache::getRevIncludes( $article, $rev, $this->getUser() );
+			if ( FlaggedRevs::inclusionSetting() === FR_INCLUDES_CURRENT ) {
+				$templateIds = []; // unused
+				$fileTimeKeys = []; // unused
+			} else {
+				list( $templateIds, $fileTimeKeys ) =
+					FRInclusionCache::getRevIncludes( $article, $rev, $this->getUser() );
+			}
 			// Get version parameters for review submission (flat strings)
 			list( $templateParams, $imageParams, $fileParam ) =
 				RevisionReviewForm::getIncludeParams( $templateIds, $fileTimeKeys, $fileVer );

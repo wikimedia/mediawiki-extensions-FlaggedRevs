@@ -22,6 +22,12 @@ class CachePendingRevs extends Maintenance {
 
 	public function execute() {
 		global $wgUser;
+
+		if ( FlaggedRevs::inclusionSetting() === FR_INCLUDES_CURRENT ) {
+			$this->output( "Nothing to do; inclusion mode is FR_INCLUDES_CURRENT." );
+			return;
+		}
+
 		$dbr = wfGetDB( DB_REPLICA );
 		$revQuery = Revision::getQueryInfo();
 		$pageQuery = WikiPage::getQueryInfo();

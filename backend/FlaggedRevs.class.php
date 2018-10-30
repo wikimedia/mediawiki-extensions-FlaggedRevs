@@ -707,7 +707,11 @@ class FlaggedRevs {
 				);
 			}
 			# Update template/file version cache...
-			if ( $editInfo && $sv->getRevId() != $editInfo->revid ) {
+			if (
+				$editInfo &&
+				$sv->getRevId() != $editInfo->revid &&
+				self::inclusionSetting() !== FR_INCLUDES_CURRENT
+			) {
 				FRInclusionCache::setRevIncludes( $title, $editInfo->revid, $editInfo->output );
 			}
 		}
@@ -813,7 +817,7 @@ class FlaggedRevs {
 
 	/**
 	 * Get a memcache storage object
-	 * @param string $val
+	 * @param mixed $val
 	 * @return Object (val,time) tuple
 	 */
 	public static function makeMemcObj( $val ) {

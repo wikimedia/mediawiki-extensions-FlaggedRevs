@@ -117,7 +117,7 @@ class FRInclusionCache {
 	}
 
 	/**
-	 * Set template and image versions from parsing a revision
+	 * Set the cache of template and image versions from parsing a revision
 	 * @param Title $title
 	 * @param int $revId
 	 * @param ParserOutput $pOut
