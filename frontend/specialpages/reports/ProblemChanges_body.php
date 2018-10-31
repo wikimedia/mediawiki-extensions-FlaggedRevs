@@ -361,9 +361,11 @@ class ProblemChangesPager extends AlphabeticPager {
 	}
 
 	function getQueryInfo() {
-		global $wgChangeTagsSchemaMigrationStage;
+		global $wgChangeTagsSchemaMigrationStage, $wgVersion;
 		$tables = [ 'revision', 'change_tag', 'page' ];
 		$conds = [];
+		// The index on cl_from is called cl_from before 1.30, and PRIMARY starting with 1.30
+		$clFromIndex = version_compare( $wgVersion, '1.30', '<' ) ? 'cl_from' : 'PRIMARY';
 
 		if ( $wgChangeTagsSchemaMigrationStage > MIGRATION_WRITE_BOTH ) {
 			$tables[] = 'change_tag_def';
@@ -409,7 +411,7 @@ class ProblemChangesPager extends AlphabeticPager {
 				array_unshift( $tables, 'categorylinks' ); // order matters
 				$conds[] = 'cl_from = fp_page_id';
 				$conds['cl_to'] = $this->category;
-				$useIndex['categorylinks'] = 'cl_from';
+				$useIndex['categorylinks'] = $clFromIndex;
 			}
 			array_unshift( $tables, 'flaggedpages' ); // order matters
 			$this->mIndexField = 'fp_pending_since';
@@ -440,7 +442,7 @@ class ProblemChangesPager extends AlphabeticPager {
 				array_unshift( $tables, 'categorylinks' ); // order matters
 				$conds[] = 'cl_from = fpp_page_id';
 				$conds['cl_to'] = $this->category;
-				$useIndex['categorylinks'] = 'cl_from';
+				$useIndex['categorylinks'] = $clFromIndex;
 			}
 			array_unshift( $tables, 'flaggedpage_pending' ); // order matters
 			$this->mIndexField = 'fpp_pending_since';
