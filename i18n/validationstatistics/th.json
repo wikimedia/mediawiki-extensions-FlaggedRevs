@@ -1,8 +1,19 @@
 {
 	"@metadata": {
 		"authors": [
-			"Octahedron80"
+			"Octahedron80",
+			"Aefgh39622"
 		]
 	},
-	"validationstatistics-ns": "เนมสเปซ"
+	"validationstatistics": "สถิติการตรวจทานหน้า",
+	"validationstatistics-lastupdate": "''ข้อมูลดังต่อไปนี้ถูกปรับปรุงล่าสุดเมื่อ $1 เวลา $2''",
+	"validationstatistics-ns": "เนมสเปซ",
+	"validationstatistics-total": "หน้า",
+	"validationstatistics-stable": "ตรวจทานแล้ว",
+	"validationstatistics-latest": "ซิงค์แล้ว",
+	"validationstatistics-synced": "ซิงค์/ตรวจทานแล้ว",
+	"validationstatistics-old": "ล้าสมัย",
+	"validationstatistics-unreviewed": "ยังไม่ได้ตรวจทาน",
+	"validationstatistics-user": "ผู้ใช้",
+	"validationstatistics-reviews": "การตรวจทาน"
 }

@@ -179,5 +179,6 @@
 	"revreview-unlocked-title": "Праўкі старонкі не патрабуюць праверкі.",
 	"revreview-locked": "'''Заўвага.''' Праўкі павінны быць [[{{MediaWiki:Validationpage}}|правераны]], перш чым яны будуць паказаны чытачам гэтай старонкі.",
 	"revreview-unlocked": "'''Заўвага.''' Праўкі не патрабуюць папярэдняй [[{{MediaWiki:Validationpage}}|праверки]] для адлюстравання чытачам гэтай старонкі.",
+	"logeventslist-review-log": "Журнал праверак версій",
 	"validationpage": "{{ns:help}}:Праверка старонак"
 }

@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ninjastrikers"
+			"Ninjastrikers",
+			"Dr Lotus Black"
 		]
 	},
+	"flaggedrevs-rcfilters-reviewed-label": "ပြန်လည်ဆန်းစစ်ပြီး",
 	"tooltip-ca-current": "စောင့်ဆိုင်းနေသော ပြောင်းလဲမှုများဖြင့် ဤစာမျက်နှာကို ကြည့်ရန်"
 }
