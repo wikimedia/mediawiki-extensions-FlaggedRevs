@@ -2,7 +2,7 @@
 class FlaggedRevsLibraryTest extends Scribunto_LuaEngineTestBase {
 	protected static $moduleName = 'FlaggedRevsLibraryTest';
 
-	function setUp() {
+	protected function setUp() {
 		parent::setUp();
 
 		$class = new ReflectionClass( 'FlaggableWikiPage' );
@@ -30,7 +30,7 @@ class FlaggedRevsLibraryTest extends Scribunto_LuaEngineTestBase {
 		$mDataLoaded->setValue( $article, true );
 	}
 
-	function getTestModules() {
+	public function getTestModules() {
 		 return parent::getTestModules() + [
 			 'FlaggedRevsLibraryTest' => __DIR__ . '/FlaggedRevsLibraryTests.lua'
 		 ];

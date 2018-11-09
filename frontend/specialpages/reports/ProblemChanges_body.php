@@ -307,7 +307,7 @@ class ProblemChangesPager extends AlphabeticPager {
 
 	const PAGE_LIMIT = 100; // Don't get too expensive
 
-	function __construct( $form, $level = - 1, $category = '', $tag = '' ) {
+	public function __construct( $form, $level = - 1, $category = '', $tag = '' ) {
 		$this->mForm = $form;
 		# Must be a content page...
 		$this->namespace = FlaggedRevs::getReviewNamespaces();
@@ -321,19 +321,19 @@ class ProblemChangesPager extends AlphabeticPager {
 		$this->setLimit( $this->mLimit ); // apply max limit
 	}
 
-	function setLimit( $limit ) {
+	public function setLimit( $limit ) {
 		$this->mLimit = min( $limit, self::PAGE_LIMIT );
 	}
 
-	function formatRow( $row ) {
+	public function formatRow( $row ) {
 		return $this->mForm->formatRow( $row );
 	}
 
-	function getDefaultDirections() {
+	public function getDefaultDirections() {
 		return false;
 	}
 
-	function getQueryInfo() {
+	public function getQueryInfo() {
 		global $wgVersion;
 		$tables = [ 'revision', 'change_tag', 'change_tag_def', 'page' ];
 		$conds = [ 'ctd_id = ct_tag_id' ];
@@ -410,11 +410,11 @@ class ProblemChangesPager extends AlphabeticPager {
 		];
 	}
 
-	function getIndexField() {
+	public function getIndexField() {
 		return $this->mIndexField;
 	}
 
-	function doBatchLookups() {
+	public function doBatchLookups() {
 		$lb = new LinkBatch();
 		foreach ( $this->mResult as $row ) {
 			$lb->add( $row->page_namespace, $row->page_title );
@@ -422,11 +422,11 @@ class ProblemChangesPager extends AlphabeticPager {
 		$lb->execute();
 	}
 
-	function getStartBody() {
+	public function getStartBody() {
 		return '<ul>';
 	}
 
-	function getEndBody() {
+	public function getEndBody() {
 		return '</ul>';
 	}
 }

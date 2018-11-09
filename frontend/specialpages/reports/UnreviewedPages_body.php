@@ -299,7 +299,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 
 	const PAGE_LIMIT = 50; // Don't get too expensive
 
-	function __construct(
+	public function __construct(
 		$form, $live, $namespace, $redirs = false, $category = null, $level = 0
 	) {
 		$this->mForm = $form;
@@ -323,15 +323,15 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		$this->setLimit( $this->mLimit ); // apply max limit
 	}
 
-	function setLimit( $limit ) {
+	public function setLimit( $limit ) {
 		$this->mLimit = min( $limit, self::PAGE_LIMIT );
 	}
 
-	function formatRow( $row ) {
+	public function formatRow( $row ) {
 		return $this->mForm->formatRow( $row );
 	}
 
-	function getQueryInfo() {
+	public function getQueryInfo() {
 		if ( !$this->live ) {
 			return $this->getQueryCacheInfo();
 		}
@@ -385,7 +385,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		];
 	}
 
-	function getQueryCacheInfo() {
+	public function getQueryCacheInfo() {
 		$conds = $this->mConds;
 		$fields = [ 'page_namespace', 'page_title', 'page_len', 'page_id',
 			'qc_value', 'MIN(rev_timestamp) AS creation' ];
@@ -439,11 +439,11 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		];
 	}
 
-	function getIndexField() {
+	public function getIndexField() {
 		return $this->mIndexField;
 	}
 
-	function doBatchLookups() {
+	public function doBatchLookups() {
 		$lb = new LinkBatch();
 		foreach ( $this->mResult as $row ) {
 			$lb->add( $row->page_namespace, $row->page_title );
@@ -451,11 +451,11 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		$lb->execute();
 	}
 
-	function getStartBody() {
+	public function getStartBody() {
 		return '<ul>';
 	}
 
-	function getEndBody() {
+	public function getEndBody() {
 		return '</ul>';
 	}
 }

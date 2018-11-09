@@ -315,7 +315,7 @@ class PendingChangesPager extends AlphabeticPager {
 
 	const PAGE_LIMIT = 100; // Don't get too expensive
 
-	function __construct( $form, $namespace, $level = -1, $category = '',
+	public function __construct( $form, $namespace, $level = -1, $category = '',
 		$size = null, $watched = false, $stable = false
 	) {
 		$this->mForm = $form;
@@ -345,25 +345,25 @@ class PendingChangesPager extends AlphabeticPager {
 		$this->setLimit( $this->mLimit ); // apply max limit
 	}
 
-	function setLimit( $limit ) {
+	public function setLimit( $limit ) {
 		$this->mLimit = min( $limit, self::PAGE_LIMIT );
 	}
 
-	function formatRow( $row ) {
+	public function formatRow( $row ) {
 		return $this->mForm->formatRow( $row );
 	}
 
-	function getDefaultQuery() {
+	public function getDefaultQuery() {
 		$query = parent::getDefaultQuery();
 		$query['category'] = $this->category;
 		return $query;
 	}
 
-	function getDefaultDirections() {
+	public function getDefaultDirections() {
 		return false;
 	}
 
-	function getQueryInfo() {
+	public function getQueryInfo() {
 		$tables = [ 'page', 'revision' ];
 		$fields = [ 'page_namespace', 'page_title', 'page_len', 'rev_len', 'page_latest' ];
 		# Show outdated "stable" versions
@@ -441,11 +441,11 @@ class PendingChangesPager extends AlphabeticPager {
 		];
 	}
 
-	function getIndexField() {
+	public function getIndexField() {
 		return $this->mIndexField;
 	}
 
-	function doBatchLookups() {
+	public function doBatchLookups() {
 		$lb = new LinkBatch();
 		foreach ( $this->mResult as $row ) {
 			$lb->add( $row->page_namespace, $row->page_title );
@@ -453,11 +453,11 @@ class PendingChangesPager extends AlphabeticPager {
 		$lb->execute();
 	}
 
-	function getStartBody() {
+	public function getStartBody() {
 		return '<ul>';
 	}
 
-	function getEndBody() {
+	public function getEndBody() {
 		return '</ul>';
 	}
 }

@@ -129,7 +129,7 @@ class ReviewedPages extends SpecialPage {
 class ReviewedPagesPager extends AlphabeticPager {
 	public $mForm, $mConds, $namespace, $type;
 
-	function __construct( $form, $conds = [], $type = 0, $namespace = 0, $hideRedirs = 1 ) {
+	public function __construct( $form, $conds = [], $type = 0, $namespace = 0, $hideRedirs = 1 ) {
 		$this->mForm = $form;
 		$this->mConds = $conds;
 		$this->type = $type;
@@ -147,11 +147,11 @@ class ReviewedPagesPager extends AlphabeticPager {
 		parent::__construct();
 	}
 
-	function formatRow( $row ) {
+	public function formatRow( $row ) {
 		return $this->mForm->formatRow( $row );
 	}
 
-	function getQueryInfo() {
+	public function getQueryInfo() {
 		$conds = $this->mConds;
 		$conds[] = 'page_id = fp_page_id';
 		if ( $this->type >= 0 ) {
@@ -168,11 +168,11 @@ class ReviewedPagesPager extends AlphabeticPager {
 		];
 	}
 
-	function getIndexField() {
+	public function getIndexField() {
 		return 'fp_page_id';
 	}
 
-	function doBatchLookups() {
+	public function doBatchLookups() {
 		$lb = new LinkBatch();
 		foreach ( $this->mResult as $row ) {
 			$lb->add( $row->page_namespace, $row->page_title );
@@ -180,11 +180,11 @@ class ReviewedPagesPager extends AlphabeticPager {
 		$lb->execute();
 	}
 
-	function getStartBody() {
+	public function getStartBody() {
 		return '<ul>';
 	}
 
-	function getEndBody() {
+	public function getEndBody() {
 		return '</ul>';
 	}
 }

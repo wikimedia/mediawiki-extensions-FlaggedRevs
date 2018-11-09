@@ -9,7 +9,7 @@ class FRExtraCacheUpdateJob extends Job {
 	 * @param Title $title The title linked to
 	 * @param array $params Job parameters (table, start and end page_ids)
 	 */
-	function __construct( $title, $params ) {
+	public function __construct( $title, $params ) {
 		parent::__construct( 'flaggedrevs_CacheUpdate', $title, $params );
 
 		$this->params['type'] = isset( $this->params['type'] )
@@ -21,7 +21,7 @@ class FRExtraCacheUpdateJob extends Job {
 		);
 	}
 
-	function run() {
+	public function run() {
 		if ( $this->params['type'] === 'purge' ) {
 			return $this->doBacklinkPurge();
 		} elseif ( $this->params['type'] === 'updatelinks' ) {
