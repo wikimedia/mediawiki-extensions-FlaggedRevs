@@ -3,8 +3,7 @@
  * @author Aaron Schulz
  * @author Daniel Arnold 2008
  */
-
-( function ( mw, $ ) {
+( function () {
 	'use strict';
 
 	var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
@@ -443,4 +442,4 @@
 	// Perform some onload events:
 	$( init );
 
-}( mediaWiki, jQuery ) );
+}() );

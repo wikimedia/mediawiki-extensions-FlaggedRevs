@@ -3,7 +3,7 @@
  * @author Aaron Schulz
  * @author Krinkle <krinklemail@gmail.com> 2011
  */
-( function ( mw, $ ) {
+( function () {
 	'use strict';
 
 	/* Dropdown collapse timer */
@@ -211,4 +211,4 @@
 	// Perform some onload events:
 	$( init );
 
-}( mediaWiki, jQuery ) );
+}() );
