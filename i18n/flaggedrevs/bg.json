@@ -24,6 +24,7 @@
 	"flaggedrevs-hidereviewed": "$1 прегледани редакции",
 	"flaggedrevs-hidereviewed-hide": "Скриване",
 	"flaggedrevs-hidereviewed-show": "Показване",
+	"flaggedrevs-rcfilters-reviewed-label": "Проверени",
 	"group-editor": "Редактори",
 	"group-editor-member": "{{GENDER:$1|редактор}}",
 	"group-reviewer": "Рецензенти",
