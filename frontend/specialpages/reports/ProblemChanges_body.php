@@ -268,33 +268,6 @@ class ProblemChanges extends SpecialPage {
 	 * @return array
 	 */
 	protected static function getChangeTags( $pageId, $revId ) {
-		global $wgChangeTagsSchemaMigrationStage;
-		if ( $wgChangeTagsSchemaMigrationStage > MIGRATION_WRITE_BOTH ) {
-			return self::getChangeTagsNewBackEnd( $pageId, $revId );
-		}
-		$tags = [];
-		$dbr = wfGetDB( DB_REPLICA );
-		$res = $dbr->select(
-			[ 'revision', 'change_tag' ],
-			'DISTINCT(ct_tag)', // unique tags
-			[ 'rev_page' => $pageId,
-				'rev_id > ' . intval( $revId ),
-				'rev_id = ct_rev_id' ],
-			__METHOD__
-		);
-		foreach ( $res as $row ) {
-			$tags[] = $row->ct_tag;
-		}
-		return $tags;
-	}
-
-	/**
-	 * See self::getChangeTags
-	 * @param int $pageId page ID
-	 * @param int $revId rev ID
-	 * @return array
-	 */
-	private static function getChangeTagsNewBackEnd( $pageId, $revId ) {
 		$tags = [];
 		$dbr = wfGetDB( DB_REPLICA );
 		$res = $dbr->select(
@@ -361,16 +334,11 @@ class ProblemChangesPager extends AlphabeticPager {
 	}
 
 	function getQueryInfo() {
-		global $wgChangeTagsSchemaMigrationStage, $wgVersion;
-		$tables = [ 'revision', 'change_tag', 'page' ];
-		$conds = [];
+		global $wgVersion;
+		$tables = [ 'revision', 'change_tag', 'change_tag_def', 'page' ];
+		$conds = [ 'ctd_id = ct_tag_id' ];
 		// The index on cl_from is called cl_from before 1.30, and PRIMARY starting with 1.30
 		$clFromIndex = version_compare( $wgVersion, '1.30', '<' ) ? 'cl_from' : 'PRIMARY';
-
-		if ( $wgChangeTagsSchemaMigrationStage > MIGRATION_WRITE_BOTH ) {
-			$tables[] = 'change_tag_def';
-			$conds[] = 'ctd_id = ct_tag_id';
-		}
 
 		$fields = [ 'page_namespace' , 'page_title', 'page_latest' ];
 		# Show outdated "stable" pages
@@ -384,11 +352,7 @@ class ProblemChangesPager extends AlphabeticPager {
 			$conds[] = 'rev_id > fp_stable';
 			$conds[] = 'ct_rev_id = rev_id';
 			if ( $this->tag != '' ) {
-				if ( $wgChangeTagsSchemaMigrationStage > MIGRATION_WRITE_BOTH ) {
-					$conds['ctd_name'] = $this->tag;
-				} else {
-					$conds['ct_tag'] = $this->tag;
-				}
+				$conds['ctd_name'] = $this->tag;
 			}
 			$conds[] = 'page_id = fp_page_id';
 			$useIndex = [ 'flaggedpages' => 'fp_pending_since' ];
