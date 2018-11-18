@@ -4,7 +4,10 @@
 			"Жељко Тодоровић"
 		]
 	},
-	"configuredpages-config": "Podešavanja",
-	"configuredpages-def-draft": "najnovija verzija",
+	"configuredpages": "Stranice sa podešavanjima provere",
+	"configuredpages-list": "Ovaj spisak sadrži stranice koje su podešene da imaju drugačija podešavanja odobrenja u odnosu na podrazumevana podešavanja sajta.\nNeka podešavanja mogu promeniti verziju koja će se prikazati čitaocima ili dalje ograničiti ko može vršiti izmene koje ne treba proveravati.",
+	"configuredpages-none": "Nema stranica u ovom spisku",
+	"configuredpages-config": "Podešavanje",
+	"configuredpages-def-draft": "poslednja izmena",
 	"configuredpages-def-stable": "stabilna verzija"
 }

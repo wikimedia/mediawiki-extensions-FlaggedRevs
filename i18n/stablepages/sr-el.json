@@ -6,8 +6,9 @@
 			"Сербијана"
 		]
 	},
-	"stablepages": "Stranice koje koriste potvrdu izmena",
+	"stablepages": "Stranice koje koriste proveru izmena",
 	"stablepages-list": "Dole je naveden spisak stranica koje samo određeni korisnici mogu menjati. Te izmene ne zahtevaju proveru.\nIzmene drugih korisnika po podrazumevanom nisu prikazane čitaocima dok ih ne proveri ovlašćeni korisnik.",
-	"stablepages-none": "Ne postoje strane u spisku.",
-	"stablepages-config": "Postavke"
+	"stablepages-none": "Ne postoje strane u ovom spisku.",
+	"stablepages-config": "Podešavanje",
+	"stablepages-indef": "Samo beskonačan rok isteka"
 }

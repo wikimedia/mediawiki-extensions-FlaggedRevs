@@ -4,14 +4,20 @@
 			"Michaello"
 		]
 	},
-	"validationstatistics-table": "Dole su prikazane statistike za pregledanje svakog imenskog prostora, ''osim'' stranica za preusmeravanje. Stranice se smatraju kao „zastarele“ ako imaju izmene koje čekaju na proveru. Za „usklađene“ se smatraju one stranice koje nemaju izmene na čekanju.",
+	"validationstatistics": "Statistika provere stranice",
+	"validationstatistics-users": "'''{{SITENAME}}''' trenutno ima '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|korisnika}} s [[{{MediaWiki:Validationpage}}|uredničkim]] pravima.\n\nUrednici su potvrđeni korisnici koji mogu proveravati izmene stranica.",
+	"validationstatistics-lastupdate": "''Sledeći podaci su poslednji put ažurirani $1 u $2.''",
+	"validationstatistics-pndtime": "Izmene koje su proverili potvrđeni korisnici dobijaju status {{int:validationstatistics-stable}}''.\n\nProsečno čekanje za [[Special:OldReviewedPages|stranice sa neproverenim izmenama na čekanju]] je '''$1'''; čekanje meri koliko dugo najstarija izmena na čekanju stoji neproverena.",
+	"validationstatistics-revtime": "Prosečno čekanje izmena od strane ''korisnika koji nisu prijavljeni'' za proveru je '''$1'''; srednja vrednost je '''$2'''. \n$3",
+	"validationstatistics-table": "Ispod je prikazana statistika provere svakog imenskog prostora ''osim'' preusmeravanja. Stranice se smatraju kao ''zastarele'' ako imaju izmene na čekanju, a kao ''sinhronizovane'' ako nemaju izmena na čekanju.",
 	"validationstatistics-ns": "Imenski prostor",
 	"validationstatistics-total": "Stranice",
-	"validationstatistics-stable": "Pregledano",
+	"validationstatistics-stable": "Provereno",
 	"validationstatistics-latest": "Sinhronizovano",
-	"validationstatistics-synced": "Sinhronizovan/Pregledan",
+	"validationstatistics-synced": "Sinhronizovano/provereno",
 	"validationstatistics-old": "Zastarelo",
-	"validationstatistics-utable": "Ispod je spisak {{PLURAL:$1|najaktivnijeg|$1 najaktivnija|$1 najaktivnijih}} pregledača {{PLURAL:$2|u poslednjih sat vremena|u poslednja $2 sata|u poslednjih $2 sati}}.",
+	"validationstatistics-unreviewed": "Neprovereno",
+	"validationstatistics-utable": "Ispod je spisak {{PLURAL:$1|najaktivnijeg|$1 najaktivnija|$1 najaktivnijih}} proveravača {{PLURAL:$2|u poslednjih sat vremena|u poslednja $2 sata|u poslednjih $2 sati}}.",
 	"validationstatistics-user": "Korisnik",
-	"validationstatistics-reviews": "Pregledi"
+	"validationstatistics-reviews": "Provere"
 }

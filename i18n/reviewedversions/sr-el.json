@@ -5,10 +5,10 @@
 			"Milicevic01"
 		]
 	},
-	"reviewedversions": "Pregledana izdanja",
-	"reviewedversions-leg1": "Spisak pregledanih verzija za stranu.",
+	"reviewedversions": "Proverene verzije",
+	"reviewedversions-leg1": "Spisak proverenih izmena stranica",
 	"reviewedversions-page": "Ime stranice:",
-	"reviewedversions-none": "\"[[:$1]]\" nema pregledanih verzija.",
-	"reviewedversions-list": "Sledi spisak {{PLURAL:$2|jedine izmene|izmena}} iz [[:$1]], {{PLURAL:$2|koja je pregledana|koje su pregledane}}:",
-	"reviewedversions-review": "Pregledano na <i>$1</i> od strane saradnika $2."
+	"reviewedversions-none": "„[[:$1]]“ nema proverenih izmena.",
+	"reviewedversions-list": "Ovo je spisak {{PLURAL:$2|jedne izmene|izmene|izmena}} stranice [[:$1]] {{PLURAL:$2|koja je proverena|koje su proverene}}:",
+	"reviewedversions-review": "Proverio $2 na dan <i>$1</i>"
 }

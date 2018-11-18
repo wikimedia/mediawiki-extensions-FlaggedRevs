@@ -6,19 +6,19 @@
 			"Жељко Тодоровић"
 		]
 	},
-	"pendingchanges": "Strane sa promenama za pregled",
-	"pendingchanges-legend": "Spisak pregledanih stranica sa nepregledanim verzijama.",
-	"pendingchanges-list": "Ova stranica navodi [[{{MediaWiki:Validationpage}}|pregledane]] stranice koje imaju jednu ili više izmena na čekanju.",
+	"pendingchanges": "Stranice sa promenama na čekanju",
+	"pendingchanges-legend": "Spisak proverenih stranica sa promenama koje čekaju proveru",
+	"pendingchanges-list": "Ova stranica prikazuje [[{{MediaWiki:Validationpage}}|proverene]] stranice koje imaju jednu ili više izmena na čekanju.",
 	"pendingchanges-none": "Trenutno nema stranica koje ispunjavaju ove kriterijume",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|sat|sati}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|dan|dana}})",
-	"pendingchanges-recent": "(manje od jednog časa)",
+	"pendingchanges-recent": "(manje od jednog sata)",
 	"pendingchanges-category": "Kategorija:",
 	"pendingchanges-onwatchlist": "Stranice na mom spisku nadgledanja",
-	"pendingchanges-stable": "Podrazumevano je stabilno izdanje",
-	"pendingchanges-diff": "pregled",
-	"pendingchanges-size": "Najveća izmena (bajtovi):",
+	"pendingchanges-stable": "Stabilna verzija je podrazumevana",
+	"pendingchanges-diff": "provera",
+	"pendingchanges-size": "Najveća promena (u bajtovima):",
 	"pendingchanges-unwatched": "(nenadgledano)",
 	"pendingchanges-watched": "($1 {{PLURAL:$1|aktivan korisnik|aktivna korisnika|aktivna korisnika|aktivna korisnika|aktivnih korisnika}} gleda)",
-	"pendingchanges-viewing": "(pod pregledom)"
+	"pendingchanges-viewing": "(pod proverom)"
 }

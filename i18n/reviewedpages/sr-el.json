@@ -5,13 +5,13 @@
 			"Михајло Анђелковић"
 		]
 	},
-	"reviewedpages": "Pregledane stranice",
-	"reviewedpages-leg": "Svrstaj strane koje su pregledane",
-	"reviewedpages-list": "Ovi spiskovi sadrže [[{{MediaWiki:Validationpage}}|pregledane]] stranice čiji ''najviši dostignut'' nivo pregleda (izmene) je određeni nivo.\nVeza je data najnovijoj izmeni tog nivoa.",
-	"reviewedpages-none": "Nema strana u ovom spisku.",
-	"reviewedpages-lev-0": "Pregledano",
-	"reviewedpages-lev-1": "Kvalitet",
-	"reviewedpages-lev-2": "Izabrani",
-	"reviewedpages-all": "pregledane verzije",
+	"reviewedpages": "Proverene stranice",
+	"reviewedpages-leg": "Spisak proverenih stranica",
+	"reviewedpages-list": "Ovi spiskovi sadrže [[{{MediaWiki:Validationpage}}|proverene]] stranice čija ''najbolja ocena'' (jedne od izmena) odgovara određenom nivou.\nVeza vodi do poslednje izmene sa tom ocenom.",
+	"reviewedpages-none": "Na ovom spisku nema stranica.",
+	"reviewedpages-lev-0": "{{int:revreview-lev-basic}}",
+	"reviewedpages-lev-1": "{{int:revreview-lev-quality}}",
+	"reviewedpages-lev-2": "{{int:revreview-lev-pristine}}",
+	"reviewedpages-all": "proverene verzije",
 	"reviewedpages-best": "najbolja izmena"
 }
