@@ -8,6 +8,7 @@
 	"apihelp-query+configuredpages-param-limit": "Quanda pàggene adda turnà.",
 	"apihelp-query+oldreviewedpages-param-start": "Accuminze a elengà da stu tiembe de stambe.",
 	"apihelp-query+oldreviewedpages-param-end": "Spicce de elengà a stu tiembe de stambe.",
+	"apihelp-query+oldreviewedpages-param-namespace": "Le namespace da numerà.",
 	"apihelp-query+reviewedpages-param-start": "Accuminze a elengà da stu ID d'a pàgene.",
 	"apihelp-query+reviewedpages-param-end": "Spicce de elengà da stu ID d'a pàgene.",
 	"apihelp-query+reviewedpages-param-namespace": "Le namespace da enumerà.",
