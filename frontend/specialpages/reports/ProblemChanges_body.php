@@ -355,20 +355,10 @@ class ProblemChangesPager extends AlphabeticPager {
 				$conds['ctd_name'] = $this->tag;
 			}
 			$conds[] = 'page_id = fp_page_id';
-			$useIndex = [ 'flaggedpages' => 'fp_pending_since' ];
-			if ( $wgChangeTagsSchemaMigrationStage > MIGRATION_WRITE_BOTH ) {
-				$useIndex['change_tag'] = 'change_tag_rev_tag_id';
-			} else {
-				if ( wfGetDB( DB_REPLICA )->indexExists(
-					'change_tag',
-					'change_tag_rev_tag_nonuniq',
-					__METHOD__ )
-				) {
-					$useIndex['change_tag'] = 'change_tag_rev_tag_nonuniq';
-				} else {
-					$useIndex['change_tag'] = 'change_tag_rev_tag';
-				}
-			}
+			$useIndex = [
+				'flaggedpages' => 'fp_pending_since',
+				'change_tag' => 'change_tag_rev_tag'
+			];
 
 			# Filter by category
 			if ( $this->category != '' ) {
@@ -392,11 +382,7 @@ class ProblemChangesPager extends AlphabeticPager {
 			$conds[] = 'rev_page = page_id';
 			$conds[] = 'rev_id > fpp_rev_id';
 			$conds[] = 'rev_id = ct_rev_id';
-			if ( $wgChangeTagsSchemaMigrationStage > MIGRATION_WRITE_BOTH ) {
-				$conds['ctd_name'] = $this->tag;
-			} else {
-				$conds['ct_tag'] = $this->tag;
-			}
+			$conds['ctd_name'] = $this->tag;
 			$useIndex = [
 				'flaggedpage_pending' => 'fpp_quality_pending', 'change_tag' => 'change_tag_rev_tag' ];
 			# Filter by review level
