@@ -8,7 +8,8 @@
 			"Yekrats",
 			"Tlustulimu",
 			"Robin van der Vliet",
-			"Gamliel Fishkin"
+			"Gamliel Fishkin",
+			"YvesNevelsteen"
 		]
 	},
 	"action-review": "kontroli reviziojn",
@@ -138,7 +139,7 @@
 	"stable-logentry-config": "konfiguris agordojn pri stabila versio por $1",
 	"stable-logentry-modify": "ŝanĝis agordojn de stabila versio por \"$1\"",
 	"stable-logentry-reset": "restarigi agordojn de stabila versio por $1",
-	"stable-log-restriction": "Aŭtomata kontrolado: nepras rajton \"$1\"",
+	"stable-log-restriction": "Aŭtomata kontrolado: estas deviga la rajto \"$1\"",
 	"stable-logpage": "Protokolo pri stabilaj versioj",
 	"stable-logpagetext": "Jen protokolo de ŝanĝoj al la konfiguro de [[{{MediaWiki:Validationpage}}|stabila versio]] de enhavaj paĝoj.",
 	"revreview-filter-all": "Ĉio",
