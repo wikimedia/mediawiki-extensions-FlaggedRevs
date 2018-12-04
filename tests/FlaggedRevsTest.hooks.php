@@ -25,7 +25,6 @@ class FlaggedRevsTestHooks {
 		$tables[] = 'flaggedimages';
 		$tables[] = 'flaggedrevs_promote';
 		$tables[] = 'flaggedrevs_tracking';
-		$tables[] = 'valid_tag'; // we need this core table
 		return true;
 	}
 }
