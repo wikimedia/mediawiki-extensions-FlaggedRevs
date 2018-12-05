@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Dbc334"
+			"Dbc334",
+			"Upwinxp"
 		]
 	},
 	"action-review": "pregledovanje redakcij",
@@ -77,7 +78,7 @@
 	"revreview-depth-3": "Visoko",
 	"revreview-depth-4": "Izbrano",
 	"revreview-draft-title": "Spremembe v teku so prikazane na tej strani",
-	"revreview-editnotice": "'''Vaše spremembe bodo prikazane bralcem, ko jih pooblaščen uporabnik enkrat sprejme. ([[{{MediaWiki:Validationpage}}|pomoč]])'''",
+	"revreview-editnotice": "'''Vaše spremembe bodo prikazane bralcem, potem ko jih bo odobril pooblaščen uporabnik. ([[{{MediaWiki:Validationpage}}|pomoč]])'''",
 	"revreview-submitedit": "Pošlji spremembe",
 	"revreview-submitedit-title": "Pošljite svoje spremembe v pregled",
 	"revreview-edited": "'''Vaše spremembe bodo prikazane bralcem, ko jih pooblaščen uporabnik enkrat sprejme. ([[{{MediaWiki:Validationpage}}|pomoč]])'''\n\n{{PLURAL:$2|Obstaja|Obstajata|Obstajajo|Obstaja}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|sprememba|spremembi|spremembe|sprememb}} v teku], ki {{PLURAL:$2|čaka|čakata|čakajo}} na pregled.",
