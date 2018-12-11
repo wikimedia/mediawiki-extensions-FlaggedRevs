@@ -1873,6 +1873,10 @@ class FlaggablePageView extends ContextSource {
 	 * @return true
 	 */
 	public function injectPostEditURLParams( &$sectionAnchor, &$extraQuery ) {
+		global $wgFlaggedRevsDisableReviewAfterEdit;
+		if ($wgFlaggedRevsDisableReviewAfterEdit) {
+			return true;
+		}
 		$reqUser = $this->getUser();
 		$this->load();
 		$this->article->loadPageData( 'fromdbmaster' );

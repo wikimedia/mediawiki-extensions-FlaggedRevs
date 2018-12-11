@@ -109,6 +109,11 @@ $wgFlaggedRevsRestrictionLevels = [ '', 'sysop' ];
 # Pages will only be reviewable if manually restricted to a level above "none".
 $wgFlaggedRevsProtection = false;
 
+# after edit, reviewer are redirect to a diff to see changes
+# set this to trus to disable redirection
+$wgFlaggedRevsDisableReviewAfterEdit = false;
+
+
 # Define our basic reviewer class of established editors (Editors)
 $wgGroupPermissions['editor']['review']            = true;
 $wgGroupPermissions['editor']['autoreview']        = true;
