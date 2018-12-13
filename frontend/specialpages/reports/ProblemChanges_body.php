@@ -357,7 +357,7 @@ class ProblemChangesPager extends AlphabeticPager {
 			$conds[] = 'page_id = fp_page_id';
 			$useIndex = [
 				'flaggedpages' => 'fp_pending_since',
-				'change_tag' => 'change_tag_rev_tag'
+				'change_tag' => 'change_tag_rev_tag_id'
 			];
 
 			# Filter by category
@@ -384,7 +384,7 @@ class ProblemChangesPager extends AlphabeticPager {
 			$conds[] = 'rev_id = ct_rev_id';
 			$conds['ctd_name'] = $this->tag;
 			$useIndex = [
-				'flaggedpage_pending' => 'fpp_quality_pending', 'change_tag' => 'change_tag_rev_tag' ];
+				'flaggedpage_pending' => 'fpp_quality_pending', 'change_tag' => 'change_tag_rev_tag_id' ];
 			# Filter by review level
 			$conds['fpp_quality'] = $this->level;
 			# Filter by category
