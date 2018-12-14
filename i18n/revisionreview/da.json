@@ -5,9 +5,13 @@
 			"Saederup92"
 		]
 	},
+	"review_param_missing": "En parameter mangler eller er ugyldig.",
+	"review_reject_excessive": "Kan ikke afvise så mange redigeringer på samme tid.",
 	"revreview-check-flag-y": "Accepter mine ændringer",
 	"revreview-log": "Kommentar:",
 	"revreview-submit": "Indsend",
 	"revreview-submitting": "Indsender…",
+	"revreview-submit-reject": "Afvis ændringer",
+	"revreview-reject-confirm": "Afvis disse ændringer",
 	"revreview-reject-cancel": "Annullér"
 }
