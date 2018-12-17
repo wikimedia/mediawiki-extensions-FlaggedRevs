@@ -5,6 +5,7 @@
 		]
 	},
 	"apihelp-query+configuredpages-param-namespace": "Le namespace da nuemrà.",
+	"apihelp-query+configuredpages-param-default": "'A versione d'u 'ndrucamende d'a pàgene predefinite.",
 	"apihelp-query+configuredpages-param-limit": "Quanda pàggene adda turnà.",
 	"apihelp-query+oldreviewedpages-param-start": "Accuminze a elengà da stu tiembe de stambe.",
 	"apihelp-query+oldreviewedpages-param-end": "Spicce de elengà a stu tiembe de stambe.",
