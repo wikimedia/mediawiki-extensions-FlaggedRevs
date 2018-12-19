@@ -28,7 +28,7 @@
 		]
 	},
 	"action-review": "relire les versions",
-	"editor": "Contributeur",
+	"editor": "Relecteur",
 	"flaggedrevs": "Versions marquées",
 	"flaggedrevs-watched-pending": "Il y a actuellement [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} des modifications en attente] de pages relues dans votre liste de suivi. '''Veuillez y prêter attention !'''",
 	"flaggedrevs-desc": "Donne la possibilité aux contributeurs de relire les versions et de stabiliser les pages",
@@ -46,8 +46,14 @@
 	"flaggedrevs-hidereviewed": "$1 les modifications relues.",
 	"flaggedrevs-hidereviewed-hide": "Masquer",
 	"flaggedrevs-hidereviewed-show": "Afficher",
+	"flaggedrevs-rcfilters-need-review-label": "Nécessite une relecture",
+	"flaggedrevs-rcfilters-need-review-desc": "Modifications nécessitant une relecture.",
+	"flaggedrevs-rcfilters-reviewed-label": "Relus",
+	"flaggedrevs-rcfilters-reviewed-desc": "Modifications qui ont été relues.",
+	"flaggedrevs-rcfilters-not-reviewable-label": "Non concerné par la relecture",
+	"flaggedrevs-rcfilters-not-reviewable-desc": "Modifications de tous les types ne nécessitant pas de relecture.",
 	"group-editor": "Contributeurs",
-	"group-editor-member": "{{GENDER:$1|contributeur|contributrice}}",
+	"group-editor-member": "{{GENDER:$1|relecteur|relectrice}}",
 	"group-reviewer": "Relecteurs",
 	"group-reviewer-member": "{{GENDER:$1|relecteur|relectrice}}",
 	"grouppage-editor": "{{ns:project}}:Éditeurs",
@@ -194,7 +200,7 @@
 	"revreview-reviewlink": "modifications en attente",
 	"revreview-reviewlink-title": "Voir le diff de toutes les modifications en attente",
 	"revreview-unreviewedpage": "Page non vérifiée",
-	"tooltip-ca-current": "Voir les changements en attente de cette page",
+	"tooltip-ca-current": "Voir les changements en attente sur cette page",
 	"tooltip-ca-stable": "Voir la version publiée de cette page",
 	"tooltip-ca-default": "Paramètres pour l'assurance-qualité",
 	"flaggedrevs-protect-legend": "Relecture automatique des modifications ([[{{MediaWiki:Validationpage}}|aide]])",
@@ -213,5 +219,6 @@
 	"log-action-filter-stable": "Type de modification de la configuration :",
 	"log-action-filter-stable-config": "Nouvelle configuration",
 	"log-action-filter-stable-modify": "Configuration modifiée",
-	"log-action-filter-stable-reset": "Réinitialisation de la configuration"
+	"log-action-filter-stable-reset": "Réinitialisation de la configuration",
+	"log-action-filter-stable-move_stable": "Configuration modifiée"
 }

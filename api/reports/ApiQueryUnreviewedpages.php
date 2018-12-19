@@ -198,7 +198,7 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 	}
 
 	/**
-	 * @see ApiBase::getExamplesMessages()
+	 * @inheritDoc
 	 */
 	protected function getExamplesMessages() {
 		return [

@@ -32,7 +32,7 @@ $wgExtensionCredits['specialpage'][] = [
 	'author'         => [ 'Aaron Schulz', 'Joerg Baach' ],
 	'url'            => 'https://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
-	'license-name'   => 'GPL-2.0+',
+	'license-name'   => 'GPL-2.0-or-later',
 ];
 
 # Load global constants
@@ -108,6 +108,11 @@ $wgFlaggedRevsRestrictionLevels = [ '', 'sysop' ];
 # A "none" level will appear in the form as well, to disable the review process.
 # Pages will only be reviewable if manually restricted to a level above "none".
 $wgFlaggedRevsProtection = false;
+
+# after edit, reviewer are redirect to a diff to see changes
+# set this to trus to disable redirection
+$wgFlaggedRevsDisableReviewAfterEdit = false;
+
 
 # Define our basic reviewer class of established editors (Editors)
 $wgGroupPermissions['editor']['review']            = true;
@@ -337,7 +342,7 @@ $wgAutoloadClasses['ApiQueryUnreviewedpages'] = "$apiReportDir/ApiQueryUnreviewe
 # ReviewedPages for API
 $wgAutoloadClasses['ApiQueryReviewedpages'] = "$apiReportDir/ApiQueryReviewedpages.php";
 # ConfiguredPages for API
-$wgAutoloadClasses['ApiQueryConfiguredpages'] = "$apiReportDir/ApiQueryConfiguredPages.php";
+$wgAutoloadClasses['ApiQueryConfiguredpages'] = "$apiReportDir/ApiQueryConfiguredpages.php";
 # Flag metadata for pages for API
 $wgAutoloadClasses['ApiQueryFlagged'] = "$apiReportDir/ApiQueryFlagged.php";
 # Site flag config for API
@@ -436,6 +441,7 @@ $wgActionFilteredLogs['stable'] = [
 	'config' => [ 'config' ],
 	'modify' => [ 'modify' ],
 	'reset' => [ 'reset' ],
+	'move_stable' => [ 'move_stable' ],
 ];
 
 # Log name and description as well as action handlers

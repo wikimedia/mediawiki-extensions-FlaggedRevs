@@ -3,7 +3,8 @@
 		"authors": [
 			"Bellayet",
 			"Ehsanulhb",
-			"Zaheen"
+			"Zaheen",
+			"Aftabuzzaman"
 		]
 	},
 	"stabilization-tab": "(qa)",
@@ -20,5 +21,5 @@
 	"stabilization-def-short-1": "গৃহীত",
 	"stabilize_expiry_invalid": "অবৈধ মেয়াদ উত্তীর্ণের তারিখ।",
 	"stabilize_expiry_old": "মেয়াদ উত্তীর্ণের সময় পার হয়ে গেছে।",
-	"stabilize-expiring": "মেয়াদ উত্তীর্ণ হবে $1 (UTC)"
+	"stabilize-expiring": "মেয়াদ উত্তীর্ণ হবে $1 (ইউটিসি)"
 }

@@ -5,15 +5,16 @@
 			"DCLXVI",
 			"Spiritia",
 			"Turin",
-			"Vodnokon4e"
+			"Vodnokon4e",
+			"StanProg"
 		]
 	},
 	"stabilization": "Устойчивост на страницата",
 	"stabilization-page": "Име на страницата:",
 	"stabilization-leg": "Потвърждение на настройките за устойчива версия",
 	"stabilization-def": "Версия, показвана по подразбиране",
-	"stabilization-def1": "Устойчивата версия; ако няма такава, тогава текущата",
-	"stabilization-def2": "Текущата версия или чернова",
+	"stabilization-def1": "Стабилната версия; ако няма такава, тогава текущата",
+	"stabilization-def2": "Последната версия",
 	"stabilization-restrict-none": "Няма допълнителни ограничения",
 	"stabilization-submit": "Потвърждаване",
 	"stabilization-notexists": "Не съществува страница „[[:$1|$1]]“. Не е възможно конфигуриране.",

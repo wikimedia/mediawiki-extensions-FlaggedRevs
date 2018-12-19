@@ -3,18 +3,36 @@
  * Class containing stability settings form business logic
  */
 abstract class PageStabilityForm extends FRGenericSubmitForm {
-	/* Form parameters which can be user given */
-	protected $page = false;            # Target page obj
-	protected $watchThis = null;        # Watch checkbox
-	protected $reviewThis = null;       # Auto-review option...
-	protected $reasonExtra = '';        # Custom/extra reason
-	protected $reasonSelection = '';    # Reason dropdown key
-	protected $expiryCustom = '';       # Custom expiry
-	protected $expirySelection = '';    # Expiry dropdown key
-	protected $override = -1;           # Default version
-	protected $autoreview = '';         # Autoreview restrictions...
 
-	protected $oldConfig = []; # Old page config
+	/** @var Title|false Target page obj*/
+	protected $page = false;
+
+	/** @var bool|null Watch checkbox */
+	protected $watchThis = null;
+
+	/** @var bool|null Auto-review option */
+	protected $reviewThis = null;
+
+	/** @var string Custom/extra reason */
+	protected $reasonExtra = '';
+
+	/** @var string Reason dropdown key */
+	protected $reasonSelection = '';
+
+	/** @var string Custom expiry */
+	protected $expiryCustom = '';
+
+	/** @var string Expiry dropdown key */
+	protected $expirySelection = '';
+
+	/** @var int Default version */
+	protected $override = -1;
+
+	/** @var string Autoreview restrictions */
+	protected $autoreview = '';
+
+	/** @var array Old page config */
+	protected $oldConfig = [];
 
 	public function getPage() {
 		return $this->page;
@@ -122,7 +140,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 
 	/**
 	 * Check that a target is given (e.g. from GET/POST request)
-	 * @return mixed (true on success, error string on failure)
+	 * @return true|string true on success, error string on failure
 	 */
 	protected function doCheckTargetGiven() {
 		if ( is_null( $this->page ) ) {
@@ -134,7 +152,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	/**
 	 * Check that the target page is valid
 	 * @param int $flags FOR_SUBMISSION (set on submit)
-	 * @return mixed (true on success, error string on failure)
+	 * @return true|string true on success, error string on failure
 	 */
 	protected function doCheckTarget( $flags = 0 ) {
 		$flgs = ( $flags & self::FOR_SUBMISSION ) ? Title::GAID_FOR_UPDATE : 0;
@@ -148,7 +166,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 
 	/**
 	 * Verify and clean up parameters (e.g. from POST request)
-	 * @return mixed (true on success, error string on failure)
+	 * @return true|string true on success, error string on failure
 	 */
 	protected function doCheckParameters() {
 		# Load old config settings from the master
@@ -162,7 +180,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	}
 
 	/**
-	 * @return mixed (true on success, error string on failure)
+	 * @return true|string true on success, error string on failure
 	 */
 	protected function reallyDoCheckParameters() {
 		return true;
@@ -184,7 +202,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 
 	/**
 	 * Preload existing page settings (e.g. from GET request).
-	 * @return mixed (true on success, error string on failure)
+	 * @return true|string true on success, error string on failure
 	 */
 	public function doPreloadParameters() {
 		$oldConfig = $this->getOldConfig();
@@ -197,7 +215,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	}
 
 	/**
-	 * @return mixed (true on success, error string on failure)
+	 * @return true|string true on success, error string on failure
 	 */
 	protected function reallyDoPreloadParameters() {
 		return true;
@@ -206,7 +224,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	/**
 	 * Submit the form parameters for the page config to the DB.
 	 *
-	 * @return mixed (true on success, error string on failure)
+	 * @return true|string true on success, error string on failure
 	 */
 	public function doSubmit() {
 		# Double-check permissions
@@ -264,6 +282,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	 * Do history & log updates:
 	 * (a) Add a new stability log entry
 	 * (b) Add a null edit like the log entry
+	 * @param FlaggableWikiPage $article
 	 * @return Revision
 	 */
 	protected function updateLogsAndHistory( FlaggableWikiPage $article ) {

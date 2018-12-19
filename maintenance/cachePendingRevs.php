@@ -23,16 +23,21 @@ class CachePendingRevs extends Maintenance {
 	public function execute() {
 		global $wgUser;
 		$dbr = wfGetDB( DB_REPLICA );
+		$revQuery = Revision::getQueryInfo();
+		$pageQuery = WikiPage::getQueryInfo();
 		$ret = $dbr->select(
-			[ 'flaggedpages', 'revision', 'page' ],
-			array_merge( Revision::selectFields(), [ $dbr->tableName( 'page' ) . '.*' ] ),
-			[ 'fp_pending_since IS NOT NULL',
-				'page_id = fp_page_id',
-				'rev_page = fp_page_id',
+			array_merge( [ 'flaggedpages' ], $revQuery['tables'], $pageQuery['tables'] ),
+			array_merge( $revQuery['fields'], $pageQuery['fields'] ),
+			[
+				'fp_pending_since IS NOT NULL',
 				'rev_timestamp >= fp_pending_since'
 			],
 			__METHOD__,
-			[ 'ORDER BY' => 'fp_pending_since DESC' ]
+			[ 'ORDER BY' => 'fp_pending_since DESC' ],
+			[
+				'revision' => [ 'JOIN', 'rev_page = fp_page_id' ],
+				'page' => [ 'JOIN', 'page_id = fp_page_id' ],
+			] + $revQuery['joins'] + $pageQuery['joins']
 		);
 		foreach ( $ret as $row ) {
 			$title = Title::newFromRow( $row );
@@ -49,7 +54,7 @@ class CachePendingRevs extends Maintenance {
 
 	/**
 	 * Log the cache message
-	 * @param $msg String The message to log
+	 * @param string $msg The message to log
 	 */
 	private function cachePendingRevsLog( $msg ) {
 		$this->output( wfTimestamp( TS_DB ) . " $msg\n" );

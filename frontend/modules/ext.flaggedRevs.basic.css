@@ -224,7 +224,6 @@ div.flaggedrevs_short_details {
 }
 
 a.fr-toggle-symbol {
-	color: #00f;
 	white-space: nowrap;
 	font-family: monospace;
 	font-weight: bold;
@@ -233,7 +232,6 @@ a.fr-toggle-symbol {
 }
 
 a.fr-toggle-text {
-	color: #00f;
 	font-weight: bold;
 	cursor: pointer;
 }
@@ -304,12 +302,12 @@ span.fr-under-review {
 }
 
 /* Diff items */
-/* stylelint-disable-next-line selector-no-id */
+/* stylelint-disable-next-line selector-max-id */
 #mw-fr-diff-headeritems {
 	direction: ltr;
 }
 
-/* stylelint-disable-next-line selector-no-id */
+/* stylelint-disable-next-line selector-max-id */
 #mw-fr-stablediff {
 	background-color: #fff;
 	text-align: left; /* bug 35202 */

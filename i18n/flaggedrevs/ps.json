@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ahmed-Najib-Biabani-Ibrahimkhel"
+			"Ahmed-Najib-Biabani-Ibrahimkhel",
+			"Baloch Khan"
 		]
 	},
 	"editor": "سمونگر",
@@ -21,16 +22,13 @@
 	"revreview-accuracy": "کره توب",
 	"revreview-accuracy-2": "کره",
 	"revreview-accuracy-3": "سمو سرچينو څخه برخمن",
-	"revreview-auto": "(خپلسري)",
 	"revreview-current": "بدلونونو ته تم",
 	"revreview-depth": "ژورتيا",
 	"revreview-depth-1": "بنسټيز",
 	"revreview-depth-2": "منځوی",
 	"revreview-depth-3": "لوړ",
-	"revreview-edit": "سمول",
 	"revreview-submitedit": "بدلونونه ورسپارل",
 	"revreview-oldrating": "دا و ارزېده:",
-	"revreview-source": "سرچينه کتل",
 	"revreview-style": "لوستوړتيا",
 	"revreview-style-1": "د منلو وړ",
 	"revreview-style-2": "ښه",
@@ -41,6 +39,7 @@
 	"revreview-statusfilter": "د مخليدنې کړنه:",
 	"revreview-typefilter": "ډول:",
 	"revreview-filter-auto": "اتوماتيک",
+	"revreview-filter-manual": "لارښوونيز",
 	"revreview-levelfilter": "کچه:",
 	"revreview-lev-all": "هر يو",
 	"revreview-lev-quality": "کيفيت",

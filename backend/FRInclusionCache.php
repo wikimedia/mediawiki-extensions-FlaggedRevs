@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\MediaWikiServices;
+
 /**
  * Class containing draft template/file version usage for
  * Parser based on the source text of a revision ID & title.
@@ -10,7 +13,7 @@ class FRInclusionCache {
 	 * @param Revision $rev
 	 * @param User $user
 	 * @param string $regen use 'regen' to force regeneration
-	 * @return [ templateIds, fileSHA1Keys ]
+	 * @return array [ templateIds, fileSHA1Keys ]
 	 * templateIds like ParserOutput->mTemplateIds
 	 * fileSHA1Keys like ParserOutput->mImageTimeKeys
 	 */
@@ -41,7 +44,7 @@ class FRInclusionCache {
 		if ( !is_array( $versions ) ) { // cache miss
 			$pOut = false;
 			if ( $rev->isCurrent() ) {
-				$parserCache = ParserCache::singleton();
+				$parserCache = MediaWikiServices::getInstance()->getParserCache();
 				# Try current version parser cache for this user...
 				$pOut = $parserCache->get( $article, $article->makeParserOptions( $user ) );
 				if ( $pOut == false ) {

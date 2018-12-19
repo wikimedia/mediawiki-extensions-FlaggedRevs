@@ -3,7 +3,6 @@
 		"authors": [
 			"Amire80",
 			"DoviJ",
-			"Guycn1",
 			"Guycn2",
 			"Inkbug",
 			"Nahum",
@@ -33,6 +32,12 @@
 	"flaggedrevs-hidereviewed": "$1 עריכות שנסקרו",
 	"flaggedrevs-hidereviewed-hide": "הסתרת",
 	"flaggedrevs-hidereviewed-show": "הצגת",
+	"flaggedrevs-rcfilters-need-review-label": "נדרשת סקירה",
+	"flaggedrevs-rcfilters-need-review-desc": "עריכות שדורשות סקירה.",
+	"flaggedrevs-rcfilters-reviewed-label": "נסקרו",
+	"flaggedrevs-rcfilters-reviewed-desc": "עריכות שנסקרו.",
+	"flaggedrevs-rcfilters-not-reviewable-label": "לא לסקירה",
+	"flaggedrevs-rcfilters-not-reviewable-desc": "שינויים מכל הסוגים שלא דורשים סקירה.",
 	"group-editor": "עורכים",
 	"group-editor-member": "{{GENDER:$1|עורך|עורכת}}",
 	"group-reviewer": "סוקרים",
@@ -200,5 +205,6 @@
 	"log-action-filter-stable": "סוג שינוי ההגדרה:",
 	"log-action-filter-stable-config": "הגדרה חדשה",
 	"log-action-filter-stable-modify": "הגדרה ששונתה",
-	"log-action-filter-stable-reset": "אתחול הגדרה"
+	"log-action-filter-stable-reset": "אתחול הגדרה",
+	"log-action-filter-stable-move_stable": "הועברו הגדרות"
 }

@@ -1,6 +1,6 @@
 <?php
 
-class FRUserActivityTest extends PHPUnit_Framework_TestCase {
+class FRUserActivityTest extends PHPUnit\Framework\TestCase {
 	/**
 	 * Prepares the environment before running a test.
 	 */
@@ -16,12 +16,6 @@ class FRUserActivityTest extends PHPUnit_Framework_TestCase {
 	 */
 	protected function tearDown() {
 		parent::tearDown();
-	}
-
-	/**
-	 * Constructs the test case.
-	 */
-	public function __construct() {
 	}
 
 	public function testPageIsUnderReview() {

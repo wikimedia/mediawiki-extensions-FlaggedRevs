@@ -3,7 +3,8 @@
 		"authors": [
 			"Eitvys200",
 			"Matasg",
-			"Vpovilaitis"
+			"Vpovilaitis",
+			"Hugo.arg"
 		]
 	},
 	"revisionreview": "Versijų tvirtinimas",
@@ -11,7 +12,7 @@
 	"review_page_notexists": "Taikinio puslapis neegzistuoja.",
 	"revreview-flag": "Įvertinti šią versiją",
 	"revreview-reflag": "Iš naujo įvertinti šią versiją",
-	"revreview-log": "Komentaras:",
+	"revreview-log": "Pastabos:",
 	"revreview-submit": "Išsaugoti",
 	"revreview-submitting": "Saugoma...",
 	"revreview-submit-review": "Patvirtinti versiją",

@@ -17,7 +17,8 @@
 			"Sayginer",
 			"Rapsar",
 			"Mavrikant",
-			"Asmen"
+			"Asmen",
+			"Diyapazon"
 		]
 	},
 	"action-review": "revizyonları inceler",
@@ -39,6 +40,11 @@
 	"flaggedrevs-hidereviewed": "İncelenmiş değişiklikleri $1",
 	"flaggedrevs-hidereviewed-hide": "gizle",
 	"flaggedrevs-hidereviewed-show": "Göster",
+	"flaggedrevs-rcfilters-need-review-label": "İnceleme bekleyen",
+	"flaggedrevs-rcfilters-need-review-desc": "İncelenmesi gereken değişiklikler",
+	"flaggedrevs-rcfilters-reviewed-label": "İncelenmiş",
+	"flaggedrevs-rcfilters-reviewed-desc": "İncelenmiş değişiklikler",
+	"flaggedrevs-rcfilters-not-reviewable-label": "İncelemeye tâbi değil",
 	"group-editor": "Devriyeler",
 	"group-editor-member": "{{GENDER:$1|editör}}",
 	"group-reviewer": "İnceleyiciler",

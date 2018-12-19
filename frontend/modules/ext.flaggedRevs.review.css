@@ -16,10 +16,10 @@
 }
 
 .fr-rating-controls-disabled {
-	color: GrayText;
+	color: #72777d;
 }
 
-/* stylelint-disable-next-line selector-no-id */
+/* stylelint-disable-next-line selector-max-id */
 #mw-fr-confirmreview {
 	white-space: nowrap;
 }
@@ -44,7 +44,7 @@
 	background-color: #f8f9fa;
 }
 
-/* stylelint-disable-next-line selector-no-id */
+/* stylelint-disable-next-line selector-max-id */
 #mw-fr-commentbox {
 	margin-right: 1.5em;
 }

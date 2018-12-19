@@ -3,7 +3,8 @@
 		"authors": [
 			"S.Örvarr.S",
 			"Snævar",
-			"Spacebirdy"
+			"Spacebirdy",
+			"Sveinn í Felli"
 		]
 	},
 	"action-review": "merkja breytingar sem yfirfarnar",
@@ -18,6 +19,9 @@
 	"flaggedrevs-pref-stable-2": "Alltaf sýna síðustu útgáfu",
 	"flaggedrevs-prefs-watch": "Bæta síðum sem ég yfirfer á vaktlistann minn",
 	"flaggedrevs-hidereviewed": "$1 yfirfarnar breytingar",
+	"flaggedrevs-hidereviewed-hide": "Fela",
+	"flaggedrevs-hidereviewed-show": "Birta",
+	"flaggedrevs-rcfilters-reviewed-label": "Yfirfarin",
 	"group-editor": "Ritstjórar",
 	"group-editor-member": "{{GENDER:$1|ritstjóri}}",
 	"group-reviewer": "Ritstjórar",
@@ -39,8 +43,6 @@
 	"revreview-log-details-show": "sýna ítarefni",
 	"revreview-log-details-hide": "fela ítarefni",
 	"review-diff2stable": "Skoða allar óyfirfarnar breytingar",
-	"review-logentry-app": "yfirfór útgáfu [[$1]]",
-	"review-logentry-dis": "hafnaði útgáfu á [[$1]]",
 	"review-logentry-id": "útgáfa: $2",
 	"review-logentry-diff": "breytingar yfirfarnar",
 	"review-logentry-diff2": "breytingum hafnað",
@@ -52,13 +54,17 @@
 	"revreview-accuracy-1": "Stikkprófuð",
 	"revreview-accuracy-2": "rétt",
 	"revreview-accuracy-4": "gæða",
-	"revreview-auto": "(sjálfkrafa)",
 	"revreview-basic": "Þetta er [[{{MediaWiki:Validationpage}}|stöðug útgáfa]] síðunnar, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} skoðuð] <i>$2</i>.\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|breyting|breytingar}}] {{PLURAL:$3|bíður|bíða}} eftir skoðun.",
 	"revreview-basic-i": "Þetta er [[{{MediaWiki:Validationpage}}|stöðug útgáfa]] síðunnar, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} skoðuð] <i>$2</i>.\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Sniða/skráar breytingar] bíða eftir skoðun.",
 	"revreview-basic-same": "Þetta er [[{{MediaWiki:Validationpage}}|stöðug útgáfa]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} skoðuð] <i>$2</i>.",
 	"revreview-basic-source": "[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Skoðuð útgáfa] síðunnar, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} samþykkt] <i>$2</i>, var byggð á þessari útgáfu.",
 	"revreview-current": "Uppkast",
+	"revreview-depth": "Dýpt",
 	"revreview-depth-0": "ótækt",
+	"revreview-depth-1": "Einfalt",
+	"revreview-depth-2": "Miðlungs",
+	"revreview-depth-3": "Mikil",
+	"revreview-depth-4": "Efst á baugi",
 	"revreview-draft-title": "Óyfirfarnar breytingar eru birtar á þessari síðu",
 	"revreview-editnotice": "'''Breyting þín verður birt þegar notandi með ritstjóra réttindi hefur samþykkt hana. ([[{{MediaWiki:Validationpage}}|hjálp]])'''",
 	"revreview-submitedit": "Vista breytingar",
@@ -94,6 +100,9 @@
 	"right-review": "Merkja útgáfur sem yfirfarnar",
 	"right-unreviewedpages": "Skoða [[Special:UnreviewedPages|lista yfir óendurskoðaðar síður]]",
 	"rights-editor-revoke": "fjarlægði ritstjóra réttindi [[$1]]",
+	"specialpages-group-quality": "yfirfara",
+	"revreview-filter-all": "allt",
+	"revreview-filter-stable": "stöðug",
 	"revreview-statusfilter": "Yfirfara:",
 	"revreview-filter-approved": "Samþykkt",
 	"revreview-filter-reapproved": "Endursamþykkt",
@@ -116,5 +125,8 @@
 	"revreview-unreviewedpage": "óskoðuð síða",
 	"tooltip-ca-current": "Skoða síðuna með óskoðuðum breytingum",
 	"tooltip-ca-stable": "Skoða stöðuga útgáfu síðunnar",
-	"validationpage": "{{ns:help}}:Siðustaðfesting"
+	"flaggedrevs-protect-none": "Leyfa öllum notendum",
+	"log-show-hide-review": "$1 yfirferðarskrá",
+	"validationpage": "{{ns:help}}:Siðustaðfesting",
+	"log-action-filter-stable-config": "Ný uppsetning"
 }

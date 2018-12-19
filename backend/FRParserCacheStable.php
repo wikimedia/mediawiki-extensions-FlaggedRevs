@@ -7,6 +7,7 @@ use MediaWiki\MediaWikiServices;
 class FRParserCacheStable extends ParserCache {
 	/**
 	 * Get an instance of this object
+	 * @return self
 	 */
 	public static function singleton() {
 		static $instance;
@@ -22,8 +23,8 @@ class FRParserCacheStable extends ParserCache {
 
 	/**
 	 * Like ParserCache::getParserOutputKey() with stable-pcache instead of pcache
-	 * @param $article Article
-	 * @param $hash string
+	 * @param Article $article
+	 * @param string $hash
 	 * @return mixed|string
 	 */
 	protected function getParserOutputKey( $article, $hash ) {
@@ -33,7 +34,7 @@ class FRParserCacheStable extends ParserCache {
 
 	/**
 	 * Like ParserCache::getOptionsKey() with stable-pcache instead of pcache
-	 * @param $article Article
+	 * @param Article $article
 	 * @return mixed|string
 	 */
 	protected function getOptionsKey( $article ) {

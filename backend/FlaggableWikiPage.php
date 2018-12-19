@@ -1,4 +1,7 @@
 <?php
+
+use Wikimedia\Rdbms\IDatabase;
+
 /**
  * Class representing a MediaWiki article and history
  *
@@ -17,7 +20,7 @@ class FlaggableWikiPage extends WikiPage {
 
 	/**
 	 * Get a FlaggableWikiPage for a given title
-	 * @param $title Title
+	 * @param Title $title
 	 * @return FlaggableWikiPage
 	 */
 	public static function getTitleInstance( Title $title ) {
@@ -289,7 +292,7 @@ class FlaggableWikiPage extends WikiPage {
 	}
 
 	/**
-	 * Get visiblity restrictions on page
+	 * Get visibility restrictions on page
 	 * @return array (select,override)
 	 */
 	public function getStabilitySettings() {
@@ -299,7 +302,7 @@ class FlaggableWikiPage extends WikiPage {
 		return $this->pageConfig;
 	}
 
-	/*
+	/**
 	 * Get the fp_reviewed value for this page
 	 * @return bool
 	 */
@@ -342,43 +345,44 @@ class FlaggableWikiPage extends WikiPage {
 			return;
 		}
 
-		JobQueueGroup::singleton()->push( EnqueueJob::newFromLocalJobs(
-			new JobSpecification(
-				'flaggedrevs_CacheUpdate',
-				[ 'type' => 'updatesyncstate' ],
-				[ 'removeDuplicates' => true ],
-				$this->getTitle()
+		JobQueueGroup::singleton()->push(
+			new FRExtraCacheUpdateJob(
+				$this->getTitle(),
+				[ 'type' => 'updatesyncstate' ]
 			)
-		) );
+		);
 	}
 
 	/**
 	 * Fetch a page record with the given conditions
-	 * @param $dbr Database object
-	 * @param $conditions Array
+	 * @param IDatabase $dbr Database object
+	 * @param array $conditions
 	 * @param array $options
 	 * @return mixed Database result resource, or false on failure
 	 */
 	protected function pageData( $dbr, $conditions, $options = [] ) {
+		$pageQuery = WikiPage::getQueryInfo();
 		$row = $dbr->selectRow(
-			[ 'page', 'flaggedpages', 'flaggedpage_config' ],
+			array_merge( $pageQuery['tables'], [ 'flaggedpages', 'flaggedpage_config' ] ),
 			array_merge(
-				WikiPage::selectFields(),
+				$pageQuery['fields'],
 				FRPageConfig::selectFields(),
-				[ 'fp_pending_since', 'fp_stable', 'fp_reviewed' ] ),
+				[ 'fp_pending_since', 'fp_stable', 'fp_reviewed' ]
+			),
 			$conditions,
 			__METHOD__,
 			$options,
-			[
+			$pageQuery['joins'] + [
 				'flaggedpages' 		 => [ 'LEFT JOIN', 'fp_page_id = page_id' ],
-				'flaggedpage_config' => [ 'LEFT JOIN', 'fpc_page_id = page_id' ] ]
+				'flaggedpage_config' => [ 'LEFT JOIN', 'fpc_page_id = page_id' ],
+			]
 		);
 		return $row;
 	}
 
 	/**
 	 * Set the page field data loaded from some source
-	 * @param \Database|string $data Database row object or "fromdb"
+	 * @param stdClass|string $data Database row object or "fromdb"
 	 * @return void
 	 */
 	public function loadPageData( $data = 'fromdb' ) {

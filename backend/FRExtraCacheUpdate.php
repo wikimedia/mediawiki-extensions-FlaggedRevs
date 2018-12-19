@@ -1,4 +1,7 @@
 <?php
+
+use Wikimedia\Rdbms\ResultWrapper;
+
 /**
  * Class containing cache update methods and job construction
  * for the special case of purging pages due to dependancies
@@ -89,6 +92,7 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 
 	/**
 	 * Invalidate a set of IDs, right now
+	 * @param ResultWrapper $res
 	 */
 	public function invalidateIDs( ResultWrapper $res ) {
 		global $wgUseFileCache, $wgUseSquid;
@@ -123,7 +127,7 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 				$titles = Title::newFromIDs( $ids );
 				# Update squid cache
 				if ( $wgUseSquid ) {
-					$u = SquidUpdate::newFromTitles( $titles );
+					$u = CdnCacheUpdate::newFromTitles( $titles );
 					$u->doUpdate();
 				}
 				# Update file cache

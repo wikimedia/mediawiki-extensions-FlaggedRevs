@@ -23,6 +23,7 @@
 	"revreview-hist-quality": "校正本",
 	"revreview-hist-basic": "初定本",
 	"revreview-hist-basic-auto": "經校",
+	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} 待審]]'''",
 	"revreview-accuracy-1": "過目",
 	"revreview-accuracy-4": "卓著",
 	"revreview-basic-source": "此[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} 初定本]也，[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 見審]於<i>$2</i>。",

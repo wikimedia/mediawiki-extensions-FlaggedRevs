@@ -3,6 +3,9 @@
  * Class containing update methods for tracking links that
  * are only in the stable version of pages. Used only for caching.
  */
+
+use Wikimedia\Rdbms\IDatabase;
+
 class FRDependencyUpdate {
 	protected $title;
 	protected $sLinks;
@@ -66,14 +69,12 @@ class FRDependencyUpdate {
 		if ( $existing != $deps ) {
 			if ( $mode === self::DEFERRED ) {
 				# Let the job queue parse and update
-				JobQueueGroup::singleton()->push( EnqueueJob::newFromLocalJobs(
-					new JobSpecification(
-						'flaggedrevs_CacheUpdate',
-						[ 'type' => 'updatelinks' ],
-						[ 'removeDuplicates' => true ],
-						$this->title
+				JobQueueGroup::singleton()->push(
+					new FRExtraCacheUpdateJob(
+						$this->title,
+						[ 'type' => 'updatelinks' ]
 					)
-				) );
+				);
 
 				return;
 			}
@@ -93,7 +94,7 @@ class FRDependencyUpdate {
 		}
 	}
 
-	/*
+	/**
 	 * Get existing cache dependancies
 	 * @param int $flags FR_MASTER
 	 * @return array (ns => dbKey => 1)
@@ -116,8 +117,10 @@ class FRDependencyUpdate {
 		return $arr;
 	}
 
-	/*
+	/**
 	 * Get INSERT rows for cache dependancies in $new but not in $existing
+	 * @param array $existing
+	 * @param array $new
 	 * @return array
 	 */
 	protected function getDepInsertions( array $existing, array $new ) {
@@ -139,8 +142,10 @@ class FRDependencyUpdate {
 		return $arr;
 	}
 
-	/*
+	/**
 	 * Get WHERE clause to delete items in $existing but not in $new
+	 * @param array $existing
+	 * @param array $new
 	 * @return mixed (array/false)
 	 */
 	protected function getDepDeletions( array $existing, array $new ) {
@@ -161,7 +166,12 @@ class FRDependencyUpdate {
 		return false;
 	}
 
-	// Make WHERE clause to match $arr titles
+	/**
+	 * Make WHERE clause to match $arr titles
+	 * @param array &$arr
+	 * @param IDatabase $db
+	 * @return string|bool
+	 */
 	protected static function makeWhereFrom2d( &$arr, $db ) {
 		$lb = new LinkBatch();
 		$lb->setArray( $arr );

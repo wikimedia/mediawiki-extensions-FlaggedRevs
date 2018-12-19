@@ -7,6 +7,7 @@
 			"Predatorix"
 		]
 	},
+	"apihelp-flagconfig-example-1": "Ruft die Markierungskonfiguration ab",
 	"apihelp-query+configuredpages-param-start": "Auflistung bei dieser Seitenkennung beginnen.",
 	"apihelp-query+configuredpages-param-end": "Auflistung bei dieser Seitenkennung beenden.",
 	"apihelp-query+configuredpages-param-namespace": "Die aufzuzählenden Namensräume.",
@@ -23,6 +24,7 @@
 	"apihelp-query+oldreviewedpages-param-filterredir": "Wie nach Weiterleitungen gefiltert werden soll.",
 	"apihelp-query+oldreviewedpages-param-limit": "Welche Gesamtanzahl an Seiten zurückgegeben werden soll.",
 	"apihelp-query+oldreviewedpages-example-2": "Zeigt Informationen über einige alte gesichtete Seiten an",
+	"apihelp-query+reviewedpages-description": "Zählt Seiten auf, die eine gesichtete Version haben.",
 	"apihelp-query+reviewedpages-summary": "Zählt Seiten auf, die eine markierte Version haben.",
 	"apihelp-query+reviewedpages-param-start": "Auflistung bei dieser Seitenkennung beginnen.",
 	"apihelp-query+reviewedpages-param-end": "Auflistung bei dieser Seitenkennung beenden.",
@@ -49,6 +51,7 @@
 	"apihelp-review-example-1": "Version 12345 mit dem Kommentar „Ok“ sichten",
 	"apihelp-reviewactivity-param-oldid": "Die Kennung der Version, die überprüft werden soll.",
 	"apihelp-stabilize-description-general": "Ändert die Einstellungen zur Seitenstabilität.",
+	"apihelp-stabilize-summary-general": "Ändert die Einstellungen für die Seitenstabilität.",
 	"apihelp-stabilize-param-reason": "Grund.",
 	"apihelp-stabilize-param-watch": "Beobachtet diese Seite.",
 	"apihelp-stabilize-param-expiry-general": "Ablauf für diese Einstellungen.",

@@ -7,7 +7,7 @@ class FlaggedRevsStats {
 	 * Get FR-related stats at a designated snapshot in time.
 	 * If no $timestamp is specified, then the latest will be used.
 	 *
-	 * @param $timestamp string|bool false TS_ timestamp
+	 * @param string|bool $timestamp false TS_ timestamp
 	 * @return array of current FR stats
 	 */
 	public static function getStats( $timestamp = false ) {
@@ -67,10 +67,10 @@ class FlaggedRevsStats {
 		return $data;
 	}
 
-	/*
+	/**
 	 * Run a stats update and update the DB
 	 * Note: this can easily be too expensive to run live
-	*
+	 *
 	 * @return void
 	 */
 	public static function updateCache() {
@@ -234,8 +234,8 @@ class FlaggedRevsStats {
 
 	/**
 	 * Get edit review time statistics (as recent as possible)
-	 * @param $stash BagOStuff object
-	 * @param $users string "anons" or "users"
+	 * @param BagOStuff $stash BagOStuff object
+	 * @param string $users string "anons" or "users"
 	 * @throws Exception
 	 * @return array associative
 	 */

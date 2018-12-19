@@ -30,6 +30,7 @@ class FRPageConfig {
 	/**
 	 * Get page configuration settings from a DB row
 	 * @param stdClass $row
+	 * @return array
 	 */
 	public static function getVisibilitySettingsFromRow( $row ) {
 		if ( $row ) {

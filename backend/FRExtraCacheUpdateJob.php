@@ -15,15 +15,19 @@ class FRExtraCacheUpdateJob extends Job {
 		$this->params['type'] = isset( $this->params['type'] )
 			? $this->params['type']
 			: 'purge';
+		// The range (start/end) make 'purge' jobs a bad candidate for de-duplication.
+		$this->removeDuplicates = in_array(
+			$this->params['type'], [ 'updatelinks', 'updatesyncstate' ]
+		);
 	}
 
 	function run() {
 		if ( $this->params['type'] === 'purge' ) {
-			$this->doBacklinkPurge();
+			return $this->doBacklinkPurge();
 		} elseif ( $this->params['type'] === 'updatelinks' ) {
-			$this->doUpdateLinks();
+			return $this->doUpdateLinks();
 		} elseif ( $this->params['type'] === 'updatesyncstate' ) {
-			$this->doUpdateSyncState();
+			return $this->doUpdateSyncState();
 		} else {
 			throw new InvalidArgumentException( "Missing 'type' parameter." );
 		}
@@ -60,18 +64,19 @@ class FRExtraCacheUpdateJob extends Job {
 				$frDepUpdate = new FRDependencyUpdate( $this->title, $stableOut );
 				$frDepUpdate->doUpdate( FRDependencyUpdate::IMMEDIATE );
 
-				return;
+				return true;
 			}
 		}
 
 		// If not page or revision was found, remove the stable-only links
 		FlaggedRevs::clearStableOnlyDeps( $fpage->getId() );
+		return true;
 	}
 
 	protected function doUpdateSyncState() {
 		$fpage = FlaggableWikiPage::getTitleInstance( $this->title );
 		if ( !$fpage->getId() || !$fpage->getStable() ) {
-			return;
+			return true;
 		}
 
 		$synced = $fpage->stableVersionIsSynced();
@@ -83,5 +88,6 @@ class FRExtraCacheUpdateJob extends Job {
 				__METHOD__
 			);
 		}
+		return true;
 	}
 }

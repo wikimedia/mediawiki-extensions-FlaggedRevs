@@ -20,7 +20,8 @@
 			"JulesWinnfield-hu",
 			"Csega",
 			"Tacsipacsi",
-			"Csigabi"
+			"Csigabi",
+			"Bencemac"
 		]
 	},
 	"action-review": "változatok ellenőrzése",
@@ -42,6 +43,12 @@
 	"flaggedrevs-hidereviewed": "ellenőrzött szerkesztések $1",
 	"flaggedrevs-hidereviewed-hide": "elrejtése",
 	"flaggedrevs-hidereviewed-show": "megjelenítése",
+	"flaggedrevs-rcfilters-need-review-label": "Ellenőrizendő",
+	"flaggedrevs-rcfilters-need-review-desc": "Szerkesztések, amelyek ellenőrzésre várnak.",
+	"flaggedrevs-rcfilters-reviewed-label": "Ellenőrzött",
+	"flaggedrevs-rcfilters-reviewed-desc": "Szerkesztések, amelyek ellenőrizve lettek.",
+	"flaggedrevs-rcfilters-not-reviewable-label": "Automatikusan ellenőrzött szerkesztések",
+	"flaggedrevs-rcfilters-not-reviewable-desc": "Szerkesztések, amelyeket nem kell ellenőrizni (min. megerősített szerkesztői jog).",
 	"group-editor": "járőrök",
 	"group-editor-member": "járőr",
 	"group-reviewer": "lektorok",
@@ -54,6 +61,10 @@
 	"logentry-review-approve": "$1 {{GENDER:$2|ellenőrzötté tette}} a(z) $3 egy változatát",
 	"logentry-review-approve-auto": "$1 automatikusan {{GENDER:$2|ellenőrzötté tette}} a(z) $3 egy változatát",
 	"logentry-review-unapprove": "$1 {{GENDER:$2|elavulttá tette}} a(z) $3 egy változatát",
+	"logentry-stable-config": "$1 {{GENDER:$2|létrehozta}} a(z) $3 stabilverzió-beállításait $4",
+	"logentry-stable-modify": "$1 {{GENDER:$2|módosította}} a(z) $3 stabilverzió-beállításait $4",
+	"logentry-stable-reset": "$1 {{GENDER:$2|visszaállította}} a(z) $3 stabilverzió-beállításait $4",
+	"logentry-stable-move_stable": "$1 {{GENDER:$2|átmozgatta}} a(z) $3 stabilverzió-beállításait $4",
 	"revreview-hist-draft": "nem ellenőrzött változat",
 	"revreview-hist-pending": "ellenőrzés folyamatban",
 	"revreview-hist-quality": "minőségi változat",
@@ -82,7 +93,7 @@
 	"reviewer": "lektor",
 	"revreview-accuracy": "Pontosság",
 	"revreview-accuracy-0": "ellenőrizetlen",
-	"revreview-accuracy-1": "ellenőrzött",
+	"revreview-accuracy-1": "megtekintett",
 	"revreview-accuracy-2": "pontos",
 	"revreview-accuracy-3": "forrásokkal megfelelően alátámasztott",
 	"revreview-accuracy-4": "kiemelt",
@@ -199,5 +210,6 @@
 	"log-action-filter-stable": "Konfigurációs változás típusa:",
 	"log-action-filter-stable-config": "Új konfiguráció",
 	"log-action-filter-stable-modify": "Konfiguráció módosítása",
-	"log-action-filter-stable-reset": "Konfiguráció visszaállítása"
+	"log-action-filter-stable-reset": "Konfiguráció visszaállítása",
+	"log-action-filter-stable-move_stable": "Konfiguráció mozgatása"
 }

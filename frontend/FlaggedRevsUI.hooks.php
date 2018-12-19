@@ -73,8 +73,11 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
-	/*
+	/**
 	 * Add tag notice, CSS/JS, protect form link, and set robots policy
+	 * @param OutputPage &$out
+	 * @param Skin &$skin
+	 * @return true
 	 */
 	public static function onBeforePageDisplay( &$out, &$skin ) {
 		if ( $out->getTitle()->getNamespace() != NS_SPECIAL ) {
@@ -160,8 +163,13 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
-	// MonoBook et al: $contentActions is all the tabs
-	// Vector et al: $contentActions is all the action tabs...unused
+	/**
+	 * MonoBook et al: $contentActions is all the tabs
+	 * Vector et al: $contentActions is all the action tabs...unused
+	 * @param Skin $skin
+	 * @param array &$contentActions
+	 * @return true
+	 */
 	public static function onSkinTemplateTabs( Skin $skin, array &$contentActions ) {
 		if ( $skin instanceof SkinVector ) {
 			// *sigh*...skip, dealt with in setNavigation()
@@ -175,7 +183,12 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
-	// Vector et al: $links is all the tabs (2 levels)
+	/**
+	 * Vector et al: $links is all the tabs (2 levels)
+	 * @param Skin $skin
+	 * @param array &$links
+	 * @return true
+	 */
 	public static function onSkinTemplateNavigation( Skin $skin, array &$links ) {
 		if ( FlaggablePageView::globalArticleInstance() != null ) {
 			$view = FlaggablePageView::singleton();
@@ -297,6 +310,7 @@ class FlaggedRevsUIHooks {
 	 *
 	 * @param SpecialPage $specialPage Special page
 	 * @param array &$filters Array of filters
+	 * @return true
 	 */
 	public static function addHideReviewedUnstructuredFilter( $specialPage, &$filters ) {
 		if ( !FlaggedRevs::useSimpleConfig() ) {
@@ -313,12 +327,14 @@ class FlaggedRevsUIHooks {
 	 *
 	 * @param ChangesListSpecialPage $specialPage Special page, such as
 	 *   Special:RecentChanges or Special:Watchlist
+	 * @return true
 	 */
 	public static function addHideReviewedFilter( ChangesListSpecialPage $specialPage ) {
 		if ( FlaggedRevs::useSimpleConfig() ) {
 			return true;
 		}
-		// TODO: Use the new structured UI: T162902
+
+		// Old filter, replaced in structured UI
 		$flaggedRevsUnstructuredGroup = new ChangesListBooleanFilterGroup(
 			[
 				'name' => 'flaggedRevsUnstructured',
@@ -327,6 +343,7 @@ class FlaggedRevsUIHooks {
 					[
 						'name' => 'hideReviewed',
 						'showHide' => 'flaggedrevs-hidereviewed',
+						'isReplacedInStructuredUi' => true,
 						'default' => false,
 						'queryCallable' => function ( $specialClassName, $ctx, $dbr, &$tables,
 							&$fields, &$conds, &$query_options, &$join_conds
@@ -341,6 +358,130 @@ class FlaggedRevsUIHooks {
 		);
 
 		$specialPage->registerFilterGroup( $flaggedRevsUnstructuredGroup );
+
+		$flaggedRevsGroup = new ChangesListStringOptionsFilterGroup(
+			[
+				'name' => 'flaggedrevs',
+				'title' => 'flaggedrevs',
+				'priority' => -9,
+				'default' => ChangesListStringOptionsFilterGroup::NONE,
+				'isFullCoverage' => true,
+				'filters' => [
+					[
+						'name' => 'needreview',
+						'label' => 'flaggedrevs-rcfilters-need-review-label',
+						'description' => 'flaggedrevs-rcfilters-need-review-desc',
+						'cssClassSuffix' => 'need-review',
+						'isRowApplicableCallable' => function ( $ctx, $rc ) {
+							$namespaces = FlaggedRevs::getReviewNamespaces();
+							return ( in_array( $rc->getAttribute( 'rc_namespace' ), $namespaces ) &&
+								$rc->getAttribute( 'rc_type' ) !== RC_EXTERNAL ) &&
+								(
+									!$rc->getAttribute( 'fp_stable' ) ||
+									(
+										// The rc_timestamp >= fp_pending_since condition implies that fp_pending_since is
+										// not null, because all comparisons with null values are false in MySQL. It doesn't
+										// work that way in PHP, so we have to explicitly check that fp_pending_since is not null
+										$rc->getAttribute( 'fp_pending_since' ) &&
+										$rc->getAttribute( 'rc_timestamp' ) >= $rc->getAttribute( 'fp_pending_since' )
+									)
+								);
+						}
+					],
+					[
+						'name' => 'reviewed',
+						'label' => 'flaggedrevs-rcfilters-reviewed-label',
+						'description' => 'flaggedrevs-rcfilters-reviewed-desc',
+						'cssClassSuffix' => 'reviewed',
+						'isRowApplicableCallable' => function ( $ctx, $rc ) {
+							$namespaces = FlaggedRevs::getReviewNamespaces();
+							return ( in_array( $rc->getAttribute( 'rc_namespace' ), $namespaces ) &&
+								$rc->getAttribute( 'rc_type' ) !== RC_EXTERNAL ) &&
+								$rc->getAttribute( 'fp_stable' ) &&
+								(
+									!$rc->getAttribute( 'fp_pending_since' ) ||
+									$rc->getAttribute( 'rc_timestamp' ) < $rc->getAttribute( 'fp_pending_since' )
+								);
+						}
+					],
+					[
+						'name' => 'notreviewable',
+						'label' => 'flaggedrevs-rcfilters-not-reviewable-label',
+						'description' => 'flaggedrevs-rcfilters-not-reviewable-desc',
+						'cssClassSuffix' => 'not-reviewable',
+						'isRowApplicableCallable' => function ( $ctx, $rc ) {
+							$namespaces = FlaggedRevs::getReviewNamespaces();
+							return !in_array( $rc->getAttribute( 'rc_namespace' ), $namespaces );
+						}
+					],
+				],
+				'queryCallable' => function ( $specialClassName, $ctx, $dbr, &$tables,
+					&$fields, &$conds, &$query_options, &$join_conds, $selectedValues
+				) {
+					$fields[] = 'fp_stable';
+					$fields[] = 'fp_pending_since';
+					$fields[] = 'rc_namespace';
+
+					$namespaces = FlaggedRevs::getReviewNamespaces();
+					$needReviewCond = 'rc_timestamp >= fp_pending_since OR fp_stable IS NULL';
+					$reviewedCond = '(fp_pending_since IS NULL OR rc_timestamp < fp_pending_since) '.
+						'AND fp_stable IS NOT NULL';
+					$notReviewableCond = 'rc_namespace NOT IN (' . $dbr->makeList( $namespaces ) .
+						') OR rc_type = ' . $dbr->addQuotes( RC_EXTERNAL );
+					$reviewableCond = 'rc_namespace IN (' . $dbr->makeList( $namespaces ) .
+						') AND rc_type != ' . $dbr->addQuotes( RC_EXTERNAL );
+
+					if ( $selectedValues === [ 'needreview', 'notreviewable', 'reviewed' ] ) {
+						// no filters
+						return;
+					}
+
+					if ( $selectedValues === [ 'needreview', 'reviewed' ] ) {
+						$conds[] = $reviewableCond;
+						return;
+					}
+
+					if ( $selectedValues === [ 'needreview', 'notreviewable' ] ) {
+						$conds[] = $dbr->makeList( [
+							$notReviewableCond,
+							$needReviewCond
+						], LIST_OR );
+						return;
+					}
+
+					if ( $selectedValues === [ 'notreviewable', 'reviewed' ] ) {
+						$conds[] = $dbr->makeList( [
+							$notReviewableCond,
+							$reviewedCond
+						], LIST_OR );
+						return;
+					}
+
+					if ( $selectedValues === [ 'needreview' ] ) {
+						$conds[] = $dbr->makeList( [
+							$reviewableCond,
+							$needReviewCond
+						], LIST_AND );
+						return;
+					}
+
+					if ( $selectedValues === [ 'notreviewable' ] ) {
+						$conds[] = $notReviewableCond;
+						return;
+					}
+
+					if ( $selectedValues === [ 'reviewed' ] ) {
+						$conds[] = $dbr->makeList( [
+							$reviewableCond,
+							$reviewedCond
+						], LIST_AND );
+						return;
+					}
+				}
+			]
+		);
+
+		$specialPage->registerFilterGroup( $flaggedRevsGroup );
 		return true;
 	}
 
@@ -383,7 +524,7 @@ class FlaggedRevsUIHooks {
 			# order by, then append the rest of them to our two. It would be
 			# REALLY nice if we handled this automagically in makeSelectOptions()
 			# or something *sigh*
-			$groupBy = OldLocalFile::selectFields();
+			$groupBy = OldLocalFile::getQueryInfo()['fields'];
 			unset( $groupBy[ array_search( 'oi_name', $groupBy ) ] );
 			unset( $groupBy[ array_search( 'oi_timestamp', $groupBy ) ] );
 			$opts['GROUP BY'] = 'oi_name,oi_timestamp,' . implode( ',', $groupBy );
@@ -664,7 +805,15 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
-	// diff=review param (bug 16923)
+	/**
+	 * diff=review param (bug 16923)
+	 * @param Title $titleObj
+	 * @param int &$mOldid
+	 * @param int &$mNewid
+	 * @param string $old
+	 * @param string $new
+	 * @return true
+	 */
 	public static function checkDiffUrl( $titleObj, &$mOldid, &$mNewid, $old, $new ) {
 		if ( $new === 'review' && isset( $titleObj ) ) {
 			$sRevId = FlaggedRevision::getStableRevId( $titleObj );
@@ -741,8 +890,13 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
-	// Add selector of review "protection" options
-	// Code stolen from Stabilization (which was stolen from ProtectionForm)
+	/**
+	 * Add selector of review "protection" options
+	 * Code stolen from Stabilization (which was stolen from ProtectionForm)
+	 * @param Page $article
+	 * @param string &$output
+	 * @return true
+	 */
 	public static function onProtectionForm( Page $article, &$output ) {
 		global $wgUser, $wgOut, $wgRequest, $wgLang;
 		if ( !$article->exists() ) {
@@ -888,7 +1042,12 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
-	// Add stability log extract to protection form
+	/**
+	 * Add stability log extract to protection form
+	 * @param Page $article
+	 * @param OutputPage $out
+	 * @return true
+	 */
 	public static function insertStabilityLog( Page $article, OutputPage $out ) {
 		if ( !$article->exists() ) {
 			return true; // nothing to do
@@ -902,7 +1061,12 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
-	// Update stability config from request
+	/**
+	 * Update stability config from request
+	 * @param Page $article
+	 * @param string &$errorMsg
+	 * @return true
+	 */
 	public static function onProtectionSave( Page $article, &$errorMsg ) {
 		global $wgUser, $wgRequest;
 		if ( !$article->exists() ) {

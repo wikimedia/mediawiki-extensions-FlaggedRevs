@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Malafaya",
-			"Robin van der Vliet"
+			"Robin van der Vliet",
+			"Joao Xavier"
 		]
 	},
 	"validationstatistics-ns": "Nomaro",
 	"validationstatistics-total": "Pagini",
+	"validationstatistics-old": "Sen aktualigi",
 	"validationstatistics-user": "Uzero"
 }

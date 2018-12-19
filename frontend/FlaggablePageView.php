@@ -1,30 +1,57 @@
 <?php
+
+use MediaWiki\MediaWikiServices;
+
 /**
  * Class representing a web view of a MediaWiki page
  */
 class FlaggablePageView extends ContextSource {
-	/** @var OutputPage */
+
+	/** @var OutputPage|null */
 	protected $out = null;
-	/** @var FlaggableWikiPage */
+
+	/** @var FlaggableWikiPage|null */
 	protected $article = null;
 
-	protected $diffRevs = null; // assoc array of old and new Revisions for diffs
-	protected $oldRevIncludes = null; // ( array of templates, array of file)
+	/** @var array|null of old and new Revisions for diffs */
+	protected $diffRevs = null;
+
+	/** @var array|null [ array of templates, array of file ] */
+	protected $oldRevIncludes = null;
+
+	/** @var bool */
 	protected $isReviewableDiff = false;
+
+	/** @var bool */
 	protected $isDiffFromStable = false;
+
+	/** @var bool */
 	protected $isMultiPageDiff = false;
+
+	/** @var string */
 	protected $reviewNotice = '';
+
+	/** @var string */
 	protected $diffNoticeBox = '';
+
+	/** @var string */
 	protected $diffIncChangeBox = '';
+
+	/** @var Revision|false */
 	protected $reviewFormRev = false;
 
+	/** @var bool */
 	protected $loaded = false;
+
+	/** @var bool */
 	protected $noticesDone = false;
 
+	/** @var self|null */
 	protected static $instance = null;
 
-	/*
+	/**
 	 * Get the FlaggablePageView for this request
+	 * @return self
 	 */
 	public static function singleton() {
 		if ( self::$instance == null ) {
@@ -37,7 +64,7 @@ class FlaggablePageView extends ContextSource {
 	protected function __clone() {
 	}
 
-	/*
+	/**
 	 * Clear the FlaggablePageView for this request.
 	 * Only needed when page redirection changes the environment.
 	 */
@@ -45,7 +72,7 @@ class FlaggablePageView extends ContextSource {
 		self::$instance = null;
 	}
 
-	/*
+	/**
 	 * Load the global FlaggableWikiPage instance
 	 */
 	protected function load() {
@@ -618,11 +645,10 @@ class FlaggablePageView extends ContextSource {
 
 		# Get the new stable parser output...
 		$pOpts = $this->article->makeParserOptions( $reqUser );
-		$pOpts->setEditSection( false ); // old revision
 		$parserOut = FlaggedRevs::parseStableRevision( $frev, $pOpts );
 
 		# Parse and output HTML
-		$this->out->addParserOutput( $parserOut );
+		$this->out->addParserOutput( $parserOut, [ 'enableSectionEditLinks' => false ] );
 
 		return $parserOut;
 	}
@@ -630,7 +656,7 @@ class FlaggablePageView extends ContextSource {
 	/**
 	 * Tag output function must be called by caller
 	 * Parser cache control deferred to caller
-	 * @param \FlaggedRevision|\stable $srev stable version
+	 * @param FlaggedRevision $srev stable version
 	 * @param string &$tag review box/bar info
 	 * @param string $prot protection notice
 	 * @return ParserOutput
@@ -694,8 +720,9 @@ class FlaggablePageView extends ContextSource {
 
 		# Get parsed stable version and output HTML
 		$pOpts = $this->article->makeParserOptions( $reqUser );
+		$poOpts = [];
 		if ( !$this->article->getTitle()->quickUserCan( 'edit', $reqUser ) ) {
-			$pOpts->setEditSection( false );
+			$poOpts['enableSectionEditLinks'] = false;
 		}
 		$parserCache = FRParserCacheStable::singleton();
 		$parserOut = $parserCache->get( $this->article, $pOpts );
@@ -704,13 +731,14 @@ class FlaggablePageView extends ContextSource {
 		# chance that a review form will be added to this page (which requires the versions).
 		if ( $parserOut ) {
 			# Cache hit. Note that redirects are not cached.
-			$this->out->addParserOutput( $parserOut );
+			$this->out->addParserOutput( $parserOut, $poOpts );
 		} else {
 			$parserOut = false;
 			# Get the new stable parser output...
 			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT && $synced ) {
+				$mainParserCache = MediaWikiServices::getInstance()->getParserCache();
 				# We can try the current version cache, since they are the same revision
-				$parserOut = ParserCache::singleton()->get( $this->article, $pOpts );
+				$parserOut = $mainParserCache->get( $this->article, $pOpts );
 			}
 
 			if ( !$parserOut ) {
@@ -731,7 +759,7 @@ class FlaggablePageView extends ContextSource {
 			# Update the stable version cache
 			$parserCache->save( $parserOut, $this->article, $pOpts );
 			# Add the stable output to the page view
-			$this->out->addParserOutput( $parserOut );
+			$this->out->addParserOutput( $parserOut, $poOpts );
 			# Update the stable version dependancies
 			if ( !wfReadOnly() ) {
 				FlaggedRevs::updateStableOnlyDeps(
@@ -766,7 +794,10 @@ class FlaggablePageView extends ContextSource {
 		);
 	}
 
-	// Show icons for draft/stable/old reviewed versions
+	/**
+	 * Show icons for draft/stable/old reviewed versions
+	 * @return bool
+	 */
 	protected function showRatingIcon() {
 		if ( FlaggedRevs::useSimpleConfig() ) {
 			// If there is only one quality level and we have tabs to know
@@ -825,8 +856,7 @@ class FlaggablePageView extends ContextSource {
 			}
 			$diffEngine->showDiffStyle(); // add CSS
 			$this->isDiffFromStable = true; // alter default review form tags
-			return
-				FlaggedRevsXML::diffToggle() .
+			return FlaggedRevsXML::diffToggle() .
 				"<div id='mw-fr-stablediff'>\n" .
 				$this->getFormattedDiff( $diffBody, $multiNotice, $leftNote, $rightNote ) .
 				"</div>\n";
@@ -834,7 +864,14 @@ class FlaggablePageView extends ContextSource {
 		return '';
 	}
 
-	// $n number of in-between revs
+	/**
+	 * $n number of in-between revs
+	 * @param string $diffBody
+	 * @param string $multiNotice
+	 * @param string $leftStatus
+	 * @param string $rightStatus
+	 * @return string
+	 */
 	protected function getFormattedDiff(
 		$diffBody, $multiNotice, $leftStatus, $rightStatus
 	) {
@@ -844,8 +881,7 @@ class FlaggablePageView extends ContextSource {
 			$multiNotice = "<tr><td colspan='4' style='text-align: center;' class='diff-multi'>" .
 				$multiNotice . "</td></tr>";
 		}
-		return
-			"<table border='0' cellpadding='0' cellspacing='4' style='width: 98%;' " .
+		return "<table border='0' cellpadding='0' cellspacing='4' style='width: 98%;' " .
 				"class='$tableClass'>" .
 				"<col class='diff-marker' />" .
 				"<col class='diff-content' />" .
@@ -932,6 +968,7 @@ class FlaggablePageView extends ContextSource {
 
 	/**
 	 * Adds stable version tags to page when viewing history
+	 * @return true
 	 */
 	public function addToHistView() {
 		$this->load();
@@ -1131,6 +1168,7 @@ class FlaggablePageView extends ContextSource {
 
 	/**
 	 * Add unreviewed pages links
+	 * @return true
 	 */
 	public function addToCategoryView() {
 		$reqUser = $this->getUser();
@@ -1230,6 +1268,7 @@ class FlaggablePageView extends ContextSource {
 
 	/**
 	 * Add link to stable version setting to protection form
+	 * @return true
 	 */
 	public function addStabilizationLink() {
 		$request = $this->getRequest();
@@ -1344,7 +1383,12 @@ class FlaggablePageView extends ContextSource {
 		return true;
 	}
 
-	// Add "pending changes" tab and set tab selection CSS
+	/**
+	 * Add "pending changes" tab and set tab selection CSS
+	 * @param array &$views
+	 * @param FlaggedRevision $srev
+	 * @param string $type
+	 */
 	protected function addDraftTab( array &$views, FlaggedRevision $srev, $type ) {
 		$request = $this->getRequest();
 		$title = $this->article->getTitle(); // convenience
@@ -1485,9 +1529,10 @@ class FlaggablePageView extends ContextSource {
 	 *   (i)  Show a tag with some explanation for the diff
 	 *   (ii) List any template/file changes pending review
 	 *
-	 * @param string $diff
-	 * @param Revision $oldRev
-	 * @param Revision $newRev
+	 * @param DifferenceEngine $diff
+	 * @param Revision|null $oldRev
+	 * @param Revision|null $newRev
+	 * @return true
 	 */
 	public function addToDiffView( $diff, $oldRev, $newRev ) {
 		global $wgMemc, $wgParserCacheExpireTime;
@@ -1590,7 +1635,10 @@ class FlaggablePageView extends ContextSource {
 		return true;
 	}
 
-	// get new diff header items for in-place AJAX page review
+	/**
+	 * get new diff header items for in-place AJAX page review
+	 * @return string
+	 */
 	public static function AjaxBuildDiffHeaderItems() {
 		$args = func_get_args(); // <oldid, newid>
 		if ( count( $args ) >= 2 ) {
@@ -1610,6 +1658,10 @@ class FlaggablePageView extends ContextSource {
 	 * (a) Add a link to diff from stable to current as needed
 	 * (b) Show review status of the diff revision(s). Uses a <table>.
 	 * Note: used by ajax function to rebuild diff page
+	 * @param FlaggableWikiPage $article
+	 * @param Revision $oldRev
+	 * @param Revision $newRev
+	 * @return string
 	 */
 	public static function diffLinkAndMarkers( FlaggableWikiPage $article, $oldRev, $newRev ) {
 		$s = '<form id="mw-fr-diff-dataform">';
@@ -1625,6 +1677,10 @@ class FlaggablePageView extends ContextSource {
 
 	/**
 	 * Add a link to diff-to-stable for reviewable pages
+	 * @param FlaggableWikiPage $article
+	 * @param Revision $oldRev
+	 * @param Revision $newRev
+	 * @return string
 	 */
 	protected static function diffToStableLink(
 		FlaggableWikiPage $article, $oldRev, Revision $newRev
@@ -1654,6 +1710,10 @@ class FlaggablePageView extends ContextSource {
 
 	/**
 	 * Add [checked version] and such to left and right side of diff
+	 * @param FlaggableWikiPage $article
+	 * @param Revision $oldRev
+	 * @param Revision $newRev
+	 * @return string
 	 */
 	protected static function diffReviewMarkers( FlaggableWikiPage $article, $oldRev, $newRev ) {
 		$table = '';
@@ -1703,8 +1763,12 @@ class FlaggablePageView extends ContextSource {
 		return [ $msg, $css ];
 	}
 
-	// Fetch template changes for a reviewed revision since review
-	// @return array
+	/**
+	 * Fetch template changes for a reviewed revision since review
+	 * @param FlaggedRevision $frev
+	 * @param array|null $newTemplates
+	 * @return array
+	 */
 	protected static function fetchTemplateChanges( FlaggedRevision $frev, $newTemplates = null ) {
 		$diffLinks = [];
 		if ( $newTemplates === null ) {
@@ -1727,8 +1791,12 @@ class FlaggablePageView extends ContextSource {
 		return $diffLinks;
 	}
 
-	// Fetch file changes for a reviewed revision since review
-	// @return array
+	/**
+	 * Fetch file changes for a reviewed revision since review
+	 * @param FlaggedRevision $frev
+	 * @param array|null $newFiles
+	 * @return array
+	 */
 	protected static function fetchFileChanges( FlaggedRevision $frev, $newFiles = null ) {
 		$diffLinks = [];
 		if ( $newFiles === null ) {
@@ -1750,7 +1818,10 @@ class FlaggablePageView extends ContextSource {
 
 	/**
 	 * Set $this->isDiffFromStable and $this->isMultiPageDiff fields
-	 * Note: $oldRev could be false
+	 * @param DifferenceEngine $diff
+	 * @param Revision|null $oldRev
+	 * @param Revision|null $newRev
+	 * @return true
 	 */
 	public function setViewFlags( $diff, $oldRev, $newRev ) {
 		$this->load();
@@ -1779,7 +1850,13 @@ class FlaggablePageView extends ContextSource {
 		return true;
 	}
 
-	// Is a diff from $oldRev to $newRev a diff-to-stable?
+	/**
+	 * Is a diff from $oldRev to $newRev a diff-to-stable?
+	 * @param FlaggedRevision|false $srev
+	 * @param Revision|false $oldRev
+	 * @param Revision|false $newRev
+	 * @return bool
+	 */
 	protected static function isDiffToStable( $srev, $oldRev, $newRev ) {
 		return ( $srev && $oldRev && $newRev
 			&& $oldRev->getPage() == $newRev->getPage() // no multipage diffs
@@ -1791,8 +1868,15 @@ class FlaggablePageView extends ContextSource {
 	/**
 	 * Redirect users out to review the changes to the stable version.
 	 * Only for people who can review and for pages that have a stable version.
+	 * @param string &$sectionAnchor
+	 * @param string &$extraQuery
+	 * @return true
 	 */
 	public function injectPostEditURLParams( &$sectionAnchor, &$extraQuery ) {
+		global $wgFlaggedRevsDisableReviewAfterEdit;
+		if ($wgFlaggedRevsDisableReviewAfterEdit) {
+			return true;
+		}
 		$reqUser = $this->getUser();
 		$this->load();
 		$this->article->loadPageData( 'fromdbmaster' );
@@ -1838,30 +1922,21 @@ class FlaggablePageView extends ContextSource {
 	 * If submitting the edit will leave it pending, then change the button text
 	 * Note: interacts with 'review pending changes' checkbox
 	 * @TODO: would be nice if hook passed in button attribs, not XML
+	 * @param EditPage $editPage
+	 * @param array &$buttons
+	 * @return true
 	 */
 	public function changeSaveButton( EditPage $editPage, array &$buttons ) {
 		if ( !$this->editWillRequireReview( $editPage ) ) {
 			return true; // edit will go live or be reviewed on save
 		}
-		if ( extension_loaded( 'domxml' ) ) {
-			wfDebug(
-				"Warning: you have the obsolete domxml extension for PHP. Please remove it!\n"
-			);
-			return true; # PECL extension conflicts with the core DOM extension (see bug 13770)
-		} elseif ( isset( $buttons['save'] ) && extension_loaded( 'dom' ) ) {
-			$dom = new DOMDocument();
-			$dom->loadXML( $buttons['save'] ); // load button XML from hook
-			foreach ( $dom->getElementsByTagName( 'input' ) as $input ) { // one <input>
+		if ( isset( $buttons['save'] ) ) {
+			// This relies on MediaWiki 1.29+ as these are OOUI ButtonInputWidgets:
+			if ( is_a( $buttons['save'], 'OOUI\ButtonInputWidget' ) ) {
 				$buttonLabel = $this->msg( 'revreview-submitedit' )->text();
-				$input->setAttribute( 'value', $buttonLabel );
-				// This attempts to re-implement Linker::titleAttrib();
-				// TODO, consider a re-use pattern
-				$buttonTitle = $this->msg( 'revreview-submitedit-title' )->text() . ' ' .
-					$this->msg( 'brackets', $this->msg( 'accesskey-save' )->text() )->text();
-				$input->setAttribute( 'title', $buttonTitle ); // keep accesskey
-
-				# Change submit button text & title
-				$buttons['save'] = $dom->saveXML( $dom->documentElement );
+				$buttons['save']->setLabel( $buttonLabel );
+				$buttonTitle = $this->msg( 'revreview-submitedit-title' )->text();
+				$buttons['save']->setTitle( $buttonTitle );
 			}
 		}
 		return true;
@@ -1931,6 +2006,10 @@ class FlaggablePageView extends ContextSource {
 	 * Add a "review pending changes" checkbox to the edit form iff:
 	 * (a) there are currently any revisions pending (bug 16713)
 	 * (b) this is an unreviewed page (bug 23970)
+	 * @param EditPage $editPage
+	 * @param array &$checkboxes
+	 * @param int|null &$tabindex
+	 * @return true
 	 */
 	public function addReviewCheck( EditPage $editPage, array &$checkboxes, &$tabindex = null ) {
 		$this->load();
@@ -1997,6 +2076,8 @@ class FlaggablePageView extends ContextSource {
 	 * (b) If an edit was undone, add a hidden field that has the rev ID of that edit.
 	 * Needed for autoreview and user stats (for autopromote).
 	 * Note: baseRevId trusted for Reviewers - text checked for others.
+	 * @param EditPage $editPage
+	 * @param OutputPage $out
 	 */
 	public function addRevisionIDField( EditPage $editPage, OutputPage $out ) {
 		$out->addHTML( "\n" . Html::hidden( 'baseRevId',

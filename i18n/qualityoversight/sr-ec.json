@@ -3,10 +3,12 @@
 		"authors": [
 			"Charmed94",
 			"Millosh",
-			"Rancher"
+			"Rancher",
+			"Acamicamacaraca",
+			"BadDog"
 		]
 	},
-	"qualityoversight": "Детаљни дневник провера",
-	"qualityoversight-list": "На овој страни се налази списак недавно одобрених и потиснутих ревизија.",
-	"qualityoversight-legend": "Претрага по дневнику провера"
+	"qualityoversight": "Напредни дневник провере",
+	"qualityoversight-list": "На овој страни се налази списак недавно одобрених и застарелих измена.",
+	"qualityoversight-legend": "Претражи скорашње провере у дневнику"
 }

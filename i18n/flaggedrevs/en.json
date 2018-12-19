@@ -26,6 +26,12 @@
 	"flaggedrevs-hidereviewed": "$1 reviewed edits",
 	"flaggedrevs-hidereviewed-hide": "Hide",
 	"flaggedrevs-hidereviewed-show": "Show",
+	"flaggedrevs-rcfilters-need-review-label": "Need review",
+	"flaggedrevs-rcfilters-need-review-desc": "Edits requiring review.",
+	"flaggedrevs-rcfilters-reviewed-label": "Reviewed",
+	"flaggedrevs-rcfilters-reviewed-desc": "Edits that have been reviewed.",
+	"flaggedrevs-rcfilters-not-reviewable-label": "Not subject to review",
+	"flaggedrevs-rcfilters-not-reviewable-desc": "Changes of all types that don't require review.",
 	"flaggedrevs-diffonly": "",
 	"group-editor": "Editors",
 	"group-editor-member": "{{GENDER:$1|editor}}",
@@ -199,5 +205,6 @@
 	"log-action-filter-stable": "Type of configuration change:",
 	"log-action-filter-stable-config": "New configuration",
 	"log-action-filter-stable-modify": "Modified configuration",
-	"log-action-filter-stable-reset": "Configuration reset"
+	"log-action-filter-stable-reset": "Configuration reset",
+	"log-action-filter-stable-move_stable": "Moved configuration"
 }

@@ -33,7 +33,8 @@
 			"Yekrats",
 			"Тест",
 			"Liuxinyu970226",
-			"Srdjan m"
+			"Srdjan m",
+			"A2093064"
 		]
 	},
 	"action-review": "{{Flagged Revs}}\n{{doc-action|review}}",
@@ -56,6 +57,12 @@
 	"flaggedrevs-hidereviewed": "{{Flagged Revs}}\nShown within parenthesis on [[Special:Recentchanges]], [[Special:NewPages]]  and [[Special:Watchlist]].\n\nThis refers to a toggle to hide or show edits (revisions) that have been reviewed.\n\nIf set to \"hide\", it also hides edits to pages that are not reviewable (like Talk pages).\n\nParameters:\n* $1 - a link with the text {{msg-mw|flaggedrevs-hidereviewed-show}} or {{msg-mw|flaggedrevs-hidereviewed-hide}}",
 	"flaggedrevs-hidereviewed-hide": "{{doc-actionlink}}\nOption text in [[Special:RecentChanges]] in conjunction with {{msg-mw|flaggedrevs-hidereviewed}}.\n\nSee also:\n* {{msg-mw|flaggedrevs-hidereviewed-show}}\n{{Identical|Hide}}",
 	"flaggedrevs-hidereviewed-show": "{{doc-actionlink}}\nOption text in [[Special:RecentChanges]] in conjunction with {{msg-mw|flaggedrevs-hidereviewed}}.\n\nSee also:\n* {{msg-mw|flaggedrevs-hidereviewed-hide}}\n{{Identical|Show}}",
+	"flaggedrevs-rcfilters-need-review-label": "Label for the filter for showing edits that require review.",
+	"flaggedrevs-rcfilters-need-review-desc": "Description for the filter for showing edits that require review.",
+	"flaggedrevs-rcfilters-reviewed-label": "Label for the filter for showing edits that have been reviewed.\n{{Identical|Reviewed}}",
+	"flaggedrevs-rcfilters-reviewed-desc": "Description for the filter for showing edits that have been reviewed.",
+	"flaggedrevs-rcfilters-not-reviewable-label": "Label for the filter for showing edits of all types that don't require review.",
+	"flaggedrevs-rcfilters-not-reviewable-desc": "Description for the filter for showing edits of all types that don't require review.",
 	"flaggedrevs-diffonly": "{{Flagged Revs}}\n{{notranslate}}",
 	"group-editor": "{{Flagged Revs}}\n{{doc-group|editor}}\n{{Identical|Editor}}",
 	"group-editor-member": "{{Flagged Revs}}\n{{doc-group|editor|member}}\n{{Identical|Editor}}",
@@ -229,5 +236,6 @@
 	"log-action-filter-stable": "{{doc-log-action-filter-type|stable}}\n{{Related|Log-action-filter}}",
 	"log-action-filter-stable-config": "{{doc-log-action-filter-action|stable|config}}\n{{Related|Log-action-filter}}",
 	"log-action-filter-stable-modify": "{{doc-log-action-filter-action|stable|modify}}\n{{Related|Log-action-filter}}",
-	"log-action-filter-stable-reset": "{{doc-log-action-filter-action|stable|reset}}\n{{Related|Log-action-filter}}"
+	"log-action-filter-stable-reset": "{{doc-log-action-filter-action|stable|reset}}\n{{Related|Log-action-filter}}",
+	"log-action-filter-stable-move_stable": "{{doc-log-action-filter-action|stable|move_stable}}"
 }

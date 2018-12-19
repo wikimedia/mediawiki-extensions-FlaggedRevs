@@ -3,14 +3,18 @@
 		"authors": [
 			"S.Örvarr.S",
 			"Snævar",
-			"Spacebirdy"
+			"Spacebirdy",
+			"Sveinn í Felli"
 		]
 	},
 	"unreviewedpages": "Óskoðaðar síður",
 	"unreviewedpages-category": "Flokkur:",
 	"unreviewedpages-diff": "endurskoða",
 	"unreviewedpages-unwatched": "(án eftirlits)",
+	"unreviewedpages-watched": "($1 {{PLURAL:$1|virkur notandi|virkir notendur}} vakta síðuna)",
+	"unreviewedpages-none": "Eins og er upfyllir engin síða þessi leitarskilyrði.",
 	"unreviewedpages-viewing": "(í skoðun)",
 	"unreviewedpages-hours": "($1 {{PLURAL:$1|klukkustund|klukkustundir}})",
-	"unreviewedpages-days": "($1 {{PLURAL:$1|dagur|dagar}})"
+	"unreviewedpages-days": "($1 {{PLURAL:$1|dagur|dagar}})",
+	"unreviewedpages-recent": "(minna en einn klukkutími)"
 }

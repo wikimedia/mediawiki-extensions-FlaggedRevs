@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Sveinn í Felli"
+		]
+	},
+	"apihelp-stabilize-param-reason": "Ástæða.",
+	"apihelp-stabilize-param-watch": "Vakta þessa síðu.",
+	"apihelp-stabilize-param-autoreview": "Takmörkun á sjálfvirkri yfirferð."
+}

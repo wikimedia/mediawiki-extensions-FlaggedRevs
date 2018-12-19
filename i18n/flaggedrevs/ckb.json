@@ -3,7 +3,8 @@
 		"authors": [
 			"Calak",
 			"Sarchia",
-			"Lost Whispers"
+			"Lost Whispers",
+			"Épine"
 		]
 	},
 	"action-review": "بەسەرداچوونەوەی پێداچوونەوەکان",
@@ -36,10 +37,12 @@
 	"grouppage-autoreview": "{{ns:project}}:بەکارھێنەرانی تاوتوێکراوی خۆگەر",
 	"logentry-review-approve-auto": "$1 بە خۆگەڕی بەسەر وەشانێکی 3$دا چوویەوە",
 	"logentry-stable-config": "$1 {{GENDER:$2|ھەڵبژاردەی}} وەشانی جێگیری بۆ $3 $4 دانا",
+	"logentry-stable-reset": "$1 {{GENDER:$2|ھەڵبژاردەی}} وەشانی جێگیری سەر $3 $4ی لابرد",
+	"logentry-stable-move_stable": "$1 $2 ھەڵبژاردەی وەشانی جێگیری لە $4ەوە گواستەوە بۆ $3",
 	"revreview-hist-draft": "وەشانی تاوتوێ نەکراو",
 	"revreview-hist-pending": "وەشانی ھەڵواسراو",
 	"revreview-hist-quality": "پێداچوونەوەی چاک",
-	"revreview-hist-basic": "وەشانی تاوتوێ کراو",
+	"revreview-hist-basic": "وەشانی تاوتوێکراو",
 	"revreview-hist-quality-user": "لە لایەن [[User:$3|$3]] پەسند کرا",
 	"revreview-hist-basic-user": "لە لایەن [[User:$3|$3]] تاوتوێ کرا",
 	"revreview-hist-quality-auto": "خۆگەڕ پەسند کرا",
@@ -102,8 +105,8 @@
 	"revreview-quality-source": "[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} وەشانێکی چاکی] ئەم پەڕەیە، لە <i>$2</i>دا لەسەر بنەمای ئەم پێداچوونەوەیە [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} پەسند کراوە].",
 	"revreview-quality-title": "ئەمە وەشانێکی چاکی ئەم پەڕەیەیە",
 	"revreview-quick-basic": "'''[[{{MediaWiki:Validationpage}}|تاوتوێ کراو]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} بەسەر گۆڕانکارییە ھەڵواسراوەکاندا بچۆوە]]",
-	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|تاوتوێ کراو]]'''",
-	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|تاوتوێ کراو]]'''",
+	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|تاوتوێکراو]]'''",
+	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|تاوتوێکراو]]'''",
 	"revreview-quick-invalid": "'''پێناسەی پێداچوونەوەی نادروست'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|تاوتوێ نەکراو]]'''",
 	"revreview-quick-quality": "'''[[{{MediaWiki:Validationpage}}|چاک]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} بەسەر گۆڕانکارییە ھەڵواسراوەکاندا بچۆوە]]",
@@ -126,7 +129,7 @@
 	"right-autoreview": "بەسەرداچوونەوەی خۆگەڕی دەستکارییەکانی خۆی",
 	"right-autoreviewrestore": "بەسەرداچوونەوەی خۆگەڕ لە گەڕاندنەوەدا",
 	"right-movestable": "گواستنەوەی پەڕەکان بە وەشانە جێگرتووەکان",
-	"right-review": "نیشانکردنی پێداچوونەوەکان وەک «تاوتوێ کراو»",
+	"right-review": "نیشانکردنی پێداچوونەوەکان وەک «تاوتوێکراو»",
 	"right-stablesettings": "دانانی چۆنیەتیی ھەڵبژاردن و پێشاندانی وەشانی جێگرتوو",
 	"right-validate": "نیشانکردنی پێداچوونەوەکان وەکوو «چاک»",
 	"right-unreviewedpages": "دیتنی [[Special:UnreviewedPages|پێرستی پەڕە بەسەردانەچووەکان]]",
@@ -149,7 +152,7 @@
 	"revreview-filter-manual": "دەستکار",
 	"revreview-levelfilter": "ئاست:",
 	"revreview-lev-all": "ھەر",
-	"revreview-lev-basic": "تاوتوێ کراو",
+	"revreview-lev-basic": "تاوتوێکراو",
 	"revreview-lev-quality": "چاک",
 	"revreview-lev-pristine": "بێخەوش",
 	"revreview-defaultfilter": "وەشانی بەرگریمانە:",
@@ -173,5 +176,5 @@
 	"revreview-locked": "'''تێبینی:''' دەستکارییەکانی ئەم پەڕەیە بەر لە پێشان دران بە خوێنەران، پێویستی بە [[{{MediaWiki:Validationpage}}|بەسەرداچوونەوە]] ھەیە.",
 	"revreview-unlocked": "'''تێبینی:''' دەستکارییەکانی ئەم پەڕەیە بەر لە پێشان دران بە خوێنەران، پێویستی بە [[{{MediaWiki:Validationpage}}|بەسەرداچوونەوە]] نییە.",
 	"log-show-hide-review": "لۆگی بەسەرداچوونەوە $1",
-	"validationpage": "{{ns:help}}:بایەخداریی پەڕە"
+	"validationpage": "{{ns:wikipedia}}:گۆڕانکاریی ھەڵواسراو"
 }

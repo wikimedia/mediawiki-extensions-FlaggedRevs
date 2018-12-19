@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\Edit\PreparedEdit;
+
 /**
  * Class containing utility functions for a FlaggedRevs environment
  *
@@ -115,7 +118,7 @@ class FlaggedRevs {
 				self::$binaryFlagging = false; // more than one level
 			}
 			# Sanity checks
-			if ( !is_integer( $minQL ) || !is_integer( $minPL ) ) {
+			if ( !is_int( $minQL ) || !is_int( $minPL ) ) {
 				throw new Exception( 'FlaggedRevs given invalid tag value!' );
 			}
 			if ( $minQL > $ratingLevels ) {
@@ -350,7 +353,7 @@ class FlaggedRevs {
 	/**
 	 * Get the levels for a tag. Gives map of level to message name.
 	 * @param string $tag
-	 * @return associative array (integer -> string)
+	 * @return array (integer -> string)
 	 */
 	public static function getTagLevels( $tag ) {
 		self::load();
@@ -419,7 +422,7 @@ class FlaggedRevs {
 
 	# ################ Permission functions #################
 
-	/*
+	/**
 	 * Sanity check a (tag,value) pair
 	 * @param string $tag
 	 * @param int $value
@@ -617,7 +620,7 @@ class FlaggedRevs {
 	 * @param WikiPage|Title $page
 	 * @param FlaggedRevision|null $sv the new stable version (optional)
 	 * @param FlaggedRevision|null $oldSv the old stable version (optional)
-	 * @param Object $editInfo Article edit info about the current revision (optional)
+	 * @param PreparedEdit|null $editInfo Article edit info about the current revision (optional)
 	 * @return bool stable version text/file changed and FR_INCLUDES_STABLE
 	 * @throws Exception
 	 */
@@ -822,7 +825,12 @@ class FlaggedRevs {
 		return self::tagsAtLevel( $flags, self::$minPL );
 	}
 
-	// Checks if $flags meets $reqFlagLevels
+	/**
+	 * Checks if $flags meets $reqFlagLevels
+	 * @param array $flags
+	 * @param array $reqFlagLevels
+	 * @return bool
+	 */
 	protected static function tagsAtLevel( array $flags, $reqFlagLevels ) {
 		self::load();
 		if ( empty( $flags ) ) {
@@ -908,7 +916,7 @@ class FlaggedRevs {
 	/**
 	 * Is this page in reviewable namespace?
 	 * Note: this checks $wgFlaggedRevsWhitelist
-	 * @param Title, $title
+	 * @param Title $title
 	 * @return bool
 	 */
 	public static function inReviewNamespace( Title $title ) {
@@ -925,17 +933,23 @@ class FlaggedRevs {
 
 	/**
 	 * Automatically review an revision and add a log entry in the review log.
-	*
+	 *
 	 * This is called during edit operations after the new revision is added
 	 * and the page tables updated, but before LinksUpdate is called.
-	*
+	 *
 	 * $auto is here for revisions checked off to be reviewed. Auto-review
 	 * triggers on edit, but we don't want those to count as just automatic.
 	 * This also makes it so the user's name shows up in the page history.
-	*
+	 *
 	 * If $flags is given, then they will be the review tags. If not, the one
 	 * from the stable version will be used or minimal tags if that's not possible.
 	 * If no appropriate tags can be found, then the review will abort.
+	 * @param WikiPage $article
+	 * @param User $user
+	 * @param Revision $rev
+	 * @param array|null $flags
+	 * @param bool $auto
+	 * @return true
 	 */
 	public static function autoReviewEdit(
 		WikiPage $article, $user, Revision $rev, array $flags = null, $auto = true
@@ -1058,6 +1072,7 @@ class FlaggedRevs {
 
 	/**
 	 * Get JS script params
+	 * @return object
 	 */
 	public static function getJSTagParams() {
 		self::load();

@@ -2,9 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Cekli829",
-			"Vugar 1981"
+			"Vugar 1981",
+			"Neriman2003"
 		]
 	},
 	"reviewedversions": "Yoxlanılmış versiyalar",
-	"reviewedversions-page": "Səhifə adı:"
+	"reviewedversions-leg1": "Bir səhifənin gözdən keçirilmiş revizyonlarını siyahıya al",
+	"reviewedversions-page": "Səhifə adı:",
+	"reviewedversions-none": "\"[[:$1]]\" nəzərdən keçirilmiş revizyona sahib deyil.",
+	"reviewedversions-list": "Aşağıda, [{{:PLURAL:$2|var}}] sənədinin [[:$1]] redaktə edilmiş {{PLURAL:$2|tək revizyon|revizyonları}} siyahısının bir siyahısı mövcuddur.",
+	"reviewedversions-review": "<i>$1</i>-də $2 tərəfindən incələndi"
 }

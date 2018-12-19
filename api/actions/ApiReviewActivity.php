@@ -122,7 +122,7 @@ class ApiReviewActivity extends ApiBase {
 		return [
 			'previd'   	=> null,
 			'oldid' 	=> null,
-			'reviewing' => [ ApiBase::PARAM_TYPE => [ 0, 1 ] ],
+			'reviewing' => [ ApiBase::PARAM_TYPE => [ '0', '1' ] ],
 			'token' 	=> null,
 		];
 	}
@@ -162,7 +162,7 @@ class ApiReviewActivity extends ApiBase {
 	}
 
 	/**
-	 * @see ApiBase::getExamplesMessages()
+	 * @inheritDoc
 	 */
 	protected function getExamplesMessages() {
 		return [

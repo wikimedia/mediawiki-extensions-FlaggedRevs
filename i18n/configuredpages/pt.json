@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hamilton Abreu"
+			"Hamilton Abreu",
+			"Athena in Wonderland"
 		]
 	},
 	"configuredpages": "Páginas com configuração de revisão",
-	"configuredpages-list": "Segue-se uma lista de páginas configuradas com parâmetros de aprovação diferentes dos normais do site.\nAlguns parâmetros podem alterar a versão que é apresentada aos utilizadores, ou aumentar a restrição de quem pode fazer edições que não requerem revisão.",
+	"configuredpages-list": "Segue-se uma lista de páginas configuradas com parâmetros de aprovação diferentes dos normais do sítio.\nAlguns parâmetros podem alterar a versão que é apresentada aos utilizadores, ou aumentar a restrição de quem pode fazer edições que não requerem revisão.",
 	"configuredpages-none": "Não existem páginas nesta lista.",
 	"configuredpages-config": "Configuração",
 	"configuredpages-def-draft": "última versão",

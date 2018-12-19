@@ -14,7 +14,8 @@
 			"Cwlin0416",
 			"LNDDYL",
 			"Zhxy 519",
-			"一個正常人"
+			"一個正常人",
+			"A2093064"
 		]
 	},
 	"action-review": "審查修訂",
@@ -36,6 +37,12 @@
 	"flaggedrevs-hidereviewed": "$1 已審查的編輯",
 	"flaggedrevs-hidereviewed-hide": "隱藏",
 	"flaggedrevs-hidereviewed-show": "顯示",
+	"flaggedrevs-rcfilters-need-review-label": "需要審查",
+	"flaggedrevs-rcfilters-need-review-desc": "編輯需要審查。",
+	"flaggedrevs-rcfilters-reviewed-label": "已審查",
+	"flaggedrevs-rcfilters-reviewed-desc": "已經審查的編輯。",
+	"flaggedrevs-rcfilters-not-reviewable-label": "沒有需要審查的主題。",
+	"flaggedrevs-rcfilters-not-reviewable-desc": "所有類型不需要審查的更改。",
 	"group-editor": "編輯者",
 	"group-editor-member": "{{GENDER:$1|編輯者}}",
 	"group-reviewer": "審查員",
@@ -47,6 +54,13 @@
 	"grouppage-autoreview": "{{ns:project}}:已自動檢查使用者",
 	"group-autoreview.css": "/* 此 CSS 會影響自動審查員 */",
 	"group-autoreview.js": "/* 此 JS 會影響自動審查員 */",
+	"logentry-review-approve": "$1{{GENDER:$2|已審查}}$3的一個版本",
+	"logentry-review-approve-auto": "$1自動{{GENDER:$2|審查了}}$3的一個版本",
+	"logentry-review-unapprove": "$1{{GENDER:$2|放棄了}}$3的一個版本",
+	"logentry-stable-config": "$1{{GENDER:$2|設定了}}$3的穩定版本設定$4",
+	"logentry-stable-modify": "$1{{GENDER:$2|更改了}}$3的穩定版本設定$4",
+	"logentry-stable-reset": "$1{{GENDER:$2|重設了}}$3的穩定版本設定$4",
+	"logentry-stable-move_stable": "$1將$4的穩定版本設定{{GENDER:$2|移動}}至$3",
 	"revreview-hist-draft": "未檢查的修訂",
 	"revreview-hist-pending": "待審核修訂",
 	"revreview-hist-quality": "優質修訂",
@@ -67,8 +81,6 @@
 	"revreview-log-details-hide": "隱藏詳細資料",
 	"revreview-log-details-title": "切換顯示穩定性設定日誌",
 	"review-diff2stable": "檢視所有待審核變更",
-	"review-logentry-app": "已審查 [[$1]] 其中一個版本",
-	"review-logentry-dis": "已停用 [[$1]] 的其中一個版本",
 	"review-logentry-id": "修訂：$2",
 	"review-logentry-diff": "變更已審查",
 	"review-logentry-diff2": "變更已停用",
@@ -81,7 +93,6 @@
 	"revreview-accuracy-2": "準確",
 	"revreview-accuracy-3": "來源充分",
 	"revreview-accuracy-4": "精選",
-	"revreview-auto": "(自動)",
 	"revreview-basic": "此頁面為[[{{MediaWiki:Validationpage}}|穩定版本]]，[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 已檢查]於 <i>$2</i>。\n有 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 筆待審核的{{PLURAL:$3|變更|變更}}]{{PLURAL:$3|等侯|等侯}}審查。",
 	"revreview-basic-i": "此頁面為[[{{MediaWiki:Validationpage}}|穩定版本]]，[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 已複核]於 <i>$2</i>。\n有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 模板/檔案變更]等侯複核。",
 	"revreview-basic-old": "此頁面為[[{{MediaWiki:Validationpage}}|已檢查]]版本 ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} 所有清單])，[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 核准]於 <i>$2</i>。\n可能有新的[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 變更]已經完成。",
@@ -195,5 +206,6 @@
 	"log-action-filter-stable": "配置更改的類型：",
 	"log-action-filter-stable-config": "新配置",
 	"log-action-filter-stable-modify": "已修改的配置",
-	"log-action-filter-stable-reset": "配置重置"
+	"log-action-filter-stable-reset": "配置重置",
+	"log-action-filter-stable-move_stable": "已移動的配置"
 }

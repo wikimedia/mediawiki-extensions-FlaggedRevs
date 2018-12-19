@@ -3,16 +3,20 @@
 		"authors": [
 			"SPQRobin",
 			"UV",
-			"Laurentianus"
+			"Laurentianus",
+			"KPFC"
 		]
 	},
+	"action-review": "differentias recensere",
 	"editor": "Recensor",
+	"flaggedrevs": "differentiae acceptae",
 	"group-editor": "Recensores",
 	"group-editor-member": "{{GENDER:$1|recensor}}",
 	"group-reviewer": "Revisores",
 	"group-reviewer-member": "{{GENDER:$1|revisor}}",
 	"grouppage-editor": "{{ns:project}}:Recensor",
 	"grouppage-reviewer": "{{ns:project}}:Revisor",
+	"group-autoreview": "recensor passivus",
 	"reviewer": "Revisor",
 	"revreview-style-2": "Bonus",
 	"revreview-revnotfound": "Illa redactio quaesita non invenitur.\nSpectes, quaesumus, eum URL, quo ad hanc paginam pervenisti.",

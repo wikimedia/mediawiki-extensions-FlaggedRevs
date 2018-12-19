@@ -117,11 +117,11 @@ class StablePagesPager extends AlphabeticPager {
 	public $mForm, $mConds, $namespace, $override;
 
 	/**
-	 * @param IContextSource $form
+	 * @param StablePages $form
 	 * @param array $conds
 	 * @param int $namespace (null for "all")
 	 * @param string $autoreview ('' for "all", 'none' for no restriction)
-	 * @param $indef
+	 * @param string $indef
 	 */
 	function __construct( $form, $conds = [], $namespace, $autoreview, $indef ) {
 		$this->mForm = $form;
@@ -129,7 +129,7 @@ class StablePagesPager extends AlphabeticPager {
 		$this->indef = $indef;
 		// Must be content pages...
 		$validNS = FlaggedRevs::getReviewNamespaces();
-		if ( is_integer( $namespace ) ) {
+		if ( is_int( $namespace ) ) {
 			if ( !in_array( $namespace, $validNS ) ) {
 				$namespace = $validNS; // fallback to "all"
 			}

@@ -12,7 +12,8 @@
 			"Sahim",
 			"Wayiran",
 			"Calak",
-			"Alirezaaa"
+			"Alirezaaa",
+			"Ommmmid"
 		]
 	},
 	"action-review": "بازبینی نسخه‌ها",
@@ -34,6 +35,8 @@
 	"flaggedrevs-hidereviewed": "$1 ویرایش بازبینی‌شده",
 	"flaggedrevs-hidereviewed-hide": "پنهان‌ کردن",
 	"flaggedrevs-hidereviewed-show": "نمایش",
+	"flaggedrevs-rcfilters-need-review-label": "نیازمند بررسی",
+	"flaggedrevs-rcfilters-reviewed-label": "بازبینی‌شده",
 	"group-editor": "ویرایشگران",
 	"group-editor-member": "{{GENDER:$1|ویرایشگر}}",
 	"group-reviewer": "بازبینی‌کنندگان",
@@ -74,7 +77,7 @@
 	"review-logentry-diff": "تغییرات بازبینی‌شده",
 	"review-logentry-diff2": "تغییرات نامناسب",
 	"review-logpage": "سیاههٔ بازبینی",
-	"review-logpagetext": "این سیاهه‌ای از نسخه‌هایی از صفحه‌های متحوا است که [[{{MediaWiki:Validationpage}}|بررسی شده‌اند]].",
+	"review-logpagetext": "این سیاهه‌ای از نسخه‌هایی از صفحه‌های محتوا است که [[{{MediaWiki:Validationpage}}|بررسی شده‌اند]].",
 	"reviewer": "مرورگر",
 	"revreview-accuracy": "دقت",
 	"revreview-accuracy-0": "ناکافی",

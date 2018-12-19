@@ -25,6 +25,12 @@
 	"flaggedrevs-hidereviewed": "$1 проверени уредувања",
 	"flaggedrevs-hidereviewed-hide": "Скриј",
 	"flaggedrevs-hidereviewed-show": "Прикажи",
+	"flaggedrevs-rcfilters-need-review-label": "Потребна проверка",
+	"flaggedrevs-rcfilters-need-review-desc": "Уредувања на кои им треба проверка.",
+	"flaggedrevs-rcfilters-reviewed-label": "Проверено",
+	"flaggedrevs-rcfilters-reviewed-desc": "Уредувања кои се веќе проверени.",
+	"flaggedrevs-rcfilters-not-reviewable-label": "Не е тема за проверка",
+	"flaggedrevs-rcfilters-not-reviewable-desc": "Промени од сите видови кои не бараат проверка.",
 	"group-editor": "Уредници",
 	"group-editor-member": "{{GENDER:$1|уредник}}",
 	"group-reviewer": "Прегледувачи",
@@ -192,5 +198,6 @@
 	"log-action-filter-stable": "Вид измена во поставеноста:",
 	"log-action-filter-stable-config": "Нова поставеност",
 	"log-action-filter-stable-modify": "Измената поставеност",
-	"log-action-filter-stable-reset": "Враќње на поставеноста по основно"
+	"log-action-filter-stable-reset": "Враќње на поставеноста по основно",
+	"log-action-filter-stable-move_stable": "Преместено поставување"
 }
