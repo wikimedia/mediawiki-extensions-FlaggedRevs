@@ -1,4 +1,9 @@
 {
-	"@metadata": [],
-	"revreview-revnotfound": "Abdif siatos ke batu bu me zo rodimtrasir. Ta vansara va batu bu va faveyene URL mane ageltal."
+	"@metadata": {
+		"authors": [
+			"Axel xadolik"
+		]
+	},
+	"revreview-revnotfound": "Abdif siatos ke batu bu me zo rodimtrasir. Ta vansara va batu bu va faveyene URL mane ageltal.",
+	"tooltip-ca-current": "Va batu bu dem ref betaks wil"
 }

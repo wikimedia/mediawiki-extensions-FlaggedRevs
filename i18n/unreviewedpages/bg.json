@@ -3,9 +3,11 @@
 		"authors": [
 			"Borislav",
 			"DCLXVI",
-			"Turin"
+			"Turin",
+			"Vlad5250"
 		]
 	},
+	"action-unreviewedpages": "преглеждане на списъка с непроверени страници",
 	"unreviewedpages": "Нерецензирани страници",
 	"unreviewedpages-category": "Категория:",
 	"unreviewedpages-diff": "преглеждане",

@@ -77,6 +77,7 @@
 	"right-review": "Отбелязване на версиите като проверени",
 	"right-stablesettings": "Конфигуриране на начина за избор и показване на стабилната версия",
 	"right-validate": "Отбелязване на версиите като качествени",
+	"right-unreviewedpages": "Преглеждане на [[Special:UnreviewedPages|списъка с непроверени страници]]",
 	"rights-editor-revoke": "отне правата на редактор на [[$1]]",
 	"specialpages-group-quality": "Качествен контрол",
 	"stable-logpage": "Дневник на устойчивите версии",
