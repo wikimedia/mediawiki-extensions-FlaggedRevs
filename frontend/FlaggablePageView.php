@@ -182,9 +182,10 @@ class FlaggablePageView extends ContextSource {
 	 * @return bool
 	 */
 	public function useSimpleUI() {
-		global $wgSimpleFlaggedRevsUI;
 		$reqUser = $this->getUser();
-		return $reqUser->getOption( 'flaggedrevssimpleui', intval( $wgSimpleFlaggedRevsUI ) );
+		$config = $this->getConfig();
+		return $reqUser->getOption( 'flaggedrevssimpleui',
+			intval( $config->get( 'SimpleFlaggedRevsUI' ) ) );
 	}
 
 	/**
@@ -193,13 +194,13 @@ class FlaggablePageView extends ContextSource {
 	 * @return bool
 	 */
 	protected function userViewsDraftByDefault( $user ) {
-		global $wgFlaggedRevsExceptions;
 		# Check user preferences ("show stable by default?")
 		if ( $user->getOption( 'flaggedrevsstable' ) ) {
 			return false;
 		}
 		# Viewer sees current by default (editors, insiders, ect...) ?
-		foreach ( $wgFlaggedRevsExceptions as $group ) {
+		$config = $this->getConfig();
+		foreach ( $config->get( 'FlaggedRevsExceptions' ) as $group ) {
 			if ( $group == 'user' ) {
 				if ( $user->getId() ) {
 					return true;
@@ -1546,7 +1547,7 @@ class FlaggablePageView extends ContextSource {
 	 * @return true
 	 */
 	public function addToDiffView( $diff, $oldRev, $newRev ) {
-		global $wgMemc, $wgParserCacheExpireTime;
+		global $wgMemc;
 		$request = $this->getRequest();
 		$reqUser = $this->getUser();
 		$this->load();
@@ -1582,7 +1583,7 @@ class FlaggablePageView extends ContextSource {
 				if ( !count( $changeList ) ) {
 					$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $this->article->getId() );
 					$data = FlaggedRevs::makeMemcObj( "true" );
-					$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
+					$wgMemc->set( $key, $data, $this->getConfig()->get( 'ParserCacheExpireTime' ) );
 				}
 			# Otherwise, check for includes pending on top of edits pending...
 			} elseif ( FlaggedRevs::inclusionSetting() !== FR_INCLUDES_CURRENT ) {
