@@ -4,6 +4,8 @@
 			"Joetaras"
 		]
 	},
+	"apihelp-query+configuredpages-param-start": "Accuminze a elengà da stu ID d'a pàgene.",
+	"apihelp-query+configuredpages-param-end": "Spicce de elengà da stu ID d'a pàgene.",
 	"apihelp-query+configuredpages-param-namespace": "Le namespace da nuemrà.",
 	"apihelp-query+configuredpages-param-default": "'A versione d'u 'ndrucamende d'a pàgene predefinite.",
 	"apihelp-query+configuredpages-param-limit": "Quanda pàggene adda turnà.",

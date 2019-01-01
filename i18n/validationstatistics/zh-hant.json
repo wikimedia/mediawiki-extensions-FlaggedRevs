@@ -9,14 +9,15 @@
 			"Waihorace",
 			"Cwlin0416",
 			"LNDDYL",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"A2093064"
 		]
 	},
 	"validationstatistics": "頁面審查統計資訊",
 	"validationstatistics-users": "'''{{SITENAME}}''' 目前有 '''[[Special:ListUsers/editor|$1]]''' 位{{PLURAL:$1|使用者}}擁有[[{{MediaWiki:Validationpage}}|編輯者]]的權限。\n\n編輯者是經過認可能夠抽樣檢查頁面修訂的使用者。",
 	"validationstatistics-lastupdate": "''以下資料最後更新於 $1 $2。''",
 	"validationstatistics-pndtime": "編輯已經認可的使用者檢查評定為 ''{{int:validationstatistics-stable}}''。\n\n[[Special:OldReviewedPages|目前待審查的頁面編輯]]的平均審查時間為 '''$1'''，審查時間是依據最舊的待審查編輯為未審查狀態的時間。",
-	"validationstatistics-revtime": "''未登入使用者'' 的編輯的平均審查時間為 '''$1'''，中位數是 '''$2 '''。\n$3",
+	"validationstatistics-revtime": "未登入使用者的編輯的平均審查時間為 '''$1'''，中位數是 '''$2 '''。$3",
 	"validationstatistics-table": "每個命名空間的頁面審查統計資訊如下所示，其中 '''不包含''' 重新導向頁面。\n有編輯待審查的頁面會以 ''{{int:validationstatistics-old}}'' 統計，\n無編輯待審查的頁面會以 ''{{int:validationstatistics-latest}}'' 統計。",
 	"validationstatistics-ns": "命名空間",
 	"validationstatistics-total": "頁面",

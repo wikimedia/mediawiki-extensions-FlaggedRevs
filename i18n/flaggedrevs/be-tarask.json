@@ -28,6 +28,7 @@
 	"flaggedrevs-hidereviewed": "$1 рэцэнзаваныя рэдагаваньні",
 	"flaggedrevs-hidereviewed-hide": "Схаваць",
 	"flaggedrevs-hidereviewed-show": "Паказаць",
+	"flaggedrevs-rcfilters-reviewed-label": "Правераныя",
 	"group-editor": "Рэдактары",
 	"group-editor-member": "{{GENDER:$1|рэдактар|рэдактарка}}",
 	"group-reviewer": "Рэцэнзэнты",
