@@ -76,7 +76,12 @@ class ReviewedVersions extends UnlistedSpecialPage {
 class ReviewedVersionsPager extends ReverseChronologicalPager {
 	public $mForm, $mConds;
 
-	function __construct( $form, $conds = [], $title ) {
+	/**
+	 * @param ReviewedVersions $form
+	 * @param array $conds
+	 * @param Title $title
+	 */
+	function __construct( $form, $conds, $title ) {
 		$this->mForm = $form;
 		$this->mConds = $conds;
 		$this->pageID = $title->getArticleID();
