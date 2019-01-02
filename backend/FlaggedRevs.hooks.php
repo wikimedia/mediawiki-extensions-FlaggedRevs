@@ -1,4 +1,7 @@
 <?php
+
+use Wikimedia\Rdbms\IDatabase;
+
 /**
  * Class containing hooked functions for a FlaggedRevs environment
  */
