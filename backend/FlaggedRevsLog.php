@@ -15,7 +15,7 @@ class FlaggedRevsLog {
 	 */
 	public static function updateReviewLog(
 		Title $title, array $dims, array $oldDims,
-		$comment, $revId, $stableId, $approve, $auto = false, $user
+		$comment, $revId, $stableId, $approve, $auto, $user
 	) {
 		# Tag rating list (e.g. accuracy=x, depth=y, style=z)
 		$ratings = [];

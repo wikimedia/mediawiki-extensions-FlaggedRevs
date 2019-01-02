@@ -125,7 +125,7 @@ class ConfiguredPagesPager extends AlphabeticPager {
 	 * @param int $override (null for "either")
 	 * @param string $autoreview ('' for "all", 'none' for no restriction)
 	 */
-	function __construct( $form, $conds = [], $namespace, $override, $autoreview ) {
+	function __construct( $form, $conds, $namespace, $override, $autoreview ) {
 		$this->mForm = $form;
 		$this->mConds = $conds;
 		# Must be content pages...

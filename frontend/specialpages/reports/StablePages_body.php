@@ -123,7 +123,7 @@ class StablePagesPager extends AlphabeticPager {
 	 * @param string $autoreview ('' for "all", 'none' for no restriction)
 	 * @param string $indef
 	 */
-	function __construct( $form, $conds = [], $namespace, $autoreview, $indef ) {
+	function __construct( $form, $conds, $namespace, $autoreview, $indef ) {
 		$this->mForm = $form;
 		$this->mConds = $conds;
 		$this->indef = $indef;
