@@ -5,7 +5,8 @@
 			"Joseph",
 			"Karduelis",
 			"Manco Capac",
-			"Srhat"
+			"Srhat",
+			"Vito Genovese"
 		]
 	},
 	"stabilization-tab": "vet",
@@ -27,7 +28,7 @@
 	"stabilization-expiry": "Süresi bitiyor:",
 	"stabilization-othertime": "Diğer zaman:",
 	"stabilization-def-short": "Varsayılan",
-	"stabilization-def-short-0": "Şu anki",
+	"stabilization-def-short-0": "Güncel",
 	"stabilization-def-short-1": "Kararlı",
 	"stabilize_page_invalid": "Hedef sayfa başlığı geçersiz.",
 	"stabilize_page_notexists": "Hedef sayfa mevcut değil.",
