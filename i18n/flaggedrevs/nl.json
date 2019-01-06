@@ -10,7 +10,8 @@
 			"Tjcool007",
 			"Tvdm",
 			"Tkinkhorst",
-			"Mainframe98"
+			"Mainframe98",
+			"Mar(c)"
 		]
 	},
 	"action-review": "versies als \"gecontroleerd\" te markeren",
@@ -53,13 +54,13 @@
 	"review-edit-diff": "'''Let op: er zijn nog niet gecontroleerde wijzigingen ten opzichte van de gepubliceerde versie opgenomen in de paginatekst in het onderstaande bewerkingsvenster.'''",
 	"revreview-diff-toggle-show": "wijzigingen weergeven",
 	"revreview-diff-toggle-hide": "wijzigingen verbergen",
-	"revreview-diff-toggle-title": "Weergevave van verschillen met de gepubliceerde versie weergeven of verbergen",
+	"revreview-diff-toggle-title": "Verschillen met de gepubliceerde versie weergeven of verbergen",
 	"revreview-log-toggle-show": "stabiliteitslogboek weergeven",
 	"revreview-log-toggle-hide": "stabiliteitslogboek verbergen",
-	"revreview-log-toggle-title": "Weergave van stabiliteitsinstellingenlogboek in- of uitschakelen",
+	"revreview-log-toggle-title": "Stabiliteitsinstellingenlogboek weergeven of verbergen",
 	"revreview-log-details-show": "details weergeven",
 	"revreview-log-details-hide": "details verbergen",
-	"revreview-log-details-title": "Weergave van stabiliteitsinstellingenlogboek in- of uitschakelen",
+	"revreview-log-details-title": "Stabiliteitsinstellingenlogboek weergeven of verbergen",
 	"review-diff2stable": "Ongecontroleerde verschillen met de gepubliceerde versie bekijken",
 	"review-logentry-id": "versie: $2",
 	"review-logentry-diff": "gecontroleerde wijzigingen",
