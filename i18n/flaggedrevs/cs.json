@@ -10,7 +10,8 @@
 			"Mormegil",
 			"Vks",
 			"Cvanca",
-			"Ilimanaq29"
+			"Ilimanaq29",
+			"Dvorapa"
 		]
 	},
 	"action-review": "posoudit revize",
@@ -41,6 +42,8 @@
 	"group-autoreview": "Automatičtí posuzovatelé",
 	"group-autoreview-member": "{{GENDER:$1|automatický posuzovatel|automatická posuzovatelka}}",
 	"grouppage-autoreview": "{{ns:project}}:Automatický posuzovatel",
+	"group-editor.css": "/* Zde uvedené CSS bude ovlivňovat pouze editory */",
+	"group-editor.js": "/* Zde uvedený JavaScript bude použit pouze pro editory */",
 	"revreview-hist-draft": "nezkontrolovaná revize",
 	"revreview-hist-pending": "čeká na kontrolu",
 	"revreview-hist-quality": "kvalitní verze",
