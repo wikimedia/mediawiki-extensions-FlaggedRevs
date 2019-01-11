@@ -555,7 +555,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 */
 	public static function updateRecentChanges( $rev, $patrol, $srev ) {
 		if ( $rev instanceof RecentChange ) {
-			$pageId = $rev->mAttribs['rc_cur_id'];
+			$pageId = $rev->getAttribute( 'rc_cur_id' );
 		} else {
 			$pageId = $rev->getPage();
 		}

@@ -762,14 +762,14 @@ class FlaggedRevsUIHooks {
 		global $wgUser;
 		$title = $rc->getTitle(); // convenience
 		if ( !FlaggedRevs::inReviewNamespace( $title )
-			|| empty( $rc->mAttribs['rc_this_oldid'] ) // rev, not log
-			|| !array_key_exists( 'fp_stable', $rc->mAttribs )
+			|| empty( $rc->getAttribute( 'rc_this_oldid' ) ) // rev, not log
+			|| !array_key_exists( 'fp_stable', $rc->getAttributes() )
 		) {
 			return true; // confirm that page is in reviewable namespace
 		}
 		$rlink = $css = '';
 		// page is not reviewed
-		if ( $rc->mAttribs['fp_stable'] == null ) {
+		if ( $rc->getAttribute( 'fp_stable' ) == null ) {
 			// Is this a config were pages start off reviewable?
 			// Hide notice from non-reviewers due to vandalism concerns (bug 24002).
 			if ( !FlaggedRevs::useSimpleConfig() && $wgUser->isAllowed( 'review' ) ) {
@@ -777,14 +777,14 @@ class FlaggedRevsUIHooks {
 				$css = 'flaggedrevs-unreviewed';
 			}
 		// page is reviewed and has pending edits (use timestamps; bug 15515)
-		} elseif ( isset( $rc->mAttribs['fp_pending_since'] ) &&
-			$rc->mAttribs['rc_timestamp'] >= $rc->mAttribs['fp_pending_since']
+		} elseif ( $rc->getAttribute( 'fp_pending_since' ) !== null &&
+			$rc->getAttribute( 'rc_timestamp' ) >= $rc->getAttribute( 'fp_pending_since' )
 		) {
 			$rlink = Linker::link(
 				$title,
 				wfMessage( 'revreview-reviewlink' )->escaped(),
 				[ 'title' => wfMessage( 'revreview-reviewlink-title' )->text() ],
-				[ 'oldid' => $rc->mAttribs['fp_stable'], 'diff' => 'cur' ] +
+				[ 'oldid' => $rc->getAttribute( 'fp_stable' ), 'diff' => 'cur' ] +
 					FlaggedRevs::diffOnlyCGI()
 			);
 			$css = 'flaggedrevs-pending';

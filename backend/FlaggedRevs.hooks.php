@@ -709,11 +709,12 @@ class FlaggedRevsHooks {
 
 	/**
 	 * Mark auto-reviewed edits as patrolled
+	 * @suppress SecurityCheck-XSS
 	 * @param RecentChange &$rc
 	 * @return true
 	 */
 	public static function autoMarkPatrolled( RecentChange &$rc ) {
-		if ( empty( $rc->mAttribs['rc_this_oldid'] ) ) {
+		if ( empty( $rc->getAttribute( 'rc_this_oldid' ) ) ) {
 			return true;
 		}
 		// don't autopatrol autoreviewed edits when using pending changes,
@@ -726,7 +727,7 @@ class FlaggedRevsHooks {
 		$fa->loadPageData( FlaggableWikiPage::READ_LATEST );
 		// Is the page reviewable?
 		if ( $fa->isReviewable() ) {
-			$revId = $rc->mAttribs['rc_this_oldid'];
+			$revId = $rc->getAttribute( 'rc_this_oldid' );
 			// If the edit we just made was reviewed, then it's the stable rev
 			$frev = FlaggedRevision::newFromTitle( $rc->getTitle(), $revId, FR_MASTER );
 			// Reviewed => patrolled
@@ -734,7 +735,9 @@ class FlaggedRevsHooks {
 				DeferredUpdates::addCallableUpdate( function () use ( $rc, $frev ) {
 					RevisionReviewForm::updateRecentChanges( $rc, 'patrol', $frev );
 				} );
-				$rc->mAttribs['rc_patrolled'] = 1; // make sure irc/email notifs know status
+				$rcAttribs = $rc->getAttributes();
+				$rcAttribs['rc_patrolled'] = 1; // make sure irc/email notifs know status
+				$rc->setAttribs( $rcAttribs );
 			}
 			return true;
 		}
