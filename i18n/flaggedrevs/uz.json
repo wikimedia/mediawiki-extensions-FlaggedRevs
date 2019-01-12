@@ -5,5 +5,9 @@
 			"Sociologist"
 		]
 	},
-	"flaggedrevs-hidereviewed-show": "Koʻrsat"
+	"flaggedrevs-hidereviewed-show": "Koʻrsat",
+	"group-reviewer": "Tekshiruvchilar",
+	"group-reviewer-member": "{{GENDER:$1|tekshiruvchi}}",
+	"grouppage-reviewer": "{{ns:project}}:Tekshiruvchi",
+	"reviewer": "Tekshiruvchi"
 }
