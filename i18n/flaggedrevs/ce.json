@@ -37,7 +37,7 @@
 	"group-reviewer-member": "{{GENDER:$1|хьожург}}",
 	"grouppage-editor": "{{ns:project}}:Хьожург",
 	"grouppage-reviewer": "{{ns:project}}:Хьожург",
-	"group-autoreview": "Авто хьожург",
+	"group-autoreview": "Автопатрульхой",
 	"group-autoreview-member": "{{GENDER:$1|авто хьожург}}",
 	"grouppage-autoreview": "{{ns:project}}:Авто хьожург",
 	"group-reviewer.css": "/* JS placed here will affect reviewers only */",
