@@ -16,18 +16,23 @@ div.flaggedrevs_notice {
 	text-align: center;
 	clear: both;
 }
+
 div.flaggedrevs_short_basic img {
 	vertical-align: text-bottom;
 }
+
 div.flaggedrevs_basic {
 	background-color: #eaf3ff;
 }
+
 div.flaggedrevs_quality {
 	background-color: #d5fdf4;
 }
+
 div.flaggedrevs_pristine {
 	background-color: #fef6e7;
 }
+
 div.flaggedrevs_notice {
 	background-color: #f8f9fa;
 }
@@ -49,10 +54,12 @@ div.flaggedrevs_preview {
 	text-align: center;
 	clear: both;
 }
+
 div.flaggedrevs_diffnotice {
 	font-size: 85%;
 	background-color: #f8f9fa;
 }
+
 div.flaggedrevs_preview {
 	background-color: #eaf3ff;
 	color: #000;
@@ -91,18 +98,22 @@ div.flaggedrevs_notes {
 	/* @embed */
 	background-image: url( img/bar_20.png );
 }
+
 .fr-marker-40 {
 	/* @embed */
 	background-image: url( img/bar_40.png );
 }
+
 .fr-marker-60 {
 	/* @embed */
 	background-image: url( img/bar_60.png );
 }
+
 .fr-marker-80 {
 	/* @embed */
 	background-image: url( img/bar_80.png );
 }
+
 .fr-marker-100 {
 	/* @embed */
 	background-image: url( img/bar_100.png );
@@ -185,18 +196,22 @@ div.flaggedrevs_short_details {
 	/* @embed */
 	background-image: url( img/fr-marker-20.png );
 }
+
 .fr-value40 {
 	/* @embed */
 	background-image: url( img/fr-marker-40.png );
 }
+
 .fr-value60 {
 	/* @embed */
 	background-image: url( img/fr-marker-60.png );
 }
+
 .fr-value80 {
 	/* @embed */
 	background-image: url( img/fr-marker-80.png );
 }
+
 .fr-value100 {
 	/* @embed */
 	background-image: url( img/fr-marker-100.png );
@@ -206,12 +221,15 @@ div.flaggedrevs_short_details {
 .flaggedrevs-color-0 {
 	background-color: #f8f9fa;
 }
+
 .flaggedrevs-color-1 {
 	background-color: #eaf3ff;
 }
+
 .flaggedrevs-color-2 {
 	background-color: #d5fdf4;
 }
+
 .flaggedrevs-color-3 {
 	background-color: #fef6e7;
 }
@@ -219,6 +237,7 @@ div.flaggedrevs_short_details {
 .flaggedrevs-pending {
 	background-color: #fff2cc; /* equals WikimediaUI's Yellow50 `#fc3` at 0.25 opacity */
 }
+
 .flaggedrevs-unreviewed {
 	background-color: #fef6e7;
 }
@@ -272,9 +291,11 @@ img.flaggedrevs-icon {
 .fr-pending-long {
 	background-color: #eaecf0;
 }
+
 .fr-pending-long2 {
 	background-color: #fee7e6;
 }
+
 .fr-pending-long3 {
 	background-color: #c8ccd1;
 }
