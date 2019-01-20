@@ -6,9 +6,11 @@
 			"Spiritia",
 			"Turin",
 			"Vodnokon4e",
-			"StanProg"
+			"StanProg",
+			"Vlad5250"
 		]
 	},
+	"stabilization-tab": "конфиг.",
 	"stabilization": "Устойчивост на страницата",
 	"stabilization-page": "Име на страницата:",
 	"stabilization-leg": "Потвърждение на настройките за устойчива версия",
@@ -29,6 +31,7 @@
 	"stabilize_page_invalid": "Заглавието на целевата страница е невалидно.",
 	"stabilize_page_notexists": "Целевата страница не съществува.",
 	"stabilize_page_unreviewable": "Целевата страница не е от именно пространство, подлежащо на рецензия",
+	"stabilize_invalid_autoreview": "Невалидно ограничение на автопрегледа",
 	"stabilize_invalid_level": "Невалидно ниво на защита.",
 	"stabilize_expiry_invalid": "Невалидна дата на изтичане.",
 	"stabilize_expiry_old": "Дата на изтичане вече е отминала.",

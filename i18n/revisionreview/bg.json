@@ -5,9 +5,11 @@
 			"DCLXVI",
 			"Spiritia",
 			"Turin",
-			"StanProg"
+			"StanProg",
+			"Vlad5250"
 		]
 	},
+	"revisionreview": "Оценка на редакции",
 	"review_page_invalid": "Заглавието на целевата страница е невалидно.",
 	"review_page_notexists": "Целевата страница не съществува.",
 	"review_no_oldid": "Не е указан идентификатор на версията.",
@@ -24,8 +26,10 @@
 	"revreview-submit-reject": "Отхвърляне на промените",
 	"revreview-submit-reviewed": "Готово. Прието!",
 	"revreview-submit-unreviewed": "Готово. Неприето!",
-	"revreview-update-includes": "Актуализирани шаблони/файлове (непрегледаните страници са в получер шрифт):",
+	"revreview-update-includes": "Подновени шаблони/файлове (непрегледаните страници са в получер шрифт):",
 	"revreview-reject-summary": "Резюме:",
+	"revreview-reject-confirm": "Отхвърляне на промените",
 	"revreview-reject-cancel": "Отказ",
-	"revreview-tt-flag": "Приемете тази версия, като я отбележите като \"проверена\""
+	"revreview-tt-flag": "Приемете тази версия, като я отбележите като \"проверена\"",
+	"revreview-tt-unflag": "Направете тази версия неприемлива, като я отбележите като „непроверена“"
 }

@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Spiritia",
-			"Turin"
+			"Turin",
+			"Vlad5250"
 		]
 	},
+	"problemchanges": "Отбелязани промени, очакващи проверка",
 	"problemchanges-legend": "Списък на страниците с отбелязани редакции, очакващи преглед",
 	"problemchanges-none": "В момента няма страници, които да отговарят на критериите.",
 	"problemchanges-category": "Категория:"
