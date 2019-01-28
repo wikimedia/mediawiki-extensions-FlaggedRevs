@@ -10,7 +10,8 @@
 			"Xoser",
 			"Kumkumuk",
 			"1917 Ekim Devrimi",
-			"Gırd"
+			"Gırd",
+			"Orbot707"
 		]
 	},
 	"action-review": "çımraviyarnayışan qontrol ke",
@@ -32,6 +33,12 @@
 	"flaggedrevs-hidereviewed": "Bari vurnayışê $1",
 	"flaggedrevs-hidereviewed-hide": "Bınımne",
 	"flaggedrevs-hidereviewed-show": "Bımocne",
+	"flaggedrevs-rcfilters-need-review-label": "Verqayt lazımo",
+	"flaggedrevs-rcfilters-need-review-desc": "Vırnayışê ke verqayt lazımo",
+	"flaggedrevs-rcfilters-reviewed-label": "Vêniya",
+	"flaggedrevs-rcfilters-reviewed-desc": "Vırnayışê ke vêniyayê",
+	"flaggedrevs-rcfilters-not-reviewable-label": "Verqayti rê tabi niyo",
+	"flaggedrevs-rcfilters-not-reviewable-desc": "Vırnayışê ke verqayt cı rê icab nêkenê pêro",
 	"group-editor": "Editori",
 	"group-editor-member": "{{GENDER:$1|editor}}",
 	"group-reviewer": "rexnekari",
@@ -186,6 +193,7 @@
 	"revreview-unlocked-title": "Verniya mucnayîşê ena pele vurnayîşan gani niyo ke kontrol bibi.",
 	"revreview-locked": "'''Diqet:''' Verniya mucnayîşê ena pele wendekaran re, vurnayîşan gani [[{{MediaWiki:Validationpage}}|kontrol]] bibi.",
 	"revreview-unlocked": "Verniya mucnayîşê ena pele wendekaran re, vurnayîşan gani niyo ke [[{{MediaWiki:Validationpage}}|kontrol]] bibi.",
+	"logeventslist-review-log": "Roceka verqayti",
 	"validationpage": "{{ns:help}}:tesdiq kerdışê peli",
 	"log-action-filter-review": "Babetê verqayti:",
 	"log-action-filter-review-accept": "Berdestname qebul ke",
@@ -194,5 +202,6 @@
 	"log-action-filter-stable": "Babetê vurnayışê sazkerdışi",
 	"log-action-filter-stable-config": "Sazkerdışo newe",
 	"log-action-filter-stable-modify": "Sazkerdışi bıvurne",
-	"log-action-filter-stable-reset": "Esterıtışê sazkerdışi"
+	"log-action-filter-stable-reset": "Esterıtışê sazkerdışi",
+	"log-action-filter-stable-move_stable": "Wedariyaye konfigurasyon"
 }
