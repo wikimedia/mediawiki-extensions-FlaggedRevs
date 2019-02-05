@@ -23,6 +23,7 @@
 	"apihelp-query+oldreviewedpages-param-category": "Nur Seiten in der angegebenen Kategorie anzeigen.",
 	"apihelp-query+oldreviewedpages-param-filterredir": "Wie nach Weiterleitungen gefiltert werden soll.",
 	"apihelp-query+oldreviewedpages-param-limit": "Welche Gesamtanzahl an Seiten zurückgegeben werden soll.",
+	"apihelp-query+oldreviewedpages-example-1": "Zeigt eine Liste der Seiten mit ausstehenden ungesichteten Änderungen an.",
 	"apihelp-query+oldreviewedpages-example-2": "Zeigt Informationen über einige alte gesichtete Seiten an",
 	"apihelp-query+reviewedpages-description": "Zählt Seiten auf, die eine gesichtete Version haben.",
 	"apihelp-query+reviewedpages-summary": "Zählt Seiten auf, die eine markierte Version haben.",
