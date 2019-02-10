@@ -409,7 +409,7 @@
 		var $form = $( '#mw-fr-reviewform' );
 
 		// Enable AJAX-based submit functionality to the review form on this page
-		$( '#mw-fr-submit-accept, #mw-fr-submit-unaccept' ).click( function () {
+		$( '#mw-fr-submit-accept, #mw-fr-submit-unaccept' ).on( 'click', function () {
 			submitRevisionReview( this, $form );
 			return false; // don't do normal non-AJAX submit
 		} );
@@ -425,7 +425,7 @@
 		// Setup <select> form option colors
 		updateReviewFormColors( $form );
 		// Update review form on change
-		$form.find( 'input, select' ).change( function () {
+		$form.find( 'input, select' ).on( 'change', function () {
 			updateReviewForm( $form );
 		} );
 
