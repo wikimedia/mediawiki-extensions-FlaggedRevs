@@ -25,7 +25,7 @@
 	 * @param {jQuery.Event} e
 	 */
 	function toggleBoxDetails() {
-		var	$toggle = $( '#mw-fr-revisiontoggle' ),
+		var $toggle = $( '#mw-fr-revisiontoggle' ),
 			$ratings = $( '#mw-fr-revisiondetails' );
 
 		if ( $toggle.length && $ratings.length ) {
@@ -93,14 +93,18 @@
 	 * @param {jQuery.Event} e
 	 */
 	function toggleDiff() {
-		var	$diff = $( '#mw-fr-stablediff' ),
+		var $diff = $( '#mw-fr-stablediff' ),
 			$toggle = $( '#mw-fr-difftoggle' );
 
 		if ( $diff.length && $toggle.length ) {
 			if ( $diff.css( 'display' ) === 'none' ) {
+				// FIXME: Use CSS transition
+				// eslint-disable-next-line jquery/no-animate-toggle
 				$diff.show( 'slow' );
 				$toggle.children( 'a' ).text( mw.msg( 'revreview-diff-toggle-hide' ) );
 			} else {
+				// FIXME: Use CSS transition
+				// eslint-disable-next-line jquery/no-animate-toggle
 				$diff.hide( 'slow' );
 				$toggle.children( 'a' ).text( mw.msg( 'revreview-diff-toggle-show' ) );
 			}
@@ -113,7 +117,7 @@
 	 * @param {jQuery.Event} e
 	 */
 	function toggleLog() {
-		var	hideMsg, showMsg,
+		var hideMsg, showMsg,
 			$log = $( '#mw-fr-logexcerpt' ),
 			$toggle = $( '#mw-fr-logtoggle' );
 
@@ -143,7 +147,7 @@
 	 * @param {jQuery.Event} e
 	 */
 	function updateSaveButton() {
-		var	$save = $( '#wpSave' ),
+		var $save = $( '#wpSave' ),
 			$checkbox = $( '#wpReviewEdit' );
 
 		if ( $save.length && $checkbox.length ) {
@@ -179,11 +183,11 @@
 		}
 
 		// Bar UI: Toggle the box when the toggle is clicked
-		$( '.fr-toggle-symbol#mw-fr-revisiontoggle' ).click( toggleBoxDetails );
+		$( '.fr-toggle-symbol#mw-fr-revisiontoggle' ).on( 'click', toggleBoxDetails );
 
 		// Simple UI: Show the box on mouseOver
-		$( '.fr-toggle-arrow#mw-fr-revisiontoggle' ).mouseover( onBoxMouseOver );
-		$( '.flaggedrevs_short#mw-fr-revisiontag' ).mouseout( onBoxMouseOut );
+		$( '.fr-toggle-arrow#mw-fr-revisiontoggle' ).on( 'mouseover', onBoxMouseOver );
+		$( '.flaggedrevs_short#mw-fr-revisiontag' ).on( 'mouseout', onBoxMouseOut );
 
 		// Enables diff detail box and toggle
 		$toggle = $( '#mw-fr-difftoggle' );
@@ -191,7 +195,7 @@
 			$toggle.css( 'display', 'inline' ); // show toggle control
 			$( '#mw-fr-stablediff' ).hide();
 		}
-		$toggle.children( 'a' ).click( toggleDiff );
+		$toggle.children( 'a' ).on( 'click', toggleDiff );
 
 		// Enables log detail box and toggle
 		$toggle = $( '#mw-fr-logtoggle' );
@@ -202,10 +206,10 @@
 				$( '#mw-fr-logexcerpt' ).hide();
 			}
 		}
-		$toggle.children( 'a' ).click( toggleLog );
+		$toggle.children( 'a' ).on( 'click', toggleLog );
 
 		// Enables changing of save button when "review this" checkbox changes
-		$( '#wpReviewEdit' ).click( updateSaveButton );
+		$( '#wpReviewEdit' ).on( 'click', updateSaveButton );
 	}
 
 	// Perform some onload events:
