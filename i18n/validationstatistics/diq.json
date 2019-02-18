@@ -19,7 +19,7 @@
 	"validationstatistics-pndtime": "Vurnayişan ke karberanê kihanan ra nişan biyo inan ma heseb keni qontrol biya.\n\nAvaraj tehcil qey [[Special:OldReviewedPages|peleyê ke çım ra ravyarnayış pawenê]] '''$1''' a.\nEna pelan ma ''kihanan'' ra hesebneni. Eka yew vuranayişan ciniyo, pelan ke ''sync'' kebul beno.",
 	"validationstatistics-revtime": "Vurnayışan rê pawıtışê miyani ''karberê ke nêkewtê cı'', inan rê  '''$1'''yo, medyan zi '''$2'''yo.\n$3",
 	"validationstatistics-table": "Qandê herunda nama istatistikê pela çım ra ravyarnayışi, peleyê hetenayışa ''tewr nêkerê''  cêr dı ratneyayê. Peleyê ke vurnayış pawenê ''noroc resnayışê cı qedyayo'', peleyê ke vurnayış nêpawena zi ''senkronize'' qebul benê.",
-	"validationstatistics-ns": "Heruna nami",
+	"validationstatistics-ns": "Heruna nameyan",
 	"validationstatistics-total": "Peli",
 	"validationstatistics-stable": "Vêniya",
 	"validationstatistics-latest": "Rocaniye biyo",
