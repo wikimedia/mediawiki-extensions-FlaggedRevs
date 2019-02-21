@@ -106,10 +106,10 @@
 	"tooltip-ca-current": "Deleng kaca iki mawa owahan kaundur",
 	"tooltip-ca-stable": "Deleng vèrsi stabil kaca iki",
 	"tooltip-ca-default": "Setèlan jaminan mutu",
-	"flaggedrevs-protect-legend": "Ulasan suntingan otomatis ([[{{MediaWiki:Validationpage}}|pitulung]])",
+	"flaggedrevs-protect-legend": "Pamriksa besutan otomatis ([[{{MediaWiki:Validationpage}}|pitulung]])",
 	"flaggedrevs-protect-none": "Idinaké kabèh panganggo",
-	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Kaca sing durung kaulas]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Suntingan katundha]",
-	"revreview-locked-title": "Suntingan kaca iki mbutuhaké pangulasan.",
-	"revreview-unlocked-title": "Suntingan kaca iki ora mbutuhaké pangulasan.",
+	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Kaca kang durung kapriksa]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Owah-owahan kang kasumenèkaké]",
+	"revreview-locked-title": "Kabèh besutaning kaca iki kang kudu kapriksa.",
+	"revreview-unlocked-title": "Kabèh besutan ing kaca iki ora prelu kapriksa.",
 	"validationpage": "{{ns:help}}:Validation kaca"
 }
