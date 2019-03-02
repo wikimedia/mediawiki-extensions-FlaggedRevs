@@ -101,5 +101,5 @@ class FixBug28348 extends Maintenance {
 	}
 }
 
-$maintClass = "FixBug28348";
+$maintClass = FixBug28348::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

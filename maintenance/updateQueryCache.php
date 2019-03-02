@@ -29,5 +29,5 @@ class UpdateFlaggedRevsQueryCache extends Maintenance {
 	}
 }
 
-$maintClass = "UpdateFlaggedRevsQueryCache";
+$maintClass = UpdateFlaggedRevsQueryCache::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

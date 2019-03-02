@@ -5,7 +5,7 @@ class FlaggedRevsLibraryTest extends Scribunto_LuaEngineTestBase {
 	function setUp() {
 		parent::setUp();
 
-		$class = new ReflectionClass( 'FlaggableWikiPage' );
+		$class = new ReflectionClass( FlaggableWikiPage::class );
 		$pageConfig = $class->getProperty( 'pageConfig' );
 		$pageConfig->setAccessible( true );
 		$mDataLoaded = $class->getProperty( 'mDataLoaded' );

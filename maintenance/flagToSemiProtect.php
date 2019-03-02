@@ -134,5 +134,5 @@ class FlagProtectToSemiProtect extends Maintenance {
 	}
 }
 
-$maintClass = "FlagProtectToSemiProtect";
+$maintClass = FlagProtectToSemiProtect::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

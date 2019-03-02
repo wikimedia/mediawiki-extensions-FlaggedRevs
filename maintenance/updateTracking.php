@@ -266,5 +266,5 @@ class UpdateFRTracking extends Maintenance {
 	}
 }
 
-$maintClass = "UpdateFRTracking";
+$maintClass = UpdateFRTracking::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

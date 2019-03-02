@@ -92,5 +92,5 @@ class ReviewAllPages extends Maintenance {
 	}
 }
 
-$maintClass = "ReviewAllPages";
+$maintClass = ReviewAllPages::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

@@ -143,5 +143,5 @@ class PruneFRIncludeData extends Maintenance {
 	}
 }
 
-$maintClass = "PruneFRIncludeData";
+$maintClass = PruneFRIncludeData::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

@@ -68,5 +68,5 @@ class CachePendingRevs extends Maintenance {
 	}
 }
 
-$maintClass = "CachePendingRevs";
+$maintClass = CachePendingRevs::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

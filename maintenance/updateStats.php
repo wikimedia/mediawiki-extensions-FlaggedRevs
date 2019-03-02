@@ -29,5 +29,5 @@ class UpdateFlaggedRevsStats extends Maintenance {
 	}
 }
 
-$maintClass = "UpdateFlaggedRevsStats";
+$maintClass = UpdateFlaggedRevsStats::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
