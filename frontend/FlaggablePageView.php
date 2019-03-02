@@ -1941,13 +1941,10 @@ class FlaggablePageView extends ContextSource {
 			return true; // edit will go live or be reviewed on save
 		}
 		if ( isset( $buttons['save'] ) ) {
-			// This relies on MediaWiki 1.29+ as these are OOUI ButtonInputWidgets:
-			if ( is_a( $buttons['save'], 'OOUI\ButtonInputWidget' ) ) {
-				$buttonLabel = $this->msg( 'revreview-submitedit' )->text();
-				$buttons['save']->setLabel( $buttonLabel );
-				$buttonTitle = $this->msg( 'revreview-submitedit-title' )->text();
-				$buttons['save']->setTitle( $buttonTitle );
-			}
+			$buttonLabel = $this->msg( 'revreview-submitedit' )->text();
+			$buttons['save']->setLabel( $buttonLabel );
+			$buttonTitle = $this->msg( 'revreview-submitedit-title' )->text();
+			$buttons['save']->setTitle( $buttonTitle );
 		}
 		return true;
 	}
