@@ -123,7 +123,7 @@ class StablePagesPager extends AlphabeticPager {
 	 * @param string $autoreview ('' for "all", 'none' for no restriction)
 	 * @param string $indef
 	 */
-	function __construct( $form, $conds, $namespace, $autoreview, $indef ) {
+	public function __construct( $form, $conds, $namespace, $autoreview, $indef ) {
 		$this->mForm = $form;
 		$this->mConds = $conds;
 		$this->indef = $indef;
@@ -146,11 +146,11 @@ class StablePagesPager extends AlphabeticPager {
 		parent::__construct();
 	}
 
-	function formatRow( $row ) {
+	public function formatRow( $row ) {
 		return $this->mForm->formatRow( $row );
 	}
 
-	function getQueryInfo() {
+	public function getQueryInfo() {
 		$conds = $this->mConds;
 		$conds[] = 'page_id = fpc_page_id';
 		$conds['fpc_override'] = 1;
@@ -174,11 +174,11 @@ class StablePagesPager extends AlphabeticPager {
 		];
 	}
 
-	function getIndexField() {
+	public function getIndexField() {
 		return 'fpc_page_id';
 	}
 
-	function doBatchLookups() {
+	public function doBatchLookups() {
 		$lb = new LinkBatch();
 		foreach ( $this->mResult as $row ) {
 			$lb->add( $row->page_namespace, $row->page_title );
@@ -186,11 +186,11 @@ class StablePagesPager extends AlphabeticPager {
 		$lb->execute();
 	}
 
-	function getStartBody() {
+	public function getStartBody() {
 		return '<ul>';
 	}
 
-	function getEndBody() {
+	public function getEndBody() {
 		return '</ul>';
 	}
 }

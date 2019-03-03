@@ -81,7 +81,7 @@ class ReviewedVersionsPager extends ReverseChronologicalPager {
 	 * @param array $conds
 	 * @param Title $title
 	 */
-	function __construct( $form, $conds, $title ) {
+	public function __construct( $form, $conds, $title ) {
 		$this->mForm = $form;
 		$this->mConds = $conds;
 		$this->pageID = $title->getArticleID();
@@ -89,11 +89,11 @@ class ReviewedVersionsPager extends ReverseChronologicalPager {
 		parent::__construct();
 	}
 
-	function formatRow( $row ) {
+	public function formatRow( $row ) {
 		return $this->mForm->formatRow( $row );
 	}
 
-	function getQueryInfo() {
+	public function getQueryInfo() {
 		$db = $this->getDatabase();
 		$conds = $this->mConds;
 		$conds['fr_page_id'] = $this->pageID;
@@ -107,7 +107,7 @@ class ReviewedVersionsPager extends ReverseChronologicalPager {
 		];
 	}
 
-	function getIndexField() {
+	public function getIndexField() {
 		return 'fr_rev_id';
 	}
 }

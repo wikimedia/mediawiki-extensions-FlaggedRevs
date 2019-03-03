@@ -125,7 +125,7 @@ class ConfiguredPagesPager extends AlphabeticPager {
 	 * @param int $override (null for "either")
 	 * @param string $autoreview ('' for "all", 'none' for no restriction)
 	 */
-	function __construct( $form, $conds, $namespace, $override, $autoreview ) {
+	public function __construct( $form, $conds, $namespace, $override, $autoreview ) {
 		$this->mForm = $form;
 		$this->mConds = $conds;
 		# Must be content pages...
@@ -151,11 +151,11 @@ class ConfiguredPagesPager extends AlphabeticPager {
 		parent::__construct();
 	}
 
-	function formatRow( $row ) {
+	public function formatRow( $row ) {
 		return $this->mForm->formatRow( $row );
 	}
 
-	function getQueryInfo() {
+	public function getQueryInfo() {
 		$conds = $this->mConds;
 		$conds[] = 'page_id = fpc_page_id';
 		if ( $this->override !== null ) {
@@ -177,11 +177,11 @@ class ConfiguredPagesPager extends AlphabeticPager {
 		];
 	}
 
-	function getIndexField() {
+	public function getIndexField() {
 		return 'fpc_page_id';
 	}
 
-	function doBatchLookups() {
+	public function doBatchLookups() {
 		$lb = new LinkBatch();
 		foreach ( $this->mResult as $row ) {
 			$lb->add( $row->page_namespace, $row->page_title );
@@ -189,11 +189,11 @@ class ConfiguredPagesPager extends AlphabeticPager {
 		$lb->execute();
 	}
 
-	function getStartBody() {
+	public function getStartBody() {
 		return '<ul>';
 	}
 
-	function getEndBody() {
+	public function getEndBody() {
 		return '</ul>';
 	}
 }
