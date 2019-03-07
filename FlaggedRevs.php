@@ -386,6 +386,7 @@ $wgResourceModules['ext.flaggedRevs.advanced'] = [
 $wgResourceModules['ext.flaggedRevs.review'] = [
 	'scripts'       => [ 'ext.flaggedRevs.review.js' ],
 	'messages'      => [
+		'publishchanges', 'tooltip-publish',
 		'savearticle', 'tooltip-save',
 		'revreview-submitedit', 'revreview-submitedit-title',
 		'revreview-submit-review', 'revreview-submit-unreview',
