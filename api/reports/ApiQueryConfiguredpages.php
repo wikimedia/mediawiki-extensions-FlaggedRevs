@@ -173,44 +173,6 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 	}
 
 	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getParamDescription() {
-		return [
-			'start' 		=> 'Start listing at this page id.',
-			'end' 			=> 'Stop listing at this page id.',
-			'namespace' 	=> 'The namespaces to enumerate.',
-			'default'   	=> 'The default page view version.',
-			'autoreview'	=> 'Review/autoreview restriction level.',
-			'limit' 		=> 'How many total pages to return.',
-			'dir' 			=> [
-				'In which direction to list.',
-				'*newer: list the newest pages first',
-				'*older: list the oldest pages first'
-			]
-		];
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getDescription() {
-		return 'Enumerate all pages that have custom review configurations';
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getExamples() {
-		return [
-			'Show a list of pages with custom review configurations',
-			' api.php?action=query&list=configuredpages&cpnamespace=0',
-			'Get some info about pages with custom review configurations',
-			' api.php?action=query&generator=configuredpages&gcplimit=4&prop=info',
-		];
-	}
-
-	/**
 	 * @inheritDoc
 	 */
 	protected function getExamplesMessages() {

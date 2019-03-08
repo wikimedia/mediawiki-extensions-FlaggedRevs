@@ -86,33 +86,6 @@ class ApiQueryFlagged extends ApiQueryBase {
 	}
 
 	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getDescription() {
-		return [
-			'Get information about the flagging status of the given pages.',
-			'If a page is flagged, the following parameters are returned:',
-			'* stable_revid      : The revision id of the latest stable revision',
-			'* level, level_text : The highest flagging level of the page',
-			'* pending_since     : If there are any current unreviewed revisions'
-			. ' for that page, holds the timestamp of the first of them',
-			'If the page has protection configuration, the following parameters are returned:',
-			'* protection_level  : The right a user must have to not require review on the page',
-			'* protection_expiry : When the protection expires'
-		];
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getExamples() {
-		return [
-			'api.php?action=query&prop=info|flagged&titles=Main%20Page',
-			'api.php?action=query&generator=allpages&gapfrom=K&prop=flagged'
-		];
-	}
-
-	/**
 	 * @inheritDoc
 	 */
 	protected function getExamplesMessages() {

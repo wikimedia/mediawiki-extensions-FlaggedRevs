@@ -60,29 +60,6 @@ class ApiFlagConfig extends ApiBase {
 	}
 
 	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getDescription() {
-		return [
-			'Get basic information about review flag configuration for this site.',
-			'The following parameters are returned for each tag:',
-			'* name 	: The key name of this tag',
-			'* levels 	: Number of levels the tag has (above "not tagged")',
-			'* tier2 	: Level the tag must reach for a revision to be tier 2 (quality)',
-			'* tier3 	: Level the tag must reach for a revision to be tier 3 (pristine)',
-			'Flagged revisions have an assigned level for each tag. The highest tier',
-			'that all the tags meet is the review tier of the entire revision.'
-		];
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getExamples() {
-		return 'api.php?action=flagconfig';
-	}
-
-	/**
 	 * @inheritDoc
 	 */
 	protected function getExamplesMessages() {

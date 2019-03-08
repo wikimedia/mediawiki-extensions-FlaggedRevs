@@ -164,40 +164,6 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 	}
 
 	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getParamDescription() {
-		return [
-			'start'         => 'Start listing at this page title.',
-			'end'           => 'Stop listing at this page title.',
-			'dir'           => 'Direction to sort in',
-			'namespace'     => 'The namespaces to enumerate.',
-			'filterredir'   => 'How to filter for redirects',
-			'filterlevel'   => 'How to filter by quality (0=checked,1=quality)',
-			'limit'         => 'How many total pages to return.',
-		];
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getDescription() {
-		return 'Enumerates pages that have not been reviewed to a given quality level ("filterlevel")';
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getExamples() {
-		return [
-			'Show a list of unreviewed pages',
-			' api.php?action=query&list=unreviewedpages&urnamespace=0&urfilterlevel=0',
-			'Show info about some unreviewed pages',
-			' api.php?action=query&generator=unreviewedpages&urnamespace=0&gurlimit=4&prop=info',
-		];
-	}
-
-	/**
 	 * @inheritDoc
 	 */
 	protected function getExamplesMessages() {

@@ -205,46 +205,6 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 	}
 
 	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getParamDescription() {
-		return [
-			'start' 	  	=> 'Start listing at this timestamp.',
-			'end'			=> 'Stop listing at this timestamp.',
-			'namespace' 	=> 'The namespaces to enumerate.',
-			'filterredir'	=> 'How to filter for redirects.',
-			'maxsize' 		=> 'Maximum character count change size.',
-			'category'      => 'Show pages only in the given category.',
-			'filterwatched' => 'How to filter for pages on your watchlist.',
-			'limit' 		=> 'How many total pages to return.',
-			'dir' 			=> [
-				'In which direction to list.',
-				'*newer: list the longest waiting pages first',
-				'*older: list the newest items first'
-			]
-		];
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getDescription() {
-		return 'Enumerates pages that have changes pending review';
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getExamples() {
-		return [
-			'Show a list of pages with pending unreviewed changes',
-			' api.php?action=query&list=oldreviewedpages&ornamespace=0',
-			'Show info about some old reviewed pages',
-			' api.php?action=query&generator=oldreviewedpages&gorlimit=4&prop=info',
-		];
-	}
-
-	/**
 	 * @inheritDoc
 	 */
 	protected function getExamplesMessages() {

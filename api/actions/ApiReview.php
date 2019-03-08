@@ -167,44 +167,12 @@ class ApiReview extends ApiBase {
 		return $pars;
 	}
 
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getParamDescription() {
-		$desc = [
-			'revid'  	=> 'The revision ID for which to set the flags',
-			'token'   	=> 'An edit token retrieved through prop=info',
-			'comment' 	=> 'Comment for the review (optional)',
-			'unapprove' => 'If set, revision will be unapproved rather than approved.'
-		];
-		if ( !FlaggedRevs::binaryFlagging() ) {
-			foreach ( FlaggedRevs::getTags() as $flagname ) {
-				$desc['flag_' . $flagname] = "Set the flag ''{$flagname}'' to the specified value";
-			}
-		}
-		return $desc;
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getDescription() {
-		return 'Review a revision by approving or de-approving it';
-	}
-
 	public function needsToken() {
 		return 'csrf';
 	}
 
 	public function getTokenSalt() {
 		return '';
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getExamples() {
-		return 'api.php?action=review&revid=12345&token=123AB&flag_accuracy=1&comment=Ok';
 	}
 
 	/**

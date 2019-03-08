@@ -157,29 +157,6 @@ class ApiStabilizeGeneral extends ApiStabilize {
 	}
 
 	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getParamDescription() {
-		return [
-			'default'       => 'Default revision to show',
-			'autoreview'    => 'Auto-review restriction',
-			'expiry'        => 'Expiry for these settings',
-			'title'         => 'Title of page to be stabilized',
-			'reason'        => 'Reason',
-			'review'        => 'Review this page',
-			'watch'         => 'Watch this page',
-			'token'         => 'An edit token retrieved through prop=info'
-		];
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getDescription() {
-		return 'Change page stability settings';
-	}
-
-	/**
 	 * @deprecated since MediaWiki core 1.30
 	 */
 	protected function getDescriptionMessage() {
@@ -198,13 +175,6 @@ class ApiStabilizeGeneral extends ApiStabilize {
 			"apihelp-{$this->getModulePath()}-extended-description-general",
 			'api-help-no-extended-description',
 		] ];
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getExamples() {
-		return 'api.php?action=stabilize&title=Test&default=stable&reason=Test&token=123ABC';
 	}
 
 	/**
@@ -285,27 +255,6 @@ class ApiStabilizeProtect extends ApiStabilize {
 	}
 
 	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getParamDescription() {
-		return [
-			'protectlevel'  => 'The review-protection level',
-			'expiry'        => 'Review-protection expiry',
-			'title'         => 'Title of page to be review-protected',
-			'reason'        => 'Reason',
-			'watch'         => 'Watch this page',
-			'token'         => 'An edit token retrieved through prop=info',
-		];
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getDescription() {
-		return 'Configure review-protection settings for a page';
-	}
-
-	/**
 	 * @deprecated since MediaWiki core 1.30
 	 */
 	protected function getDescriptionMessage() {
@@ -324,13 +273,6 @@ class ApiStabilizeProtect extends ApiStabilize {
 			"apihelp-{$this->getModulePath()}-extended-description-protect",
 			'api-help-no-extended-description',
 		] ];
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getExamples() {
-		return 'api.php?action=stabilize&title=Test&protectlevel=none&reason=Test&token=123ABC';
 	}
 
 	protected function getExamplesMessages() {

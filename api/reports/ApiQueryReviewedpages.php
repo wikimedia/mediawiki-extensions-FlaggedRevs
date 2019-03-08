@@ -170,44 +170,6 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 	}
 
 	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getParamDescription() {
-		return [
-			'start' 		=> 'Start listing at this page id.',
-			'end' 			=> 'Stop listing at this page id.',
-			'namespace' 	=> 'The namespaces to enumerate.',
-			'filterredir' 	=> 'How to filter for redirects',
-			'filterlevel' 	=> 'How to filter by quality (0=checked,1=quality)',
-			'limit' 		=> 'How many total pages to return.',
-			'dir' 			=> [
-				'In which direction to list.',
-				'*newer: list the newest pages first',
-				'*older: list the oldest pages first'
-			]
-		];
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getDescription() {
-		return 'Enumerates pages that have a reviewed version';
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getExamples() {
-		return [
-			'Show a list of reviewed pages',
-			' api.php?action=query&list=reviewedpages&rpnamespace=0&rpfilterlevel=0',
-			'Show info about some reviewed pages',
-			' api.php?action=query&generator=reviewedpages&grplimit=4&prop=info',
-		];
-	}
-
-	/**
 	 * @inheritDoc
 	 */
 	protected function getExamplesMessages() {

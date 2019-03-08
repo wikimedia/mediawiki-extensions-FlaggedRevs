@@ -104,38 +104,12 @@ class ApiReviewActivity extends ApiBase {
 		];
 	}
 
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getParamDescription() {
-		return [
-			'previd'  	=> 'The prior revision ID (for reviewing changes only)',
-			'oldid'  	=> 'The ID of the revision being reviewed',
-			'reviewing' => 'Whether to advertising as reviewing or no longer reviewing',
-			'token' 	=> 'A token previously obtained through the gettoken parameter or prop=info',
-		];
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getDescription() {
-		return 'Advertise or de-advertise yourself as reviewing an unreviewed page or unreviewed changes';
-	}
-
 	public function needsToken() {
 		return 'csrf';
 	}
 
 	public function getTokenSalt() {
 		return '';
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getExamples() {
-		return 'api.php?action=reviewactivity&previd=12345&reviewing=1';
 	}
 
 	/**
