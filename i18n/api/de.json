@@ -40,6 +40,7 @@
 	"apihelp-query+reviewedpages-example-1": "Zeigt eine Liste mit überprüften Seiten an",
 	"apihelp-query+reviewedpages-example-2": "Zeigt Informationen über einige überprüfte Seiten an",
 	"apihelp-query+revisions-paramvalue-prop-flagged": "Markierungsstatus der Version.",
+	"apihelp-query+unreviewedpages-description": "Zählt Seiten auf, die nicht auf ein angegebenes Qualitätsniveau gesichtet wurden.",
 	"apihelp-query+unreviewedpages-param-start": "Liste bei diesem Seitentitel beginnen.",
 	"apihelp-query+unreviewedpages-param-end": "Liste bei diesem Seitentitel beenden.",
 	"apihelp-query+unreviewedpages-param-dir": "Sortierrichtung.",
