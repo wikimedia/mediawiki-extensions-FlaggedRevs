@@ -153,11 +153,19 @@
 		if ( $save.length && $checkbox.length ) {
 			// Review pending changes
 			if ( $checkbox.prop( 'checked' ) ) {
-				$save
-					.val( mw.msg( 'savearticle' ) )
-					.attr( 'title',
-						mw.msg( 'tooltip-save' )
-					);
+				if ( mw.config.get( 'wgEditSubmitButtonLabelPublish' ) ) {
+					$save
+						.val( mw.msg( 'publishchanges' ) )
+						.attr( 'title',
+							mw.msg( 'tooltip-publish' )
+						);
+				} else {
+					$save
+						.val( mw.msg( 'savearticle' ) )
+						.attr( 'title',
+							mw.msg( 'tooltip-save' )
+						);
+				}
 			// Submit for review
 			} else {
 				$save
