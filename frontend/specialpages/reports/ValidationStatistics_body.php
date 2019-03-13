@@ -99,7 +99,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 			}
 
 			$NsText = $wgContLang->getFormattedNsText( $namespace );
-			$NsText = $NsText ? $NsText : $this->msg( 'blanknamespace' )->text();
+			$NsText = $NsText ?: $this->msg( 'blanknamespace' )->text();
 
 			$percRev = intval( $total ) == 0
 				? '-' // devision by zero
@@ -275,23 +275,17 @@ class ValidationStatistics extends IncludableSpecialPage {
 
 	protected function getTotalPages( $ns ) {
 		$stats = $this->getStats();
-		return isset( $stats['totalPages-NS'][$ns] )
-			? $stats['totalPages-NS'][$ns]
-			: '-';
+		return $stats['totalPages-NS'][$ns] ?? '-';
 	}
 
 	protected function getReviewedPages( $ns ) {
 		$stats = $this->getStats();
-		return isset( $stats['reviewedPages-NS'][$ns] )
-			? $stats['reviewedPages-NS'][$ns]
-			: '-';
+		return $stats['reviewedPages-NS'][$ns] ?? '-';
 	}
 
 	protected function getSyncedPages( $ns ) {
 		$stats = $this->getStats();
-		return isset( $stats['syncedPages-NS'][$ns] )
-			? $stats['syncedPages-NS'][$ns]
-			: '-';
+		return $stats['syncedPages-NS'][$ns] ?? '-';
 	}
 
 	protected function getReviewPercentilesAnon() {

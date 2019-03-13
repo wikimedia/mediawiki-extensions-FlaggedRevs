@@ -286,7 +286,7 @@ class RevisionReviewFormUI {
 		if ( $disabled ) {
 			// Display the value for each tag as text
 			foreach ( FlaggedRevs::getTags() as $quality ) {
-				$selected = isset( $flags[$quality] ) ? $flags[$quality] : 0;
+				$selected = $flags[$quality] ?? 0;
 				$items[] = FlaggedRevs::getTagMsg( $quality ) . ": " .
 					FlaggedRevs::getTagValueMsg( $quality, $selected );
 			}

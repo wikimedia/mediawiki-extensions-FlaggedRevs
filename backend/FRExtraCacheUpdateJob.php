@@ -12,9 +12,7 @@ class FRExtraCacheUpdateJob extends Job {
 	public function __construct( $title, $params ) {
 		parent::__construct( 'flaggedrevs_CacheUpdate', $title, $params );
 
-		$this->params['type'] = isset( $this->params['type'] )
-			? $this->params['type']
-			: 'purge';
+		$this->params['type'] = $this->params['type'] ?? 'purge';
 		// The range (start/end) make 'purge' jobs a bad candidate for de-duplication.
 		$this->removeDuplicates = in_array(
 			$this->params['type'], [ 'updatelinks', 'updatesyncstate' ]

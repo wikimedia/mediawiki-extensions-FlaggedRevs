@@ -703,8 +703,7 @@ class FlaggedRevsUIHooks {
 				? 'fr-hist-quality-user'
 				: 'fr-hist-basic-user';
 		}
-		$name = isset( $row->reviewer ) ?
-			$row->reviewer : User::whoIs( $row->fr_user );
+		$name = $row->reviewer ?? User::whoIs( $row->fr_user );
 		$link = $ctx->msg( $msg, $title->getPrefixedDBkey(), $row->rev_id, $name )->parse();
 		$link = "<span class='$css plainlinks'>[$link]</span>";
 		return [ $link, $liCss ];

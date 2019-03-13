@@ -1020,7 +1020,7 @@ class FlaggablePageView extends ContextSource {
 				. $pendingMsg->parseAsBlock() . '</div>';
 		}
 		$latestId = $this->article->getLatest();
-		$revId  = $oldid ? $oldid : $latestId;
+		$revId  = $oldid ?: $latestId;
 		if ( $frev && $frev->getRevId() < $latestId // changes were made
 			&& $reqUser->getBoolOption( 'flaggedrevseditdiffs' ) // not disabled via prefs
 			&& $revId === $latestId // only for current rev
@@ -1066,7 +1066,7 @@ class FlaggablePageView extends ContextSource {
 			$quality = $frev->getQuality();
 			# Find out revision id of base version
 			$latestId = $this->article->getLatest();
-			$revId = $editPage->oldid ? $editPage->oldid : $latestId;
+			$revId = $editPage->oldid ?: $latestId;
 			# Let users know if their edit will have to be reviewed.
 			# Note: if the log excerpt was shown then this is redundant.
 			if ( !$log && $this->editWillRequireReview( $editPage ) ) {
@@ -2117,8 +2117,7 @@ class FlaggablePageView extends ContextSource {
 			} else {
 				# If we are editing via oldid=X, then use that rev ID.
 				# Otherwise, check if the client specified the ID (bug 23098).
-				$revId = $article->getOldID() ?
-					$article->getOldID() :
+				$revId = $article->getOldID() ?:
 					$request->getInt( 'baseRevId' ); // e.g. "show changes"/"preview"
 			}
 			# Zero oldid => draft revision

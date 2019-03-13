@@ -102,11 +102,9 @@ class FlaggedRevs {
 			# B/C, $levels is just an integer (minQL)
 			} else {
 				global $wgFlaggedRevPristine, $wgFlaggedRevValues;
-				$ratingLevels = isset( $wgFlaggedRevValues ) ?
-					$wgFlaggedRevValues : 1;
+				$ratingLevels = $wgFlaggedRevValues ?? 1;
 				$minQL = $levels; // an integer
-				$minPL = isset( $wgFlaggedRevPristine ) ?
-					$wgFlaggedRevPristine : $ratingLevels + 1;
+				$minPL = $wgFlaggedRevPristine ?? $ratingLevels + 1;
 				wfWarn( 'Please update the format of $wgFlaggedRevsTags in config.' );
 			}
 			# Set FlaggedRevs tags
@@ -357,8 +355,7 @@ class FlaggedRevs {
 	 */
 	public static function getTagLevels( $tag ) {
 		self::load();
-		return isset( self::$dimensions[$tag] ) ?
-			self::$dimensions[$tag] : [];
+		return self::$dimensions[$tag] ?? [];
 	}
 
 	/**
@@ -935,7 +932,7 @@ class FlaggedRevs {
 		$flags = [];
 		foreach ( self::getTags() as $tag ) {
 			# Try to keep this tag val the same as the stable rev's
-			$val = isset( $oldFlags[$tag] ) ? $oldFlags[$tag] : 1;
+			$val = $oldFlags[$tag] ?? 1;
 			$val = min( $val, self::maxAutoReviewLevel( $tag ) );
 			# Dial down the level to one the user has permission to set
 			while ( !self::userCanSetTag( $user, $tag, $val ) ) {

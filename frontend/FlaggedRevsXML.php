@@ -210,7 +210,7 @@ class FlaggedRevsXML {
 			// revreview-accuracy-3, revreview-accuracy-4, revreview-depth-0, revreview-depth-1,
 			// revreview-depth-2, revreview-depth-3, revreview-depth-4, revreview-style-0,
 			// revreview-style-1, revreview-style-2, revreview-style-3, revreview-style-4
-			$level = isset( $flags[$quality] ) ? $flags[$quality] : 0;
+			$level = $flags[$quality] ?? 0;
 			$encValueText = wfMessage( "revreview-$quality-$level" )->escaped();
 			$level = $flags[$quality];
 

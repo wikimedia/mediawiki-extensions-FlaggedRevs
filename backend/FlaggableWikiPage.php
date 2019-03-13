@@ -286,9 +286,9 @@ class FlaggableWikiPage extends WikiPage {
 		# Stable rev deferred even after page data load
 		if ( $this->stableRev === null ) {
 			$srev = FlaggedRevision::newFromTitle( $this->mTitle, $this->stable );
-			$this->stableRev = $srev ? $srev : false; // cache negative hits too
+			$this->stableRev = $srev ?: false; // cache negative hits too
 		}
-		return $this->stableRev ? $this->stableRev : null; // false => null
+		return $this->stableRev ?: null; // false => null
 	}
 
 	/**

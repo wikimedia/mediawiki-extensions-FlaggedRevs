@@ -56,10 +56,9 @@ class FlaggedRevision {
 			$this->mFlags = explode( ',', $row->fr_flags );
 			$this->mUser = intval( $row->fr_user );
 			# Image page revision relevant params
-			$this->mFileName = $row->fr_img_name ? $row->fr_img_name : null;
-			$this->mFileSha1 = $row->fr_img_sha1 ? $row->fr_img_sha1 : null;
-			$this->mFileTimestamp = $row->fr_img_timestamp ?
-				$row->fr_img_timestamp : null;
+			$this->mFileName = $row->fr_img_name ?: null;
+			$this->mFileSha1 = $row->fr_img_sha1 ?: null;
+			$this->mFileTimestamp = $row->fr_img_timestamp ?: null;
 			# Optional fields
 			if ( $title ) {
 				$this->mTitle = $title;
@@ -79,15 +78,12 @@ class FlaggedRevision {
 			# Base Revision object
 			$this->mRevision = $row['rev'];
 			# Image page revision relevant params
-			$this->mFileName = $row['img_name'] ? $row['img_name'] : null;
-			$this->mFileSha1 = $row['img_sha1'] ? $row['img_sha1'] : null;
-			$this->mFileTimestamp = $row['img_timestamp'] ?
-				$row['img_timestamp'] : null;
+			$this->mFileName = $row['img_name'] ?: null;
+			$this->mFileSha1 = $row['img_sha1'] ?: null;
+			$this->mFileTimestamp = $row['img_timestamp'] ?: null;
 			# Optional fields
-			$this->mTemplates = isset( $row['templateVersions'] ) ?
-				$row['templateVersions'] : null;
-			$this->mFiles = isset( $row['fileVersions'] ) ?
-				$row['fileVersions'] : null;
+			$this->mTemplates = $row['templateVersions'] ?? null;
+			$this->mFiles = $row['fileVersions'] ?? null;
 		} else {
 			throw new Exception( 'FlaggedRevision constructor passed invalid row format.' );
 		}
@@ -307,7 +303,7 @@ class FlaggedRevision {
 					$frQuery['joins']
 				);
 				# Looks like a plausible revision
-				$row = $prow ? $prow : $row;
+				$row = $prow ?: $row;
 			}
 			if ( $row && $precedence === 'pristine' ) {
 				// we have what we want already
@@ -325,7 +321,7 @@ class FlaggedRevision {
 					$options,
 					$frQuery['joins']
 				);
-				$row = $qrow ? $qrow : $row;
+				$row = $qrow ?: $row;
 			}
 		}
 		# Do we have one? If not, try the latest reviewed revision...
@@ -938,12 +934,8 @@ class FlaggedRevision {
 		$rFiles = $this->getFileVersions();
 		$sFiles = $this->getStableFileVersions();
 		foreach ( $newFiles as $dbKey => $sha1Time ) {
-			$reviewedTS = isset( $rFiles[$dbKey]['time'] )
-				? $rFiles[$dbKey]['time']
-				: null;
-			$stableTS = isset( $sFiles[$dbKey]['time'] )
-				? $sFiles[$dbKey]['time']
-				: null;
+			$reviewedTS = $rFiles[$dbKey]['time'] ?? null;
+			$stableTS = $sFiles[$dbKey]['time']	?? null;
 			# Get file timestamp used in this FlaggedRevision when parsed
 			$usedTS = self::fileTimestampUsed( $stableTS, $reviewedTS );
 			# Check for edits/creations/deletions...

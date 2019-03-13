@@ -169,7 +169,7 @@ class FRUserCounters {
 		foreach ( $flatPars as $pair ) {
 			$m = explode( '=', trim( $pair ), 2 );
 			$key = $m[0];
-			$value = isset( $m[1] ) ? $m[1] : null;
+			$value = $m[1] ?? null;
 			if ( $key === 'uniqueContentPages' ) { // list
 				$value = ( $value === '' )
 					? [] // explode() would make [ 0 => '' ]

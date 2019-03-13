@@ -168,15 +168,15 @@ class FlaggedRevsStats {
 		foreach ( $rNamespaces as $namespace ) {
 			$dataSet[] = [
 				'frs_stat_key'  => 'totalPages-NS:' . (int)$namespace,
-				'frs_stat_val'  => isset( $ns_total[$namespace] ) ? $ns_total[$namespace] : 0,
+				'frs_stat_val'  => $ns_total[$namespace] ?? 0,
 				'frs_timestamp' => $encDataTimestamp ];
 			$dataSet[] = [
 				'frs_stat_key'  => 'reviewedPages-NS:' . (int)$namespace,
-				'frs_stat_val'  => isset( $ns_reviewed[$namespace] ) ? $ns_reviewed[$namespace] : 0,
+				'frs_stat_val'  => $ns_reviewed[$namespace] ?? 0,
 				'frs_timestamp' => $encDataTimestamp ];
 			$dataSet[] = [
 				'frs_stat_key'  => 'syncedPages-NS:' . (int)$namespace,
-				'frs_stat_val'  => isset( $ns_synced[$namespace] ) ? $ns_synced[$namespace] : 0,
+				'frs_stat_val'  => $ns_synced[$namespace] ?? 0,
 				'frs_timestamp' => $encDataTimestamp ];
 		}
 

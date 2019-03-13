@@ -682,7 +682,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 				continue; // Page must be valid!
 			}
 			$fileSHA1Keys[$img_title->getDBkey()] = [];
-			$fileSHA1Keys[$img_title->getDBkey()]['time'] = $time ? $time : false;
+			$fileSHA1Keys[$img_title->getDBkey()]['time'] = $time ?: false;
 			$fileSHA1Keys[$img_title->getDBkey()]['sha1'] = strlen( $key ) ? $key : false;
 		}
 		return [ $templateIds, $fileSHA1Keys ];
