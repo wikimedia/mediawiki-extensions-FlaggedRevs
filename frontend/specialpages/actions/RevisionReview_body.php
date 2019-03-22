@@ -19,24 +19,25 @@ class RevisionReview extends UnlistedSpecialPage {
 
 		$confirmed = $user->matchEditToken( $request->getVal( 'wpEditToken' ) );
 
-		if ( !$user->isAllowed( 'review' ) ) {
-			throw new PermissionsError( 'review' );
-		}
-		$block = $user->getBlock( !$confirmed );
-		if ( $block ) {
-			throw new UserBlockedError( $block );
-		} elseif ( wfReadOnly() ) {
-			throw new ReadOnlyError();
-		}
-
-		$this->setHeaders();
-
 		# Our target page
 		$this->page = Title::newFromText( $request->getVal( 'target' ) );
 		if ( !$this->page ) {
 			$out->showErrorPage( 'notargettitle', 'notargettext' );
 			return;
 		}
+
+		if ( !$user->isAllowed( 'review' ) ) {
+			throw new PermissionsError( 'review' );
+		}
+
+		if ( $user->isBlockedFrom( $this->page, !$confirmed ) ) {
+			throw new UserBlockedError( $user->getBlock( !$confirmed ) );
+		} elseif ( wfReadOnly() ) {
+			throw new ReadOnlyError();
+		}
+
+		$this->setHeaders();
+
 		# Basic page permission checks...
 		$permErrors = $this->page->getUserPermissionsErrors( 'review', $user, false );
 		if ( $permErrors ) {
