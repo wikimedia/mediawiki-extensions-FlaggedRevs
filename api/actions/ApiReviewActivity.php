@@ -37,15 +37,15 @@ class ApiReviewActivity extends ApiBase {
 		// Check basic permissions
 		$this->checkUserRightsAny( 'review' );
 
-		if ( $user->isBlocked( false ) ) {
-			$this->dieBlocked( $user->getBlock() );
-		}
-
 		$newRev = Revision::newFromId( $params['oldid'] );
 		if ( !$newRev || !$newRev->getTitle() ) {
 			$this->dieWithError( [ 'apierror-nosuchrevid', $params['oldid'] ], 'notarget' );
 		}
 		$title = $newRev->getTitle();
+
+		if ( $user->isBlockedFrom( $title, false ) ) {
+			$this->dieBlocked( $user->getBlock() );
+		}
 
 		$fa = FlaggableWikiPage::getTitleInstance( $title );
 		if ( !$fa->isReviewable() ) {

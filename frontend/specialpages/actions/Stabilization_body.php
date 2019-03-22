@@ -19,27 +19,28 @@ class Stabilization extends UnlistedSpecialPage {
 
 		$confirmed = $user->matchEditToken( $request->getVal( 'wpEditToken' ) );
 
-		# Let anyone view, but not submit...
-		if ( $request->wasPosted() ) {
-			if ( !$user->isAllowed( 'stablesettings' ) ) {
-				throw new PermissionsError( 'stablesettings' );
-			}
-			$block = $user->getBlock( !$confirmed );
-			if ( $block ) {
-				throw new UserBlockedError( $block );
-			} elseif ( wfReadOnly() ) {
-				throw new ReadOnlyError();
-			}
-		}
-		# Set page title
-		$this->setHeaders();
-
 		# Target page
 		$title = Title::newFromText( $request->getVal( 'page', $par ) );
 		if ( !$title ) {
 			$out->showErrorPage( 'notargettitle', 'notargettext' );
 			return;
 		}
+
+		# Let anyone view, but not submit...
+		if ( $request->wasPosted() ) {
+			if ( !$user->isAllowed( 'stablesettings' ) ) {
+				throw new PermissionsError( 'stablesettings' );
+			}
+			if ( $user->isBlockedFrom( $title, !$confirmed ) ) {
+				throw new UserBlockedError( $user->getBlock( !$confirmed ) );
+			} elseif ( wfReadOnly() ) {
+				throw new ReadOnlyError();
+			}
+		}
+
+		# Set page title
+		$this->setHeaders();
+
 		$this->getSkin()->setRelevantTitle( $title );
 
 		$this->form = new PageStabilityGeneralForm( $user );

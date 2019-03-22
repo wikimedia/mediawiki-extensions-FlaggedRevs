@@ -37,10 +37,6 @@ class ApiReview extends ApiBase {
 		// Check basic permissions
 		$this->checkUserRightsAny( 'review' );
 
-		if ( $this->getUser()->isBlocked( false ) ) {
-			$this->dieBlocked( $this->getUser()->getBlock() );
-		}
-
 		// Get target rev and title
 		$revid = (int)$params['revid'];
 		$rev = Revision::newFromId( $revid );
@@ -48,6 +44,10 @@ class ApiReview extends ApiBase {
 			$this->dieWithError( [ 'apierror-nosuchrevid', $revid ], 'notarget' );
 		}
 		$title = $rev->getTitle();
+
+		if ( $this->getUser()->isBlockedFrom( $title, false ) ) {
+			$this->dieBlocked( $this->getUser()->getBlock() );
+		}
 
 		// Construct submit form...
 		$form = new RevisionReviewForm( $this->getUser() );
