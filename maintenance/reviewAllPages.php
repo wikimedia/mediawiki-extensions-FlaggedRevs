@@ -14,8 +14,8 @@ class ReviewAllPages extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
-		$this->mDescription = "Review all pages in reviewable namespaces. " .
-			"A user ID must be given to specifiy the \"reviewer\" who accepted the pages.";
+		$this->addDescription( "Review all pages in reviewable namespaces. " .
+			"A user ID must be given to specifiy the \"reviewer\" who accepted the pages." );
 		$this->addOption( 'username',
 			'The user name of the existing user to use as the "reviewer"', true, true );
 		$this->setBatchSize( 100 );

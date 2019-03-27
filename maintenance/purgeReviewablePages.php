@@ -13,7 +13,7 @@ require_once "$IP/maintenance/Maintenance.php";
 class PurgeReviewablePages extends Maintenance {
 
 	public function __construct() {
-		$this->mDescription = "Use to purge squid/file cache for all reviewable pages";
+		$this->addDescription( "Use to purge squid/file cache for all reviewable pages" );
 		$this->addOption( 'makelist',
 			"Build the list of reviewable pages to pagesToPurge.list", false, false );
 		$this->addOption( 'purgelist',

@@ -14,9 +14,10 @@ class UpdateFRTracking extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
-		$this->mDescription = "Correct the page data in the flaggedrevs tracking tables. " .
+		$this->addDescription( "Correct the page data in the flaggedrevs tracking tables. " .
 			"Update the quality tier of revisions based on their rating tags. " .
-			"Migrate flagged revision file version data to proper table.";
+			"Migrate flagged revision file version data to proper table."
+		);
 		$this->addOption( 'startpage', 'Page ID to start on', false, true );
 		$this->addOption( 'startrev', 'Rev ID to start on', false, true );
 		$this->addOption( 'updateonly', 'One of (revs, pages, images)', false, true );

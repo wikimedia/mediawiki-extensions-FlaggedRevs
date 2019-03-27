@@ -17,7 +17,7 @@ class CachePendingRevs extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
-		$this->mDescription = "Cache pending revision data";
+		$this->addDescription( "Cache pending revision data" );
 	}
 
 	public function execute() {

@@ -14,10 +14,11 @@ class PruneFRIncludeData extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
-		$this->mDescription = "This script clears template/image data for reviewed versions" .
+		$this->addDescription( "This script clears template/image data for reviewed versions" .
 			"that are 1+ month old and have 50+ newer versions in page. By default," .
 			"it will just output how many rows can be deleted. Use the 'prune' option " .
-			"to actually delete them.";
+			"to actually delete them."
+		);
 		$this->addOption( 'prune', 'Actually do a live run', false );
 		$this->addOption( 'start', 'The ID of the starting rev', false, true );
 		$this->setBatchSize( 500 );

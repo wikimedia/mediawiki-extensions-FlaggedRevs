@@ -14,7 +14,7 @@ class UpdateFRAutoPromote extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
-		$this->mDescription = "Update autopromote table";
+		$this->addDescription( "Update autopromote table" );
 		$this->setBatchSize( 50 );
 	}
 

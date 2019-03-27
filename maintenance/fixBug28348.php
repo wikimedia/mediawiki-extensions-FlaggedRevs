@@ -13,7 +13,7 @@ require_once "$IP/maintenance/Maintenance.php";
 class FixBug28348 extends Maintenance {
 
 	public function __construct() {
-		$this->mDescription = "Correct bad fi_img_timestamp rows due to bug 28348";
+		$this->addDescription( "Correct bad fi_img_timestamp rows due to bug 28348" );
 		$this->addOption( 'startrev', 'The ID of the starting rev', false, true );
 		$this->setBatchSize( 1000 );
 	}

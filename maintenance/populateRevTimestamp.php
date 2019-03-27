@@ -13,7 +13,7 @@ require_once "$IP/maintenance/Maintenance.php";
 class PopulateFRRevTimestamp extends Maintenance {
 
 	public function __construct() {
-		$this->mDescription = 'Populates fr_rev_timestamp column in the flaggedrevs table.';
+		$this->addDescription( 'Populates fr_rev_timestamp column in the flaggedrevs table.' );
 		$this->addOption( 'startrev', 'The ID of the starting rev', false, true );
 		$this->setBatchSize( 1000 );
 	}

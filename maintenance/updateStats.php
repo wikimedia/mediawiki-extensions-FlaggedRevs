@@ -14,7 +14,7 @@ class UpdateFlaggedRevsStats extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
-		$this->mDescription = "Update FlaggedRevs statistics table";
+		$this->addDescription( "Update FlaggedRevs statistics table" );
 	}
 
 	public function execute() {
