@@ -6,7 +6,8 @@
 			"Prima klasy4na",
 			"Тест",
 			"Piramidion",
-			"Ата"
+			"Ата",
+			"Gzhegozh"
 		]
 	},
 	"action-unreviewedpages": "перегляд списку неперевірених сторінок",
@@ -15,7 +16,7 @@
 	"unreviewedpages-category": "Категорія:",
 	"unreviewedpages-diff": "перевірити",
 	"unreviewedpages-unwatched": "(не спостерігають)",
-	"unreviewedpages-watched": "({{PLURAL:$1|спостерігає $1 активний користувач|спостерігають $1 активних користувачі|спостерігають $1 активних користувачів}})",
+	"unreviewedpages-watched": "({{PLURAL:$1|спостерігає $1 активний користувач|спостерігають $1 активні користувачі|спостерігають $1 активних користувачів}})",
 	"unreviewedpages-list": "На цій сторінці перераховані статті, що ще ''не'' були [[{{MediaWiki:Validationpage}}|перевірені]] на зазначений рівень.",
 	"unreviewedpages-none": "Зараз нема сторінок, що відповідають зазначеним критеріям",
 	"unreviewedpages-viewing": "(перевіряється)",
