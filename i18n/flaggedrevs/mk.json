@@ -65,7 +65,7 @@
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} чека проверка]]'''",
 	"review-edit-diff": "'''Напомена: ''Некои'' од промените во исчекување се однесуваат на делот од страницата што го уредувате.'''",
 	"revreview-diff-toggle-show": "прикажи промени",
-	"revreview-diff-toggle-hide": "скриј ги промените",
+	"revreview-diff-toggle-hide": "скриј промени",
 	"revreview-diff-toggle-title": "Префлување од приказ на промените во исчекување на објавената верзија",
 	"revreview-log-toggle-show": "прикажи дневник на стабилизација",
 	"revreview-log-toggle-hide": "скриј дневник на стабилност",
