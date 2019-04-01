@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Lloffiwr",
-			"Diafol"
+			"Diafol",
+			"Robin Owain"
 		]
 	},
+	"flaggedrevs-hidereviewed-hide": "Cuddio",
 	"group-editor": "Golygyddion",
 	"group-editor-member": "golygydd",
 	"group-reviewer": "Adolygwyr",
