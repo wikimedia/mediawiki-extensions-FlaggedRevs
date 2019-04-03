@@ -8,6 +8,6 @@
 		"mw": false
 	},
 	"rules": {
-		"jquery/no-global-selector": "off"
+		"no-jquery/no-global-selector": "off"
 	}
 }

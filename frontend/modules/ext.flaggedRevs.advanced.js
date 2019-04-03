@@ -99,12 +99,12 @@
 		if ( $diff.length && $toggle.length ) {
 			if ( $diff.css( 'display' ) === 'none' ) {
 				// FIXME: Use CSS transition
-				// eslint-disable-next-line jquery/no-animate-toggle
+				// eslint-disable-next-line no-jquery/no-animate-toggle
 				$diff.show( 'slow' );
 				$toggle.children( 'a' ).text( mw.msg( 'revreview-diff-toggle-hide' ) );
 			} else {
 				// FIXME: Use CSS transition
-				// eslint-disable-next-line jquery/no-animate-toggle
+				// eslint-disable-next-line no-jquery/no-animate-toggle
 				$diff.hide( 'slow' );
 				$toggle.children( 'a' ).text( mw.msg( 'revreview-diff-toggle-show' ) );
 			}
