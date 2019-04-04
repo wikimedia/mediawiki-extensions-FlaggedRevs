@@ -28,6 +28,7 @@
 	"group-reviewer-member": "{{GENDER:$1|ritstjóri}}",
 	"grouppage-editor": "{{ns:project}}:Ritstjóri",
 	"grouppage-reviewer": "{{ns:project}}:Ritstjóri",
+	"logentry-review-approve": "$1 {{GENDER:$2|yfirfór}} útgáfu af $3",
 	"revreview-hist-draft": "óskoðuð útgáfa",
 	"revreview-hist-pending": "óyfirfarin breyting",
 	"revreview-hist-quality": "gæða útgáfa",

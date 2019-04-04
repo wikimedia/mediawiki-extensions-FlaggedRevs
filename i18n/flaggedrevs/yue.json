@@ -3,7 +3,8 @@
 		"authors": [
 			"Antonytse",
 			"Yueman",
-			"Suzukaze-c"
+			"Suzukaze-c",
+			"Deryck Chan"
 		]
 	},
 	"editor": "編輯",
@@ -82,6 +83,7 @@
 	"revreview-visibility-synced": "'''呢一版有一個[[{{MediaWiki:Validationpage}}|穩定版]]；佢嘅設定可以[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 較]。'''",
 	"revreview-revnotfound": "呢版冇你要搵嗰個版本喎。\n唔該睇下條網址啱唔啱。",
 	"right-autoreview": "自動標示修訂做已視察過嘅",
+	"right-autoreviewrestore": "反轉時自動覆檢埋",
 	"right-movestable": "搬穩定頁",
 	"right-review": "標示修訂做已視察嘅",
 	"right-stablesettings": "設定如何將穩定版選擇同顯示",

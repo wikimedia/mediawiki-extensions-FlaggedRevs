@@ -6,7 +6,8 @@
 			"Jkjk",
 			"Li-sung",
 			"Matěj Grabovský",
-			"Vks"
+			"Vks",
+			"Patriccck"
 		]
 	},
 	"revisionreview": "Posouzení verzí",
@@ -37,7 +38,7 @@
 	"revreview-reflag": "Znovu posoudit tuto revizi",
 	"revreview-invalid": "'''Neplatný cíl:''' žádná [[{{MediaWiki:Validationpage}}|posouzená]] verze neodpovídá zadanému ID.",
 	"revreview-log": "Komentář:",
-	"revreview-main": "Pro posouzení musíte vybrat určitou verzi stránky. \n\nVizte [[Special:Unreviewedpages|seznam neposouzených stránek]].",
+	"revreview-main": "Pro posouzení musíte vybrat určitou verzi stránky. \n\nViz [[Special:Unreviewedpages|seznam neposouzených stránek]].",
 	"revreview-stable1": "Můžete zobrazit [{{fullurl:$1|stableid=$2}} tuto označenou verzi] nebo se podívat, jestli je to teď [{{fullurl:$1|stable=1}} stabilní verze] této stránky.",
 	"revreview-stable2": "Můžete zobrazit [{{fullurl:$1|stable=1}} stabilní verzi] této stránky (pokud ještě existuje).",
 	"revreview-submit": "Odeslat",
