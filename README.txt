@@ -1,5 +1,5 @@
 Complete online documenation: 
-http://www.mediawiki.org/wiki/Extension:FlaggedRevs
+https://www.mediawiki.org/wiki/Extension:FlaggedRevs
 
 ==Prerequisites==
 * Downloaded the extension from GIT
