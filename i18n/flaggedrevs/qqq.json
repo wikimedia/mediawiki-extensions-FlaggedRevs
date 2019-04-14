@@ -43,7 +43,6 @@
 	"action-review": "{{Flagged Revs}}\n\n{{doc-action|review}}",
 	"action-stablesettings": "{{Flagged Revs}}\n\n{{doc-action|stablesettings}}",
 	"action-validate": "{{Flagged Revs}}\n\n{{doc-action|validate}}",
-	"action-unreviewedpages": "{{Flagged Revs}}\n\n{{doc-action|unreviewedpages}}",
 	"editor": "{{Flagged Revs}}\n{{Identical|Editor}}",
 	"flaggedrevs": "{{Flagged Revs}}\nGeneral title for the [[Translating:Flagged Revs extension|Flagged Revs]] extension.\n* \"flagged\" in the sense of \"has been seen, has been checked\"",
 	"flaggedrevs-watched-pending": "{{FlaggedRevs}}\nAppears on top of user watchlist ([[Special:Watchlist]]).",

@@ -12,7 +12,6 @@
 	"action-review": "review revisions",
 	"action-stablesettings": "configure how the stable version is selected and displayed",
 	"action-validate": "mark revisions as being \"quality\"",
-	"action-unreviewedpages": "view the [[Special:UnreviewedPages|list of unreviewed pages]]",
 	"editor": "Editor",
 	"flaggedrevs": "Flagged Revisions",
 	"flaggedrevs-watched-pending": "There are currently [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} pending changes] to reviewed pages on your watchlist. '''Your attention is needed!'''",
