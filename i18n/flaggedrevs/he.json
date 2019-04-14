@@ -13,7 +13,12 @@
 			"דניאל ב."
 		]
 	},
+	"action-autoreview": "לסמן עריכות של עצמך באופן אוטומטי בתור \"בדוקות\"",
+	"action-autoreviewrestore": "לעשות סקירה עצמית בשחזור",
+	"action-movestable": "להעביר דפים עם גרסאות יציבות",
 	"action-review": "לסקור גרסאות",
+	"action-stablesettings": "להגדיר איך הגרסה היציבה נבחרת ומוצגת",
+	"action-validate": "לסמן גרסאות כ\"איכותיות\"",
 	"editor": "עורך",
 	"flaggedrevs": "גרסאות מסומנות",
 	"flaggedrevs-watched-pending": "נעשו [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} שינויים ממתינים] בדפים שנמצאים ברשימת המעקב ושנסקרו בעבר. '''נדרשת פעולה!'''",

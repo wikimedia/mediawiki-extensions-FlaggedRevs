@@ -4,10 +4,11 @@
 			"Eduardo.mps",
 			"Giro720",
 			"Raylton P. Sousa",
-			"Felipe L. Ewald"
+			"Felipe L. Ewald",
+			"Eduardo Addad de Oliveira"
 		]
 	},
-	"action-unreviewedpages": "ver a lista de páginas não revisadas",
+	"action-unreviewedpages": "ver [[Special:UnreviewedPages|lista de páginas não analisadas]]",
 	"unreviewedpages": "Páginas não analisadas",
 	"unreviewedpages-legend": "Lista páginas de conteúdo a serem analisadas",
 	"unreviewedpages-category": "Categoria:",

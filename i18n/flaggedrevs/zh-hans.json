@@ -19,10 +19,16 @@
 			"阿pp",
 			"飞舞回堂前",
 			"NeverBehave",
-			"Hanyanbo98"
+			"Hanyanbo98",
+			"A2093064"
 		]
 	},
+	"action-autoreview": "自动标记自己的编辑为“已复核”",
+	"action-autoreviewrestore": "回退時自动复核",
+	"action-movestable": "移动有稳定版本的页面",
 	"action-review": "复核版本",
+	"action-stablesettings": "配置选择和显示稳定版本的方式",
+	"action-validate": "标记版本为“优质”",
 	"editor": "编者",
 	"flaggedrevs": "已复核版本",
 	"flaggedrevs-watched-pending": "您的监视列表中目前有[{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} 待复核的页面更改]。'''需要您的关注！'''",
@@ -157,7 +163,7 @@
 	"revreview-visibility-nostable": "'''该页面没有[[{{MediaWiki:Validationpage}}|稳定版本]]。你可以[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 配置]页面固定设置。'''",
 	"revreview-revnotfound": "无法找到您请求的该页面的旧版本。请检查您用于访问该页面的URL是否正确。",
 	"right-autoreview": "自动标记自己的编辑为“已复核”",
-	"right-autoreviewrestore": "回退自动复核",
+	"right-autoreviewrestore": "回退時自动复核",
 	"right-movestable": "移动有稳定版本的页面",
 	"right-review": "标记版本为“已复核”",
 	"right-stablesettings": "配置选择和显示稳定版本的方式",

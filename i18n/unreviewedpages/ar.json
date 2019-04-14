@@ -4,10 +4,11 @@
 			"Ciphers",
 			"Meno25",
 			"OsamaK",
-			"علاء"
+			"علاء",
+			"ديفيد"
 		]
 	},
-	"action-unreviewedpages": "عرض قائمة بالصفحات غير المراجعة",
+	"action-unreviewedpages": "رؤية [[Special:UnreviewedPages|قائمة الصفحات غير المراجعة]]",
 	"unreviewedpages": "صفحات غير مراجعة",
 	"unreviewedpages-legend": "عرض صفحات المحتوى غير المراجعة",
 	"unreviewedpages-category": "التصنيف:",

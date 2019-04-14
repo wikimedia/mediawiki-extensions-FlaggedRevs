@@ -32,7 +32,12 @@
 			"MBq"
 		]
 	},
+	"action-autoreview": "eigene Bearbeitungen automatisch als gesichtet zu markieren",
+	"action-autoreviewrestore": "beim Zurücksetzen Änderungen automatisch als gesichtet zu markieren",
+	"action-movestable": "Seiten mit stabilen Versionen zu verschieben",
 	"action-review": "Versionen markieren",
+	"action-stablesettings": "zu konfigurieren, wie die stabile Version ausgewählt und angezeigt werden soll",
+	"action-validate": "Versionen als geprüft zu markieren",
 	"editor": "Sichter",
 	"flaggedrevs": "Gesichtete Versionen",
 	"flaggedrevs-watched-pending": "Es gibt momentan [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ungesichtete Bearbeitungen] gesichteter Seiten, die sich auf deiner Beobachtungsliste befinden. '''Deine Aufmerksamkeit wird daher benötigt!'''",

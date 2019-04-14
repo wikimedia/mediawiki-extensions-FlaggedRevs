@@ -7,10 +7,11 @@
 			"Тест",
 			"Piramidion",
 			"Ата",
-			"Gzhegozh"
+			"Gzhegozh",
+			"Vlad5250"
 		]
 	},
-	"action-unreviewedpages": "перегляд списку неперевірених сторінок",
+	"action-unreviewedpages": "перегляд [[Special:UnreviewedPages|списку неперевірених сторінок]]",
 	"unreviewedpages": "Неперевірені сторінки",
 	"unreviewedpages-legend": "Список неперевірених статей",
 	"unreviewedpages-category": "Категорія:",
