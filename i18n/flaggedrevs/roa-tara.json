@@ -4,7 +4,12 @@
 			"Joetaras"
 		]
 	},
+	"action-autoreview": "certe cangiaminde tue onne state marcate automaticamende cumme \"verificate\"",
+	"action-autoreviewrestore": "auto-reviste sus a l'annullamende",
+	"action-movestable": "spuèste le pàggene cu 'na versione stabbele",
 	"action-review": "revide le revisiune",
+	"action-stablesettings": "configure cumme versiona pubblecate quedde ca jè scacchiate e 'ndrucate",
+	"action-validate": "signe le revisiune cumme ce onne state de \"qualità\"",
 	"editor": "Editore",
 	"flaggedrevs": "Revisiune Approvete",
 	"flaggedrevs-watched-pending": "Stonne, osce a die [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} cangiaminde pendende]a le pàggene reviste da toje liste de le pàggene condrollate. '''Abbesogne de l'attenziona toje!'''",

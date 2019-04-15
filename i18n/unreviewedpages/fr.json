@@ -7,10 +7,11 @@
 			"PieRRoMaN",
 			"Sherbrooke",
 			"Urhixidur",
-			"Verdy p"
+			"Verdy p",
+			"Gomoko"
 		]
 	},
-	"action-unreviewedpages": "voir la liste des pages non révisées",
+	"action-unreviewedpages": "afficher la liste des pages non relues",
 	"unreviewedpages": "Pages non revues",
 	"unreviewedpages-legend": "Liste des pages de contenu non révisées",
 	"unreviewedpages-category": "Catégorie :",
