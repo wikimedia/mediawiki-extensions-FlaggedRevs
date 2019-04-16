@@ -598,7 +598,7 @@ $wgHooks['NewDifferenceEngine'][] = 'FlaggedRevsUIHooks::checkDiffUrl';
 # Local user account preference
 $wgHooks['GetPreferences'][] = 'FlaggedRevsUIHooks::onGetPreferences';
 # Add global JS vars
-$wgHooks['MakeGlobalVariablesScript'][] = 'FlaggedRevsUIHooks::injectGlobalJSVars';
+$wgHooks['MakeGlobalVariablesScript'][] = 'FlaggedRevsUIHooks::onMakeGlobalVariablesScript';
 
 # Page review module for API
 $wgAPIModules['review'] = 'ApiReview';

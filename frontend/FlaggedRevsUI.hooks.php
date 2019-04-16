@@ -7,18 +7,17 @@ class FlaggedRevsUIHooks {
 	 * Add FlaggedRevs css/js.
 	 *
 	 * @param OutputPage $out
-	 * @return bool
 	 */
 	protected static function injectStyleAndJS( OutputPage $out ) {
 		static $loadedModules = false;
 		if ( $loadedModules ) {
-			return true; // don't double-load
+			return; // don't double-load
 		}
 		$loadedModules = true;
 		$fa = FlaggablePageView::globalArticleInstance();
 		# Try to only add to relevant pages
 		if ( !$fa || !$fa->isReviewable() ) {
-			return true;
+			return;
 		}
 		# Add main CSS & JS files
 		$out->addModuleStyles( 'ext.flaggedRevs.basic' );
@@ -28,31 +27,30 @@ class FlaggedRevsUIHooks {
 			$out->addModules( 'ext.flaggedRevs.review' );
 			$out->addModuleStyles( 'ext.flaggedRevs.review.styles' );
 		}
-		return true;
 	}
 
 	/**
 	 * Hook: MakeGlobalVariablesScript
 	 *
-	 * @param array &$globalVars
+	 * @param array &$vars
 	 * @param OutputPage $out
-	 * @return bool
 	 */
-	public static function injectGlobalJSVars( array &$globalVars, OutputPage $out ) {
-		# Get the review tags on this wiki
+	public static function onMakeGlobalVariablesScript( array &$vars, OutputPage $out ) {
+		// Get the review tags on this wiki
 		$rTags = FlaggedRevs::getJSTagParams();
-		$globalVars['wgFlaggedRevsParams'] = $rTags;
-		# Get page-specific meta-data
+		$vars['wgFlaggedRevsParams'] = $rTags;
+
+		// Get page-specific meta-data
 		$fa = FlaggableWikiPage::getTitleInstance( $out->getTitle() );
-		# Try to only add to relevant pages
+
+		// Try to only add to relevant pages
 		if ( $fa && $fa->isReviewable() ) {
 			$frev = $fa->getStableRev();
 			$stableId = $frev ? $frev->getRevId() : 0;
 		} else {
 			$stableId = null;
 		}
-		$globalVars['wgStableRevisionId'] = $stableId;
-		return true;
+		$vars['wgStableRevisionId'] = $stableId;
 	}
 
 	/**
@@ -74,10 +72,10 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * Add tag notice, CSS/JS, protect form link, and set robots policy
+	 * Add tag notice, CSS/JS, protect form link, and set robots policy.
+	 *
 	 * @param OutputPage &$out
 	 * @param Skin &$skin
-	 * @return true
 	 */
 	public static function onBeforePageDisplay( &$out, &$skin ) {
 		if ( $out->getTitle()->getNamespace() != NS_SPECIAL ) {
@@ -97,7 +95,6 @@ class FlaggedRevsUIHooks {
 			self::maybeAddBacklogNotice( $out ); // RC/Watchlist notice
 			self::injectStyleForSpecial( $out ); // try special page CSS
 		}
-		return true;
 	}
 
 	/**
