@@ -16,7 +16,7 @@
 	"validationstatistics-latest": "محدث",
 	"validationstatistics-synced": "تم تحديثه/تمت مراجعته",
 	"validationstatistics-old": "قديمة",
-	"validationstatistics-utable": "بالأسفل قائمه بأعلى $1 مراجعين فى الساعه الأخيره.",
+	"validationstatistics-utable": "بالأسفل قائمة بأكثر {{PLURAL:$1||مراجع نشاطا|مراجعين نشاطا|$1 مراجعين نشاطا|$1 مراجع نشاطا|$1 مراجعا نشاطا}} في {{PLURAL:$2||الساعة الأخيرة|الساعتين الأخيرتين|ال$2 ساعات الأخيرة|ال$2 ساعة الأخيرة}}.",
 	"validationstatistics-user": "المستخدم",
 	"validationstatistics-reviews": "مراجعات"
 }
