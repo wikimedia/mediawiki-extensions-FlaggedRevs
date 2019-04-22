@@ -14,12 +14,12 @@
 			"Orbot707"
 		]
 	},
-	"action-autoreview": "Revizyonan be otomatik muşahedekerde işaret ke",
-	"action-autoreviewrestore": "Na weynayış peyd gêriyê",
-	"action-movestable": "Peranê versiyonanê istikrarınan bıkırış",
+	"action-autoreview": "revizyonan be otomatikmuşahedekerde işaret ke",
+	"action-autoreviewrestore": "peysergırewtış de vurnayışan be otomatikvênaye işaret ke",
+	"action-movestable": "pelanê versiyonanê istıqrarınan bıkırışe",
 	"action-review": "çımraviyarnayışan qontrol ke",
-	"action-stablesettings": "Versiyonê istiqrarın seni vıciyeno u ramociyeno inan eyar bıker",
-	"action-validate": "Revizyonan \"qelite\" kerde işaret bıker",
+	"action-stablesettings": "versiyonê istıqrarın çıtewri ke veciyeno û çiniyeno we, inan eyar ke",
+	"action-validate": "revizyonan be \"kalite\" ra işaret ke",
 	"editor": "Vurnayoğ",
 	"flaggedrevs": "Rewizyonê Desmalyaye",
 	"flaggedrevs-watched-pending": "pelê çımserçarnayeyi yê listeya şıma de [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} tayê vurnayişi esti]. '''paweyê elaqaya şıma!'''",

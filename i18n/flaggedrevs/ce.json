@@ -111,7 +111,7 @@
 	"revreview-quick-basic": "'''[[{{MediaWiki:Validationpage}}|Теллинарг]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} гайта талламбанза хийцам]]",
 	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|Талламбинарг]]'''",
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Талламбинарг]]'''",
-	"revreview-quick-invalid": "'''ГӀалатца цӀейовзар агӀон верси'''",
+	"revreview-quick-invalid": "'''АгӀонан версин гӀалате идентификатор'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Талламбанза]]'''",
 	"revreview-quick-quality": "'''[[{{MediaWiki:Validationpage}}|Теллинарг]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} гайта талламбанза хийцамаш]]",
 	"revreview-quick-quality-old": "'''[[{{MediaWiki:Validationpage}}|Хьаьжжина]]'''",

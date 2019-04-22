@@ -18,6 +18,7 @@
 			"WikiPhoenix"
 		]
 	},
+	"action-movestable": "flytta sidor med stabila versioner",
 	"action-review": "granska sidversioner",
 	"editor": "Redaktör",
 	"flaggedrevs": "Flaggade sidversioner",

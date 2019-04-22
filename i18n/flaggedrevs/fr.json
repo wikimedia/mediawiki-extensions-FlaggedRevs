@@ -28,7 +28,7 @@
 		]
 	},
 	"action-autoreview": "avoir ses propres modifications marquées automatiquement comme « vérifié »",
-	"action-autoreviewrestore": "vérification automatique à l’annulation",
+	"action-autoreviewrestore": "vérification automatique sur annulation",
 	"action-movestable": "déplacer les pages avec des versions stables",
 	"action-review": "relire les versions",
 	"action-stablesettings": "configurer comment la version stable est sélectionnée et affichée",
