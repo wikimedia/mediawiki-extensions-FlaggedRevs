@@ -20,7 +20,12 @@
 			"Athena in Wonderland"
 		]
 	},
+	"action-autoreview": "ter as edições próprias marcadas automaticamente como \"verificadas\"",
+	"action-autoreviewrestore": "rever automaticamente ao reverter",
+	"action-movestable": "mover páginas publicadas",
 	"action-review": "rever edições",
+	"action-stablesettings": "configurar como é selecionada e apresentada a versão publicada",
+	"action-validate": "marcar edições como de \"qualidade\"",
 	"editor": "Editor",
 	"flaggedrevs": "Revisão de Edições",
 	"flaggedrevs-watched-pending": "Existem [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} alterações pendentes] a páginas revistas que estão nas suas páginas vigiadas. '''É necessária a sua atenção!'''",
