@@ -38,7 +38,10 @@ class FlaggedRevsUIHooks {
 	public static function onMakeGlobalVariablesScript( array &$vars, OutputPage $out ) {
 		// Get the review tags on this wiki
 		$rTags = FlaggedRevs::getJSTagParams();
-		$vars['wgFlaggedRevsParams'] = $rTags;
+		if ( $rTags !== null ) {
+			// Only register this variable in <head> when needed (T219342).
+			$vars['wgFlaggedRevsParams'] = $rTags;
+		}
 
 		// Get page-specific meta-data
 		$fa = FlaggableWikiPage::getTitleInstance( $out->getTitle() );
@@ -47,10 +50,8 @@ class FlaggedRevsUIHooks {
 		if ( $fa && $fa->isReviewable() ) {
 			$frev = $fa->getStableRev();
 			$stableId = $frev ? $frev->getRevId() : 0;
-		} else {
-			$stableId = null;
+			$vars['wgStableRevisionId'] = $stableId;
 		}
-		$vars['wgStableRevisionId'] = $stableId;
 	}
 
 	/**

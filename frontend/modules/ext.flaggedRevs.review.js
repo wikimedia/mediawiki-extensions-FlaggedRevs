@@ -6,7 +6,7 @@
 ( function () {
 	'use strict';
 
-	var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
+	var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams', {} ),
 		/* User is reviewing this page? */
 		isUserReviewing = 0;
 

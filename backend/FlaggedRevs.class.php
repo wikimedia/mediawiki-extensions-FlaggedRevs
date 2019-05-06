@@ -1113,12 +1113,16 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * Get JS script params
-	 * @return object
+	 * Get JS script params.
+	 *
+	 * These will be exported client-side as wgFlaggedRevsParams,
+	 * for use by ext.flaggedRevs.review.js.
+	 *
+	 * @return array|null
 	 */
 	public static function getJSTagParams() {
 		self::load();
-		# Param to pass to JS function to know if tags are at quality level
+		// Param to pass to JS function to know if tags are at quality level
 		$tagsJS = [];
 		foreach ( self::$dimensions as $tag => $x ) {
 			$tagsJS[$tag] = [];
@@ -1126,7 +1130,10 @@ class FlaggedRevs {
 			$tagsJS[$tag]['quality'] = self::$minQL[$tag];
 			$tagsJS[$tag]['pristine'] = self::$minPL[$tag];
 		}
-		$params = [ 'tags' => (object)$tagsJS ];
-		return (object)$params;
+		if ( $tagsJS ) {
+			return [ 'tags' => $tagsJS ];
+		} else {
+			return null;
+		}
 	}
 }
