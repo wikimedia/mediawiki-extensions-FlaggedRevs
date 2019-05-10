@@ -10,7 +10,7 @@
 	"validationstatistics-lastupdate": "''Data iki dianyari pungkasan $1 wanci $2.''",
 	"validationstatistics-revtime": "Rata-rata wektu tunggu besutan déning ''panganggo kang durung mlebu log'' kang arep kapriksa ya iku '''$1'''; médhiyané ya iku '''$2'''.\n$3",
 	"validationstatistics-table": "Statistik kanggo saben bilik jeneng ditampilaké ing ngisor iki, ''kajaba'' kaca pangalihan.",
-	"validationstatistics-ns": "Bilik jeneng",
+	"validationstatistics-ns": "Mandhala aran",
 	"validationstatistics-total": "Kaca",
 	"validationstatistics-stable": "Wis dipriksa",
 	"validationstatistics-latest": "Wis disinkronaké",
