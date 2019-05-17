@@ -31,21 +31,27 @@ class FRExtraCacheUpdateJob extends Job {
 		}
 	}
 
+	/**
+	 * @suppress SecurityCheck-SQLInjection See T201806 for more information
+	 * @return bool
+	 */
 	protected function doBacklinkPurge() {
+		$dbr = wfGetDB( DB_REPLICA );
 		$update = new FRExtraCacheUpdate( $this->title );
 		# Get query conditions
 		$fromField = $update->getFromField();
 		$conds = $update->getToCondition();
 		if ( $this->params['start'] ) {
-			$conds[] = "$fromField >= {$this->params['start']}";
+			$start = $dbr->addQuotes( $this->params['start'] );
+			$conds[] = "$fromField >= $start";
 		}
 		if ( $this->params['end'] ) {
-			$conds[] = "$fromField <= {$this->params['end']}";
+			$end = $dbr->addQuotes( $this->params['end'] );
+			$conds[] = "$fromField <= $end";
 		}
-		# Run query to get page Ids
-		$dbr = wfGetDB( DB_REPLICA );
+		// Run query to get page Ids
 		$res = $dbr->select( $this->params['table'], $fromField, $conds, __METHOD__ );
-		# Invalidate the pages
+		// Invalidate the pages
 		$update->invalidateIDs( $res );
 		return true;
 	}
