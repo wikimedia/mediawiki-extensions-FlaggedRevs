@@ -23,36 +23,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit( 1 );
 }
 
-# Stable constant to let extensions be aware that this is enabled
-define( 'FLAGGED_REVISIONS', true );
-
 # Load global constants
 require __DIR__ . '/FlaggedRevs.defines.php';
 
 // Load stuff already converted to extension registration.
 wfLoadExtension( 'Flagged Revisions', __DIR__ . '/extension-wip.json' );
-
-/**
- * This function is for setup that has to happen in Setup.php
- * when the functions in $wgExtensionFunctions get executed.
- * Note: avoid calls to FlaggedRevs class here for performance.
- * @return void
- */
-$wgExtensionFunctions[] = function () {
-	# LocalSettings.php loaded, safe to load config
-	FlaggedRevsSetup::setReady();
-
-	# Conditional autopromote groups
-	FlaggedRevsSetup::setAutopromoteConfig();
-
-	# Register special pages (some are conditional)
-	FlaggedRevsSetup::setSpecialPageCacheUpdates();
-	# Conditional API modules
-	FlaggedRevsSetup::setAPIModules();
-	# Load hooks that aren't always set
-	FlaggedRevsSetup::setConditionalHooks();
-	# Remove conditionally applicable rights
-	FlaggedRevsSetup::setConditionalRights();
-	# Defaults for user preferences
-	FlaggedRevsSetup::setConditionalPreferences();
-};
