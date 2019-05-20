@@ -3,7 +3,8 @@
 		"authors": [
 			"Kiranmayee",
 			"Veeven",
-			"వైజాసత్య"
+			"వైజాసత్య",
+			"Chaduvari"
 		]
 	},
 	"pendingchanges": "మార్పులతో వేచియున్న పుటలు",
@@ -15,9 +16,9 @@
 	"pendingchanges-recent": "(1 గంట లోపల)",
 	"pendingchanges-category": "వర్గం:",
 	"pendingchanges-stable": "నిలకడబరిచినది",
-	"pendingchanges-diff": "రివ్యూ",
+	"pendingchanges-diff": "సమీక్షించండి",
 	"pendingchanges-size": "గరిష్ఠ మార్పు (బైట్లు):",
 	"pendingchanges-unwatched": "(వీక్షణలో లేనివి)",
-	"pendingchanges-watched": "($1 చేతన  {{PLURAL:$1|వాడుకరి|గురు వాడుకరులు}} వీక్షిస్తున్నారు)",
-	"pendingchanges-viewing": "(రివ్యూలో వుంది )"
+	"pendingchanges-watched": "($1 చేతన {{PLURAL:$1|వాడుకరి|వాడుకరులు}} వీక్షిస్తున్నారు)",
+	"pendingchanges-viewing": "(సమీక్షలో ఉంది)"
 }
