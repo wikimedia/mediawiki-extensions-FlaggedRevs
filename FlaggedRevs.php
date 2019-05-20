@@ -28,3 +28,7 @@ require __DIR__ . '/FlaggedRevs.defines.php';
 
 // Load stuff already converted to extension registration.
 wfLoadExtension( 'Flagged Revisions', __DIR__ . '/extension-wip.json' );
+
+# AJAX functions not supported in extension.json
+$wgAjaxExportList[] = 'RevisionReview::AjaxReview';
+$wgAjaxExportList[] = 'FlaggablePageView::AjaxBuildDiffHeaderItems';

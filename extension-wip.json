@@ -497,12 +497,6 @@
 		},
 		"FlaggedRevsHandleIncludes": {
 			"value": 2
-		},
-		"AjaxExportList": {
-			"value": [
-				"RevisionReview::AjaxReview",
-				"FlaggablePageView::AjaxBuildDiffHeaderItems"
-			]
 		}
 	},
 	"manifest_version": 2
