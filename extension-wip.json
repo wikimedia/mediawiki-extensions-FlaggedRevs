@@ -168,42 +168,18 @@
 	},
 	"MessagesDirs": {
 		"FlaggedRevs": [
-			"i18n/flaggedrevs"
-		],
-		"RevisionReview": [
-			"i18n/revisionreview"
-		],
-		"Stabilization": [
-			"i18n/stabilization"
-		],
-		"ReviewedVersions": [
-			"i18n/reviewedversions"
-		],
-		"UnreviewedPages": [
-			"i18n/unreviewedpages"
-		],
-		"PendingChanges": [
-			"i18n/pendingchanges"
-		],
-		"ProblemChanges": [
-			"i18n/problemchanges"
-		],
-		"ReviewedPages": [
-			"i18n/reviewedpages"
-		],
-		"StablePages": [
-			"i18n/stablepages"
-		],
-		"ConfiguredPages": [
-			"i18n/configuredpages"
-		],
-		"QualityOversight": [
-			"i18n/qualityoversight"
-		],
-		"ValidationStatistics": [
-			"i18n/validationstatistics"
-		],
-		"FlaggedRevsApi": [
+			"i18n/flaggedrevs",
+			"i18n/revisionreview",
+			"i18n/stabilization",
+			"i18n/reviewedversions",
+			"i18n/unreviewedpages",
+			"i18n/pendingchanges",
+			"i18n/problemchanges",
+			"i18n/reviewedpages",
+			"i18n/stablepages",
+			"i18n/configuredpages",
+			"i18n/qualityoversight",
+			"i18n/validationstatistics",
 			"i18n/api"
 		]
 	},
