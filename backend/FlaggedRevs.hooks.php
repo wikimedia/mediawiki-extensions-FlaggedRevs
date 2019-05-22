@@ -6,25 +6,6 @@ use Wikimedia\Rdbms\IDatabase;
  * Class containing hooked functions for a FlaggedRevs environment
  */
 class FlaggedRevsHooks {
-	public static function onExtensionFunctions() {
-		# LocalSettings.php loaded, safe to load config
-		FlaggedRevsSetup::setReady();
-
-		# Conditional autopromote groups
-		FlaggedRevsSetup::setAutopromoteConfig();
-
-		# Register special pages (some are conditional)
-		FlaggedRevsSetup::setSpecialPageCacheUpdates();
-		# Conditional API modules
-		FlaggedRevsSetup::setAPIModules();
-		# Load hooks that aren't always set
-		FlaggedRevsSetup::setConditionalHooks();
-		# Remove conditionally applicable rights
-		FlaggedRevsSetup::setConditionalRights();
-		# Defaults for user preferences
-		FlaggedRevsSetup::setConditionalPreferences();
-	}
-
 	/**
 	 * Update flaggedrevs table on revision restore
 	 * @param Title $title

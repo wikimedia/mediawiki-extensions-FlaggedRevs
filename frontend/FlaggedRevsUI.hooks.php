@@ -845,6 +845,12 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
+	public static function onEditPageBeforeEditChecks( $editPage, &$checks, &$tabindex ) {
+		$view = FlaggablePageView::singleton();
+		$view->addReviewCheck( $editPage, $checks, $tabindex );
+		return true;
+	}
+
 	public static function onEditPageGetCheckboxesDefinition( $editPage, &$checkboxes ) {
 		$view = FlaggablePageView::singleton();
 		$view->addReviewCheck( $editPage, $checkboxes );
