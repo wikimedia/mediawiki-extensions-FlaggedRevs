@@ -45,7 +45,7 @@
 	"revreview-hist-draft": "net nogekuckte Versioun",
 	"revreview-hist-pending": "muss nach nogekuckt ginn",
 	"revreview-hist-quality": "Qualitéitsversioun",
-	"revreview-hist-basic": "nokuckte Versioun",
+	"revreview-hist-basic": "nogekuckt Versioun",
 	"revreview-hist-quality-user": "fräigi vum [[User:$3|$3]]",
 	"revreview-hist-basic-user": "nogekuckt vum [[User:$3|$3]]",
 	"revreview-hist-quality-auto": "automatesch fräiginn",
