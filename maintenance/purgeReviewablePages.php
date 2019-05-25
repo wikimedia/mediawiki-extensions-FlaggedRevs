@@ -13,7 +13,7 @@ require_once "$IP/maintenance/Maintenance.php";
 class PurgeReviewablePages extends Maintenance {
 
 	public function __construct() {
-		$this->addDescription( "Use to purge squid/file cache for all reviewable pages" );
+		$this->addDescription( "Use to purge CDN/file cache for all reviewable pages" );
 		$this->addOption( 'makelist',
 			"Build the list of reviewable pages to pagesToPurge.list", false, false );
 		$this->addOption( 'purgelist',
@@ -45,11 +45,11 @@ class PurgeReviewablePages extends Maintenance {
 	}
 
 	protected function list_reviewable_pages( $fileHandle ) {
-		global $wgFlaggedRevsNamespaces, $wgUseSquid, $wgUseFileCache;
+		global $wgFlaggedRevsNamespaces, $wgUseCdn, $wgUseFileCache;
 
 		$this->output( "Building list of all reviewable pages to purge ...\n" );
-		if ( !$wgUseSquid && !$wgUseFileCache ) {
-			$this->output( "Squid/file cache not enabled ... nothing to purge.\n" );
+		if ( !$wgUseCdn && !$wgUseFileCache ) {
+			$this->output( "CDN/file cache not enabled ... nothing to purge.\n" );
 			return;
 		} elseif ( empty( $wgFlaggedRevsNamespaces ) ) {
 			$this->output( "There are no reviewable namespaces ... nothing to purge.\n" );
@@ -97,10 +97,10 @@ class PurgeReviewablePages extends Maintenance {
 	}
 
 	protected function purge_reviewable_pages( $fileHandle ) {
-		global $wgUseSquid, $wgUseFileCache;
-		$this->output( "Purging squid cache for list of pages to purge ...\n" );
-		if ( !$wgUseSquid && !$wgUseFileCache ) {
-			$this->output( "Squid/file cache not enabled ... nothing to purge.\n" );
+		global $wgUseCdn, $wgUseFileCache;
+		$this->output( "Purging CDN cache for list of pages to purge ...\n" );
+		if ( !$wgUseCdn && !$wgUseFileCache ) {
+			$this->output( "CDN/file cache not enabled ... nothing to purge.\n" );
 			return;
 		}
 
@@ -113,7 +113,7 @@ class PurgeReviewablePages extends Maintenance {
 			$title = Title::newFromDBkey( $dbKey );
 			if ( $title ) {
 				$title->purgeSquid(); // send PURGE
-				HTMLFileCache::clearFileCache( $title ); // purge poor-mans's squid
+				HTMLFileCache::clearFileCache( $title ); // purge poor-mans's CDN
 				$this->output( "... $dbKey\n" );
 
 				$count++;
@@ -124,7 +124,7 @@ class PurgeReviewablePages extends Maintenance {
 				$this->output( "Invalid title - cannot purge: $dbKey\n" );
 			}
 		}
-		$this->output( "Squid/file cache purge of page list complete ... {$count} pages\n" );
+		$this->output( "CDN/file cache purge of page list complete ... {$count} pages\n" );
 	}
 }
 

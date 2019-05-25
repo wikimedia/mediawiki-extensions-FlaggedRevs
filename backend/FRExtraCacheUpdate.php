@@ -95,7 +95,7 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 	 * @param IResultWrapper $res
 	 */
 	public function invalidateIDs( IResultWrapper $res ) {
-		global $wgUseFileCache, $wgUseSquid;
+		global $wgUseFileCache, $wgUseCdn;
 		if ( $res->numRows() == 0 ) {
 			return; // sanity check
 		}
@@ -123,10 +123,10 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 			$dbw->update( 'page', [ 'page_touched' => $timestamp ],
 				[ 'page_id' => $ids ], __METHOD__ );
 			# Update static caches
-			if ( $wgUseSquid || $wgUseFileCache ) {
+			if ( $wgUseCdn || $wgUseFileCache ) {
 				$titles = Title::newFromIDs( $ids );
-				# Update squid cache
-				if ( $wgUseSquid ) {
+				# Update CDN cache
+				if ( $wgUseCdn ) {
 					$u = CdnCacheUpdate::newFromTitles( $titles );
 					$u->doUpdate();
 				}
