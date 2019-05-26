@@ -9,7 +9,8 @@
 			"Shinjiman",
 			"Waihorace",
 			"LNDDYL",
-			"Cwlin0416"
+			"Cwlin0416",
+			"A2093064"
 		]
 	},
 	"stabilization-tab": "診斷",
@@ -31,7 +32,7 @@
 	"stabilization-expiry": "期限：",
 	"stabilization-othertime": "其他時間：",
 	"stabilization-def-short": "預設",
-	"stabilization-def-short-0": "貨幣",
+	"stabilization-def-short-0": "目前",
 	"stabilization-def-short-1": "穩定",
 	"stabilize_page_invalid": "目標頁面的標題無效。",
 	"stabilize_page_notexists": "目標頁面不存在。",

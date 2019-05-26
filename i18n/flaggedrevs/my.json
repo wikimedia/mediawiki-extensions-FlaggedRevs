@@ -6,5 +6,9 @@
 		]
 	},
 	"flaggedrevs-rcfilters-reviewed-label": "ပြန်လည်ဆန်းစစ်ပြီး",
+	"group-reviewer": "ပြန်လည်ဆန်းစစ်သူများ",
+	"group-reviewer-member": "{{GENDER:$1|ပြန်လည်ဆန်းစစ်သူ}}",
+	"grouppage-reviewer": "{{ns:project}}:ပြန်လည်ဆန်းစစ်သူ",
+	"reviewer": "ပြန်လည်ဆန်းစစ်သူ",
 	"tooltip-ca-current": "စောင့်ဆိုင်းနေသော ပြောင်းလဲမှုများဖြင့် ဤစာမျက်နှာကို ကြည့်ရန်"
 }
