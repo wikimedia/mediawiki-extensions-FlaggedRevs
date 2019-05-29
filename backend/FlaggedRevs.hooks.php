@@ -6,6 +6,13 @@ use Wikimedia\Rdbms\IDatabase;
  * Class containing hooked functions for a FlaggedRevs environment
  */
 class FlaggedRevsHooks {
+
+	public static function onRegistration() {
+		global $wgAjaxExportList;
+		$wgAjaxExportList[] = 'RevisionReview::AjaxReview';
+		$wgAjaxExportList[] = 'FlaggablePageView::AjaxBuildDiffHeaderItems';
+	}
+
 	public static function onExtensionFunctions() {
 		# LocalSettings.php loaded, safe to load config
 		FlaggedRevsSetup::setReady();
