@@ -9,7 +9,8 @@
 			"Tlustulimu",
 			"Robin van der Vliet",
 			"Gamliel Fishkin",
-			"YvesNevelsteen"
+			"YvesNevelsteen",
+			"Mirin"
 		]
 	},
 	"action-review": "kontroli reviziojn",
@@ -31,6 +32,11 @@
 	"flaggedrevs-hidereviewed": "$1 {{PLURAL:$1|patrolitan redakton|patrolitajn redaktojn}}",
 	"flaggedrevs-hidereviewed-hide": "Kaŝi",
 	"flaggedrevs-hidereviewed-show": "Montri",
+	"flaggedrevs-rcfilters-need-review-label": "Bezonanta revizion",
+	"flaggedrevs-rcfilters-need-review-desc": "Redaktoj bezonantaj revizion.",
+	"flaggedrevs-rcfilters-reviewed-label": "Reviziita",
+	"flaggedrevs-rcfilters-reviewed-desc": "Reviziitaj redaktoj",
+	"flaggedrevs-rcfilters-not-reviewable-label": "Ne revizienda",
 	"group-editor": "Patrolantoj",
 	"group-editor-member": "{{GENDER:$1|patrolanto}}",
 	"group-reviewer": "Kontrolantoj",
@@ -176,5 +182,13 @@
 	"revreview-unlocked-title": "Redaktoj al ĉi tiu paĝoj ne bezonas kontroladon.",
 	"revreview-locked": "Redaktoj devas esti [[{{MediaWiki:Validationpage}}|kontrolitaj]] antaŭ montrataj al legantoj en ĉi tiu paĝo.",
 	"revreview-unlocked": "'''Notu:''' Redaktoj ne devigas [[{{MediaWiki:Validationpage}}|kontroladon]] antaŭ montrante al legantoj de ĉi tiu paĝo.",
-	"validationpage": "{{ns:help}}:Validigo de paĝo"
+	"logeventslist-review-log": "Protokolo de revizioj",
+	"validationpage": "{{ns:help}}:Validigo de paĝo",
+	"log-action-filter-review": "Specoj de reviziado:",
+	"log-action-filter-review-accept": "Malaŭtomata akceptado",
+	"log-action-filter-review-autoaccept": "Aŭtomata akceptado",
+	"log-action-filter-review-unaccept": "Malaŭtomata malakceptado",
+	"log-action-filter-stable": "Speco de ŝanĝo de agordo:",
+	"log-action-filter-stable-config": "Nova agordo",
+	"log-action-filter-stable-modify": "Modifita agordo"
 }
