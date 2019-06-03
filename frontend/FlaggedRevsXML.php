@@ -4,14 +4,6 @@
  * Includes functions for selectors, icons, notices, CSS, and form aspects.
  */
 class FlaggedRevsXML {
-	/**
-	 * Get the URL path to where the client side resources are (JS, CSS, images..)
-	 * @return string
-	 */
-	public static function styleUrlPath() {
-		global $wgExtensionAssetsPath;
-		return "$wgExtensionAssetsPath/FlaggedRevs/frontend/modules";
-	}
 
 	/**
 	 * Get a selector of reviewable namespaces
@@ -315,11 +307,14 @@ class FlaggedRevsXML {
 	 * @return string
 	 */
 	public static function ratingArrow() {
-		$encPath = htmlspecialchars( self::styleUrlPath() . '/img' );
-		$img = '<img id="mw-fr-revisiontoggle" class="fr-toggle-arrow"';
-		$img .= " src=\"{$encPath}/arrow-down.png\" style=\"display:none;\"";
-		$img .= ' alt="' . wfMessage( 'revreview-toggle-title' )->escaped() . '" />';
-		return $img;
+		return ( new OOUI\IndicatorWidget(
+			[
+				'indicator' => 'down',
+				'classes' => [ 'fr-toggle-arrow' ],
+				'id' => 'mw-fr-revisiontoggle',
+				'title' => wfMessage( 'revreview-toggle-title' )->text(),
+			]
+		) )->toString();
 	}
 
 	/**
@@ -377,10 +372,14 @@ class FlaggedRevsXML {
 	 * @return string
 	 */
 	public static function draftStatusIcon() {
-		$encPath = htmlspecialchars( self::styleUrlPath() . '/img' );
-		$encTitle = wfMessage( 'revreview-draft-title' )->escaped();
-		return "<img class=\"flaggedrevs-icon\" src=\"$encPath/1.png\"" .
-			" alt=\"$encTitle\" title=\"$encTitle\" />";
+		$encTitle = wfMessage( 'revreview-draft-title' )->text();
+		return ( new OOUI\IconWidget(
+			[
+				'icon' => 'block',
+				'classes' => [ 'flaggedrevs-icon' ],
+				'title' => $encTitle,
+			]
+		) )->toString();
 	}
 
 	/**
@@ -389,13 +388,17 @@ class FlaggedRevsXML {
 	 * @return string
 	 */
 	public static function stableStatusIcon( $isQuality ) {
-		$encPath = htmlspecialchars( self::styleUrlPath() . '/img' );
-		$file = $isQuality ? '3.png' : '2.png';
+		$icon = $isQuality ? 'check' : 'eye';
 		$encTitle = $isQuality
-			? wfMessage( 'revreview-quality-title' )->escaped()
-			: wfMessage( 'revreview-basic-title' )->escaped();
-		return "<img class=\"flaggedrevs-icon\" src=\"$encPath/$file\"" .
-			" alt=\"$encTitle\" title=\"$encTitle\" />";
+			? wfMessage( 'revreview-quality-title' )->text()
+			: wfMessage( 'revreview-basic-title' )->text();
+		return ( new OOUI\IconWidget(
+			[
+				'icon' => $icon,
+				'classes' => [ 'flaggedrevs-icon' ],
+				'title' => $encTitle,
+			]
+		) )->toString();
 	}
 
 	/**
@@ -404,18 +407,22 @@ class FlaggedRevsXML {
 	 * @return string
 	 */
 	public static function lockStatusIcon( $flaggedArticle ) {
-		$encPath = htmlspecialchars( self::styleUrlPath() . '/img' );
 		if ( $flaggedArticle->isPageLocked() ) {
-			$encTitle = wfMessage( 'revreview-locked-title' )->escaped();
-			return "<img class=\"flaggedrevs-icon\" src=\"$encPath/doc-magnify.png\"" .
-				" alt=\"$encTitle\" title=\"$encTitle\" />";
+			$encTitle = wfMessage( 'revreview-locked-title' )->text();
+			$icon = 'articleSearch';
 		} elseif ( $flaggedArticle->isPageUnlocked() ) {
-			$encTitle = wfMessage( 'revreview-unlocked-title' )->escaped();
-			return "<img class=\"flaggedrevs-icon\" src=\"$encPath/doc-check.png\"" .
-				" alt=\"$encTitle\" title=\"$encTitle\" />";
+			$encTitle = wfMessage( 'revreview-unlocked-title' )->text();
+			$icon = 'articleCheck';
+		} else {
+			return '';
 		}
-
-		return '';
+		return ( new OOUI\IconWidget(
+			[
+				'icon' => $icon,
+				'classes' => [ 'flaggedrevs-icon' ],
+				'title' => $encTitle,
+			]
+		) )->toString();
 	}
 
 	/**
@@ -463,4 +470,5 @@ class FlaggedRevsXML {
 			$article->getTitle()->getPrefixedText(), '', $params );
 		return "<div id=\"mw-fr-logexcerpt\">$logHtml</div>";
 	}
+
 }

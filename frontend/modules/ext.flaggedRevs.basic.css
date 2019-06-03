@@ -255,17 +255,19 @@ a.fr-toggle-text {
 	cursor: pointer;
 }
 
-img.fr-toggle-arrow {
+span.fr-toggle-arrow {
 	cursor: pointer;
+	opacity: 0.87;
 }
 
 li.fr-hist-stable-margin {
 	margin-top: 2em;
 }
 
-img.flaggedrevs-icon {
+span.flaggedrevs-icon {
 	margin-right: 0.2em;
 	margin-left: 0.2em;
+	opacity: 0.87;
 }
 
 .fr-diff-ratings {
