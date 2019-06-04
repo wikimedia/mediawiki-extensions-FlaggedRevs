@@ -339,16 +339,10 @@
 					"file": "img/eye.svg"
 				},
 				"articleSearch": {
-					"file": {
-						"ltr": "img/articleSearch-ltr.svg",
-						"rtl": "img/articleSearch-rtl.svg"
-					}
+					"file": "img/articleSearch.svg"
 				},
 				"articleCheck": {
-					"file": {
-						"ltr": "img/articleCheck-ltr.svg",
-						"rtl": "img/articleCheck-rtl.svg"
-					}
+					"file": "img/articleCheck.svg"
 				}
 			},
 			"prefix": "oo-ui-icon",
