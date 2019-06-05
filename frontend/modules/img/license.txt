@@ -1,4 +1,2 @@
-All images in this folder are available under the
-GNU Free Documentation license (1.2+).
-
-All the images are to be credited to Joerg Baach.
+All the images are originated in the OOUI library and licensed under MIT.
+See https://www.mediawiki.org/wiki/OOUI.
