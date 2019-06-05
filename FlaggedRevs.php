@@ -19,7 +19,7 @@
  */
 
 if ( function_exists( 'wfLoadExtension' ) ) {
-	wfLoadExtension( 'Flagged Revisions' );
+	wfLoadExtension( 'FlaggedRevs' );
 
 	$wgMessagesDirs['FlaggedRevs'] = __DIR__ . '/i18n/flaggedrevs';
 	$wgMessagesDirs['RevisionReview'] = __DIR__ . '/i18n/revisionreview';
