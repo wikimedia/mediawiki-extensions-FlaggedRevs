@@ -18,31 +18,33 @@
  * http://www.gnu.org/copyleft/gpl.html
  */
 
-if ( !defined( 'MEDIAWIKI' ) ) {
-	echo "FlaggedRevs extension\n";
-	exit( 1 );
+if ( function_exists( 'wfLoadExtension' ) ) {
+	wfLoadExtension( 'Flagged Revisions' );
+
+	$wgMessagesDirs['FlaggedRevs'] = __DIR__ . '/i18n/flaggedrevs';
+	$wgMessagesDirs['RevisionReview'] = __DIR__ . '/i18n/revisionreview';
+	$wgMessagesDirs['Stabilization'] = __DIR__ . '/i18n/stabilization';
+	$wgMessagesDirs['ReviewedVersions'] = __DIR__ . '/i18n/reviewedversions';
+	$wgMessagesDirs['UnreviewedPages'] = __DIR__ . '/i18n/unreviewedpages';
+	$wgMessagesDirs['PendingChanges'] = __DIR__ . '/i18n/pendingchanges';
+	$wgMessagesDirs['ProblemChanges'] = __DIR__ . '/i18n/problemchanges';
+	$wgMessagesDirs['ReviewedPages'] = __DIR__ . '/i18n/reviewedpages';
+	$wgMessagesDirs['StablePages'] = __DIR__ . '/i18n/stablepages';
+	$wgMessagesDirs['ConfiguredPages'] = __DIR__ . '/i18n/configuredpages';
+	$wgMessagesDirs['QualityOversight'] = __DIR__ . '/i18n/qualityoversight';
+	$wgMessagesDirs['ValidationStatistics'] = __DIR__ . '/i18n/validationstatistics';
+	$wgMessagesDirs['FlaggedRevsApi'] = __DIR__ . '/i18n/api';
+	$wgExtensionMessagesFiles['FlaggedRevsMagic'] = __DIR__ .
+		'/frontend/language/FlaggedRevs.i18n.magic.php';
+	$wgExtensionMessagesFiles['FlaggedRevsAliases'] = __DIR__ .
+		'/frontend/language/FlaggedRevs.alias.php';
+
+	/*wfWarn(
+		'Deprecated PHP entry point used for Flagged Revisions extension. ' .
+		'Please use wfLoadExtension instead, see' .
+		'https://www.mediawiki.org/wiki/Extension_registration for more details.'
+	);*/
+	return true;
 }
 
-# Load global constants
-require __DIR__ . '/FlaggedRevs.defines.php';
-
-// Load stuff already converted to extension registration.
-wfLoadExtension( 'Flagged Revisions', __DIR__ . '/extension-wip.json' );
-
-$wgMessagesDirs['FlaggedRevs'] = __DIR__ . '/i18n/flaggedrevs';
-$wgMessagesDirs['RevisionReview'] = __DIR__ . '/i18n/revisionreview';
-$wgMessagesDirs['Stabilization'] = __DIR__ . '/i18n/stabilization';
-$wgMessagesDirs['ReviewedVersions'] = __DIR__ . '/i18n/reviewedversions';
-$wgMessagesDirs['UnreviewedPages'] = __DIR__ . '/i18n/unreviewedpages';
-$wgMessagesDirs['PendingChanges'] = __DIR__ . '/i18n/pendingchanges';
-$wgMessagesDirs['ProblemChanges'] = __DIR__ . '/i18n/problemchanges';
-$wgMessagesDirs['ReviewedPages'] = __DIR__ . '/i18n/reviewedpages';
-$wgMessagesDirs['StablePages'] = __DIR__ . '/i18n/stablepages';
-$wgMessagesDirs['ConfiguredPages'] = __DIR__ . '/i18n/configuredpages';
-$wgMessagesDirs['QualityOversight'] = __DIR__ . '/i18n/qualityoversight';
-$wgMessagesDirs['ValidationStatistics'] = __DIR__ . '/i18n/validationstatistics';
-$wgMessagesDirs['FlaggedRevsApi'] = __DIR__ . '/i18n/api';
-$wgExtensionMessagesFiles['FlaggedRevsMagic'] = __DIR__ .
-	'/frontend/language/FlaggedRevs.i18n.magic.php';
-$wgExtensionMessagesFiles['FlaggedRevsAliases'] = __DIR__ .
-	'/frontend/language/FlaggedRevs.alias.php';
+die( 'This version of the Flagged Revisions extension requires MediaWiki 1.34+' );
