@@ -58,7 +58,7 @@
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Vaše izmjene još uvijek nisu u stabilnoj inačici.</span>\n\nMolimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u stabilnoj inačici.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Vaše izmjene još uvijek nisu u stabilnoj inačici. Postoje ranije izmjene koje su na čekanju za provjeru</span>\n\nMolimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u stabilnoj inačici.",
 	"revreview-update-includes": "Neki predlošci/datoteke su ažurirane:",
-	"revreview-reject-text-list": "Dovršetkom ove radnje '''odbacit ćete''' iz teksta {{PLURAL:$1|sljedeću izmjenu|sljedeće izmjene|sljedećih izmjena}} stranice [[:$2|$2]]:",
+	"revreview-reject-text-list": "Dovršetkom ove radnje '''odbacit ćete''' iz teksta {{PLURAL:$1|sljedeću izmjenu|sljedeće izmjene}} stranice [[:$2|$2]]:",
 	"revreview-reject-text-revto": "Ovime ćete vratiti stranicu natrag na [{{fullurl:$1|oldid=$2}} inačicu od $3].",
 	"revreview-reject-summary": "Sažetak:",
 	"revreview-reject-confirm": "Odbaci ove izmjene",
