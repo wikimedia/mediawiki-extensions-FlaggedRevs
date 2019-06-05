@@ -323,6 +323,37 @@
 				"ext.flaggedRevs.review.css"
 			],
 			"position": "top"
+		},
+		"ext.flaggedRevs.icons": {
+			"class": "ResourceLoaderOOUIImageModule",
+			"rootPath": "frontend/modules/",
+			"name": "icons",
+			"images": {
+				"block": {
+					"file": "img/block.svg"
+				},
+				"check": {
+					"file": "img/check.svg"
+				},
+				"eye": {
+					"file": "img/eye.svg"
+				},
+				"articleSearch": {
+					"file": {
+						"ltr": "img/articleSearch-ltr.svg",
+						"rtl": "img/articleSearch-rtl.svg"
+					}
+				},
+				"articleCheck": {
+					"file": {
+						"ltr": "img/articleCheck-ltr.svg",
+						"rtl": "img/articleCheck-rtl.svg"
+					}
+				}
+			},
+			"prefix": "oo-ui-icon",
+			"selectorWithoutVariant": ".oo-ui-icon-{name}",
+			"selectorWithVariant": ".oo-ui-image-{variant}.oo-ui-icon-{name}"
 		}
 	},
 	"ResourceFileModulePaths": {
