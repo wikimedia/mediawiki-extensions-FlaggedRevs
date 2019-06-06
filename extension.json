@@ -1,5 +1,6 @@
 {
-	"name": "Flagged Revisions",
+	"name": "FlaggedRevs",
+	"namemsg": "flaggedrevs",
 	"author": [
 		"Aaron Schulz",
 		"Joerg Baach"
