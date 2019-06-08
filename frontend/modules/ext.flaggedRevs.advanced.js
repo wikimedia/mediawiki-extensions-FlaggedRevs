@@ -199,6 +199,7 @@
 		// Enables diff detail box and toggle
 		$toggle = $( '#mw-fr-difftoggle' );
 		if ( $toggle.length ) {
+			$toggle.css( 'display', 'inline' ); // show toggle control
 			$( '#mw-fr-stablediff' ).hide();
 		}
 		$toggle.children( 'a' ).on( 'click', toggleDiff );
@@ -206,6 +207,7 @@
 		// Enables log detail box and toggle
 		$toggle = $( '#mw-fr-logtoggle' );
 		if ( $toggle.length ) {
+			$toggle.css( 'display', 'inline' ); // show toggle control
 			if ( $toggle.hasClass( 'fr-logtoggle-details' ) ) {
 				// hide in edit mode
 				$( '#mw-fr-logexcerpt' ).hide();
