@@ -5,6 +5,10 @@ class FlaggedRevsLibraryTest extends Scribunto_LuaEngineTestBase {
 	protected function setUp() {
 		parent::setUp();
 
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'Scribunto' ) ) {
+			$this->markTestSkipped( 'Scribunto not loaded' );
+		}
+
 		$class = new ReflectionClass( FlaggableWikiPage::class );
 		$pageConfig = $class->getProperty( 'pageConfig' );
 		$pageConfig->setAccessible( true );

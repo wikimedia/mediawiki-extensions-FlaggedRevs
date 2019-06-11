@@ -251,7 +251,7 @@
 		"FlaggedRevsUIHooks": "frontend/FlaggedRevsUI.hooks.php",
 		"FlaggedRevsApiHooks": "api/FlaggedRevsApi.hooks.php",
 		"FlaggedRevsUpdaterHooks": "backend/schema/FlaggedRevsUpdater.hooks.php",
-		"FlaggedRevsTestHooks": "tests/FlaggedRevsTest.hooks.php"
+		"FlaggedRevsTestHooks": "tests/phpunit/FlaggedRevsTestHooks.php"
 	},
 	"ResourceModules": {
 		"ext.flaggedRevs.basic": {
@@ -387,7 +387,6 @@
 		"MergeAccountFromTo": "FlaggedRevsHooks::onMergeAccountFromTo",
 		"DeleteAccount": "FlaggedRevsHooks::onDeleteAccount",
 		"ParserTestTables": "FlaggedRevsTestHooks::onParserTestTables",
-		"UnitTestsList": "FlaggedRevsTestHooks::getUnitTests",
 		"LoadExtensionSchemaUpdates": "FlaggedRevsUpdaterHooks::addSchemaUpdates",
 		"ScribuntoExternalLibraries": "FlaggedRevsHooks::onScribuntoExternalLibraries",
 		"UserGetRights": "FlaggedRevsHooks::onUserGetRights",
