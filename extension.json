@@ -326,29 +326,9 @@
 			"position": "top"
 		},
 		"ext.flaggedRevs.icons": {
-			"class": "ResourceLoaderOOUIImageModule",
-			"rootPath": "frontend/modules/",
-			"name": "icons",
-			"images": {
-				"block": {
-					"file": "img/block.svg"
-				},
-				"check": {
-					"file": "img/check.svg"
-				},
-				"eye": {
-					"file": "img/eye.svg"
-				},
-				"articleSearch": {
-					"file": "img/articleSearch.svg"
-				},
-				"articleCheck": {
-					"file": "img/articleCheck.svg"
-				}
-			},
-			"prefix": "oo-ui-icon",
-			"selectorWithoutVariant": ".oo-ui-icon-{name}",
-			"selectorWithVariant": ".oo-ui-image-{variant}.oo-ui-icon-{name}"
+			"class": "ResourceLoaderOOUIIconPackModule",
+			"variants": {},
+			"icons": [ "block", "check", "eye", "articleSearch", "articleCheck" ]
 		}
 	},
 	"ResourceFileModulePaths": {
