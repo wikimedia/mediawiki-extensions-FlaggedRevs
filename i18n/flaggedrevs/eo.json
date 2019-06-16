@@ -13,7 +13,12 @@
 			"Mirin"
 		]
 	},
+	"action-autoreview": "aŭtomate marki siajn redaktojn kiel \"kontrolitajn\"",
+	"action-autoreviewrestore": "aŭtomate revizii post amasmalfaro",
+	"action-movestable": "movi paĝojn kun stabilaj versioj",
 	"action-review": "kontroli reviziojn",
+	"action-stablesettings": "agordi elektadon kaj montradon de stabila versio",
+	"action-validate": "marki versiojn kiel \"bonkvalitajn\"",
 	"editor": "Revizianto",
 	"flaggedrevs": "Markitaj Versioj",
 	"flaggedrevs-watched-pending": "Estas [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ne-reviziitaj redaktoj] de reviziitaj paĝoj en via atentaro. '''Via atento estas bezonata!'''",
@@ -37,6 +42,7 @@
 	"flaggedrevs-rcfilters-reviewed-label": "Reviziita",
 	"flaggedrevs-rcfilters-reviewed-desc": "Reviziitaj redaktoj",
 	"flaggedrevs-rcfilters-not-reviewable-label": "Ne revizienda",
+	"flaggedrevs-rcfilters-not-reviewable-desc": "Ĉiaspecaj ŝanĝoj ne reviziindaj.",
 	"group-editor": "Patrolantoj",
 	"group-editor-member": "{{GENDER:$1|patrolanto}}",
 	"group-reviewer": "Kontrolantoj",
@@ -46,9 +52,16 @@
 	"group-autoreview": "Mempatrolatoj",
 	"group-autoreview-member": "{{GENDER:$1|mempatrolato}}",
 	"grouppage-autoreview": "{{ns:project}}:Aŭtomata kontrolanto",
+	"logentry-review-approve": "$1 {{GENDER:$2|reviziis}} version de $3",
+	"logentry-review-approve-auto": "$1 aŭtomate {{GENDER:$2|reviziis}} version de $3",
+	"logentry-review-unapprove": "$1 {{GENDER:$2|markis}} version de $3 kiel evitindan",
+	"logentry-stable-config": "$1 {{GENDER:$2|agordis}} stabilajn versiojn por $3 $4",
+	"logentry-stable-modify": "$1 {{GENDER:$2|ŝanĝis}} agordojn pri stabilaj versioj por $3 $4",
+	"logentry-stable-reset": "$1 {{GENDER:$2|restarigis}} agordojn pri stabilaj versioj por $3 $4",
+	"logentry-stable-move_stable": "$1 {{GENDER:$2|movis}} agordojn pri stabilaj versioj el $4 al $3",
 	"revreview-hist-draft": "nekontrolita versio",
 	"revreview-hist-pending": "atendante kontrolon",
-	"revreview-hist-quality": "kvalita versio",
+	"revreview-hist-quality": "bonkvalita versio",
 	"revreview-hist-basic": "kontrolita revizio",
 	"revreview-hist-quality-user": "aprobita de [[User:$3|$3]]",
 	"revreview-hist-basic-user": "patrolita de [[User:$3|$3]]",
@@ -190,5 +203,7 @@
 	"log-action-filter-review-unaccept": "Malaŭtomata malakceptado",
 	"log-action-filter-stable": "Speco de ŝanĝo de agordo:",
 	"log-action-filter-stable-config": "Nova agordo",
-	"log-action-filter-stable-modify": "Modifita agordo"
+	"log-action-filter-stable-modify": "Modifita agordo",
+	"log-action-filter-stable-reset": "Agordo restarigita",
+	"log-action-filter-stable-move_stable": "Movis agordon"
 }
