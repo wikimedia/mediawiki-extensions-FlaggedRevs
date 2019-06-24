@@ -19,5 +19,6 @@
 	"apihelp-stabilize-param-watch": "'Ndruche sta pàgene.",
 	"apihelp-stabilize-param-expiry-general": "Scadenze pe ste 'mbostaziune.",
 	"apihelp-stabilize-param-review": "Revide sta pàgene.",
+	"apierror-flaggedrevs-pagedoesnotexist": "'A pàgena date non g'esiste.",
 	"apierror-flaggedrevs-noflaggedrev": "Nisciuna revisione signate cu stu ID."
 }

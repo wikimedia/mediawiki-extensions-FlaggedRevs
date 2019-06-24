@@ -8,7 +8,8 @@
 			"Sahim",
 			"Wayiran",
 			"Calak",
-			"Alirezaaa"
+			"Alirezaaa",
+			"FarsiNevis"
 		]
 	},
 	"validationstatistics": "آمار بازبینی صفحه",
@@ -21,7 +22,7 @@
 	"validationstatistics-total": "صفحات",
 	"validationstatistics-stable": "بازبینی‌شده",
 	"validationstatistics-latest": "آخرین بازبینی",
-	"validationstatistics-synced": "به روز شده/بازبینی شده",
+	"validationstatistics-synced": "همگام‌سازی‌شده/بازبینی‌شده",
 	"validationstatistics-old": "تاریخ گذشته",
 	"validationstatistics-unreviewed": "بازبینی‌نشده",
 	"validationstatistics-utable": "در زیر فهرست {{PLURAL:$1|فعال‌ترین بازبین|$1 تا از فعال‌ترین بازبینان}} در آخرین {{PLURAL:$2|ساعت|$2 ساعات}} آمده است.",
