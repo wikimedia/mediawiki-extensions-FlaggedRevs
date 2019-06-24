@@ -52,16 +52,9 @@ class FlaggedRevs {
 		self::$reviewNamespaces = $wgFlaggedRevsNamespaces;
 
 		# Handle $wgFlaggedRevsAutoReview settings
-		global $wgFlaggedRevsAutoReview, $wgFlaggedRevsAutoReviewNew;
+		global $wgFlaggedRevsAutoReview;
 		if ( is_int( $wgFlaggedRevsAutoReview ) ) {
 			self::$autoReviewConfig = $wgFlaggedRevsAutoReview;
-		}
-
-		if ( isset( $wgFlaggedRevsAutoReviewNew ) ) { // b/c
-			self::$autoReviewConfig = ( $wgFlaggedRevsAutoReviewNew )
-				? self::$autoReviewConfig |= FR_AUTOREVIEW_CREATION
-				: self::$autoReviewConfig & ~FR_AUTOREVIEW_CREATION;
-			wfWarn( '$wgFlaggedRevsAutoReviewNew is deprecated; use $wgFlaggedRevsAutoReview.' );
 		}
 
 		// When using a simple config, we don't need to initialize the other settings
