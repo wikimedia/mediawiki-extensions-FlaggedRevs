@@ -63,39 +63,26 @@ class FlaggedRevs {
 		}
 
 		# Handle levelled tags
-		global $wgFlaggedRevsTags, $wgFlaggedRevTags;
-		$flaggedRevsTags = null;
-		if ( isset( $wgFlaggedRevTags ) ) {
-			$flaggedRevsTags = $wgFlaggedRevTags; // b/c
-			wfWarn( 'Please use $wgFlaggedRevsTags instead of $wgFlaggedRevTags in config.' );
-		} elseif ( isset( $wgFlaggedRevsTags ) ) {
-			$flaggedRevsTags = $wgFlaggedRevsTags;
-		}
+		global $wgFlaggedRevsTags;
+
 		# Assume true, then set to false if needed
-		if ( !empty( $flaggedRevsTags ) ) {
+		if ( !empty( $wgFlaggedRevsTags ) ) {
 			self::$qualityVersions = true;
 			self::$pristineVersions = true;
-			self::$binaryFlagging = ( count( $flaggedRevsTags ) <= 1 );
+			self::$binaryFlagging = ( count( $wgFlaggedRevsTags ) <= 1 );
 		}
-		foreach ( $flaggedRevsTags as $tag => $levels ) {
+		foreach ( $wgFlaggedRevsTags as $tag => $levels ) {
 			# Sanity checks
 			$safeTag = htmlspecialchars( $tag );
 			if ( !preg_match( '/^[a-zA-Z]{1,20}$/', $tag ) || $safeTag !== $tag ) {
 				throw new Exception( 'FlaggedRevs given invalid tag name!' );
 			}
+
 			# Define "quality" and "pristine" reqs
-			if ( is_array( $levels ) ) {
-				$minQL = $levels['quality'];
-				$minPL = $levels['pristine'];
-				$ratingLevels = $levels['levels'];
-			# B/C, $levels is just an integer (minQL)
-			} else {
-				global $wgFlaggedRevPristine, $wgFlaggedRevValues;
-				$ratingLevels = $wgFlaggedRevValues ?? 1;
-				$minQL = $levels; // an integer
-				$minPL = $wgFlaggedRevPristine ?? $ratingLevels + 1;
-				wfWarn( 'Please update the format of $wgFlaggedRevsTags in config.' );
-			}
+			$minQL = $levels['quality'];
+			$minPL = $levels['pristine'];
+			$ratingLevels = $levels['levels'];
+
 			# Set FlaggedRevs tags
 			self::$dimensions[$tag] = [];
 			for ( $i = 0; $i <= $ratingLevels; $i++ ) {
@@ -121,13 +108,8 @@ class FlaggedRevs {
 		}
 
 		# Handle restrictions on tags
-		global $wgFlaggedRevsTagsRestrictions, $wgFlagRestrictions;
-		if ( isset( $wgFlagRestrictions ) ) {
-			self::$tagRestrictions = $wgFlagRestrictions; // b/c
-			wfWarn( 'Please use $wgFlaggedRevsTagsRestrictions instead of $wgFlagRestrictions in config.' );
-		} else {
-			self::$tagRestrictions = $wgFlaggedRevsTagsRestrictions;
-		}
+		global $wgFlaggedRevsTagsRestrictions;
+		self::$tagRestrictions = $wgFlaggedRevsTagsRestrictions;
 
 		return true;
 	}
