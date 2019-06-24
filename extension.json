@@ -190,8 +190,8 @@
 		"FlaggedRevsAliases": "frontend/language/FlaggedRevs.alias.php"
 	},
 	"AutoloadClasses": {
-		"FlaggedRevsSetup": "FlaggedRevs.setup.php",
-		"FlaggedRevs": "backend/FlaggedRevs.class.php",
+		"FlaggedRevsSetup": "FlaggedRevsSetup.php",
+		"FlaggedRevs": "backend/FlaggedRevs.php",
 		"FRUserCounters": "backend/FRUserCounters.php",
 		"FRUserActivity": "backend/FRUserActivity.php",
 		"FRPageConfig": "backend/FRPageConfig.php",
@@ -210,7 +210,7 @@
 		"PageStabilityForm": "business/PageStabilityForm.php",
 		"PageStabilityGeneralForm": "business/PageStabilityForm.php",
 		"PageStabilityProtectForm": "business/PageStabilityForm.php",
-		"FlaggedRevsUISetup": "frontend/FlaggedRevsUI.setup.php",
+		"FlaggedRevsUISetup": "frontend/FlaggedRevsUISetup.php",
 		"FlaggablePageView": "frontend/FlaggablePageView.php",
 		"FlaggedRevsReviewLogFormatter": "frontend/FlaggedRevsReviewLogFormatter.php",
 		"FlaggedRevsStableLogFormatter": "frontend/FlaggedRevsStableLogFormatter.php",
@@ -247,10 +247,10 @@
 		"ApiQueryFlagged": "api/reports/ApiQueryFlagged.php",
 		"ApiFlagConfig": "api/reports/ApiFlagConfig.php",
 		"Scribunto_LuaFlaggedRevsLibrary": "scribunto/FlaggedRevs.library.php",
-		"FlaggedRevsHooks": "backend/FlaggedRevs.hooks.php",
-		"FlaggedRevsUIHooks": "frontend/FlaggedRevsUI.hooks.php",
-		"FlaggedRevsApiHooks": "api/FlaggedRevsApi.hooks.php",
-		"FlaggedRevsUpdaterHooks": "backend/schema/FlaggedRevsUpdater.hooks.php",
+		"FlaggedRevsHooks": "backend/FlaggedRevsHooks.php",
+		"FlaggedRevsUIHooks": "frontend/FlaggedRevsUIHooks.php",
+		"FlaggedRevsApiHooks": "api/FlaggedRevsApiHooks.php",
+		"FlaggedRevsUpdaterHooks": "backend/schema/FlaggedRevsUpdaterHooks.php",
 		"FlaggedRevsTestHooks": "tests/phpunit/FlaggedRevsTestHooks.php"
 	},
 	"ResourceModules": {
