@@ -55,12 +55,8 @@ class FlaggedRevs {
 		global $wgFlaggedRevsAutoReview, $wgFlaggedRevsAutoReviewNew;
 		if ( is_int( $wgFlaggedRevsAutoReview ) ) {
 			self::$autoReviewConfig = $wgFlaggedRevsAutoReview;
-		} else { // b/c
-			if ( $wgFlaggedRevsAutoReview ) {
-				self::$autoReviewConfig = FR_AUTOREVIEW_CHANGES;
-			}
-			wfWarn( '$wgFlaggedRevsAutoReview is now a bitfield instead of a boolean.' );
 		}
+
 		if ( isset( $wgFlaggedRevsAutoReviewNew ) ) { // b/c
 			self::$autoReviewConfig = ( $wgFlaggedRevsAutoReviewNew )
 				? self::$autoReviewConfig |= FR_AUTOREVIEW_CREATION
