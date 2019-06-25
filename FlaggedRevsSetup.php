@@ -26,30 +26,14 @@ class FlaggedRevsSetup {
 		return self::$canLoad;
 	}
 
-	/**
-	 * Register FlaggedRevs source code paths.
-	 *
-	 * @return void
-	 */
 	public static function setConditionalHooks() {
-		global $wgHooks, $wgFlaggedRevsProtection;
+		global $wgHooks;
 
-		if ( $wgFlaggedRevsProtection ) {
-			# Add pending changes related magic words
-			$wgHooks['ParserFirstCallInit'][] = 'FlaggedRevsHooks::onParserFirstCallInit';
-			$wgHooks['ParserGetVariableValueSwitch'][] = 'FlaggedRevsHooks::onParserGetVariableValueSwitch';
-			$wgHooks['MagicWordwgVariableIDs'][] = 'FlaggedRevsHooks::onMagicWordwgVariableIDs';
-		}
-
-		# ######## User interface #########
 		FlaggedRevsUISetup::defineHookHandlers( $wgHooks );
-		# ########
 	}
 
 	/**
 	 * Set $wgAutopromoteOnce
-	 *
-	 * @return void
 	 */
 	public static function setAutopromoteConfig() {
 		global $wgFlaggedRevsAutoconfirm, $wgFlaggedRevsAutopromote;
@@ -110,8 +94,6 @@ class FlaggedRevsSetup {
 
 	/**
 	 * Set special page cache updates
-	 *
-	 * @return void
 	 */
 	public static function setSpecialPageCacheUpdates() {
 		global $wgSpecialPageCacheUpdates;
@@ -122,8 +104,6 @@ class FlaggedRevsSetup {
 
 	/**
 	 * Set API modules
-	 *
-	 * @return void
 	 */
 	public static function setAPIModules() {
 		global $wgAPIModules, $wgAPIListModules;
@@ -141,8 +121,6 @@ class FlaggedRevsSetup {
 
 	/**
 	 * Remove irrelevant user rights
-	 *
-	 * @return void
 	 */
 	public static function setConditionalRights() {
 		global $wgGroupPermissions, $wgFlaggedRevsProtection;
@@ -161,8 +139,6 @@ class FlaggedRevsSetup {
 
 	/**
 	 * Set $wgDefaultUserOptions
-	 *
-	 * @return void
 	 */
 	public static function setConditionalPreferences() {
 		global $wgDefaultUserOptions, $wgSimpleFlaggedRevsUI;

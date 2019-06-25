@@ -308,6 +308,12 @@ class FlaggedRevsHooks {
 	}
 
 	public static function onParserFirstCallInit( &$parser ) {
+		global $wgFlaggedRevsProtection;
+
+		if ( !$wgFlaggedRevsProtection ) {
+			return true;
+		}
+
 		$parser->setFunctionHook( 'pagesusingpendingchanges',
 			'FlaggedRevsHooks::parserPagesUsingPendingChanges' );
 		$parser->setFunctionHook( 'pendingchangelevel',
@@ -316,13 +322,20 @@ class FlaggedRevsHooks {
 	}
 
 	public static function onParserGetVariableValueSwitch( &$parser, &$cache, &$word, &$ret ) {
-		if ( $word == 'pendingchangelevel' ) {
+		global $wgFlaggedRevsProtection;
+		if ( $wgFlaggedRevsProtection && $word === 'pendingchangelevel' ) {
 			$ret = self::parserPendingChangeLevel( $parser );
 		}
 		return true;
 	}
 
 	public static function onMagicWordwgVariableIDs( &$words ) {
+		global $wgFlaggedRevsProtection;
+
+		if ( !$wgFlaggedRevsProtection ) {
+			return true;
+		}
+
 		$words[] = 'pendingchangelevel';
 		return true;
 	}

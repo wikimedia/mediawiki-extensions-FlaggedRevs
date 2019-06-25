@@ -389,7 +389,10 @@
 		"DiffViewHeader": "FlaggedRevsUIHooks::onDiffViewHeader",
 		"NewDifferenceEngine": "FlaggedRevsUIHooks::checkDiffUrl",
 		"GetPreferences": "FlaggedRevsUIHooks::onGetPreferences",
-		"MakeGlobalVariablesScript": "FlaggedRevsUIHooks::onMakeGlobalVariablesScript"
+		"MakeGlobalVariablesScript": "FlaggedRevsUIHooks::onMakeGlobalVariablesScript",
+		"ParserFirstCallInit": "FlaggedRevsHooks::onParserFirstCallInit",
+		"ParserGetVariableValueSwitch": "FlaggedRevsHooks::onParserGetVariableValueSwitch",
+		"MagicWordwgVariableIDs": "FlaggedRevsHooks::onMagicWordwgVariableIDs"
 	},
 	"config": {
 		"SimpleFlaggedRevsUI": {
