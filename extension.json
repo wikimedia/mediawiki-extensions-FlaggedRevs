@@ -527,20 +527,7 @@
 		},
 		"FlaggedRevsAutopromote": {
 			"description": "Define when users get automatically promoted to Editors. Set as false to disable. Once users meet these requirements they will be promoted, unless previously demoted.",
-			"value": {
-				"days": 60,
-				"edits": 250,
-				"excludeLastDays": 1,
-				"benchmarks": 15,
-				"spacing": 3,
-				"totalContentEdits": 300,
-				"totalCheckedEdits": 200,
-				"uniqueContentPages": 14,
-				"editComments": 50,
-				"userpageBytes": 0,
-				"neverBlocked": true,
-				"maxRevertedEditRatio": 0.03
-			}
+			"value": false
 		},
 		"FlaggedRevsAutoconfirm": {
 			"description": "Define when users get to have their own edits auto-reviewed. Set to false to disable. This can be used for newer, semi-trusted users to improve workflow. It is done by granting some users the implicit 'autoreview' group.",
