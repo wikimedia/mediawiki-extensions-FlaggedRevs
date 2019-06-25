@@ -79,6 +79,10 @@ class FlaggedRevsUIHooks {
 	 * @param Skin &$skin
 	 */
 	public static function onBeforePageDisplay( &$out, &$skin ) {
+		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
+			return;
+		}
+
 		if ( $out->getTitle()->getNamespace() != NS_SPECIAL ) {
 			$view = FlaggablePageView::singleton();
 			$view->addStabilizationLink(); // link on protect form
@@ -156,6 +160,10 @@ class FlaggedRevsUIHooks {
 	}
 
 	public static function onImagePageFindFile( $imagePage, &$normalFile, &$displayFile ) {
+		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
+			return true;
+		}
+
 		$view = FlaggablePageView::singleton();
 		$view->imagePageFindFile( $normalFile, $displayFile );
 		return true;
@@ -169,8 +177,10 @@ class FlaggedRevsUIHooks {
 	 * @return true
 	 */
 	public static function onSkinTemplateTabs( Skin $skin, array &$contentActions ) {
-		if ( $skin instanceof SkinVector ) {
-			// *sigh*...skip, dealt with in setNavigation()
+		if (
+			defined( 'MW_HTML_FOR_DUMP' )
+			|| $skin instanceof SkinVector // *sigh*...skip, dealt with in setNavigation()
+		) {
 			return true;
 		}
 		if ( FlaggablePageView::globalArticleInstance() != null ) {
@@ -188,6 +198,10 @@ class FlaggedRevsUIHooks {
 	 * @return true
 	 */
 	public static function onSkinTemplateNavigation( Skin $skin, array &$links ) {
+		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
+			return true;
+		}
+
 		if ( FlaggablePageView::globalArticleInstance() != null ) {
 			$view = FlaggablePageView::singleton();
 			$view->setActionTabs( $skin, $links['actions'] );
@@ -197,6 +211,10 @@ class FlaggedRevsUIHooks {
 	}
 
 	public static function onArticleViewHeader( &$article, &$outputDone, &$useParserCache ) {
+		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
+			return true;
+		}
+
 		$view = FlaggablePageView::singleton();
 		$view->addStableLink( $outputDone, $useParserCache );
 		$view->setPageContent( $outputDone, $useParserCache );
@@ -206,6 +224,10 @@ class FlaggedRevsUIHooks {
 	public static function overrideRedirect(
 		Title $title, WebRequest $request, &$ignoreRedirect, &$target, Page &$article
 	) {
+		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
+			return true;
+		}
+
 		global $wgMemc, $wgParserCacheExpireTime;
 		$fa = FlaggableWikiPage::getTitleInstance( $title );
 		if ( !$fa->isReviewable() ) {
@@ -282,12 +304,20 @@ class FlaggedRevsUIHooks {
 	}
 
 	public static function onCategoryPageView( &$category ) {
+		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
+			return true;
+		}
+
 		$view = FlaggablePageView::singleton();
 		$view->addToCategoryView();
 		return true;
 	}
 
 	public static function onSkinAfterContent( &$data ) {
+		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
+			return true;
+		}
+
 		global $wgOut;
 		if ( $wgOut->isArticleRelated()
 			&& FlaggablePageView::globalArticleInstance() != null
@@ -506,8 +536,11 @@ class FlaggedRevsUIHooks {
 	public static function addToFileHistQuery(
 		File $file, array &$tables, array &$fields, &$conds, array &$opts, array &$join_conds
 	) {
-		if ( !$file->isLocal() ) {
-			return true; // local files only
+		if (
+			defined( 'MW_HTML_FOR_DUMP' )
+			|| !$file->isLocal() // local files only
+		) {
+			return true;
 		}
 		$flaggedArticle = FlaggableWikiPage::getTitleInstance( $file->getTitle() );
 		# Non-content pages cannot be validated. Stable version must exist.
@@ -535,6 +568,12 @@ class FlaggedRevsUIHooks {
 	}
 
 	public static function addToContribsQuery( $pager, array &$queryInfo ) {
+		global $wgFlaggedRevsProtection;
+
+		if ( $wgFlaggedRevsProtection ) {
+			return true;
+		}
+
 		# Highlight flaggedrevs
 		$queryInfo['tables'][] = 'flaggedrevs';
 		$queryInfo['fields'][] = 'fr_quality';
@@ -708,8 +747,11 @@ class FlaggedRevsUIHooks {
 	}
 
 	public static function addToFileHistLine( $hist, File $file, &$s, &$rowClass ) {
-		if ( !$file->isVisible() ) {
-			return true; // Don't bother showing notice for deleted revs
+		if (
+			defined( 'MW_HTML_FOR_DUMP' )
+			|| !$file->isVisible() // Don't bother showing notice for deleted revs
+		) {
+			return true;
 		}
 		# Quality level for old versions selected all at once.
 		# Commons queries cannot be done all at once...
@@ -740,8 +782,10 @@ class FlaggedRevsUIHooks {
 	 * @return bool
 	 */
 	public static function addToContribsLine( $contribs, &$ret, $row, &$classes ) {
+		global $wgFlaggedRevsProtection;
+
 		// make sure that we're parsing revisions data
-		if ( isset( $row->rev_id ) ) {
+		if ( !$wgFlaggedRevsProtection && isset( $row->rev_id ) ) {
 			$namespaces = FlaggedRevs::getReviewNamespaces();
 			if ( !in_array( $row->page_namespace, $namespaces ) ) {
 				// do nothing
@@ -890,11 +934,13 @@ class FlaggedRevsUIHooks {
 	 * @return true
 	 */
 	public static function onProtectionForm( Page $article, &$output ) {
-		global $wgUser, $wgOut, $wgRequest, $wgLang;
-		if ( !$article->exists() ) {
-			return true; // nothing to do
-		} elseif ( !FlaggedRevs::inReviewNamespace( $article->getTitle() ) ) {
-			return true; // not a reviewable page
+		global $wgUser, $wgOut, $wgRequest, $wgLang, $wgFlaggedRevsProtection;
+		if (
+			!$wgFlaggedRevsProtection
+			|| !$article->exists()
+			|| !FlaggedRevs::inReviewNamespace( $article->getTitle() ) // not a reviewable page
+		) {
+			return true;
 		}
 		$form = new PageStabilityProtectForm( $wgUser );
 		$form->setPage( $article->getTitle() );
@@ -1041,11 +1087,15 @@ class FlaggedRevsUIHooks {
 	 * @return true
 	 */
 	public static function insertStabilityLog( Page $article, OutputPage $out ) {
-		if ( !$article->exists() ) {
-			return true; // nothing to do
-		} elseif ( !FlaggedRevs::inReviewNamespace( $article->getTitle() ) ) {
-			return true; // not a reviewable page
+		global $wgFlaggedRevsProtection;
+		if (
+			!$wgFlaggedRevsProtection
+			|| !$article->exists()
+			|| !FlaggedRevs::inReviewNamespace( $article->getTitle() ) // not a reviewable page
+		) {
+			return true;
 		}
+
 		# Show relevant lines from the stability log:
 		$logPage = new LogPage( 'stable' );
 		$out->addHTML( Xml::element( 'h2', null, $logPage->getName()->text() ) );
@@ -1060,12 +1110,16 @@ class FlaggedRevsUIHooks {
 	 * @return true
 	 */
 	public static function onProtectionSave( Page $article, &$errorMsg ) {
-		global $wgUser, $wgRequest;
-		if ( !$article->exists() ) {
-			return true; // simple custom levels set for action=protect
-		} elseif ( !FlaggedRevs::inReviewNamespace( $article->getTitle() ) ) {
-			return true; // not a reviewable page
-		} elseif ( wfReadOnly() || !$wgUser->isAllowed( 'stablesettings' ) ) {
+		global $wgUser, $wgRequest, $wgFlaggedRevsProtection;
+		if (
+			!$wgFlaggedRevsProtection
+			|| !$article->exists() // simple custom levels set for action=protect
+			|| !FlaggedRevs::inReviewNamespace( $article->getTitle() ) // not a reviewable page
+		) {
+			return true;
+		}
+
+		if ( wfReadOnly() || !$wgUser->isAllowed( 'stablesettings' ) ) {
 			return true; // user cannot change anything
 		}
 		$form = new PageStabilityProtectForm( $wgUser );

@@ -64,8 +64,6 @@ class FlaggedRevsHooks {
 		FlaggedRevsSetup::setSpecialPageCacheUpdates();
 		# Conditional API modules
 		FlaggedRevsSetup::setAPIModules();
-		# Load hooks that aren't always set
-		FlaggedRevsSetup::setConditionalHooks();
 		# Remove conditionally applicable rights
 		FlaggedRevsSetup::setConditionalRights();
 		# Defaults for user preferences

@@ -26,12 +26,6 @@ class FlaggedRevsSetup {
 		return self::$canLoad;
 	}
 
-	public static function setConditionalHooks() {
-		global $wgHooks;
-
-		FlaggedRevsUISetup::defineHookHandlers( $wgHooks );
-	}
-
 	/**
 	 * Set $wgAutopromoteOnce
 	 */

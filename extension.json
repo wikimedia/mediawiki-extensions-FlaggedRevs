@@ -392,7 +392,22 @@
 		"MakeGlobalVariablesScript": "FlaggedRevsUIHooks::onMakeGlobalVariablesScript",
 		"ParserFirstCallInit": "FlaggedRevsHooks::onParserFirstCallInit",
 		"ParserGetVariableValueSwitch": "FlaggedRevsHooks::onParserGetVariableValueSwitch",
-		"MagicWordwgVariableIDs": "FlaggedRevsHooks::onMagicWordwgVariableIDs"
+		"MagicWordwgVariableIDs": "FlaggedRevsHooks::onMagicWordwgVariableIDs",
+		"ArticleViewHeader": "FlaggedRevsUIHooks::onArticleViewHeader",
+		"ImagePageFindFile": "FlaggedRevsUIHooks::onImagePageFindFile",
+		"InitializeArticleMaybeRedirect": "FlaggedRevsUIHooks::overrideRedirect",
+		"SkinTemplateTabs": "FlaggedRevsUIHooks::onSkinTemplateTabs",
+		"SkinTemplateNavigation": "FlaggedRevsUIHooks::onSkinTemplateNavigation",
+		"SkinAfterContent": "FlaggedRevsUIHooks::onSkinAfterContent",
+		"CategoryPageView": "FlaggedRevsUIHooks::onCategoryPageView",
+		"LocalFile::getHistory": "FlaggedRevsUIHooks::addToFileHistQuery",
+		"ImagePageFileHistoryLine": "FlaggedRevsUIHooks::addToFileHistLine",
+		"BeforePageDisplay": "FlaggedRevsUIHooks::onBeforePageDisplay",
+		"ContribsPager::getQueryInfo": "FlaggedRevsUIHooks::addToContribsQuery",
+		"ContributionsLineEnding": "FlaggedRevsUIHooks::addToContribsLine",
+		"ProtectionForm::buildForm": "FlaggedRevsUIHooks::onProtectionForm",
+		"ProtectionForm::showLogExtract": "FlaggedRevsUIHooks::insertStabilityLog",
+		"ProtectionForm::save": "FlaggedRevsUIHooks::onProtectionSave"
 	},
 	"config": {
 		"SimpleFlaggedRevsUI": {
