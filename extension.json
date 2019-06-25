@@ -394,14 +394,17 @@
 		"ParserGetVariableValueSwitch": "FlaggedRevsHooks::onParserGetVariableValueSwitch",
 		"MagicWordwgVariableIDs": "FlaggedRevsHooks::onMagicWordwgVariableIDs"
 	},
-	"config": {
+"config": {
 		"SimpleFlaggedRevsUI": {
+			"description": "This will only distinguish \"checked\", \"quality\", and unreviewed. A small icon will show in the upper right hand corner",
 			"value": true
 		},
 		"FlaggedRevsLowProfile": {
+			"description": "For visitors, only show tags/icons for unreviewed/outdated pages",
 			"value": true
 		},
 		"FlaggedRevsNamespaces": {
+			"description": "Allowed namespaces of reviewable pages",
 			"value": [
 				0,
 				6,
@@ -409,20 +412,41 @@
 			]
 		},
 		"FlaggedRevsWhitelist": {
+			"description": "Pages exempt from reviewing. No flagging UI will be shown for them",
 			"value": []
 		},
 		"FlaggedRevsOverride": {
+			"description": "Is a \"stable version\" used as the default display version for all pages in reviewable namespaces?",
 			"value": true
 		},
 		"FlaggedRevsExceptions": {
+			"description": "Below are groups that see the current revision by default. This makes editing easier since the users always start off viewing the latest version of pages.",
 			"value": [
 				"user"
 			]
 		},
 		"FlaggedRevsAutoReview": {
+			"description": [
+				"Auto-review settings for edits/new pages:",
+				"0 - (FR_AUTOREVIEW_NONE)",
+				"  Don't auto-review any edits or new pages",
+				"1 - (FR_AUTOREVIEW_CHANGES)",
+				"  Auto-review the following types of edits (to existing pages):",
+				"  (a) changes directly to the stable version by users with 'autoreview'/'bot'",
+				"  (b) reversions to old reviewed versions by users with 'autoreview'/'bot'",
+				"  (c) self-reversions back to the stable version by any user",
+				"2 - (FR_AUTOREVIEW_CREATION)",
+				"  Auto-review new pages as minimally \"checked\"",
+				"3 - (FR_AUTOREVIEW_CREATION_AND_CHANGES)",
+				"  Combines FR_AUTOREVIEW_CHANGES (1) and FR_AUTOREVIEW_CREATION (2)"
+			],
 			"value": 3
 		},
 		"FlaggedRevsTags": {
+			"description": [
+				"Define the tags we can use to rate an article, number of levels, and set the minimum level to have it become a \"quality\" or \"pristine\" version.",
+				"NOTE: When setting up new dimensions or levels, you will need to add some MediaWiki messages for the UI to show properly; any sysop can do this."
+			],
 			"value": {
 				"accuracy": {
 					"levels": 3,
@@ -442,6 +466,11 @@
 			}
 		},
 		"FlaggedRevsTagsRestrictions": {
+			"description": [
+				"For each tag, define the highest tag level that is unlocked by having certain rights. For example, having 'review' rights may allow for \"depth\" to be rated up to second level.",
+				"NOTE: Users cannot lower revision tags from a level they can't set",
+				"NOTE: Users with 'validate' (Reviewers) can set all tags to all levels"
+			],
 			"value": {
 				"accuracy": {
 					"review": 1,
@@ -458,6 +487,7 @@
 			}
 		},
 		"FlaggedRevsTagsAuto": {
+			"description": "For each tag, what is the highest level that it can be auto-reviewed to? $wgFlaggedRevsAutoReview must be enabled for this to apply",
 			"value": {
 				"accuracy": 1,
 				"depth": 1,
@@ -465,15 +495,23 @@
 			}
 		},
 		"FlaggedRevsRestrictionLevels": {
+			"description": "Restriction levels for 'autoreview'/'review' rights. When a level is selected for a page, an edit made by a user will not be auto-reviewed if the user lacks the specified permission. Levels are set at the Stabilization special page.",
 			"value": [
 				"",
 				"sysop"
 			]
 		},
 		"FlaggedRevsProtection": {
+			"description": [
+				"Set this to use FlaggedRevs *only* as a protection-like mechanism.",
+				"This will disable Stabilization and show the above restriction levels on the protection form of pages. Each level has the stable version shown by default.",
+				"A \"none\" level will appear in the form as well, to disable the review process.",
+				"Pages will only be reviewable if manually restricted to a level above \"none\"."
+			],
 			"value": false
 		},
 		"FlaggedRevsAutopromote": {
+			"description": "Define when users get automatically promoted to Editors. Set as false to disable. Once users meet these requirements they will be promoted, unless previously demoted.",
 			"value": {
 				"days": 60,
 				"edits": 250,
@@ -490,21 +528,39 @@
 			}
 		},
 		"FlaggedRevsAutoconfirm": {
+			"description": "Define when users get to have their own edits auto-reviewed. Set to false to disable. This can be used for newer, semi-trusted users to improve workflow. It is done by granting some users the implicit 'autoreview' group.",
 			"value": false
 		},
 		"FlaggedRevsOversightAge": {
+			"description": "How far the logs for overseeing quality revisions and depreciations go",
 			"value": 2592000
 		},
 		"FlaggedRevsStatsAge": {
+			"description": "How long before Special:ValidationStatistics is updated. Set to false to disable (perhaps using a cron job instead).",
 			"value": 7200
 		},
 		"FlaggedRevsStats": {
+			"description": [
+				"Configurable information to collect and display at Special:ValidationStatistics",
+				" topReviewersCount - how many top reviewers to list",
+				" topReviewersHours - how many hours of the last reviews to count"
+			],
 			"value": {
 				"topReviewersCount": 5,
 				"topReviewersHours": 1
 			}
 		},
 		"FlaggedRevsHandleIncludes": {
+			"description": [
+				"How to handle templates and files used in stable versions:",
+				"0 - (FR_INCLUDES_CURRENT)",
+				"  Always use the current version of templates/files",
+				"1 - (FR_INCLUDES_FREEZE)",
+				"  Use the version of templates/files that the page used when reviewed",
+				"2 - (FR_INCLUDES_STABLE)",
+				"  For each template/file, check if a version of it was used when the page was reviewed and if the template/file itself has a stable version; use the newest those versions",
+				"NOTE: We may have templates that do not have stable version. Also, given situational inclusion of templates (e.g. parser functions selecting template X or Y based on date) there may also be no \"review time version\" revision ID for a template used on a page. In such cases, we select the current (unreviewed) revision. Likewise for files."
+			],
 			"value": 2
 		}
 	},
