@@ -34,52 +34,74 @@ class FlaggedRevsSetup {
 		global $wgAutopromoteOnce, $wgGroupPermissions;
 
 		# $wgFlaggedRevsAutoconfirm is now a wrapper around $wgAutopromoteOnce
-		$req = $wgFlaggedRevsAutoconfirm; // convenience
-		if ( is_array( $req ) ) {
+		if ( is_array( $wgFlaggedRevsAutoconfirm ) ) {
 			$criteria = [ '&', // AND
-				[ APCOND_AGE, $req['days'] * 86400 ],
-				[ APCOND_EDITCOUNT, $req['edits'] ],
-				[ APCOND_FR_EDITSUMMARYCOUNT, $req['editComments'] ],
-				[ APCOND_FR_UNIQUEPAGECOUNT, $req['uniqueContentPages'] ],
-				[ APCOND_FR_EDITSPACING, $req['spacing'], $req['benchmarks'] ],
+				[ APCOND_AGE, $wgFlaggedRevsAutoconfirm['days'] * 86400 ],
+				[ APCOND_EDITCOUNT, $wgFlaggedRevsAutoconfirm['edits'] ],
+				[ APCOND_FR_EDITSUMMARYCOUNT, $wgFlaggedRevsAutoconfirm['editComments'] ],
+				[ APCOND_FR_UNIQUEPAGECOUNT, $wgFlaggedRevsAutoconfirm['uniqueContentPages'] ],
+				[
+					APCOND_FR_EDITSPACING,
+					$wgFlaggedRevsAutoconfirm['spacing'],
+					$wgFlaggedRevsAutoconfirm['benchmarks']
+				],
 				[ '|', // OR
-					[ APCOND_FR_CONTENTEDITCOUNT,
-						$req['totalContentEdits'], $req['excludeLastDays'] * 86400 ],
-					[ APCOND_FR_CHECKEDEDITCOUNT,
-						$req['totalCheckedEdits'], $req['excludeLastDays'] * 86400 ]
+					[
+						APCOND_FR_CONTENTEDITCOUNT,
+						$wgFlaggedRevsAutoconfirm['totalContentEdits'],
+						$wgFlaggedRevsAutoconfirm['excludeLastDays'] * 86400
+					],
+					[
+						APCOND_FR_CHECKEDEDITCOUNT,
+						$wgFlaggedRevsAutoconfirm['totalCheckedEdits'],
+						$wgFlaggedRevsAutoconfirm['excludeLastDays'] * 86400
+					]
 				],
 			];
-			if ( $req['email'] ) {
+			if ( $wgFlaggedRevsAutoconfirm['email'] ) {
 				$criteria[] = [ APCOND_EMAILCONFIRMED ];
 			}
-			if ( $req['neverBlocked'] ) {
+			if ( $wgFlaggedRevsAutoconfirm['neverBlocked'] ) {
 				$criteria[] = [ APCOND_FR_NEVERBLOCKED ];
 			}
 			$wgAutopromoteOnce['onEdit']['autoreview'] = $criteria;
 			$wgGroupPermissions['autoreview']['autoreview'] = true;
 		}
 
-		# $wgFlaggedRevsAutoconfirm is now a wrapper around $wgAutopromoteOnce
-		$req = $wgFlaggedRevsAutopromote; // convenience
-		if ( is_array( $req ) ) {
+		# $wgFlaggedRevsAutopromote is now a wrapper around $wgAutopromoteOnce
+		if ( is_array( $wgFlaggedRevsAutopromote ) ) {
 			$criteria = [ '&', // AND
-				[ APCOND_AGE, $req['days'] * 86400 ],
-				[ APCOND_FR_EDITCOUNT, $req['edits'], $req['excludeLastDays'] * 86400 ],
-				[ APCOND_FR_EDITSUMMARYCOUNT, $req['editComments'] ],
-				[ APCOND_FR_UNIQUEPAGECOUNT, $req['uniqueContentPages'] ],
-				[ APCOND_FR_USERPAGEBYTES, $req['userpageBytes'] ],
-				[ APCOND_FR_NEVERDEMOTED ], // for b/c
-				[ APCOND_FR_EDITSPACING, $req['spacing'], $req['benchmarks'] ],
-				[ '|', // OR
-					[ APCOND_FR_CONTENTEDITCOUNT,
-						$req['totalContentEdits'], $req['excludeLastDays'] * 86400 ],
-					[ APCOND_FR_CHECKEDEDITCOUNT,
-						$req['totalCheckedEdits'], $req['excludeLastDays'] * 86400 ]
+				[ APCOND_AGE, $wgFlaggedRevsAutopromote['days'] * 86400 ],
+				[
+					APCOND_FR_EDITCOUNT,
+					$wgFlaggedRevsAutopromote['edits'],
+					$wgFlaggedRevsAutopromote['excludeLastDays'] * 86400
 				],
-				[ APCOND_FR_MAXREVERTEDEDITRATIO, $req['maxRevertedEditRatio'] ],
+				[ APCOND_FR_EDITSUMMARYCOUNT, $wgFlaggedRevsAutopromote['editComments'] ],
+				[ APCOND_FR_UNIQUEPAGECOUNT, $wgFlaggedRevsAutopromote['uniqueContentPages'] ],
+				[ APCOND_FR_USERPAGEBYTES, $wgFlaggedRevsAutopromote['userpageBytes'] ],
+				[ APCOND_FR_NEVERDEMOTED ], // for b/c
+				[
+					APCOND_FR_EDITSPACING,
+					$wgFlaggedRevsAutopromote['spacing'],
+					$wgFlaggedRevsAutopromote['benchmarks']
+				],
+				[ '|', // OR
+					[
+						APCOND_FR_CONTENTEDITCOUNT,
+						$wgFlaggedRevsAutopromote['totalContentEdits'],
+						$wgFlaggedRevsAutopromote['excludeLastDays'] * 86400
+					],
+					[
+						APCOND_FR_CHECKEDEDITCOUNT,
+						$wgFlaggedRevsAutopromote['totalCheckedEdits'],
+						$wgFlaggedRevsAutopromote['excludeLastDays'] * 86400
+					]
+				],
+				[ APCOND_FR_MAXREVERTEDEDITRATIO, $wgFlaggedRevsAutopromote['maxRevertedEditRatio'] ],
 				[ '!', APCOND_ISBOT ]
 			];
-			if ( $req['neverBlocked'] ) {
+			if ( $wgFlaggedRevsAutopromote['neverBlocked'] ) {
 				$criteria[] = [ APCOND_FR_NEVERBLOCKED ];
 			}
 			$wgAutopromoteOnce['onEdit']['editor'] = $criteria;
