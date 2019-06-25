@@ -332,7 +332,7 @@
 		}
 	},
 	"ResourceFileModulePaths": {
-		"localBasePath": "frontend/modules/",
+		"localBasePath": "frontend/modules",
 		"remoteExtPath": "FlaggedRevs/frontend/modules"
 	},
 	"Hooks": {
