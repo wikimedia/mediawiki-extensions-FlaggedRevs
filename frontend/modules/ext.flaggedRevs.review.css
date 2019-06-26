@@ -19,11 +19,6 @@
 	color: #72777d;
 }
 
-/* stylelint-disable-next-line selector-max-id */
-#mw-fr-confirmreview {
-	white-space: nowrap;
-}
-
 .fr-rating-options {
 	margin-right: 1.5em;
 	white-space: nowrap;
