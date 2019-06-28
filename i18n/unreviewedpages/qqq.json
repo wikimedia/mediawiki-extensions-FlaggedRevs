@@ -13,7 +13,6 @@
 			"Umherirrender"
 		]
 	},
-	"action-unreviewedpages": "{{Flagged Revs}}\n\n{{doc-action|unreviewedpages}}",
 	"unreviewedpages": "{{Flagged Revs}}\nName of the [[Special:UnreviewedPages]] page, which lists out pages lacking a stable version.",
 	"unreviewedpages-legend": "{{Flagged Revs}}\nUsed on the page Special:UnreviewedPages.\nNote that \"content pages\" are any page that *can* be reviewed.\n{{Identical|Content page}}",
 	"unreviewedpages-category": "{{Flagged Revs}}\nUsed on the page Special:UnreviewedPages.\n{{Identical|Category}}",
