@@ -7,6 +7,7 @@
 		]
 	},
 	"action-review": "redaktsioone üle vaadata",
+	"action-unreviewedpages": "vaadata ülevaatamata lehekülgede loendit",
 	"editor": "Toimetaja",
 	"flaggedrevs": "Vaadatud redaktsioonid",
 	"flaggedrevs-watched-pending": "Sinu jälgimisloendis olevatel ülevaadatud lehekülgedel on praegu [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ootel muudatusi]. '''Tarvis on sinu tähelepanu!'''",

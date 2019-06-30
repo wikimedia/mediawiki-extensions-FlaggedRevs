@@ -13,6 +13,7 @@
 		]
 	},
 	"action-review": "proveravate izmene",
+	"action-unreviewedpages": "pregledate spisak neproverenih stranica",
 	"editor": "Uređivač",
 	"flaggedrevs": "Označene izmene",
 	"flaggedrevs-watched-pending": "Na Vašem spisku nadgledanja trenutno ima: [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} promena] koje čekaju proveru. '''Obratite pažnju!'''",

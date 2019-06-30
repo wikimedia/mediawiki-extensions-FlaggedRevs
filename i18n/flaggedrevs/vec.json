@@ -7,6 +7,7 @@
 		]
 	},
 	"action-review": "verificar le revision",
+	"action-unreviewedpages": "varda ła lista de łe pàjine no revixionae",
 	"editor": "Contributor",
 	"flaggedrevs": "Revision marcade",
 	"flaggedrevs-watched-pending": "Ghe xe atualmente [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} dei canbiamenti in atesa] su pagine verificà che te tien d'ocio. '''Ghe xe bisogno de la to atension!'''",

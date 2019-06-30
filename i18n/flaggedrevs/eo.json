@@ -19,6 +19,7 @@
 	"action-review": "kontroli reviziojn",
 	"action-stablesettings": "agordi elektadon kaj montradon de stabila versio",
 	"action-validate": "marki versiojn kiel \"bonkvalitajn\"",
+	"action-unreviewedpages": "vidi la liston de nekontrolitaj paĝoj",
 	"editor": "Revizianto",
 	"flaggedrevs": "Markitaj Versioj",
 	"flaggedrevs-watched-pending": "Estas [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ne-reviziitaj redaktoj] de reviziitaj paĝoj en via atentaro. '''Via atento estas bezonata!'''",

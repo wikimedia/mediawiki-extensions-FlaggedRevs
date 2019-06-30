@@ -25,6 +25,7 @@
 		]
 	},
 	"action-review": "revizyonları inceler",
+	"action-unreviewedpages": "gözden geçirilmemiş sayfalar listesini görüntüle",
 	"editor": "Editör",
 	"flaggedrevs": "İşaretlenmiş Sürümler",
 	"flaggedrevs-watched-pending": "Şu anda izleme listenizdeki incelenmiş sayfaların [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} bekleyen değişiklikleri] mevcut. '''İlgilenmeniz gerekiyor!'''",

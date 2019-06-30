@@ -9,6 +9,7 @@
 		]
 	},
 	"action-review": "अवतरणों को पुनरीक्षित करने",
+	"action-unreviewedpages": "सभी अनिरीक्षित पृष्ठों की सूची देखने",
 	"editor": "सम्पादक",
 	"flaggedrevs": "पुनरीक्षित अवतरण",
 	"flaggedrevs-watched-pending": "इस समय आपकी ध्यानसूची में पुनरीक्षित पृष्ठों पर [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} अनिरीक्षित बदलाव] हैं। '''आपकी सहायता की आवश्यकता है!'''",

@@ -35,6 +35,7 @@
 	},
 	"action-review": "verificar ediciones",
 	"action-validate": "marcar revisiones como «de calidad»",
+	"action-unreviewedpages": "ver la lista de páginas no revisadas",
 	"editor": "Editor",
 	"flaggedrevs": "Versiones verificadas",
 	"flaggedrevs-watched-pending": "Hay actualmente [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ediciones pendientes] en páginas revisadas de tu lista de seguimiento. '''Se necesita tu atención.'''",

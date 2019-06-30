@@ -10,6 +10,7 @@
 		]
 	},
 	"action-review": "праверыць вэрсіі",
+	"action-unreviewedpages": "прагляд сьпісу неправераных старонак",
 	"editor": "Рэдактар",
 	"flaggedrevs": "Пазначаныя вэрсіі",
 	"flaggedrevs-watched-pending": "Існуе адставаньне ў [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} праверцы рэдагаваньняў] правераных старонак у Вашым сьпісе назіраньня. '''Зьвярніце ўвагу!'''",

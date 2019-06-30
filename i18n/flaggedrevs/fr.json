@@ -33,6 +33,7 @@
 	"action-review": "relire les versions",
 	"action-stablesettings": "configurer comment la version stable est sélectionnée et affichée",
 	"action-validate": "marquer les révisions comme étant « de qualité »",
+	"action-unreviewedpages": "afficher la liste des pages non relues",
 	"editor": "Relecteur",
 	"flaggedrevs": "Versions marquées",
 	"flaggedrevs-watched-pending": "Il y a actuellement [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} des modifications en attente] de pages relues dans votre liste de suivi. '''Veuillez y prêter attention !'''",

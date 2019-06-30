@@ -5,6 +5,7 @@
 		]
 	},
 	"action-review": "Lehtpoliden versijoiden kodvind",
+	"action-unreviewedpages": "Ozutada kacmatomiden lehtpoliden nimikirjutez",
 	"editor": "Redaktor",
 	"flaggedrevs": "Znamoitud versijad",
 	"flaggedrevs-watched-pending": "Nügüd' om [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} uzid arvosteldud lehtpoliden redakcijoid] teiden kaclendnimikirjuteses. '''Olgat hüväd, vedagat teiden tarkust!'''",

@@ -6,6 +6,7 @@
 		]
 	},
 	"action-review": "Suriing muli ang mga binago",
+	"action-unreviewedpages": "tingnan ang talaan ng mga pahinang hindi pa nasusuri",
 	"editor": "Patnugot",
 	"flaggedrevs": "Naibandilang (natatakang) mga pagbabago",
 	"flaggedrevs-watched-pending": "Pangkasalukuyang may [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} mga naghihintay na pamamatnugot] sa nasuring nang mga pahina ng iyong talaan ng binabantayan. '''Kailangan ang pagpansin mo!'''.",

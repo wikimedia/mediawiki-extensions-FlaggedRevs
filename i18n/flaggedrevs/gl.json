@@ -13,6 +13,7 @@
 		]
 	},
 	"action-review": "revisar revisións",
+	"action-unreviewedpages": "ver a lista das páxinas non revisadas",
 	"editor": "Editor",
 	"flaggedrevs": "Revisións comprobadas",
 	"flaggedrevs-watched-pending": "Actualmente hai [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} edicións pendentes] de páxinas revisadas na súa lista de vixilancia. '''A súa atención é necesaria!'''",

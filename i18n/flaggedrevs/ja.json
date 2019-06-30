@@ -21,6 +21,7 @@
 		]
 	},
 	"action-review": "特定版の査読",
+	"action-unreviewedpages": "未査読ページの一覧の閲覧",
 	"editor": "編集者",
 	"flaggedrevs": "特定版の判定",
 	"flaggedrevs-watched-pending": "査読済みページに対する[{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} 保留中の編集]があります。'''確認にご協力ください!'''",

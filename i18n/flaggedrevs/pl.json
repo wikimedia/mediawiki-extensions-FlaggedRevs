@@ -28,6 +28,7 @@
 		]
 	},
 	"action-review": "przeglądania wersji",
+	"action-unreviewedpages": "widok listy  niesprawdzonych stron",
 	"editor": "Redaktor",
 	"flaggedrevs": "Wersje oznaczone",
 	"flaggedrevs-watched-pending": "Na Twojej liście obserwowanych stron znajdują się strony [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} oczekujące na przejrzenie]. '''Potrzebna jest Twoja pomoc!'''",

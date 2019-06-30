@@ -7,6 +7,7 @@
 		]
 	},
 	"action-review": "Versione priefe",
+	"action-unreviewedpages": "d Lischt vu dr nit gsichtete Syten aazluege",
 	"editor": "Fäldhieter",
 	"flaggedrevs": "Markierti Versione",
 	"flaggedrevs-watched-pending": "S het im Momänt [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} hängigi Änderige] uf Syte, wu uf Dyynere Beobachtigslischt stehn. '''S brucht Dyyni Ufmerksamkeit!'''",

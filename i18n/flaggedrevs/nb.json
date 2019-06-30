@@ -17,6 +17,7 @@
 		]
 	},
 	"action-review": "gjennomgå revisjoner",
+	"action-unreviewedpages": "vise listen over ureviderte sider",
 	"editor": "Skribent",
 	"flaggedrevs": "Stabile versjoner",
 	"flaggedrevs-watched-pending": "Det er for øyeblikket [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ventende endringer] til sider merket for gjennomgang i din overvåkningsliste. '''Din oppmerksomhet trengs!'''",

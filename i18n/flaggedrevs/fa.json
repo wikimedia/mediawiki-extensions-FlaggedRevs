@@ -17,6 +17,7 @@
 		]
 	},
 	"action-review": "بازبینی نسخه‌ها",
+	"action-unreviewedpages": "مشاهدهٔ صفحه‌های پی‌گیری نشده",
 	"editor": "ویرایشگر",
 	"flaggedrevs": "نسخه‌های علامت‌دار",
 	"flaggedrevs-watched-pending": "هم‌اکنون [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} تغییرات در حال انتظار] در صفحه‌های بازبینی‌شده  در فهرست پی‌گیری‌های شما وجود دارند.\n'''به توجه شما نیاز است!'''",

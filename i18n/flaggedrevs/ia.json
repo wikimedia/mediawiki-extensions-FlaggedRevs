@@ -10,6 +10,7 @@
 	"action-review": "revider versiones",
 	"action-stablesettings": "configurar como le version stabile es seligite e monstrate",
 	"action-validate": "marcar versiones como \"de qualitate\"",
+	"action-unreviewedpages": "vider le lista de paginas non revidite",
 	"editor": "Redactor",
 	"flaggedrevs": "Marcaversiones",
 	"flaggedrevs-watched-pending": "Al momento il ha [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} modificationes pendente] de paginas revidite in tu observatorio. '''Isto require tu attention!'''",

@@ -15,6 +15,7 @@
 		]
 	},
 	"action-review": "tinjau revisi",
+	"action-unreviewedpages": "lihat daftar halaman yang belum ditinjau",
 	"editor": "Penyunting",
 	"flaggedrevs": "Revisi bertanda",
 	"flaggedrevs-watched-pending": "Saat ini ada halaman [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} suntingan tertunda] untuk ditinjau dalam daftar pantauan Anda. '''Perhatian Anda diperlukan!'''",

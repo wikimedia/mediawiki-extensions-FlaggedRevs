@@ -17,6 +17,7 @@
 		]
 	},
 	"action-review": "revisionare versioni",
+	"action-unreviewedpages": "vedere l'elenco delle pagine non revisionate",
 	"editor": "Redattore",
 	"flaggedrevs": "Verifica delle versioni",
 	"flaggedrevs-watched-pending": "Ci sono [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} modifiche in sospeso] a pagine in corso di verifica fra quelle che segui. '''È richiesta la tua attenzione!'''",

@@ -7,6 +7,7 @@
 		]
 	},
 	"action-review": "агlонаший варсийшка хьажар",
+	"action-unreviewedpages": "хьажанца йолу агӀонийн могӀане хьажар",
 	"editor": "Хьажамхо",
 	"flaggedrevs": "Къастамашца башхонаш",
 	"flaggedrevs-watched-pending": "Хьан тlехьажаран могlамца [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ду нисдарш], нийса ду ле дац хьежарехь. '''Дехар до, тидам бар!'''",

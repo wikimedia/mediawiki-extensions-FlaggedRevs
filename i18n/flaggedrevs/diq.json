@@ -20,6 +20,7 @@
 	"action-review": "çımraviyarnayışan qontrol ke",
 	"action-stablesettings": "versiyonê istıqrarın çıtewri ke veciyeno û çiniyeno we, inan eyar ke",
 	"action-validate": "revizyonan be \"kalite\" ra işaret ke",
+	"action-unreviewedpages": "lista pelanê seyrnêbiyayeyan bıvêne",
 	"editor": "Vurnayoğ",
 	"flaggedrevs": "Rewizyonê Desmalyaye",
 	"flaggedrevs-watched-pending": "pelê çımserçarnayeyi yê listeya şıma de [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} tayê vurnayişi esti]. '''paweyê elaqaya şıma!'''",

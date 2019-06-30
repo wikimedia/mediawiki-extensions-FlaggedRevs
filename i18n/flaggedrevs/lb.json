@@ -8,6 +8,7 @@
 		]
 	},
 	"action-review": "Versiounen nokucken",
+	"action-unreviewedpages": "d'Lëscht vun den net nogekuckte Säiten ze kucken",
 	"editor": "Editeur",
 	"flaggedrevs": "Markéiert Versiounen",
 	"flaggedrevs-watched-pending": "Et sinn elo [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} net nogekucken Ännerungen] vun nogekuckte Säiten op Ärer Iwwerwaachungslëscht. '''Är Opmierksamkeet gëtt gebraucht!'''",

@@ -17,7 +17,8 @@
 			"Cainamarques",
 			"Opraco",
 			"AlvaroMolina",
-			"Athena in Wonderland"
+			"Athena in Wonderland",
+			"GoEThe"
 		]
 	},
 	"action-autoreview": "ter as edições próprias marcadas automaticamente como \"verificadas\"",
@@ -26,6 +27,7 @@
 	"action-review": "rever edições",
 	"action-stablesettings": "configurar como é selecionada e apresentada a versão publicada",
 	"action-validate": "marcar edições como de \"qualidade\"",
+	"action-unreviewedpages": "ver a lista de páginas não revistas",
 	"editor": "Editor",
 	"flaggedrevs": "Revisão de Edições",
 	"flaggedrevs-watched-pending": "Existem [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} alterações pendentes] a páginas revistas que estão nas suas páginas vigiadas. '''É necessária a sua atenção!'''",

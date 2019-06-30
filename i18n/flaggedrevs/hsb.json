@@ -6,6 +6,7 @@
 		]
 	},
 	"action-review": "wersije přepruwować",
+	"action-unreviewedpages": "lisćinu njepřepruwowanych stronow zwobraznić",
 	"editor": "wobdźěłowar",
 	"flaggedrevs": "Woznamjenjene wersije",
 	"flaggedrevs-watched-pending": "Su tuchwilu [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} njesčinjene změny] přepruwowanych stronow na twojej wobkedźbowankach. '''Twoja kedźbliwosć je trěbna!'''",

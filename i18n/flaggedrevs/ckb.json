@@ -8,6 +8,7 @@
 		]
 	},
 	"action-review": "بەسەرداچوونەوەی پێداچوونەوەکان",
+	"action-unreviewedpages": "پێرستی پەڕە بەسەردانەچووەکان ببینە",
 	"editor": "دەستکاریکەر",
 	"flaggedrevs": "پێداچوونەوە نیشانکراوەکان",
 	"flaggedrevs-watched-pending": "ھەنووکە پێرستی چاودێریت [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} گۆڕانکارییە ھەڵواسراوەکان] لە پەڕە بەسەرداچووەکانی تێدایە. '''سەرنجی تۆی دەوێت!'''",

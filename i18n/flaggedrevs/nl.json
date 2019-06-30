@@ -15,6 +15,7 @@
 		]
 	},
 	"action-review": "versies als \"gecontroleerd\" te markeren",
+	"action-unreviewedpages": "de lijst met ongecontroleerde pagina's te bekijken",
 	"editor": "Redacteur",
 	"flaggedrevs": "Gepubliceerde versies",
 	"flaggedrevs-watched-pending": "Er zijn op het moment [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ongecontroleerde bewerkingen op uw volglijst].\n'''Uw aandacht is gewenst!'''",

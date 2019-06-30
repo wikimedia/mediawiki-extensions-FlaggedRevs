@@ -19,6 +19,7 @@
 		]
 	},
 	"action-review": "arvioida versioita",
+	"action-unreviewedpages": "nähdä luetteloa arvioimattomista sivuista",
 	"editor": "Seuloja",
 	"flaggedrevs": "Merkityt versiot",
 	"flaggedrevs-watched-pending": "Tarkkailulistallasi olevilla arvioiduilla sivuilla on [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} odottavia muutoksia]. '''Huomiotasi tarvitaan!'''",

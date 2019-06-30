@@ -16,6 +16,7 @@
 	"action-review": "təftişləri yoxla",
 	"action-stablesettings": "Sabit versiyanın necə seçildiyini və göstərildiyini konfiqurasiya et",
 	"action-validate": "Düzəlişi \"keyfiyyət\" olaraq işarələ",
+	"action-unreviewedpages": "Yoxlanılmamış səhifələrin siyahısını göstər",
 	"editor": "Redaktor",
 	"flaggedrevs": "İşarələnmiş yoxlamalar",
 	"flaggedrevs-watched-pending": "İzləmə siyahınızda nəzərdən keçirilmiş səhifələr üçün [{{fullurl:{{#Special:OldReviewedPages}}|izlənildi=1}}] hazırda dəyişikliklər var. '''Diqqətiniz lazımdır'''",

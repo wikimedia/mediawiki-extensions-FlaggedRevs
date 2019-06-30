@@ -26,6 +26,7 @@
 	"action-review": "راجع المراجعات",
 	"action-stablesettings": "تكوين كيفية اختيار وعرض النسخة المنشورة",
 	"action-validate": "التعليم على المراجعات \"كجودة\"",
+	"action-unreviewedpages": "عرض قائمة الصفحات غير المراجعة",
 	"editor": "محرر",
 	"flaggedrevs": "مراجعات معلمة",
 	"flaggedrevs-watched-pending": "توجد حاليا [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} تعديلات في الانتظار] لمراجعة الصفحات في قائمة مراقبتك '''انتباهك مطلوب!'''",

@@ -26,6 +26,7 @@
 	"action-review": "revisar edições",
 	"action-stablesettings": "configurar como é selecionada e apresentada a versão publicada",
 	"action-validate": "marcar revisões como sendo \"qualidade\"",
+	"action-unreviewedpages": "ver a lista de páginas não revisadas",
 	"editor": "Editor",
 	"flaggedrevs": "Revisão de Edições",
 	"flaggedrevs-watched-pending": "Há atualmente [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} edições pendentes] a serem analisadas em páginas da sua lista de páginas vigiadas. '''A sua atenção é necessária!'''",

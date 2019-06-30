@@ -7,6 +7,7 @@
 		]
 	},
 	"action-review": "duyệt phiên bản",
+	"action-unreviewedpages": "xem danh sách các trang chưa duyệt",
 	"editor": "Biên tập viên",
 	"flaggedrevs": "Phiên bản đánh dấu",
 	"flaggedrevs-watched-pending": "Hiện có [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} sửa đổi chưa duyệt] tại trang đã duyệt trong danh sách theo dõi của bạn. '''Cần bạn chú ý!'''",

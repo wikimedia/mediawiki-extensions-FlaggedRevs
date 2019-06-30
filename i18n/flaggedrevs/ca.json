@@ -14,10 +14,12 @@
 			"Toniher",
 			"Vriullop",
 			"Syum90",
-			"AlvaroMolina"
+			"AlvaroMolina",
+			"Fitoschido"
 		]
 	},
 	"action-review": "supervisa les revisions",
+	"action-unreviewedpages": "visualitza la llista de les pàgines no revisades",
 	"editor": "Editor",
 	"flaggedrevs": "Revisions senyalades",
 	"flaggedrevs-watched-pending": "Hi ha actualment [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} canvis en curs] es trobant a la seva llista de seguiment que ha de revisar. '''Necessita la seva atenció!'''",
@@ -182,5 +184,6 @@
 	"revreview-unlocked-title": "Canvis en aquesta pàgina no necessiten cap revisió.",
 	"revreview-locked": "'''Avís''': canvis han ser [[{{MediaWiki:Validationpage}}|aprovats]] abans de ser afixats als lectors d'aquesta pàgina",
 	"revreview-unlocked": "'''Avís:''' Canvis no necessiten cap [[{{MediaWiki:Validationpage}}|approbació]] abans de ser afixats als lectors d'aquesta pàgina.",
-	"validationpage": "{{ns:help}}:Aprovació de les pàgines"
+	"validationpage": "{{ns:help}}:Aprovació de les pàgines",
+	"log-action-filter-stable-config": "Configuració nova"
 }

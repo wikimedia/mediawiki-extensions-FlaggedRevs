@@ -6,6 +6,7 @@
 		]
 	},
 	"action-review": "revisar revisiones",
+	"action-unreviewedpages": "ver la llista de páxines ensin revisar",
 	"editor": "Editor",
 	"flaggedrevs": "Revisiones marcaes",
 	"flaggedrevs-watched-pending": "Anguaño hai [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ediciones pendientes] en páxines revisaes de la to llista de vixilancia. '''¡Fai falta la to atención!'''",

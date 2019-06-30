@@ -6,6 +6,7 @@
 		]
 	},
 	"action-review": "pregledovanje redakcij",
+	"action-unreviewedpages": "ogled seznama nepregledanih strani",
 	"editor": "Urednik",
 	"flaggedrevs": "Označene redakcije",
 	"flaggedrevs-watched-pending": "Trenutno obstajajo [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} čakajoče spremembe] pregledanih strani na vašem spisku nadzorov. '''Potrebna je vaša pozornost!'''",

@@ -19,6 +19,7 @@
 		]
 	},
 	"action-review": "проверавате измене",
+	"action-unreviewedpages": "прегледате списак непроверених страница",
 	"editor": "Уређивач",
 	"flaggedrevs": "Означене измене",
 	"flaggedrevs-watched-pending": "На Вашем списку надгледања тренутно има: [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} промена] које чекају проверу. '''Обратите пажњу!'''",

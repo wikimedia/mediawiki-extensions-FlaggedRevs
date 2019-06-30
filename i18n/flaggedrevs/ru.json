@@ -34,10 +34,12 @@
 			"Kareyac",
 			"Mouse21",
 			"Stjn",
-			"Vlad5250"
+			"Vlad5250",
+			"DCamer"
 		]
 	},
 	"action-review": "проверка версий страниц",
+	"action-unreviewedpages": "просмотр списка непроверенных страниц",
 	"editor": "Досматривающий",
 	"flaggedrevs": "Проверка изменений",
 	"flaggedrevs-watched-pending": "В вашем списке наблюдения [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} присутствуют правки], ожидающие проверки. '''Пожалуйста, обратите внимание!'''",

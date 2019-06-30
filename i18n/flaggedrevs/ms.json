@@ -8,6 +8,7 @@
 		]
 	},
 	"action-review": "kaji semula semakan",
+	"action-unreviewedpages": "melihat senarai laman-laman yang belum disemak",
 	"editor": "Penyunting",
 	"flaggedrevs": "Semakan Bertanda",
 	"flaggedrevs-watched-pending": "Kini terdapat [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} perubahan tergantung] bagi laman-laman yang dikaji semula dalam senarai pantau anda. '''Perhatian anda amat diperlukan!'''",

@@ -38,6 +38,7 @@
 	"action-review": "Versionen markieren",
 	"action-stablesettings": "zu konfigurieren, wie die stabile Version ausgewählt und angezeigt werden soll",
 	"action-validate": "Versionen als geprüft zu markieren",
+	"action-unreviewedpages": "die [[Special:UnreviewedPages|Liste ungesichteter Seiten]] anzusehen",
 	"editor": "Sichter",
 	"flaggedrevs": "Gesichtete Versionen",
 	"flaggedrevs-watched-pending": "Es gibt momentan [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ungesichtete Bearbeitungen] gesichteter Seiten, die sich auf deiner Beobachtungsliste befinden. '''Deine Aufmerksamkeit wird daher benötigt!'''",

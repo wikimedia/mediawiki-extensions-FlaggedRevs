@@ -20,6 +20,7 @@
 	},
 	"action-movestable": "flytta sidor med stabila versioner",
 	"action-review": "granska sidversioner",
+	"action-unreviewedpages": "se listan över icke-granskade sidor",
 	"editor": "Redaktör",
 	"flaggedrevs": "Flaggade sidversioner",
 	"flaggedrevs-watched-pending": "Det finns för närvarande [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} väntande redigeringar] till de granskade sidorna på den bevakningslista. '''Din uppmärksamhet behövs!'''",

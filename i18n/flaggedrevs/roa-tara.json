@@ -10,6 +10,7 @@
 	"action-review": "revide le revisiune",
 	"action-stablesettings": "configure cumme versiona pubblecate quedde ca jè scacchiate e 'ndrucate",
 	"action-validate": "signe le revisiune cumme ce onne state de \"qualità\"",
+	"action-unreviewedpages": "'ndruche l'elenghe de le pàggene none revisitate",
 	"editor": "Editore",
 	"flaggedrevs": "Revisiune Approvete",
 	"flaggedrevs-watched-pending": "Stonne, osce a die [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} cangiaminde pendende]a le pàggene reviste da toje liste de le pàggene condrollate. '''Abbesogne de l'attenziona toje!'''",

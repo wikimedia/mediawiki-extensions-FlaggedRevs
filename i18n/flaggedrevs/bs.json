@@ -10,6 +10,7 @@
 		]
 	},
 	"action-review": "pregledate izmjene",
+	"action-unreviewedpages": "pregledate spisak nepregledanih stranica",
 	"editor": "Urednik",
 	"flaggedrevs": "Pregledane izmjene",
 	"flaggedrevs-watched-pending": "Na Vašem spisku praćenja trenutno ima [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} izmjena] koje čekaju pregled. '''Obratite pažnju!'''",

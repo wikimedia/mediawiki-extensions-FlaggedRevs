@@ -6,6 +6,7 @@
 		]
 	},
 	"action-review": "wersije pśeglědaś",
+	"action-unreviewedpages": "lisćinu njepśeglědanych bokow zwobrazniś",
 	"editor": "Editor",
 	"flaggedrevs": "Markěrowane wersije",
 	"flaggedrevs-watched-pending": "Su tuchylu [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} njecynjone změny] pśeglědanych bokow na twójej wobglědowańce. '''Pšosym źiwaj na to!'''",
