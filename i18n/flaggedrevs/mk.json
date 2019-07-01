@@ -13,7 +13,7 @@
 	"action-review": "проверка на преработки",
 	"action-stablesettings": "нагодување како објавената верзија ќе се избира и прикажува",
 	"action-validate": "означување на преработки како „квалитетни“",
-	"action-unreviewedpages": "прегледување на [[Special:UnreviewedPages|списокот на непроверени статии]]",
+	"action-unreviewedpages": "прегледување на списокот на непроверени статии",
 	"editor": "Уредник",
 	"flaggedrevs": "Означени преработки",
 	"flaggedrevs-watched-pending": "На Вашиот список на набљудувања [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} има уредувања] што чекаат на преглед. '''Се бара Вашето внимание!'''",
