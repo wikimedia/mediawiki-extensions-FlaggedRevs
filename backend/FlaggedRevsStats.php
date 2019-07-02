@@ -2,6 +2,9 @@
 /**
  * FlaggedRevs stats functions
  */
+
+use MediaWiki\MediaWikiServices;
+
 class FlaggedRevsStats {
 	/**
 	 * Get FR-related stats at a designated snapshot in time.
@@ -81,7 +84,7 @@ class FlaggedRevsStats {
 		}
 
 		// Set key to limit duplicate updates...
-		$stash = ObjectCache::getMainStashInstance();
+		$stash = MediaWikiServices::getInstance()->getMainObjectStash();
 		$keySQL = $stash->makeKey( 'flaggedrevs', 'statsUpdating' );
 		$stash->set( $keySQL, '1', $wgFlaggedRevsStatsAge );
 

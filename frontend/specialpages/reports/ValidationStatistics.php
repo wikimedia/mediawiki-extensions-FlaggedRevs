@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class ValidationStatistics extends IncludableSpecialPage {
 	protected $latestData = null;
 
@@ -202,7 +204,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 			return false;
 		}
 
-		$stash = ObjectCache::getMainStashInstance();
+		$stash = MediaWikiServices::getInstance()->getMainObjectStash();
 		$key = $stash->makeKey( 'flaggedrevs', 'statsUpdated' );
 		$keySQL = $stash->makeKey( 'flaggedrevs', 'statsUpdating' );
 		// If a cache update is needed, do so asynchronously.
@@ -305,7 +307,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 	protected function getTopReviewers() {
 		global $wgFlaggedRevsStats;
 
-		$stash = ObjectCache::getMainStashInstance();
+		$stash = MediaWikiServices::getInstance()->getMainObjectStash();
 		$key = $stash->makeKey( 'flaggedrevs', 'reviewTopUsers' );
 		$data = $stash->get( $key );
 		if ( is_array( $data ) ) {
