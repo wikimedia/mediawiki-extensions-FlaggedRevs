@@ -17,7 +17,9 @@ class FRUserActivity {
 		global $wgMemc, $wgActiveUserDays;
 
 		# Check the cache...
-		$key = wfMemcKey( 'flaggedrevs', 'users-watching', $title->getArticleID() );
+		$key = ObjectCache::getLocalClusterInstance()->makeKey(
+			'flaggedrevs', 'users-watching', $title->getArticleID()
+		);
 		$val = $wgMemc->get( $key );
 		if ( is_int( $val ) ) {
 			return $val; // cache hit
@@ -60,8 +62,10 @@ class FRUserActivity {
 	 * @return array (username or null, MW timestamp or null)
 	 */
 	public static function getUserReviewingPage( $pageId ) {
-		$key = wfMemcKey( 'flaggedrevs', 'userReviewingPage', $pageId );
-		$val = ObjectCache::getMainStashInstance()->get( $key );
+		$key = ObjectCache::getLocalClusterInstance()->makeKey(
+			'flaggedrevs', 'userReviewingPage', $pageId
+		);
+		$val = MediaWikiServices::getInstance()->getMainObjectStash()->get( $key );
 
 		return is_array( $val ) && count( $val ) == 3
 			? [ $val[0], $val[1] ]
@@ -88,7 +92,9 @@ class FRUserActivity {
 	 * @return bool flag set
 	 */
 	public static function setUserReviewingPage( User $user, $pageId ) {
-		$key = wfMemcKey( 'flaggedrevs', 'userReviewingPage', $pageId );
+		$key = ObjectCache::getLocalClusterInstance()->makeKey(
+			'flaggedrevs', 'userReviewingPage', $pageId
+		);
 		return self::incUserReviewingItem( $key, $user, self::PAGE_REVIEW_SEC );
 	}
 
@@ -100,7 +106,9 @@ class FRUserActivity {
 	 * @return bool flag unset
 	 */
 	public static function clearUserReviewingPage( User $user, $pageId ) {
-		$key = wfMemcKey( 'flaggedrevs', 'userReviewingPage', $pageId );
+		$key = ObjectCache::getLocalClusterInstance()->makeKey(
+			'flaggedrevs', 'userReviewingPage', $pageId
+		);
 		return self::decUserReviewingItem( $key, $user, self::PAGE_REVIEW_SEC );
 	}
 
@@ -110,8 +118,10 @@ class FRUserActivity {
 	 * @return void
 	 */
 	public static function clearAllReviewingPage( $pageId ) {
-		$key = wfMemcKey( 'flaggedrevs', 'userReviewingPage', $pageId );
-		ObjectCache::getMainStashInstance()->delete( $key );
+		$key = ObjectCache::getLocalClusterInstance()->makeKey(
+			'flaggedrevs', 'userReviewingPage', $pageId
+		);
+		MediaWikiServices::getInstance()->getMainObjectStash()->delete( $key );
 	}
 
 	/**
@@ -121,8 +131,10 @@ class FRUserActivity {
 	 * @return array (username or null, MW timestamp or null)
 	 */
 	public static function getUserReviewingDiff( $oldId, $newId ) {
-		$key = wfMemcKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
-		$val = ObjectCache::getMainStashInstance()->get( $key );
+		$key = ObjectCache::getLocalClusterInstance()->makeKey(
+			'flaggedrevs', 'userReviewingDiff', $oldId, $newId
+		);
+		$val = MediaWikiServices::getInstance()->getMainObjectStash()->get( $key );
 
 		return is_array( $val ) && count( $val ) == 3
 			? [ $val[0], $val[1] ]
@@ -151,7 +163,9 @@ class FRUserActivity {
 	 * @return bool flag set
 	 */
 	public static function setUserReviewingDiff( User $user, $oldId, $newId ) {
-		$key = wfMemcKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
+		$key = ObjectCache::getLocalClusterInstance()->makeKey(
+			'flaggedrevs', 'userReviewingDiff', $oldId, $newId
+		);
 
 		return self::incUserReviewingItem( $key, $user, self::CHANGE_REVIEW_SEC );
 	}
@@ -165,7 +179,9 @@ class FRUserActivity {
 	 * @return bool flag unset
 	 */
 	public static function clearUserReviewingDiff( User $user, $oldId, $newId ) {
-		$key = wfMemcKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
+		$key = ObjectCache::getLocalClusterInstance()->makeKey(
+			'flaggedrevs', 'userReviewingDiff', $oldId, $newId
+		);
 
 		return self::decUserReviewingItem( $key, $user, self::CHANGE_REVIEW_SEC );
 	}
@@ -177,8 +193,10 @@ class FRUserActivity {
 	 * @return void
 	 */
 	public static function clearAllReviewingDiff( $oldId, $newId ) {
-		$key = wfMemcKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
-		ObjectCache::getMainStashInstance()->delete( $key );
+		$key = ObjectCache::getLocalClusterInstance()->makeKey(
+			'flaggedrevs', 'userReviewingDiff', $oldId, $newId
+		);
+		MediaWikiServices::getInstance()->getMainObjectStash()->delete( $key );
 	}
 
 	/**
