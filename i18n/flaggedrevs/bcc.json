@@ -1,21 +1,22 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mostafadaneshvar"
+			"Mostafadaneshvar",
+			"Sultanselim baloch"
 		]
 	},
-	"editor": "اصلاح گر",
+	"editor": "ٹگلݔنۏک",
 	"flaggedrevs": "بازبینی ان نشان هشتگین",
 	"flaggedrevs-desc": "اصلاح کنوک و مرور کنوکانء اجارت هلیتش تا بازبنی و صفحات ثابتء تایید کنت.",
 	"flaggedrevs-pref-UI-0": "چه دستبر کاربری نسخه ثابت گون جزییات استفاده کن",
 	"flaggedrevs-pref-UI-1": "چه دستبر کاربری نسخه ثابت ساده استفاده کن",
 	"flaggedrevs-prefs-stable": "یک سر نسخه ثاثت چه محتوای صفحات په طور پیشفرض پیش دار (اگر که هست اتن)",
 	"flaggedrevs-prefs-watch": "اضافه کن صفحاتی که من بازبینی کتگنت ته منی لیست چارگ",
-	"group-editor": "اصلاح کنوکان",
+	"group-editor": "ٹگلݔنۏکاں",
 	"group-editor-member": "اصلاح کنوک",
 	"group-reviewer": "بازبینی کنوکان",
 	"group-reviewer-member": "بازبینی کنوک",
-	"grouppage-editor": "{{ns:project}}:اصلاح کنوک",
+	"grouppage-editor": "{{ns:project}}:ٹگلݔنۏک",
 	"grouppage-reviewer": "{{ns:project}}:بازبینی کنوک",
 	"revreview-hist-draft": "بازبینی پیش نویس",
 	"revreview-hist-quality": "بازبینی کیفیت",
@@ -26,7 +27,7 @@
 	"review-logentry-id": "بازبینی شناسگ : $2",
 	"review-logentry-diff": "پرک گون نسخه ثابت",
 	"review-logpage": "ورود بازبینی",
-	"reviewer": "بازبینی کنوک",
+	"reviewer": "گندۏک",
 	"revreview-accuracy": "درستی",
 	"revreview-accuracy-0": "تایید به بیتگین",
 	"revreview-accuracy-1": "رویت بیتگ",
