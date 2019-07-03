@@ -11,6 +11,7 @@ class UnreviewedPages extends SpecialPage {
 		$request = $this->getRequest();
 
 		$this->setHeaders();
+		$this->addHelpLink( 'Help:Extension:FlaggedRevs' );
 		if ( !$this->getUser()->isAllowed( 'unreviewedpages' ) ) {
 			throw new PermissionsError( 'unreviewedpages' );
 		}
