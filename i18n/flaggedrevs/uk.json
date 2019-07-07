@@ -26,7 +26,7 @@
 	"action-review": "перевірка версій",
 	"action-stablesettings": "налаштування вибору і відображення стабільної версії",
 	"action-validate": "позначення версій сторінок «якісними»",
-	"action-unreviewedpages": "перегляд [[Special:UnreviewedPages|списку неперевірених сторінок]]",
+	"action-unreviewedpages": "перегляд списку неперевірених сторінок",
 	"editor": "Редактор",
 	"flaggedrevs": "Позначені версії",
 	"flaggedrevs-watched-pending": "Сторінки з Вашого списку спостереження мають [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} редагування, що очікують на перевірку]. '''Зверніть увагу!'''",
