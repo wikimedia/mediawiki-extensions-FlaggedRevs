@@ -287,7 +287,7 @@ class RevisionReviewFormUI {
 			// Display the value for each tag as text
 			foreach ( FlaggedRevs::getTags() as $quality ) {
 				$selected = $flags[$quality] ?? 0;
-				$items[] = FlaggedRevs::getTagMsg( $quality ) . ": " .
+				$items[] = FlaggedRevs::getTagMsg( $quality )->escaped() . ": " .
 					FlaggedRevs::getTagValueMsg( $quality, $selected );
 			}
 		} else {
@@ -305,7 +305,7 @@ class RevisionReviewFormUI {
 				# Show label as needed
 				if ( !FlaggedRevs::binaryFlagging() ) {
 					$item .= Xml::tags( 'label', [ 'for' => "wp$quality" ],
-						FlaggedRevs::getTagMsg( $quality ) ) . ":\n";
+						FlaggedRevs::getTagMsg( $quality )->escaped() ) . ":\n";
 				}
 				# If the sum of qualities of all flags is above 6, use drop down boxes.
 				# 6 is an arbitrary value choosen according to screen space and usability.
@@ -314,7 +314,7 @@ class RevisionReviewFormUI {
 					$item .= Xml::openElement( 'select', $attribs ) . "\n";
 					foreach ( $levels as $i => $name ) {
 						$optionClass = [ 'class' => "fr-rating-option-$i" ];
-						$item .= Xml::option( FlaggedRevs::getTagMsg( $name ), $i,
+						$item .= Xml::option( FlaggedRevs::getTagMsg( $name )->text(), $i,
 							( $i == $selected ), $optionClass ) . "\n";
 					}
 					$item .= Xml::closeElement( 'select' ) . "\n";
@@ -322,7 +322,7 @@ class RevisionReviewFormUI {
 				} elseif ( $numLevels > 2 ) {
 					foreach ( $levels as $i => $name ) {
 						$attribs = [ 'class' => "fr-rating-option-$i" ];
-						$item .= Xml::radioLabel( FlaggedRevs::getTagMsg( $name ), "wp$quality",
+						$item .= Xml::radioLabel( FlaggedRevs::getTagMsg( $name )->text(), "wp$quality",
 							$i, "wp$quality" . $i, ( $i == $selected ), $attribs ) . "\n";
 					}
 				# Otherwise make checkboxes (two levels available for current user)
@@ -389,7 +389,7 @@ class RevisionReviewFormUI {
 			$applicable = true; // tags might change
 			$needsChange = ( $frev && !$reviewIncludes );
 		}
-		$s = Xml::submitButton( wfMessage( 'revreview-submit-review' )->escaped(),
+		$s = Xml::submitButton( wfMessage( 'revreview-submit-review' )->text(),
 			[
 				'name'      => 'wpApprove',
 				'id'        => 'mw-fr-submit-accept',
@@ -401,7 +401,7 @@ class RevisionReviewFormUI {
 		# REJECT BUTTON: revert from a pending revision to the stable
 		if ( $rejectId ) {
 			$s .= ' ';
-			$s .= Xml::submitButton( wfMessage( 'revreview-submit-reject' )->escaped(),
+			$s .= Xml::submitButton( wfMessage( 'revreview-submit-reject' )->text(),
 				[
 					'name'  => 'wpReject',
 					'id'    => 'mw-fr-submit-reject',
@@ -412,7 +412,7 @@ class RevisionReviewFormUI {
 		# UNACCEPT BUTTON: revoke a revisions acceptance
 		# Hide if revision is not flagged
 		$s .= ' ';
-		$s .= Xml::submitButton( wfMessage( 'revreview-submit-unreview' )->escaped(),
+		$s .= Xml::submitButton( wfMessage( 'revreview-submit-unreview' )->text(),
 			[
 				'name'  => 'wpUnapprove',
 				'id'    => 'mw-fr-submit-unaccept',

@@ -1022,8 +1022,6 @@ class FlaggedRevsUIHooks {
 			} else {
 				list( $show, $value ) = explode( ":", $option );
 			}
-			$show = htmlspecialchars( $show );
-			$value = htmlspecialchars( $value );
 			$expiryFormOptions .= Xml::option( $show, $value, $expirySelect == $value ) . "\n";
 		}
 		# Actually add expiry dropdown to form

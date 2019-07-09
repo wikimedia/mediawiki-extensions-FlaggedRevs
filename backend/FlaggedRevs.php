@@ -313,10 +313,10 @@ class FlaggedRevs {
 	/**
 	 * Get the UI name for a tag
 	 * @param string $tag
-	 * @return string
+	 * @return Message
 	 */
 	public static function getTagMsg( $tag ) {
-		return wfMessage( "revreview-$tag" )->escaped();
+		return wfMessage( "revreview-$tag" );
 	}
 
 	/**

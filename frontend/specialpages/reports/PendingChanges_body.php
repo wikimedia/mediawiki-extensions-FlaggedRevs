@@ -205,6 +205,11 @@ class PendingChanges extends SpecialPage {
 		return "$wgSitename - $desc [$wgContLanguageCode]";
 	}
 
+	/**
+	 * @param stdClass $row
+	 * @return FeedItem|null
+	 * @suppress SecurityCheck-DoubleEscaped false positive
+	 */
 	protected function feedItem( $row ) {
 		$title = Title::MakeTitle( $row->page_namespace, $row->page_title );
 		if ( $title ) {

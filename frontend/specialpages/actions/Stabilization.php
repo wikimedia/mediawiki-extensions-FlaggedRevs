@@ -148,10 +148,11 @@ class Stabilization extends UnlistedSpecialPage {
 		# Actually build the options HTML...
 		$expiryFormOptions = '';
 		foreach ( $dropdownOptions as $option ) {
-			$show = htmlspecialchars( $option[0] );
-			$value = htmlspecialchars( $option[1] );
-			$expiryFormOptions .= Xml::option( $show, $value,
-				$form->getExpirySelection() === $value ) . "\n";
+			$expiryFormOptions .= Xml::option(
+				$option[0],
+				$option[1],
+				$form->getExpirySelection() === $value
+			) . "\n";
 		}
 
 		# Build up the form...
@@ -159,26 +160,26 @@ class Stabilization extends UnlistedSpecialPage {
 			'action' => $this->getPageTitle()->getLocalUrl(), 'method' => 'post' ] );
 		# Add stable version override and selection options
 		$s .=
-			Xml::fieldset( $this->msg( 'stabilization-def' )->escaped(), false ) . "\n" .
-			Xml::radioLabel( $this->msg( 'stabilization-def1' )->escaped(), 'wpStableconfig-override', 1,
+			Xml::fieldset( $this->msg( 'stabilization-def' )->text(), false ) . "\n" .
+			Xml::radioLabel( $this->msg( 'stabilization-def1' )->text(), 'wpStableconfig-override', 1,
 				'default-stable', 1 == $form->getOverride(), $this->disabledAttr() ) .
 				'<br />' . "\n" .
-			Xml::radioLabel( $this->msg( 'stabilization-def2' )->escaped(), 'wpStableconfig-override', 0,
+			Xml::radioLabel( $this->msg( 'stabilization-def2' )->text(), 'wpStableconfig-override', 0,
 				'default-current', 0 == $form->getOverride(), $this->disabledAttr() ) . "\n" .
 			Xml::closeElement( 'fieldset' );
 		# Add autoreview restriction select
-		$s .= Xml::fieldset( $this->msg( 'stabilization-restrict' )->escaped(), false ) .
+		$s .= Xml::fieldset( $this->msg( 'stabilization-restrict' )->text(), false ) .
 			$this->buildSelector( $form->getAutoreview() ) .
 			Xml::closeElement( 'fieldset' ) .
 
-			Xml::fieldset( $this->msg( 'stabilization-leg' )->escaped(), false ) .
+			Xml::fieldset( $this->msg( 'stabilization-leg' )->text(), false ) .
 			Xml::openElement( 'table' );
 		# Add expiry dropdown to form...
 		if ( $showProtectOptions && $form->isAllowed() ) {
 			$s .= "
 				<tr>
 					<td class='mw-label'>" .
-						Xml::label( $this->msg( 'stabilization-expiry' )->escaped(),
+						Xml::label( $this->msg( 'stabilization-expiry' )->text(),
 							'mwStabilizeExpirySelection' ) .
 					"</td>
 					<td class='mw-input'>" .
@@ -198,7 +199,7 @@ class Stabilization extends UnlistedSpecialPage {
 		$s .= "
 			<tr>
 				<td class='mw-label'>" .
-					Xml::label( $this->msg( 'stabilization-othertime' )->escaped(),
+					Xml::label( $this->msg( 'stabilization-othertime' )->text(),
 						'mwStabilizeExpiryOther' ) .
 				'</td>
 				<td class="mw-input">' .
@@ -216,7 +217,7 @@ class Stabilization extends UnlistedSpecialPage {
 
 			$s .= ' <tr>
 					<td class="mw-label">' .
-						Xml::label( $this->msg( 'stabilization-comment' )->escaped(),
+						Xml::label( $this->msg( 'stabilization-comment' )->text(),
 							'wpReasonSelection' ) .
 					'</td>
 					<td class="mw-input">' .
@@ -225,7 +226,7 @@ class Stabilization extends UnlistedSpecialPage {
 				</tr>
 				<tr>
 					<td class="mw-label">' .
-						Xml::label( $this->msg( 'stabilization-otherreason' )->escaped(), 'wpReason' ) .
+						Xml::label( $this->msg( 'stabilization-otherreason' )->text(), 'wpReason' ) .
 					'</td>
 					<td class="mw-input">' .
 						Xml::input( 'wpReason', 70, $form->getReasonExtra(),
@@ -249,7 +250,7 @@ class Stabilization extends UnlistedSpecialPage {
 				<tr>
 					<td></td>
 					<td class="mw-submit">' .
-						Xml::submitButton( $this->msg( 'stabilization-submit' )->escaped() ) .
+						Xml::submitButton( $this->msg( 'stabilization-submit' )->text() ) .
 					'</td>
 				</tr>' . Xml::closeElement( 'table' ) .
 				Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBKey() ) .
