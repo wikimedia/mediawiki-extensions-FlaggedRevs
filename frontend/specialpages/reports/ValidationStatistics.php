@@ -16,6 +16,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 		$lang = $this->getLanguage();
 
 		$this->setHeaders();
+		$this->addHelpLink( 'Help:Extension:FlaggedRevs' );
 		$this->db = wfGetDB( DB_REPLICA );
 
 		$this->maybeUpdate();

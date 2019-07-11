@@ -9,6 +9,7 @@ class ReviewedVersions extends UnlistedSpecialPage {
 		$request = $this->getRequest();
 
 		$this->setHeaders();
+		$this->addHelpLink( 'Help:Extension:FlaggedRevs' );
 		# Our target page
 		$this->target = $request->getText( 'page' );
 		$this->page = Title::newFromText( $this->target );

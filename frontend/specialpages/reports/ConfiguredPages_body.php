@@ -15,6 +15,7 @@ class ConfiguredPages extends SpecialPage {
 		$request = $this->getRequest();
 
 		$this->setHeaders();
+		$this->addHelpLink( 'Help:Extension:FlaggedRevs' );
 
 		$this->namespace = $request->getIntOrNull( 'namespace' );
 		$this->override = $request->getIntOrNull( 'stable' );

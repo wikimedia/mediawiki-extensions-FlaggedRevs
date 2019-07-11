@@ -12,6 +12,7 @@ class ProblemChanges extends SpecialPage {
 		$request = $this->getRequest();
 
 		$this->setHeaders();
+		$this->addHelpLink( 'Help:Extension:FlaggedRevs' );
 		$this->currentUnixTS = wfTimestamp( TS_UNIX ); // now
 
 		$this->level = $request->getInt( 'level', - 1 );

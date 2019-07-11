@@ -11,6 +11,7 @@ class ReviewedPages extends SpecialPage {
 		$request = $this->getRequest();
 
 		$this->setHeaders();
+		$this->addHelpLink( 'Help:Extension:FlaggedRevs' );
 
 		# Check if there is a featured level
 		$maxType = FlaggedRevs::pristineVersions() ? 2 : 1;

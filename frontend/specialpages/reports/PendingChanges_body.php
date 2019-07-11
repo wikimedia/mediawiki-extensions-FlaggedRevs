@@ -15,6 +15,7 @@ class PendingChanges extends SpecialPage {
 		$request = $this->getRequest();
 
 		$this->setHeaders();
+		$this->addHelpLink( 'Help:Extension:FlaggedRevs' );
 		$this->currentUnixTS = wfTimestamp( TS_UNIX ); // now
 
 		$this->namespace = $request->getIntOrNull( 'namespace' );

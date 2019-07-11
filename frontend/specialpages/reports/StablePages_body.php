@@ -12,6 +12,7 @@ class StablePages extends SpecialPage {
 		$request = $this->getRequest();
 
 		$this->setHeaders();
+		$this->addHelpLink( 'Help:Extension:FlaggedRevs' );
 
 		$this->namespace = $request->getIntOrNull( 'namespace' );
 		$this->autoreview = $request->getVal( 'restriction', '' );
