@@ -1,5 +1,7 @@
 <?php
+
 use MediaWiki\MediaWikiServices;
+use Wikimedia\Rdbms\Database;
 
 /**
  * Class of utility functions for getting/tracking user activity
@@ -14,46 +16,50 @@ class FRUserActivity {
 	 * @return int
 	 */
 	public static function numUsersWatchingPage( Title $title ) {
-		global $wgMemc, $wgActiveUserDays;
+		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
+		$fname = __METHOD__;
 
-		# Check the cache...
-		$key = ObjectCache::getLocalClusterInstance()->makeKey(
-			'flaggedrevs', 'users-watching', $title->getArticleID()
-		);
-		$val = $wgMemc->get( $key );
-		if ( is_int( $val ) ) {
-			return $val; // cache hit
-		}
+		return $cache->getWithSetCallback(
+			$cache->makeKey( 'flaggedrevs-users-watching', $title->getArticleID() ),
+			$cache::TTL_MINUTE * 5,
+			function ( $oldValue, &$ttl, array &$setOpts ) use ( $cache, $title, $fname ) {
+				global $wgActiveUserDays;
 
-		# Get number of active editors watching this page...
-		$dbr = wfGetDB( DB_REPLICA );
-		$actorQuery = ActorMigration::newMigration()->getJoin( 'rc_user' );
-		$count = (int)$dbr->selectField(
-			[ 'watchlist', 'user' ],
-			'COUNT(*)',
-			[
-				'wl_namespace' => $title->getNamespace(),
-				'wl_title'     => $title->getDBkey(),
-				'wl_user = user_id',
-				'EXISTS(' . $dbr->selectSQLText(
-					[ 'recentchanges' ] + $actorQuery['tables'],
-					'1',
+				$dbr = wfGetDB( DB_REPLICA );
+				$setOpts += Database::getCacheSetOptions( $dbr );
+				// Get number of active editors watching this page...
+				$actorQuery = ActorMigration::newMigration()->getJoin( 'rc_user' );
+				$count = (int)$dbr->selectField(
+					[ 'watchlist', 'user' ],
+					'COUNT(*)',
 					[
-						'user_name = ' . $actorQuery['fields']['rc_user_text'],
-						'rc_timestamp > ' . $dbr->timestamp( time() - 86400 * $wgActiveUserDays )
+						'wl_namespace' => $title->getNamespace(),
+						'wl_title' => $title->getDBkey(),
+						'wl_user = user_id',
+						'EXISTS(' . $dbr->selectSQLText(
+							[ 'recentchanges' ] + $actorQuery['tables'],
+							'1',
+							[
+								'user_name = ' . $actorQuery['fields']['rc_user_text'],
+								'rc_timestamp > ' .
+									$dbr->timestamp( time() - 86400 * $wgActiveUserDays )
+							],
+							$fname,
+							[],
+							$actorQuery['joins']
+						) . ')'
 					],
-					__METHOD__,
-					[],
-					$actorQuery['joins']
-				) . ')'
-			],
-			__METHOD__
+					$fname
+				);
+
+				if ( $count > 100 ) {
+					// More aggresive caching for larger counts
+					$ttl = $cache::TTL_MINUTE * 30;
+				}
+
+				return $count;
+			}
 		);
-
-		# Save new value to cache (more aggresive for larger counts)
-		$wgMemc->set( $key, $count, ( $count > 100 ) ? 30 * 60 : 5 * 60 );
-
-		return $count;
 	}
 
 	/**
@@ -62,10 +68,9 @@ class FRUserActivity {
 	 * @return array (username or null, MW timestamp or null)
 	 */
 	public static function getUserReviewingPage( $pageId ) {
-		$key = ObjectCache::getLocalClusterInstance()->makeKey(
-			'flaggedrevs', 'userReviewingPage', $pageId
-		);
-		$val = MediaWikiServices::getInstance()->getMainObjectStash()->get( $key );
+		$cache = self::getActivityStore();
+		$key = $cache->makeKey( 'flaggedrevs', 'userReviewingPage', $pageId );
+		$val = $cache->get( $key );
 
 		return is_array( $val ) && count( $val ) == 3
 			? [ $val[0], $val[1] ]
@@ -79,6 +84,7 @@ class FRUserActivity {
 	 */
 	public static function pageIsUnderReview( $pageId ) {
 		$m = self::getUserReviewingPage( $pageId );
+
 		return ( $m[0] !== null );
 	}
 
@@ -92,9 +98,9 @@ class FRUserActivity {
 	 * @return bool flag set
 	 */
 	public static function setUserReviewingPage( User $user, $pageId ) {
-		$key = ObjectCache::getLocalClusterInstance()->makeKey(
-			'flaggedrevs', 'userReviewingPage', $pageId
-		);
+		$cache = self::getActivityStore();
+		$key = $cache->makeKey( 'flaggedrevs', 'userReviewingPage', $pageId );
+
 		return self::incUserReviewingItem( $key, $user, self::PAGE_REVIEW_SEC );
 	}
 
@@ -106,9 +112,9 @@ class FRUserActivity {
 	 * @return bool flag unset
 	 */
 	public static function clearUserReviewingPage( User $user, $pageId ) {
-		$key = ObjectCache::getLocalClusterInstance()->makeKey(
-			'flaggedrevs', 'userReviewingPage', $pageId
-		);
+		$cache = self::getActivityStore();
+		$key = $cache->makeKey( 'flaggedrevs', 'userReviewingPage', $pageId );
+
 		return self::decUserReviewingItem( $key, $user, self::PAGE_REVIEW_SEC );
 	}
 
@@ -118,10 +124,9 @@ class FRUserActivity {
 	 * @return void
 	 */
 	public static function clearAllReviewingPage( $pageId ) {
-		$key = ObjectCache::getLocalClusterInstance()->makeKey(
-			'flaggedrevs', 'userReviewingPage', $pageId
-		);
-		MediaWikiServices::getInstance()->getMainObjectStash()->delete( $key );
+		$cache = self::getActivityStore();
+		$key = $cache->makeKey( 'flaggedrevs', 'userReviewingPage', $pageId );
+		$cache->delete( $key );
 	}
 
 	/**
@@ -131,10 +136,9 @@ class FRUserActivity {
 	 * @return array (username or null, MW timestamp or null)
 	 */
 	public static function getUserReviewingDiff( $oldId, $newId ) {
-		$key = ObjectCache::getLocalClusterInstance()->makeKey(
-			'flaggedrevs', 'userReviewingDiff', $oldId, $newId
-		);
-		$val = MediaWikiServices::getInstance()->getMainObjectStash()->get( $key );
+		$cache = self::getActivityStore();
+		$key = $cache->makeKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
+		$val = $cache->get( $key );
 
 		return is_array( $val ) && count( $val ) == 3
 			? [ $val[0], $val[1] ]
@@ -163,9 +167,8 @@ class FRUserActivity {
 	 * @return bool flag set
 	 */
 	public static function setUserReviewingDiff( User $user, $oldId, $newId ) {
-		$key = ObjectCache::getLocalClusterInstance()->makeKey(
-			'flaggedrevs', 'userReviewingDiff', $oldId, $newId
-		);
+		$cache = self::getActivityStore();
+		$key = $cache->makeKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
 
 		return self::incUserReviewingItem( $key, $user, self::CHANGE_REVIEW_SEC );
 	}
@@ -179,9 +182,8 @@ class FRUserActivity {
 	 * @return bool flag unset
 	 */
 	public static function clearUserReviewingDiff( User $user, $oldId, $newId ) {
-		$key = ObjectCache::getLocalClusterInstance()->makeKey(
-			'flaggedrevs', 'userReviewingDiff', $oldId, $newId
-		);
+		$cache = self::getActivityStore();
+		$key = $cache->makeKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
 
 		return self::decUserReviewingItem( $key, $user, self::CHANGE_REVIEW_SEC );
 	}
@@ -193,10 +195,9 @@ class FRUserActivity {
 	 * @return void
 	 */
 	public static function clearAllReviewingDiff( $oldId, $newId ) {
-		$key = ObjectCache::getLocalClusterInstance()->makeKey(
-			'flaggedrevs', 'userReviewingDiff', $oldId, $newId
-		);
-		MediaWikiServices::getInstance()->getMainObjectStash()->delete( $key );
+		$cache = self::getActivityStore();
+		$key = $cache->makeKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
+		$cache->delete( $key );
 	}
 
 	/**
@@ -209,9 +210,9 @@ class FRUserActivity {
 		$wasSet = false; // was changed?
 
 		$now = wfTimestampNow();
-		MediaWikiServices::getInstance()->getMainObjectStash()->merge(
+		self::getActivityStore()->merge(
 			$key,
-			function ( BagOStuff $stash, $key, $oldVal ) use ( $user, &$wasSet, $now ) {
+			function ( BagOStuff $store, $key, $oldVal ) use ( $user, &$wasSet, $now ) {
 				if ( is_array( $oldVal ) && count( $oldVal ) == 3 ) { // flag set
 					list( $u, $ts, $cnt ) = $oldVal;
 					if ( $u === $user->getName() ) { // by this user
@@ -240,9 +241,9 @@ class FRUserActivity {
 	protected static function decUserReviewingItem( $key, User $user, $ttlSec ) {
 		$wasSet = false; // was changed?
 
-		MediaWikiServices::getInstance()->getMainObjectStash()->merge(
+		self::getActivityStore()->merge(
 			$key,
-			function ( BagOStuff $stash, $key, $oldVal ) use ( $user, &$wasSet ) {
+			function ( BagOStuff $store, $key, $oldVal ) use ( $user, &$wasSet ) {
 				if ( is_array( $oldVal ) && count( $oldVal ) != 3 ) {
 					return false; // flag not set
 				}
@@ -251,7 +252,7 @@ class FRUserActivity {
 				if ( $u === $user->getName() ) {
 					$wasSet = true;
 					if ( $cnt <= 1 ) {
-						$stash->delete( $key );
+						$store->delete( $key );
 					} else {
 						return [ $u, $ts, $cnt - 1 ]; // dec counter
 					}
@@ -263,5 +264,12 @@ class FRUserActivity {
 		);
 
 		return $wasSet;
+	}
+
+	/**
+	 * @return BagOStuff
+	 */
+	protected static function getActivityStore() {
+		return ObjectCache::getInstance( 'db-replicated' );
 	}
 }
