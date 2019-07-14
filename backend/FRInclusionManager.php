@@ -18,6 +18,7 @@ class FRInclusionManager {
 		}
 		return self::$instance;
 	}
+
 	protected function __clone() {
 	}
 

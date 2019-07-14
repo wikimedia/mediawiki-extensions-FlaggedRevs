@@ -59,8 +59,10 @@ class FlaggablePageView extends ContextSource {
 		}
 		return self::$instance;
 	}
+
 	protected function __construct() {
 	}
+
 	protected function __clone() {
 	}
 
@@ -815,6 +817,7 @@ class FlaggablePageView extends ContextSource {
 		$this->out->addModuleStyles( 'ext.flaggedRevs.icons' );
 		$this->out->enableOOUI();
 	}
+
 	protected function showPoolError( Status $status ) {
 		$this->out->enableClientCache( false );
 		$this->out->setRobotPolicy( 'noindex,nofollow' );
