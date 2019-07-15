@@ -20,7 +20,8 @@
 			"飞舞回堂前",
 			"NeverBehave",
 			"Hanyanbo98",
-			"A2093064"
+			"A2093064",
+			"WQL"
 		]
 	},
 	"action-autoreview": "自动标记自己的编辑为“已复核”",
@@ -29,7 +30,7 @@
 	"action-review": "复核版本",
 	"action-stablesettings": "配置选择和显示稳定版本的方式",
 	"action-validate": "标记版本为“优质”",
-	"action-unreviewedpages": "查看[[Special:UnreviewedPages|未复核页面的列表]]",
+	"action-unreviewedpages": "查看未复核页面的列表",
 	"editor": "编者",
 	"flaggedrevs": "已复核版本",
 	"flaggedrevs-watched-pending": "您的监视列表中目前有[{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} 待复核的页面更改]。'''需要您的关注！'''",

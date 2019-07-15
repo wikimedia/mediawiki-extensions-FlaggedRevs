@@ -25,7 +25,7 @@
 	"action-review": "審查修訂",
 	"action-stablesettings": "設定如何選擇及顯示穩定版本",
 	"action-validate": "標記修訂為「優質」",
-	"action-unreviewedpages": "檢視[[Special:UnreviewedPages|未審查的頁面清單]]",
+	"action-unreviewedpages": "檢視未審查的頁面清單",
 	"editor": "編輯者",
 	"flaggedrevs": "已標記的修訂",
 	"flaggedrevs-watched-pending": "您監視清單上有積壓的[{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} 編輯]未審查。'''需要您的注意！'''",
