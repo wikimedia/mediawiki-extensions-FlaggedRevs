@@ -255,7 +255,6 @@
 	},
 	"ResourceModules": {
 		"ext.flaggedRevs.basic": {
-			"position": "top",
 			"skinStyles": {
 				"default": [
 					"ext.flaggedRevs.basic.css"
@@ -322,13 +321,18 @@
 		"ext.flaggedRevs.review.styles": {
 			"styles": [
 				"ext.flaggedRevs.review.css"
-			],
-			"position": "top"
+			]
 		},
 		"ext.flaggedRevs.icons": {
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"variants": {},
-			"icons": [ "block", "check", "eye", "articleSearch", "articleCheck" ]
+			"icons": [
+				"block",
+				"check",
+				"eye",
+				"articleSearch",
+				"articleCheck"
+			]
 		}
 	},
 	"ResourceFileModulePaths": {
@@ -409,7 +413,7 @@
 		"UserMergeAccountFields": "FlaggedRevsHooks::onUserMergeAccountFields",
 		"WikiExporter::dumpStableQuery": "FlaggedRevsHooks::stableDumpQuery"
 	},
-"config": {
+	"config": {
 		"SimpleFlaggedRevsUI": {
 			"description": "This will only distinguish \"checked\", \"quality\", and unreviewed. A small icon will show in the upper right hand corner",
 			"value": true
