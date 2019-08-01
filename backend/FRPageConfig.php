@@ -97,7 +97,7 @@ class FRPageConfig {
 				[ 'fpc_page_id' => $title->getArticleID() ],
 				__METHOD__
 			);
-			$changed = ( $dbw->affectedRows() != 0 ); // did this do anything?
+			$changed = ( $dbw->affectedRows() > 0 ); // did this do anything?
 		# Otherwise, add/replace row if we are not just setting it to the site default
 		} else {
 			$dbExpiry = $dbw->encodeExpiry( $config['expiry'] );

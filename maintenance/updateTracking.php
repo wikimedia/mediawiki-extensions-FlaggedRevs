@@ -2,6 +2,9 @@
 /**
  * @ingroup Maintenance
  */
+
+use MediaWiki\MediaWikiServices;
+
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
@@ -53,7 +56,7 @@ class UpdateFRTracking extends Maintenance {
 
 		$BATCH_SIZE = 1000;
 
-		$db = wfGetDB( DB_MASTER );
+		$db = $this->getDB( DB_MASTER );
 
 		if ( $start === null ) {
 			$start = $db->selectField( 'revision', 'MIN(rev_id)', false, __METHOD__ );
@@ -73,6 +76,8 @@ class UpdateFRTracking extends Maintenance {
 			$this->output( "...doing fr_rev_id from $blockStart to $blockEnd\n" );
 			$cond = "rev_id BETWEEN $blockStart AND $blockEnd 
 				AND fr_rev_id = rev_id AND page_id = rev_page";
+
+			$this->beginTransaction( $db, __METHOD__ );
 			$res = $db->select(
 				[ 'revision', 'flaggedrevs', 'page' ],
 				[ 'fr_rev_id', 'fr_tags', 'fr_quality', 'page_namespace', 'page_title',
@@ -80,7 +85,6 @@ class UpdateFRTracking extends Maintenance {
 				$cond,
 				__METHOD__
 			);
-			$db->begin();
 			# Go through and clean up missing items, as well as correct fr_quality...
 			foreach ( $res as $row ) {
 				$tags = FlaggedRevision::expandRevisionTags( $row->fr_tags );
@@ -132,11 +136,11 @@ class UpdateFRTracking extends Maintenance {
 				}
 				$count++;
 			}
-			$db->commit();
+			$this->commitTransaction( $db, __METHOD__ );
+
 			$db->freeResult( $res );
 			$blockStart += $BATCH_SIZE;
 			$blockEnd += $BATCH_SIZE;
-			wfWaitForSlaves( 5 );
 		}
 		$this->output( "fr_quality and fr_img_* columns update complete ..." .
 			" {$count} rows [{$changed} changed]\n" );
@@ -147,7 +151,8 @@ class UpdateFRTracking extends Maintenance {
 
 		$BATCH_SIZE = 300;
 
-		$db = wfGetDB( DB_MASTER );
+		$db = $this->getDB( DB_MASTER );
+		$revisionStore = MediaWikiServices::getInstance()->getRevisionStore();
 
 		if ( $start === null ) {
 			$start = $db->selectField( 'page', 'MIN(page_id)', false, __METHOD__ );
@@ -165,11 +170,12 @@ class UpdateFRTracking extends Maintenance {
 		while ( $blockEnd <= $end ) {
 			$this->output( "...doing page_id from $blockStart to $blockEnd\n" );
 			$cond = "page_id BETWEEN $blockStart AND $blockEnd";
+
+			$this->beginTransaction( $db, __METHOD__ );
 			$res = $db->select( 'page',
 				[ 'page_id', 'page_namespace', 'page_title', 'page_latest' ],
 				$cond, __METHOD__ );
 			# Go through and update the de-normalized references...
-			$db->begin();
 			foreach ( $res as $row ) {
 				$title = Title::newFromRow( $row );
 				$article = new FlaggableWikiPage( $title );
@@ -181,17 +187,19 @@ class UpdateFRTracking extends Maintenance {
 					$changed = ( !$oldFrev || $oldFrev->getRevId() != $frev->getRevId() );
 				# Somethings broke? Delete the row...
 				} else {
-					$article->clearStableVersion();
-					if ( $db->affectedRows() > 0 ) {
-						$deleted++;
-					}
 					$changed = (bool)$oldFrev;
+					$deleted += (int)$changed;
 				}
 				# Get the latest revision
-				$revRow = $db->selectRow( 'revision', '*',
+				$queryInfo = $revisionStore->getQueryInfo();
+				$revRow = $db->selectRow(
+					$queryInfo['tables'],
+					$queryInfo['fields'],
 					[ 'rev_page' => $row->page_id ],
 					__METHOD__,
-					[ 'ORDER BY' => 'rev_timestamp DESC' ] );
+					[ 'ORDER BY' => 'rev_timestamp DESC' ],
+					$queryInfo['joins']
+				);
 				# Correct page_latest if needed (import/files made plenty of bad rows)
 				if ( $revRow ) {
 					$revision = new Revision( $revRow );
@@ -201,7 +209,7 @@ class UpdateFRTracking extends Maintenance {
 				}
 				if ( $changed ) {
 					# Lazily rebuild dependencies on next parse (we invalidate below)
-					FlaggedRevs::clearStableOnlyDeps( $title );
+					FlaggedRevs::clearStableOnlyDeps( $title->getArticleID() );
 					$title->invalidateCache();
 				}
 				$count++;
@@ -215,11 +223,11 @@ class UpdateFRTracking extends Maintenance {
 				],
 				__METHOD__
 			);
-			$deleted = $deleted + $db->affectedRows();
-			$db->commit();
+			$deleted += $db->affectedRows();
+			$this->commitTransaction( $db, __METHOD__ );
+
 			$blockStart += $BATCH_SIZE;
 			$blockEnd += $BATCH_SIZE;
-			wfWaitForSlaves( 5 );
 		}
 		$this->output( "flaggedpage columns update complete ..." .
 			" {$count} rows [{$fixed} fixed] [{$deleted} deleted]\n" );
@@ -230,7 +238,7 @@ class UpdateFRTracking extends Maintenance {
 
 		$BATCH_SIZE = 1000;
 
-		$db = wfGetDB( DB_MASTER );
+		$db = $this->getDB( DB_MASTER );
 
 		if ( $start === null ) {
 			$start = $db->selectField( 'flaggedimages', 'MIN(fi_rev_id)', false, __METHOD__ );
@@ -248,20 +256,19 @@ class UpdateFRTracking extends Maintenance {
 		while ( $blockEnd <= $end ) {
 			$this->output( "...doing fi_rev_id from $blockStart to $blockEnd\n" );
 			$cond = "fi_rev_id BETWEEN $blockStart AND $blockEnd";
-			$db->begin();
+
+			$this->beginTransaction( $db, __METHOD__ );
 			# Remove padding garbage and such...turn to NULL instead
 			$db->update( 'flaggedimages',
 				[ 'fi_img_timestamp' => null ],
 				[ $cond, "fi_img_timestamp = '' OR LOCATE( '\\0', fi_img_timestamp )" ],
 				__METHOD__
 			);
-			if ( $db->affectedRows() > 0 ) {
-				$nulled += $db->affectedRows();
-			}
-			$db->commit();
+			$nulled += $db->affectedRows();
+			$this->commitTransaction( $db, __METHOD__ );
+
 			$blockStart += $BATCH_SIZE;
 			$blockEnd += $BATCH_SIZE;
-			wfWaitForSlaves( 5 );
 		}
 		$this->output( "flaggedimages columns update complete ... [{$nulled} fixed]\n" );
 	}

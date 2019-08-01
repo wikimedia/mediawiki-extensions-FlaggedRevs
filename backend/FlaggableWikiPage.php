@@ -488,17 +488,14 @@ class FlaggableWikiPage extends WikiPage {
 
 	/**
 	 * Updates the flagging tracking tables for this page
-	 * @return void
 	 */
 	public function clearStableVersion() {
 		if ( !$this->exists() ) {
 			return; // nothing to do
 		}
 		$dbw = wfGetDB( DB_MASTER );
-		$dbw->delete( 'flaggedpages',
-			[ 'fp_page_id' => $this->getId() ], __METHOD__ );
-		$dbw->delete( 'flaggedpage_pending',
-			[ 'fpp_page_id' => $this->getId() ], __METHOD__ );
+		$dbw->delete( 'flaggedpages', [ 'fp_page_id' => $this->getId() ], __METHOD__ );
+		$dbw->delete( 'flaggedpage_pending', [ 'fpp_page_id' => $this->getId() ], __METHOD__ );
 	}
 
 	/**

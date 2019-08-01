@@ -94,7 +94,7 @@ class FRUserCounters {
 				'frp_user_params' => self::flattenParams( $params ) ],
 			__METHOD__
 		);
-		return ( $dbw->affectedRows() > 0 );
+		return true;
 	}
 
 	public static function deleteUserParams( User $user ) {
