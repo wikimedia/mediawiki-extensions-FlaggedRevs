@@ -16,7 +16,7 @@
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} тикшерелмәгән үзгәрешләрне карарга]]",
 	"revreview-quick-see-quality": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} тикшерелмәгән үзгәрешләрне карарга]]",
 	"revreview-basic-title": "Бу битнең каралган юрамасы",
-	"revreview-filter-all": "барлык",
+	"revreview-filter-all": "барысы",
 	"tooltip-ca-current": "Тикшерелмәгән төзәтмәләр булган әлеге сәхифәне карап чыгу",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Тикшерелмәгән битләр]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Тикшерүне көтүче төзәтмәләр]",
 	"validationpage": "{{ns:help}}:Битләрне тикшерү"

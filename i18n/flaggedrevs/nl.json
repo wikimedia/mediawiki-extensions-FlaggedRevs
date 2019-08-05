@@ -11,7 +11,8 @@
 			"Tvdm",
 			"Tkinkhorst",
 			"Mainframe98",
-			"Mar(c)"
+			"Mar(c)",
+			"Romaine"
 		]
 	},
 	"action-review": "versies als \"gecontroleerd\" te markeren",
@@ -34,6 +35,7 @@
 	"flaggedrevs-hidereviewed": "Gecontroleerde bewerkingen $1",
 	"flaggedrevs-hidereviewed-hide": "verbergen",
 	"flaggedrevs-hidereviewed-show": "weergeven",
+	"flaggedrevs-rcfilters-reviewed-label": "Gecontroleerd",
 	"group-editor": "redacteuren",
 	"group-editor-member": "{{GENDER:$1|redacteur|redactrice}}",
 	"group-reviewer": "eindredacteuren",
