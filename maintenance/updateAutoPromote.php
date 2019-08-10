@@ -16,6 +16,7 @@ class UpdateFRAutoPromote extends Maintenance {
 		parent::__construct();
 		$this->addDescription( "Update autopromote table" );
 		$this->setBatchSize( 50 );
+		$this->requireExtension( 'FlaggedRevs' );
 	}
 
 	public function execute() {

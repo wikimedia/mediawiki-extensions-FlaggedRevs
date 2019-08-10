@@ -24,6 +24,7 @@ class UpdateFRTracking extends Maintenance {
 		$this->addOption( 'startpage', 'Page ID to start on', false, true );
 		$this->addOption( 'startrev', 'Rev ID to start on', false, true );
 		$this->addOption( 'updateonly', 'One of (revs, pages, images)', false, true );
+		$this->requireExtension( 'FlaggedRevs' );
 	}
 
 	public function execute() {

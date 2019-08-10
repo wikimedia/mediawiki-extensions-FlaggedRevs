@@ -19,6 +19,7 @@ class PurgeReviewablePages extends Maintenance {
 		$this->addOption( 'purgelist',
 			"Purge the list of pages in pagesToPurge.list", false, false );
 		$this->setBatchSize( 1000 );
+		$this->requireExtension( 'FlaggedRevs' );
 	}
 
 	public function execute() {

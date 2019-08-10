@@ -22,6 +22,7 @@ class PruneFRIncludeData extends Maintenance {
 		$this->addOption( 'prune', 'Actually do a live run', false );
 		$this->addOption( 'start', 'The ID of the starting rev', false, true );
 		$this->setBatchSize( 500 );
+		$this->requireExtension( 'FlaggedRevs' );
 	}
 
 	public function execute() {
