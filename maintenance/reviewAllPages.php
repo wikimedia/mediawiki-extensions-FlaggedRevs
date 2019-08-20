@@ -19,6 +19,7 @@ class ReviewAllPages extends Maintenance {
 		$this->addOption( 'username',
 			'The user name of the existing user to use as the "reviewer"', true, true );
 		$this->setBatchSize( 100 );
+		$this->requireExtension( 'FlaggedRevs' );
 	}
 
 	public function execute() {

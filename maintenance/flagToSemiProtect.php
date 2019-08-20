@@ -17,6 +17,7 @@ class FlagProtectToSemiProtect extends Maintenance {
 		$this->addOption( 'user', 'The name of the admin user to use as the "protector"', true, true );
 		$this->addOption( 'reason', 'The reason for the conversion', false, true );
 		$this->setBatchSize( 500 );
+		$this->requireExtension( 'FlaggedRevs' );
 	}
 
 	public function execute() {

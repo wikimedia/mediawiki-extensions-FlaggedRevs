@@ -15,6 +15,7 @@ class UpdateFlaggedRevsQueryCache extends Maintenance {
 	public function __construct() {
 		parent::__construct();
 		$this->addDescription( "Update special page query cache table" );
+		$this->requireExtension( 'FlaggedRevs' );
 	}
 
 	public function execute() {
