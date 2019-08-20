@@ -874,7 +874,7 @@ class FlaggedRevision {
 			$deleted = $usedTS // included file deleted after review
 				&& $file->getTimestamp() != $usedTS
 				&& !wfFindFile( $title, [ 'time' => $usedTS ] );
-		} else { // file doesn't exists
+		} else { // file doesn't exist
 			$updated = false;
 			$deleted = (bool)$usedTS; // included file deleted after review
 		}
