@@ -310,7 +310,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 			$namespace = (int)$namespace;
 		}
 		$vnamespaces = FlaggedRevs::getReviewNamespaces();
-		# Must be a single NS for perfomance reasons
+		# Must be a single NS for performance reasons
 		if ( is_null( $namespace ) || !in_array( $namespace, $vnamespaces ) ) {
 			$namespace = !$vnamespaces ? -1 : $vnamespaces[0];
 		}
