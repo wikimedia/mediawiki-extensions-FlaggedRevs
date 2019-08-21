@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Timpul"
+			"Timpul",
+			"Uostofchuodnego"
 		]
 	},
-	"revreview-revnotfound": "Ńy idźe znejść staršyj wersyji zajty. Sprawdź, proša, URL kery žeś užůu coby uzyskać dostymp do tyj zajty."
+	"revreview-revnotfound": "Ńy idźe znejść staršyj wersyji zajty. Sprawdź, proša, URL kery žeś užůu coby uzyskać dostymp do tyj zajty.",
+	"tooltip-ca-current": "Pokŏż tã strōnã ze zmianami, co czekajōm"
 }
