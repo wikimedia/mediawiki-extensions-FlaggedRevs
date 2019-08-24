@@ -229,8 +229,10 @@ class Stabilization extends UnlistedSpecialPage {
 						Xml::label( $this->msg( 'stabilization-otherreason' )->text(), 'wpReason' ) .
 					'</td>
 					<td class="mw-input">' .
-						Xml::input( 'wpReason', 70, $form->getReasonExtra(),
-							[ 'id' => 'wpReason', 'maxlength' => 255 ] ) .
+						Xml::input( 'wpReason', 70, $form->getReasonExtra(), [
+							'id' => 'wpReason',
+							'maxlength' => CommentStore::COMMENT_CHARACTER_LIMIT
+						] ) .
 					'</td>
 				</tr>
 				<tr>
