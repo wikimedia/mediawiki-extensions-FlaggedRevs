@@ -4,12 +4,13 @@
 			"DCLXVI",
 			"Spiritia",
 			"Turin",
-			"Vlad5250"
+			"Vlad5250",
+			"StanProg"
 		]
 	},
 	"pendingchanges": "Страници с промени, очакващи проверка",
-	"pendingchanges-list": "Тази страница навежда [[{{MediaWiki:Validationpage}}|прегледани]] страници с една или повече редакции, очакващи проверка.",
-	"pendingchanges-none": "В момента не съществуват страници, които да отговарят на тези критерии",
+	"pendingchanges-list": "Тази страница показва [[{{MediaWiki:Validationpage}}|проверени]] страници, имащи една или повече редакции, очакващи проверка.",
+	"pendingchanges-none": "В момента не съществуват страници, които да отговарят на зададените критерии",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|час|часа}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|ден|дни}})",
 	"pendingchanges-recent": "(по-малко от 1 час)",
@@ -18,7 +19,7 @@
 	"pendingchanges-stable": "Стабилната версия е версията по подразбиране",
 	"pendingchanges-diff": "проверка",
 	"pendingchanges-size": "Макс. промяна (в байтове):",
-	"pendingchanges-unwatched": "(ненаблюдавано)",
+	"pendingchanges-unwatched": "(ненаблюдавана)",
 	"pendingchanges-watched": "($1 {{PLURAL:$1|активен наблюдаващ потребител|активни наблюдаващи потребители}})",
-	"pendingchanges-viewing": "(в проверка)"
+	"pendingchanges-viewing": "(в процес на проверка)"
 }

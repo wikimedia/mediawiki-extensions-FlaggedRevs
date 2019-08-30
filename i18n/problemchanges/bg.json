@@ -3,11 +3,12 @@
 		"authors": [
 			"Spiritia",
 			"Turin",
-			"Vlad5250"
+			"Vlad5250",
+			"StanProg"
 		]
 	},
-	"problemchanges": "Отбелязани промени, очакващи проверка",
-	"problemchanges-legend": "Списък на страниците с отбелязани редакции, очакващи преглед",
-	"problemchanges-none": "В момента няма страници, които да отговарят на критериите.",
+	"problemchanges": "Отбелязани непроверени промени",
+	"problemchanges-legend": "Списък на страниците с отбелязани редакции, очакващи проверка",
+	"problemchanges-none": "В момента няма страници, отговарящи на критериите.",
 	"problemchanges-category": "Категория:"
 }

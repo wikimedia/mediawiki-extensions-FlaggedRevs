@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"DCLXVI"
+			"DCLXVI",
+			"StanProg"
 		]
 	},
 	"stablepages": "Устойчиви страници",
-	"stablepages-none": "Списъкът не съдържа страници",
+	"stablepages-none": "Списъкът не съдържа страници.",
 	"stablepages-config": "Конфигурация"
 }

@@ -4,17 +4,18 @@
 			"Borislav",
 			"DCLXVI",
 			"Turin",
-			"Vlad5250"
+			"Vlad5250",
+			"StanProg"
 		]
 	},
-	"unreviewedpages": "Нерецензирани страници",
-	"unreviewedpages-legend": "Списък на нерецензирани статии",
+	"unreviewedpages": "Непроверени страници",
+	"unreviewedpages-legend": "Списък на непроверени статии",
 	"unreviewedpages-category": "Категория:",
-	"unreviewedpages-diff": "преглеждане",
+	"unreviewedpages-diff": "проверка",
 	"unreviewedpages-unwatched": "(ненаблюдавана)",
 	"unreviewedpages-watched": "($1 {{PLURAL:$1|активен наблюдаващ потребител|активни наблюдаващи потребители}})",
-	"unreviewedpages-list": "На тази страница са посочени статии които все още ''не'' са [[{{MediaWiki:Validationpage}}|оценени]] на назначеното ниво.",
-	"unreviewedpages-none": "В момента не съществуват страници, отговарящи на дадените изисквания",
+	"unreviewedpages-list": "На тази страница са посочени статии които все още ''не'' са [[{{MediaWiki:Validationpage}}|проверени]] на указаното ниво.",
+	"unreviewedpages-none": "В момента не съществуват страници, отговарящи на зададенит критерии",
 	"unreviewedpages-hours": "($1 {{PLURAL:$1|час|часа}})",
 	"unreviewedpages-days": "($1 {{PLURAL:$1|ден|дни}})",
 	"unreviewedpages-recent": "(по-малко от час)"

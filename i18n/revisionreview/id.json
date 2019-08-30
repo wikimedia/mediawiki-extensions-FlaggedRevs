@@ -64,7 +64,7 @@
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Perubahan Anda belum masuk versi stabil.</span> \n\nHarap tinjau semua perubahan yang ditunjukkan di bawah ini untuk membuat suntingan Anda muncul dalam versi stabil.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Perubahan Anda belum masuk versi stabil. Ada perubahan terdahulu yang menunggu tinjauan.</span> \n\nHarap tinjau semua perubahan yang ditunjukkan di bawah ini untuk membuat suntingan Anda muncul dalam versi stabil.",
 	"revreview-update-includes": "Templat/berkas diperbarui (halaman belum tertinjau bercetak tebal):",
-	"revreview-reject-text-list": "Dengan melakukan tindakan ini, Anda akan '''menolak''' sumber teks dari {{PLURAL:$1|perubahan|perubahan}} dari [[:$2|$2]] berikut:",
+	"revreview-reject-text-list": "Dengan melakukan tindakan ini, Anda akan '''menolak''' sumber teks dari {{PLURAL:$1|perubahan}} dari [[:$2|$2]] berikut:",
 	"revreview-reject-text-revto": "Ini akan mengembalikan halaman kepada [{{fullurl:$1|oldid=$2}} versi per $3].",
 	"revreview-reject-summary": "Ringkasan:",
 	"revreview-reject-confirm": "Tolak perubahan ini",
