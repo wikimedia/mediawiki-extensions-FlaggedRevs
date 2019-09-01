@@ -20,6 +20,8 @@
  * http://www.gnu.org/copyleft/gpl.html
  */
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * API module to stabilize pages
  *
@@ -70,7 +72,7 @@ abstract class ApiStabilize extends ApiBase {
 // Assumes $wgFlaggedRevsProtection is off
 class ApiStabilizeGeneral extends ApiStabilize {
 	public function doExecute() {
-		global $wgUser, $wgContLang;
+		global $wgUser;
 
 		$params = $this->extractRequestParams();
 
@@ -105,7 +107,8 @@ class ApiStabilizeGeneral extends ApiStabilize {
 		$res['title'] = $this->title->getPrefixedText();
 		$res['default'] = $params['default'];
 		$res['autoreview'] = $params['autoreview'];
-		$res['expiry'] = $wgContLang->formatExpiry( $form->getExpiry(), TS_ISO_8601 );
+		$res['expiry'] = MediaWikiServices::getInstance()->getContentLanguage()
+			->formatExpiry( $form->getExpiry(), TS_ISO_8601 );
 		$this->getResult()->addValue( null, $this->getModuleName(), $res );
 	}
 
@@ -191,7 +194,7 @@ class ApiStabilizeGeneral extends ApiStabilize {
 // Assumes $wgFlaggedRevsProtection is on
 class ApiStabilizeProtect extends ApiStabilize {
 	public function doExecute() {
-		global $wgUser, $wgContLang;
+		global $wgUser;
 		$params = $this->extractRequestParams();
 
 		$form = new PageStabilityProtectForm( $wgUser );
@@ -219,7 +222,8 @@ class ApiStabilizeProtect extends ApiStabilize {
 		$res = [];
 		$res['title'] = $this->title->getPrefixedText();
 		$res['protectlevel'] = $params['protectlevel'];
-		$res['expiry'] = $wgContLang->formatExpiry( $form->getExpiry(), TS_ISO_8601 );
+		$res['expiry'] = MediaWikiServices::getInstance()->getContentLanguage()
+			->formatExpiry( $form->getExpiry(), TS_ISO_8601 );
 		$this->getResult()->addValue( null, $this->getModuleName(), $res );
 	}
 

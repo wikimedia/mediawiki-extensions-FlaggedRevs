@@ -10,7 +10,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 	}
 
 	public function execute( $par ) {
-		global $wgContLang, $wgFlaggedRevsStats, $wgFlaggedRevsProtection;
+		global $wgFlaggedRevsStats, $wgFlaggedRevsProtection;
 
 		$out = $this->getOutput();
 		$lang = $this->getLanguage();
@@ -93,6 +93,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 		}
 		$out->addHTML( "</tr>\n" );
 		$namespaces = FlaggedRevs::getReviewNamespaces();
+		$contLang = MediaWikiServices::getInstance()->getContentLanguage();
 		foreach ( $namespaces as $namespace ) {
 			$total = $this->getTotalPages( $namespace );
 			$reviewed = $this->getReviewedPages( $namespace );
@@ -101,7 +102,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 				continue; // NS added to config recently?
 			}
 
-			$NsText = $wgContLang->getFormattedNsText( $namespace );
+			$NsText = $contLang->getFormattedNsText( $namespace );
 			$NsText = $NsText ?: $this->msg( 'blanknamespace' )->text();
 
 			$percRev = intval( $total ) == 0
@@ -141,11 +142,11 @@ class ValidationStatistics extends IncludableSpecialPage {
 					"</td>
 					<td>" .
 						htmlspecialchars( $lang->formatnum( $reviewed ) .
-							$wgContLang->getDirMark() ) . " <i>$percRev</i>
+							$contLang->getDirMark() ) . " <i>$percRev</i>
 					</td>
 					<td>" .
 						htmlspecialchars( $lang->formatnum( $synced ) .
-							$wgContLang->getDirMark() ) . " <i>$percLatest</i>
+							$contLang->getDirMark() ) . " <i>$percLatest</i>
 					</td>
 					<td>" .
 						$percSynced .

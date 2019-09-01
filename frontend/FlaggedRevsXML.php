@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\MediaWikiServices;
+
 /**
  * Class containing utility XML functions for a FlaggedRevs.
  * Includes functions for selectors, icons, notices, CSS, and form aspects.
@@ -12,7 +15,6 @@ class FlaggedRevsXML {
 	 * @return string
 	 */
 	public static function getNamespaceMenu( $selected = null, $all = null ) {
-		global $wgContLang;
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		$s = "<label for='namespace'>" . wfMessage( 'namespace' )->escaped() . "</label>";
 		if ( $selected !== '' ) {
@@ -25,7 +27,7 @@ class FlaggedRevsXML {
 			}
 		}
 		$s .= "\n<select id='namespace' name='namespace' class='namespaceselector'>\n";
-		$arr = $wgContLang->getFormattedNamespaces();
+		$arr = MediaWikiServices::getInstance()->getContentLanguage()->getFormattedNamespaces();
 		if ( !is_null( $all ) ) {
 			$arr = [ $all => wfMessage( 'namespacesall' )->text() ] + $arr; // should be first
 		}

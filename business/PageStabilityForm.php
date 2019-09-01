@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\MediaWikiServices;
+
 /**
  * Class containing stability settings form business logic
  */
@@ -286,7 +289,6 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	 * @return Revision
 	 */
 	protected function updateLogsAndHistory( FlaggableWikiPage $article ) {
-		global $wgContLang;
 		$newConfig = $this->getNewConfig();
 		$oldConfig = $this->getOldConfig();
 		$reason = $this->getReason();
@@ -304,8 +306,10 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 			$params = FlaggedRevsLog::stabilityLogParams( $newConfig );
 			$settings = FlaggedRevsStableLogFormatter::stabilitySettings( $params, true /*content*/ );
 		}
-		$comment = $wgContLang->ucfirst(
-			wfMessage( $type, $this->page->getPrefixedText() )->inContentLanguage()->text() ); // action
+		// action
+		$comment = MediaWikiServices::getInstance()->getContentLanguage()->ucfirst(
+			wfMessage( $type, $this->page->getPrefixedText() )->inContentLanguage()->text()
+		);
 		if ( $reason != '' ) {
 			$comment .= wfMessage( 'colon-separator' )->inContentLanguage()->text() . $reason; // add reason
 		}

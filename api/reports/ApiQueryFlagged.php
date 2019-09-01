@@ -21,6 +21,8 @@
  * http://www.gnu.org/copyleft/gpl.html
  */
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * Query module to get flagging information about pages via 'prop=flagged'
  *
@@ -28,7 +30,6 @@
  */
 class ApiQueryFlagged extends ApiQueryBase {
 	public function execute() {
-		global $wgContLang;
 		$pageSet = $this->getPageSet();
 		$pageids = array_keys( $pageSet->getGoodTitles() );
 		if ( !$pageids ) {
@@ -61,6 +62,8 @@ class ApiQueryFlagged extends ApiQueryBase {
 		$this->addTables( 'flaggedpage_config' );
 		$this->addFields( [ 'fpc_page_id', 'fpc_level', 'fpc_expiry' ] );
 		$this->addWhereFld( 'fpc_page_id', $pageids );
+
+		$contLang = MediaWikiServices::getInstance()->getContentLanguage();
 		foreach ( $this->select( __METHOD__ ) as $row ) {
 			$result->addValue(
 				[ 'query', 'pages', $row->fpc_page_id, 'flagged' ],
@@ -70,7 +73,7 @@ class ApiQueryFlagged extends ApiQueryBase {
 			$result->addValue(
 				[ 'query', 'pages', $row->fpc_page_id, 'flagged' ],
 				'protection_expiry',
-				$wgContLang->formatExpiry( $row->fpc_expiry, TS_ISO_8601 )
+				$contLang->formatExpiry( $row->fpc_expiry, TS_ISO_8601 )
 			);
 		}
 

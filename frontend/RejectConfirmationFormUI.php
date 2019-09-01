@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\MediaWikiServices;
+
 /**
  * Reject confirmation review form UI
  */
@@ -16,7 +19,8 @@ class RejectConfirmationFormUI {
 	 * @return array (html string, error string or true)
 	 */
 	public function getHtml() {
-		global $wgLang, $wgContLang;
+		global $wgLang;
+
 		$status = $this->form->checkTarget();
 		if ( $status !== true ) {
 			return [ '', $status ]; // not a reviewable existing page
@@ -113,9 +117,10 @@ class RejectConfirmationFormUI {
 		$msg = $newRev->isCurrent()
 			? 'revreview-reject-summary-cur'
 			: 'revreview-reject-summary-old';
+		$contLang = MediaWikiServices::getInstance()->getContentLanguage();
 		$defaultSummary = wfMessage( $msg,
-			$wgContLang->formatNum( count( $rejectIds ) ),
-			$wgContLang->listToText( $rejectAuthors ),
+			$contLang->formatNum( count( $rejectIds ) ),
+			$contLang->listToText( $rejectAuthors ),
 			$oldRev->getId(),
 			$oldRevAuthor,
 			count( $rejectAuthors ) === 1 ? $lastRejectAuthor : '.',
@@ -129,7 +134,7 @@ class RejectConfirmationFormUI {
 				? 'revreview-reject-summary-cur-short'
 				: 'revreview-reject-summary-old-short';
 			$defaultSummary = wfMessage( $msg,
-				$wgContLang->formatNum( count( $rejectIds ) ),
+				$contLang->formatNum( count( $rejectIds ) ),
 				$oldRev->getId(),
 				$oldRevAuthor,
 				$oldRevAuthorUsername

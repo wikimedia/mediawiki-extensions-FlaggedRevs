@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class FlaggedRevsStableLogFormatter extends LogFormatter {
 
 	protected function getMessageKey() {
@@ -43,10 +45,10 @@ class FlaggedRevsStableLogFormatter extends LogFormatter {
 	 * @return string
 	 */
 	public static function stabilitySettings( array $pars, $forContent ) {
-		global $wgLang, $wgContLang;
+		global $wgLang;
 		$set = [];
 		$settings = '';
-		$langObj = $forContent ? $wgContLang : $wgLang;
+		$langObj = $forContent ? MediaWikiServices::getInstance()->getContentLanguage() : $wgLang;
 		// Protection-based or deferral-based configs (precedence never changed)...
 		if ( !isset( $pars['precedence'] ) ) {
 			if ( isset( $pars['autoreview'] ) && strlen( $pars['autoreview'] ) ) {
