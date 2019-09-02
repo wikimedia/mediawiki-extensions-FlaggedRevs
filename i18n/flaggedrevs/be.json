@@ -8,7 +8,13 @@
 			"Vlad5250"
 		]
 	},
+	"action-autoreview": "аўтаматычна значыць уласныя праўкі як дагледжаныя",
+	"action-autoreviewrestore": "аўтавыверка пры адкаце",
+	"action-movestable": "перайменаванне апублікаваных версій",
 	"action-review": "Праверка версій старонак",
+	"action-stablesettings": "наладка выбару і паказу апублікаванай версіі",
+	"action-validate": "адзнака версій старонак як вывераных",
+	"action-unreviewedpages": "прагляд спісу неправераных старонак",
 	"editor": "Даглядальнік",
 	"flaggedrevs": "Адзначаныя версіі",
 	"flaggedrevs-watched-pending": "У вашым спісе назірання [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} прысутнічаюць праўкі], якія чакаюць праверкі. '''Калі ласка, звярніце ўвагу!'''",

@@ -93,7 +93,7 @@
 	"revreview-depth-3": "Alt",
 	"revreview-depth-4": "Rellevant",
 	"revreview-draft-title": "S'han afixat els canvis en curs en aquesta pàgina",
-	"revreview-editnotice": "'''Els vostres canvis seran afixats pels lectors un cop que un usuari autoritzat els acceptaran. ([[{{MediaWiki:Validationpage}}|ajuda]])'''",
+	"revreview-editnotice": "'''Es mostraran els vostres canvis als lectors un cop que un usuari autoritzat els accepti. ([[{{MediaWiki:Validationpage}}|ajuda]])'''",
 	"revreview-submitedit": "Envia els canvis",
 	"revreview-submitedit-title": "Sotmetre els canvis a aprovació.",
 	"revreview-edited": "'''Els vostres canvis seran afixats pels lectors un cop que un usuari autoritzat els acceptaran. ([[{{MediaWiki:Validationpage}}|ajuda]])'''\n\nHi ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|canvi|canvis}}] en curs ''(Vegeu de sota)''  que {{PLURAL:$2|atén|atenen}} revista.",
