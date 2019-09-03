@@ -6,10 +6,16 @@
 			"Red Winged Duck",
 			"Renessaince",
 			"Wizardist",
-			"Zedlik"
+			"Zedlik",
+			"Vlad5250"
 		]
 	},
+	"action-autoreview": "аўтаматычнае пазначэньне вэрсіяў старонак як правераных",
+	"action-autoreviewrestore": "аўтаматычнае рэцэнзаваньне пры адкаце",
+	"action-movestable": "перанос апублікаваных старонак",
 	"action-review": "праверыць вэрсіі",
+	"action-stablesettings": "канфігурацыя выбару і паказу апублікаванай вэрсіі",
+	"action-validate": "пазначэньне вэрсіяў як «якасныя»",
 	"action-unreviewedpages": "прагляд сьпісу неправераных старонак",
 	"editor": "Рэдактар",
 	"flaggedrevs": "Пазначаныя вэрсіі",
@@ -175,5 +181,6 @@
 	"revreview-unlocked-title": "Зьмены гэтай старонкі не патрабуюць рэцэнзаваньня.",
 	"revreview-locked": "'''Заўвага:''' Зьмены павінны быць [[{{MediaWiki:Validationpage}}|рэцэнзаваныя]] перад тым, як будуць паказаныя чытачам на гэтай старонцы.",
 	"revreview-unlocked": "'''Заўвага:''' Зьмены не патрабуюць [[{{MediaWiki:Validationpage}}|рэцэнзаваньня]] перад паказам чытачам на гэтай старонцы.",
+	"logeventslist-review-log": "Журнал праверак",
 	"validationpage": "{{ns:help}}:Праверка старонак"
 }
