@@ -17,7 +17,6 @@ class ValidationStatistics extends IncludableSpecialPage {
 
 		$this->setHeaders();
 		$this->addHelpLink( 'Help:Extension:FlaggedRevs' );
-		$this->db = wfGetDB( DB_REPLICA );
 
 		$this->maybeUpdate();
 
@@ -206,14 +205,14 @@ class ValidationStatistics extends IncludableSpecialPage {
 			return false;
 		}
 
-		$stash = MediaWikiServices::getInstance()->getMainObjectStash();
-		$key = $stash->makeKey( 'flaggedrevs', 'statsUpdated' );
-		$keySQL = $stash->makeKey( 'flaggedrevs', 'statsUpdating' );
+		$cache = ObjectCache::getLocalClusterInstance();
+		$key = $cache->makeKey( 'flaggedrevs', 'statsUpdated' );
+		$keySQL = $cache->makeKey( 'flaggedrevs', 'statsUpdating' );
 		// If a cache update is needed, do so asynchronously.
 		// Don't trigger query while another is running.
-		if ( $stash->get( $key ) ) {
+		if ( $cache->get( $key ) ) {
 			wfDebugLog( 'ValidationStatistics', __METHOD__ . " skipping, got data" );
-		} elseif ( $stash->get( $keySQL ) ) {
+		} elseif ( $cache->get( $keySQL ) ) {
 			wfDebugLog( 'ValidationStatistics', __METHOD__ . " skipping, in progress" );
 		} else {
 			global $wgPhpCli;
@@ -230,27 +229,33 @@ class ValidationStatistics extends IncludableSpecialPage {
 	}
 
 	protected function readyForQuery() {
-		if ( !$this->db->tableExists( 'flaggedrevs_statistics' ) ) {
+		$dbr = wfGetDB( DB_REPLICA );
+
+		if ( !$dbr->tableExists( 'flaggedrevs_statistics' ) ) {
 			return false;
 		} else {
-			return ( 0 != $this->db->selectField( 'flaggedrevs_statistics', 'COUNT(*)' ) );
+			return ( 0 != $dbr->selectField( 'flaggedrevs_statistics', 'COUNT(*)' ) );
 		}
 	}
 
 	protected function getEditorCount() {
-		return $this->db->selectField( 'user_groups', 'COUNT(*)',
+		$dbr = wfGetDB( DB_REPLICA );
+
+		return $dbr->selectField( 'user_groups', 'COUNT(*)',
 			[
 				'ug_group' => 'editor',
-				'ug_expiry IS NULL OR ug_expiry >= ' . $this->db->addQuotes( $this->db->timestamp() )
+				'ug_expiry IS NULL OR ug_expiry >= ' . $dbr->addQuotes( $dbr->timestamp() )
 			],
 			__METHOD__ );
 	}
 
 	protected function getReviewerCount() {
-		return $this->db->selectField( 'user_groups', 'COUNT(*)',
+		$dbr = wfGetDB( DB_REPLICA );
+
+		return $dbr->selectField( 'user_groups', 'COUNT(*)',
 			[
 				'ug_group' => 'reviewer',
-				'ug_expiry IS NULL OR ug_expiry >= ' . $this->db->addQuotes( $this->db->timestamp() )
+				'ug_expiry IS NULL OR ug_expiry >= ' . $dbr->addQuotes( $dbr->timestamp() )
 			],
 			__METHOD__ );
 	}
@@ -307,47 +312,51 @@ class ValidationStatistics extends IncludableSpecialPage {
 	 * @return array
 	 */
 	protected function getTopReviewers() {
-		global $wgFlaggedRevsStats;
+		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
+		$fname = __METHOD__;
 
-		$stash = MediaWikiServices::getInstance()->getMainObjectStash();
-		$key = $stash->makeKey( 'flaggedrevs', 'reviewTopUsers' );
-		$data = $stash->get( $key );
-		if ( is_array( $data ) ) {
-			return $data; // cache hit
-		}
+		return $cache->getWithSetCallback(
+			$cache->makeKey( 'flaggedrevs', 'reviewTopUsers' ),
+			$cache::TTL_HOUR,
+			function () {
+				global $wgFlaggedRevsStats;
 
-		$dbr = wfGetDB( DB_REPLICA, 'vslow' );
-		$limit = (int)$wgFlaggedRevsStats['topReviewersCount'];
-		$seconds = 3600 * $wgFlaggedRevsStats['topReviewersHours'];
-		$cutoff = $dbr->timestamp( time() - $seconds );
-		$actorQuery = ActorMigration::newMigration()->getJoin( 'log_user' );
-		$res = $dbr->select(
-			[ 'logging' ] + $actorQuery['tables'],
-			[ 'user' => $actorQuery['fields']['log_user'], 'COUNT(*) AS reviews' ],
+				$dbr = wfGetDB( DB_REPLICA, 'vslow' );
+
+				$limit = (int)$wgFlaggedRevsStats['topReviewersCount'];
+				$seconds = 3600 * $wgFlaggedRevsStats['topReviewersHours'];
+				$cutoff = $dbr->timestamp( time() - $seconds );
+				$actorQuery = ActorMigration::newMigration()->getJoin( 'log_user' );
+				$res = $dbr->select(
+					[ 'logging' ] + $actorQuery['tables'],
+					[ 'user' => $actorQuery['fields']['log_user'], 'COUNT(*) AS reviews' ],
+					[
+						'log_type' => 'review', // page reviews
+						// manual approvals (filter on log_action)
+						'log_action' => [ 'approve', 'approve2', 'approve-i', 'approve2-i' ],
+						'log_timestamp >= ' . $dbr->addQuotes( $cutoff ) // last hour
+					],
+					$fname,
+					[
+						'GROUP BY' => $actorQuery['fields']['log_user'],
+						'ORDER BY' => 'reviews DESC',
+						'LIMIT' => $limit
+					],
+					$actorQuery['joins']
+				);
+
+				$data = [];
+				foreach ( $res as $row ) {
+					$data[$row->user] = $row->reviews;
+				}
+
+				return $data;
+			},
 			[
-				'log_type' => 'review', // page reviews
-				// manual approvals (filter on log_action)
-				'log_action' => [ 'approve', 'approve2', 'approve-i', 'approve2-i' ],
-				'log_timestamp >= ' . $dbr->addQuotes( $cutoff ) // last hour
-			],
-			__METHOD__,
-			[
-				'GROUP BY' => $actorQuery['fields']['log_user'],
-				'ORDER BY' => 'reviews DESC',
-				'LIMIT' => $limit
-			],
-			$actorQuery['joins']
+				'lockTSE' => 300,
+				'staleTTL' => $cache::TTL_MINUTE
+			]
 		);
-
-		$data = [];
-		foreach ( $res as $row ) {
-			$data[$row->user] = $row->reviews;
-		}
-
-		// Save/cache users
-		$stash->set( $key, $data, 3600 );
-
-		return $data;
 	}
 
 	protected function getGroupName() {

@@ -3,7 +3,7 @@
  * FlaggedRevs stats functions
  */
 
-use MediaWiki\MediaWikiServices;
+use Wikimedia\Rdbms\IDatabase;
 
 class FlaggedRevsStats {
 	/**
@@ -84,9 +84,9 @@ class FlaggedRevsStats {
 		}
 
 		// Set key to limit duplicate updates...
-		$stash = MediaWikiServices::getInstance()->getMainObjectStash();
-		$keySQL = $stash->makeKey( 'flaggedrevs', 'statsUpdating' );
-		$stash->set( $keySQL, '1', $wgFlaggedRevsStatsAge );
+		$cache = ObjectCache::getLocalClusterInstance();
+		$keySQL = $cache->makeKey( 'flaggedrevs', 'statsUpdating' );
+		$cache->set( $keySQL, '1', $wgFlaggedRevsStatsAge );
 
 		// Get total, reviewed, and synced page count for each namespace
 		list( $ns_total, $ns_reviewed, $ns_synced ) = self::getPerNamespaceTotals();
@@ -96,9 +96,9 @@ class FlaggedRevsStats {
 		$avePET = self::getMeanPendingEditTime();
 
 		# Get wait (till review) time samples for anon edits...
-		$reviewDataAnon = self::getEditReviewTimes( $stash, 'anons' );
+		$reviewDataAnon = self::getEditReviewTimes( $cache, 'anons' );
 		# Get wait (till review) time samples for logged-in user edits...
-		$reviewDataUser = self::getEditReviewTimes( $stash, 'users' );
+		$reviewDataUser = self::getEditReviewTimes( $cache, 'users' );
 
 		$dbw = wfGetDB( DB_MASTER );
 		// The timestamp to identify this whole batch of data
@@ -187,9 +187,9 @@ class FlaggedRevsStats {
 		$dbw->insert( 'flaggedrevs_statistics', $dataSet, __FUNCTION__, [ 'IGNORE' ] );
 
 		// Stats are now up to date!
-		$key = $stash->makeKey( 'flaggedrevs', 'statsUpdated' );
-		$stash->set( $key, '1', $wgFlaggedRevsStatsAge );
-		$stash->delete( $keySQL );
+		$key = $cache->makeKey( 'flaggedrevs', 'statsUpdated' );
+		$cache->set( $key, '1', $wgFlaggedRevsStatsAge );
+		$cache->delete( $keySQL );
 	}
 
 	private static function getPerNamespaceTotals() {
@@ -216,7 +216,7 @@ class FlaggedRevsStats {
 	}
 
 	// @TODO: maybe put in core?
-	private static function dbUnixTime( $db, $column ) {
+	private static function dbUnixTime( IDatabase $db, $column ) {
 		return $db->getType() === 'sqlite' ? "strftime('%s',$column)" : "UNIX_TIMESTAMP($column)";
 	}
 
@@ -237,12 +237,12 @@ class FlaggedRevsStats {
 
 	/**
 	 * Get edit review time statistics (as recent as possible)
-	 * @param BagOStuff $stash BagOStuff object
+	 * @param BagOStuff $cache BagOStuff object
 	 * @param string $users string "anons" or "users"
-	 * @throws Exception
 	 * @return array associative
+	 *@throws Exception
 	 */
-	private static function getEditReviewTimes( $stash, $users = 'anons' ) {
+	private static function getEditReviewTimes( $cache, $users = 'anons' ) {
 		$result = [
 			'average'       => 0,
 			'median'        => 0,
@@ -362,23 +362,25 @@ class FlaggedRevsStats {
 		# Get timestamp boundaries
 		$timeCondition = "rev_timestamp BETWEEN $encMinTS AND $encMaxTS";
 		# Get mod for edit spread
-		$ecKey = wfMemcKey( 'flaggedrevs', 'rcEditCount', $users, $days );
-		$edits = (int)$stash->get( $ecKey );
-		if ( !$edits ) {
-			$edits = (int)$dbr->selectField(
-				[ 'page','revision' ] + $actorQuery['tables'],
-				'COUNT(*)',
-				[
-					$userCondition,
-					$timeCondition, // in time range
-					'page_namespace' => FlaggedRevs::getReviewNamespaces()
-				],
-				__METHOD__,
-				[],
-				[ 'page' => [ 'JOIN', 'page_id = rev_page' ] ] + $actorQuery['joins']
-			);
-			$stash->set( $ecKey, $edits, 14 * 24 * 3600 ); // cache for 2 weeks
-		}
+		$fname = __METHOD__;
+		$edits = $cache->getWithSetCallback(
+			$cache->makeKey( 'flaggedrevs', 'rcEditCount', $users, $days ),
+			$cache::TTL_WEEK * 2,
+			function () use ( $dbr, $fname, $userCondition, $timeCondition, $actorQuery ) {
+				return (int)$dbr->selectField(
+					[ 'page', 'revision' ] + $actorQuery['tables'],
+					'COUNT(*)',
+					[
+						$userCondition,
+						$timeCondition, // in time range
+						'page_namespace' => FlaggedRevs::getReviewNamespaces()
+					],
+					$fname,
+					[],
+					[ 'page' => [ 'JOIN', 'page_id = rev_page' ] ] + $actorQuery['joins']
+				);
+			}
+		);
 		$mod = max( floor( $edits / $sampleSize ), 1 ); # $mod >= 1
 		# For edits that started off pending, how long do they take to get reviewed?
 		# Edits started off pending if made when a flagged rev of the page already existed.
