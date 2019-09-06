@@ -283,7 +283,7 @@
 				"revreview-log-details-hide"
 			],
 			"dependencies": [
-				"jquery.accessKeyLabel"
+				"mediawiki.util"
 			]
 		},
 		"ext.flaggedRevs.review": {
