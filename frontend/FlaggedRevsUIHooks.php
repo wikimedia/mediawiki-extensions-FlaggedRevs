@@ -964,17 +964,18 @@ class FlaggedRevsUIHooks {
 					->getPermissionManager()
 					->userHasRight( $list->getUser(), 'review' )
 			) {
-				$rlink = wfMessage( 'revreview-unreviewedpage' )->escaped();
+				$rlink = $list->msg( 'revreview-unreviewedpage' )->escaped();
 				$css = 'flaggedrevs-unreviewed';
 			}
 		// page is reviewed and has pending edits (use timestamps; bug 15515)
 		} elseif ( $rc->getAttribute( 'fp_pending_since' ) !== null &&
 			$rc->getAttribute( 'rc_timestamp' ) >= $rc->getAttribute( 'fp_pending_since' )
 		) {
-			$rlink = Linker::link(
+			$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
+			$rlink = $linkRenderer->makeLink(
 				$title,
-				wfMessage( 'revreview-reviewlink' )->escaped(),
-				[ 'title' => wfMessage( 'revreview-reviewlink-title' )->text() ],
+				$list->msg( 'revreview-reviewlink' )->text(),
+				[ 'title' => $list->msg( 'revreview-reviewlink-title' )->text() ],
 				[ 'oldid' => $rc->getAttribute( 'fp_stable' ), 'diff' => 'cur' ] +
 					FlaggedRevs::diffOnlyCGI()
 			);

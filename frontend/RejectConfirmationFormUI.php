@@ -155,6 +155,7 @@ class RejectConfirmationFormUI {
 			? 'revreview-reject-summary-cur'
 			: 'revreview-reject-summary-old';
 		$contLang = MediaWikiServices::getInstance()->getContentLanguage();
+		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 		$defaultSummary = wfMessage(
 			$msg,
 			$contLang->formatNum( count( $rejectIds ) ),
@@ -212,9 +213,9 @@ class RejectConfirmationFormUI {
 		$formHTML .= "<br />";
 		$formHTML .= Html::input( 'wpSubmit', wfMessage( 'revreview-reject-confirm' )->text(), 'submit' );
 		$formHTML .= ' ';
-		$formHTML .= Linker::link(
+		$formHTML .= $linkRenderer->makeLink(
 			$this->form->getPage(),
-			wfMessage( 'revreview-reject-cancel' )->escaped(),
+			wfMessage( 'revreview-reject-cancel' )->text(),
 			[ 'onClick' => 'history.back(); return history.length <= 1;' ],
 			[ 'oldid' => $this->form->getRefId(), 'diff' => $this->form->getOldId() ]
 		);

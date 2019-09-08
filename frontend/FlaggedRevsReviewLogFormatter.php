@@ -44,9 +44,9 @@ class FlaggedRevsReviewLogFormatter extends LogFormatter {
 					? 'review-logentry-diff2' // unreviewed
 					: 'review-logentry-diff'; // reviewed
 				$links .= '(';
-				$links .= Linker::linkKnown(
+				$links .= $this->getLinkRenderer()->makeKnownLink(
 					$title,
-					wfMessage( $msg )->escaped(),
+					$this->msg( $msg )->text(),
 					[],
 					[ 'oldid' => $oldStable, 'diff' => $revId ]
 				);
@@ -59,9 +59,9 @@ class FlaggedRevsReviewLogFormatter extends LogFormatter {
 				: $params[2];
 			$time = $this->context->getLanguage()->timeanddate( $ts, true );
 			$links .= ' (';
-			$links .= Linker::linkKnown(
+			$links .= $this->getLinkRenderer()->makeKnownLink(
 				$title,
-				wfMessage( 'review-logentry-id', $revId, $time )->escaped(),
+				$this->msg( 'review-logentry-id', $revId, $time )->text(),
 				[],
 				[ 'oldid' => $revId, 'diff' => 'prev' ] + FlaggedRevs::diffOnlyCGI()
 			);

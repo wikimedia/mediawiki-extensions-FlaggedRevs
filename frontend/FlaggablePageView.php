@@ -1806,9 +1806,10 @@ class FlaggablePageView extends ContextSource {
 		# Make a link to the full diff-to-stable if:
 		# (a) Actual revs are pending and (b) We are not viewing the full diff-to-stable
 		if ( $article->revsArePending() && !$fullStableDiff ) {
-			$reviewLink = Linker::linkKnown(
+			$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
+			$reviewLink = $linkRenderer->makeKnownLink(
 				$article->getTitle(),
-				wfMessage( 'review-diff2stable' )->escaped(),
+				wfMessage( 'review-diff2stable' )->text(),
 				[],
 				[ 'oldid' => $srev->getRevId(), 'diff' => 'cur' ] + FlaggedRevs::diffOnlyCGI()
 			);

@@ -35,13 +35,13 @@ class FlaggedRevsStableLogFormatter extends LogFormatter {
 	 */
 	public function getActionLinks() {
 		# Add history link showing edits right before the config change
-		$hist = Linker::link(
+		$hist = $this->getLinkRenderer()->makeLink(
 			$this->entry->getTarget(),
-			wfMessage( 'hist' )->escaped(),
+			$this->msg( 'hist' )->text(),
 			[],
 			[ 'action' => 'history', 'offset' => $this->entry->getTimestamp() ]
 		);
-		$hist = wfMessage( 'parentheses' )->rawParams( $hist )->escaped();
+		$hist = $this->msg( 'parentheses' )->rawParams( $hist )->escaped();
 		return $hist;
 	}
 
