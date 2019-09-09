@@ -24,15 +24,16 @@
 			"Urhixidur",
 			"Verdy p",
 			"Zetud",
-			"Wladek92"
+			"Wladek92",
+			"Thibaut120094"
 		]
 	},
-	"action-autoreview": "avoir ses propres modifications marquées automatiquement comme « vérifié »",
+	"action-autoreview": "avoir ses propres modifications marquées automatiquement comme « vérifié »",
 	"action-autoreviewrestore": "vérification automatique sur annulation",
 	"action-movestable": "déplacer les pages avec des versions stables",
 	"action-review": "relire les versions",
 	"action-stablesettings": "configurer comment la version stable est sélectionnée et affichée",
-	"action-validate": "marquer les révisions comme étant « de qualité »",
+	"action-validate": "marquer les révisions comme étant « de qualité »",
 	"action-unreviewedpages": "afficher la liste des pages non relues",
 	"editor": "Relecteur",
 	"flaggedrevs": "Versions marquées",

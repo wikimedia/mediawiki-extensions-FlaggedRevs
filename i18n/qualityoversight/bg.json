@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"DCLXVI"
+			"DCLXVI",
+			"StanProg"
 		]
 	},
-	"qualityoversight": "Качествен надзор"
+	"qualityoversight": "Разширен дневник на проверките"
 }
