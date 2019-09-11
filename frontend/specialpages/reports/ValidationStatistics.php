@@ -318,7 +318,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 		return $cache->getWithSetCallback(
 			$cache->makeKey( 'flaggedrevs', 'reviewTopUsers' ),
 			$cache::TTL_HOUR,
-			function () {
+			function () use ( $fname ) {
 				global $wgFlaggedRevsStats;
 
 				$dbr = wfGetDB( DB_REPLICA, 'vslow' );
