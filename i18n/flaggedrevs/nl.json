@@ -12,7 +12,8 @@
 			"Tkinkhorst",
 			"Mainframe98",
 			"Mar(c)",
-			"Romaine"
+			"Romaine",
+			"lassesix"
 		]
 	},
 	"action-review": "versies als \"gecontroleerd\" te markeren",
@@ -45,6 +46,8 @@
 	"group-autoreview": "Automatische controleurs",
 	"group-autoreview-member": "{{GENDER:$1|automatische controleur}}",
 	"grouppage-autoreview": "{{ns:project}}:Automatische controleurs",
+	"logentry-review-approve": "$1 heeft een versie van $3 gecontroleerd",
+	"logentry-review-unapprove":  "$1 heeft een versie van $3 ongeldig gemaakt"
 	"revreview-hist-draft": "ongecontroleerde versie",
 	"revreview-hist-pending": "wacht op controle",
 	"revreview-hist-quality": "kwaliteitsversie",
