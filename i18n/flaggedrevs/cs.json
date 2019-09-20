@@ -11,7 +11,8 @@
 			"Vks",
 			"Cvanca",
 			"Ilimanaq29",
-			"Dvorapa"
+			"Dvorapa",
+			"MrJaroslavik"
 		]
 	},
 	"action-review": "posoudit revize",
@@ -132,8 +133,8 @@
 	"revreview-visibility-outdated": "'''Tato stránka má zastaralou [[{{MediaWiki:Validationpage}}|stabilní verzi]]; stabilitu stránek lze [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} nastavit].'''",
 	"revreview-visibility-nostable": "'''Tato stránka nemá [[{{MediaWiki:Validationpage}}|stabilní verzi]]; stabilitu stránek lze [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} nastavit].'''",
 	"revreview-revnotfound": "Nelze najít starou verzi, kterou žádáte. Zkuste prosím zkontrolovat URL hledané stránky.",
-	"right-autoreview": "Automaticky označovat revize jako posouzené",
-	"right-movestable": "Přesunout stabilní stránky",
+	"right-autoreview": "Automaticky označovat vlastní revize jako prověřené",
+	"right-movestable": "Přesunout stabilní verze stránek",
 	"right-review": "Označit verze jako prohlédnuté",
 	"right-stablesettings": "Nastavit, jak se vybírají a zobrazují stabilní verze",
 	"right-validate": "Označit revize jako ověřené",
