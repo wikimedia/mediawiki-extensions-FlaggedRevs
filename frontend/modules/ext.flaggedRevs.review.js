@@ -296,7 +296,7 @@
 					previd: oRevId,
 					oldid: nRevId,
 					reviewing: value,
-					token: mw.user.tokens.get( 'editToken' ),
+					token: mw.user.tokens.get( 'csrfToken' ),
 					format: 'json'
 				},
 				type: 'POST',
