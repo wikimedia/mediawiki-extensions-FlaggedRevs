@@ -1,6 +1,7 @@
 <?php
 
 use Wikimedia\Rdbms\IDatabase;
+use MediaWiki\MediaWikiServices;
 
 /**
  * Class representing a MediaWiki article and history
@@ -118,7 +119,8 @@ class FlaggableWikiPage extends WikiPage {
 	 * @return int
 	 */
 	public function getPendingRevCount( $flags = 0 ) {
-		global $wgMemc, $wgParserCacheExpireTime;
+		global $wgParserCacheExpireTime;
+
 		if ( !$this->mDataLoaded ) {
 			$this->loadPageData();
 		}
@@ -132,34 +134,45 @@ class FlaggableWikiPage extends WikiPage {
 		}
 		$count = null;
 		$sRevId = $srev->getRevId();
-		# Try the cache...
-		$key = wfMemcKey( 'flaggedrevs', 'countPending', $this->getId() );
-		if ( !( $flags & FR_MASTER ) ) {
-			$tuple = FlaggedRevs::getMemcValue( $wgMemc->get( $key ), $this );
-			# Items is cached and newer that page_touched...
-			if ( $tuple !== false ) {
+
+		$fname = __METHOD__;
+		$callback = function (
+			$oldValue = null, &$ttl = null, array &$setOpts = []
+		) use ( $flags, $srev, $fname ) {
+			$db = wfGetDB( ( $flags & FR_MASTER ) ? DB_MASTER : DB_REPLICA );
+			$setOpts += Database::getCacheSetOptions( $db );
+
+			return (int)$db->selectField(
+				'revision',
+				'COUNT(*)',
+				[
+					'rev_page' => $this->getId(),
+					// T17515
+					'rev_timestamp > ' .
+						$db->addQuotes( $db->timestamp( $srev->getRevTimestamp() ) )
+				],
+				$fname
+			);
+		};
+
+		if ( ( $flags & FR_MASTER ) ) {
+			$this->pendingRevCount = $callback();
+		} else {
+			$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
+			$this->pendingRevCount = (int)$cache->getWithSetCallback(
 				# Confirm that cache value was made against the same stable rev Id.
 				# This avoids lengthy cache pollution if $sRevId is outdated.
-				list( $cRevId, $cPending ) = explode( '-', $tuple, 2 );
-				if ( $cRevId == $sRevId ) {
-					$count = (int)$cPending;
-				}
-			}
+				$cache->makeKey( 'flaggedrevs-countPending', $this->getId(), $sRevId ),
+				$wgParserCacheExpireTime,
+				$callback,
+				[
+					'touchedCallback' => function () {
+						return wfTimestampOrNull( TS_UNIX, $this->getTouched() );
+					}
+				]
+			);
 		}
-		# Otherwise, fetch result from DB as needed...
-		if ( is_null( $count ) ) {
-			$db = ( $flags & FR_MASTER ) ?
-				wfGetDB( DB_MASTER ) : wfGetDB( DB_REPLICA );
-			$srevTS = $db->timestamp( $srev->getRevTimestamp() );
-			$count = $db->selectField( 'revision', 'COUNT(*)',
-				[ 'rev_page' => $this->getId(),
-					'rev_timestamp > ' . $db->addQuotes( $srevTS ) ], // bug 15515
-				__METHOD__ );
-			# Save result to cache...
-			$data = FlaggedRevs::makeMemcObj( "{$sRevId}-{$count}" );
-			$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
-		}
-		$this->pendingRevCount = $count;
+
 		return $this->pendingRevCount;
 	}
 
@@ -169,7 +182,8 @@ class FlaggableWikiPage extends WikiPage {
 	 * @return bool
 	 */
 	public function stableVersionIsSynced() {
-		global $wgMemc, $wgParserCacheExpireTime;
+		global $wgParserCacheExpireTime;
+
 		$srev = $this->getStableRev();
 		if ( !$srev ) {
 			return true;
@@ -188,25 +202,30 @@ class FlaggableWikiPage extends WikiPage {
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
 			return true; // short-circuit
 		}
-		# Try the cache...
-		$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $this->getId() );
-		$value = FlaggedRevs::getMemcValue( $wgMemc->get( $key ), $this );
-		if ( $value === "true" ) {
-			return true;
-		} elseif ( $value === "false" ) {
-			return false;
-		}
-		# Since the stable and current revisions have the same text and only outputs,
-		# the only other things to check for are template and file differences in the output.
-		# (a) Check if the current output has a newer template/file used
-		# (b) Check if the stable version has a file/template that was deleted
-		$synced = ( !$srev->findPendingTemplateChanges()
-			&& !$srev->findPendingFileChanges( 'noForeign' ) );
-		# Save to cache. This will be updated whenever the page is touched.
-		$data = FlaggedRevs::makeMemcObj( $synced ? "true" : "false" );
-		$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
 
-		return $synced;
+		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
+
+		return (bool)$cache->getWithSetCallback(
+			$cache->makeKey( 'flaggedrevs-includes-synced', $this->getId() ),
+			$wgParserCacheExpireTime,
+			function () use ( $srev ) {
+				# Since the stable and current revisions have the same text and only outputs, the
+				# only other things to check for are template and file differences in the output.
+				# (a) Check if the current output has a newer template/file used
+				# (b) Check if the stable version has a file/template that was deleted
+				$synced = (
+					!$srev->findPendingTemplateChanges() &&
+					!$srev->findPendingFileChanges( 'noForeign' )
+				);
+
+				return $synced ? 1 : 0;
+			},
+			[
+				'touchedCallback' => function () {
+					$this->getTouched();
+				}
+			]
+		);
 	}
 
 	/**

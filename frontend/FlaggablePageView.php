@@ -1586,7 +1586,6 @@ class FlaggablePageView extends ContextSource {
 	 * @return true
 	 */
 	public function addToDiffView( $diff, $oldRev, $newRev ) {
-		global $wgMemc;
 		$request = $this->getRequest();
 		$reqUser = $this->getUser();
 		$this->load();
@@ -1620,9 +1619,12 @@ class FlaggablePageView extends ContextSource {
 				$changeList = array_merge( $changeList, self::fetchFileChanges( $srev ) );
 				# Correct bad cache which said they were not synced...
 				if ( !count( $changeList ) ) {
-					$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $this->article->getId() );
-					$data = FlaggedRevs::makeMemcObj( "true" );
-					$wgMemc->set( $key, $data, $this->getConfig()->get( 'ParserCacheExpireTime' ) );
+					$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
+					$cache->set(
+						$cache->makeKey( 'flaggedrevs-includes-synced', $this->article->getId() ),
+						1,
+						$this->getConfig()->get( 'ParserCacheExpireTime' )
+					);
 				}
 			# Otherwise, check for includes pending on top of edits pending...
 			} elseif ( FlaggedRevs::inclusionSetting() !== FR_INCLUDES_CURRENT ) {
