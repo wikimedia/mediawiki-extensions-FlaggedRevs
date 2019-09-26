@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\MediaWikiServices;
+
 /**
  * Class containing hooked functions for a FlaggedRevs environment
  */
@@ -224,11 +227,12 @@ class FlaggedRevsUIHooks {
 	public static function overrideRedirect(
 		Title $title, WebRequest $request, &$ignoreRedirect, &$target, Page &$article
 	) {
+		global $wgParserCacheExpireTime;
+
 		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
 			return true;
 		}
 
-		global $wgMemc, $wgParserCacheExpireTime;
 		$fa = FlaggableWikiPage::getTitleInstance( $title );
 		if ( !$fa->isReviewable() ) {
 			return true; // nothing to do
@@ -243,20 +247,25 @@ class FlaggedRevsUIHooks {
 		# Check if we are viewing an unsynced stable version...
 		if ( $srev && $view->showingStable() && $srev->getRevId() != $article->getLatest() ) {
 			# Check the stable redirect properties from the cache...
-			$key = wfMemcKey( 'flaggedrevs', 'overrideRedirect', $article->getId() );
-			$tuple = FlaggedRevs::getMemcValue( $wgMemc->get( $key ), $article );
-			if ( is_array( $tuple ) ) { // cache hit
-				list( $ignoreRedirect, $target ) = $tuple;
-			} else { // cache miss; fetch the stable rev text...
-				$content = $srev->getRevision()->getContent();
-				$redirect = $fa->getRedirectURL( $content->getUltimateRedirectTarget() );
-				if ( $redirect ) {
-					$target = $redirect; // use stable redirect
-				} else {
-					$ignoreRedirect = true; // make MW skip redirection
-				}
-				$data = FlaggedRevs::makeMemcObj( [ $ignoreRedirect, $target ] );
-				$wgMemc->set( $key, $data, $wgParserCacheExpireTime ); // cache results
+			$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
+			$stableRedirect = $cache->getWithSetCallback(
+				$cache->makeKey( 'flaggedrevs-stable-redirect', $article->getId() ),
+				$wgParserCacheExpireTime,
+				function () use ( $fa, $srev ) {
+					$content = $srev->getRevision()->getContent();
+
+					return $fa->getRedirectURL( $content->getUltimateRedirectTarget() ) ?: '';
+				},
+				[
+					'touchedCallback' => function () use ( $article ) {
+						return wfTimestampOrNull( TS_UNIX, $article->getTouched() );
+					}
+				]
+			);
+			if ( $stableRedirect ) {
+				$target = $stableRedirect; // use stable redirect
+			} else {
+				$ignoreRedirect = true; // make MW skip redirection
 			}
 			$clearEnvironment = (bool)$target;
 		# Check if the we are viewing a draft or synced stable version...

@@ -9,7 +9,7 @@ use MediaWiki\MediaWikiServices;
 class FRInclusionCache {
 	/**
 	 * Get template and image versions from parsing a revision
-	 * @param Page $article
+	 * @param Page|WikiPage|Article $article
 	 * @param Revision $rev
 	 * @param User $user
 	 * @param string $regen use 'regen' to force regeneration
@@ -20,28 +20,12 @@ class FRInclusionCache {
 	public static function getRevIncludes(
 		Page $article, Revision $rev, User $user, $regen = ''
 	) {
-		global $wgMemc;
+		global $wgParserCacheExpireTime;
 
-		$key = self::getCacheKey( $article->getTitle(), $rev->getId() );
-		if ( $regen === 'regen' ) {
-			$versions = false; // skip cache
-		} elseif ( $rev->isCurrent() ) {
-			// Check cache entry against page_touched
-			$versions = FlaggedRevs::getMemcValue( $wgMemc->get( $key ), $article );
-		} else {
-			// Old revs won't always be invalidated with template/file changes.
-			// Also, we don't care if page_touched changed due to a direct edit.
-			$versions = FlaggedRevs::getMemcValue( $wgMemc->get( $key ), $article, 'allowStale' );
-			if ( is_array( $versions ) ) { // entry exists
-				// Sanity check that the cache is reasonably up to date
-				list( $templates, $files ) = $versions;
-				if ( self::templatesStale( $templates ) || self::filesStale( $files ) ) {
-					$versions = false; // no good
-				}
-			}
-		}
+		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
+		$key = self::getCacheKey( $cache, $article->getTitle(), $rev->getId() );
 
-		if ( !is_array( $versions ) ) { // cache miss
+		$callback = function () use ( $article, $rev, $user ) {
 			$pOut = false;
 			if ( $rev->isCurrent() ) {
 				$parserCache = MediaWikiServices::getInstance()->getParserCache();
@@ -69,10 +53,37 @@ class FRInclusionCache {
 			}
 
 			# Get the template/file versions used...
-			$versions = [ $pOut->getTemplateIds(), $pOut->getFileSearchOptions() ];
-			# Save to cache (check cache expiry for dynamic elements)...
-			$data = FlaggedRevs::makeMemcObj( $versions );
-			$wgMemc->set( $key, $data, $pOut->getCacheExpiry() );
+			return [ $pOut->getTemplateIds(), $pOut->getFileSearchOptions() ];
+		};
+
+		if ( $regen === 'regen' ) {
+			$versions = $callback(); // skip cache
+		} else {
+			if ( $rev->isCurrent() ) {
+				// Check cache entry against page_touched
+				$touchedCallback = function () use ( $article ) {
+					return wfTimestampOrNull( TS_UNIX, $article->getTouched() );
+				};
+			} else {
+				// Old revs won't always be invalidated with template/file changes.
+				// Also, we don't care if page_touched changed due to a direct edit.
+				$touchedCallback = function ( $oldValue ) {
+					// Sanity check that the cache is reasonably up to date
+					list( $templates, $files ) = $oldValue;
+					if ( self::templatesStale( $templates ) || self::filesStale( $files ) ) {
+						// Treat value as if it just expired
+						return time();
+					}
+
+					return null;
+				};
+			}
+			$versions = $cache->getWithSetCallback(
+				$key,
+				$wgParserCacheExpireTime,
+				$callback,
+				[ 'touchedCallback' => $touchedCallback ]
+			);
 		}
 
 		return $versions;
@@ -123,17 +134,23 @@ class FRInclusionCache {
 	 * @param ParserOutput $pOut
 	 */
 	public static function setRevIncludes( Title $title, $revId, ParserOutput $pOut ) {
-		global $wgMemc;
-		$key = self::getCacheKey( $title, $revId );
+		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
+		$key = self::getCacheKey( $cache, $title, $revId );
 		# Get the template/file versions used...
 		$versions = [ $pOut->getTemplateIds(), $pOut->getFileSearchOptions() ];
 		# Save to cache (check cache expiry for dynamic elements)...
-		$data = FlaggedRevs::makeMemcObj( $versions );
-		$wgMemc->set( $key, $data, $pOut->getCacheExpiry() );
+		$cache->set( $key, $versions, $pOut->getCacheExpiry() );
 	}
 
-	protected static function getCacheKey( Title $title, $revId ) {
+	/**
+	 * @param WANObjectCache $cache
+	 * @param Title $title
+	 * @param int $revId
+	 * @return string
+	 */
+	protected static function getCacheKey( WANObjectCache $cache, Title $title, $revId ) {
 		$hash = md5( $title->getPrefixedDBkey() );
-		return wfMemcKey( 'flaggedrevs', 'revIncludes', $revId, $hash );
+
+		return $cache->makeKey( 'flaggedrevs-inclusions', $revId, $hash );
 	}
 }

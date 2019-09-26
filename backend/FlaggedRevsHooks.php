@@ -1,6 +1,7 @@
 <?php
 
 use Wikimedia\Rdbms\IDatabase;
+use MediaWiki\MediaWikiServices;
 
 /**
  * Class containing hooked functions for a FlaggedRevs environment
@@ -1015,11 +1016,15 @@ class FlaggedRevsHooks {
 	/**
 	 * Checks if $user was previously blocked since $cutoff_unixtime
 	 * @param User $user
+	 * @param IDatabase $db
 	 * @param int $cutoff_unixtime = 0
 	 * @return bool
 	 */
-	protected static function wasPreviouslyBlocked( User $user, $cutoff_unixtime = 0 ) {
-		$dbr = wfGetDB( DB_REPLICA );
+	protected static function wasPreviouslyBlocked(
+		User $user,
+		IDatabase $db,
+		$cutoff_unixtime = 0
+	) {
 		$conds = [
 			'log_namespace' => NS_USER,
 			'log_title'     => $user->getUserPage()->getDBkey(),
@@ -1028,10 +1033,10 @@ class FlaggedRevsHooks {
 		];
 		if ( $cutoff_unixtime > 0 ) {
 			# Hint to improve NS,title,timestamp INDEX use
-			$encCutoff = $dbr->addQuotes( $dbr->timestamp( $cutoff_unixtime ) );
+			$encCutoff = $db->addQuotes( $db->timestamp( $cutoff_unixtime ) );
 			$conds[] = "log_timestamp >= $encCutoff";
 		}
-		return (bool)$dbr->selectField( 'logging', '1', $conds, __METHOD__ );
+		return (bool)$db->selectField( 'logging', '1', $conds, __METHOD__ );
 	}
 
 	protected static function recentEditCount( $uid, $seconds, $limit ) {
@@ -1150,7 +1155,7 @@ class FlaggedRevsHooks {
 	 * @return true
 	 */
 	public static function checkAutoPromoteCond( $cond, array $params, User $user, &$result ) {
-		global $wgMemc;
+		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		switch ( $cond ) {
 			case APCOND_FR_EDITSUMMARYCOUNT:
 				$p = FRUserCounters::getParams( $user );
@@ -1160,18 +1165,17 @@ class FlaggedRevsHooks {
 				if ( $user->isBlocked() ) {
 					$result = false; // failed
 				} else {
-					$key = wfMemcKey( 'flaggedrevs', 'autopromote-notblocked', $user->getId() );
-					$val = $wgMemc->get( $key );
-					if ( $val === 'false' ) {
-						$result = false; // failed
-					} else {
-						# Hit the DB if the result is not cached or if we need
-						# to check if the user was blocked since the last check...
-						$now_unix = time();
-						$last_checked = is_int( $val ) ? $val : 0; // TS_UNIX
-						$result = !self::wasPreviouslyBlocked( $user, $last_checked );
-						$wgMemc->set( $key, $result ? $now_unix : 'false', 7 * 86400 );
-					}
+					$result = (bool)$cache->getWithSetCallback(
+						$cache->makeKey( 'flaggedrevs-autopromote-notblocked', $user->getId() ),
+						$cache::TTL_SECOND,
+						function ( $oldValue, &$ttl, array &$setOpts, $oldAsOf ) use ( $user ) {
+							$dbr = wfGetDB( DB_REPLICA );
+							$setOpts += Database::getCacheSetOptions( $dbr );
+
+							return self::wasPreviouslyBlocked( $user, $dbr, $oldAsOf ?: 0 );
+						},
+						[ 'staleTTL' => $cache::TTL_WEEK ]
+					);
 				}
 				break;
 			case APCOND_FR_UNIQUEPAGECOUNT:
@@ -1179,9 +1183,13 @@ class FlaggedRevsHooks {
 				$result = ( $p && count( $p['uniqueContentPages'] ) >= $params[0] );
 				break;
 			case APCOND_FR_EDITSPACING:
-				$key = wfMemcKey( 'flaggedrevs', 'autopromote-editspacing',
-					$user->getId(), $params[0], $params[1] );
-				$val = $wgMemc->get( $key );
+				$key = $cache->makeKey(
+					'flaggedrevs-autopromote-editspacing',
+					$user->getId(),
+					$params[0],
+					$params[1]
+				);
+				$val = $cache->get( $key );
 				if ( $val === 'true' ) {
 					$result = true; // passed
 				} elseif ( $val === 'false' ) {
@@ -1191,9 +1199,9 @@ class FlaggedRevsHooks {
 					$pass = self::editSpacingCheck( $user, $params[0], $params[1] );
 					# Make a key to store the results
 					if ( $pass === true ) {
-						$wgMemc->set( $key, 'true', 14 * 86400 );
+						$cache->set( $key, 'true', 2 * $cache::TTL_WEEK );
 					} else {
-						$wgMemc->set( $key, 'false', $pass /* wait time */ );
+						$cache->set( $key, 'false', $pass /* wait time */ );
 					}
 					$result = ( $pass === true );
 				}
@@ -1230,9 +1238,13 @@ class FlaggedRevsHooks {
 				}
 				break;
 			case APCOND_FR_CHECKEDEDITCOUNT:
-				$key = wfMemcKey( 'flaggedrevs', 'autopromote-reviewededits',
-					$user->getId(), $params[0], $params[1] );
-				$val = $wgMemc->get( $key );
+				$key = $cache->makeKey(
+					'flaggedrevs-autopromote-reviewededits',
+					$user->getId(),
+					$params[0],
+					$params[1]
+				);
+				$val = $cache->get( $key );
 				if ( $val === 'true' ) {
 					$result = true; // passed
 				} elseif ( $val === 'false' ) {
@@ -1241,9 +1253,9 @@ class FlaggedRevsHooks {
 					# Hit the DB only if the result is not cached...
 					$result = self::reviewedEditsCheck( $user, $params[0], $params[1] );
 					if ( $result ) {
-						$wgMemc->set( $key, 'true', 7 * 86400 );
+						$cache->set( $key, 'true', $cache::TTL_WEEK );
 					} else {
-						$wgMemc->set( $key, 'false', 3600 ); // briefly cache
+						$cache->set( $key, 'false', $cache::TTL_HOUR ); // briefly cache
 					}
 				}
 				break;

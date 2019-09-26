@@ -784,34 +784,6 @@ class FlaggedRevs {
 	# ################ Other utility functions #################
 
 	/**
-	 * Get a memcache storage object
-	 * @param mixed $val
-	 * @return Object (val,time) tuple
-	 */
-	public static function makeMemcObj( $val ) {
-		$data = (object)[];
-		$data->value = $val;
-		$data->time = wfTimestampNow();
-		return $data;
-	}
-
-	/**
-	 * Return memc value if not expired
-	 * @param object|bool $data makeMemcObj() tuple
-	 * @param Page $article
-	 * @param string $allowStale Use 'allowStale' to skip page_touched check
-	 * @return mixed
-	 */
-	public static function getMemcValue( $data, Page $article, $allowStale = '' ) {
-		if ( is_object( $data ) ) {
-			if ( $allowStale === 'allowStale' || $data->time >= $article->getTouched() ) {
-				return $data->value;
-			}
-		}
-		return false;
-	}
-
-	/**
 	 * @param array $flags
 	 * @return bool is this revision at basic review condition?
 	 */
