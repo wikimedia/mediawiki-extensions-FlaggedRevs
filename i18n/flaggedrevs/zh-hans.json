@@ -21,11 +21,12 @@
 			"NeverBehave",
 			"Hanyanbo98",
 			"A2093064",
-			"WQL"
+			"WQL",
+			"94rain"
 		]
 	},
 	"action-autoreview": "自动标记自己的编辑为“已复核”",
-	"action-autoreviewrestore": "回退時自动复核",
+	"action-autoreviewrestore": "回退时自动复核",
 	"action-movestable": "移动有稳定版本的页面",
 	"action-review": "复核版本",
 	"action-stablesettings": "配置选择和显示稳定版本的方式",
@@ -165,7 +166,7 @@
 	"revreview-visibility-nostable": "'''该页面没有[[{{MediaWiki:Validationpage}}|稳定版本]]。你可以[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 配置]页面固定设置。'''",
 	"revreview-revnotfound": "无法找到您请求的该页面的旧版本。请检查您用于访问该页面的URL是否正确。",
 	"right-autoreview": "自动标记自己的编辑为“已复核”",
-	"right-autoreviewrestore": "回退時自动复核",
+	"right-autoreviewrestore": "回退时自动复核",
 	"right-movestable": "移动有稳定版本的页面",
 	"right-review": "标记版本为“已复核”",
 	"right-stablesettings": "配置选择和显示稳定版本的方式",

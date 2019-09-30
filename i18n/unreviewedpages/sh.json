@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Vlad5250"
+		]
+	},
+	"unreviewedpages-category": "Kategorija:",
+	"unreviewedpages-diff": "pregled",
+	"unreviewedpages-unwatched": "(nepraćen)",
+	"unreviewedpages-watched": "($1 {{PLURAL:$1|aktivni korisnik ju prati|aktivna korisnika ju prate|aktivnih korisnika ju prati}})",
+	"unreviewedpages-none": "Trenutačno nema stranica koje zadovoljavaju ovim kriterijima",
+	"unreviewedpages-viewing": "(u fazi provjeravanja)"
+}

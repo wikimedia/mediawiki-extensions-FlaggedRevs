@@ -1,8 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"Conquistador"
+			"Conquistador",
+			"Vlad5250"
 		]
 	},
+	"revreview-failed": "'''Inačica ne može se ocijeniti.'''",
+	"revreview-submission-invalid": "Slanje je nekompletno ili na drugi način nevaljano.",
+	"review_page_invalid": "Naslov odredišne stranice je neispravan.",
+	"review_page_notexists": "Odredišna stranica ne postoji.",
+	"review_no_oldid": "Nema naznačeno naznaku inačice.",
+	"review_bad_oldid": "Nema takve odredišne inačice.",
+	"review_conflict_oldid": "Netko drugi je prihvatio/otprihvatio ovu reviziju dok ste je vi pregledavali.",
 	"revreview-reject-cancel": "Otkaži"
 }

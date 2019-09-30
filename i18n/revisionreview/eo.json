@@ -69,7 +69,7 @@
 	"revreview-reject-summary": "Resumo:",
 	"revreview-reject-confirm": "Malaprobi ĉi tiujn ŝanĝojn",
 	"revreview-reject-cancel": "Nuligi",
-	"revreview-reject-summary-cur": "Malaprobis la {{PLURAL:$1|tekstan ŝanĝon|$1 tekstajn ŝanĝojn}} ({{PLURAL:$7|{{GENDER:$5|far}}}} $2) kaj restarigis version $3 {{GENDER:$6|far}} $4",
+	"revreview-reject-summary-cur": "Malaprobis la {{PLURAL:$1|tekstan ŝanĝon|$1 tekstajn ŝanĝojn}} ({{PLURAL:$7|{{GENDER:$5|de}}}} $2) kaj restarigis version $3 {{GENDER:$6|de}} $4",
 	"revreview-reject-summary-old": "Malaprobis la {{PLURAL:$1|unuan tekstan ŝanĝon, kiu|unuajn $1 tekstajn ŝanĝojn, kiuj}} ({{PLURAL:$7|{{GENDER:$5|de}}}} $2) sekvis version $3 {{GENDER:$6|de}} $4",
 	"revreview-reject-summary-cur-short": "Malaprobis la {{PLURAL:$1|lastan tekstan ŝanĝon|$1 lastajn tekstajn ŝanĝojn}} kaj restarigis version $2 {{GENDER:$4|de}} $3",
 	"revreview-reject-summary-old-short": "Malaprobis la {{PLURAL:$1|unuan tekstan ŝanĝon, kiu|unuajn tekstajn $1 ŝanĝojn, kiuj}} sekvis version $2 {{GENDER:$4|de}} $3",
