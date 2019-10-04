@@ -3,9 +3,11 @@
 		"authors": [
 			"Helix84",
 			"TomášPolonec",
-			"Pmikolas44"
+			"Pmikolas44",
+			"Vlad5250"
 		]
 	},
+	"action-autoreview": "automatické označovanie vlastných úprav ako preverených",
 	"action-review": "skontrolovať revízie",
 	"editor": "Redaktor",
 	"flaggedrevs": "Označené verzie",
@@ -23,6 +25,8 @@
 	"flaggedrevs-prefs-editdiffs": "Zobrazovať pri upravovaní stránky rozdiel so zmenami čakajúcimi na schválenie",
 	"flaggedrevs-prefs-viewdiffs": "Zobrazovať rozdiel so zmenami čakajúcimi na schválenie pri zobrazení poslednej revízie čakajúcej na schválenie",
 	"flaggedrevs-hidereviewed": "$1 {{PLURAL:$1|skontrolovaná úprava|skontrolované úpravy|skontrolovaných úprav}}",
+	"flaggedrevs-hidereviewed-hide": "Skryť",
+	"flaggedrevs-hidereviewed-show": "Zobraziť",
 	"flaggedrevs-rcfilters-reviewed-label": "Skontrolované",
 	"flaggedrevs-rcfilters-reviewed-desc": "Úpravy, ktoré boli skontrolované.",
 	"flaggedrevs-rcfilters-not-reviewable-label": "Nepodlieha kontrole",

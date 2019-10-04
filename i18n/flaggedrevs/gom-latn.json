@@ -4,7 +4,10 @@
 			"The Discoverer"
 		]
 	},
+	"flaggedrevs-rcfilters-need-review-desc": "Niall zai aslole sompadon.",
 	"flaggedrevs-rcfilters-reviewed-label": "Niall kel'le",
 	"flaggedrevs-rcfilters-reviewed-desc": "Sompadon zacho niall kela.",
+	"flaggedrevs-rcfilters-not-reviewable-label": "Zankam niallachi goroz na",
+	"flaggedrevs-rcfilters-not-reviewable-desc": "Sogllea prokarache bodol zaka niall lagona.",
 	"tooltip-ca-current": "Hea panacheo thambun dovorlele bodol poloi"
 }
