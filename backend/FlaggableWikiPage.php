@@ -23,6 +23,7 @@ class FlaggableWikiPage extends WikiPage {
 	 * Get a FlaggableWikiPage for a given title
 	 * @param Title $title
 	 * @return FlaggableWikiPage
+	 * @suppress PhanUndeclaredProperty For Title->flaggedRevsArticle
 	 */
 	public static function getTitleInstance( Title $title ) {
 		// Check if there is already an instance on this title

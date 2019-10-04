@@ -685,6 +685,14 @@ class FlaggedRevsUIHooks {
 		$conds[] = 'rc_timestamp >= fp_pending_since OR fp_stable IS NULL OR rc_type = ' . RC_EXTERNAL;
 	}
 
+	/**
+	 * @param HistoryPager $history
+	 * @param stdClass $row
+	 * @param string &$s
+	 * @param array &$liClasses
+	 * @return true
+	 * @suppress PhanUndeclaredProperty For HistoryPager->fr_*
+	 */
 	public static function addToHistLine( HistoryPager $history, $row, &$s, &$liClasses ) {
 		$fa = FlaggableWikiPage::getTitleInstance( $history->getTitle() );
 		if ( !$fa->isReviewable() ) {

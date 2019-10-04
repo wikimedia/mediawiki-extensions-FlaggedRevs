@@ -30,6 +30,7 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 		if ( defined( 'ApiResult::META_CONTENT' ) ) {
 			$data = (array)$result->getResultData( [ 'query', 'pages' ], [ 'Strip' => 'all' ] );
 		} else {
+			// @phan-suppress-next-line PhanUndeclaredMethod
 			$data = $result->getData();
 			if ( !isset( $data['query'] ) || !isset( $data['query']['pages'] ) ) {
 				return true;
