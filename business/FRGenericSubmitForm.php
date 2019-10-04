@@ -131,7 +131,7 @@ abstract class FRGenericSubmitForm {
 	 * @return mixed (true on success, error string on failure)
 	 */
 	final protected function checkParameters() {
-		$status = $this->checkTarget( self::FOR_SUBMISSION );
+		$status = $this->doCheckTarget( self::FOR_SUBMISSION );
 		if ( $status !== true ) {
 			return $status; // bad target
 		}
