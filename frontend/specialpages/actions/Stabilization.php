@@ -1,6 +1,8 @@
 <?php
 
 // Assumes $wgFlaggedRevsProtection is off
+use MediaWiki\MediaWikiServices;
+
 class Stabilization extends UnlistedSpecialPage {
 	protected $form = null;
 
@@ -28,10 +30,11 @@ class Stabilization extends UnlistedSpecialPage {
 
 		# Let anyone view, but not submit...
 		if ( $request->wasPosted() ) {
-			if ( !$user->isAllowed( 'stablesettings' ) ) {
+			$pm = MediaWikiServices::getInstance()->getPermissionManager();
+			if ( !$pm->userHasRight( $user, 'stablesettings' ) ) {
 				throw new PermissionsError( 'stablesettings' );
 			}
-			if ( $user->isBlockedFrom( $title, !$confirmed ) ) {
+			if ( $pm->isBlockedFrom( $user, $title, !$confirmed ) ) {
 				throw new UserBlockedError( $user->getBlock( !$confirmed ) );
 			} elseif ( wfReadOnly() ) {
 				throw new ReadOnlyError();

@@ -26,7 +26,9 @@ class FlaggedRevsUIHooks {
 		$out->addModuleStyles( 'ext.flaggedRevs.basic' );
 		$out->addModules( 'ext.flaggedRevs.advanced' );
 		# Add review form JS for reviewers
-		if ( $out->getUser()->isAllowed( 'review' ) ) {
+		if ( MediaWikiServices::getInstance()->getPermissionManager()
+			->userHasRight( $out->getUser(), 'review' )
+		) {
 			$out->addModules( 'ext.flaggedRevs.review' );
 			$out->addModuleStyles( 'ext.flaggedRevs.review.styles' );
 		}
@@ -136,7 +138,9 @@ class FlaggedRevsUIHooks {
 				],
 			];
 		// Review-related rights...
-		if ( $user->isAllowed( 'review' ) ) {
+		if ( MediaWikiServices::getInstance()->getPermissionManager()
+			->userHasRight( $user, 'review' )
+		) {
 			// Watching reviewed pages
 			$preferences['flaggedrevswatch'] =
 				[
@@ -825,7 +829,9 @@ class FlaggedRevsUIHooks {
 		if ( $rc->getAttribute( 'fp_stable' ) == null ) {
 			// Is this a config were pages start off reviewable?
 			// Hide notice from non-reviewers due to vandalism concerns (bug 24002).
-			if ( !FlaggedRevs::useSimpleConfig() && $wgUser->isAllowed( 'review' ) ) {
+			if ( !FlaggedRevs::useSimpleConfig() && MediaWikiServices::getInstance()
+					->getPermissionManager()->userHasRight( $wgUser, 'review' )
+			) {
 				$rlink = wfMessage( 'revreview-unreviewedpage' )->escaped();
 				$css = 'flaggedrevs-unreviewed';
 			}
@@ -906,7 +912,8 @@ class FlaggedRevsUIHooks {
 
 	protected static function maybeAddBacklogNotice( OutputPage &$out ) {
 		global $wgUser;
-		if ( !$wgUser->isAllowed( 'review' ) ) {
+		if ( !MediaWikiServices::getInstance()->getPermissionManager()
+			->userHasRight( $wgUser, 'review' ) ) {
 			return true; // not relevant to user
 		}
 		$namespaces = FlaggedRevs::getReviewNamespaces();
@@ -1126,7 +1133,9 @@ class FlaggedRevsUIHooks {
 			return true;
 		}
 
-		if ( wfReadOnly() || !$wgUser->isAllowed( 'stablesettings' ) ) {
+		if ( wfReadOnly() || !MediaWikiServices::getInstance()->getPermissionManager()
+				->userHasRight( $wgUser, 'stablesettings' )
+		) {
 			return true; // user cannot change anything
 		}
 		$form = new PageStabilityProtectForm( $wgUser );

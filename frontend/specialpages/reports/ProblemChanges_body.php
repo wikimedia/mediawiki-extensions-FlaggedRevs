@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class ProblemChanges extends SpecialPage {
 	protected $pager = null;
 
@@ -225,7 +227,9 @@ class ProblemChanges extends SpecialPage {
 			$tags = ' <b>' . $this->msg( 'parentheses', $tags )->escaped() . '</b>';
 		}
 		# Is anybody watching?
-		if ( !$this->including() && $this->getUser()->isAllowed( 'unreviewedpages' ) ) {
+		if ( !$this->including() && MediaWikiServices::getInstance()->getPermissionManager()
+				->userHasRight( $this->getUser(), 'unreviewedpages' )
+		) {
 			$uw = FRUserActivity::numUsersWatchingPage( $title );
 			$watching = $uw
 				? $this->msg( 'pendingchanges-watched' )->numParams( $uw )->escaped()

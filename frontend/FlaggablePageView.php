@@ -526,10 +526,11 @@ class FlaggablePageView extends ContextSource {
 		}
 		# Give a "your edit is pending" notice to newer users if
 		# an unreviewed edit was completed...
+		$pm = MediaWikiServices::getInstance()->getPermissionManager();
 		if ( $request->getVal( 'shownotice' )
 			&& $this->article->getUserText( Revision::RAW ) == $reqUser->getName()
 			&& $this->article->revsArePending()
-			&& !$reqUser->isAllowed( 'review' )
+			&& !$pm->userHasRight( $reqUser, 'review' )
 		) {
 			$revsSince = $this->article->getPendingRevCount();
 			$pending = $prot;
@@ -751,9 +752,10 @@ class FlaggablePageView extends ContextSource {
 		}
 
 		# Get parsed stable version and output HTML
+		$pm = MediaWikiServices::getInstance()->getPermissionManager();
 		$pOpts = $this->article->makeParserOptions( $reqUser );
 		$poOpts = [];
-		if ( !$this->article->getTitle()->quickUserCan( 'edit', $reqUser ) ) {
+		if ( !$pm->quickUserCan( 'edit', $reqUser, $this->article->getTitle() ) ) {
 			$poOpts['enableSectionEditLinks'] = false;
 		}
 		$parserCache = FRParserCacheStable::singleton();
@@ -1216,7 +1218,9 @@ class FlaggablePageView extends ContextSource {
 	public function addToCategoryView() {
 		$reqUser = $this->getUser();
 		$this->load();
-		if ( !$reqUser->isAllowed( 'review' ) ) {
+		if ( !MediaWikiServices::getInstance()->getPermissionManager()
+			->userHasRight( $reqUser, 'review' )
+		) {
 			return true;
 		}
 		if ( !FlaggedRevs::useSimpleConfig() ) {
@@ -1248,7 +1252,9 @@ class FlaggablePageView extends ContextSource {
 			return false; // Must be on non-printable output
 		}
 		# User must have review rights
-		if ( !$reqUser->isAllowed( 'review' ) ) {
+		if ( !MediaWikiServices::getInstance()->getPermissionManager()
+			->userHasRight( $reqUser, 'review' )
+		) {
 			return true;
 		}
 		# Page must exist and be reviewable
@@ -1369,12 +1375,13 @@ class FlaggablePageView extends ContextSource {
 			return true; // Only reviewable pages need these tabs
 		}
 		// Check if we should show a stabilization tab
+		$pm = MediaWikiServices::getInstance()->getPermissionManager();
 		if (
 			!$this->article->getTitle()->isTalkPage() &&
 			is_array( $actions ) &&
 			!isset( $actions['protect'] ) &&
 			!isset( $actions['unprotect'] ) &&
-			$reqUser->isAllowed( 'stablesettings' ) &&
+			$pm->userHasRight( $reqUser, 'stablesettings' ) &&
 			$title->exists()
 		) {
 			$stableTitle = SpecialPage::getTitleFor( 'Stabilization' );
@@ -1586,6 +1593,7 @@ class FlaggablePageView extends ContextSource {
 	 * @return true
 	 */
 	public function addToDiffView( $diff, $oldRev, $newRev ) {
+		$pm = MediaWikiServices::getInstance()->getPermissionManager();
 		$request = $this->getRequest();
 		$reqUser = $this->getUser();
 		$this->load();
@@ -1640,7 +1648,7 @@ class FlaggablePageView extends ContextSource {
 			# If there are pending revs or templates/files changes, notify the user...
 			if ( $this->article->revsArePending() || count( $changeList ) ) {
 				# If the user can review then prompt them to review them...
-				if ( $reqUser->isAllowed( 'review' ) ) {
+				if ( $pm->userHasRight( $reqUser, 'review' ) ) {
 					// Reviewer just edited...
 					if ( $request->getInt( 'shownotice' )
 						&& $newRev->isCurrent()
@@ -1670,7 +1678,7 @@ class FlaggablePageView extends ContextSource {
 			}
 			# template/file change list
 			if ( $changeText != '' ) {
-				if ( $reqUser->isAllowed( 'review' ) ) {
+				if ( $pm->userHasRight( $reqUser, 'review' ) ) {
 					$this->diffIncChangeBox = "<p>$changeText</p>";
 				} else {
 					$css = 'flaggedrevs_diffnotice plainlinks';
@@ -1938,6 +1946,7 @@ class FlaggablePageView extends ContextSource {
 		}
 
 		$params = [];
+		$pm = MediaWikiServices::getInstance()->getPermissionManager();
 		// If the edit was not autoreviewed, and the user can actually make a
 		// new stable version, then go to the diff...
 		if ( $this->article->revsArePending() && $frev->userCanSetFlags( $reqUser ) ) {
@@ -1951,7 +1960,7 @@ class FlaggablePageView extends ContextSource {
 			// Show a notice at the top of the page for non-reviewers...
 			if ( $this->article->revsArePending()
 				&& $this->article->isStableShownByDefault()
-				&& !$reqUser->isAllowed( 'review' )
+				&& !$pm->userHasRight( $reqUser, 'review' )
 			) {
 				$params += [ 'shownotice' => 1 ];
 				if ( $sectionAnchor ) {
@@ -2000,7 +2009,10 @@ class FlaggablePageView extends ContextSource {
 		$title = $this->article->getTitle(); // convenience
 		if ( !$this->editRequiresReview( $editPage ) ) {
 			return false; // edit will go live immediately
-		} elseif ( $request->getCheck( 'wpReviewEdit' ) && $title->userCan( 'review' ) ) {
+		} elseif ( $request->getCheck( 'wpReviewEdit' ) &&
+			MediaWikiServices::getInstance()->getPermissionManager()
+				->userCan( 'review', $this->getUser(), $title )
+		) {
 			return false; // edit checked off to be reviewed on save
 		}
 		return true; // edit needs review
@@ -2031,7 +2043,9 @@ class FlaggablePageView extends ContextSource {
 		if ( !$this->article->isReviewable() ) {
 			return false;
 		}
-		if ( $title->quickUserCan( 'autoreview' ) ) {
+		if ( MediaWikiServices::getInstance()->getPermissionManager()
+			->quickUserCan( 'autoreview', $this->getUser(), $title )
+		) {
 			if ( FlaggedRevs::autoReviewNewPages() && !$this->article->exists() ) {
 				return true; // edit will be autoreviewed
 			}
@@ -2063,7 +2077,10 @@ class FlaggablePageView extends ContextSource {
 		$this->load();
 		$request = $this->getRequest();
 		$title = $this->article->getTitle(); // convenience
-		if ( !$this->article->isReviewable() || !$title->userCan( 'review' ) ) {
+		if ( !$this->article->isReviewable() ||
+			!MediaWikiServices::getInstance()->getPermissionManager()
+				->userCan( 'review', $this->getUser(), $title )
+		) {
 			return true; // not needed
 		} elseif ( $this->editWillBeAutoreviewed( $editPage ) ) {
 			return true; // edit will be auto-reviewed

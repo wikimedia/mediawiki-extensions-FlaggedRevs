@@ -197,9 +197,10 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	 */
 	public function isAllowed() {
 		# Users who cannot edit or review the page cannot set this
-		return ( $this->page
-			&& $this->page->userCan( 'stablesettings' )
-			&& $this->page->userCan( 'review' )
+		$pm = MediaWikiServices::getInstance()->getPermissionManager();
+		return ( $this->getPage()
+			&& $pm->userCan( 'stablesettings', $this->getUser(), $this->getPage() )
+			&& $pm->userCan( 'review', $this->getUser(), $this->getPage() )
 		);
 	}
 

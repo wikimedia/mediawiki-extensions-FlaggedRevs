@@ -144,13 +144,16 @@ class FlaggedRevsHooks {
 	public static function onTitleMoveComplete(
 		Title $otitle, Title $ntitle, $user, $pageId, $redirid, $reason
 	) {
+		global $wgUser;
 		if ( FlaggedRevs::inReviewNamespace( $ntitle ) ) {
 			if ( !FlaggedRevs::inReviewNamespace( $otitle ) ) {
 				if ( FlaggedRevs::autoReviewNewPages() ) {
 					$fa = FlaggableWikiPage::getTitleInstance( $ntitle );
 					$fa->loadPageData( FlaggableWikiPage::READ_LATEST );
 					// Re-validate NS/config (new title may not be reviewable)
-					if ( $fa->isReviewable() && $ntitle->userCan( 'autoreview' ) ) {
+					if ( $fa->isReviewable() && MediaWikiServices::getInstance()->getPermissionManager()
+							->userCan( 'autoreview', $wgUser, $ntitle )
+					) {
 						// Auto-review such edits like new pages...
 						$rev = Revision::newFromTitle( $ntitle, false, Revision::READ_LATEST );
 						if ( $rev ) { // sanity
@@ -399,6 +402,7 @@ class FlaggedRevsHooks {
 		if ( $result === false ) {
 			return true; // nothing to do
 		}
+		$pm = MediaWikiServices::getInstance()->getPermissionManager();
 		# Don't let users vandalize pages by moving them...
 		if ( $action === 'move' ) {
 			if ( !FlaggedRevs::inReviewNamespace( $title ) || !$title->exists() ) {
@@ -410,7 +414,9 @@ class FlaggedRevsHooks {
 				return true;
 			}
 			$frev = $flaggedArticle->getStableRev();
-			if ( $frev && !$user->isAllowed( 'review' ) && !$user->isAllowed( 'movestable' ) ) {
+			if ( $frev && !$pm->userHasRight( $user, 'review' ) &&
+				!$pm->userHasRight( $user, 'movestable' )
+			) {
 				# Allow for only editors/reviewers to move this page
 				$result = false;
 				return false;
@@ -431,7 +437,7 @@ class FlaggedRevsHooks {
 				$right = 'editsemiprotected';
 			}
 			# Check if the user has the required right, if any
-			if ( $right != '' && !$user->isAllowed( $right ) ) {
+			if ( $right != '' && !$pm->userHasRight( $user, $right ) ) {
 				$result = false;
 				return false;
 			}
@@ -447,7 +453,7 @@ class FlaggedRevsHooks {
 					// Backwards compatibility, rewrite autoconfirmed -> editsemiprotected
 					$right = 'editsemiprotected';
 				}
-				if ( $right != '' && !$user->isAllowed( $right ) ) {
+				if ( $right != '' && !$pm->userHasRight( $user, $right ) ) {
 					$result = false;
 					return false;
 				}
@@ -489,10 +495,11 @@ class FlaggedRevsHooks {
 		$prevRevId = $rev->getParentId();
 		# Get edit timestamp. Existance already validated by EditPage.php.
 		$editTimestamp = $wgRequest->getVal( 'wpEdittime' );
+		$pm = MediaWikiServices::getInstance()->getPermissionManager();
 		# Is the page manually checked off to be reviewed?
 		if ( $editTimestamp
 			&& $wgRequest->getCheck( 'wpReviewEdit' )
-			&& $title->getUserPermissionsErrors( 'review', $user ) === []
+			&& $pm->getPermissionErrors( 'review', $user, $title ) === []
 		) {
 			if ( self::editCheckReview( $fa, $rev, $user, $editTimestamp ) ) {
 				return true; // reviewed...done!
@@ -527,7 +534,7 @@ class FlaggedRevsHooks {
 		# Case A: this user can auto-review edits. Check if either:
 		# (a) this new revision creates a new page and new page autoreview is enabled
 		# (b) this new revision is based on an old, reviewed, revision
-		if ( $title->getUserPermissionsErrors( 'autoreview', $user ) === [] ) {
+		if ( $pm->getPermissionErrors( 'autoreview', $user, $title ) === [] ) {
 			# For rollback/null edits, use the previous ID as the alternate base ID.
 			# Otherwise, use the 'altBaseRevId' parameter passed in by the request.
 			$altBaseRevId = $isOldRevCopy ? $prevRevId : $wgRequest->getInt( 'altBaseRevId' );
@@ -574,7 +581,7 @@ class FlaggedRevsHooks {
 				$isOldRevCopy && // rollback or null edit
 				$baseRevId != $prevRevId && // not a null edit
 				$baseRevId == $srev->getRevId() && // restored stable rev
-				$title->getUserPermissionsErrors( 'autoreviewrestore', $user ) === []
+				$pm->getPermissionErrors( 'autoreviewrestore', $user, $title ) === []
 			);
 			# Check for self-reversions (checks text hashes)...
 			if ( !$reviewableChange ) {
@@ -745,7 +752,9 @@ class FlaggedRevsHooks {
 		# Get edit timestamp, it must exist.
 		$editTimestamp = $wgRequest->getVal( 'wpEdittime' );
 		# Is the page checked off to be reviewed?
-		if ( $editTimestamp && $reviewEdit && $title->userCan( 'review' ) ) {
+		if ( $editTimestamp && $reviewEdit && MediaWikiServices::getInstance()
+				->getPermissionManager()->userCan( 'review', $user, $title )
+		) {
 			# Check wpEdittime against current revision's time.
 			# If an edit was auto-merged in between, review only up to what
 			# was the current rev when this user started editing the page.
@@ -1162,7 +1171,7 @@ class FlaggedRevsHooks {
 				$result = ( $p && $p['editComments'] >= $params[0] );
 				break;
 			case APCOND_FR_NEVERBLOCKED:
-				if ( $user->isBlocked() ) {
+				if ( $user->getBlock() && $user->getBlock()->appliesToRight( 'edit' ) ) {
 					$result = false; // failed
 				} else {
 					$result = (bool)$cache->getWithSetCallback(
@@ -1276,7 +1285,9 @@ class FlaggedRevsHooks {
 
 	public static function setSessionKey( User $user ) {
 		global $wgRequest;
-		if ( $user->isLoggedIn() && $user->isAllowed( 'review' ) ) {
+		if ( $user->isLoggedIn() && MediaWikiServices::getInstance()->getPermissionManager()
+				->userHasRight( $user, 'review' )
+		) {
 			$key = $wgRequest->getSessionData( 'wsFlaggedRevsKey' );
 			if ( $key === null ) { // should catch login
 				$key = MWCryptRand::generateHex( 32 );

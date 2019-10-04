@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\MediaWikiServices;
+
 /**
  * Main review form UI
  *
@@ -116,7 +119,8 @@ class RevisionReviewFormUI {
 
 		# Disable form for unprivileged users
 		$disabled = [];
-		if ( !$article->getTitle()->quickUserCan( 'review' ) ||
+		if ( !MediaWikiServices::getInstance()->getPermissionManager()
+				->quickUserCan( 'review', $this->user, $article->getTitle() ) ||
 			!FlaggedRevs::userCanSetFlags( $this->user, $flags )
 		) {
 			$disabled = [ 'disabled' => 'disabled' ];

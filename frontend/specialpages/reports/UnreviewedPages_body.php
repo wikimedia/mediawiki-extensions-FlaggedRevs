@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class UnreviewedPages extends SpecialPage {
 	protected $pager = null;
 
@@ -12,7 +14,9 @@ class UnreviewedPages extends SpecialPage {
 
 		$this->setHeaders();
 		$this->addHelpLink( 'Help:Extension:FlaggedRevs' );
-		if ( !$this->getUser()->isAllowed( 'unreviewedpages' ) ) {
+		if ( !MediaWikiServices::getInstance()->getPermissionManager()
+			->userHasRight( $this->getUser(), 'unreviewedpages' )
+		) {
 			throw new PermissionsError( 'unreviewedpages' );
 		}
 
@@ -139,7 +143,9 @@ class UnreviewedPages extends SpecialPage {
 		} else {
 			$age = ' ' . $this->msg( 'unreviewedpages-recent' )->escaped(); // hot off the press :)
 		}
-		if ( $this->getUser()->isAllowed( 'unwatchedpages' ) ) {
+		if ( MediaWikiServices::getInstance()->getPermissionManager()
+			->userHasRight( $this->getUser(), 'unwatchedpages' )
+		) {
 			$uw = FRUserActivity::numUsersWatchingPage( $title );
 			$watching = $uw
 				? $this->msg( 'unreviewedpages-watched' )->numParams( $uw )->escaped()
