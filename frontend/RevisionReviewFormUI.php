@@ -12,6 +12,8 @@ class RevisionReviewFormUI {
 	protected $fileVersion = null;
 	protected $templateIDs = null;
 	protected $imageSHA1Keys = null;
+	/** @var WebRequest */
+	protected $request;
 
 	/**
 	 * Generates a brief review form for a page

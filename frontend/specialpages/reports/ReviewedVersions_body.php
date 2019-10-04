@@ -1,6 +1,15 @@
 <?php
 
 class ReviewedVersions extends UnlistedSpecialPage {
+	/** @var string|null */
+	protected $target;
+
+	/** @var Title|null */
+	protected $page;
+
+	/** @var int|null */
+	protected $oldid;
+
 	public function __construct() {
 		parent::__construct( 'ReviewedVersions' );
 	}
@@ -75,7 +84,14 @@ class ReviewedVersions extends UnlistedSpecialPage {
  * Query to list out stable versions for a page
  */
 class ReviewedVersionsPager extends ReverseChronologicalPager {
-	public $mForm, $mConds;
+	/** @var ReviewedVersions */
+	public $mForm;
+
+	/** @var array */
+	public $mConds;
+
+	/** @var int */
+	protected $pageID;
 
 	/**
 	 * @param ReviewedVersions $form

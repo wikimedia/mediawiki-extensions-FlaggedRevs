@@ -1,7 +1,17 @@
 <?php
 
 class ReviewedPages extends SpecialPage {
+	/** @var ReviewedPagesPager */
 	protected $pager = null;
+
+	/** @var int */
+	protected $namespace;
+
+	/** @var int */
+	protected $type;
+
+	/** @var bool */
+	protected $hideRedirs;
 
 	public function __construct() {
 		parent::__construct( 'ReviewedPages' );
@@ -128,7 +138,20 @@ class ReviewedPages extends SpecialPage {
  * Query to list out reviewed pages
  */
 class ReviewedPagesPager extends AlphabeticPager {
-	public $mForm, $mConds, $namespace, $type;
+	/** @var ReviewedPages */
+	public $mForm;
+
+	/** @var array */
+	public $mConds;
+
+	/** @var int */
+	public $namespace;
+
+	/** @var int */
+	public $type;
+
+	/** @var bool */
+	public $hideRedirs;
 
 	public function __construct( $form, $conds = [], $type = 0, $namespace = 0, $hideRedirs = 1 ) {
 		$this->mForm = $form;

@@ -2,10 +2,17 @@
 
 // Assumes $wgFlaggedRevsProtection is off
 class ConfiguredPages extends SpecialPage {
-	/*
-	 * @var $pager ConfiguredPagesPager
-	 */
+	/** @var $pager ConfiguredPagesPager */
 	protected $pager = null;
+
+	/** @var int|null */
+	protected $namespace;
+
+	/** @var int|null */
+	protected $override;
+
+	/** @var string|null */
+	protected $autoreview;
 
 	public function __construct() {
 		parent::__construct( 'ConfiguredPages' );
@@ -117,13 +124,26 @@ class ConfiguredPages extends SpecialPage {
  * Query to list out stable versions for a page
  */
 class ConfiguredPagesPager extends AlphabeticPager {
-	public $mForm, $mConds, $namespace, $override, $autoreview;
+	/** @var ConfiguredPages */
+	public $mForm;
+
+	/** @var array */
+	public $mConds;
+
+	/** @var int|null */
+	public $namespace;
+
+	/** @var int|null */
+	public $override;
+
+	/** @var string */
+	public $autoreview;
 
 	/**
 	 * @param ConfiguredPages $form
 	 * @param array $conds
-	 * @param int $namespace (null for "all")
-	 * @param int $override (null for "either")
+	 * @param int|null $namespace (null for "all")
+	 * @param int|null $override (null for "either")
 	 * @param string $autoreview ('' for "all", 'none' for no restriction)
 	 */
 	public function __construct( $form, $conds, $namespace, $override, $autoreview ) {
