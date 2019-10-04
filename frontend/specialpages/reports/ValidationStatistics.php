@@ -42,7 +42,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 			foreach ( $pData as $percentile => $perValue ) {
 				$headerRows .= "<th>P<sub>" . intval( $percentile ) . "</sub></th>";
 				$dataRows .= '<td>' .
-					$lang->formatTimePeriod( $perValue, 'avoidminutes' ) . '</td>';
+					$lang->formatTimePeriod( $perValue, [ 'avoid' => 'avoidminutes' ] ) . '</td>';
 			}
 			$css = 'wikitable flaggedrevs_stats_table';
 			$reviewChart = "<table class='$css' style='white-space: nowrap;'>\n";
@@ -63,12 +63,12 @@ class ValidationStatistics extends IncludableSpecialPage {
 		$out->addHtml( '<hr/>' );
 		# Show pending time stats...
 		$out->addWikiMsg( 'validationstatistics-pndtime',
-			$lang->formatTimePeriod( $pt, 'avoidminutes' ) );
+			$lang->formatTimePeriod( $pt, [ 'avoid' => 'avoidminutes' ] ) );
 		# Show review time stats...
 		if ( !FlaggedRevs::useSimpleConfig() ) {
 			$out->addWikiMsg( 'validationstatistics-revtime',
-				$lang->formatTimePeriod( $mt, 'avoidminutes' ),
-				$lang->formatTimePeriod( $mdt, 'avoidminutes' ),
+				$lang->formatTimePeriod( $mt, [ 'avoid' => 'avoidminutes' ] ),
+				$lang->formatTimePeriod( $mdt, [ 'avoid' => 'avoidminutes' ] ),
 				$reviewChart
 			);
 		}
