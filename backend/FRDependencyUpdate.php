@@ -89,7 +89,7 @@ class FRDependencyUpdate {
 			}
 			# Add any new links
 			if ( $insertions ) {
-				$dbw->insert( 'flaggedrevs_tracking', $insertions, __METHOD__, 'IGNORE' );
+				$dbw->insert( 'flaggedrevs_tracking', $insertions, __METHOD__, [ 'IGNORE' ] );
 			}
 		}
 	}
