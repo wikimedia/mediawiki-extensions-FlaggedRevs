@@ -219,7 +219,7 @@ class FlaggedRevsUIHooks {
 		}
 
 		$view = FlaggablePageView::singleton();
-		$view->addStableLink( $outputDone, $useParserCache );
+		$view->addStableLink();
 		$view->setPageContent( $outputDone, $useParserCache );
 		return true;
 	}

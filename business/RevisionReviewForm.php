@@ -171,8 +171,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		if ( !$this->page->getArticleID( $flgs ) ) {
 			return 'review_page_notexists';
 		}
-		$flgs = ( $flags & self::FOR_SUBMISSION ) ? FR_MASTER : 0;
-		if ( !$this->article->isReviewable( $flgs ) ) {
+		if ( !$this->article->isReviewable() ) {
 			return 'review_page_unreviewable';
 		}
 		return true;

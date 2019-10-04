@@ -584,7 +584,7 @@ class FlaggablePageView extends ContextSource {
 				}
 				$msgHTML = $prot . $icon . $msgHTML;
 				$tag .= FlaggedRevsXML::prettyRatingBox( $srev, $msgHTML,
-					$revsSince, 'draft', $synced, false );
+					$revsSince, 'draft', $synced );
 			// Standard UI
 			} else {
 				if ( $synced ) {
