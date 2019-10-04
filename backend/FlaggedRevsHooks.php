@@ -1,6 +1,7 @@
 <?php
 
 use Wikimedia\Rdbms\IDatabase;
+use MediaWiki\Edit\PreparedEdit;
 use MediaWiki\MediaWikiServices;
 
 /**
@@ -183,7 +184,7 @@ class FlaggedRevsHooks {
 	 * Note: pages with current versions that use this page should already be purged
 	 *
 	 * @param WikiPage $wikiPage
-	 * @param array $editInfo
+	 * @param PreparedEdit|null $editInfo
 	 *
 	 * @return true
 	 */
@@ -197,7 +198,7 @@ class FlaggedRevsHooks {
 	 * (a) Update flaggedrevs page/tracking tables
 	 * (b) Pages with stable versions that use this page will be purged
 	 * Note: pages with current versions that use this page should already be purged
-	 * @param Page $article
+	 * @param WikiPage|Article $article
 	 * @param User $user
 	 * @param string $reason
 	 * @param int $id
@@ -465,7 +466,7 @@ class FlaggedRevsHooks {
 	 *
 	 * Note: RC items not inserted yet, RecentChange_save hook does rc_patrolled bit...
 	 * Note: $article one of Article, ImagePage, Category page as appropriate.
-	 * @param Page $article
+	 * @param WikiPage|Article $article
 	 * @param Revision $rev
 	 * @param int|false $baseRevId
 	 * @param User|null $user
@@ -593,7 +594,7 @@ class FlaggedRevsHooks {
 	/**
 	 * Review $rev if $editTimestamp matches the previous revision's timestamp.
 	 * Otherwise, review the revision that has $editTimestamp as its timestamp value.
-	 * @param Page $article
+	 * @param WikiPage|Article $article
 	 * @param Revision $rev
 	 * @param User $user
 	 * @param string $editTimestamp
@@ -823,7 +824,7 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	 * @param Page $article
+	 * @param WikiPage|Article $article
 	 * @param Revision $rev
 	 * @param bool $baseRevId
 	 * @param null $user

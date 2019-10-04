@@ -185,7 +185,7 @@ class FRUserCounters {
 	/**
 	 * Update users params array for a user on edit
 	 * @param array &$p user params
-	 * @param Page $article the article just edited
+	 * @param WikiPage|Article $article the article just edited
 	 * @param string $summary edit summary
 	 * @return bool anything changed
 	 */

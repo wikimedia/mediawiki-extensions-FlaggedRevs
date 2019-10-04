@@ -707,7 +707,7 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * @param Page $article
+	 * @param WikiPage|Article $article
 	 * @param ParserOutput $stableOut
 	 * @param int $mode FRDependencyUpdate::DEFERRED/FRDependencyUpdate::IMMEDIATE
 	 * Updates the stable-only cache dependency table
@@ -929,7 +929,7 @@ class FlaggedRevs {
 	 * If $flags is given, then they will be the review tags. If not, the one
 	 * from the stable version will be used or minimal tags if that's not possible.
 	 * If no appropriate tags can be found, then the review will abort.
-	 * @param WikiPage $article
+	 * @param WikiPage|Article $article
 	 * @param User $user
 	 * @param Revision $rev
 	 * @param array|null $flags
@@ -937,7 +937,7 @@ class FlaggedRevs {
 	 * @return true
 	 */
 	public static function autoReviewEdit(
-		WikiPage $article, $user, Revision $rev, array $flags = null, $auto = true
+		Page $article, $user, Revision $rev, array $flags = null, $auto = true
 	) {
 		$title = $article->getTitle(); // convenience
 		# Get current stable version ID (for logging)

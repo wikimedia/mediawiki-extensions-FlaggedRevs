@@ -224,6 +224,14 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
+	/**
+	 * @param Title $title
+	 * @param WebRequest $request
+	 * @param bool &$ignoreRedirect
+	 * @param string &$target
+	 * @param WikiPage|Article &$article
+	 * @return true
+	 */
 	public static function overrideRedirect(
 		Title $title, WebRequest $request, &$ignoreRedirect, &$target, Page &$article
 	) {
@@ -938,7 +946,7 @@ class FlaggedRevsUIHooks {
 	/**
 	 * Add selector of review "protection" options
 	 * Code stolen from Stabilization (which was stolen from ProtectionForm)
-	 * @param Page $article
+	 * @param WikiPage|Article $article
 	 * @param string &$output
 	 * @return true
 	 */
@@ -1089,7 +1097,7 @@ class FlaggedRevsUIHooks {
 
 	/**
 	 * Add stability log extract to protection form
-	 * @param Page $article
+	 * @param WikiPage|Article $article
 	 * @param OutputPage $out
 	 * @return true
 	 */
@@ -1112,7 +1120,7 @@ class FlaggedRevsUIHooks {
 
 	/**
 	 * Update stability config from request
-	 * @param Page $article
+	 * @param WikiPage|Article $article
 	 * @param string &$errorMsg
 	 * @return true
 	 */
