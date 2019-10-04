@@ -339,6 +339,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		$fields = [ 'page_namespace', 'page_title', 'page_len', 'page_id',
 			'MIN(rev_timestamp) AS creation' ];
 		# Filter by level
+		$conds = [];
 		if ( $this->level == 1 ) {
 			$conds[] = "fp_page_id IS NULL OR fp_quality = 0";
 		} else {
