@@ -395,17 +395,17 @@ class FlaggedRevision {
 			'fr_img_sha1'      => $this->mFileSha1
 		];
 		# Update the main flagged revisions table...
-		$dbw->insert( 'flaggedrevs', $revRow, __METHOD__, 'IGNORE' );
+		$dbw->insert( 'flaggedrevs', $revRow, __METHOD__, [ 'IGNORE' ] );
 		if ( !$dbw->affectedRows() ) {
 			return false; // duplicate review
 		}
 		# ...and insert template version data
 		if ( $tmpInsertRows ) {
-			$dbw->insert( 'flaggedtemplates', $tmpInsertRows, __METHOD__, 'IGNORE' );
+			$dbw->insert( 'flaggedtemplates', $tmpInsertRows, __METHOD__, [ 'IGNORE' ] );
 		}
 		# ...and insert file version data
 		if ( $fileInsertRows ) {
-			$dbw->insert( 'flaggedimages', $fileInsertRows, __METHOD__, 'IGNORE' );
+			$dbw->insert( 'flaggedimages', $fileInsertRows, __METHOD__, [ 'IGNORE' ] );
 		}
 		return true;
 	}
