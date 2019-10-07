@@ -42,7 +42,8 @@ abstract class ApiStabilize extends ApiBase {
 			);
 		}
 
-		$errors = $this->title->getUserPermissionsErrors( 'stablesettings', $wgUser );
+		$errors = $this->getPermissionManager()
+			->getPermissionErrors( 'stablesettings', $wgUser, $this->title );
 		if ( $errors ) {
 			$this->dieStatus( $this->errorArrayToStatus( $errors, $wgUser ) );
 		}

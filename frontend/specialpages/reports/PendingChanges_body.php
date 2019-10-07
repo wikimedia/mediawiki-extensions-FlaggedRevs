@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class PendingChanges extends SpecialPage {
 	/*
 	 * @var $pages PendingChangesPager
@@ -257,7 +259,9 @@ class PendingChanges extends SpecialPage {
 			$quality = " <b>[{$quality}]</b>";
 		}
 		# Is anybody watching?
-		if ( !$this->including() && $this->getUser()->isAllowed( 'unreviewedpages' ) ) {
+		if ( !$this->including() && MediaWikiServices::getInstance()->getPermissionManager()
+				->userHasRight( $this->getUser(), 'unreviewedpages' )
+		) {
 			$uw = FRUserActivity::numUsersWatchingPage( $title );
 			$watching = $uw
 				? $this->msg( 'pendingchanges-watched' )->numParams( $uw )->escaped()

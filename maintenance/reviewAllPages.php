@@ -2,6 +2,9 @@
 /**
  * @ingroup Maintenance
  */
+
+use MediaWiki\MediaWikiServices;
+
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
@@ -32,7 +35,9 @@ class ReviewAllPages extends Maintenance {
 		if ( !$user->getID() ) {
 			$this->output( "Invalid user specified.\n" );
 			return;
-		} elseif ( !$user->isAllowed( 'review' ) ) {
+		} elseif ( !MediaWikiServices::getInstance()->getPermissionManager()
+			->userHasRight( $user, 'review' )
+		) {
 			$this->output( "User specified (id: {$user->getID()}) does not have \"review\" rights.\n" );
 			return;
 		}

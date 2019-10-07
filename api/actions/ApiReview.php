@@ -45,7 +45,7 @@ class ApiReview extends ApiBase {
 		}
 		$title = $rev->getTitle();
 
-		if ( $this->getUser()->isBlockedFrom( $title, false ) ) {
+		if ( $this->getPermissionManager()->isBlockedFrom( $this->getUser(), $title, false ) ) {
 			$this->dieBlocked( $this->getUser()->getBlock() );
 		}
 

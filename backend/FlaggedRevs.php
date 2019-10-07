@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Edit\PreparedEdit;
+use MediaWiki\MediaWikiServices;
 
 /**
  * Class containing utility functions for a FlaggedRevs environment
@@ -427,6 +428,7 @@ class FlaggedRevs {
 	 * @return bool
 	 */
 	public static function userCanSetTag( $user, $tag, $value ) {
+		$pm = MediaWikiServices::getInstance()->getPermissionManager();
 		# Sanity check tag and value
 		if ( !self::tagIsValid( $tag, $value ) ) {
 			return false; // flag range is invalid
@@ -437,13 +439,13 @@ class FlaggedRevs {
 			return true;
 		}
 		# Validators always have full access
-		if ( $user->isAllowed( 'validate' ) ) {
+		if ( $pm->userHasRight( $user, 'validate' ) ) {
 			return true;
 		}
 		# Check if this user has any right that lets him/her set
 		# up to this particular value
 		foreach ( $restrictions[$tag] as $right => $level ) {
-			if ( $value <= $level && $level > 0 && $user->isAllowed( $right ) ) {
+			if ( $value <= $level && $level > 0 && $pm->userHasRight( $user, $right ) ) {
 				return true;
 			}
 		}
@@ -459,7 +461,9 @@ class FlaggedRevs {
 	 * @return bool
 	 */
 	public static function userCanSetFlags( $user, array $flags, $oldflags = [] ) {
-		if ( !$user->isAllowed( 'review' ) ) {
+		if ( !MediaWikiServices::getInstance()->getPermissionManager()
+			->userHasRight( $user, 'review' )
+		) {
 			return false; // User is not able to review pages
 		}
 		# Check if all of the required site flags have
@@ -491,18 +495,19 @@ class FlaggedRevs {
 		if ( !in_array( $right, self::getRestrictionLevels() ) ) {
 			return false; // invalid restriction level
 		}
+		$pm = MediaWikiServices::getInstance()->getPermissionManager();
 		# Don't let them choose levels above their own rights
 		if ( $right == 'sysop' ) {
 			// special case, rewrite sysop to editprotected
-			if ( !$user->isAllowed( 'editprotected' ) ) {
+			if ( !$pm->userHasRight( $user, 'editprotected' ) ) {
 				return false;
 			}
 		} elseif ( $right == 'autoconfirmed' ) {
 			// special case, rewrite autoconfirmed to editsemiprotected
-			if ( !$user->isAllowed( 'editsemiprotected' ) ) {
+			if ( !$pm->userHasRight( $user, 'editsemiprotected' ) ) {
 				return false;
 			}
-		} elseif ( !$user->isAllowed( $right ) ) {
+		} elseif ( !$pm->userHasRight( $user, $right ) ) {
 			return false;
 		}
 		return true;
@@ -954,7 +959,9 @@ class FlaggedRevs {
 			if ( !is_array( $flags ) ) {
 				if ( $oldSv ) {
 					# Use the last stable version if $flags not given
-					if ( $user->isAllowed( 'bot' ) ) {
+					if ( MediaWikiServices::getInstance()->getPermissionManager()
+						->userHasRight( $user, 'bot' )
+					) {
 						$flags = $oldSv->getTags(); // no change for bot edits
 					} else {
 						# Account for perms/tags...

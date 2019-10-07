@@ -1,5 +1,8 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+use MediaWiki\Permissions\PermissionManager;
+
 class RevisionReview extends UnlistedSpecialPage {
 	protected $form;
 	protected $page;
@@ -26,11 +29,12 @@ class RevisionReview extends UnlistedSpecialPage {
 			return;
 		}
 
-		if ( !$user->isAllowed( 'review' ) ) {
+		$pm = MediaWikiServices::getInstance()->getPermissionManager();
+		if ( !$pm->userHasRight( $user, 'review' ) ) {
 			throw new PermissionsError( 'review' );
 		}
 
-		if ( $user->isBlockedFrom( $this->page, !$confirmed ) ) {
+		if ( $pm->isBlockedFrom( $user, $this->page, !$confirmed ) ) {
 			throw new UserBlockedError( $user->getBlock( !$confirmed ) );
 		} elseif ( wfReadOnly() ) {
 			throw new ReadOnlyError();
@@ -39,7 +43,8 @@ class RevisionReview extends UnlistedSpecialPage {
 		$this->setHeaders();
 
 		# Basic page permission checks...
-		$permErrors = $this->page->getUserPermissionsErrors( 'review', $user, false );
+		$permErrors = $pm->getPermissionErrors( 'review', $user,
+			$this->page, PermissionManager::RIGOR_QUICK );
 		if ( $permErrors ) {
 			$out->showPermissionsErrorPage( $permErrors, 'review' );
 			return;
@@ -160,7 +165,9 @@ class RevisionReview extends UnlistedSpecialPage {
 			$title->getPrefixedUrl(), $this->form->getOldId() )->parseAsBlock();
 		$s .= "</div>";
 		# Handy links to special pages
-		if ( $showlinks && $this->getUser()->isAllowed( 'unreviewedpages' ) ) {
+		if ( $showlinks && MediaWikiServices::getInstance()->getPermissionManager()
+				->userHasRight( $this->getUser(), 'unreviewedpages' )
+		) {
 			$s .= $this->getSpecialLinks();
 		}
 		return $s;
@@ -176,7 +183,8 @@ class RevisionReview extends UnlistedSpecialPage {
 			$title->getPrefixedUrl(), $this->form->getOldId() )->parseAsBlock();
 		$s .= "</div>";
 		# Handy links to special pages
-		if ( $showlinks && $this->getUser()->isAllowed( 'unreviewedpages' ) ) {
+		if ( $showlinks && MediaWikiServices::getInstance()->getPermissionManager()
+				->userHasRight( $this->getUser(), 'unreviewedpages' ) ) {
 			$s .= $this->getSpecialLinks();
 		}
 		return $s;
@@ -276,7 +284,8 @@ class RevisionReview extends UnlistedSpecialPage {
 			return '<err#>' . wfMessage( 'sessionfailure' )->parse();
 		}
 		# Basic permission checks...
-		$permErrors = $title->getUserPermissionsErrors( 'review', $wgUser, false );
+		$permErrors = MediaWikiServices::getInstance()->getPermissionManager()
+			->getPermissionErrors( 'review', $wgUser, $title, PermissionManager::RIGOR_QUICK );
 		if ( $permErrors ) {
 			return '<err#>' . $wgOut->parseAsInterface(
 				$wgOut->formatPermissionsErrorMessage( $permErrors, 'review' )
