@@ -115,7 +115,7 @@ class ReviewedPages extends SpecialPage {
 			SpecialPage::getTitleFor( 'ReviewedVersions' ),
 			$this->msg( 'reviewedpages-all' )->text(),
 			[],
-			[ 'page' => $title->getPrefixedURL() ]
+			[ 'page' => $title->getPrefixedDBKey() ]
 		);
 		# Link to highest tier rev
 		$best = '';

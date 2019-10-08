@@ -89,7 +89,7 @@ class ConfiguredPages extends SpecialPage {
 			SpecialPage::getTitleFor( 'Stabilization' ),
 			$this->msg( 'configuredpages-config' )->text(),
 			[],
-			[ 'page' => $title->getPrefixedURL() ]
+			[ 'page' => $title->getPrefixedDBKey() ]
 		);
 		# Show which version is the default (stable or draft)
 		if ( intval( $row->fpc_override ) ) {
