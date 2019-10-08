@@ -7,7 +7,8 @@
 			"PhiLiP",
 			"Mywood",
 			"Impersonator 1",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Xiplus"
 		]
 	},
 	"reviewedversions": "已复核版本",
@@ -15,5 +16,5 @@
 	"reviewedversions-page": "页面名称：",
 	"reviewedversions-none": "“[[:$1]]”没有已复核的修订版本。",
 	"reviewedversions-list": "下面列出了[[:$1]]的{{PLURAL:$2|已|已}}复审{{PLURAL:$2|版本}}：",
-	"reviewedversions-review": "$2于<i>$1</i>复核"
+	"reviewedversions-review": "$2于$1复核"
 }

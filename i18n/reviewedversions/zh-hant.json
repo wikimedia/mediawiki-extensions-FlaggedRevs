@@ -4,7 +4,8 @@
 			"Horacewai2",
 			"Liangent",
 			"Waihorace",
-			"Cwlin0416"
+			"Cwlin0416",
+			"Xiplus"
 		]
 	},
 	"reviewedversions": "已審查的版本",
@@ -12,5 +13,5 @@
 	"reviewedversions-page": "頁面名稱：",
 	"reviewedversions-none": "\"[[:$1]]\" 沒有己審查的修訂。",
 	"reviewedversions-list": "以下清單為 [[:$1]] {{PLURAL:$2|已|已}}審查的{{PLURAL:$2|唯一修訂|修訂}}：",
-	"reviewedversions-review": "已由 $2 於 <i>$1</i> 審查"
+	"reviewedversions-review": "已由$2於$1審查"
 }
