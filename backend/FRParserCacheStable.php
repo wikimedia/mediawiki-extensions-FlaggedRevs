@@ -23,7 +23,7 @@ class FRParserCacheStable extends ParserCache {
 
 	/**
 	 * Like ParserCache::getParserOutputKey() with stable-pcache instead of pcache
-	 * @param Article $article
+	 * @param WikiPage $article
 	 * @param string $hash
 	 * @return mixed|string
 	 */
@@ -34,7 +34,7 @@ class FRParserCacheStable extends ParserCache {
 
 	/**
 	 * Like ParserCache::getOptionsKey() with stable-pcache instead of pcache
-	 * @param Article $article
+	 * @param WikiPage $article
 	 * @return mixed|string
 	 */
 	protected function getOptionsKey( $article ) {

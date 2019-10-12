@@ -458,7 +458,7 @@ class FlaggedRevsXML {
 	}
 
 	/**
-	 * @param Page $article
+	 * @param WikiPage|Article $article
 	 * @return string
 	 * Creates a stability log excerpt
 	 */
