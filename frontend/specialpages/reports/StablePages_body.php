@@ -2,7 +2,17 @@
 
 // Assumes $wgFlaggedRevsProtection is on
 class StablePages extends SpecialPage {
+	/** @var StablePagesPager */
 	protected $pager = null;
+
+	/** @var int|null */
+	protected $namespace;
+
+	/** @var string|null */
+	protected $autoreview;
+
+	/** @var bool */
+	protected $indef;
 
 	public function __construct() {
 		parent::__construct( 'StablePages' );
@@ -115,12 +125,28 @@ class StablePages extends SpecialPage {
  * Query to list out stable versions for a page
  */
 class StablePagesPager extends AlphabeticPager {
-	public $mForm, $mConds, $namespace, $override;
+	/** @var StablePages */
+	public $mForm;
+
+	/** @var array */
+	public $mConds;
+
+	/** @var int|int[] */
+	public $namespace;
+
+	/** @var bool */
+	public $override;
+
+	/** @var string */
+	protected $indef;
+
+	/** @var string|null */
+	protected $autoreview;
 
 	/**
 	 * @param StablePages $form
 	 * @param array $conds
-	 * @param int $namespace (null for "all")
+	 * @param int|null $namespace (null for "all")
 	 * @param string $autoreview ('' for "all", 'none' for no restriction)
 	 * @param string $indef
 	 */

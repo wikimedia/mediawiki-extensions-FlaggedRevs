@@ -3,10 +3,29 @@
 use MediaWiki\MediaWikiServices;
 
 class PendingChanges extends SpecialPage {
-	/*
-	 * @var $pages PendingChangesPager
-	 */
+	/** @var $pages PendingChangesPager */
 	protected $pager = null;
+
+	/** @var string */
+	protected $currentUnixTS;
+
+	/** @var int|null */
+	protected $namespace;
+
+	/** @var int */
+	protected $level;
+
+	/** @var string */
+	protected $category;
+
+	/** @var int|null */
+	protected $size;
+
+	/** @var bool */
+	protected $watched;
+
+	/** @var bool */
+	protected $stable;
 
 	public function __construct() {
 		parent::__construct( 'PendingChanges' );
@@ -320,8 +339,26 @@ class PendingChanges extends SpecialPage {
  * Query to list out outdated reviewed pages
  */
 class PendingChangesPager extends AlphabeticPager {
+	/** @var PendingChanges */
 	public $mForm;
-	protected $category, $namespace;
+
+	/** @var string|null */
+	protected $category;
+
+	/** @var int */
+	protected $namespace;
+
+	/** @var int */
+	protected $level;
+
+	/** @var int|null */
+	protected $size;
+
+	/** @var bool */
+	protected $watched;
+
+	/** @var bool */
+	protected $stable;
 
 	const PAGE_LIMIT = 100; // Don't get too expensive
 

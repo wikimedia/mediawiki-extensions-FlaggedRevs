@@ -3,7 +3,26 @@
 use MediaWiki\MediaWikiServices;
 
 class UnreviewedPages extends SpecialPage {
+	/** @var UnreviewedPagesPager */
 	protected $pager = null;
+
+	/** @var string */
+	protected $currentUnixTS;
+
+	/** @var int */
+	protected $namespace;
+
+	/** @var string */
+	protected $category;
+
+	/** @var int */
+	protected $level;
+
+	/** @var bool */
+	protected $hideRedirs;
+
+	/** @var bool */
+	protected $live;
 
 	public function __construct() {
 		parent::__construct( 'UnreviewedPages', 'unreviewedpages' );
@@ -301,8 +320,26 @@ class UnreviewedPages extends SpecialPage {
  * Query to list out unreviewed pages
  */
 class UnreviewedPagesPager extends AlphabeticPager {
+	/** @var UnreviewedPages */
 	public $mForm;
-	protected $live, $namespace, $category, $showredirs;
+
+	/** @var array */
+	public $mConds;
+
+	/** @var bool */
+	protected $live;
+
+	/** @var int */
+	protected $namespace;
+
+	/** @var string|null */
+	protected $category;
+
+	/** @var bool */
+	protected $showredirs;
+
+	/** @var int */
+	protected $level;
 
 	const PAGE_LIMIT = 50; // Don't get too expensive
 

@@ -1,6 +1,21 @@
 <?php
 
 class QualityOversight extends SpecialPage {
+	/** @var int */
+	protected $namespace;
+
+	/** @var int|null */
+	protected $level;
+
+	/** @var int|null */
+	protected $status;
+
+	/** @var int|null */
+	protected $automatic;
+
+	/** @var string|null */
+	protected $user;
+
 	public function __construct() {
 		parent::__construct( 'QualityOversight' );
 	}

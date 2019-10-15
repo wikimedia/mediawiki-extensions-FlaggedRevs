@@ -3,7 +3,20 @@
 use MediaWiki\MediaWikiServices;
 
 class ProblemChanges extends SpecialPage {
+	/** @var ProblemChangesPager */
 	protected $pager = null;
+
+	/** @var string */
+	protected $currentUnixTS;
+
+	/** @var int */
+	protected $level;
+
+	/** @var string */
+	protected $tag;
+
+	/** @var string */
+	protected $category;
 
 	public function __construct() {
 		parent::__construct( 'ProblemChanges' );
@@ -312,8 +325,20 @@ class ProblemChanges extends SpecialPage {
  * Query to list out outdated reviewed pages
  */
 class ProblemChangesPager extends AlphabeticPager {
+	/** @var ProblemChanges */
 	public $mForm;
-	protected $category, $namespace, $tag;
+
+	/** @var string|null */
+	protected $category;
+
+	/** @var int[] */
+	protected $namespace;
+
+	/** @var string */
+	protected $tag;
+
+	/** @var int */
+	protected $level;
 
 	const PAGE_LIMIT = 100; // Don't get too expensive
 
