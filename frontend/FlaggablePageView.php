@@ -1378,7 +1378,6 @@ class FlaggablePageView extends ContextSource {
 		$pm = MediaWikiServices::getInstance()->getPermissionManager();
 		if (
 			!$this->article->getTitle()->isTalkPage() &&
-			is_array( $actions ) &&
 			!isset( $actions['protect'] ) &&
 			!isset( $actions['unprotect'] ) &&
 			$pm->userHasRight( $reqUser, 'stablesettings' ) &&
@@ -2037,6 +2036,7 @@ class FlaggablePageView extends ContextSource {
 	 * Note: checking wpReviewEdit does not count as auto-reviewed
 	 * @param EditPage $editPage
 	 * @return bool
+	 * @suppress PhanUndeclaredProperty For EditPage->fr_*
 	 */
 	protected function editWillBeAutoreviewed( EditPage $editPage ) {
 		$title = $this->article->getTitle(); // convenience
@@ -2160,6 +2160,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param EditPage $editPage
 	 * @param WebRequest $request
 	 * @return int
+	 * @suppress PhanUndeclaredProperty For EditPage->fr_*
 	 */
 	protected static function getBaseRevId( EditPage $editPage, WebRequest $request ) {
 		if ( $editPage->isConflict ) {
@@ -2192,6 +2193,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param EditPage $editPage
 	 * @param WebRequest $request
 	 * @return int
+	 * @suppress PhanUndeclaredProperty For EditPage->fr_*
 	 */
 	protected static function getAltBaseRevId( EditPage $editPage, WebRequest $request ) {
 		if ( $editPage->isConflict ) {

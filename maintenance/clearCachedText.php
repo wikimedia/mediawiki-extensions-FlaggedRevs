@@ -4,6 +4,8 @@
  * Simple script to clear the fr_text field in a replication-friendly way
  */
 
+// @phan-file-suppress PhanUndeclaredMagicConstant Global scope
+
 $IP = getenv( 'MW_INSTALL_PATH' );
 if ( strval( $IP ) == '' ) {
 	$IP = __DIR__ . '/../../..';
