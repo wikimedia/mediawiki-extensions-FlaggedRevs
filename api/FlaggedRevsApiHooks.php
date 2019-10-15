@@ -36,6 +36,7 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 			}
 			$data = $data['query']['pages'];
 		}
+		$pageids = [];
 		foreach ( $data as $pageid => $page ) {
 			if ( array_key_exists( 'revisions', (array)$page ) ) {
 				foreach ( $page['revisions'] as $index => $rev ) {
@@ -45,7 +46,7 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 				}
 			}
 		}
-		if ( empty( $pageids ) ) {
+		if ( $pageids === [] ) {
 			return true;
 		}
 

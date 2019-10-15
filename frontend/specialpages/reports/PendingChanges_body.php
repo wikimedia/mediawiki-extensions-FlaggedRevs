@@ -376,6 +376,7 @@ class PendingChangesPager extends AlphabeticPager {
 	public function getQueryInfo() {
 		$tables = [ 'page', 'revision' ];
 		$fields = [ 'page_namespace', 'page_title', 'page_len', 'rev_len', 'page_latest' ];
+		$conds = [];
 		# Show outdated "stable" versions
 		if ( $this->level < 0 ) {
 			$tables[] = 'flaggedpages';
