@@ -294,7 +294,7 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
-	public static function addToEditView( &$editPage ) {
+	public static function addToEditView( $editPage ) {
 		$view = FlaggablePageView::singleton();
 		$view->addToEditView( $editPage );
 		return true;
@@ -306,13 +306,13 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
-	public static function onBeforeEditButtons( &$editPage, &$buttons ) {
+	public static function onBeforeEditButtons( $editPage, &$buttons ) {
 		$view = FlaggablePageView::singleton();
 		$view->changeSaveButton( $editPage, $buttons );
 		return true;
 	}
 
-	public static function onNoSuchSection( &$editPage, &$s ) {
+	public static function onNoSuchSection( $editPage, &$s ) {
 		$view = FlaggablePageView::singleton();
 		$view->addToNoSuchSection( $editPage, $s );
 		return true;
