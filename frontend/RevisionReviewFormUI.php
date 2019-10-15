@@ -199,7 +199,7 @@ class RevisionReviewFormUI {
 
 		# Show stability log if there is anything interesting...
 		if ( $article->isPageLocked() ) {
-			$form .= ' ' . FlaggedRevsXML::logToggle( 'revreview-log-toggle-show' );
+			$form .= ' ' . FlaggedRevsXML::logToggle();
 		}
 
 		# End comment & buttons
