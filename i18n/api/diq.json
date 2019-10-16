@@ -40,6 +40,7 @@
 	"apihelp-review-param-comment": "Qandë ena ercnayış mışewre.",
 	"apihelp-review-example-1": "Mışewrey \"TEMAM\" ya revizyoni do 12345 deyne qebul bo",
 	"apihelp-stabilize-description-general": "İstikrar eyarê perrer bıvurnê",
+	"apihelp-stabilize-summary-general": "Seba iktıqrarê pele rê eyaran vurneno.",
 	"apihelp-stabilize-param-reason": "Sebeb.",
 	"apihelp-stabilize-param-watch": "Ena perre seyr kerê.",
 	"apihelp-stabilize-param-expiry-general": "Zemano kı nê eyaran rê deya yo.",

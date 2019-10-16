@@ -22,11 +22,17 @@
 			"HakanIST",
 			"Hedda",
 			"TmY e12",
-			"ToprakM"
+			"ToprakM",
+			"BaRaN6161 TURK"
 		]
 	},
+	"action-autoreview": "kendi düzenlemelerinin otomatik olarak \"kontrol edildi\" olarak işaretlenmesini sağlayın",
+	"action-autoreviewrestore": "geri alma sırasında otomatik inceleme",
+	"action-movestable": "Sayfaları dengeli sürümlerle taşı",
 	"action-review": "revizyonları inceler",
-	"action-unreviewedpages": "gözden geçirilmemiş sayfalar listesini görüntüle",
+	"action-stablesettings": "Sabit sürümün nasıl seçileceğini ve gösterileceğini yapılandırın",
+	"action-validate": "revizyonları \"kalite\" olarak işaretleyin",
+	"action-unreviewedpages": "incelenmemiş sayfaların listesini görüntüleyin",
 	"editor": "Editör",
 	"flaggedrevs": "İşaretlenmiş Sürümler",
 	"flaggedrevs-watched-pending": "Şu anda izleme listenizdeki incelenmiş sayfaların [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} bekleyen değişiklikleri] mevcut. '''İlgilenmeniz gerekiyor!'''",
@@ -63,6 +69,7 @@
 	"logentry-review-approve": "$1, $3 sayfasının bir sürümünü {{GENDER:$2|inceledi}}",
 	"logentry-review-approve-auto": "$1, $3 sayfasının bir sürümünü otomatik olarak {{GENDER:$2|inceledi}}",
 	"logentry-review-unapprove": "$1, $3 sayfasının bir sürümünü {{GENDER:$2|reddetti}}",
+	"logentry-stable-config": "$1 {{GENDER:$2|ayar}} $3, $4'e sabit sürüm ayarları",
 	"revreview-hist-draft": "kontrol edilmemiş revizyon",
 	"revreview-hist-pending": "bekleyen revizyon",
 	"revreview-hist-quality": "kaliteli revizyon",
