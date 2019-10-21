@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"WAN233"
+		]
+	},
+	"validationstatistics-users": "'''{{SITENAME}}''' 今有 '''[[Special:ListUsers/editor|$1]]''' 位{{PLURAL:$1|文士}}任職[[{{MediaWiki:Validationpage}}|分校官]]。\n\n夫分校者，三校文章，凡簡略不盡者，猶稱底本；詳實可校者，經分校官補潤，而成初定本。"
+}
