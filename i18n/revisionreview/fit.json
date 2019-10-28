@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Pyscowicz"
+		]
+	},
+	"revisionreview": "Versuunien arviointi",
+	"revreview-failed": "'''Tätä versuunia ei voitu arvioida.'''",
+	"revreview-flag": "Arvioi tämä versuuni",
+	"revreview-reflag": "Arvioi uudelleen tämä versuuni",
+	"revreview-reject-cancel": "Lopeta"
+}
