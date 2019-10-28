@@ -1088,7 +1088,6 @@ class FlaggablePageView extends ContextSource {
 	 * @return bool
 	 */
 	public function addToEditView( EditPage $editPage ) {
-		global $wgParser;
 		$reqUser = $this->getUser();
 		$this->load();
 		# Must be reviewable. UI may be limited to unobtrusive patrolling system.
@@ -1145,7 +1144,7 @@ class FlaggablePageView extends ContextSource {
 				$section = ( $editPage->section == "" ) ?
 					false : intval( $editPage->section );
 				if ( $section !== false ) {
-					$text = $wgParser->getSection( $text, $section );
+					$text = MediaWikiServices::getInstance()->getParser()->getSection( $text, $section );
 				}
 				if ( $text !== false && strcmp( $text, $editPage->textbox1 ) !== 0 ) {
 					$diffEngine = new DifferenceEngine( $this->article->getTitle() );
