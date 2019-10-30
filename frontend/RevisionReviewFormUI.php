@@ -17,6 +17,8 @@ class RevisionReviewFormUI {
 	protected $imageSHA1Keys = null;
 	/** @var WebRequest */
 	protected $request;
+	/** @var OutputPage */
+	protected $out;
 
 	/**
 	 * Generates a brief review form for a page
@@ -31,6 +33,7 @@ class RevisionReviewFormUI {
 		$this->request = $context->getRequest();
 		$this->article = $article;
 		$this->rev = $rev;
+		$this->out = $context->getOutput();
 	}
 
 	/**
@@ -195,7 +198,7 @@ class RevisionReviewFormUI {
 
 		# Add the submit buttons...
 		$rejectId = $this->rejectRefRevId(); // determine if there will be reject button
-		$form .= self::submitButtons( $rejectId, $frev, (bool)$disabled, $reviewIncludes );
+		$form .= self::submitButtons( $rejectId, $frev, (bool)$disabled, $reviewIncludes, $this->out );
 
 		# Show stability log if there is anything interesting...
 		if ( $article->isPageLocked() ) {
@@ -379,10 +382,11 @@ class RevisionReviewFormUI {
 	 * @param FlaggedRevision $frev the flagged revision, if any
 	 * @param bool $disabled is the form disabled?
 	 * @param bool $reviewIncludes force the review button to be usable?
+	 * @param OutputPage $out
 	 * @return string
 	 */
 	protected static function submitButtons(
-		$rejectId, $frev, $disabled, $reviewIncludes = false
+		$rejectId, $frev, $disabled, $reviewIncludes, OutputPage $out
 	) {
 		$disAttrib = [ 'disabled' => 'disabled' ];
 		# ACCEPT BUTTON: accept a revision
@@ -427,8 +431,10 @@ class RevisionReviewFormUI {
 			] + ( $disabled ? $disAttrib : [] )
 		) . "\n";
 		// Disable buttons unless state changes in some cases (non-JS compatible)
-		$s .= '<script type="text/javascript">var jsReviewNeedsChange = ' .
-			(int)$needsChange . "</script>\n";
+		$s .= Html::inlineScript(
+			"var jsReviewNeedsChange = " . (int)$needsChange . ";",
+			$out->getCSP()->getNonce()
+		);
 		return $s;
 	}
 
