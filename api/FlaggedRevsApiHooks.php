@@ -39,9 +39,9 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 		}
 		$pageids = [];
 		foreach ( $data as $pageid => $page ) {
-			if ( array_key_exists( 'revisions', (array)$page ) ) {
+			if ( is_array( $page ) && array_key_exists( 'revisions', $page ) ) {
 				foreach ( $page['revisions'] as $index => $rev ) {
-					if ( array_key_exists( 'revid', (array)$rev ) ) {
+					if ( is_array( $rev ) && array_key_exists( 'revid', $rev ) ) {
 						$pageids[$pageid][$rev['revid']] = $index;
 					}
 				}

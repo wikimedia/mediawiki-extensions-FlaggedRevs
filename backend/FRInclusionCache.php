@@ -110,6 +110,10 @@ class FRInclusionCache {
 		return false;
 	}
 
+	/**
+	 * @param array[] $fVersions
+	 * @return bool
+	 */
 	protected static function filesStale( array $fVersions ) {
 		# Check if any of these files have a newer version
 		foreach ( $fVersions as $name => $timeAndSHA1 ) {

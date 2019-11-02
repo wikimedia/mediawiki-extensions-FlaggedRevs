@@ -606,7 +606,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	/**
 	 * Get template and image parameters from parser output to use on forms.
 	 * @param array $templateIDs Array (from ParserOutput/OutputPage->mTemplateIds)
-	 * @param array $imageSHA1Keys Array (from ParserOutput/OutputPage->mImageTimeKeys)
+	 * @param array[] $imageSHA1Keys Array (from ParserOutput/OutputPage->mImageTimeKeys)
 	 * @param array|null $fileVersion Array|null version of file for File: pages (time,sha1)
 	 * @return array [ templateParams, imageParams, fileVersion ]
 	 */

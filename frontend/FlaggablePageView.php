@@ -1441,9 +1441,10 @@ class FlaggablePageView extends ContextSource {
 
 	/**
 	 * Add "pending changes" tab and set tab selection CSS
-	 * @param array &$views
+	 * @param array[] &$views
 	 * @param FlaggedRevision $srev
 	 * @param string $type
+	 * @suppress PhanTypeArraySuspiciousNullable
 	 */
 	protected function addDraftTab( array &$views, FlaggedRevision $srev, $type ) {
 		$request = $this->getRequest();

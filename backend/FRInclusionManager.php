@@ -77,7 +77,8 @@ class FRInclusionManager {
 
 	/**
 	 * Clean up a file version array
-	 * @param array $params (dbKey => ['time' => MW timestamp,'sha1' => sha1] )
+	 * @param array[] $params (dbKey => ['time' => MW timestamp,'sha1' => sha1] )
+	 * @phan-param array<string,array{time:string,sha1:string}> $params
 	 * @return array
 	 */
 	protected function formatFileArray( array $params ) {

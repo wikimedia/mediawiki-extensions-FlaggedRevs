@@ -11,7 +11,7 @@ class FlaggedRevision {
 	private $mRevision;
 	/** @var array|null included template versions */
 	private $mTemplates;
-	/** @var array|null included file versions */
+	/** @var array[]|null included file versions */
 	private $mFiles;
 	/** @var string|null file version sha-1 (for revisions of File pages) */
 	private $mFileSha1;
@@ -366,14 +366,16 @@ class FlaggedRevision {
 					];
 				}
 			}
-			foreach ( (array)$this->mFiles as $dbkey => $timeSHA1 ) {
-				$fileInsertRows[] = [
-					'fi_rev_id'         => $this->getRevId(),
-					'fi_name'           => $dbkey,
-					'fi_img_sha1'       => strval( $timeSHA1['sha1'] ),
-					'fi_img_timestamp'  => $timeSHA1['time'] ? // false => NULL
-						$dbw->timestamp( $timeSHA1['time'] ) : null
-				];
+			if ( $this->mFiles !== null ) {
+				foreach ( $this->mFiles as $dbkey => $timeSHA1 ) {
+					$fileInsertRows[] = [
+						'fi_rev_id'         => $this->getRevId(),
+						'fi_name'           => $dbkey,
+						'fi_img_sha1'       => strval( $timeSHA1['sha1'] ),
+						'fi_img_timestamp'  => $timeSHA1['time'] ? // false => NULL
+							$dbw->timestamp( $timeSHA1['time'] ) : null
+					];
+				}
 			}
 		}
 		# Sanity check for partial revisions

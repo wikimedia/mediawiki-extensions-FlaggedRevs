@@ -862,7 +862,7 @@ class FlaggedRevsHooks {
 	 * rev_timestamp in an actor table world.
 	 * @param IDatabase $dbr
 	 * @param User $user
-	 * @return array
+	 * @return array[]
 	 */
 	private static function getQueryData( $dbr, $user ) {
 		$revWhere = ActorMigration::newMigration()->getWhere( $dbr, 'rev_user', $user );
