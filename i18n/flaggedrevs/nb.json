@@ -16,7 +16,10 @@
 			"Jon Harald Søby"
 		]
 	},
+	"action-autoreview": "få merket dine egne redigeringer som «sjekket»",
+	"action-movestable": "flytte sider med stabile versjoner",
 	"action-review": "gjennomgå revisjoner",
+	"action-stablesettings": "konfigurere hvordan stabil versjon velges og vises",
 	"action-unreviewedpages": "vise listen over ureviderte sider",
 	"editor": "Skribent",
 	"flaggedrevs": "Stabile versjoner",
@@ -196,5 +199,6 @@
 	"log-action-filter-stable": "Type konfigurasjonsendring:",
 	"log-action-filter-stable-config": "Ny konfigurasjon",
 	"log-action-filter-stable-modify": "Modifisert konfigurasjon",
-	"log-action-filter-stable-reset": "Nullstilling av konfigurasjon"
+	"log-action-filter-stable-reset": "Nullstilling av konfigurasjon",
+	"log-action-filter-stable-move_stable": "Flyttet konfigurasjon"
 }
