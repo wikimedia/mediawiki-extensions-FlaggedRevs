@@ -10,7 +10,7 @@
 	"flaggedrevs-hidereviewed-show": "Күрсәтү",
 	"revreview-depth-1": "төп",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Тикшерелмәгән]]'''",
-	"revreview-quick-quality": "'''[[{{MediaWiki:Validationpage}}|Тикшерелгән]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} тикшерелмәгән үзгәртүләрне күрсәтергә]]",
+	"revreview-quick-quality": "'''[[{{MediaWiki:Validationpage}}|Тикшерелгән]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} тикшерелмәгән үзгәрешләрне күрсәтергә]]",
 	"revreview-quick-quality-old": "'''[[{{MediaWiki:Validationpage}}|Тикшерелгән]]'''",
 	"revreview-quick-quality-same": "'''[[{{MediaWiki:Validationpage}}|Тикшерелгән]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} тикшерелмәгән үзгәрешләрне карарга]]",
