@@ -222,7 +222,7 @@ class FlaggableWikiPage extends WikiPage {
 			},
 			[
 				'touchedCallback' => function () {
-					$this->getTouched();
+					return $this->getTouched();
 				}
 			]
 		);
