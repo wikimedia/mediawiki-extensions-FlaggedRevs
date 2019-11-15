@@ -310,7 +310,7 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
-	public static function onParserFirstCallInit( &$parser ) {
+	public static function onParserFirstCallInit( Parser $parser ) {
 		global $wgFlaggedRevsProtection;
 
 		if ( !$wgFlaggedRevsProtection ) {
@@ -324,7 +324,7 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
-	public static function onParserGetVariableValueSwitch( &$parser, &$cache, &$word, &$ret ) {
+	public static function onParserGetVariableValueSwitch( Parser $parser, &$cache, &$word, &$ret ) {
 		global $wgFlaggedRevsProtection;
 		if ( $wgFlaggedRevsProtection && $word === 'pendingchangelevel' ) {
 			$ret = self::parserPendingChangeLevel( $parser );
@@ -343,7 +343,7 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
-	public static function parserPagesUsingPendingChanges( &$parser, $ns = '' ) {
+	public static function parserPagesUsingPendingChanges( Parser $parser, $ns = '' ) {
 		$nsList = FlaggedRevs::getReviewNamespaces();
 		if ( !$nsList ) {
 			return 0;
@@ -375,7 +375,7 @@ class FlaggedRevsHooks {
 		}
 	}
 
-	public static function parserPendingChangeLevel( &$parser, $page = '' ) {
+	public static function parserPendingChangeLevel( Parser $parser, $page = '' ) {
 		$title = Title::newFromText( $page );
 		if ( !( $title instanceof Title ) ) {
 			$title = $parser->getTitle();
@@ -779,10 +779,10 @@ class FlaggedRevsHooks {
 	/**
 	 * Mark auto-reviewed edits as patrolled
 	 * @suppress SecurityCheck-XSS
-	 * @param RecentChange &$rc
+	 * @param RecentChange $rc
 	 * @return true
 	 */
-	public static function autoMarkPatrolled( RecentChange &$rc ) {
+	public static function autoMarkPatrolled( RecentChange $rc ) {
 		if ( empty( $rc->getAttribute( 'rc_this_oldid' ) ) ) {
 			return true;
 		}
@@ -1373,7 +1373,7 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
-	public static function onMergeAccountFromTo( User &$oldUser, User &$newUser ) {
+	public static function onMergeAccountFromTo( User $oldUser, User $newUser ) {
 		// Don't merge into anonymous users...
 		if ( $newUser->getId() !== 0 ) {
 			FRUserCounters::mergeUserParams( $oldUser, $newUser );
