@@ -128,7 +128,7 @@ class RejectConfirmationFormUI {
 		)->numParams( count( $rejectAuthors ) )->inContentLanguage()->text();
 		// If the message is too big, then fallback to the shorter one
 		$colonSeparator = wfMessage( 'colon-separator' )->text();
-		$maxLen = 255 - strlen( $colonSeparator ) - strlen( $comment );
+		$maxLen = CommentStore::COMMENT_CHARACTER_LIMIT - strlen( $colonSeparator ) - strlen( $comment );
 		if ( strlen( $defaultSummary ) > $maxLen ) {
 			$msg = $newRev->isCurrent()
 				? 'revreview-reject-summary-cur-short'
@@ -162,7 +162,8 @@ class RejectConfirmationFormUI {
 		$form .= Html::hidden( 'wpEditToken', $this->form->getUser()->getEditToken() );
 		$form .= Html::hidden( 'changetime', $newRev->getTimestamp() );
 		$form .= Xml::inputLabel( wfMessage( 'revreview-reject-summary' )->text(), 'wpReason',
-			'wpReason', 120, $defaultSummary, [ 'maxlength' => 200 ] ) . "<br />";
+			'wpReason', 120, $defaultSummary,
+			[ 'maxlength' => CommentStore::COMMENT_CHARACTER_LIMIT ] ) . "<br />";
 		$form .= Html::input( 'wpSubmit', wfMessage( 'revreview-reject-confirm' )->text(), 'submit' );
 		$form .= ' ';
 		$form .= Linker::link( $this->form->getPage(), wfMessage( 'revreview-reject-cancel' )->escaped(),

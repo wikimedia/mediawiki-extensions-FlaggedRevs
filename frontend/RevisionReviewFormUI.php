@@ -192,7 +192,7 @@ class RevisionReviewFormUI {
 		if ( !$disabled ) {
 			$form .= Xml::inputLabel(
 				wfMessage( 'revreview-log' )->text(), 'wpReason', 'mw-fr-commentbox', 40, '',
-				[ 'maxlength' => 255, 'class' => 'fr-comment-box' ]
+				[ 'maxlength' => CommentStore::COMMENT_CHARACTER_LIMIT, 'class' => 'fr-comment-box' ]
 			);
 		}
 
