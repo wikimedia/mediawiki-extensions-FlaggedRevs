@@ -5,8 +5,13 @@
 			"Xuacu"
 		]
 	},
+	"action-autoreview": "marcar automáticamente les ediciones propies como «revisaes»",
+	"action-autoreviewrestore": "revisión automática na reversión",
+	"action-movestable": "treslladar páxines con versiones estables",
 	"action-review": "revisar revisiones",
-	"action-unreviewedpages": "ver la llista de páxines ensin revisar",
+	"action-stablesettings": "configurar cómo se seleiciona y amuesa la versión estable",
+	"action-validate": "marcar revisiones como «de calidá»",
+	"action-unreviewedpages": "ver la llista de páxines por revisar",
 	"editor": "Editor",
 	"flaggedrevs": "Revisiones marcaes",
 	"flaggedrevs-watched-pending": "Anguaño hai [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ediciones pendientes] en páxines revisaes de la to llista de vixilancia. '''¡Fai falta la to atención!'''",
