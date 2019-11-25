@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Pyscowicz"
+			"Pyscowicz",
+			"Palmtree222"
 		]
 	},
-	"revreview-current": "Uusin versuuni"
+	"revreview-current": "Uusin versuuni",
+	"tooltip-ca-current": "Näytä arviointia odottavat muutokset"
 }
