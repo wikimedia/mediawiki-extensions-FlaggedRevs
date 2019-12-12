@@ -30,7 +30,7 @@ class FlagProtectToSemiProtect extends Maintenance {
 
 		$user = User::newFromName( $this->getOption( 'user' ) );
 		if ( !$user || !$user->getID() ) {
-			$this->error( "Invalid user specified!", true );
+			$this->fatalError( "Invalid user specified!" );
 		}
 		$reason = $this->getOption( 'reason',
 			"Converting flagged protection settings to edit protection settings." );

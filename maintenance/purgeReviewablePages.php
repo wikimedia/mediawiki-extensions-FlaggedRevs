@@ -28,7 +28,7 @@ class PurgeReviewablePages extends Maintenance {
 		if ( $this->getOption( 'makelist' ) ) {
 			$fileHandle = fopen( $fileName, 'w+' );
 			if ( !$fileHandle ) {
-				$this->error( "Can't open file to create purge list.", 1 );
+				$this->fatalError( "Can't open file to create purge list." );
 			}
 			$this->list_reviewable_pages( $fileHandle );
 			fclose( $fileHandle );
@@ -36,12 +36,12 @@ class PurgeReviewablePages extends Maintenance {
 		} elseif ( $this->getOption( 'purgelist' ) ) {
 			$fileHandle = fopen( $fileName, 'r' );
 			if ( !$fileHandle ) {
-				$this->error( "Can't open file to read purge list.", 1 );
+				$this->fatalError( "Can't open file to read purge list." );
 			}
 			$this->purge_reviewable_pages( $fileHandle );
 			fclose( $fileHandle );
 		} else {
-			$this->error( "No purge list action specified.", 1 );
+			$this->fatalError( "No purge list action specified." );
 		}
 	}
 
