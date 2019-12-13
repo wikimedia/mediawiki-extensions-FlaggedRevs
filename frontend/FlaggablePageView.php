@@ -981,9 +981,9 @@ class FlaggablePageView extends ContextSource {
 				$time = $time ? wfTimestamp( TS_MW, $time ) : false;
 			}
 		}
-		if ( !$time ) {
+		if ( !$time && $request->getRawVal( 'filetimestamp' ) !== null ) {
 			# Try request parameter
-			$time = MWTimestamp::convert( TS_MW, $request->getVal( 'filetimestamp', false ) );
+			$time = MWTimestamp::convert( TS_MW, $request->getRawVal( 'filetimestamp' ) );
 		}
 
 		if ( !$time ) {
