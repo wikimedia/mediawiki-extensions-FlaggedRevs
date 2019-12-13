@@ -10,7 +10,8 @@
 			"PieRRoMaN",
 			"Verdy p",
 			"Zetud",
-			"The RedBurn"
+			"The RedBurn",
+			"Thibaut120094"
 		]
 	},
 	"validationstatistics": "Statistiques de relecture des pages",
@@ -18,7 +19,7 @@
 	"validationstatistics-lastupdate": "''Les données suivantes ont été mises à jour le $1 sur $2.''",
 	"validationstatistics-pndtime": "Les modifications vérifiées par les utilisateurs confirmés sont considérées comme ''{{int:validationstatistics-stable}}''.\n\nLe retard de relecture moyen des [[Special:OldReviewedPages|pages contenant des modifications actuellement à relire]] est '''$1''', le retard mesure combien de temps les modifications les plus anciennes en attente sont restées non relues.",
 	"validationstatistics-revtime": "Le délai d’attente moyen pour la relecture des modifications faites par les ''utilisateurs non enregistrés'' est '''$1''' ; la médiane est '''$2'''.\n$3",
-	"validationstatistics-table": "Les statistiques de relecture pour chaque espace de noms sont affichées ci-dessous, ''à l’exception'' des pages de redirection.\nLes pages sont traitées comme ''{{int:validationstatistics-old}}'' si elles ont des modifications en attente ;\nles pages sont considérées comme ''{{int:validationstatistics-latest}}'' si elle n’ont pas de modifications en attente.",
+	"validationstatistics-table": "Les statistiques de relecture pour chaque espace de noms sont affichées ci-dessous, ''à l’exception'' des pages de redirection.\nLes pages sont traitées comme ''{{int:validationstatistics-old}}'' si elles ont des modifications en attente ;\nles pages sont considérées comme ''{{int:validationstatistics-latest}}'' si elle n’ont pas de modifications en attente.",
 	"validationstatistics-ns": "Espace de noms",
 	"validationstatistics-total": "Pages",
 	"validationstatistics-stable": "Révisée",
