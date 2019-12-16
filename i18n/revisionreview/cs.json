@@ -7,7 +7,8 @@
 			"Li-sung",
 			"Matěj Grabovský",
 			"Vks",
-			"Patriccck"
+			"Patriccck",
+			"MrJaroslavik"
 		]
 	},
 	"revisionreview": "Posouzení verzí",
@@ -57,7 +58,7 @@
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Vaše změny zatím nejsou ve stabilní verzi.</span>\n\nAby se tam mohly dostat, posuďte prosím nejdříve všechny změny zobrazené níže.\nBude nutné tyto editace začlenit nebo zamítnout.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Vaše změny zatím nejsou ve stabilní verzi. Některé starší změny ještě čekají na posouzení.</span>\n\nAby se tam mohly dostat, posuďte prosím nejdříve všechny změny zobrazené níže.\nBude nutné tyto editace začlenit nebo zamítnout.",
 	"revreview-update-includes": "Šablony/soubory byly aktualizovány (nezkontrolované stránky jsou tučně):",
-	"revreview-reject-text-list": "Dokončením této akce, '''zamítnete''' následující {{PLURAL:$1|zmněnu|změny|změn}}:",
+	"revreview-reject-text-list": "Dokončením této akce, '''zamítnete''' následující {{PLURAL:$1|změnu|změny|změn}}:",
 	"revreview-reject-text-revto": "Toto se vrátí zpět stránku do [{{fullurl:$1|oldid = $2}} revize z $3].",
 	"revreview-reject-summary": "Shrnutí:",
 	"revreview-reject-confirm": "Odmítnout tyto změny",
