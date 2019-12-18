@@ -10,7 +10,7 @@
 	},
 	"apihelp-flagconfig-description": "Obtenir des informations de base sur la configuration du marquage de relecture pour ce site.\n\nLes paramètres suivants sont renvoyés pour chaque marque :\n;name:Le nom de clé de cette marque.\n;levels:Nombre de niveaux de cette marque (au-dessus de « non marqué »).\n;tier2:Niveau que doit atteindre la marque pour qu’une révision soit du tiers 2 (qualité).\n;tier3:Niveau que la marque doit atteindre pour que la révision soit du tiers 3 (immaculé).\nLes révisions marquées ont un niveau affecté pour chaque marque. Le plus haut tiers que toutes les marques atteignent est le tiers de relecture de toute la révision.",
 	"apihelp-flagconfig-summary": "Obtenir les informations de base concernant la configuration du drapeau de relecture pour ce site.",
-	"apihelp-flagconfig-extended-description": "Les paramètres suivants sont retournés pour chauqe balise:\n;name: le nom clé de cette balise.\n;levels: nombre de niveaux que la balise possède (au-desus de \"not tagged\").\n;tier2: niveau que la balise doit atteindre pour qu'une relecture soit au niveau tier 2 (qualité).\n;tier3: niveau que la balise doit atteindre pour qu'une relecture soit au niveau tier 3 (pristine).\nLes révisions labellisées ont un niveau assigné pour chacune des balises. Le plus haut tier que toutes les balises puissent atteindre est le tier de revue de la version globale.",
+	"apihelp-flagconfig-extended-description": "Les paramètres suivants sont retournés pour chauqe balise:\n;name: le nom clé de cette balise.\n;levels: nombre de niveaux que la balise possède (au-desus de \"not tagged\").\n;tier2: niveau que la balise doit atteindre pour qu’une relecture soit au niveau tier 2 (qualité).\n;tier3: niveau que la balise doit atteindre pour qu’une relecture soit au niveau tier 3 (pristine).\nLes révisions labellisées ont un niveau assigné pour chacune des balises. Le plus haut tier que toutes les balises puissent atteindre est le tier de revue de la version globale.",
 	"apihelp-flagconfig-example-1": "Récupérer la configuration de la marque",
 	"apihelp-query+configuredpages-description": "Énumérer toutes les pages qui ont des configurations de relecture personnalisées.",
 	"apihelp-query+configuredpages-summary": "Enumère toutes les pages qui ont des configurations relatives aux relectures utilisateurs.",
@@ -90,12 +90,12 @@
 	"apihelp-stabilize-param-protectlevel": "Le niveau de protection de relecture.",
 	"apihelp-stabilize-example-general": "Positionner [[Test]] pour afficher la révision stable par défaut",
 	"apihelp-stabilize-example-protect": "Supprimer la protection de relecture de [[Test]]",
-	"apierror-flaggedrevs-notreviewable": "La page fournie n'est pas révisable.",
-	"apierror-flaggedrevs-notsamepage": "Les révisions n'appartiennent pas à la même page.",
-	"apierror-flaggedrevs-pagedoesnotexist": "La page fournie n'existe pas.",
-	"apierror-flaggedrevs-cantreview": "Vous n'avez pas les droits nécessaires pour initialiser les indicateurs spécifiés.",
+	"apierror-flaggedrevs-notreviewable": "La page fournie n’est pas révisable.",
+	"apierror-flaggedrevs-notsamepage": "Les révisions n’appartiennent pas à la même page.",
+	"apierror-flaggedrevs-pagedoesnotexist": "La page fournie n’existe pas.",
+	"apierror-flaggedrevs-cantreview": "Vous n’avez pas les droits nécessaires pour initialiser les indicateurs spécifiés.",
 	"apierror-flaggedrevs-toolow": "Soit tous ou aucun des indicateurs doivent être mis à zéro.",
 	"apierror-flaggedrevs-badflags": "Les indicateurs spécifiés ne sont pas valides.",
-	"apierror-flaggedrevs-cantunreview": "Vous n'avez pas les droits nécessaires pour supprimer les étiquettes.",
-	"apierror-flaggedrevs-noflaggedrev": "Pas de révision trouvée avec l'ID spécifié."
+	"apierror-flaggedrevs-cantunreview": "Vous n’avez pas les droits nécessaires pour supprimer les étiquettes.",
+	"apierror-flaggedrevs-noflaggedrev": "Pas de révision trouvée avec l’ID spécifié."
 }
