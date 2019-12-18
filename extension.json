@@ -210,7 +210,6 @@
 		"PageStabilityForm": "business/PageStabilityForm.php",
 		"PageStabilityGeneralForm": "business/PageStabilityForm.php",
 		"PageStabilityProtectForm": "business/PageStabilityForm.php",
-		"FlaggedRevsUISetup": "frontend/FlaggedRevsUISetup.php",
 		"FlaggablePageView": "frontend/FlaggablePageView.php",
 		"FlaggedRevsReviewLogFormatter": "frontend/FlaggedRevsReviewLogFormatter.php",
 		"FlaggedRevsStableLogFormatter": "frontend/FlaggedRevsStableLogFormatter.php",
