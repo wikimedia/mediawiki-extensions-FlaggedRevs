@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <ruleset>
 	<rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
-		<exclude name="Generic.Files.OneObjectStructurePerFile.MultipleFound" />
 		<exclude name="Squiz.Classes.ValidClassName.NotCamelCaps" />
 		<exclude name="MediaWiki.Files.ClassMatchesFilename.NotMatch" />
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationProtected" />
@@ -13,6 +12,9 @@
 	</rule>
 	<rule ref="Generic.Files.LineLength">
 		<exclude-pattern>frontend/language/</exclude-pattern>
+	</rule>
+	<rule ref="MediaWiki.Files.ClassMatchesFilename.NotMatch">
+		<exclude-pattern>maintenance/*.php</exclude-pattern>
 	</rule>
 	<file>.</file>
 	<arg name="extensions" value="php,php5,inc" />
