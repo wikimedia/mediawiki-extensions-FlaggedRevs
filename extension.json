@@ -245,7 +245,7 @@
 		"ApiQueryConfiguredpages": "api/reports/ApiQueryConfiguredpages.php",
 		"ApiQueryFlagged": "api/reports/ApiQueryFlagged.php",
 		"ApiFlagConfig": "api/reports/ApiFlagConfig.php",
-		"Scribunto_LuaFlaggedRevsLibrary": "scribunto/FlaggedRevs.library.php",
+		"FlaggedRevsScribuntoLuaLibrary": "scribunto/FlaggedRevsScribuntoLuaLibrary.php",
 		"FlaggedRevsHooks": "backend/FlaggedRevsHooks.php",
 		"FlaggedRevsUIHooks": "frontend/FlaggedRevsUIHooks.php",
 		"FlaggedRevsApiHooks": "api/FlaggedRevsApiHooks.php",

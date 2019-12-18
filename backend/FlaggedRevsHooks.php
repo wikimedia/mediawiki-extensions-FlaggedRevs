@@ -1390,7 +1390,7 @@ class FlaggedRevsHooks {
 
 	public static function onScribuntoExternalLibraries( $engine, array &$extraLibraries ) {
 		if ( $engine == 'lua' ) {
-			$extraLibraries['mw.ext.FlaggedRevs'] = 'Scribunto_LuaFlaggedRevsLibrary';
+			$extraLibraries['mw.ext.FlaggedRevs'] = 'FlaggedRevsScribuntoLuaLibrary';
 		}
 		return true;
 	}
