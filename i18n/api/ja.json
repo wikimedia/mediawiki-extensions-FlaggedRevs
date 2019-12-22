@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Omotecho"
+		]
+	},
+	"apihelp-stabilize-description-protect": "ページ対象の査読保護の設定を設定する。",
+	"apihelp-stabilize-param-expiry-protect": "設定保護が解除されました。",
+	"apihelp-stabilize-param-protectlevel": "査読保護のレベル。",
+	"apihelp-stabilize-example-general": "[[Test]]を設定して既定で安定版のリビジョンを表示する",
+	"apihelp-stabilize-example-protect": "[[Test]]から査読保護を除去"
+}
