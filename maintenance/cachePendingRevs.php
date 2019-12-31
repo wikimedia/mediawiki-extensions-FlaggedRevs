@@ -22,8 +22,6 @@ class CachePendingRevs extends Maintenance {
 	}
 
 	public function execute() {
-		global $wgUser;
-
 		if ( FlaggedRevs::inclusionSetting() === FR_INCLUDES_CURRENT ) {
 			$this->output( "Nothing to do; inclusion mode is FR_INCLUDES_CURRENT." );
 			return;
@@ -46,13 +44,21 @@ class CachePendingRevs extends Maintenance {
 				'page' => [ 'JOIN', 'page_id = fp_page_id' ],
 			] + $revQuery['joins'] + $pageQuery['joins']
 		);
+
+		$user = User::newSystemUser( 'Maintenance script', [ 'steal' => true ] );
 		foreach ( $ret as $row ) {
 			$title = Title::newFromRow( $row );
 			$article = new Article( $title );
 			$rev = new Revision( $row );
 			// Trigger cache regeneration
 			$start = microtime( true );
-			FRInclusionCache::getRevIncludes( $article, $rev, $wgUser, 'regen' );
+
+			FRInclusionCache::getRevIncludes(
+				$article,
+				$rev,
+				$user,
+				'regen'
+			);
 			$elapsed = intval( ( microtime( true ) - $start ) * 1000 );
 			$this->cachePendingRevsLog(
 				$title->getPrefixedDBkey() . " rev:" . $rev->getId() . " {$elapsed}ms" );

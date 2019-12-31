@@ -30,10 +30,9 @@ use MediaWiki\MediaWikiServices;
  */
 class ApiStabilizeProtect extends ApiStabilize {
 	public function doExecute() {
-		global $wgUser;
 		$params = $this->extractRequestParams();
 
-		$form = new PageStabilityProtectForm( $wgUser );
+		$form = new PageStabilityProtectForm( $this->getUser() );
 		$form->setPage( $this->title ); # Our target page
 		$form->setWatchThis( $params['watch'] ); # Watch this page
 		$form->setReasonExtra( $params['reason'] ); # Reason

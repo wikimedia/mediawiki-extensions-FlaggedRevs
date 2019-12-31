@@ -202,7 +202,10 @@ class RevisionReview extends UnlistedSpecialPage {
 	}
 
 	public static function AjaxReview( /*$args...*/ ) {
-		global $wgUser, $wgOut, $wgRequest;
+		$context = RequestContext::getMain();
+		$user = $context->getUser();
+		$out = $context->getOutput();
+		$request = $context->getRequest();
 
 		$args = func_get_args();
 		if ( wfReadOnly() ) {
@@ -211,7 +214,7 @@ class RevisionReview extends UnlistedSpecialPage {
 		}
 		$tags = FlaggedRevs::getTags();
 		// Make review interface object
-		$form = new RevisionReviewForm( $wgUser );
+		$form = new RevisionReviewForm( $user );
 		$title = null; // target page
 		$editToken = ''; // edit token
 		// Each ajax url argument is of the form param|val.
@@ -276,19 +279,19 @@ class RevisionReview extends UnlistedSpecialPage {
 			return '<err#>' . wfMessage( 'notargettext' )->parse();
 		}
 		$form->setPage( $title );
-		$form->setSessionKey( $wgRequest->getSessionData( 'wsFlaggedRevsKey' ) );
+		$form->setSessionKey( $request->getSessionData( 'wsFlaggedRevsKey' ) );
 
 		$form->ready(); // all params loaded
 		# Check session via user token
-		if ( !$wgUser->matchEditToken( $editToken ) ) {
+		if ( !$user->matchEditToken( $editToken ) ) {
 			return '<err#>' . wfMessage( 'sessionfailure' )->parse();
 		}
 		# Basic permission checks...
 		$permErrors = MediaWikiServices::getInstance()->getPermissionManager()
-			->getPermissionErrors( 'review', $wgUser, $title, PermissionManager::RIGOR_QUICK );
+			->getPermissionErrors( 'review', $user, $title, PermissionManager::RIGOR_QUICK );
 		if ( $permErrors ) {
-			return '<err#>' . $wgOut->parseAsInterface(
-				$wgOut->formatPermissionsErrorMessage( $permErrors, 'review' )
+			return '<err#>' . $out->parseAsInterface(
+				$out->formatPermissionsErrorMessage( $permErrors, 'review' )
 			);
 		}
 		# Try submission...

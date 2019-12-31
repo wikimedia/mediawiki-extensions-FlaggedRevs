@@ -145,7 +145,6 @@ class FlaggedRevsHooks {
 	public static function onTitleMoveComplete(
 		Title $otitle, Title $ntitle, $user, $pageId, $redirid, $reason
 	) {
-		global $wgUser;
 		if ( FlaggedRevs::inReviewNamespace( $ntitle ) ) {
 			if ( !FlaggedRevs::inReviewNamespace( $otitle ) ) {
 				if ( FlaggedRevs::autoReviewNewPages() ) {
@@ -153,7 +152,7 @@ class FlaggedRevsHooks {
 					$fa->loadPageData( FlaggableWikiPage::READ_LATEST );
 					// Re-validate NS/config (new title may not be reviewable)
 					if ( $fa->isReviewable() && MediaWikiServices::getInstance()->getPermissionManager()
-							->userCan( 'autoreview', $wgUser, $ntitle )
+							->userCan( 'autoreview', $user, $ntitle )
 					) {
 						// Auto-review such edits like new pages...
 						$rev = Revision::newFromTitle( $ntitle, false, Revision::READ_LATEST );

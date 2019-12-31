@@ -833,7 +833,6 @@ class FlaggedRevsUIHooks {
 	}
 
 	public static function addToChangeListLine( &$list, &$articlelink, &$s, RecentChange &$rc ) {
-		global $wgUser;
 		$title = $rc->getTitle(); // convenience
 		if ( !FlaggedRevs::inReviewNamespace( $title )
 			|| empty( $rc->getAttribute( 'rc_this_oldid' ) ) // rev, not log
@@ -847,7 +846,8 @@ class FlaggedRevsUIHooks {
 			// Is this a config were pages start off reviewable?
 			// Hide notice from non-reviewers due to vandalism concerns (bug 24002).
 			if ( !FlaggedRevs::useSimpleConfig() && MediaWikiServices::getInstance()
-					->getPermissionManager()->userHasRight( $wgUser, 'review' )
+					->getPermissionManager()
+					->userHasRight( $list->getUser(), 'review' )
 			) {
 				$rlink = wfMessage( 'revreview-unreviewedpage' )->escaped();
 				$css = 'flaggedrevs-unreviewed';
@@ -928,9 +928,8 @@ class FlaggedRevsUIHooks {
 	}
 
 	protected static function maybeAddBacklogNotice( OutputPage &$out ) {
-		global $wgUser;
 		if ( !MediaWikiServices::getInstance()->getPermissionManager()
-			->userHasRight( $wgUser, 'review' ) ) {
+			->userHasRight( $out->getUser(), 'review' ) ) {
 			return true; // not relevant to user
 		}
 		$namespaces = FlaggedRevs::getReviewNamespaces();
@@ -941,7 +940,7 @@ class FlaggedRevsUIHooks {
 			$watchedOutdated = (bool)$dbr->selectField(
 				[ 'watchlist', 'page', 'flaggedpages' ],
 				'1', // existence
-				[ 'wl_user' => $wgUser->getId(), // this user
+				[ 'wl_user' => $out->getUser()->getId(), // this user
 					'wl_namespace' => $namespaces, // reviewable
 					'wl_namespace = page_namespace',
 					'wl_title = page_title',
@@ -964,12 +963,12 @@ class FlaggedRevsUIHooks {
 	/**
 	 * Add selector of review "protection" options
 	 * Code stolen from Stabilization (which was stolen from ProtectionForm)
-	 * @param WikiPage|Article $article
+	 * @param Article $article
 	 * @param string &$output
 	 * @return true
 	 */
-	public static function onProtectionForm( Page $article, &$output ) {
-		global $wgUser, $wgOut, $wgRequest, $wgLang, $wgFlaggedRevsProtection;
+	public static function onProtectionForm( Article $article, &$output ) {
+		global $wgOut, $wgRequest, $wgLang, $wgFlaggedRevsProtection;
 		if (
 			!$wgFlaggedRevsProtection
 			|| !$article->exists()
@@ -977,7 +976,7 @@ class FlaggedRevsUIHooks {
 		) {
 			return true;
 		}
-		$form = new PageStabilityProtectForm( $wgUser );
+		$form = new PageStabilityProtectForm( $article->getContext()->getUser() );
 		$form->setPage( $article->getTitle() );
 		# Can the user actually do anything?
 		$isAllowed = $form->isAllowed();
@@ -1138,12 +1137,12 @@ class FlaggedRevsUIHooks {
 
 	/**
 	 * Update stability config from request
-	 * @param WikiPage|Article $article
+	 * @param Article $article
 	 * @param string &$errorMsg
 	 * @return true
 	 */
-	public static function onProtectionSave( Page $article, &$errorMsg ) {
-		global $wgUser, $wgRequest, $wgFlaggedRevsProtection;
+	public static function onProtectionSave( Article $article, &$errorMsg ) {
+		global $wgRequest, $wgFlaggedRevsProtection;
 		if (
 			!$wgFlaggedRevsProtection
 			|| !$article->exists() // simple custom levels set for action=protect
@@ -1152,12 +1151,13 @@ class FlaggedRevsUIHooks {
 			return true;
 		}
 
+		$user = $article->getContext()->getUser();
 		if ( wfReadOnly() || !MediaWikiServices::getInstance()->getPermissionManager()
-				->userHasRight( $wgUser, 'stablesettings' )
+				->userHasRight( $user, 'stablesettings' )
 		) {
 			return true; // user cannot change anything
 		}
-		$form = new PageStabilityProtectForm( $wgUser );
+		$form = new PageStabilityProtectForm( $user );
 		$form->setPage( $article->getTitle() ); // target page
 		$permission = $wgRequest->getVal( 'mwStabilityLevel' );
 		if ( $permission == "none" ) {

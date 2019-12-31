@@ -30,8 +30,8 @@ abstract class ApiStabilize extends ApiBase {
 	protected $title;
 
 	public function execute() {
-		global $wgUser;
 		$params = $this->extractRequestParams();
+		$user = $this->getUser();
 
 		$this->title = Title::newFromText( $params['title'] );
 		if ( $this->title == null ) {
@@ -41,9 +41,9 @@ abstract class ApiStabilize extends ApiBase {
 		}
 
 		$errors = $this->getPermissionManager()
-			->getPermissionErrors( 'stablesettings', $wgUser, $this->title );
+			->getPermissionErrors( 'stablesettings', $user, $this->title );
 		if ( $errors ) {
-			$this->dieStatus( $this->errorArrayToStatus( $errors, $wgUser ) );
+			$this->dieStatus( $this->errorArrayToStatus( $errors, $user ) );
 		}
 
 		$this->doExecute(); // child class
