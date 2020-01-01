@@ -37,7 +37,10 @@ module.exports = function ( grunt ) {
 			stabilization: 'i18n/stabilization/',
 			stablepages: 'i18n/stablepages/',
 			unreviewedpages: 'i18n/unreviewedpages/',
-			validationstatistics: 'i18n/validationstatistics/'
+			validationstatistics: 'i18n/validationstatistics/',
+			options: {
+				requireLowerCase: 'initial'
+			}
 		},
 		jsonlint: {
 			all: [
