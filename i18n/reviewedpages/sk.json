@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Helix84"
+			"Helix84",
+			"Luky001"
 		]
 	},
 	"reviewedpages": "Skontrolované stránky",
@@ -12,5 +13,5 @@
 	"reviewedpages-lev-1": "Kvalita",
 	"reviewedpages-lev-2": "Odporúčané",
 	"reviewedpages-all": "skontrolované verzie",
-	"reviewedpages-best": "primárna revízia"
+	"reviewedpages-best": "najlepšia revízia"
 }

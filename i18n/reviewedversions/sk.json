@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Helix84"
+			"Helix84",
+			"Luky001"
 		]
 	},
-	"reviewedversions": "Zobraziť stabilné verzie",
+	"reviewedversions": "Posúdené verzie",
 	"reviewedversions-leg1": "Zoznam skontrolovaných verzií stránky",
 	"reviewedversions-page": "Názov stránky",
 	"reviewedversions-none": "[[:$1]] nemá skontrolované verzie.",

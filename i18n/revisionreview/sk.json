@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Helix84"
+			"Helix84",
+			"Luky001"
 		]
 	},
 	"revisionreview": "Prezrieť kontroly",
@@ -32,8 +33,8 @@
 	"revreview-stable2": "Môžete zobraziť [{{fullurl:$1|stable=1}} stabilnú verziu] tejto stránky (ak ešte existuje).",
 	"revreview-submit": "Odoslať",
 	"revreview-submitting": "Odosiela sa...",
-	"revreview-submit-review": "Označiť ako skontrolované",
-	"revreview-submit-unreview": "Označiť ako neskontrolované",
+	"revreview-submit-review": "Prijať revíziu",
+	"revreview-submit-unreview": "Neprijať revíziu",
 	"revreview-submit-reject": "Odmietnuť zmeny",
 	"revreview-submit-reviewed": "Hotovo. Prijaté!",
 	"revreview-submit-unreviewed": "Hotovo. Neprijaté!",
