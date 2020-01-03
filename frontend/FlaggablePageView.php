@@ -1444,7 +1444,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param array[] &$views
 	 * @param FlaggedRevision $srev
 	 * @param string $type
-	 * @suppress PhanTypeArraySuspiciousNullable
+	 * @suppress PhanTypePossiblyInvalidDimOffset
 	 */
 	protected function addDraftTab( array &$views, FlaggedRevision $srev, $type ) {
 		$request = $this->getRequest();

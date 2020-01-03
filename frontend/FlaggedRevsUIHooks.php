@@ -545,6 +545,7 @@ class FlaggedRevsUIHooks {
 			$queryInfo['fields'][] = 'fr_flags';
 			$queryInfo['join_conds']['flaggedrevs'] = [ 'LEFT JOIN', "fr_rev_id = rev_id" ];
 			# Find reviewer name. Sanity check that no extensions added a `user` query.
+			// @phan-suppress-next-line PhanSuspiciousWeakTypeComparison
 			if ( !in_array( 'user', $queryInfo['tables'] ) ) {
 				$queryInfo['tables'][] = 'user';
 				$queryInfo['fields'][] = 'user_name AS reviewer';
