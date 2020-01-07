@@ -112,10 +112,15 @@ class FlaggedRevsSetup {
 	 * Set special page cache updates
 	 */
 	public static function setSpecialPageCacheUpdates() {
-		global $wgSpecialPageCacheUpdates;
+		global $wgSpecialPageCacheUpdates, $wgFlaggedRevsProtection, $wgFlaggedRevsNamespaces;
 
-		FlaggedRevsUISetup::defineSpecialPageCacheUpdates(
-			$wgSpecialPageCacheUpdates );
+		// Show special pages only if FlaggedRevs is enabled on some namespaces
+		if ( count( $wgFlaggedRevsNamespaces ) ) {
+			if ( !$wgFlaggedRevsProtection ) {
+				$wgSpecialPageCacheUpdates['UnreviewedPages'] = 'UnreviewedPages::updateQueryCache';
+			}
+			$wgSpecialPageCacheUpdates['ValidationStatistics'] = 'FlaggedRevsStats::updateCache';
+		}
 	}
 
 	/**
