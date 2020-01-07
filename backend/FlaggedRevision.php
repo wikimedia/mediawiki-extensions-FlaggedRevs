@@ -48,10 +48,11 @@ class FlaggedRevision {
 	/**
 	 * @param stdClass|array $row DB row or array
 	 * @param Title|null $title
+	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
 	 *
 	 * @throws Exception
 	 */
-	public function __construct( $row, Title $title = null ) {
+	public function __construct( $row, Title $title = null, $flags = 0 ) {
 		if ( is_object( $row ) ) {
 			$this->mTimestamp = $row->fr_timestamp;
 			$this->mQuality = intval( $row->fr_quality );
@@ -71,7 +72,8 @@ class FlaggedRevision {
 					: null;
 			}
 			# Base Revision object
-			$this->mRevision = new Revision( $row, Revision::READ_NORMAL, $this->mTitle );
+			$revFlags = $flags ? Revision::READ_LATEST : Revision::READ_NORMAL;
+			$this->mRevision = new Revision( $row, $revFlags, $this->mTitle );
 		} elseif ( is_array( $row ) ) {
 			$this->mTimestamp = $row['timestamp'];
 			$this->mQuality = intval( $row['quality'] );
@@ -114,7 +116,7 @@ class FlaggedRevision {
 			if ( $flags & FR_FOR_UPDATE ) {
 				$options[] = 'FOR UPDATE';
 			}
-			$pageId = $title->getArticleID( Title::GAID_FOR_UPDATE );
+			$pageId = $title->getArticleID( Title::READ_LATEST );
 		} else {
 			$db = wfGetDB( DB_REPLICA );
 			$pageId = $title->getArticleID();
@@ -138,7 +140,7 @@ class FlaggedRevision {
 		);
 		# Sorted from highest to lowest, so just take the first one if any
 		if ( $row ) {
-			$frev = new self( $row, $title );
+			$frev = new self( $row, $title, $flags );
 			return $frev;
 		}
 		return null;
@@ -187,7 +189,7 @@ class FlaggedRevision {
 			] + $frQuery['joins']
 		);
 		if ( $row ) {
-			$frev = new self( $row, $title );
+			$frev = new self( $row, $title, $flags );
 			return $frev;
 		}
 		return null;
@@ -228,7 +230,7 @@ class FlaggedRevision {
 			$frQuery['joins']
 		);
 		if ( $row ) {
-			$frev = new self( $row, Title::newFromRow( $row ) );
+			$frev = new self( $row, Title::newFromRow( $row ), $flags );
 			return $frev;
 		}
 		return null;
@@ -341,7 +343,7 @@ class FlaggedRevision {
 				return null;
 			}
 		}
-		$frev = new self( $row, $title );
+		$frev = new self( $row, $title, $flags );
 		return $frev;
 	}
 
