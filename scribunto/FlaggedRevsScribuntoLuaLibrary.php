@@ -1,6 +1,6 @@
 <?php
 
-class Scribunto_LuaFlaggedRevsLibrary extends Scribunto_LuaLibraryBase {
+class FlaggedRevsScribuntoLuaLibrary extends Scribunto_LuaLibraryBase {
 	public function register() {
 		$lib = [
 			'getStabilitySettings' => [ $this, 'getStabilitySettings' ],
