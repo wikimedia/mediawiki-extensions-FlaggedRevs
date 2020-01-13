@@ -39,7 +39,7 @@
 	"revreview-submit-reviewed": "Hotovo. Prijaté!",
 	"revreview-submit-unreviewed": "Hotovo. Neprijaté!",
 	"revreview-successful": "'''Vybraná revízia [[:$1|$1]] bola úspešne označená. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} zobraziť stabilné verzie])'''",
-	"revreview-successful2": "'''Označenie vybranej revízie [[:$1|$1]] bolo úspešne zrušené.'''",
+	"revreview-successful2": "'''Označenie vybranej revízie [[:$1|$1]] bolo zrušené.'''",
 	"revreview-toolow": "'''Musíte ohodnotiť každý z nasledujúcich atribútov minimálne vyššie ako „neschválené“, aby bolo možné verziu považovať za skontrolovanú.'''\nAk chcete učiniť verziu zavrhovanou, nastavte všetky polia na „neschválené“.\n\nProsím, stlačte tlačidlo „Späť“ vo svojom prehliadači a skúste to znova.",
 	"revreview-update": "Prosím, [[{{MediaWiki:Validationpage}}|skontrolujte]] všetky zmeny ''(zobrazené nižšie)'', ktoré boli vykonané od [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválenia].<br />\n'''Niektoré šablóny/súbory sa zmenili:'''",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Vaše zmeny zatiaľ nie sú v stabilnej verzii.</span> \n\nProsím, prečítajte si všetky nižšie uvedené zmeny, aby sa vaše úpravy sa objaví v stabilnej verzii. \nMožno budete musieť pokračovať alebo „vrátiť“ úpravy.",

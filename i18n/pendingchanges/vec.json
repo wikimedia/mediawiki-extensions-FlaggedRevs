@@ -2,12 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Candalua",
-			"GatoSelvadego"
+			"GatoSelvadego",
+			"Conky77"
 		]
 	},
 	"pendingchanges": "Pagine co canbiamenti no revixionai",
 	"pendingchanges-legend": "Elenca le pagine riesaminà con versioni non riesaminà",
-	"pendingchanges-list": "Sta pàjina ła elenca łe pàjine [[{{MediaWiki:Validationpage}}|revixionae]] che ga uno o pì canbi da ricontrołar.",
+	"pendingchanges-list": "Sta pàgina ƚa elenca ƚe pàgine [[{{MediaWiki:Validationpage}}|revixionae]] che ga uno o pì canbi da ricontroƚar.",
 	"pendingchanges-none": "No ghe xe atualmente nissuna pagina che sodisfa sti criteri",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|ora|ore}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|giòrno|giòrni}})",

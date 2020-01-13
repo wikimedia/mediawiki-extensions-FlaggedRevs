@@ -3,11 +3,12 @@
 		"authors": [
 			"Candalua",
 			"Frigotoni",
-			"GatoSelvadego"
+			"GatoSelvadego",
+			"Conky77"
 		]
 	},
 	"action-review": "verificar le revision",
-	"action-unreviewedpages": "varda ła lista de łe pàjine no revixionae",
+	"action-unreviewedpages": "varda ƚa lista de ƚe pàgine no revixionà",
 	"editor": "Contributor",
 	"flaggedrevs": "Revision marcade",
 	"flaggedrevs-watched-pending": "Ghe xe atualmente [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} dei canbiamenti in atesa] su pagine verificà che te tien d'ocio. '''Ghe xe bisogno de la to atension!'''",
@@ -16,8 +17,8 @@
 	"flaggedrevs-pref-UI-0": "Dòpara l'interfacia detaglià par mostrar el stato de aprovassion de le pagine",
 	"flaggedrevs-pref-UI-1": "Dòpara le icone picenine e un testo minio par mostra el stato de aprovassion de le pagine",
 	"prefs-flaggedrevs-ui": "Modifica recension",
-	"flaggedrevs-prefs-stable": "Cuando mostrar ła version stabiłe de łe pàjine de contegnùo",
-	"flaggedrevs-pref-stable-0": "Dopara łe inpostasion de default par ogni pàjina",
+	"flaggedrevs-prefs-stable": "Cuando mostrar ƚa version stabiƚe de ƚe pàgine de contegnùo",
+	"flaggedrevs-pref-stable-0": "Dopara ƚe inpostasion de default par ogni pàgina",
 	"flaggedrevs-pref-stable-1": "Mostra senpre ła version stabiłe (se ghi ne xe una)",
 	"flaggedrevs-pref-stable-2": "Mostra senpre l'ultema version",
 	"flaggedrevs-prefs-watch": "Tien d'ocio le pagine che riesamino",
@@ -164,7 +165,7 @@
 	"tooltip-ca-default": "Inpostassion par el controlo de qualità",
 	"flaggedrevs-protect-legend": "Revision automatica de le modifiche ([[{{MediaWiki:Validationpage}}|ajuto]])",
 	"flaggedrevs-protect-none": "Autoriza tuti i utenti",
-	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Pàjine da revixionar]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Canbiamenti in atexa de revixion]",
+	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Pàgine da revixionar]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Canbiamenti in atexa de revixion]",
 	"revreview-locked-title": "I canbiamenti i ga da èssar verificà.",
 	"revreview-unlocked-title": "I canbiamenti no i ga bisogno de èssar verificà.",
 	"revreview-locked": "'''Ocio''': I canbiamenti i ga da èssar [[{{MediaWiki:Validationpage}}|verificà]] prima de vegner mostrà ai letori su sta pagina.",

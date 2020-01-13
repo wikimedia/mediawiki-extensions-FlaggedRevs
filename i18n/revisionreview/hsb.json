@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Michawiki",
-			"Tlustulimu"
+			"Tlustulimu",
+			"J budissin"
 		]
 	},
 	"revisionreview": "Wersije přepruwować",
@@ -24,7 +25,7 @@
 	"review_cannot_reject": "Tute změny njedadźa so wotpokazać, dokelž něchtó je někotre z nich abo wšě akceptował.",
 	"review_reject_excessive": "Tute wjele změnow njedadźo so naraz wotpokazać.",
 	"review_reject_nulledits": "Tute změny so njemóžeja wotpokazować, dokelž wšě tute wersije žane změny njewobsahuja.",
-	"revreview-check-flag-p": "Tutu wersiju akceptować (zapřijima $1 njesčinjene {{PLURAL:$1|změna|změnje|změny|změnow}})",
+	"revreview-check-flag-p": "Tutu wersiju akceptować (wopřija $1 {{PLURAL:$1|wustejacu změnu|wustejacej změnje|wustejace změny|wustejacych změnow}})",
 	"revreview-check-flag-p-title": "Akceptowanje wšěch tuchwilu njepřepruwowanych změnow hromadźe z twojej swójskej změnu.\nWužij to jenož, jeli sy hižo wšě hišće njepřepruwowane změny widźał.",
 	"revreview-check-flag-u": "Tutu njepřepruwowanu stronu akceptować",
 	"revreview-check-flag-u-title": "Akceptuj tutu wersiju strony. Wužij ju jenož, jeli sy hižo cyłu stronu widźał",

@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Candalua",
-			"GatoSelvadego"
+			"GatoSelvadego",
+			"Conky77"
 		]
 	},
 	"unreviewedpages": "Pagine non riesaminà",
@@ -11,7 +12,7 @@
 	"unreviewedpages-diff": "esamina",
 	"unreviewedpages-unwatched": "(non osservà)",
 	"unreviewedpages-watched": "($1 {{PLURAL:$1|utente el|utenti i}} tien d'ocio sta pagina)",
-	"unreviewedpages-list": "Sta pàjina ła elenca łe pàjine che no łe xe stà gnancora [[{{MediaWiki:Validationpage}}|riexaminà]] fin al livèl indicà.",
+	"unreviewedpages-list": "Sta pàgina ƚa eƚenca ƚe pàgine che no ƚe xe stà gnancora [[{{MediaWiki:Validationpage}}|riexaminà]] fin al livèl indicà.",
 	"unreviewedpages-none": "No ghe xe atualmente pagine che sodisfa sti criteri",
 	"unreviewedpages-viewing": "(in corso de revision)",
 	"unreviewedpages-hours": "($1 {{PLURAL:$1|ora|ore}})",
