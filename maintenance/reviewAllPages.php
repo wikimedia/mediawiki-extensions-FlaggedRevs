@@ -48,7 +48,7 @@ class ReviewAllPages extends Maintenance {
 
 		$start = $db->selectField( 'page', 'MIN(page_id)', false, __METHOD__ );
 		$end = $db->selectField( 'page', 'MAX(page_id)', false, __METHOD__ );
-		if ( is_null( $start ) || is_null( $end ) ) {
+		if ( $start === null || $end === null ) {
 			$this->output( "...page table seems to be empty.\n" );
 			return;
 		}

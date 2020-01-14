@@ -793,7 +793,7 @@ class FlaggedRevsUIHooks {
 				__METHOD__
 			);
 		} else {
-			$quality = is_null( $file->quality ) ? false : $file->quality;
+			$quality = $file->quality === null ? false : $file->quality;
 		}
 		# If reviewed, class the line
 		if ( $quality !== false ) {

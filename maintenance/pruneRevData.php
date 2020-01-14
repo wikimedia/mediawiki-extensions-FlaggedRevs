@@ -44,7 +44,7 @@ class PruneFRIncludeData extends Maintenance {
 			$start = $db->selectField( 'flaggedpages', 'MIN(fp_page_id)', false, __METHOD__ );
 		}
 		$end = $db->selectField( 'flaggedpages', 'MAX(fp_page_id)', false, __METHOD__ );
-		if ( is_null( $start ) || is_null( $end ) ) {
+		if ( $start === null || $end === null ) {
 			$this->output( "...flaggedpages table seems to be empty.\n" );
 			return;
 		}

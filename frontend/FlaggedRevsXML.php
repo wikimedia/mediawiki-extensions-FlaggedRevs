@@ -18,7 +18,7 @@ class FlaggedRevsXML {
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		$s = "<label for='namespace'>" . wfMessage( 'namespace' )->escaped() . "</label>";
 		if ( $selected !== '' ) {
-			if ( is_null( $selected ) ) {
+			if ( $selected === null ) {
 				# No namespace selected; let exact match work without hitting Main
 				$selected = '';
 			} else {
@@ -28,7 +28,7 @@ class FlaggedRevsXML {
 		}
 		$s .= "\n<select id='namespace' name='namespace' class='namespaceselector'>\n";
 		$arr = MediaWikiServices::getInstance()->getContentLanguage()->getFormattedNamespaces();
-		if ( !is_null( $all ) ) {
+		if ( $all !== null ) {
 			$arr = [ $all => wfMessage( 'namespacesall' )->text() ] + $arr; // should be first
 		}
 		foreach ( $arr as $index => $name ) {
@@ -82,7 +82,7 @@ class FlaggedRevsXML {
 	 * @return string
 	 */
 	public static function getDefaultFilterMenu( $selected = null ) {
-		if ( is_null( $selected ) ) {
+		if ( $selected === null ) {
 			$selected = ''; // "all"
 		}
 		$s = Xml::label( wfMessage( 'revreview-defaultfilter' )->text(), 'wpStable' ) . "\n";
@@ -101,7 +101,7 @@ class FlaggedRevsXML {
 	 * @return string
 	 */
 	public static function getRestrictionFilterMenu( $selected = '' ) {
-		if ( is_null( $selected ) ) {
+		if ( $selected === null ) {
 			$selected = ''; // "all"
 		}
 		$s = Xml::label( wfMessage( 'revreview-restrictfilter' )->text(), 'wpRestriction' ) . "\n";

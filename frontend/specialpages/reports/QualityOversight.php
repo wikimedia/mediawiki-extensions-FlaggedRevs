@@ -104,7 +104,7 @@ class QualityOversight extends SpecialPage {
 		);
 	}
 
-	/*
+	/**
 	 * Get actions for IN clause
 	 * @return array
 	 */

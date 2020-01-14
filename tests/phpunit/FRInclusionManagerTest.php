@@ -78,14 +78,14 @@ class FRInclusionManagerTest extends PHPUnit\Framework\TestCase {
 
 	public function testManagerInitial() {
 		$im = FRInclusionManager::singleton();
-		$this->assertEquals( false, $im->parserOutputIsStabilized(), "Starts off empty" );
+		$this->assertFalse( $im->parserOutputIsStabilized(), "Starts off empty" );
 	}
 
 	public function testManagerClear() {
 		$im = FRInclusionManager::singleton();
 		$im->setReviewedVersions( self::$inputTemplates, self::$inputFiles );
 		$im->clear();
-		$this->assertEquals( false, $im->parserOutputIsStabilized(), "Empty on clear()" );
+		$this->assertFalse( $im->parserOutputIsStabilized(), "Empty on clear()" );
 	}
 
 	public function testReviewedTemplateVersions() {

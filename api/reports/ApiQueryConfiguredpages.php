@@ -70,7 +70,7 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 			'flaggedpages' 		 => [ 'LEFT JOIN', 'page_id=fp_page_id' ]
 		] );
 
-		if ( is_null( $resultPageSet ) ) {
+		if ( $resultPageSet === null ) {
 			$this->addFields( [
 				'page_id',
 				'page_namespace',
@@ -102,7 +102,7 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 				break;
 			}
 
-			if ( is_null( $resultPageSet ) ) {
+			if ( $resultPageSet === null ) {
 				$title = Title::newFromRow( $row );
 				$data[] = [
 					'pageid' 			 => intval( $row->page_id ),
@@ -120,7 +120,7 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 			}
 		}
 
-		if ( is_null( $resultPageSet ) ) {
+		if ( $resultPageSet === null ) {
 			$result = $this->getResult();
 			$result->setIndexedTagName( $data, 'p' );
 			$result->addValue( 'query', $this->getModuleName(), $data );
@@ -146,7 +146,8 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 				ApiBase::PARAM_DFLT 	=> 'newer',
 				ApiBase::PARAM_TYPE 	=> [ 'newer', 'older' ],
 				/** @todo Once support for MediaWiki < 1.25 is dropped,
-				 * just use ApiBase::PARAM_HELP_MSG directly */
+				 * just use ApiBase::PARAM_HELP_MSG directly
+				 */
 				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'api-help-param-direction',
 			],
 			'namespace' => [

@@ -7,7 +7,7 @@ use MediaWiki\MediaWikiServices;
  */
 abstract class PageStabilityForm extends FRGenericSubmitForm {
 
-	/** @var Title|false Target page obj*/
+	/** @var Title|false Target page obj */
 	protected $page = false;
 
 	/** @var bool|null Watch checkbox */
@@ -146,7 +146,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	 * @return true|string true on success, error string on failure
 	 */
 	protected function doCheckTargetGiven() {
-		if ( is_null( $this->page ) ) {
+		if ( $this->page === null ) {
 			return 'stabilize_page_invalid';
 		}
 		return true;

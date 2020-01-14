@@ -43,7 +43,7 @@ class PendingChanges extends SpecialPage {
 		$this->level = $request->getInt( 'level', -1 );
 		$category = trim( $request->getVal( 'category' ) );
 		$catTitle = Title::makeTitleSafe( NS_CATEGORY, $category );
-		$this->category = is_null( $catTitle ) ? '' : $catTitle->getText();
+		$this->category = $catTitle === null ? '' : $catTitle->getText();
 		$this->size = $request->getIntOrNull( 'size' );
 		$this->watched = $request->getCheck( 'watched' );
 		$this->stable = $request->getCheck( 'stable' );

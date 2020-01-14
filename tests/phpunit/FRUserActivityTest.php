@@ -25,13 +25,11 @@ class FRUserActivityTest extends PHPUnit\Framework\TestCase {
 		$page = 110;
 
 		FRUserActivity::clearAllReviewingPage( $page ); // clear
-		$this->assertEquals( false,
-			FRUserActivity::pageIsUnderReview( $page ), "Not reviewing page" );
+		$this->assertFalse( FRUserActivity::pageIsUnderReview( $page ), "Not reviewing page" );
 
 		FRUserActivity::setUserReviewingPage( $this->user, $page );
 
-		$this->assertEquals( true,
-			FRUserActivity::pageIsUnderReview( $page ), "Now reviewing page" );
+		$this->assertTrue( FRUserActivity::pageIsUnderReview( $page ), "Now reviewing page" );
 	}
 
 	public function testDiffIsUnderReview() {
@@ -39,13 +37,11 @@ class FRUserActivityTest extends PHPUnit\Framework\TestCase {
 		$newid = 11910;
 
 		FRUserActivity::clearAllReviewingDiff( $oldid, $newid ); // clear
-		$this->assertEquals( false,
-			FRUserActivity::diffIsUnderReview( $oldid, $newid ), "Not reviewing diff" );
+		$this->assertFalse( FRUserActivity::diffIsUnderReview( $oldid, $newid ), "Not reviewing diff" );
 
 		FRUserActivity::setUserReviewingDiff( $this->user, $oldid, $newid );
 
-		$this->assertEquals( true,
-			FRUserActivity::diffIsUnderReview( $oldid, $newid ), "Now reviewing diff" );
+		$this->assertTrue( FRUserActivity::diffIsUnderReview( $oldid, $newid ), "Now reviewing diff" );
 	}
 
 	public function testGetUserReviewingPage() {
@@ -95,34 +91,26 @@ class FRUserActivityTest extends PHPUnit\Framework\TestCase {
 		$page = 910;
 
 		FRUserActivity::clearAllReviewingPage( $page ); // clear
-		$this->assertEquals( true,
-			FRUserActivity::setUserReviewingPage( $this->user, $page ),
+		$this->assertTrue( FRUserActivity::setUserReviewingPage( $this->user, $page ),
 			"Set reviewing page succeeds" );
 
-		$this->assertEquals( true,
-			FRUserActivity::clearUserReviewingPage( $this->user, $page ),
+		$this->assertTrue( FRUserActivity::clearUserReviewingPage( $this->user, $page ),
 			"Unset reviewing page" );
-		$this->assertEquals( false,
-			FRUserActivity::clearUserReviewingPage( $this->user, $page ),
+		$this->assertFalse( FRUserActivity::clearUserReviewingPage( $this->user, $page ),
 			"Extra unset reviewing page" );
 
 		// set two instances...
-		$this->assertEquals( true,
-			FRUserActivity::setUserReviewingPage( $this->user, $page ),
+		$this->assertTrue( FRUserActivity::setUserReviewingPage( $this->user, $page ),
 			"Set reviewing page (1)" );
-		$this->assertEquals( true,
-			FRUserActivity::setUserReviewingPage( $this->user, $page ),
+		$this->assertTrue( FRUserActivity::setUserReviewingPage( $this->user, $page ),
 			"Set reviewing page (2)" );
 		// clear both...
-		$this->assertEquals( true,
-			FRUserActivity::clearUserReviewingPage( $this->user, $page ),
+		$this->assertTrue( FRUserActivity::clearUserReviewingPage( $this->user, $page ),
 			"Unset reviewing page (1)" );
-		$this->assertEquals( true,
-			FRUserActivity::clearUserReviewingPage( $this->user, $page ),
+		$this->assertTrue( FRUserActivity::clearUserReviewingPage( $this->user, $page ),
 			"Unset reviewing page (2)" );
 		// extra clears...
-		$this->assertEquals( false,
-			FRUserActivity::clearUserReviewingPage( $this->user, $page ),
+		$this->assertFalse( FRUserActivity::clearUserReviewingPage( $this->user, $page ),
 			"Extra unset reviewing page" );
 	}
 
@@ -131,34 +119,26 @@ class FRUserActivityTest extends PHPUnit\Framework\TestCase {
 		$newid = 15910;
 
 		FRUserActivity::clearAllReviewingDiff( $oldid, $newid ); // clear
-		$this->assertEquals( true,
-			FRUserActivity::setUserReviewingDiff( $this->user, $oldid, $newid ),
+		$this->assertTrue( FRUserActivity::setUserReviewingDiff( $this->user, $oldid, $newid ),
 			"Set reviewing page succeeds" );
 
-		$this->assertEquals( true,
-			FRUserActivity::clearUserReviewingDiff( $this->user, $oldid, $newid ),
+		$this->assertTrue( FRUserActivity::clearUserReviewingDiff( $this->user, $oldid, $newid ),
 			"Unset reviewing page" );
-		$this->assertEquals( false,
-			FRUserActivity::clearUserReviewingDiff( $this->user, $oldid, $newid ),
+		$this->assertFalse( FRUserActivity::clearUserReviewingDiff( $this->user, $oldid, $newid ),
 			"Extra unset reviewing page" );
 
 		// set two instances...
-		$this->assertEquals( true,
-			FRUserActivity::setUserReviewingDiff( $this->user, $oldid, $newid ),
+		$this->assertTrue( FRUserActivity::setUserReviewingDiff( $this->user, $oldid, $newid ),
 			"Set reviewing page (1)" );
-		$this->assertEquals( true,
-			FRUserActivity::setUserReviewingDiff( $this->user, $oldid, $newid ),
+		$this->assertTrue( FRUserActivity::setUserReviewingDiff( $this->user, $oldid, $newid ),
 			"Set reviewing page (2)" );
 		// clear both...
-		$this->assertEquals( true,
-			FRUserActivity::clearUserReviewingDiff( $this->user, $oldid, $newid ),
+		$this->assertTrue( FRUserActivity::clearUserReviewingDiff( $this->user, $oldid, $newid ),
 			"Unset reviewing page (1)" );
-		$this->assertEquals( true,
-			FRUserActivity::clearUserReviewingDiff( $this->user, $oldid, $newid ),
+		$this->assertTrue( FRUserActivity::clearUserReviewingDiff( $this->user, $oldid, $newid ),
 			"Unset reviewing page (2)" );
 		// extra clears...
-		$this->assertEquals( false,
-			FRUserActivity::clearUserReviewingDiff( $this->user, $oldid, $newid ),
+		$this->assertFalse( FRUserActivity::clearUserReviewingDiff( $this->user, $oldid, $newid ),
 			"Extra unset reviewing page" );
 	}
 }

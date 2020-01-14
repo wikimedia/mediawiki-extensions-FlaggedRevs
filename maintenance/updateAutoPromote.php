@@ -29,7 +29,7 @@ class UpdateFRAutoPromote extends Maintenance {
 		$dbw = wfGetDB( DB_MASTER );
 		$start = $dbr->selectField( 'user', 'MIN(user_id)', false, __METHOD__ );
 		$end = $dbr->selectField( 'user', 'MAX(user_id)', false, __METHOD__ );
-		if ( is_null( $start ) || is_null( $end ) ) {
+		if ( $start === null || $end === null ) {
 			$this->output( "...user table seems to be empty.\n" );
 			return;
 		}

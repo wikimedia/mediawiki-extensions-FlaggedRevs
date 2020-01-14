@@ -470,7 +470,7 @@ class FlaggedRevision {
 	 * @return Title title
 	 */
 	public function getTitle() {
-		if ( is_null( $this->mTitle ) ) {
+		if ( $this->mTitle === null ) {
 			$this->mTitle = $this->mRevision->getTitle();
 		}
 		return $this->mTitle;

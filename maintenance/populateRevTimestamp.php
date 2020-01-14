@@ -40,7 +40,7 @@ class PopulateFRRevTimestamp extends Maintenance {
 			$start = $db->selectField( 'flaggedrevs', 'MIN(fr_rev_id)', false, __METHOD__ );
 		}
 		$end = $db->selectField( 'flaggedrevs', 'MAX(fr_rev_id)', false, __METHOD__ );
-		if ( is_null( $start ) || is_null( $end ) ) {
+		if ( $start === null || $end === null ) {
 			$this->output( "...flaggedrevs table seems to be empty.\n" );
 			return;
 		}

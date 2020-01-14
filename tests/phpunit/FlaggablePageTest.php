@@ -34,13 +34,13 @@ class FlaggablePageTest extends PHPUnit\Framework\TestCase {
 
 		$data = (array)$article->pageDataFromTitle( wfGetDB( DB_REPLICA ), $title );
 
-		$this->assertEquals( true, array_key_exists( 'fpc_override', $data ),
+		$this->assertTrue( array_key_exists( 'fpc_override', $data ),
 			"data->fpc_override field exists" );
-		$this->assertEquals( true, array_key_exists( 'fp_stable', $data ),
+		$this->assertTrue( array_key_exists( 'fp_stable', $data ),
 			"data->fp_stable field exists" );
-		$this->assertEquals( true, array_key_exists( 'fp_pending_since', $data ),
+		$this->assertTrue( array_key_exists( 'fp_pending_since', $data ),
 			"data->fp_pending_since field exists" );
-		$this->assertEquals( true, array_key_exists( 'fp_reviewed', $data ),
+		$this->assertTrue( array_key_exists( 'fp_reviewed', $data ),
 			"data->fp_reviewed field exists" );
 	}
 }

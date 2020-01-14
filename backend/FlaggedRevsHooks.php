@@ -1,8 +1,8 @@
 <?php
 
-use Wikimedia\Rdbms\IDatabase;
 use MediaWiki\Edit\PreparedEdit;
 use MediaWiki\MediaWikiServices;
+use Wikimedia\Rdbms\IDatabase;
 
 /**
  * Class containing hooked functions for a FlaggedRevs environment

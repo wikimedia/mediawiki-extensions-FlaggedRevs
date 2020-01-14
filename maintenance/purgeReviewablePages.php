@@ -61,7 +61,7 @@ class PurgeReviewablePages extends Maintenance {
 
 		$start = $db->selectField( 'page', 'MIN(page_id)', false, __FUNCTION__ );
 		$end = $db->selectField( 'page', 'MAX(page_id)', false, __FUNCTION__ );
-		if ( is_null( $start ) || is_null( $end ) ) {
+		if ( $start === null || $end === null ) {
 			$this->output( "... page table seems to be empty.\n" );
 			return;
 		}

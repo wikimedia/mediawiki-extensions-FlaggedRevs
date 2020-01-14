@@ -86,7 +86,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 			$this->addWhere( 'fp_pending_since IS NOT NULL' );
 		}
 
-		if ( is_null( $resultPageSet ) ) {
+		if ( $resultPageSet === null ) {
 			$this->addFields( [
 				'page_id',
 				'page_namespace',
@@ -120,7 +120,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 				break;
 			}
 
-			if ( is_null( $resultPageSet ) ) {
+			if ( $resultPageSet === null ) {
 				$title = Title::newFromRow( $row );
 				$underReview = FRUserActivity::diffIsUnderReview(
 					$row->fp_stable, $row->page_latest );
@@ -141,7 +141,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 			}
 		}
 
-		if ( is_null( $resultPageSet ) ) {
+		if ( $resultPageSet === null ) {
 			$result = $this->getResult();
 			$result->setIndexedTagName( $data, 'p' );
 			$result->addValue( 'query', $this->getModuleName(), $data );
@@ -170,7 +170,8 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 				ApiBase::PARAM_DFLT => 'newer',
 				ApiBase::PARAM_TYPE => [ 'newer', 'older' ],
 				/** @todo Once support for MediaWiki < 1.25 is dropped,
-				 * just use ApiBase::PARAM_HELP_MSG directly */
+				 * just use ApiBase::PARAM_HELP_MSG directly
+				 */
 				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'api-help-param-direction',
 			],
 			'maxsize' => [

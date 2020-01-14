@@ -34,7 +34,7 @@ class ProblemChanges extends SpecialPage {
 		$this->tag = trim( $request->getVal( 'tagfilter' ) );
 		$category = trim( $request->getVal( 'category' ) );
 		$catTitle = Title::newFromText( $category );
-		$this->category = is_null( $catTitle ) ? '' : $catTitle->getText();
+		$this->category = $catTitle === null ? '' : $catTitle->getText();
 		$feedType = $request->getVal( 'feed' );
 
 		$incLimit = 0;

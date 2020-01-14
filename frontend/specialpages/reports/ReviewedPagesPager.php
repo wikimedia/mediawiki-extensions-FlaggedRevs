@@ -24,11 +24,11 @@ class ReviewedPagesPager extends AlphabeticPager {
 		$this->mConds = $conds;
 		$this->type = $type;
 		# Must be a content page...
-		if ( !is_null( $namespace ) ) {
+		if ( $namespace !== null ) {
 			$namespace = intval( $namespace );
 		}
 		$vnamespaces = FlaggedRevs::getReviewNamespaces();
-		if ( is_null( $namespace ) || !in_array( $namespace, $vnamespaces ) ) {
+		if ( $namespace === null || !in_array( $namespace, $vnamespaces ) ) {
 			$namespace = !$vnamespaces ? - 1 : $vnamespaces[0];
 		}
 		$this->namespace = $namespace;

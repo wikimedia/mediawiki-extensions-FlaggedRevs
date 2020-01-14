@@ -48,7 +48,7 @@ class UnreviewedPages extends SpecialPage {
 		$this->namespace = $request->getInt( 'namespace', $defaultNS );
 		$category = trim( $request->getVal( 'category' ) );
 		$catTitle = Title::makeTitleSafe( NS_CATEGORY, $category );
-		$this->category = is_null( $catTitle ) ? '' : $catTitle->getText();
+		$this->category = $catTitle === null ? '' : $catTitle->getText();
 		$this->level = $request->getInt( 'level' );
 		$this->hideRedirs = $request->getBool( 'hideredirs', true );
 		$this->live = self::generalQueryOK();
@@ -142,7 +142,7 @@ class UnreviewedPages extends SpecialPage {
 			[ 'action' => 'history' ]
 		);
 		$size = $row->page_len;
-		if ( !is_null( $size ) ) {
+		if ( $size !== null ) {
 			$stxt = ( $size == 0 )
 				? $this->msg( 'historyempty' )->escaped()
 				: $this->msg( 'historysize' )->numParams( $size )->escaped();

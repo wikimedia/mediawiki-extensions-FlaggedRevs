@@ -146,7 +146,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * @return mixed (true on success, error string on failure)
 	 */
 	public function doCheckTargetGiven() {
-		if ( is_null( $this->page ) ) {
+		if ( $this->page === null ) {
 			return 'review_page_invalid';
 		}
 		return true;
@@ -236,7 +236,10 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		return ( $this->page && $this->page->userCan( 'review' ) );
 	}
 
-	// implicit dims for binary flag case
+	/**
+	 * implicit dims for binary flag case
+	 * @return array|null
+	 */
 	private function implicitDims() {
 		$tag = FlaggedRevs::binaryTagName();
 		if ( $tag ) {
@@ -654,7 +657,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			list( $prefixed_text, $rev_id ) = $m;
 			# Get the template title
 			$tmp_title = Title::newFromText( $prefixed_text ); // Normalize this to be sure...
-			if ( is_null( $tmp_title ) ) {
+			if ( $tmp_title === null ) {
 				continue; // Page must be valid!
 			}
 			if ( !isset( $templateIds[$tmp_title->getNamespace()] ) ) {
@@ -677,7 +680,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			list( $dbkey, $time, $key ) = $m;
 			# Get the file title
 			$img_title = Title::makeTitle( NS_FILE, $dbkey ); // Normalize
-			if ( is_null( $img_title ) ) {
+			if ( $img_title === null ) {
 				continue; // Page must be valid!
 			}
 			$fileSHA1Keys[$img_title->getDBkey()] = [];

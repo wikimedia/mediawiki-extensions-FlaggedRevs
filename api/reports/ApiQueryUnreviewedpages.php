@@ -70,7 +70,7 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 			[ 'page' => 'name_title', 'flaggedpages' => 'PRIMARY' ]
 		);
 
-		if ( is_null( $resultPageSet ) ) {
+		if ( $resultPageSet === null ) {
 			$this->addFields( [
 				'page_id',
 				'page_namespace',
@@ -96,7 +96,7 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 				break;
 			}
 
-			if ( is_null( $resultPageSet ) ) {
+			if ( $resultPageSet === null ) {
 				$title = Title::newFromRow( $row );
 				$data[] = [
 					'pageid'        => intval( $row->page_id ),
@@ -110,7 +110,7 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 			}
 		}
 
-		if ( is_null( $resultPageSet ) ) {
+		if ( $resultPageSet === null ) {
 			$result = $this->getResult();
 			$result->setIndexedTagName( $data, 'p' );
 			$result->addValue( 'query', $this->getModuleName(), $data );

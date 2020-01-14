@@ -63,7 +63,7 @@ class UpdateFRTracking extends Maintenance {
 			$start = $db->selectField( 'revision', 'MIN(rev_id)', false, __METHOD__ );
 		}
 		$end = $db->selectField( 'revision', 'MAX(rev_id)', false, __METHOD__ );
-		if ( is_null( $start ) || is_null( $end ) ) {
+		if ( $start === null || $end === null ) {
 			$this->output( "...revision table seems to be empty.\n" );
 			return;
 		}
@@ -159,7 +159,7 @@ class UpdateFRTracking extends Maintenance {
 			$start = $db->selectField( 'page', 'MIN(page_id)', false, __METHOD__ );
 		}
 		$end = $db->selectField( 'page', 'MAX(page_id)', false, __METHOD__ );
-		if ( is_null( $start ) || is_null( $end ) ) {
+		if ( $start === null || $end === null ) {
 			$this->output( "...flaggedpages table seems to be empty.\n" );
 			return;
 		}
@@ -245,7 +245,7 @@ class UpdateFRTracking extends Maintenance {
 			$start = $db->selectField( 'flaggedimages', 'MIN(fi_rev_id)', false, __METHOD__ );
 		}
 		$end = $db->selectField( 'flaggedimages', 'MAX(fi_rev_id)', false, __METHOD__ );
-		if ( is_null( $start ) || is_null( $end ) ) {
+		if ( $start === null || $end === null ) {
 			$this->output( "...flaggedimages table seems to be empty.\n" );
 			return;
 		}

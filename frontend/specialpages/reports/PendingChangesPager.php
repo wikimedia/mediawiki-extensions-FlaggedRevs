@@ -33,7 +33,7 @@ class PendingChangesPager extends AlphabeticPager {
 		$this->mForm = $form;
 		# Must be a content page...
 		$vnamespaces = FlaggedRevs::getReviewNamespaces();
-		if ( is_null( $namespace ) ) {
+		if ( $namespace === null ) {
 			$namespace = $vnamespaces;
 		} else {
 			$namespace = intval( $namespace );

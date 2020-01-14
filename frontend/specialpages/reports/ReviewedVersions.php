@@ -26,7 +26,7 @@ class ReviewedVersions extends UnlistedSpecialPage {
 		$this->oldid = $request->getVal( 'oldid' );
 		$this->oldid = ( $this->oldid == 'best' ) ? 'best' : intval( $this->oldid );
 		# We need a page...
-		if ( is_null( $this->page ) ) {
+		if ( $this->page === null ) {
 			$this->getOutput()->showErrorPage( 'notargettitle', 'notargettext' );
 			return;
 		}

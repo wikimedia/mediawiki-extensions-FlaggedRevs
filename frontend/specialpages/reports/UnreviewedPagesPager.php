@@ -33,12 +33,12 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		$this->mForm = $form;
 		$this->live = (bool)$live;
 		# Must be a content page...
-		if ( !is_null( $namespace ) ) {
+		if ( $namespace !== null ) {
 			$namespace = (int)$namespace;
 		}
 		$vnamespaces = FlaggedRevs::getReviewNamespaces();
 		# Must be a single NS for performance reasons
-		if ( is_null( $namespace ) || !in_array( $namespace, $vnamespaces ) ) {
+		if ( $namespace === null || !in_array( $namespace, $vnamespaces ) ) {
 			$namespace = !$vnamespaces ? -1 : $vnamespaces[0];
 		}
 		$this->namespace = $namespace;

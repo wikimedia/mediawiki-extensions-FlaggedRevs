@@ -98,7 +98,7 @@ class ReviewedPages extends SpecialPage {
 		$dirmark = $this->getLanguage()->getDirMark(); # Direction mark
 		$stxt = ''; # Size (bytes)
 		$size = $row->page_len;
-		if ( !is_null( $size ) ) {
+		if ( $size !== null ) {
 			if ( $size == 0 ) {
 				$stxt = ' <small>' . $this->msg( 'historyempty' )->escaped() . '</small>';
 			} else {
