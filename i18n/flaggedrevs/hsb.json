@@ -2,14 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Dundak",
-			"Michawiki"
+			"Michawiki",
+			"J budissin"
 		]
 	},
 	"action-review": "wersije přepruwować",
 	"action-unreviewedpages": "lisćinu njepřepruwowanych stronow zwobraznić",
 	"editor": "wobdźěłowar",
 	"flaggedrevs": "Woznamjenjene wersije",
-	"flaggedrevs-watched-pending": "Su tuchwilu [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} njesčinjene změny] přepruwowanych stronow na twojej wobkedźbowankach. '''Twoja kedźbliwosć je trěbna!'''",
+	"flaggedrevs-watched-pending": "Su tuchwilu [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} njesčinjene změny] přepruwowanych stronow w twojich wobkedźbowankach. '''Twoja kedźbnosć je trěbna!'''",
 	"flaggedrevs-desc": "Dawa wobdźěłowarjam móžnosć wersije přepruwować a strony stabilizować",
 	"flaggedrevs-pref-UI": "Zakładny wužiwarski powjerch",
 	"flaggedrevs-pref-UI-0": "Nadrobne kašćiki wužiwać, zo by so schwalenski status stronow pokazał",
