@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Yekrats"
+			"Yekrats",
+			"Robin van der Vliet"
 		]
 	},
 	"stabilization-tab": "kontroli",
@@ -30,7 +31,7 @@
 	"stabilize_page_unreviewable": "La cela paĝo ne estas en kontrolebla nomspaco.",
 	"stabilize_invalid_autoreview": "Malvalida limigo de aŭtomata kontrolado",
 	"stabilize_invalid_level": "Malvalida nivelo de protektado.",
-	"stabilize_expiry_invalid": "Malvalida findato.",
+	"stabilize_expiry_invalid": "Nevalida findato.",
 	"stabilize_expiry_old": "Ĉi tiu findato jam estas pasita.",
 	"stabilize_denied": "Malpermesita.",
 	"stabilize-expiring": "findato $1 (UTC)",
