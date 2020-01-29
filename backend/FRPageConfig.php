@@ -33,6 +33,7 @@ class FRPageConfig {
 	 * @return array
 	 */
 	public static function getVisibilitySettingsFromRow( $row ) {
+		$expiry = false;
 		if ( $row ) {
 			$expiry = wfGetDB( DB_REPLICA )->decodeExpiry( $row->fpc_expiry );
 			# Only apply the settings if they haven't expired

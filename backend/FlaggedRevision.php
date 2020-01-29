@@ -784,7 +784,7 @@ class FlaggedRevision {
 				return true; // rev deleted
 			}
 			# Don't do this for null edits (like protection) (bug 25919)
-			if ( $dRev && $sRev && $dRev->getTextId() != $sRev->getTextId() ) {
+			if ( $dRev && $dRev->getTextId() != $sRev->getTextId() ) {
 				return true; // updated
 			}
 		}

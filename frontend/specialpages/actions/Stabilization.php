@@ -139,6 +139,7 @@ class Stabilization extends UnlistedSpecialPage {
 		# Add "other time" expiry dropdown option
 		$dropdownOptions[] = [ $this->msg( 'protect-othertime-op' )->text(), 'othertime' ];
 		# Add custom expiry dropdown options (from MediaWiki message)
+		$value = null;
 		foreach ( explode( ',', $scExpiryOptions ) as $option ) {
 			if ( strpos( $option, ":" ) === false ) {
 				$show = $value = $option;
