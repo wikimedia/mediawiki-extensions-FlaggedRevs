@@ -96,16 +96,6 @@ class ApiStabilizeProtect extends ApiStabilize {
 		];
 	}
 
-	/**
-	 * @deprecated since MediaWiki core 1.30
-	 */
-	protected function getDescriptionMessage() {
-		return [ [
-			"apihelp-{$this->getModulePath()}-description-protect",
-			"apihelp-{$this->getModulePath()}-summary-protect",
-		] ];
-	}
-
 	protected function getSummaryMessage() {
 		return "apihelp-{$this->getModulePath()}-summary-protect";
 	}
