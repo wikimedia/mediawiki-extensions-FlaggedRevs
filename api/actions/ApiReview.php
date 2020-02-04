@@ -152,16 +152,12 @@ class ApiReview extends ApiBase {
 			'unapprove' => false
 		];
 		if ( !FlaggedRevs::binaryFlagging() ) {
-			/** @todo Once support for MediaWiki < 1.25 is dropped,
-			 * just use ApiBase::PARAM_HELP_MSG directly
-			 */
-			$key = constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '';
 			foreach ( FlaggedRevs::getDimensions() as $flagname => $levels ) {
 				$strLevels = array_map( 'strval', array_keys( $levels ) );
 				$pars['flag_' . $flagname] = [
 					ApiBase::PARAM_DFLT => '1', // default
 					ApiBase::PARAM_TYPE => $strLevels, // array of allowed values
-					$key => [ 'apihelp-review-param-flag', $flagname ],
+					ApiBase::PARAM_HELP_MSG => [ 'apihelp-review-param-flag', $flagname ],
 				];
 			}
 		}

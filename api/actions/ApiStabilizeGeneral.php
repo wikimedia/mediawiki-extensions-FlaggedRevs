@@ -95,11 +95,7 @@ class ApiStabilizeGeneral extends ApiStabilize {
 			],
 			'expiry'      => [
 				ApiBase::PARAM_DFLT => 'infinite',
-				/** @todo Once support for MediaWiki < 1.25 is dropped,
-				 * just use ApiBase::PARAM_HELP_MSG directly
-				 */
-				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' =>
-					'apihelp-stabilize-param-expiry-general',
+				ApiBase::PARAM_HELP_MSG => 'apihelp-stabilize-param-expiry-general',
 			],
 			'reason'      => '',
 			'review'      => false,
@@ -109,11 +105,7 @@ class ApiStabilizeGeneral extends ApiStabilize {
 			],
 			'title'       => [
 				ApiBase::PARAM_REQUIRED => true,
-				/** @todo Once support for MediaWiki < 1.25 is dropped,
-				 * just use ApiBase::PARAM_HELP_MSG directly
-				 */
-				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' =>
-					'apihelp-stabilize-param-title-general',
+				ApiBase::PARAM_HELP_MSG => 'apihelp-stabilize-param-title-general',
 			],
 		];
 		return $pars;

@@ -135,10 +135,7 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 					'newer',
 					'older'
 				],
-				/** @todo Once support for MediaWiki < 1.25 is dropped,
-				 * just use ApiBase::PARAM_HELP_MSG directly
-				 */
-				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'api-help-param-direction',
+				ApiBase::PARAM_HELP_MSG => 'api-help-param-direction',
 			],
 			'namespace' => [
 				ApiBase::PARAM_DFLT => !$namespaces ?

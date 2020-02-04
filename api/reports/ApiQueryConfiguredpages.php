@@ -145,10 +145,7 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 			'dir' => [
 				ApiBase::PARAM_DFLT 	=> 'newer',
 				ApiBase::PARAM_TYPE 	=> [ 'newer', 'older' ],
-				/** @todo Once support for MediaWiki < 1.25 is dropped,
-				 * just use ApiBase::PARAM_HELP_MSG directly
-				 */
-				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'api-help-param-direction',
+				ApiBase::PARAM_HELP_MSG => 'api-help-param-direction',
 			],
 			'namespace' => [
 				ApiBase::PARAM_DFLT 	=> null,
