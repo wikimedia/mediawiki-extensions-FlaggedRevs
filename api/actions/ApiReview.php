@@ -159,7 +159,7 @@ class ApiReview extends ApiBase {
 			foreach ( FlaggedRevs::getDimensions() as $flagname => $levels ) {
 				$strLevels = array_map( 'strval', array_keys( $levels ) );
 				$pars['flag_' . $flagname] = [
-					ApiBase::PARAM_DFLT => 1, // default
+					ApiBase::PARAM_DFLT => '1', // default
 					ApiBase::PARAM_TYPE => $strLevels, // array of allowed values
 					$key => [ 'apihelp-review-param-flag', $flagname ],
 				];
