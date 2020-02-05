@@ -24,7 +24,8 @@
 			"Žekřil71pl",
 			"Chrumps",
 			"Tar Lócesilion",
-			"Woytecr"
+			"Woytecr",
+			"Matma Rex"
 		]
 	},
 	"action-review": "przeglądania wersji",
@@ -51,8 +52,8 @@
 	"flaggedrevs-rcfilters-need-review-desc": "Edycje oczekujące na przejrzenie.",
 	"flaggedrevs-rcfilters-reviewed-label": "Przejrzane",
 	"flaggedrevs-rcfilters-reviewed-desc": "Edycje, które zostały oznaczone jako przejrzane.",
-	"flaggedrevs-rcfilters-not-reviewable-label": "Nie przeznaczone do oznaczania",
-	"flaggedrevs-rcfilters-not-reviewable-desc": "Zmiany nie wymagające oznaczania jako przejrzane.",
+	"flaggedrevs-rcfilters-not-reviewable-label": "Niewymagające oznaczania",
+	"flaggedrevs-rcfilters-not-reviewable-desc": "Edycje i inne zmiany, które nie wymagają oznaczania jako przejrzane.",
 	"group-editor": "Redaktorzy",
 	"group-editor-member": "{{GENDER:$1|redaktor|redaktorka}}",
 	"group-reviewer": "Weryfikatorzy",
