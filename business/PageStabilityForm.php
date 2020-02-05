@@ -320,7 +320,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 
 		# Insert a null revision...
 		$dbw = wfGetDB( DB_MASTER );
-		$nullRev = Revision::newNullRevision( $dbw, $article->getId(), $comment, true );
+		$nullRev = Revision::newNullRevision( $dbw, $article->getId(), $comment, true, $this->user );
 		$nullRev->insertOn( $dbw );
 		# Update page record and touch page
 		$oldLatest = $nullRev->getParentId();
