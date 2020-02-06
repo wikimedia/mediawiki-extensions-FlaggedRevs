@@ -8,10 +8,8 @@ class FRUserActivityTest extends PHPUnit\Framework\TestCase {
 	 * Prepares the environment before running a test.
 	 */
 	protected function setUp() : void {
-		global $wgMemc;
 		parent::setUp();
 		$this->user = User::newFromName( "someReviewer" );
-		$wgMemc = wfGetCache( CACHE_DB );
 	}
 
 	/**
