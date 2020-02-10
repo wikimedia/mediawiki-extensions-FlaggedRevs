@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Helix84"
+			"Helix84",
+			"Luky001"
 		]
 	},
-	"stablepages": "Stabilné stránky",
-	"stablepages-list": "Toto je zoznam stránok, ktoré boli ručne nastavené, aby sa ako ich štandardný obsah zobrazovala čitateľom stabilná verzia.",
+	"stablepages": "Stránky používajúce schvaľovanie úprav",
+	"stablepages-list": "Toto je zoznam stránok, ktoré môžu byť upravované bez schvaľovania len vybranými používateľmi. Úpravy iných používateľov nebudú štandardne čitateľom zobrazené, dokým ich neschváli autorizovaný používateľ.",
 	"stablepages-none": "Tento zoznam neobsahuje žiadne stránky.",
 	"stablepages-config": "Nastavenie",
 	"stablepages-indef": "Vypršanie iba na dobu neurčitú"

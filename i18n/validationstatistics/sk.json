@@ -2,22 +2,23 @@
 	"@metadata": {
 		"authors": [
 			"Helix84",
-			"Teslaton"
+			"Teslaton",
+			"Luky001"
 		]
 	},
-	"validationstatistics": "Štatistiky overenia",
-	"validationstatistics-users": "'''{{SITENAME}}''' má momentálne '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|používateľa|používateľov}} s právami [[{{MediaWiki:Validationpage}}|redaktor]] a '''[[Special:ListUsers/reviewer|$2]]'' {{PLURAL:$2|používateľa|používateľov}} s právami [[{{MediaWiki:Validationpage}}|kontrolór]].",
+	"validationstatistics": "Štatistiky overenia stránok",
+	"validationstatistics-users": "'''{{SITENAME}}''' má momentálne '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|používateľa|používateľov}} s právami [[{{MediaWiki:Validationpage}}|editora]].\n\nEditori sú zavedení používatelia s oprávnením kontrolovať úpravy stránok.",
 	"validationstatistics-lastupdate": "''Nasledujúce údaje boli naposledy aktualizované $1 $2.''",
-	"validationstatistics-pndtime": "Úpravy, ktoré boli overené dôveryhodnými používateľmi sú považované za skontrolované.\n\nPriemerné čakanie na [[Special:OldReviewedPages|stránky s  čakajúcimi úpravami]] je '''$1'''.\nTieto stránky sú považované za ''zastarané''. Podobne, stránky sú považované za ''synchronizované'', ak nie sú k dispozícii žiadne úpravy čakajúce na kontrolu.",
-	"validationstatistics-revtime": "Priemerné čakanie na skontrolovanie úprav ''neprihlásených používateľov'' je '''$1''', medián je '''$2'''.",
-	"validationstatistics-table": "Dolu sú zobrazené štatistiky pre každý menný priestor ''okrem'' presmerovacích stránok.",
+	"validationstatistics-pndtime": "Úpravy, ktoré boli overené dôveryhodnými používateľmi, sú považované za ''{{int:validationstatistics-stable}}''.\n\nPriemerné čakanie na [[Special:OldReviewedPages|stránky s  čakajúcimi úpravami]] je '''$1'''; čakanie meria, ako dlho bola najstaršia čakajúca úprava neskontrolovaná.",
+	"validationstatistics-revtime": "Priemerné čakanie na skontrolovanie úprav ''neprihlásených používateľov'' je '''$1'''; medián je '''$2'''.\n$3",
+	"validationstatistics-table": "Štatistiky overenia stránok pre každý menný priestor sú zobrazené nižšie ''okrem'' presmerovacích stránok.\nPokiaľ majú stránky čakajúce úpravy na kontrolu, sú považované za ''{{int:validationstatistics-old}}'';\npokiaľ stránky nemajú žiadne čakajúce úpravy na kontrolu, sú považované za ''{{int:validationstatistics-latest}}''.",
 	"validationstatistics-ns": "Menný priestor",
 	"validationstatistics-total": "Stránky",
 	"validationstatistics-stable": "Skontrolované",
 	"validationstatistics-latest": "Synchronizovaná",
 	"validationstatistics-synced": "Synchronizované/skontrolované",
 	"validationstatistics-old": "Zastarané",
-	"validationstatistics-utable": "Dolu je zoznam $1 naj kontrolórov za poslednú hodinu.",
+	"validationstatistics-utable": "Nižšie {{PLURAL:$1|je uvedený $1 najaktívnejší posudzovateľ|sú uvedení $1 najaktívnejší posudzovatelia|je uvedených $1 najaktívnejších posudzovateľov}} za {{PLURAL:$2|poslednú hodinu|posledné $2 hodiny|posledných $2 hodín}}.",
 	"validationstatistics-user": "Používateľ",
 	"validationstatistics-reviews": "Kontroly"
 }

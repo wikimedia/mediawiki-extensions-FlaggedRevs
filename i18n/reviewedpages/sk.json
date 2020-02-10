@@ -6,8 +6,8 @@
 		]
 	},
 	"reviewedpages": "Skontrolované stránky",
-	"reviewedpages-leg": "Zoznam stránok podľa najvyššej úrovne kontroly",
-	"reviewedpages-list": "Táto stránka obsahuje zoznam článkov, ktoré boli skontrolované (najviac) do určenej úrovne.",
+	"reviewedpages-leg": "Zoznam stránok, ktoré boli skontrolované",
+	"reviewedpages-list": "Tento zoznam obsahuje [[{{MediaWiki:Validationpage}}|skontrolované]] stránky, ktorých ''najvyššia dosiahnutá'' úroveň kontroly (revízie) je špecifikovaná úroveň.\n\tUvedený odkaz smeruje na najnovšiu revíziu tejto úrovne.",
 	"reviewedpages-none": "V tomto zozname sa nenachádzajú žiadne stránky.",
 	"reviewedpages-lev-0": "Videná",
 	"reviewedpages-lev-1": "Kvalita",
