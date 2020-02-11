@@ -1,7 +1,7 @@
 <?php
 
-use MediaWiki\Edit\PreparedEdit;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RenderedRevision;
 
 /**
  * Class containing utility functions for a FlaggedRevs environment
@@ -634,12 +634,12 @@ class FlaggedRevs {
 	 * @param WikiPage|Title $page
 	 * @param FlaggedRevision|null $sv the new stable version (optional)
 	 * @param FlaggedRevision|null $oldSv the old stable version (optional)
-	 * @param PreparedEdit|null $editInfo Article edit info about the current revision (optional)
+	 * @param RenderedRevision|null $renderedRevision (optional)
 	 * @return bool stable version text/file changed and FR_INCLUDES_STABLE
 	 * @throws Exception
 	 */
 	public static function stableVersionUpdates(
-		$page, $sv = null, $oldSv = null, $editInfo = null
+		$page, $sv = null, $oldSv = null, $renderedRevision = null
 	) {
 		if ( $page instanceof FlaggableWikiPage ) {
 			$article = $page;
@@ -668,8 +668,16 @@ class FlaggedRevs {
 				$changed = (bool)$oldSv;
 			}
 		} else {
+			if ( $renderedRevision ) {
+				$renderedOutput = $renderedRevision->getRevisionParserOutput();
+				$renderedId = $renderedRevision->getRevision()->getId();
+			} else {
+				$renderedOutput = null;
+				$renderedId = null;
+			}
+
 			# Update flagged page related fields
-			$article->updateStableVersion( $sv, $editInfo ? $editInfo->revid : null );
+			$article->updateStableVersion( $sv, $renderedId );
 			# Check if pages using this need to be invalidated/purged...
 			if ( self::inclusionSetting() == FR_INCLUDES_STABLE ) {
 				$changed = (
@@ -681,18 +689,18 @@ class FlaggedRevs {
 			}
 			# Update template/file version cache...
 			if (
-				$editInfo &&
-				$sv->getRevId() != $editInfo->revid &&
+				$renderedRevision &&
+				$sv->getRevId() != $renderedId &&
 				self::inclusionSetting() !== FR_INCLUDES_CURRENT
 			) {
-				FRInclusionCache::setRevIncludes( $title, $editInfo->revid, $editInfo->output );
+				FRInclusionCache::setRevIncludes( $title, $renderedId, $renderedOutput );
 			}
 		}
 		# Lazily rebuild dependencies on next parse (we invalidate below)
 		self::clearStableOnlyDeps( $title->getArticleID() );
-		# Clear page cache unless this is hooked via ArticleEditUpdates, in
+		# Clear page cache unless this is hooked via RevisionDataUpdates, in
 		# which case these updates will happen already with tuned timestamps
-		if ( !$editInfo ) {
+		if ( !$renderedRevision ) {
 			$title->invalidateCache();
 			self::purgeSquid( $title );
 		}
