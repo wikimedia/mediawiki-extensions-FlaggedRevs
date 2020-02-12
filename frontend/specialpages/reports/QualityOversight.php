@@ -68,6 +68,7 @@ class QualityOversight extends SpecialPage {
 		# Insert list
 		$logBody = $pager->getBody();
 		if ( $logBody ) {
+			$out->addModuleStyles( 'mediawiki.interface.helpers.styles' );
 			$out->addHTML(
 				$pager->getNavigationBar() .
 				$loglist->beginLogEventsList() .
