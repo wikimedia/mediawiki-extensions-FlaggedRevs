@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\MediaWikiServices;
+
 /**
  * Class containing revision review form business logic
  */
@@ -233,7 +236,8 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 	public function isAllowed() {
 		// Basic permission check
-		return ( $this->page && $this->page->userCan( 'review' ) );
+		return ( $this->page && MediaWikiServices::getInstance()->getPermissionManager()
+			->userCan( 'review', $this->user, $this->page ) );
 	}
 
 	/**
