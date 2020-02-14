@@ -17,7 +17,7 @@
 	"validationstatistics-latest": "Юха теллинарш",
 	"validationstatistics-synced": "Юху теллинарш теллина хила чера юкъар",
 	"validationstatistics-old": "Ширъелларш",
-	"validationstatistics-unreviewed": "Талламбанзарш",
+	"validationstatistics-unreviewed": "Талланзарш",
 	"validationstatistics-utable": "Лахахьа гойту $1 {{PLURAL:$1|жигара хьажамхо|жигара хьажамхой}} {{PLURAL:$2|тӀеххьара {{#ifeq:$2|1||$2}} сахьт}} чохь.",
 	"validationstatistics-user": "Декъашхо",
 	"validationstatistics-reviews": "Талларш"
