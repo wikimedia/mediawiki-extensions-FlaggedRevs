@@ -63,10 +63,8 @@ class FRDependencyUpdate {
 				self::addDependency( $deps, NS_CATEGORY, $category );
 			}
 		}
-		# Get any dependency tracking changes
-		$existing = $this->getExistingDeps();
-		# Do incremental updates...
-		if ( $existing != $deps ) {
+		# Quickly check for any dependency tracking changes (use a replica DB)
+		if ( $this->getExistingDeps() != $deps ) {
 			if ( $mode === self::DEFERRED ) {
 				# Let the job queue parse and update
 				JobQueueGroup::singleton()->push(
@@ -78,7 +76,7 @@ class FRDependencyUpdate {
 
 				return;
 			}
-
+			# Determine any dependency tracking changes
 			$existing = $this->getExistingDeps( FR_MASTER );
 			$insertions = $this->getDepInsertions( $existing, $deps );
 			$deletions = $this->getDepDeletions( $existing, $deps );

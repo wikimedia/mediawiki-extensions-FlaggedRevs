@@ -110,37 +110,33 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	 * Is this web response for a request to view a page where both:
-	 * (a) no specific page version was requested via URL params
-	 * (b) a stable version exists and is to be displayed
+	 * Whether this web response is for a request to view a page where both:
+	 * (a) no explicit page version was requested via URL params (e.g. for the default version)
+	 * (b) a stable version exists and is to be displayed per configuration (e.g. the default)
 	 * This factors in site/page config, user preferences, and web request params.
 	 * @return bool
 	 */
 	protected function showingStableAsDefault() {
+		$this->load();
+
 		$request = $this->getRequest();
 		$reqUser = $this->getUser();
-		$this->load();
-		# This only applies to viewing the default version of pages...
-		if ( !$this->isDefaultPageView( $request ) ) {
-			return false;
-		# ...and the page must be reviewable and have a stable version
-		} elseif ( !$this->article->getStableRev() ) {
-			return false;
-		}
-		# Check user preferences ("show stable by default?")
-		$pref = (int)$reqUser->getOption( 'flaggedrevsstable' );
-		if ( $pref == FR_SHOW_STABLE_ALWAYS ) {
-			return true;
-		} elseif ( $pref == FR_SHOW_STABLE_NEVER ) {
-			return false;
-		}
-		# Viewer may be in a group that sees the draft by default
-		if ( $this->userViewsDraftByDefault( $reqUser ) ) {
-			return false;
-		}
-		# Does the stable version override the draft?
-		$config = $this->article->getStabilitySettings();
-		return (bool)$config['override'];
+		$defaultForUser = $this->getPageViewStabilityModeForUser( $reqUser );
+
+		return (
+			# Request is for the default page version
+			$this->isDefaultPageView( $request ) &&
+			# Page is reviewable and has a stable version
+			$this->article->getStableRev() &&
+			# User is not configured to prefer current versions
+			$defaultForUser !== FR_SHOW_STABLE_NEVER &&
+			# User explicitly prefers stable versions of pages
+			(
+				$defaultForUser === FR_SHOW_STABLE_ALWAYS ||
+				# Check if the stable version overrides the draft
+				$this->article->getStabilitySettings()['override']
+			)
+		);
 	}
 
 	/**
@@ -191,27 +187,29 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	 * Should this user see the draft revision of pages by default?
+	 * What version of pages should this user see by default?
 	 * @param User $user
-	 * @return bool
+	 * @return int One of the FR_SHOW_STABLE_* constants
 	 */
-	protected function userViewsDraftByDefault( $user ) {
-		# Check user preferences ("show stable by default?")
-		if ( $user->getOption( 'flaggedrevsstable' ) ) {
-			return false;
+	protected function getPageViewStabilityModeForUser( $user ) {
+		# Check user preferences (e.g. "show stable version by default?")
+		$preference = (int)$user->getOption( 'flaggedrevsstable' );
+		if ( $preference === FR_SHOW_STABLE_ALWAYS || $preference === FR_SHOW_STABLE_NEVER ) {
+			return $preference;
 		}
-		# Viewer sees current by default (editors, insiders, ect...) ?
-		$config = $this->getConfig();
-		foreach ( $config->get( 'FlaggedRevsExceptions' ) as $group ) {
-			if ( $group == 'user' ) {
+		# Check if the user belongs to an "insider" group: one that is aware of the possibility
+		# of problematic content appearing on pages and is involved in content creation/curation.
+		foreach ( $this->getConfig()->get( 'FlaggedRevsExceptions' ) as $group ) {
+			if ( $group === 'user' ) {
 				if ( $user->getId() ) {
-					return true;
+					return FR_SHOW_STABLE_NEVER;
 				}
 			} elseif ( in_array( $group, $user->getGroups() ) ) {
-				return true;
+				return FR_SHOW_STABLE_NEVER;
 			}
 		}
-		return false;
+
+		return FR_SHOW_STABLE_DEFAULT;
 	}
 
 	/**
@@ -221,9 +219,11 @@ class FlaggablePageView extends ContextSource {
 	 */
 	protected function isPageViewOrDiff( WebRequest $request ) {
 		global $mediaWiki;
-		$action = isset( $mediaWiki ) ?
-			$mediaWiki->getAction( $request ) :
-			$request->getVal( 'action', 'view' ); // cli
+
+		$action = isset( $mediaWiki )
+			? $mediaWiki->getAction()
+			: $request->getVal( 'action', 'view' ); // cli
+
 		return self::isViewAction( $action );
 	}
 
@@ -233,8 +233,7 @@ class FlaggablePageView extends ContextSource {
 	 * @return bool
 	 */
 	protected function isPageView( WebRequest $request ) {
-		return $this->isPageViewOrDiff( $request )
-			&& $request->getVal( 'diff' ) === null;
+		return ( $this->isPageViewOrDiff( $request ) && $request->getVal( 'diff' ) === null );
 	}
 
 	/**
@@ -244,9 +243,11 @@ class FlaggablePageView extends ContextSource {
 	 */
 	protected function isDefaultPageView( WebRequest $request ) {
 		global $mediaWiki;
-		$action = isset( $mediaWiki ) ?
-			$mediaWiki->getAction( $request ) :
-			$request->getVal( 'action', 'view' ); // cli
+
+		$action = isset( $mediaWiki )
+			? $mediaWiki->getAction()
+			: $request->getVal( 'action', 'view' ); // cli
+
 		return ( self::isViewAction( $action )
 			&& $request->getVal( 'oldid' ) === null
 			&& $request->getVal( 'stable' ) === null
@@ -670,11 +671,11 @@ class FlaggablePageView extends ContextSource {
 			}
 		}
 
-		# Get the new stable parser output...
-		$pOpts = $this->article->makeParserOptions( $reqUser );
-		$parserOut = FlaggedRevs::parseStableRevision( $frev, $pOpts );
+		# Generate the uncached parser output for this old reviewed version
+		$parserOptions = $this->article->makeParserOptions( $reqUser );
+		$parserOut = FlaggedRevs::parseStableRevision( $frev, $parserOptions );
 
-		# Parse and output HTML
+		# Add the parser output to the page view
 		$this->out->addParserOutput( $parserOut, [ 'enableSectionEditLinks' => false ] );
 
 		return $parserOut;
@@ -751,54 +752,57 @@ class FlaggablePageView extends ContextSource {
 			}
 		}
 
-		# Get parsed stable version and output HTML
-		$pm = MediaWikiServices::getInstance()->getPermissionManager();
-		$pOpts = $this->article->makeParserOptions( $reqUser );
-		$poOpts = [];
-		if ( !$pm->quickUserCan( 'edit', $reqUser, $this->article->getTitle() ) ) {
-			$poOpts['enableSectionEditLinks'] = false;
-		}
-		$parserCache = FRParserCacheStable::singleton();
-		$parserOut = $parserCache->get( $this->article, $pOpts );
+		# Check the stable version cache for the parser output
+		$stableParserCache = FRParserCacheStable::singleton();
+		$parserOptions = $this->article->makeParserOptions( $reqUser );
+		$parserOut = $stableParserCache->get( $this->article, $parserOptions );
 
-		# Do not use the parser cache if it lacks mImageTimeKeys and there is a
-		# chance that a review form will be added to this page (which requires the versions).
-		if ( $parserOut ) {
-			# Cache hit. Note that redirects are not cached.
-			$this->out->addParserOutput( $parserOut, $poOpts );
-		} else {
-			$parserOut = false;
-			# Get the new stable parser output...
+		if ( !$parserOut ) {
 			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT && $synced ) {
-				$mainParserCache = MediaWikiServices::getInstance()->getParserCache();
-				# We can try the current version cache, since they are the same revision
-				$parserOut = $mainParserCache->get( $this->article, $pOpts );
+				# Stable and draft version are identical; check the draft version cache
+				$draftParserCache = MediaWikiServices::getInstance()->getParserCache();
+				$parserOut = $draftParserCache->get( $this->article, $parserOptions );
 			}
 
 			if ( !$parserOut ) {
-				# Actually parse the revision from source text
-				$parserOut = FlaggedRevs::parseStableRevisionPooled( $srev, $pOpts );
+				# Regenerate the parser output, debouncing parse requests via PoolCounter
+				$parserOut = FlaggedRevs::parseStableRevisionPooled( $srev, $parserOptions );
+				if ( $parserOut instanceof Status ) {
+					$this->showPoolError( $parserOut );
+
+					return null;
+				}
 			}
 
-			if ( $parserOut instanceof Status ) {
-				$this->showPoolError( $parserOut );
-
-				return null;
-			} elseif ( !( $parserOut instanceof ParserOutput ) ) { // serious error
-				$this->showMissingRevError( $srev->getRevId() );
-
-				return null;
+			if ( $parserOut instanceof ParserOutput ) {
+				# Update the stable version cache
+				$stableParserCache->save( $parserOut, $this->article, $parserOptions );
+				# Enqueue a job to update the "stable version only" dependencies
+				if ( !wfReadOnly() ) {
+					FlaggedRevs::updateStableOnlyDeps(
+						$this->article,
+						$parserOut,
+						FRDependencyUpdate::DEFERRED
+					);
+				}
 			}
+		}
 
-			# Update the stable version cache
-			$parserCache->save( $parserOut, $this->article, $pOpts );
-			# Add the stable output to the page view
-			$this->out->addParserOutput( $parserOut, $poOpts );
-			# Update the stable version dependencies
-			if ( !wfReadOnly() ) {
-				FlaggedRevs::updateStableOnlyDeps(
-					$this->article, $parserOut, FRDependencyUpdate::DEFERRED );
+		# Add the parser output to the page view
+		if ( $parserOut instanceof ParserOutput ) {
+			$pm = MediaWikiServices::getInstance()->getPermissionManager();
+			$poOptions = [];
+			if (
+				$this->out->isPrintable() ||
+				!$pm->quickUserCan( 'edit', $reqUser, $this->article->getTitle() )
+			) {
+				$poOptions['enableSectionEditLinks'] = false;
 			}
+			$this->out->addParserOutput( $parserOut, $poOptions );
+		} else {
+			$this->showMissingRevError( $srev->getRevId() );
+
+			return null;
 		}
 
 		# Update page sync status for tracking purposes.
@@ -873,11 +877,10 @@ class FlaggablePageView extends ContextSource {
 		if ( !$revsSince ) {
 			return false; // no pending changes
 		}
+
 		$title = $this->article->getTitle(); // convenience
 		# Review status of left diff revision...
-		$leftNote = $quality ?
-			'revreview-hist-quality' :
-			'revreview-hist-basic';
+		$leftNote = $quality ? 'revreview-hist-quality' : 'revreview-hist-basic';
 		$lClass = FlaggedRevsXML::getQualityColor( (int)$quality );
 		// @todo FIXME: i18n Hard coded brackets.
 		$leftNote = "<span class='$lClass'>[" . $this->msg( $leftNote )->escaped() . "]</span>";
@@ -905,6 +908,7 @@ class FlaggablePageView extends ContextSource {
 				$this->getFormattedDiff( $diffBody, $multiNotice, $leftNote, $rightNote ) .
 				"</div>\n";
 		}
+
 		return '';
 	}
 
@@ -1090,6 +1094,7 @@ class FlaggablePageView extends ContextSource {
 	public function addToEditView( EditPage $editPage ) {
 		$reqUser = $this->getUser();
 		$this->load();
+
 		# Must be reviewable. UI may be limited to unobtrusive patrolling system.
 		if ( !$this->article->isReviewable() ) {
 			return true;
@@ -1212,16 +1217,17 @@ class FlaggablePageView extends ContextSource {
 
 	/**
 	 * Add unreviewed pages links
-	 * @return true
 	 */
 	public function addToCategoryView() {
-		$reqUser = $this->getUser();
 		$this->load();
-		if ( !MediaWikiServices::getInstance()->getPermissionManager()
-			->userHasRight( $reqUser, 'review' )
-		) {
-			return true;
+
+		$reqUser = $this->getUser();
+
+		$pm = MediaWikiServices::getInstance()->getPermissionManager();
+		if ( !$pm->userHasRight( $reqUser, 'review' ) ) {
+			return;
 		}
+
 		if ( !FlaggedRevs::useSimpleConfig() ) {
 			# Add links to lists of unreviewed pages and pending changes in this category
 			$category = $this->article->getTitle()->getText();
@@ -1233,7 +1239,6 @@ class FlaggablePageView extends ContextSource {
 				)
 			);
 		}
-		return true;
 	}
 
 	/**
@@ -1247,6 +1252,7 @@ class FlaggablePageView extends ContextSource {
 		$request = $this->getRequest();
 		$reqUser = $this->getUser();
 		$this->load();
+
 		if ( $this->out->isPrintable() ) {
 			return false; // Must be on non-printable output
 		}
@@ -1361,18 +1367,21 @@ class FlaggablePageView extends ContextSource {
 	 * SkinTemplateTabs, to inlude flagged revs UI elements
 	 * @param Skin $skin
 	 * @param array &$actions
-	 * @return bool
 	 */
 	public function setActionTabs( $skin, array &$actions ) {
-		$reqUser = $this->getUser();
 		$this->load();
+
+		$reqUser = $this->getUser();
+
 		if ( FlaggedRevs::useSimpleConfig() ) {
-			return true; // simple custom levels set for action=protect
+			return; // simple custom levels set for action=protect
 		}
+
 		$title = $this->article->getTitle()->getSubjectPage();
 		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
-			return true; // Only reviewable pages need these tabs
+			return; // Only reviewable pages need these tabs
 		}
+
 		// Check if we should show a stabilization tab
 		$pm = MediaWikiServices::getInstance()->getPermissionManager();
 		if (
@@ -1390,7 +1399,6 @@ class FlaggablePageView extends ContextSource {
 				'href' => $stableTitle->getLocalUrl( 'page=' . $title->getPrefixedUrl() )
 			];
 		}
-		return true;
 	}
 
 	/**
