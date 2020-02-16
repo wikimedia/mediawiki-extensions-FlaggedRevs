@@ -1,7 +1,7 @@
 <?php
 
-use MediaWiki\Edit\PreparedEdit;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RenderedRevision;
 use Wikimedia\Rdbms\IDatabase;
 
 /**
@@ -186,14 +186,18 @@ class FlaggedRevsHooks {
 	 * (b) Pages with stable versions that use this page will be purged
 	 * Note: pages with current versions that use this page should already be purged
 	 *
-	 * @param WikiPage $wikiPage
-	 * @param PreparedEdit|null $editInfo
+	 * @param Title $title
+	 * @param RenderedRevision $renderedRevision
+	 * @param DeferrableUpdate[] &$updates
 	 *
 	 * @return true
 	 */
-	public static function onArticleEditUpdates( WikiPage $wikiPage, $editInfo ) {
-		FlaggedRevs::stableVersionUpdates( $wikiPage->getTitle(), null, null, $editInfo );
-		FlaggedRevs::extraHTMLCacheUpdate( $wikiPage->getTitle() );
+	public static function onRevisionDataUpdates(
+		Title $title, RenderedRevision $renderedRevision, array &$updates
+	) {
+		$updates[] = new FRStableVersionUpdate( $title, $renderedRevision );
+		$updates[] = new FRExtraCacheUpdate( $title );
+
 		return true;
 	}
 
