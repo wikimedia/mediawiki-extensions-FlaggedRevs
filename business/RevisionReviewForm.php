@@ -281,6 +281,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		if ( !$this->isAllowed() ) {
 			return 'review_denied';
 		}
+		$status = null;
 		# We can only approve actual revisions...
 		if ( $this->getAction() === 'approve' ) {
 			$rev = Revision::newFromTitle( $this->page, $this->oldid );

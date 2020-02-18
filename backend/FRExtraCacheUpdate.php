@@ -49,6 +49,7 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 		$jobs = [];
 		do {
 			$first = $last = false; // first/last page_id of this batch
+			$id = null;
 			# Get $realBatchSize items (or less if not enough)...
 			for ( $i = 0; $i < $realBatchSize; $i++ ) {
 				$row = $res->fetchRow();

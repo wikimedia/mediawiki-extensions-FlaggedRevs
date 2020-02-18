@@ -62,6 +62,7 @@ class RejectConfirmationFormUI {
 
 		$lastTextId = 0;
 		$rejectIds = $rejectAuthors = [];
+		$lastRejectAuthor = null;
 		foreach ( $res as $row ) {
 			$rev = new Revision( $row );
 			if ( $rev->getTextId() != $lastTextId ) { // skip null edits
