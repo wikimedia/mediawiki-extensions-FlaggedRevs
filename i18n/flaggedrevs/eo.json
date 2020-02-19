@@ -128,7 +128,7 @@
 	"revreview-quick-basic": "'''[[{{MediaWiki:Validationpage}}|Kontrolita]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} rigardi kontrolendajn ŝanĝojn]]",
 	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|Kontrolita]]'''",
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Kontrolita]]'''",
-	"revreview-quick-invalid": "'''Malvalida identigo de versio'''",
+	"revreview-quick-invalid": "'''Nevalida identigo de versio'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Nekontrolita]]'''",
 	"revreview-quick-quality": "'''[[{{MediaWiki:Validationpage}}|Bonkvalita paĝo]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} rigardi kontrolendajn ŝanĝojn]]",
 	"revreview-quick-quality-old": "'''[[{{MediaWiki:Validationpage}}|Bonkvalita]]'''",
