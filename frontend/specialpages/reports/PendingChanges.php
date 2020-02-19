@@ -222,7 +222,8 @@ class PendingChanges extends SpecialPage {
 	protected function feedTitle() {
 		global $wgContLanguageCode, $wgSitename;
 
-		$page = SpecialPageFactory::getPage( 'PendingChanges' );
+		$page = MediaWikiServices::getInstance()->getSpecialPageFactory()
+			->getPage( 'PendingChanges' );
 		$desc = $page->getDescription();
 		return "$wgSitename - $desc [$wgContLanguageCode]";
 	}
