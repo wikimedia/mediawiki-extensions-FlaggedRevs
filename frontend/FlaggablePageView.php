@@ -1554,7 +1554,7 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	protected function getOldIDFromRequest() {
-		$article = new Article( $this->article->getTitle() );
+		$article = Article::newFromWikiPage( $this->article, RequestContext::getMain() );
 		return $article->getOldIDFromRequest();
 	}
 
@@ -2177,7 +2177,7 @@ class FlaggablePageView extends ContextSource {
 		}
 		if ( !isset( $editPage->fr_baseRevId ) ) {
 			$article = $editPage->getArticle(); // convenience
-			$latestId = $article->getLatest(); // current rev
+			$latestId = $article->getPage()->getLatest(); // current rev
 			# Undoing edits...
 			if ( $request->getIntOrNull( 'undo' ) ) {
 				$revId = $latestId; // current rev is the base rev
@@ -2210,7 +2210,7 @@ class FlaggablePageView extends ContextSource {
 		}
 		if ( !isset( $editPage->fr_altBaseRevId ) ) {
 			$article = $editPage->getArticle(); // convenience
-			$latestId = $article->getLatest(); // current rev
+			$latestId = $article->getPage()->getLatest(); // current rev
 			$undo = $request->getIntOrNull( 'undo' );
 			# Undoing consecutive top edits...
 			if ( $undo && $undo === $latestId ) {

@@ -329,7 +329,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			if ( $srev && $oldRev->getTimestamp() < $srev->getRevTimestamp() ) {
 				return 'review_cannot_reject'; // not really a use case
 			}
-			$article = new WikiPage( $this->page );
+			$article = WikiPage::factory( $this->page );
 			# Get text with changes after $oldRev up to and including $newRev removed
 			$new_content = $article->getUndoContent( $newRev, $oldRev );
 			if ( $new_content === false ) {

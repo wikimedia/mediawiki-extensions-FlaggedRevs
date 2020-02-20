@@ -79,10 +79,10 @@ class ReviewAllPages extends Maintenance {
 				$frev = FlaggedRevision::newFromTitle( $title, $row->page_latest, FR_MASTER );
 				# Rev should exist, but to be safe...
 				if ( !$frev && $rev ) {
-					$article = new WikiPage( $title );
+					$wikiPage = WikiPage::factory( $title );
 					$db->startAtomic( __METHOD__ );
-					FlaggedRevs::autoReviewEdit( $article, $user, new Revision( $rev ), $flags, true );
-					FlaggedRevs::HTMLCacheUpdates( $article->getTitle() );
+					FlaggedRevs::autoReviewEdit( $wikiPage, $user, new Revision( $rev ), $flags, true );
+					FlaggedRevs::HTMLCacheUpdates( $wikiPage->getTitle() );
 					$db->endAtomic( __METHOD__ );
 					$changed++;
 				}

@@ -9,7 +9,7 @@ use MediaWiki\MediaWikiServices;
 class FRInclusionCache {
 	/**
 	 * Get template and image versions from parsing a revision
-	 * @param Page|WikiPage|Article $article
+	 * @param WikiPage $wikiPage
 	 * @param Revision $rev
 	 * @param User $user
 	 * @param string $regen use 'regen' to force regeneration
@@ -18,25 +18,25 @@ class FRInclusionCache {
 	 * fileSHA1Keys like ParserOutput->mImageTimeKeys
 	 */
 	public static function getRevIncludes(
-		Page $article, Revision $rev, User $user, $regen = ''
+		WikiPage $wikiPage, Revision $rev, User $user, $regen = ''
 	) {
 		global $wgParserCacheExpireTime;
 
 		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
-		$key = self::getCacheKey( $cache, $article->getTitle(), $rev->getId() );
+		$key = self::getCacheKey( $cache, $wikiPage->getTitle(), $rev->getId() );
 
-		$callback = function () use ( $article, $rev, $user ) {
+		$callback = function () use ( $wikiPage, $rev, $user ) {
 			$pOut = false;
 			if ( $rev->isCurrent() ) {
 				$parserCache = MediaWikiServices::getInstance()->getParserCache();
 				# Try current version parser cache for this user...
-				$pOut = $parserCache->get( $article, $article->makeParserOptions( $user ) );
+				$pOut = $parserCache->get( $wikiPage, $wikiPage->makeParserOptions( $user ) );
 				if ( $pOut == false ) {
 					# Try current version parser cache for the revision author...
 					$optsUser = $rev->getUser()
 						? User::newFromId( $rev->getUser() )
 						: 'canonical';
-					$pOut = $parserCache->get( $article, $article->makeParserOptions( $optsUser ) );
+					$pOut = $parserCache->get( $wikiPage, $wikiPage->makeParserOptions( $optsUser ) );
 				}
 			}
 
@@ -47,7 +47,9 @@ class FRInclusionCache {
 					$pOut = new ParserOutput();
 				} else {
 					$pOut = $content->getParserOutput(
-						$article->getTitle(), $rev->getId(), ParserOptions::newFromUser( $user )
+						$wikiPage->getTitle(),
+						$rev->getId(),
+						ParserOptions::newFromUser( $user )
 					);
 				}
 			}
@@ -61,8 +63,8 @@ class FRInclusionCache {
 		} else {
 			if ( $rev->isCurrent() ) {
 				// Check cache entry against page_touched
-				$touchedCallback = function () use ( $article ) {
-					return wfTimestampOrNull( TS_UNIX, $article->getTouched() );
+				$touchedCallback = function () use ( $wikiPage ) {
+					return wfTimestampOrNull( TS_UNIX, $wikiPage->getTouched() );
 				};
 			} else {
 				// Old revs won't always be invalidated with template/file changes.

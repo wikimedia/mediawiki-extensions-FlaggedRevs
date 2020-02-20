@@ -233,13 +233,18 @@ class FlaggedRevsUIHooks {
 	 * @param WebRequest $request
 	 * @param bool &$ignoreRedirect
 	 * @param string &$target
-	 * @param WikiPage|Article &$article
+	 * @param Article &$article
 	 * @return true
 	 */
 	public static function overrideRedirect(
-		Title $title, WebRequest $request, &$ignoreRedirect, &$target, Page &$article
+		Title $title,
+		WebRequest $request,
+		&$ignoreRedirect,
+		&$target,
+		Article &$article
 	) {
 		global $wgParserCacheExpireTime;
+		$wikiPage = $article->getPage();
 
 		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
 			return true;
@@ -257,11 +262,11 @@ class FlaggedRevsUIHooks {
 		$srev = $fa->getStableRev();
 		$view = FlaggablePageView::singleton();
 		# Check if we are viewing an unsynced stable version...
-		if ( $srev && $view->showingStable() && $srev->getRevId() != $article->getLatest() ) {
+		if ( $srev && $view->showingStable() && $srev->getRevId() != $wikiPage->getLatest() ) {
 			# Check the stable redirect properties from the cache...
 			$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 			$stableRedirect = $cache->getWithSetCallback(
-				$cache->makeKey( 'flaggedrevs-stable-redirect', $article->getId() ),
+				$cache->makeKey( 'flaggedrevs-stable-redirect', $wikiPage->getId() ),
 				$wgParserCacheExpireTime,
 				function () use ( $fa, $srev ) {
 					$content = $srev->getRevision()->getContent();
@@ -269,8 +274,8 @@ class FlaggedRevsUIHooks {
 					return $fa->getRedirectURL( $content->getUltimateRedirectTarget() ) ?: '';
 				},
 				[
-					'touchedCallback' => function () use ( $article ) {
-						return wfTimestampOrNull( TS_UNIX, $article->getTouched() );
+					'touchedCallback' => function () use ( $wikiPage ) {
+						return wfTimestampOrNull( TS_UNIX, $wikiPage->getTouched() );
 					}
 				]
 			);
@@ -284,7 +289,7 @@ class FlaggedRevsUIHooks {
 		} else {
 			# In both cases, we can just let MW use followRedirect()
 			# on the draft as normal, avoiding any page text hits.
-			$clearEnvironment = $article->isRedirect();
+			$clearEnvironment = $wikiPage->isRedirect();
 		}
 		# Environment will change in MediaWiki::initializeArticle
 		if ( $clearEnvironment ) {
@@ -967,17 +972,23 @@ class FlaggedRevsUIHooks {
 	 * @param string &$output
 	 * @return true
 	 */
-	public static function onProtectionForm( Article $article, &$output ) {
+	public static function onProtectionForm(
+		Article $article,
+		&$output
+	) {
 		global $wgOut, $wgRequest, $wgLang, $wgFlaggedRevsProtection;
+		$wikiPage = $article->getPage();
+		$title = $wikiPage->getTitle();
+
 		if (
 			!$wgFlaggedRevsProtection
-			|| !$article->exists()
-			|| !FlaggedRevs::inReviewNamespace( $article->getTitle() ) // not a reviewable page
+			|| !$wikiPage->exists()
+			|| !FlaggedRevs::inReviewNamespace( $title ) // not a reviewable page
 		) {
 			return true;
 		}
 		$form = new PageStabilityProtectForm( $article->getContext()->getUser() );
-		$form->setPage( $article->getTitle() );
+		$form->setPage( $title );
 		# Can the user actually do anything?
 		$isAllowed = $form->isAllowed();
 		$disabledAttrib = $isAllowed ?
@@ -985,7 +996,7 @@ class FlaggedRevsUIHooks {
 
 		# Get the current config/expiry
 		$mode = $wgRequest->wasPosted() ? FR_MASTER : 0;
-		$config = FRPageConfig::getStabilitySettings( $article->getTitle(), $mode );
+		$config = FRPageConfig::getStabilitySettings( $title, $mode );
 		$oldExpirySelect = ( $config['expiry'] == 'infinity' ) ? 'infinite' : 'existing';
 
 		# Load requested restriction level, default to current level...
@@ -1114,16 +1125,22 @@ class FlaggedRevsUIHooks {
 
 	/**
 	 * Add stability log extract to protection form
-	 * @param WikiPage|Article $article
+	 * @param Article $article
 	 * @param OutputPage $out
 	 * @return true
 	 */
-	public static function insertStabilityLog( Page $article, OutputPage $out ) {
+	public static function insertStabilityLog(
+		Article $article,
+		OutputPage $out
+	) {
 		global $wgFlaggedRevsProtection;
+		$wikiPage = $article->getPage();
+		$title = $wikiPage->getTitle();
+
 		if (
 			!$wgFlaggedRevsProtection
-			|| !$article->exists()
-			|| !FlaggedRevs::inReviewNamespace( $article->getTitle() ) // not a reviewable page
+			|| !$wikiPage->exists()
+			|| !FlaggedRevs::inReviewNamespace( $title ) // not a reviewable page
 		) {
 			return true;
 		}
@@ -1131,7 +1148,7 @@ class FlaggedRevsUIHooks {
 		# Show relevant lines from the stability log:
 		$logPage = new LogPage( 'stable' );
 		$out->addHTML( Xml::element( 'h2', null, $logPage->getName()->text() ) );
-		LogEventsList::showLogExtract( $out, 'stable', $article->getTitle()->getPrefixedText() );
+		LogEventsList::showLogExtract( $out, 'stable', $title->getPrefixedText() );
 		return true;
 	}
 
@@ -1143,22 +1160,25 @@ class FlaggedRevsUIHooks {
 	 */
 	public static function onProtectionSave( Article $article, &$errorMsg ) {
 		global $wgRequest, $wgFlaggedRevsProtection;
+		$wikiPage = $article->getPage();
+		$title = $wikiPage->getTitle();
+		$user = $article->getContext()->getUser();
+
 		if (
 			!$wgFlaggedRevsProtection
-			|| !$article->exists() // simple custom levels set for action=protect
-			|| !FlaggedRevs::inReviewNamespace( $article->getTitle() ) // not a reviewable page
+			|| !$wikiPage->exists() // simple custom levels set for action=protect
+			|| !FlaggedRevs::inReviewNamespace( $title ) // not a reviewable page
 		) {
 			return true;
 		}
 
-		$user = $article->getContext()->getUser();
 		if ( wfReadOnly() || !MediaWikiServices::getInstance()->getPermissionManager()
 				->userHasRight( $user, 'stablesettings' )
 		) {
 			return true; // user cannot change anything
 		}
 		$form = new PageStabilityProtectForm( $user );
-		$form->setPage( $article->getTitle() ); // target page
+		$form->setPage( $title ); // target page
 		$permission = $wgRequest->getVal( 'mwStabilityLevel' );
 		if ( $permission == "none" ) {
 			$permission = ''; // 'none' => ''

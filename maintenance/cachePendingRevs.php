@@ -48,13 +48,13 @@ class CachePendingRevs extends Maintenance {
 		$user = User::newSystemUser( 'Maintenance script', [ 'steal' => true ] );
 		foreach ( $ret as $row ) {
 			$title = Title::newFromRow( $row );
-			$article = new Article( $title );
+			$wikiPage = WikiPage::factory( $title );
 			$rev = new Revision( $row );
 			// Trigger cache regeneration
 			$start = microtime( true );
 
 			FRInclusionCache::getRevIncludes(
-				$article,
+				$wikiPage,
 				$rev,
 				$user,
 				'regen'

@@ -204,15 +204,15 @@ class FlaggedRevsHooks {
 	 * (a) Update flaggedrevs page/tracking tables
 	 * (b) Pages with stable versions that use this page will be purged
 	 * Note: pages with current versions that use this page should already be purged
-	 * @param WikiPage|Article $article
+	 * @param WikiPage $wikiPage
 	 * @param User $user
 	 * @param string $reason
 	 * @param int $id
 	 * @return true
 	 */
-	public static function onArticleDelete( Page $article, $user, $reason, $id ) {
+	public static function onArticleDelete( WikiPage $wikiPage, $user, $reason, $id ) {
 		FlaggedRevs::clearTrackingRows( $id );
-		FlaggedRevs::extraHTMLCacheUpdate( $article->getTitle() );
+		FlaggedRevs::extraHTMLCacheUpdate( $wikiPage->getTitle() );
 		return true;
 	}
 
@@ -474,26 +474,25 @@ class FlaggedRevsHooks {
 	 * (d) The user can 'review' and the "review pending edits" checkbox was checked
 	 *
 	 * Note: RC items not inserted yet, RecentChange_save hook does rc_patrolled bit...
-	 * Note: $article one of Article, ImagePage, Category page as appropriate.
-	 * @param WikiPage|Article $article
+	 * @param WikiPage $wikiPage
 	 * @param Revision $rev
 	 * @param int|false $baseRevId
 	 * @param User|null $user
 	 * @return true
 	 */
 	public static function maybeMakeEditReviewed(
-		Page $article, $rev, $baseRevId = false, $user = null
+		WikiPage $wikiPage, $rev, $baseRevId = false, $user = null
 	) {
 		global $wgRequest;
 
-		$title = $article->getTitle(); // convenience
+		$title = $wikiPage->getTitle(); // convenience
 		# Edit must be non-null, to a reviewable page, with $user set
 		$fa = FlaggableWikiPage::getTitleInstance( $title );
 		$fa->loadPageData( FlaggableWikiPage::READ_LATEST );
 		if ( !$rev || !$user || !$fa->isReviewable() ) {
 			return true;
 		}
-		$fa->preloadPreparedEdit( $article ); // avoid double parse
+		$fa->preloadPreparedEdit( $wikiPage ); // avoid double parse
 		$title->resetArticleID( $rev->getPage() ); // Avoid extra DB hit and lag issues
 		# Get what was just the current revision ID
 		$prevRevId = $rev->getParentId();
@@ -604,18 +603,18 @@ class FlaggedRevsHooks {
 	/**
 	 * Review $rev if $editTimestamp matches the previous revision's timestamp.
 	 * Otherwise, review the revision that has $editTimestamp as its timestamp value.
-	 * @param WikiPage|Article $article
+	 * @param WikiPage $wikiPage
 	 * @param Revision $rev
 	 * @param User $user
 	 * @param string $editTimestamp
 	 * @return bool
 	 */
-	protected static function editCheckReview(
-		Page $article, $rev, $user, $editTimestamp
+	private static function editCheckReview(
+		WikiPage $wikiPage, $rev, $user, $editTimestamp
 	) {
 		$prevTimestamp = null;
 		$prevRevId = $rev->getParentId(); // revision before $rev
-		$title = $article->getTitle(); // convenience
+		$title = $wikiPage->getTitle(); // convenience
 		# Check wpEdittime against the former current rev for verification
 		if ( $prevRevId ) {
 			$prevTimestamp = Revision::getTimestampFromId(
@@ -635,7 +634,7 @@ class FlaggedRevsHooks {
 		}
 		$flags = null;
 		# Review this revision of the page...
-		return FlaggedRevs::autoReviewEdit( $article, $user, $rev, $flags, false /* manual */ );
+		return FlaggedRevs::autoReviewEdit( $wikiPage, $user, $rev, $flags, false /* manual */ );
 	}
 
 	/**
@@ -836,21 +835,21 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	 * @param WikiPage|Article $article
+	 * @param WikiPage $wikiPage
 	 * @param Revision $rev
 	 * @param bool $baseRevId
 	 * @param null $user
 	 * @return bool
 	 */
 	public static function incrementReverts(
-		Page $article, $rev, $baseRevId = false, $user = null
+		WikiPage $wikiPage, $rev, $baseRevId = false, $user = null
 	) {
 		global $wgRequest;
 		# Was this an edit by an auto-sighter that undid another edit?
 		$undid = $wgRequest->getInt( 'undidRev' );
 		if ( $rev && $undid && $user->isAllowed( 'autoreview' ) ) {
 			// Note: $rev->getTitle() might be undefined (no rev id?)
-			$badRev = Revision::newFromTitle( $article->getTitle(), $undid );
+			$badRev = Revision::newFromTitle( $wikiPage->getTitle(), $undid );
 			if ( $badRev && $badRev->getUser( Revision::RAW ) // by logged-in user
 				&& $badRev->getUser( Revision::RAW ) != $rev->getUser( Revision::RAW ) // no self-reverts
 			) {

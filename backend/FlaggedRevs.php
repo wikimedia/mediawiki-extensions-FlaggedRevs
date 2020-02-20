@@ -639,8 +639,9 @@ class FlaggedRevs {
 	 * @throws Exception
 	 */
 	public static function stableVersionUpdates(
-		$page, $sv = null, $oldSv = null, $renderedRevision = null
+		object $page, $sv = null, $oldSv = null, $renderedRevision = null
 	) {
+		/** @var FlaggableWikiPage $article */
 		if ( $page instanceof FlaggableWikiPage ) {
 			$article = $page;
 		} elseif ( $page instanceof WikiPage ) {
@@ -720,12 +721,16 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * @param WikiPage|Article $article
+	 * @param FlaggableWikiPage $article
 	 * @param ParserOutput $stableOut
 	 * @param int $mode FRDependencyUpdate::DEFERRED/FRDependencyUpdate::IMMEDIATE
 	 * Updates the stable-only cache dependency table
 	 */
-	public static function updateStableOnlyDeps( Page $article, ParserOutput $stableOut, $mode ) {
+	public static function updateStableOnlyDeps(
+		FlaggableWikiPage $article,
+		ParserOutput $stableOut,
+		$mode
+	) {
 		$frDepUpdate = new FRDependencyUpdate( $article->getTitle(), $stableOut );
 		$frDepUpdate->doUpdate( $mode );
 	}
@@ -942,7 +947,7 @@ class FlaggedRevs {
 	 * If $flags is given, then they will be the review tags. If not, the one
 	 * from the stable version will be used or minimal tags if that's not possible.
 	 * If no appropriate tags can be found, then the review will abort.
-	 * @param WikiPage|Article $article
+	 * @param WikiPage $article
 	 * @param User $user
 	 * @param Revision $rev
 	 * @param array|null $flags
@@ -950,7 +955,11 @@ class FlaggedRevs {
 	 * @return true
 	 */
 	public static function autoReviewEdit(
-		Page $article, $user, Revision $rev, array $flags = null, $auto = true
+		WikiPage $article,
+		$user,
+		Revision $rev,
+		array $flags = null,
+		$auto = true
 	) {
 		$title = $article->getTitle(); // convenience
 		# Get current stable version ID (for logging)
@@ -1035,7 +1044,7 @@ class FlaggedRevs {
 		$fileData = [ 'name' => null, 'timestamp' => null, 'sha1' => null ];
 		if ( $title->getNamespace() == NS_FILE ) {
 			# We must use WikiFilePage process cache on upload or get bitten by slave lag
-			$file = ( $article instanceof WikiFilePage || $article instanceof ImagePage )
+			$file = $article instanceof WikiFilePage
 				? $article->getFile() // uses up-to-date process cache on new uploads
 				: MediaWikiServices::getInstance()->getRepoGroup()
 					->findFile( $title, [ 'bypassCache' => true ] ); // skip cache; bug 31056
