@@ -25,8 +25,8 @@ class UpdateFlaggedRevsStats extends Maintenance {
 		FlaggedRevsStats::updateCache();
 		$time2 = microtime( true );
 
-		$ellapsed = ( $time2 - $time1 );
-		$this->output( sprintf( "completed in %.2fs\n", $ellapsed ) );
+		$elapsed = ( $time2 - $time1 );
+		$this->output( sprintf( "completed in %.2fs\n", $elapsed ) );
 	}
 }
 
