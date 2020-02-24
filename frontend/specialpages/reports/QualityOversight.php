@@ -41,6 +41,7 @@ class QualityOversight extends SpecialPage {
 		$actions = $this->getActions();
 		if ( empty( $actions ) ) {
 			$out->addWikiMsg( 'qualityoversight-list', 0 );
+			$this->showForm();
 			$out->addWikiMsg( 'logempty' );
 			return;
 		}
