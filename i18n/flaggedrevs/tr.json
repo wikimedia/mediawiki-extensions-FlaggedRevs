@@ -49,7 +49,7 @@
 	"flaggedrevs-prefs-editdiffs": "Sayfaları değiştirirken bekleyen değişiklikler farkını göster",
 	"flaggedrevs-prefs-viewdiffs": "Son bekleyen revizyonu görüntülerken bekleyen değişiklik farkını göster",
 	"flaggedrevs-hidereviewed": "İncelenmiş değişiklikleri $1",
-	"flaggedrevs-hidereviewed-hide": "gizle",
+	"flaggedrevs-hidereviewed-hide": "Gizle",
 	"flaggedrevs-hidereviewed-show": "Göster",
 	"flaggedrevs-rcfilters-need-review-label": "İnceleme bekleyen",
 	"flaggedrevs-rcfilters-need-review-desc": "İncelenmesi gereken değişiklikler",
