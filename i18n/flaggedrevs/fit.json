@@ -5,7 +5,22 @@
 			"Palmtree222"
 		]
 	},
+	"action-review": "arvioida versuuneita",
+	"flaggedrevs-rcfilters-not-reviewable-desc": "Kaikki sellatteet muutokset, joita ei tartte tarkastaa.",
+	"revreview-log-details-show": "näytä tarkat tieot",
+	"revreview-log-details-hide": "piilota tarkat tieot",
+	"revreview-basic": "Tämä oon [[{{MediaWiki:Validationpage}}|vakaa versuuni]], joka oon [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} arvioitu] <i>$2</i>.\n[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Uusin versuuni] sisältää [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|muutoksen|muutosta}}] venttaamassa arviointia.",
+	"revreview-basic-i": "Tämä oon [[{{MediaWiki:Validationpage}}|vakaa versuuni]], joka oon [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} arvioitu] <i>$2</i>.\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Malli- tai fiilimuutokset] venttaavat arviointia.",
+	"revreview-basic-old": "Tämä oon [[{{MediaWiki:Validationpage}}|katsottu]] versuuni ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} näytä kaikki]), joka [{{fullurl:{{#Special:Log}}|\ntype=review&page={{FULLPAGENAMEE}}}} arvioitiin] <i>$2</i>.\nUusia [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} muutoksia] oon voitu tehdä.",
+	"revreview-basic-same": "Tämä on [[{{MediaWiki:Validationpage}}|vakaa versuuni]], joka oon [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} katottu] <i>$2</i>.",
+	"revreview-basic-source": "[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Katsottu versuuni] tästä sivusta, joka [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} hyväksyttiin] <i>$2</i>, perustui tähän versuuniin.",
 	"revreview-current": "Uusin versuuni",
+	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} näytä venttaavat muutokset]]",
+	"revreview-quick-see-quality": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} näytä venttaavat muutokset]]",
+	"revreview-basic-title": "Tämä oon katottu versuuni tästä sivusta",
+	"revreview-filter-reapproved": "Arvioitu uuesti",
+	"revreview-filter-unapproved": "Arviointi otettu poies",
+	"revreview-filter-auto": "Auttomaattinen",
 	"revreview-reviewlink": "venttaavat muutokset",
-	"tooltip-ca-current": "Näytä arviointia odottavat muutokset"
+	"tooltip-ca-current": "Näytä arviointia venttaavat muutokset"
 }

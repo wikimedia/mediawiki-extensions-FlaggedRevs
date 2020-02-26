@@ -4,5 +4,12 @@
 			"Pyscowicz"
 		]
 	},
-	"pendingchanges-hours": "($1 {{PLURAL:$1|tiima|tiimaa}})"
+	"pendingchanges": "Sivut, joilla on arviointia venttaavia muutoksia",
+	"pendingchanges-legend": "Luettele arvioidut sivut, joissa on arviointia venttaavia muutoksia.",
+	"pendingchanges-list": "Tämä sivu näyttää [[{{MediaWiki:Validationpage}}|arvioidut]] sivut, joilla on venttaavia muutoksia.",
+	"pendingchanges-hours": "($1 {{PLURAL:$1|tiima|tiimaa}})",
+	"pendingchanges-recent": "(alle yksi tiima)",
+	"pendingchanges-category": "Katekuuri:",
+	"pendingchanges-onwatchlist": "Valvontalistallani olevat sivut",
+	"pendingchanges-stable": "Vakautettu versuuni oletuksena"
 }
