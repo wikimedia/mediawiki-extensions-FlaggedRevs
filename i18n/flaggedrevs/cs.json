@@ -12,7 +12,8 @@
 			"Cvanca",
 			"Ilimanaq29",
 			"Dvorapa",
-			"MrJaroslavik"
+			"MrJaroslavik",
+			"Matěj Suchánek"
 		]
 	},
 	"action-review": "posoudit revize",
@@ -32,7 +33,7 @@
 	"flaggedrevs-prefs-watch": "Přidat stránky, které zkontroluji, do mého seznamu sledovaných stránek",
 	"flaggedrevs-prefs-editdiffs": "Zobrazit navržené změny k posouzení při editování stránek",
 	"flaggedrevs-prefs-viewdiffs": "Zobrazit rozdíl navržených změn při posuzovaní nejnovější verze",
-	"flaggedrevs-hidereviewed": "$1 {{PLURAL:$1|posouzená editace|posouzené editace|posouzených editací}}",
+	"flaggedrevs-hidereviewed": "$1 posouzené editace",
 	"flaggedrevs-hidereviewed-hide": "Skrýt",
 	"flaggedrevs-hidereviewed-show": "Zobrazit",
 	"flaggedrevs-rcfilters-need-review-label": "Čeká na posouzení",
