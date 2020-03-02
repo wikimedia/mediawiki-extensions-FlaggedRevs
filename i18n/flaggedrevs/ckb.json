@@ -4,7 +4,8 @@
 			"Calak",
 			"Sarchia",
 			"Lost Whispers",
-			"Épine"
+			"Épine",
+			"Arya sarhan"
 		]
 	},
 	"action-review": "بەسەرداچوونەوەی پێداچوونەوەکان",
@@ -162,7 +163,7 @@
 	"revreview-def-stable": "جێگرتوو",
 	"revreview-restrictfilter": "سنووردارێتیی بەسەرداچوونەوەی خۆگەڕ:",
 	"revreview-restriction-any": "ھەموو",
-	"revreview-restriction-none": "ھیچ",
+	"revreview-restriction-none": "ھیچیان",
 	"revreview-reviewlink": "دەستکارییە ھەڵواسراوەکان",
 	"revreview-reviewlink-title": "جیاوازیی ھەموو گۆڕانکارییە ھەڵواسراوەکان ببینە",
 	"revreview-unreviewedpage": "پەڕەی تاوتوێ نەکراو",
