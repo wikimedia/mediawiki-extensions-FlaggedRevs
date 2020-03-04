@@ -1,5 +1,8 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionLookup;
+
 class FlaggedRevsLog {
 	/**
 	 * Record a log entry on the review action
@@ -57,7 +60,9 @@ class FlaggedRevsLog {
 			$action = FlaggedRevs::isQuality( $oldDims ) ?
 				'unapprove2' : 'unapprove';
 		}
-		$ts = Revision::getTimestampFromId( $title, $revId, Revision::READ_LATEST );
+		$ts = MediaWikiServices::getInstance()
+			->getRevisionLookup()
+			->getTimestampFromId( $revId, RevisionLookup::READ_LATEST );
 
 		$logEntry = new ManualLogEntry( 'review', $action );
 		$logEntry->setPerformer( $user );

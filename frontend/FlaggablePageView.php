@@ -1477,9 +1477,13 @@ class FlaggablePageView extends ContextSource {
 		} elseif ( $this->isPageViewOrDiff( $request ) ) {
 			$ts = null;
 			if ( $this->out->getRevisionId() ) { // @TODO: avoid same query in Skin.php
-				$ts = ( $this->out->getRevisionId() == $this->article->getLatest() ) ?
-					$this->article->getTimestamp() : // skip query
-					Revision::getTimestampFromId( $title, $this->out->getRevisionId() );
+				if ( $this->out->getRevisionId() == $this->article->getLatest() ) {
+					$ts = $this->article->getTimestamp(); // skip query
+				} else {
+					$ts = MediaWikiServices::getInstance()
+						->getRevisionLookup()
+						->getTimestampFromId( $this->out->getRevisionId() );
+				}
 			}
 			// Are we looking at a pending revision?
 			if ( $ts > $srev->getRevTimestamp() ) { // bug 15515

@@ -2,6 +2,7 @@
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RenderedRevision;
+use MediaWiki\Revision\RevisionLookup;
 use Wikimedia\Rdbms\IDatabase;
 
 /**
@@ -515,9 +516,10 @@ class FlaggedRevsHooks {
 		# If a $baseRevId is passed in, the edit is using an old revision's text
 		$isOldRevCopy = (bool)$baseRevId; // null edit or rollback
 		# Get the revision ID the incoming one was based off...
+		$revisionLookup = MediaWikiServices::getInstance()->getRevisionLookup();
 		if ( !$baseRevId && $prevRevId ) {
-			$prevTimestamp = Revision::getTimestampFromId(
-				$title, $prevRevId, Revision::READ_LATEST );
+			$prevTimestamp = $revisionLookup->getTimestampFromId( $prevRevId,
+				RevisionLookup::READ_LATEST );
 			# The user just made an edit. The one before that should have
 			# been the current version. If not reflected in wpEdittime, an
 			# edit may have been auto-merged in between, in that case, discard
@@ -548,8 +550,8 @@ class FlaggedRevsHooks {
 				$reviewableNewPage = false; // had previous rev
 				# If a edit was automatically merged, do not trust 'baseRevId' (bug 33481).
 				# Do this by verifying the user-provided edittime against the prior revision.
-				$prevRevTimestamp = Revision::getTimestampFromId(
-					$title, $prevRevId, Revision::READ_LATEST );
+				$prevRevTimestamp = $revisionLookup->getTimestampFromId( $prevRevId,
+					RevisionLookup::READ_LATEST );
 				if ( $editTimestamp && $editTimestamp !== $prevRevTimestamp ) {
 					$baseRevId = $prevRevId;
 					$altBaseRevId = 0;
@@ -614,11 +616,11 @@ class FlaggedRevsHooks {
 	) {
 		$prevTimestamp = null;
 		$prevRevId = $rev->getParentId(); // revision before $rev
-		$title = $wikiPage->getTitle(); // convenience
 		# Check wpEdittime against the former current rev for verification
 		if ( $prevRevId ) {
-			$prevTimestamp = Revision::getTimestampFromId(
-				$title, $prevRevId, Revision::READ_LATEST );
+			$prevTimestamp = MediaWikiServices::getInstance()
+				->getRevisionLookup()
+				->getTimestampFromId( $prevRevId, RevisionLookup::READ_LATEST );
 		}
 		# Was $rev is an edit to an existing page?
 		if ( $prevTimestamp ) {

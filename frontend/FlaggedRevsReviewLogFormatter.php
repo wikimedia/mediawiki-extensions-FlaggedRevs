@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class FlaggedRevsReviewLogFormatter extends LogFormatter {
 	protected $isDeapproval = false;
 
@@ -45,7 +47,8 @@ class FlaggedRevsReviewLogFormatter extends LogFormatter {
 			}
 			# Show a diff link to this revision
 			$ts = empty( $params[2] )
-				? Revision::getTimestampFromId( $title, $revId )
+				? MediaWikiServices::getInstance()->getRevisionLookup()
+					->getTimestampFromId( $revId )
 				: $params[2];
 			$time = $this->context->getLanguage()->timeanddate( $ts, true );
 			$links .= ' (';
