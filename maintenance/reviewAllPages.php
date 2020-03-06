@@ -4,6 +4,7 @@
  */
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionStore;
 
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
@@ -70,16 +71,17 @@ class ReviewAllPages extends Maintenance {
 				__METHOD__
 			);
 			# Go through and autoreview the current version of every page...
+			$revisionStore = MediaWikiServices::getInstance()->getRevisionStore();
 			foreach ( $res as $row ) {
 				$title = Title::newFromRow( $row );
-				$rev = Revision::newFromRow( $row );
+				$rev = $revisionStore->newRevisionFromRow( $row, RevisionStore::READ_LATEST );
 				# Is it already reviewed?
 				$frev = FlaggedRevision::newFromTitle( $title, $row->page_latest, FR_MASTER );
 				# Rev should exist, but to be safe...
 				if ( !$frev && $rev ) {
 					$article = new WikiPage( $title );
 					$db->startAtomic( __METHOD__ );
-					FlaggedRevs::autoReviewEdit( $article, $user, $rev, $flags, true );
+					FlaggedRevs::autoReviewEdit( $article, $user, new Revision( $rev ), $flags, true );
 					FlaggedRevs::HTMLCacheUpdates( $article->getTitle() );
 					$db->endAtomic( __METHOD__ );
 					$changed++;
