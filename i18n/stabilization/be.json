@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Хомелка",
-			"Artsiom91"
+			"Artsiom91",
+			"Maksim L."
 		]
 	},
 	"stabilization-tab": "(кк)",
@@ -18,7 +19,7 @@
 	"stabilization-restrict-none": "Няма дадатковых абмежаванняў",
 	"stabilization-submit": "Пацвердзіць",
 	"stabilization-notexists": "Адсутнічае старонка з назвай «[[:$1|$1]]». Наладка немагчыма.",
-	"stabilization-notcontent": "Старонка «[[:$1|$1]]» не можа быць праверана. Наладка немагчыма.",
+	"stabilization-notcontent": "Старонка «[[:$1|$1]]» не можа быць праверана. Настройка немагчыма.",
 	"stabilization-comment": "Прычына:",
 	"stabilization-otherreason": "Іншая прычына:",
 	"stabilization-expiry": "Канчаецца:",

@@ -9,6 +9,7 @@
 	},
 	"apihelp-flagconfig-example-1": "Veynd desmal vıraşten",
 	"apihelp-query+configuredpages-description": "Hısusiy çım eşten vıraştena peran hemın numre kerdış",
+	"apihelp-query+configuredpages-summary": "Hısusiy çım eşten vıraştena peran hemın numre kerdış",
 	"apihelp-query+configuredpages-param-start": "Kamiya perrer ra lista sergend nê.",
 	"apihelp-query+configuredpages-param-end": "Kamiya perrer ra lista vındar nê.",
 	"apihelp-query+configuredpages-param-namespace": "Caynamam amorê",
@@ -17,6 +18,10 @@
 	"apihelp-query+configuredpages-param-limit": "Raçarnayışi rê pêro piya çend peli.",
 	"apihelp-query+configuredpages-example-1": "Hısusiy çım eşten vıraştena peran listey motneno",
 	"apihelp-query+configuredpages-example-2": "Heqa hısusiy çım eşten vıraştena tay peran malumat gêno",
+	"apihelp-query+flagged-summary": "Belı bıyaye pela de heqê weziyetê nışan kerdışi melumat bıgêrê",
+	"apihelp-query+flagged-example-1": "Melumatê u weziyetê nışan kerdışê [[Main Page]] bıgêrê",
+	"apihelp-query+flagged-example-2": "Peli be herfa \"K\" başle kerdê weziyetê desmale wa hıbo",
+	"apihelp-query+oldreviewedpages-summary": "Terkit waşte  vurnayışa ihtiwa kerden pela  keno rêze",
 	"apihelp-query+oldreviewedpages-param-maxsize": "Amora ebata karakterer bıvurnë",
 	"apihelp-query+oldreviewedpages-param-namespace": "Caname amorden",
 	"apihelp-query+oldreviewedpages-param-filterredir": "Qandë hetenayışa kes seni filtre ke no",
@@ -52,5 +57,10 @@
 	"apihelp-stabilize-param-review": "Ena perre çım ra viyarnê.",
 	"apihelp-stabilize-param-protectlevel": "Sewiyay kontrol - staryaye.",
 	"apihelp-stabilize-example-protect": "[[Test]]  ra kontrol-star kerıdşi wedarnê",
-	"apierror-flaggedrevs-pagedoesnotexist": "Pera ardera da wunayên çıni ya."
+	"apierror-flaggedrevs-notsamepage": "Vurnayışi aidê yew pela niyê",
+	"apierror-flaggedrevs-pagedoesnotexist": "Pera ardera da wunayên çıni ya.",
+	"apierror-flaggedrevs-cantreview": "Heqê şıma nışanyaye desmala eyar kerdışi rê bes nêkenê",
+	"apierror-flaggedrevs-toolow": "Desmali pêro u qeti ze sıfır eyar bo",
+	"apierror-flaggedrevs-badflags": "Nışanyaye desmali ravêrde niyê",
+	"apierror-flaggedrevs-cantunreview": "Heqê şıma nışanyaye desmala wedarıtışi rê bes nêkenê"
 }
