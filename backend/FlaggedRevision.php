@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\MediaWikiServices;
+
 /**
  * Class representing a stable version of a MediaWiki revision
  *
@@ -862,7 +865,8 @@ class FlaggedRevision {
 	}
 
 	protected function fileChanged( $title, $usedTS, $noForeign ) {
-		$file = wfFindFile( $title ); // current file version
+		$repoGroup = MediaWikiServices::getInstance()->getRepoGroup();
+		$file = $repoGroup->findFile( $title ); // current file version
 		# Compare this version to the current version and check for things
 		# that would make the stable version unsynced with the draft...
 		if ( $file instanceof File ) { // file exists
@@ -875,7 +879,7 @@ class FlaggedRevision {
 			}
 			$deleted = $usedTS // included file deleted after review
 				&& $file->getTimestamp() != $usedTS
-				&& !wfFindFile( $title, [ 'time' => $usedTS ] );
+				&& !$repoGroup->findFile( $title, [ 'time' => $usedTS ] );
 		} else { // file doesn't exist
 			$updated = false;
 			$deleted = (bool)$usedTS; // included file deleted after review

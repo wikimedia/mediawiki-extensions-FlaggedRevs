@@ -115,9 +115,10 @@ class FRInclusionCache {
 	 * @return bool
 	 */
 	protected static function filesStale( array $fVersions ) {
+		$repoGroup = MediaWikiServices::getInstance()->getRepoGroup();
 		# Check if any of these files have a newer version
 		foreach ( $fVersions as $name => $timeAndSHA1 ) {
-			$file = wfFindFile( $name );
+			$file = $repoGroup->findFile( $name );
 			if ( $file ) {
 				if ( $file->getTimestamp() != $timeAndSHA1['time'] ) {
 					return true;

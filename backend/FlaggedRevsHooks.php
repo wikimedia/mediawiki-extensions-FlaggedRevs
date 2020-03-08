@@ -278,7 +278,7 @@ class FlaggedRevsHooks {
 			$title->resetArticleId( $title->getArticleID() ); // avoid extra queries
 		}
 		# Check if this file is only on a foreign repo
-		$file = wfFindFile( $title );
+		$file = MediaWikiServices::getInstance()->getRepoGroup()->findFile( $title );
 		if ( $file && !$file->isLocal() ) {
 			return true; // just use the current version (bug 41832)
 		}

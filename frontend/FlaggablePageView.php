@@ -995,22 +995,23 @@ class FlaggablePageView extends ContextSource {
 		}
 
 		$title = $this->article->getTitle();
-		$displayFile = wfFindFile( $title, [ 'time' => $time ] );
+		$repoGroup = MediaWikiServices::getInstance()->getRepoGroup();
+		$displayFile = $repoGroup->findFile( $title, [ 'time' => $time ] );
 		# If none found, try current
 		if ( !$displayFile ) {
 			wfDebug(
 				__METHOD__ . ": {$title->getPrefixedDBkey()}: $time not found, using current\n"
 			);
-			$displayFile = wfFindFile( $title );
+			$displayFile = $repoGroup->findFile( $title );
 			# If none found, use a valid local placeholder
 			if ( !$displayFile ) {
-				$displayFile = wfLocalFile( $title ); // fallback to current
+				$displayFile = $repoGroup->getLocalRepo()->newFile( $title ); // fallback to current
 			}
 			$normalFile = $displayFile;
 		# If found, set $normalFile
 		} else {
 			wfDebug( __METHOD__ . ": {$title->getPrefixedDBkey()}: using timestamp $time\n" );
-			$normalFile = wfFindFile( $title );
+			$normalFile = $repoGroup->findFile( $title );
 		}
 	}
 

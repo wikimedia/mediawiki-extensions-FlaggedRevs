@@ -1037,7 +1037,8 @@ class FlaggedRevs {
 			# We must use WikiFilePage process cache on upload or get bitten by slave lag
 			$file = ( $article instanceof WikiFilePage || $article instanceof ImagePage )
 				? $article->getFile() // uses up-to-date process cache on new uploads
-				: wfFindFile( $title, [ 'bypassCache' => true ] ); // skip cache; bug 31056
+				: MediaWikiServices::getInstance()->getRepoGroup()
+					->findFile( $title, [ 'bypassCache' => true ] ); // skip cache; bug 31056
 			if ( is_object( $file ) && $file->exists() ) {
 				$fileData['name'] = $title->getDBkey();
 				$fileData['timestamp'] = $file->getTimestamp();
