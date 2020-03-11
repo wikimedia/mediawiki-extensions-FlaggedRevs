@@ -6,6 +6,9 @@
 		]
 	},
 	"action-review": "arvioida versuuneita",
+	"flaggedrevs-prefs-stable": "Sisältösivujen versuuni, joka näytethään oletuksena",
+	"flaggedrevs-pref-stable-1": "Näytä aina vakaa versuuni (jos sellainen oon)",
+	"flaggedrevs-pref-stable-2": "Näytä aina uusin versuuni",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "Kaikki sellatteet muutokset, joita ei tartte tarkastaa.",
 	"revreview-log-details-show": "näytä tarkat tieot",
 	"revreview-log-details-hide": "piilota tarkat tieot",

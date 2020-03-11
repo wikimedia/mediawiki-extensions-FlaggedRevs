@@ -12,7 +12,8 @@
 			"Revi",
 			"IRTC1015",
 			"Ykhwong",
-			"Bluemersen"
+			"Bluemersen",
+			"렌즈"
 		]
 	},
 	"action-review": "편집 검토",
@@ -84,7 +85,7 @@
 	"reviewer": "평론가",
 	"revreview-accuracy": "정확성",
 	"revreview-accuracy-0": "부적절",
-	"revreview-accuracy-1": "지점 확인함",
+	"revreview-accuracy-1": "부분적으로 확인함",
 	"revreview-accuracy-2": "정확함",
 	"revreview-accuracy-3": "출처가 잘 제시됨",
 	"revreview-accuracy-4": "알참",
