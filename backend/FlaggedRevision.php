@@ -619,7 +619,7 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * Get original template versions at time of review
+	 * Get original file versions at time of review
 	 * @param int $flags FR_MASTER
 	 * @return array file versions (dbKey => ['time' => MW timestamp,'sha1' => sha1] )
 	 * Note: false used for file timestamp/sha1 if it didn't exist
