@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Aefgh39622"
+		]
+	},
+	"unreviewedpages-category": "หมวดหมู่:",
+	"unreviewedpages-unwatched": "(ไม่ได้ถูกเฝ้าดู)",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|ชั่วโมง|ชั่วโมง}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|วัน|วัน}})",
+	"unreviewedpages-recent": "(น้อยกว่า 1 ชั่วโมง)"
+}

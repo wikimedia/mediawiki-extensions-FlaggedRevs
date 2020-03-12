@@ -2,11 +2,18 @@
 	"@metadata": {
 		"authors": [
 			"Horus",
-			"Woraponboonkerd"
+			"Woraponboonkerd",
+			"Aefgh39622"
 		]
 	},
 	"review_page_notexists": "ไม่มีหน้าเป้าหมาย",
+	"review_param_missing": "พารามิเตอร์ขาดหายไปหรือไม่ถูกต้อง",
+	"review_reject_excessive": "ไม่สามารถปฏิเสธการแก้ไขหลายครั้งนี้ได้ภายในครั้งเดียว",
 	"revreview-check-flag-y": "ยอมรับการเปลี่ยนแปลงของฉัน",
+	"revreview-log": "ความคิดเห็น:",
 	"revreview-submit": "ส่ง",
-	"revreview-submitting": "กำลังส่ง..."
+	"revreview-submitting": "กำลังส่ง...",
+	"revreview-submit-reject": "ปฏิเสธการเปลี่ยนแปลง",
+	"revreview-reject-confirm": "ปฏิเสธการเปลี่ยนแปลงเหล่านี้",
+	"revreview-reject-cancel": "ยกเลิก"
 }

@@ -3,12 +3,22 @@
 		"authors": [
 			"Horus",
 			"Octahedron80",
-			"Passawuth"
+			"Passawuth",
+			"Aefgh39622"
 		]
 	},
 	"stabilization-page": "ชื่อหน้า:",
 	"stabilization-submit": "ยืนยัน",
+	"stabilization-notexists": "ไม่มีหน้าชื่อ \"[[:$1|$1]]\"\nไม่สามารถทำการกำหนดค่าใด ๆ ได้",
 	"stabilization-comment": "เหตุผล:",
+	"stabilization-otherreason": "เหตุผลอื่น:",
+	"stabilization-expiry": "หมดอายุ:",
+	"stabilization-othertime": "เวลาอื่น:",
+	"stabilization-def-short": "ค่าเริ่มต้น",
 	"stabilization-def-short-0": "ปัจจุบัน",
-	"stabilization-def-short-1": "เสถียร"
+	"stabilization-def-short-1": "เสถียร",
+	"stabilize_invalid_level": "ระดับการป้องกันไม่ถูกต้อง",
+	"stabilize_expiry_old": "เวลาที่หมดอายุนี้เป็นเวลาที่ได้ผ่านไปแล้ว",
+	"stabilize_denied": "ไม่ได้รับอนุญาต",
+	"stabilize-expiring": "หมดอายุ $1 (UTC)"
 }
