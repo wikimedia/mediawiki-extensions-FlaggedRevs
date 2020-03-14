@@ -65,7 +65,8 @@ class FlaggableWikiPage extends WikiPage {
 	 */
 	public function getFile() {
 		if ( $this->file === null && $this->mTitle->getNamespace() == NS_FILE ) {
-			$this->file = wfFindFile( $this->mTitle );
+			$this->file = MediaWikiServices::getInstance()->getRepoGroup()
+				->findFile( $this->mTitle );
 		}
 		return $this->file;
 	}

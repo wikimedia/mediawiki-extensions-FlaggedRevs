@@ -10,6 +10,8 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 
 require_once "$IP/maintenance/Maintenance.php";
 
+use MediaWiki\MediaWikiServices;
+
 class FixBug28348 extends Maintenance {
 
 	public function __construct() {
@@ -41,6 +43,7 @@ class FixBug28348 extends Maintenance {
 		$end += $this->mBatchSize - 1;
 		$blockStart = $start;
 		$blockEnd = $start + $this->mBatchSize - 1;
+		$repoGroup = MediaWikiServices::getInstance()->getRepoGroup();
 
 		$count = $changed = 0;
 		while ( $blockEnd <= $end ) {
@@ -71,11 +74,11 @@ class FixBug28348 extends Maintenance {
 				$time = wfTimestamp( TS_MW, $fi_img_timestamp );
 				$sha1 = $row->fi_img_sha1;
 				# Check if the specified file exists...
-				$file = RepoGroup::singleton()->findFileFromKey( $sha1, [ 'time' => $time ] );
+				$file = $repoGroup->findFileFromKey( $sha1, [ 'time' => $time ] );
 				if ( !$file ) { // doesn't exist?
 					$time = wfTimestamp( TS_MW, wfTimestamp( TS_UNIX, $time ) + 1 );
 					# Check if the fi_img_timestamp value is off by 1 second...
-					$file = RepoGroup::singleton()->findFileFromKey( $sha1, [ 'time' => $time ] );
+					$file = $repoGroup->findFileFromKey( $sha1, [ 'time' => $time ] );
 					if ( $file ) {
 						$this->output(
 							"fixed file {$row->fi_name} reference in rev ID {$row->fi_rev_id}\n"
