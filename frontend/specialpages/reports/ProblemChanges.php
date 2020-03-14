@@ -182,12 +182,12 @@ class ProblemChanges extends SpecialPage {
 	}
 
 	protected function feedTitle() {
-		global $wgContLanguageCode, $wgSitename;
+		global $wgLanguageCode, $wgSitename;
 
 		$page = MediaWikiServices::getInstance()->getSpecialPageFactory()
 			->getPage( 'ProblemChanges' );
 		$desc = $page->getDescription();
-		return "$wgSitename - $desc [$wgContLanguageCode]";
+		return "$wgSitename - $desc [$wgLanguageCode]";
 	}
 
 	/**
