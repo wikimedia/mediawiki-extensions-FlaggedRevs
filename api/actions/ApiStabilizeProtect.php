@@ -34,7 +34,14 @@ class ApiStabilizeProtect extends ApiStabilize {
 
 		$form = new PageStabilityProtectForm( $this->getUser() );
 		$form->setPage( $this->title ); # Our target page
-		$form->setWatchThis( $params['watch'] ); # Watch this page
+
+		if ( isset( $params['watch'] ) ) {
+			$watch = $params['watch'];
+		} else {
+			$watch = $this->getWatchlistValue( $params['watchlist'], $this->title );
+		}
+
+		$form->setWatchThis( $watch ); # Watch this page
 		$form->setReasonExtra( $params['reason'] ); # Reason
 		$form->setReasonSelection( 'other' ); # Reason dropdown
 		$form->setExpiryCustom( $params['expiry'] ); # Expiry
@@ -69,25 +76,36 @@ class ApiStabilizeProtect extends ApiStabilize {
 		// Replace '' with more readable 'none' in autoreview restiction levels
 		$autoreviewLevels = FlaggedRevs::getRestrictionLevels();
 		$autoreviewLevels[] = 'none';
-		return [
+		$params = [
 			'protectlevel' => [
 				ApiBase::PARAM_TYPE => $autoreviewLevels,
 				ApiBase::PARAM_DFLT => 'none',
 			],
-			'expiry'      => [
+			'expiry' => [
 				ApiBase::PARAM_DFLT => 'infinite',
 				ApiBase::PARAM_HELP_MSG => 'apihelp-stabilize-param-expiry-protect',
 			],
-			'reason'    => '',
-			'watch'     => null,
-			'token'     => [
+			'reason' => '',
+			'watch' => [
+				ApiBase::PARAM_DEPRECATED => true,
+			],
+		];
+
+		// Params appear in the docs in the order they are defined,
+		// which is why this is here and not at the bottom.
+		$params += $this->getWatchlistParams();
+
+		$params += [
+			'token' => [
 				ApiBase::PARAM_REQUIRED => true,
 			],
-			'title'       => [
+			'title' => [
 				ApiBase::PARAM_REQUIRED => true,
 				ApiBase::PARAM_HELP_MSG => 'apihelp-stabilize-param-title-protect',
 			],
 		];
+
+		return $params;
 	}
 
 	/**
