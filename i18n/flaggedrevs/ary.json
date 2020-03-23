@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Reda Benkhadra"
+			"Reda Benkhadra",
+			"Abdeaitali"
 		]
 	},
-	"revreview-filter-all": "كلشي"
+	"revreview-filter-all": "كلشي",
+	"tooltip-ca-current": "بين هذه الصفحة مع التغييرات لي معلقة"
 }

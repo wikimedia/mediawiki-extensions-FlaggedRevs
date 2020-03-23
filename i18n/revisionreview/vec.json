@@ -4,7 +4,8 @@
 			"Candalua",
 			"Frigotoni",
 			"GatoSelvadego",
-			"Conky77"
+			"Conky77",
+			"Fierodelveneto"
 		]
 	},
 	"revisionreview": "Riesamina versioni",
@@ -33,7 +34,7 @@
 	"revreview-check-flag-y": "Aceta sti canbiamenti",
 	"revreview-check-flag-y-title": "Aceta tuti i cambiamenti che te ghè fato in sta modifica.",
 	"revreview-flag": "Riesamina sta version",
-	"revreview-reflag": "Ricontrola da novo sta revision",
+	"revreview-reflag": "Ricontroła da novo sta revixion",
 	"revreview-invalid": "'''Destinassion mìa valida:''' el nùmaro fornìo no'l corisponde a nissuna version [[{{MediaWiki:Validationpage}}|riesaminà]].",
 	"revreview-log": "Comento:",
 	"revreview-main": "Ti gà da selessionar na version in particolare de la pagina par esaminarla.\n\nVarda la [[Special:Unreviewedpages|lista de pagine da riesaminar]].",
@@ -41,8 +42,8 @@
 	"revreview-stable2": "Te pol vardar la [{{fullurl:$1|stable=1}} version stabile] de sta pagina.",
 	"revreview-submit": "Manda",
 	"revreview-submitting": "So' drio mandarlo...",
-	"revreview-submit-review": "Aceta la revision",
-	"revreview-submit-unreview": "Disaprova la revision",
+	"revreview-submit-review": "Açeta ła revixion",
+	"revreview-submit-unreview": "Dixaprova ła revixion",
 	"revreview-submit-reject": "Rifiuta i canbiamenti",
 	"revreview-submit-reviewed": "Finìo. Aprovà!",
 	"revreview-submit-unreviewed": "Finìo. Rifiutà!",

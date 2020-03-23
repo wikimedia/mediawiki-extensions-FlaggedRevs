@@ -172,5 +172,6 @@
 	"revreview-unlocked-title": "Ne rank ket bezañ adlennet kemmoù ar bajenn-mañ.",
 	"revreview-locked": "'''Notenn :''' Rankout a ra bezañ [[{{MediaWiki:Validationpage}}|adlennet]] ar c'hemmoù a-raok bezañ embannet er bajenn-mañ.",
 	"revreview-unlocked": "'''Notenn :''' Ne rank ket bezañ [[{{MediaWiki:Validationpage}}|adlennet]] ar c'hemmoù a-raok bezañ embannet er bajenn-mañ.",
-	"validationpage": "{{ns:help}}:Kadarnaat ar bajenn"
+	"validationpage": "{{ns:help}}:Kadarnaat ar bajenn",
+	"log-action-filter-stable-modify": "Kefluniadur kemmet"
 }

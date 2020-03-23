@@ -5,7 +5,8 @@
 			"GatoSelvadego",
 			"V6rg",
 			"C.R.",
-			"Conky77"
+			"Conky77",
+			"Fierodelveneto"
 		]
 	},
 	"validationstatistics": "Statìsteghe de revision",
@@ -18,7 +19,7 @@
 	"validationstatistics-total": "Pagine",
 	"validationstatistics-stable": "Ricontrolà",
 	"validationstatistics-latest": "Sincronizà",
-	"validationstatistics-synced": "Sincronizà/Ricontrolà",
+	"validationstatistics-synced": "Sincronixà/Ricontrolà",
 	"validationstatistics-old": "Mia ajornà",
 	"validationstatistics-unreviewed": "No revixionà",
 	"validationstatistics-utable": "Sta cuà ła xe na lista che mostra {{PLURAL:$1|el revixor pì ativo|i $1 revixori pì ativi}} inte l'ultem{{PLURAL:$2|a ora|e $2 ore}}.",
