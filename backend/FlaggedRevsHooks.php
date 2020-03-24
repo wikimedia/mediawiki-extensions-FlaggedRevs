@@ -764,11 +764,13 @@ class FlaggedRevsHooks {
 			# If an edit was auto-merged in between, review only up to what
 			# was the current rev when this user started editing the page.
 			if ( $rev->getTimestamp() != $editTimestamp ) {
-				$dbw = wfGetDB( DB_MASTER );
-				$rev = Revision::loadFromTimestamp( $dbw, $title, $editTimestamp );
-				if ( !$rev ) {
+				$revRecord = MediaWikiServices::getInstance()
+					->getRevisionLookup()
+					->getRevisionByTimestamp( $title, $editTimestamp, RevisionLookup::READ_LATEST );
+				if ( !$revRecord ) {
 					return true; // deleted?
 				}
+				$rev = new Revision( $revRecord );
 			}
 			# Review this revision of the page...
 			$ok = FlaggedRevs::autoReviewEdit( $wikiPage, $user, $rev, $flags, false /* manual */ );
