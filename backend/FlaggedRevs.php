@@ -785,7 +785,9 @@ class FlaggedRevs {
 	 * @return bool DB write query used
 	 */
 	public static function markRevisionPatrolled( Revision $rev ) {
-		$rcid = $rev->isUnpatrolled();
+		$rcid = MediaWikiServices::getInstance()
+			->getRevisionStore()
+			->getRcIdIfUnpatrolled( $rev->getRevisionRecord() );
 		# Make sure it is now marked patrolled...
 		if ( $rcid ) {
 			$dbw = wfGetDB( DB_MASTER );
