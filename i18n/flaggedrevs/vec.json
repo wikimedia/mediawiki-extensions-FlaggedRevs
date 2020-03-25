@@ -174,7 +174,7 @@
 	"tooltip-ca-current": "Varda sta pagina coi canbiamenti pendenti",
 	"tooltip-ca-stable": "Varda la version publicà de sta pagina",
 	"tooltip-ca-default": "Inpostassion par el controlo de qualità",
-	"flaggedrevs-protect-legend": "Revision automatica de le modifiche ([[{{MediaWiki:Validationpage}}|ajuto]])",
+	"flaggedrevs-protect-legend": "Revixion automadega de le modifeghe ([[{{MediaWiki:Validationpage}}|juto]])",
 	"flaggedrevs-protect-none": "Autoriza tuti i utenti",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Pàgine da revixionar]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Canbiamenti in atexa de revixion]",
 	"revreview-locked-title": "I canbiamenti i ga da èssar verificà.",
