@@ -8,6 +8,8 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = __DIR__ . '/../../..';
 }
 
+use MediaWiki\MediaWikiServices;
+
 require_once "$IP/maintenance/Maintenance.php";
 
 class UpdateFRAutoPromote extends Maintenance {
@@ -23,8 +25,9 @@ class UpdateFRAutoPromote extends Maintenance {
 		global $wgFlaggedRevsAutopromote;
 		$this->output( "Populating and updating flaggedrevs_promote table\n" );
 
-		$revQuery = Revision::getQueryInfo();
-		$revPageQuery = Revision::getQueryInfo( [ 'page' ] );
+		$revisionStore = MediaWikiServices::getInstance()->getRevisionStore();
+		$revQuery = $revisionStore->getQueryInfo();
+		$revPageQuery = $revisionStore->getQueryInfo( [ 'page' ] );
 		$dbr = wfGetDB( DB_REPLICA );
 		$dbw = wfGetDB( DB_MASTER );
 		$start = $dbr->selectField( 'user', 'MIN(user_id)', false, __METHOD__ );

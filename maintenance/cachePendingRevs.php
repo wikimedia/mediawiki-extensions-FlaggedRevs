@@ -11,6 +11,8 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = __DIR__ . '/../../..';
 }
 
+use MediaWiki\MediaWikiServices;
+
 require_once "$IP/maintenance/Maintenance.php";
 
 class CachePendingRevs extends Maintenance {
@@ -28,7 +30,7 @@ class CachePendingRevs extends Maintenance {
 		}
 
 		$dbr = wfGetDB( DB_REPLICA );
-		$revQuery = Revision::getQueryInfo();
+		$revQuery = MediaWikiServices::getInstance()->getRevisionStore()->getQueryInfo();
 		$pageQuery = WikiPage::getQueryInfo();
 		$ret = $dbr->select(
 			array_merge( [ 'flaggedpages' ], $revQuery['tables'], $pageQuery['tables'] ),

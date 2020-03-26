@@ -355,7 +355,9 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 				ExtensionRegistry::getInstance()->isLoaded( 'Echo' )
 			) {
 				$affectedRevisions = []; // revid -> userid
-				$revQuery = Revision::getQueryInfo();
+				$revQuery = MediaWikiServices::getInstance()
+					->getRevisionStore()
+					->getQueryInfo();
 				$revisions = wfGetDB( DB_REPLICA )->select(
 					$revQuery['tables'],
 					[ 'rev_id', 'rev_user' => $revQuery['fields']['rev_user'] ],

@@ -37,7 +37,7 @@ class RejectConfirmationFormUI {
 		$form = '<div class="plainlinks">';
 
 		$dbr = wfGetDB( DB_REPLICA );
-		$revQuery = Revision::getQueryInfo();
+		$revQuery = MediaWikiServices::getInstance()->getRevisionStore()->getQueryInfo();
 		$res = $dbr->select(
 			$revQuery['tables'],
 			$revQuery['fields'],

@@ -440,7 +440,7 @@ class FlaggedRevision {
 	 * @return array
 	 */
 	public static function getQueryInfo() {
-		$revQuery = Revision::getQueryInfo();
+		$revQuery = MediaWikiServices::getInstance()->getRevisionStore()->getQueryInfo();
 		return [
 			'tables' => array_merge( [ 'flaggedrevs' ], $revQuery['tables'] ),
 			'fields' => array_merge( $revQuery['fields'], [
