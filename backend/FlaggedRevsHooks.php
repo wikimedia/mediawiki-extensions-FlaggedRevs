@@ -328,10 +328,10 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
-	public static function onParserGetVariableValueSwitch( Parser $parser, &$cache, &$word, &$ret ) {
+	public static function onParserGetVariableValueSwitch( Parser $parser, &$cache, $word, &$ret ) {
 		global $wgFlaggedRevsProtection;
 		if ( $wgFlaggedRevsProtection && $word === 'pendingchangelevel' ) {
-			$ret = self::parserPendingChangeLevel( $parser );
+			$ret = $cache[$word] = self::parserPendingChangeLevel( $parser );
 		}
 		return true;
 	}
