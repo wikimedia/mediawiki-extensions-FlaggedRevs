@@ -740,8 +740,12 @@ class FlaggedRevsHooks {
 		# Is this a rollback/undo that didn't change anything?
 		if ( $baseId > 0 ) {
 			$frev = FlaggedRevision::newFromTitle( $title, $baseId ); // base rev of null edit
-			$pRev = Revision::newFromId( $rev->getParentId() ); // current rev parent
-			$revIsNull = ( $pRev && $pRev->getTextId() == $rev->getTextId() );
+			$pRevRecord = MediaWikiServices::getInstance()
+				->getRevisionLookup()
+				->getRevisionById( $rev->getParentId() ); // current rev parent
+			$revIsNull = ( $pRevRecord &&
+				$pRevRecord->hasSameContent( $rev->getRevisionRecord() )
+			);
 			# Was the edit that we tried to revert to reviewed?
 			# We avoid auto-reviewing null edits to avoid confusion (bug 28476).
 			if ( $frev && !$revIsNull ) {

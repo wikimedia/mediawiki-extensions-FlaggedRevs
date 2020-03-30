@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionRecord;
 
 /**
  * Class representing a stable version of a MediaWiki revision
@@ -783,13 +784,14 @@ class FlaggedRevision {
 			return true; // later deleted
 		}
 		if ( $revIdDraft && $revIdUsed && $revIdDraft != $revIdUsed ) {
-			$dRev = Revision::newFromId( $revIdDraft );
-			$sRev = Revision::newFromId( $revIdUsed );
-			if ( !$sRev || $sRev->isDeleted( Revision::DELETED_TEXT ) ) {
+			$revLookup = MediaWikiServices::getInstance()->getRevisionLookup();
+			$sRevRecord = $revLookup->getRevisionById( $revIdUsed );
+			if ( !$sRevRecord || $sRevRecord->isDeleted( RevisionRecord::DELETED_TEXT ) ) {
 				return true; // rev deleted
 			}
+			$dRevRecord = $revLookup->getRevisionById( $revIdDraft );
 			# Don't do this for null edits (like protection) (bug 25919)
-			if ( $dRev && $dRev->getTextId() != $sRev->getTextId() ) {
+			if ( $dRevRecord && !$dRevRecord->hasSameContent( $sRevRecord ) ) {
 				return true; // updated
 			}
 		}

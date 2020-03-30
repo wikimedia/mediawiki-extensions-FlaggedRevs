@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionRecord;
 
 /**
  * Reject confirmation review form UI
@@ -60,20 +61,27 @@ class RejectConfirmationFormUI {
 
 		$contribs = SpecialPage::getTitleFor( 'Contributions' )->getPrefixedText();
 
-		$lastTextId = 0;
+		$lastRevRecord = null;
 		$rejectIds = $rejectAuthors = [];
 		$lastRejectAuthor = null;
+		$revFactory = MediaWikiServices::getInstance()->getRevisionFactory();
 		foreach ( $res as $row ) {
-			$rev = new Revision( $row );
-			if ( $rev->getTextId() != $lastTextId ) { // skip null edits
-				$rejectIds[] = $rev->getId();
-				$rejectAuthors[] = $rev->isDeleted( Revision::DELETED_USER )
+			$revRecord = $revFactory->newRevisionFromRow( $row );
+
+			// skip null edits, check that $lastRevRecord isn't null because it starts
+			// null but null cannot be passed as the paramater to hasSameContent
+			if ( $lastRevRecord !== null && !$revRecord->hasSameContent( $lastRevRecord ) ) {
+				$rejectIds[] = $revRecord->getId();
+				$user = $revRecord->getUser();
+				$userText = $user ? $user->getName() : '';
+
+				$rejectAuthors[] = $revRecord->isDeleted( RevisionRecord::DELETED_USER )
 					? wfMessage( 'rev-deleted-user' )->text()
-					: "[[{$contribs}/{$rev->getUserText()}|{$rev->getUserText()}]]";
+					: "[[{$contribs}/{$userText}|{$userText}]]";
 				// Used for GENDER support for revreview-reject-summary-*
-				$lastRejectAuthor = $rev->getUserText();
+				$lastRejectAuthor = $userText;
 			}
-			$lastTextId = $rev->getTextId();
+			$lastRevRecord = $revRecord;
 		}
 		$rejectAuthors = array_values( array_unique( $rejectAuthors ) );
 
