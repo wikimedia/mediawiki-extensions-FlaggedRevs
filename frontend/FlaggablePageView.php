@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionRecord;
 
 /**
  * Class representing a web view of a MediaWiki page
@@ -13,8 +14,8 @@ class FlaggablePageView extends ContextSource {
 	/** @var FlaggableWikiPage|null */
 	protected $article = null;
 
-	/** @var array|null of old and new Revisions for diffs */
-	protected $diffRevs = null;
+	/** @var array|null of old and new RevisionsRecords for diffs */
+	protected $diffRevRecords = null;
 
 	/** @var array|null [ array of templates, array of file ] */
 	protected $oldRevIncludes = null;
@@ -37,8 +38,8 @@ class FlaggablePageView extends ContextSource {
 	/** @var string */
 	protected $diffIncChangeBox = '';
 
-	/** @var Revision|false */
-	protected $reviewFormRev = false;
+	/** @var RevisionRecord|false */
+	private $reviewFormRevRecord = false;
 
 	/** @var bool */
 	protected $loaded = false;
@@ -105,8 +106,8 @@ class FlaggablePageView extends ContextSource {
 	 * Check if the old and new diff revs are set for this page view
 	 * @return bool
 	 */
-	public function diffRevsAreSet() {
-		return (bool)$this->diffRevs;
+	public function diffRevRecordsAreSet() {
+		return (bool)$this->diffRevRecords;
 	}
 
 	/**
@@ -1272,18 +1273,25 @@ class FlaggablePageView extends ContextSource {
 			return true;
 		}
 		# Get the revision being displayed
-		$rev = false;
-		if ( $this->reviewFormRev ) { // diff
-			$rev = $this->reviewFormRev; // $newRev for diffs stored here
+		$revRecord = false;
+		if ( $this->reviewFormRevRecord ) { // diff
+			$revRecord = $this->reviewFormRevRecord; // $newRev for diffs stored here
 		} elseif ( $this->out->getRevisionId() ) { // page view
-			$rev = Revision::newFromId( $this->out->getRevisionId() );
+			$revRecord = MediaWikiServices::getInstance()
+				->getRevisionLookup()
+				->getRevisionById( $this->out->getRevisionId() );
 		}
 		# Build the review form as needed
-		if ( $rev && ( !$this->diffRevs || $this->isReviewableDiff ) ) {
-			$form = new RevisionReviewFormUI( $this->getContext(), $this->article, $rev );
+		if ( $revRecord && ( !$this->diffRevRecords || $this->isReviewableDiff ) ) {
+			$form = new RevisionReviewFormUI(
+				$this->getContext(),
+				$this->article,
+				$revRecord
+			);
 			# Default tags and existence of "reject" button depend on context
-			if ( $this->diffRevs ) {
-				$form->setDiffPriorRev( $this->diffRevs['old'] );
+			if ( $this->diffRevRecords ) {
+				$oldRevRecord = $this->diffRevRecords['old'];
+				$form->setDiffPriorRevRecord( $oldRevRecord );
 			}
 			# Review notice box goes in top of form
 			$form->setTopNotice( $this->diffNoticeBox );
@@ -1298,7 +1306,7 @@ class FlaggablePageView extends ContextSource {
 			if ( FlaggedRevs::inclusionSetting() === FR_INCLUDES_CURRENT ) {
 				$tmpVers = []; // unused
 				$fileVers = []; // unused
-			} elseif ( $this->out->getRevisionId() == $rev->getId() ) {
+			} elseif ( $this->out->getRevisionId() == $revRecord->getId() ) {
 				$tmpVers = $this->out->getTemplateIds();
 				$fileVers = $this->out->getFileSearchOptions();
 			} elseif ( $this->oldRevIncludes ) { // e.g. diffonly=1, stable diff
@@ -1307,8 +1315,11 @@ class FlaggablePageView extends ContextSource {
 			} else { // e.g. diffonly=1, other diffs
 				# $wgOut may not already have the inclusion IDs, such as for diffonly=1.
 				# RevisionReviewForm will fetch them as needed however.
-				list( $tmpVers, $fileVers ) =
-					FRInclusionCache::getRevIncludes( $this->article, $rev, $reqUser );
+				list( $tmpVers, $fileVers ) = FRInclusionCache::getRevIncludes(
+					$this->article,
+					$revRecord,
+					$reqUser
+				);
 			}
 			$form->setIncludeVersions( $tmpVers, $fileVers );
 
@@ -1600,11 +1611,11 @@ class FlaggablePageView extends ContextSource {
 	 *   (ii) List any template/file changes pending review
 	 *
 	 * @param DifferenceEngine $diff
-	 * @param Revision|null $oldRev
-	 * @param Revision|null $newRev
+	 * @param RevisionRecord|null $oldRevRecord
+	 * @param RevisionRecord|null $newRevRecord
 	 * @return true
 	 */
-	public function addToDiffView( $diff, $oldRev, $newRev ) {
+	public function addToDiffView( $diff, $oldRevRecord, $newRevRecord ) {
 		$pm = MediaWikiServices::getInstance()->getPermissionManager();
 		$request = $this->getRequest();
 		$reqUser = $this->getUser();
@@ -1612,8 +1623,8 @@ class FlaggablePageView extends ContextSource {
 		# Exempt printer-friendly output
 		if ( $this->out->isPrintable() ) {
 			return true;
-		# Multi-page diffs are useless and misbehave (bug 19327). Sanity check $newRev.
-		} elseif ( $this->isMultiPageDiff || !$newRev ) {
+		# Multi-page diffs are useless and misbehave (bug 19327). Sanity check $newRevRecord.
+		} elseif ( $this->isMultiPageDiff || !$newRevRecord ) {
 			return true;
 		# Page must be reviewable.
 		} elseif ( !$this->article->isReviewable() ) {
@@ -1621,7 +1632,7 @@ class FlaggablePageView extends ContextSource {
 		}
 		$srev = $this->article->getStableRev();
 		if ( $srev && $this->isReviewableDiff ) {
-			$this->reviewFormRev = $newRev;
+			$this->reviewFormRevRecord = $newRevRecord;
 		}
 		# Check if this is a diff-to-stable. If so:
 		# (a) prompt reviewers to review the changes
@@ -1648,7 +1659,11 @@ class FlaggablePageView extends ContextSource {
 				}
 			# Otherwise, check for includes pending on top of edits pending...
 			} elseif ( FlaggedRevs::inclusionSetting() !== FR_INCLUDES_CURRENT ) {
-				$incs = FRInclusionCache::getRevIncludes( $this->article, $newRev, $reqUser );
+				$incs = FRInclusionCache::getRevIncludes(
+					$this->article,
+					$newRevRecord,
+					$reqUser
+				);
 				$this->oldRevIncludes = $incs; // process cache
 				# Add a list of links to each changed template...
 				$changeList = self::fetchTemplateChanges( $srev, $incs[0] );
@@ -1663,12 +1678,19 @@ class FlaggablePageView extends ContextSource {
 				if ( $pm->userHasRight( $reqUser, 'review' ) ) {
 					// Reviewer just edited...
 					if ( $request->getInt( 'shownotice' )
-						&& $newRev->isCurrent()
-						&& $newRev->getUserText( Revision::RAW ) == $reqUser->getName()
+						&& $newRevRecord->isCurrent()
+						&& $newRevRecord->getUser( RevisionRecord::RAW )
+							->equals( $reqUser )
 					) {
 						$title = $this->article->getTitle(); // convenience
 						// @TODO: make diff class cache this
-						$n = $title->countRevisionsBetween( $oldRev, $newRev );
+						$n = MediaWikiServices::getInstance()
+							->getRevisionStore()
+							->countRevisionsBetween(
+								$title->getArticleID(),
+								$oldRevRecord,
+								$newRevRecord
+							);
 						if ( $n ) {
 							$msg = 'revreview-update-edited-prev'; // previous pending edits
 						} else {
@@ -1704,7 +1726,11 @@ class FlaggablePageView extends ContextSource {
 		# Show review status of the diff revision(s). Uses a <table>.
 		$this->out->addHTML(
 			'<div id="mw-fr-diff-headeritems">' .
-			self::diffLinkAndMarkers( $this->article, $oldRev, $newRev ) .
+			self::diffLinkAndMarkers(
+				$this->article,
+				$oldRevRecord,
+				$newRevRecord
+			) .
 			'</div>'
 		);
 		return true;
@@ -1719,11 +1745,14 @@ class FlaggablePageView extends ContextSource {
 		if ( count( $args ) >= 2 ) {
 			$oldid = (int)$args[0];
 			$newid = (int)$args[1];
-			$oldRev = Revision::newFromId( $oldid );
-			$newRev = Revision::newFromId( $newid );
-			if ( $newRev && $newRev->getTitle() ) {
-				$fa = FlaggableWikiPage::getTitleInstance( $newRev->getTitle() );
-				return self::diffLinkAndMarkers( $fa, $oldRev, $newRev );
+			$revLookup = MediaWikiServices::getInstance()->getRevisionLookup();
+			$newRevRecord = $revLookup->getRevisionById( $newid );
+			if ( $newRevRecord && $newRevRecord->getPageAsLinkTarget() ) {
+				$oldRevRecord = $revLookup->getRevisionById( $oldid );
+				$fa = FlaggableWikiPage::getTitleInstance(
+					Title::newFromLinkTarget( $newRevRecord->getPageAsLinkTarget() )
+				);
+				return self::diffLinkAndMarkers( $fa, $oldRevRecord, $newRevRecord );
 			}
 		}
 		return '';
@@ -1734,18 +1763,22 @@ class FlaggablePageView extends ContextSource {
 	 * (b) Show review status of the diff revision(s). Uses a <table>.
 	 * Note: used by ajax function to rebuild diff page
 	 * @param FlaggableWikiPage $article
-	 * @param Revision $oldRev
-	 * @param Revision $newRev
+	 * @param RevisionRecord|null $oldRevRecord
+	 * @param RevisionRecord|null $newRevRecord
 	 * @return string
 	 */
-	public static function diffLinkAndMarkers( FlaggableWikiPage $article, $oldRev, $newRev ) {
+	private static function diffLinkAndMarkers(
+		FlaggableWikiPage $article,
+		$oldRevRecord,
+		$newRevRecord
+	) {
 		$s = '<form id="mw-fr-diff-dataform">';
-		$s .= Html::hidden( 'oldid', $oldRev ? $oldRev->getId() : 0 );
-		$s .= Html::hidden( 'newid', $newRev ? $newRev->getId() : 0 );
+		$s .= Html::hidden( 'oldid', $oldRevRecord ? $oldRevRecord->getId() : 0 );
+		$s .= Html::hidden( 'newid', $newRevRecord ? $newRevRecord->getId() : 0 );
 		$s .= "</form>\n";
-		if ( $newRev ) { // sanity check
-			$s .= self::diffToStableLink( $article, $oldRev, $newRev );
-			$s .= self::diffReviewMarkers( $article, $oldRev, $newRev );
+		if ( $newRevRecord ) { // sanity check
+			$s .= self::diffToStableLink( $article, $oldRevRecord, $newRevRecord );
+			$s .= self::diffReviewMarkers( $article, $oldRevRecord, $newRevRecord );
 		}
 		return $s;
 	}
@@ -1753,12 +1786,14 @@ class FlaggablePageView extends ContextSource {
 	/**
 	 * Add a link to diff-to-stable for reviewable pages
 	 * @param FlaggableWikiPage $article
-	 * @param Revision $oldRev
-	 * @param Revision $newRev
+	 * @param RevisionRecord $oldRevRecord
+	 * @param RevisionRecord $newRevRecord
 	 * @return string
 	 */
-	protected static function diffToStableLink(
-		FlaggableWikiPage $article, $oldRev, Revision $newRev
+	private static function diffToStableLink(
+		FlaggableWikiPage $article,
+		RevisionRecord $oldRevRecord,
+		RevisionRecord $newRevRecord
 	) {
 		$srev = $article->getStableRev();
 		if ( !$srev ) {
@@ -1766,8 +1801,12 @@ class FlaggablePageView extends ContextSource {
 		}
 		$review = '';
 		# Is this already the full diff-to-stable?
-		$fullStableDiff = $newRev->isCurrent()
-			&& self::isDiffToStable( $srev, $oldRev, $newRev );
+		$fullStableDiff = $newRevRecord->isCurrent()
+			&& self::isDiffToStable(
+				$srev,
+				$oldRevRecord,
+				$newRevRecord
+			);
 		# Make a link to the full diff-to-stable if:
 		# (a) Actual revs are pending and (b) We are not viewing the full diff-to-stable
 		if ( $article->revsArePending() && !$fullStableDiff ) {
@@ -1786,23 +1825,27 @@ class FlaggablePageView extends ContextSource {
 	/**
 	 * Add [checked version] and such to left and right side of diff
 	 * @param FlaggableWikiPage $article
-	 * @param Revision $oldRev
-	 * @param Revision $newRev
+	 * @param RevisionRecord|null $oldRevRecord
+	 * @param RevisionRecord|null $newRevRecord
 	 * @return string
 	 */
-	protected static function diffReviewMarkers( FlaggableWikiPage $article, $oldRev, $newRev ) {
+	private static function diffReviewMarkers(
+		FlaggableWikiPage $article,
+		$oldRevRecord,
+		$newRevRecord
+	) {
 		$table = '';
 		$srev = $article->getStableRev();
 		# Diff between two revisions
-		if ( $oldRev && $newRev ) {
-			list( $msg, $class ) = self::getDiffRevMsgAndClass( $oldRev, $srev );
+		if ( $oldRevRecord && $newRevRecord ) {
+			list( $msg, $class ) = self::getDiffRevMsgAndClass( $oldRevRecord, $srev );
 			$table .= "<table class='fr-diff-ratings'><tr>";
 			$table .= "<td style='text-align: center; width: 50%;'>";
 			// @todo i18n FIXME: Hard coded brackets
 			$table .= "<span class='$class'>[" .
 				wfMessage( $msg )->escaped() . "]</span>";
 
-			list( $msg, $class ) = self::getDiffRevMsgAndClass( $newRev, $srev );
+			list( $msg, $class ) = self::getDiffRevMsgAndClass( $newRevRecord, $srev );
 			$table .= "</td><td style='text-align: center; width: 50%;'>";
 			// @todo i18n FIXME: Hard coded brackets
 			$table .= "<span class='$class'>[" .
@@ -1810,8 +1853,8 @@ class FlaggablePageView extends ContextSource {
 
 			$table .= "</td></tr></table>\n";
 		# New page "diffs" - just one rev
-		} elseif ( $newRev ) {
-			list( $msg, $class ) = self::getDiffRevMsgAndClass( $newRev, $srev );
+		} elseif ( $newRevRecord ) {
+			list( $msg, $class ) = self::getDiffRevMsgAndClass( $newRevRecord, $srev );
 			$table .= "<table class='fr-diff-ratings'>";
 			$table .= "<tr><td style='text-align: center;'><span class='$class'>";
 			// @todo i18n FIXME: Hard coded brackets
@@ -1821,16 +1864,16 @@ class FlaggablePageView extends ContextSource {
 		return $table;
 	}
 
-	protected static function getDiffRevMsgAndClass(
-		Revision $rev, FlaggedRevision $srev = null
+	private static function getDiffRevMsgAndClass(
+		RevisionRecord $revRecord, FlaggedRevision $srev = null
 	) {
-		$tier = FlaggedRevision::getRevQuality( $rev->getId() );
+		$tier = FlaggedRevision::getRevQuality( $revRecord->getId() );
 		if ( $tier !== false ) {
 			$msg = $tier ?
 				'revreview-hist-quality' :
 				'revreview-hist-basic';
 		} else {
-			$msg = ( $srev && $rev->getTimestamp() > $srev->getRevTimestamp() ) ? // bug 15515
+			$msg = ( $srev && $revRecord->getTimestamp() > $srev->getRevTimestamp() ) ? // bug 15515
 				'revreview-hist-pending' :
 				'revreview-hist-draft';
 		}
@@ -1894,49 +1937,70 @@ class FlaggablePageView extends ContextSource {
 	/**
 	 * Set $this->isDiffFromStable and $this->isMultiPageDiff fields
 	 * @param DifferenceEngine $diff
-	 * @param Revision|null $oldRev
-	 * @param Revision|null $newRev
+	 * @param RevisionRecord|null $oldRevRecord
+	 * @param RevisionRecord|null $newRevRecord
 	 * @return true
 	 */
-	public function setViewFlags( $diff, $oldRev, $newRev ) {
+	public function setViewFlags( $diff, $oldRevRecord, $newRevRecord ) {
 		$this->load();
 		// We only want valid diffs that actually make sense...
-		if ( $newRev && $oldRev && $newRev->getTimestamp() >= $oldRev->getTimestamp() ) {
-			// Is this a diff between two pages?
-			if ( $newRev->getPage() != $oldRev->getPage() ) {
-				$this->isMultiPageDiff = true;
-			// Is there a stable version?
-			} elseif ( $this->article->isReviewable() ) {
-				$srev = $this->article->getStableRev();
-				// Is this a diff of a draft rev against the stable rev?
-				if ( self::isDiffToStable( $srev, $oldRev, $newRev ) ) {
-					$this->isDiffFromStable = true;
-					$this->isReviewableDiff = true;
-				// Is this a diff of a draft rev against a reviewed rev?
-				} elseif (
-					FlaggedRevision::newFromTitle( $diff->getTitle(), $oldRev->getId() ) ||
-					FlaggedRevision::newFromTitle( $diff->getTitle(), $newRev->getId() )
-				) {
-					$this->isReviewableDiff = true;
-				}
-			}
-			$this->diffRevs = [ 'old' => $oldRev, 'new' => $newRev ];
+		if ( !( $newRevRecord
+			&& $oldRevRecord
+			&& $newRevRecord->getTimestamp() >= $oldRevRecord->getTimestamp() )
+		) {
+			return true;
 		}
+
+		// Is this a diff between two pages?
+		if ( $newRevRecord->getPageId() != $oldRevRecord->getPageId() ) {
+			$this->isMultiPageDiff = true;
+		// Is there a stable version?
+		} elseif ( $this->article->isReviewable() ) {
+			$srev = $this->article->getStableRev();
+			// Is this a diff of a draft rev against the stable rev?
+			if ( self::isDiffToStable(
+				$srev,
+				$oldRevRecord,
+				$newRevRecord
+			) ) {
+				$this->isDiffFromStable = true;
+				$this->isReviewableDiff = true;
+			// Is this a diff of a draft rev against a reviewed rev?
+			} elseif (
+				FlaggedRevision::newFromTitle(
+					$diff->getTitle(),
+					$oldRevRecord->getId()
+				) ||
+				FlaggedRevision::newFromTitle(
+					$diff->getTitle(),
+					$newRevRecord->getId()
+				)
+			) {
+				$this->isReviewableDiff = true;
+			}
+		}
+
+		$this->diffRevRecords = [
+			'old' => $oldRevRecord,
+			'new' => $newRevRecord
+		];
 		return true;
 	}
 
 	/**
 	 * Is a diff from $oldRev to $newRev a diff-to-stable?
 	 * @param FlaggedRevision|false $srev
-	 * @param Revision|false $oldRev
-	 * @param Revision|false $newRev
+	 * @param RevisionRecord|false $oldRevRecord
+	 * @param RevisionRecord|false $newRevRecord
 	 * @return bool
 	 */
-	protected static function isDiffToStable( $srev, $oldRev, $newRev ) {
-		return ( $srev && $oldRev && $newRev
-			&& $oldRev->getPage() == $newRev->getPage() // no multipage diffs
-			&& $oldRev->getId() == $srev->getRevId()
-			&& $newRev->getTimestamp() >= $oldRev->getTimestamp() // no backwards diffs
+	private static function isDiffToStable( $srev, $oldRevRecord, $newRevRecord ) {
+		return ( $srev
+			&& $oldRevRecord
+			&& $newRevRecord
+			&& $oldRevRecord->getPageId() === $newRevRecord->getPageId() // no multipage diffs
+			&& $oldRevRecord->getId() == $srev->getRevId()
+			&& $newRevRecord->getTimestamp() >= $oldRevRecord->getTimestamp() // no backwards diffs
 		);
 	}
 

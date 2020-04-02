@@ -443,10 +443,15 @@ class FlaggableWikiPage extends WikiPage {
 	 * @return bool Updates were done
 	 */
 	public function updateStableVersion( FlaggedRevision $srev, $latest = null ) {
-		$rev = $srev->getRevision();
-		if ( !$this->exists() || !$rev ) {
+		if ( !$this->exists() ) {
 			return false; // no bogus entries
 		}
+
+		$revRecord = $srev->getRevisionRecord();
+		if ( !$revRecord ) {
+			return false; // no bogus entries
+		}
+
 		# Get the latest revision ID if not set
 		if ( !$latest ) {
 			$latest = $this->mTitle->getLatestRevID( Title::GAID_FOR_UPDATE );
@@ -470,8 +475,8 @@ class FlaggableWikiPage extends WikiPage {
 		}
 		# Get the timestamp of the first edit after the stable version (if any)...
 		$nextTimestamp = null;
-		if ( $rev->getId() != $latest ) {
-			$timestamp = $dbw->timestamp( $rev->getTimestamp() );
+		if ( $revRecord->getId() != $latest ) {
+			$timestamp = $dbw->timestamp( $revRecord->getTimestamp() );
 			$nextEditTS = $dbw->selectField( 'revision',
 				'rev_timestamp',
 				[
@@ -496,7 +501,7 @@ class FlaggableWikiPage extends WikiPage {
 			'fp_page_id',
 			[
 				'fp_page_id'       => $this->getId(),
-				'fp_stable'        => $rev->getId(),
+				'fp_stable'        => $revRecord->getId(),
 				'fp_reviewed'      => $synced ? 1 : 0,
 				'fp_quality'       => ( $maxQuality === false ) ? null : $maxQuality,
 				'fp_pending_since' => $dbw->timestampOrNull( $nextTimestamp )

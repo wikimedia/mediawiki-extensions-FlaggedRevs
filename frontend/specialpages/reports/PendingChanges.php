@@ -238,15 +238,29 @@ class PendingChanges extends SpecialPage {
 		if ( $title ) {
 			$date = $row->pending_since;
 			$comments = $title->getTalkPage()->getFullURL();
-			$curRev = Revision::newFromTitle( $title );
+			$curRevRecord = MediaWikiServices::getInstance()
+				->getRevisionLookup()
+				->getRevisionByTitle( $title );
+			$currentComment = $curRevRecord->getComment() ?
+				$curRevRecord->getComment()->text :
+				'';
+			$currentUserText = $curRevRecord->getUser() ?
+				$curRevRecord->getUser()->getName() :
+				'';
 			return new FeedItem(
 				$title->getPrefixedText(),
-				FeedUtils::formatDiffRow( $title, $row->stable, $curRev->getId(),
-					$row->pending_since, $curRev->getComment() ),
+				FeedUtils::formatDiffRow(
+					$title,
+					$row->stable,
+					$curRevRecord->getId(),
+					$row->pending_since,
+					$currentComment
+				),
 				$title->getFullURL(),
 				$date,
-				$curRev->getUserText(),
-				$comments );
+				$currentUserText,
+				$comments
+			);
 		} else {
 			return null;
 		}

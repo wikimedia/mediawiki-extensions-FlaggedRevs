@@ -1,6 +1,8 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Revision\SlotRecord;
 
 /**
  * Class containing draft template/file version usage for
@@ -10,7 +12,7 @@ class FRInclusionCache {
 	/**
 	 * Get template and image versions from parsing a revision
 	 * @param WikiPage $wikiPage
-	 * @param Revision $rev
+	 * @param RevisionRecord $revRecord
 	 * @param User $user
 	 * @param string $regen use 'regen' to force regeneration
 	 * @return array [ templateIds, fileSHA1Keys ]
@@ -18,37 +20,40 @@ class FRInclusionCache {
 	 * fileSHA1Keys like ParserOutput->mImageTimeKeys
 	 */
 	public static function getRevIncludes(
-		WikiPage $wikiPage, Revision $rev, User $user, $regen = ''
+		WikiPage $wikiPage,
+		RevisionRecord $revRecord,
+		User $user,
+		$regen = ''
 	) {
 		global $wgParserCacheExpireTime;
 
 		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
-		$key = self::getCacheKey( $cache, $wikiPage->getTitle(), $rev->getId() );
+		$key = self::getCacheKey( $cache, $wikiPage->getTitle(), $revRecord->getId() );
 
-		$callback = function () use ( $wikiPage, $rev, $user ) {
+		$callback = function () use ( $wikiPage, $revRecord, $user ) {
 			$pOut = false;
-			if ( $rev->isCurrent() ) {
+			if ( $revRecord->isCurrent() ) {
 				$parserCache = MediaWikiServices::getInstance()->getParserCache();
 				# Try current version parser cache for this user...
 				$pOut = $parserCache->get( $wikiPage, $wikiPage->makeParserOptions( $user ) );
 				if ( $pOut == false ) {
 					# Try current version parser cache for the revision author...
-					$optsUser = $rev->getUser()
-						? User::newFromId( $rev->getUser() )
+					$optsUser = $revRecord->getUser()
+						? User::newFromIdentity( $revRecord->getUser() )
 						: 'canonical';
 					$pOut = $parserCache->get( $wikiPage, $wikiPage->makeParserOptions( $optsUser ) );
 				}
 			}
 
 			if ( $pOut == false ) {
-				$content = $rev->getContent( Revision::RAW );
+				$content = $revRecord->getContent( SlotRecord::MAIN, RevisionRecord::RAW );
 				if ( !$content ) {
 					// Just for extra sanity
 					$pOut = new ParserOutput();
 				} else {
 					$pOut = $content->getParserOutput(
 						$wikiPage->getTitle(),
-						$rev->getId(),
+						$revRecord->getId(),
 						ParserOptions::newFromUser( $user )
 					);
 				}
@@ -61,7 +66,7 @@ class FRInclusionCache {
 		if ( $regen === 'regen' ) {
 			$versions = $callback(); // skip cache
 		} else {
-			if ( $rev->isCurrent() ) {
+			if ( $revRecord->isCurrent() ) {
 				// Check cache entry against page_touched
 				$touchedCallback = function () use ( $wikiPage ) {
 					return wfTimestampOrNull( TS_UNIX, $wikiPage->getTouched() );

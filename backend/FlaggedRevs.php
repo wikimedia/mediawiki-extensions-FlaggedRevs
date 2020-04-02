@@ -2,6 +2,8 @@
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RenderedRevision;
+use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Revision\SlotRecord;
 
 /**
  * Class containing utility functions for a FlaggedRevs environment
@@ -574,7 +576,7 @@ class FlaggedRevs {
 			}
 		}
 		# Parse the new body
-		$content = $frev->getRevision()->getContent();
+		$content = $frev->getRevisionRecord()->getContent( SlotRecord::MAIN );
 		if ( $content === null ) {
 			return null; // missing revision
 		}
@@ -611,7 +613,15 @@ class FlaggedRevs {
 				# Found a reviewed/stable revision
 				if ( $id !== false ) {
 					# If $id is zero, don't bother loading it (page does not exist)
-					return $id === 0 ? null : Revision::newFromId( $id );
+					if ( $id === 0 ) {
+						return null;
+					}
+					$revRecord = MediaWikiServices::getInstance()
+						->getRevisionLookup()
+						->getRevisionById( $id );
+					// TODO setCurrentRevisionCallback needs a Revision, but
+					// we want to deprecate Revisions entirely (T249384)
+					return new Revision( $revRecord );
 				}
 				# Otherwise, fall back to default behavior (load latest revision)
 				return call_user_func( $oldCurrentRevisionCallback, $title, $parser );
@@ -783,13 +793,13 @@ class FlaggedRevs {
 
 	/**
 	 * Mark a revision as patrolled if needed
-	 * @param Revision $rev
+	 * @param RevisionRecord $revRecord
 	 * @return bool DB write query used
 	 */
-	public static function markRevisionPatrolled( Revision $rev ) {
+	public static function markRevisionPatrolled( RevisionRecord $revRecord ) {
 		$rcid = MediaWikiServices::getInstance()
 			->getRevisionStore()
-			->getRcIdIfUnpatrolled( $rev->getRevisionRecord() );
+			->getRcIdIfUnpatrolled( $revRecord );
 		# Make sure it is now marked patrolled...
 		if ( $rcid ) {
 			$dbw = wfGetDB( DB_MASTER );
@@ -953,7 +963,7 @@ class FlaggedRevs {
 	 * If no appropriate tags can be found, then the review will abort.
 	 * @param WikiPage $article
 	 * @param User $user
-	 * @param Revision $rev
+	 * @param RevisionRecord $revRecord
 	 * @param array|null $flags
 	 * @param bool $auto
 	 * @return true
@@ -961,7 +971,7 @@ class FlaggedRevs {
 	public static function autoReviewEdit(
 		WikiPage $article,
 		$user,
-		Revision $rev,
+		RevisionRecord $revRecord,
 		array $flags = null,
 		$auto = true
 	) {
@@ -1003,7 +1013,7 @@ class FlaggedRevs {
 		# Note: this needs to match the prepareContentForEdit() call WikiPage::doEditContent.
 		# This is for consistency and also to avoid triggering a second parse otherwise.
 		$editInfo = $article->prepareContentForEdit(
-			$rev->getContent(), null, $user, $rev->getContentFormat() );
+			$revRecord->getContent( SlotRecord::MAIN ), null, $user );
 		$poutput  = $editInfo->output; // revision HTML output
 
 		# Get the "review time" versions of templates and files.
@@ -1061,9 +1071,9 @@ class FlaggedRevs {
 
 		# Our review entry
 		$flaggedRevision = new FlaggedRevision( [
-			'rev'	      		=> $rev,
+			'revrecord'    		=> $revRecord,
 			'user_id'	       	=> $user->getId(),
-			'timestamp'     	=> $rev->getTimestamp(), // same as edit time
+			'timestamp'     	=> $revRecord->getTimestamp(), // same as edit time
 			'quality'      	 	=> $quality,
 			'tags'	       		=> $tags,
 			'img_name'      	=> $fileData['name'],
@@ -1076,7 +1086,7 @@ class FlaggedRevs {
 		$flaggedRevision->insert();
 		# Update the article review log
 		FlaggedRevsLog::updateReviewLog( $title,
-			$flags, [], '', $rev->getId(), $oldSvId, true, $auto, $user );
+			$flags, [], '', $revRecord->getId(), $oldSvId, true, $auto, $user );
 
 		# Update page and tracking tables and clear cache
 		self::stableVersionUpdates( $article );

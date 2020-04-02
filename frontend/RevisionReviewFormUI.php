@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionRecord;
 
 /**
  * Main review form UI
@@ -8,8 +9,7 @@ use MediaWiki\MediaWikiServices;
  * NOTE: use ONLY for diff-to-stable views and page version views
  */
 class RevisionReviewFormUI {
-	protected $user, $article, $rev;
-	protected $refRev = null;
+	protected $user, $article;
 	protected $topNotice = '';
 	protected $bottomNotice = '';
 	protected $fileVersion = null;
@@ -19,31 +19,37 @@ class RevisionReviewFormUI {
 	protected $request;
 	/** @var OutputPage */
 	protected $out;
+	/** @var RevisionRecord */
+	private $revRecord;
+	/** @var RevisionRecord */
+	private $refRevRecord = null;
 
 	/**
 	 * Generates a brief review form for a page
 	 * @param \IContextSource|\RequestContext $context
 	 * @param FlaggableWikiPage $article
-	 * @param Revision $rev
+	 * @param RevisionRecord $revRecord
 	 */
 	public function __construct(
-		IContextSource $context, FlaggableWikiPage $article, Revision $rev
+		IContextSource $context,
+		FlaggableWikiPage $article,
+		RevisionRecord $revRecord
 	) {
 		$this->user = $context->getUser();
 		$this->request = $context->getRequest();
 		$this->article = $article;
-		$this->rev = $rev;
+		$this->revRecord = $revRecord;
 		$this->out = $context->getOutput();
 	}
 
 	/**
 	 * Call this only when the form is shown on a diff:
 	 * (a) Shows the "reject" button
-	 * (b) Default the rating tags to those of $this->rev (if flagged)
-	 * @param Revision $refRev Old revision for diffs ($this->rev is the new rev)
+	 * (b) Default the rating tags to those of $this->revRecord (if flagged)
+	 * @param RevisionRecord $refRevRecord Old revision for diffs ($this->revRecord is the new rev)
 	 */
-	public function setDiffPriorRev( Revision $refRev ) {
-		$this->refRev = $refRev;
+	public function setDiffPriorRevRecord( RevisionRecord $refRevRecord ) {
+		$this->refRevRecord = $refRevRecord;
 	}
 
 	/**
@@ -86,8 +92,8 @@ class RevisionReviewFormUI {
 	 */
 	public function getHtml() {
 		global $wgLang;
-		$revId = $this->rev->getId();
-		if ( $this->rev->isDeleted( Revision::DELETED_TEXT ) ) {
+		$revId = $this->revRecord->getId();
+		if ( $this->revRecord->isDeleted( RevisionRecord::DELETED_TEXT ) ) {
 			return [ '', 'review_bad_oldid' ]; # The revision must be valid and public
 		}
 		$article = $this->article; // convenience
@@ -104,7 +110,7 @@ class RevisionReviewFormUI {
 			: FlaggedRevs::quickTags( FR_CHECKED ); // basic tags
 		$reviewTime = $frev ? $frev->getTimestamp() : ''; // last review of rev
 
-		$priorRevId = $this->refRev ? $this->refRev->getId() : 0;
+		$priorRevId = $this->refRevRecord ? $this->refRevRecord->getId() : 0;
 		# If we are reviewing updates to a page, start off with the stable revision's
 		# flags. Otherwise, we just fill them in with the selected revision's flags.
 		# @TODO: do we want to carry over info for other diffs?
@@ -149,10 +155,14 @@ class RevisionReviewFormUI {
 		# Check if anyone is reviewing this already and
 		# show a conflict warning message as needed...
 		if ( $priorRevId ) {
-			list( $u, $ts ) =
-				FRUserActivity::getUserReviewingDiff( $priorRevId, $this->rev->getId() );
+			list( $u, $ts ) = FRUserActivity::getUserReviewingDiff(
+				$priorRevId,
+				$this->revRecord->getId()
+			);
 		} else {
-			list( $u, $ts ) = FRUserActivity::getUserReviewingPage( $this->rev->getPage() );
+			list( $u, $ts ) = FRUserActivity::getUserReviewingPage(
+				$this->revRecord->getPageId()
+			);
 		}
 		$form .= Xml::openElement( 'p' );
 		// Page under review (and not by this user)...
@@ -259,12 +269,12 @@ class RevisionReviewFormUI {
 	 * @return int
 	 */
 	protected function rejectRefRevId() {
-		if ( $this->refRev ) {
-			$priorId = $this->refRev->getId();
-			if ( $priorId == $this->article->getStable() && $priorId != $this->rev->getId() ) {
-				if ( $this->rev->getContent( Revision::RAW ) !=
-					$this->refRev->getContent( Revision::RAW )
-				) {
+		if ( $this->refRevRecord ) {
+			$priorId = $this->refRevRecord->getId();
+			if ( $priorId == $this->article->getStable() &&
+				$priorId != $this->revRecord->getId()
+			) {
+				if ( !$this->revRecord->hasSameContent( $this->refRevRecord ) ) {
 					return $priorId; // left rev must be stable and right one newer
 				}
 			}

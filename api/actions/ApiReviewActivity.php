@@ -21,6 +21,8 @@
  * http://www.gnu.org/copyleft/gpl.html
  */
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * API module to set the "currently reviewing" status of revisions
  *
@@ -37,15 +39,18 @@ class ApiReviewActivity extends ApiBase {
 		// Check basic permissions
 		$this->checkUserRightsAny( 'review' );
 
-		$newRev = Revision::newFromId( $params['oldid'] );
-		if ( !$newRev || !$newRev->getTitle() ) {
+		$revLookup = MediaWikiServices::getInstance()->getRevisionLookup();
+		$newRevRecord = $revLookup->getRevisionById( $params['oldid'] );
+		if ( !$newRevRecord || !$newRevRecord->getPageAsLinkTarget() ) {
 			$this->dieWithError( [ 'apierror-nosuchrevid', $params['oldid'] ], 'notarget' );
 		}
-		$title = $newRev->getTitle();
 
-		if ( $this->getPermissionManager()->isBlockedFrom( $user, $title, false ) ) {
+		$linkTarget = $newRevRecord->getPageAsLinkTarget();
+		if ( $this->getPermissionManager()->isBlockedFrom( $user, $linkTarget, false ) ) {
 			$this->dieBlocked( $user->getBlock() );
 		}
+
+		$title = Title::newFromLinkTarget( $linkTarget );
 
 		$fa = FlaggableWikiPage::getTitleInstance( $title );
 		if ( !$fa->isReviewable() ) {
@@ -53,8 +58,10 @@ class ApiReviewActivity extends ApiBase {
 		}
 
 		if ( $params['previd'] ) { // changes
-			$oldRev = Revision::newFromId( $params['previd'] );
-			if ( !$oldRev || $oldRev->getPage() != $newRev->getPage() ) {
+			$oldRevRecord = $revLookup->getRevisionById( $params['previd'] );
+			if ( !$oldRevRecord ||
+				$oldRevRecord->getPageId() != $newRevRecord->getPageId()
+			) {
 				$this->dieWithError( 'apierror-flaggedrevs-notsamepage', 'notarget' );
 			}
 			// Mark as reviewing...
@@ -68,11 +75,12 @@ class ApiReviewActivity extends ApiBase {
 			}
 		} else {
 			// Mark as reviewing...
+			$pageId = $newRevRecord->getPageId();
 			if ( $params['reviewing'] ) {
-				$status = FRUserActivity::setUserReviewingPage( $user, $newRev->getPage() );
+				$status = FRUserActivity::setUserReviewingPage( $user, $pageId );
 			// Unmark as reviewing...
 			} else {
-				$status = FRUserActivity::clearUserReviewingPage( $user, $newRev->getPage() );
+				$status = FRUserActivity::clearUserReviewingPage( $user, $pageId );
 			}
 		}
 

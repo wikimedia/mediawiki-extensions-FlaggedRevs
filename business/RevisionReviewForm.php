@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionRecord;
 
 /**
  * Class containing revision review form business logic
@@ -282,11 +283,13 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			return 'review_denied';
 		}
 		$status = null;
+		$user = $this->user;
 		# We can only approve actual revisions...
+		$revLookup = MediaWikiServices::getInstance()->getRevisionLookup();
 		if ( $this->getAction() === 'approve' ) {
-			$rev = Revision::newFromTitle( $this->page, $this->oldid );
+			$revRecord = $revLookup->getRevisionByTitle( $this->page, $this->oldid );
 			# Check for archived/deleted revisions...
-			if ( !$rev || $rev->getVisibility() ) {
+			if ( !$revRecord || $revRecord->getVisibility() ) {
 				return 'review_bad_oldid';
 			}
 			# Check for review conflicts...
@@ -296,7 +299,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 					return 'review_conflict_oldid';
 				}
 			}
-			$status = $this->approveRevision( $rev, $this->oldFrev );
+			$status = $this->approveRevision( $revRecord, $this->oldFrev );
 		# We can only unapprove approved revisions...
 		} elseif ( $this->getAction() === 'unapprove' ) {
 			# Check for review conflicts...
@@ -312,30 +315,37 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			}
 			$status = $this->unapproveRevision( $this->oldFrev );
 		} elseif ( $this->getAction() === 'reject' ) {
-			$newRev = Revision::newFromTitle( $this->page, $this->oldid );
-			$oldRev = Revision::newFromTitle( $this->page, $this->refid );
+			$newRevRecord = $revLookup->getRevisionByTitle( $this->page, $this->oldid );
+			$oldRevRecord = $revLookup->getRevisionByTitle( $this->page, $this->refid );
 			# Do not mess with archived/deleted revisions
-			if ( !$oldRev || $oldRev->isDeleted( Revision::DELETED_TEXT ) ) {
-				return 'review_bad_oldid';
-			} elseif ( !$newRev || $newRev->isDeleted( Revision::DELETED_TEXT ) ) {
+			if ( !$oldRevRecord ||
+				$oldRevRecord->isDeleted( RevisionRecord::DELETED_TEXT ) ||
+				!$newRevRecord ||
+				$newRevRecord->isDeleted( RevisionRecord::DELETED_TEXT )
+			) {
 				return 'review_bad_oldid';
 			}
 			# Check that the revs are in order
-			if ( $oldRev->getTimestamp() > $newRev->getTimestamp() ) {
+			if ( $oldRevRecord->getTimestamp() > $newRevRecord->getTimestamp() ) {
 				return 'review_cannot_undo';
 			}
 			# Make sure we are only rejecting pending changes
 			$srev = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
-			if ( $srev && $oldRev->getTimestamp() < $srev->getRevTimestamp() ) {
+			if ( $srev && $oldRevRecord->getTimestamp() < $srev->getRevTimestamp() ) {
 				return 'review_cannot_reject'; // not really a use case
 			}
 			$article = WikiPage::factory( $this->page );
 			# Get text with changes after $oldRev up to and including $newRev removed
-			$new_content = $article->getUndoContent( $newRev, $oldRev );
+			# TODO There is no alternative that can be used here with RevisionRecord
+			$new_content = $article->getUndoContent(
+				new Revision( $newRevRecord ),
+				new Revision( $oldRevRecord )
+			);
 			if ( $new_content === false ) {
 				return 'review_cannot_undo';
 			}
-			$baseRevId = $newRev->isCurrent() ? $oldRev->getId() : 0;
+
+			$baseRevId = $newRevRecord->isCurrent() ? $oldRevRecord->getId() : 0;
 
 			$comment = $this->getComment();
 
@@ -345,7 +355,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 				$comment,
 				0,
 				$baseRevId,
-				$this->user
+				$user
 			);
 
 			$status = $editStatus->isOK() ? true : 'review_cannot_undo';
@@ -362,10 +372,10 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 					$revQuery['tables'],
 					[ 'rev_id', 'rev_user' => $revQuery['fields']['rev_user'] ],
 					[
-						'rev_id <= ' . $newRev->getId(),
-						'rev_timestamp <= ' . $newRev->getTimestamp(),
-						'rev_id > ' . $oldRev->getId(),
-						'rev_timestamp > ' . $oldRev->getTimestamp(),
+						'rev_id <= ' . $newRevRecord->getId(),
+						'rev_timestamp <= ' . $newRevRecord->getTimestamp(),
+						'rev_id > ' . $oldRevRecord->getId(),
+						'rev_timestamp > ' . $oldRevRecord->getTimestamp(),
 						'rev_page' => $article->getId(),
 					],
 					__METHOD__,
@@ -385,25 +395,29 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 						'reverted-revision-ids' => array_keys( $affectedRevisions ),
 						'method' => 'flaggedrevs-reject',
 					],
-					'agent' => $this->user,
+					'agent' => $user,
 				] );
 
 			}
 
 			# If this undid one edit by another logged-in user, update user tallies
 			if ( $status === true
-				&& $newRev->getParentId() == $oldRev->getId()
-				&& $newRev->getUser( Revision::RAW )
+				&& $newRevRecord->getParentId() == $oldRevRecord->getId()
+				&& $newRevRecord->getUser( RevisionRecord::RAW )
+				&& $newRevRecord->getUser( RevisionRecord::RAW )->isRegistered()
 			) {
-				if ( $newRev->getUser( Revision::RAW ) != $this->user->getId() ) { // no self-reverts
-					FRUserCounters::incCount( $newRev->getUser( Revision::RAW ), 'revertedEdits' );
+				if ( !( $newRevRecord->getUser( RevisionRecord::RAW )->equals( $user ) ) ) { // no self-reverts
+					FRUserCounters::incCount(
+						$newRevRecord->getUser( RevisionRecord::RAW )->getId(),
+						'revertedEdits'
+					);
 				}
 			}
 		}
 		# Watch page if set to do so
 		if ( $status === true ) {
-			if ( $this->user->getOption( 'flaggedrevswatch' ) && !$this->user->isWatched( $this->page ) ) {
-				$this->user->addWatch( $this->page );
+			if ( $user->getOption( 'flaggedrevswatch' ) && !$user->isWatched( $this->page ) ) {
+				$user->addWatch( $this->page );
 			}
 		}
 
@@ -414,12 +428,15 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 	/**
 	 * Adds or updates the flagged revision table for this page/id set
-	 * @param Revision $rev The revision to be accepted
+	 * @param RevisionRecord $revRecord The revision to be accepted
 	 * @param FlaggedRevision|null $oldFrev Currently accepted version of $rev or null
 	 * @throws Exception
 	 * @return bool|array true on success, array of errors on failure
 	 */
-	private function approveRevision( Revision $rev, FlaggedRevision $oldFrev = null ) {
+	private function approveRevision(
+		RevisionRecord $revRecord,
+		FlaggedRevision $oldFrev = null
+	) {
 		# Revision rating flags
 		$flags = $this->dims;
 		$quality = 0; // quality tier from flags
@@ -458,7 +475,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 		# The new review entry...
 		$flaggedRevision = new FlaggedRevision( [
-			'rev'               => $rev,
+			'revrecord'         => $revRecord,
 			'user_id'           => $this->user->getId(),
 			'timestamp'         => wfTimestampNow(),
 			'quality'           => $quality,
@@ -477,7 +494,10 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		# Insert the new review entry...
 		if ( !$flaggedRevision->insert() ) {
 			throw new Exception(
-				"Flagged revision with ID {$rev->getId()} exists with unexpected fr_page_id" );
+				'Flagged revision with ID ' .
+				(string)$revRecord->getId() .
+				' exists with unexpected fr_page_id'
+			);
 		}
 
 		# Update the article review log...
@@ -488,7 +508,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		# Get the new stable version as of now
 		$sv = FlaggedRevision::determineStable( $this->page, FR_MASTER /*consistent*/ );
 		# Update recent changes...
-		self::updateRecentChanges( $rev, 'patrol', $sv );
+		self::updateRecentChanges( $revRecord, 'patrol', $sv );
 		# Update page and tracking tables and clear cache
 		$changed = FlaggedRevs::stableVersionUpdates( $this->page, $sv, $oldSv );
 		if ( $changed ) {
@@ -522,7 +542,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			$this->comment, $this->oldid, $svId, false, false, $this->user );
 
 		# Update recent changes
-		self::updateRecentChanges( $frev->getRevision(), 'unpatrol', $sv );
+		self::updateRecentChanges( $frev->getRevisionRecord(), 'unpatrol', $sv );
 		# Update page and tracking tables and clear cache
 		$changed = FlaggedRevs::stableVersionUpdates( $this->page, $sv, $oldSv );
 		if ( $changed ) {
@@ -557,7 +577,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 *
 	 * RecentChange should only be passed in when an RC item is saved.
 	 *
-	 * @param Revision|RecentChange $rev
+	 * @param RevisionRecord|RecentChange $rev
 	 * @param string $patrol "patrol" or "unpatrol"
 	 * @param FlaggedRevision|null $srev The new stable version
 	 * @return void
@@ -566,7 +586,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		if ( $rev instanceof RecentChange ) {
 			$pageId = $rev->getAttribute( 'rc_cur_id' );
 		} else {
-			$pageId = $rev->getPage();
+			$pageId = $rev->getPageId();
 		}
 		$sTimestamp = $srev ? $srev->getRevTimestamp() : null;
 

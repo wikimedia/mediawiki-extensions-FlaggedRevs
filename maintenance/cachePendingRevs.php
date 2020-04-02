@@ -12,6 +12,7 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 }
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionFactory;
 
 require_once "$IP/maintenance/Maintenance.php";
 
@@ -48,22 +49,31 @@ class CachePendingRevs extends Maintenance {
 		);
 
 		$user = User::newSystemUser( 'Maintenance script', [ 'steal' => true ] );
+		$revFactory = MediaWikiServices::getInstance()->getRevisionFactory();
 		foreach ( $ret as $row ) {
 			$title = Title::newFromRow( $row );
 			$wikiPage = WikiPage::factory( $title );
-			$rev = new Revision( $row );
+			$revRecord = $revFactory->newRevisionFromRow(
+				$row,
+				RevisionFactory::READ_NORMAL,
+				$title
+			);
 			// Trigger cache regeneration
 			$start = microtime( true );
 
 			FRInclusionCache::getRevIncludes(
 				$wikiPage,
-				$rev,
+				$revRecord,
 				$user,
 				'regen'
 			);
 			$elapsed = intval( ( microtime( true ) - $start ) * 1000 );
 			$this->cachePendingRevsLog(
-				$title->getPrefixedDBkey() . " rev:" . $rev->getId() . " {$elapsed}ms" );
+				$title->getPrefixedDBkey() .
+				" rev:" .
+				$revRecord->getId() . "
+				{$elapsed}ms"
+			);
 		}
 	}
 

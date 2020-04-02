@@ -21,6 +21,8 @@
  * http://www.gnu.org/copyleft/gpl.html
  */
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * API module to review revisions
  *
@@ -39,15 +41,19 @@ class ApiReview extends ApiBase {
 
 		// Get target rev and title
 		$revid = (int)$params['revid'];
-		$rev = Revision::newFromId( $revid );
-		if ( !$rev ) {
+		$revRecord = MediaWikiServices::getInstance()
+			->getRevisionLookup()
+			->getRevisionById( $revid );
+		if ( !$revRecord ) {
 			$this->dieWithError( [ 'apierror-nosuchrevid', $revid ], 'notarget' );
 		}
-		$title = $rev->getTitle();
 
-		if ( $this->getPermissionManager()->isBlockedFrom( $this->getUser(), $title, false ) ) {
+		$linkTarget = $revRecord->getPageAsLinkTarget();
+		if ( $this->getPermissionManager()->isBlockedFrom( $this->getUser(), $linkTarget, false ) ) {
 			$this->dieBlocked( $this->getUser()->getBlock() );
 		}
+
+		$title = Title::newFromLinkTarget( $linkTarget );
 
 		// Construct submit form...
 		$form = new RevisionReviewForm( $this->getUser() );
@@ -82,7 +88,7 @@ class ApiReview extends ApiBase {
 				$fileTimeKeys = []; // unused
 			} else {
 				list( $templateIds, $fileTimeKeys ) =
-					FRInclusionCache::getRevIncludes( $article, $rev, $this->getUser() );
+					FRInclusionCache::getRevIncludes( $article, $revRecord, $this->getUser() );
 			}
 			// Get version parameters for review submission (flat strings)
 			list( $templateParams, $imageParams, $fileParam ) =

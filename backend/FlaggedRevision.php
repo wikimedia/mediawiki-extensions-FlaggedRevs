@@ -1,7 +1,10 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionAccessException;
+use MediaWiki\Revision\RevisionFactory;
 use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Revision\SlotRecord;
 
 /**
  * Class representing a stable version of a MediaWiki revision
@@ -9,10 +12,11 @@ use MediaWiki\Revision\RevisionRecord;
  * This contains a page revision, a file version, and versions
  * of templates and files (to determine template inclusion and thumbnails)
  */
+
 class FlaggedRevision {
 
-	/** @var Revision base revision */
-	private $mRevision;
+	/** @var RevisionRecord base revision */
+	private $mRevRecord;
 	/** @var array|null included template versions */
 	private $mTemplates;
 	/** @var array[]|null included file versions */
@@ -73,8 +77,10 @@ class FlaggedRevision {
 					: null;
 			}
 			# Base Revision object
-			$revFlags = $flags ? Revision::READ_LATEST : Revision::READ_NORMAL;
-			$this->mRevision = new Revision( $row, $revFlags, $this->mTitle );
+			$revFactory = MediaWikiServices::getInstance()->getRevisionFactory();
+			$revFlags = $flags ? RevisionFactory::READ_LATEST : RevisionFactory::READ_NORMAL;
+			$revRecord = $revFactory->newRevisionFromRow( $row, $revFlags, $this->mTitle );
+			$this->mRevRecord = $revRecord;
 		} elseif ( is_array( $row ) ) {
 			$this->mTimestamp = $row['timestamp'];
 			$this->mQuality = intval( $row['quality'] );
@@ -82,7 +88,7 @@ class FlaggedRevision {
 			$this->mFlags = explode( ',', $row['flags'] );
 			$this->mUser = intval( $row['user_id'] );
 			# Base Revision object
-			$this->mRevision = $row['rev'];
+			$this->mRevRecord = $row['revrecord'];
 			# Image page revision relevant params
 			$this->mFileName = $row['img_name'] ?: null;
 			$this->mFileSha1 = $row['img_sha1'] ?: null;
@@ -93,8 +99,10 @@ class FlaggedRevision {
 		} else {
 			throw new Exception( 'FlaggedRevision constructor passed invalid row format.' );
 		}
-		if ( !( $this->mRevision instanceof Revision ) ) {
-			throw new Exception( 'FlaggedRevision constructor passed invalid Revision object.' );
+		if ( !( $this->mRevRecord instanceof RevisionRecord ) ) {
+			throw new Exception(
+				'FlaggedRevision constructor passed invalid RevisionRecord object.'
+			);
 		}
 	}
 
@@ -459,17 +467,17 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * @return int revision ID
+	 * @return int revision record's ID
 	 */
 	public function getRevId() {
-		return $this->mRevision->getId();
+		return $this->mRevRecord->getId();
 	}
 
 	/**
 	 * @return int page ID
 	 */
 	public function getPage() {
-		return $this->mRevision->getPage();
+		return $this->mRevRecord->getPageId();
 	}
 
 	/**
@@ -477,7 +485,8 @@ class FlaggedRevision {
 	 */
 	public function getTitle() {
 		if ( $this->mTitle === null ) {
-			$this->mTitle = $this->mRevision->getTitle();
+			$linkTarget = $this->mRevRecord->getPageAsLinkTarget();
+			$this->mTitle = Title::newFromLinkTarget( $linkTarget );
 		}
 		return $this->mTitle;
 	}
@@ -496,15 +505,15 @@ class FlaggedRevision {
 	 * @return string revision timestamp in MW format
 	 */
 	public function getRevTimestamp() {
-		return $this->mRevision->getTimestamp();
+		return $this->mRevRecord->getTimestamp();
 	}
 
 	/**
-	 * Get the corresponding revision
-	 * @return Revision
+	 * Get the corresponding revision record
+	 * @return RevisionRecord
 	 */
-	public function getRevision() {
-		return $this->mRevision;
+	public function getRevisionRecord() {
+		return $this->mRevRecord;
 	}
 
 	/**
@@ -513,7 +522,7 @@ class FlaggedRevision {
 	 * @return bool
 	 */
 	public function revIsCurrent() {
-		return $this->mRevision->isCurrent();
+		return $this->mRevRecord->isCurrent();
 	}
 
 	/**
@@ -522,7 +531,12 @@ class FlaggedRevision {
 	 * @return string|null Revision text, if available
 	 */
 	public function getRevText() {
-		return ContentHandler::getContentText( $this->mRevision->getContent() );
+		try {
+			$content = $this->mRevRecord->getContent( SlotRecord::MAIN );
+		} catch ( RevisionAccessException $e ) {
+			return '';
+		}
+		return ContentHandler::getContentText( $content );
 	}
 
 	/**

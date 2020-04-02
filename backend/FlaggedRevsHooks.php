@@ -3,6 +3,7 @@
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RenderedRevision;
 use MediaWiki\Revision\RevisionLookup;
+use MediaWiki\Revision\RevisionRecord;
 use Wikimedia\Rdbms\IDatabase;
 
 /**
@@ -156,9 +157,15 @@ class FlaggedRevsHooks {
 							->userCan( 'autoreview', $user, $ntitle )
 					) {
 						// Auto-review such edits like new pages...
-						$rev = Revision::newFromTitle( $ntitle, false, Revision::READ_LATEST );
-						if ( $rev ) { // sanity
-							FlaggedRevs::autoReviewEdit( $fa, $user, $rev );
+						$revRecord = MediaWikiServices::getInstance()
+							->getRevisionLookup()
+							->getRevisionByTitle(
+								$ntitle,
+								0,
+								RevisionLookup::READ_LATEST
+							);
+						if ( $revRecord ) { // sanity
+							FlaggedRevs::autoReviewEdit( $fa, $user, $revRecord );
 						}
 					}
 				}
@@ -493,10 +500,15 @@ class FlaggedRevsHooks {
 		if ( !$rev || !$user || !$fa->isReviewable() ) {
 			return true;
 		}
+
+		// TODO need a new hook that provides a RevisionRecord instead of a Revision
+		$revRecord = $rev->getRevisionRecord();
+		// No using $rev below here, to ensure minimal use
+
 		$fa->preloadPreparedEdit( $wikiPage ); // avoid double parse
-		$title->resetArticleID( $rev->getPage() ); // Avoid extra DB hit and lag issues
+		$title->resetArticleID( $revRecord->getPageId() ); // Avoid extra DB hit and lag issues
 		# Get what was just the current revision ID
-		$prevRevId = $rev->getParentId();
+		$prevRevId = $revRecord->getParentId();
 		# Get edit timestamp. Existance already validated by EditPage.php.
 		$editTimestamp = $wgRequest->getVal( 'wpEdittime' );
 		$pm = MediaWikiServices::getInstance()->getPermissionManager();
@@ -505,7 +517,7 @@ class FlaggedRevsHooks {
 			&& $wgRequest->getCheck( 'wpReviewEdit' )
 			&& $pm->getPermissionErrors( 'review', $user, $title ) === []
 		) {
-			if ( self::editCheckReview( $fa, $rev, $user, $editTimestamp ) ) {
+			if ( self::editCheckReview( $fa, $revRecord, $user, $editTimestamp ) ) {
 				return true; // reviewed...done!
 			}
 		}
@@ -566,7 +578,7 @@ class FlaggedRevsHooks {
 				$reviewableChange = $frev ||
 					# Bug 57073: If a user with autoreview returns the page to its last stable
 					# version, it should be marked stable, regardless of the method used to do so.
-					( $srev && $rev->getSha1() === $srev->getRevision()->getSha1() );
+					( $srev && $revRecord->getSha1() === $srev->getRevisionRecord()->getSha1() );
 			}
 			# Is this an edit directly to a reviewed version or a new page?
 			if ( $reviewableNewPage || $reviewableChange ) {
@@ -574,7 +586,7 @@ class FlaggedRevsHooks {
 					$flags = $frev->getTags(); // null edits & rollbacks keep previous tags
 				}
 				# Review this revision of the page...
-				FlaggedRevs::autoReviewEdit( $fa, $user, $rev, $flags );
+				FlaggedRevs::autoReviewEdit( $fa, $user, $revRecord, $flags );
 			}
 		# Case B: the user cannot autoreview edits. Check if either:
 		# (a) this is a rollback to the stable version
@@ -590,13 +602,13 @@ class FlaggedRevsHooks {
 			);
 			# Check for self-reversions (checks text hashes)...
 			if ( !$reviewableChange ) {
-				$reviewableChange = self::isSelfRevertToStable( $rev, $srev, $baseRevId, $user );
+				$reviewableChange = self::isSelfRevertToStable( $revRecord, $srev, $baseRevId, $user );
 			}
 			# Is this a rollback or self-reversion to the stable rev?
 			if ( $reviewableChange ) {
 				$flags = $srev->getTags(); // use old tags
 				# Review this revision of the page...
-				FlaggedRevs::autoReviewEdit( $fa, $user, $rev, $flags );
+				FlaggedRevs::autoReviewEdit( $fa, $user, $revRecord, $flags );
 			}
 		}
 		return true;
@@ -606,23 +618,23 @@ class FlaggedRevsHooks {
 	 * Review $rev if $editTimestamp matches the previous revision's timestamp.
 	 * Otherwise, review the revision that has $editTimestamp as its timestamp value.
 	 * @param WikiPage $wikiPage
-	 * @param Revision $rev
+	 * @param RevisionRecord $revRecord
 	 * @param User $user
 	 * @param string $editTimestamp
 	 * @return bool
 	 */
 	private static function editCheckReview(
-		WikiPage $wikiPage, $rev, $user, $editTimestamp
+		WikiPage $wikiPage, $revRecord, $user, $editTimestamp
 	) {
 		$prevTimestamp = null;
-		$prevRevId = $rev->getParentId(); // revision before $rev
+		$prevRevId = $revRecord->getParentId(); // id for revision before $revRecord
 		# Check wpEdittime against the former current rev for verification
 		if ( $prevRevId ) {
 			$prevTimestamp = MediaWikiServices::getInstance()
 				->getRevisionLookup()
 				->getTimestampFromId( $prevRevId, RevisionLookup::READ_LATEST );
 		}
-		# Was $rev is an edit to an existing page?
+		# Was $revRecord an edit to an existing page?
 		if ( $prevTimestamp ) {
 			# Check wpEdittime against the former current revision's time.
 			# If an edit was auto-merged in between, then the new revision
@@ -636,19 +648,22 @@ class FlaggedRevsHooks {
 		}
 		$flags = null;
 		# Review this revision of the page...
-		return FlaggedRevs::autoReviewEdit( $wikiPage, $user, $rev, $flags, false /* manual */ );
+		return FlaggedRevs::autoReviewEdit( $wikiPage, $user, $revRecord, $flags, false /* manual */ );
 	}
 
 	/**
 	 * Check if a user reverted himself to the stable version
-	 * @param Revision $rev
+	 * @param RevisionRecord $revRecord
 	 * @param FlaggedRevision $srev
 	 * @param int $baseRevId
 	 * @param User $user
 	 * @return bool
 	 */
-	protected static function isSelfRevertToStable(
-		Revision $rev, $srev, $baseRevId, $user
+	private static function isSelfRevertToStable(
+		RevisionRecord $revRecord,
+		$srev,
+		$baseRevId,
+		$user
 	) {
 		if ( !$srev || $baseRevId != $srev->getRevId() ) {
 			return false; // user reports they are not the same
@@ -660,9 +675,9 @@ class FlaggedRevsHooks {
 			[ 'revision' ] + $revWhere['tables'],
 			'1',
 			[
-				'rev_page' => $rev->getPage(),
+				'rev_page' => $revRecord->getPageId(),
 				'rev_id > ' . intval( $baseRevId ), // stable rev
-				'rev_id < ' . intval( $rev->getId() ), // this rev
+				'rev_id < ' . intval( $revRecord->getId() ), // this rev
 				$revWhere['conds']
 			],
 			__METHOD__,
@@ -677,7 +692,7 @@ class FlaggedRevsHooks {
 			[ 'revision' ] + $revWhere['tables'],
 			'1',
 			[
-				'rev_page' => $rev->getPage(),
+				'rev_page' => $revRecord->getPageId(),
 				'rev_id > ' . intval( $baseRevId ),
 				'NOT( ' . $revWhere['conds'] . ' )'
 			],
@@ -689,7 +704,7 @@ class FlaggedRevsHooks {
 			return false; // only looking for self-reverts
 		}
 		# Confirm the text because we can't trust this user.
-		return ( $rev->getSha1() === $srev->getRevision()->getSha1() );
+		return ( $revRecord->getSha1() === $srev->getRevisionRecord()->getSha1() );
 	}
 
 	/**
@@ -717,9 +732,11 @@ class FlaggedRevsHooks {
 	) {
 		global $wgRequest;
 		# Revision must *be* null (null edit). We also need the user who made the edit.
+		# TODO need a new hook that provides a RevisionRecord instead of a Revision
 		if ( !$user || $rev !== null ) {
 			return true;
 		}
+
 		# Rollback/undo or box checked
 		$reviewEdit = $wgRequest->getCheck( 'wpReviewEdit' );
 		if ( !$baseId && !$reviewEdit ) {
@@ -732,8 +749,9 @@ class FlaggedRevsHooks {
 		}
 		$title = $wikiPage->getTitle(); // convenience
 		# Get the current revision ID
-		$rev = Revision::newFromTitle( $title, false, Revision::READ_LATEST );
-		if ( !$rev ) {
+		$revLookup = MediaWikiServices::getInstance()->getRevisionLookup();
+		$revRecord = $revLookup->getRevisionByTitle( $title, 0, RevisionLookup::READ_LATEST );
+		if ( !$revRecord ) {
 			return true; // wtf?
 		}
 		$flags = null;
@@ -742,17 +760,15 @@ class FlaggedRevsHooks {
 			$frev = FlaggedRevision::newFromTitle( $title, $baseId ); // base rev of null edit
 			$pRevRecord = MediaWikiServices::getInstance()
 				->getRevisionLookup()
-				->getRevisionById( $rev->getParentId() ); // current rev parent
-			$revIsNull = ( $pRevRecord &&
-				$pRevRecord->hasSameContent( $rev->getRevisionRecord() )
-			);
+				->getRevisionById( $revRecord->getParentId() ); // current rev parent
+			$revIsNull = ( $pRevRecord && $pRevRecord->hasSameContent( $revRecord ) );
 			# Was the edit that we tried to revert to reviewed?
 			# We avoid auto-reviewing null edits to avoid confusion (bug 28476).
 			if ( $frev && !$revIsNull ) {
 				# Review this revision of the page...
-				$ok = FlaggedRevs::autoReviewEdit( $wikiPage, $user, $rev, $flags );
+				$ok = FlaggedRevs::autoReviewEdit( $wikiPage, $user, $revRecord, $flags );
 				if ( $ok ) {
-					FlaggedRevs::markRevisionPatrolled( $rev ); // reviewed -> patrolled
+					FlaggedRevs::markRevisionPatrolled( $revRecord ); // reviewed -> patrolled
 					FlaggedRevs::extraHTMLCacheUpdate( $title );
 					return true;
 				}
@@ -767,19 +783,20 @@ class FlaggedRevsHooks {
 			# Check wpEdittime against current revision's time.
 			# If an edit was auto-merged in between, review only up to what
 			# was the current rev when this user started editing the page.
-			if ( $rev->getTimestamp() != $editTimestamp ) {
-				$revRecord = MediaWikiServices::getInstance()
-					->getRevisionLookup()
-					->getRevisionByTimestamp( $title, $editTimestamp, RevisionLookup::READ_LATEST );
+			if ( $revRecord->getTimestamp() != $editTimestamp ) {
+				$revRecord = $revLookup->getRevisionByTimestamp(
+					$title,
+					$editTimestamp,
+					RevisionLookup::READ_LATEST
+				);
 				if ( !$revRecord ) {
 					return true; // deleted?
 				}
-				$rev = new Revision( $revRecord );
 			}
 			# Review this revision of the page...
-			$ok = FlaggedRevs::autoReviewEdit( $wikiPage, $user, $rev, $flags, false /* manual */ );
+			$ok = FlaggedRevs::autoReviewEdit( $wikiPage, $user, $revRecord, $flags, false /* manual */ );
 			if ( $ok ) {
-				FlaggedRevs::markRevisionPatrolled( $rev ); // reviewed -> patrolled
+				FlaggedRevs::markRevisionPatrolled( $revRecord ); // reviewed -> patrolled
 				FlaggedRevs::extraHTMLCacheUpdate( $title );
 			}
 		}
@@ -826,6 +843,7 @@ class FlaggedRevsHooks {
 	public static function incrementRollbacks(
 		WikiPage $article, User $user, $goodRev, Revision $badRev
 	) {
+		# TODO hook needs to be replaced with one that provides a RevisionRecord
 		# Mark when a user reverts another user, but not self-reverts
 		$badUserId = $badRev->getUser( Revision::RAW );
 		if ( $badUserId && $user->getId() != $badUserId ) {
@@ -852,17 +870,28 @@ class FlaggedRevsHooks {
 	public static function incrementReverts(
 		WikiPage $wikiPage, $rev, $baseRevId = false, $user = null
 	) {
+		# TODO hook needs to be replaced with one that provides a RevisionRecord
 		global $wgRequest;
 		# Was this an edit by an auto-sighter that undid another edit?
 		$undid = $wgRequest->getInt( 'undidRev' );
-		if ( $rev && $undid && $user->isAllowed( 'autoreview' ) ) {
-			// Note: $rev->getTitle() might be undefined (no rev id?)
-			$badRev = Revision::newFromTitle( $wikiPage->getTitle(), $undid );
-			if ( $badRev && $badRev->getUser( Revision::RAW ) // by logged-in user
-				&& $badRev->getUser( Revision::RAW ) != $rev->getUser( Revision::RAW ) // no self-reverts
-			) {
-				FRUserCounters::incCount( $badRev->getUser( Revision::RAW ), 'revertedEdits' );
-			}
+		if ( !( $rev && $undid && $user->isAllowed( 'autoreview' ) ) ) {
+			return true;
+		}
+
+		// Note: $rev->getTitle() might be undefined (no rev id?)
+		$badRevRecord = MediaWikiServices::getInstance()
+			->getRevisionLookup()
+			->getRevisionByTitle( $wikiPage->getTitle(), $undid );
+		if ( !( $badRevRecord && $badRevRecord->getUser( RevisionRecord::RAW ) ) ) {
+			return true;
+		}
+
+		$revRecordUser = $rev->getRevisionRecord()->getUser( RevisionRecord::RAW );
+		$badRevRecordUser = $badRevRecord->getUser( RevisionRecord::RAW );
+		if ( $badRevRecordUser->isRegistered() // by logged-in user
+			&& !$badRevRecordUser->equals( $revRecordUser ) // no self-reverts
+		) {
+			FRUserCounters::incCount( $badRevRecordUser->getId(), 'revertedEdits' );
 		}
 		return true;
 	}

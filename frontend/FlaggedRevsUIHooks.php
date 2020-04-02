@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\SlotRecord;
 
 /**
  * Class containing hooked functions for a FlaggedRevs environment
@@ -95,7 +96,7 @@ class FlaggedRevsUIHooks {
 			if ( $out->isArticleRelated() ) {
 				// Only use this hook if we want to prepend the form.
 				// We prepend the form for diffs, so only handle that case here.
-				if ( $view->diffRevsAreSet() ) {
+				if ( $view->diffRevRecordsAreSet() ) {
 					$view->addReviewForm( $out ); // form to be prepended
 				}
 			}
@@ -269,7 +270,8 @@ class FlaggedRevsUIHooks {
 				$cache->makeKey( 'flaggedrevs-stable-redirect', $wikiPage->getId() ),
 				$wgParserCacheExpireTime,
 				function () use ( $fa, $srev ) {
-					$content = $srev->getRevision()->getContent();
+					$content = $srev->getRevisionRecord()
+						->getContent( SlotRecord::MAIN );
 
 					return $fa->getRedirectURL( $content->getUltimateRedirectTarget() ) ?: '';
 				},
@@ -351,7 +353,7 @@ class FlaggedRevsUIHooks {
 			$view = FlaggablePageView::singleton();
 			// Only use this hook if we want to append the form.
 			// We *prepend* the form for diffs, so skip that case here.
-			if ( !$view->diffRevsAreSet() ) {
+			if ( !$view->diffRevRecordsAreSet() ) {
 				$view->addReviewForm( $data ); // form to be appended
 			}
 		}
@@ -913,10 +915,14 @@ class FlaggedRevsUIHooks {
 	 * @return bool
 	 */
 	public static function onDiffViewHeader( DifferenceEngine $diff, $oldRev, $newRev ) {
+		// TODO need a new hook using RevisionRecord instead
 		self::injectStyleAndJS( $diff->getOutput() );
 		$view = FlaggablePageView::singleton();
-		$view->setViewFlags( $diff, $oldRev, $newRev );
-		$view->addToDiffView( $diff, $oldRev, $newRev );
+
+		$oldRevRecord = $oldRev->getRevisionRecord();
+		$newRevRecord = $newRev->getRevisionRecord();
+		$view->setViewFlags( $diff, $oldRevRecord, $newRevRecord );
+		$view->addToDiffView( $diff, $oldRevRecord, $newRevRecord );
 		return true;
 	}
 

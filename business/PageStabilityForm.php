@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionRecord;
 
 /**
  * Class containing stability settings form business logic
@@ -258,17 +259,27 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 				}
 			}
 			# Update logs and make a null edit
-			$nullRev = $this->updateLogsAndHistory( $article );
+			$nullRevRecord = $this->updateLogsAndHistory( $article );
 			# Null edit may have been auto-reviewed already
-			$frev = FlaggedRevision::newFromTitle( $this->page, $nullRev->getId(), FR_MASTER );
+			$frev = FlaggedRevision::newFromTitle(
+				$this->page,
+				$nullRevRecord->getId(),
+				FR_MASTER
+			);
 			$updatesDone = (bool)$frev; // stableVersionUpdates() already called?
 			# Check if this null edit is to be reviewed...
 			if ( $this->reviewThis && !$frev ) {
 				$flags = null;
 				# Review this revision of the page...
-				$ok = FlaggedRevs::autoReviewEdit( $article, $this->user, $nullRev, $flags, true );
+				$ok = FlaggedRevs::autoReviewEdit(
+					$article,
+					$this->user,
+					$nullRevRecord,
+					$flags,
+					true
+				);
 				if ( $ok ) {
-					FlaggedRevs::markRevisionPatrolled( $nullRev ); // reviewed -> patrolled
+					FlaggedRevs::markRevisionPatrolled( $nullRevRecord ); // reviewed -> patrolled
 					$updatesDone = true; // stableVersionUpdates() already called
 				}
 			}
@@ -287,9 +298,9 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	 * (a) Add a new stability log entry
 	 * (b) Add a null edit like the log entry
 	 * @param FlaggableWikiPage $article
-	 * @return Revision
+	 * @return RevisionRecord
 	 */
-	protected function updateLogsAndHistory( FlaggableWikiPage $article ) {
+	private function updateLogsAndHistory( FlaggableWikiPage $article ) {
 		$newConfig = $this->getNewConfig();
 		$oldConfig = $this->getOldConfig();
 		$reason = $this->getReason();
@@ -319,17 +330,28 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		}
 
 		# Insert a null revision...
+		$revStore = MediaWikiServices::getInstance()->getRevisionStore();
 		$dbw = wfGetDB( DB_MASTER );
-		$nullRev = Revision::newNullRevision( $dbw, $article->getId(), $comment, true, $this->user );
-		$nullRev->insertOn( $dbw );
+		$nullRevRecord = $revStore->newNullRevision(
+			$dbw,
+			$article->getTitle(),
+			CommentStoreComment::newUnsavedComment( $comment ),
+			true, // minor
+			$this->user
+		);
+		$insertedRevRecord = $revStore->insertRevisionOn( $nullRevRecord, $dbw );
 		# Update page record and touch page
-		$oldLatest = $nullRev->getParentId();
-		$article->updateRevisionOn( $dbw, $nullRev, $oldLatest );
-		Hooks::run( 'NewRevisionFromEditComplete',
-			[ $article, $nullRev, $oldLatest, $this->user ] );
+		$oldLatest = $insertedRevRecord->getParentId();
 
-		# Return null Revision object for autoreview check
-		return $nullRev;
+		// TODO both WikiPage::updateRevisionOn and the hook require a Revision object
+		// and should be updated / converted to using a RevisionRecord
+		$insertedRev = new Revision( $insertedRevRecord );
+		$article->updateRevisionOn( $dbw, $insertedRev, $oldLatest );
+		Hooks::run( 'NewRevisionFromEditComplete',
+			[ $article, $insertedRev, $oldLatest, $this->user ] );
+
+		# Return null RevisionRecord object for autoreview check
+		return $insertedRevRecord;
 	}
 
 	/**

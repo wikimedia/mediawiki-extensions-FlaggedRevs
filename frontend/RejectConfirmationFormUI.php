@@ -9,10 +9,19 @@ use MediaWiki\Revision\RevisionRecord;
 class RejectConfirmationFormUI {
 	protected $form, $oldRev, $newRev;
 
+	/** @var RevisionRecord */
+	private $oldRevRecord;
+
+	/** @var RevisionRecord */
+	private $newRevRecord;
+
 	public function __construct( RevisionReviewForm $form ) {
 		$this->form = $form;
-		$this->newRev = Revision::newFromTitle( $form->getPage(), $form->getOldId() );
-		$this->oldRev = Revision::newFromTitle( $form->getPage(), $form->getRefId() );
+
+		$revLookup = MediaWikiServices::getInstance()->getRevisionLookup();
+		$page = $form->getPage();
+		$this->newRevRecord = $revLookup->getRevisionByTitle( $page, $form->getOldId() );
+		$this->oldRevRecord = $revLookup->getRevisionByTitle( $page, $form->getRefId() );
 	}
 
 	/**
@@ -26,12 +35,14 @@ class RejectConfirmationFormUI {
 		if ( $status !== true ) {
 			return [ '', $status ]; // not a reviewable existing page
 		}
-		$oldRev = $this->oldRev; // convenience
-		$newRev = $this->newRev; // convenience
+		$oldRevRecord = $this->oldRevRecord; // convenience
+		$newRevRecord = $this->newRevRecord; // convenience
 		# Do not mess with archived/deleted revisions
-		if ( !$oldRev || $newRev->isDeleted( Revision::DELETED_TEXT ) ) {
-			return [ '', 'review_bad_oldid' ];
-		} elseif ( !$newRev || $newRev->isDeleted( Revision::DELETED_TEXT ) ) {
+		if ( !$oldRevRecord ||
+			$oldRevRecord->isDeleted( RevisionRecord::DELETED_TEXT ) ||
+			!$newRevRecord ||
+			$newRevRecord->isDeleted( RevisionRecord::DELETED_TEXT )
+		) {
 			return [ '', 'review_bad_oldid' ];
 		}
 
@@ -43,11 +54,11 @@ class RejectConfirmationFormUI {
 			$revQuery['tables'],
 			$revQuery['fields'],
 			[
-				'rev_page' => $oldRev->getPage(),
+				'rev_page' => $oldRevRecord->getPageId(),
 				'rev_timestamp > ' . $dbr->addQuotes(
-					$dbr->timestamp( $oldRev->getTimestamp() ) ),
+					$dbr->timestamp( $oldRevRecord->getTimestamp() ) ),
 				'rev_timestamp <= ' . $dbr->addQuotes(
-					$dbr->timestamp( $newRev->getTimestamp() ) )
+					$dbr->timestamp( $newRevRecord->getTimestamp() ) )
 			],
 			__METHOD__,
 			[ 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 251 ], // sanity check
@@ -91,12 +102,13 @@ class RejectConfirmationFormUI {
 		}
 
 		// List of revisions being undone...
+		$oldTitle = Title::newFromLinkTarget( $oldRevRecord->getPageAsLinkTarget() );
 		$form .= wfMessage( 'revreview-reject-text-list' )
 			->numParams( count( $rejectIds ) )
-			->params( $oldRev->getTitle()->getPrefixedText() )->parse();
+			->params( $oldTitle->getPrefixedText() )->parse();
 		$form .= '<ul>';
 
-		$list = new RevisionList( RequestContext::getMain(), $oldRev->getTitle() );
+		$list = new RevisionList( RequestContext::getMain(), $oldTitle );
 		$list->filterByIds( $rejectIds );
 
 		for ( $list->reset(); $list->current(); $list->next() ) {
@@ -106,32 +118,36 @@ class RejectConfirmationFormUI {
 			}
 		}
 		$form .= '</ul>';
-		if ( $newRev->isCurrent() ) {
+
+		if ( $newRevRecord->isCurrent() ) {
 			// Revision this will revert to (when reverting the top X revs)...
 			$form .= wfMessage( 'revreview-reject-text-revto',
-				$oldRev->getTitle()->getPrefixedDBKey(), $oldRev->getId(),
-				$wgLang->timeanddate( $oldRev->getTimestamp(), true )
+				$oldTitle->getPrefixedDBKey(),
+				$oldRevRecord->getId(),
+				$wgLang->timeanddate( $oldRevRecord->getTimestamp(), true )
 			)->parse();
 		}
 
 		$comment = $this->form->getComment(); // convenience
 		// Determine the default edit summary...
-		if ( $oldRev->isDeleted( Revision::DELETED_USER ) ) {
+		if ( $oldRevRecord->isDeleted( RevisionRecord::DELETED_USER ) ) {
 			$oldRevAuthor = wfMessage( 'rev-deleted-user' )->text();
 			$oldRevAuthorUsername = '.';
 		} else {
-			$oldRevAuthor = $oldRev->getUserText();
+			$oldRevAuthor = $oldRevRecord->getUser() ?
+				$oldRevRecord->getUser()->getName() :
+				'';
 			$oldRevAuthorUsername = $oldRevAuthor;
 		}
 		// NOTE: *-cur msg wording not safe for (unlikely) edit auto-merge
-		$msg = $newRev->isCurrent()
+		$msg = $newRevRecord->isCurrent()
 			? 'revreview-reject-summary-cur'
 			: 'revreview-reject-summary-old';
 		$contLang = MediaWikiServices::getInstance()->getContentLanguage();
 		$defaultSummary = wfMessage( $msg,
 			$contLang->formatNum( count( $rejectIds ) ),
 			$contLang->listToText( $rejectAuthors ),
-			$oldRev->getId(),
+			$oldRevRecord->getId(),
 			$oldRevAuthor,
 			count( $rejectAuthors ) === 1 ? $lastRejectAuthor : '.',
 			$oldRevAuthorUsername
@@ -140,12 +156,12 @@ class RejectConfirmationFormUI {
 		$colonSeparator = wfMessage( 'colon-separator' )->text();
 		$maxLen = CommentStore::COMMENT_CHARACTER_LIMIT - strlen( $colonSeparator ) - strlen( $comment );
 		if ( strlen( $defaultSummary ) > $maxLen ) {
-			$msg = $newRev->isCurrent()
+			$msg = $newRevRecord->isCurrent()
 				? 'revreview-reject-summary-cur-short'
 				: 'revreview-reject-summary-old-short';
 			$defaultSummary = wfMessage( $msg,
 				$contLang->formatNum( count( $rejectIds ) ),
-				$oldRev->getId(),
+				$oldRevRecord->getId(),
 				$oldRevAuthor,
 				$oldRevAuthorUsername
 			)->inContentLanguage()->text();
@@ -168,9 +184,9 @@ class RejectConfirmationFormUI {
 		$form .= Html::hidden( 'wpRejectConfirm', 1 );
 		$form .= Html::hidden( 'oldid', $this->form->getOldId() );
 		$form .= Html::hidden( 'refid', $this->form->getRefId() );
-		$form .= Html::hidden( 'target', $oldRev->getTitle()->getPrefixedDBKey() );
+		$form .= Html::hidden( 'target', $oldTitle->getPrefixedDBKey() );
 		$form .= Html::hidden( 'wpEditToken', $this->form->getUser()->getEditToken() );
-		$form .= Html::hidden( 'changetime', $newRev->getTimestamp() );
+		$form .= Html::hidden( 'changetime', $newRevRecord->getTimestamp() );
 		$form .= Xml::inputLabel( wfMessage( 'revreview-reject-summary' )->text(), 'wpReason',
 			'wpReason', 120, $defaultSummary,
 			[ 'maxlength' => CommentStore::COMMENT_CHARACTER_LIMIT ] ) . "<br />";
