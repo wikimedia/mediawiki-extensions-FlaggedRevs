@@ -68,9 +68,10 @@ class RejectConfirmationFormUI {
 		foreach ( $res as $row ) {
 			$revRecord = $revFactory->newRevisionFromRow( $row );
 
-			// skip null edits, check that $lastRevRecord isn't null because it starts
-			// null but null cannot be passed as the paramater to hasSameContent
-			if ( $lastRevRecord !== null && !$revRecord->hasSameContent( $lastRevRecord ) ) {
+			// skip null edits; if $lastRevRecord is null then this is the first
+			// edit being checked, otherwise compare the content to the previous
+			// revision record
+			if ( $lastRevRecord === null || !$revRecord->hasSameContent( $lastRevRecord ) ) {
 				$rejectIds[] = $revRecord->getId();
 				$user = $revRecord->getUser();
 				$userText = $user ? $user->getName() : '';
