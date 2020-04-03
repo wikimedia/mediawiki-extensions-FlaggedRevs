@@ -491,8 +491,9 @@ class FlaggableWikiPage extends WikiPage {
 			$srev->findPendingFileChanges( 'noForeign' ) // file changes pending
 		);
 		# Alter table metadata
-		$dbw->replace( 'flaggedpages',
-			[ 'fp_page_id' ],
+		$dbw->replace(
+			'flaggedpages',
+			'fp_page_id',
 			[
 				'fp_page_id'       => $this->getId(),
 				'fp_stable'        => $rev->getId(),

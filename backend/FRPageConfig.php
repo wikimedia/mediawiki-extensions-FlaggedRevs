@@ -117,8 +117,9 @@ class FRPageConfig {
 			);
 			# If the new config is different, replace the old row...
 			if ( $changed ) {
-				$dbw->replace( 'flaggedpage_config',
-					[ 'PRIMARY' ],
+				$dbw->replace(
+					'flaggedpage_config',
+					'fpc_page_id',
 					[
 						'fpc_page_id'  => $title->getArticleID(),
 						'fpc_select'   => -1, // unused
