@@ -66,7 +66,7 @@
 	"revreview-reject-text-revto": "Sto cua riporterà ƚa pàgina a ƚa [{{fullurl:$1|oldid=$2}} version de $3]",
 	"revreview-reject-summary": "Comento:",
 	"revreview-reject-confirm": "Rifiuta sti canbiamenti",
-	"revreview-reject-cancel": "Lascia stare",
+	"revreview-reject-cancel": "Descançełare",
 	"revreview-reject-summary-cur": "{{PLURAL:$1|Rifiutà l'ultema modifega|Rifiutà ƚe ulteme $1 modifeghe}} (aportà {{PLURAL:$7|{{GENDER:$5|da}}}} $2) e ripristinà ƚa version $3 {{GENDER:$6|de}} $4",
 	"revreview-reject-summary-old": "{{PLURAL:$1|Rifiutà ƚa prima modifega|Rifiutae ƚe prime $1 modifeghe}} ({{PLURAL:$7|{{GENDER:$5|by}}}} $2) che ƚe segue ƚa version $3 {{GENDER:$6|de}} $4",
 	"revreview-reject-summary-cur-short": "Rifiutà {{PLURAL:$1|'l ùltemo canbiamento|i ùltemi $1 canbiamenti}} e ripristinà ƚa revixion $2 {{GENDER:$4|de}} $3",
