@@ -347,6 +347,7 @@
 			'revreview-adv-reviewing-p'; // page
 		$underReview = $( '<span>' )
 			.addClass( 'fr-under-review' )
+			// eslint-disable-next-line mediawiki/msg-doc
 			.text( mw.msg( msgkey, mw.user ) );
 		// Update notice to say that user is advertising...
 		$( '#mw-fr-reviewing-status' )
@@ -374,6 +375,7 @@
 		msgkey = $( '#mw-fr-input-refid' ).length ?
 			'revreview-sadv-reviewing-c' : // diff
 			'revreview-sadv-reviewing-p'; // page
+		// eslint-disable-next-line mediawiki/msg-doc
 		$underReview = $( '<span>' )
 			.addClass( 'fr-make-under-review' )
 			.msg(
