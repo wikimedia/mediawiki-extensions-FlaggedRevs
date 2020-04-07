@@ -761,11 +761,13 @@ class FlaggedRevs {
 	 * @param Title $title
 	 */
 	public static function HTMLCacheUpdates( Title $title ) {
-		# Invalidate caches of articles which include this page...
-		DeferredUpdates::addUpdate( new HTMLCacheUpdate( $title, 'templatelinks' ) );
+		$jobs = [];
+		$jobs[] = HTMLCacheUpdateJob::newForBacklinks( $title, 'templatelinks' );
 		if ( $title->getNamespace() == NS_FILE ) {
-			DeferredUpdates::addUpdate( new HTMLCacheUpdate( $title, 'imagelinks' ) );
+			$jobs[] = HTMLCacheUpdateJob::newForBacklinks( $title, 'imagelinks' );
 		}
+		JobQueueGroup::singleton()->lazyPush( $jobs );
+
 		DeferredUpdates::addUpdate( new FRExtraCacheUpdate( $title ) );
 	}
 
