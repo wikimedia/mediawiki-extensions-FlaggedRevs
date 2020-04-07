@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Horus",
-			"Aefgh39622"
+			"Aefgh39622",
+			"Horus"
 		]
 	},
 	"pendingchanges-hours": "($1 {{PLURAL:$1|ชั่วโมง|ชั่วโมง}})",

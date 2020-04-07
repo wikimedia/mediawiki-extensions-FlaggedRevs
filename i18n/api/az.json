@@ -1,10 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Cekli829",
 			"Baskervill",
-			"Wertuose",
-			"Neriman2003"
+			"Cekli829",
+			"Neriman2003",
+			"Wertuose"
 		]
 	},
 	"apihelp-flagconfig-description": "Bu sayt üçün bildiriş konfiqurasiyasına yenidən baxmaq haqqında sadə məlumatları əldə edin. \n\nHər bir işarələmə üçün aşağıdakı parametrlər təyin edilir. \n;ad:Bu işarələmənin əsas adı\n;səviyyələr:İşarələmə səviyyələrinin sayı (yuxarıda \"işarələnməmiş\") \n;2-ci dərəcə:yenidən baxılma üçün səviyyənin işarələnməsi 2-ci səviyyəyə (keyfiyyət) çatdırılmalıdır.\n;3-cü dərəcə:yenidən baxılma üçün səviyyənin işarələnməsi 3-cü səviyyəyə (yeni) çatdırılmalıdır.\nBildirişli versiyada hər bir bildiriş üçün müəyyən səviyyə təyin edilmişdir. Bütün işarələnmələrin toplandığı ən yüksək səviyyə ümumi təkrar baxış üçün təkrar səviyyə hesab olunur.",

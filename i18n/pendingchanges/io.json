@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Malafaya",
-			"Joao Xavier"
+			"Joao Xavier",
+			"Malafaya"
 		]
 	},
 	"pendingchanges-hours": "($1 {{PLURAL:$1|horo|hori}})",

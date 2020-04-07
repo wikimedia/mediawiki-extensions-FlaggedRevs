@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Rancher",
-			"Prevodim",
 			"Acamicamacaraca",
-			"Zoranzoki21",
-			"BadDog"
+			"BadDog",
+			"Prevodim",
+			"Rancher",
+			"Zoranzoki21"
 		]
 	},
 	"apihelp-query+configuredpages-param-default": "Подразумевана верзија прегледа странице.",

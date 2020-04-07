@@ -1,10 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sjoerddebruin",
-			"Robin0van0der0vliet",
 			"Mainframe98",
-			"Robin van der Vliet"
+			"Robin van der Vliet",
+			"Robin0van0der0vliet",
+			"Sjoerddebruin"
 		]
 	},
 	"apihelp-query+unreviewedpages-param-dir": "Richting om in te sorteren.",

@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"unreviewedpages": "未複審嘅版",
 	"unreviewedpages-legend": "列示未複審嘅內容頁",
 	"unreviewedpages-category": "分類:",

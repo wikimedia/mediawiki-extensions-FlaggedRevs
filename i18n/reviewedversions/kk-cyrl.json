@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"reviewedversions": "Тиянақты нұсқалар",
 	"reviewedversions-leg1": "Сын берілген беттің нұсқа тізімі",
 	"reviewedversions-page": "Бет атауы:",

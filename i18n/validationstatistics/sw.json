@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"validationstatistics-ns": "Eneo la wiki",
 	"validationstatistics-total": "Kurasa",
 	"validationstatistics-old": "Zilizopitwa na wakati",

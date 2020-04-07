@@ -2,10 +2,10 @@
 	"@metadata": {
 		"authors": [
 			"Candalua",
-			"Frigotoni",
-			"GatoSelvadego",
 			"Conky77",
-			"Fierodelveneto"
+			"Fierodelveneto",
+			"Frigotoni",
+			"GatoSelvadego"
 		]
 	},
 	"action-autoreviewrestore": "Autorevixion so rollback",

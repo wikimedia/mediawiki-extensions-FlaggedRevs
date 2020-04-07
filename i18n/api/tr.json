@@ -2,8 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Arystanbek",
-			"Vito Genovese",
-			"BaRaN6161 TURK"
+			"BaRaN6161 TURK",
+			"Vito Genovese"
 		]
 	},
 	"apihelp-flagconfig-description": "Bu site için inceleme bayrağı yapılandırması hakkında temel bilgi edinin.\n\nHer etiket için aşağıdaki parametreler döndürülür:\n;name:Bu etiketin anahtar adı.\n;levels:Etiketin sahip olduğu düzey sayısı (\"etiketlenmemiş\" öğesinin üstünde).\n;tier2:Bir revizyonun 2. katman (kalite) olması için etiketin ulaşması gereken düzey.\n;tier3:Bir revizyonun 3. kademe (bozulmamış) olması için etiketin ulaşması gereken düzey.\nİşaretli düzeltmelerin her bir etiket için atanmış bir düzeyi vardır. Tüm etiketlerin karşıladığı en yüksek katman, tüm revizyonun inceleme katmanıdır.",

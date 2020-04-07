@@ -2,6 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Aleator",
+			"AlvaroMolina",
+			"Fitoschido",
 			"Grondin",
 			"Jordi Roqué",
 			"Juanpabl",
@@ -11,11 +13,9 @@
 			"SMP",
 			"Solde",
 			"Ssola",
-			"Toniher",
-			"Vriullop",
 			"Syum90",
-			"AlvaroMolina",
-			"Fitoschido"
+			"Toniher",
+			"Vriullop"
 		]
 	},
 	"action-review": "supervisa les revisions",

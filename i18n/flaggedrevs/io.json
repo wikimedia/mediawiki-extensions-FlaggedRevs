@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Malafaya",
-			"Joao Xavier"
+			"Joao Xavier",
+			"Malafaya"
 		]
 	},
 	"flaggedrevs-prefs-editdiffs": "Show the pending changes diff when editing pages",

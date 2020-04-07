@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Vitorvicentevalente",
+			"Athena in Wonderland",
 			"Hamilton Abreu",
-			"Athena in Wonderland"
+			"Vitorvicentevalente"
 		]
 	},
 	"apihelp-flagconfig-description": "Obter informações de base sobre a configuração dos marcadores automáticos deste sítio.\n\nOs seguintes parâmetros são devolvidos para cada marcador:\n;name:O nome de chave do marcador.\n;levels:Número de níveis que o marcador tem (para além de \"não marcado\").\n;tier2:Nível que o marcador tem de atingir para uma revisão ser de grupo 2 (qualidade).\n;tier3:Nível que o marcador tem de atingir para uma revisão ser de grupo 3 (impecável).\nAs revisões marcadas têm um nível atribuído para cada marcador. O grupo mais alto atingido por todos os marcadores é o grupo de revisão de toda a revisão.",

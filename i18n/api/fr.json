@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Gomoko",
 			"0x010C",
+			"Gomoko",
+			"Thibaut120094",
 			"TomT0m",
-			"Wladek92",
-			"Thibaut120094"
+			"Wladek92"
 		]
 	},
 	"apihelp-flagconfig-description": "Obtenir des informations de base sur la configuration du marquage de relecture pour ce site.\n\nLes paramètres suivants sont renvoyés pour chaque marque :\n;name:Le nom de clé de cette marque.\n;levels:Nombre de niveaux de cette marque (au-dessus de « non marqué »).\n;tier2:Niveau que doit atteindre la marque pour qu’une révision soit du tiers 2 (qualité).\n;tier3:Niveau que la marque doit atteindre pour que la révision soit du tiers 3 (immaculé).\nLes révisions marquées ont un niveau affecté pour chaque marque. Le plus haut tiers que toutes les marques atteignent est le tiers de relecture de toute la révision.",

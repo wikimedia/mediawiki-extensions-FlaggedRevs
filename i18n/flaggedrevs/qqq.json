@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"A2093064",
 			"Aaron Schulz",
 			"Amire80",
 			"Bennylin",
@@ -14,6 +15,7 @@
 			"Jon Harald Søby",
 			"Kghbln",
 			"Liangent",
+			"Liuxinyu970226",
 			"Lloffiwr",
 			"McDutchie",
 			"Meno25",
@@ -27,15 +29,13 @@
 			"Shirayuki",
 			"Siddhartha Ghai",
 			"Siebrand",
+			"Srdjan m",
 			"Tgr",
 			"The Evil IP address",
 			"Umherirrender",
+			"Xiplus",
 			"Yekrats",
-			"Тест",
-			"Liuxinyu970226",
-			"Srdjan m",
-			"A2093064",
-			"Xiplus"
+			"Тест"
 		]
 	},
 	"action-autoreview": "{{Flagged Revs}}\n\n{{doc-action|autoreview}}",

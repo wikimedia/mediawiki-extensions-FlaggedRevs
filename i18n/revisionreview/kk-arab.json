@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"revisionreview": "نۇسقالارعا سىن بەرۋ",
 	"revreview-flag": "بۇل نۇسقاعا (#$1) سىن بەرۋ",
 	"revreview-log": "ماندەمەسى:",

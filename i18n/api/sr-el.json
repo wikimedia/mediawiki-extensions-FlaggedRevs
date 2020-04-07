@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"apihelp-query+configuredpages-param-default": "Podrazumevana verzija pregleda stranice.",
 	"apihelp-query+configuredpages-param-autoreview": "Nivo ograničenja provere/samoprovere.",
 	"apihelp-query+oldreviewedpages-param-filterwatched": "Kako da filtrirate stranice na Vašem spisku nadgledanja.",

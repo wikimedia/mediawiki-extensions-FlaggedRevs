@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"stabilization-submit": "Yakinisha",
 	"stabilization-comment": "Sababu:",
 	"stabilization-otherreason": "Sababu nyingine:",

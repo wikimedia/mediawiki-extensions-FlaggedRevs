@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
+			"Jiang123aa",
 			"Liuxinyu970226",
-			"Yfdyh000",
-			"Jiang123aa"
+			"Yfdyh000"
 		]
 	},
 	"apihelp-flagconfig-description": "获取有关此网站复核标记配置的信息。\n\n为每个标记返回以下参数：\n;name:此标签的键名。\n;levels:标签拥有的级别数（“未标记”以上）。\n;tier2:标签必须触及等级2（优良）修订的级别。\n;tier3:标签必须触及等级3（原始）修订的级别。\n为每个标签标记有分配级别的修订。所有标签都满足的最高等级是实体修订的复核等级。",

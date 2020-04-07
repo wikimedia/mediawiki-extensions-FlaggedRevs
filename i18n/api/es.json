@@ -1,10 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Macofe",
+			"Dgstranz",
 			"Fitoschido",
-			"Ryo567",
-			"Dgstranz"
+			"Macofe",
+			"Ryo567"
 		]
 	},
 	"apihelp-query+configuredpages-description": "Enumerar todas las páginas que tienen configuraciones de revisiones personalizadas.",
