@@ -500,7 +500,7 @@ class FlaggableWikiPage extends WikiPage {
 			'flaggedpages',
 			'fp_page_id',
 			[
-				'fp_page_id'       => $this->getId(),
+				'fp_page_id'       => $revRecord->getPageId(), // Don't use $this->getId(), T246720
 				'fp_stable'        => $revRecord->getId(),
 				'fp_reviewed'      => $synced ? 1 : 0,
 				'fp_quality'       => ( $maxQuality === false ) ? null : $maxQuality,
