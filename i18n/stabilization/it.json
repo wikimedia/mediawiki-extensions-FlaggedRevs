@@ -9,7 +9,8 @@
 			"Gianfranco",
 			"Melos",
 			"Nemo bis",
-			"Pietrodn"
+			"Pietrodn",
+			"Sakretsu"
 		]
 	},
 	"stabilization-tab": "ver",
@@ -41,6 +42,6 @@
 	"stabilize_expiry_invalid": "Data di scadenza non valida.",
 	"stabilize_expiry_old": "La data di scadenza è già passata.",
 	"stabilize_denied": "Permesso negato.",
-	"stabilize-expiring": "scade il $2 alle $3 (UTC)",
+	"stabilize-expiring": "scade {{PLURAL:$2|1=l'$2|8=l'$2|11=l'$2|il $2}} alle $3 (UTC)",
 	"stabilization-review": "Marca la versione corrente come controllata"
 }

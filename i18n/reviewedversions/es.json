@@ -3,13 +3,14 @@
 		"authors": [
 			"Crazymadlover",
 			"Imre",
-			"Macofe"
+			"Macofe",
+			"Savh"
 		]
 	},
 	"reviewedversions": "Versiones revisadas",
 	"reviewedversions-leg1": "lista de revisiones verificadas para una página",
 	"reviewedversions-page": "Nombre de la página:",
-	"reviewedversions-none": "\"[[:$1]]\" no tiene revisiones verificadas.",
+	"reviewedversions-none": "«[[:$1]]» no tiene revisiones verificadas.",
 	"reviewedversions-list": "La siguiente es una lista de {{PLURAL:$2|la única revisión|revisiones}} de [[:$1]] que {{PLURAL:$2|ha sido verificada|han sido verificadas}}:",
 	"reviewedversions-review": "Revisada en <i>$1</i> por $2"
 }

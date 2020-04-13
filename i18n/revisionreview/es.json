@@ -30,7 +30,7 @@
 	"review_bad_oldid": "No existe esta revisión del objetivo.",
 	"review_conflict_oldid": "Alguien ya ha aceptado o rechazado esta revisión mientras la leías.",
 	"review_not_flagged": "La revisión de destino no está marcada como revisada.",
-	"review_too_low": "La revisión no puede ser revisada con algunos campos dejados \"inadecuados\".",
+	"review_too_low": "La revisión no puede ser revisada con algunos campos dejados «inadecuados».",
 	"review_bad_key": "Clave de parámetro de inclusión inválido.",
 	"review_bad_tags": "Algunos de los valores de las etiquetas especificadas no son válidos.",
 	"review_denied": "Permiso denegado.",
@@ -84,6 +84,6 @@
 	"revreview-reject-summary-cur-short": "Se {{PLURAL:$1|rechazó el último cambio de texto|rechazaron los últimos $1 cambios de texto}} y se restauró la revisión $2 {{GENDER:$4|de}} $3",
 	"revreview-reject-summary-old-short": "Se {{PLURAL:$1|rechazó el primer cambio de texto que seguía|rechazaron los primeros $1 cambios de texto que seguían}} a la revisión $2 {{GENDER:$4|de}} $3",
 	"revreview-tt-flag": "Aprobar esta revisión marcándola como \"verificada\"",
-	"revreview-tt-unflag": "Desaprobar esta revisión marcándola como \"no-verificada\"",
+	"revreview-tt-unflag": "Desaprobar esta revisión marcándola como «no-verificada»",
 	"revreview-tt-reject": "Rechazar estos cambios del texto fuente revirtiéndolos"
 }

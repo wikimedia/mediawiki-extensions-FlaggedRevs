@@ -54,7 +54,7 @@
 	"revreview-hist-quality-auto": "aprovà automadegamente",
 	"revreview-hist-basic-auto": "controłada automadegamente",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} che speta łe revixion]]'''",
-	"review-edit-diff": "'''OCIO!: Ghe xé modifeghe che speta ła verifega che łe çentra co ła xona de ła pajina andove te si drio contribuire.'''",
+	"review-edit-diff": "'''OCIO!: Ghe xé modifeghe che speta ła verifega che łe çentra co ła xona de ła pàjina indove te si drio contribuire.'''",
 	"revreview-diff-toggle-show": "mostra i canbiamenti",
 	"revreview-diff-toggle-hide": "(scondi chełi canbiamenti)",
 	"revreview-diff-toggle-title": "Mostra/scondi i canbiamenti pendenti a la version stabile",
