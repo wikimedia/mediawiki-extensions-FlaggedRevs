@@ -2,6 +2,7 @@
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Revision\SlotRecord;
 
 /**
  * Class containing revision review form business logic
@@ -336,10 +337,19 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			}
 			$article = WikiPage::factory( $this->page );
 			# Get text with changes after $oldRev up to and including $newRev removed
-			# TODO There is no alternative that can be used here with RevisionRecord
-			$new_content = $article->getUndoContent(
-				new Revision( $newRevRecord ),
-				new Revision( $oldRevRecord )
+			if ( WikiPage::hasDifferencesOutsideMainSlot( $newRevRecord, $oldRevRecord ) ) {
+				return 'review_cannot_undo';
+			}
+			$undoHandler = MediaWikiServices::getInstance()
+				->getContentHandlerFactory()
+				->getContentHandler(
+					$newRevRecord->getSlot( SlotRecord::MAIN )->getModel()
+				);
+			$new_content = $undoHandler->getUndoContent(
+				$article->getRevisionRecord()->getContent( SlotRecord::MAIN ),
+				$newRevRecord->getContent( SlotRecord::MAIN ),
+				$oldRevRecord->getContent( SlotRecord::MAIN ),
+				$newRevRecord->isCurrent()
 			);
 			if ( $new_content === false ) {
 				return 'review_cannot_undo';
