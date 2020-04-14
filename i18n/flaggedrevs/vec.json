@@ -67,7 +67,7 @@
 	"review-diff2stable": "Varda tute łe modifeghe che speta ła revixion",
 	"review-logentry-id": "version: $2",
 	"review-logentry-diff": "canbiamenti ricontrolà",
-	"review-logentry-diff2": "canbiamenti dixaprovà",
+	"review-logentry-diff2": "canbiamenti desfai",
 	"review-logpage": "Rejistro de le riexaminasion",
 	"review-logpagetext": "Sto qua el xe un registro de quali pagine de contenuti le xe stà [[{{MediaWiki:Validationpage}}|controlà]].",
 	"reviewer": "Revisor",

@@ -56,7 +56,7 @@
 	"revreview-sadv-reviewing-p": "Te poi [$1 segnaƚare] che te si drio revixionar sta pàgina a altri utenti.",
 	"revreview-sadv-reviewing-c": "Te pol [$1 segnaƚa] che te si drio revixionar sti canbiamenti a altri utenti.",
 	"revreview-adv-start-link": "segnała",
-	"revreview-adv-stop-link": "anuła ła segnałasion",
+	"revreview-adv-stop-link": "Desfa ła segnałasion",
 	"revreview-toolow": "'''Ti ga da segnar ognuno dei atributi cuà soto piesè alto de \"No aprovà\" parché la revixion la sia considerà verifegà.'''\n\nPar anular el stato de na revision, struca \"{{int:revreview-submit-unreview}}\".\n\nPar piaser struca el boton \"indrìo\" del to browser e pròa da novo.",
 	"revreview-update": "'''Par piaser [[{{MediaWiki:Validationpage}}|verifica]] tuti i canbiamenti ''(mostrà qua soto)'' fati rispeto a la version stabile.'''",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Le to modifiche no le xe gnancora ne la version stabile.</span> \n\nPar piaser rivarda tute le modifiche qua soto parché le to modifiche le vegna mostrà inte la version stabile.",
