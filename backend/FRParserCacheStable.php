@@ -23,22 +23,22 @@ class FRParserCacheStable extends ParserCache {
 
 	/**
 	 * Like ParserCache::getParserOutputKey() with stable-pcache instead of pcache
-	 * @param WikiPage $article
+	 * @param WikiPage $wikiPage
 	 * @param string $hash
 	 * @return mixed|string
 	 */
-	protected function getParserOutputKey( $article, $hash ) {
-		$key = parent::getParserOutputKey( $article, $hash ); // call super!
+	protected function getParserOutputKey( WikiPage $wikiPage, $hash ) {
+		$key = parent::getParserOutputKey( $wikiPage, $hash ); // call super!
 		return str_replace( ':pcache:', ':stable-pcache:', $key );
 	}
 
 	/**
 	 * Like ParserCache::getOptionsKey() with stable-pcache instead of pcache
-	 * @param WikiPage $article
+	 * @param WikiPage $wikiPage
 	 * @return mixed|string
 	 */
-	protected function getOptionsKey( $article ) {
-		$key = parent::getOptionsKey( $article ); // call super!
+	protected function getOptionsKey( WikiPage $wikiPage ) {
+		$key = parent::getOptionsKey( $wikiPage ); // call super!
 		return str_replace( ':pcache:', ':stable-pcache:', $key );
 	}
 }

@@ -22,15 +22,15 @@ class FRParserCacheStableTest extends PHPUnit\Framework\TestCase {
 
 	// Tests for ParserCache changes - make sure stable keys are different
 	public function testGetParserOutputKey() {
-		$article = new Article( Title::newMainPage() );
-		$key = $this->cache->getParserOutputKey( $article, '' );
+		$wikiPage = new WikiPage( Title::newMainPage() );
+		$key = $this->cache->getParserOutputKey( $wikiPage, '' );
 		$this->assertRegExp( '/:stable-pcache:/', $key, 'Stable/latest cache has separation' );
 	}
 
 	// Tests for ParserCache changes - make sure stable keys are different
 	public function testGetOptionsKey() {
-		$article = new Article( Title::newMainPage() );
-		$key = $this->cache->getOptionsKey( $article );
+		$wikiPage = new WikiPage( Title::newMainPage() );
+		$key = $this->cache->getOptionsKey( $wikiPage );
 		$this->assertRegExp( '/:stable-pcache:/', $key, 'Stable/latest cache has separation' );
 	}
 }
