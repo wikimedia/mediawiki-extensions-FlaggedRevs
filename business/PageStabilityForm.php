@@ -343,10 +343,10 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		# Update page record and touch page
 		$oldLatest = $insertedRevRecord->getParentId();
 
-		// TODO both WikiPage::updateRevisionOn and the hook require a Revision object
-		// and should be updated / converted to using a RevisionRecord
+		$article->updateRevisionOn( $dbw, $insertedRevRecord, $oldLatest );
+
+		// TODO Update hook to use RevisionRecord
 		$insertedRev = new Revision( $insertedRevRecord );
-		$article->updateRevisionOn( $dbw, $insertedRev, $oldLatest );
 		Hooks::run( 'NewRevisionFromEditComplete',
 			[ $article, $insertedRev, $oldLatest, $this->user ] );
 
