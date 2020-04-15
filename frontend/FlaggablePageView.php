@@ -897,7 +897,23 @@ class FlaggablePageView extends ContextSource {
 			$nEdits = $revsSince - 1; // full diff-to-stable, no need for query
 			if ( $nEdits ) {
 				$limit = 100;
-				$nUsers = $title->countAuthorsBetween( $srev->getRevId(), $latest, $limit );
+				try {
+					$latest = MediaWikiServices::getInstance()
+						->getRevisionLookup()
+						->getRevisionById( $latest );
+					$users = MediaWikiServices::getInstance()
+						->getRevisionStore()
+						->getAuthorsBetween(
+							$title->getArticleId(),
+							$srev->getRevisionRecord(),
+							$latest,
+							null,
+							$limit
+						);
+					$nUsers = count( $users );
+				} catch ( InvalidArgumentException $e ) {
+					$nUsers = 0;
+				}
 				$multiNotice = DifferenceEngine::intermediateEditsMsg( $nEdits, $nUsers, $limit );
 			} else {
 				$multiNotice = '';
