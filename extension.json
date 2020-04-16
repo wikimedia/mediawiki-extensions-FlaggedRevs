@@ -315,7 +315,6 @@
 			],
 			"dependencies": [
 				"mediawiki.util",
-				"mediawiki.notify",
 				"mediawiki.user",
 				"mediawiki.jqueryMsg"
 			]
