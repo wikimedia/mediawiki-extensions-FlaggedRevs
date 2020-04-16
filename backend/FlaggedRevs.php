@@ -619,6 +619,11 @@ class FlaggedRevs {
 					$revRecord = MediaWikiServices::getInstance()
 						->getRevisionLookup()
 						->getRevisionById( $id );
+
+					if ( $revRecord === null ) {
+						return null;
+					}
+
 					// TODO setCurrentRevisionCallback needs a Revision, but
 					// we want to deprecate Revisions entirely (T249384)
 					return new Revision( $revRecord );
