@@ -36,9 +36,8 @@ class Stabilization extends UnlistedSpecialPage {
 			}
 			if ( $pm->isBlockedFrom( $user, $title, !$confirmed ) ) {
 				throw new UserBlockedError( $user->getBlock( !$confirmed ) );
-			} elseif ( wfReadOnly() ) {
-				throw new ReadOnlyError();
 			}
+			$this->checkReadOnly();
 		}
 
 		# Set page title
