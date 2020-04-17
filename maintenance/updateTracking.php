@@ -4,6 +4,7 @@
  */
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionStore;
 
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
@@ -203,9 +204,34 @@ class UpdateFRTracking extends Maintenance {
 				);
 				# Correct page_latest if needed (import/files made plenty of bad rows)
 				if ( $revRow ) {
-					$revision = new Revision( $revRow );
-					if ( $article->updateIfNewerOn( $db, $revision ) ) {
-						$fixed++;
+					$latestRevId = $article->getLatest();
+					if ( $latestRevId ) {
+						// If not found (false), cast to 0 so that the
+						// page is updated, just to be on the safe side,
+						// even though it should always be found
+						$latestTimestamp = (int)$revisionStore->getTimestampFromId(
+							$latestRevId,
+							RevisionStore::READ_LATEST
+						);
+					} else {
+						$latestTimestamp = 0;
+					}
+					if ( $revRow->rev_timestamp > $latestTimestamp ) {
+						// Most recent revision, based on timestamp, is
+						// newer than the page_latest
+						// update page_latest accordingly
+						$revRecord = $revisionStore->newRevisionFromRow(
+							$revRow,
+							RevisionStore::READ_LATEST,
+							$title
+						);
+						if ( $article->updateRevisionOn(
+							$db,
+							$revRecord,
+							$latestRevId
+						) ) {
+							$fixed++;
+						}
 					}
 				}
 				if ( $changed ) {
