@@ -3,6 +3,7 @@
 		"authors": [
 			"Candalua",
 			"Conky77",
+			"Fierodelveneto",
 			"GatoSelvadego"
 		]
 	},
@@ -16,6 +17,6 @@
 	"unreviewedpages-none": "No ghe xe atualmente pagine che sodisfa sti criteri",
 	"unreviewedpages-viewing": "(in corso de revision)",
 	"unreviewedpages-hours": "($1 {{PLURAL:$1|ora|ore}})",
-	"unreviewedpages-days": "($1 {{PLURAL:$1|zorno|zorni}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|dì}})",
 	"unreviewedpages-recent": "(manco de un'ora)"
 }
