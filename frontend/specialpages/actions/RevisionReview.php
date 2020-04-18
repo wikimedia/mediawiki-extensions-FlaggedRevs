@@ -36,9 +36,9 @@ class RevisionReview extends UnlistedSpecialPage {
 
 		if ( $pm->isBlockedFrom( $user, $this->page, !$confirmed ) ) {
 			throw new UserBlockedError( $user->getBlock( !$confirmed ) );
-		} elseif ( wfReadOnly() ) {
-			throw new ReadOnlyError();
 		}
+
+		$this->checkReadOnly();
 
 		$this->setHeaders();
 
