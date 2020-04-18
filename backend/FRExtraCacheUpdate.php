@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
 use Wikimedia\Rdbms\IResultWrapper;
 
 /**
@@ -96,7 +97,6 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 	 * @param IResultWrapper $res
 	 */
 	public function invalidateIDs( IResultWrapper $res ) {
-		global $wgUseFileCache, $wgUseCdn;
 		if ( $res->numRows() == 0 ) {
 			return; // sanity check
 		}
@@ -104,6 +104,8 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 		$dbw = wfGetDB( DB_MASTER );
 		$timestamp = $dbw->timestamp();
 		$done = false;
+
+		$hcu = MediaWikiServices::getInstance()->getHtmlCacheUpdater();
 
 		while ( !$done ) {
 			# Get all IDs in this query into an array
@@ -120,24 +122,18 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 			if ( count( $ids ) == 0 ) {
 				break;
 			}
+
 			# Update page_touched
-			$dbw->update( 'page', [ 'page_touched' => $timestamp ],
-				[ 'page_id' => $ids ], __METHOD__ );
-			# Update static caches
-			if ( $wgUseCdn || $wgUseFileCache ) {
-				$titles = Title::newFromIDs( $ids );
-				# Update CDN cache
-				if ( $wgUseCdn ) {
-					$u = CdnCacheUpdate::newFromTitles( $titles );
-					$u->doUpdate();
-				}
-				# Update file cache
-				if ( $wgUseFileCache ) {
-					foreach ( $titles as $title ) {
-						HTMLFileCache::clearFileCache( $title );
-					}
-				}
-			}
+			$dbw->update(
+				'page',
+				[ 'page_touched' => $timestamp ],
+				[ 'page_id' => $ids ],
+				__METHOD__
+			);
+
+			# Update CDN
+			$titles = Title::newFromIDs( $ids );
+			$hcu->purgeTitleUrls( $titles, $hcu::PURGE_INTENT_TXROUND_REFLECTED );
 		}
 	}
 }
