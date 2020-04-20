@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Candalua"
+			"Candalua",
+			"Fierodelveneto"
 		]
 	},
 	"reviewedpages": "Pagine riesaminà",
-	"reviewedpages-leg": "Elenco de le pagine revisionà",
+	"reviewedpages-leg": "Lista de łe pàjine revixionae",
 	"reviewedpages-list": "Sto elenco contien le [[{{MediaWiki:Validationpage}}|pagine controlà]] el cui massimo livèl de revisione ragiunto (de una revisione) el xe quelo indicà.\nXe fornìo un link a l'ultima revision par quel livèl.",
 	"reviewedpages-none": "No ghe xe nissuna pagina su sta lista",
 	"reviewedpages-lev-0": "Rivardà",
