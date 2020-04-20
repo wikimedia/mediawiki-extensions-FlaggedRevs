@@ -4,6 +4,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RenderedRevision;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\User\UserIdentity;
 use Wikimedia\Rdbms\IDatabase;
 
 /**
@@ -840,11 +841,11 @@ class FlaggedRevsHooks {
 	}
 
 	public static function incrementRollbacks(
-		WikiPage $article, User $user, $goodRev, Revision $badRev
+		WikiPage $article, UserIdentity $user, $goodRev, RevisionRecord $badRev
 	) {
-		# TODO hook needs to be replaced with one that provides a RevisionRecord
 		# Mark when a user reverts another user, but not self-reverts
-		$badUserId = $badRev->getUser( Revision::RAW );
+		$badUser = $badRev->getUser( RevisionRecord::RAW );
+		$badUserId = $badUser ? $badUser->getId() : 0;
 		if ( $badUserId && $user->getId() != $badUserId ) {
 			DeferredUpdates::addCallableUpdate( function () use ( $badUserId ) {
 				$p = FRUserCounters::getUserParams( $badUserId, FR_FOR_UPDATE );
