@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionAccessException;
 use MediaWiki\Revision\RevisionFactory;
@@ -186,7 +187,7 @@ class FlaggedRevision {
 		$frQuery = self::getQueryInfo();
 		$row = $db->selectRow(
 			array_merge( [ 'flaggedpages' ], $frQuery['tables'] ),
-			$frQuery['fields'],
+			array_merge( [ 'fr_page_id' ], $frQuery['fields'] ),
 			[
 				'fp_page_id' => $pageId,
 				$db->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0', // sanity
@@ -198,6 +199,24 @@ class FlaggedRevision {
 			] + $frQuery['joins']
 		);
 		if ( $row ) {
+			if ( (int)$row->rev_page !== $pageId || (int)$row->fr_page_id !== $pageId ) {
+				// Warn about inconsistent flaggedpages rows, see T246720
+				$logger = LoggerFactory::getInstance( 'FlaggedRevisions' );
+				$logger->warning( 'Found revision with mismatching page ID! ', [
+					'fp_page_id' => $pageId,
+					'fr_page_id' => $row->fr_page_id,
+					'rev_page' => $row->rev_page,
+					'rev_id' => $row->rev_id,
+					'trace' => wfBacktrace()
+				] );
+
+				// TODO: Can we make this self-healing somehow? We shouldn't return a FlaggedRevision
+				//       here that belongs to a different page. Can we find the correct revision for
+				//       the given page ID in flaggedrevs? Can we rely on fr_page_id, or is that
+				//       going to be wrong as well?
+				return null;
+			}
+
 			$frev = new self( $row, $title, $flags );
 			return $frev;
 		}
