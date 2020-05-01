@@ -582,19 +582,19 @@ class FlaggedRevs {
 		}
 
 		// Make this parse use reviewed/stable versions of templates
-		$oldCurrentRevisionCallback = $pOpts->setCurrentRevisionCallback(
-			function ( $title, $parser = false ) use ( &$oldCurrentRevisionCallback, $incManager ) {
+		$oldCurrentRevisionRecordCallback = $pOpts->setCurrentRevisionRecordCallback(
+			function ( $title, $parser = null ) use ( &$oldCurrentRevisionRecordCallback, $incManager ) {
 				if ( !( $parser instanceof Parser ) ) {
 					// nothing to do
-					return call_user_func( $oldCurrentRevisionCallback, $title, $parser );
+					return call_user_func( $oldCurrentRevisionRecordCallback, $title, $parser );
 				}
 				if ( $title->getNamespace() < 0 || $title->getNamespace() == NS_MEDIAWIKI ) {
 					// nothing to do (bug 29579 for NS_MEDIAWIKI)
-					return call_user_func( $oldCurrentRevisionCallback, $title, $parser );
+					return call_user_func( $oldCurrentRevisionRecordCallback, $title, $parser );
 				}
 				if ( !$incManager->parserOutputIsStabilized() ) {
 					// nothing to do
-					return call_user_func( $oldCurrentRevisionCallback, $title, $parser );
+					return call_user_func( $oldCurrentRevisionRecordCallback, $title, $parser );
 				}
 				$id = false; // current version
 				# Check for the version of this template used when reviewed...
@@ -620,16 +620,10 @@ class FlaggedRevs {
 						->getRevisionLookup()
 						->getRevisionById( $id );
 
-					if ( $revRecord === null ) {
-						return null;
-					}
-
-					// TODO setCurrentRevisionCallback needs a Revision, but
-					// we want to deprecate Revisions entirely (T249384)
-					return new Revision( $revRecord );
+					return $revRecord;
 				}
 				# Otherwise, fall back to default behavior (load latest revision)
-				return call_user_func( $oldCurrentRevisionCallback, $title, $parser );
+				return call_user_func( $oldCurrentRevisionRecordCallback, $title, $parser );
 			}
 		);
 
@@ -638,7 +632,7 @@ class FlaggedRevs {
 		if ( $resetManager ) {
 			$incManager->clear(); // reset the FRInclusionManager as needed
 		}
-		$pOpts->setCurrentRevisionCallback( $oldCurrentRevisionCallback );
+		$pOpts->setCurrentRevisionRecordCallback( $oldCurrentRevisionRecordCallback );
 		return $parserOut;
 	}
 
