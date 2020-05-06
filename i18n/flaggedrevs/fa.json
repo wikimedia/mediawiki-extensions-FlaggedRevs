@@ -43,7 +43,7 @@
 	"group-editor": "ویرایشگران",
 	"group-editor-member": "{{GENDER:$1|ویرایشگر}}",
 	"group-reviewer": "بازبینی‌کنندگان",
-	"group-reviewer-member": "{{GENDER:$1|مرورگر}}",
+	"group-reviewer-member": "{{GENDER:$1|باز‌بینی‌کننده}}",
 	"grouppage-editor": "{{ns:project}}:ویرایشگر",
 	"grouppage-reviewer": "{{ns:project}}:مرورگر",
 	"group-autoreview": "کاربران مرورگر خودکار",
