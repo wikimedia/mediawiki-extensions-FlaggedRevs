@@ -74,8 +74,12 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		$this->trySet( $this->refid, (int)$value );
 	}
 
+	public function getOldFlags() {
+	    return $this->oldFlags;
+	}
+
 	public function getOldId() {
-		return $this->oldid;
+	    return $this->oldid;
 	}
 
 	public function setOldId( $value ) {
