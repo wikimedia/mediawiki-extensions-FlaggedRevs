@@ -45,7 +45,7 @@
 	"group-reviewer": "بازبینی‌کنندگان",
 	"group-reviewer-member": "{{GENDER:$1|باز‌بینی‌کننده}}",
 	"grouppage-editor": "{{ns:project}}:ویرایشگر",
-	"grouppage-reviewer": "{{ns:project}}:مرورگر",
+	"grouppage-reviewer": "{{ns:project}}:بازبینی‌کننده",
 	"group-autoreview": "کاربران مرورگر خودکار",
 	"group-autoreview-member": "{{GENDER:$1|کاربر مرورگر خودکار}}",
 	"grouppage-autoreview": "{{ns:project}}:کاربران مرورگر خودکار",
