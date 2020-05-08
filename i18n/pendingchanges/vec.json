@@ -3,6 +3,7 @@
 		"authors": [
 			"Candalua",
 			"Conky77",
+			"Fierodelveneto",
 			"GatoSelvadego"
 		]
 	},
@@ -11,7 +12,7 @@
 	"pendingchanges-list": "Sta pàgina ƚa elenca ƚe pàgine [[{{MediaWiki:Validationpage}}|revixionae]] che ga uno o pì canbi da ricontroƚar.",
 	"pendingchanges-none": "No ghe xe atualmente nissuna pagina che sodisfa sti criteri",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|ora|ore}})",
-	"pendingchanges-days": "($1 {{PLURAL:$1|giòrno|giòrni}})",
+	"pendingchanges-days": "$1 {{PLURAL:$1|Dì}}",
 	"pendingchanges-recent": "(manco de 1 ora)",
 	"pendingchanges-category": "Categoria:",
 	"pendingchanges-onwatchlist": "Pagine che tegno d'ocio",
