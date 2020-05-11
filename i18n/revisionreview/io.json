@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Joao Xavier",
 			"Malafaya"
 		]
 	},
-	"revreview-log": "Komento:"
+	"review_denied": "Nepermisata.",
+	"revreview-log": "Komento:",
+	"revreview-reject-cancel": "Anular"
 }

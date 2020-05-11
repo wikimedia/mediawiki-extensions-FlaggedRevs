@@ -20,6 +20,7 @@
 			"青子守歌"
 		]
 	},
+	"action-autoreviewrestore": "巻き戻し時の自動査読",
 	"action-review": "特定版の査読",
 	"action-unreviewedpages": "未査読ページの一覧の閲覧",
 	"editor": "編集者",
