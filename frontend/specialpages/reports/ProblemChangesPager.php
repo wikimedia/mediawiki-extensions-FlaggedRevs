@@ -48,11 +48,8 @@ class ProblemChangesPager extends AlphabeticPager {
 	}
 
 	public function getQueryInfo() {
-		global $wgVersion;
 		$tables = [ 'revision', 'change_tag', 'change_tag_def', 'page' ];
 		$conds = [ 'ctd_id = ct_tag_id' ];
-		// The index on cl_from is called cl_from before 1.30, and PRIMARY starting with 1.30
-		$clFromIndex = version_compare( $wgVersion, '1.30', '<' ) ? 'cl_from' : 'PRIMARY';
 
 		$fields = [ 'page_namespace' , 'page_title', 'page_latest' ];
 		# Show outdated "stable" pages
@@ -79,7 +76,7 @@ class ProblemChangesPager extends AlphabeticPager {
 				array_unshift( $tables, 'categorylinks' ); // order matters
 				$conds[] = 'cl_from = fp_page_id';
 				$conds['cl_to'] = $this->category;
-				$useIndex['categorylinks'] = $clFromIndex;
+				$useIndex['categorylinks'] = 'PRIMARY';
 			}
 			array_unshift( $tables, 'flaggedpages' ); // order matters
 			$this->mIndexField = 'fp_pending_since';
@@ -106,7 +103,7 @@ class ProblemChangesPager extends AlphabeticPager {
 				array_unshift( $tables, 'categorylinks' ); // order matters
 				$conds[] = 'cl_from = fpp_page_id';
 				$conds['cl_to'] = $this->category;
-				$useIndex['categorylinks'] = $clFromIndex;
+				$useIndex['categorylinks'] = 'PRIMARY';
 			}
 			array_unshift( $tables, 'flaggedpage_pending' ); // order matters
 			$this->mIndexField = 'fpp_pending_since';
