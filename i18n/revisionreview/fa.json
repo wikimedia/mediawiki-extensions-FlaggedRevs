@@ -15,7 +15,7 @@
 	},
 	"revisionreview": "بازبینی نسخه‌ها",
 	"revreview-failed": "''امکان بازبینی این نسخه وجود ندارد.'''",
-	"revreview-submission-invalid": "فرآیند ناقض انجام شد یا به عنوان دیگر نامعتبر است.",
+	"revreview-submission-invalid": "فرایند به‌صورت ناقص اجرا شد یا در غیر این صورت، نامعتبر بود.",
 	"review_page_invalid": "عنوان صفحهٔ مقصد نامعتبر است.",
 	"review_page_notexists": "صفحهٔ مقصد وجود ندارد.",
 	"review_page_unreviewable": "صفحهٔ مقصد بازبین‌پذیر نیست.",
