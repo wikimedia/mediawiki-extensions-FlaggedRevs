@@ -13,9 +13,11 @@ class FRParserCacheStable extends ParserCache {
 		static $instance;
 		if ( !isset( $instance ) ) {
 			global $wgCacheEpoch;
+			$services = MediaWikiServices::getInstance();
 			$instance = new self(
-				MediaWikiServices::getInstance()->getParserCache()->getCacheStorage(),
-				$wgCacheEpoch
+				$services->getParserCache()->getCacheStorage(),
+				$wgCacheEpoch,
+				$services->getHookContainer()
 			);
 		}
 		return $instance;
