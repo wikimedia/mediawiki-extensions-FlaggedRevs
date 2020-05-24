@@ -41,8 +41,8 @@ class FixBug28348 extends Maintenance {
 		}
 		# Do remaining chunk
 		$end += $this->mBatchSize - 1;
-		$blockStart = $start;
-		$blockEnd = $start + $this->mBatchSize - 1;
+		$blockStart = (int)$start;
+		$blockEnd = (int)$start + $this->mBatchSize - 1;
 		$repoGroup = MediaWikiServices::getInstance()->getRepoGroup();
 
 		$count = $changed = 0;
