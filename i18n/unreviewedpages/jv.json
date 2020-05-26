@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Diki Ananta",
 			"Meursault2004",
 			"NoiX180"
 		]
@@ -10,7 +11,7 @@
 	"unreviewedpages-category": "Kategori",
 	"unreviewedpages-diff": "ulas",
 	"unreviewedpages-unwatched": "(ora diawasi)",
-	"unreviewedpages-watched": "($1 {{PLURAL:$1|panganggo|panganggo}} aktif ngawasi)",
+	"unreviewedpages-watched": "($1 {{PLURAL:$1|naraguna|naraguna}} aktif ngawasi)",
 	"unreviewedpages-list": "Kaca iki ngraptar kaca kontèn sing '''durung''' [[{{MediaWiki:Validationpage}}|diulas]] ing undhak tartamtu.",
 	"unreviewedpages-none": "Ora ana kaca sing cocok karo kritèria",
 	"unreviewedpages-viewing": "(lagi dipriksa)",

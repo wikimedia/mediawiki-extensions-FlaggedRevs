@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Diki Ananta",
 			"NoiX180"
 		]
 	},
@@ -16,6 +17,6 @@
 	"pendingchanges-diff": "ulas",
 	"pendingchanges-size": "Owahan maks (bita):",
 	"pendingchanges-unwatched": "(ora diawasi)",
-	"pendingchanges-watched": "($1 {{PLURAL:$1|panganggo|panganggo}} aktif ngawasi)",
+	"pendingchanges-watched": "($1 {{PLURAL:$1|naraguna|naraguna}} aktif ngawasi)",
 	"pendingchanges-viewing": "(lagi dipriksa)"
 }

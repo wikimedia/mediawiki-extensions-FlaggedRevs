@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Diki Ananta",
 			"NoiX180",
 			"Pras"
 		]
@@ -8,7 +9,7 @@
 	"validationstatistics": "Statistik ulasan kaca",
 	"validationstatistics-users": "'''{{SITENAME}}''' wektu iki duwé '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|panganggo|panganggo}} kanthi hak aksès [[{{MediaWiki:Validationpage}}|Editor]] lan '''[[Special:ListUsers/pamriksa|$2]]''' {{PLURAL:$2|panganggo|panganggo}} kanthi hak aksès [[{{MediaWiki:Validationpage}}|Pamriksa]].\n\nEditor lan Pamriksa iku panganggo mapan sing bisa mriksa langsung owah-owahan kaca.",
 	"validationstatistics-lastupdate": "''Data iki dianyari pungkasan $1 wanci $2.''",
-	"validationstatistics-revtime": "Rata-rata wektu tunggu besutan déning ''panganggo kang durung mlebu log'' kang arep kapriksa ya iku '''$1'''; médhiyané ya iku '''$2'''.\n$3",
+	"validationstatistics-revtime": "Rata-rata wektu tunggu besutan déning ''naraguna kang durung mlebu log'' kang arep kapriksa ya iku '''$1'''; médhiyané ya iku '''$2'''.\n$3",
 	"validationstatistics-table": "Statistik kanggo saben bilik jeneng ditampilaké ing ngisor iki, ''kajaba'' kaca pangalihan.",
 	"validationstatistics-ns": "Mandhala aran",
 	"validationstatistics-total": "Kaca",
@@ -17,6 +18,6 @@
 	"validationstatistics-synced": "Wis disinkronaké/Wis dipriksa",
 	"validationstatistics-old": "Lawas",
 	"validationstatistics-utable": "Ngisor iki daptar {{PLURAL:$1|pangulas paling aktif|$1 pangulas paling aktif}} {{PLURAL:$2|jam|$2 jam}} kapungkur.",
-	"validationstatistics-user": "Panganggo",
+	"validationstatistics-user": "Naraguna",
 	"validationstatistics-reviews": "Ulasan"
 }

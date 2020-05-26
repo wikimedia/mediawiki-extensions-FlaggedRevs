@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Diki Ananta",
 			"Meursault2004",
 			"NoiX180"
 		]
@@ -29,9 +30,9 @@
 	"group-reviewer-member": "{{GENDER:$1|pangulas}}",
 	"grouppage-editor": "{{ns:project}}:Pambesut",
 	"grouppage-reviewer": "{{ns:project}}:Pangulas",
-	"group-autoreview": "Panganggo sing kapriksa otomatis",
-	"group-autoreview-member": "{{GENDER:$1|panganggo sing kapriksa otomatis}}",
-	"grouppage-autoreview": "{{ns:project}}:Panganggo sing kapriksa otomatis",
+	"group-autoreview": "Naraguna sing kapriksa otomatis",
+	"group-autoreview-member": "{{GENDER:$1|naraguna sing kapriksa otomatis}}",
+	"grouppage-autoreview": "{{ns:project}}:Naraguna sing kapriksa otomatis",
 	"revreview-hist-draft": "owahan durung kapriksa",
 	"revreview-hist-pending": "révisi katundha",
 	"revreview-hist-quality": "révisi tinampa",
@@ -41,7 +42,7 @@
 	"revreview-hist-quality-auto": "otomatis ditampa",
 	"revreview-hist-basic-auto": "otomatis dipriksa",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} ulasan katunda]]'''",
-	"review-edit-diff": "'''GATÈKAKÉ: ''Sapèrangan'' owahan katundha ngaruhi arèa kaca sing lagi panjenengan sunting.'''",
+	"review-edit-diff": "'''GATÈKAKÉ: ''Sapèrangan'' owahan katundha ngaruhi arèa kaca sing lagi panjenengan besut.'''",
 	"revreview-diff-toggle-show": "tuduhaké owah-owahan kuwi",
 	"revreview-diff-toggle-hide": "dhelikaké owah-owahan kuwi",
 	"revreview-log-toggle-show": "tuduhaké log kastabilan",
@@ -69,7 +70,7 @@
 	"revreview-depth-3": "Dhuwur",
 	"revreview-depth-4": "Pinilih",
 	"revreview-draft-title": "Owahan katunda ditampilaké nèng kaca iki",
-	"revreview-editnotice": "'''Owahan panjenengan bakal ditampilaké nèng pamaca yèn panganggo sing nduwèni otoritas nyepakati. ([[{{MediaWiki:Validationpage}}|pitulung]])'''!",
+	"revreview-editnotice": "'''Owahan panjenengan bakal ditampilaké nèng pamaca yèn naraguna sing nduwèni otoritas nyepakati. ([[{{MediaWiki:Validationpage}}|pitulung]])'''",
 	"revreview-submitedit": "Kirim owahan",
 	"revreview-submitedit-title": "Kirim owahan panjenengan kanggo diulas",
 	"revreview-oldrating": "Nduwèni biji:",
@@ -108,7 +109,7 @@
 	"tooltip-ca-stable": "Deleng vèrsi stabil kaca iki",
 	"tooltip-ca-default": "Setèlan jaminan mutu",
 	"flaggedrevs-protect-legend": "Pamriksa besutan otomatis ([[{{MediaWiki:Validationpage}}|pitulung]])",
-	"flaggedrevs-protect-none": "Idinaké kabèh panganggo",
+	"flaggedrevs-protect-none": "Idinaké kabèh naraguna",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Kaca kang durung kapriksa]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Owah-owahan kang kasumenèkaké]",
 	"revreview-locked-title": "Kabèh besutaning kaca iki kang kudu kapriksa.",
 	"revreview-unlocked-title": "Kabèh besutan ing kaca iki ora prelu kapriksa.",
