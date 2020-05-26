@@ -805,7 +805,6 @@ class FlaggedRevsHooks {
 
 	/**
 	 * Mark auto-reviewed edits as patrolled
-	 * @suppress SecurityCheck-XSS
 	 * @param RecentChange $rc
 	 * @return true
 	 */

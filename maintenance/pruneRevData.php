@@ -49,8 +49,8 @@ class PruneFRIncludeData extends Maintenance {
 			return;
 		}
 		$end += $this->mBatchSize - 1; # Do remaining chunk
-		$blockStart = $start;
-		$blockEnd = $start + $this->mBatchSize - 1;
+		$blockStart = (int)$start;
+		$blockEnd = (int)$start + $this->mBatchSize - 1;
 
 		$tDeleted = $fDeleted = 0; // tallies
 

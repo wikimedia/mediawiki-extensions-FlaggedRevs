@@ -371,6 +371,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			$status = $editStatus->isOK() ? true : 'review_cannot_undo';
 
 			if ( $editStatus->isOK() &&
+				// @phan-suppress-next-line PhanTypeArraySuspiciousNullable
 				$editStatus->value['revision'] &&
 				ExtensionRegistry::getInstance()->isLoaded( 'Echo' )
 			) {
@@ -400,6 +401,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 					'type' => 'reverted',
 					'title' => $this->page,
 					'extra' => [
+						// @phan-suppress-next-line PhanTypeArraySuspiciousNullable
 						'revid' => $editStatus->value['revision']->getId(),
 						'reverted-users-ids' => array_values( $affectedRevisions ),
 						'reverted-revision-ids' => array_keys( $affectedRevisions ),

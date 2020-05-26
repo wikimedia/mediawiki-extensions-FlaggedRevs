@@ -69,8 +69,8 @@ class UpdateFRTracking extends Maintenance {
 		}
 		# Do remaining chunk
 		$end += $BATCH_SIZE - 1;
-		$blockStart = $start;
-		$blockEnd = $start + $BATCH_SIZE - 1;
+		$blockStart = (int)$start;
+		$blockEnd = (int)$start + $BATCH_SIZE - 1;
 		$count = 0;
 		$changed = 0;
 		while ( $blockEnd <= $end ) {
@@ -165,8 +165,8 @@ class UpdateFRTracking extends Maintenance {
 		}
 		# Do remaining chunk
 		$end += $BATCH_SIZE - 1;
-		$blockStart = $start;
-		$blockEnd = $start + $BATCH_SIZE - 1;
+		$blockStart = (int)$start;
+		$blockEnd = (int)$start + $BATCH_SIZE - 1;
 		$count = $deleted = $fixed = 0;
 		while ( $blockEnd <= $end ) {
 			$this->output( "...doing page_id from $blockStart to $blockEnd\n" );
@@ -251,8 +251,8 @@ class UpdateFRTracking extends Maintenance {
 		}
 		# Do remaining chunk
 		$end += $BATCH_SIZE - 1;
-		$blockStart = $start;
-		$blockEnd = $start + $BATCH_SIZE - 1;
+		$blockStart = (int)$start;
+		$blockEnd = (int)$start + $BATCH_SIZE - 1;
 		$nulled = 0;
 		while ( $blockEnd <= $end ) {
 			$this->output( "...doing fi_rev_id from $blockStart to $blockEnd\n" );

@@ -95,7 +95,6 @@ class RevisionReview extends UnlistedSpecialPage {
 				list( $html, $status ) = $rejectForm->getHtml();
 				// Success...
 				if ( $status === true ) {
-					// @phan-suppress-next-line SecurityCheck-XSS
 					$out->addHtml( $html );
 				// Failure...
 				} else {
