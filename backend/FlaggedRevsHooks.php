@@ -483,13 +483,13 @@ class FlaggedRevsHooks {
 	 *
 	 * Note: RC items not inserted yet, RecentChange_save hook does rc_patrolled bit...
 	 * @param WikiPage $wikiPage
-	 * @param Revision $rev
+	 * @param RevisionRecord $revRecord
 	 * @param int|false $baseRevId
-	 * @param User|null $user
+	 * @param UserIdentity $user
 	 * @return true
 	 */
 	public static function maybeMakeEditReviewed(
-		WikiPage $wikiPage, $rev, $baseRevId = false, $user = null
+		WikiPage $wikiPage, RevisionRecord $revRecord, $baseRevId, UserIdentity $user
 	) {
 		global $wgRequest;
 
@@ -497,13 +497,11 @@ class FlaggedRevsHooks {
 		# Edit must be non-null, to a reviewable page, with $user set
 		$fa = FlaggableWikiPage::getTitleInstance( $title );
 		$fa->loadPageData( FlaggableWikiPage::READ_LATEST );
-		if ( !$rev || !$user || !$fa->isReviewable() ) {
+		if ( !$fa->isReviewable() ) {
 			return true;
 		}
 
-		// TODO need a new hook that provides a RevisionRecord instead of a Revision
-		$revRecord = $rev->getRevisionRecord();
-		// No using $rev below here, to ensure minimal use
+		$user = User::newFromIdentity( $user );
 
 		$fa->preloadPreparedEdit( $wikiPage ); // avoid double parse
 		$title->resetArticleID( $revRecord->getPageId() ); // Avoid extra DB hit and lag issues
@@ -861,19 +859,21 @@ class FlaggedRevsHooks {
 
 	/**
 	 * @param WikiPage $wikiPage
-	 * @param Revision $rev
-	 * @param bool $baseRevId
-	 * @param null $user
+	 * @param RevisionRecord $revRecord
+	 * @param int|false $baseRevId
+	 * @param UserIdentity $user
 	 * @return bool
 	 */
 	public static function incrementReverts(
-		WikiPage $wikiPage, $rev, $baseRevId = false, $user = null
+		WikiPage $wikiPage, $revRecord, $baseRevId, UserIdentity $user
 	) {
 		# TODO hook needs to be replaced with one that provides a RevisionRecord
 		global $wgRequest;
 		# Was this an edit by an auto-sighter that undid another edit?
 		$undid = $wgRequest->getInt( 'undidRev' );
-		if ( !( $rev && $undid && $user->isAllowed( 'autoreview' ) ) ) {
+		if ( !( $undid && MediaWikiServices::getInstance()
+			->getPermissionManager()
+			->userHasRight( $user, 'autoreview' ) ) ) {
 			return true;
 		}
 
@@ -885,7 +885,7 @@ class FlaggedRevsHooks {
 			return true;
 		}
 
-		$revRecordUser = $rev->getRevisionRecord()->getUser( RevisionRecord::RAW );
+		$revRecordUser = $revRecord->getUser( RevisionRecord::RAW );
 		$badRevRecordUser = $badRevRecord->getUser( RevisionRecord::RAW );
 		if ( $badRevRecordUser->isRegistered() // by logged-in user
 			&& !$badRevRecordUser->equals( $revRecordUser ) // no self-reverts

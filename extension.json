@@ -379,7 +379,7 @@
 		"MakeGlobalVariablesScript": "FlaggedRevsUIHooks::onMakeGlobalVariablesScript",
 		"MergeAccountFromTo": "FlaggedRevsHooks::onMergeAccountFromTo",
 		"NewDifferenceEngine": "FlaggedRevsUIHooks::checkDiffUrl",
-		"NewRevisionFromEditComplete": [
+		"RevisionFromEditComplete": [
 			"FlaggedRevsHooks::incrementReverts",
 			"FlaggedRevsHooks::maybeMakeEditReviewed"
 		],

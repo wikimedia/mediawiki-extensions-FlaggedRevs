@@ -345,7 +345,10 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 
 		$article->updateRevisionOn( $dbw, $insertedRevRecord, $oldLatest );
 
-		// TODO Update hook to use RevisionRecord
+		Hooks::run( 'RevisionFromEditComplete',
+			[ $article, $insertedRevRecord, $oldLatest, $this->user ] );
+
+		// TODO remove old hook in 1.36
 		$insertedRev = new Revision( $insertedRevRecord );
 		Hooks::run( 'NewRevisionFromEditComplete',
 			[ $article, $insertedRev, $oldLatest, $this->user ] );
