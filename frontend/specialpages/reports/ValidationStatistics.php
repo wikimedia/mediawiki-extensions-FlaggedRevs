@@ -42,7 +42,8 @@ class ValidationStatistics extends IncludableSpecialPage {
 			foreach ( $pData as $percentile => $perValue ) {
 				$headerRows .= "<th>P<sub>" . intval( $percentile ) . "</sub></th>";
 				$dataRows .= '<td>' .
-					$lang->formatTimePeriod( $perValue, [ 'avoid' => 'avoidminutes' ] ) . '</td>';
+					htmlspecialchars( $lang->formatTimePeriod( $perValue, [ 'avoid' => 'avoidminutes' ] ) ) .
+					'</td>';
 			}
 			$css = 'wikitable flaggedrevs_stats_table';
 			$reviewChart = "<table class='$css' style='white-space: nowrap;'>\n";
