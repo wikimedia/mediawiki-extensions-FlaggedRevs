@@ -3,6 +3,7 @@
 		"authors": [
 			"ArdWar",
 			"Bennylin",
+			"Diki Ananta",
 			"Farras",
 			"IvanLanin",
 			"Iwan Novirion",
@@ -49,8 +50,8 @@
 	"revreview-submit-reject": "Tolak perubahan",
 	"revreview-submit-reviewed": "Selesai. Diterima!",
 	"revreview-submit-unreviewed": "Selesai. Tidak diterima!",
-	"revreview-successful": "'''Revisi [[:$1|$1]] berhasil ditandai. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} lihat revisi stabil])'''",
-	"revreview-successful2": "'''Penandaan revisi [[:$1|$1]] berhasil dibatalkan.'''",
+	"revreview-successful": "'''Revisi [[:$1|$1]] ditandai. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} lihat revisi stabil])'''",
+	"revreview-successful2": "'''Penandaan revisi [[:$1|$1]] dibatalkan.'''",
 	"revreview-poss-conflict-p": "'''Peringatan: [[User:$1|$1]] mulai meninjau halaman ini pada $2 $3.'''",
 	"revreview-poss-conflict-c": "'''Peringatan: [[User:$1|$1]] mulai meninjau perubahan ini pada $2 $3.'''",
 	"revreview-adv-reviewing-p": "Perhatian: Peninjau lainnya dapat melihat bahwa {{GENDER:$1|Anda}} sedang meninjau halaman ini.",
