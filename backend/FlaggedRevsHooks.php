@@ -918,14 +918,6 @@ class FlaggedRevsHooks {
 			} elseif ( $key === 'username' ) {
 				// Ignore this, shouldn't happen
 				continue;
-			} elseif ( $key === 'userid' ) {
-				$data = [
-					'tables' => [ 'revision' ],
-					'tsField' => 'rev_timestamp',
-					'cond' => $cond,
-					'joins' => [],
-					'useIndex' => [ 'revision' => 'user_timestamp' ],
-				];
 			} else { // future migration from revision_actor_temp to rev_actor
 				$data = [
 					'tables' => [ 'revision' ],
