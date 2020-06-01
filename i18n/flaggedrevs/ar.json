@@ -210,7 +210,7 @@
 	"revreview-locked": "'''ملاحظة:''' يجب أن [[{{MediaWiki:Validationpage}}|تراجع]] التعديلات على هذه الصفحة قبل أن تعرض للقراء.",
 	"revreview-unlocked": "'''ملاحظة:''' لا يجب أن [[{{MediaWiki:Validationpage}}|تراجع]] التعديلات على هذه الصفحة قبل أن تعرض للقراء.",
 	"logeventslist-review-log": "سجل المراجعة",
-	"validationpage": "{{ns:help}}:تحقيق الصفحة",
+	"validationpage": "{{ns:Project}}:مراجعات معلمة",
 	"log-action-filter-review": "نوع المراجعة:",
 	"log-action-filter-review-accept": "قبول يدوي",
 	"log-action-filter-review-autoaccept": "قبول آلي",
