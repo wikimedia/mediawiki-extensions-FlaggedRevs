@@ -56,7 +56,10 @@ abstract class FRGenericSubmitForm {
 		}
 
 		$result = '';
-		if ( !Hooks::run( 'FlaggedRevsFRGenericSubmitFormReady', [ $this, &$result ] ) ) {
+		if ( !FlaggedRevsHookRunner::getRunner()->onFlaggedRevsFRGenericSubmitFormReady(
+			$this,
+			$status
+		) ) {
 			return $result;
 		}
 
