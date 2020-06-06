@@ -61,6 +61,8 @@ class ReviewAllPages extends Maintenance {
 		$changed = 0;
 		$flags = FlaggedRevs::quickTags( FR_CHECKED ); // Assume basic level
 
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+
 		while ( $blockEnd <= $end ) {
 			$this->output( "...doing page_id from $blockStart to $blockEnd\n" );
 			$res = $db->select( [ 'page', 'revision' ],
@@ -92,7 +94,7 @@ class ReviewAllPages extends Maintenance {
 			$blockStart += $this->mBatchSize - 1;
 			$blockEnd += $this->mBatchSize - 1;
 
-			wfWaitForSlaves( 5 );
+			$lbFactory->waitForReplication( [ 'ifWritesSince' => 5 ] );
 		}
 
 		$this->output( "Auto-reviewing of all pages complete ..." .

@@ -2,6 +2,9 @@
 /**
  * @ingroup Maintenance
  */
+
+use MediaWiki\MediaWikiServices;
+
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
@@ -63,6 +66,9 @@ class FlagProtectToSemiProtect extends Maintenance {
 		$blockStart = (int)$start;
 		$blockEnd = (int)( $start + $this->mBatchSize - 1 );
 		$count = 0;
+
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+
 		while ( $blockEnd <= $end ) {
 			$this->output( "...doing fpc_page_id from $blockStart to $blockEnd\n" );
 			$res = $db->select(
@@ -129,7 +135,7 @@ class FlagProtectToSemiProtect extends Maintenance {
 			$db->freeResult( $res );
 			$blockStart += $this->mBatchSize - 1;
 			$blockEnd += $this->mBatchSize - 1;
-			wfWaitForSlaves( 5 );
+			$lbFactory->waitForReplication( [ 'ifWritesSince' => 5 ] );
 		}
 		$this->output( "Protection of all flag-protected pages complete ... {$count} pages\n" );
 	}

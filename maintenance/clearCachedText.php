@@ -6,6 +6,8 @@
 
 // @phan-file-suppress PhanUndeclaredMagicConstant Global scope
 
+use MediaWiki\MediaWikiServices;
+
 $IP = getenv( 'MW_INSTALL_PATH' );
 if ( strval( $IP ) == '' ) {
 	$IP = __DIR__ . '/../../..';
@@ -41,6 +43,8 @@ function wfPrintProgress( $pageId, $maxPage ) {
 	echo "$pageId / $maxPage\n";
 }
 
+$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+
 while ( true ) {
 	$res = $dbr->select( 'flaggedrevs', '*',
 		[
@@ -70,6 +74,6 @@ while ( true ) {
 	}
 	$pageId = $row->fr_page_id;
 	$revId = $row->fr_rev_id;
-	wfWaitForSlaves( 5 );
+	$lbFactory->waitForReplication( [ 'ifWritesSince' => 5 ] );
 	wfPrintProgress( $pageId, $maxPage );
 }

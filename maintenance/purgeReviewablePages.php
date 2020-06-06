@@ -2,6 +2,9 @@
 /**
  * @ingroup Maintenance
  */
+
+use MediaWiki\MediaWikiServices;
+
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
@@ -70,6 +73,8 @@ class PurgeReviewablePages extends Maintenance {
 		$blockStart = (int)$start;
 		$blockEnd = (int)( $start + $this->mBatchSize - 1 );
 
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+
 		$count = 0;
 		while ( $blockEnd <= $end ) {
 			$this->output( "... doing page_id from $blockStart to $blockEnd\n" );
@@ -92,7 +97,7 @@ class PurgeReviewablePages extends Maintenance {
 			$db->freeResult( $res );
 			$blockStart += $this->mBatchSize - 1;
 			$blockEnd += $this->mBatchSize - 1;
-			wfWaitForSlaves( 5 ); // not really needed
+			$lbFactory->waitForReplication( [ 'ifWritesSince' => 5 ] );
 		}
 		$this->output( "List of reviewable pages to purge complete ... {$count} pages\n" );
 	}
@@ -104,6 +109,8 @@ class PurgeReviewablePages extends Maintenance {
 			$this->output( "CDN/file cache not enabled ... nothing to purge.\n" );
 			return;
 		}
+
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 
 		$count = 0;
 		while ( !feof( $fileHandle ) ) {
@@ -119,7 +126,7 @@ class PurgeReviewablePages extends Maintenance {
 
 				$count++;
 				if ( ( $count % $this->mBatchSize ) == 0 ) {
-					wfWaitForSlaves( 5 ); // not really needed
+					$lbFactory->waitForReplication( [ 'ifWritesSince' => 5 ] );
 				}
 			} else {
 				$this->output( "Invalid title - cannot purge: $dbKey\n" );

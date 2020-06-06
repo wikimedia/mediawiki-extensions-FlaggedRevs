@@ -2,6 +2,9 @@
 /**
  * @ingroup Maintenance
  */
+
+use MediaWiki\MediaWikiServices;
+
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
@@ -50,6 +53,9 @@ class PopulateFRRevTimestamp extends Maintenance {
 		$blockEnd = (int)$start + $this->mBatchSize - 1;
 		$count = 0;
 		$changed = 0;
+
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+
 		while ( $blockEnd <= $end ) {
 			$this->output( "...doing fr_rev_id from $blockStart to $blockEnd\n" );
 			$cond = "fr_rev_id BETWEEN $blockStart AND $blockEnd AND fr_rev_timestamp = ''";
@@ -86,7 +92,7 @@ class PopulateFRRevTimestamp extends Maintenance {
 			$db->freeResult( $res );
 			$blockStart += $this->mBatchSize;
 			$blockEnd += $this->mBatchSize;
-			wfWaitForSlaves( 5 );
+			$lbFactory->waitForReplication( [ 'ifWritesSince' => 5 ] );
 		}
 		file_put_contents( $this->last_pos_file(), $end );
 		$this->output( "fr_rev_timestamp columns update complete ..." .

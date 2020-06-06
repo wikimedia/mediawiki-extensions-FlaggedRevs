@@ -45,6 +45,8 @@ class FixBug28348 extends Maintenance {
 		$blockEnd = (int)$start + $this->mBatchSize - 1;
 		$repoGroup = MediaWikiServices::getInstance()->getRepoGroup();
 
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+
 		$count = $changed = 0;
 		while ( $blockEnd <= $end ) {
 			$this->output( "...doing fi_rev_id from $blockStart to $blockEnd\n" );
@@ -97,7 +99,7 @@ class FixBug28348 extends Maintenance {
 			$db->freeResult( $res );
 			$blockStart += $this->mBatchSize;
 			$blockEnd += $this->mBatchSize;
-			wfWaitForSlaves( 5 );
+			$lbFactory->waitForReplication( [ 'ifWritesSince' => 5 ] );
 		}
 		$this->output(
 			"fi_img_timestamp column fixes complete ... {$count} rows [{$changed} changed]\n"

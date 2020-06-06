@@ -38,6 +38,9 @@ class UpdateFRAutoPromote extends Maintenance {
 		}
 		$count = 0;
 		$changed = 0;
+
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+
 		for ( $blockStart = (int)$start; $blockStart <= $end; $blockStart += (int)$this->mBatchSize ) {
 			$blockEnd = (int)min( $end, $blockStart + $this->mBatchSize - 1 );
 			$this->output( "...doing user_id from $blockStart to $blockEnd\n" );
@@ -100,7 +103,7 @@ class UpdateFRAutoPromote extends Maintenance {
 				$count++;
 				$this->commitTransaction( $dbw, __METHOD__ );
 			}
-			wfWaitForSlaves( 5 );
+			$lbFactory->waitForReplication( [ 'ifWritesSince' => 5 ] );
 		}
 		$this->output( "flaggedrevs_promote table update complete ..." .
 			" {$count} rows [{$changed} changed or added]\n" );

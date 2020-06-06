@@ -2,6 +2,9 @@
 /**
  * @ingroup Maintenance
  */
+
+use MediaWiki\MediaWikiServices;
+
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
@@ -56,6 +59,9 @@ class PruneFRIncludeData extends Maintenance {
 
 		$newerRevs = 50;
 		$cutoff = $db->timestamp( time() - 3600 );
+
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+
 		while ( $blockEnd <= $end ) {
 			$this->output( "...doing fp_page_id from $blockStart to $blockEnd\n" );
 			$cond = "fp_page_id BETWEEN $blockStart AND $blockEnd";
@@ -126,7 +132,7 @@ class PruneFRIncludeData extends Maintenance {
 					// Check slave lag...
 					if ( $batchCount >= $this->mBatchSize ) {
 						$batchCount = 0;
-						wfWaitForSlaves( 5 );
+						$lbFactory->waitForReplication( [ 'ifWritesSince' => 5 ] );
 					}
 				} else {
 					$db->freeResult( $sres );
