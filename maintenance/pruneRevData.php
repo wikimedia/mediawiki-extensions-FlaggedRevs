@@ -104,7 +104,7 @@ class PruneFRIncludeData extends Maintenance {
 					$db->freeResult( $sres );
 					// Write run: clear the include data for these old revs
 					if ( $prune ) {
-						$db->begin();
+						$db->begin( __METHOD__ );
 						$db->delete( 'flaggedtemplates',
 							[ 'ft_rev_id' => $revsClearIncludes ],
 							__METHOD__
@@ -115,7 +115,7 @@ class PruneFRIncludeData extends Maintenance {
 							__METHOD__
 						);
 						$fDeleted += $db->affectedRows();
-						$db->commit();
+						$db->commit( __METHOD__ );
 					// Dry run: say how many includes rows would have been cleared
 					} elseif ( count( $revsClearIncludes ) ) {
 						$tDeleted += $db->selectField( 'flaggedtemplates',

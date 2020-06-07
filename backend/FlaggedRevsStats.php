@@ -31,7 +31,7 @@ class FlaggedRevsStats {
 
 		$dbr = wfGetDB( DB_REPLICA );
 		if ( $timestamp === false ) { // use latest
-			$timestamp = $dbr->selectField( 'flaggedrevs_statistics', 'MAX(frs_timestamp)' );
+			$timestamp = $dbr->selectField( 'flaggedrevs_statistics', 'MAX(frs_timestamp)', [], __METHOD__ );
 		}
 
 		if ( $timestamp !== false ) {
@@ -184,7 +184,7 @@ class FlaggedRevsStats {
 		}
 
 		// Save the data...
-		$dbw->insert( 'flaggedrevs_statistics', $dataSet, __FUNCTION__, [ 'IGNORE' ] );
+		$dbw->insert( 'flaggedrevs_statistics', $dataSet, __METHOD__, [ 'IGNORE' ] );
 
 		// Stats are now up to date!
 		$key = $cache->makeKey( 'flaggedrevs', 'statsUpdated' );
@@ -264,7 +264,8 @@ class FlaggedRevsStats {
 		$dbr = wfGetDB( DB_REPLICA, 'vslow' );
 		$installedUnix = (int)$dbr->selectField( 'logging',
 			self::dbUnixTime( $dbr, 'MIN(log_timestamp)' ),
-			[ 'log_type' => 'review' ]
+			[ 'log_type' => 'review' ],
+			__METHOD__
 		);
 		if ( !$installedUnix ) {
 			$installedUnix = wfTimestamp( TS_UNIX ); // now
@@ -417,7 +418,7 @@ class FlaggedRevsStats {
 			$actorQuery['joins']
 		);
 		// foreach ( $dbr->query( "EXPLAIN $sql" ) as $row ) { print_r( $row ); }
-		$res = $dbr->query( $sql );
+		$res = $dbr->query( $sql, __METHOD__ );
 
 		$secondsR = 0; // total wait seconds for edits later reviewed
 		$secondsP = 0; // total wait seconds for edits still pending

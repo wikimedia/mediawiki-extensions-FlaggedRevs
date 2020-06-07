@@ -62,8 +62,8 @@ class PurgeReviewablePages extends Maintenance {
 
 		$db = wfGetDB( DB_MASTER );
 
-		$start = $db->selectField( 'page', 'MIN(page_id)', false, __FUNCTION__ );
-		$end = $db->selectField( 'page', 'MAX(page_id)', false, __FUNCTION__ );
+		$start = $db->selectField( 'page', 'MIN(page_id)', false, __METHOD__ );
+		$end = $db->selectField( 'page', 'MAX(page_id)', false, __METHOD__ );
 		if ( $start === null || $end === null ) {
 			$this->output( "... page table seems to be empty.\n" );
 			return;
@@ -82,7 +82,7 @@ class PurgeReviewablePages extends Maintenance {
 				[
 					"page_id BETWEEN $blockStart AND $blockEnd",
 					'page_namespace' => $wgFlaggedRevsNamespaces ],
-				__FUNCTION__
+				__METHOD__
 			);
 			# Go through and append each purgeable page...
 			foreach ( $res as $row ) {

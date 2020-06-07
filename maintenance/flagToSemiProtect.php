@@ -55,8 +55,8 @@ class FlagProtectToSemiProtect extends Maintenance {
 		}
 
 		$db = wfGetDB( DB_MASTER );
-		$start = $db->selectField( 'flaggedpage_config', 'MIN(fpc_page_id)', false, __FUNCTION__ );
-		$end = $db->selectField( 'flaggedpage_config', 'MAX(fpc_page_id)', false, __FUNCTION__ );
+		$start = $db->selectField( 'flaggedpage_config', 'MIN(fpc_page_id)', false, __METHOD__ );
+		$end = $db->selectField( 'flaggedpage_config', 'MAX(fpc_page_id)', false, __METHOD__ );
 		if ( $start === null || $end === null ) {
 			$this->output( "...flaggedpage_config table seems to be empty.\n" );
 			return;
@@ -78,7 +78,7 @@ class FlagProtectToSemiProtect extends Maintenance {
 					'page_namespace' => $wgFlaggedRevsNamespaces,
 					'page_id = fpc_page_id',
 					"fpc_level != ''" ],
-				__FUNCTION__
+				__METHOD__
 			);
 			# Go through and protect each page...
 			foreach ( $res as $row ) {
@@ -122,7 +122,7 @@ class FlagProtectToSemiProtect extends Maintenance {
 					$desc[] = "{$type}={$newLimit}: {$newExpiry}";
 				}
 
-				$db->begin();
+				$db->begin( __METHOD__ );
 				$wikiPage = WikiPage::factory( $title );
 				$ok = $wikiPage->doUpdateRestrictions( $limit, $expiry, $cascade, $reason, $user );
 				if ( $ok ) {
@@ -130,7 +130,7 @@ class FlagProtectToSemiProtect extends Maintenance {
 				} else {
 					$this->output( "Could not protect: " . $title->getPrefixedText() . "\n" );
 				}
-				$db->commit();
+				$db->commit( __METHOD__ );
 			}
 			$db->freeResult( $res );
 			$blockStart += $this->mBatchSize - 1;

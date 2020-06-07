@@ -55,7 +55,7 @@ class FixBug28348 extends Maintenance {
 			$res = $db->select( [ 'flaggedimages', 'image', 'oldimage' ],
 				'*',
 				$cond,
-				__FUNCTION__,
+				__METHOD__,
 				[],
 				[ // skip OK references to local files
 					'image'    => [ 'LEFT JOIN',
@@ -65,7 +65,7 @@ class FixBug28348 extends Maintenance {
 				]
 			);
 
-			$db->begin();
+			$db->begin( __METHOD__ );
 			# Go through and clean up missing items, as well as correct fr_quality...
 			foreach ( $res as $row ) {
 				$count++;
@@ -95,7 +95,7 @@ class FixBug28348 extends Maintenance {
 					}
 				}
 			}
-			$db->commit();
+			$db->commit( __METHOD__ );
 			$db->freeResult( $res );
 			$blockStart += $this->mBatchSize;
 			$blockEnd += $this->mBatchSize;

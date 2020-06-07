@@ -68,7 +68,7 @@ class PopulateFRRevTimestamp extends Maintenance {
 				[ 'revision' => [ 'LEFT JOIN', 'rev_id = fr_rev_id' ],
 					'archive' => [ 'LEFT JOIN', 'ar_rev_id = fr_rev_id' ] ] // non-unique but OK
 			);
-			$db->begin();
+			$db->begin( __METHOD__ );
 			# Go through and clean up missing items, as well as correct fr_quality...
 			foreach ( $res as $row ) {
 				$timestamp = '';
@@ -88,7 +88,7 @@ class PopulateFRRevTimestamp extends Maintenance {
 				}
 				$count++;
 			}
-			$db->commit();
+			$db->commit( __METHOD__ );
 			$db->freeResult( $res );
 			$blockStart += $this->mBatchSize;
 			$blockEnd += $this->mBatchSize;
