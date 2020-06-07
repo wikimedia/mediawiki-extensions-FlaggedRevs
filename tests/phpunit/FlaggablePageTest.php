@@ -12,13 +12,6 @@ class FlaggablePageTest extends PHPUnit\Framework\TestCase {
 		$this->user = new User();
 	}
 
-	/**
-	 * Cleans up the environment after running a test.
-	 */
-	protected function tearDown() : void {
-		parent::tearDown();
-	}
-
 	public function testPageDataFromTitle() {
 		$title = Title::makeTitle( NS_MAIN, "somePage" );
 		$article = new FlaggableWikiPage( $title );

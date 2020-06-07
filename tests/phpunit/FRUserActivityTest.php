@@ -12,13 +12,6 @@ class FRUserActivityTest extends PHPUnit\Framework\TestCase {
 		$this->user = User::newFromName( "someReviewer" );
 	}
 
-	/**
-	 * Cleans up the environment after running a test.
-	 */
-	protected function tearDown() : void {
-		parent::tearDown();
-	}
-
 	public function testPageIsUnderReview() {
 		$page = 110;
 
