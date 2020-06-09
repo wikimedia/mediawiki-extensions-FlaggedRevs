@@ -603,7 +603,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		$sTimestamp = $srev ? $srev->getRevTimestamp() : null;
 
 		$dbw = wfGetDB( DB_MASTER );
-		$limit = 100; // sanity limit to avoid slave lag (most useful when FR is first enabled)
+		$limit = 100; // sanity limit to avoid replica lag (most useful when FR is first enabled)
 		$conds = [ 'rc_cur_id' => $pageId ];
 
 		$newPatrolState = null; // set rc_patrolled to this value

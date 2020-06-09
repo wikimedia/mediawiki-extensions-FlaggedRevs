@@ -66,7 +66,7 @@ class PruneFRIncludeData extends Maintenance {
 			$this->output( "...doing fp_page_id from $blockStart to $blockEnd\n" );
 			$cond = "fp_page_id BETWEEN $blockStart AND $blockEnd";
 			$res = $db->select( 'flaggedpages', 'fp_page_id', $cond, __METHOD__ );
-			$batchCount = 0; // rows deleted without slave lag check
+			$batchCount = 0; // rows deleted without replica lag check
 			// Go through a chunk of flagged pages...
 			foreach ( $res as $row ) {
 				// Get the newest X ($newerRevs) flagged revs for this page
@@ -129,7 +129,7 @@ class PruneFRIncludeData extends Maintenance {
 							__METHOD__
 						);
 					}
-					// Check slave lag...
+					// Check replica lag...
 					if ( $batchCount >= $this->mBatchSize ) {
 						$batchCount = 0;
 						$lbFactory->waitForReplication( [ 'ifWritesSince' => 5 ] );

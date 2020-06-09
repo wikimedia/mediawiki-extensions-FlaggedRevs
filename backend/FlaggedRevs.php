@@ -1056,7 +1056,7 @@ class FlaggedRevs {
 		# If this is an image page, get the corresponding file version info...
 		$fileData = [ 'name' => null, 'timestamp' => null, 'sha1' => null ];
 		if ( $title->getNamespace() == NS_FILE ) {
-			# We must use WikiFilePage process cache on upload or get bitten by slave lag
+			# We must use WikiFilePage process cache on upload or get bitten by replica lag
 			$file = $article instanceof WikiFilePage
 				? $article->getFile() // uses up-to-date process cache on new uploads
 				: MediaWikiServices::getInstance()->getRepoGroup()

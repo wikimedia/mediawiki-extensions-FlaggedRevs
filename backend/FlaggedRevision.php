@@ -120,7 +120,7 @@ class FlaggedRevision {
 			return null; // short-circuit
 		}
 		$options = [];
-		# User master/slave as appropriate...
+		# User master/replica as appropriate...
 		if ( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
 			$db = wfGetDB( DB_MASTER );
 			if ( $flags & FR_FOR_UPDATE ) {
@@ -169,7 +169,7 @@ class FlaggedRevision {
 			return null; // short-circuit
 		}
 		$options = [];
-		# User master/slave as appropriate...
+		# User master/replica as appropriate...
 		if ( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
 			$db = wfGetDB( DB_MASTER );
 			if ( $flags & FR_FOR_UPDATE ) {
@@ -232,7 +232,7 @@ class FlaggedRevision {
 	 */
 	public static function newFromId( $revId, $flags = 0 ) {
 		$options = [];
-		# User master/slave as appropriate...
+		# User master/replica as appropriate...
 		if ( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
 			$db = wfGetDB( DB_MASTER );
 			if ( $flags & FR_FOR_UPDATE ) {
@@ -291,7 +291,7 @@ class FlaggedRevision {
 			return null; // short-circuit
 		}
 		$options = [];
-		# User master/slave as appropriate...
+		# User master/replica as appropriate...
 		if ( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
 			$db = wfGetDB( DB_MASTER );
 			if ( $flags & FR_FOR_UPDATE ) {
