@@ -372,7 +372,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 			if ( $editStatus->isOK() &&
 				// @phan-suppress-next-line PhanTypeArraySuspiciousNullable
-				$editStatus->value['revision'] &&
+				$editStatus->value['revision-record'] &&
 				ExtensionRegistry::getInstance()->isLoaded( 'Echo' )
 			) {
 				$affectedRevisions = []; // revid -> userid
@@ -402,7 +402,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 					'title' => $this->page,
 					'extra' => [
 						// @phan-suppress-next-line PhanTypeArraySuspiciousNullable
-						'revid' => $editStatus->value['revision']->getId(),
+						'revid' => $editStatus->value['revision-record']->getId(),
 						'reverted-users-ids' => array_values( $affectedRevisions ),
 						'reverted-revision-ids' => array_keys( $affectedRevisions ),
 						'method' => 'flaggedrevs-reject',
