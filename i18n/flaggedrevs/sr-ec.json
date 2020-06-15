@@ -79,7 +79,7 @@
 	"revreview-log-details-show": "прикажи детаље",
 	"revreview-log-details-hide": "сакриј детаље",
 	"revreview-log-details-title": "Промена приказа дневника за подешавања стабилности",
-	"review-diff2stable": "Погледај све промене на чекању",
+	"review-diff2stable": "Прикажи све измене на чекању",
 	"review-logentry-id": "измена: $2",
 	"review-logentry-diff": "проверене промене",
 	"review-logentry-diff2": "застареле измене",
