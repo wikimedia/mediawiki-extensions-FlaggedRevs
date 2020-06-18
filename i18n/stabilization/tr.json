@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"BaRaN6161 TURK",
 			"Erkan Yilmaz",
 			"Joseph",
 			"Karduelis",
@@ -20,7 +21,7 @@
 	"stabilization-def2": "Son sürüm",
 	"stabilization-restrict": "İnceleme/oto-inceleme kısıtlamaları",
 	"stabilization-restrict-none": "Başka ilave kısıtlama yok",
-	"stabilization-submit": "Tespit et",
+	"stabilization-submit": "Onayla",
 	"stabilization-notexists": "\"[[:$1|$1]]\" adında bir sayfa yok.\nYapılandırma mümkün değil.",
 	"stabilization-notcontent": "\"[[:$1|$1]]\" sayfası gözden geçirilemiyor.\nYapılandırma mümkün değil.",
 	"stabilization-comment": "Sebep:",
