@@ -907,20 +907,17 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * Hook: DiffViewHeader
+	 * Hook: DifferenceEngineViewHeader
 	 *
 	 * @param DifferenceEngine $diff
-	 * @param Revision|null $oldRev
-	 * @param Revision $newRev
 	 * @return bool
 	 */
-	public static function onDiffViewHeader( DifferenceEngine $diff, $oldRev, $newRev ) {
-		// TODO need a new hook using RevisionRecord instead
+	public static function onDifferenceEngineViewHeader( DifferenceEngine $diff ) {
 		self::injectStyleAndJS( $diff->getOutput() );
 		$view = FlaggablePageView::singleton();
 
-		$oldRevRecord = $oldRev->getRevisionRecord();
-		$newRevRecord = $newRev->getRevisionRecord();
+		$oldRevRecord = $diff->getOldRevision();
+		$newRevRecord = $diff->getNewRevision();
 		$view->setViewFlags( $diff, $oldRevRecord, $newRevRecord );
 		$view->addToDiffView( $diff, $oldRevRecord, $newRevRecord );
 		return true;

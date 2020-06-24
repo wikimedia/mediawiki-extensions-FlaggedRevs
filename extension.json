@@ -359,7 +359,7 @@
 		"ContribsPager::getQueryInfo": "FlaggedRevsUIHooks::addToContribsQuery",
 		"ContributionsLineEnding": "FlaggedRevsUIHooks::addToContribsLine",
 		"DeleteAccount": "FlaggedRevsHooks::onDeleteAccount",
-		"DiffViewHeader": "FlaggedRevsUIHooks::onDiffViewHeader",
+		"DifferenceEngineViewHeader": "FlaggedRevsUIHooks::onDifferenceEngineViewHeader",
 		"EchoGetDefaultNotifiedUsers": "FlaggedRevsHooks::onEchoGetDefaultNotifiedUsers",
 		"EditPage::showEditForm:fields": "FlaggedRevsUIHooks::addRevisionIDField",
 		"EditPage::showEditForm:initial": "FlaggedRevsUIHooks::addToEditView",
