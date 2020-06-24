@@ -433,7 +433,10 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			}
 		}
 
-		Hooks::run( 'FlaggedRevsRevisionReviewFormAfterDoSubmit', [ $this, $status ] );
+		FlaggedRevsHookRunner::getRunner()->onFlaggedRevsRevisionReviewFormAfterDoSubmit(
+			$this,
+			$status
+		);
 
 		return $status;
 	}

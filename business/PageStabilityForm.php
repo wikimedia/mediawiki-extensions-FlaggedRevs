@@ -345,13 +345,23 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 
 		$article->updateRevisionOn( $dbw, $insertedRevRecord, $oldLatest );
 
-		Hooks::run( 'RevisionFromEditComplete',
-			[ $article, $insertedRevRecord, $oldLatest, $this->user ] );
+		$tags = []; // passed by reference
+		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
 
-		// TODO remove old hook in 1.36
-		$insertedRev = new Revision( $insertedRevRecord );
-		Hooks::run( 'NewRevisionFromEditComplete',
-			[ $article, $insertedRev, $oldLatest, $this->user ] );
+		$hookRunner = new FlaggedRevsHookRunner( $hookContainer );
+		$hookRunner->onRevisionFromEditComplete(
+			$article, $insertedRevRecord, $oldLatest, $this->user, $tags
+		);
+
+		if ( $hookContainer->isRegistered( 'NewRevisionFromEditComplete' ) ) {
+			// Hook is hard deprecated in 1.35, meaning that the Revision object
+			// can be constructed here without triggering deprecation warnings
+			// since it won't be reached in deployed code
+			$insertedRev = new Revision( $insertedRevRecord );
+			$hookRunner->onNewRevisionFromEditComplete(
+				$article, $insertedRev, $oldLatest, $this->user, $tags
+			);
+		}
 
 		# Return null RevisionRecord object for autoreview check
 		return $insertedRevRecord;
