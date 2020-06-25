@@ -37,7 +37,7 @@
 	"stabilize_page_notexists": "Циљна страница не постоји.",
 	"stabilize_page_unreviewable": "Одредишна страница није у именском простору који је подложан провери.",
 	"stabilize_invalid_autoreview": "Неисправно ограничење аутоматских провера.",
-	"stabilize_invalid_level": "Неважећи ниво заштите.",
+	"stabilize_invalid_level": "Неважећи степен заштите.",
 	"stabilize_expiry_invalid": "Лош датум истицања.",
 	"stabilize_expiry_old": "Време истицања је већ прошло.",
 	"stabilize_denied": "Приступ је одбијен.",

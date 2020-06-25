@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"AZISS",
+			"BaRaN6161 TURK",
 			"Cekli829",
 			"Neriman2003",
 			"Vago",
@@ -105,7 +106,7 @@
 	"revreview-editnotice": "Səlahiyyətli istifadəçi onları qəbul etdikdən sonra '' 'dəyişikliklər oxuculara göstəriləcək. ([[{{MediaWiki:Validationpage}}|yardım]])'''",
 	"revreview-submitedit": "Dəyişiklikləri təsdiq et",
 	"revreview-submitedit-title": "Yenidən baxılması üçün dəyişiklikləri təsdiq etmək",
-	"revreview-edited": "Səlahiyyətli istifadəçi onları qəbul etdikdən sonra '' 'dəyişikliklər oxuculara göstəriləcək. ([[{{MediaWiki:Validationpage}}|help]]) '' ''\n\n{{PLURAL:$2|bu|bunlar}} {{fullwiki:{{FULLPAGENAMEE}}|oldid=$1& diff=cur{{MediaWiki:flaggedrevs-diffonly}}}}$2 {{PLURAL:$2| dəyişikliklər}} '' (aşağıda göstərilən) '' nəzərdən keçirilir.",
+	"revreview-edited": "'''Səlahiyyətli istifadəçi onları qəbul etdikdən sonra dəyişikliklər oxuculara göstəriləcək. ([[{{MediaWiki:Validationpage}}|kömək]])'''\n\n{{PLURAL:$2|Bu|Bunlar}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|dəyişikliklər}}] ''(aşağıda göstərilən)'' nəzərdən keçirilir.",
 	"revreview-edited-section": "Bölmə adı \"[[#$1|$2]]\" olan səhifəyə qayıdın.",
 	"revreview-newest-basic": "Bu versiyadakı [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|dəyişiklik}}] [[{{MediaWiki:Validationpage}}|yoxlanılmağı gözləyir.]]\n[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabil versiya] <i>$2</i> tarixində [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} yoxlanıldı.]",
 	"revreview-newest-basic-i": "Bu versiyadakı [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} şablon/fayl dəyişiklikləri] [[{{MediaWiki:Validationpage}}|yoxlanılmalıdır]].  \n[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabil versiya] <i>$2</i> tarixində [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} yoxlanıldı].",
