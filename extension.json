@@ -386,9 +386,9 @@
 			"FlaggedRevsHooks::incrementReverts",
 			"FlaggedRevsHooks::maybeMakeEditReviewed"
 		],
-		"PageContentSaveComplete": [
+		"PageSaveComplete": [
 			"FlaggedRevsHooks::maybeNullEditReview",
-			"FlaggedRevsHooks::onPageContentSaveComplete"
+			"FlaggedRevsHooks::onPageSaveComplete"
 		],
 		"PageHistoryBeforeList": "FlaggedRevsUIHooks::addToHistView",
 		"PageHistoryLineEnding": "FlaggedRevsUIHooks::addToHistLine",
