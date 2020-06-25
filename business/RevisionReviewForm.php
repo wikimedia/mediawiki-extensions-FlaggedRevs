@@ -379,14 +379,15 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 				$revQuery = MediaWikiServices::getInstance()
 					->getRevisionStore()
 					->getQueryInfo();
-				$revisions = wfGetDB( DB_REPLICA )->select(
+				$dbr = wfGetDB( DB_REPLICA );
+				$revisions = $dbr->select(
 					$revQuery['tables'],
 					[ 'rev_id', 'rev_user' => $revQuery['fields']['rev_user'] ],
 					[
 						'rev_id <= ' . $newRevRecord->getId(),
-						'rev_timestamp <= ' . $newRevRecord->getTimestamp(),
+						'rev_timestamp <= ' . $dbr->addQuotes( $dbr->timestamp( $newRevRecord->getTimestamp() ) ),
 						'rev_id > ' . $oldRevRecord->getId(),
-						'rev_timestamp > ' . $oldRevRecord->getTimestamp(),
+						'rev_timestamp > ' . $dbr->addQuotes( $dbr->timestamp( $oldRevRecord->getTimestamp() ) ),
 						'rev_page' => $article->getId(),
 					],
 					__METHOD__,
