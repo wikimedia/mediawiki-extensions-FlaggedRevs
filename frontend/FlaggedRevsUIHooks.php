@@ -435,9 +435,10 @@ class FlaggedRevsUIHooks {
 								(
 									!$rc->getAttribute( 'fp_stable' ) ||
 									(
-										// The rc_timestamp >= fp_pending_since condition implies that fp_pending_since is
-										// not null, because all comparisons with null values are false in MySQL. It doesn't
-										// work that way in PHP, so we have to explicitly check that fp_pending_since is not null
+										// The rc_timestamp >= fp_pending_since condition implies that
+										// fp_pending_since is not null, because all comparisons with null
+										// values are false in MySQL. It doesn't work that way in PHP,
+										// so we have to explicitly check that fp_pending_since is not null
 										$rc->getAttribute( 'fp_pending_since' ) &&
 										$rc->getAttribute( 'rc_timestamp' ) >= $rc->getAttribute( 'fp_pending_since' )
 									)
