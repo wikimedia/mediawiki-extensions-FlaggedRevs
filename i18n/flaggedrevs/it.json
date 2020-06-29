@@ -13,6 +13,7 @@
 			"Melos",
 			"Nemo bis",
 			"Pietrodn",
+			"Sakretsu",
 			"Ximo17"
 		]
 	},
@@ -174,7 +175,7 @@
 	"revreview-restriction-none": "nessuna",
 	"revreview-reviewlink": "revisiona modifiche",
 	"revreview-reviewlink-title": "Mostra differenze di tutte le modifiche in sospeso",
-	"revreview-unreviewedpage": "pagina non cotrollata",
+	"revreview-unreviewedpage": "pagina non controllata",
 	"tooltip-ca-current": "Vedi la bozza di questa pagina con le modifiche in sospeso",
 	"tooltip-ca-stable": "Vedi la versione stabile di questa pagina",
 	"tooltip-ca-default": "Impostazioni di garanzia della qualità",
