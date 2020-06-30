@@ -49,7 +49,7 @@
 	"revreview-successful": "'''Označena je izmjena stranice [[:$1|$1]]. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vidi pregledane verzije])'''",
 	"revreview-successful2": "'''Uklonjena je oznaka s izmjene stranice [[:$1|$1]].'''",
 	"revreview-poss-conflict-p": "'''Upozorenje: [[User:$1|$1]] je započeo pregled ove stranice dana $2 u $3.'''",
-	"revreview-poss-conflict-c": "'''Upozorenje: [[User:$1|$1]] je započeo pregled ovih izmjena dana $2 u $3.'''",
+	"revreview-poss-conflict-c": "'''Upozorenje: [[User:$1|$1]] {{GENDER:$1|započeo|započela}} je pregled ovih izmjena dana $2 u $3.'''",
 	"revreview-adv-reviewing-p": "Napomena: Drugi pregledavači mogu vidjeti da {{GENDER:$1|Vi}} pregledavate ovu stranicu.",
 	"revreview-adv-reviewing-c": "Napomena: Drugi pregledavači mogu vidjeti da {{GENDER:$1|Vi}} pregledavate ove izmjene.",
 	"revreview-sadv-reviewing-p": "Možete drugim korisnicima [$1 dati do znanja] da pregledavate ovu stranicu.",
