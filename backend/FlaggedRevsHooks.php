@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RenderedRevision;
 use MediaWiki\Revision\RevisionLookup;
@@ -137,18 +138,29 @@ class FlaggedRevsHooks {
 	/**
 	 * (a) Update flaggedrevs page/tracking tables
 	 * (b) Autoreview pages moved into reviewable namespaces (bug 19379)
-	 * @param Title $otitle
-	 * @param Title $ntitle
-	 * @param User $user
+	 * @param LinkTarget $oLinkTarget
+	 * @param LinkTarget $nLinkTarget
+	 * @param UserIdentity $userIdentity
 	 * @param int $pageId
 	 * @param int $redirid
 	 * @param string $reason
+	 * @param RevisionRecord $revisionRecord
 	 * @return true
 	 */
-	public static function onTitleMoveComplete(
-		Title $otitle, Title $ntitle, $user, $pageId, $redirid, $reason
+	public static function onPageMoveComplete(
+		LinkTarget $oLinkTarget,
+		LinkTarget $nLinkTarget,
+		$userIdentity,
+		$pageId,
+		$redirid,
+		$reason,
+		RevisionRecord $revisionRecord
 	) {
+		$ntitle = Title::newFromLinkTarget( $nLinkTarget );
+		$otitle = Title::newFromLinkTarget( $oLinkTarget );
 		if ( FlaggedRevs::inReviewNamespace( $ntitle ) ) {
+			$user = User::newFromIdentity( $userIdentity );
+
 			if ( !FlaggedRevs::inReviewNamespace( $otitle ) ) {
 				if ( FlaggedRevs::autoReviewNewPages() ) {
 					$fa = FlaggableWikiPage::getTitleInstance( $ntitle );
