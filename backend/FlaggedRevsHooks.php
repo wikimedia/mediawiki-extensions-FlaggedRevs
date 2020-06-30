@@ -4,6 +4,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RenderedRevision;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Storage\EditResult;
 use MediaWiki\User\UserIdentity;
 use Wikimedia\Rdbms\IDatabase;
 
@@ -712,53 +713,54 @@ class FlaggedRevsHooks {
 	 * Note: called after edit ops are finished
 	 *
 	 * @param WikiPage $wikiPage
-	 * @param User $user
-	 * @param Content $content
-	 * @param string $s
-	 * @param bool $m
-	 * @param string $a
-	 * @param bool $b
+	 * @param UserIdentity $userIdentity
+	 * @param string $summary
 	 * @param int $flags
-	 * @param Revision $rev
-	 * @param bool &$status
-	 * @param int $baseId
-	 *
+	 * @param RevisionRecord $revisionRecord
+	 * @param EditResult $editResult
 	 * @return true
 	 */
 	public static function maybeNullEditReview(
-		WikiPage $wikiPage, $user, $content, $s, $m, $a, $b, $flags, $rev, &$status, $baseId
+		WikiPage $wikiPage,
+		UserIdentity $userIdentity,
+		string $summary,
+		int $flags,
+		RevisionRecord $revisionRecord,
+		EditResult $editResult
 	) {
 		global $wgRequest;
-		# Revision must *be* null (null edit). We also need the user who made the edit.
-		# TODO need a new hook that provides a RevisionRecord instead of a Revision
-		if ( !$user || $rev !== null ) {
+		if ( !$editResult->isNullEdit() ) {
+			// Not a null edit
 			return true;
 		}
+
+		$baseId = $editResult->getOriginalRevisionId();
 
 		# Rollback/undo or box checked
 		$reviewEdit = $wgRequest->getCheck( 'wpReviewEdit' );
 		if ( !$baseId && !$reviewEdit ) {
 			return true; // short-circuit
 		}
-		$fa = FlaggableWikiPage::getTitleInstance( $wikiPage->getTitle() );
+
+		$title = $wikiPage->getTitle(); // convenience
+		$fa = FlaggableWikiPage::getTitleInstance( $title );
 		$fa->loadPageData( FlaggableWikiPage::READ_LATEST );
 		if ( !$fa->isReviewable() ) {
 			return true; // page is not reviewable
 		}
-		$title = $wikiPage->getTitle(); // convenience
 		# Get the current revision ID
 		$revLookup = MediaWikiServices::getInstance()->getRevisionLookup();
 		$revRecord = $revLookup->getRevisionByTitle( $title, 0, RevisionLookup::READ_LATEST );
 		if ( !$revRecord ) {
 			return true; // wtf?
 		}
+
 		$flags = null;
+		$user = User::newFromIdentity( $userIdentity );
 		# Is this a rollback/undo that didn't change anything?
 		if ( $baseId > 0 ) {
 			$frev = FlaggedRevision::newFromTitle( $title, $baseId ); // base rev of null edit
-			$pRevRecord = MediaWikiServices::getInstance()
-				->getRevisionLookup()
-				->getRevisionById( $revRecord->getParentId() ); // current rev parent
+			$pRevRecord = $revLookup->getRevisionById( $revRecord->getParentId() ); // current rev parent
 			$revIsNull = ( $pRevRecord && $pRevRecord->hasSameContent( $revRecord ) );
 			# Was the edit that we tried to revert to reviewed?
 			# We avoid auto-reviewing null edits to avoid confusion (bug 28476).
@@ -798,7 +800,6 @@ class FlaggedRevsHooks {
 				FlaggedRevs::extraHTMLCacheUpdate( $title );
 			}
 		}
-		return true;
 	}
 
 	/**
@@ -1150,38 +1151,41 @@ class FlaggedRevsHooks {
 	 * $wgFlaggedRevsAutopromote. This also handles user stats tallies.
 	 *
 	 * @param WikiPage $wikiPage
-	 * @param User $user
-	 * @param Content $content
+	 * @param UserIdentity $userIdentity
 	 * @param string $summary
-	 * @param bool $m
-	 * @param string $a
-	 * @param bool $b
-	 * @param int &$f
-	 * @param Revision $rev
-	 *
+	 * @param int $flags
+	 * @param RevisionRecord $revisionRecord
+	 * @param EditResult $editResult
 	 * @return true
 	 */
-	public static function onPageContentSaveComplete(
-		WikiPage $wikiPage, User $user, $content, $summary, $m, $a, $b, &$f, $rev
+	public static function onPageSaveComplete(
+		WikiPage $wikiPage,
+		UserIdentity $userIdentity,
+		string $summary,
+		int $flags,
+		RevisionRecord $revisionRecord,
+		EditResult $editResult
 	) {
 		global $wgFlaggedRevsAutopromote, $wgFlaggedRevsAutoconfirm;
-		# Ignore NULL edits, edits by anon users, and MW role account edits
-		if ( !$rev || !$user->getId() || !User::isUsableName( $user->getName() ) ) {
+		# Ignore null edits edits by anon users, and MW role account edits
+		if ( $editResult->isNullEdit() ||
+			!$userIdentity->getId() ||
+			!User::isUsableName( $userIdentity->getName() )
+		) {
 			return true;
 		# No sense in running counters if nothing uses them
 		} elseif ( !$wgFlaggedRevsAutopromote && !$wgFlaggedRevsAutoconfirm ) {
 			return true;
 		}
 
-		DeferredUpdates::addCallableUpdate( function () use ( $user, $wikiPage, $summary ) {
-			$p = FRUserCounters::getUserParams( $user->getId(), FR_FOR_UPDATE );
+		$userId = $userIdentity->getId();
+		DeferredUpdates::addCallableUpdate( function () use ( $userId, $wikiPage, $summary ) {
+			$p = FRUserCounters::getUserParams( $userId, FR_FOR_UPDATE );
 			$changed = FRUserCounters::updateUserParams( $p, $wikiPage, $summary );
 			if ( $changed ) {
-				FRUserCounters::saveUserParams( $user->getId(), $p ); // save any updates
+				FRUserCounters::saveUserParams( $userId, $p ); // save any updates
 			}
 		} );
-
-		return true;
 	}
 
 	/**
