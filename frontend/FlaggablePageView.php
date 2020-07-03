@@ -530,7 +530,7 @@ class FlaggablePageView extends ContextSource {
 		# an unreviewed edit was completed...
 		$pm = MediaWikiServices::getInstance()->getPermissionManager();
 		if ( $request->getVal( 'shownotice' )
-			&& $this->article->getUserText( Revision::RAW ) == $reqUser->getName()
+			&& $this->article->getUserText( RevisionRecord::RAW ) == $reqUser->getName()
 			&& $this->article->revsArePending()
 			&& !$pm->userHasRight( $reqUser, 'review' )
 		) {

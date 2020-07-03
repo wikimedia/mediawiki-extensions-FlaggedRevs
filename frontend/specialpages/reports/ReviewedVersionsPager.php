@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Revision\RevisionRecord;
+
 /**
  * Query to list out stable versions for a page
  */
@@ -35,7 +37,7 @@ class ReviewedVersionsPager extends ReverseChronologicalPager {
 		$conds = $this->mConds;
 		$conds['fr_page_id'] = $this->pageID;
 		$conds[] = 'fr_rev_id = rev_id';
-		$conds[] = $db->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0';
+		$conds[] = $db->bitAnd( 'rev_deleted', RevisionRecord::DELETED_TEXT ) . ' = 0';
 		$conds[] = 'fr_user = user_id';
 		return [
 			'tables'  => [ 'flaggedrevs', 'revision', 'user' ],

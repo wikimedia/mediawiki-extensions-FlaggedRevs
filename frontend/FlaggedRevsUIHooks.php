@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 
 /**
@@ -730,7 +731,7 @@ class FlaggedRevsUIHooks {
 			$history->fr_pendingRevs = true; // pending rev shown above stable
 		// Reviewed revision: highlight and add link
 		} elseif ( isset( $row->fr_quality ) ) {
-			if ( !( $row->rev_deleted & Revision::DELETED_TEXT ) ) {
+			if ( !( $row->rev_deleted & RevisionRecord::DELETED_TEXT ) ) {
 				# Add link to stable version of *this* rev, if any
 				list( $link, $class ) = self::markHistoryRow( $history, $title, $row );
 				# Space out and demark the stable revision

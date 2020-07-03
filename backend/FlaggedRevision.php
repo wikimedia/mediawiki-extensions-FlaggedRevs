@@ -142,7 +142,7 @@ class FlaggedRevision {
 			[
 				'fr_page_id' => $pageId,
 				'fr_rev_id'  => $revId,
-				$db->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0'
+				$db->bitAnd( 'rev_deleted', RevisionRecord::DELETED_TEXT ) . ' = 0'
 			],
 			__METHOD__,
 			$options,
@@ -190,7 +190,7 @@ class FlaggedRevision {
 			array_merge( [ 'fr_page_id' ], $frQuery['fields'] ),
 			[
 				'fp_page_id' => $pageId,
-				$db->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0', // sanity
+				$db->bitAnd( 'rev_deleted', RevisionRecord::DELETED_TEXT ) . ' = 0', // sanity
 			],
 			__METHOD__,
 			$options,
@@ -251,7 +251,7 @@ class FlaggedRevision {
 			$frQuery['fields'],
 			[
 				'fr_rev_id' => $revId,
-				$db->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0',
+				$db->bitAnd( 'rev_deleted', RevisionRecord::DELETED_TEXT ) . ' = 0',
 			],
 			__METHOD__,
 			$options,
@@ -318,7 +318,7 @@ class FlaggedRevision {
 			'fr_page_id' => $pageId,
 			'rev_id = fr_rev_id',
 			'rev_page = fr_page_id', // sanity
-			$db->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0'
+			$db->bitAnd( 'rev_deleted', RevisionRecord::DELETED_TEXT ) . ' = 0'
 		];
 		$options['ORDER BY'] = 'fr_rev_timestamp DESC';
 

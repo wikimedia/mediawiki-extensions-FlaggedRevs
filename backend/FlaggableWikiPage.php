@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionRecord;
 use Wikimedia\Rdbms\IDatabase;
 
 /**
@@ -348,7 +349,7 @@ class FlaggableWikiPage extends WikiPage {
 				'fr_page_id' => $this->getId(),
 				'rev_page = fr_page_id', // sanity
 				'rev_id = fr_rev_id',
-				$dbr->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0'
+				$dbr->bitAnd( 'rev_deleted', RevisionRecord::DELETED_TEXT ) . ' = 0'
 			],
 			__METHOD__,
 			[
@@ -466,7 +467,7 @@ class FlaggableWikiPage extends WikiPage {
 				[ 'fr_page_id' => $this->getId(),
 					'rev_id = fr_rev_id',
 					'rev_page = fr_page_id',
-					$dbw->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0'
+					$dbw->bitAnd( 'rev_deleted', RevisionRecord::DELETED_TEXT ) . ' = 0'
 				],
 				__METHOD__,
 				[ 'ORDER BY' => 'fr_quality DESC', 'LIMIT' => 1 ]
@@ -554,7 +555,7 @@ class FlaggableWikiPage extends WikiPage {
 					'fr_rev_timestamp > ' . $dbw->addQuotes( $higherLevelTS ),
 					'rev_id = fr_rev_id', // rev exists
 					'rev_page = fr_page_id', // sanity
-					$dbw->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0'
+					$dbw->bitAnd( 'rev_deleted', RevisionRecord::DELETED_TEXT ) . ' = 0'
 				],
 				__METHOD__,
 				[ 'ORDER BY' => 'fr_rev_timestamp DESC', 'LIMIT' => 1 ]
