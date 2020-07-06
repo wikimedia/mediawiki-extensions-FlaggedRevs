@@ -32,7 +32,7 @@
 	"apihelp-query+oldreviewedpages-param-maxsize": "Maksimum karakter boyutu sayısını değiştirin.",
 	"apihelp-query+oldreviewedpages-param-filterwatched": "Nasıl süzme da izleme sayfaları için.",
 	"apihelp-query+oldreviewedpages-param-namespace": "Ad saymak.",
-	"apihelp-query+oldreviewedpages-param-category": "Haritayı sadece belirli bir kategorideki sayfalar.",
+	"apihelp-query+oldreviewedpages-param-category": "Sayfaları yalnızca belirtilen kategoride göster.",
 	"apihelp-query+oldreviewedpages-param-filterredir": "Nasıl yönlendirmeleri için filtre için.",
 	"apihelp-query+oldreviewedpages-param-limit": "Dönüş için toplamda kaç sayfa.",
 	"apihelp-query+oldreviewedpages-example-1": "Bekleyen incelenmemiş değişiklikler ile sayfaların listesini göster",
