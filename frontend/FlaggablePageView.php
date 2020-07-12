@@ -1433,10 +1433,9 @@ class FlaggablePageView extends ContextSource {
 	 * Modify an array of tab links to include flagged revs UI elements
 	 * @param Skin $skin
 	 * @param array &$views
-	 * @param string $type ('flat' for SkinTemplateTabs, 'nav' for SkinTemplateNavigation)
 	 * @return bool
 	 */
-	public function setViewTabs( Skin $skin, array &$views, $type ) {
+	public function setViewTabs( Skin $skin, array &$views ) {
 		$this->load();
 		if ( !FlaggedRevs::inReviewNamespace( $this->article->getTitle() ) ) {
 			return true; // short-circuit for non-reviewable pages
@@ -1470,7 +1469,7 @@ class FlaggablePageView extends ContextSource {
 		}
 		# Add "pending changes" tab if the page is not synced
 		if ( !$synced ) {
-			$this->addDraftTab( $views, $srev, $type );
+			$this->addDraftTab( $views, $srev );
 		}
 		return true;
 	}
@@ -1479,10 +1478,8 @@ class FlaggablePageView extends ContextSource {
 	 * Add "pending changes" tab and set tab selection CSS
 	 * @param array[] &$views
 	 * @param FlaggedRevision $srev
-	 * @param string $type
-	 * @suppress PhanTypePossiblyInvalidDimOffset
 	 */
-	protected function addDraftTab( array &$views, FlaggedRevision $srev, $type ) {
+	protected function addDraftTab( array &$views, FlaggedRevision $srev ) {
 		$request = $this->getRequest();
 		$title = $this->article->getTitle(); // convenience
 		$tabs = [
@@ -1526,43 +1523,23 @@ class FlaggablePageView extends ContextSource {
 			}
 		}
 		$newViews = [];
-		// Rebuild tabs array. Deals with Monobook vs Vector differences.
-		if ( $type == 'nav' ) { // Vector et al
-			$previousTab = null;
-			foreach ( $views as $tabAction => $data ) {
-				// The 'view' tab. Make it go to the stable version...
-				if ( $tabAction == 'view' ) {
-					// 'view' for content page; make it go to the stable version
-					$newViews[$tabAction]['text'] = $data['text']; // keep tab name
-					$newViews[$tabAction]['href'] = $tabs['read']['href'];
-					$newViews[$tabAction]['class'] = $tabs['read']['class'];
-				// All other tabs...
-				} else {
-					if ( $previousTab == 'view' ) {
-						$newViews['current'] = $tabs['draft'];
-					}
-					$newViews[$tabAction] = $data;
+		// Rebuild tabs array
+		$previousTab = null;
+		foreach ( $views as $tabAction => $data ) {
+			// The 'view' tab. Make it go to the stable version...
+			if ( $tabAction == 'view' ) {
+				// 'view' for content page; make it go to the stable version
+				$newViews[$tabAction]['text'] = $data['text']; // keep tab name
+				$newViews[$tabAction]['href'] = $tabs['read']['href'];
+				$newViews[$tabAction]['class'] = $tabs['read']['class'];
+			// All other tabs...
+			} else {
+				if ( $previousTab == 'view' ) {
+					$newViews['current'] = $tabs['draft'];
 				}
-				$previousTab = $tabAction;
+				$newViews[$tabAction] = $data;
 			}
-		} elseif ( $type == 'flat' ) { // MonoBook et al
-			$first = true;
-			foreach ( $views as $tabAction => $data ) {
-				// The first tab ('page'). Make it go to the stable version...
-				if ( $first ) {
-					$first = false;
-					$newViews[$tabAction]['text'] = $data['text']; // keep tab name
-					$newViews[$tabAction]['href'] = $tabs['read']['href'];
-					$newViews[$tabAction]['class'] = $data['class']; // keep tab class
-				// All other tabs...
-				} else {
-					// Add 'draft' tab to content page to the left of 'edit'...
-					if ( $tabAction == 'edit' || $tabAction == 'viewsource' ) {
-						$newViews['current'] = $tabs['draft'];
-					}
-					$newViews[$tabAction] = $data;
-				}
-			}
+			$previousTab = $tabAction;
 		}
 		// Replaces old tabs with new tabs
 		$views = $newViews;

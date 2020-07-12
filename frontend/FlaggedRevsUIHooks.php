@@ -179,28 +179,6 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * MonoBook et al: $contentActions is all the tabs
-	 * Vector et al: $contentActions is all the action tabs...unused
-	 * @param Skin $skin
-	 * @param array &$contentActions
-	 * @return true
-	 */
-	public static function onSkinTemplateTabs( Skin $skin, array &$contentActions ) {
-		if (
-			defined( 'MW_HTML_FOR_DUMP' )
-			|| $skin instanceof SkinVector // *sigh*...skip, dealt with in setNavigation()
-		) {
-			return true;
-		}
-		if ( FlaggablePageView::globalArticleInstance() != null ) {
-			$view = FlaggablePageView::singleton();
-			$view->setActionTabs( $skin, $contentActions );
-			$view->setViewTabs( $skin, $contentActions, 'flat' );
-		}
-		return true;
-	}
-
-	/**
 	 * Vector et al: $links is all the tabs (2 levels)
 	 * @param Skin $skin
 	 * @param array &$links
@@ -214,7 +192,7 @@ class FlaggedRevsUIHooks {
 		if ( FlaggablePageView::globalArticleInstance() != null ) {
 			$view = FlaggablePageView::singleton();
 			$view->setActionTabs( $skin, $links['actions'] );
-			$view->setViewTabs( $skin, $links['views'], 'nav' );
+			$view->setViewTabs( $skin, $links['views'] );
 		}
 		return true;
 	}

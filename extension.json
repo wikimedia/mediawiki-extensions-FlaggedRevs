@@ -407,7 +407,6 @@
 		"ScribuntoExternalLibraries": "FlaggedRevsHooks::onScribuntoExternalLibraries",
 		"SkinAfterContent": "FlaggedRevsUIHooks::onSkinAfterContent",
 		"SkinTemplateNavigation": "FlaggedRevsUIHooks::onSkinTemplateNavigation",
-		"SkinTemplateTabs": "FlaggedRevsUIHooks::onSkinTemplateTabs",
 		"SpecialNewpagesConditions": "FlaggedRevsUIHooks::modifyNewPagesQuery",
 		"SpecialNewPagesFilters": "FlaggedRevsUIHooks::addHideReviewedUnstructuredFilter",
 		"SpecialPage_initList": "FlaggedRevsUIHooks::onSpecialPage_initList",
