@@ -1,5 +1,6 @@
 /**
  * FlaggedRevs Review JavaScript
+ *
  * @author Aaron Schulz
  * @author Daniel Arnold 2008
  */
