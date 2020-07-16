@@ -25,7 +25,7 @@
 	"review_too_low": "Revizyon, bazı alanlar ''yetersiz'' olarak bırakılmışken incelenemez.",
 	"review_bad_key": "Geçersiz kapsama parametresi anahtarı",
 	"review_bad_tags": "Belirtilen etiket değerlerinin bazıları geçersizdir.",
-	"review_denied": "İzin reddedildi.",
+	"review_denied": "İzin verilmedi.",
 	"review_param_missing": "Bir parametre eksik veya geçersiz.",
 	"review_cannot_undo": "Bu değişiklikler geri alınamıyor, çünkü bekleyen düzenlemeler aynı alanları değiştirmiş.",
 	"review_cannot_reject": "Bu değişiklikler reddedilemiyor, çünkü biri düzenlemelerin bazılarını (ya da tamamını) zaten kabul etmiş.",
