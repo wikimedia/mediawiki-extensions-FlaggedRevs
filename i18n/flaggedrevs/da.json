@@ -68,5 +68,6 @@
 	"revreview-lev-quality": "kvalitet",
 	"revreview-def-draft": "seneste",
 	"revreview-restriction-none": "ingen",
-	"tooltip-ca-current": "Se denne side med de afventende ændringer"
+	"tooltip-ca-current": "Se denne side med de afventende ændringer",
+	"flaggedrevs-protect-none": "Tillad alle brugere"
 }
