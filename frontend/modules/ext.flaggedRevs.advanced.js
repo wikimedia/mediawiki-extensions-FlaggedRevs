@@ -1,5 +1,6 @@
 /**
  * FlaggedRevs Advanced JavaScript
+ *
  * @author Aaron Schulz
  * @author Krinkle <krinklemail@gmail.com> 2011
  */
@@ -21,6 +22,7 @@
 
 	/**
 	 * Toggles flag info box details for (+/-) control
+	 *
 	 * @context {jQuery}
 	 * @param {jQuery.Event} e
 	 */
@@ -43,6 +45,7 @@
 
 	/**
 	 * Checks if mouseOut event is for a child of parentId
+	 *
 	 * @param {jQuery.Event} e
 	 * @param {string} parentId
 	 * @return {boolean} True if given event object originated from a (direct or indirect)
@@ -67,6 +70,7 @@
 
 	/**
 	 * Expands flag info box details on mouseOver
+	 *
 	 * @context {jQuery}
 	 * @param {jQuery.Event} e
 	 */
@@ -78,6 +82,7 @@
 
 	/**
 	 * Hides flag info box details on mouseOut *except* for event bubbling
+	 *
 	 * @context {jQuery}
 	 * @param {jQuery.Event} e
 	 */
@@ -89,6 +94,7 @@
 
 	/**
 	 * Toggles diffs
+	 *
 	 * @context {jQuery}
 	 * @param {jQuery.Event} e
 	 */
@@ -113,6 +119,7 @@
 
 	/**
 	 * Toggles log excerpts
+	 *
 	 * @context {jQuery}
 	 * @param {jQuery.Event} e
 	 */
@@ -143,6 +150,7 @@
 
 	/**
 	 * Update save button when "review this" checkbox changes
+	 *
 	 * @context {jQuery}
 	 * @param {jQuery.Event} e
 	 */
