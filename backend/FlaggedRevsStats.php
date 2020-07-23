@@ -192,6 +192,9 @@ class FlaggedRevsStats {
 		$cache->delete( $keySQL );
 	}
 
+	/**
+	 * @return array[]
+	 */
 	private static function getPerNamespaceTotals() {
 		$ns_total = $ns_reviewed = $ns_synced = [];
 		// Get total, reviewed, and synced page count for each namespace
@@ -215,11 +218,19 @@ class FlaggedRevsStats {
 		return [ $ns_total, $ns_reviewed, $ns_synced ];
 	}
 
-	// @TODO: maybe put in core?
+	/**
+	 * @param IDatabase $db
+	 * @param string $column
+	 *
+	 * @return string
+	 */
 	private static function dbUnixTime( IDatabase $db, $column ) {
 		return $db->getType() === 'sqlite' ? "strftime('%s',$column)" : "UNIX_TIMESTAMP($column)";
 	}
 
+	/**
+	 * @return int
+	 */
 	private static function getMeanPendingEditTime() {
 		$dbr = wfGetDB( DB_REPLICA, 'vslow' );
 		$nowUnix = wfTimestamp( TS_UNIX ); // current time in UNIX TS

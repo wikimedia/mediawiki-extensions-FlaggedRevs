@@ -47,14 +47,23 @@ class ApiFlagConfig extends ApiBase {
 		$result->addValue( null, $this->getModuleName(), $data );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function mustBePosted() {
 		return false;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function isWriteMode() {
 			return false;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getAllowedParams() {
 		return [];
 	}

@@ -142,14 +142,23 @@ class ApiReview extends ApiBase {
 		}
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function mustBePosted() {
 		return true;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function isWriteMode() {
 			return true;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getAllowedParams() {
 		$pars = [
 			'revid'   	=> null,
@@ -170,6 +179,9 @@ class ApiReview extends ApiBase {
 		return $pars;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function needsToken() {
 		return 'csrf';
 	}

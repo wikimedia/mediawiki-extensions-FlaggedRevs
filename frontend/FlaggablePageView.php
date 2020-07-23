@@ -1857,6 +1857,12 @@ class FlaggablePageView extends ContextSource {
 		return $table;
 	}
 
+	/**
+	 * @param RevisionRecord $revRecord
+	 * @param FlaggedRevision|null $srev
+	 *
+	 * @return string[]
+	 */
 	private static function getDiffRevMsgAndClass(
 		RevisionRecord $revRecord, FlaggedRevision $srev = null
 	) {
