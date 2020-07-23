@@ -9,11 +9,11 @@ use MediaWiki\Revision\SlotRecord;
  */
 class RevisionReviewForm extends FRGenericSubmitForm {
 	/* Form parameters which can be user given */
-	/*
+	/**
 	 * @var Title $page
 	 */
 	protected $page = null;                 # Target Title obj
-	/*
+	/**
 	 * @var Page $article
 	 */
 	protected $article = null;              # Target Page obj
