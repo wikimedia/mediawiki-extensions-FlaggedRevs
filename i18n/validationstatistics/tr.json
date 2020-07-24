@@ -18,7 +18,7 @@
 	"validationstatistics-table": "İsim alanları için sayfa inceleme istatistikleri, yönlendirme sayfaları ''dahil olmadan''  aşağıda gösterilmiştir.\nBekleyen değişiklik içeren sayfalar ''{{int:validationstatistics-old}}'', bekleyen değişiklik içermeyen sayfalar ''{{int:validationstatistics-latest}}'' kabul edilir.",
 	"validationstatistics-ns": "İsim alanı",
 	"validationstatistics-total": "Sayfalar",
-	"validationstatistics-stable": "Gözden geçirilmiş",
+	"validationstatistics-stable": "İncelenmiş",
 	"validationstatistics-latest": "Senkronize edildi",
 	"validationstatistics-synced": "Eşitlenmiş/Gözden geçirilmiş",
 	"validationstatistics-old": "Eski",
