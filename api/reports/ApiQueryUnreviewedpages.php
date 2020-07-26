@@ -36,10 +36,16 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 		$this->run();
 	}
 
+	/**
+	 * @param ApiPageSet $resultPageSet
+	 */
 	public function executeGenerator( $resultPageSet ) {
 		$this->run( $resultPageSet );
 	}
 
+	/**
+	 * @param ApiPageSet|null $resultPageSet
+	 */
 	private function run( $resultPageSet = null ) {
 		$params = $this->extractRequestParams();
 
@@ -117,10 +123,16 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 		}
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getCacheMode( $params ) {
 		return 'public';
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getAllowedParams() {
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		return [

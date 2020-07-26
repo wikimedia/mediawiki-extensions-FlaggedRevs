@@ -36,10 +36,16 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 		$this->run();
 	}
 
+	/**
+	 * @param ApiPageSet $resultPageSet
+	 */
 	public function executeGenerator( $resultPageSet ) {
 		$this->run( $resultPageSet );
 	}
 
+	/**
+	 * @param ApiPageSet|null $resultPageSet
+	 */
 	private function run( $resultPageSet = null ) {
 		$params = $this->extractRequestParams();
 
@@ -127,10 +133,16 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 		}
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getCacheMode( $params ) {
 		return 'public';
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getAllowedParams() {
 		// Replace '' with more readable 'none' in autoreview restiction levels
 		$autoreviewLevels = FlaggedRevs::getRestrictionLevels();

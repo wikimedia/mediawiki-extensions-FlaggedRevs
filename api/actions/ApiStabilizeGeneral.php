@@ -78,6 +78,9 @@ class ApiStabilizeGeneral extends ApiStabilize {
 		return null; // bad key?
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getAllowedParams() {
 		// Replace '' with more readable 'none' in autoreview restiction levels
 		$autoreviewLevels = FlaggedRevs::getRestrictionLevels();
@@ -109,10 +112,16 @@ class ApiStabilizeGeneral extends ApiStabilize {
 		return $pars;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function getSummaryMessage() {
 		return "apihelp-{$this->getModulePath()}-summary-general";
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function getExtendedDescription() {
 		return [ [
 			"apihelp-{$this->getModulePath()}-extended-description-general",

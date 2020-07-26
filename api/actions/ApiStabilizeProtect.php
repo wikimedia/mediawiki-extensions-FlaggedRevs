@@ -62,6 +62,9 @@ class ApiStabilizeProtect extends ApiStabilize {
 		$this->getResult()->addValue( null, $this->getModuleName(), $res );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getAllowedParams() {
 		// Replace '' with more readable 'none' in autoreview restiction levels
 		$autoreviewLevels = FlaggedRevs::getRestrictionLevels();
@@ -87,10 +90,16 @@ class ApiStabilizeProtect extends ApiStabilize {
 		];
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function getSummaryMessage() {
 		return "apihelp-{$this->getModulePath()}-summary-protect";
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function getExtendedDescription() {
 		return [ [
 			"apihelp-{$this->getModulePath()}-extended-description-protect",
@@ -98,6 +107,9 @@ class ApiStabilizeProtect extends ApiStabilize {
 		] ];
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function getExamplesMessages() {
 		return [
 			'action=stabilize&title=Test&protectlevel=none&reason=Test&token=123ABC'
