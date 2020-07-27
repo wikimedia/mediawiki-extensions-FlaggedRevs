@@ -3,6 +3,7 @@
 use MediaWiki\MediaWikiServices;
 
 class ValidationStatistics extends IncludableSpecialPage {
+	/** @var array|null */
 	protected $latestData = null;
 
 	public function __construct() {
@@ -261,6 +262,9 @@ class ValidationStatistics extends IncludableSpecialPage {
 			__METHOD__ );
 	}
 
+	/**
+	 * @return array
+	 */
 	protected function getStats() {
 		if ( $this->latestData === null ) {
 			$this->latestData = FlaggedRevsStats::getStats();

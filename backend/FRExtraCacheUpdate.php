@@ -12,8 +12,15 @@ use Wikimedia\Rdbms\IResultWrapper;
  * have a stable version synced with the current version.
  */
 class FRExtraCacheUpdate implements DeferrableUpdate {
-	public $mTitle, $mTable;
-	public $mRowsPerJob, $mRowsPerQuery;
+	/** @var Title */
+	public $mTitle;
+	/** @var string */
+	public $mTable;
+
+	/** @var int Copy of $wgUpdateRowsPerJob */
+	public $mRowsPerJob;
+	/** @var int Copy of $wgUpdateRowsPerQuery */
+	public $mRowsPerQuery;
 
 	public function __construct( Title $titleTo ) {
 		global $wgUpdateRowsPerJob, $wgUpdateRowsPerQuery;

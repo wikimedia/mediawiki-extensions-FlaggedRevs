@@ -8,34 +8,46 @@ use MediaWiki\Revision\SlotRecord;
  * Class containing revision review form business logic
  */
 class RevisionReviewForm extends FRGenericSubmitForm {
-	/* Form parameters which can be user given */
-	/**
-	 * @var Title $page
-	 */
-	protected $page = null;                 # Target Title obj
-	/**
-	 * @var Page $article
-	 */
-	protected $article = null;              # Target Page obj
-	protected $approve = false;             # Approval requested
-	protected $unapprove = false;           # De-approval requested
-	protected $reject = false;              # Rejection requested
-	protected $oldid = 0;                   # ID being reviewed (last "bad" ID for rejection)
-	protected $refid = 0;                   # Old, "last good", ID (used for rejection)
-	protected $templateParams = '';         # Included template versions (flat string)
-	protected $imageParams = '';            # Included file versions (flat string)
-	protected $fileVersion = '';            # File page file version (flat string)
-	protected $validatedParams = '';        # Parameter key
-	protected $comment = '';                # Review comments
-	protected $dims = [];              # Review flags (for approval)
-	protected $lastChangeTime = null;       # Conflict handling
-	protected $newLastChangeTime = null;    # Conflict handling
+	/** @var Title|null $page Target title object */
+	protected $page = null;
+	/** @var FlaggableWikiPage|null $article Target page object */
+	protected $article = null;
+	/** @var bool Approval requested */
+	protected $approve = false;
+	/** @var bool De-approval requested */
+	protected $unapprove = false;
+	/** @var bool Rejection requested */
+	protected $reject = false;
+	/** @var int ID being reviewed (last "bad" ID for rejection) */
+	protected $oldid = 0;
+	/** @var int Old, "last good", ID (used for rejection) */
+	protected $refid = 0;
+	/** @var string Included template versions (flat string) */
+	protected $templateParams = '';
+	/** @var string Included file versions (flat string) */
+	protected $imageParams = '';
+	/** @var string File page file version (flat string) */
+	protected $fileVersion = '';
+	/** @var string Parameter key */
+	protected $validatedParams = '';
+	/** @var string Review comments */
+	protected $comment = '';
+	/** @var int[] Review flags (for approval) */
+	protected $dims = [];
+	/** @var string|null Conflict handling */
+	protected $lastChangeTime = null;
+	/** @var string|null Conflict handling */
+	protected $newLastChangeTime = null;
 
-	protected $oldFrev = null;              # Prior FlaggedRevision for Rev with ID $oldid
-	protected $oldFlags = [];          # Prior flags for Rev with ID $oldid
+	/** @var FlaggedRevision|null Prior FlaggedRevision for Rev with ID $oldid */
+	protected $oldFrev = null;
+	/** @var int[] Prior flags for Rev with ID $oldid */
+	protected $oldFlags = [];
 
-	protected $sessionKey = '';             # User session key
-	protected $skipValidationKey = false;   # Skip validatedParams check
+	/** @var string User session key */
+	protected $sessionKey = '';
+	/** @var bool Skip validatedParams check */
+	protected $skipValidationKey = false;
 
 	protected function initialize() {
 		foreach ( FlaggedRevs::getTags() as $tag ) {
@@ -43,94 +55,164 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		}
 	}
 
+	/**
+	 * @return Title|null
+	 */
 	public function getPage() {
 		return $this->page;
 	}
 
+	/**
+	 * @param Title $value
+	 */
 	public function setPage( Title $value ) {
 		$this->trySet( $this->page, $value );
 	}
 
+	/**
+	 * @param bool $value
+	 */
 	public function setApprove( $value ) {
 		$this->trySet( $this->approve, $value );
 	}
 
+	/**
+	 * @param bool $value
+	 */
 	public function setUnapprove( $value ) {
 		$this->trySet( $this->unapprove, $value );
 	}
 
+	/**
+	 * @param bool $value
+	 */
 	public function setReject( $value ) {
 		$this->trySet( $this->reject, $value );
 	}
 
+	/**
+	 * @param string|null $value
+	 */
 	public function setLastChangeTime( $value ) {
 		$this->trySet( $this->lastChangeTime, $value );
 	}
 
+	/**
+	 * @return string|null
+	 */
 	public function getNewLastChangeTime() {
 		return $this->newLastChangeTime;
 	}
 
+	/**
+	 * @return int
+	 */
 	public function getRefId() {
 		return $this->refid;
 	}
 
+	/**
+	 * @param int $value
+	 */
 	public function setRefId( $value ) {
 		$this->trySet( $this->refid, (int)$value );
 	}
 
+	/**
+	 * @return int
+	 */
 	public function getOldId() {
 		return $this->oldid;
 	}
 
+	/**
+	 * @param int $value
+	 */
 	public function setOldId( $value ) {
 		$this->trySet( $this->oldid, (int)$value );
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getTemplateParams() {
 		return $this->templateParams;
 	}
 
+	/**
+	 * @param string $value
+	 */
 	public function setTemplateParams( $value ) {
 		$this->trySet( $this->templateParams, $value );
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getFileParams() {
 		return $this->imageParams;
 	}
 
+	/**
+	 * @param string $value
+	 */
 	public function setFileParams( $value ) {
 		$this->trySet( $this->imageParams, $value );
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getFileVersion() {
 		return $this->fileVersion;
 	}
 
+	/**
+	 * @param string $value
+	 */
 	public function setFileVersion( $value ) {
 		$this->trySet( $this->fileVersion, $value );
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getValidatedParams() {
 		return $this->validatedParams;
 	}
 
+	/**
+	 * @param string $value
+	 */
 	public function setValidatedParams( $value ) {
 		$this->trySet( $this->validatedParams, $value );
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getComment() {
 		return $this->comment;
 	}
 
+	/**
+	 * @param string $value
+	 */
 	public function setComment( $value ) {
 		$this->trySet( $this->comment, $value );
 	}
 
+	/**
+	 * @return int[]
+	 */
 	public function getDims() {
 		return $this->dims;
 	}
 
+	/**
+	 * @param string $tag
+	 * @param int $value
+	 */
 	public function setDim( $tag, $value ) {
 		if ( !in_array( $tag, FlaggedRevs::getTags() ) ) {
 			throw new Exception( "FlaggedRevs tag $tag does not exist.\n" );
@@ -138,6 +220,9 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		$this->trySet( $this->dims[$tag], (int)$value );
 	}
 
+	/**
+	 * @param string $sessionId
+	 */
 	public function setSessionKey( $sessionId ) {
 		$this->sessionKey = $sessionId;
 	}
@@ -244,7 +329,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 	/**
 	 * implicit dims for binary flag case
-	 * @return array|null
+	 * @return int[]|null
 	 */
 	private function implicitDims() {
 		$tag = FlaggedRevs::binaryTagName();
@@ -651,9 +736,9 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 	/**
 	 * Get template and image parameters from parser output to use on forms.
-	 * @param array $templateIDs Array (from ParserOutput/OutputPage->mTemplateIds)
+	 * @param int[][] $templateIDs Array (from ParserOutput/OutputPage->mTemplateIds)
 	 * @param array[] $imageSHA1Keys Array (from ParserOutput/OutputPage->mImageTimeKeys)
-	 * @param array|null $fileVersion Array|null version of file for File: pages (time,sha1)
+	 * @param array|false $fileVersion Version of file for File: pages (time, sha1)
 	 * @return array [ templateParams, imageParams, fileVersion ]
 	 */
 	public static function getIncludeParams(

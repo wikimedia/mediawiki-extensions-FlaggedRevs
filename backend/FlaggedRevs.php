@@ -11,22 +11,30 @@ use MediaWiki\Revision\SlotRecord;
  * Class is lazily-initialized, calling load() as needed
  */
 class FlaggedRevs {
-	# Tag name/level config
+	/** @var string[][] Tag name/level config */
 	protected static $dimensions = [];
+	/** @var int[] */
 	protected static $minSL = [];
+	/** @var int[] */
 	protected static $minQL = [];
+	/** @var int[] */
 	protected static $minPL = [];
+	/** @var bool */
 	protected static $qualityVersions = false;
+	/** @var bool */
 	protected static $pristineVersions = false;
+	/** @var int[][] Copy of $wgFlaggedRevsTagsRestrictions */
 	protected static $tagRestrictions = [];
+	/** @var bool */
 	protected static $binaryFlagging = true;
-	# Namespace config
+	/** @var array int[] Namespace config, copy of $wgFlaggedRevsNamespaces */
 	protected static $reviewNamespaces = [];
-	# Restriction levels/config
+	/** @var string[] Restriction levels/config, copy from $wgFlaggedRevsRestrictionLevels */
 	protected static $restrictionLevels = [];
-	# Autoreview config
+	/** @var int Autoreview config, copy from $wgFlaggedRevsAutoReview */
 	protected static $autoReviewConfig = 0;
 
+	/** @var bool */
 	protected static $loaded = false;
 
 	protected static function load() {
@@ -277,7 +285,7 @@ class FlaggedRevs {
 
 	/**
 	 * Get the autoreview restriction levels available
-	 * @return array
+	 * @return string[] Value from $wgFlaggedRevsRestrictionLevels
 	 */
 	public static function getRestrictionLevels() {
 		self::load();
@@ -286,7 +294,7 @@ class FlaggedRevs {
 
 	/**
 	 * Get the array of tag dimensions and level messages
-	 * @return array
+	 * @return string[][]
 	 */
 	public static function getDimensions() {
 		self::load();
@@ -294,9 +302,7 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * Get the associative array of tag dimensions
-	 * (tags => [levels => msgkey])
-	 * @return array
+	 * @return string[]
 	 */
 	public static function getTags() {
 		self::load();
@@ -306,7 +312,7 @@ class FlaggedRevs {
 	/**
 	 * Get the associative array of tag restrictions
 	 * (tags => [rights => levels])
-	 * @return array
+	 * @return int[][] Value from $wgFlaggedRevsTagsRestrictions
 	 */
 	public static function getTagRestrictions() {
 		self::load();
@@ -844,7 +850,7 @@ class FlaggedRevs {
 	/**
 	 * Checks if $flags meets $reqFlagLevels
 	 * @param array $flags
-	 * @param array $reqFlagLevels
+	 * @param int[] $reqFlagLevels
 	 * @return bool
 	 */
 	protected static function tagsAtLevel( array $flags, $reqFlagLevels ) {
@@ -880,7 +886,7 @@ class FlaggedRevs {
 	/**
 	 * Get minimum level tags for a tier
 	 * @param int $tier FR_PRISTINE/FR_QUALITY/FR_CHECKED
-	 * @return array
+	 * @return int[]
 	 */
 	public static function quickTags( $tier ) {
 		self::load();
@@ -922,7 +928,7 @@ class FlaggedRevs {
 
 	/**
 	 * Get the list of reviewable namespaces
-	 * @return array
+	 * @return int[] Value from $wgFlaggedRevsNamespaces
 	 */
 	public static function getReviewNamespaces() {
 		self::load(); // validates namespaces

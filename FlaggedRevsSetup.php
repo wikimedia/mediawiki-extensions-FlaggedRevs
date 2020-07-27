@@ -6,13 +6,11 @@
  * Note: avoid  FlaggedRevs class calls here for performance (like load.php).
  */
 class FlaggedRevsSetup {
-	/* Status of whether FlaggedRevs::load() can be called */
+	/** @var bool Status of whether FlaggedRevs::load() can be called */
 	protected static $canLoad = false;
 
 	/**
 	 * Signal that LocalSettings.php is loaded.
-	 *
-	 * @return void
 	 */
 	public static function setReady() {
 		self::$canLoad = true;

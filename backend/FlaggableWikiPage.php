@@ -10,15 +10,20 @@ use Wikimedia\Rdbms\IDatabase;
  * FlaggableWikiPage::getTitleInstance() is preferred over constructor calls
  */
 class FlaggableWikiPage extends WikiPage {
-	/* Process cache variables */
+	/** @var int */
 	protected $stable = 0;
+	/** @var FlaggedRevision|false|null */
 	protected $stableRev = null;
+	/** @var bool|null */
 	protected $revsArePending = null;
+	/** @var int|null */
 	protected $pendingRevCount = null;
+	/** @var array|null */
 	protected $pageConfig = null;
+	/** @var bool|null */
 	protected $syncedInTracking = null;
-
-	protected $file = null; // for file pages
+	/** @var File|false|null For file pages */
+	protected $file = null;
 
 	/**
 	 * Get a FlaggableWikiPage for a given title
@@ -62,7 +67,7 @@ class FlaggableWikiPage extends WikiPage {
 
 	/**
 	 * Get the current file version (null if this not a File page)
-	 * @return File|null|bool false
+	 * @return File|false|null
 	 */
 	public function getFile() {
 		if ( $this->file === null && $this->mTitle->getNamespace() == NS_FILE ) {

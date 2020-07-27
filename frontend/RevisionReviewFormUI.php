@@ -9,11 +9,19 @@ use MediaWiki\Revision\RevisionRecord;
  * NOTE: use ONLY for diff-to-stable views and page version views
  */
 class RevisionReviewFormUI {
-	protected $user, $article;
+	/** @var User */
+	protected $user;
+	/** @var FlaggableWikiPage */
+	protected $article;
+	/** @var string */
 	protected $topNotice = '';
+	/** @var string */
 	protected $bottomNotice = '';
+	/** @var array|false|null */
 	protected $fileVersion = null;
+	/** @var int[][]|null */
 	protected $templateIDs = null;
+	/** @var array[]|null */
 	protected $imageSHA1Keys = null;
 	/** @var WebRequest */
 	protected $request;
@@ -21,7 +29,7 @@ class RevisionReviewFormUI {
 	protected $out;
 	/** @var RevisionRecord */
 	private $revRecord;
-	/** @var RevisionRecord */
+	/** @var RevisionRecord|null */
 	private $refRevRecord = null;
 
 	/**
@@ -70,7 +78,7 @@ class RevisionReviewFormUI {
 
 	/**
 	 * Set the file version parameters of what the user is viewing
-	 * @param Array|null $version ('time' => MW timestamp, 'sha1' => sha1)
+	 * @param array|null $version ('time' => MW timestamp, 'sha1' => sha1)
 	 */
 	public function setFileVersion( $version ) {
 		$this->fileVersion = is_array( $version ) ? $version : false;
@@ -79,7 +87,7 @@ class RevisionReviewFormUI {
 	/**
 	 * Set the template/file version parameters of what the user is viewing
 	 * @param array $templateIDs
-	 * @param array $imageSHA1Keys
+	 * @param array[] $imageSHA1Keys
 	 */
 	public function setIncludeVersions( array $templateIDs, array $imageSHA1Keys ) {
 		$this->templateIDs = $templateIDs;
@@ -448,6 +456,9 @@ class RevisionReviewFormUI {
 		return $s;
 	}
 
+	/**
+	 * @return array|false
+	 */
 	protected function getFileVersion() {
 		if ( $this->fileVersion === null ) {
 			throw new Exception(
@@ -457,6 +468,9 @@ class RevisionReviewFormUI {
 		return $this->fileVersion;
 	}
 
+	/**
+	 * @return array[]
+	 */
 	protected function getIncludeVersions() {
 		if ( $this->templateIDs === null || $this->imageSHA1Keys === null ) {
 			throw new Exception(

@@ -11,6 +11,11 @@ class FlaggedRevsScribuntoLuaLibrary extends Scribunto_LuaLibraryBase {
 		);
 	}
 
+	/**
+	 * @param string|null $pagename
+	 *
+	 * @return array
+	 */
 	public function getStabilitySettings( $pagename = null ) {
 		$this->checkTypeOptional(
 			'mw.ext.FlaggedRevs.getStabilitySettings', 1, $pagename, 'string', null

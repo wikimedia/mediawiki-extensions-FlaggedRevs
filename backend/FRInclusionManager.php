@@ -8,8 +8,10 @@
  * If no requirements are set, the page is parsed as normal.
  */
 class FRInclusionManager {
-	protected $reviewedVersions = null; // files/templates at review time
-	protected $stableVersions = []; // stable versions of files/templates
+	/** @var array[]|null Files/templates at review time */
+	protected $reviewedVersions = null;
+	/** @var array[] Stable versions of files/templates */
+	protected $stableVersions = [];
 
 	protected static $instance = null;
 
@@ -41,8 +43,8 @@ class FRInclusionManager {
 	/**
 	 * (a) Stabilize inclusions in Parser output
 	 * (b) Set the template/image versions used in the flagged version of a revision
-	 * @param array $tmpParams (ns => dbKey => revId )
-	 * @param array $imgParams (dbKey => ['time' => MW timestamp,'sha1' => sha1] )
+	 * @param int[][] $tmpParams (ns => dbKey => revId )
+	 * @param array[] $imgParams (dbKey => ['time' => MW timestamp,'sha1' => sha1] )
 	 */
 	public function setReviewedVersions( array $tmpParams, array $imgParams ) {
 		$this->reviewedVersions = [];
@@ -52,8 +54,8 @@ class FRInclusionManager {
 
 	/**
 	 * Set the stable versions of some template/images
-	 * @param array $tmpParams (ns => dbKey => revId )
-	 * @param array $imgParams (dbKey => ['time' => MW timestamp,'sha1' => sha1] )
+	 * @param int[][] $tmpParams (ns => dbKey => revId )
+	 * @param array[] $imgParams (dbKey => ['time' => MW timestamp,'sha1' => sha1] )
 	 */
 	public function setStableVersionCache( array $tmpParams, array $imgParams ) {
 		$this->stableVersions['templates'] = self::formatTemplateArray( $tmpParams );
@@ -62,8 +64,8 @@ class FRInclusionManager {
 
 	/**
 	 * Clean up a template version array
-	 * @param array $params (ns => dbKey => revId )
-	 * @return array
+	 * @param int[][] $params (ns => dbKey => revId )
+	 * @return int[][]
 	 */
 	protected function formatTemplateArray( array $params ) {
 		$res = [];
@@ -80,7 +82,7 @@ class FRInclusionManager {
 	 * Clean up a file version array
 	 * @param array[] $params (dbKey => ['time' => MW timestamp,'sha1' => sha1] )
 	 * @phan-param array<string,array{time:string,sha1:string}> $params
-	 * @return array
+	 * @return array[]
 	 */
 	protected function formatFileArray( array $params ) {
 		$res = [];

@@ -8,7 +8,7 @@ use Wikimedia\TestingAccessWrapper;
 class FRParserCacheStableTest extends PHPUnit\Framework\TestCase {
 
 	/**
-	 * @var FRParserCacheStable|TestingAccessWrapper
+	 * @var FRParserCacheStable
 	 */
 	private $cache;
 

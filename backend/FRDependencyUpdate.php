@@ -7,16 +7,25 @@ use Wikimedia\Rdbms\IDatabase;
  * are only in the stable version of pages. Used only for caching.
  */
 class FRDependencyUpdate {
+	/** @var Title */
 	protected $title;
+	/** @var int[][] */
 	protected $sLinks;
+	/** @var int[][] */
 	protected $sTemplates;
+	/** @var int[] */
 	protected $sImages;
+	/** @var string[] */
 	protected $sCategories;
 	protected $dbw;
 
 	const IMMEDIATE = 0; // run updates now
 	const DEFERRED = 1; // use the job queue for updates
 
+	/**
+	 * @param Title $title
+	 * @param ParserOutput $stableOutput
+	 */
 	public function __construct( Title $title, ParserOutput $stableOutput ) {
 		$this->title = $title;
 		# Stable version links

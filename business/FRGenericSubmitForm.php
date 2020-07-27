@@ -14,10 +14,16 @@ abstract class FRGenericSubmitForm {
 	const FORM_READY = 1;                   # Params given and ready to submit
 	const FORM_PRELOADED = 2;               # Params pre-loaded (likely from replica DB)
 	const FORM_SUBMITTED = 3;               # Form submitted
-	private $state = self::FORM_UNREADY;    # Form state (disallows bad operations)
 
-	protected $user = null;                 # User performing the action
+	/** @var int Form state (disallows bad operations) */
+	private $state = self::FORM_UNREADY;
 
+	/** @var User User performing the action */
+	protected $user;
+
+	/**
+	 * @param User $user
+	 */
 	final public function __construct( User $user ) {
 		$this->user = $user;
 		$this->initialize();

@@ -1019,7 +1019,7 @@ class FlaggedRevision {
 	/**
 	 * Get flags for a revision
 	 * @param string $tags
-	 * @return array
+	 * @return int[]
 	 */
 	public static function expandRevisionTags( $tags ) {
 		$flags = [];

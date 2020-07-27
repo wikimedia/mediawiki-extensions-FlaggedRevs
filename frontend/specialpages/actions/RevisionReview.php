@@ -4,7 +4,9 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
 
 class RevisionReview extends UnlistedSpecialPage {
+	/** @var RevisionReviewForm|null */
 	protected $form;
+	/** @var Title|null */
 	protected $page;
 
 	public function __construct() {

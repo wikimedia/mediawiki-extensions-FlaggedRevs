@@ -26,7 +26,7 @@
  * @ingroup FlaggedRevs
  */
 abstract class ApiStabilize extends ApiBase {
-	// Title param
+	/** @var Title|null */
 	protected $title;
 
 	public function execute() {

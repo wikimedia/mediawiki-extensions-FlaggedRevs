@@ -3,6 +3,7 @@
 use MediaWiki\MediaWikiServices;
 
 class FlaggedRevsReviewLogFormatter extends LogFormatter {
+	/** @var bool */
 	protected $isDeapproval = false;
 
 	protected function getMessageKey() {
