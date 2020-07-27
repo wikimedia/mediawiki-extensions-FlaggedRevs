@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class containing template/file version usage requirements for
  * Parser based on the source text (being parsed) revision ID.

@@ -1,4 +1,5 @@
 <?php
+
 class FlaggedRevsLibraryTest extends Scribunto_LuaEngineTestBase {
 	protected static $moduleName = 'FlaggedRevsLibraryTest';
 

@@ -1,10 +1,10 @@
 <?php
-/**
- * FlaggedRevs stats functions
- */
 
 use Wikimedia\Rdbms\IDatabase;
 
+/**
+ * FlaggedRevs stats functions
+ */
 class FlaggedRevsStats {
 	/**
 	 * Get FR-related stats at a designated snapshot in time.

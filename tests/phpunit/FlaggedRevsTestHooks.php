@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class containing test related event-handlers for FlaggedRevs
  */

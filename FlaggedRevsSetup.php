@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class containing basic setup functions.
  * This class depends on config variables in LocalSettings.php.

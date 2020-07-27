@@ -1,9 +1,10 @@
 <?php
+
+use MediaWiki\MediaWikiServices;
+
 /**
  * Cache for stable version outputs of the PHP parser
  */
-use MediaWiki\MediaWikiServices;
-
 class FRParserCacheStable extends ParserCache {
 	/**
 	 * Get an instance of this object
