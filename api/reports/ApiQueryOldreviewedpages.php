@@ -32,6 +32,9 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 		parent::__construct( $query, $moduleName, 'or' );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute() {
 		$this->run();
 	}

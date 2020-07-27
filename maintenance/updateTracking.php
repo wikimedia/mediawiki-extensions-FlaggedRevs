@@ -28,6 +28,9 @@ class UpdateFRTracking extends Maintenance {
 		$this->requireExtension( 'FlaggedRevs' );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute() {
 		$startPage = $this->getOption( 'startpage' );
 		$startRev = $this->getOption( 'startrev' );

@@ -19,6 +19,9 @@ class FRExtraCacheUpdateJob extends Job {
 		);
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function run() {
 		if ( $this->params['type'] === 'purge' ) {
 			return $this->doBacklinkPurge();

@@ -22,6 +22,9 @@ class PopulateFRRevTimestamp extends Maintenance {
 		$this->requireExtension( 'FlaggedRevs' );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute() {
 		$startRev = $this->getOption( 'startrev' );
 		if ( $startRev !== null ) {

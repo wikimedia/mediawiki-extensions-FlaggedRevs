@@ -21,6 +21,9 @@ class UpdateFRAutoPromote extends Maintenance {
 		$this->requireExtension( 'FlaggedRevs' );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute() {
 		global $wgFlaggedRevsAutopromote;
 		$this->output( "Populating and updating flaggedrevs_promote table\n" );

@@ -18,6 +18,9 @@ class StablePages extends SpecialPage {
 		parent::__construct( 'StablePages' );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute( $par ) {
 		$request = $this->getRequest();
 

@@ -32,6 +32,9 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 		parent::__construct( $query, $moduleName, 'ur' );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute() {
 		$this->run();
 	}

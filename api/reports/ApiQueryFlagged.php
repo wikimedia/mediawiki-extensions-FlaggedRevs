@@ -29,6 +29,10 @@ use MediaWiki\MediaWikiServices;
  * @ingroup FlaggedRevs
  */
 class ApiQueryFlagged extends ApiQueryBase {
+
+	/**
+	 * @inheritDoc
+	 */
 	public function execute() {
 		$pageSet = $this->getPageSet();
 		$pageids = array_keys( $pageSet->getGoodTitles() );

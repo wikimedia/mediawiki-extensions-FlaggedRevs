@@ -25,6 +25,9 @@ class PurgeReviewablePages extends Maintenance {
 		$this->requireExtension( 'FlaggedRevs' );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute() {
 		$fileName = "pagesToPurge.list";
 		// Build the list file...

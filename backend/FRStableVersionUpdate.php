@@ -31,6 +31,9 @@ class FRStableVersionUpdate implements DeferrableUpdate {
 		$this->renderedRevision = $renderedRevision;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function doUpdate() {
 		FlaggedRevs::stableVersionUpdates( $this->title, null, null, $this->renderedRevision );
 	}

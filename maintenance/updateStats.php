@@ -18,6 +18,9 @@ class UpdateFlaggedRevsStats extends Maintenance {
 		$this->requireExtension( 'FlaggedRevs' );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute() {
 		$this->output( sprintf( '%-30s ', 'ValidationStatistics' ) );
 

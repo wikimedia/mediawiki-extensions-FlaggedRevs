@@ -28,6 +28,9 @@ class PruneFRIncludeData extends Maintenance {
 		$this->requireExtension( 'FlaggedRevs' );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute() {
 		$start = $this->getOption( 'start' );
 		$prune = $this->getOption( 'prune' );

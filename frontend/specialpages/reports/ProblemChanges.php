@@ -23,6 +23,9 @@ class ProblemChanges extends SpecialPage {
 		$this->mIncludable = true;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute( $par ) {
 		$request = $this->getRequest();
 
