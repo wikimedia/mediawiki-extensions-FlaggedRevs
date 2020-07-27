@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @covers FRUserActivity
+ * @covers \FRUserActivity
  */
 class FRUserActivityTest extends PHPUnit\Framework\TestCase {
 	/**

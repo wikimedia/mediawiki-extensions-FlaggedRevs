@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @covers FlaggableWikiPage
+ * @covers \FlaggableWikiPage
  */
 class FlaggablePageTest extends PHPUnit\Framework\TestCase {
 	/**
