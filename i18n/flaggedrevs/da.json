@@ -48,6 +48,7 @@
 	"review-logentry-id": "revision: $2",
 	"reviewer": "Korrekturlæser",
 	"revreview-accuracy-4": "Fremhævet",
+	"revreview-current": "Ventende ændringer",
 	"revreview-depth": "Dybde",
 	"revreview-depth-1": "Grundlæggende",
 	"revreview-depth-2": "Middel",
@@ -68,6 +69,7 @@
 	"revreview-lev-quality": "kvalitet",
 	"revreview-def-draft": "seneste",
 	"revreview-restriction-none": "ingen",
+	"revreview-reviewlink": "ventende ændringer",
 	"tooltip-ca-current": "Se denne side med de afventende ændringer",
 	"flaggedrevs-protect-none": "Tillad alle brugere"
 }
