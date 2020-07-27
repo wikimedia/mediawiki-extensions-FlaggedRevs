@@ -113,7 +113,7 @@ class FlaggedRevision {
 	 * @param Title $title
 	 * @param int $revId
 	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
-	 * @return FlaggedRevision|null (null on failure)
+	 * @return self|null (null on failure)
 	 */
 	public static function newFromTitle( Title $title, $revId, $flags = 0 ) {
 		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
@@ -162,7 +162,7 @@ class FlaggedRevision {
 	 * should never happen as fp_stable is updated as revs are deleted.
 	 * @param Title $title page title
 	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
-	 * @return FlaggedRevision|null (null on failure)
+	 * @return self|null (null on failure)
 	 */
 	public static function newFromStable( Title $title, $flags = 0 ) {
 		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
@@ -228,7 +228,7 @@ class FlaggedRevision {
 	 * Note: will return NULL if the revision is deleted.
 	 * @param int $revId
 	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
-	 * @return FlaggedRevision|null (null on failure)
+	 * @return self|null (null on failure)
 	 */
 	public static function newFromId( $revId, $flags = 0 ) {
 		$options = [];
@@ -282,7 +282,7 @@ class FlaggedRevision {
 	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
 	 * @param array $config optional page config (use to skip queries)
 	 * @param string $precedence (latest,quality,pristine)
-	 * @return FlaggedRevision|null (null on failure)
+	 * @return self|null (null on failure)
 	 */
 	public static function determineStable(
 		Title $title, $flags = 0, $config = [], $precedence = 'latest'

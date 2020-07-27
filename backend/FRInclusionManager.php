@@ -13,8 +13,12 @@ class FRInclusionManager {
 	/** @var array[] Stable versions of files/templates */
 	protected $stableVersions = [];
 
+	/** @var self|null */
 	protected static $instance = null;
 
+	/**
+	 * @return self
+	 */
 	public static function singleton() {
 		if ( self::$instance == null ) {
 			self::$instance = new self();

@@ -383,7 +383,7 @@ class FlaggedRevsUIHooks {
 						'queryCallable' => function ( $specialClassName, $ctx, $dbr, &$tables,
 							&$fields, &$conds, &$query_options, &$join_conds
 						) {
-							FlaggedRevsUIHooks::hideReviewedChangesUnconditionally(
+							self::hideReviewedChangesUnconditionally(
 								$conds
 							);
 						},

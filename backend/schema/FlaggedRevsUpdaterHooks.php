@@ -21,9 +21,9 @@ class FlaggedRevsUpdaterHooks {
 			$du->addExtensionField( 'flaggedpages', 'fp_pending_since', "$base/patch-fp_pending_since.sql" );
 			$du->addExtensionField( 'flaggedpage_config', 'fpc_level', "$base/patch-fpc_level.sql" );
 			$du->addExtensionTable( 'flaggedpage_pending', "$base/patch-flaggedpage_pending.sql" );
-			$du->addExtensionUpdate( [ 'FlaggedRevsUpdaterHooks::doFlaggedImagesTimestampNULL',
+			$du->addExtensionUpdate( [ [ __CLASS__, 'doFlaggedImagesTimestampNULL' ],
 				"$base/patch-fi_img_timestamp.sql" ] );
-			$du->addExtensionUpdate( [ 'FlaggedRevsUpdaterHooks::doFlaggedRevsRevTimestamp',
+			$du->addExtensionUpdate( [ [ __CLASS__, 'doFlaggedRevsRevTimestamp' ],
 				"$base/patch-fr_page_rev-index.sql" ] );
 			$du->addExtensionTable( 'flaggedrevs_statistics', "$base/patch-flaggedrevs_statistics.sql" );
 			$du->addExtensionIndex( 'flaggedrevs', 'fr_user', "$base/patch-fr_user-index.sql" );
@@ -43,9 +43,9 @@ class FlaggedRevsUpdaterHooks {
 			$du->addExtensionIndex( 'flaggedpages', 'fp_pending_since', "$base/patch-fp_pending_since.sql" );
 			$du->addExtensionField( 'flaggedpage_config', 'fpc_level', "TEXT NULL" );
 			$du->addExtensionTable( 'flaggedpage_pending', "$base/patch-flaggedpage_pending.sql" );
-			$du->addExtensionUpdate( [ 'FlaggedRevsUpdaterHooks::doFlaggedImagesTimestampNULL',
+			$du->addExtensionUpdate( [ [ __CLASS__, 'doFlaggedImagesTimestampNULL' ],
 				"$base/patch-fi_img_timestamp.sql" ] );
-			$du->addExtensionUpdate( [ 'FlaggedRevsUpdaterHooks::doFlaggedRevsRevTimestamp',
+			$du->addExtensionUpdate( [ [ __CLASS__, 'doFlaggedRevsRevTimestamp' ],
 				"$base/patch-fr_page_rev-index.sql" ] );
 			$du->addExtensionTable( 'flaggedrevs_statistics', "$base/patch-flaggedrevs_statistics.sql" );
 			$du->addExtensionIndex( 'flaggedrevs', 'fr_user', "$base/patch-fr_user-index.sql" );

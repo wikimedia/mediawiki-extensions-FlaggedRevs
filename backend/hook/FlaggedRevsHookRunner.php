@@ -33,10 +33,10 @@ class FlaggedRevsHookRunner implements
 	 *
 	 * See also core's Hooks::runner
 	 *
-	 * @return FlaggedRevsHookRunner
+	 * @return self
 	 */
 	public static function getRunner() {
-		return new FlaggedRevsHookRunner(
+		return new self(
 			MediaWikiServices::getInstance()->getHookContainer()
 		);
 	}

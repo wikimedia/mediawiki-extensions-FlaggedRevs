@@ -544,7 +544,7 @@ class FlaggedRevs {
 			$keyPrefix . ':revid:' . $frev->getRevId(),
 			[
 				'doWork' => function () use ( $frev, $pOpts ) {
-					return FlaggedRevs::parseStableRevision( $frev, $pOpts );
+					return self::parseStableRevision( $frev, $pOpts );
 				},
 				'doCachedWork' => function () use ( $page, $pOpts ) {
 					// Use new cache value from other thread
@@ -609,7 +609,7 @@ class FlaggedRevs {
 					$id = (int)$maybeId; // use if specified (even 0)
 				}
 				# Check for stable version of template if this feature is enabled...
-				if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
+				if ( self::inclusionSetting() == FR_INCLUDES_STABLE ) {
 					$maybeId = $incManager->getStableTemplateVersion( $title );
 					# Take the newest of these two...
 					if ( $maybeId && $maybeId > $id ) {
