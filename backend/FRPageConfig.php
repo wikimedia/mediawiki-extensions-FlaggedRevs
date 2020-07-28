@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Page stability configuration functions
  */

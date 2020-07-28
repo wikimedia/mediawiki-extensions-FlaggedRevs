@@ -1,11 +1,11 @@
 <?php
+
 /**
  * Job class for handling deferred FRExtraCacheUpdates
  * @ingroup JobQueue
  */
 class FRExtraCacheUpdateJob extends Job {
 	/**
-	 * Construct a job
 	 * @param Title $title The title linked to
 	 * @param array $params Job parameters (table, start and end page_ids)
 	 */

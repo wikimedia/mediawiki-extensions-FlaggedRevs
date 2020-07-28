@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class containing updater functions for a FlaggedRevs environment
  */

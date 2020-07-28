@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class containing utility functions for per-user stats
  */
