@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @covers FRInclusionManager
+ * @covers \FRInclusionManager
  */
 class FRInclusionManagerTest extends PHPUnit\Framework\TestCase {
 	/* starting input */
