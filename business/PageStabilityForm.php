@@ -179,8 +179,8 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 			// Custom expiry takes precedence
 			$this->expirySelection = 'othertime';
 		}
-		$status = $this->reallyDoCheckParameters(); // check other params...
-		return $status;
+		// check other params...
+		return $this->reallyDoCheckParameters();
 	}
 
 	/**

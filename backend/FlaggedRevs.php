@@ -622,11 +622,9 @@ class FlaggedRevs {
 					if ( $id === 0 ) {
 						return null;
 					}
-					$revRecord = MediaWikiServices::getInstance()
+					return MediaWikiServices::getInstance()
 						->getRevisionLookup()
 						->getRevisionById( $id );
-
-					return $revRecord;
 				}
 				# Otherwise, fall back to default behavior (load latest revision)
 				return call_user_func( $oldCurrentRevisionRecordCallback, $title, $parser );

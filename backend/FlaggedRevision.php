@@ -150,8 +150,7 @@ class FlaggedRevision {
 		);
 		# Sorted from highest to lowest, so just take the first one if any
 		if ( $row ) {
-			$frev = new self( $row, $title, $flags );
-			return $frev;
+			return new self( $row, $title, $flags );
 		}
 		return null;
 	}
@@ -217,8 +216,7 @@ class FlaggedRevision {
 				return null;
 			}
 
-			$frev = new self( $row, $title, $flags );
-			return $frev;
+			return new self( $row, $title, $flags );
 		}
 		return null;
 	}
@@ -258,8 +256,7 @@ class FlaggedRevision {
 			$frQuery['joins']
 		);
 		if ( $row ) {
-			$frev = new self( $row, Title::newFromRow( $row ), $flags );
-			return $frev;
+			return new self( $row, Title::newFromRow( $row ), $flags );
 		}
 		return null;
 	}
@@ -371,8 +368,8 @@ class FlaggedRevision {
 				return null;
 			}
 		}
-		$frev = new self( $row, $title, $flags );
-		return $frev;
+
+		return new self( $row, $title, $flags );
 	}
 
 	/**
