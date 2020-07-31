@@ -81,7 +81,6 @@ class FlaggedRevsHooks {
 	 * Update flaggedrevs table on revision restore
 	 * @param RevisionRecord $revision
 	 * @param int $oldPageID
-	 * @return true
 	 */
 	public static function onRevisionRestore( RevisionRecord $revision, $oldPageID ) {
 		$dbw = wfGetDB( DB_MASTER );
@@ -93,14 +92,12 @@ class FlaggedRevsHooks {
 			[ 'fr_page_id' => $oldPageID, 'fr_rev_id' => $revision->getId() ],
 			__METHOD__
 		);
-		return true;
 	}
 
 	/**
 	 * Update flaggedrevs page/tracking tables (revision moving)
 	 * @param Title $sourceTitle
 	 * @param Title $destTitle
-	 * @return true
 	 */
 	public static function onArticleMergeComplete( Title $sourceTitle, Title $destTitle ) {
 		$oldPageID = $sourceTitle->getArticleID();
@@ -132,7 +129,6 @@ class FlaggedRevsHooks {
 		FlaggedRevs::HTMLCacheUpdates( $sourceTitle );
 		FlaggedRevs::stableVersionUpdates( $destTitle );
 		FlaggedRevs::HTMLCacheUpdates( $destTitle );
-		return true;
 	}
 
 	/**
@@ -145,7 +141,6 @@ class FlaggedRevsHooks {
 	 * @param int $redirid
 	 * @param string $reason
 	 * @param RevisionRecord $revisionRecord
-	 * @return true
 	 */
 	public static function onPageMoveComplete(
 		LinkTarget $oLinkTarget,
@@ -198,7 +193,6 @@ class FlaggedRevsHooks {
 		FlaggedRevs::HTMLCacheUpdates( $otitle );
 		FlaggedRevs::stableVersionUpdates( $ntitle );
 		FlaggedRevs::HTMLCacheUpdates( $ntitle );
-		return true;
 	}
 
 	/**
@@ -209,16 +203,12 @@ class FlaggedRevsHooks {
 	 * @param Title $title
 	 * @param RenderedRevision $renderedRevision
 	 * @param DeferrableUpdate[] &$updates
-	 *
-	 * @return true
 	 */
 	public static function onRevisionDataUpdates(
 		Title $title, RenderedRevision $renderedRevision, array &$updates
 	) {
 		$updates[] = new FRStableVersionUpdate( $title, $renderedRevision );
 		$updates[] = new FRExtraCacheUpdate( $title );
-
-		return true;
 	}
 
 	/**
@@ -229,12 +219,10 @@ class FlaggedRevsHooks {
 	 * @param User $user
 	 * @param string $reason
 	 * @param int $id
-	 * @return true
 	 */
 	public static function onArticleDelete( WikiPage $wikiPage, $user, $reason, $id ) {
 		FlaggedRevs::clearTrackingRows( $id );
 		FlaggedRevs::extraHTMLCacheUpdate( $wikiPage->getTitle() );
-		return true;
 	}
 
 	/**
@@ -242,12 +230,10 @@ class FlaggedRevsHooks {
 	 * (b) Pages with stable versions that use this page will be purged
 	 * Note: pages with current versions that use this page should already be purged
 	 * @param Title $title
-	 * @return true
 	 */
 	public static function onArticleUndelete( Title $title ) {
 		FlaggedRevs::stableVersionUpdates( $title );
 		FlaggedRevs::HTMLCacheUpdates( $title );
-		return true;
 	}
 
 	/**
@@ -255,25 +241,21 @@ class FlaggedRevsHooks {
 	 * (b) Pages with stable versions that use this page will be purged
 	 * Note: pages with current versions that use this page should already be purged
 	 * @param File $file
-	 * @return true
 	 */
 	public static function onFileUpload( File $file ) {
 		FlaggedRevs::stableVersionUpdates( $file->getTitle() );
 		FlaggedRevs::extraHTMLCacheUpdate( $file->getTitle() );
-		return true;
 	}
 
 	/**
 	 * Update flaggedrevs page/tracking tables
 	 * @param Title $title
-	 * @return true
 	 */
 	public static function onRevisionDelete( Title $title ) {
 		$changed = FlaggedRevs::stableVersionUpdates( $title );
 		if ( $changed ) {
 			FlaggedRevs::HTMLCacheUpdates( $title );
 		}
-		return true;
 	}
 
 	/**
@@ -282,15 +264,15 @@ class FlaggedRevsHooks {
 	 * @param Title $title
 	 * @param array &$options
 	 * @param string &$query
-	 * @return true
 	 */
 	public static function parserFetchStableFile( $parser, Title $title, &$options, &$query ) {
 		if ( !( $parser instanceof Parser ) ) {
-			return true; // nothing to do
+			return;
 		}
 		$incManager = FRInclusionManager::singleton();
 		if ( !$incManager->parserOutputIsStabilized() ) {
-			return true; // trigger for stable version parsing only
+			// Trigger for stable version parsing only
+			return;
 		}
 		# Normalize NS_MEDIA to NS_FILE
 		if ( $title->getNamespace() == NS_MEDIA ) {
@@ -300,7 +282,8 @@ class FlaggedRevsHooks {
 		# Check if this file is only on a foreign repo
 		$file = MediaWikiServices::getInstance()->getRepoGroup()->findFile( $title );
 		if ( $file && !$file->isLocal() ) {
-			return true; // just use the current version (bug 41832)
+			// Just use the current version (bug 41832)
+			return;
 		}
 		$time = $sha1 = false; // unspecified (defaults to current version)
 		# Check for the version of this file used when reviewed...
@@ -330,22 +313,19 @@ class FlaggedRevsHooks {
 			}
 			$query .= "filetimestamp=" . urlencode( wfTimestamp( TS_MW, $time ) );
 		}
-
-		return true;
 	}
 
 	public static function onParserFirstCallInit( Parser $parser ) {
 		global $wgFlaggedRevsProtection;
 
 		if ( !$wgFlaggedRevsProtection ) {
-			return true;
+			return;
 		}
 
 		$parser->setFunctionHook( 'pagesusingpendingchanges',
 			[ __CLASS__, 'parserPagesUsingPendingChanges' ] );
 		$parser->setFunctionHook( 'pendingchangelevel',
 			[ __CLASS__, 'parserPendingChangeLevel' ], Parser::SFH_NO_HASH );
-		return true;
 	}
 
 	public static function onParserGetVariableValueSwitch( Parser $parser, &$cache, $word, &$ret ) {
@@ -353,18 +333,16 @@ class FlaggedRevsHooks {
 		if ( $wgFlaggedRevsProtection && $word === 'pendingchangelevel' ) {
 			$ret = $cache[$word] = self::parserPendingChangeLevel( $parser );
 		}
-		return true;
 	}
 
 	public static function onMagicWordwgVariableIDs( &$words ) {
 		global $wgFlaggedRevsProtection;
 
 		if ( !$wgFlaggedRevsProtection ) {
-			return true;
+			return;
 		}
 
 		$words[] = 'pendingchangelevel';
-		return true;
 	}
 
 	public static function parserPagesUsingPendingChanges( Parser $parser, $ns = '' ) {
@@ -499,7 +477,6 @@ class FlaggedRevsHooks {
 	 * @param RevisionRecord $revRecord
 	 * @param int|false $baseRevId
 	 * @param UserIdentity $user
-	 * @return true
 	 */
 	public static function maybeMakeEditReviewed(
 		WikiPage $wikiPage, RevisionRecord $revRecord, $baseRevId, UserIdentity $user
@@ -511,7 +488,7 @@ class FlaggedRevsHooks {
 		$fa = FlaggableWikiPage::getTitleInstance( $title );
 		$fa->loadPageData( FlaggableWikiPage::READ_LATEST );
 		if ( !$fa->isReviewable() ) {
-			return true;
+			return;
 		}
 
 		$user = User::newFromIdentity( $user );
@@ -529,12 +506,14 @@ class FlaggedRevsHooks {
 			&& $pm->getPermissionErrors( 'review', $user, $title ) === []
 		) {
 			if ( self::editCheckReview( $fa, $revRecord, $user, $editTimestamp ) ) {
-				return true; // reviewed...done!
+				// Reviewed... done!
+				return;
 			}
 		}
 		# All cases below require auto-review of edits to be enabled
 		if ( !FlaggedRevs::autoReviewEnabled() ) {
-			return true; // short-circuit
+			// Short-circuit
+			return;
 		}
 		# If a $baseRevId is passed in, the edit is using an old revision's text
 		$isOldRevCopy = (bool)$baseRevId; // null edit or rollback
@@ -622,7 +601,6 @@ class FlaggedRevsHooks {
 				FlaggedRevs::autoReviewEdit( $fa, $user, $revRecord, $flags );
 			}
 		}
-		return true;
 	}
 
 	/**
@@ -730,7 +708,6 @@ class FlaggedRevsHooks {
 	 * @param int $flags
 	 * @param RevisionRecord $revisionRecord
 	 * @param EditResult $editResult
-	 * @return true
 	 */
 	public static function maybeNullEditReview(
 		WikiPage $wikiPage,
@@ -743,7 +720,7 @@ class FlaggedRevsHooks {
 		global $wgRequest;
 		if ( !$editResult->isNullEdit() ) {
 			// Not a null edit
-			return true;
+			return;
 		}
 
 		$baseId = $editResult->getOriginalRevisionId();
@@ -751,20 +728,22 @@ class FlaggedRevsHooks {
 		# Rollback/undo or box checked
 		$reviewEdit = $wgRequest->getCheck( 'wpReviewEdit' );
 		if ( !$baseId && !$reviewEdit ) {
-			return true; // short-circuit
+			// Short-circuit
+			return;
 		}
 
 		$title = $wikiPage->getTitle(); // convenience
 		$fa = FlaggableWikiPage::getTitleInstance( $title );
 		$fa->loadPageData( FlaggableWikiPage::READ_LATEST );
 		if ( !$fa->isReviewable() ) {
-			return true; // page is not reviewable
+			// Page is not reviewable
+			return;
 		}
 		# Get the current revision ID
 		$revLookup = MediaWikiServices::getInstance()->getRevisionLookup();
 		$revRecord = $revLookup->getRevisionByTitle( $title, 0, RevisionLookup::READ_LATEST );
 		if ( !$revRecord ) {
-			return true; // wtf?
+			return;
 		}
 
 		$flags = null;
@@ -782,7 +761,7 @@ class FlaggedRevsHooks {
 				if ( $ok ) {
 					FlaggedRevs::markRevisionPatrolled( $revRecord ); // reviewed -> patrolled
 					FlaggedRevs::extraHTMLCacheUpdate( $title );
-					return true;
+					return;
 				}
 			}
 		}
@@ -802,7 +781,8 @@ class FlaggedRevsHooks {
 					RevisionLookup::READ_LATEST
 				);
 				if ( !$revRecord ) {
-					return true; // deleted?
+					// Deleted?
+					return;
 				}
 			}
 			# Review this revision of the page...
@@ -817,17 +797,16 @@ class FlaggedRevsHooks {
 	/**
 	 * Mark auto-reviewed edits as patrolled
 	 * @param RecentChange $rc
-	 * @return true
 	 */
 	public static function autoMarkPatrolled( RecentChange $rc ) {
 		if ( empty( $rc->getAttribute( 'rc_this_oldid' ) ) ) {
-			return true;
+			return;
 		}
 		// don't autopatrol autoreviewed edits when using pending changes,
 		// otherwise edits by autoreviewed users on pending changes protected pages would be
 		// autopatrolled and could not be checked through RC patrol as on regular pages
 		if ( FlaggedRevs::useOnlyIfProtected() ) {
-			return true;
+			return;
 		}
 		$fa = FlaggableWikiPage::getTitleInstance( $rc->getTitle() );
 		$fa->loadPageData( FlaggableWikiPage::READ_LATEST );
@@ -845,9 +824,7 @@ class FlaggedRevsHooks {
 				$rcAttribs['rc_patrolled'] = 1; // make sure irc/email notifs know status
 				$rc->setAttribs( $rcAttribs );
 			}
-			return true;
 		}
-		return true;
 	}
 
 	public static function incrementRollbacks(
@@ -866,8 +843,6 @@ class FlaggedRevsHooks {
 				FRUserCounters::saveUserParams( $badUserId, $p );
 			} );
 		}
-
-		return true;
 	}
 
 	/**
@@ -875,7 +850,6 @@ class FlaggedRevsHooks {
 	 * @param RevisionRecord $revRecord
 	 * @param int|false $baseRevId
 	 * @param UserIdentity $user
-	 * @return bool
 	 */
 	public static function incrementReverts(
 		WikiPage $wikiPage, $revRecord, $baseRevId, UserIdentity $user
@@ -887,7 +861,7 @@ class FlaggedRevsHooks {
 		if ( !( $undid && MediaWikiServices::getInstance()
 			->getPermissionManager()
 			->userHasRight( $user, 'autoreview' ) ) ) {
-			return true;
+			return;
 		}
 
 		// Note: $rev->getTitle() might be undefined (no rev id?)
@@ -895,7 +869,7 @@ class FlaggedRevsHooks {
 			->getRevisionLookup()
 			->getRevisionByTitle( $wikiPage->getTitle(), $undid );
 		if ( !( $badRevRecord && $badRevRecord->getUser( RevisionRecord::RAW ) ) ) {
-			return true;
+			return;
 		}
 
 		$revRecordUser = $revRecord->getUser( RevisionRecord::RAW );
@@ -905,7 +879,6 @@ class FlaggedRevsHooks {
 		) {
 			FRUserCounters::incCount( $badRevRecordUser->getId(), 'revertedEdits' );
 		}
-		return true;
 	}
 
 	/**
@@ -1148,14 +1121,12 @@ class FlaggedRevsHooks {
 	 * Grant 'autoreview' rights to users with the 'bot' right
 	 * @param User $user
 	 * @param array &$rights
-	 * @return true
 	 */
 	public static function onUserGetRights( $user, array &$rights ) {
 		# Make sure bots always have the 'autoreview' right
 		if ( in_array( 'bot', $rights ) && !in_array( 'autoreview', $rights ) ) {
 			$rights[] = 'autoreview';
 		}
-		return true;
 	}
 
 	/**
@@ -1168,7 +1139,6 @@ class FlaggedRevsHooks {
 	 * @param int $flags
 	 * @param RevisionRecord $revisionRecord
 	 * @param EditResult $editResult
-	 * @return true
 	 */
 	public static function onPageSaveComplete(
 		WikiPage $wikiPage,
@@ -1184,10 +1154,10 @@ class FlaggedRevsHooks {
 			!$userIdentity->getId() ||
 			!User::isUsableName( $userIdentity->getName() )
 		) {
-			return true;
+			return;
 		# No sense in running counters if nothing uses them
 		} elseif ( !$wgFlaggedRevsAutopromote && !$wgFlaggedRevsAutoconfirm ) {
-			return true;
+			return;
 		}
 
 		$userId = $userIdentity->getId();
@@ -1208,7 +1178,6 @@ class FlaggedRevsHooks {
 	 * @param array $params
 	 * @param User $user
 	 * @param bool &$result
-	 * @return true
 	 */
 	public static function checkAutoPromoteCond( $cond, array $params, User $user, &$result ) {
 		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
@@ -1327,7 +1296,6 @@ class FlaggedRevsHooks {
 				$result = ( $p && empty( $p['demoted'] ) );
 				break;
 		}
-		return true;
 	}
 
 	public static function setSessionKey( User $user ) {
@@ -1342,7 +1310,6 @@ class FlaggedRevsHooks {
 				$wgRequest->setSessionData( 'wsFlaggedRevsKey', $key );
 			}
 		}
-		return true;
 	}
 
 	public static function stableDumpQuery( array &$tables, array &$opts, array &$join ) {
@@ -1357,7 +1324,6 @@ class FlaggedRevsHooks {
 			$join['revision'] = [ 'INNER JOIN',
 				'rev_page = fp_page_id AND rev_id = fp_stable' ];
 		}
-		return false; // final
 	}
 
 	public static function gnsmQueryModifier(
@@ -1389,15 +1355,12 @@ class FlaggedRevsHooks {
 				$conditions[] = 'fp_quality = 0 OR fp_quality IS NULL';
 				break;
 		}
-
-		return true;
 	}
 
 	/**
 	 * Handler for EchoGetDefaultNotifiedUsers hook.
 	 * @param EchoEvent $event EchoEvent to get implicitly subscribed users for
 	 * @param array &$users Array to append implicitly subscribed users to.
-	 * @return bool true in all cases
 	 */
 	public static function onEchoGetDefaultNotifiedUsers( $event, &$users ) {
 		$extra = $event->getExtra();
@@ -1406,17 +1369,13 @@ class FlaggedRevsHooks {
 				$users[$userId] = User::newFromId( intval( $userId ) );
 			}
 		}
-		return true;
 	}
 
 	/**
 	 * @param array &$updateFields
-	 * @return bool
 	 */
 	public static function onUserMergeAccountFields( array &$updateFields ) {
 		$updateFields[] = [ 'flaggedrevs', 'fr_user' ];
-
-		return true;
 	}
 
 	public static function onMergeAccountFromTo( User $oldUser, User $newUser ) {
@@ -1424,20 +1383,15 @@ class FlaggedRevsHooks {
 		if ( $newUser->getId() !== 0 ) {
 			FRUserCounters::mergeUserParams( $oldUser, $newUser );
 		}
-
-		return true;
 	}
 
 	public static function onDeleteAccount( User $oldUser ) {
 		FRUserCounters::deleteUserParams( $oldUser );
-
-		return true;
 	}
 
 	public static function onScribuntoExternalLibraries( $engine, array &$extraLibraries ) {
 		if ( $engine == 'lua' ) {
 			$extraLibraries['mw.ext.FlaggedRevs'] = 'FlaggedRevsScribuntoLuaLibrary';
 		}
-		return true;
 	}
 }

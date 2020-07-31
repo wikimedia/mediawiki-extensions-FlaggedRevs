@@ -64,7 +64,6 @@ class FlaggedRevsUIHooks {
 	/**
 	 * Add FlaggedRevs css for relevant special pages.
 	 * @param OutputPage &$out
-	 * @return bool
 	 */
 	protected static function injectStyleForSpecial( &$out ) {
 		$title = $out->getTitle();
@@ -76,7 +75,6 @@ class FlaggedRevsUIHooks {
 				break;
 			}
 		}
-		return true;
 	}
 
 	/**
@@ -113,7 +111,6 @@ class FlaggedRevsUIHooks {
 	 * Add user preferences (uses prefs-flaggedrevs, prefs-flaggedrevs-ui msgs)
 	 * @param User $user
 	 * @param array &$preferences
-	 * @return true
 	 */
 	public static function onGetPreferences( $user, array &$preferences ) {
 		// Box or bar UI
@@ -165,28 +162,25 @@ class FlaggedRevsUIHooks {
 					'label-message' => 'flaggedrevs-prefs-viewdiffs',
 				];
 		}
-		return true;
 	}
 
 	public static function onImagePageFindFile( $imagePage, &$normalFile, &$displayFile ) {
 		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
-			return true;
+			return;
 		}
 
 		$view = FlaggablePageView::singleton();
 		$view->imagePageFindFile( $normalFile, $displayFile );
-		return true;
 	}
 
 	/**
 	 * Vector et al: $links is all the tabs (2 levels)
 	 * @param Skin $skin
 	 * @param array &$links
-	 * @return true
 	 */
 	public static function onSkinTemplateNavigation( Skin $skin, array &$links ) {
 		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
-			return true;
+			return;
 		}
 
 		if ( FlaggablePageView::globalArticleInstance() != null ) {
@@ -194,18 +188,16 @@ class FlaggedRevsUIHooks {
 			$view->setActionTabs( $skin, $links['actions'] );
 			$view->setViewTabs( $skin, $links['views'] );
 		}
-		return true;
 	}
 
 	public static function onArticleViewHeader( &$article, &$outputDone, &$useParserCache ) {
 		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
-			return true;
+			return;
 		}
 
 		$view = FlaggablePageView::singleton();
 		$view->addStableLink();
 		$view->setPageContent( $outputDone, $useParserCache );
-		return true;
 	}
 
 	/**
@@ -214,7 +206,6 @@ class FlaggedRevsUIHooks {
 	 * @param bool &$ignoreRedirect
 	 * @param string &$target
 	 * @param Article &$article
-	 * @return true
 	 */
 	public static function overrideRedirect(
 		Title $title,
@@ -227,17 +218,17 @@ class FlaggedRevsUIHooks {
 		$wikiPage = $article->getPage();
 
 		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
-			return true;
+			return;
 		}
 
 		$fa = FlaggableWikiPage::getTitleInstance( $title );
 		if ( !$fa->isReviewable() ) {
-			return true; // nothing to do
+			return;
 		}
 		# Viewing an old reviewed version...
 		if ( $request->getVal( 'stableid' ) ) {
 			$ignoreRedirect = true; // don't redirect (same as ?oldid=x)
-			return true;
+			return;
 		}
 		$srev = $fa->getStableRev();
 		$view = FlaggablePageView::singleton();
@@ -276,53 +267,45 @@ class FlaggedRevsUIHooks {
 		if ( $clearEnvironment ) {
 			$view->clear();
 		}
-
-		return true;
 	}
 
 	public static function addToEditView( $editPage ) {
 		$view = FlaggablePageView::singleton();
 		$view->addToEditView( $editPage );
-		return true;
 	}
 
 	public static function getEditNotices( $title, $oldid, &$notices ) {
 		$view = FlaggablePageView::singleton();
 		$view->getEditNotices( $title, $oldid, $notices );
-		return true;
 	}
 
 	public static function onBeforeEditButtons( $editPage, &$buttons ) {
 		$view = FlaggablePageView::singleton();
 		$view->changeSaveButton( $editPage, $buttons );
-		return true;
 	}
 
 	public static function onNoSuchSection( $editPage, &$s ) {
 		$view = FlaggablePageView::singleton();
 		$view->addToNoSuchSection( $editPage, $s );
-		return true;
 	}
 
 	public static function addToHistView( &$article ) {
 		$view = FlaggablePageView::singleton();
 		$view->addToHistView();
-		return true;
 	}
 
 	public static function onCategoryPageView( &$category ) {
 		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
-			return true;
+			return;
 		}
 
 		$view = FlaggablePageView::singleton();
 		$view->addToCategoryView();
-		return true;
 	}
 
 	public static function onSkinAfterContent( &$data ) {
 		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
-			return true;
+			return;
 		}
 
 		global $wgOut;
@@ -336,7 +319,6 @@ class FlaggedRevsUIHooks {
 				$view->addReviewForm( $data ); // form to be appended
 			}
 		}
-		return true;
 	}
 
 	/**
@@ -345,7 +327,6 @@ class FlaggedRevsUIHooks {
 	 *
 	 * @param SpecialPage $specialPage Special page
 	 * @param array &$filters Array of filters
-	 * @return true
 	 */
 	public static function addHideReviewedUnstructuredFilter( $specialPage, &$filters ) {
 		if ( !FlaggedRevs::useSimpleConfig() ) {
@@ -353,7 +334,6 @@ class FlaggedRevsUIHooks {
 				'msg' => 'flaggedrevs-hidereviewed', 'default' => false
 			];
 		}
-		return true;
 	}
 
 	/**
@@ -362,11 +342,10 @@ class FlaggedRevsUIHooks {
 	 *
 	 * @param ChangesListSpecialPage $specialPage Special page, such as
 	 *   Special:RecentChanges or Special:Watchlist
-	 * @return true
 	 */
 	public static function addHideReviewedFilter( ChangesListSpecialPage $specialPage ) {
 		if ( FlaggedRevs::useSimpleConfig() ) {
-			return true;
+			return;
 		}
 
 		// Old filter, replaced in structured UI
@@ -518,7 +497,6 @@ class FlaggedRevsUIHooks {
 		);
 
 		$specialPage->registerFilterGroup( $flaggedRevsGroup );
-		return true;
 	}
 
 	public static function addToHistQuery( HistoryPager $pager, array &$queryInfo ) {
@@ -539,7 +517,6 @@ class FlaggedRevsUIHooks {
 				$queryInfo['join_conds']['user'] = [ 'LEFT JOIN', "user_id = fr_user" ];
 			}
 		}
-		return true;
 	}
 
 	public static function addToFileHistQuery(
@@ -549,7 +526,7 @@ class FlaggedRevsUIHooks {
 			defined( 'MW_HTML_FOR_DUMP' )
 			|| !$file->isLocal() // local files only
 		) {
-			return true;
+			return;
 		}
 		$flaggedArticle = FlaggableWikiPage::getTitleInstance( $file->getTitle() );
 		# Non-content pages cannot be validated. Stable version must exist.
@@ -573,14 +550,13 @@ class FlaggedRevsUIHooks {
 			$join_conds['flaggedrevs'] = [ 'LEFT JOIN',
 				'oi_sha1 = fr_img_sha1 AND oi_timestamp = fr_img_timestamp' ];
 		}
-		return true;
 	}
 
 	public static function addToContribsQuery( $pager, array &$queryInfo ) {
 		global $wgFlaggedRevsProtection;
 
 		if ( $wgFlaggedRevsProtection ) {
-			return true;
+			return;
 		}
 
 		# Highlight flaggedrevs
@@ -592,15 +568,12 @@ class FlaggedRevsUIHooks {
 		$queryInfo['fields'][] = 'fp_stable';
 		$queryInfo['fields'][] = 'fp_pending_since';
 		$queryInfo['join_conds']['flaggedpages'] = [ 'LEFT JOIN', "fp_page_id = rev_page" ];
-		return true;
 	}
 
 	public static function modifyNewPagesQuery(
 		$specialPage, $opts, &$conds, &$tables, &$fields, &$join_conds
 	) {
 		self::makeAllQueryChanges( $conds, $tables, $join_conds, $fields );
-
-		return true;
 	}
 
 	public static function modifyChangesListSpecialPageQuery(
@@ -678,13 +651,12 @@ class FlaggedRevsUIHooks {
 	 * @param stdClass $row
 	 * @param string &$s
 	 * @param array &$liClasses
-	 * @return true
 	 * @suppress PhanUndeclaredProperty For HistoryPager->fr_*
 	 */
 	public static function addToHistLine( HistoryPager $history, $row, &$s, &$liClasses ) {
 		$fa = FlaggableWikiPage::getTitleInstance( $history->getTitle() );
 		if ( !$fa->isReviewable() ) {
-			return true; // nothing to do here
+			return;
 		}
 		# Fetch and process cache the stable revision
 		if ( !isset( $history->fr_stableRevId ) ) {
@@ -695,7 +667,7 @@ class FlaggedRevsUIHooks {
 			$history->fr_pendingRevs = false;
 		}
 		if ( !$history->fr_stableRevId ) {
-			return true; // nothing to do here
+			return;
 		}
 		$title = $history->getTitle();
 		$revId = (int)$row->rev_id;
@@ -726,7 +698,6 @@ class FlaggedRevsUIHooks {
 		if ( $link ) {
 			$s .= " $link";
 		}
-		return true;
 	}
 
 	/**
@@ -768,7 +739,7 @@ class FlaggedRevsUIHooks {
 			defined( 'MW_HTML_FOR_DUMP' )
 			|| !$file->isVisible() // Don't bother showing notice for deleted revs
 		) {
-			return true;
+			return;
 		}
 		# Quality level for old versions selected all at once.
 		# Commons queries cannot be done all at once...
@@ -786,7 +757,6 @@ class FlaggedRevsUIHooks {
 		if ( $quality !== false ) {
 			$rowClass = FlaggedRevsXML::getQualityColor( $quality );
 		}
-		return true;
 	}
 
 	/**
@@ -796,7 +766,6 @@ class FlaggedRevsUIHooks {
 	 * @param string &$ret the HTML line
 	 * @param stdClass $row Row the DB row for this line
 	 * @param array &$classes the classes to add to the surrounding <li>
-	 * @return bool
 	 */
 	public static function addToContribsLine( $contribs, &$ret, $row, &$classes ) {
 		global $wgFlaggedRevsProtection;
@@ -816,7 +785,6 @@ class FlaggedRevsUIHooks {
 				$classes[] = 'flaggedrevs-unreviewed';
 			}
 		}
-		return true;
 	}
 
 	public static function addToChangeListLine( &$list, &$articlelink, &$s, RecentChange &$rc ) {
@@ -825,7 +793,8 @@ class FlaggedRevsUIHooks {
 			|| empty( $rc->getAttribute( 'rc_this_oldid' ) ) // rev, not log
 			|| !array_key_exists( 'fp_stable', $rc->getAttributes() )
 		) {
-			return true; // confirm that page is in reviewable namespace
+			// Confirm that page is in reviewable namespace
+			return;
 		}
 		$rlink = $css = '';
 		// page is not reviewed
@@ -855,7 +824,6 @@ class FlaggedRevsUIHooks {
 		if ( $rlink != '' ) {
 			$articlelink .= " <span class=\"mw-fr-reviewlink $css\">[$rlink]</span>";
 		}
-		return true;
 	}
 
 	public static function injectPostEditURLParams( $article, &$sectionAnchor, &$extraQuery ) {
@@ -863,7 +831,6 @@ class FlaggedRevsUIHooks {
 			$view = FlaggablePageView::singleton();
 			$view->injectPostEditURLParams( $sectionAnchor, $extraQuery );
 		}
-		return true;
 	}
 
 	/**
@@ -873,7 +840,6 @@ class FlaggedRevsUIHooks {
 	 * @param int &$mNewid
 	 * @param string $old
 	 * @param string $new
-	 * @return true
 	 */
 	public static function checkDiffUrl( $titleObj, &$mOldid, &$mNewid, $old, $new ) {
 		if ( $new === 'review' && isset( $titleObj ) ) {
@@ -883,14 +849,12 @@ class FlaggedRevsUIHooks {
 				$mNewid = 0; // cur
 			}
 		}
-		return true;
 	}
 
 	/**
 	 * Hook: DifferenceEngineViewHeader
 	 *
 	 * @param DifferenceEngine $diff
-	 * @return bool
 	 */
 	public static function onDifferenceEngineViewHeader( DifferenceEngine $diff ) {
 		self::injectStyleAndJS( $diff->getOutput() );
@@ -900,25 +864,23 @@ class FlaggedRevsUIHooks {
 		$newRevRecord = $diff->getNewRevision();
 		$view->setViewFlags( $diff, $oldRevRecord, $newRevRecord );
 		$view->addToDiffView( $diff, $oldRevRecord, $newRevRecord );
-		return true;
 	}
 
 	public static function addRevisionIDField( $editPage, $out ) {
 		$view = FlaggablePageView::singleton();
 		$view->addRevisionIDField( $editPage, $out );
-		return true;
 	}
 
 	public static function onEditPageGetCheckboxesDefinition( $editPage, &$checkboxes ) {
 		$view = FlaggablePageView::singleton();
 		$view->addReviewCheck( $editPage, $checkboxes );
-		return true;
 	}
 
 	protected static function maybeAddBacklogNotice( OutputPage &$out ) {
 		if ( !MediaWikiServices::getInstance()->getPermissionManager()
 			->userHasRight( $out->getUser(), 'review' ) ) {
-			return true; // not relevant to user
+			// Not relevant to user
+			return;
 		}
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		$watchlist = SpecialPage::getTitleFor( 'Watchlist' );
@@ -945,7 +907,6 @@ class FlaggedRevsUIHooks {
 					wfMessage( 'flaggedrevs-watched-pending' )->parse() . "</div>" );
 			}
 		}
-		return true;
 	}
 
 	/**
@@ -953,7 +914,6 @@ class FlaggedRevsUIHooks {
 	 * Code stolen from Stabilization (which was stolen from ProtectionForm)
 	 * @param Article $article
 	 * @param string &$output
-	 * @return true
 	 */
 	public static function onProtectionForm(
 		Article $article,
@@ -968,7 +928,7 @@ class FlaggedRevsUIHooks {
 			|| !$wikiPage->exists()
 			|| !FlaggedRevs::inReviewNamespace( $title ) // not a reviewable page
 		) {
-			return true;
+			return;
 		}
 		$form = new PageStabilityProtectForm( $article->getContext()->getUser() );
 		$form->setPage( $title );
@@ -1103,14 +1063,12 @@ class FlaggedRevsUIHooks {
 				}
 			</script>"
 		);
-		return true;
 	}
 
 	/**
 	 * Add stability log extract to protection form
 	 * @param Article $article
 	 * @param OutputPage $out
-	 * @return true
 	 */
 	public static function insertStabilityLog(
 		Article $article,
@@ -1125,21 +1083,19 @@ class FlaggedRevsUIHooks {
 			|| !$wikiPage->exists()
 			|| !FlaggedRevs::inReviewNamespace( $title ) // not a reviewable page
 		) {
-			return true;
+			return;
 		}
 
 		# Show relevant lines from the stability log:
 		$logPage = new LogPage( 'stable' );
 		$out->addHTML( Xml::element( 'h2', null, $logPage->getName()->text() ) );
 		LogEventsList::showLogExtract( $out, 'stable', $title->getPrefixedText() );
-		return true;
 	}
 
 	/**
 	 * Update stability config from request
 	 * @param Article $article
 	 * @param string &$errorMsg
-	 * @return true
 	 */
 	public static function onProtectionSave( Article $article, &$errorMsg ) {
 		global $wgRequest, $wgFlaggedRevsProtection;
@@ -1152,13 +1108,14 @@ class FlaggedRevsUIHooks {
 			|| !$wikiPage->exists() // simple custom levels set for action=protect
 			|| !FlaggedRevs::inReviewNamespace( $title ) // not a reviewable page
 		) {
-			return true;
+			return;
 		}
 
 		if ( wfReadOnly() || !MediaWikiServices::getInstance()->getPermissionManager()
 				->userHasRight( $user, 'stablesettings' )
 		) {
-			return true; // user cannot change anything
+			// User cannot change anything
+			return;
 		}
 		$form = new PageStabilityProtectForm( $user );
 		$form->setPage( $title ); // target page
@@ -1179,7 +1136,6 @@ class FlaggedRevsUIHooks {
 				$errorMsg = wfMessage( $status )->text(); // some error message
 			}
 		}
-		return true;
 	}
 
 	public static function onSpecialPage_initList( array &$list ) {

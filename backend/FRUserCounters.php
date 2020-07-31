@@ -85,7 +85,6 @@ class FRUserCounters {
 	 * @param int $uid
 	 * @param array $params
 	 * @param bool|string $dBName optional wiki name
-	 * @return bool success
 	 */
 	public static function saveUserParams( $uid, array $params, $dBName = false ) {
 		$dbw = wfGetDB( DB_MASTER, [], $dBName );
@@ -98,7 +97,6 @@ class FRUserCounters {
 			],
 			__METHOD__
 		);
-		return true;
 	}
 
 	public static function deleteUserParams( User $user ) {

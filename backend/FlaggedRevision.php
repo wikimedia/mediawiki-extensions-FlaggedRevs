@@ -444,8 +444,6 @@ class FlaggedRevision {
 
 	/**
 	 * Remove a FlaggedRevision object from the database
-	 *
-	 * @return bool success
 	 */
 	public function delete() {
 		$dbw = wfGetDB( DB_MASTER );
@@ -457,7 +455,6 @@ class FlaggedRevision {
 			[ 'ft_rev_id' => $this->getRevId() ], __METHOD__ );
 		$dbw->delete( 'flaggedimages',
 			[ 'fi_rev_id' => $this->getRevId() ], __METHOD__ );
-		return true;
 	}
 
 	/**
