@@ -904,7 +904,7 @@ class FlaggablePageView extends ContextSource {
 					$users = MediaWikiServices::getInstance()
 						->getRevisionStore()
 						->getAuthorsBetween(
-							$title->getArticleId(),
+							$title->getArticleID(),
 							$srev->getRevisionRecord(),
 							$latest,
 							null,
@@ -1424,7 +1424,7 @@ class FlaggablePageView extends ContextSource {
 			$actions['default'] = [
 				'class' => false,
 				'text' => $this->msg( 'stabilization-tab' )->text(),
-				'href' => $stableTitle->getLocalUrl( 'page=' . $title->getPrefixedUrl() )
+				'href' => $stableTitle->getLocalURL( 'page=' . $title->getPrefixedURL() )
 			];
 		}
 	}
@@ -1485,12 +1485,12 @@ class FlaggablePageView extends ContextSource {
 		$tabs = [
 			'read' => [ // view stable
 				'text'  => '', // unused
-				'href'  => $title->getLocalUrl( 'stable=1' ),
+				'href'  => $title->getLocalURL( 'stable=1' ),
 				'class' => ''
 			],
 			'draft' => [ // view draft
 				'text'  => $this->msg( 'revreview-current' )->text(),
-				'href'  => $title->getLocalUrl( 'stable=0&redirect=no' ),
+				'href'  => $title->getLocalURL( 'stable=0&redirect=no' ),
 				'class' => 'collapsible'
 			],
 		];

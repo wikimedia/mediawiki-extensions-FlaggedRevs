@@ -93,7 +93,7 @@ class PurgeReviewablePages extends Maintenance {
 				$fa = FlaggableWikiPage::getTitleInstance( $title );
 				if ( $fa->isReviewable() ) {
 					# Need to purge this page - add to list
-					fwrite( $fileHandle, $title->getPrefixedDBKey() . "\n" );
+					fwrite( $fileHandle, $title->getPrefixedDBkey() . "\n" );
 					$count++;
 				}
 			}

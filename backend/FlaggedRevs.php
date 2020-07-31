@@ -943,7 +943,7 @@ class FlaggedRevs {
 	 */
 	public static function inReviewNamespace( Title $title ) {
 		global $wgFlaggedRevsWhitelist;
-		if ( in_array( $title->getPrefixedDBKey(), $wgFlaggedRevsWhitelist ) ) {
+		if ( in_array( $title->getPrefixedDBkey(), $wgFlaggedRevsWhitelist ) ) {
 			return false; // page is one exemption whitelist
 		}
 		$ns = ( $title->getNamespace() == NS_MEDIA ) ?

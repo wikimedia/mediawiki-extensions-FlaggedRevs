@@ -103,7 +103,7 @@ class RevisionReview extends UnlistedSpecialPage {
 				list( $html, $status ) = $rejectForm->getHtml();
 				// Success...
 				if ( $status === true ) {
-					$out->addHtml( $html );
+					$out->addHTML( $html );
 				// Failure...
 				} else {
 					if ( $status === 'review_page_unreviewable' ) {
@@ -131,7 +131,7 @@ class RevisionReview extends UnlistedSpecialPage {
 						$out->addHTML( $this->deapprovalSuccessHTML( true ) );
 					} elseif ( $form->getAction() === 'reject' ) {
 						$query = $this->page->isRedirect() ? [ 'redirect' => 'no' ] : [];
-						$out->redirect( $this->page->getFullUrl( $query ) );
+						$out->redirect( $this->page->getFullURL( $query ) );
 					}
 				// Failure...
 				} else {
@@ -148,7 +148,7 @@ class RevisionReview extends UnlistedSpecialPage {
 					} elseif ( $status === 'review_bad_oldid' ) {
 						$out->showErrorPage( 'internalerror', 'revreview-revnotfound' );
 					} elseif ( $status === 'review_not_flagged' ) {
-						$out->redirect( $this->page->getFullUrl() ); // already unflagged
+						$out->redirect( $this->page->getFullURL() ); // already unflagged
 					} elseif ( $status === 'review_too_low' ) {
 						$out->addWikiMsg( 'revreview-toolow' );
 					} else {

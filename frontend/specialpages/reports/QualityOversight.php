@@ -92,7 +92,7 @@ class QualityOversight extends SpecialPage {
 			Xml::openElement( 'form', [ 'name' => 'qualityoversight',
 				'action' => $wgScript, 'method' => 'get' ] ) .
 			'<fieldset><legend>' . $this->msg( 'qualityoversight-legend' )->escaped() . '</legend><p>' .
-			Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBKey() ) .
+			Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBkey() ) .
 			FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&#160;' .
 			( FlaggedRevs::qualityVersions()
 				? FlaggedRevsXML::getLevelMenu( $this->level, 'revreview-filter-all', 1 ) .

@@ -35,7 +35,7 @@ class FlagProtectToSemiProtect extends Maintenance {
 		}
 
 		$user = User::newFromName( $this->getOption( 'user' ) );
-		if ( !$user || !$user->getID() ) {
+		if ( !$user || !$user->getId() ) {
 			$this->fatalError( "Invalid user specified!" );
 		}
 		$reason = $this->getOption( 'reason',
@@ -85,7 +85,7 @@ class FlagProtectToSemiProtect extends Maintenance {
 			);
 			# Go through and protect each page...
 			foreach ( $res as $row ) {
-				$title = Title::newFromId( $row->fpc_page_id );
+				$title = Title::newFromID( $row->fpc_page_id );
 				if ( $title->isProtected( 'edit' ) ) {
 					continue; // page already has edit protection - skip it
 				}

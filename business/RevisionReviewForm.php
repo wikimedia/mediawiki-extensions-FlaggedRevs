@@ -749,7 +749,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		foreach ( $templateIDs as $namespace => $t ) {
 			foreach ( $t as $dbKey => $revId ) {
 				$temptitle = Title::makeTitle( $namespace, $dbKey );
-				$templateParams .= $temptitle->getPrefixedDBKey() . "|" . $revId . "#";
+				$templateParams .= $temptitle->getPrefixedDBkey() . "|" . $revId . "#";
 			}
 		}
 		# Image -> timestamp -> sha1 mapping

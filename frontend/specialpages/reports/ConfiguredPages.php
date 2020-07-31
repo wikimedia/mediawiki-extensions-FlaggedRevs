@@ -59,7 +59,7 @@ class ConfiguredPages extends SpecialPage {
 
 		$form = Html::openElement( 'form',
 			[ 'name' => 'configuredpages', 'action' => $wgScript, 'method' => 'get' ] );
-		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBKey() );
+		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBkey() );
 		$form .= "<fieldset><legend>" . $this->msg( 'configuredpages' )->escaped() . "</legend>\n";
 		$form .= implode( '&#160;', $fields ) . '<br/>';
 		$form .= Xml::submitButton( $this->msg( 'go' )->text() );
@@ -89,7 +89,7 @@ class ConfiguredPages extends SpecialPage {
 			SpecialPage::getTitleFor( 'Stabilization' ),
 			$this->msg( 'configuredpages-config' )->text(),
 			[],
-			[ 'page' => $title->getPrefixedUrl() ]
+			[ 'page' => $title->getPrefixedURL() ]
 		);
 		# Show which version is the default (stable or draft)
 		if ( intval( $row->fpc_override ) ) {

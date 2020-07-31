@@ -85,7 +85,7 @@ class Stabilization extends UnlistedSpecialPage {
 		if ( $request->wasPosted() && $confirmed && $form->isAllowed() ) {
 			$status = $form->submit();
 			if ( $status === true ) {
-				$out->redirect( $title->getFullUrl() );
+				$out->redirect( $title->getFullURL() );
 			} else {
 				$this->showForm( $this->msg( $status )->escaped() );
 			}
@@ -167,7 +167,7 @@ class Stabilization extends UnlistedSpecialPage {
 
 		# Build up the form...
 		$s .= Xml::openElement( 'form', [ 'name' => 'stabilization',
-			'action' => $this->getPageTitle()->getLocalUrl(), 'method' => 'post' ] );
+			'action' => $this->getPageTitle()->getLocalURL(), 'method' => 'post' ] );
 		# Add stable version override and selection options
 		$s .=
 			Xml::fieldset( $this->msg( 'stabilization-def' )->text(), false ) . "\n" .
@@ -265,7 +265,7 @@ class Stabilization extends UnlistedSpecialPage {
 						Xml::submitButton( $this->msg( 'stabilization-submit' )->text() ) .
 					'</td>
 				</tr>' . Xml::closeElement( 'table' ) .
-				Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBKey() ) .
+				Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBkey() ) .
 				Html::hidden( 'page', $title->getPrefixedText() ) .
 				Html::hidden( 'wpEditToken', $this->getUser()->getEditToken() );
 		} else {

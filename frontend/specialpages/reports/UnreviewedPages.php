@@ -83,7 +83,7 @@ class UnreviewedPages extends SpecialPage {
 		$form = Html::openElement( 'form', [ 'name' => 'unreviewedpages',
 			'action' => $wgScript, 'method' => 'get' ] ) . "\n";
 		$form .= "<fieldset><legend>" . $this->msg( 'unreviewedpages-legend' )->escaped() . "</legend>\n";
-		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBKey() ) . "\n";
+		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBkey() ) . "\n";
 		# Add dropdowns as needed
 		if ( count( FlaggedRevs::getReviewNamespaces() ) > 1 ) {
 			$form .= FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&#160;';

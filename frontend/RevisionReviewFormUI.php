@@ -147,7 +147,7 @@ class RevisionReviewFormUI {
 
 		# Begin form...
 		$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
-		$action = $reviewTitle->getLocalUrl( 'action=submit' );
+		$action = $reviewTitle->getLocalURL( 'action=submit' );
 		$params = [ 'method' => 'post', 'action' => $action, 'id' => 'mw-fr-reviewform' ];
 		$form = Xml::openElement( 'form', $params ) . "\n";
 		$form .= Xml::openElement( 'fieldset',
@@ -247,7 +247,7 @@ class RevisionReviewFormUI {
 
 		# Hidden params
 		$form .= Html::hidden( 'title', $reviewTitle->getPrefixedText() ) . "\n";
-		$form .= Html::hidden( 'target', $article->getTitle()->getPrefixedDBKey() ) . "\n";
+		$form .= Html::hidden( 'target', $article->getTitle()->getPrefixedDBkey() ) . "\n";
 		$form .= Html::hidden( 'refid', $priorRevId, [ 'id' => 'mw-fr-input-refid' ] ) . "\n";
 		$form .= Html::hidden( 'oldid', $revId, [ 'id' => 'mw-fr-input-oldid' ] ) . "\n";
 		$form .= Html::hidden( 'wpEditToken', $this->user->getEditToken() ) . "\n";

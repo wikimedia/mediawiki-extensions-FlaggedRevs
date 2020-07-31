@@ -123,7 +123,7 @@ class RejectConfirmationFormUI {
 		if ( $newRevRecord->isCurrent() ) {
 			// Revision this will revert to (when reverting the top X revs)...
 			$form .= wfMessage( 'revreview-reject-text-revto',
-				$oldTitle->getPrefixedDBKey(),
+				$oldTitle->getPrefixedDBkey(),
 				$oldRevRecord->getId(),
 				$wgLang->timeanddate( $oldRevRecord->getTimestamp(), true )
 			)->parse();
@@ -179,13 +179,13 @@ class RejectConfirmationFormUI {
 
 		$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
 		$form .= Xml::openElement( 'form',
-			[ 'method' => 'POST', 'action' => $reviewTitle->getFullUrl() ] );
+			[ 'method' => 'POST', 'action' => $reviewTitle->getFullURL() ] );
 		$form .= Html::hidden( 'action', 'reject' );
 		$form .= Html::hidden( 'wpReject', 1 );
 		$form .= Html::hidden( 'wpRejectConfirm', 1 );
 		$form .= Html::hidden( 'oldid', $this->form->getOldId() );
 		$form .= Html::hidden( 'refid', $this->form->getRefId() );
-		$form .= Html::hidden( 'target', $oldTitle->getPrefixedDBKey() );
+		$form .= Html::hidden( 'target', $oldTitle->getPrefixedDBkey() );
 		$form .= Html::hidden( 'wpEditToken', $this->form->getUser()->getEditToken() );
 		$form .= Html::hidden( 'changetime', $newRevRecord->getTimestamp() );
 		$form .= Xml::inputLabel( wfMessage( 'revreview-reject-summary' )->text(), 'wpReason',

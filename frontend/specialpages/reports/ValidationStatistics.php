@@ -33,7 +33,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 		$timestamp = $this->getLastUpdate();
 
 		$out->addWikiMsg( 'validationstatistics-users',
-			$lang->formatnum( $ec ), $lang->formatnum( $rc )
+			$lang->formatNum( $ec ), $lang->formatNum( $rc )
 		);
 		# Most of the output depends on background queries
 		if ( !$this->readyForQuery() ) {
@@ -65,7 +65,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 				$lang->time( $timestamp, true )
 			);
 		}
-		$out->addHtml( '<hr/>' );
+		$out->addHTML( '<hr/>' );
 		# Show pending time stats...
 		$out->addWikiMsg( 'validationstatistics-pndtime',
 			$lang->formatTimePeriod( $pt, [ 'avoid' => 'avoidminutes' ] ) );
@@ -131,9 +131,9 @@ class ValidationStatistics extends IncludableSpecialPage {
 					->numParams( sprintf( '%4.2f', 100 * intval( $synced ) / intval( $reviewed ) ) )
 					->escaped();
 			$outdated = intval( $reviewed ) - intval( $synced );
-			$outdated = $lang->formatnum( max( 0, $outdated ) ); // lag between queries
+			$outdated = $lang->formatNum( max( 0, $outdated ) ); // lag between queries
 			$unreviewed = intval( $total ) - intval( $reviewed );
-			$unreviewed = $lang->formatnum( max( 0, $unreviewed ) ); // lag between queries
+			$unreviewed = $lang->formatNum( max( 0, $unreviewed ) ); // lag between queries
 
 			$linkRenderer = $this->getLinkRenderer();
 			$out->addHTML(
@@ -142,14 +142,14 @@ class ValidationStatistics extends IncludableSpecialPage {
 						htmlspecialchars( $NsText ) .
 					"</td>
 					<td>" .
-						htmlspecialchars( $lang->formatnum( $total ) ) .
+						htmlspecialchars( $lang->formatNum( $total ) ) .
 					"</td>
 					<td>" .
-						htmlspecialchars( $lang->formatnum( $reviewed ) .
+						htmlspecialchars( $lang->formatNum( $reviewed ) .
 							$contLang->getDirMark() ) . " <i>$percRev</i>
 					</td>
 					<td>" .
-						htmlspecialchars( $lang->formatnum( $synced ) .
+						htmlspecialchars( $lang->formatNum( $synced ) .
 							$contLang->getDirMark() ) . " <i>$percLatest</i>
 					</td>
 					<td>" .
@@ -193,7 +193,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 			$reviewChart .= '<tr><th>' . $this->msg( 'validationstatistics-user' )->escaped() .
 				'</th><th>' . $this->msg( 'validationstatistics-reviews' )->escaped() . '</th></tr>';
 			foreach ( $data as $userId => $reviews ) {
-				$reviewChart .= '<tr><td>' . htmlspecialchars( User::whois( $userId ) ) .
+				$reviewChart .= '<tr><td>' . htmlspecialchars( User::whoIs( $userId ) ) .
 					'</td><td>' . htmlspecialchars( $lang->formatNum( $reviews ) ) . '</td></tr>';
 			}
 			$reviewChart .= "</table>\n";
@@ -223,7 +223,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 			global $wgPhpCli;
 			$ext = !empty( $wgPhpCli ) ? $wgPhpCli : 'php';
 			$path = wfEscapeShellArg( __DIR__ . '/../maintenance/updateStats.php' );
-			$wiki = wfEscapeShellArg( wfWikiId() );
+			$wiki = wfEscapeShellArg( wfWikiID() );
 			$devNull = wfIsWindows() ? "NUL:" : "/dev/null";
 			$commandLine = "$ext $path --wiki=$wiki > $devNull &";
 			wfDebugLog( 'ValidationStatistics', __METHOD__ . " executing: $commandLine" );

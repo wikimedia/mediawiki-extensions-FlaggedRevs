@@ -75,7 +75,7 @@ class ReviewedPages extends SpecialPage {
 		if ( count( $fields ) ) {
 			$form .= " " . Xml::submitButton( $this->msg( 'go' )->text() );
 		}
-		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBKey() ) . "\n";
+		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBkey() ) . "\n";
 		$form .= "</fieldset>";
 		$form .= Html::closeElement( 'form ' ) . "\n";
 
@@ -115,7 +115,7 @@ class ReviewedPages extends SpecialPage {
 			SpecialPage::getTitleFor( 'ReviewedVersions' ),
 			$this->msg( 'reviewedpages-all' )->text(),
 			[],
-			[ 'page' => $title->getPrefixedUrl() ]
+			[ 'page' => $title->getPrefixedURL() ]
 		);
 		# Link to highest tier rev
 		$best = '';

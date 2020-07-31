@@ -36,13 +36,13 @@ class ReviewAllPages extends Maintenance {
 
 	protected function autoreview_current( User $user ) {
 		$this->output( "Auto-reviewing all current page versions...\n" );
-		if ( !$user->getID() ) {
+		if ( !$user->getId() ) {
 			$this->output( "Invalid user specified.\n" );
 			return;
 		} elseif ( !MediaWikiServices::getInstance()->getPermissionManager()
 			->userHasRight( $user, 'review' )
 		) {
-			$this->output( "User specified (id: {$user->getID()}) does not have \"review\" rights.\n" );
+			$this->output( "User specified (id: {$user->getId()}) does not have \"review\" rights.\n" );
 			return;
 		}
 

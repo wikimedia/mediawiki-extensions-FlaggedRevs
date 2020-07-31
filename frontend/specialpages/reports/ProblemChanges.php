@@ -83,7 +83,7 @@ class ProblemChanges extends SpecialPage {
 		$form = Html::openElement( 'form', [ 'name' => 'problemchanges',
 			'action' => $wgScript, 'method' => 'get' ] ) . "\n";
 		$form .= "<fieldset><legend>" . $this->msg( 'problemchanges-legend' )->escaped() . "</legend>\n";
-		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBKey() ) . "\n";
+		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBkey() ) . "\n";
 		$form .=
 			( FlaggedRevs::qualityVersions()
 				? "<span style='white-space: nowrap;'>" .
@@ -171,7 +171,7 @@ class ProblemChanges extends SpecialPage {
 		$feed = new $wgFeedClasses[$type](
 			$this->feedTitle(),
 			$this->msg( 'tagline' )->text(),
-			$this->getPageTitle()->getFullUrl()
+			$this->getPageTitle()->getFullURL()
 		);
 		$this->pager->mLimit = min( $wgFeedLimit, $this->pager->mLimit );
 
@@ -199,7 +199,7 @@ class ProblemChanges extends SpecialPage {
 	 * @suppress SecurityCheck-DoubleEscaped false positive
 	 */
 	protected function feedItem( $row ) {
-		$title = Title::MakeTitle( $row->page_namespace, $row->page_title );
+		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
 		if ( $title ) {
 			$date = $row->pending_since;
 			$comments = $title->getTalkPage()->getFullURL();

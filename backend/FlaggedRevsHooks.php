@@ -90,7 +90,7 @@ class FlaggedRevsHooks {
 		# as a new one.
 		$dbw->update( 'flaggedrevs',
 			[ 'fr_page_id' => $revision->getPageId() ],
-			[ 'fr_page_id' => $oldPageID, 'fr_rev_id' => $revision->getID() ],
+			[ 'fr_page_id' => $oldPageID, 'fr_rev_id' => $revision->getId() ],
 			__METHOD__
 		);
 		return true;
@@ -295,7 +295,7 @@ class FlaggedRevsHooks {
 		# Normalize NS_MEDIA to NS_FILE
 		if ( $title->getNamespace() == NS_MEDIA ) {
 			$title = Title::makeTitle( NS_FILE, $title->getDBkey() );
-			$title->resetArticleId( $title->getArticleID() ); // avoid extra queries
+			$title->resetArticleID( $title->getArticleID() ); // avoid extra queries
 		}
 		# Check if this file is only on a foreign repo
 		$file = MediaWikiServices::getInstance()->getRepoGroup()->findFile( $title );
