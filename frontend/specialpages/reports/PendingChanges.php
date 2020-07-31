@@ -3,7 +3,7 @@
 use MediaWiki\MediaWikiServices;
 
 class PendingChanges extends SpecialPage {
-	/** @var $pages PendingChangesPager */
+	/** @var PendingChangesPager|null */
 	protected $pager = null;
 
 	/** @var string */

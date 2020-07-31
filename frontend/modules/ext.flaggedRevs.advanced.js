@@ -24,7 +24,6 @@
 	 * Toggles flag info box details for (+/-) control
 	 *
 	 * @context {jQuery}
-	 * @param {jQuery.Event} e
 	 */
 	function toggleBoxDetails() {
 		var $toggle = $( '#mw-fr-revisiontoggle' ),
@@ -72,7 +71,6 @@
 	 * Expands flag info box details on mouseOver
 	 *
 	 * @context {jQuery}
-	 * @param {jQuery.Event} e
 	 */
 	function onBoxMouseOver() {
 		window.clearTimeout( boxCollapseTimer );
@@ -96,7 +94,6 @@
 	 * Toggles diffs
 	 *
 	 * @context {jQuery}
-	 * @param {jQuery.Event} e
 	 */
 	function toggleDiff() {
 		var $diff = $( '#mw-fr-stablediff' ),
@@ -121,7 +118,6 @@
 	 * Toggles log excerpts
 	 *
 	 * @context {jQuery}
-	 * @param {jQuery.Event} e
 	 */
 	function toggleLog() {
 		var hideMsg, showMsg,
@@ -152,7 +148,6 @@
 	 * Update save button when "review this" checkbox changes
 	 *
 	 * @context {jQuery}
-	 * @param {jQuery.Event} e
 	 */
 	function updateSaveButton() {
 		var $save = $( '#wpSave' ),

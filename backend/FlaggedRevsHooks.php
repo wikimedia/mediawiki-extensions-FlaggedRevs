@@ -278,7 +278,7 @@ class FlaggedRevsHooks {
 
 	/**
 	 * Select the desired images based on the selected stable version time/SHA-1
-	 * @param Parser $parser
+	 * @param Parser|false $parser
 	 * @param Title $title
 	 * @param array &$options
 	 * @param string &$query
@@ -421,7 +421,7 @@ class FlaggedRevsHooks {
 	 * @param User $user
 	 * @param string $action
 	 * @param bool &$result
-	 * @return true
+	 * @return bool false when $result is false as well
 	 */
 	public static function onGetUserPermissionsErrors( Title $title, $user, $action, &$result ) {
 		if ( $result === false ) {
@@ -952,7 +952,7 @@ class FlaggedRevsHooks {
 	 * @param User $user
 	 * @param int $spacingReq days apart (of edit points)
 	 * @param int $pointsReq number of edit points
-	 * @return mixed (true if passed, int seconds on failure)
+	 * @return true|int True if passed, int seconds on failure
 	 */
 	protected static function editSpacingCheck( User $user, $spacingReq, $pointsReq ) {
 		$dbr = wfGetDB( DB_REPLICA );

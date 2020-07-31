@@ -971,7 +971,7 @@ class FlaggedRevs {
 	 * @param RevisionRecord $revRecord
 	 * @param array|null $flags
 	 * @param bool $auto
-	 * @return true
+	 * @return bool
 	 */
 	public static function autoReviewEdit(
 		WikiPage $article,
