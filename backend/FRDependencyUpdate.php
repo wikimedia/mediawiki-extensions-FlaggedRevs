@@ -17,7 +17,6 @@ class FRDependencyUpdate {
 	protected $sImages;
 	/** @var string[] */
 	protected $sCategories;
-	protected $dbw;
 
 	const IMMEDIATE = 0; // run updates now
 	const DEFERRED = 1; // use the job queue for updates
