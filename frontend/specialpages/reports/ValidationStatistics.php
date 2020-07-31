@@ -10,6 +10,9 @@ class ValidationStatistics extends IncludableSpecialPage {
 		parent::__construct( 'ValidationStatistics' );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute( $par ) {
 		global $wgFlaggedRevsStats, $wgFlaggedRevsProtection;
 

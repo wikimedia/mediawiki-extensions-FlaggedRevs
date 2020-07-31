@@ -17,6 +17,9 @@ class ReviewedPages extends SpecialPage {
 		parent::__construct( 'ReviewedPages' );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute( $par ) {
 		$request = $this->getRequest();
 

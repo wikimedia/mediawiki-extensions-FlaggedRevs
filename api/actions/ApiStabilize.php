@@ -29,6 +29,9 @@ abstract class ApiStabilize extends ApiBase {
 	/** @var Title|null */
 	protected $title;
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute() {
 		$params = $this->extractRequestParams();
 		$user = $this->getUser();
@@ -51,14 +54,23 @@ abstract class ApiStabilize extends ApiBase {
 
 	abstract public function doExecute();
 
+	/**
+	 * @inheritDoc
+	 */
 	public function mustBePosted() {
 		return true;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function isWriteMode() {
 			return true;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function needsToken() {
 		return 'csrf';
 	}

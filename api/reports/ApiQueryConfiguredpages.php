@@ -32,6 +32,9 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 		parent::__construct( $query, $moduleName, 'cp' );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute() {
 		$this->run();
 	}

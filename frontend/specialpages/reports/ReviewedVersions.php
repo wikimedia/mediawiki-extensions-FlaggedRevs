@@ -14,6 +14,9 @@ class ReviewedVersions extends UnlistedSpecialPage {
 		parent::__construct( 'ReviewedVersions' );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute( $par ) {
 		$request = $this->getRequest();
 

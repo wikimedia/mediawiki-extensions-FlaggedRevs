@@ -21,6 +21,9 @@ class FixBug28348 extends Maintenance {
 		$this->requireExtension( 'FlaggedRevs' );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute() {
 		$startRev = $this->getOption( 'startrev' );
 		$this->update_images_bug_28348( $startRev );

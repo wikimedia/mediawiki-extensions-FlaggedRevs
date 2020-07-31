@@ -30,6 +30,9 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 		$this->mRowsPerQuery = $wgUpdateRowsPerQuery;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function doUpdate() {
 		# Fetch the IDs
 		$dbr = wfGetDB( DB_REPLICA );

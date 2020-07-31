@@ -28,6 +28,9 @@
  */
 class ApiFlagConfig extends ApiBase {
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute() {
 		$this->getMain()->setCacheMode( 'public' );
 		$minQLTags = FlaggedRevs::quickTags( FR_QUALITY );

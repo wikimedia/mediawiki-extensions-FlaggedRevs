@@ -23,6 +23,9 @@ class FlagProtectToSemiProtect extends Maintenance {
 		$this->requireExtension( 'FlaggedRevs' );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute() {
 		global $wgFlaggedRevsProtection;
 

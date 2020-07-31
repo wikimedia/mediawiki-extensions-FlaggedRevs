@@ -20,6 +20,9 @@ class QualityOversight extends SpecialPage {
 		parent::__construct( 'QualityOversight' );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute( $par ) {
 		global $wgFlaggedRevsOversightAge;
 

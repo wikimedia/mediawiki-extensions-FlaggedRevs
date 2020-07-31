@@ -13,10 +13,16 @@ class RevisionReview extends UnlistedSpecialPage {
 		parent::__construct( 'RevisionReview', 'review' );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function doesWrites() {
 		return true;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute( $par ) {
 		$out = $this->getOutput();
 		$user = $this->getUser();

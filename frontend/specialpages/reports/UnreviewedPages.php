@@ -28,6 +28,9 @@ class UnreviewedPages extends SpecialPage {
 		parent::__construct( 'UnreviewedPages', 'unreviewedpages' );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute( $par ) {
 		$request = $this->getRequest();
 

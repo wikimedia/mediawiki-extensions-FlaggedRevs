@@ -32,6 +32,9 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 		parent::__construct( $query, $moduleName, 'rp' );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute() {
 		$this->run();
 	}

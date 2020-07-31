@@ -24,6 +24,9 @@ class CachePendingRevs extends Maintenance {
 		$this->requireExtension( 'FlaggedRevs' );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute() {
 		if ( FlaggedRevs::inclusionSetting() === FR_INCLUDES_CURRENT ) {
 			$this->output( "Nothing to do; inclusion mode is FR_INCLUDES_CURRENT." );

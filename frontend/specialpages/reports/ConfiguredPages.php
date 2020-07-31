@@ -18,6 +18,9 @@ class ConfiguredPages extends SpecialPage {
 		parent::__construct( 'ConfiguredPages' );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute( $par ) {
 		$request = $this->getRequest();
 

@@ -26,6 +26,9 @@ class ReviewAllPages extends Maintenance {
 		$this->requireExtension( 'FlaggedRevs' );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute() {
 		$user = User::newFromName( $this->getOption( 'username' ) );
 		$this->autoreview_current( $user );
