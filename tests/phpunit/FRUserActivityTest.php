@@ -4,6 +4,12 @@
  * @covers \FRUserActivity
  */
 class FRUserActivityTest extends PHPUnit\Framework\TestCase {
+
+	/**
+	 * @var User|null
+	 */
+	private $user;
+
 	/**
 	 * Prepares the environment before running a test.
 	 */
