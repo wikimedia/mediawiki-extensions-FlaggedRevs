@@ -134,7 +134,9 @@ class UnreviewedPages extends SpecialPage {
 	public function formatRow( $row ) {
 		$title = Title::newFromRow( $row );
 
-		$stxt = $underReview = $watching = '';
+		$stxt = '';
+		$underReview = '';
+		$watching = '';
 		$linkRenderer = $this->getLinkRenderer();
 		$link = $linkRenderer->makeLink( $title, null, [], [ 'redirect' => 'no' ] );
 		$dirmark = $this->getLanguage()->getDirMark();

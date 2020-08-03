@@ -74,7 +74,8 @@ class RejectConfirmationFormUI {
 		$contribs = SpecialPage::getTitleFor( 'Contributions' )->getPrefixedText();
 
 		$lastRevRecord = null;
-		$rejectIds = $rejectAuthors = [];
+		$rejectIds = [];
+		$rejectAuthors = [];
 		$lastRejectAuthor = null;
 		$revFactory = MediaWikiServices::getInstance()->getRevisionFactory();
 		foreach ( $res as $row ) {

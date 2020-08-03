@@ -42,7 +42,8 @@ class ValidationStatistics extends IncludableSpecialPage {
 
 		# Is there a review time table available?
 		if ( count( $pData ) ) {
-			$headerRows = $dataRows = '';
+			$headerRows = '';
+			$dataRows = '';
 			foreach ( $pData as $percentile => $perValue ) {
 				$headerRows .= "<th>P<sub>" . intval( $percentile ) . "</sub></th>";
 				$dataRows .= '<td>' .

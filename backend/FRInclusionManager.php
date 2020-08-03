@@ -111,7 +111,9 @@ class FRInclusionManager {
 	 * @return void
 	 */
 	public function stabilizeParserOutput( FlaggedRevision $frev ) {
-		$tStbVersions = $fStbVersions = []; // stable versions
+		// Stable versions
+		$tStbVersions = [];
+		$fStbVersions = [];
 		$tRevVersions = $frev->getTemplateVersions();
 		$fRevVersions = $frev->getFileVersions();
 		# We can preload *most* of the stable version IDs the parser will need...

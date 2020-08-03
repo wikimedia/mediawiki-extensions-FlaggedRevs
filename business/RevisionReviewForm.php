@@ -744,7 +744,9 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	public static function getIncludeParams(
 		array $templateIDs, array $imageSHA1Keys, $fileVersion
 	) {
-		$templateParams = $imageParams = $fileParam = '';
+		$templateParams = '';
+		$imageParams = '';
+		$fileParam = '';
 		# NS -> title -> rev ID mapping
 		foreach ( $templateIDs as $namespace => $t ) {
 			foreach ( $t as $dbKey => $revId ) {

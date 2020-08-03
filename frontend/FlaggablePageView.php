@@ -347,7 +347,8 @@ class FlaggablePageView extends ContextSource {
 			return true;
 		}
 		$tag = ''; // review tag box/bar message
-		$old = $stable = false;
+		$old = false;
+		$stable = false;
 		# Check the newest stable version.
 		$srev = $this->article->getStableRev();
 		$stableId = $srev ? $srev->getRevId() : 0;

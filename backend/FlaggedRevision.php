@@ -651,7 +651,8 @@ class FlaggedRevision {
 				__METHOD__
 			);
 			foreach ( $res as $row ) {
-				$reviewedTS = $reviewedSha1 = false;
+				$reviewedTS = false;
+				$reviewedSha1 = false;
 				$fi_img_timestamp = trim( $row->fi_img_timestamp ); // may have \0's
 				if ( $fi_img_timestamp ) {
 					$reviewedTS = wfTimestamp( TS_MW, $fi_img_timestamp );
@@ -724,7 +725,8 @@ class FlaggedRevision {
 				]
 			);
 			foreach ( $res as $row ) {
-				$reviewedTS = $reviewedSha1 = false;
+				$reviewedTS = false;
+				$reviewedSha1 = false;
 				if ( $row->fr_img_timestamp ) {
 					$reviewedTS = wfTimestamp( TS_MW, $row->fr_img_timestamp );
 					$reviewedSha1 = strval( $row->fr_img_sha1 );

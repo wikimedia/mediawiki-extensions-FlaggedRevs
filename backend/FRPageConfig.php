@@ -209,7 +209,8 @@ class FRPageConfig {
 		);
 		# Figured out to do with each page...
 		$pagesClearConfig = [];
-		$pagesClearTracking = $titlesClearTracking = [];
+		$pagesClearTracking = [];
+		$titlesClearTracking = [];
 		foreach ( $ret as $row ) {
 			# If FlaggedRevs got "turned off" (in protection config)
 			# for this page, then clear it from the tracking tables...

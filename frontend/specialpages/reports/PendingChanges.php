@@ -270,7 +270,9 @@ class PendingChanges extends SpecialPage {
 	}
 
 	public function formatRow( $row ) {
-		$css = $quality = $underReview = '';
+		$css = '';
+		$quality = '';
+		$underReview = '';
 		$title = Title::newFromRow( $row );
 		$stxt = ChangesList::showCharacterDifference( $row->rev_len, $row->page_len );
 		# Page links...

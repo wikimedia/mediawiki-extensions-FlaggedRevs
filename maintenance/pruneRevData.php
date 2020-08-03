@@ -58,7 +58,9 @@ class PruneFRIncludeData extends Maintenance {
 		$blockStart = (int)$start;
 		$blockEnd = (int)$start + $this->mBatchSize - 1;
 
-		$tDeleted = $fDeleted = 0; // tallies
+		// Tallies
+		$tDeleted = 0;
+		$fDeleted = 0;
 
 		$newerRevs = 50;
 		$cutoff = $db->timestamp( time() - 3600 );

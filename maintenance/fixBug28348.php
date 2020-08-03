@@ -50,7 +50,8 @@ class FixBug28348 extends Maintenance {
 
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 
-		$count = $changed = 0;
+		$count = 0;
+		$changed = 0;
 		while ( $blockEnd <= $end ) {
 			$this->output( "...doing fi_rev_id from $blockStart to $blockEnd\n" );
 			$cond = "fi_rev_id BETWEEN $blockStart AND $blockEnd AND fi_img_timestamp IS NOT NULL" .

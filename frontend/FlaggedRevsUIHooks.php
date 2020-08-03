@@ -700,7 +700,8 @@ class FlaggedRevsUIHooks {
 		$title = $history->getTitle();
 		$revId = (int)$row->rev_id;
 		// Pending revision: highlight and add diff link
-		$link = $class = '';
+		$link = '';
+		$class = '';
 		if ( wfTimestamp( TS_UNIX, $row->rev_timestamp ) > $history->fr_stableRevUTS ) {
 			$class = 'flaggedrevs-pending';
 			$link = $history->msg( 'revreview-hist-pending-difflink',
@@ -827,7 +828,8 @@ class FlaggedRevsUIHooks {
 		) {
 			return true; // confirm that page is in reviewable namespace
 		}
-		$rlink = $css = '';
+		$rlink = '';
+		$css = '';
 		// page is not reviewed
 		if ( $rc->getAttribute( 'fp_stable' ) == null ) {
 			// Is this a config were pages start off reviewable?

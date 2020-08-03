@@ -171,7 +171,9 @@ class UpdateFRTracking extends Maintenance {
 		$end += $BATCH_SIZE - 1;
 		$blockStart = (int)$start;
 		$blockEnd = (int)$start + $BATCH_SIZE - 1;
-		$count = $deleted = $fixed = 0;
+		$count = 0;
+		$deleted = 0;
+		$fixed = 0;
 		while ( $blockEnd <= $end ) {
 			$this->output( "...doing page_id from $blockStart to $blockEnd\n" );
 			$cond = "page_id BETWEEN $blockStart AND $blockEnd";

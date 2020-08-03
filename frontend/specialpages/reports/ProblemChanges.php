@@ -232,7 +232,10 @@ class ProblemChanges extends SpecialPage {
 	}
 
 	public function formatRow( $row ) {
-		$css = $quality = $tags = $underReview = '';
+		$css = '';
+		$quality = '';
+		$tags = '';
+		$underReview = '';
 
 		$title = Title::newFromRow( $row );
 		$linkRenderer = $this->getLinkRenderer();

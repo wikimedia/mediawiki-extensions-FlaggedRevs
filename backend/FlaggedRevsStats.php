@@ -196,7 +196,9 @@ class FlaggedRevsStats {
 	 * @return array[]
 	 */
 	private static function getPerNamespaceTotals() {
-		$ns_total = $ns_reviewed = $ns_synced = [];
+		$ns_total = [];
+		$ns_reviewed = [];
+		$ns_synced = [];
 		// Get total, reviewed, and synced page count for each namespace
 		$dbr = wfGetDB( DB_REPLICA, 'vslow' );
 		$res = $dbr->select( [ 'page', 'flaggedpages' ],
