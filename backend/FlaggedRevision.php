@@ -556,9 +556,6 @@ class FlaggedRevision {
 				__METHOD__
 			);
 			foreach ( $res as $row ) {
-				if ( !isset( $this->mTemplates[$row->ft_namespace] ) ) {
-					$this->mTemplates[$row->ft_namespace] = [];
-				}
 				$this->mTemplates[$row->ft_namespace][$row->ft_title] = $row->ft_tmp_rev_id;
 			}
 		}
@@ -621,9 +618,6 @@ class FlaggedRevision {
 				]
 			);
 			foreach ( $res as $row ) {
-				if ( !isset( $this->mStableTemplates[$row->ft_namespace] ) ) {
-					$this->mStableTemplates[$row->ft_namespace] = [];
-				}
 				$revId = (int)$row->fp_stable; // 0 => none
 				$this->mStableTemplates[$row->ft_namespace][$row->ft_title] = $revId;
 			}
