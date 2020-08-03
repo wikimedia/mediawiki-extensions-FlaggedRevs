@@ -147,13 +147,9 @@ class FlaggedRevsSetup {
 
 		if ( $wgFlaggedRevsProtection ) {
 			// XXX: Removes sp:ListGroupRights cruft
-			if ( isset( $wgGroupPermissions['editor'] ) ) {
-				unset( $wgGroupPermissions['editor']['unreviewedpages'] );
-			}
-			if ( isset( $wgGroupPermissions['reviewer'] ) ) {
-				unset( $wgGroupPermissions['reviewer']['unreviewedpages'] );
-				unset( $wgGroupPermissions['reviewer']['validate'] );
-			}
+			unset( $wgGroupPermissions['editor']['unreviewedpages'] );
+			unset( $wgGroupPermissions['reviewer']['unreviewedpages'] );
+			unset( $wgGroupPermissions['reviewer']['validate'] );
 		}
 	}
 

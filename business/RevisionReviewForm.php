@@ -781,7 +781,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 				continue;
 			}
 			$m = explode( '|', $template, 2 );
-			if ( !isset( $m[0] ) || !isset( $m[1] ) || !$m[0] ) {
+			if ( !isset( $m[1] ) || !$m[0] ) {
 				continue;
 			}
 			list( $prefixed_text, $rev_id ) = $m;
@@ -804,7 +804,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			}
 			$m = explode( '|', $image, 3 );
 			# Expand our parameters ... <name>#<timestamp>#<key>
-			if ( !isset( $m[0] ) || !isset( $m[1] ) || !isset( $m[2] ) || !$m[0] ) {
+			if ( !isset( $m[2] ) || !$m[0] ) {
 				continue;
 			}
 			list( $dbkey, $time, $key ) = $m;

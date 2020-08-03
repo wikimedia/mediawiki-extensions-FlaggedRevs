@@ -343,9 +343,7 @@ class FlaggedRevs {
 	 */
 	public static function getTagValueMsg( $tag, $value ) {
 		self::load();
-		if ( !isset( self::$dimensions[$tag] ) ) {
-			return '';
-		} elseif ( !isset( self::$dimensions[$tag][$value] ) ) {
+		if ( !isset( self::$dimensions[$tag][$value] ) ) {
 			return '';
 		}
 		# Return empty string if not there

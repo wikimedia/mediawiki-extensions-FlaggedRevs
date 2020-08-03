@@ -32,7 +32,7 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 		} else {
 			// @phan-suppress-next-line PhanUndeclaredMethod
 			$data = $result->getData();
-			if ( !isset( $data['query'] ) || !isset( $data['query']['pages'] ) ) {
+			if ( !isset( $data['query']['pages'] ) ) {
 				return true;
 			}
 			$data = $data['query']['pages'];
