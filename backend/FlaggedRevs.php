@@ -138,7 +138,7 @@ class FlaggedRevs {
 
 	/**
 	 * If there only one tag and it has only one level, return it
-	 * @return string
+	 * @return string|null
 	 */
 	public static function binaryTagName() {
 		self::load();
@@ -328,7 +328,7 @@ class FlaggedRevs {
 	/**
 	 * Get the levels for a tag. Gives map of level to message name.
 	 * @param string $tag
-	 * @return array (integer -> string)
+	 * @return string[] (integer -> string)
 	 */
 	public static function getTagLevels( $tag ) {
 		self::load();
@@ -376,7 +376,7 @@ class FlaggedRevs {
 
 	/**
 	 * Get the 'diffonly=' value for diff URLs. Either ('1','0','')
-	 * @return array
+	 * @return int[]
 	 */
 	public static function diffOnlyCGI() {
 		$val = trim( wfMessage( 'flaggedrevs-diffonly' )->inContentLanguage()->text() );
@@ -715,7 +715,7 @@ class FlaggedRevs {
 
 	/**
 	 * Clear FlaggedRevs tracking tables for this page
-	 * @param int|array $pageId (int or array)
+	 * @param int|int[] $pageId (int or array)
 	 */
 	public static function clearTrackingRows( $pageId ) {
 		$dbw = wfGetDB( DB_MASTER );
@@ -741,7 +741,7 @@ class FlaggedRevs {
 
 	/**
 	 * Clear tracking table of stable-only links for this page
-	 * @param int|array $pageId (int or array)
+	 * @param int|int[] $pageId (int or array)
 	 */
 	public static function clearStableOnlyDeps( $pageId ) {
 		$dbw = wfGetDB( DB_MASTER );
@@ -810,7 +810,7 @@ class FlaggedRevs {
 	# ################ Other utility functions #################
 
 	/**
-	 * @param array $flags
+	 * @param int[] $flags
 	 * @return bool is this revision at basic review condition?
 	 */
 	public static function isChecked( array $flags ) {
@@ -819,7 +819,7 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * @param array $flags
+	 * @param int[] $flags
 	 * @return bool is this revision at quality review condition?
 	 */
 	public static function isQuality( array $flags ) {
@@ -828,7 +828,7 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * @param array $flags
+	 * @param int[] $flags
 	 * @return bool is this revision at pristine review condition?
 	 */
 	public static function isPristine( array $flags ) {
@@ -838,7 +838,7 @@ class FlaggedRevs {
 
 	/**
 	 * Checks if $flags meets $reqFlagLevels
-	 * @param array $flags
+	 * @param int[] $flags
 	 * @param int[] $reqFlagLevels
 	 * @return bool
 	 */
@@ -857,7 +857,7 @@ class FlaggedRevs {
 
 	/**
 	 * Get the quality tier of review flags
-	 * @param array $flags
+	 * @param int[] $flags
 	 * @param int $default Return value if one of the tags has value < 0
 	 * @return int flagging tier (FR_PRISTINE,FR_QUALITY,FR_CHECKED,-1)
 	 */
@@ -891,8 +891,8 @@ class FlaggedRevs {
 	 * Get minimum tags that are closest to $oldFlags
 	 * given the site, page, and user rights limitations.
 	 * @param User $user
-	 * @param array $oldFlags previous stable rev flags
-	 * @return mixed array or null
+	 * @param int[] $oldFlags previous stable rev flags
+	 * @return int[]|null array or null
 	 */
 	public static function getAutoReviewTags( $user, array $oldFlags ) {
 		if ( !self::autoReviewEdits() ) {
@@ -958,7 +958,7 @@ class FlaggedRevs {
 	 * @param WikiPage $article
 	 * @param User $user
 	 * @param RevisionRecord $revRecord
-	 * @param array|null $flags
+	 * @param int[]|null $flags
 	 * @param bool $auto
 	 * @return bool
 	 */
@@ -1094,7 +1094,7 @@ class FlaggedRevs {
 	 * These will be exported client-side as wgFlaggedRevsParams,
 	 * for use by ext.flaggedRevs.review.js.
 	 *
-	 * @return array|null
+	 * @return array[]|null
 	 */
 	public static function getJSTagParams() {
 		self::load();
