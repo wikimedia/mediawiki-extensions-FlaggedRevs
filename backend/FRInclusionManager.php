@@ -176,13 +176,8 @@ class FRInclusionManager {
 	public function getStableTemplateVersion( Title $title ) {
 		$dbKey = $title->getDBkey();
 		$namespace = $title->getNamespace();
-		$id = null;
-		if ( isset( $this->stableVersions['templates'][$namespace][$dbKey] ) ) {
-			$id = $this->stableVersions['templates'][$namespace][$dbKey];
-		}
-		if ( $id === null ) { // cache miss
-			$id = FlaggedRevision::getStableRevId( $title );
-		}
+		$id = $this->stableVersions['templates'][$namespace][$dbKey] ??
+			FlaggedRevision::getStableRevId( $title );
 		$this->stableVersions['templates'][$namespace][$dbKey] = $id; // cache
 		return $id;
 	}

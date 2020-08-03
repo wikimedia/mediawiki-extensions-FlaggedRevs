@@ -1026,11 +1026,7 @@ class FlaggedRevs {
 				foreach ( $pages as $dbKey => $revId ) {
 					if ( !isset( $tVersions[$ns][$dbKey] ) ) {
 						$srev = FlaggedRevision::newFromStable( Title::makeTitle( $ns, $dbKey ) );
-						if ( $srev ) { // use stable
-							$tVersions[$ns][$dbKey] = $srev->getRevId();
-						} else { // use current
-							$tVersions[$ns][$dbKey] = $revId;
-						}
+						$tVersions[$ns][$dbKey] = $srev ? $srev->getRevId() : $revId;
 					}
 				}
 			}

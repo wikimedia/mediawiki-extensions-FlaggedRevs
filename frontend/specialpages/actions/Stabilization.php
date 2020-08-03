@@ -147,11 +147,9 @@ class Stabilization extends UnlistedSpecialPage {
 		# Add custom expiry dropdown options (from MediaWiki message)
 		$value = null;
 		foreach ( explode( ',', $scExpiryOptions ) as $option ) {
-			if ( strpos( $option, ":" ) === false ) {
-				$show = $value = $option;
-			} else {
-				list( $show, $value ) = explode( ":", $option );
-			}
+			$pair = explode( ':', $option, 2 );
+			$show = $pair[0];
+			$value = $pair[1] ?? $show;
 			$dropdownOptions[] = [ $show, $value ];
 		}
 

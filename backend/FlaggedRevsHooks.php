@@ -302,13 +302,11 @@ class FlaggedRevsHooks {
 		if ( $file && !$file->isLocal() ) {
 			return true; // just use the current version (bug 41832)
 		}
-		$time = $sha1 = false; // unspecified (defaults to current version)
 		# Check for the version of this file used when reviewed...
 		list( $maybeTS, $maybeSha1 ) = $incManager->getReviewedFileVersion( $title );
-		if ( $maybeTS !== null ) {
-			$time = $maybeTS; // use if specified (even '0')
-			$sha1 = $maybeSha1;
-		}
+		// Use if specified (even '0'), otherwise unspecified (defaults to current version)
+		$time = $maybeTS ?? false;
+		$sha1 = $maybeSha1 ?? false;
 		# Check for stable version of file if this feature is enabled...
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
 			list( $maybeTS, $maybeSha1 ) = $incManager->getStableFileVersion( $title );
@@ -351,7 +349,8 @@ class FlaggedRevsHooks {
 	public static function onParserGetVariableValueSwitch( Parser $parser, &$cache, $word, &$ret ) {
 		global $wgFlaggedRevsProtection;
 		if ( $wgFlaggedRevsProtection && $word === 'pendingchangelevel' ) {
-			$ret = $cache[$word] = self::parserPendingChangeLevel( $parser );
+			$ret = self::parserPendingChangeLevel( $parser );
+			$cache[$word] = $ret;
 		}
 		return true;
 	}

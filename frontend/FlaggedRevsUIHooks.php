@@ -1047,11 +1047,9 @@ class FlaggedRevsUIHooks {
 		) . "\n";
 		# Add custom dropdown levels (from MediaWiki message)
 		foreach ( explode( ',', $scExpiryOptions ) as $option ) {
-			if ( strpos( $option, ":" ) === false ) {
-				$show = $value = $option;
-			} else {
-				list( $show, $value ) = explode( ":", $option );
-			}
+			$pair = explode( ':', $option, 2 );
+			$show = $pair[0];
+			$value = $pair[1] ?? $show;
 			$expiryFormOptions .= Xml::option( $show, $value, $expirySelect == $value ) . "\n";
 		}
 		# Actually add expiry dropdown to form

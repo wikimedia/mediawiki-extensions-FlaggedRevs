@@ -72,10 +72,8 @@ class FlaggedRevision {
 			# Optional fields
 			if ( $title ) {
 				$this->mTitle = $title;
-			} else {
-				$this->mTitle = isset( $row->page_namespace ) && isset( $row->page_title )
-					? Title::makeTitleSafe( $row->page_namespace, $row->page_title )
-					: null;
+			} elseif ( isset( $row->page_namespace ) && isset( $row->page_title ) ) {
+				$this->mTitle = Title::makeTitleSafe( $row->page_namespace, $row->page_title );
 			}
 			# Base Revision object
 			$revFactory = MediaWikiServices::getInstance()->getRevisionFactory();
