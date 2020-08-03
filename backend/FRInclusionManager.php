@@ -143,10 +143,7 @@ class FRInclusionManager {
 		}
 		$dbKey = $title->getDBkey();
 		$namespace = $title->getNamespace();
-		if ( isset( $this->reviewedVersions['templates'][$namespace][$dbKey] ) ) {
-			return $this->reviewedVersions['templates'][$namespace][$dbKey];
-		}
-		return null; // missing version
+		return $this->reviewedVersions['templates'][$namespace][$dbKey] ?? null;
 	}
 
 	/**

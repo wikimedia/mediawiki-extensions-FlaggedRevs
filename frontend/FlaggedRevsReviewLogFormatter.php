@@ -31,7 +31,7 @@ class FlaggedRevsReviewLogFormatter extends LogFormatter {
 		# Param format is <rev id, last stable id, rev timestamp>.
 		if ( isset( $params[0] ) ) {
 			$revId = (int)$params[0]; // the revision reviewed
-			$oldStable = isset( $params[1] ) ? (int)$params[1] : 0;
+			$oldStable = (int)( $params[1] ?? 0 );
 			# Show diff to changes since the prior stable version
 			if ( $oldStable && $revId > $oldStable ) {
 				$msg = $this->isDeapproval

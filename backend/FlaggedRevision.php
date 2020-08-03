@@ -940,12 +940,8 @@ class FlaggedRevision {
 			foreach ( $tmps as $dbKey => $revIdDraft ) {
 				$title = Title::makeTitle( $ns, $dbKey );
 				$revIdDraft = (int)$revIdDraft;
-				$revIdStable = isset( $sTemplates[$ns][$dbKey] )
-					? (int)$sTemplates[$ns][$dbKey]
-					: self::getStableRevId( $title );
-				$revIdReviewed = isset( $rTemplates[$ns][$dbKey] )
-					? (int)$rTemplates[$ns][$dbKey]
-					: 0;
+				$revIdStable = (int)( $sTemplates[$ns][$dbKey] ?? self::getStableRevId( $title ) );
+				$revIdReviewed = (int)( $rTemplates[$ns][$dbKey] ?? 0 );
 				# Get template used in this FlaggedRevision when parsed
 				$revIdUsed = self::templateIdUsed( $revIdStable, $revIdReviewed );
 				# Check for edits/creations/deletions...

@@ -218,11 +218,8 @@ class FlaggedRevs {
 		if ( !self::autoReviewEnabled() ) {
 			return 0; // shouldn't happen
 		}
-		if ( isset( $wgFlaggedRevsTagsAuto[$tag] ) ) {
-			return (int)$wgFlaggedRevsTagsAuto[$tag];
-		} else {
-			return 1; // B/C (before $wgFlaggedRevsTagsAuto)
-		}
+		// B/C (before $wgFlaggedRevsTagsAuto)
+		return (int)( $wgFlaggedRevsTagsAuto[$tag] ?? 1 );
 	}
 
 	/**
@@ -376,11 +373,7 @@ class FlaggedRevs {
 			1 => 'quality',
 			2 => 'pristine'
 		];
-		if ( isset( $levelText[$level] ) ) {
-			return $levelText[$level];
-		} else {
-			return '';
-		}
+		return $levelText[$level] ?? '';
 	}
 
 	/**
