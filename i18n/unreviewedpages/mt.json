@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Chrisportelli"
+			"Chrisportelli",
+			"ToniSant"
 		]
 	},
 	"unreviewedpages": "Paġni mhux riveduti",
 	"unreviewedpages-legend": "Lista ta' paġni mhux riveduti",
 	"unreviewedpages-category": "Kategorija:",
-	"unreviewedpages-diff": "irrevedi"
+	"unreviewedpages-diff": "irrevedi",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|jum|jiem}})"
 }
