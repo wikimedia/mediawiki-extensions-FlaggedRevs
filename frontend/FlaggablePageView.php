@@ -268,7 +268,6 @@ class FlaggablePageView extends ContextSource {
 
 	/**
 	 * Output review notice
-	 * @return true
 	 */
 	public function displayTag() {
 		$this->load();
@@ -276,19 +275,17 @@ class FlaggablePageView extends ContextSource {
 		if ( $this->article->isReviewable() && $this->reviewNotice ) {
 			$this->out->addSubtitle( $this->reviewNotice );
 		}
-		return true;
 	}
 
 	/**
 	 * Add a stable link when viewing old versions of an article that
 	 * have been reviewed. (e.g. for &oldid=x urls)
-	 * @return true
 	 */
 	public function addStableLink() {
 		$request = $this->getRequest();
 		$this->load();
 		if ( !$this->article->isReviewable() || !$request->getVal( 'oldid' ) ) {
-			return true;
+			return;
 		}
 		if ( !$this->out->isPrintable() ) {
 			# We may have nav links like "direction=prev&oldid=x"
@@ -313,7 +310,6 @@ class FlaggablePageView extends ContextSource {
 				$this->out->addHTML( $tag );
 			}
 		}
-		return true;
 	}
 
 	/**
@@ -1035,7 +1031,6 @@ class FlaggablePageView extends ContextSource {
 
 	/**
 	 * Adds stable version tags to page when viewing history
-	 * @return true
 	 */
 	public function addToHistView() {
 		$this->load();
@@ -1049,7 +1044,6 @@ class FlaggablePageView extends ContextSource {
 				FlaggedRevsXML::pendingEditNotice( $this->article, $srev, $revsSince ) . "</div>";
 			$this->out->addHTML( $tag );
 		}
-		return true;
 	}
 
 	public function getEditNotices( Title $title, $oldid, array &$notices ) {
@@ -1108,7 +1102,6 @@ class FlaggablePageView extends ContextSource {
 	/**
 	 * Adds stable version tags to page when editing
 	 * @param EditPage $editPage
-	 * @return bool
 	 */
 	public function addToEditView( EditPage $editPage ) {
 		$reqUser = $this->getUser();
@@ -1116,7 +1109,7 @@ class FlaggablePageView extends ContextSource {
 
 		# Must be reviewable. UI may be limited to unobtrusive patrolling system.
 		if ( !$this->article->isReviewable() ) {
-			return true;
+			return;
 		}
 		$items = [];
 		# Show stabilization log
@@ -1194,7 +1187,6 @@ class FlaggablePageView extends ContextSource {
 			}
 		}
 		$this->noticesDone = true;
-		return true;
 	}
 
 	protected function stabilityLogNotice( $showToggle = true ) {
@@ -1231,7 +1223,6 @@ class FlaggablePageView extends ContextSource {
 						$srev->getRevId() )->numParams( $revsSince )->parse() . "</div>";
 			}
 		}
-		return true;
 	}
 
 	/**
@@ -1354,17 +1345,17 @@ class FlaggablePageView extends ContextSource {
 
 	/**
 	 * Add link to stable version setting to protection form
-	 * @return true
 	 */
 	public function addStabilizationLink() {
 		$request = $this->getRequest();
 		$this->load();
 		if ( FlaggedRevs::useSimpleConfig() ) {
-			return true; // simple custom levels set for action=protect
+			// Simple custom levels set for action=protect
+			return;
 		}
 		# Check only if the title is reviewable
 		if ( !FlaggedRevs::inReviewNamespace( $this->article->getTitle() ) ) {
-			return true;
+			return;
 		}
 		$action = $request->getVal( 'action', 'view' );
 		if ( $action == 'protect' || $action == 'unprotect' ) {
@@ -1388,7 +1379,6 @@ class FlaggablePageView extends ContextSource {
 						$title->getPrefixedText() )->parse() . "</span>" );
 			}
 		}
-		return true;
 	}
 
 	/**
@@ -1434,12 +1424,12 @@ class FlaggablePageView extends ContextSource {
 	 * Modify an array of tab links to include flagged revs UI elements
 	 * @param Skin $skin
 	 * @param array &$views
-	 * @return bool
 	 */
 	public function setViewTabs( Skin $skin, array &$views ) {
 		$this->load();
 		if ( !FlaggedRevs::inReviewNamespace( $this->article->getTitle() ) ) {
-			return true; // short-circuit for non-reviewable pages
+			// Short-circuit for non-reviewable pages
+			return;
 		}
 		# Hack for bug 16734 (some actions update and view all at once)
 		if ( $this->pageWriteOpRequested() &&
@@ -1451,7 +1441,8 @@ class FlaggablePageView extends ContextSource {
 		}
 		$srev = $this->article->getStableRev();
 		if ( !$srev ) {
-			return true; // No stable revision exists
+			// No stable revision exists
+			return;
 		}
 		$synced = $this->article->stableVersionIsSynced();
 		$pendingEdits = !$synced && $this->article->isStableShownByDefault();
@@ -1472,7 +1463,6 @@ class FlaggablePageView extends ContextSource {
 		if ( !$synced ) {
 			$this->addDraftTab( $views, $srev );
 		}
-		return true;
 	}
 
 	/**
@@ -1607,7 +1597,6 @@ class FlaggablePageView extends ContextSource {
 	 * @param DifferenceEngine $diff
 	 * @param RevisionRecord|null $oldRevRecord
 	 * @param RevisionRecord|null $newRevRecord
-	 * @return true
 	 */
 	public function addToDiffView( $diff, $oldRevRecord, $newRevRecord ) {
 		$pm = MediaWikiServices::getInstance()->getPermissionManager();
@@ -1616,13 +1605,13 @@ class FlaggablePageView extends ContextSource {
 		$this->load();
 		# Exempt printer-friendly output
 		if ( $this->out->isPrintable() ) {
-			return true;
+			return;
 		# Multi-page diffs are useless and misbehave (bug 19327). Sanity check $newRevRecord.
 		} elseif ( $this->isMultiPageDiff || !$newRevRecord ) {
-			return true;
+			return;
 		# Page must be reviewable.
 		} elseif ( !$this->article->isReviewable() ) {
-			return true;
+			return;
 		}
 		$srev = $this->article->getStableRev();
 		if ( $srev && $this->isReviewableDiff ) {
@@ -1727,7 +1716,6 @@ class FlaggablePageView extends ContextSource {
 			) .
 			'</div>'
 		);
-		return true;
 	}
 
 	/**
@@ -1939,7 +1927,6 @@ class FlaggablePageView extends ContextSource {
 	 * @param DifferenceEngine $diff
 	 * @param RevisionRecord|null $oldRevRecord
 	 * @param RevisionRecord|null $newRevRecord
-	 * @return true
 	 */
 	public function setViewFlags( $diff, $oldRevRecord, $newRevRecord ) {
 		$this->load();
@@ -1948,7 +1935,7 @@ class FlaggablePageView extends ContextSource {
 			&& $oldRevRecord
 			&& $newRevRecord->getTimestamp() >= $oldRevRecord->getTimestamp() )
 		) {
-			return true;
+			return;
 		}
 
 		// Is this a diff between two pages?
@@ -1984,7 +1971,6 @@ class FlaggablePageView extends ContextSource {
 			'old' => $oldRevRecord,
 			'new' => $newRevRecord
 		];
-		return true;
 	}
 
 	/**
@@ -2009,7 +1995,6 @@ class FlaggablePageView extends ContextSource {
 	 * Only for people who can review and for pages that have a stable version.
 	 * @param string &$sectionAnchor
 	 * @param string &$extraQuery
-	 * @return true
 	 */
 	public function injectPostEditURLParams( &$sectionAnchor, &$extraQuery ) {
 		$reqUser = $this->getUser();
@@ -2018,7 +2003,8 @@ class FlaggablePageView extends ContextSource {
 		# Get the stable version from the master
 		$frev = $this->article->getStableRev();
 		if ( !$frev ) {
-			return true; // only for pages with stable versions
+			// Only for pages with stable versions
+			return;
 		}
 
 		$params = [];
@@ -2051,7 +2037,6 @@ class FlaggablePageView extends ContextSource {
 			$extraQuery .= '&';
 		}
 		$extraQuery .= wfArrayToCgi( $params ); // note: EditPage will add initial "&"
-		return true;
 	}
 
 	/**
@@ -2060,11 +2045,11 @@ class FlaggablePageView extends ContextSource {
 	 * @todo would be nice if hook passed in button attribs, not XML
 	 * @param EditPage $editPage
 	 * @param array &$buttons
-	 * @return true
 	 */
 	public function changeSaveButton( EditPage $editPage, array &$buttons ) {
 		if ( !$this->editWillRequireReview( $editPage ) ) {
-			return true; // edit will go live or be reviewed on save
+			// Edit will go live or be reviewed on save
+			return;
 		}
 		if ( isset( $buttons['save'] ) ) {
 			$buttonLabel = $this->msg( 'revreview-submitedit' )->text();
@@ -2072,7 +2057,6 @@ class FlaggablePageView extends ContextSource {
 			$buttonTitle = $this->msg( 'revreview-submitedit-title' )->text();
 			$buttons['save']->setTitle( $buttonTitle );
 		}
-		return true;
 	}
 
 	/**
@@ -2147,7 +2131,6 @@ class FlaggablePageView extends ContextSource {
 	 * @param EditPage $editPage
 	 * @param array &$checkboxes
 	 * @param int|null &$tabindex
-	 * @return true
 	 */
 	public function addReviewCheck( EditPage $editPage, array &$checkboxes, &$tabindex = null ) {
 		$this->load();
@@ -2157,9 +2140,11 @@ class FlaggablePageView extends ContextSource {
 			!MediaWikiServices::getInstance()->getPermissionManager()
 				->userCan( 'review', $this->getUser(), $title )
 		) {
-			return true; // not needed
+			// Not needed
+			return;
 		} elseif ( $this->editWillBeAutoreviewed( $editPage ) ) {
-			return true; // edit will be auto-reviewed
+			// Edit will be auto-reviewed
+			return;
 		}
 		if ( self::getBaseRevId( $editPage, $request ) == $this->article->getLatest() ) {
 			# For pages with either no stable version, or an outdated one, let
@@ -2209,7 +2194,6 @@ class FlaggablePageView extends ContextSource {
 				$checkboxes[ $options['legacy-name'] ] = $checkbox . '&#160;' . $label;
 			}
 		}
-		return true;
 	}
 
 	/**

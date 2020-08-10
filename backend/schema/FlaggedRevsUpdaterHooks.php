@@ -54,7 +54,6 @@ class FlaggedRevsUpdaterHooks {
 			$base = __DIR__ . '/mysql';
 			$du->addExtensionTable( 'flaggedrevs', "$base/FlaggedRevs.sql" );
 		}
-		return true;
 	}
 
 	public static function doFlaggedImagesTimestampNULL( $du, $patch ) {

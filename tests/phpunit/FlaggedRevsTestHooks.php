@@ -13,6 +13,5 @@ class FlaggedRevsTestHooks {
 		$tables[] = 'flaggedimages';
 		$tables[] = 'flaggedrevs_promote';
 		$tables[] = 'flaggedrevs_tracking';
-		return true;
 	}
 }
