@@ -233,7 +233,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 	/**
 	 * Check that a target is given (e.g. from GET/POST request)
-	 * @return mixed (true on success, error string on failure)
+	 * @return true|string true on success, error string on failure
 	 */
 	public function doCheckTargetGiven() {
 		if ( $this->page === null ) {
@@ -244,7 +244,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 	/**
 	 * Load any objects after ready() called
-	 * @return mixed (true on success, error string on failure)
+	 * @return true|string true on success, error string on failure
 	 */
 	protected function doBuildOnReady() {
 		$this->article = FlaggableWikiPage::getTitleInstance( $this->page );
@@ -254,7 +254,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	/**
 	 * Check that the target is valid (e.g. from GET/POST request)
 	 * @param int $flags FOR_SUBMISSION (set on submit)
-	 * @return mixed (true on success, error string on failure)
+	 * @return true|string true on success, error string on failure
 	 */
 	protected function doCheckTarget( $flags = 0 ) {
 		$flgs = ( $flags & self::FOR_SUBMISSION ) ? Title::GAID_FOR_UPDATE : 0;
@@ -269,7 +269,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 	/**
 	 * Validate and clean up parameters (e.g. from POST request).
-	 * @return mixed (true on success, error string on failure)
+	 * @return true|string true on success, error string on failure
 	 */
 	protected function doCheckParameters() {
 		$action = $this->getAction();
@@ -361,7 +361,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	/**
 	 * Submit the form parameters for the page config to the DB.
 	 *
-	 * @return mixed (true on success, error string on failure)
+	 * @return true|string true on success, error string on failure
 	 */
 	public function doSubmit() {
 		# Double-check permissions

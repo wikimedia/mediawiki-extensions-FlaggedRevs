@@ -137,7 +137,7 @@ class FRInclusionManager {
 	 * Get the "review time" template version for parser
 	 * @param Title $title
 	 * @throws Exception
-	 * @return mixed (int/null)
+	 * @return int|null
 	 */
 	public function getReviewedTemplateVersion( Title $title ) {
 		if ( !is_array( $this->reviewedVersions ) ) {

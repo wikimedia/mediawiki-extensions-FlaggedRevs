@@ -55,7 +55,7 @@ abstract class FRGenericSubmitForm {
 	/**
 	 * Signal that inputs are all given (via accessors)
 	 * @throws Exception
-	 * @return mixed (true on success, error string on target failure)
+	 * @return true|string true on success, error string on target failure
 	 */
 	final public function ready() {
 		if ( $this->state != self::FORM_UNREADY ) {
@@ -81,7 +81,7 @@ abstract class FRGenericSubmitForm {
 	/**
 	 * Load any objects after ready() called
 	 * NOTE: do not do any DB hits here, just build objects
-	 * @return mixed (true on success, error string on failure)
+	 * @return true|string true on success, error string on failure
 	 */
 	protected function doBuildOnReady() {
 		return true;
@@ -105,7 +105,7 @@ abstract class FRGenericSubmitForm {
 	/**
 	 * Check that a target is given (e.g. from GET/POST request)
 	 * NOTE: do not do any DB hits here, just check if there is a target
-	 * @return mixed (true on success, error string on failure)
+	 * @return true|string true on success, error string on failure
 	 */
 	protected function doCheckTargetGiven() {
 		return true;
@@ -114,7 +114,7 @@ abstract class FRGenericSubmitForm {
 	/**
 	 * Check that the target is valid (e.g. from GET/POST request)
 	 * @param int $flags FOR_SUBMISSION (set on submit)
-	 * @return mixed (true on success, error string on failure)
+	 * @return true|string true on success, error string on failure
 	 */
 	protected function doCheckTarget( $flags = 0 ) {
 		return true;
@@ -123,7 +123,7 @@ abstract class FRGenericSubmitForm {
 	/**
 	 * Check that a target is and it is valid (e.g. from GET/POST request)
 	 * NOTE: do not do any DB hits here, just check if there is a target
-	 * @return mixed (true on success, error string on failure)
+	 * @return true|string true on success, error string on failure
 	 */
 	final public function checkTarget() {
 		if ( $this->state != self::FORM_READY ) {
@@ -138,7 +138,7 @@ abstract class FRGenericSubmitForm {
 
 	/**
 	 * Validate and clean up target/parameters (e.g. from POST request)
-	 * @return mixed (true on success, error string on failure)
+	 * @return true|string true on success, error string on failure
 	 */
 	final protected function checkParameters() {
 		$status = $this->doCheckTarget( self::FOR_SUBMISSION );
@@ -150,7 +150,7 @@ abstract class FRGenericSubmitForm {
 
 	/**
 	 * Verify and clean up parameters (e.g. from POST request)
-	 * @return mixed (true on success, error string on failure)
+	 * @return true|string true on success, error string on failure
 	 */
 	protected function doCheckParameters() {
 		return true;
@@ -159,7 +159,7 @@ abstract class FRGenericSubmitForm {
 	/**
 	 * Preload existing params for the target from the DB (e.g. for GET request)
 	 * NOTE: do not call this and then submit()
-	 * @return mixed (true on success, error string on failure)
+	 * @return true|string true on success, error string on failure
 	 */
 	final public function preload() {
 		if ( $this->state != self::FORM_READY ) {
@@ -179,7 +179,7 @@ abstract class FRGenericSubmitForm {
 
 	/**
 	 * Preload existing params for the target from the DB (e.g. for GET request)
-	 * @return mixed (true on success, error string on failure)
+	 * @return true|string true on success, error string on failure
 	 */
 	protected function doPreloadParameters() {
 		return true;
@@ -188,7 +188,7 @@ abstract class FRGenericSubmitForm {
 	/**
 	 * Submit the form parameters for the page config to the DB
 	 * @throws Exception
-	 * @return mixed (true on success, error string on failure)
+	 * @return true|string true on success, error string on failure
 	 */
 	final public function submit() {
 		if ( $this->state != self::FORM_READY ) {
@@ -208,7 +208,7 @@ abstract class FRGenericSubmitForm {
 
 	/**
 	 * Submit the form parameters for the page config to the DB
-	 * @return mixed (true on success, error string on failure)
+	 * @return true|string true on success, error string on failure
 	 */
 	protected function doSubmit() {
 		return true;

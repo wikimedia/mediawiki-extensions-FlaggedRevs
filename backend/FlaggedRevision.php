@@ -983,7 +983,7 @@ class FlaggedRevision {
 	/**
 	 * @param int $rev_id
 	 * @param int $flags FR_MASTER
-	 * @return mixed (int or false)
+	 * @return int|false
 	 * Get quality of a revision
 	 */
 	public static function getRevQuality( $rev_id, $flags = 0 ) {

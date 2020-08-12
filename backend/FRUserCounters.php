@@ -60,7 +60,7 @@ class FRUserCounters {
 	 * @param int $uid
 	 * @param int $flags FR_MASTER, FR_FOR_UPDATE
 	 * @param bool|string $dBName optional wiki name
-	 * @return mixed (false or Row)
+	 * @return stdClass|false
 	 */
 	protected static function fetchParamsRow( $uid, $flags = 0, $dBName = false ) {
 		$options = [];

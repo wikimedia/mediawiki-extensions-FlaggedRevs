@@ -152,7 +152,7 @@ class FRDependencyUpdate {
 	 * Get WHERE clause to delete items in $existing but not in $new
 	 * @param array $existing
 	 * @param array $new
-	 * @return mixed (array/false)
+	 * @return array|false
 	 */
 	protected function getDepDeletions( array $existing, array $new ) {
 		$del = [];
