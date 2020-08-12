@@ -4,19 +4,18 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 
 	public static function addApiRevisionParams( &$module, &$params ) {
 		if ( !$module instanceof ApiQueryRevisions ) {
-			return true;
+			return;
 		}
 		$params['prop'][ApiBase::PARAM_TYPE][] = 'flagged';
-		return true;
 	}
 
 	public static function addApiRevisionData( &$module ) {
 		if ( !$module instanceof ApiQueryRevisions ) {
-			return true;
+			return;
 		}
 		$params = $module->extractRequestParams( false );
 		if ( empty( $params['prop'] ) || !in_array( 'flagged', $params['prop'] ) ) {
-			return true;
+			return;
 		}
 		if ( !in_array( 'ids', $params['prop'] ) ) {
 			$module->dieWithError(
@@ -33,7 +32,7 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 			// @phan-suppress-next-line PhanUndeclaredMethod
 			$data = $result->getData();
 			if ( !isset( $data['query']['pages'] ) ) {
-				return true;
+				return;
 			}
 			$data = $data['query']['pages'];
 		}
@@ -48,7 +47,7 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 			}
 		}
 		if ( $pageids === [] ) {
-			return true;
+			return;
 		}
 
 		// Construct SQL Query
@@ -92,6 +91,5 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 				$data
 			);
 		}
-		return true;
 	}
 }

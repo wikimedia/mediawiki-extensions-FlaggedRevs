@@ -65,7 +65,7 @@ abstract class ApiStabilize extends ApiBase {
 	 * @inheritDoc
 	 */
 	public function isWriteMode() {
-			return true;
+		return true;
 	}
 
 	/**
