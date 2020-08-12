@@ -186,10 +186,6 @@ class ApiReview extends ApiBase {
 		return 'csrf';
 	}
 
-	public function getTokenSalt() {
-		return '';
-	}
-
 	/**
 	 * @inheritDoc
 	 */
