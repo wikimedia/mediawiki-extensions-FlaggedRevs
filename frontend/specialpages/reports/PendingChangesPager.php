@@ -5,7 +5,7 @@
  */
 class PendingChangesPager extends AlphabeticPager {
 	/** @var PendingChanges */
-	public $mForm;
+	private $mForm;
 
 	/** @var string|null */
 	private $category;

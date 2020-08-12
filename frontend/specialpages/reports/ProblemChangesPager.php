@@ -5,7 +5,7 @@
  */
 class ProblemChangesPager extends AlphabeticPager {
 	/** @var ProblemChanges */
-	public $mForm;
+	private $mForm;
 
 	/** @var string|null */
 	private $category;

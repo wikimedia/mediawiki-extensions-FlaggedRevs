@@ -5,19 +5,19 @@
  */
 class ConfiguredPagesPager extends AlphabeticPager {
 	/** @var ConfiguredPages */
-	public $mForm;
+	private $mForm;
 
 	/** @var array */
-	public $mConds;
+	private $mConds;
 
 	/** @var int|null */
-	public $namespace;
+	private $namespace;
 
 	/** @var int|null */
-	public $override;
+	private $override;
 
 	/** @var string */
-	public $autoreview;
+	private $autoreview;
 
 	/**
 	 * @param ConfiguredPages $form

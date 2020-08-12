@@ -7,10 +7,10 @@ use MediaWiki\Revision\RevisionRecord;
  */
 class ReviewedVersionsPager extends ReverseChronologicalPager {
 	/** @var ReviewedVersions */
-	public $mForm;
+	private $mForm;
 
 	/** @var array */
-	public $mConds;
+	private $mConds;
 
 	/** @var int */
 	private $pageID;

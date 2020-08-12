@@ -13,12 +13,12 @@ use Wikimedia\Rdbms\IResultWrapper;
  */
 class FRExtraCacheUpdate implements DeferrableUpdate {
 	/** @var Title */
-	public $mTitle;
+	private $mTitle;
 
 	/** @var int Copy of $wgUpdateRowsPerJob */
-	public $mRowsPerJob;
+	private $mRowsPerJob;
 	/** @var int Copy of $wgUpdateRowsPerQuery */
-	public $mRowsPerQuery;
+	private $mRowsPerQuery;
 
 	public function __construct( Title $titleTo ) {
 		global $wgUpdateRowsPerJob, $wgUpdateRowsPerQuery;

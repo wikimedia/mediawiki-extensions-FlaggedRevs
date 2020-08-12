@@ -5,16 +5,13 @@
  */
 class StablePagesPager extends AlphabeticPager {
 	/** @var StablePages */
-	public $mForm;
+	private $mForm;
 
 	/** @var array */
-	public $mConds;
+	private $mConds;
 
 	/** @var int|int[] */
-	public $namespace;
-
-	/** @var bool */
-	public $override;
+	private $namespace;
 
 	/** @var string */
 	private $indef;
