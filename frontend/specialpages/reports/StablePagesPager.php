@@ -17,10 +17,10 @@ class StablePagesPager extends AlphabeticPager {
 	public $override;
 
 	/** @var string */
-	protected $indef;
+	private $indef;
 
 	/** @var string|null */
-	protected $autoreview;
+	private $autoreview;
 
 	/**
 	 * @param StablePages $form

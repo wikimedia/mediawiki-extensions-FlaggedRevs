@@ -7,7 +7,7 @@
  */
 class FlaggedRevsSetup {
 	/** @var bool Status of whether FlaggedRevs::load() can be called */
-	protected static $canLoad = false;
+	private static $canLoad = false;
 
 	/**
 	 * Signal that LocalSettings.php is loaded.

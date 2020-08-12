@@ -4,7 +4,7 @@ use MediaWiki\MediaWikiServices;
 
 class ValidationStatistics extends IncludableSpecialPage {
 	/** @var array|null */
-	protected $latestData = null;
+	private $latestData = null;
 
 	public function __construct() {
 		parent::__construct( 'ValidationStatistics' );

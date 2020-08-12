@@ -2,16 +2,16 @@
 
 class ReviewedPages extends SpecialPage {
 	/** @var ReviewedPagesPager */
-	protected $pager = null;
+	private $pager = null;
 
 	/** @var int */
-	protected $namespace;
+	private $namespace;
 
 	/** @var int */
-	protected $type;
+	private $type;
 
 	/** @var bool */
-	protected $hideRedirs;
+	private $hideRedirs;
 
 	public function __construct() {
 		parent::__construct( 'ReviewedPages' );

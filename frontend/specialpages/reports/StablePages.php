@@ -3,16 +3,16 @@
 // Assumes $wgFlaggedRevsProtection is on
 class StablePages extends SpecialPage {
 	/** @var StablePagesPager */
-	protected $pager = null;
+	private $pager = null;
 
 	/** @var int|null */
-	protected $namespace;
+	private $namespace;
 
 	/** @var string|null */
-	protected $autoreview;
+	private $autoreview;
 
 	/** @var bool */
-	protected $indef;
+	private $indef;
 
 	public function __construct() {
 		parent::__construct( 'StablePages' );

@@ -5,12 +5,12 @@
  */
 class FRInclusionManagerTest extends PHPUnit\Framework\TestCase {
 	/* starting input */
-	protected static $inputTemplates = [
+	private static $inputTemplates = [
 		10 	=> [ 'XX' => '1242', 'YY' => '0', 'KK' => false ],
 		4 	=> [ 'Cite' => '30', 'Moo' => 0 ],
 		0 	=> [ 'ZZ' => 464, '0' => 13 ]
 	];
-	protected static $inputFiles = [
+	private static $inputFiles = [
 		'FileXX' => [ 'time' => '20100405192110', 'sha1' => 'abc1' ],
 		'FileYY' => [ 'time' => '20000403101300', 'sha1' => 1134 ],
 		'FileZZ' => [ 'time' => '0', 'sha1' => '' ],
@@ -19,7 +19,7 @@ class FRInclusionManagerTest extends PHPUnit\Framework\TestCase {
 		'0'   	 => [ 'time' => '20000203101350', 'sha1' => 'ae33' ],
 	];
 	/* output to test against (<test,NS,dbkey,expected rev ID>) */
-	protected static $reviewedOutputTemplates = [
+	private static $reviewedOutputTemplates = [
 		[ "Output template version when given '1224'", 10, 'XX', 1242 ],
 		[ "Output template version when given '0'", 10, 'YY', 0 ],
 		[ "Output template version when given false", 10, 'KK', 0 ],
@@ -29,7 +29,7 @@ class FRInclusionManagerTest extends PHPUnit\Framework\TestCase {
 		[ "Output template version when given 13", 0, '0', 13 ],
 		[ "Output template version when not given", 0, 'Notexists', null ],
 	];
-	protected static $stableOutputTemplates = [
+	private static $stableOutputTemplates = [
 		[ "Output template version when given '1224'", 10, 'XX', 1242 ],
 		[ "Output template version when given '0'", 10, 'YY', 0 ],
 		[ "Output template version when given false", 10, 'KK', 0 ],
@@ -40,7 +40,7 @@ class FRInclusionManagerTest extends PHPUnit\Framework\TestCase {
 		[ "Output template version when not given", 0, 'NotexistsPage1111', 0 ],
 	];
 	/* output to test against (<test,dbkey,expected TS,expected sha1>) */
-	protected static $reviewedOutputFiles = [
+	private static $reviewedOutputFiles = [
 		[ "Output file version when given '20100405192110'/'abc1'",
 			'FileXX', '20100405192110', 'abc1' ],
 		[ "Output file version when given '20000403101300'/'ffc2'",
@@ -50,7 +50,7 @@ class FRInclusionManagerTest extends PHPUnit\Framework\TestCase {
 		[ "Output file version when given 0/''", 'Filele', '0', false ],
 		[ "Output file version when not given", 'Notgiven', null, null ],
 	];
-	protected static $stableOutputFiles = [
+	private static $stableOutputFiles = [
 		[ "Output file version when given '20100405192110'/'abc1'",
 			'FileXX', '20100405192110', 'abc1' ],
 		[ "Output file version when given '20000403101300'/'ffc2'",

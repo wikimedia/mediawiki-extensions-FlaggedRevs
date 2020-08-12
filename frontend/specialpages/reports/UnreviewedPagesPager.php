@@ -11,19 +11,19 @@ class UnreviewedPagesPager extends AlphabeticPager {
 	public $mConds;
 
 	/** @var bool */
-	protected $live;
+	private $live;
 
 	/** @var int */
-	protected $namespace;
+	private $namespace;
 
 	/** @var string|null */
-	protected $category;
+	private $category;
 
 	/** @var bool */
-	protected $showredirs;
+	private $showredirs;
 
 	/** @var int */
-	protected $level;
+	private $level;
 
 	const PAGE_LIMIT = 50; // Don't get too expensive
 

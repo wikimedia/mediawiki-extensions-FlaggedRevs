@@ -9,12 +9,12 @@
  */
 class FRInclusionManager {
 	/** @var array[]|null Files/templates at review time */
-	protected $reviewedVersions = null;
+	private $reviewedVersions = null;
 	/** @var array[] Stable versions of files/templates */
-	protected $stableVersions = [];
+	private $stableVersions = [];
 
 	/** @var self|null */
-	protected static $instance = null;
+	private static $instance = null;
 
 	/**
 	 * @return self

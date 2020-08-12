@@ -10,23 +10,23 @@ use MediaWiki\Revision\RevisionRecord;
  */
 class RevisionReviewFormUI {
 	/** @var User */
-	protected $user;
+	private $user;
 	/** @var FlaggableWikiPage */
-	protected $article;
+	private $article;
 	/** @var string */
-	protected $topNotice = '';
+	private $topNotice = '';
 	/** @var string */
-	protected $bottomNotice = '';
+	private $bottomNotice = '';
 	/** @var array|false|null */
-	protected $fileVersion = null;
+	private $fileVersion = null;
 	/** @var int[][]|null */
-	protected $templateIDs = null;
+	private $templateIDs = null;
 	/** @var array[]|null */
-	protected $imageSHA1Keys = null;
+	private $imageSHA1Keys = null;
 	/** @var WebRequest */
-	protected $request;
+	private $request;
 	/** @var OutputPage */
-	protected $out;
+	private $out;
 	/** @var RevisionRecord */
 	private $revRecord;
 	/** @var RevisionRecord|null */

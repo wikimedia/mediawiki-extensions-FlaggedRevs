@@ -5,9 +5,9 @@ use MediaWiki\Permissions\PermissionManager;
 
 class RevisionReview extends UnlistedSpecialPage {
 	/** @var RevisionReviewForm|null */
-	protected $form;
+	private $form;
 	/** @var Title|null */
-	protected $page;
+	private $page;
 
 	public function __construct() {
 		parent::__construct( 'RevisionReview', 'review' );

@@ -9,45 +9,45 @@ use MediaWiki\Revision\SlotRecord;
  */
 class RevisionReviewForm extends FRGenericSubmitForm {
 	/** @var Title|null $page Target title object */
-	protected $page = null;
+	private $page = null;
 	/** @var FlaggableWikiPage|null $article Target page object */
-	protected $article = null;
+	private $article = null;
 	/** @var bool Approval requested */
-	protected $approve = false;
+	private $approve = false;
 	/** @var bool De-approval requested */
-	protected $unapprove = false;
+	private $unapprove = false;
 	/** @var bool Rejection requested */
-	protected $reject = false;
+	private $reject = false;
 	/** @var int ID being reviewed (last "bad" ID for rejection) */
-	protected $oldid = 0;
+	private $oldid = 0;
 	/** @var int Old, "last good", ID (used for rejection) */
-	protected $refid = 0;
+	private $refid = 0;
 	/** @var string Included template versions (flat string) */
-	protected $templateParams = '';
+	private $templateParams = '';
 	/** @var string Included file versions (flat string) */
-	protected $imageParams = '';
+	private $imageParams = '';
 	/** @var string File page file version (flat string) */
-	protected $fileVersion = '';
+	private $fileVersion = '';
 	/** @var string Parameter key */
-	protected $validatedParams = '';
+	private $validatedParams = '';
 	/** @var string Review comments */
-	protected $comment = '';
+	private $comment = '';
 	/** @var int[] Review flags (for approval) */
-	protected $dims = [];
+	private $dims = [];
 	/** @var string|null Conflict handling */
-	protected $lastChangeTime = null;
+	private $lastChangeTime = null;
 	/** @var string|null Conflict handling */
-	protected $newLastChangeTime = null;
+	private $newLastChangeTime = null;
 
 	/** @var FlaggedRevision|null Prior FlaggedRevision for Rev with ID $oldid */
-	protected $oldFrev = null;
+	private $oldFrev = null;
 	/** @var int[] Prior flags for Rev with ID $oldid */
-	protected $oldFlags = [];
+	private $oldFlags = [];
 
 	/** @var string User session key */
-	protected $sessionKey = '';
+	private $sessionKey = '';
 	/** @var bool Skip validatedParams check */
-	protected $skipValidationKey = false;
+	private $skipValidationKey = false;
 
 	protected function initialize() {
 		foreach ( FlaggedRevs::getTags() as $tag ) {

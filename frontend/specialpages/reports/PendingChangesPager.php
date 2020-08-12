@@ -8,22 +8,22 @@ class PendingChangesPager extends AlphabeticPager {
 	public $mForm;
 
 	/** @var string|null */
-	protected $category;
+	private $category;
 
 	/** @var int */
-	protected $namespace;
+	private $namespace;
 
 	/** @var int */
-	protected $level;
+	private $level;
 
 	/** @var int|null */
-	protected $size;
+	private $size;
 
 	/** @var bool */
-	protected $watched;
+	private $watched;
 
 	/** @var bool */
-	protected $stable;
+	private $stable;
 
 	const PAGE_LIMIT = 100; // Don't get too expensive
 

@@ -8,7 +8,7 @@ use MediaWiki\Revision\RevisionRecord;
  */
 class RejectConfirmationFormUI {
 	/** @var RevisionReviewForm */
-	protected $form;
+	private $form;
 
 	/** @var RevisionRecord */
 	private $oldRevRecord;
