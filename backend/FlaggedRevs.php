@@ -39,7 +39,7 @@ class FlaggedRevs {
 
 	protected static function load() {
 		if ( self::$loaded ) {
-			return true;
+			return;
 		}
 		if ( !FlaggedRevsSetup::isReady() ) { // sanity
 			throw new Exception( 'FlaggedRevs config loaded too soon! Possibly before LocalSettings.php!' );
@@ -70,7 +70,7 @@ class FlaggedRevs {
 
 		// When using a simple config, we don't need to initialize the other settings
 		if ( self::useSimpleConfig() ) {
-			return true;
+			return;
 		}
 
 		# Handle levelled tags
@@ -121,8 +121,6 @@ class FlaggedRevs {
 		# Handle restrictions on tags
 		global $wgFlaggedRevsTagsRestrictions;
 		self::$tagRestrictions = $wgFlaggedRevsTagsRestrictions;
-
-		return true;
 	}
 
 	# ################ Basic config accessors #################
@@ -788,7 +786,6 @@ class FlaggedRevs {
 	/**
 	 * Mark a revision as patrolled if needed
 	 * @param RevisionRecord $revRecord
-	 * @return bool DB write query used
 	 */
 	public static function markRevisionPatrolled( RevisionRecord $revRecord ) {
 		$rcid = MediaWikiServices::getInstance()
@@ -802,9 +799,7 @@ class FlaggedRevs {
 				[ 'rc_id' => $rcid ],
 				__METHOD__
 			);
-			return true;
 		}
-		return false;
 	}
 
 	# ################ Other utility functions #################

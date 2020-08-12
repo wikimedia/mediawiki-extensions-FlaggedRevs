@@ -446,16 +446,17 @@ class FlaggableWikiPage extends WikiPage {
 	 * Updates the flagging tracking tables for this page
 	 * @param FlaggedRevision $srev The new stable version
 	 * @param int|null $latest The latest rev ID (optional)
-	 * @return bool Updates were done
 	 */
 	public function updateStableVersion( FlaggedRevision $srev, $latest = null ) {
 		if ( !$this->exists() ) {
-			return false; // no bogus entries
+			// No bogus entries
+			return;
 		}
 
 		$revRecord = $srev->getRevisionRecord();
 		if ( !$revRecord ) {
-			return false; // no bogus entries
+			// No bogus entries
+			return;
 		}
 
 		# Get the latest revision ID if not set
@@ -516,7 +517,6 @@ class FlaggableWikiPage extends WikiPage {
 		);
 		# Update pending edit tracking table
 		self::updatePendingList( $this->getId(), $latest );
-		return true;
 	}
 
 	/**

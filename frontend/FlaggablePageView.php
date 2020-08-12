@@ -330,17 +330,16 @@ class FlaggablePageView extends ContextSource {
 	 * Adds a quick review form on the bottom if needed
 	 * @param bool &$outputDone
 	 * @param bool &$useParserCache
-	 * @return bool
 	 */
 	public function setPageContent( &$outputDone, &$useParserCache ) {
 		$request = $this->getRequest();
 		$this->load();
 		# Only trigger on page views with no oldid=x param
 		if ( !$this->isPageView( $request ) || $request->getVal( 'oldid' ) ) {
-			return true;
+			return;
 		# Only trigger for reviewable pages that exist
 		} elseif ( !$this->article->exists() || !$this->article->isReviewable() ) {
-			return true;
+			return;
 		}
 		$tag = ''; // review tag box/bar message
 		$old = false;
@@ -372,7 +371,7 @@ class FlaggablePageView extends ContextSource {
 			# Tell MW that parser output is done
 			$outputDone = true;
 			$useParserCache = false;
-			return true;
+			return;
 		}
 		// Is the page config altered?
 		$this->enableOOUI();
@@ -437,7 +436,6 @@ class FlaggablePageView extends ContextSource {
 			$notice = "<div id=\"mw-fr-revisiontag\" class=\"{$css}\">{$tag}</div>\n";
 			$this->reviewNotice .= $notice;
 		}
-		return true;
 	}
 
 	/**
@@ -1256,7 +1254,6 @@ class FlaggablePageView extends ContextSource {
 	 * If $output is an OutputPage then this prepends the form onto it.
 	 * If $output is a string then this appends the review form to it.
 	 * @param string|OutputPage &$output
-	 * @return bool
 	 */
 	public function addReviewForm( &$output ) {
 		$request = $this->getRequest();
@@ -1264,21 +1261,22 @@ class FlaggablePageView extends ContextSource {
 		$this->load();
 
 		if ( $this->out->isPrintable() ) {
-			return false; // Must be on non-printable output
+			// Must be on non-printable output
+			return;
 		}
 		# User must have review rights
 		if ( !MediaWikiServices::getInstance()->getPermissionManager()
 			->userHasRight( $reqUser, 'review' )
 		) {
-			return true;
+			return;
 		}
 		# Page must exist and be reviewable
 		if ( !$this->article->exists() || !$this->article->isReviewable() ) {
-			return true;
+			return;
 		}
 		# Must be a page view action...
 		if ( !$this->isPageViewOrDiff( $request ) ) {
-			return true;
+			return;
 		}
 		# Get the revision being displayed
 		$revRecord = false;
@@ -1340,7 +1338,6 @@ class FlaggablePageView extends ContextSource {
 				$output .= $html;
 			}
 		}
-		return true;
 	}
 
 	/**

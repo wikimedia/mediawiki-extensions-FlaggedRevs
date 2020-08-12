@@ -37,7 +37,7 @@ class ApiQueryFlagged extends ApiQueryBase {
 		$pageSet = $this->getPageSet();
 		$pageids = array_keys( $pageSet->getGoodTitles() );
 		if ( !$pageids ) {
-			return true;
+			return;
 		}
 
 		// Construct SQL Query
@@ -80,8 +80,6 @@ class ApiQueryFlagged extends ApiQueryBase {
 				$contLang->formatExpiry( $row->fpc_expiry, TS_ISO_8601 )
 			);
 		}
-
-		return true;
 	}
 
 	/**

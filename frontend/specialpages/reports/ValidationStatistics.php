@@ -37,7 +37,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 		);
 		# Most of the output depends on background queries
 		if ( !$this->readyForQuery() ) {
-			return false;
+			return;
 		}
 
 		# Is there a review time table available?
@@ -200,15 +200,13 @@ class ValidationStatistics extends IncludableSpecialPage {
 			$reviewChart .= "</table>\n";
 			$out->addHTML( $reviewChart );
 		}
-
-		return true;
 	}
 
 	protected function maybeUpdate() {
 		global $wgFlaggedRevsStatsAge;
 
 		if ( !$wgFlaggedRevsStatsAge ) {
-			return false;
+			return;
 		}
 
 		$cache = ObjectCache::getLocalClusterInstance();
@@ -229,9 +227,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 			$commandLine = "$ext $path --wiki=$wiki > $devNull &";
 			wfDebugLog( 'ValidationStatistics', __METHOD__ . " executing: $commandLine" );
 			wfShellExec( $commandLine );
-			return true;
 		}
-		return false;
 	}
 
 	protected function readyForQuery() {
