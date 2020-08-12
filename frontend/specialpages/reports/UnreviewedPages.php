@@ -4,25 +4,25 @@ use MediaWiki\MediaWikiServices;
 
 class UnreviewedPages extends SpecialPage {
 	/** @var UnreviewedPagesPager */
-	protected $pager = null;
+	private $pager = null;
 
 	/** @var string */
-	protected $currentUnixTS;
+	private $currentUnixTS;
 
 	/** @var int */
-	protected $namespace;
+	private $namespace;
 
 	/** @var string */
-	protected $category;
+	private $category;
 
 	/** @var int */
-	protected $level;
+	private $level;
 
 	/** @var bool */
-	protected $hideRedirs;
+	private $hideRedirs;
 
 	/** @var bool */
-	protected $live;
+	private $live;
 
 	public function __construct() {
 		parent::__construct( 'UnreviewedPages', 'unreviewedpages' );

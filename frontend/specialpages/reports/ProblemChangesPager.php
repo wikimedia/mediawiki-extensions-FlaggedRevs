@@ -8,16 +8,16 @@ class ProblemChangesPager extends AlphabeticPager {
 	public $mForm;
 
 	/** @var string|null */
-	protected $category;
+	private $category;
 
 	/** @var int[] */
-	protected $namespace;
+	private $namespace;
 
 	/** @var string */
-	protected $tag;
+	private $tag;
 
 	/** @var int */
-	protected $level;
+	private $level;
 
 	const PAGE_LIMIT = 100; // Don't get too expensive
 

@@ -3,16 +3,16 @@
 // Assumes $wgFlaggedRevsProtection is off
 class ConfiguredPages extends SpecialPage {
 	/** @var ConfiguredPagesPager|null */
-	protected $pager = null;
+	private $pager = null;
 
 	/** @var int|null */
-	protected $namespace;
+	private $namespace;
 
 	/** @var int|null */
-	protected $override;
+	private $override;
 
 	/** @var string|null */
-	protected $autoreview;
+	private $autoreview;
 
 	public function __construct() {
 		parent::__construct( 'ConfiguredPages' );

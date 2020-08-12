@@ -9,46 +9,46 @@ use MediaWiki\Revision\RevisionRecord;
 class FlaggablePageView extends ContextSource {
 
 	/** @var OutputPage|null */
-	protected $out = null;
+	private $out = null;
 
 	/** @var FlaggableWikiPage|null */
-	protected $article = null;
+	private $article = null;
 
 	/** @var array|null of old and new RevisionsRecords for diffs */
-	protected $diffRevRecords = null;
+	private $diffRevRecords = null;
 
 	/** @var array|null [ array of templates, array of file ] */
-	protected $oldRevIncludes = null;
+	private $oldRevIncludes = null;
 
 	/** @var bool */
-	protected $isReviewableDiff = false;
+	private $isReviewableDiff = false;
 
 	/** @var bool */
-	protected $isDiffFromStable = false;
+	private $isDiffFromStable = false;
 
 	/** @var bool */
-	protected $isMultiPageDiff = false;
+	private $isMultiPageDiff = false;
 
 	/** @var string */
-	protected $reviewNotice = '';
+	private $reviewNotice = '';
 
 	/** @var string */
-	protected $diffNoticeBox = '';
+	private $diffNoticeBox = '';
 
 	/** @var string */
-	protected $diffIncChangeBox = '';
+	private $diffIncChangeBox = '';
 
 	/** @var RevisionRecord|false */
 	private $reviewFormRevRecord = false;
 
 	/** @var bool */
-	protected $loaded = false;
+	private $loaded = false;
 
 	/** @var bool */
-	protected $noticesDone = false;
+	private $noticesDone = false;
 
 	/** @var self|null */
-	protected static $instance = null;
+	private static $instance = null;
 
 	/**
 	 * Get the FlaggablePageView for this request

@@ -8,15 +8,15 @@ use Wikimedia\Rdbms\IDatabase;
  */
 class FRDependencyUpdate {
 	/** @var Title */
-	protected $title;
+	private $title;
 	/** @var int[][] */
-	protected $sLinks;
+	private $sLinks;
 	/** @var int[][] */
-	protected $sTemplates;
+	private $sTemplates;
 	/** @var int[] */
-	protected $sImages;
+	private $sImages;
 	/** @var string[] */
-	protected $sCategories;
+	private $sCategories;
 
 	const IMMEDIATE = 0; // run updates now
 	const DEFERRED = 1; // use the job queue for updates

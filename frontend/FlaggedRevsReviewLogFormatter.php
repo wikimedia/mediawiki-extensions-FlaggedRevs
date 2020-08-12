@@ -4,7 +4,7 @@ use MediaWiki\MediaWikiServices;
 
 class FlaggedRevsReviewLogFormatter extends LogFormatter {
 	/** @var bool */
-	protected $isDeapproval = false;
+	private $isDeapproval = false;
 
 	protected function getMessageKey() {
 		$rawAction = $this->entry->getSubtype();

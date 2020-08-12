@@ -12,30 +12,30 @@ use MediaWiki\Revision\SlotRecord;
  */
 class FlaggedRevs {
 	/** @var string[][] Tag name/level config */
-	protected static $dimensions = [];
+	private static $dimensions = [];
 	/** @var int[] */
-	protected static $minSL = [];
+	private static $minSL = [];
 	/** @var int[] */
-	protected static $minQL = [];
+	private static $minQL = [];
 	/** @var int[] */
-	protected static $minPL = [];
+	private static $minPL = [];
 	/** @var bool */
-	protected static $qualityVersions = false;
+	private static $qualityVersions = false;
 	/** @var bool */
-	protected static $pristineVersions = false;
+	private static $pristineVersions = false;
 	/** @var int[][] Copy of $wgFlaggedRevsTagsRestrictions */
-	protected static $tagRestrictions = [];
+	private static $tagRestrictions = [];
 	/** @var bool */
-	protected static $binaryFlagging = true;
+	private static $binaryFlagging = true;
 	/** @var array int[] Namespace config, copy of $wgFlaggedRevsNamespaces */
-	protected static $reviewNamespaces = [];
+	private static $reviewNamespaces = [];
 	/** @var string[] Restriction levels/config, copy from $wgFlaggedRevsRestrictionLevels */
-	protected static $restrictionLevels = [];
+	private static $restrictionLevels = [];
 	/** @var int Autoreview config, copy from $wgFlaggedRevsAutoReview */
-	protected static $autoReviewConfig = 0;
+	private static $autoReviewConfig = 0;
 
 	/** @var bool */
-	protected static $loaded = false;
+	private static $loaded = false;
 
 	protected static function load() {
 		if ( self::$loaded ) {

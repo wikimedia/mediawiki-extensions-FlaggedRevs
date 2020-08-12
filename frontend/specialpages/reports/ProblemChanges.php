@@ -4,19 +4,19 @@ use MediaWiki\MediaWikiServices;
 
 class ProblemChanges extends SpecialPage {
 	/** @var ProblemChangesPager */
-	protected $pager = null;
+	private $pager = null;
 
 	/** @var string */
-	protected $currentUnixTS;
+	private $currentUnixTS;
 
 	/** @var int */
-	protected $level;
+	private $level;
 
 	/** @var string */
-	protected $tag;
+	private $tag;
 
 	/** @var string */
-	protected $category;
+	private $category;
 
 	public function __construct() {
 		parent::__construct( 'ProblemChanges' );

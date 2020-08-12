@@ -11,19 +11,19 @@ use Wikimedia\Rdbms\IDatabase;
  */
 class FlaggableWikiPage extends WikiPage {
 	/** @var int */
-	protected $stable = 0;
+	private $stable = 0;
 	/** @var FlaggedRevision|false|null */
-	protected $stableRev = null;
+	private $stableRev = null;
 	/** @var bool|null */
-	protected $revsArePending = null;
+	private $revsArePending = null;
 	/** @var int|null */
-	protected $pendingRevCount = null;
+	private $pendingRevCount = null;
 	/** @var array|null */
-	protected $pageConfig = null;
+	private $pageConfig = null;
 	/** @var bool|null */
-	protected $syncedInTracking = null;
+	private $syncedInTracking = null;
 	/** @var File|false|null For file pages */
-	protected $file = null;
+	private $file = null;
 
 	/**
 	 * Get a FlaggableWikiPage for a given title

@@ -4,28 +4,28 @@ use MediaWiki\MediaWikiServices;
 
 class PendingChanges extends SpecialPage {
 	/** @var PendingChangesPager|null */
-	protected $pager = null;
+	private $pager = null;
 
 	/** @var string */
-	protected $currentUnixTS;
+	private $currentUnixTS;
 
 	/** @var int|null */
-	protected $namespace;
+	private $namespace;
 
 	/** @var int */
-	protected $level;
+	private $level;
 
 	/** @var string */
-	protected $category;
+	private $category;
 
 	/** @var int|null */
-	protected $size;
+	private $size;
 
 	/** @var bool */
-	protected $watched;
+	private $watched;
 
 	/** @var bool */
-	protected $stable;
+	private $stable;
 
 	public function __construct() {
 		parent::__construct( 'PendingChanges' );

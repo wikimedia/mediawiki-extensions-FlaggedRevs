@@ -2,13 +2,13 @@
 
 class ReviewedVersions extends UnlistedSpecialPage {
 	/** @var string|null */
-	protected $target;
+	private $target;
 
 	/** @var Title|null */
-	protected $page;
+	private $page;
 
 	/** @var int|null */
-	protected $oldid;
+	private $oldid;
 
 	public function __construct() {
 		parent::__construct( 'ReviewedVersions' );

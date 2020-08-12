@@ -2,19 +2,19 @@
 
 class QualityOversight extends SpecialPage {
 	/** @var int */
-	protected $namespace;
+	private $namespace;
 
 	/** @var int|null */
-	protected $level;
+	private $level;
 
 	/** @var int|null */
-	protected $status;
+	private $status;
 
 	/** @var int|null */
-	protected $automatic;
+	private $automatic;
 
 	/** @var string|null */
-	protected $user;
+	private $user;
 
 	public function __construct() {
 		parent::__construct( 'QualityOversight' );

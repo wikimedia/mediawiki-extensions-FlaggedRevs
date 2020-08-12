@@ -13,7 +13,7 @@ class ReviewedVersionsPager extends ReverseChronologicalPager {
 	public $mConds;
 
 	/** @var int */
-	protected $pageID;
+	private $pageID;
 
 	/**
 	 * @param ReviewedVersions $form

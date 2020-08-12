@@ -5,7 +5,7 @@ use MediaWiki\MediaWikiServices;
 
 class Stabilization extends UnlistedSpecialPage {
 	/** @var PageStabilityGeneralForm|null */
-	protected $form = null;
+	private $form = null;
 
 	public function __construct() {
 		parent::__construct( 'Stabilization', 'stablesettings' );
