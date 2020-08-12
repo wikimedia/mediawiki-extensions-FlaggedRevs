@@ -92,7 +92,7 @@ class ApiQueryFlagged extends ApiQueryBase {
 	/**
 	 * @inheritDoc
 	 */
-	public function getAllowedParams() {
+	protected function getAllowedParams() {
 		return [];
 	}
 

@@ -112,7 +112,7 @@ class ApiReviewActivity extends ApiBase {
 	/**
 	 * @inheritDoc
 	 */
-	public function getAllowedParams() {
+	protected function getAllowedParams() {
 		return [
 			'previd'   	=> null,
 			'oldid' 	=> null,

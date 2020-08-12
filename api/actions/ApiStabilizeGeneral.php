@@ -81,7 +81,7 @@ class ApiStabilizeGeneral extends ApiStabilize {
 	/**
 	 * @inheritDoc
 	 */
-	public function getAllowedParams() {
+	protected function getAllowedParams() {
 		// Replace '' with more readable 'none' in autoreview restiction levels
 		$autoreviewLevels = FlaggedRevs::getRestrictionLevels();
 		$autoreviewLevels[] = 'none';

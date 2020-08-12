@@ -159,7 +159,7 @@ class ApiReview extends ApiBase {
 	/**
 	 * @inheritDoc
 	 */
-	public function getAllowedParams() {
+	protected function getAllowedParams() {
 		$pars = [
 			'revid'   	=> null,
 			'token'   	=> null,

@@ -136,7 +136,7 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 	/**
 	 * @inheritDoc
 	 */
-	public function getAllowedParams() {
+	protected function getAllowedParams() {
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		return [
 			'start' => [

@@ -62,7 +62,7 @@ class ReviewedPagesPager extends AlphabeticPager {
 		return 'fp_page_id';
 	}
 
-	public function doBatchLookups() {
+	protected function doBatchLookups() {
 		$lb = new LinkBatch();
 		foreach ( $this->mResult as $row ) {
 			$lb->add( $row->page_namespace, $row->page_title );
@@ -70,11 +70,11 @@ class ReviewedPagesPager extends AlphabeticPager {
 		$lb->execute();
 	}
 
-	public function getStartBody() {
+	protected function getStartBody() {
 		return '<ul>';
 	}
 
-	public function getEndBody() {
+	protected function getEndBody() {
 		return '</ul>';
 	}
 }

@@ -209,7 +209,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	 * Preload existing page settings (e.g. from GET request).
 	 * @return true|string true on success, error string on failure
 	 */
-	public function doPreloadParameters() {
+	protected function doPreloadParameters() {
 		$oldConfig = $this->getOldConfig();
 		if ( $oldConfig['expiry'] == 'infinity' ) {
 			$this->expirySelection = 'infinite'; // no settings set OR indefinite
@@ -231,7 +231,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	 *
 	 * @return true|string true on success, error string on failure
 	 */
-	public function doSubmit() {
+	protected function doSubmit() {
 		# Double-check permissions
 		if ( !$this->isAllowed() ) {
 			return 'stabilize_denied';

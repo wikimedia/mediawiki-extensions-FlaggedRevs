@@ -146,7 +146,7 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 	/**
 	 * @inheritDoc
 	 */
-	public function getAllowedParams() {
+	protected function getAllowedParams() {
 		// Replace '' with more readable 'none' in autoreview restiction levels
 		$autoreviewLevels = FlaggedRevs::getRestrictionLevels();
 		$autoreviewLevels[] = 'none';
