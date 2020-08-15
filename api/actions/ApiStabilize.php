@@ -74,8 +74,4 @@ abstract class ApiStabilize extends ApiBase {
 	public function needsToken() {
 		return 'csrf';
 	}
-
-	public function getTokenSalt() {
-		return '';
-	}
 }
