@@ -71,7 +71,7 @@ class PendingChangesPager extends AlphabeticPager {
 		return $query;
 	}
 
-	public function getDefaultDirections() {
+	protected function getDefaultDirections() {
 		return false;
 	}
 
@@ -158,7 +158,7 @@ class PendingChangesPager extends AlphabeticPager {
 		return $this->mIndexField;
 	}
 
-	public function doBatchLookups() {
+	protected function doBatchLookups() {
 		$lb = new LinkBatch();
 		foreach ( $this->mResult as $row ) {
 			$lb->add( $row->page_namespace, $row->page_title );
@@ -166,11 +166,11 @@ class PendingChangesPager extends AlphabeticPager {
 		$lb->execute();
 	}
 
-	public function getStartBody() {
+	protected function getStartBody() {
 		return '<ul>';
 	}
 
-	public function getEndBody() {
+	protected function getEndBody() {
 		return '</ul>';
 	}
 }

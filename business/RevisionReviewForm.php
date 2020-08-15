@@ -235,7 +235,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * Check that a target is given (e.g. from GET/POST request)
 	 * @return true|string true on success, error string on failure
 	 */
-	public function doCheckTargetGiven() {
+	protected function doCheckTargetGiven() {
 		if ( $this->page === null ) {
 			return 'review_page_invalid';
 		}
@@ -363,7 +363,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 *
 	 * @return true|string true on success, error string on failure
 	 */
-	public function doSubmit() {
+	protected function doSubmit() {
 		# Double-check permissions
 		if ( !$this->isAllowed() ) {
 			return 'review_denied';
