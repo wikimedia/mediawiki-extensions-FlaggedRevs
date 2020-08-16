@@ -955,6 +955,9 @@ class FlaggedRevs {
 	 * @param RevisionRecord $revRecord
 	 * @param int[]|null $flags
 	 * @param bool $auto
+	 * @param bool $approveRevertedTagUpdate Whether to notify the reverted tag
+	 *  subsystem that the edit was reviewed. Should be false when autoreviewing
+	 *  during page creation, true otherwise. Default is false.
 	 * @return bool
 	 */
 	public static function autoReviewEdit(
@@ -962,7 +965,8 @@ class FlaggedRevs {
 		$user,
 		RevisionRecord $revRecord,
 		array $flags = null,
-		$auto = true
+		$auto = true,
+		$approveRevertedTagUpdate = false
 	) {
 		$title = $article->getTitle(); // convenience
 		# Get current stable version ID (for logging)
@@ -1068,7 +1072,17 @@ class FlaggedRevs {
 			'fileVersions'     	=> $fVersions,
 			'flags'             => $auto ? 'auto' : '',
 		], $title );
-		$flaggedRevision->insert();
+
+		// Insert the flagged revision
+		$success = $flaggedRevision->insert();
+		if ( !$success ) {
+			return false;
+		}
+
+		if ( $approveRevertedTagUpdate ) {
+			$flaggedRevision->approveRevertedTagUpdate();
+		}
+
 		# Update the article review log
 		FlaggedRevsLog::updateReviewLog( $title,
 			$flags, [], '', $revRecord->getId(), $oldSvId, true, $auto, $user );

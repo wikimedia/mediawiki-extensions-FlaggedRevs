@@ -173,7 +173,14 @@ class FlaggedRevsHooks {
 								RevisionLookup::READ_LATEST
 							);
 						if ( $revRecord ) { // sanity
-							FlaggedRevs::autoReviewEdit( $fa, $user, $revRecord );
+							FlaggedRevs::autoReviewEdit(
+								$fa,
+								$user,
+								$revRecord,
+								null,
+								true,
+								true // approve the reverted tag update
+							);
 						}
 					}
 				}
@@ -1358,6 +1365,9 @@ class FlaggedRevsHooks {
 
 	/**
 	 * Handler for EchoGetDefaultNotifiedUsers hook.
+	 *
+	 * This should go once we can remove all Echo-specific code for reverts,
+	 * see: T153570
 	 * @param EchoEvent $event EchoEvent to get implicitly subscribed users for
 	 * @param array &$users Array to append implicitly subscribed users to.
 	 */
@@ -1392,5 +1402,47 @@ class FlaggedRevsHooks {
 		if ( $engine == 'lua' ) {
 			$extraLibraries['mw.ext.FlaggedRevs'] = 'FlaggedRevsScribuntoLuaLibrary';
 		}
+	}
+
+	/**
+	 * Handler for BeforeRevertedTagUpdate hook.
+	 *
+	 * As the hook is called after saving the edit (in a deferred update), we have already
+	 * figured out whether the edit should be autoreviewed or not (see: maybeMakeEditReviewed
+	 * method). This hook just checks whether the edit is marked as reviewed or not.
+	 * @param WikiPage $wikiPage
+	 * @param UserIdentity $user
+	 * @param CommentStoreComment $summary
+	 * @param int $flags
+	 * @param RevisionRecord $revisionRecord
+	 * @param EditResult $editResult
+	 * @param bool &$approved
+	 */
+	public static function onBeforeRevertedTagUpdate(
+		WikiPage $wikiPage,
+		UserIdentity $user,
+		CommentStoreComment $summary,
+		int $flags,
+		RevisionRecord $revisionRecord,
+		EditResult $editResult,
+		bool &$approved
+	) {
+		$title = $wikiPage->getTitle();
+		$fPage = FlaggableWikiPage::getTitleInstance( $title );
+		$fPage->loadPageData( FlaggableWikiPage::READ_LATEST );
+		if ( !$fPage->isReviewable() ) {
+			// The page is not reviewable
+			return;
+		}
+
+		// Check if the revision was approved
+		$flaggedRev = FlaggedRevision::newFromTitle(
+			$wikiPage->getTitle(),
+			$revisionRecord->getId(),
+			FR_MASTER
+		);
+		// FlaggedRevision object exists if and only if for each of the defined review tags,
+		// the edit has at least a "minimum" review level.
+		$approved = $flaggedRev !== null;
 	}
 }

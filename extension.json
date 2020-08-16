@@ -10,7 +10,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "specialpage",
 	"requires": {
-		"MediaWiki": ">= 1.35.0"
+		"MediaWiki": ">= 1.36.0"
 	},
 	"callback": "FlaggedRevsHooks::onRegistration",
 	"ExtensionFunctions": [
@@ -355,6 +355,7 @@
 		"AutopromoteCondition": "FlaggedRevsHooks::checkAutoPromoteCond",
 		"BeforePageDisplay": "FlaggedRevsUIHooks::onBeforePageDisplay",
 		"BeforeParserFetchFileAndTitle": "FlaggedRevsHooks::parserFetchStableFile",
+		"BeforeRevertedTagUpdate": "FlaggedRevsHooks::onBeforeRevertedTagUpdate",
 		"CategoryPageView": "FlaggedRevsUIHooks::onCategoryPageView",
 		"ChangesListInsertArticleLink": "FlaggedRevsUIHooks::addToChangeListLine",
 		"ChangesListSpecialPageQuery": "FlaggedRevsUIHooks::modifyChangesListSpecialPageQuery",
