@@ -349,15 +349,6 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * Are there no actual dimensions?
-	 * @return bool
-	 */
-	public static function dimensionsEmpty() {
-		self::load();
-		return empty( self::$dimensions );
-	}
-
-	/**
 	 * Get corresponding text for the api output of flagging levels
 	 *
 	 * @param int $level

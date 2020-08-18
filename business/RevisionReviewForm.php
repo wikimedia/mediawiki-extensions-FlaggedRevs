@@ -133,24 +133,10 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	}
 
 	/**
-	 * @return string
-	 */
-	public function getTemplateParams() {
-		return $this->templateParams;
-	}
-
-	/**
 	 * @param string $value
 	 */
 	public function setTemplateParams( $value ) {
 		$this->trySet( $this->templateParams, $value );
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getFileParams() {
-		return $this->imageParams;
 	}
 
 	/**
@@ -161,24 +147,10 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	}
 
 	/**
-	 * @return string
-	 */
-	public function getFileVersion() {
-		return $this->fileVersion;
-	}
-
-	/**
 	 * @param string $value
 	 */
 	public function setFileVersion( $value ) {
 		$this->trySet( $this->fileVersion, $value );
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getValidatedParams() {
-		return $this->validatedParams;
 	}
 
 	/**
@@ -200,13 +172,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 */
 	public function setComment( $value ) {
 		$this->trySet( $this->comment, $value );
-	}
-
-	/**
-	 * @return int[]
-	 */
-	public function getDims() {
-		return $this->dims;
 	}
 
 	/**
