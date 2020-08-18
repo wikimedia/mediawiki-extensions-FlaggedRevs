@@ -192,7 +192,7 @@ class FRPageConfig {
 	 * Purge expired restrictions from the flaggedpage_config table.
 	 * The stable version of pages may change and invalidation may be required.
 	 */
-	public static function purgeExpiredConfigurations() {
+	private static function purgeExpiredConfigurations() {
 		if ( wfReadOnly() ) {
 			return;
 		}

@@ -459,7 +459,7 @@ class FlaggedRevision {
 	 * Get query info for FlaggedRevision DB row (flaggedrevs/revision tables)
 	 * @return array
 	 */
-	public static function getQueryInfo() {
+	private static function getQueryInfo() {
 		$revQuery = MediaWikiServices::getInstance()->getRevisionStore()->getQueryInfo();
 		return [
 			'tables' => array_merge( [ 'flaggedrevs' ], $revQuery['tables'] ),
@@ -487,7 +487,7 @@ class FlaggedRevision {
 	/**
 	 * @return int page ID
 	 */
-	public function getPage() {
+	private function getPage() {
 		return $this->mRevRecord->getPageId();
 	}
 

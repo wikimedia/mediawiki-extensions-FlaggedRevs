@@ -321,7 +321,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		return true;
 	}
 
-	public function isAllowed() {
+	private function isAllowed() {
 		// Basic permission check
 		return ( $this->page && MediaWikiServices::getInstance()->getPermissionManager()
 			->userCan( 'review', $this->user, $this->page ) );
@@ -773,7 +773,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * templateIds like ParserOutput->mTemplateIds
 	 * fileSHA1Keys like ParserOutput->mImageTimeKeys
 	 */
-	public static function getIncludeVersions( $templateParams, $imageParams ) {
+	private static function getIncludeVersions( $templateParams, $imageParams ) {
 		$templateIds = [];
 		$templateMap = explode( '#', trim( $templateParams ) );
 		foreach ( $templateMap as $template ) {

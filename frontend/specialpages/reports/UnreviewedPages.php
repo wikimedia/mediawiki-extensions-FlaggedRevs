@@ -208,7 +208,7 @@ class UnreviewedPages extends SpecialPage {
 	 * There may be many pages, most of which are reviewed
 	 * @return bool
 	 */
-	public static function generalQueryOK() {
+	private static function generalQueryOK() {
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		if ( !$namespaces || !wfQueriesMustScale() ) {
 			return true;

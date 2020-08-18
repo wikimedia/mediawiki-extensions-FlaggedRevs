@@ -50,7 +50,7 @@ class FRInclusionManager {
 	 * @param int[][] $tmpParams (ns => dbKey => revId )
 	 * @param array[] $imgParams (dbKey => ['time' => MW timestamp,'sha1' => sha1] )
 	 */
-	public function setReviewedVersions( array $tmpParams, array $imgParams ) {
+	private function setReviewedVersions( array $tmpParams, array $imgParams ) {
 		$this->reviewedVersions = [];
 		$this->reviewedVersions['templates'] = self::formatTemplateArray( $tmpParams );
 		$this->reviewedVersions['files'] = self::formatFileArray( $imgParams );
@@ -61,7 +61,7 @@ class FRInclusionManager {
 	 * @param int[][] $tmpParams (ns => dbKey => revId )
 	 * @param array[] $imgParams (dbKey => ['time' => MW timestamp,'sha1' => sha1] )
 	 */
-	public function setStableVersionCache( array $tmpParams, array $imgParams ) {
+	private function setStableVersionCache( array $tmpParams, array $imgParams ) {
 		$this->stableVersions['templates'] = self::formatTemplateArray( $tmpParams );
 		$this->stableVersions['files'] = self::formatFileArray( $imgParams );
 	}
