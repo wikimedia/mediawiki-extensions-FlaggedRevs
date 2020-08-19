@@ -207,7 +207,6 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 
 	/**
 	 * Preload existing page settings (e.g. from GET request).
-	 * @return true|string true on success, error string on failure
 	 */
 	protected function doPreloadParameters() {
 		$oldConfig = $this->getOldConfig();
@@ -216,15 +215,13 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		} else {
 			$this->expirySelection = 'existing'; // settings set and NOT indefinite
 		}
-		return $this->reallyDoPreloadParameters(); // load the params...
+		$this->reallyDoPreloadParameters();
 	}
 
 	/**
-	 * @return true|string true on success, error string on failure
+	 * Override this in subclasses to preload parameters other than expirySelection
 	 */
-	protected function reallyDoPreloadParameters() {
-		return true;
-	}
+	abstract protected function reallyDoPreloadParameters();
 
 	/**
 	 * Submit the form parameters for the page config to the DB.

@@ -169,20 +169,15 @@ abstract class FRGenericSubmitForm {
 		if ( $status !== true ) {
 			return $status; // bad target
 		}
-		$status = $this->doPreloadParameters();
-		if ( $status !== true ) {
-			return $status; // bad target
-		}
+		$this->doPreloadParameters();
 		$this->state = self::FORM_PRELOADED;
 		return true;
 	}
 
 	/**
 	 * Preload existing params for the target from the DB (e.g. for GET request)
-	 * @return true|string true on success, error string on failure
 	 */
 	protected function doPreloadParameters() {
-		return true;
 	}
 
 	/**

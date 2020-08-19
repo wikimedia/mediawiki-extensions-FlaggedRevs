@@ -23,7 +23,6 @@ class PageStabilityGeneralForm extends PageStabilityForm {
 		$this->override = $oldConfig['override'];
 		$this->autoreview = $oldConfig['autoreview'];
 		$this->watchThis = $this->getUser()->isWatched( $this->page );
-		return true;
 	}
 
 	protected function reallyDoCheckParameters() {
