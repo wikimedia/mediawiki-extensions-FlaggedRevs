@@ -1092,15 +1092,12 @@ class FlaggedRevs {
 		// Param to pass to JS function to know if tags are at quality level
 		$tagsJS = [];
 		foreach ( self::$dimensions as $tag => $x ) {
-			$tagsJS[$tag] = [];
-			$tagsJS[$tag]['levels'] = count( $x ) - 1;
-			$tagsJS[$tag]['quality'] = self::$minQL[$tag];
-			$tagsJS[$tag]['pristine'] = self::$minPL[$tag];
+			$tagsJS[$tag] = [
+				'levels' => count( $x ) - 1,
+				'quality' => self::$minQL[$tag],
+				'pristine' => self::$minPL[$tag],
+			];
 		}
-		if ( $tagsJS ) {
-			return [ 'tags' => $tagsJS ];
-		} else {
-			return null;
-		}
+		return $tagsJS ? [ 'tags' => $tagsJS ] : null;
 	}
 }
