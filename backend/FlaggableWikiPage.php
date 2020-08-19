@@ -394,7 +394,7 @@ class FlaggableWikiPage extends WikiPage {
 			array_merge( $pageQuery['tables'], [ 'flaggedpages', 'flaggedpage_config' ] ),
 			array_merge(
 				$pageQuery['fields'],
-				FRPageConfig::selectFields(),
+				[ 'fpc_override', 'fpc_level', 'fpc_expiry' ],
 				[ 'fp_pending_since', 'fp_stable', 'fp_reviewed' ]
 			),
 			$conditions,
