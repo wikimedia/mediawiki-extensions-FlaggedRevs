@@ -76,7 +76,7 @@ class PendingChanges extends SpecialPage {
 		}
 	}
 
-	protected function setSyndicated() {
+	private function setSyndicated() {
 		$request = $this->getRequest();
 		$queryParams = [
 			'namespace' => $request->getIntOrNull( 'namespace' ),
@@ -167,7 +167,7 @@ class PendingChanges extends SpecialPage {
 	 * @param string $par
 	 * @return bool|int
 	 */
-	protected function parseParams( $par ) {
+	private function parseParams( $par ) {
 		$bits = preg_split( '/\s*,\s*/', trim( $par ) );
 		$limit = false;
 		foreach ( $bits as $bit ) {
@@ -195,7 +195,7 @@ class PendingChanges extends SpecialPage {
 	 * Output a subscription feed listing recent edits to this page.
 	 * @param string $type
 	 */
-	protected function feed( $type ) {
+	private function feed( $type ) {
 		global $wgFeed, $wgFeedClasses, $wgFeedLimit;
 
 		if ( !$wgFeed ) {
@@ -222,7 +222,7 @@ class PendingChanges extends SpecialPage {
 		$feed->outFooter();
 	}
 
-	protected function feedTitle() {
+	private function feedTitle() {
 		global $wgLanguageCode, $wgSitename;
 
 		$page = MediaWikiServices::getInstance()->getSpecialPageFactory()
@@ -236,7 +236,7 @@ class PendingChanges extends SpecialPage {
 	 * @return FeedItem|null
 	 * @suppress SecurityCheck-DoubleEscaped false positive
 	 */
-	protected function feedItem( $row ) {
+	private function feedItem( $row ) {
 		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
 		if ( $title ) {
 			$date = $row->pending_since;
@@ -342,7 +342,7 @@ class PendingChanges extends SpecialPage {
 			"{$quality}{$watching}{$underReview}</li>" );
 	}
 
-	protected static function getLineClass( $hours, $uw ) {
+	private static function getLineClass( $hours, $uw ) {
 		if ( $uw == 0 ) {
 			return 'fr-unreviewed-unwatched';
 		} else {

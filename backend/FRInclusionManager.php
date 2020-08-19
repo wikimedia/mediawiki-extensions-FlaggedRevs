@@ -26,10 +26,10 @@ class FRInclusionManager {
 		return self::$instance;
 	}
 
-	protected function __clone() {
+	private function __clone() {
 	}
 
-	protected function __construct() {
+	private function __construct() {
 		$this->stableVersions['templates'] = [];
 		$this->stableVersions['files'] = [];
 	}
@@ -71,7 +71,7 @@ class FRInclusionManager {
 	 * @param int[][] $params (ns => dbKey => revId )
 	 * @return int[][]
 	 */
-	protected function formatTemplateArray( array $params ) {
+	private function formatTemplateArray( array $params ) {
 		$res = [];
 		foreach ( $params as $ns => $templates ) {
 			$res[$ns] = [];
@@ -88,7 +88,7 @@ class FRInclusionManager {
 	 * @phan-param array<string,array{time:string,sha1:string}> $params
 	 * @return array[]
 	 */
-	protected function formatFileArray( array $params ) {
+	private function formatFileArray( array $params ) {
 		$res = [];
 		foreach ( $params as $dbKey => $timeKey ) {
 			$time = '0'; // missing

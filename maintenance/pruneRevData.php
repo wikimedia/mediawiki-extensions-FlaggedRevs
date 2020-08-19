@@ -37,7 +37,7 @@ class PruneFRIncludeData extends Maintenance {
 		$this->prune_flaggedrevs( $start, $prune );
 	}
 
-	protected function prune_flaggedrevs( $start = null, $prune = false ) {
+	private function prune_flaggedrevs( $start = null, $prune = false ) {
 		if ( $prune ) {
 			$this->output( "Pruning old flagged revision inclusion data...\n" );
 		} else {

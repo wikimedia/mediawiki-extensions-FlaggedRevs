@@ -37,7 +37,7 @@ class ReviewedVersions extends UnlistedSpecialPage {
 		$this->showStableList();
 	}
 
-	protected function showStableList() {
+	private function showStableList() {
 		$out = $this->getOutput();
 		# Must be a content page
 		if ( !FlaggedRevs::inReviewNamespace( $this->page ) ) {

@@ -37,7 +37,7 @@ class FRExtraCacheUpdateJob extends Job {
 	/**
 	 * @return bool
 	 */
-	protected function doBacklinkPurge() {
+	private function doBacklinkPurge() {
 		$dbr = wfGetDB( DB_REPLICA );
 		$update = new FRExtraCacheUpdate( $this->title );
 		# Get query conditions
@@ -55,7 +55,7 @@ class FRExtraCacheUpdateJob extends Job {
 		return true;
 	}
 
-	protected function doUpdateLinks() {
+	private function doUpdateLinks() {
 		$fpage = FlaggableWikiPage::getTitleInstance( $this->title );
 		$srev = $fpage->getStableRev();
 		if ( $srev ) {
@@ -76,7 +76,7 @@ class FRExtraCacheUpdateJob extends Job {
 		return true;
 	}
 
-	protected function doUpdateSyncState() {
+	private function doUpdateSyncState() {
 		$fpage = FlaggableWikiPage::getTitleInstance( $this->title );
 		if ( !$fpage->getId() || !$fpage->getStable() ) {
 			return true;

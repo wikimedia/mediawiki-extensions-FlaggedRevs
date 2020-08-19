@@ -13,7 +13,7 @@ class FlaggedRevsUIHooks {
 	 *
 	 * @param OutputPage $out
 	 */
-	protected static function injectStyleAndJS( OutputPage $out ) {
+	private static function injectStyleAndJS( OutputPage $out ) {
 		static $loadedModules = false;
 		if ( $loadedModules ) {
 			return; // don't double-load
@@ -65,7 +65,7 @@ class FlaggedRevsUIHooks {
 	 * Add FlaggedRevs css for relevant special pages.
 	 * @param OutputPage &$out
 	 */
-	protected static function injectStyleForSpecial( &$out ) {
+	private static function injectStyleForSpecial( &$out ) {
 		$title = $out->getTitle();
 		$spPages = [ 'UnreviewedPages', 'PendingChanges', 'ProblemChanges',
 			'Watchlist', 'Recentchanges', 'Contributions', 'Recentchangeslinked' ];
@@ -708,7 +708,7 @@ class FlaggedRevsUIHooks {
 	 * @param stdClass $row from history page
 	 * @return array (string,string)
 	 */
-	protected static function markHistoryRow( IContextSource $ctx, Title $title, $row ) {
+	private static function markHistoryRow( IContextSource $ctx, Title $title, $row ) {
 		if ( !isset( $row->fr_quality ) ) {
 			return [ "", "" ]; // not reviewed
 		}
@@ -895,7 +895,7 @@ class FlaggedRevsUIHooks {
 		$view->addReviewCheck( $editPage, $checkboxes );
 	}
 
-	protected static function maybeAddBacklogNotice( OutputPage &$out ) {
+	private static function maybeAddBacklogNotice( OutputPage &$out ) {
 		if ( !MediaWikiServices::getInstance()->getPermissionManager()
 			->userHasRight( $out->getUser(), 'review' ) ) {
 			// Not relevant to user

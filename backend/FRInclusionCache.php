@@ -96,7 +96,7 @@ class FRInclusionCache {
 		return $versions;
 	}
 
-	protected static function templatesStale( array $tVersions ) {
+	private static function templatesStale( array $tVersions ) {
 		# Do a link batch query for page_latest...
 		$lb = new LinkBatch();
 		foreach ( $tVersions as $ns => $tmps ) {
@@ -121,7 +121,7 @@ class FRInclusionCache {
 	 * @param array[] $fVersions
 	 * @return bool
 	 */
-	protected static function filesStale( array $fVersions ) {
+	private static function filesStale( array $fVersions ) {
 		$repoGroup = MediaWikiServices::getInstance()->getRepoGroup();
 		# Check if any of these files have a newer version
 		foreach ( $fVersions as $name => $timeAndSHA1 ) {
@@ -160,7 +160,7 @@ class FRInclusionCache {
 	 * @param int $revId
 	 * @return string
 	 */
-	protected static function getCacheKey( WANObjectCache $cache, Title $title, $revId ) {
+	private static function getCacheKey( WANObjectCache $cache, Title $title, $revId ) {
 		$hash = md5( $title->getPrefixedDBkey() );
 
 		return $cache->makeKey( 'flaggedrevs-inclusions', $revId, $hash );

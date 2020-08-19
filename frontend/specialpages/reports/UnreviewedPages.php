@@ -63,7 +63,7 @@ class UnreviewedPages extends SpecialPage {
 		$this->showPageList();
 	}
 
-	protected function showForm() {
+	private function showForm() {
 		global $wgScript;
 
 		# Add explanatory text
@@ -120,7 +120,7 @@ class UnreviewedPages extends SpecialPage {
 		$this->getOutput()->addHTML( $form );
 	}
 
-	protected function showPageList() {
+	private function showPageList() {
 		$out = $this->getOutput();
 		if ( $this->pager->getNumRows() ) {
 			$out->addHTML( $this->pager->getNavigationBar() );
@@ -192,7 +192,7 @@ class UnreviewedPages extends SpecialPage {
 			"{$age}{$watching}{$underReview}</li>" );
 	}
 
-	protected static function getLineClass( $hours, $uw ) {
+	private static function getLineClass( $hours, $uw ) {
 		if ( $uw == 0 ) {
 			return 'fr-unreviewed-unwatched';
 		} elseif ( $hours > 20 * 24 ) {

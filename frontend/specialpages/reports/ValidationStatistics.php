@@ -202,7 +202,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 		}
 	}
 
-	protected function maybeUpdate() {
+	private function maybeUpdate() {
 		global $wgFlaggedRevsStatsAge;
 
 		if ( !$wgFlaggedRevsStatsAge ) {
@@ -230,7 +230,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 		}
 	}
 
-	protected function readyForQuery() {
+	private function readyForQuery() {
 		$dbr = wfGetDB( DB_REPLICA );
 
 		if ( !$dbr->tableExists( 'flaggedrevs_statistics', __METHOD__ ) ) {
@@ -240,7 +240,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 		}
 	}
 
-	protected function getEditorCount() {
+	private function getEditorCount() {
 		$dbr = wfGetDB( DB_REPLICA );
 
 		return $dbr->selectField( 'user_groups', 'COUNT(*)',
@@ -251,7 +251,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 			__METHOD__ );
 	}
 
-	protected function getReviewerCount() {
+	private function getReviewerCount() {
 		$dbr = wfGetDB( DB_REPLICA );
 
 		return $dbr->selectField( 'user_groups', 'COUNT(*)',
@@ -265,49 +265,49 @@ class ValidationStatistics extends IncludableSpecialPage {
 	/**
 	 * @return array
 	 */
-	protected function getStats() {
+	private function getStats() {
 		if ( $this->latestData === null ) {
 			$this->latestData = FlaggedRevsStats::getStats();
 		}
 		return $this->latestData;
 	}
 
-	protected function getMeanReviewWaitAnon() {
+	private function getMeanReviewWaitAnon() {
 		$stats = $this->getStats();
 		return $stats['reviewLag-anon-average'];
 	}
 
-	protected function getMedianReviewWaitAnon() {
+	private function getMedianReviewWaitAnon() {
 		$stats = $this->getStats();
 		return $stats['reviewLag-anon-median'];
 	}
 
-	protected function getMeanPendingWait() {
+	private function getMeanPendingWait() {
 		$stats = $this->getStats();
 		return $stats['pendingLag-average'];
 	}
 
-	protected function getTotalPages( $ns ) {
+	private function getTotalPages( $ns ) {
 		$stats = $this->getStats();
 		return $stats['totalPages-NS'][$ns] ?? '-';
 	}
 
-	protected function getReviewedPages( $ns ) {
+	private function getReviewedPages( $ns ) {
 		$stats = $this->getStats();
 		return $stats['reviewedPages-NS'][$ns] ?? '-';
 	}
 
-	protected function getSyncedPages( $ns ) {
+	private function getSyncedPages( $ns ) {
 		$stats = $this->getStats();
 		return $stats['syncedPages-NS'][$ns] ?? '-';
 	}
 
-	protected function getReviewPercentilesAnon() {
+	private function getReviewPercentilesAnon() {
 		$stats = $this->getStats();
 		return $stats['reviewLag-anon-percentile'];
 	}
 
-	protected function getLastUpdate() {
+	private function getLastUpdate() {
 		$stats = $this->getStats();
 		return $stats['statTimestamp'];
 	}
@@ -316,7 +316,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 	 * Get top X reviewers in the last Y hours
 	 * @return array
 	 */
-	protected function getTopReviewers() {
+	private function getTopReviewers() {
 		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		$fname = __METHOD__;
 

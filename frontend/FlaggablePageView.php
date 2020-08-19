@@ -61,10 +61,10 @@ class FlaggablePageView extends ContextSource {
 		return self::$instance;
 	}
 
-	protected function __construct() {
+	private function __construct() {
 	}
 
-	protected function __clone() {
+	private function __clone() {
 	}
 
 	/**
@@ -78,7 +78,7 @@ class FlaggablePageView extends ContextSource {
 	/**
 	 * Load the global FlaggableWikiPage instance
 	 */
-	protected function load() {
+	private function load() {
 		if ( !$this->loaded ) {
 			$this->loaded = true;
 			$this->article = self::globalArticleInstance();
@@ -117,7 +117,7 @@ class FlaggablePageView extends ContextSource {
 	 * This factors in site/page config, user preferences, and web request params.
 	 * @return bool
 	 */
-	protected function showingStableAsDefault() {
+	private function showingStableAsDefault() {
 		$this->load();
 
 		$request = $this->getRequest();
@@ -146,7 +146,7 @@ class FlaggablePageView extends ContextSource {
 	 * (b) the stable version exists and is to be displayed
 	 * @return bool
 	 */
-	protected function showingStableByRequest() {
+	private function showingStableByRequest() {
 		$request = $this->getRequest();
 		$this->load();
 		# Are we explicity requesting the stable version?
@@ -192,7 +192,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param User $user
 	 * @return int One of the FR_SHOW_STABLE_* constants
 	 */
-	protected function getPageViewStabilityModeForUser( $user ) {
+	private function getPageViewStabilityModeForUser( $user ) {
 		# Check user preferences (e.g. "show stable version by default?")
 		$preference = (int)$user->getOption( 'flaggedrevsstable' );
 		if ( $preference === FR_SHOW_STABLE_ALWAYS || $preference === FR_SHOW_STABLE_NEVER ) {
@@ -218,7 +218,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param WebRequest $request
 	 * @return bool
 	 */
-	protected function isPageViewOrDiff( WebRequest $request ) {
+	private function isPageViewOrDiff( WebRequest $request ) {
 		global $mediaWiki;
 
 		$action = isset( $mediaWiki )
@@ -233,7 +233,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param WebRequest $request
 	 * @return bool
 	 */
-	protected function isPageView( WebRequest $request ) {
+	private function isPageView( WebRequest $request ) {
 		return ( $this->isPageViewOrDiff( $request ) && $request->getVal( 'diff' ) === null );
 	}
 
@@ -242,7 +242,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param WebRequest $request
 	 * @return bool
 	 */
-	protected function isDefaultPageView( WebRequest $request ) {
+	private function isDefaultPageView( WebRequest $request ) {
 		global $mediaWiki;
 
 		$action = isset( $mediaWiki )
@@ -262,7 +262,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param string $action string from MediaWiki::getAction()
 	 * @return bool
 	 */
-	protected static function isViewAction( $action ) {
+	private static function isViewAction( $action ) {
 		return ( $action == 'view' || $action == 'purge' || $action == 'render' );
 	}
 
@@ -315,7 +315,7 @@ class FlaggablePageView extends ContextSource {
 	/**
 	 * @return mixed int/false/null
 	 */
-	protected function getRequestedStableId() {
+	private function getRequestedStableId() {
 		$request = $this->getRequest();
 		$reqId = $request->getVal( 'stableid' );
 		if ( $reqId === "best" ) {
@@ -472,7 +472,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param string $prot protection notice
 	 * Tag output function must be called by caller
 	 */
-	protected function showUnreviewedPage( &$tag, $prot ) {
+	private function showUnreviewedPage( &$tag, $prot ) {
 		if ( $this->out->isPrintable() || $this->isOnMobile() ) {
 			return; // all this function does is add notices; don't show them
 		}
@@ -495,7 +495,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param string $prot protection notice icon
 	 * @return void
 	 */
-	protected function showDraftVersion( FlaggedRevision $srev, &$tag, $prot ) {
+	private function showDraftVersion( FlaggedRevision $srev, &$tag, $prot ) {
 		$request = $this->getRequest();
 		$reqUser = $this->getUser();
 		$this->load();
@@ -615,7 +615,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param string $prot protection notice icon
 	 * @return ParserOutput
 	 */
-	protected function showOldReviewedVersion( FlaggedRevision $frev, &$tag, $prot ) {
+	private function showOldReviewedVersion( FlaggedRevision $frev, &$tag, $prot ) {
 		$reqUser = $this->getUser();
 		$this->load();
 		$flags = $frev->getTags();
@@ -685,7 +685,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param string $prot protection notice
 	 * @return ParserOutput
 	 */
-	protected function showStableVersion( FlaggedRevision $srev, &$tag, $prot ) {
+	private function showStableVersion( FlaggedRevision $srev, &$tag, $prot ) {
 		$reqUser = $this->getUser();
 		$this->load();
 		$flags = $srev->getTags();
@@ -820,7 +820,7 @@ class FlaggablePageView extends ContextSource {
 		$this->out->enableOOUI();
 	}
 
-	protected function showPoolError( Status $status ) {
+	private function showPoolError( Status $status ) {
 		$this->out->enableClientCache( false );
 		$this->out->setRobotPolicy( 'noindex,nofollow' );
 
@@ -828,7 +828,7 @@ class FlaggablePageView extends ContextSource {
 		$this->out->wrapWikiTextAsInterface( 'errorbox', $errortext );
 	}
 
-	protected function showMissingRevError( $revId ) {
+	private function showMissingRevError( $revId ) {
 		$this->out->enableClientCache( false );
 		$this->out->setRobotPolicy( 'noindex,nofollow' );
 
@@ -842,7 +842,7 @@ class FlaggablePageView extends ContextSource {
 	 * Show icons for draft/stable/old reviewed versions
 	 * @return bool
 	 */
-	protected function showRatingIcon() {
+	private function showRatingIcon() {
 		if ( FlaggedRevs::useSimpleConfig() ) {
 			// If there is only one quality level and we have tabs to know
 			// which version we are looking at, then just use the lock icon...
@@ -857,7 +857,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param bool $quality revision is quality
 	 * @return string the html line (either "" or "<diff toggle><diff div>")
 	 */
-	protected function getTopDiffToggle( FlaggedRevision $srev, $quality ) {
+	private function getTopDiffToggle( FlaggedRevision $srev, $quality ) {
 		$reqUser = $this->getUser();
 		$this->load();
 		if ( !$reqUser->getBoolOption( 'flaggedrevsviewdiffs' ) ) {
@@ -932,7 +932,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param string $rightStatus
 	 * @return string
 	 */
-	protected function getFormattedDiff(
+	private function getFormattedDiff(
 		$diffBody, $multiNotice, $leftStatus, $rightStatus
 	) {
 		$tableClass = 'diff diff-contentalign-' .
@@ -1187,7 +1187,7 @@ class FlaggablePageView extends ContextSource {
 		$this->noticesDone = true;
 	}
 
-	protected function stabilityLogNotice( $showToggle = true ) {
+	private function stabilityLogNotice( $showToggle = true ) {
 		$this->load();
 		$s = '';
 		# Only for pages manually made to be stable...
@@ -1467,7 +1467,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param array[] &$views
 	 * @param FlaggedRevision $srev
 	 */
-	protected function addDraftTab( array &$views, FlaggedRevision $srev ) {
+	private function addDraftTab( array &$views, FlaggedRevision $srev ) {
 		$request = $this->getRequest();
 		$title = $this->article->getTitle(); // convenience
 		$tabs = [
@@ -1537,7 +1537,7 @@ class FlaggablePageView extends ContextSource {
 	 * Check if a flaggedrevs relevant write op was done this page view
 	 * @return bool
 	 */
-	protected function pageWriteOpRequested() {
+	private function pageWriteOpRequested() {
 		$request = $this->getRequest();
 		# Hack for bug 16734 (some actions update and view all at once)
 		$action = $request->getVal( 'action' );
@@ -1549,7 +1549,7 @@ class FlaggablePageView extends ContextSource {
 		return false;
 	}
 
-	protected function getOldIDFromRequest() {
+	private function getOldIDFromRequest() {
 		$article = Article::newFromWikiPage( $this->article, RequestContext::getMain() );
 		return $article->getOldIDFromRequest();
 	}
@@ -1872,7 +1872,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param array|null $newTemplates
 	 * @return array
 	 */
-	protected static function fetchTemplateChanges( FlaggedRevision $frev, $newTemplates = null ) {
+	private static function fetchTemplateChanges( FlaggedRevision $frev, $newTemplates = null ) {
 		$diffLinks = [];
 		if ( $newTemplates === null ) {
 			$changes = $frev->findPendingTemplateChanges();
@@ -1900,7 +1900,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param array|null $newFiles
 	 * @return array
 	 */
-	protected static function fetchFileChanges( FlaggedRevision $frev, $newFiles = null ) {
+	private static function fetchFileChanges( FlaggedRevision $frev, $newFiles = null ) {
 		$diffLinks = [];
 		if ( $newFiles === null ) {
 			$changes = $frev->findPendingFileChanges( 'noForeign' );
@@ -2061,7 +2061,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param EditPage $editPage
 	 * @return bool
 	 */
-	protected function editWillRequireReview( EditPage $editPage ) {
+	private function editWillRequireReview( EditPage $editPage ) {
 		$request = $this->getRequest(); // convenience
 		$title = $this->article->getTitle(); // convenience
 		if ( !$this->editRequiresReview( $editPage ) ) {
@@ -2080,7 +2080,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param EditPage $editPage
 	 * @return bool
 	 */
-	protected function editRequiresReview( EditPage $editPage ) {
+	private function editRequiresReview( EditPage $editPage ) {
 		if ( !$this->article->editsRequireReview() ) {
 			return false; // edits go live immediatly
 		} elseif ( $this->editWillBeAutoreviewed( $editPage ) ) {
@@ -2095,7 +2095,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param EditPage $editPage
 	 * @return bool
 	 */
-	protected function editWillBeAutoreviewed( EditPage $editPage ) {
+	private function editWillBeAutoreviewed( EditPage $editPage ) {
 		$title = $this->article->getTitle(); // convenience
 		if ( !$this->article->isReviewable() ) {
 			return false;
@@ -2218,7 +2218,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param WebRequest $request
 	 * @return int
 	 */
-	protected static function getBaseRevId( EditPage $editPage, WebRequest $request ) {
+	private static function getBaseRevId( EditPage $editPage, WebRequest $request ) {
 		if ( $editPage->isConflict ) {
 			return 0; // throw away these values (bug 33481)
 		}
@@ -2250,7 +2250,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param WebRequest $request
 	 * @return int
 	 */
-	protected static function getAltBaseRevId( EditPage $editPage, WebRequest $request ) {
+	private static function getAltBaseRevId( EditPage $editPage, WebRequest $request ) {
 		if ( $editPage->isConflict ) {
 			return 0; // throw away these values (bug 33481)
 		}

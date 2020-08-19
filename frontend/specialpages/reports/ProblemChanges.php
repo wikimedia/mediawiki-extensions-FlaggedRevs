@@ -62,7 +62,7 @@ class ProblemChanges extends SpecialPage {
 		}
 	}
 
-	protected function setSyndicated() {
+	private function setSyndicated() {
 		$request = $this->getRequest();
 		$queryParams = [
 			'level'     => $request->getIntOrNull( 'level' ),
@@ -132,7 +132,7 @@ class ProblemChanges extends SpecialPage {
 	 * @param string $par
 	 * @return bool|int
 	 */
-	protected function parseParams( $par ) {
+	private function parseParams( $par ) {
 		$bits = preg_split( '/\s*,\s*/', trim( $par ) );
 		$limit = false;
 		foreach ( $bits as $bit ) {
@@ -157,7 +157,7 @@ class ProblemChanges extends SpecialPage {
 	 * Output a subscription feed listing recent edits to this page.
 	 * @param string $type
 	 */
-	protected function feed( $type ) {
+	private function feed( $type ) {
 		global $wgFeed, $wgFeedClasses, $wgFeedLimit;
 
 		if ( !$wgFeed ) {
@@ -184,7 +184,7 @@ class ProblemChanges extends SpecialPage {
 		$feed->outFooter();
 	}
 
-	protected function feedTitle() {
+	private function feedTitle() {
 		global $wgLanguageCode, $wgSitename;
 
 		$page = MediaWikiServices::getInstance()->getSpecialPageFactory()
@@ -198,7 +198,7 @@ class ProblemChanges extends SpecialPage {
 	 * @return FeedItem|null
 	 * @suppress SecurityCheck-DoubleEscaped false positive
 	 */
-	protected function feedItem( $row ) {
+	private function feedItem( $row ) {
 		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
 		if ( $title ) {
 			$date = $row->pending_since;
@@ -310,7 +310,7 @@ class ProblemChanges extends SpecialPage {
 	 * @param int $revId rev ID
 	 * @return array
 	 */
-	protected static function getChangeTags( $pageId, $revId ) {
+	private static function getChangeTags( $pageId, $revId ) {
 		$tags = [];
 		$dbr = wfGetDB( DB_REPLICA );
 		$res = $dbr->select(
@@ -328,7 +328,7 @@ class ProblemChanges extends SpecialPage {
 		return $tags;
 	}
 
-	protected static function getLineClass( $hours, $uw ) {
+	private static function getLineClass( $hours, $uw ) {
 		if ( $uw == 0 ) {
 			return 'fr-unreviewed-unwatched';
 		} else {

@@ -40,7 +40,7 @@ class FRUserCounters {
 	 * Initializes unset param fields to their starting values
 	 * @param array &$p
 	 */
-	protected static function setUnitializedFields( array &$p ) {
+	private static function setUnitializedFields( array &$p ) {
 		if ( !isset( $p['uniqueContentPages'] ) ) {
 			$p['uniqueContentPages'] = [];
 		}
@@ -62,7 +62,7 @@ class FRUserCounters {
 	 * @param bool|string $dBName optional wiki name
 	 * @return stdClass|false
 	 */
-	protected static function fetchParamsRow( $uid, $flags = 0, $dBName = false ) {
+	private static function fetchParamsRow( $uid, $flags = 0, $dBName = false ) {
 		$options = [];
 		if ( $flags & FR_MASTER || $flags & FR_FOR_UPDATE ) {
 			$db = wfGetDB( DB_MASTER, [], $dBName );
@@ -144,7 +144,7 @@ class FRUserCounters {
 	 * @throws Exception
 	 * @return string
 	 */
-	protected static function flattenParams( array $params ) {
+	private static function flattenParams( array $params ) {
 		$flatRows = [];
 		foreach ( $params as $key => $value ) {
 			if ( strpos( $key, '=' ) !== false || strpos( $key, "\n" ) !== false ) {
@@ -165,7 +165,7 @@ class FRUserCounters {
 	 * @param string $flatPars
 	 * @return array
 	 */
-	protected static function expandParams( $flatPars ) {
+	private static function expandParams( $flatPars ) {
 		$p = []; // init
 		$flatPars = explode( "\n", trim( $flatPars ) );
 		foreach ( $flatPars as $pair ) {

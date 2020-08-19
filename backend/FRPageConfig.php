@@ -181,7 +181,7 @@ class FRPageConfig {
 	 * @param string $right
 	 * @return bool
 	 */
-	protected static function isValidRestriction( $right ) {
+	private static function isValidRestriction( $right ) {
 		if ( $right == '' ) {
 			return true; // no restrictions (none)
 		}

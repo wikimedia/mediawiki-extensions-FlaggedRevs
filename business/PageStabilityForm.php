@@ -397,7 +397,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	 * (a) Watch page if $watchThis is true
 	 * (b) Unwatch if $watchThis is false
 	 */
-	protected function updateWatchlist() {
+	private function updateWatchlist() {
 		# Apply watchlist checkbox value (may be NULL)
 		if ( $this->watchThis === true ) {
 			$this->user->addWatch( $this->page );

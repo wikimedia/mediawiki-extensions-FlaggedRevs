@@ -926,7 +926,7 @@ class FlaggedRevsHooks {
 	 * @param int $pointsReq number of edit points
 	 * @return true|int True if passed, int seconds on failure
 	 */
-	protected static function editSpacingCheck( User $user, $spacingReq, $pointsReq ) {
+	private static function editSpacingCheck( User $user, $spacingReq, $pointsReq ) {
 		$dbr = wfGetDB( DB_REPLICA );
 		$queryData = self::getQueryData( $dbr, $user );
 
@@ -984,7 +984,7 @@ class FlaggedRevsHooks {
 	 * @param int $seconds
 	 * @return bool
 	 */
-	protected static function reviewedEditsCheck( User $user, $editsReq, $seconds = 0 ) {
+	private static function reviewedEditsCheck( User $user, $editsReq, $seconds = 0 ) {
 		$dbr = wfGetDB( DB_REPLICA );
 		$queryData = self::getQueryData( $dbr, $user );
 		// Get cutoff timestamp (excludes edits that are too recent)
@@ -1045,7 +1045,7 @@ class FlaggedRevsHooks {
 	 * @param int $cutoff_unixtime = 0
 	 * @return bool
 	 */
-	protected static function wasPreviouslyBlocked(
+	private static function wasPreviouslyBlocked(
 		User $user,
 		IDatabase $db,
 		$cutoff_unixtime = 0
@@ -1064,7 +1064,7 @@ class FlaggedRevsHooks {
 		return (bool)$db->selectField( 'logging', '1', $conds, __METHOD__ );
 	}
 
-	protected static function recentEditCount( $uid, $seconds, $limit ) {
+	private static function recentEditCount( $uid, $seconds, $limit ) {
 		$dbr = wfGetDB( DB_REPLICA );
 		$queryData = self::getQueryData( $dbr, User::newFromId( $uid ) );
 		# Get cutoff timestamp (edits that are too recent)
@@ -1088,7 +1088,7 @@ class FlaggedRevsHooks {
 		return $ct;
 	}
 
-	protected static function recentContentEditCount( $uid, $seconds, $limit ) {
+	private static function recentContentEditCount( $uid, $seconds, $limit ) {
 		$dbr = wfGetDB( DB_REPLICA );
 		$queryData = self::getQueryData( $dbr, User::newFromId( $uid ) );
 		# Get cutoff timestamp (edits that are too recent)

@@ -38,7 +38,7 @@ class ConfiguredPages extends SpecialPage {
 		$this->showPageList();
 	}
 
-	protected function showForm() {
+	private function showForm() {
 		global $wgScript;
 
 		# Explanatory text
@@ -69,7 +69,7 @@ class ConfiguredPages extends SpecialPage {
 		$this->getOutput()->addHTML( $form );
 	}
 
-	protected function showPageList() {
+	private function showPageList() {
 		if ( $this->pager->getNumRows() ) {
 			$this->getOutput()->addHTML( $this->pager->getNavigationBar() );
 			$this->getOutput()->addHTML( $this->pager->getBody() );

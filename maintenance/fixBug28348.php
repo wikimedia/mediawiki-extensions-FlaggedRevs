@@ -29,7 +29,7 @@ class FixBug28348 extends Maintenance {
 		$this->update_images_bug_28348( $startRev );
 	}
 
-	protected function update_images_bug_28348( $start = null ) {
+	private function update_images_bug_28348( $start = null ) {
 		$this->output( "Correcting fi_img_timestamp column in flaggedimages\n" );
 
 		$db = wfGetDB( DB_MASTER );

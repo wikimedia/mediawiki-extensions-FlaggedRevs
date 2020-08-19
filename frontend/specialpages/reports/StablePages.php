@@ -38,7 +38,7 @@ class StablePages extends SpecialPage {
 		$this->showPageList();
 	}
 
-	protected function showForm() {
+	private function showForm() {
 		global $wgScript;
 
 		$this->getOutput()->addWikiMsg( 'stablepages-list',
@@ -68,7 +68,7 @@ class StablePages extends SpecialPage {
 		$this->getOutput()->addHTML( $form );
 	}
 
-	protected function showPageList() {
+	private function showPageList() {
 		$out = $this->getOutput();
 		if ( $this->pager->getNumRows() ) {
 			$out->addHTML( $this->pager->getNavigationBar() );

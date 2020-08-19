@@ -292,7 +292,7 @@ class Stabilization extends UnlistedSpecialPage {
 		);
 	}
 
-	protected function buildSelector( $selected ) {
+	private function buildSelector( $selected ) {
 		$allowedLevels = [];
 		$levels = FlaggedRevs::getRestrictionLevels();
 		array_unshift( $levels, '' ); // Add a "none" level
@@ -327,7 +327,7 @@ class Stabilization extends UnlistedSpecialPage {
 	 * @param string $permission Permission required
 	 * @return string
 	 */
-	protected function getOptionLabel( $permission ) {
+	private function getOptionLabel( $permission ) {
 		if ( $permission == '' ) {
 			return $this->msg( 'stabilization-restrict-none' )->text();
 		} else {
@@ -344,7 +344,7 @@ class Stabilization extends UnlistedSpecialPage {
 	 * If the this form is disabled, then return the "disabled" attr array
 	 * @return array
 	 */
-	protected function disabledAttr() {
+	private function disabledAttr() {
 		return $this->form->isAllowed()
 			? []
 			: [ 'disabled' => 'disabled' ];

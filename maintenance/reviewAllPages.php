@@ -34,7 +34,7 @@ class ReviewAllPages extends Maintenance {
 		$this->autoreview_current( $user );
 	}
 
-	protected function autoreview_current( User $user ) {
+	private function autoreview_current( User $user ) {
 		$this->output( "Auto-reviewing all current page versions...\n" );
 		if ( !$user->getId() ) {
 			$this->output( "Invalid user specified.\n" );

@@ -56,7 +56,7 @@ class UpdateFRTracking extends Maintenance {
 		}
 	}
 
-	protected function update_flaggedrevs( $start = null ) {
+	private function update_flaggedrevs( $start = null ) {
 		$this->output( "Populating and correcting flaggedrevs columns\n" );
 
 		$BATCH_SIZE = 1000;
@@ -79,7 +79,7 @@ class UpdateFRTracking extends Maintenance {
 		$changed = 0;
 		while ( $blockEnd <= $end ) {
 			$this->output( "...doing fr_rev_id from $blockStart to $blockEnd\n" );
-			$cond = "rev_id BETWEEN $blockStart AND $blockEnd 
+			$cond = "rev_id BETWEEN $blockStart AND $blockEnd
 				AND fr_rev_id = rev_id AND page_id = rev_page";
 
 			$this->beginTransaction( $db, __METHOD__ );
@@ -151,7 +151,7 @@ class UpdateFRTracking extends Maintenance {
 			" {$count} rows [{$changed} changed]\n" );
 	}
 
-	protected function update_flaggedpages( $start = null ) {
+	private function update_flaggedpages( $start = null ) {
 		$this->output( "Populating and correcting flaggedpages/flaggedpage_config columns\n" );
 
 		$BATCH_SIZE = 300;
@@ -265,7 +265,7 @@ class UpdateFRTracking extends Maintenance {
 			" {$count} rows [{$fixed} fixed] [{$deleted} deleted]\n" );
 	}
 
-	protected function update_flaggedimages( $start = null ) {
+	private function update_flaggedimages( $start = null ) {
 		$this->output( "Cleaning up flaggedimages columns\n" );
 
 		$BATCH_SIZE = 1000;

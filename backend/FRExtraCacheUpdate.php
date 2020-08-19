@@ -47,7 +47,7 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 		}
 	}
 
-	protected function insertJobs( IResultWrapper $res ) {
+	private function insertJobs( IResultWrapper $res ) {
 		$numRows = $res->numRows();
 		if ( !$numRows ) {
 			return; // sanity check
