@@ -119,17 +119,6 @@ class FRUserActivity {
 	}
 
 	/**
-	 * Totally clear the flag for who is reviewing a page.
-	 * @param int $pageId
-	 * @return void
-	 */
-	public static function clearAllReviewingPage( $pageId ) {
-		$cache = self::getActivityStore();
-		$key = $cache->makeKey( 'flaggedrevs', 'userReviewingPage', $pageId );
-		$cache->delete( $key );
-	}
-
-	/**
 	 * Get who is currently reviewing a diff
 	 * @param int $oldId
 	 * @param int $newId
@@ -186,18 +175,6 @@ class FRUserActivity {
 		$key = $cache->makeKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
 
 		return self::decUserReviewingItem( $key, $user, self::CHANGE_REVIEW_SEC );
-	}
-
-	/**
-	 * Totally clear the flag for who is reviewing a diff.
-	 * @param int $oldId
-	 * @param int $newId
-	 * @return void
-	 */
-	public static function clearAllReviewingDiff( $oldId, $newId ) {
-		$cache = self::getActivityStore();
-		$key = $cache->makeKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
-		$cache->delete( $key );
 	}
 
 	/**

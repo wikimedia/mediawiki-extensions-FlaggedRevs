@@ -1,5 +1,7 @@
 <?php
 
+use Wikimedia\TestingAccessWrapper;
+
 /**
  * @covers \FRUserActivity
  */
@@ -18,10 +20,31 @@ class FRUserActivityTest extends PHPUnit\Framework\TestCase {
 		$this->user = User::newFromName( "someReviewer" );
 	}
 
+	/**
+	 * Totally clear the flag for who is reviewing a page.
+	 * @param int $pageId
+	 */
+	private function clearAllReviewingPage( $pageId ) {
+		$cache = TestingAccessWrapper::newFromClass( FRUserActivity::class )->getActivityStore();
+		$key = $cache->makeKey( 'flaggedrevs', 'userReviewingPage', $pageId );
+		$cache->delete( $key );
+	}
+
+	/**
+	 * Totally clear the flag for who is reviewing a diff.
+	 * @param int $oldId
+	 * @param int $newId
+	 */
+	private function clearAllReviewingDiff( $oldId, $newId ) {
+		$cache = TestingAccessWrapper::newFromClass( FRUserActivity::class )->getActivityStore();
+		$key = $cache->makeKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
+		$cache->delete( $key );
+	}
+
 	public function testPageIsUnderReview() {
 		$page = 110;
 
-		FRUserActivity::clearAllReviewingPage( $page ); // clear
+		$this->clearAllReviewingPage( $page ); // clear
 		$this->assertFalse( FRUserActivity::pageIsUnderReview( $page ), "Not reviewing page" );
 
 		FRUserActivity::setUserReviewingPage( $this->user, $page );
@@ -33,7 +56,7 @@ class FRUserActivityTest extends PHPUnit\Framework\TestCase {
 		$oldid = 10910;
 		$newid = 11910;
 
-		FRUserActivity::clearAllReviewingDiff( $oldid, $newid ); // clear
+		$this->clearAllReviewingDiff( $oldid, $newid ); // clear
 		$this->assertFalse( FRUserActivity::diffIsUnderReview( $oldid, $newid ), "Not reviewing diff" );
 
 		FRUserActivity::setUserReviewingDiff( $this->user, $oldid, $newid );
@@ -44,7 +67,7 @@ class FRUserActivityTest extends PHPUnit\Framework\TestCase {
 	public function testGetUserReviewingPage() {
 		$page = 110;
 
-		FRUserActivity::clearAllReviewingPage( $page ); // clear
+		$this->clearAllReviewingPage( $page ); // clear
 		$this->assertEquals( [ null, null ],
 			FRUserActivity::getUserReviewingPage( $page ),
 			"Not reviewing page" );
@@ -66,7 +89,7 @@ class FRUserActivityTest extends PHPUnit\Framework\TestCase {
 		$oldid = 10910;
 		$newid = 11910;
 
-		FRUserActivity::clearAllReviewingDiff( $oldid, $newid ); // clear
+		$this->clearAllReviewingDiff( $oldid, $newid ); // clear
 		$this->assertEquals( [ null, null ],
 			FRUserActivity::getUserReviewingDiff( $oldid, $newid ),
 			"Not reviewing diff" );
@@ -87,7 +110,7 @@ class FRUserActivityTest extends PHPUnit\Framework\TestCase {
 	public function testUserReviewingPage() {
 		$page = 910;
 
-		FRUserActivity::clearAllReviewingPage( $page ); // clear
+		$this->clearAllReviewingPage( $page ); // clear
 		$this->assertTrue( FRUserActivity::setUserReviewingPage( $this->user, $page ),
 			"Set reviewing page succeeds" );
 
@@ -115,7 +138,7 @@ class FRUserActivityTest extends PHPUnit\Framework\TestCase {
 		$oldid = 12910;
 		$newid = 15910;
 
-		FRUserActivity::clearAllReviewingDiff( $oldid, $newid ); // clear
+		$this->clearAllReviewingDiff( $oldid, $newid ); // clear
 		$this->assertTrue( FRUserActivity::setUserReviewingDiff( $this->user, $oldid, $newid ),
 			"Set reviewing page succeeds" );
 
