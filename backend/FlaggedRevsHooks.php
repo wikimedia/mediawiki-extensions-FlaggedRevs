@@ -61,20 +61,9 @@ class FlaggedRevsHooks {
 	}
 
 	public static function onExtensionFunctions() {
-		# LocalSettings.php loaded, safe to load config
-		FlaggedRevsSetup::setReady();
-
-		# Conditional autopromote groups
-		FlaggedRevsSetup::setAutopromoteConfig();
-
-		# Register special pages (some are conditional)
-		FlaggedRevsSetup::setSpecialPageCacheUpdates();
-		# Conditional API modules
-		FlaggedRevsSetup::setAPIModules();
-		# Remove conditionally applicable rights
-		FlaggedRevsSetup::setConditionalRights();
-		# Defaults for user preferences
-		FlaggedRevsSetup::setConditionalPreferences();
+		// TODO have FlaggedRevsSetup::doSetup called by the hook
+		// instead of going through this class
+		FlaggedRevsSetup::doSetup();
 	}
 
 	/**

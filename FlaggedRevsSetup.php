@@ -10,13 +10,6 @@ class FlaggedRevsSetup {
 	private static $canLoad = false;
 
 	/**
-	 * Signal that LocalSettings.php is loaded.
-	 */
-	public static function setReady() {
-		self::$canLoad = true;
-	}
-
-	/**
 	 * The FlaggedRevs class uses this as a sanity check.
 	 *
 	 * @return bool
@@ -26,9 +19,31 @@ class FlaggedRevsSetup {
 	}
 
 	/**
+	 * Entry point for hook handler
+	 *
+	 * TODO make this the hook handler directly, and combine the methods here
+	 */
+	public static function doSetup() {
+		# LocalSettings.php loaded, safe to load config
+		self::$canLoad = true;
+
+		# Conditional autopromote groups
+		self::setAutopromoteConfig();
+
+		# Register special pages (some are conditional)
+		self::setSpecialPageCacheUpdates();
+		# Conditional API modules
+		self::setAPIModules();
+		# Remove conditionally applicable rights
+		self::setConditionalRights();
+		# Defaults for user preferences
+		self::setConditionalPreferences();
+	}
+
+	/**
 	 * Set $wgAutopromoteOnce
 	 */
-	public static function setAutopromoteConfig() {
+	private static function setAutopromoteConfig() {
 		global $wgFlaggedRevsAutoconfirm, $wgFlaggedRevsAutopromote;
 		global $wgAutopromoteOnce, $wgGroupPermissions;
 
@@ -110,7 +125,7 @@ class FlaggedRevsSetup {
 	/**
 	 * Set special page cache updates
 	 */
-	public static function setSpecialPageCacheUpdates() {
+	private static function setSpecialPageCacheUpdates() {
 		global $wgSpecialPageCacheUpdates, $wgFlaggedRevsProtection, $wgFlaggedRevsNamespaces;
 
 		// Show special pages only if FlaggedRevs is enabled on some namespaces
@@ -125,7 +140,7 @@ class FlaggedRevsSetup {
 	/**
 	 * Set API modules
 	 */
-	public static function setAPIModules() {
+	private static function setAPIModules() {
 		global $wgAPIModules, $wgAPIListModules;
 		global $wgFlaggedRevsProtection;
 
@@ -142,7 +157,7 @@ class FlaggedRevsSetup {
 	/**
 	 * Remove irrelevant user rights
 	 */
-	public static function setConditionalRights() {
+	private static function setConditionalRights() {
 		global $wgGroupPermissions, $wgFlaggedRevsProtection;
 
 		if ( $wgFlaggedRevsProtection ) {
@@ -156,7 +171,7 @@ class FlaggedRevsSetup {
 	/**
 	 * Set $wgDefaultUserOptions
 	 */
-	public static function setConditionalPreferences() {
+	private static function setConditionalPreferences() {
 		global $wgDefaultUserOptions, $wgSimpleFlaggedRevsUI;
 
 		$wgDefaultUserOptions['flaggedrevssimpleui'] = (int)$wgSimpleFlaggedRevsUI;
