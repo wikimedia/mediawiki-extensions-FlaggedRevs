@@ -7,13 +7,9 @@ use Wikimedia\Rdbms\IDatabase;
  */
 class FlaggedRevsStats {
 	/**
-	 * Get FR-related stats at a designated snapshot in time.
-	 * If no $timestamp is specified, then the latest will be used.
-	 *
-	 * @param string|bool $timestamp false TS_ timestamp
 	 * @return array of current FR stats
 	 */
-	public static function getStats( $timestamp = false ) {
+	public static function getStats() {
 		$data = []; // initialize
 		$data['reviewLag-anon-sampleSize'] = '-';
 		$data['reviewLag-anon-average'] = '-';
@@ -30,9 +26,8 @@ class FlaggedRevsStats {
 		$data['statTimestamp'] = '-';
 
 		$dbr = wfGetDB( DB_REPLICA );
-		if ( $timestamp === false ) { // use latest
-			$timestamp = $dbr->selectField( 'flaggedrevs_statistics', 'MAX(frs_timestamp)', [], __METHOD__ );
-		}
+		// Latest timestamp recorded
+		$timestamp = $dbr->selectField( 'flaggedrevs_statistics', 'MAX(frs_timestamp)', [], __METHOD__ );
 
 		if ( $timestamp !== false ) {
 			$data['statTimestamp'] = wfTimestamp( TS_MW, $timestamp );
