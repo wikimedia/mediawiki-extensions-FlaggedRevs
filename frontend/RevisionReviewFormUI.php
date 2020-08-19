@@ -34,7 +34,7 @@ class RevisionReviewFormUI {
 
 	/**
 	 * Generates a brief review form for a page
-	 * @param \IContextSource|\RequestContext $context
+	 * @param IContextSource $context
 	 * @param FlaggableWikiPage $article
 	 * @param RevisionRecord $revRecord
 	 */
