@@ -220,46 +220,6 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * Get a FlaggedRevision for a rev ID.
-	 * Note: will return NULL if the revision is deleted.
-	 * @param int $revId
-	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
-	 * @return self|null (null on failure)
-	 */
-	public static function newFromId( $revId, $flags = 0 ) {
-		$options = [];
-		# User master/replica as appropriate...
-		if ( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
-			$db = wfGetDB( DB_MASTER );
-			if ( $flags & FR_FOR_UPDATE ) {
-				$options[] = 'FOR UPDATE';
-			}
-		} else {
-			$db = wfGetDB( DB_REPLICA );
-		}
-		if ( !$revId ) {
-			return null; // short-circuit query
-		}
-		# Skip deleted revisions
-		$frQuery = self::getQueryInfo();
-		$row = $db->selectRow(
-			$frQuery['tables'],
-			$frQuery['fields'],
-			[
-				'fr_rev_id' => $revId,
-				$db->bitAnd( 'rev_deleted', RevisionRecord::DELETED_TEXT ) . ' = 0',
-			],
-			__METHOD__,
-			$options,
-			$frQuery['joins']
-		);
-		if ( $row ) {
-			return new self( $row, Title::newFromRow( $row ), $flags );
-		}
-		return null;
-	}
-
-	/**
 	 * Get the ID of the stable version of a title.
 	 * @param Title $title page title
 	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
@@ -528,15 +488,6 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * Check if the corresponding revision is the current revision
-	 * Note: here for convenience
-	 * @return bool
-	 */
-	public function revIsCurrent() {
-		return $this->mRevRecord->isCurrent();
-	}
-
-	/**
 	 * Get text of the corresponding revision
 	 * Note: here for convenience
 	 * @return string|null Revision text, if available
@@ -569,14 +520,6 @@ class FlaggedRevision {
 	 */
 	public function getTags() {
 		return $this->mTags;
-	}
-
-	/**
-	 * @return string filename accosciated with this revision.
-	 * This returns NULL for non-image page revisions.
-	 */
-	public function getFileName() {
-		return $this->mFileName;
 	}
 
 	/**
