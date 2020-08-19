@@ -1,5 +1,7 @@
 <?php
 
+use Wikimedia\TestingAccessWrapper;
+
 /**
  * @covers \FRInclusionManager
  */
@@ -75,14 +77,16 @@ class FRInclusionManagerTest extends PHPUnit\Framework\TestCase {
 	}
 
 	public function testManagerClear() {
-		$im = FRInclusionManager::singleton();
+		/** @var FRInclusionManager $im */
+		$im = TestingAccessWrapper::newFromObject( FRInclusionManager::singleton() );
 		$im->setReviewedVersions( self::$inputTemplates, self::$inputFiles );
 		$im->clear();
 		$this->assertFalse( $im->parserOutputIsStabilized(), "Empty on clear()" );
 	}
 
 	public function testReviewedTemplateVersions() {
-		$im = FRInclusionManager::singleton();
+		/** @var FRInclusionManager $im */
+		$im = TestingAccessWrapper::newFromObject( FRInclusionManager::singleton() );
 		$im->setReviewedVersions( self::$inputTemplates, self::$inputFiles );
 		foreach ( self::$reviewedOutputTemplates as $triple ) {
 			list( $test,$ns,$dbKey,$expId ) = $triple;
@@ -93,7 +97,8 @@ class FRInclusionManagerTest extends PHPUnit\Framework\TestCase {
 	}
 
 	public function testReviewedFileVersions() {
-		$im = FRInclusionManager::singleton();
+		/** @var FRInclusionManager $im */
+		$im = TestingAccessWrapper::newFromObject( FRInclusionManager::singleton() );
 		$im->setReviewedVersions( self::$inputTemplates, self::$inputFiles );
 		foreach ( self::$reviewedOutputFiles as $triple ) {
 			list( $test,$dbKey,$expTS,$expSha1 ) = $triple;
@@ -105,7 +110,8 @@ class FRInclusionManagerTest extends PHPUnit\Framework\TestCase {
 	}
 
 	public function testStableTemplateVersions() {
-		$im = FRInclusionManager::singleton();
+		/** @var FRInclusionManager $im */
+		$im = TestingAccessWrapper::newFromObject( FRInclusionManager::singleton() );
 		$im->setReviewedVersions( [], [] );
 		$im->setStableVersionCache( self::$inputTemplates, self::$inputFiles );
 		foreach ( self::$stableOutputTemplates as $triple ) {
@@ -117,7 +123,8 @@ class FRInclusionManagerTest extends PHPUnit\Framework\TestCase {
 	}
 
 	public function testStableFileVersions() {
-		$im = FRInclusionManager::singleton();
+		/** @var FRInclusionManager $im */
+		$im = TestingAccessWrapper::newFromObject( FRInclusionManager::singleton() );
 		$im->setReviewedVersions( [], [] );
 		$im->setStableVersionCache( self::$inputTemplates, self::$inputFiles );
 		foreach ( self::$stableOutputFiles as $triple ) {

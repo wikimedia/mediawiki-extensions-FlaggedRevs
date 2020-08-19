@@ -210,7 +210,7 @@ class FlaggedRevs {
 	 * @param string $tag
 	 * @return int
 	 */
-	public static function maxAutoReviewLevel( $tag ) {
+	private static function maxAutoReviewLevel( $tag ) {
 		global $wgFlaggedRevsTagsAuto;
 		self::load();
 		if ( !self::autoReviewEnabled() ) {
@@ -309,7 +309,7 @@ class FlaggedRevs {
 	 * (tags => [rights => levels])
 	 * @return int[][] Value from $wgFlaggedRevsTagsRestrictions
 	 */
-	public static function getTagRestrictions() {
+	private static function getTagRestrictions() {
 		self::load();
 		return self::$tagRestrictions;
 	}
@@ -385,7 +385,7 @@ class FlaggedRevs {
 	 * @param int $value
 	 * @return bool
 	 */
-	public static function tagIsValid( $tag, $value ) {
+	private static function tagIsValid( $tag, $value ) {
 		$levels = self::getTagLevels( $tag );
 		$highest = count( $levels ) - 1;
 		if ( !$levels || $value < 0 || $value > $highest ) {
@@ -799,7 +799,7 @@ class FlaggedRevs {
 	 * @param int[] $flags
 	 * @return bool is this revision at basic review condition?
 	 */
-	public static function isChecked( array $flags ) {
+	private static function isChecked( array $flags ) {
 		self::load();
 		return self::tagsAtLevel( $flags, self::$minSL );
 	}
@@ -880,7 +880,7 @@ class FlaggedRevs {
 	 * @param int[] $oldFlags previous stable rev flags
 	 * @return int[]|null array or null
 	 */
-	public static function getAutoReviewTags( $user, array $oldFlags ) {
+	private static function getAutoReviewTags( $user, array $oldFlags ) {
 		if ( !self::autoReviewEdits() ) {
 			return null; // shouldn't happen
 		}

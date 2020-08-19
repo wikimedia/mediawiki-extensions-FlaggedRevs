@@ -308,7 +308,7 @@ class FlaggedRevsXML {
 	 * Generates JS toggle arrow icon
 	 * @return string
 	 */
-	public static function ratingArrow() {
+	private static function ratingArrow() {
 		return ( new OOUI\IndicatorWidget(
 			[
 				'indicator' => 'down',
