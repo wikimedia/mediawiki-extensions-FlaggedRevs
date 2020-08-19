@@ -84,15 +84,11 @@ class ApiReviewActivity extends ApiBase {
 			}
 		}
 
-		# Success in setting flag...
-		if ( $status === true ) {
-			$this->getResult()->addValue(
-				null, $this->getModuleName(), [ 'result' => 'Success' ] );
-		# Failure...
-		} else {
-			$this->getResult()->addValue(
-				null, $this->getModuleName(), [ 'result' => 'Failure' ] );
-		}
+		$this->getResult()->addValue(
+			null,
+			$this->getModuleName(),
+			[ 'result' => $status === true ? 'Success' : 'Failure' ]
+		);
 	}
 
 	/**
