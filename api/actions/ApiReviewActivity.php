@@ -106,7 +106,7 @@ class ApiReviewActivity extends ApiBase {
 	 * @inheritDoc
 	 */
 	public function isWriteMode() {
-			return true;
+		return true;
 	}
 
 	/**

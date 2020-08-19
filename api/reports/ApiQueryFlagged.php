@@ -92,13 +92,6 @@ class ApiQueryFlagged extends ApiQueryBase {
 	/**
 	 * @inheritDoc
 	 */
-	protected function getAllowedParams() {
-		return [];
-	}
-
-	/**
-	 * @inheritDoc
-	 */
 	protected function getExamplesMessages() {
 		return [
 			'action=query&prop=info|flagged&titles=Main%20Page'

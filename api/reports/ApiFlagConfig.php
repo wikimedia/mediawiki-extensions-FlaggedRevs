@@ -53,27 +53,6 @@ class ApiFlagConfig extends ApiBase {
 	/**
 	 * @inheritDoc
 	 */
-	public function mustBePosted() {
-		return false;
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function isWriteMode() {
-			return false;
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	protected function getAllowedParams() {
-		return [];
-	}
-
-	/**
-	 * @inheritDoc
-	 */
 	protected function getExamplesMessages() {
 		return [
 			'action=flagconfig'
