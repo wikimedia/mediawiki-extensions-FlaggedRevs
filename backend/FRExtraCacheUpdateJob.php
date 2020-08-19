@@ -42,18 +42,15 @@ class FRExtraCacheUpdateJob extends Job {
 		$dbr = wfGetDB( DB_REPLICA );
 		$update = new FRExtraCacheUpdate( $this->title );
 		# Get query conditions
-		$fromField = $update->getFromField();
 		$conds = $update->getToCondition();
 		if ( $this->params['start'] ) {
-			$start = $dbr->addQuotes( $this->params['start'] );
-			$conds[] = "$fromField >= $start";
+			$conds[] = 'ftr_from >= ' . $dbr->addQuotes( $this->params['start'] );
 		}
 		if ( $this->params['end'] ) {
-			$end = $dbr->addQuotes( $this->params['end'] );
-			$conds[] = "$fromField <= $end";
+			$conds[] = 'ftr_from <= ' . $dbr->addQuotes( $this->params['end'] );
 		}
 		// Run query to get page Ids
-		$res = $dbr->select( $this->params['table'], $fromField, $conds, __METHOD__ );
+		$res = $dbr->select( $this->params['table'], 'ftr_from', $conds, __METHOD__ );
 		// Invalidate the pages
 		$update->invalidateIDs( $res );
 		return true;
