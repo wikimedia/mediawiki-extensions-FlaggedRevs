@@ -52,9 +52,10 @@ class FlaggedRevs {
 		self::$restrictionLevels = array_filter( self::$restrictionLevels, 'strlen' );
 
 		# Make sure no talk namespaces are in review namespace
+		$namespaceInfo = MediaWikiServices::getInstance()->getNamespaceInfo();
 		global $wgFlaggedRevsNamespaces;
 		foreach ( $wgFlaggedRevsNamespaces as $ns ) {
-			if ( MWNamespace::isTalk( $ns ) ) {
+			if ( $namespaceInfo->isTalk( $ns ) ) {
 				throw new Exception( 'FlaggedRevs given talk namespace in $wgFlaggedRevsNamespaces!' );
 			} elseif ( $ns == NS_MEDIAWIKI ) {
 				throw new Exception( 'FlaggedRevs given NS_MEDIAWIKI in $wgFlaggedRevsNamespaces!' );
