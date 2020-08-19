@@ -6,7 +6,6 @@ class PageStabilityProtectForm extends PageStabilityForm {
 		$oldConfig = $this->getOldConfig();
 		$this->autoreview = $oldConfig['autoreview']; // protect level
 		$this->watchThis = $this->getUser()->isWatched( $this->page );
-		return true;
 	}
 
 	protected function reallyDoCheckParameters() {
