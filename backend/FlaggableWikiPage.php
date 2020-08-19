@@ -265,7 +265,8 @@ class FlaggableWikiPage extends WikiPage {
 	 * @return bool
 	 */
 	public function lowProfileUI() {
-		return FlaggedRevs::lowProfileUI() &&
+		global $wgFlaggedRevsLowProfile;
+		return $wgFlaggedRevsLowProfile &&
 			FlaggedRevs::isStableShownByDefault() == $this->isStableShownByDefault();
 	}
 

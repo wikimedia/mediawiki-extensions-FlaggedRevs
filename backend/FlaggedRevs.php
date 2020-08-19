@@ -261,15 +261,6 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * Should tags only be shown for unreviewed content for this user?
-	 * @return bool
-	 */
-	public static function lowProfileUI() {
-		global $wgFlaggedRevsLowProfile;
-		return $wgFlaggedRevsLowProfile;
-	}
-
-	/**
 	 * Are there site defined protection levels for review
 	 * @return bool
 	 */
