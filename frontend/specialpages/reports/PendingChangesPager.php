@@ -71,10 +71,6 @@ class PendingChangesPager extends AlphabeticPager {
 		return $query;
 	}
 
-	protected function getDefaultDirections() {
-		return false;
-	}
-
 	public function getQueryInfo() {
 		$tables = [ 'page', 'revision' ];
 		$fields = [ 'page_namespace', 'page_title', 'page_len', 'rev_len', 'page_latest' ];

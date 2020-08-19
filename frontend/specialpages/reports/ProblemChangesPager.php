@@ -43,10 +43,6 @@ class ProblemChangesPager extends AlphabeticPager {
 		return $this->mForm->formatRow( $row );
 	}
 
-	protected function getDefaultDirections() {
-		return false;
-	}
-
 	public function getQueryInfo() {
 		$tables = [ 'revision', 'change_tag', 'change_tag_def', 'page' ];
 		$conds = [ 'ctd_id = ct_tag_id' ];
