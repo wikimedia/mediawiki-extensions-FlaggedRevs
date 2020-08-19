@@ -788,7 +788,24 @@ class FlaggedRevsUIHooks {
 		}
 	}
 
-	public static function addToChangeListLine( &$list, &$articlelink, &$s, RecentChange &$rc ) {
+	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ChangesListInsertArticleLink
+	 *
+	 * @param ChangesList $list
+	 * @param string &$articlelink
+	 * @param string &$s
+	 * @param RecentChange $rc
+	 * @param bool $unpatrolled
+	 * @param bool $watched
+	 */
+	public static function addToChangeListLine(
+		$list,
+		&$articlelink,
+		&$s,
+		RecentChange $rc,
+		$unpatrolled,
+		$watched
+	) {
 		$title = $rc->getTitle(); // convenience
 		if ( !FlaggedRevs::inReviewNamespace( $title )
 			|| empty( $rc->getAttribute( 'rc_this_oldid' ) ) // rev, not log

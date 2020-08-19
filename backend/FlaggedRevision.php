@@ -502,13 +502,6 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * @return int the user ID of the reviewer
-	 */
-	public function getUser() {
-		return $this->mUser;
-	}
-
-	/**
 	 * @return int quality level (FR_CHECKED,FR_QUALITY,FR_PRISTINE)
 	 */
 	public function getQuality() {
