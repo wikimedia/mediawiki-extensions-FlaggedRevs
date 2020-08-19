@@ -7,7 +7,7 @@
 class FRExtraCacheUpdateJob extends Job {
 	/**
 	 * @param Title $title The title linked to
-	 * @param array $params Job parameters (table, start and end page_ids)
+	 * @param array $params Job parameters (start and end page_ids)
 	 */
 	public function __construct( $title, $params ) {
 		parent::__construct( 'flaggedrevs_CacheUpdate', $title, $params );
@@ -35,7 +35,6 @@ class FRExtraCacheUpdateJob extends Job {
 	}
 
 	/**
-	 * @suppress SecurityCheck-SQLInjection See T201806 for more information
 	 * @return bool
 	 */
 	protected function doBacklinkPurge() {
@@ -50,7 +49,7 @@ class FRExtraCacheUpdateJob extends Job {
 			$conds[] = 'ftr_from <= ' . $dbr->addQuotes( $this->params['end'] );
 		}
 		// Run query to get page Ids
-		$res = $dbr->select( $this->params['table'], 'ftr_from', $conds, __METHOD__ );
+		$res = $dbr->select( 'flaggedrevs_tracking', 'ftr_from', $conds, __METHOD__ );
 		// Invalidate the pages
 		$update->invalidateIDs( $res );
 		return true;

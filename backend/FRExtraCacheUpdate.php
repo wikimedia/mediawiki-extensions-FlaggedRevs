@@ -80,7 +80,6 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 			if ( $first ) {
 				$params = [
 					'type'  => 'purge',
-					'table' => 'flaggedrevs_tracking',
 					'start' => $first,
 					'end'   => $last,
 				];
