@@ -98,13 +98,6 @@ class ApiReviewActivity extends ApiBase {
 	/**
 	 * @inheritDoc
 	 */
-	public function mustBePosted() {
-		return true;
-	}
-
-	/**
-	 * @inheritDoc
-	 */
 	public function isWriteMode() {
 		return true;
 	}
