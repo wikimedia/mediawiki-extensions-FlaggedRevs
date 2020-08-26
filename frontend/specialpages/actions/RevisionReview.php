@@ -163,7 +163,7 @@ class RevisionReview extends UnlistedSpecialPage {
 		}
 	}
 
-	protected function approvalSuccessHTML( $showlinks = false ) {
+	private function approvalSuccessHTML( $showlinks = false ) {
 		$title = $this->form->getPage();
 		# Show success message
 		$s = "<div class='plainlinks'>";
@@ -181,7 +181,7 @@ class RevisionReview extends UnlistedSpecialPage {
 		return $s;
 	}
 
-	protected function deapprovalSuccessHTML( $showlinks = false ) {
+	private function deapprovalSuccessHTML( $showlinks = false ) {
 		$title = $this->form->getPage();
 		# Show success message
 		$s = "<div class='plainlinks'>";
@@ -198,7 +198,7 @@ class RevisionReview extends UnlistedSpecialPage {
 		return $s;
 	}
 
-	protected function getSpecialLinks() {
+	private function getSpecialLinks() {
 		$linkRenderer = $this->getLinkRenderer();
 		$s = '<p>' . $this->msg( 'returnto' )->rawParams(
 			$linkRenderer->makeKnownLink( SpecialPage::getTitleFor( 'UnreviewedPages' ) )

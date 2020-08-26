@@ -183,7 +183,7 @@ class FRUserActivity {
 	 * @param int $ttlSec
 	 * @return bool
 	 */
-	protected static function incUserReviewingItem( $key, User $user, $ttlSec ) {
+	private static function incUserReviewingItem( $key, User $user, $ttlSec ) {
 		$wasSet = false; // was changed?
 
 		$now = wfTimestampNow();
@@ -215,7 +215,7 @@ class FRUserActivity {
 	 * @param int $ttlSec
 	 * @return bool
 	 */
-	protected static function decUserReviewingItem( $key, User $user, $ttlSec ) {
+	private static function decUserReviewingItem( $key, User $user, $ttlSec ) {
 		$wasSet = false; // was changed?
 
 		self::getActivityStore()->merge(
@@ -246,7 +246,7 @@ class FRUserActivity {
 	/**
 	 * @return BagOStuff
 	 */
-	protected static function getActivityStore() {
+	private static function getActivityStore() {
 		return ObjectCache::getInstance( 'db-replicated' );
 	}
 }

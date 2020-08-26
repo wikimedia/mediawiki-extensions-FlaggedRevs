@@ -82,7 +82,7 @@ class ReviewedPages extends SpecialPage {
 		$this->getOutput()->addHTML( $form );
 	}
 
-	protected function showPageList() {
+	private function showPageList() {
 		$out = $this->getOutput();
 		$num = $this->pager->getNumRows();
 		if ( $num ) {

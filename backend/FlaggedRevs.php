@@ -37,7 +37,7 @@ class FlaggedRevs {
 	/** @var bool */
 	private static $loaded = false;
 
-	protected static function load() {
+	private static function load() {
 		if ( self::$loaded ) {
 			return;
 		}
@@ -820,7 +820,7 @@ class FlaggedRevs {
 	 * @param int[] $reqFlagLevels
 	 * @return bool
 	 */
-	protected static function tagsAtLevel( array $flags, $reqFlagLevels ) {
+	private static function tagsAtLevel( array $flags, $reqFlagLevels ) {
 		self::load();
 		if ( empty( $flags ) ) {
 			return false;

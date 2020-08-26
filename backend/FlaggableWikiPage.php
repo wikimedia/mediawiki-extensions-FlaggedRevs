@@ -537,7 +537,7 @@ class FlaggableWikiPage extends WikiPage {
 	 * @param int $pageId Page ID
 	 * @param int $latest Latest revision
 	 */
-	protected static function updatePendingList( $pageId, $latest ) {
+	private static function updatePendingList( $pageId, $latest ) {
 		$data = [];
 		# Get the highest tier used on this wiki
 		$level = FlaggedRevs::highestReviewTier();

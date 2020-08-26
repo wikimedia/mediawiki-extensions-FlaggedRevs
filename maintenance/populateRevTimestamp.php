@@ -37,7 +37,7 @@ class PopulateFRRevTimestamp extends Maintenance {
 		$this->populate_fr_rev_timestamp( $startRev );
 	}
 
-	protected function populate_fr_rev_timestamp( $start = null ) {
+	private function populate_fr_rev_timestamp( $start = null ) {
 		$this->output( "Populating and correcting flaggedrevs columns from $start\n" );
 
 		$db = wfGetDB( DB_MASTER );
@@ -102,7 +102,7 @@ class PopulateFRRevTimestamp extends Maintenance {
 			" {$count} rows [{$changed} changed]\n" );
 	}
 
-	protected function last_pos_file() {
+	private function last_pos_file() {
 		return __DIR__ . "/popRevTimestampLast-" . wfWikiID();
 	}
 }

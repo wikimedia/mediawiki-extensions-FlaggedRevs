@@ -276,7 +276,7 @@ class RevisionReviewFormUI {
 	 * If the REJECT button should show then get the ID of the last good rev
 	 * @return int
 	 */
-	protected function rejectRefRevId() {
+	private function rejectRefRevId() {
 		if ( $this->refRevRecord ) {
 			$priorId = $this->refRevRecord->getId();
 			if ( $priorId == $this->article->getStable() &&
@@ -298,7 +298,7 @@ class RevisionReviewFormUI {
 	 * @return string
 	 * Generates a main tag inputs (checkboxes/radios/selects) for review form
 	 */
-	protected static function ratingInputs( $user, $flags, $disabled, $reviewed ) {
+	private static function ratingInputs( $user, $flags, $disabled, $reviewed ) {
 		# Get all available tags for this page/user
 		list( $labels, $minLevels ) = self::ratingFormTags( $user, $flags );
 		if ( $labels === false ) {
@@ -366,7 +366,7 @@ class RevisionReviewFormUI {
 		return implode( '&#160;&#160;&#160;', $items );
 	}
 
-	protected static function ratingFormTags( $user, $selected ) {
+	private static function ratingFormTags( $user, $selected ) {
 		$labels = [];
 		$minLevels = [];
 		# Build up all levels available to user
@@ -403,7 +403,7 @@ class RevisionReviewFormUI {
 	 * @param OutputPage $out
 	 * @return string
 	 */
-	protected static function submitButtons(
+	private static function submitButtons(
 		$rejectId, $frev, $disabled, $reviewIncludes, OutputPage $out
 	) {
 		$disAttrib = [ 'disabled' => 'disabled' ];
@@ -459,7 +459,7 @@ class RevisionReviewFormUI {
 	/**
 	 * @return array|false
 	 */
-	protected function getFileVersion() {
+	private function getFileVersion() {
 		if ( $this->fileVersion === null ) {
 			throw new Exception(
 				"File page file version not provided to review form; call setFileVersion()."
@@ -471,7 +471,7 @@ class RevisionReviewFormUI {
 	/**
 	 * @return array[]
 	 */
-	protected function getIncludeVersions() {
+	private function getIncludeVersions() {
 		if ( $this->templateIDs === null || $this->imageSHA1Keys === null ) {
 			throw new Exception(
 				"Template or file versions not provided to review form; call setIncludeVersions()."

@@ -48,7 +48,7 @@ class FlagProtectToSemiProtect extends Maintenance {
 		$this->flag_to_semi_protect( $user, $reason );
 	}
 
-	protected function flag_to_semi_protect( User $user, $reason ) {
+	private function flag_to_semi_protect( User $user, $reason ) {
 		global $wgFlaggedRevsNamespaces;
 
 		$this->output( "Semi-protecting all flag-protected pages...\n" );

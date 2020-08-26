@@ -51,7 +51,7 @@ class PurgeReviewablePages extends Maintenance {
 		}
 	}
 
-	protected function list_reviewable_pages( $fileHandle ) {
+	private function list_reviewable_pages( $fileHandle ) {
 		global $wgFlaggedRevsNamespaces, $wgUseCdn, $wgUseFileCache;
 
 		$this->output( "Building list of all reviewable pages to purge ...\n" );
@@ -105,7 +105,7 @@ class PurgeReviewablePages extends Maintenance {
 		$this->output( "List of reviewable pages to purge complete ... {$count} pages\n" );
 	}
 
-	protected function purge_reviewable_pages( $fileHandle ) {
+	private function purge_reviewable_pages( $fileHandle ) {
 		global $wgUseCdn, $wgUseFileCache;
 		$this->output( "Purging CDN cache for list of pages to purge ...\n" );
 		if ( !$wgUseCdn && !$wgUseFileCache ) {

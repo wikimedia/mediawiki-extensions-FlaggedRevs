@@ -105,7 +105,7 @@ class FRDependencyUpdate {
 	 * @param int $flags FR_MASTER
 	 * @return array (ns => dbKey => 1)
 	 */
-	protected function getExistingDeps( $flags = 0 ) {
+	private function getExistingDeps( $flags = 0 ) {
 		$db = ( $flags & FR_MASTER ) ?
 			wfGetDB( DB_MASTER ) : wfGetDB( DB_REPLICA );
 		$res = $db->select( 'flaggedrevs_tracking',
@@ -129,7 +129,7 @@ class FRDependencyUpdate {
 	 * @param array $new
 	 * @return array
 	 */
-	protected function getDepInsertions( array $existing, array $new ) {
+	private function getDepInsertions( array $existing, array $new ) {
 		$arr = [];
 		foreach ( $new as $ns => $dbkeys ) {
 			if ( isset( $existing[$ns] ) ) {
@@ -154,7 +154,7 @@ class FRDependencyUpdate {
 	 * @param array $new
 	 * @return array|false
 	 */
-	protected function getDepDeletions( array $existing, array $new ) {
+	private function getDepDeletions( array $existing, array $new ) {
 		$del = [];
 		foreach ( $existing as $ns => $dbkeys ) {
 			if ( isset( $new[$ns] ) ) {
@@ -178,13 +178,13 @@ class FRDependencyUpdate {
 	 * @param IDatabase $db
 	 * @return string|bool
 	 */
-	protected static function makeWhereFrom2d( &$arr, $db ) {
+	private static function makeWhereFrom2d( &$arr, $db ) {
 		$lb = new LinkBatch();
 		$lb->setArray( $arr );
 		return $lb->constructSet( 'ftr', $db );
 	}
 
-	protected static function addDependency( array &$deps, $ns, $dbKey ) {
+	private static function addDependency( array &$deps, $ns, $dbKey ) {
 		if ( !isset( $deps[$ns] ) ) {
 			$deps[$ns] = [];
 		}
@@ -195,7 +195,7 @@ class FRDependencyUpdate {
 	 * Get an array of existing links, as a 2-D array
 	 * @return array (ns => dbKey => 1)
 	 */
-	protected function getCurrentVersionLinks() {
+	private function getCurrentVersionLinks() {
 		$dbr = wfGetDB( DB_REPLICA );
 		$res = $dbr->select( 'pagelinks',
 			[ 'pl_namespace', 'pl_title' ],
@@ -216,7 +216,7 @@ class FRDependencyUpdate {
 	 * Get an array of existing templates, as a 2-D array
 	 * @return array (ns => dbKey => 1)
 	 */
-	protected function getCurrentVersionTemplates() {
+	private function getCurrentVersionTemplates() {
 		$dbr = wfGetDB( DB_REPLICA );
 		$res = $dbr->select( 'templatelinks',
 			[ 'tl_namespace', 'tl_title' ],
@@ -237,7 +237,7 @@ class FRDependencyUpdate {
 	 * Get an array of existing images, image names in the keys
 	 * @return array (dbKey => 1)
 	 */
-	protected function getCurrentVersionImages() {
+	private function getCurrentVersionImages() {
 		$dbr = wfGetDB( DB_REPLICA );
 		$res = $dbr->select( 'imagelinks',
 			[ 'il_to' ],
@@ -255,7 +255,7 @@ class FRDependencyUpdate {
 	 * Get an array of existing categories, with the name in the key and sort key in the value.
 	 * @return array (category => sortkey)
 	 */
-	protected function getCurrentVersionCategories() {
+	private function getCurrentVersionCategories() {
 		$dbr = wfGetDB( DB_REPLICA );
 		$res = $dbr->select( 'categorylinks',
 			[ 'cl_to', 'cl_sortkey' ],
