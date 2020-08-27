@@ -23,7 +23,7 @@
 	/**
 	 * Toggles flag info box details for (+/-) control
 	 *
-	 * @context {jQuery}
+	 * @this {jQuery}
 	 */
 	function toggleBoxDetails() {
 		var $toggle = $( '#mw-fr-revisiontoggle' ),
@@ -70,7 +70,7 @@
 	/**
 	 * Expands flag info box details on mouseOver
 	 *
-	 * @context {jQuery}
+	 * @this {jQuery}
 	 */
 	function onBoxMouseOver() {
 		window.clearTimeout( boxCollapseTimer );
@@ -81,7 +81,7 @@
 	/**
 	 * Hides flag info box details on mouseOut *except* for event bubbling
 	 *
-	 * @context {jQuery}
+	 * @this {jQuery}
 	 * @param {jQuery.Event} e
 	 */
 	function onBoxMouseOut( e ) {
@@ -93,7 +93,7 @@
 	/**
 	 * Toggles diffs
 	 *
-	 * @context {jQuery}
+	 * @this {jQuery}
 	 */
 	function toggleDiff() {
 		var $diff = $( '#mw-fr-stablediff' ),
@@ -117,7 +117,7 @@
 	/**
 	 * Toggles log excerpts
 	 *
-	 * @context {jQuery}
+	 * this {jQuery}
 	 */
 	function toggleLog() {
 		var hideMsg, showMsg,
@@ -126,6 +126,7 @@
 
 		if ( $log.length && $toggle.length ) {
 			// Two different message sets used here...
+			// eslint-disable-next-line no-jquery/no-class-state
 			if ( $toggle.hasClass( 'fr-logtoggle-details' ) ) {
 				hideMsg = mw.msg( 'revreview-log-details-hide' );
 				showMsg = mw.msg( 'revreview-log-details-show' );
@@ -147,7 +148,7 @@
 	/**
 	 * Update save button when "review this" checkbox changes
 	 *
-	 * @context {jQuery}
+	 * @this {jQuery}
 	 */
 	function updateSaveButton() {
 		var $save = $( '#wpSave' ),
@@ -211,6 +212,7 @@
 		$toggle = $( '#mw-fr-logtoggle' );
 		if ( $toggle.length ) {
 			$toggle.css( 'display', 'inline' ); // show toggle control
+			// eslint-disable-next-line no-jquery/no-class-state
 			if ( $toggle.hasClass( 'fr-logtoggle-details' ) ) {
 				// hide in edit mode
 				$( '#mw-fr-logexcerpt' ).hide();
