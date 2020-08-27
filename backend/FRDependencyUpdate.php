@@ -115,9 +115,6 @@ class FRDependencyUpdate {
 		);
 		$arr = [];
 		foreach ( $res as $row ) {
-			if ( !isset( $arr[$row->ftr_namespace] ) ) {
-				$arr[$row->ftr_namespace] = [];
-			}
 			$arr[$row->ftr_namespace][$row->ftr_title] = 1;
 		}
 		return $arr;
@@ -185,9 +182,6 @@ class FRDependencyUpdate {
 	}
 
 	private static function addDependency( array &$deps, $ns, $dbKey ) {
-		if ( !isset( $deps[$ns] ) ) {
-			$deps[$ns] = [];
-		}
 		$deps[$ns][$dbKey] = 1;
 	}
 
@@ -204,9 +198,6 @@ class FRDependencyUpdate {
 		);
 		$arr = [];
 		foreach ( $res as $row ) {
-			if ( !isset( $arr[$row->pl_namespace] ) ) {
-				$arr[$row->pl_namespace] = [];
-			}
 			$arr[$row->pl_namespace][$row->pl_title] = 1;
 		}
 		return $arr;
@@ -225,9 +216,6 @@ class FRDependencyUpdate {
 		);
 		$arr = [];
 		foreach ( $res as $row ) {
-			if ( !isset( $arr[$row->tl_namespace] ) ) {
-				$arr[$row->tl_namespace] = [];
-			}
 			$arr[$row->tl_namespace][$row->tl_title] = 1;
 		}
 		return $arr;

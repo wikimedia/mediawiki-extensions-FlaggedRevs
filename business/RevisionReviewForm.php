@@ -755,9 +755,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			if ( $tmp_title === null ) {
 				continue; // Page must be valid!
 			}
-			if ( !isset( $templateIds[$tmp_title->getNamespace()] ) ) {
-				$templateIds[$tmp_title->getNamespace()] = [];
-			}
 			$templateIds[$tmp_title->getNamespace()][$tmp_title->getDBkey()] = $rev_id;
 		}
 		# Our image version pointers
