@@ -70,7 +70,7 @@ class FlaggableWikiPage extends WikiPage {
 	 * @return File|false|null
 	 */
 	public function getFile() {
-		if ( $this->file === null && $this->mTitle->getNamespace() == NS_FILE ) {
+		if ( $this->file === null && $this->mTitle->getNamespace() === NS_FILE ) {
 			$this->file = MediaWikiServices::getInstance()->getRepoGroup()
 				->findFile( $this->mTitle );
 		}
@@ -200,7 +200,7 @@ class FlaggableWikiPage extends WikiPage {
 		if ( $this->revsArePending() ) {
 			return false;
 		# Stable file revision must be the same as the current
-		} elseif ( $this->mTitle->getNamespace() == NS_FILE ) {
+		} elseif ( $this->mTitle->getNamespace() === NS_FILE ) {
 			$file = $this->getFile(); // current upload version
 			if ( $file && $file->getTimestamp() > $srev->getFileTimestamp() ) {
 				return false;

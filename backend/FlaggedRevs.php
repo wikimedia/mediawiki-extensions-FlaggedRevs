@@ -57,7 +57,7 @@ class FlaggedRevs {
 		foreach ( $wgFlaggedRevsNamespaces as $ns ) {
 			if ( $namespaceInfo->isTalk( $ns ) ) {
 				throw new Exception( 'FlaggedRevs given talk namespace in $wgFlaggedRevsNamespaces!' );
-			} elseif ( $ns == NS_MEDIAWIKI ) {
+			} elseif ( $ns === NS_MEDIAWIKI ) {
 				throw new Exception( 'FlaggedRevs given NS_MEDIAWIKI in $wgFlaggedRevsNamespaces!' );
 			}
 		}
@@ -566,7 +566,7 @@ class FlaggedRevs {
 					// nothing to do
 					return call_user_func( $oldCurrentRevisionRecordCallback, $title, $parser );
 				}
-				if ( $title->getNamespace() < 0 || $title->getNamespace() == NS_MEDIAWIKI ) {
+				if ( $title->getNamespace() < 0 || $title->getNamespace() === NS_MEDIAWIKI ) {
 					// nothing to do (bug 29579 for NS_MEDIAWIKI)
 					return call_user_func( $oldCurrentRevisionRecordCallback, $title, $parser );
 				}
@@ -748,7 +748,7 @@ class FlaggedRevs {
 	public static function HTMLCacheUpdates( Title $title ) {
 		$jobs = [];
 		$jobs[] = HTMLCacheUpdateJob::newForBacklinks( $title, 'templatelinks' );
-		if ( $title->getNamespace() == NS_FILE ) {
+		if ( $title->getNamespace() === NS_FILE ) {
 			$jobs[] = HTMLCacheUpdateJob::newForBacklinks( $title, 'imagelinks' );
 		}
 		JobQueueGroup::singleton()->lazyPush( $jobs );
@@ -913,7 +913,7 @@ class FlaggedRevs {
 		if ( in_array( $title->getPrefixedDBkey(), $wgFlaggedRevsWhitelist ) ) {
 			return false; // page is one exemption whitelist
 		}
-		$ns = ( $title->getNamespace() == NS_MEDIA ) ?
+		$ns = ( $title->getNamespace() === NS_MEDIA ) ?
 			NS_FILE : $title->getNamespace(); // treat NS_MEDIA as NS_FILE
 		return in_array( $ns, self::getReviewNamespaces() );
 	}
@@ -1024,7 +1024,7 @@ class FlaggedRevs {
 
 		# If this is an image page, get the corresponding file version info...
 		$fileData = [ 'name' => null, 'timestamp' => null, 'sha1' => null ];
-		if ( $title->getNamespace() == NS_FILE ) {
+		if ( $title->getNamespace() === NS_FILE ) {
 			# We must use WikiFilePage process cache on upload or get bitten by replica lag
 			$file = $article instanceof WikiFilePage
 				? $article->getFile() // uses up-to-date process cache on new uploads

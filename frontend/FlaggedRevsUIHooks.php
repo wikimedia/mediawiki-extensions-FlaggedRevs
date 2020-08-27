@@ -88,7 +88,7 @@ class FlaggedRevsUIHooks {
 			return;
 		}
 
-		if ( $out->getTitle()->getNamespace() != NS_SPECIAL ) {
+		if ( $out->getTitle()->getNamespace() !== NS_SPECIAL ) {
 			$view = FlaggablePageView::singleton();
 			$view->addStabilizationLink(); // link on protect form
 			$view->displayTag(); // show notice bar/icon in subtitle

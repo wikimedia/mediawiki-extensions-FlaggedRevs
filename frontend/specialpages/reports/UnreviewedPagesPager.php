@@ -85,9 +85,9 @@ class UnreviewedPagesPager extends AlphabeticPager {
 			$conds['cl_to'] = $this->category;
 			$conds[] = 'cl_from = page_id';
 			# Note: single NS always specified
-			if ( $this->namespace == NS_FILE ) {
+			if ( $this->namespace === NS_FILE ) {
 				$conds['cl_type'] = 'file';
-			} elseif ( $this->namespace == NS_CATEGORY ) {
+			} elseif ( $this->namespace === NS_CATEGORY ) {
 				$conds['cl_type'] = 'subcat';
 			} else {
 				$conds['cl_type'] = 'page';
@@ -141,9 +141,9 @@ class UnreviewedPagesPager extends AlphabeticPager {
 			$conds['cl_to'] = $this->category;
 			$conds[] = 'cl_from = qc_value'; // page_id
 			# Note: single NS always specified
-			if ( $this->namespace == NS_FILE ) {
+			if ( $this->namespace === NS_FILE ) {
 				$conds['cl_type'] = 'file';
-			} elseif ( $this->namespace == NS_CATEGORY ) {
+			} elseif ( $this->namespace === NS_CATEGORY ) {
 				$conds['cl_type'] = 'subcat';
 			} else {
 				$conds['cl_type'] = 'page';

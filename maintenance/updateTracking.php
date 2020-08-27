@@ -100,7 +100,7 @@ class UpdateFRTracking extends Maintenance {
 				$fileTime = $row->fr_img_timestamp;
 				$fileSha1 = $row->fr_img_sha1;
 				# Check for file version to see if it's stored the old way...
-				if ( $row->page_namespace == NS_FILE && !$file ) {
+				if ( $row->page_namespace === NS_FILE && !$file ) {
 					$irow = $db->selectRow( 'flaggedimages',
 						[ 'fi_img_timestamp', 'fi_img_sha1' ],
 						[ 'fi_rev_id' => $row->fr_rev_id, 'fi_name' => $row->page_title ],

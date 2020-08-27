@@ -515,7 +515,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		);
 		# If this is an image page, store corresponding file info
 		$fileData = [ 'name' => null, 'timestamp' => null, 'sha1' => null ];
-		if ( $this->page->getNamespace() == NS_FILE && $this->fileVersion ) {
+		if ( $this->page->getNamespace() === NS_FILE && $this->fileVersion ) {
 			# Stable upload version for file pages...
 			$data = explode( '#', $this->fileVersion, 2 );
 			if ( count( $data ) == 2 ) {
