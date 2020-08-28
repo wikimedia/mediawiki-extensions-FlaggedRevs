@@ -5,19 +5,19 @@
  */
 class ReviewedPagesPager extends AlphabeticPager {
 	/** @var ReviewedPages */
-	public $mForm;
+	private $mForm;
 
 	/** @var array */
-	public $mConds;
+	private $mConds;
 
 	/** @var int */
-	public $namespace;
+	private $namespace;
 
 	/** @var int */
-	public $type;
+	private $type;
 
 	/** @var bool */
-	public $hideRedirs;
+	private $hideRedirs;
 
 	public function __construct( $form, $conds = [], $type = 0, $namespace = 0, $hideRedirs = 1 ) {
 		$this->mForm = $form;

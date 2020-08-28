@@ -5,10 +5,7 @@
  */
 class UnreviewedPagesPager extends AlphabeticPager {
 	/** @var UnreviewedPages */
-	public $mForm;
-
-	/** @var array */
-	public $mConds;
+	private $mForm;
 
 	/** @var bool */
 	private $live;
@@ -115,7 +112,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 	}
 
 	public function getQueryCacheInfo() {
-		$conds = $this->mConds;
+		$conds = [];
 		$fields = [ 'page_namespace', 'page_title', 'page_len', 'page_id',
 			'qc_value', 'MIN(rev_timestamp) AS creation' ];
 		# Re-join on flaggedpages to double-check since things
