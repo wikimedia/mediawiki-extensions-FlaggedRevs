@@ -183,6 +183,7 @@
 	"tooltip-ca-default": "Impostazioni di garanzia della qualità",
 	"flaggedrevs-protect-legend": "Verifica automatica delle modifiche ([[{{MediaWiki:Validationpage}}|aiuto]])",
 	"flaggedrevs-protect-none": "Autorizza tutti gli utenti",
+	"flaggedrevs-protect-sysop": "Consentito solo agli amministratori",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Pagine non revisionate]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Modifiche in sospeso]",
 	"revreview-locked-title": "Le modifiche a questa pagina devono essere revisionate.",
 	"revreview-unlocked-title": "Le modifiche a questa pagina non hanno bisogno di essere revisionate.",

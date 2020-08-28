@@ -211,6 +211,7 @@
 	"tooltip-ca-default": "Einstellungen markierte Versionen",
 	"flaggedrevs-protect-legend": "Automatisches markieren von Bearbeitungen ([[{{MediaWiki:Validationpage}}|Hilfe]])",
 	"flaggedrevs-protect-none": "Allen Benutzern erlauben",
+	"flaggedrevs-protect-sysop": "Nur Administratoren erlauben",
 	"flaggedrevs-categoryview": "[{{Fullurl:Spezial:UnreviewedPages|category=$1}} Ungesichtete Seiten]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Seiten mit unmarkierten Änderungen]",
 	"revreview-locked-title": "Bearbeitungen dieser Seite müssen markiert werden.",
 	"revreview-unlocked-title": "Bearbeitungen dieser Seite müssen nicht markiert werden.",
