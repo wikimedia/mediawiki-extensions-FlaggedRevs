@@ -517,7 +517,7 @@ class FlaggableWikiPage extends WikiPage {
 			__METHOD__
 		);
 		# Update pending edit tracking table
-		self::updatePendingList( $this->getId(), $latest );
+		$this->updatePendingList( $this->getId(), $latest );
 	}
 
 	/**
@@ -537,7 +537,7 @@ class FlaggableWikiPage extends WikiPage {
 	 * @param int $pageId Page ID
 	 * @param int $latest Latest revision
 	 */
-	private static function updatePendingList( $pageId, $latest ) {
+	private function updatePendingList( $pageId, $latest ) {
 		$data = [];
 		# Get the highest tier used on this wiki
 		$level = FlaggedRevs::highestReviewTier();

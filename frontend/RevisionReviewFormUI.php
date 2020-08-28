@@ -195,7 +195,7 @@ class RevisionReviewFormUI {
 		# Add main checkboxes/selects
 		$form .= Xml::openElement( 'span',
 			[ 'id' => 'mw-fr-ratingselects', 'class' => 'fr-rating-options' ] ) . "\n";
-		$form .= self::ratingInputs( $this->user, $flags, (bool)$disabled, (bool)$frev ) . "\n";
+		$form .= $this->ratingInputs( $this->user, $flags, (bool)$disabled, (bool)$frev ) . "\n";
 		$form .= Xml::closeElement( 'span' ) . "\n";
 
 		# Don't put buttons & comment field on the same line as tag inputs.
@@ -216,7 +216,7 @@ class RevisionReviewFormUI {
 
 		# Add the submit buttons...
 		$rejectId = $this->rejectRefRevId(); // determine if there will be reject button
-		$form .= self::submitButtons( $rejectId, $frev, (bool)$disabled, $reviewIncludes, $this->out );
+		$form .= $this->submitButtons( $rejectId, $frev, (bool)$disabled, $reviewIncludes, $this->out );
 
 		# Show stability log if there is anything interesting...
 		if ( $article->isPageLocked() ) {
@@ -298,9 +298,9 @@ class RevisionReviewFormUI {
 	 * @return string
 	 * Generates a main tag inputs (checkboxes/radios/selects) for review form
 	 */
-	private static function ratingInputs( $user, $flags, $disabled, $reviewed ) {
+	private function ratingInputs( $user, $flags, $disabled, $reviewed ) {
 		# Get all available tags for this page/user
-		list( $labels, $minLevels ) = self::ratingFormTags( $user, $flags );
+		list( $labels, $minLevels ) = $this->ratingFormTags( $user, $flags );
 		if ( $labels === false ) {
 			$disabled = true; // a tag is unsettable
 		}
@@ -366,7 +366,7 @@ class RevisionReviewFormUI {
 		return implode( '&#160;&#160;&#160;', $items );
 	}
 
-	private static function ratingFormTags( $user, $selected ) {
+	private function ratingFormTags( $user, $selected ) {
 		$labels = [];
 		$minLevels = [];
 		# Build up all levels available to user
@@ -403,7 +403,7 @@ class RevisionReviewFormUI {
 	 * @param OutputPage $out
 	 * @return string
 	 */
-	private static function submitButtons(
+	private function submitButtons(
 		$rejectId, $frev, $disabled, $reviewIncludes, OutputPage $out
 	) {
 		$disAttrib = [ 'disabled' => 'disabled' ];

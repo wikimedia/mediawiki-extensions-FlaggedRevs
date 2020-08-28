@@ -54,7 +54,7 @@ class UnreviewedPages extends SpecialPage {
 		$this->category = $catTitle === null ? '' : $catTitle->getText();
 		$this->level = $request->getInt( 'level' );
 		$this->hideRedirs = $request->getBool( 'hideredirs', true );
-		$this->live = self::generalQueryOK();
+		$this->live = $this->generalQueryOK();
 
 		$this->pager = new UnreviewedPagesPager( $this, $this->live,
 			$this->namespace, !$this->hideRedirs, $this->category, $this->level );
@@ -178,7 +178,7 @@ class UnreviewedPages extends SpecialPage {
 		} else {
 			$uw = - 1;
 		}
-		$css = self::getLineClass( $hours, $uw );
+		$css = $this->getLineClass( $hours, $uw );
 		$css = $css ? " class='$css'" : "";
 
 		# Show if a user is looking at this page
@@ -192,7 +192,7 @@ class UnreviewedPages extends SpecialPage {
 			"{$age}{$watching}{$underReview}</li>" );
 	}
 
-	private static function getLineClass( $hours, $uw ) {
+	private function getLineClass( $hours, $uw ) {
 		if ( $uw == 0 ) {
 			return 'fr-unreviewed-unwatched';
 		} elseif ( $hours > 20 * 24 ) {
@@ -208,7 +208,7 @@ class UnreviewedPages extends SpecialPage {
 	 * There may be many pages, most of which are reviewed
 	 * @return bool
 	 */
-	private static function generalQueryOK() {
+	private function generalQueryOK() {
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		if ( !$namespaces || !wfQueriesMustScale() ) {
 			return true;

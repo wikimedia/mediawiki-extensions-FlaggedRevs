@@ -44,7 +44,7 @@ class FRDependencyUpdate {
 		foreach ( $this->sLinks as $ns => $titles ) {
 			foreach ( $titles as $title => $pageId ) {
 				if ( !isset( $cLinks[$ns][$title] ) ) {
-					self::addDependency( $deps, $ns, $title );
+					$this->addDependency( $deps, $ns, $title );
 				}
 			}
 		}
@@ -52,7 +52,7 @@ class FRDependencyUpdate {
 		$cImages = $this->getCurrentVersionImages();
 		foreach ( $this->sImages as $image => $n ) {
 			if ( !isset( $cImages[$image] ) ) {
-				self::addDependency( $deps, NS_FILE, $image );
+				$this->addDependency( $deps, NS_FILE, $image );
 			}
 		}
 		# Get any templates that are only in the stable version...
@@ -60,7 +60,7 @@ class FRDependencyUpdate {
 		foreach ( $this->sTemplates as $ns => $titles ) {
 			foreach ( $titles as $title => $id ) {
 				if ( !isset( $cTemplates[$ns][$title] ) ) {
-					self::addDependency( $deps, $ns, $title );
+					$this->addDependency( $deps, $ns, $title );
 				}
 			}
 		}
@@ -68,7 +68,7 @@ class FRDependencyUpdate {
 		$cCategories = $this->getCurrentVersionCategories();
 		foreach ( $this->sCategories as $category => $sort ) {
 			if ( !isset( $cCategories[$category] ) ) {
-				self::addDependency( $deps, NS_CATEGORY, $category );
+				$this->addDependency( $deps, NS_CATEGORY, $category );
 			}
 		}
 		# Quickly check for any dependency tracking changes (use a replica DB)
@@ -161,7 +161,7 @@ class FRDependencyUpdate {
 			}
 		}
 		if ( $del ) {
-			$clause = self::makeWhereFrom2d( $del, wfGetDB( DB_MASTER ) );
+			$clause = $this->makeWhereFrom2d( $del, wfGetDB( DB_MASTER ) );
 			if ( $clause ) {
 				return [ $clause, 'ftr_from' => $this->title->getArticleID() ];
 			}
@@ -175,13 +175,13 @@ class FRDependencyUpdate {
 	 * @param IDatabase $db
 	 * @return string|bool
 	 */
-	private static function makeWhereFrom2d( &$arr, $db ) {
+	private function makeWhereFrom2d( &$arr, $db ) {
 		$lb = new LinkBatch();
 		$lb->setArray( $arr );
 		return $lb->constructSet( 'ftr', $db );
 	}
 
-	private static function addDependency( array &$deps, $ns, $dbKey ) {
+	private function addDependency( array &$deps, $ns, $dbKey ) {
 		$deps[$ns][$dbKey] = 1;
 	}
 

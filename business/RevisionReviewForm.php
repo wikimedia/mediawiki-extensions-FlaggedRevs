@@ -510,7 +510,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			$quality = FlaggedRevs::isPristine( $flags ) ? 2 : 1;
 		}
 		# Our template/file version pointers
-		list( $tmpVersions, $fileVersions ) = self::getIncludeVersions(
+		list( $tmpVersions, $fileVersions ) = $this->getIncludeVersions(
 			$this->templateParams, $this->imageParams
 		);
 		# If this is an image page, store corresponding file info
@@ -738,7 +738,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * templateIds like ParserOutput->mTemplateIds
 	 * fileSHA1Keys like ParserOutput->mImageTimeKeys
 	 */
-	private static function getIncludeVersions( $templateParams, $imageParams ) {
+	private function getIncludeVersions( $templateParams, $imageParams ) {
 		$templateIds = [];
 		$templateMap = explode( '#', trim( $templateParams ) );
 		foreach ( $templateMap as $template ) {
