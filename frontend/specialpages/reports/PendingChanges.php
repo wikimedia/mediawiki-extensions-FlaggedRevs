@@ -326,7 +326,7 @@ class PendingChanges extends SpecialPage {
 				$age = $this->msg( 'pendingchanges-recent' )->escaped(); // hot off the press :)
 			}
 			// Oh-noes!
-			$css = self::getLineClass( $hours, $uw );
+			$css = $this->getLineClass( $hours, $uw );
 			$css = $css ? " class='$css'" : "";
 		} else {
 			$age = ""; // wtf?
@@ -342,7 +342,7 @@ class PendingChanges extends SpecialPage {
 			"{$quality}{$watching}{$underReview}</li>" );
 	}
 
-	private static function getLineClass( $hours, $uw ) {
+	private function getLineClass( $hours, $uw ) {
 		if ( $uw == 0 ) {
 			return 'fr-unreviewed-unwatched';
 		} else {

@@ -254,7 +254,7 @@ class ProblemChanges extends SpecialPage {
 			$quality = " <b>[{$quality}]</b>";
 		}
 		# What are the tags?
-		$dbTags = self::getChangeTags( $title->getArticleID(), $row->stable );
+		$dbTags = $this->getChangeTags( $title->getArticleID(), $row->stable );
 		if ( $dbTags ) {
 			$tags = implode( ', ', $dbTags );
 			$tags = ' <b>' . $this->msg( 'parentheses', $tags )->escaped() . '</b>';
@@ -288,7 +288,7 @@ class ProblemChanges extends SpecialPage {
 				$age = $this->msg( 'pendingchanges-recent' )->escaped(); // hot off the press :)
 			}
 			// Oh-noes!
-			$css = self::getLineClass( $hours, $uw );
+			$css = $this->getLineClass( $hours, $uw );
 			$css = $css ? " class='$css'" : "";
 		} else {
 			$age = ""; // wtf?
@@ -310,7 +310,7 @@ class ProblemChanges extends SpecialPage {
 	 * @param int $revId rev ID
 	 * @return array
 	 */
-	private static function getChangeTags( $pageId, $revId ) {
+	private function getChangeTags( $pageId, $revId ) {
 		$tags = [];
 		$dbr = wfGetDB( DB_REPLICA );
 		$res = $dbr->select(
@@ -328,7 +328,7 @@ class ProblemChanges extends SpecialPage {
 		return $tags;
 	}
 
-	private static function getLineClass( $hours, $uw ) {
+	private function getLineClass( $hours, $uw ) {
 		if ( $uw == 0 ) {
 			return 'fr-unreviewed-unwatched';
 		} else {
