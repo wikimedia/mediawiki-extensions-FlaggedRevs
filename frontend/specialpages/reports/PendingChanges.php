@@ -338,16 +338,12 @@ class PendingChanges extends SpecialPage {
 	}
 
 	/**
-	 * @param int $hours
-	 * @param int $uw
+	 * @param float $hours
+	 * @param int $numUsersWatching
 	 * @return string
 	 */
-	private function getLineClass( $hours, $uw ) {
-		if ( $uw == 0 ) {
-			return 'fr-unreviewed-unwatched';
-		} else {
-			return "";
-		}
+	private function getLineClass( $hours, $numUsersWatching ) {
+		return $numUsersWatching > 0 ? '' : 'fr-unreviewed-unwatched';
 	}
 
 	/**

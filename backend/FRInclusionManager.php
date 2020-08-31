@@ -91,13 +91,11 @@ class FRInclusionManager {
 	private function formatFileArray( array $params ) {
 		$res = [];
 		foreach ( $params as $dbKey => $timeKey ) {
-			$time = '0'; // missing
-			$sha1 = false;
 			if ( $timeKey['time'] ) {
-				$time = $timeKey['time'];
-				$sha1 = strval( $timeKey['sha1'] );
+				$res[$dbKey] = [ 'time' => $timeKey['time'], 'sha1' => strval( $timeKey['sha1'] ) ];
+			} else {
+				$res[$dbKey] = [ 'time' => '0', 'sha1' => false ];
 			}
-			$res[$dbKey] = [ 'time' => $time, 'sha1' => $sha1 ];
 		}
 		return $res;
 	}
@@ -161,8 +159,7 @@ class FRInclusionManager {
 		$dbKey = $title->getDBkey();
 		# All NS_FILE, no need to check namespace
 		if ( isset( $this->reviewedVersions['files'][$dbKey] ) ) {
-			$time = $this->reviewedVersions['files'][$dbKey]['time'];
-			$sha1 = $this->reviewedVersions['files'][$dbKey]['sha1'];
+			[ 'time' => $time, 'sha1' => $sha1 ] = $this->reviewedVersions['files'][$dbKey];
 			return [ $time, $sha1 ];
 		}
 		return [ null, null ]; // missing version
@@ -189,22 +186,19 @@ class FRInclusionManager {
 	 */
 	public function getStableFileVersion( Title $title ) {
 		$dbKey = $title->getDBkey();
-		$time = '0'; // missing
-		$sha1 = false;
 		# All NS_FILE, no need to check namespace
-		if ( isset( $this->stableVersions['files'][$dbKey] ) ) {
-			$time = $this->stableVersions['files'][$dbKey]['time'];
-			$sha1 = $this->stableVersions['files'][$dbKey]['sha1'];
-			return [ $time, $sha1 ];
+		if ( !isset( $this->stableVersions['files'][$dbKey] ) ) {
+			$srev = FlaggedRevision::newFromStable( $title );
+			if ( $srev && $srev->getFileTimestamp() ) {
+				$time = $srev->getFileTimestamp();
+				$sha1 = $srev->getFileSha1();
+			} else {
+				$time = '0';
+				$sha1 = false;
+			}
+			$this->stableVersions['files'][$dbKey] = [ 'time' => $time, 'sha1' => $sha1 ];
 		}
-		$srev = FlaggedRevision::newFromStable( $title );
-		if ( $srev && $srev->getFileTimestamp() ) {
-			$time = $srev->getFileTimestamp();
-			$sha1 = $srev->getFileSha1();
-		}
-		$this->stableVersions['files'][$dbKey] = [];
-		$this->stableVersions['files'][$dbKey]['time'] = $time;
-		$this->stableVersions['files'][$dbKey]['sha1'] = $sha1;
+		[ 'time' => $time, 'sha1' => $sha1 ] = $this->stableVersions['files'][$dbKey];
 		return [ $time, $sha1 ];
 	}
 }

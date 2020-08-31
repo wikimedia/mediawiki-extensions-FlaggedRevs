@@ -406,11 +406,7 @@ class FlaggedRevsHooks {
 			$nsList[ 'all' ] = $totalCount;
 		}
 
-		if ( $ns === '' ) {
-			return $nsList['all'];
-		} else {
-			return $nsList[ "ns-$ns" ];
-		}
+		return $ns === '' ? $nsList['all'] : $nsList[ "ns-$ns" ];
 	}
 
 	/**

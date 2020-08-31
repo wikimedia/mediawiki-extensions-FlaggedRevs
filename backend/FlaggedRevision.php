@@ -541,9 +541,10 @@ class FlaggedRevision {
 					$reviewedTS = wfTimestamp( TS_MW, $fi_img_timestamp );
 					$reviewedSha1 = strval( $row->fi_img_sha1 );
 				}
-				$this->mFiles[$row->fi_name] = [];
-				$this->mFiles[$row->fi_name]['time'] = $reviewedTS;
-				$this->mFiles[$row->fi_name]['sha1'] = $reviewedSha1;
+				$this->mFiles[$row->fi_name] = [
+					'time' => $reviewedTS,
+					'sha1' => $reviewedSha1,
+				];
 			}
 		}
 		return $this->mFiles;
@@ -611,9 +612,10 @@ class FlaggedRevision {
 					$reviewedTS = wfTimestamp( TS_MW, $row->fr_img_timestamp );
 					$reviewedSha1 = strval( $row->fr_img_sha1 );
 				}
-				$this->mStableFiles[$row->fi_name] = [];
-				$this->mStableFiles[$row->fi_name]['time'] = $reviewedTS;
-				$this->mStableFiles[$row->fi_name]['sha1'] = $reviewedSha1;
+				$this->mStableFiles[$row->fi_name] = [
+					'time' => $reviewedTS,
+					'sha1' => $reviewedSha1,
+				];
 			}
 		}
 		return $this->mStableFiles;

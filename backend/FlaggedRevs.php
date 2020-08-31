@@ -315,12 +315,7 @@ class FlaggedRevs {
 	 * @return bool
 	 */
 	private static function tagIsValid( $tag, $value ) {
-		$levels = self::getTagLevels( $tag );
-		$highest = count( $levels ) - 1;
-		if ( !$levels || $value < 0 || $value > $highest ) {
-			return false; // flag range is invalid
-		}
-		return true;
+		return $value >= 0 && $value < count( self::getTagLevels( $tag ) );
 	}
 
 	/**
@@ -932,11 +927,15 @@ class FlaggedRevs {
 				if ( !isset( $fVersions[$dbKey] ) ) {
 					$srev = FlaggedRevision::newFromStable( Title::makeTitle( NS_FILE, $dbKey ) );
 					if ( $srev && $srev->getFileTimestamp() ) { // use stable
-						$fVersions[$dbKey]['time'] = $srev->getFileTimestamp();
-						$fVersions[$dbKey]['sha1'] = $srev->getFileSha1();
+						$fVersions[$dbKey] = [
+							'time' => $srev->getFileTimestamp(),
+							'sha1' => $srev->getFileSha1(),
+						];
 					} else { // use current
-						$fVersions[$dbKey]['time'] = $info['time'];
-						$fVersions[$dbKey]['sha1'] = $info['sha1'];
+						$fVersions[$dbKey] = [
+							'time' => $info['time'],
+							'sha1' => $info['sha1'],
+						];
 					}
 				}
 			}

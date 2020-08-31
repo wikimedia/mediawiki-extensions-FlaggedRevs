@@ -165,12 +165,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 	 * @inheritDoc
 	 */
 	public function getCacheMode( $params ) {
-		if ( $params['filterwatched'] == 'watched' ) {
-			// Private data
-			return 'private';
-		} else {
-			return 'public';
-		}
+		return $params['filterwatched'] === 'watched' ? 'private' : 'public';
 	}
 
 	/**

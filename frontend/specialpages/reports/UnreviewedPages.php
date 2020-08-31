@@ -193,12 +193,12 @@ class UnreviewedPages extends SpecialPage {
 	}
 
 	/**
-	 * @param int $hours
-	 * @param int $uw
+	 * @param float $hours
+	 * @param int $numUsersWatching
 	 * @return string HTML
 	 */
-	private function getLineClass( $hours, $uw ) {
-		if ( $uw == 0 ) {
+	private function getLineClass( $hours, $numUsersWatching ) {
+		if ( $numUsersWatching == 0 ) {
 			return 'fr-unreviewed-unwatched';
 		} elseif ( $hours > 20 * 24 ) {
 			return 'fr-pending-long2';
