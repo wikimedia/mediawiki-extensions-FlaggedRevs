@@ -968,8 +968,8 @@ class FlaggablePageView extends ContextSource {
 	 * If no stable version is required, the reference parameters will not be set
 	 *
 	 * Depends on $request
-	 * @param File|null &$normalFile
-	 * @param File|null &$displayFile
+	 * @param File|false &$normalFile
+	 * @param File|false &$displayFile
 	 */
 	public function imagePageFindFile( &$normalFile, &$displayFile ) {
 		$request = $this->getRequest();
@@ -1718,6 +1718,8 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:$wgAjaxExportList
+	 *
 	 * get new diff header items for in-place AJAX page review
 	 * @return string
 	 */

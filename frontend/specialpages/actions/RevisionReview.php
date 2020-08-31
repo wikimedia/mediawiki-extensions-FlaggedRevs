@@ -209,6 +209,11 @@ class RevisionReview extends UnlistedSpecialPage {
 		return $s;
 	}
 
+	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:$wgAjaxExportList
+	 *
+	 * @return string
+	 */
 	public static function AjaxReview( /*$args...*/ ) {
 		$context = RequestContext::getMain();
 		$user = $context->getUser();

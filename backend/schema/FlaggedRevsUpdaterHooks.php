@@ -4,6 +4,11 @@
  * Class containing updater functions for a FlaggedRevs environment
  */
 class FlaggedRevsUpdaterHooks {
+	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/LoadExtensionSchemaUpdates
+	 *
+	 * @param DatabaseUpdater $du
+	 */
 	public static function addSchemaUpdates( DatabaseUpdater $du ) {
 		global $wgDBtype;
 		if ( $wgDBtype == 'mysql' ) {

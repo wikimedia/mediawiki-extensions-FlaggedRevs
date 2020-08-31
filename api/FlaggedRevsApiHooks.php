@@ -3,6 +3,8 @@
 abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 
 	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/APIGetAllowedParams
+	 *
 	 * @param ApiBase $module
 	 * @param array[] &$params
 	 */
@@ -14,6 +16,8 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 	}
 
 	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/APIQueryAfterExecute
+	 *
 	 * @param ApiBase $module
 	 */
 	public static function addApiRevisionData( $module ) {

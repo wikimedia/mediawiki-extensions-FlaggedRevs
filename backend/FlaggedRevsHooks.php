@@ -14,6 +14,9 @@ use Wikimedia\Rdbms\IDatabase;
  */
 class FlaggedRevsHooks {
 
+	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Extension_registration#Customizing_registration
+	 */
 	public static function onRegistration() {
 		global $wgAjaxExportList;
 		$wgAjaxExportList[] = 'RevisionReview::AjaxReview';
@@ -60,11 +63,16 @@ class FlaggedRevsHooks {
 		define( 'APCOND_FR_NEVERDEMOTED', 70830 );
 	}
 
+	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:$wgExtensionFunctions
+	 */
 	public static function onExtensionFunctions() {
 		( new FlaggedRevsSetup() )->doSetup();
 	}
 
 	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/RevisionUndeleted
+	 *
 	 * Update flaggedrevs table on revision restore
 	 * @param RevisionRecord $revision
 	 * @param int $oldPageID
@@ -82,6 +90,8 @@ class FlaggedRevsHooks {
 	}
 
 	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ArticleMergeComplete
+	 *
 	 * Update flaggedrevs page/tracking tables (revision moving)
 	 * @param Title $sourceTitle
 	 * @param Title $destTitle
@@ -115,6 +125,8 @@ class FlaggedRevsHooks {
 	}
 
 	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PageMoveComplete
+	 *
 	 * (a) Update flaggedrevs page/tracking tables
 	 * (b) Autoreview pages moved into reviewable namespaces (bug 19379)
 	 * @param LinkTarget $oLinkTarget
@@ -186,6 +198,8 @@ class FlaggedRevsHooks {
 	}
 
 	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/RevisionDataUpdates
+	 *
 	 * (a) Update flaggedrevs page/tracking tables
 	 * (b) Pages with stable versions that use this page will be purged
 	 * Note: pages with current versions that use this page should already be purged
@@ -202,6 +216,8 @@ class FlaggedRevsHooks {
 	}
 
 	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ArticleDeleteComplete
+	 *
 	 * (a) Update flaggedrevs page/tracking tables
 	 * (b) Pages with stable versions that use this page will be purged
 	 * Note: pages with current versions that use this page should already be purged
@@ -216,6 +232,8 @@ class FlaggedRevsHooks {
 	}
 
 	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ArticleUndelete
+	 *
 	 * (a) Update flaggedrevs page/tracking tables
 	 * (b) Pages with stable versions that use this page will be purged
 	 * Note: pages with current versions that use this page should already be purged
@@ -227,6 +245,8 @@ class FlaggedRevsHooks {
 	}
 
 	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/FileUpload
+	 *
 	 * (a) Update flaggedrevs page/tracking tables
 	 * (b) Pages with stable versions that use this page will be purged
 	 * Note: pages with current versions that use this page should already be purged
@@ -238,6 +258,8 @@ class FlaggedRevsHooks {
 	}
 
 	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ArticleRevisionVisibilitySet
+	 *
 	 * Update flaggedrevs page/tracking tables
 	 * @param Title $title
 	 */
@@ -249,6 +271,8 @@ class FlaggedRevsHooks {
 	}
 
 	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforeParserFetchFileAndTitle
+	 *
 	 * Select the desired images based on the selected stable version time/SHA-1
 	 * @param Parser|false $parser
 	 * @param Title $title
@@ -303,6 +327,11 @@ class FlaggedRevsHooks {
 		}
 	}
 
+	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ParserFirstCallInit
+	 *
+	 * @param Parser $parser
+	 */
 	public static function onParserFirstCallInit( Parser $parser ) {
 		global $wgFlaggedRevsProtection;
 
@@ -316,6 +345,14 @@ class FlaggedRevsHooks {
 			[ __CLASS__, 'parserPendingChangeLevel' ], Parser::SFH_NO_HASH );
 	}
 
+	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ParserGetVariableValueSwitch
+	 *
+	 * @param Parser $parser
+	 * @param array &$cache
+	 * @param string $word
+	 * @param string &$ret
+	 */
 	public static function onParserGetVariableValueSwitch( Parser $parser, &$cache, $word, &$ret ) {
 		global $wgFlaggedRevsProtection;
 		if ( $wgFlaggedRevsProtection && $word === 'pendingchangelevel' ) {
@@ -324,6 +361,11 @@ class FlaggedRevsHooks {
 		}
 	}
 
+	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/MagicWordwgVariableIDs
+	 *
+	 * @param string[] &$words
+	 */
 	public static function onMagicWordwgVariableIDs( &$words ) {
 		global $wgFlaggedRevsProtection;
 
@@ -334,6 +376,13 @@ class FlaggedRevsHooks {
 		$words[] = 'pendingchangelevel';
 	}
 
+	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Parser_functions#The_setFunctionHook_hook
+	 *
+	 * @param Parser $parser
+	 * @param string $ns
+	 * @return int
+	 */
 	public static function parserPagesUsingPendingChanges( Parser $parser, $ns = '' ) {
 		$nsList = FlaggedRevs::getReviewNamespaces();
 		if ( !$nsList ) {
@@ -366,6 +415,13 @@ class FlaggedRevsHooks {
 		}
 	}
 
+	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Parser_functions#The_setFunctionHook_hook
+	 *
+	 * @param Parser $parser
+	 * @param string $page
+	 * @return string
+	 */
 	public static function parserPendingChangeLevel( Parser $parser, $page = '' ) {
 		$title = Title::newFromText( $page );
 		if ( !( $title instanceof Title ) ) {
@@ -383,6 +439,8 @@ class FlaggedRevsHooks {
 	}
 
 	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/getUserPermissionsErrors
+	 *
 	 * Check page move and patrol permissions for FlaggedRevs
 	 * @param Title $title
 	 * @param User $user
@@ -455,6 +513,8 @@ class FlaggedRevsHooks {
 	}
 
 	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/RevisionFromEditComplete
+	 *
 	 * When an edit is made by a user, review it if either:
 	 * (a) The user can 'autoreview' and the edit's base revision was checked
 	 * (b) The edit is a self-revert to the stable version (by anyone)
@@ -686,6 +746,8 @@ class FlaggedRevsHooks {
 	}
 
 	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PageSaveComplete
+	 *
 	 * When an user makes a null-edit we sometimes want to review it...
 	 * (a) Null undo or rollback
 	 * (b) Null edit with review box checked
@@ -784,6 +846,8 @@ class FlaggedRevsHooks {
 	}
 
 	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/RecentChange_save
+	 *
 	 * Mark auto-reviewed edits as patrolled
 	 * @param RecentChange $rc
 	 */
@@ -816,6 +880,14 @@ class FlaggedRevsHooks {
 		}
 	}
 
+	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/RollbackComplete
+	 *
+	 * @param WikiPage $article
+	 * @param UserIdentity $user
+	 * @param RevisionRecord $goodRev
+	 * @param RevisionRecord $badRev
+	 */
 	public static function incrementRollbacks(
 		WikiPage $article, UserIdentity $user, $goodRev, RevisionRecord $badRev
 	) {
@@ -835,6 +907,8 @@ class FlaggedRevsHooks {
 	}
 
 	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/RevisionFromEditComplete
+	 *
 	 * @param WikiPage $wikiPage
 	 * @param RevisionRecord $revRecord
 	 * @param int|false $baseRevId
@@ -1107,6 +1181,8 @@ class FlaggedRevsHooks {
 	}
 
 	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UserGetRights
+	 *
 	 * Grant 'autoreview' rights to users with the 'bot' right
 	 * @param User $user
 	 * @param string[] &$rights
@@ -1119,6 +1195,8 @@ class FlaggedRevsHooks {
 	}
 
 	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PageSaveComplete
+	 *
 	 * Callback that autopromotes user according to the setting in
 	 * $wgFlaggedRevsAutopromote. This also handles user stats tallies.
 	 *
@@ -1160,6 +1238,8 @@ class FlaggedRevsHooks {
 	}
 
 	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/AutopromoteCondition
+	 *
 	 * Check an autopromote condition that is defined by FlaggedRevs
 	 *
 	 * Note: some unobtrusive caching is used to avoid DB hits.
@@ -1325,6 +1405,11 @@ class FlaggedRevsHooks {
 		}
 	}
 
+	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UserLoadAfterLoadFromSession
+	 *
+	 * @param User $user
+	 */
 	public static function setSessionKey( User $user ) {
 		global $wgRequest;
 		if ( $user->isLoggedIn() && MediaWikiServices::getInstance()->getPermissionManager()
@@ -1339,6 +1424,13 @@ class FlaggedRevsHooks {
 		}
 	}
 
+	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/WikiExporter::dumpStableQuery
+	 *
+	 * @param array &$tables
+	 * @param array &$opts
+	 * @param array &$join
+	 */
 	public static function stableDumpQuery( array &$tables, array &$opts, array &$join ) {
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		if ( $namespaces ) {
@@ -1353,6 +1445,14 @@ class FlaggedRevsHooks {
 		}
 	}
 
+	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/GoogleNewsSitemap::Query
+	 *
+	 * @param array $params
+	 * @param array &$joins
+	 * @param array &$conditions
+	 * @param array &$tables
+	 */
 	public static function gnsmQueryModifier(
 		array $params, array &$joins, array &$conditions, array &$tables
 	) {
@@ -1385,7 +1485,7 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	 * Handler for EchoGetDefaultNotifiedUsers hook.
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/EchoGetDefaultNotifiedUsers
 	 *
 	 * This should go once we can remove all Echo-specific code for reverts,
 	 * see: T153570
@@ -1402,12 +1502,20 @@ class FlaggedRevsHooks {
 	}
 
 	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UserMergeAccountFields
+	 *
 	 * @param array &$updateFields
 	 */
 	public static function onUserMergeAccountFields( array &$updateFields ) {
 		$updateFields[] = [ 'flaggedrevs', 'fr_user' ];
 	}
 
+	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/MergeAccountFromTo
+	 *
+	 * @param User $oldUser
+	 * @param User $newUser
+	 */
 	public static function onMergeAccountFromTo( User $oldUser, User $newUser ) {
 		// Don't merge into anonymous users...
 		if ( $newUser->getId() !== 0 ) {
@@ -1415,10 +1523,21 @@ class FlaggedRevsHooks {
 		}
 	}
 
+	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/DeleteAccount
+	 *
+	 * @param User $oldUser
+	 */
 	public static function onDeleteAccount( User $oldUser ) {
 		FRUserCounters::deleteUserParams( $oldUser );
 	}
 
+	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ScribuntoExternalLibraries
+	 *
+	 * @param string $engine
+	 * @param array &$extraLibraries
+	 */
 	public static function onScribuntoExternalLibraries( $engine, array &$extraLibraries ) {
 		if ( $engine == 'lua' ) {
 			$extraLibraries['mw.ext.FlaggedRevs'] = 'FlaggedRevsScribuntoLuaLibrary';
@@ -1426,7 +1545,7 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	 * Handler for BeforeRevertedTagUpdate hook.
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforeRevertedTagUpdate
 	 *
 	 * As the hook is called after saving the edit (in a deferred update), we have already
 	 * figured out whether the edit should be autoreviewed or not (see: maybeMakeEditReviewed

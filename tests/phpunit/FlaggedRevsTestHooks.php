@@ -6,6 +6,8 @@
 class FlaggedRevsTestHooks {
 
 	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ParserTestTables
+	 *
 	 * @param string[] &$tables
 	 */
 	public static function onParserTestTables( array &$tables ) {
