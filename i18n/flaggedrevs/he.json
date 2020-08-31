@@ -197,6 +197,7 @@
 	"tooltip-ca-default": "הגדרות הבטחת איכות",
 	"flaggedrevs-protect-legend": "סקירת אוטומטית של עריכה ([[{{MediaWiki:Validationpage}}|עזרה]])",
 	"flaggedrevs-protect-none": "להתיר לכל המשתמשים",
+	"flaggedrevs-protect-sysop": "לאפשר רק למפעילים",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} דפים שלא נסקרו]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} שינויים ממתינים]",
 	"revreview-locked-title": "עריכות בדף זה דורשות סקירה.",
 	"revreview-unlocked-title": "עריכות בדף הזה אינן דורשות סקירה.",

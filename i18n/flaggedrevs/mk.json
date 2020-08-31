@@ -191,6 +191,7 @@
 	"tooltip-ca-default": "Прилагодувања за контрола на квалитет",
 	"flaggedrevs-protect-legend": "Автоматска проверка на уредувања ([[{{MediaWiki:Validationpage}}|помош]])",
 	"flaggedrevs-protect-none": "Дозволи на сите корисници",
+	"flaggedrevs-protect-sysop": "Допуштај само администратори",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Непрегледани страници]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Промени во исчекување]",
 	"revreview-locked-title": "Уредувањата на оваа страница треба да се прегледаат.",
 	"revreview-unlocked-title": "Уредувањата на оваа страница не бараат преглед.",

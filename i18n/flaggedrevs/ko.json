@@ -190,6 +190,7 @@
 	"tooltip-ca-default": "문서 품질 보증 설정",
 	"flaggedrevs-protect-legend": "자동으로 편집 검토하기 ([[{{MediaWiki:Validationpage}}|도움말]])",
 	"flaggedrevs-protect-none": "모든 사용자에게 허용",
+	"flaggedrevs-protect-sysop": "관리자만 허용",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} 검토되지 않은 문서]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} 검토 대기 중인 문서]",
 	"revreview-locked-title": "이 문서에 대한 편집은 반드시 검토를 거쳐야 합니다.",
 	"revreview-unlocked-title": "이 문서에 대한 편집은 검토를 필요로 하지 않습니다.",

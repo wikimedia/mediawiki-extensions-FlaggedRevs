@@ -14,6 +14,7 @@
 			"Nghtwlkr",
 			"Per",
 			"Rotsee",
+			"Sabelöga",
 			"Technic2",
 			"Tobulos1",
 			"WikiPhoenix"
@@ -188,6 +189,7 @@
 	"tooltip-ca-default": "Inställningar för kvalitetssäkring",
 	"flaggedrevs-protect-legend": "Automatisk redigeringsgranskning ([[{{MediaWiki:Validationpage}}|hjälp]])",
 	"flaggedrevs-protect-none": "Tillåt alla användare",
+	"flaggedrevs-protect-sysop": "Tillåt endast administratörer",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Ogranskade sidor]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Väntande ändringar]",
 	"revreview-locked-title": "Redigeringar av den här sidan kräver granskning.",
 	"revreview-unlocked-title": "Redigeringar av den här sidan kräver inte granskning.",

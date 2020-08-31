@@ -46,7 +46,7 @@
 	"revreview-log": "査読内容の要約:",
 	"revreview-main": "査読するには対象記事の特定の版を選択する必要があります。\n\n[[Special:Unreviewedpages|未査読ページ一覧]]を参照してください。",
 	"revreview-stable1": "[{{fullurl:$1|stableid=$2}} この判定版]を閲覧し、それがこのページの現在の[{{fullurl:$1|stable=1}} 公開版]であるかどうかを確かめることができます。",
-	"revreview-stable2": "このページの[{{fullurl:$1|stable=1}} 公開版]を閲覧することができます。",
+	"revreview-stable2": "このページの[{{fullurl:$1|stable=1}} 公開版]を閲覧できます。",
 	"revreview-submit": "送信",
 	"revreview-submitting": "送信中...",
 	"revreview-submit-review": "版を承認",

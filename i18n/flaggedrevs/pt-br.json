@@ -206,6 +206,7 @@
 	"tooltip-ca-default": "Parâmetros da garantia de qualidade",
 	"flaggedrevs-protect-legend": "Revisão automática de edições ([[{{MediaWiki:Validationpage}}|ajuda]])",
 	"flaggedrevs-protect-none": "Permitir todos os usuários",
+	"flaggedrevs-protect-sysop": "Permitir apenas administradores",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Páginas não revisadas]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Alterações pendentes]",
 	"revreview-locked-title": "As edições a esta página precisam de ser revisadas.",
 	"revreview-unlocked-title": "As edições a esta página não precisam de ser revisadas.",
