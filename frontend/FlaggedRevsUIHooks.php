@@ -587,11 +587,11 @@ class FlaggedRevsUIHooks {
 	 * hiding reviewed changes
 	 *
 	 * @param array &$conds Query conditions
-	 * @param array &$tables Tables to query
+	 * @param string[] &$tables Tables to query
 	 * @param array &$join_conds Query join conditions
-	 * @param array &$fields Fields to query
+	 * @param string[] &$fields Fields to query
 	 */
-	public static function makeAllQueryChanges(
+	private static function makeAllQueryChanges(
 		array &$conds, array &$tables, array &$join_conds, array &$fields
 	) {
 		self::addMetadataQueryJoins( $tables, $join_conds, $fields );
@@ -601,11 +601,11 @@ class FlaggedRevsUIHooks {
 	/**
 	 * Add FlaggedRevs metadata by adding fields and joins
 	 *
-	 * @param array &$tables Tables to query
+	 * @param string[] &$tables Tables to query
 	 * @param array &$join_conds Query join conditions
-	 * @param array &$fields Fields to query
+	 * @param string[] &$fields Fields to query
 	 */
-	public static function addMetadataQueryJoins(
+	private static function addMetadataQueryJoins(
 		array &$tables, array &$join_conds, array &$fields
 	) {
 		$tables[] = 'flaggedpages';
@@ -621,7 +621,7 @@ class FlaggedRevsUIHooks {
 	 *
 	 * @param array &$conds Query conditions
 	 */
-	public static function hideReviewedChangesIfNeeded(
+	private static function hideReviewedChangesIfNeeded(
 		array &$conds
 	) {
 		global $wgRequest;
@@ -639,7 +639,7 @@ class FlaggedRevsUIHooks {
 	 *
 	 * @param array &$conds Query conditions
 	 */
-	public static function hideReviewedChangesUnconditionally(
+	private static function hideReviewedChangesUnconditionally(
 		array &$conds
 	) {
 		// Don't filter external changes as FlaggedRevisions doesn't apply to those
