@@ -948,7 +948,7 @@ class FlaggedRevsUIHooks {
 	) {
 		$title = $rc->getTitle(); // convenience
 		if ( !FlaggedRevs::inReviewNamespace( $title )
-			|| empty( $rc->getAttribute( 'rc_this_oldid' ) ) // rev, not log
+			|| !$rc->getAttribute( 'rc_this_oldid' ) // rev, not log
 			|| !array_key_exists( 'fp_stable', $rc->getAttributes() )
 		) {
 			// Confirm that page is in reviewable namespace

@@ -850,7 +850,7 @@ class FlaggedRevsHooks {
 	 * @param RecentChange $rc
 	 */
 	public static function autoMarkPatrolled( RecentChange $rc ) {
-		if ( empty( $rc->getAttribute( 'rc_this_oldid' ) ) ) {
+		if ( !$rc->getAttribute( 'rc_this_oldid' ) ) {
 			return;
 		}
 		// don't autopatrol autoreviewed edits when using pending changes,

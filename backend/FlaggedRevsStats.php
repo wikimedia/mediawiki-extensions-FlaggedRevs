@@ -75,7 +75,7 @@ class FlaggedRevsStats {
 	public static function updateCache() {
 		global $wgFlaggedRevsStatsAge;
 		$rNamespaces = FlaggedRevs::getReviewNamespaces();
-		if ( empty( $rNamespaces ) ) {
+		if ( !$rNamespaces ) {
 			return; // no SQL errors please :)
 		}
 

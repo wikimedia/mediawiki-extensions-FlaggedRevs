@@ -261,7 +261,7 @@ class FlaggedRevision {
 		}
 		# Get visibility settings to see if page is reviewable...
 		if ( FlaggedRevs::useOnlyIfProtected() ) {
-			if ( empty( $config ) ) {
+			if ( !$config ) {
 			   $config = FRPageConfig::getStabilitySettings( $title, $flags );
 			}
 			if ( !$config['override'] ) {

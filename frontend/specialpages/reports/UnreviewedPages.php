@@ -236,7 +236,7 @@ class UnreviewedPages extends SpecialPage {
 	 */
 	public static function updateQueryCache() {
 		$rNamespaces = FlaggedRevs::getReviewNamespaces();
-		if ( empty( $rNamespaces ) ) {
+		if ( !$rNamespaces ) {
 			return;
 		}
 		$dbr = wfGetDB( DB_REPLICA );
