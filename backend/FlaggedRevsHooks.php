@@ -93,20 +93,16 @@ class FlaggedRevsHooks {
 		$newPageID = $destTitle->getArticleID();
 		# Get flagged revisions from old page id that point to destination page
 		$dbw = wfGetDB( DB_MASTER );
-		$result = $dbw->select(
+		$revIDs = $dbw->selectFieldValues(
 			[ 'flaggedrevs', 'revision' ],
-			[ 'fr_rev_id' ],
+			'fr_rev_id',
 			[ 'fr_page_id' => $oldPageID,
 				'fr_rev_id = rev_id',
 				'rev_page' => $newPageID ],
 			__METHOD__
 		);
 		# Update these rows
-		$revIDs = [];
-		foreach ( $result as $row ) {
-			$revIDs[] = $row->fr_rev_id;
-		}
-		if ( !empty( $revIDs ) ) {
+		if ( $revIDs ) {
 			$dbw->update( 'flaggedrevs',
 				[ 'fr_page_id' => $newPageID ],
 				[ 'fr_page_id' => $oldPageID, 'fr_rev_id' => $revIDs ],
