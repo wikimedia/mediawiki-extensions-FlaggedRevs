@@ -1320,7 +1320,7 @@ class FlaggedRevsHooks {
 				break;
 			case APCOND_FR_NEVERDEMOTED: // b/c
 				$p = FRUserCounters::getParams( $user );
-				$result = ( $p && empty( $p['demoted'] ) );
+				$result = $p !== null && !( $p['demoted'] ?? false );
 				break;
 		}
 	}

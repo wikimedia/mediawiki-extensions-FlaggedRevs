@@ -344,15 +344,14 @@ class FlaggedRevs {
 	 * Get corresponding text for the api output of flagging levels
 	 *
 	 * @param int $level
-	 * @return string
+	 * @return string An empty string if the level is unknown
 	 */
 	public static function getQualityLevelText( $level ) {
-		static $levelText = [
+		return [
 			0 => 'stable',
 			1 => 'quality',
-			2 => 'pristine'
-		];
-		return $levelText[$level] ?? '';
+			2 => 'pristine',
+		][$level] ?? '';
 	}
 
 	/**

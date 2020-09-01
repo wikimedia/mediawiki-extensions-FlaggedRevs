@@ -36,11 +36,8 @@ class ApiStabilizeGeneral extends ApiStabilize {
 		$form = new PageStabilityGeneralForm( $user );
 		$form->setPage( $this->title ); # Our target page
 
-		if ( isset( $params['watch'] ) ) {
-			$watch = $params['watch'];
-		} else {
-			$watch = $this->getWatchlistValue( $params['watchlist'], $this->title, $user );
-		}
+		$watch = $params['watch'] ??
+			$this->getWatchlistValue( $params['watchlist'], $this->title, $user );
 
 		$form->setWatchThis( $watch ); # Watch this page
 		$form->setReasonExtra( $params['reason'] ); # Reason

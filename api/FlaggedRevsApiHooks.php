@@ -14,7 +14,7 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 			return;
 		}
 		$params = $module->extractRequestParams( false );
-		if ( empty( $params['prop'] ) || !in_array( 'flagged', $params['prop'] ) ) {
+		if ( !in_array( 'flagged', $params['prop'] ?? [] ) ) {
 			return;
 		}
 		if ( !in_array( 'ids', $params['prop'] ) ) {
