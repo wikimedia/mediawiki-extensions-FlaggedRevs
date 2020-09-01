@@ -61,9 +61,7 @@ class FlaggedRevsHooks {
 	}
 
 	public static function onExtensionFunctions() {
-		// TODO have FlaggedRevsSetup::doSetup called by the hook
-		// instead of going through this class
-		FlaggedRevsSetup::doSetup();
+		( new FlaggedRevsSetup() )->doSetup();
 	}
 
 	/**
