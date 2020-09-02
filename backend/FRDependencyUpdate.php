@@ -227,16 +227,13 @@ class FRDependencyUpdate {
 	 */
 	private function getCurrentVersionImages() {
 		$dbr = wfGetDB( DB_REPLICA );
-		$res = $dbr->select( 'imagelinks',
-			[ 'il_to' ],
+		$fileNames = $dbr->selectFieldValues(
+			'imagelinks',
+			'il_to',
 			[ 'il_from' => $this->title->getArticleID() ],
 			__METHOD__
 		);
-		$arr = [];
-		foreach ( $res as $row ) {
-			$arr[$row->il_to] = 1;
-		}
-		return $arr;
+		return array_fill_keys( $fileNames, 1 );
 	}
 
 	/**
