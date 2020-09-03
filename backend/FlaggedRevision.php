@@ -911,6 +911,14 @@ class FlaggedRevision {
 	}
 
 	/**
+	 * Notify the reverted tag subsystem that the edit was reviewed.
+	 */
+	public function approveRevertedTagUpdate() {
+		$rtuManager = MediaWikiServices::getInstance()->getRevertedTagUpdateManager();
+		$rtuManager->approveRevertedTagForRevision( $this->getRevId() );
+	}
+
+	/**
 	 * @param int $rev_id
 	 * @param int $flags FR_MASTER
 	 * @return int|false

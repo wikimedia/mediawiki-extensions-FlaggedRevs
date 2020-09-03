@@ -409,7 +409,10 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 			$comment = $this->getComment();
 
-			# Actually make the edit...
+			// Actually make the edit...
+			// Note: this should be changed to use the $undidRevId parameter so that the
+			// edit is properly marked as an undo. Do this only after T153570 is merged
+			// into Echo, otherwise we would get duplicate revert notifications.
 			$editStatus = $article->doEditContent(
 				$new_content,
 				$comment,
@@ -420,7 +423,10 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 			$status = $editStatus->isOK() ? true : 'review_cannot_undo';
 
-			if ( $editStatus->isOK() &&
+			// Notify Echo about the revert.
+			// This is due to the lack of appropriate EditResult handling in Echo, in the
+			// future, when T153570 is merged, this entire code block should be removed.
+			if ( $status === true &&
 				// @phan-suppress-next-line PhanTypeArraySuspiciousNullable
 				$editStatus->value['revision-record'] &&
 				ExtensionRegistry::getInstance()->isLoaded( 'Echo' )
@@ -460,7 +466,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 					],
 					'agent' => $user,
 				] );
-
 			}
 
 			# If this undid one edit by another logged-in user, update user tallies
@@ -565,6 +570,8 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 				' exists with unexpected fr_page_id'
 			);
 		}
+
+		$flaggedRevision->approveRevertedTagUpdate();
 
 		# Update the article review log...
 		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;

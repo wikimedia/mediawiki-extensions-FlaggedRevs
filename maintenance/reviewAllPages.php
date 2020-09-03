@@ -86,7 +86,14 @@ class ReviewAllPages extends Maintenance {
 				if ( !$frev && $rev ) {
 					$wikiPage = WikiPage::factory( $title );
 					$db->startAtomic( __METHOD__ );
-					FlaggedRevs::autoReviewEdit( $wikiPage, $user, $rev, $flags, true );
+					FlaggedRevs::autoReviewEdit(
+						$wikiPage,
+						$user,
+						$rev,
+						$flags,
+						true,
+						true // approve the reverted tag update
+					);
 					FlaggedRevs::HTMLCacheUpdates( $wikiPage->getTitle() );
 					$db->endAtomic( __METHOD__ );
 					$changed++;
