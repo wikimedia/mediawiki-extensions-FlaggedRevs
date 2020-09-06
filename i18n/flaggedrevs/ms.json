@@ -4,7 +4,8 @@
 			"Anakmalaysia",
 			"Aurora",
 			"Aviator",
-			"Kurniasan"
+			"Kurniasan",
+			"Tofeiku"
 		]
 	},
 	"action-review": "kaji semula semakan",
@@ -167,6 +168,7 @@
 	"tooltip-ca-default": "Tetapan jaminan mutu",
 	"flaggedrevs-protect-legend": "Kaji semula suntingan secara automatik ([[{{MediaWiki:Validationpage}}|bantuan]])",
 	"flaggedrevs-protect-none": "Benarkan semua pengguna",
+	"flaggedrevs-protect-sysop": "Benarkan penyelia sahaja",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Laman yang belum dikaji semula]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Perubahan tergantung]",
 	"revreview-locked-title": "Suntingan pada laman ini perlu dikaji semula.",
 	"revreview-unlocked-title": "Suntingan pada laman ini tidak perlu dikaji semula.",
