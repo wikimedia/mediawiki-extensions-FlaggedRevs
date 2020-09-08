@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Gazeb"
+			"Gazeb",
+			"Tkalyn"
 		]
 	},
-	"qualityoversight": "Лоґ росшыреных перевірок",
+	"qualityoversight": "Лоґ розшыреных перевірок",
 	"qualityoversight-list": "Тота стотінка обсягує список вшыткых недавных схваленых верзій і застарілых ревізій.",
 	"qualityoversight-legend": "Глядати в недавных записах перевірок"
 }
