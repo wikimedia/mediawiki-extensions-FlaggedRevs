@@ -407,7 +407,7 @@
 		"RollbackComplete": "FlaggedRevsHooks::incrementRollbacks",
 		"ScribuntoExternalLibraries": "FlaggedRevsHooks::onScribuntoExternalLibraries",
 		"SkinAfterContent": "FlaggedRevsUIHooks::onSkinAfterContent",
-		"SkinTemplateNavigation": "FlaggedRevsUIHooks::onSkinTemplateNavigation",
+		"SkinTemplateNavigation::Universal": "FlaggedRevsUIHooks::onSkinTemplateNavigationUniversal",
 		"SpecialNewpagesConditions": "FlaggedRevsUIHooks::modifyNewPagesQuery",
 		"SpecialNewPagesFilters": "FlaggedRevsUIHooks::addHideReviewedUnstructuredFilter",
 		"SpecialPage_initList": "FlaggedRevsUIHooks::onSpecialPage_initList",
