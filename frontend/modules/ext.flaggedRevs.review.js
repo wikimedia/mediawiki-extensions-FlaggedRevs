@@ -179,9 +179,9 @@
 					url: mw.util.wikiScript( 'index' ) + urlParams,
 					type: 'GET',
 					dataType: 'html', // response type
-					success: function ( response ) {
+					success: function ( html ) {
 						// Update the contents of the mw-fr-diff-headeritems div
-						$( '#mw-fr-diff-headeritems' ).html( response );
+						$( '#mw-fr-diff-headeritems' ).html( html );
 					}
 				} );
 			}
