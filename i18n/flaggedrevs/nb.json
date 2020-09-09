@@ -201,6 +201,7 @@
 	"tooltip-ca-default": "Innstillinger for kvalitetssikring",
 	"flaggedrevs-protect-legend": "Automatisk redigeringsrevisjon ([[{{MediaWiki:Validationpage}}|hjelp]])",
 	"flaggedrevs-protect-none": "Tillat alle brukere",
+	"flaggedrevs-protect-sysop": "Tillat kun administratorer",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Ureviderte sider]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Ventende endringer]",
 	"revreview-locked-title": "Redigeringer av denne siden krever revidering.",
 	"revreview-unlocked-title": "Redigeringer av denne siden krever ikke gjennomgang.",
