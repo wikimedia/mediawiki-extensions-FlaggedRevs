@@ -117,9 +117,6 @@ class ApiStabilizeGeneral extends ApiStabilize {
 		$pars += $this->getWatchlistParams();
 
 		$pars += [
-			'token' => [
-				ApiBase::PARAM_REQUIRED => true,
-			],
 			'title' => [
 				ApiBase::PARAM_REQUIRED => true,
 				ApiBase::PARAM_HELP_MSG => 'apihelp-stabilize-param-title-general',
