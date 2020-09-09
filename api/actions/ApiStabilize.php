@@ -54,7 +54,7 @@ abstract class ApiStabilize extends ApiBase {
 		$this->title = Title::newFromText( $params['title'] );
 		if ( $this->title == null ) {
 			$this->dieWithError(
-				[ 'apierror-invelidtitle', wfEscapeWikiText( $params['title'] ) ]
+				[ 'apierror-invalidtitle', wfEscapeWikiText( $params['title'] ) ]
 			);
 		}
 
