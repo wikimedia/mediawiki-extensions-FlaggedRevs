@@ -31,14 +31,15 @@ use MediaWiki\MediaWikiServices;
 class ApiStabilizeProtect extends ApiStabilize {
 	public function doExecute() {
 		$params = $this->extractRequestParams();
+		$user = $this->getUser();
 
-		$form = new PageStabilityProtectForm( $this->getUser() );
+		$form = new PageStabilityProtectForm( $user );
 		$form->setPage( $this->title ); # Our target page
 
 		if ( isset( $params['watch'] ) ) {
 			$watch = $params['watch'];
 		} else {
-			$watch = $this->getWatchlistValue( $params['watchlist'], $this->title );
+			$watch = $this->getWatchlistValue( $params['watchlist'], $this->title, $user );
 		}
 
 		$form->setWatchThis( $watch ); # Watch this page
