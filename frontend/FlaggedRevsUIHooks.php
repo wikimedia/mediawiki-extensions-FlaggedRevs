@@ -178,7 +178,7 @@ class FlaggedRevsUIHooks {
 	 * @param Skin $skin
 	 * @param array &$links
 	 */
-	public static function onSkinTemplateNavigation( Skin $skin, array &$links ) {
+	public static function onSkinTemplateNavigationUniversal( Skin $skin, array &$links ) {
 		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
 			return;
 		}
