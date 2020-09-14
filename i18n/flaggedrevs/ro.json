@@ -10,6 +10,7 @@
 			"Mihai",
 			"Minisarm",
 			"Misterr",
+			"NGC 54",
 			"Stelistcristi"
 		]
 	},
@@ -51,7 +52,7 @@
 	"review-logentry-id": "revizuire: $2",
 	"review-logentry-diff": "modificări revizuite",
 	"review-logentry-diff2": "modificări învechite",
-	"review-logpage": "Jurnal de revizualizări",
+	"review-logpage": "Jurnal revizii",
 	"reviewer": "Recenzor",
 	"revreview-accuracy": "Acuratețe",
 	"revreview-accuracy-0": "Necorespunzător",
@@ -100,7 +101,7 @@
 	"stable-logentry-modify": "a modificat parametrii de publicare pentru „$1”",
 	"stable-logentry-reset": "a reinițializat parametrii de publicare pentru „$1”",
 	"stable-log-restriction": "Autoverificare: necesită permisiunea „$1”",
-	"stable-logpage": "Jurnal de versiuni stabile",
+	"stable-logpage": "Jurnal versiuni stabile",
 	"stable-logpagetext": "Acesta este un jurnal al modificărilor configurației [[{{MediaWiki:Validationpage}}|versiunilor publicate]] ale paginilor.",
 	"revreview-filter-all": "tot",
 	"revreview-filter-stable": "stabil",
@@ -133,5 +134,6 @@
 	"flaggedrevs-protect-none": "Permiteți tuturor utilizatorilor",
 	"revreview-locked-title": "Modificările pe această pagină necesită revizuire.",
 	"revreview-unlocked-title": "Modificările pe această pagină nu necesită revizuire.",
+	"logeventslist-review-log": "Jurnal revizuire",
 	"validationpage": "{{ns:help}}:Validare pagină"
 }
