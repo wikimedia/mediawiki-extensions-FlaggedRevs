@@ -1179,7 +1179,7 @@ class FlaggedRevsHooks {
 				if ( $user->getBlock() && $user->getBlock()->appliesToRight( 'edit' ) ) {
 					$result = false; // failed
 				} else {
-					$result = (bool)$cache->getWithSetCallback(
+					$hasPriorBlock = (bool)$cache->getWithSetCallback(
 						$cache->makeKey( 'flaggedrevs-autopromote-notblocked', $user->getId() ),
 						$cache::TTL_SECOND,
 						function ( $oldValue, &$ttl, array &$setOpts, $oldAsOf ) use ( $user ) {
@@ -1190,6 +1190,7 @@ class FlaggedRevsHooks {
 						},
 						[ 'staleTTL' => $cache::TTL_WEEK ]
 					);
+					$result = !$hasPriorBlock;
 				}
 				break;
 			case APCOND_FR_UNIQUEPAGECOUNT:
