@@ -194,6 +194,7 @@
 	"tooltip-ca-default": "Sazané emeliya qeliti",
 	"flaggedrevs-protect-legend": "Otomatik vinayise vurnayisan ([[{{MediaWiki:Validationpage}}|yardim]])",
 	"flaggedrevs-protect-none": "İzne bıde pêro karberan",
+	"flaggedrevs-protect-sysop": "Tenya idarekeran rê destur bıde",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Peleyê ke çım ra ravêrdê]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} vurnayışê ke vınderênê]",
 	"revreview-locked-title": "Vurnayışe ke ena pela dı biye çım ra ravyarnayış cı rê icxan keno.",
 	"revreview-unlocked-title": "Verniya mucnayîşê ena pele vurnayîşan gani niyo ke kontrol bibi.",
