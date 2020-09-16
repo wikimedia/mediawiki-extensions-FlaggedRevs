@@ -1165,18 +1165,55 @@ class FlaggedRevsHooks {
 				if ( $user->isBlocked() ) {
 					$result = false; // failed
 				} else {
-					$hasPriorBlock = (bool)$cache->getWithSetCallback(
+					// See T262970 for an explanation of this
+					$hasPriorBlock = $cache->getWithSetCallback(
 						$cache->makeKey( 'flaggedrevs-autopromote-notblocked', $user->getId() ),
 						$cache::TTL_SECOND,
 						function ( $oldValue, &$ttl, array &$setOpts, $oldAsOf ) use ( $user ) {
+							// Once the user is blocked once, this condition will always
+							// fail. To avoid running queries again, if the old cached value
+							// is `priorBlock`, just return that immediately.
+							if ( $oldValue === 'priorBlock' ) {
+								return 'priorBlock';
+							}
+
+							// Since the user had no block prior to the last time
+							// the value was cached, we only need to check for
+							// blocks since then. If there was no prior cached
+							// value, check for all time (since time 0).
+							// The time of the last check is itself the cached
+							// value.
+							if ( is_int( $oldValue ) ) {
+								$startingTimestamp = $oldValue;
+							} else {
+								$startingTimestamp = 0;
+							}
+
+							// If the user still hasn't been blocked, we will
+							// update the cached value to be the current timestamp
+							$newTimestamp = time();
+
 							$dbr = wfGetDB( DB_REPLICA );
 							$setOpts += Database::getCacheSetOptions( $dbr );
 
-							return self::wasPreviouslyBlocked( $user, $dbr, $oldAsOf ?: 0 );
+							$hasPriorBlock = self::wasPreviouslyBlocked(
+								$user,
+								$dbr,
+								$startingTimestamp
+							);
+							if ( $hasPriorBlock ) {
+								// Store 'priorBlock' so that we can
+								// skip everything in the future
+								return 'priorBlock';
+							}
+
+							// Store the current time, so that future
+							// checks don't query everything
+							return $newTimestamp;
 						},
 						[ 'staleTTL' => $cache::TTL_WEEK ]
 					);
-					$result = !$hasPriorBlock;
+					$result = ( $hasPriorBlock === 'priorBlock' );
 				}
 				break;
 			case APCOND_FR_UNIQUEPAGECOUNT:
