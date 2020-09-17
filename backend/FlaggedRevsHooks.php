@@ -1213,7 +1213,7 @@ class FlaggedRevsHooks {
 						},
 						[ 'staleTTL' => $cache::TTL_WEEK ]
 					);
-					$result = ( $hasPriorBlock === 'priorBlock' );
+					$result = ( $hasPriorBlock !== 'priorBlock' );
 				}
 				break;
 			case APCOND_FR_UNIQUEPAGECOUNT:
