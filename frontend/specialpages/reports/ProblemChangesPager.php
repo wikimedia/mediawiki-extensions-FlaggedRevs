@@ -19,7 +19,8 @@ class ProblemChangesPager extends AlphabeticPager {
 	/** @var int */
 	private $level;
 
-	const PAGE_LIMIT = 100; // Don't get too expensive
+	// Don't get too expensive
+	private const PAGE_LIMIT = 100;
 
 	public function __construct( $form, $level = - 1, $category = '', $tag = '' ) {
 		$this->mForm = $form;

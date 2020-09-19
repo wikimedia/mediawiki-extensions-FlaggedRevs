@@ -18,8 +18,10 @@ class FRDependencyUpdate {
 	/** @var string[] */
 	private $sCategories;
 
-	const IMMEDIATE = 0; // run updates now
-	const DEFERRED = 1; // use the job queue for updates
+	// run updates now
+	public const IMMEDIATE = 0;
+	// use the job queue for updates
+	public const DEFERRED = 1;
 
 	/**
 	 * @param Title $title

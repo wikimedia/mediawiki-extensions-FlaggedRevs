@@ -8,12 +8,19 @@
  *        (c) call preload() OR submit() as needed
  */
 abstract class FRGenericSubmitForm {
-	const FOR_SUBMISSION = 1;               # Notify functions when we are submitting
+	# Notify functions when we are submitting
+	protected const FOR_SUBMISSION = 1;
+
 	/* Internal form state */
-	const FORM_UNREADY = 0;                 # Params not given yet
-	const FORM_READY = 1;                   # Params given and ready to submit
-	const FORM_PRELOADED = 2;               # Params pre-loaded (likely from replica DB)
-	const FORM_SUBMITTED = 3;               # Form submitted
+
+	# Params not given yet
+	protected const FORM_UNREADY = 0;
+	# Params given and ready to submit
+	protected const FORM_READY = 1;
+	# Params pre-loaded (likely from replica DB)
+	protected const FORM_PRELOADED = 2;
+	# Form submitted
+	protected const FORM_SUBMITTED = 3;
 
 	/** @var int Form state (disallows bad operations) */
 	private $state = self::FORM_UNREADY;

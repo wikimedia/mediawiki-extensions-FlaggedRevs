@@ -22,7 +22,8 @@ class UnreviewedPagesPager extends AlphabeticPager {
 	/** @var int */
 	private $level;
 
-	const PAGE_LIMIT = 50; // Don't get too expensive
+	// Don't get too expensive
+	private const PAGE_LIMIT = 50;
 
 	public function __construct(
 		$form, $live, $namespace, $redirs = false, $category = null, $level = 0

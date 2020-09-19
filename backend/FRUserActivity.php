@@ -7,8 +7,10 @@ use Wikimedia\Rdbms\Database;
  * Class of utility functions for getting/tracking user activity
  */
 class FRUserActivity {
-	const PAGE_REVIEW_SEC = 1200; // 20*60
-	const CHANGE_REVIEW_SEC = 360; // 6*60
+	// 20*60
+	private const PAGE_REVIEW_SEC = 1200;
+	// 6*60
+	private const CHANGE_REVIEW_SEC = 360;
 
 	/**
 	 * Get number of active users watching a page
