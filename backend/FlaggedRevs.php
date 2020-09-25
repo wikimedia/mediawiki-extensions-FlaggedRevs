@@ -11,6 +11,14 @@ use MediaWiki\Revision\SlotRecord;
  * Class is lazily-initialized, calling load() as needed
  */
 class FlaggedRevs {
+	/**
+	 * The name of the ParserCache to use for stable revisions caching.
+	 *
+	 * @note This name is used as a part of the ParserCache key, so
+	 * changing it will invalidate the parser cache for stable revisions.
+	 */
+	public const PARSER_CACHE_NAME = 'stable-pcache';
+
 	/** @var string[][] Tag name/level config */
 	private static $dimensions = [];
 	/** @var int[] */
@@ -507,7 +515,10 @@ class FlaggedRevs {
 		FlaggedRevision $frev, ParserOptions $pOpts
 	) {
 		$page = WikiPage::factory( $frev->getTitle() );
-		$keyPrefix = FRParserCacheStable::singleton()->getKey( $page, $pOpts );
+		$parserCache = MediaWikiServices::getInstance()
+			->getParserCacheFactory()
+			->getInstance( self::PARSER_CACHE_NAME );
+		$keyPrefix = $parserCache->getKey( $page, $pOpts );
 		$keyPrefix = $keyPrefix ?: wfMemcKey( 'articleview', 'missingcachekey' );
 
 		$work = new PoolCounterWorkViaCallback(
@@ -517,13 +528,13 @@ class FlaggedRevs {
 				'doWork' => function () use ( $frev, $pOpts ) {
 					return self::parseStableRevision( $frev, $pOpts );
 				},
-				'doCachedWork' => function () use ( $page, $pOpts ) {
+				'doCachedWork' => function () use ( $page, $pOpts, $parserCache ) {
 					// Use new cache value from other thread
-					return FRParserCacheStable::singleton()->get( $page, $pOpts );
+					return $parserCache->get( $page, $pOpts );
 				},
-				'fallback' => function () use ( $page, $pOpts ) {
+				'fallback' => function () use ( $page, $pOpts, $parserCache ) {
 					// Use stale cache if possible
-					return FRParserCacheStable::singleton()->getDirty( $page, $pOpts );
+					return $parserCache->getDirty( $page, $pOpts );
 				},
 				'error' => function ( Status $status ) {
 					return $status;
