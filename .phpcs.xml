@@ -16,7 +16,7 @@
 		<exclude-pattern>maintenance/*.php</exclude-pattern>
 	</rule>
 	<file>.</file>
-	<arg name="extensions" value="php,php5,inc" />
+	<arg name="extensions" value="php,inc" />
 	<arg name="encoding" value="UTF-8" />
 	<rule ref="MediaWiki.NamingConventions.ValidGlobalName">
 		<properties>
