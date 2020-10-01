@@ -205,7 +205,6 @@
 		"FRInclusionManager": "backend/FRInclusionManager.php",
 		"FlaggableWikiPage": "backend/FlaggableWikiPage.php",
 		"FlaggedRevision": "backend/FlaggedRevision.php",
-		"FRParserCacheStable": "backend/FRParserCacheStable.php",
 		"FRGenericSubmitForm": "business/FRGenericSubmitForm.php",
 		"RevisionReviewForm": "business/RevisionReviewForm.php",
 		"PageStabilityForm": "business/PageStabilityForm.php",
