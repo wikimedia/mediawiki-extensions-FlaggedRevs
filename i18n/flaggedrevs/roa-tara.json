@@ -184,6 +184,7 @@
 	"tooltip-ca-default": "'Mbostaziune de l'assicurazione de qualitate",
 	"flaggedrevs-protect-legend": "Revisitazione automatiche d'u cangiamende ([[{{MediaWiki:Validationpage}}|ajute]])",
 	"flaggedrevs-protect-none": "Permette a tutte l'utinde",
+	"flaggedrevs-protect-sysop": "Sulamende pe le Amministrature",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Pàggene none reviste]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Cangiaminde appise]",
 	"revreview-locked-title": "Le cangiaminde a a sta pàgene onne abbesogne de reviste.",
 	"revreview-unlocked-title": "Le cangiaminde 'a sta pàgene non ge abbesognene de reviste.",
