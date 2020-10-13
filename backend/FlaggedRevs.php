@@ -518,8 +518,12 @@ class FlaggedRevs {
 		$parserCache = MediaWikiServices::getInstance()
 			->getParserCacheFactory()
 			->getInstance( self::PARSER_CACHE_NAME );
-		$keyPrefix = $parserCache->getKey( $page, $pOpts );
-		$keyPrefix = $keyPrefix ?: wfMemcKey( 'articleview', 'missingcachekey' );
+		$parserCacheMetadata = $parserCache->getMetadata( $page );
+		$keyPrefix = $parserCache->makeParserOutputKey(
+			$page,
+			$pOpts,
+			$parserCacheMetadata ? $parserCacheMetadata->getUsedOptions() : null
+		);
 
 		$work = new PoolCounterWorkViaCallback(
 			'ArticleView', // use standard parse PoolCounter config
