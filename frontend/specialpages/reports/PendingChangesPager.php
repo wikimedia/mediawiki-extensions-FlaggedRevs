@@ -58,20 +58,32 @@ class PendingChangesPager extends AlphabeticPager {
 		$this->setLimit( $this->mLimit ); // apply max limit
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function setLimit( $limit ) {
 		$this->mLimit = min( $limit, self::PAGE_LIMIT );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function formatRow( $row ) {
 		return $this->mForm->formatRow( $row );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getDefaultQuery() {
 		$query = parent::getDefaultQuery();
 		$query['category'] = $this->category;
 		return $query;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getQueryInfo() {
 		$tables = [ 'page', 'revision' ];
 		$fields = [ 'page_namespace', 'page_title', 'page_len', 'rev_len', 'page_latest' ];
@@ -151,10 +163,16 @@ class PendingChangesPager extends AlphabeticPager {
 		];
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getIndexField() {
 		return $this->mIndexField;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function doBatchLookups() {
 		$lb = new LinkBatch();
 		foreach ( $this->mResult as $row ) {
@@ -163,10 +181,16 @@ class PendingChangesPager extends AlphabeticPager {
 		$lb->execute();
 	}
 
+	/**
+	 * @return string HTML
+	 */
 	protected function getStartBody() {
 		return '<ul>';
 	}
 
+	/**
+	 * @return string HTML
+	 */
 	protected function getEndBody() {
 		return '</ul>';
 	}

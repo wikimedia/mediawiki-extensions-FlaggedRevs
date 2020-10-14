@@ -4,11 +4,17 @@ use MediaWiki\MediaWikiServices;
 
 class FlaggedRevsStableLogFormatter extends LogFormatter {
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function getMessageKey() {
 		$rawAction = $this->entry->getSubtype();
 		return "logentry-stable-{$rawAction}";
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function getMessageParameters() {
 		$params = parent::getMessageParameters();
 		$action = $this->entry->getSubtype();
@@ -24,6 +30,9 @@ class FlaggedRevsStableLogFormatter extends LogFormatter {
 		return $params;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getActionLinks() {
 		# Add history link showing edits right before the config change
 		$hist = Linker::link(

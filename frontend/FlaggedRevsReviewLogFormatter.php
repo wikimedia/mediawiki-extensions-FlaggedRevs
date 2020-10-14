@@ -6,6 +6,9 @@ class FlaggedRevsReviewLogFormatter extends LogFormatter {
 	/** @var bool */
 	private $isDeapproval = false;
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function getMessageKey() {
 		$rawAction = $this->entry->getSubtype();
 		if ( $rawAction[0] === 'a' ) {
@@ -23,6 +26,9 @@ class FlaggedRevsReviewLogFormatter extends LogFormatter {
 		}
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getActionLinks() {
 		$title = $this->entry->getTarget();
 		$params = $this->entry->getParameters();

@@ -364,6 +364,9 @@ class ValidationStatistics extends IncludableSpecialPage {
 		);
 	}
 
+	/**
+	 * @return string
+	 */
 	protected function getGroupName() {
 		return 'quality';
 	}
