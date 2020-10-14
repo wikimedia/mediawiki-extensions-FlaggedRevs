@@ -73,6 +73,10 @@ class ApiStabilizeGeneral extends ApiStabilize {
 		$this->getResult()->addValue( null, $this->getModuleName(), $res );
 	}
 
+	/**
+	 * @param string $key
+	 * @return int|null
+	 */
 	private function defaultFromKey( $key ) {
 		if ( $key == 'stable' ) {
 			return 1;

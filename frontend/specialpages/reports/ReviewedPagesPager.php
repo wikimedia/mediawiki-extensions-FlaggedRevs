@@ -19,7 +19,14 @@ class ReviewedPagesPager extends AlphabeticPager {
 	/** @var bool */
 	private $hideRedirs;
 
-	public function __construct( $form, $conds = [], $type = 0, $namespace = 0, $hideRedirs = 1 ) {
+	/**
+	 * @param ReviewedPages $form
+	 * @param array $conds
+	 * @param int $type
+	 * @param int|null $namespace
+	 * @param bool $hideRedirs
+	 */
+	public function __construct( $form, $conds = [], $type = 0, $namespace = 0, $hideRedirs = true ) {
 		$this->mForm = $form;
 		$this->mConds = $conds;
 		$this->type = $type;

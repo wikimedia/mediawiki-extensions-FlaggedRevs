@@ -443,7 +443,7 @@ class FlaggedRevs {
 	 * Returns true if a user can set $flags for a revision via review.
 	 * Requires the same for $oldflags if given.
 	 * @param User $user
-	 * @param array $flags suggested flags
+	 * @param int[] $flags suggested flags
 	 * @param array $oldflags pre-existing flags
 	 * @return bool
 	 */

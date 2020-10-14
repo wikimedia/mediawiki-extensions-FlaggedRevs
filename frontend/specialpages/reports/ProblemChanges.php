@@ -231,6 +231,10 @@ class ProblemChanges extends SpecialPage {
 		}
 	}
 
+	/**
+	 * @param stdClass $row
+	 * @return string HTML
+	 */
 	public function formatRow( $row ) {
 		$css = '';
 		$quality = '';
@@ -328,6 +332,11 @@ class ProblemChanges extends SpecialPage {
 		return $tags;
 	}
 
+	/**
+	 * @param int $hours
+	 * @param int $uw
+	 * @return string
+	 */
 	private function getLineClass( $hours, $uw ) {
 		if ( $uw == 0 ) {
 			return 'fr-unreviewed-unwatched';

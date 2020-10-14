@@ -37,6 +37,9 @@ class PopulateFRRevTimestamp extends Maintenance {
 		$this->populate_fr_rev_timestamp( $startRev );
 	}
 
+	/**
+	 * @param int|null $start Revision ID
+	 */
 	private function populate_fr_rev_timestamp( $start = null ) {
 		$this->output( "Populating and correcting flaggedrevs columns from $start\n" );
 

@@ -31,6 +31,11 @@ abstract class ApiStabilize extends ApiBase {
 	/** @var Title|null */
 	protected $title;
 
+	/**
+	 * @param ApiMain $mainModule
+	 * @param string $moduleName
+	 * @param string $modulePrefix
+	 */
 	public function __construct( ApiMain $mainModule, $moduleName, $modulePrefix = '' ) {
 		parent::__construct( $mainModule, $moduleName, $modulePrefix );
 

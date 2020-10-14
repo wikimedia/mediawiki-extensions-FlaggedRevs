@@ -63,9 +63,9 @@ class FlaggedRevsUIHooks {
 
 	/**
 	 * Add FlaggedRevs css for relevant special pages.
-	 * @param OutputPage &$out
+	 * @param OutputPage $out
 	 */
-	private static function injectStyleForSpecial( &$out ) {
+	private static function injectStyleForSpecial( $out ) {
 		$title = $out->getTitle();
 		$spPages = [ 'UnreviewedPages', 'PendingChanges', 'ProblemChanges',
 			'Watchlist', 'Recentchanges', 'Contributions', 'Recentchangeslinked' ];
@@ -80,10 +80,10 @@ class FlaggedRevsUIHooks {
 	/**
 	 * Add tag notice, CSS/JS, protect form link, and set robots policy.
 	 *
-	 * @param OutputPage &$out
-	 * @param Skin &$skin
+	 * @param OutputPage $out
+	 * @param Skin $skin
 	 */
-	public static function onBeforePageDisplay( &$out, &$skin ) {
+	public static function onBeforePageDisplay( $out, $skin ) {
 		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
 			return;
 		}
@@ -190,7 +190,7 @@ class FlaggedRevsUIHooks {
 		}
 	}
 
-	public static function onArticleViewHeader( &$article, &$outputDone, &$useParserCache ) {
+	public static function onArticleViewHeader( $article, &$outputDone, &$useParserCache ) {
 		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
 			return;
 		}
@@ -205,14 +205,14 @@ class FlaggedRevsUIHooks {
 	 * @param WebRequest $request
 	 * @param bool &$ignoreRedirect
 	 * @param string &$target
-	 * @param Article &$article
+	 * @param Article $article
 	 */
 	public static function overrideRedirect(
 		Title $title,
 		WebRequest $request,
 		&$ignoreRedirect,
 		&$target,
-		Article &$article
+		Article $article
 	) {
 		global $wgParserCacheExpireTime;
 		$wikiPage = $article->getPage();
@@ -289,7 +289,7 @@ class FlaggedRevsUIHooks {
 		$view->addToNoSuchSection( $editPage, $s );
 	}
 
-	public static function addToHistView( &$article ) {
+	public static function addToHistView( $article ) {
 		$view = FlaggablePageView::singleton();
 		$view->addToHistView();
 	}
@@ -895,7 +895,7 @@ class FlaggedRevsUIHooks {
 		$view->addReviewCheck( $editPage, $checkboxes );
 	}
 
-	private static function maybeAddBacklogNotice( OutputPage &$out ) {
+	private static function maybeAddBacklogNotice( OutputPage $out ) {
 		if ( !MediaWikiServices::getInstance()->getPermissionManager()
 			->userHasRight( $out->getUser(), 'review' ) ) {
 			// Not relevant to user
@@ -1155,7 +1155,7 @@ class FlaggedRevsUIHooks {
 		}
 	}
 
-	public static function onSpecialPage_initList( array &$list ) {
+	public static function onSpecialPageInitList( array &$list ) {
 		global $wgFlaggedRevsProtection, $wgFlaggedRevsNamespaces, $wgUseTagFilter;
 
 		// Show special pages only if FlaggedRevs is enabled on some namespaces

@@ -16,6 +16,9 @@ class RejectConfirmationFormUI {
 	/** @var RevisionRecord */
 	private $newRevRecord;
 
+	/**
+	 * @param RevisionReviewForm $form
+	 */
 	public function __construct( RevisionReviewForm $form ) {
 		$this->form = $form;
 

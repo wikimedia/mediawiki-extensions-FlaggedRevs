@@ -33,7 +33,7 @@ class FlaggedRevision {
 	private $mTimestamp;
 	/** @var int review tier */
 	private $mQuality;
-	/** @var array review tags */
+	/** @var int[] review tags */
 	private $mTags;
 	/** @var string[] flags (for auto-review ect...) */
 	private $mFlags;
@@ -509,7 +509,7 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * @return array tag metadata
+	 * @return int[] tag metadata
 	 */
 	public function getTags() {
 		return $this->mTags;
@@ -975,7 +975,7 @@ class FlaggedRevision {
 
 	/**
 	 * Get flags for a revision
-	 * @param array $tags
+	 * @param int[] $tags
 	 * @return string
 	 */
 	public static function flattenRevisionTags( array $tags ) {

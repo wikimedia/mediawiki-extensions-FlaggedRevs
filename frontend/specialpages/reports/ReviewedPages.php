@@ -94,6 +94,10 @@ class ReviewedPages extends SpecialPage {
 		}
 	}
 
+	/**
+	 * @param stdClass $row
+	 * @return string HTML
+	 */
 	public function formatRow( $row ) {
 		$title = Title::newFromRow( $row );
 		$linkRenderer = $this->getLinkRenderer();

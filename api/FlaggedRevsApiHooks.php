@@ -2,14 +2,21 @@
 
 abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 
-	public static function addApiRevisionParams( &$module, &$params ) {
+	/**
+	 * @param ApiBase $module
+	 * @param array &$params
+	 */
+	public static function addApiRevisionParams( $module, &$params ) {
 		if ( !$module instanceof ApiQueryRevisions ) {
 			return;
 		}
 		$params['prop'][ApiBase::PARAM_TYPE][] = 'flagged';
 	}
 
-	public static function addApiRevisionData( &$module ) {
+	/**
+	 * @param ApiBase $module
+	 */
+	public static function addApiRevisionData( $module ) {
 		if ( !$module instanceof ApiQueryRevisions ) {
 			return;
 		}

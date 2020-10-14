@@ -4,6 +4,10 @@
  * Class containing test related event-handlers for FlaggedRevs
  */
 class FlaggedRevsTestHooks {
+
+	/**
+	 * @param string[] &$tables
+	 */
 	public static function onParserTestTables( array &$tables ) {
 		$tables[] = 'flaggedpages';
 		$tables[] = 'flaggedrevs';

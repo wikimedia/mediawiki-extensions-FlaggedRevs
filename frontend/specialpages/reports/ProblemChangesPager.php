@@ -22,6 +22,12 @@ class ProblemChangesPager extends AlphabeticPager {
 	// Don't get too expensive
 	private const PAGE_LIMIT = 100;
 
+	/**
+	 * @param ProblemChanges $form
+	 * @param int $level
+	 * @param string $category
+	 * @param string $tag
+	 */
 	public function __construct( $form, $level = -1, $category = '', $tag = '' ) {
 		$this->mForm = $form;
 		# Must be a content page...

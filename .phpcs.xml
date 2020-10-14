@@ -9,18 +9,20 @@
 		<exclude name="MediaWiki.Usage.ExtendClassUsage.FunctionConfigUsage" />
 		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
 	</rule>
+
 	<rule ref="Generic.Files.LineLength">
 		<exclude-pattern>frontend/language/</exclude-pattern>
 	</rule>
 	<rule ref="MediaWiki.Files.ClassMatchesFilename.NotMatch">
 		<exclude-pattern>maintenance/*.php</exclude-pattern>
 	</rule>
-	<file>.</file>
-	<arg name="extensions" value="php" />
-	<arg name="encoding" value="UTF-8" />
 	<rule ref="MediaWiki.NamingConventions.ValidGlobalName">
 		<properties>
 			<property name="ignoreList" type="array" value="$mediaWiki" />
 		</properties>
 	</rule>
+
+	<file>.</file>
+	<arg name="extensions" value="php" />
+	<arg name="encoding" value="UTF-8" />
 </ruleset>

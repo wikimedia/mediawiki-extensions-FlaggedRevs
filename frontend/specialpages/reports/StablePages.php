@@ -79,6 +79,10 @@ class StablePages extends SpecialPage {
 		}
 	}
 
+	/**
+	 * @param stdClass $row
+	 * @return string HTML
+	 */
 	public function formatRow( $row ) {
 		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
 		$linkRenderer = $this->getLinkRenderer();

@@ -131,6 +131,10 @@ class UnreviewedPages extends SpecialPage {
 		}
 	}
 
+	/**
+	 * @param stdClass $row
+	 * @return string HTML
+	 */
 	public function formatRow( $row ) {
 		$title = Title::newFromRow( $row );
 
@@ -192,6 +196,11 @@ class UnreviewedPages extends SpecialPage {
 			"{$age}{$watching}{$underReview}</li>" );
 	}
 
+	/**
+	 * @param int $hours
+	 * @param int $uw
+	 * @return string HTML
+	 */
 	private function getLineClass( $hours, $uw ) {
 		if ( $uw == 0 ) {
 			return 'fr-unreviewed-unwatched';

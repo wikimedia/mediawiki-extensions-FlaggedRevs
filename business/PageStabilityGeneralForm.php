@@ -2,18 +2,31 @@
 
 // Assumes $wgFlaggedRevsProtection is off
 class PageStabilityGeneralForm extends PageStabilityForm {
+
+	/**
+	 * @return bool|null
+	 */
 	public function getReviewThis() {
 		return $this->reviewThis;
 	}
 
+	/**
+	 * @param bool $value
+	 */
 	public function setReviewThis( $value ) {
 		$this->trySet( $this->reviewThis, $value );
 	}
 
+	/**
+	 * @return int
+	 */
 	public function getOverride() {
 		return $this->override;
 	}
 
+	/**
+	 * @param int $value
+	 */
 	public function setOverride( $value ) {
 		$this->trySet( $this->override, $value );
 	}

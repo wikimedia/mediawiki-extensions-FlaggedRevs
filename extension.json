@@ -409,7 +409,7 @@
 		"SkinTemplateNavigation::Universal": "FlaggedRevsUIHooks::onSkinTemplateNavigationUniversal",
 		"SpecialNewpagesConditions": "FlaggedRevsUIHooks::modifyNewPagesQuery",
 		"SpecialNewPagesFilters": "FlaggedRevsUIHooks::addHideReviewedUnstructuredFilter",
-		"SpecialPage_initList": "FlaggedRevsUIHooks::onSpecialPage_initList",
+		"SpecialPage_initList": "FlaggedRevsUIHooks::onSpecialPageInitList",
 		"TitleGetEditNotices": "FlaggedRevsUIHooks::getEditNotices",
 		"UserGetRights": "FlaggedRevsHooks::onUserGetRights",
 		"UserLoadAfterLoadFromSession": "FlaggedRevsHooks::setSessionKey",

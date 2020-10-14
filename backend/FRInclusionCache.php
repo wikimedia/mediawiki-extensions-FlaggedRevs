@@ -96,6 +96,10 @@ class FRInclusionCache {
 		return $versions;
 	}
 
+	/**
+	 * @param int[][] $tVersions
+	 * @return bool
+	 */
 	private static function templatesStale( array $tVersions ) {
 		# Do a link batch query for page_latest...
 		$lb = new LinkBatch();

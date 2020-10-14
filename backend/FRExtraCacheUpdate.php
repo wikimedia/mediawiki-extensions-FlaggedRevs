@@ -20,6 +20,9 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 	/** @var int Copy of $wgUpdateRowsPerQuery */
 	private $mRowsPerQuery;
 
+	/**
+	 * @param Title $titleTo
+	 */
 	public function __construct( Title $titleTo ) {
 		global $wgUpdateRowsPerJob, $wgUpdateRowsPerQuery;
 		$this->mTitle = $titleTo;

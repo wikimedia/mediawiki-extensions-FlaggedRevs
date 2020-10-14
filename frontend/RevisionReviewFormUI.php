@@ -292,7 +292,7 @@ class RevisionReviewFormUI {
 
 	/**
 	 * @param User $user
-	 * @param array $flags selected flags
+	 * @param int[] $flags selected flags
 	 * @param bool $disabled form disabled
 	 * @param bool $reviewed rev already reviewed
 	 * @return string
@@ -366,6 +366,11 @@ class RevisionReviewFormUI {
 		return implode( '&#160;&#160;&#160;', $items );
 	}
 
+	/**
+	 * @param User $user
+	 * @param int[] $selected
+	 * @return array
+	 */
 	private function ratingFormTags( $user, $selected ) {
 		$labels = [];
 		$minLevels = [];

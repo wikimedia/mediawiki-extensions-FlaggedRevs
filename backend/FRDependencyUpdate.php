@@ -183,6 +183,11 @@ class FRDependencyUpdate {
 		return $lb->constructSet( 'ftr', $db );
 	}
 
+	/**
+	 * @param array[] &$deps
+	 * @param int $ns
+	 * @param string $dbKey
+	 */
 	private function addDependency( array &$deps, $ns, $dbKey ) {
 		$deps[$ns][$dbKey] = 1;
 	}

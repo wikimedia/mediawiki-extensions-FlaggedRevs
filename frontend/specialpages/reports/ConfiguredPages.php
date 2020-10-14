@@ -79,6 +79,10 @@ class ConfiguredPages extends SpecialPage {
 		}
 	}
 
+	/**
+	 * @param stdClass $row
+	 * @return string HTML
+	 */
 	public function formatRow( $row ) {
 		$title = Title::newFromRow( $row );
 		# Link to page

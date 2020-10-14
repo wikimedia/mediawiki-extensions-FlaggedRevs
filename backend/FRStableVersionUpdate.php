@@ -26,6 +26,10 @@ class FRStableVersionUpdate implements DeferrableUpdate {
 	/** @var RenderedRevision */
 	private $renderedRevision;
 
+	/**
+	 * @param Title $title
+	 * @param RenderedRevision $renderedRevision
+	 */
 	public function __construct( Title $title, RenderedRevision $renderedRevision ) {
 		$this->title = $title;
 		$this->renderedRevision = $renderedRevision;

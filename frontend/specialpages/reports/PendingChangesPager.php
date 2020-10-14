@@ -28,6 +28,15 @@ class PendingChangesPager extends AlphabeticPager {
 	// Don't get too expensive
 	private const PAGE_LIMIT = 100;
 
+	/**
+	 * @param PendingChanges $form
+	 * @param int|null $namespace
+	 * @param int $level
+	 * @param string $category
+	 * @param int|null $size
+	 * @param bool $watched
+	 * @param bool $stable
+	 */
 	public function __construct( $form, $namespace, $level = -1, $category = '',
 		$size = null, $watched = false, $stable = false
 	) {

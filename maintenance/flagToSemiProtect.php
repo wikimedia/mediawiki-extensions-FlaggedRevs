@@ -48,6 +48,10 @@ class FlagProtectToSemiProtect extends Maintenance {
 		$this->flag_to_semi_protect( $user, $reason );
 	}
 
+	/**
+	 * @param User $user
+	 * @param string $reason
+	 */
 	private function flag_to_semi_protect( User $user, $reason ) {
 		global $wgFlaggedRevsNamespaces;
 
