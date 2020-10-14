@@ -245,7 +245,7 @@ class FlaggedRevsStats {
 
 	/**
 	 * Get edit review time statistics (as recent as possible)
-	 * @param BagOStuff $cache BagOStuff object
+	 * @param BagOStuff $cache
 	 * @param string $users string "anons" or "users"
 	 * @return array associative
 	 * @throws Exception

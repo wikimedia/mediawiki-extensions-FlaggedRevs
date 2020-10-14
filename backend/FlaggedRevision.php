@@ -452,7 +452,7 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * @return Title title
+	 * @return Title
 	 */
 	public function getTitle() {
 		if ( $this->mTitle === null ) {

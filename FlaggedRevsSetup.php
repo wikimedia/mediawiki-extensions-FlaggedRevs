@@ -122,9 +122,6 @@ class FlaggedRevsSetup {
 		}
 	}
 
-	/**
-	 * Set special page cache updates
-	 */
 	private function setSpecialPageCacheUpdates() {
 		global $wgSpecialPageCacheUpdates, $wgFlaggedRevsProtection, $wgFlaggedRevsNamespaces;
 
@@ -137,9 +134,6 @@ class FlaggedRevsSetup {
 		}
 	}
 
-	/**
-	 * Set API modules
-	 */
 	private function setAPIModules() {
 		global $wgAPIModules, $wgAPIListModules;
 		global $wgFlaggedRevsProtection;
