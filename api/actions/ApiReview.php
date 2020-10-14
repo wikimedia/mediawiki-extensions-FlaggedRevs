@@ -174,7 +174,7 @@ class ApiReview extends ApiBase {
 	}
 
 	/**
-	 * @inheritDoc
+	 * @return string
 	 */
 	public function needsToken() {
 		return 'csrf';

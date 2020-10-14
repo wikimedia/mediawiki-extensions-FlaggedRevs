@@ -336,6 +336,9 @@ class ProblemChanges extends SpecialPage {
 		}
 	}
 
+	/**
+	 * @return string
+	 */
 	protected function getGroupName() {
 		return 'quality';
 	}

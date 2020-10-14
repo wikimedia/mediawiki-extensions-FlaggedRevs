@@ -107,7 +107,7 @@ class ApiStabilizeProtect extends ApiStabilize {
 	}
 
 	/**
-	 * @inheritDoc
+	 * @return string
 	 */
 	protected function getSummaryMessage() {
 		return "apihelp-{$this->getModulePath()}-summary-protect";

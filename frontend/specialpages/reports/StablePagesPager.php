@@ -49,10 +49,16 @@ class StablePagesPager extends AlphabeticPager {
 		parent::__construct();
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function formatRow( $row ) {
 		return $this->mForm->formatRow( $row );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getQueryInfo() {
 		$conds = $this->mConds;
 		$conds[] = 'page_id = fpc_page_id';
@@ -77,10 +83,16 @@ class StablePagesPager extends AlphabeticPager {
 		];
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getIndexField() {
 		return 'fpc_page_id';
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function doBatchLookups() {
 		$lb = new LinkBatch();
 		foreach ( $this->mResult as $row ) {
@@ -89,10 +101,16 @@ class StablePagesPager extends AlphabeticPager {
 		$lb->execute();
 	}
 
+	/**
+	 * @return string HTML
+	 */
 	protected function getStartBody() {
 		return '<ul>';
 	}
 
+	/**
+	 * @return string HTML
+	 */
 	protected function getEndBody() {
 		return '</ul>';
 	}

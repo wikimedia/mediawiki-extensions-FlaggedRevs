@@ -118,6 +118,9 @@ class ConfiguredPages extends SpecialPage {
 			"{$restr}<i>{$expiry_description}</i></li>";
 	}
 
+	/**
+	 * @return string
+	 */
 	protected function getGroupName() {
 		return 'quality';
 	}

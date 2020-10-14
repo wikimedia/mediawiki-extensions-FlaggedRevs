@@ -132,6 +132,9 @@ class ReviewedPages extends SpecialPage {
 		return "<li>$link $dirmark $stxt ($list)$best</li>";
 	}
 
+	/**
+	 * @return string
+	 */
 	protected function getGroupName() {
 		return 'quality';
 	}

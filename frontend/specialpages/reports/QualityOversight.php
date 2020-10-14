@@ -169,6 +169,9 @@ class QualityOversight extends SpecialPage {
 		return $showActions;
 	}
 
+	/**
+	 * @return string
+	 */
 	protected function getGroupName() {
 		return 'quality';
 	}

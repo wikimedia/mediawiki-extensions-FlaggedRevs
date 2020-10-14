@@ -316,6 +316,9 @@ class UnreviewedPages extends SpecialPage {
 		$lbFactory->commitMasterChanges( __METHOD__ );
 	}
 
+	/**
+	 * @return string
+	 */
 	protected function getGroupName() {
 		return 'quality';
 	}
