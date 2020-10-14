@@ -7,6 +7,7 @@
 			"Memo18",
 			"Mihai",
 			"Minisarm",
+			"NGC 54",
 			"Stelistcristi"
 		]
 	},
@@ -30,7 +31,7 @@
 	"stabilization-def-short": "Implicit",
 	"stabilization-def-short-0": "Curent",
 	"stabilization-def-short-1": "Stabil",
-	"stabilize_page_invalid": "Titlul paginii ţintă este invalid.",
+	"stabilize_page_invalid": "Titlul paginii țintă este invalid.",
 	"stabilize_page_notexists": "Pagina-ţintă nu există.",
 	"stabilize_invalid_level": "Nivel de protecție nevalid.",
 	"stabilize_expiry_invalid": "Data expirării incorectă.",
