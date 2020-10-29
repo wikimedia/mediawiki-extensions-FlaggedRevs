@@ -30,7 +30,7 @@ class ReviewedPages extends SpecialPage {
 		$maxType = FlaggedRevs::pristineVersions() ? 2 : 1;
 
 		$this->namespace = $request->getInt( 'namespace' );
-		$this->type = $request->getInt( 'level', - 1 );
+		$this->type = $request->getInt( 'level', -1 );
 		$this->type = min( $this->type, $maxType );
 		$this->hideRedirs = $request->getBool( 'hideredirs', true );
 

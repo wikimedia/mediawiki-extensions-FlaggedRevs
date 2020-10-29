@@ -176,7 +176,7 @@ class UnreviewedPages extends SpecialPage {
 				: $this->msg( 'unreviewedpages-unwatched' )->escaped();
 			$watching = " $watching"; // Oh-noes!
 		} else {
-			$uw = - 1;
+			$uw = -1;
 		}
 		$css = $this->getLineClass( $hours, $uw );
 		$css = $css ? " class='$css'" : "";

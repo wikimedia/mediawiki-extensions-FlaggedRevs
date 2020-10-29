@@ -22,12 +22,12 @@ class ProblemChangesPager extends AlphabeticPager {
 	// Don't get too expensive
 	private const PAGE_LIMIT = 100;
 
-	public function __construct( $form, $level = - 1, $category = '', $tag = '' ) {
+	public function __construct( $form, $level = -1, $category = '', $tag = '' ) {
 		$this->mForm = $form;
 		# Must be a content page...
 		$this->namespace = FlaggedRevs::getReviewNamespaces();
 		# Sanity check level: 0 = checked; 1 = quality; 2 = pristine
-		$this->level = ( $level >= 0 && $level <= 2 ) ? $level : - 1;
+		$this->level = ( $level >= 0 && $level <= 2 ) ? $level : -1;
 		$this->tag = $tag;
 		$this->category = $category ? str_replace( ' ', '_', $category ) : null;
 		parent::__construct();

@@ -8,9 +8,9 @@ use MediaWiki\Revision\SlotRecord;
  * Class containing revision review form business logic
  */
 class RevisionReviewForm extends FRGenericSubmitForm {
-	/** @var Title|null $page Target title object */
+	/** @var Title|null Target title object */
 	private $page = null;
-	/** @var FlaggableWikiPage|null $article Target page object */
+	/** @var FlaggableWikiPage|null Target page object */
 	private $article = null;
 	/** @var bool Approval requested */
 	private $approve = false;

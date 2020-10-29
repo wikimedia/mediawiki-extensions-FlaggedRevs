@@ -29,7 +29,7 @@ class ReviewedPagesPager extends AlphabeticPager {
 		}
 		$vnamespaces = FlaggedRevs::getReviewNamespaces();
 		if ( $namespace === null || !in_array( $namespace, $vnamespaces ) ) {
-			$namespace = !$vnamespaces ? - 1 : $vnamespaces[0];
+			$namespace = !$vnamespaces ? -1 : $vnamespaces[0];
 		}
 		$this->namespace = $namespace;
 		$this->hideRedirs = $hideRedirs;

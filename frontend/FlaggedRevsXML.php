@@ -62,7 +62,7 @@ class FlaggedRevsXML {
 			"</label>\n";
 		$s .= Xml::openElement( 'select', [ 'name' => 'level', 'id' => 'wpLevel' ] );
 		if ( $all !== false ) {
-			$s .= Xml::option( wfMessage( $all )->text(), - 1, $selected === - 1 );
+			$s .= Xml::option( wfMessage( $all )->text(), -1, $selected === -1 );
 		}
 		$s .= Xml::option( wfMessage( 'revreview-lev-basic' )->text(), 0, $selected === 0 );
 		if ( FlaggedRevs::qualityVersions() ) {
@@ -137,7 +137,7 @@ class FlaggedRevsXML {
 		$s = "<label for='wpStatus'>" . wfMessage( 'revreview-statusfilter' )->escaped() .
 			"</label>\n";
 		$s .= Xml::openElement( 'select', [ 'name' => 'status', 'id' => 'wpStatus' ] );
-		$s .= Xml::option( wfMessage( "revreview-filter-all" )->text(), - 1, $selected === - 1 );
+		$s .= Xml::option( wfMessage( "revreview-filter-all" )->text(), -1, $selected === -1 );
 		$s .= Xml::option( wfMessage( "revreview-filter-approved" )->text(), 1, $selected === 1 );
 		$s .= Xml::option( wfMessage( "revreview-filter-reapproved" )->text(), 2, $selected === 2 );
 		$s .= Xml::option( wfMessage( "revreview-filter-unapproved" )->text(), 3, $selected === 3 );
@@ -154,7 +154,7 @@ class FlaggedRevsXML {
 		$s = "<label for='wpApproved'>" . wfMessage( 'revreview-typefilter' )->escaped() .
 			"</label>\n";
 		$s .= Xml::openElement( 'select', [ 'name' => 'automatic', 'id' => 'wpApproved' ] );
-		$s .= Xml::option( wfMessage( "revreview-filter-all" )->text(), - 1, $selected === - 1 );
+		$s .= Xml::option( wfMessage( "revreview-filter-all" )->text(), -1, $selected === -1 );
 		$s .= Xml::option( wfMessage( "revreview-filter-manual" )->text(), 0, $selected === 0 );
 		$s .= Xml::option( wfMessage( "revreview-filter-auto" )->text(), 1, $selected === 1 );
 		$s .= Xml::closeElement( 'select' ) . "\n";

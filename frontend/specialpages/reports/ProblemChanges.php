@@ -33,7 +33,7 @@ class ProblemChanges extends SpecialPage {
 		$this->addHelpLink( 'Help:Extension:FlaggedRevs' );
 		$this->currentUnixTS = wfTimestamp( TS_UNIX ); // now
 
-		$this->level = $request->getInt( 'level', - 1 );
+		$this->level = $request->getInt( 'level', -1 );
 		$this->tag = trim( $request->getVal( 'tagfilter' ) );
 		$category = trim( $request->getVal( 'category' ) );
 		$catTitle = Title::newFromText( $category );
@@ -269,7 +269,7 @@ class ProblemChanges extends SpecialPage {
 				: $this->msg( 'pendingchanges-unwatched' )->escaped();
 			$watching = " {$watching}";
 		} else {
-			$uw = - 1;
+			$uw = -1;
 			$watching = ''; // leave out data
 		}
 		# Get how long the first unreviewed edit has been waiting...
