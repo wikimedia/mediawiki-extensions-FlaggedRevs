@@ -103,10 +103,11 @@ class ApiReviewActivity extends ApiBase {
 	 */
 	protected function getAllowedParams() {
 		return [
-			'previd'   	=> null,
-			'oldid' 	=> null,
-			'reviewing' => [ ApiBase::PARAM_TYPE => [ '0', '1' ] ],
-			'token' 	=> null,
+			'previd' => null,
+			'oldid' => null,
+			'reviewing' => [
+				ApiBase::PARAM_TYPE => [ '0', '1' ]
+			],
 		];
 	}
 

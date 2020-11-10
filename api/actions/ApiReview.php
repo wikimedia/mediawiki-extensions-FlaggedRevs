@@ -155,9 +155,8 @@ class ApiReview extends ApiBase {
 	 */
 	protected function getAllowedParams() {
 		$pars = [
-			'revid'   	=> null,
-			'token'   	=> null,
-			'comment' 	=> null,
+			'revid' => null,
+			'comment' => null,
 			'unapprove' => false
 		];
 		if ( !FlaggedRevs::binaryFlagging() ) {

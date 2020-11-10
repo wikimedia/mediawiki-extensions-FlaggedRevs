@@ -94,9 +94,6 @@ class ApiStabilizeProtect extends ApiStabilize {
 		$params += $this->getWatchlistParams();
 
 		$params += [
-			'token' => [
-				ApiBase::PARAM_REQUIRED => true,
-			],
 			'title' => [
 				ApiBase::PARAM_REQUIRED => true,
 				ApiBase::PARAM_HELP_MSG => 'apihelp-stabilize-param-title-protect',
