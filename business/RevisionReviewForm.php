@@ -310,7 +310,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 	/**
 	 * Get the action this submission is requesting
-	 * @return string (approve,unapprove,reject)
+	 * @return string|null (approve,unapprove,reject)
 	 */
 	public function getAction() {
 		if ( !$this->reject && !$this->unapprove && $this->approve ) {
@@ -350,7 +350,8 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 					return 'review_conflict_oldid';
 				}
 			}
-			$status = $this->approveRevision( $revRecord, $this->oldFrev );
+			$this->approveRevision( $revRecord, $this->oldFrev );
+			$status = true;
 		# We can only unapprove approved revisions...
 		} elseif ( $this->getAction() === 'unapprove' ) {
 			# Check for review conflicts...
@@ -364,7 +365,8 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			if ( !$this->oldFrev ) {
 				return 'review_not_flagged';
 			}
-			$status = $this->unapproveRevision( $this->oldFrev );
+			$this->unapproveRevision( $this->oldFrev );
+			$status = true;
 		} elseif ( $this->getAction() === 'reject' ) {
 			$newRevRecord = $revLookup->getRevisionByTitle( $this->page, $this->oldid );
 			$oldRevRecord = $revLookup->getRevisionByTitle( $this->page, $this->refid );
@@ -502,7 +504,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * @param RevisionRecord $revRecord The revision to be accepted
 	 * @param FlaggedRevision|null $oldFrev Currently accepted version of $rev or null
 	 * @throws Exception
-	 * @return bool|array true on success, array of errors on failure
 	 */
 	private function approveRevision(
 		RevisionRecord $revRecord,
@@ -541,7 +542,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			$oldFrev->getTemplateVersions( FR_MASTER ) == $tmpVersions &&
 			$oldFrev->getFileVersions( FR_MASTER ) == $fileVersions
 		) {
-			return true; // don't record if the same
+			return; // don't record if the same
 		}
 
 		# The new review entry...
@@ -590,14 +591,11 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 		# Caller may want to get the change time
 		$this->newLastChangeTime = $flaggedRevision->getTimestamp();
-
-		return true;
 	}
 
 	/**
 	 * @param FlaggedRevision $frev
 	 * Removes flagged revision data for this page/id set
-	 * @return bool
 	 */
 	private function unapproveRevision( FlaggedRevision $frev ) {
 		# Get current stable version ID (for logging)
@@ -624,8 +622,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 		# Caller may want to get the change time
 		$this->newLastChangeTime = '';
-
-		return true;
 	}
 
 	/**
