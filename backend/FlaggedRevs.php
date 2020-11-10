@@ -27,7 +27,7 @@ class FlaggedRevs {
 	private static $tagRestrictions = [];
 	/** @var bool */
 	private static $binaryFlagging = true;
-	/** @var array int[] Namespace config, copy of $wgFlaggedRevsNamespaces */
+	/** @var int[] Namespace config, copy of $wgFlaggedRevsNamespaces */
 	private static $reviewNamespaces = [];
 	/** @var string[] Restriction levels/config, copy from $wgFlaggedRevsRestrictionLevels */
 	private static $restrictionLevels = [];

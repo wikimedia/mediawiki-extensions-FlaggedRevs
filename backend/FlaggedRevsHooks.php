@@ -377,35 +377,25 @@ class FlaggedRevsHooks {
 	 * @see https://www.mediawiki.org/wiki/Manual:Parser_functions#The_setFunctionHook_hook
 	 *
 	 * @param Parser $parser
-	 * @param string $ns
+	 * @param string $ns Namespace number, or the empty string for all namespaces
 	 * @return int
 	 */
 	public static function parserPagesUsingPendingChanges( Parser $parser, $ns = '' ) {
-		$nsList = FlaggedRevs::getReviewNamespaces();
-		if ( !$nsList ) {
+		$namespaces = FlaggedRevs::getReviewNamespaces();
+		if ( !$namespaces || ( $ns !== '' && !in_array( (int)$ns, $namespaces ) ) ) {
 			return 0;
 		}
 
-		if ( $ns !== '' ) {
-			$ns = intval( $ns );
-			if ( !in_array( $ns, $nsList ) ) {
-				return 0;
+		static $pageCounts = [];
+		if ( !$pageCounts ) {
+			$pageCounts['all'] = 0;
+			foreach ( FlaggedRevsStats::getStats()['reviewedPages-NS'] as $id => $count ) {
+				$pageCounts[$id] = $count;
+				$pageCounts['all'] += $count;
 			}
 		}
 
-		static $pcCounts = null;
-		if ( !$pcCounts ) {
-			$stats = FlaggedRevsStats::getStats();
-			$reviewedPerNS = $stats['reviewedPages-NS'];
-			$totalCount = 0;
-			foreach ( $reviewedPerNS as $ns => $reviewed ) {
-				$nsList[ "ns-{$ns}" ] = $reviewed;
-				$totalCount += $reviewed;
-			}
-			$nsList[ 'all' ] = $totalCount;
-		}
-
-		return $ns === '' ? $nsList['all'] : $nsList[ "ns-$ns" ];
+		return $pageCounts[ $ns === '' ? 'all' : (int)$ns ] ?? 0;
 	}
 
 	/**
