@@ -82,16 +82,16 @@ abstract class FRGenericSubmitForm {
 		if ( $status !== true ) {
 			return $status; // bad target
 		}
-		return $this->doBuildOnReady();
+
+		$this->doBuildOnReady();
+		return true;
 	}
 
 	/**
 	 * Load any objects after ready() called
 	 * NOTE: do not do any DB hits here, just build objects
-	 * @return true|string true on success, error string on failure
 	 */
 	protected function doBuildOnReady() {
-		return true;
 	}
 
 	/**

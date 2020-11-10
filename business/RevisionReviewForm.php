@@ -209,11 +209,9 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 	/**
 	 * Load any objects after ready() called
-	 * @return true|string true on success, error string on failure
 	 */
 	protected function doBuildOnReady() {
 		$this->article = FlaggableWikiPage::getTitleInstance( $this->page );
-		return true;
 	}
 
 	/**
