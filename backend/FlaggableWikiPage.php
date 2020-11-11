@@ -321,7 +321,7 @@ class FlaggableWikiPage extends WikiPage {
 
 	/**
 	 * Get visibility restrictions on page
-	 * @return array (select,override)
+	 * @return array [ 'override' => int, 'autoreview' => string, 'expiry' => string ]
 	 */
 	public function getStabilitySettings() {
 		if ( !$this->mDataLoaded ) {
@@ -415,6 +415,15 @@ class FlaggableWikiPage extends WikiPage {
 	 */
 	public function loadPageData( $data = self::READ_NORMAL ) {
 		$this->mDataLoaded = true; // sanity
+
+		// Initialize defaults before trying to access the database
+		$this->stable = 0; // 0 => "found nothing"
+		$this->stableRev = null; // defer this one...
+		$this->revsArePending = false; // false => "found nothing" or "none pending"
+		$this->pendingRevCount = null; // defer this one...
+		$this->pageConfig = FRPageConfig::getDefaultVisibilitySettings(); // default
+		$this->syncedInTracking = true; // false => "unreviewed" or "synced"
+
 		# Fetch data from DB as needed...
 		$from = WikiPage::convertSelectType( $data );
 		if ( $from === self::READ_NORMAL || $from === self::READ_LATEST ) {
@@ -423,13 +432,6 @@ class FlaggableWikiPage extends WikiPage {
 		}
 		# Load in primary page data...
 		parent::loadPageData( $data /* Row obj */ );
-		# Load in FlaggedRevs page data...
-		$this->stable = 0; // 0 => "found nothing"
-		$this->stableRev = null; // defer this one...
-		$this->revsArePending = false; // false => "found nothing" or "none pending"
-		$this->pendingRevCount = null; // defer this one...
-		$this->pageConfig = FRPageConfig::getDefaultVisibilitySettings(); // default
-		$this->syncedInTracking = true; // false => "unreviewed" or "synced"
 		# Load in flaggedrevs Row data if the page exists...(sanity check NS)
 		if ( $data && FlaggedRevs::inReviewNamespace( $this->mTitle ) ) {
 			if ( $data->fpc_override !== null ) { // page config row found

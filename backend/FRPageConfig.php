@@ -8,7 +8,7 @@ class FRPageConfig {
 	 * Get visibility settings/restrictions for a page
 	 * @param Title $title page title
 	 * @param int $flags FR_MASTER
-	 * @return array (associative) (select,override,autoreview,expiry)
+	 * @return array [ 'override' => int, 'autoreview' => string, 'expiry' => string ]
 	 */
 	public static function getStabilitySettings( Title $title, $flags = 0 ) {
 		$db = ( $flags & FR_MASTER ) ?
@@ -31,7 +31,7 @@ class FRPageConfig {
 	/**
 	 * Get page configuration settings from a DB row
 	 * @param stdClass $row
-	 * @return array
+	 * @return array [ 'override' => int, 'autoreview' => string, 'expiry' => string ]
 	 */
 	public static function getVisibilitySettingsFromRow( $row ) {
 		$expiry = false;
