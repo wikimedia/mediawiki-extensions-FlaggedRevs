@@ -7,7 +7,7 @@
 			"Sumbukompor"
 		]
 	},
-	"validationstatistics": "Statistik ulasan kaca",
+	"validationstatistics": "Setatistik ulasan kaca",
 	"validationstatistics-users": "'''{{SITENAME}}''' wektu iki duwé '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|panganggo|panganggo}} kanthi hak aksès [[{{MediaWiki:Validationpage}}|Editor]] lan '''[[Special:ListUsers/pamriksa|$2]]''' {{PLURAL:$2|panganggo|panganggo}} kanthi hak aksès [[{{MediaWiki:Validationpage}}|Pamriksa]].\n\nEditor lan Pamriksa iku panganggo mapan sing bisa mriksa langsung owah-owahan kaca.",
 	"validationstatistics-lastupdate": "''Data iki dianyari pungkasan $1 wanci $2.''",
 	"validationstatistics-revtime": "Rata-rata wektu tunggu besutan déning ''naraguna kang durung mlebu log'' kang arep kapriksa ya iku '''$1'''; médhiyané ya iku '''$2'''.\n$3",
