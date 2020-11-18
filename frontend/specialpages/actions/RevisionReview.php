@@ -168,9 +168,9 @@ class RevisionReview extends UnlistedSpecialPage {
 		# Show success message
 		$s = "<div class='plainlinks'>";
 		$s .= $this->msg( 'revreview-successful',
-			$title->getPrefixedText(), $title->getPrefixedUrl() )->parseAsBlock();
+			$title->getPrefixedText(), $title->getPrefixedURL() )->parseAsBlock();
 		$s .= $this->msg( 'revreview-stable1',
-			$title->getPrefixedUrl(), $this->form->getOldId() )->parseAsBlock();
+			$title->getPrefixedURL(), $this->form->getOldId() )->parseAsBlock();
 		$s .= "</div>";
 		# Handy links to special pages
 		if ( $showlinks && MediaWikiServices::getInstance()->getPermissionManager()
@@ -186,9 +186,9 @@ class RevisionReview extends UnlistedSpecialPage {
 		# Show success message
 		$s = "<div class='plainlinks'>";
 		$s .= $this->msg( 'revreview-successful2',
-			$title->getPrefixedText(), $title->getPrefixedUrl() )->parseAsBlock();
+			$title->getPrefixedText(), $title->getPrefixedURL() )->parseAsBlock();
 		$s .= $this->msg( 'revreview-stable2',
-			$title->getPrefixedUrl(), $this->form->getOldId() )->parseAsBlock();
+			$title->getPrefixedURL(), $this->form->getOldId() )->parseAsBlock();
 		$s .= "</div>";
 		# Handy links to special pages
 		if ( $showlinks && MediaWikiServices::getInstance()->getPermissionManager()
