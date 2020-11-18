@@ -395,7 +395,7 @@ class FlaggedRevs {
 
 	/**
 	 * Check if all of the required site flags have a valid value
-	 * @param array $flags
+	 * @param int[] $flags
 	 * @return bool
 	 */
 	public static function flagsAreValid( array $flags ) {
@@ -444,7 +444,7 @@ class FlaggedRevs {
 	 * Requires the same for $oldflags if given.
 	 * @param User $user
 	 * @param int[] $flags suggested flags
-	 * @param array $oldflags pre-existing flags
+	 * @param int[] $oldflags pre-existing flags
 	 * @return bool
 	 */
 	public static function userCanSetFlags( $user, array $flags, $oldflags = [] ) {
@@ -1096,7 +1096,7 @@ class FlaggedRevs {
 	 * These will be exported client-side as wgFlaggedRevsParams,
 	 * for use by ext.flaggedRevs.review.js.
 	 *
-	 * @return array[]|null
+	 * @return int[][][]|null
 	 */
 	public static function getJSTagParams() {
 		self::load();

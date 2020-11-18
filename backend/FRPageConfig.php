@@ -22,7 +22,7 @@ class FRPageConfig {
 	}
 
 	/**
-	 * @return array basic select fields for FRPageConfig DB row
+	 * @return string[] basic select fields for FRPageConfig DB row
 	 */
 	public static function selectFields() {
 		return [ 'fpc_override', 'fpc_level', 'fpc_expiry' ];

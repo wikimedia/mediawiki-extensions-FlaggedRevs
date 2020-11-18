@@ -17,7 +17,7 @@ class RevisionReviewFormUI {
 	private $topNotice = '';
 	/** @var string */
 	private $bottomNotice = '';
-	/** @var array|false|null */
+	/** @var string[]|false|null */
 	private $fileVersion = null;
 	/** @var int[][]|null */
 	private $templateIDs = null;
@@ -78,7 +78,7 @@ class RevisionReviewFormUI {
 
 	/**
 	 * Set the file version parameters of what the user is viewing
-	 * @param array|null $version ('time' => MW timestamp, 'sha1' => sha1)
+	 * @param string[]|null $version ('time' => MW timestamp, 'sha1' => sha1)
 	 */
 	public function setFileVersion( $version ) {
 		$this->fileVersion = is_array( $version ) ? $version : false;
@@ -86,7 +86,7 @@ class RevisionReviewFormUI {
 
 	/**
 	 * Set the template/file version parameters of what the user is viewing
-	 * @param array $templateIDs
+	 * @param int[][] $templateIDs
 	 * @param array[] $imageSHA1Keys
 	 */
 	public function setIncludeVersions( array $templateIDs, array $imageSHA1Keys ) {
@@ -369,7 +369,7 @@ class RevisionReviewFormUI {
 	/**
 	 * @param User $user
 	 * @param int[] $selected
-	 * @return array
+	 * @return array[]|false[]
 	 */
 	private function ratingFormTags( $user, $selected ) {
 		$labels = [];
@@ -462,7 +462,7 @@ class RevisionReviewFormUI {
 	}
 
 	/**
-	 * @return array|false
+	 * @return string[]|false
 	 */
 	private function getFileVersion() {
 		if ( $this->fileVersion === null ) {

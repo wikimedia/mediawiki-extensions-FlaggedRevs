@@ -186,7 +186,7 @@ class FlaggedRevsXML {
 	}
 
 	/**
-	 * @param array $flags
+	 * @param int[] $flags
 	 * @param bool $prettyBox
 	 * @param string $css class to wrap box in
 	 * @return string

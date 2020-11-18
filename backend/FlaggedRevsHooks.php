@@ -1109,7 +1109,7 @@ class FlaggedRevsHooks {
 	/**
 	 * Grant 'autoreview' rights to users with the 'bot' right
 	 * @param User $user
-	 * @param array &$rights
+	 * @param string[] &$rights
 	 */
 	public static function onUserGetRights( $user, array &$rights ) {
 		# Make sure bots always have the 'autoreview' right
@@ -1390,7 +1390,7 @@ class FlaggedRevsHooks {
 	 * This should go once we can remove all Echo-specific code for reverts,
 	 * see: T153570
 	 * @param EchoEvent $event EchoEvent to get implicitly subscribed users for
-	 * @param array &$users Array to append implicitly subscribed users to.
+	 * @param User[] &$users Array to append implicitly subscribed users to.
 	 */
 	public static function onEchoGetDefaultNotifiedUsers( $event, &$users ) {
 		$extra = $event->getExtra();

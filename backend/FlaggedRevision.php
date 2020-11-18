@@ -542,7 +542,7 @@ class FlaggedRevision {
 	/**
 	 * Get original template versions at time of review
 	 * @param int $flags FR_MASTER
-	 * @return array template versions (ns -> dbKey -> rev Id)
+	 * @return int[][] template versions (ns -> dbKey -> rev Id)
 	 * Note: 0 used for template rev Id if it didn't exist
 	 */
 	public function getTemplateVersions( $flags = 0 ) {
@@ -565,7 +565,7 @@ class FlaggedRevision {
 	/**
 	 * Get original file versions at time of review
 	 * @param int $flags FR_MASTER
-	 * @return array file versions (dbKey => ['time' => MW timestamp,'sha1' => sha1] )
+	 * @return array[] file versions (dbKey => ['time' => MW timestamp,'sha1' => sha1] )
 	 * Note: false used for file timestamp/sha1 if it didn't exist
 	 */
 	public function getFileVersions( $flags = 0 ) {
@@ -597,7 +597,7 @@ class FlaggedRevision {
 	/**
 	 * Get the current stable version of the templates used at time of review
 	 * @param int $flags FR_MASTER
-	 * @return array template versions (ns -> dbKey -> rev Id)
+	 * @return int[][] template versions (ns -> dbKey -> rev Id)
 	 * Note: 0 used for template rev Id if it doesn't exist
 	 */
 	public function getStableTemplateVersions( $flags = 0 ) {
@@ -628,7 +628,7 @@ class FlaggedRevision {
 	/**
 	 * Get the current stable version of the files used at time of review
 	 * @param int $flags FR_MASTER
-	 * @return array file versions (dbKey => ['time' => MW timestamp,'sha1' => sha1] )
+	 * @return array[] file versions (dbKey => ['time' => MW timestamp,'sha1' => sha1] )
 	 * Note: false used for file timestamp/sha1 if it didn't exist
 	 */
 	public function getStableFileVersions( $flags = 0 ) {
@@ -676,7 +676,7 @@ class FlaggedRevision {
 	 *    (b) Current template exists and the "version used" was non-existing (created)
 	 *    (c) Current template doesn't exist and the "version used" existed (deleted)
 	 *
-	 * @return array of (title, rev ID in reviewed version, has stable rev) tuples
+	 * @return array[] of (title, rev ID in reviewed version, has stable rev) tuples
 	 */
 	public function findPendingTemplateChanges() {
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
@@ -768,7 +768,7 @@ class FlaggedRevision {
 	 *    (c) Current file doesn't exist and the "version used" existed (deleted)
 	 *
 	 * @param bool|string $noForeign Using 'noForeign' skips foreign file updates (bug 15748)
-	 * @return array of (title, MW file timestamp in reviewed version, has stable rev) tuples
+	 * @return array[] of (title, MW file timestamp in reviewed version, has stable rev) tuples
 	 */
 	public function findPendingFileChanges( $noForeign = false ) {
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
@@ -853,8 +853,8 @@ class FlaggedRevision {
 	 * version against a list of current versions of templates.
 	 * See findPendingTemplateChanges() for details.
 	 *
-	 * @param array $newTemplates
-	 * @return array of (title, rev ID in reviewed version, has stable rev) tuples
+	 * @param int[][] $newTemplates
+	 * @return array[] of (title, rev ID in reviewed version, has stable rev) tuples
 	 */
 	public function findTemplateChanges( array $newTemplates ) {
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
@@ -885,9 +885,9 @@ class FlaggedRevision {
 	 * version against a list of current versions of files.
 	 * See findPendingFileChanges() for details.
 	 *
-	 * @param array $newFiles
+	 * @param string[] $newFiles
 	 * @param bool|string $noForeign Using 'noForeign' skips foreign file updates (bug 15748)
-	 * @return array of (title, MW file timestamp in reviewed version, has stable rev) tuples
+	 * @return array[] of (title, MW file timestamp in reviewed version, has stable rev) tuples
 	 */
 	public function findFileChanges( array $newFiles, $noForeign = false ) {
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {

@@ -7,8 +7,8 @@ class FlaggedRevsLog {
 	/**
 	 * Record a log entry on the review action
 	 * @param Title $title
-	 * @param array $dims
-	 * @param array $oldDims
+	 * @param int[] $dims
+	 * @param int[] $oldDims
 	 * @param string $comment
 	 * @param int $revId revision ID
 	 * @param int $stableId prior stable revision ID
@@ -161,8 +161,8 @@ class FlaggedRevsLog {
 	/**
 	 * Expand a list of log params into an associative array
 	 * For legacy log entries
-	 * @param array $pars
-	 * @return array (associative)
+	 * @param string[] $pars
+	 * @return string[] (associative)
 	 */
 	public static function expandParams( array $pars ) {
 		$res = [];

@@ -189,7 +189,7 @@ class FlaggedRevsStats {
 	}
 
 	/**
-	 * @return array[]
+	 * @return int[][]
 	 */
 	private static function getPerNamespaceTotals() {
 		$ns_total = [];

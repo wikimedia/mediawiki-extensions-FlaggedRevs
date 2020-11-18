@@ -105,7 +105,7 @@ class FRDependencyUpdate {
 	/**
 	 * Get existing cache dependencies
 	 * @param int $flags FR_MASTER
-	 * @return array (ns => dbKey => 1)
+	 * @return int[][] (ns => dbKey => 1)
 	 */
 	private function getExistingDeps( $flags = 0 ) {
 		$db = ( $flags & FR_MASTER ) ?
@@ -124,9 +124,9 @@ class FRDependencyUpdate {
 
 	/**
 	 * Get INSERT rows for cache dependencies in $new but not in $existing
-	 * @param array $existing
-	 * @param array $new
-	 * @return array
+	 * @param int[][] $existing
+	 * @param int[][] $new
+	 * @return array[]
 	 */
 	private function getDepInsertions( array $existing, array $new ) {
 		$arr = [];
@@ -149,8 +149,8 @@ class FRDependencyUpdate {
 
 	/**
 	 * Get WHERE clause to delete items in $existing but not in $new
-	 * @param array $existing
-	 * @param array $new
+	 * @param int[][] $existing
+	 * @param int[][] $new
 	 * @return array|false
 	 */
 	private function getDepDeletions( array $existing, array $new ) {
@@ -184,7 +184,7 @@ class FRDependencyUpdate {
 	}
 
 	/**
-	 * @param array[] &$deps
+	 * @param int[][] &$deps
 	 * @param int $ns
 	 * @param string $dbKey
 	 */
@@ -194,7 +194,7 @@ class FRDependencyUpdate {
 
 	/**
 	 * Get an array of existing links, as a 2-D array
-	 * @return array (ns => dbKey => 1)
+	 * @return int[][] (ns => dbKey => 1)
 	 */
 	private function getCurrentVersionLinks() {
 		$dbr = wfGetDB( DB_REPLICA );
@@ -212,7 +212,7 @@ class FRDependencyUpdate {
 
 	/**
 	 * Get an array of existing templates, as a 2-D array
-	 * @return array (ns => dbKey => 1)
+	 * @return int[][] (ns => dbKey => 1)
 	 */
 	private function getCurrentVersionTemplates() {
 		$dbr = wfGetDB( DB_REPLICA );
@@ -230,7 +230,7 @@ class FRDependencyUpdate {
 
 	/**
 	 * Get an array of existing images, image names in the keys
-	 * @return array (dbKey => 1)
+	 * @return int[] (dbKey => 1)
 	 */
 	private function getCurrentVersionImages() {
 		$dbr = wfGetDB( DB_REPLICA );
@@ -245,7 +245,7 @@ class FRDependencyUpdate {
 
 	/**
 	 * Get an array of existing categories, with the name in the key and sort key in the value.
-	 * @return array (category => sortkey)
+	 * @return string[] (category => sortkey)
 	 */
 	private function getCurrentVersionCategories() {
 		$dbr = wfGetDB( DB_REPLICA );

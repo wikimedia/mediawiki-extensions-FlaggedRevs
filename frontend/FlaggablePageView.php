@@ -1422,7 +1422,7 @@ class FlaggablePageView extends ContextSource {
 	/**
 	 * Modify an array of tab links to include flagged revs UI elements
 	 * @param Skin $skin
-	 * @param array &$views
+	 * @param array[] &$views
 	 */
 	public function setViewTabs( Skin $skin, array &$views ) {
 		$this->load();
@@ -1871,8 +1871,8 @@ class FlaggablePageView extends ContextSource {
 	/**
 	 * Fetch template changes for a reviewed revision since review
 	 * @param FlaggedRevision $frev
-	 * @param array|null $newTemplates
-	 * @return array
+	 * @param int[][]|null $newTemplates
+	 * @return string[]
 	 */
 	private static function fetchTemplateChanges( FlaggedRevision $frev, $newTemplates = null ) {
 		$diffLinks = [];
@@ -1899,8 +1899,8 @@ class FlaggablePageView extends ContextSource {
 	/**
 	 * Fetch file changes for a reviewed revision since review
 	 * @param FlaggedRevision $frev
-	 * @param array|null $newFiles
-	 * @return array
+	 * @param string[]|null $newFiles
+	 * @return string[]
 	 */
 	private static function fetchFileChanges( FlaggedRevision $frev, $newFiles = null ) {
 		$diffLinks = [];
@@ -2043,7 +2043,7 @@ class FlaggablePageView extends ContextSource {
 	 * Note: interacts with 'review pending changes' checkbox
 	 * @todo would be nice if hook passed in button attribs, not XML
 	 * @param EditPage $editPage
-	 * @param array &$buttons
+	 * @param \OOUI\ButtonInputWidget[] &$buttons
 	 */
 	public function changeSaveButton( EditPage $editPage, array &$buttons ) {
 		if ( !$this->editWillRequireReview( $editPage ) ) {

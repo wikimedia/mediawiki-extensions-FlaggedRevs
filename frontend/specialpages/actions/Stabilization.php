@@ -342,7 +342,7 @@ class Stabilization extends UnlistedSpecialPage {
 
 	/**
 	 * If the this form is disabled, then return the "disabled" attr array
-	 * @return array
+	 * @return string[]
 	 */
 	private function disabledAttr() {
 		return $this->form->isAllowed()

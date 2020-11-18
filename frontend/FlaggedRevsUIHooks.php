@@ -110,7 +110,7 @@ class FlaggedRevsUIHooks {
 	/**
 	 * Add user preferences (uses prefs-flaggedrevs, prefs-flaggedrevs-ui msgs)
 	 * @param User $user
-	 * @param array &$preferences
+	 * @param array[] &$preferences
 	 */
 	public static function onGetPreferences( $user, array &$preferences ) {
 		// Box or bar UI
@@ -176,7 +176,7 @@ class FlaggedRevsUIHooks {
 	/**
 	 * Vector et al: $links is all the tabs (2 levels)
 	 * @param Skin $skin
-	 * @param array &$links
+	 * @param array[] &$links
 	 */
 	public static function onSkinTemplateNavigationUniversal( Skin $skin, array &$links ) {
 		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
@@ -325,8 +325,8 @@ class FlaggedRevsUIHooks {
 	 * Registers a filter on Special:NewPages to hide edits that have been reviewed
 	 * through FlaggedRevs.
 	 *
-	 * @param SpecialPage $specialPage Special page
-	 * @param array &$filters Array of filters
+	 * @param SpecialPage $specialPage
+	 * @param array[] &$filters
 	 */
 	public static function addHideReviewedUnstructuredFilter( $specialPage, &$filters ) {
 		if ( !FlaggedRevs::useSimpleConfig() ) {
@@ -650,7 +650,7 @@ class FlaggedRevsUIHooks {
 	 * @param HistoryPager $history
 	 * @param stdClass $row
 	 * @param string &$s
-	 * @param array &$liClasses
+	 * @param string[] &$liClasses
 	 * @suppress PhanUndeclaredProperty For HistoryPager->fr_*
 	 */
 	public static function addToHistLine( HistoryPager $history, $row, &$s, &$liClasses ) {
@@ -706,7 +706,7 @@ class FlaggedRevsUIHooks {
 	 * @param IContextSource $ctx
 	 * @param Title $title
 	 * @param stdClass $row from history page
-	 * @return array (string,string)
+	 * @return string[]
 	 */
 	private static function markHistoryRow( IContextSource $ctx, Title $title, $row ) {
 		if ( !isset( $row->fr_quality ) ) {
@@ -766,7 +766,7 @@ class FlaggedRevsUIHooks {
 	 * @param SpecialPage $contribs SpecialPage object for contributions
 	 * @param string &$ret the HTML line
 	 * @param stdClass $row Row the DB row for this line
-	 * @param array &$classes the classes to add to the surrounding <li>
+	 * @param string[] &$classes the classes to add to the surrounding <li>
 	 */
 	public static function addToContribsLine( $contribs, &$ret, $row, &$classes ) {
 		global $wgFlaggedRevsProtection;

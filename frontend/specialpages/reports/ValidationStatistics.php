@@ -314,7 +314,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 
 	/**
 	 * Get top X reviewers in the last Y hours
-	 * @return array
+	 * @return int[] number of reviews indexed by user name
 	 */
 	private function getTopReviewers() {
 		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();

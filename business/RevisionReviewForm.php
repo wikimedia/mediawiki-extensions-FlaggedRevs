@@ -703,9 +703,9 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	/**
 	 * Get template and image parameters from parser output to use on forms.
 	 * @param int[][] $templateIDs Array (from ParserOutput/OutputPage->mTemplateIds)
-	 * @param array[] $imageSHA1Keys Array (from ParserOutput/OutputPage->mImageTimeKeys)
-	 * @param array|false $fileVersion Version of file for File: pages (time, sha1)
-	 * @return array [ templateParams, imageParams, fileVersion ]
+	 * @param string[][] $imageSHA1Keys Array (from ParserOutput/OutputPage->mImageTimeKeys)
+	 * @param string[]|false $fileVersion Version of file for File: pages (time, sha1)
+	 * @return string[] [ templateParams, imageParams, fileVersion ]
 	 */
 	public static function getIncludeParams(
 		array $templateIDs, array $imageSHA1Keys, $fileVersion
@@ -735,7 +735,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * Get template and image versions from form value for parser output.
 	 * @param string $templateParams
 	 * @param string $imageParams
-	 * @return array [ templateIds, fileSHA1Keys ]
+	 * @return array[] [ templateIds, fileSHA1Keys ]
 	 * templateIds like ParserOutput->mTemplateIds
 	 * fileSHA1Keys like ParserOutput->mImageTimeKeys
 	 */
