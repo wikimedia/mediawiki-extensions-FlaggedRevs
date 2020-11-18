@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Arbhatt",
+			"CptViraj",
 			"KartikMistry",
 			"NehalDaveND"
 		]
@@ -15,6 +16,7 @@
 	"group-reviewer-member": "{{GENDER:$1|પુનરાવલોકન}}",
 	"grouppage-editor": "{{ns:project}}:સમ્પાદક",
 	"grouppage-reviewer": "{{ns:project}}:પુનરાવલોકન કરનારા",
+	"reviewer": "સમીક્ષક",
 	"revreview-depth": "ઊંડાણ",
 	"revreview-depth-1": "પ્રાથમિક",
 	"revreview-depth-3": "ઉચ્ચ",
