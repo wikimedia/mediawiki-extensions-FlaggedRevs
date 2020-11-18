@@ -102,7 +102,6 @@ class FlagProtectToSemiProtect extends Maintenance {
 				$cascade = 0;
 				$limit = [];
 				$expiry = [];
-				$desc = []; // for output
 				foreach ( $title->getRestrictionTypes() as $type ) {
 					# Get existing restrictions for this action
 					$oldLimit = $title->getRestrictions( $type ); // array
@@ -127,7 +126,6 @@ class FlagProtectToSemiProtect extends Maintenance {
 					}
 					$limit[$type] = $newLimit;
 					$expiry[$type] = $newExpiry;
-					$desc[] = "{$type}={$newLimit}: {$newExpiry}";
 				}
 
 				$db->begin( __METHOD__ );

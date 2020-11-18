@@ -10,20 +10,21 @@ class FlaggedRevsStats {
 	 * @return array of current FR stats
 	 */
 	public static function getStats() {
-		$data = []; // initialize
-		$data['reviewLag-anon-sampleSize'] = '-';
-		$data['reviewLag-anon-average'] = '-';
-		$data['reviewLag-anon-median'] = '-';
-		$data['reviewLag-anon-percentile'] = [];
-		$data['reviewLag-user-sampleSize'] = '-';
-		$data['reviewLag-user-average'] = '-';
-		$data['reviewLag-user-median'] = '-';
-		$data['reviewLag-user-percentile'] = [];
-		$data['totalPages-NS'] = [];
-		$data['reviewedPages-NS'] = [];
-		$data['syncedPages-NS'] = [];
-		$data['pendingLag-average'] = '-';
-		$data['statTimestamp'] = '-';
+		$data = [
+			'reviewLag-anon-sampleSize' => '-',
+			'reviewLag-anon-average' => '-',
+			'reviewLag-anon-median' => '-',
+			'reviewLag-anon-percentile' => [],
+			'reviewLag-user-sampleSize' => '-',
+			'reviewLag-user-average' => '-',
+			'reviewLag-user-median' => '-',
+			'reviewLag-user-percentile' => [],
+			'totalPages-NS' => [],
+			'reviewedPages-NS' => [],
+			'syncedPages-NS' => [],
+			'pendingLag-average' => '-',
+			'statTimestamp' => '-',
+		];
 
 		$dbr = wfGetDB( DB_REPLICA );
 		// Latest timestamp recorded

@@ -173,11 +173,11 @@ class FRDependencyUpdate {
 
 	/**
 	 * Make WHERE clause to match $arr titles
-	 * @param array &$arr
+	 * @param array[] $arr
 	 * @param IDatabase $db
 	 * @return string|bool
 	 */
-	private function makeWhereFrom2d( &$arr, $db ) {
+	private function makeWhereFrom2d( $arr, $db ) {
 		$lb = new LinkBatch();
 		$lb->setArray( $arr );
 		return $lb->constructSet( 'ftr', $db );

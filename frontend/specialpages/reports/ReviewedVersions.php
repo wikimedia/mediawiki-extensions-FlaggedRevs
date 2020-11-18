@@ -1,14 +1,9 @@
 <?php
 
 class ReviewedVersions extends UnlistedSpecialPage {
-	/** @var string|null */
-	private $target;
 
 	/** @var Title|null */
 	private $page;
-
-	/** @var int|null */
-	private $oldid;
 
 	public function __construct() {
 		parent::__construct( 'ReviewedVersions' );
@@ -23,11 +18,7 @@ class ReviewedVersions extends UnlistedSpecialPage {
 		$this->setHeaders();
 		$this->addHelpLink( 'Help:Extension:FlaggedRevs' );
 		# Our target page
-		$this->target = $request->getText( 'page' );
-		$this->page = Title::newFromText( $this->target );
-		# Revision ID
-		$this->oldid = $request->getVal( 'oldid' );
-		$this->oldid = ( $this->oldid == 'best' ) ? 'best' : intval( $this->oldid );
+		$this->page = Title::newFromText( $request->getText( 'page' ) );
 		# We need a page...
 		if ( $this->page === null ) {
 			$this->getOutput()->showErrorPage( 'notargettitle', 'notargettext' );

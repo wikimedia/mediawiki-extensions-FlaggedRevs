@@ -268,7 +268,7 @@ class UnreviewedPages extends SpecialPage {
 		$dbr->freeResult( $res );
 
 		$dbw = wfGetDB( DB_MASTER );
-		$lbFactory = \MediaWiki\MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		$dbw->startAtomic( __METHOD__ );
 		# Clear out any old cached data
 		$dbw->delete( 'querycache', [ 'qc_type' => 'fr_unreviewedpages' ], __METHOD__ );
