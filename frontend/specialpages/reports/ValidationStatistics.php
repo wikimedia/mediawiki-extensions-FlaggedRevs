@@ -236,7 +236,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 		if ( !$dbr->tableExists( 'flaggedrevs_statistics', __METHOD__ ) ) {
 			return false;
 		} else {
-			return ( 0 != $dbr->selectField( 'flaggedrevs_statistics', 'COUNT(*)', [], __METHOD__ ) );
+			return $dbr->selectField( 'flaggedrevs_statistics', 'COUNT(*)', [], __METHOD__ ) != 0;
 		}
 	}
 

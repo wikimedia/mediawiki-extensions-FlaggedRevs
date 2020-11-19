@@ -106,7 +106,7 @@ class Stabilization extends UnlistedSpecialPage {
 
 		$s = ''; // form HTML string
 		# Add any error messages
-		if ( "" != $err ) {
+		if ( $err !== '' ) {
 			$out->setSubtitle( $this->msg( 'formerror' ) );
 			$out->addHTML( "<p class='error'>{$err}</p>\n" );
 		}
@@ -170,10 +170,10 @@ class Stabilization extends UnlistedSpecialPage {
 		$s .=
 			Xml::fieldset( $this->msg( 'stabilization-def' )->text(), false ) . "\n" .
 			Xml::radioLabel( $this->msg( 'stabilization-def1' )->text(), 'wpStableconfig-override', 1,
-				'default-stable', 1 == $form->getOverride(), $this->disabledAttr() ) .
+				'default-stable', $form->getOverride() == 1, $this->disabledAttr() ) .
 				'<br />' . "\n" .
 			Xml::radioLabel( $this->msg( 'stabilization-def2' )->text(), 'wpStableconfig-override', 0,
-				'default-current', 0 == $form->getOverride(), $this->disabledAttr() ) . "\n" .
+				'default-current', $form->getOverride() == 0, $this->disabledAttr() ) . "\n" .
 			Xml::closeElement( 'fieldset' );
 		# Add autoreview restriction select
 		$s .= Xml::fieldset( $this->msg( 'stabilization-restrict' )->text(), false ) .
