@@ -39,12 +39,12 @@ if ( function_exists( 'wfLoadExtension' ) ) {
 	$wgExtensionMessagesFiles['FlaggedRevsAliases'] = __DIR__ .
 		'/frontend/language/FlaggedRevs.alias.php';
 
-	/*wfWarn(
+	wfWarn(
 		'Deprecated PHP entry point used for Flagged Revisions extension. ' .
 		'Please use wfLoadExtension instead, see' .
 		'https://www.mediawiki.org/wiki/Extension_registration for more details.'
-	);*/
+	);
 	return true;
 }
 
-die( 'This version of the Flagged Revisions extension requires MediaWiki 1.34+' );
+die( 'This version of the Flagged Revisions extension requires MediaWiki 1.36+' );
