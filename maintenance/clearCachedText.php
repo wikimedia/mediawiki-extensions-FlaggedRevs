@@ -72,7 +72,9 @@ while ( true ) {
 			__METHOD__
 		);
 	}
+	// @phan-suppress-next-line PhanPossiblyUndeclaredGlobalVariable
 	$pageId = $row->fr_page_id;
+	// @phan-suppress-next-line PhanPossiblyUndeclaredGlobalVariable
 	$revId = $row->fr_rev_id;
 	$lbFactory->waitForReplication( [ 'ifWritesSince' => 5 ] );
 	wfPrintProgress( $pageId, $maxPage );
