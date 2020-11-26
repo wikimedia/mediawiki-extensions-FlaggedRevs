@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Balyozxane",
 			"Bikarhêner",
 			"George Animal"
 		]
 	},
-	"flaggedrevs-hidereviewed": "Guherandinên nîşankirî $1",
+	"flaggedrevs-hidereviewed": "Guhartinên nîşankirî $1",
 	"flaggedrevs-hidereviewed-hide": "Veşêre",
 	"flaggedrevs-hidereviewed-show": "Nîşan bide",
 	"group-editor": "Edîtor",
@@ -13,5 +14,5 @@
 	"revreview-submitedit": "Guherandinan tomar bike",
 	"revreview-filter-all": "hemû",
 	"revreview-typefilter": "Cure:",
-	"tooltip-ca-current": "Vê rûpelê tevî guhertinên li bendê ne bibîne"
+	"tooltip-ca-current": "Vê rûpelê tevî guhartinên li bendê ne bibîne"
 }
