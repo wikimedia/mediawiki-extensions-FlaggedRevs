@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"1917 Ekim Devrimi",
 			"Archaeodontosaurus",
 			"Erdemaslancan",
 			"Marmase",
@@ -9,7 +10,7 @@
 		]
 	},
 	"pendingchanges": "Pelanê ho vurneyeni",
-	"pendingchanges-legend": "Vurnayîşanê etiket biyo înan liste bike",
+	"pendingchanges-legend": "Vurnayışê çımeştışi pawen pela liste kerê",
 	"pendingchanges-list": "Ena pele pelanê [[{{MediaWiki:Validationpage}}|çımraviyarnayeyan]], êyê ke yew ya zi zêdeyêr vurnayışê cı estê, lista kena.",
 	"pendingchanges-none": "Ser ena kriteri de pelan çini yo",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|seet|seetan}})",
