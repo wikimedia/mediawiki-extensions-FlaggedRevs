@@ -91,6 +91,9 @@ class FlaggedRevsUIHooks {
 		}
 
 		if ( $out->getTitle()->getNamespace() !== NS_SPECIAL ) {
+			if ( FlaggablePageView::globalArticleInstance() === null ) {
+				return;
+			}
 			$view = FlaggablePageView::singleton();
 			$view->addStabilizationLink(); // link on protect form
 			$view->displayTag(); // show notice bar/icon in subtitle
@@ -180,8 +183,10 @@ class FlaggedRevsUIHooks {
 			return;
 		}
 
-		$view = FlaggablePageView::singleton();
-		$view->imagePageFindFile( $normalFile, $displayFile );
+		if ( FlaggablePageView::globalArticleInstance() !== null ) {
+			$view = FlaggablePageView::singleton();
+			$view->imagePageFindFile( $normalFile, $displayFile );
+		}
 	}
 
 	/**
@@ -215,9 +220,11 @@ class FlaggedRevsUIHooks {
 			return;
 		}
 
-		$view = FlaggablePageView::singleton();
-		$view->addStableLink();
-		$view->setPageContent( $outputDone, $useParserCache );
+		if ( FlaggablePageView::globalArticleInstance() !== null ) {
+			$view = FlaggablePageView::singleton();
+			$view->addStableLink();
+			$view->setPageContent( $outputDone, $useParserCache );
+		}
 	}
 
 	/**
@@ -297,8 +304,10 @@ class FlaggedRevsUIHooks {
 	 * @param EditPage $editPage
 	 */
 	public static function addToEditView( $editPage ) {
-		$view = FlaggablePageView::singleton();
-		$view->addToEditView( $editPage );
+		if ( FlaggablePageView::globalArticleInstance() !== null ) {
+			$view = FlaggablePageView::singleton();
+			$view->addToEditView( $editPage );
+		}
 	}
 
 	/**
@@ -309,8 +318,10 @@ class FlaggedRevsUIHooks {
 	 * @param string[] &$notices
 	 */
 	public static function getEditNotices( $title, $oldid, &$notices ) {
-		$view = FlaggablePageView::singleton();
-		$view->getEditNotices( $title, $oldid, $notices );
+		if ( FlaggablePageView::globalArticleInstance() !== null ) {
+			$view = FlaggablePageView::singleton();
+			$view->getEditNotices( $title, $oldid, $notices );
+		}
 	}
 
 	/**
@@ -320,8 +331,10 @@ class FlaggedRevsUIHooks {
 	 * @param \OOUI\ButtonInputWidget[] &$buttons
 	 */
 	public static function onBeforeEditButtons( $editPage, &$buttons ) {
-		$view = FlaggablePageView::singleton();
-		$view->changeSaveButton( $editPage, $buttons );
+		if ( FlaggablePageView::globalArticleInstance() !== null ) {
+			$view = FlaggablePageView::singleton();
+			$view->changeSaveButton( $editPage, $buttons );
+		}
 	}
 
 	/**
@@ -331,8 +344,10 @@ class FlaggedRevsUIHooks {
 	 * @param string &$s
 	 */
 	public static function onNoSuchSection( $editPage, &$s ) {
-		$view = FlaggablePageView::singleton();
-		$view->addToNoSuchSection( $editPage, $s );
+		if ( FlaggablePageView::globalArticleInstance() !== null ) {
+			$view = FlaggablePageView::singleton();
+			$view->addToNoSuchSection( $editPage, $s );
+		}
 	}
 
 	/**
@@ -341,8 +356,10 @@ class FlaggedRevsUIHooks {
 	 * @param Article $article
 	 */
 	public static function addToHistView( $article ) {
-		$view = FlaggablePageView::singleton();
-		$view->addToHistView();
+		if ( FlaggablePageView::globalArticleInstance() !== null ) {
+			$view = FlaggablePageView::singleton();
+			$view->addToHistView();
+		}
 	}
 
 	/**
@@ -355,8 +372,10 @@ class FlaggedRevsUIHooks {
 			return;
 		}
 
-		$view = FlaggablePageView::singleton();
-		$view->addToCategoryView();
+		if ( FlaggablePageView::globalArticleInstance() !== null ) {
+			$view = FlaggablePageView::singleton();
+			$view->addToCategoryView();
+		}
 	}
 
 	/**
@@ -1006,12 +1025,15 @@ class FlaggedRevsUIHooks {
 	 */
 	public static function onDifferenceEngineViewHeader( DifferenceEngine $diff ) {
 		self::injectStyleAndJS( $diff->getOutput() );
-		$view = FlaggablePageView::singleton();
 
-		$oldRevRecord = $diff->getOldRevision();
-		$newRevRecord = $diff->getNewRevision();
-		$view->setViewFlags( $diff, $oldRevRecord, $newRevRecord );
-		$view->addToDiffView( $diff, $oldRevRecord, $newRevRecord );
+		if ( FlaggablePageView::globalArticleInstance() !== null ) {
+			$view = FlaggablePageView::singleton();
+
+			$oldRevRecord = $diff->getOldRevision();
+			$newRevRecord = $diff->getNewRevision();
+			$view->setViewFlags( $diff, $oldRevRecord, $newRevRecord );
+			$view->addToDiffView( $diff, $oldRevRecord, $newRevRecord );
+		}
 	}
 
 	/**
@@ -1021,8 +1043,10 @@ class FlaggedRevsUIHooks {
 	 * @param OutputPage $out
 	 */
 	public static function addRevisionIDField( $editPage, $out ) {
-		$view = FlaggablePageView::singleton();
-		$view->addRevisionIDField( $editPage, $out );
+		if ( FlaggablePageView::globalArticleInstance() !== null ) {
+			$view = FlaggablePageView::singleton();
+			$view->addRevisionIDField( $editPage, $out );
+		}
 	}
 
 	/**
@@ -1032,8 +1056,10 @@ class FlaggedRevsUIHooks {
 	 * @param array &$checkboxes
 	 */
 	public static function onEditPageGetCheckboxesDefinition( $editPage, &$checkboxes ) {
-		$view = FlaggablePageView::singleton();
-		$view->addReviewCheck( $editPage, $checkboxes );
+		if ( FlaggablePageView::globalArticleInstance() !== null ) {
+			$view = FlaggablePageView::singleton();
+			$view->addReviewCheck( $editPage, $checkboxes );
+		}
 	}
 
 	private static function maybeAddBacklogNotice( OutputPage $out ) {
