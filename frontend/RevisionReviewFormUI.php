@@ -356,7 +356,7 @@ class RevisionReviewFormUI {
 				} elseif ( $numLevels == 2 ) {
 					$i = $minLevel;
 					$attribs = [ 'class' => "fr-rating-option-$i" ];
-					$attribs = $attribs + [ 'value' => $i ];
+					$attribs += [ 'value' => $i ];
 					$item .= Xml::checkLabel( wfMessage( 'revreview-' . $levels[$i] )->text(),
 						"wp$quality", "wp$quality", ( $selected == $i ), $attribs ) . "\n";
 				}
