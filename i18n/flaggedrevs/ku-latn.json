@@ -3,7 +3,8 @@
 		"authors": [
 			"Balyozxane",
 			"Bikarhêner",
-			"George Animal"
+			"George Animal",
+			"Guherto"
 		]
 	},
 	"flaggedrevs-hidereviewed": "Guhartinên nîşankirî $1",
@@ -11,7 +12,7 @@
 	"flaggedrevs-hidereviewed-show": "Nîşan bide",
 	"group-editor": "Edîtor",
 	"group-editor-member": "{{GENDER:$1|edîtor}}",
-	"revreview-submitedit": "Guherandinan tomar bike",
+	"revreview-submitedit": "Guhartinan tomar bike",
 	"revreview-filter-all": "hemû",
 	"revreview-typefilter": "Cure:",
 	"tooltip-ca-current": "Vê rûpelê tevî guhartinên li bendê ne bibîne"
