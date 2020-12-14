@@ -119,7 +119,7 @@
 	"revreview-depth-3": "Yüksek",
 	"revreview-depth-4": "Seçkin",
 	"revreview-draft-title": "Bekleyen değişiklikler bu sayfada görüntülenmektedir",
-	"revreview-editnotice": "'''Değişiklikleriniz, yetkili bir kullanıcı kabul ettikten sonra görüntülenecektir. ([[{{MediaWiki:Validationpage}}|yardım]])'''",
+	"revreview-editnotice": "'''Değişiklikleriniz, yetkili bir kullanıcı kabul ettikten sonra okuyucular tarafından görüntülenecektir. ([[{{MediaWiki:Validationpage}}|yardım]])'''",
 	"revreview-submitedit": "Değişiklikleri gönder",
 	"revreview-submitedit-title": "Değişikliklerini incelenmesi için gönder",
 	"revreview-edited": "'''Değişiklikleriniz, yetkili bir kullanıcı kabul ettikten sonra görüntülenecek. ([[{{MediaWiki:Validationpage}}|yardım]])'''\n\nİnceleme bekleyen [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 değişiklik] ''(aşağıda gösterilmiştir)'' bulunmaktadır.",
