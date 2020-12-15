@@ -751,7 +751,7 @@ class FlaggablePageView extends ContextSource {
 		# Check the stable version cache for the parser output
 		$stableParserCache = MediaWikiServices::getInstance()
 			->getParserCacheFactory()
-			->getInstance( FlaggedRevs::PARSER_CACHE_NAME );
+			->getParserCache( FlaggedRevs::PARSER_CACHE_NAME );
 		$parserOptions = $this->article->makeParserOptions( $reqUser );
 		$parserOut = $stableParserCache->get( $this->article, $parserOptions );
 

@@ -517,7 +517,7 @@ class FlaggedRevs {
 		$page = WikiPage::factory( $frev->getTitle() );
 		$parserCache = MediaWikiServices::getInstance()
 			->getParserCacheFactory()
-			->getInstance( self::PARSER_CACHE_NAME );
+			->getParserCache( self::PARSER_CACHE_NAME );
 		$parserCacheMetadata = $parserCache->getMetadata( $page );
 		$keyPrefix = $parserCache->makeParserOutputKey(
 			$page,
