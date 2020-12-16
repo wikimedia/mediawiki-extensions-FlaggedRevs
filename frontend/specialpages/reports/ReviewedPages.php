@@ -42,15 +42,16 @@ class ReviewedPages extends SpecialPage {
 	}
 
 	public function showForm() {
-		global $wgScript;
-
 		// Text to explain level select (if there are several levels)
 		if ( FlaggedRevs::qualityVersions() ) {
 			$this->getOutput()->addWikiMsg( 'reviewedpages-list',
 				$this->getLanguage()->formatNum( $this->pager->getNumRows() ) );
 		}
-		$form = Html::openElement( 'form',
-			[ 'name' => 'reviewedpages', 'action' => $wgScript, 'method' => 'get' ] );
+		$form = Html::openElement( 'form', [
+			'name' => 'reviewedpages',
+			'action' => $this->getConfig()->get( 'Script' ),
+			'method' => 'get',
+		] );
 		$form .= "<fieldset><legend>" . $this->msg( 'reviewedpages-leg' )->escaped() . "</legend>\n";
 
 		// show/hide links

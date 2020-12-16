@@ -39,8 +39,6 @@ class StablePages extends SpecialPage {
 	}
 
 	private function showForm() {
-		global $wgScript;
-
 		$this->getOutput()->addWikiMsg( 'stablepages-list',
 			$this->getLanguage()->formatNum( $this->pager->getNumRows() ) );
 
@@ -56,8 +54,11 @@ class StablePages extends SpecialPage {
 		$fields[] = Xml::checkLabel( $this->msg( 'stablepages-indef' )->text(), 'indef',
 			'stablepages-indef', $this->indef );
 
-		$form = Html::openElement( 'form',
-			[ 'name' => 'stablepages', 'action' => $wgScript, 'method' => 'get' ] );
+		$form = Html::openElement( 'form', [
+			'name' => 'stablepages',
+			'action' => $this->getConfig()->get( 'Script' ),
+			'method' => 'get',
+		] );
 		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBkey() );
 		$form .= "<fieldset><legend>" . $this->msg( 'stablepages' )->escaped() . "</legend>\n";
 		$form .= implode( '&#160;', $fields ) . '&nbsp';

@@ -24,8 +24,6 @@ class QualityOversight extends SpecialPage {
 	 * @inheritDoc
 	 */
 	public function execute( $par ) {
-		global $wgFlaggedRevsOversightAge;
-
 		$out = $this->getOutput();
 		$request = $this->getRequest();
 
@@ -54,7 +52,7 @@ class QualityOversight extends SpecialPage {
 		# Get cutoff time (mainly for performance)
 		if ( !$u ) {
 			$dbr = wfGetDB( DB_REPLICA );
-			$cutoff_unixtime = time() - $wgFlaggedRevsOversightAge;
+			$cutoff_unixtime = time() - $this->getConfig()->get( 'FlaggedRevsOversightAge' );
 			$cutoff = $dbr->addQuotes( $dbr->timestamp( $cutoff_unixtime ) );
 			$conds[] = "log_timestamp >= $cutoff";
 		}
@@ -86,11 +84,12 @@ class QualityOversight extends SpecialPage {
 	}
 
 	private function showForm() {
-		global $wgScript;
-
 		$this->getOutput()->addHTML(
-			Xml::openElement( 'form', [ 'name' => 'qualityoversight',
-				'action' => $wgScript, 'method' => 'get' ] ) .
+			Xml::openElement( 'form', [
+				'name' => 'qualityoversight',
+				'action' => $this->getConfig()->get( 'Script' ),
+				'method' => 'get',
+			] ) .
 			'<fieldset><legend>' . $this->msg( 'qualityoversight-legend' )->escaped() . '</legend><p>' .
 			Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBkey() ) .
 			FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&#160;' .

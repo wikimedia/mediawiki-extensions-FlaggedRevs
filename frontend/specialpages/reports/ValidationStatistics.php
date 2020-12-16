@@ -14,7 +14,8 @@ class ValidationStatistics extends IncludableSpecialPage {
 	 * @inheritDoc
 	 */
 	public function execute( $par ) {
-		global $wgFlaggedRevsStats, $wgFlaggedRevsProtection;
+		$flaggedRevsStats = $this->getConfig()->get( 'FlaggedRevsStats' );
+		$flaggedRevsProtection = $this->getConfig()->get( 'FlaggedRevsProtection' );
 
 		$out = $this->getOutput();
 		$lang = $this->getLanguage();
@@ -89,7 +90,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 		// validationstatistics-latest, validationstatistics-synced, validationstatistics-old,
 		// validationstatistics-unreviewed
 		$msgs = [ 'ns', 'total', 'stable', 'latest', 'synced', 'old' ]; // our headings
-		if ( !$wgFlaggedRevsProtection ) {
+		if ( !$flaggedRevsProtection ) {
 			$msgs[] = 'unreviewed';
 		}
 		foreach ( $msgs as $msg ) {
@@ -165,7 +166,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 						) .
 					"</td>"
 			);
-			if ( !$wgFlaggedRevsProtection ) {
+			if ( !$flaggedRevsProtection ) {
 				$out->addHTML( "
 					<td>" .
 						$linkRenderer->makeKnownLink(
@@ -186,8 +187,8 @@ class ValidationStatistics extends IncludableSpecialPage {
 		$data = $this->getTopReviewers();
 		if ( is_array( $data ) && count( $data ) ) {
 			$out->addWikiMsg( 'validationstatistics-utable',
-				$lang->formatNum( $wgFlaggedRevsStats['topReviewersCount'] ),
-				$lang->formatNum( $wgFlaggedRevsStats['topReviewersHours'] )
+				$lang->formatNum( $flaggedRevsStats['topReviewersCount'] ),
+				$lang->formatNum( $flaggedRevsStats['topReviewersHours'] )
 			);
 			$css = 'wikitable flaggedrevs_stats_table';
 			$reviewChart = "<table class='$css' style='white-space: nowrap;'>\n";
@@ -203,9 +204,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 	}
 
 	private function maybeUpdate() {
-		global $wgFlaggedRevsStatsAge;
-
-		if ( !$wgFlaggedRevsStatsAge ) {
+		if ( !$this->getConfig()->get( 'FlaggedRevsStatsAge' ) ) {
 			return;
 		}
 
@@ -219,8 +218,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 		} elseif ( $cache->get( $keySQL ) ) {
 			wfDebugLog( 'ValidationStatistics', __METHOD__ . " skipping, in progress" );
 		} else {
-			global $wgPhpCli;
-			$ext = !empty( $wgPhpCli ) ? $wgPhpCli : 'php';
+			$ext = $this->getConfig()->get( 'PhpCli' ) ?: 'php';
 			$path = wfEscapeShellArg( dirname( __DIR__, 3 ) . '/maintenance/updateStats.php' );
 			$wiki = wfEscapeShellArg( wfWikiID() );
 			$devNull = wfIsWindows() ? "NUL:" : "/dev/null";
@@ -324,12 +322,11 @@ class ValidationStatistics extends IncludableSpecialPage {
 			$cache->makeKey( 'flaggedrevs', 'reviewTopUsers' ),
 			$cache::TTL_HOUR,
 			function () use ( $fname ) {
-				global $wgFlaggedRevsStats;
-
+				$flaggedRevsStats = $this->getConfig()->get( 'FlaggedRevsStats' );
 				$dbr = wfGetDB( DB_REPLICA, 'vslow' );
 
-				$limit = (int)$wgFlaggedRevsStats['topReviewersCount'];
-				$seconds = 3600 * $wgFlaggedRevsStats['topReviewersHours'];
+				$limit = (int)$flaggedRevsStats['topReviewersCount'];
+				$seconds = 3600 * $flaggedRevsStats['topReviewersHours'];
 				$cutoff = $dbr->timestamp( time() - $seconds );
 				$actorQuery = ActorMigration::newMigration()->getJoin( 'log_user' );
 				$res = $dbr->select(

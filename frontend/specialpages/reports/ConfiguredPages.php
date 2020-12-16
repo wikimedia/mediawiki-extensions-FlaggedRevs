@@ -39,8 +39,6 @@ class ConfiguredPages extends SpecialPage {
 	}
 
 	private function showForm() {
-		global $wgScript;
-
 		# Explanatory text
 		$this->getOutput()->addWikiMsg( 'configuredpages-list',
 			$this->getLanguage()->formatNum( $this->pager->getNumRows() ) );
@@ -57,8 +55,11 @@ class ConfiguredPages extends SpecialPage {
 			$fields[] = FlaggedRevsXML::getRestrictionFilterMenu( $this->autoreview );
 		}
 
-		$form = Html::openElement( 'form',
-			[ 'name' => 'configuredpages', 'action' => $wgScript, 'method' => 'get' ] );
+		$form = Html::openElement( 'form', [
+			'name' => 'configuredpages',
+			'action' => $this->getConfig()->get( 'Script' ),
+			'method' => 'get',
+		] );
 		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBkey() );
 		$form .= "<fieldset><legend>" . $this->msg( 'configuredpages' )->escaped() . "</legend>\n";
 		$form .= implode( '&#160;', $fields ) . '<br/>';

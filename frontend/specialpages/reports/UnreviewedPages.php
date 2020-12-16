@@ -64,8 +64,6 @@ class UnreviewedPages extends SpecialPage {
 	}
 
 	private function showForm() {
-		global $wgScript;
-
 		# Add explanatory text
 		$this->getOutput()->addWikiMsg( 'unreviewedpages-list',
 			$this->getLanguage()->formatNum( $this->pager->getNumRows() ) );
@@ -80,8 +78,11 @@ class UnreviewedPages extends SpecialPage {
 		$showhideredirs = $this->msg( 'whatlinkshere-hideredirs' )->rawParams( $link )->escaped();
 
 		# Add form...
-		$form = Html::openElement( 'form', [ 'name' => 'unreviewedpages',
-			'action' => $wgScript, 'method' => 'get' ] ) . "\n";
+		$form = Html::openElement( 'form', [
+			'name' => 'unreviewedpages',
+			'action' => $this->getConfig()->get( 'Script' ),
+			'method' => 'get',
+		] ) . "\n";
 		$form .= "<fieldset><legend>" . $this->msg( 'unreviewedpages-legend' )->escaped() . "</legend>\n";
 		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBkey() ) . "\n";
 		# Add dropdowns as needed

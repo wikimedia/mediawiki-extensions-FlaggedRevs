@@ -88,14 +88,15 @@ class PendingChanges extends SpecialPage {
 	}
 
 	public function showForm() {
-		global $wgScript;
-
 		# Explanatory text
 		$this->getOutput()->addWikiMsg( 'pendingchanges-list',
 			$this->getLanguage()->formatNum( $this->pager->getNumRows() ) );
 
-		$form = Html::openElement( 'form', [ 'name' => 'pendingchanges',
-			'action' => $wgScript, 'method' => 'get' ] ) . "\n";
+		$form = Html::openElement( 'form', [
+			'name' => 'pendingchanges',
+			'action' => $this->getConfig()->get( 'Script' ),
+			'method' => 'get',
+		] ) . "\n";
 		$form .= "<fieldset><legend>" . $this->msg( 'pendingchanges-legend' )->escaped() . "</legend>\n";
 		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBkey() ) . "\n";
 
@@ -196,22 +197,23 @@ class PendingChanges extends SpecialPage {
 	 * @param string $type
 	 */
 	private function feed( $type ) {
-		global $wgFeed, $wgFeedClasses, $wgFeedLimit;
-
-		if ( !$wgFeed ) {
+		if ( !$this->getConfig()->get( 'Feed' ) ) {
 			$this->getOutput()->addWikiMsg( 'feed-unavailable' );
 			return;
 		}
-		if ( !isset( $wgFeedClasses[$type] ) ) {
+
+		$feedClasses = $this->getConfig()->get( 'FeedClasses' );
+		if ( !isset( $feedClasses[$type] ) ) {
 			$this->getOutput()->addWikiMsg( 'feed-invalid' );
 			return;
 		}
-		$feed = new $wgFeedClasses[$type](
+
+		$feed = new $feedClasses[$type](
 			$this->feedTitle(),
 			$this->msg( 'tagline' )->text(),
 			$this->getPageTitle()->getFullURL()
 		);
-		$this->pager->mLimit = min( $wgFeedLimit, $this->pager->mLimit );
+		$this->pager->mLimit = min( $this->getConfig()->get( 'FeedLimit' ), $this->pager->mLimit );
 
 		$feed->outHeader();
 		if ( $this->pager->getNumRows() > 0 ) {
@@ -223,12 +225,13 @@ class PendingChanges extends SpecialPage {
 	}
 
 	private function feedTitle() {
-		global $wgLanguageCode, $wgSitename;
+		$languageCode = $this->getConfig()->get( 'LanguageCode' );
+		$sitename = $this->getConfig()->get( 'Sitename' );
 
 		$page = MediaWikiServices::getInstance()->getSpecialPageFactory()
 			->getPage( 'PendingChanges' );
 		$desc = $page->getDescription();
-		return "$wgSitename - $desc [$wgLanguageCode]";
+		return "$sitename - $desc [$languageCode]";
 	}
 
 	/**

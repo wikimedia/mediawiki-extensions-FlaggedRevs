@@ -74,14 +74,15 @@ class ProblemChanges extends SpecialPage {
 	}
 
 	public function showForm() {
-		global $wgScript;
-
 		// Add explanatory text
 		$this->getOutput()->addWikiMsg( 'problemchanges-list',
 			$this->getLanguage()->formatNum( $this->pager->getNumRows() ) );
 
-		$form = Html::openElement( 'form', [ 'name' => 'problemchanges',
-			'action' => $wgScript, 'method' => 'get' ] ) . "\n";
+		$form = Html::openElement( 'form', [
+			'name' => 'problemchanges',
+			'action' => $this->getConfig()->get( 'Script' ),
+			'method' => 'get',
+		] ) . "\n";
 		$form .= "<fieldset><legend>" . $this->msg( 'problemchanges-legend' )->escaped() . "</legend>\n";
 		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBkey() ) . "\n";
 		$form .=
@@ -158,22 +159,23 @@ class ProblemChanges extends SpecialPage {
 	 * @param string $type
 	 */
 	private function feed( $type ) {
-		global $wgFeed, $wgFeedClasses, $wgFeedLimit;
-
-		if ( !$wgFeed ) {
+		if ( !$this->getConfig()->get( '$wgFeed' ) ) {
 			$this->getOutput()->addWikiMsg( 'feed-unavailable' );
 			return;
 		}
-		if ( !isset( $wgFeedClasses[$type] ) ) {
+
+		$feedClasses = $this->getConfig()->get( '$wgFeedClasses' );
+		if ( !isset( $feedClasses[$type] ) ) {
 			$this->getOutput()->addWikiMsg( 'feed-invalid' );
 			return;
 		}
-		$feed = new $wgFeedClasses[$type](
+
+		$feed = new $feedClasses[$type](
 			$this->feedTitle(),
 			$this->msg( 'tagline' )->text(),
 			$this->getPageTitle()->getFullURL()
 		);
-		$this->pager->mLimit = min( $wgFeedLimit, $this->pager->mLimit );
+		$this->pager->mLimit = min( $this->getConfig()->get( '$wgFeedLimit' ), $this->pager->mLimit );
 
 		$feed->outHeader();
 		if ( $this->pager->getNumRows() > 0 ) {
@@ -185,12 +187,13 @@ class ProblemChanges extends SpecialPage {
 	}
 
 	private function feedTitle() {
-		global $wgLanguageCode, $wgSitename;
+		$languageCode = $this->getConfig()->get( '$wgLanguageCode' );
+		$sitename = $this->getConfig()->get( '$wgSitename' );
 
 		$page = MediaWikiServices::getInstance()->getSpecialPageFactory()
 			->getPage( 'ProblemChanges' );
 		$desc = $page->getDescription();
-		return "$wgSitename - $desc [$wgLanguageCode]";
+		return "$sitename - $desc [$languageCode]";
 	}
 
 	/**
