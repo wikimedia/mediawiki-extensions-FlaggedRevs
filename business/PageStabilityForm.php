@@ -38,58 +38,100 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	/** @var array Old page config */
 	protected $oldConfig = [];
 
+	/**
+	 * @return Title|false
+	 */
 	public function getPage() {
 		return $this->page;
 	}
 
+	/**
+	 * @param Title $value
+	 */
 	public function setPage( Title $value ) {
 		$this->trySet( $this->page, $value );
 	}
 
+	/**
+	 * @return bool|null
+	 */
 	public function getWatchThis() {
 		return $this->watchThis;
 	}
 
+	/**
+	 * @param bool|null $value
+	 */
 	public function setWatchThis( $value ) {
 		$this->trySet( $this->watchThis, $value );
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getReasonExtra() {
 		return $this->reasonExtra;
 	}
 
+	/**
+	 * @param string $value
+	 */
 	public function setReasonExtra( $value ) {
 		$this->trySet( $this->reasonExtra, $value );
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getReasonSelection() {
 		return $this->reasonSelection;
 	}
 
+	/**
+	 * @param string $value
+	 */
 	public function setReasonSelection( $value ) {
 		$this->trySet( $this->reasonSelection, $value );
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getExpiryCustom() {
 		return $this->expiryCustom;
 	}
 
+	/**
+	 * @param string $value
+	 */
 	public function setExpiryCustom( $value ) {
 		$this->trySet( $this->expiryCustom, $value );
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getExpirySelection() {
 		return $this->expirySelection;
 	}
 
+	/**
+	 * @param string $value
+	 */
 	public function setExpirySelection( $value ) {
 		$this->trySet( $this->expirySelection, $value );
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getAutoreview() {
 		return $this->autoreview;
 	}
 
+	/**
+	 * @param string $value
+	 */
 	public function setAutoreview( $value ) {
 		$this->trySet( $this->autoreview, $value );
 	}

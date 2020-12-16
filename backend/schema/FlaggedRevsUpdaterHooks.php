@@ -61,6 +61,10 @@ class FlaggedRevsUpdaterHooks {
 		}
 	}
 
+	/**
+	 * @param DatabaseUpdater $du
+	 * @param string $patch
+	 */
 	public static function doFlaggedImagesTimestampNULL( $du, $patch ) {
 		$info = $du->getDB()->fieldInfo( 'flaggedimages', 'fi_img_timestamp' );
 		if ( $info->isNullable() ) {
@@ -72,6 +76,10 @@ class FlaggedRevsUpdaterHooks {
 		$du->output( "done.\n" );
 	}
 
+	/**
+	 * @param DatabaseUpdater $du
+	 * @param string $patch
+	 */
 	public static function doFlaggedRevsRevTimestamp( $du, $patch ) {
 		$exists = $du->getDB()->fieldInfo( 'flaggedrevs', 'fr_rev_timestamp' );
 		if ( $exists ) {
@@ -87,6 +95,7 @@ class FlaggedRevsUpdaterHooks {
 		// Change the schema
 		$du->getDB()->sourceFile( $patch );
 		// Populate columns
+		// @phan-suppress-next-line PhanAccessPropertyProtected Broken since https://gerrit.wikimedia.org/r/341404
 		$task = $du->maintenance->runChild( 'PopulateFRRevTimestamp', $scriptDir );
 		$task->execute();
 		$du->output( "done.\n" );

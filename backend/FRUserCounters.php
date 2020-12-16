@@ -99,6 +99,9 @@ class FRUserCounters {
 		);
 	}
 
+	/**
+	 * @param User $user
+	 */
 	public static function deleteUserParams( User $user ) {
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->delete(
@@ -108,6 +111,10 @@ class FRUserCounters {
 		);
 	}
 
+	/**
+	 * @param User $oldUser
+	 * @param User $newUser
+	 */
 	public static function mergeUserParams( User $oldUser, User $newUser ) {
 		$oldParams = self::getUserParams( $oldUser->getId(), FR_MASTER );
 		$newParams = self::getUserParams( $newUser->getId(), FR_MASTER );

@@ -1046,6 +1046,11 @@ class FlaggablePageView extends ContextSource {
 		}
 	}
 
+	/**
+	 * @param Title $title
+	 * @param int $oldid
+	 * @param string[] &$notices
+	 */
 	public function getEditNotices( Title $title, $oldid, array &$notices ) {
 		// HACK: EditPage invokes addToEditView() before this function, so $this->noticesDone
 		// will only be true if we're being called by EditPage, in which case we need to do nothing
@@ -1189,6 +1194,10 @@ class FlaggablePageView extends ContextSource {
 		$this->noticesDone = true;
 	}
 
+	/**
+	 * @param bool $showToggle
+	 * @return string
+	 */
 	private function stabilityLogNotice( $showToggle = true ) {
 		$this->load();
 		$s = '';
@@ -1210,6 +1219,10 @@ class FlaggablePageView extends ContextSource {
 		return $s;
 	}
 
+	/**
+	 * @param EditPage $editPage
+	 * @param string &$s
+	 */
 	public function addToNoSuchSection( EditPage $editPage, &$s ) {
 		$this->load();
 		$srev = $this->article->getStableRev();

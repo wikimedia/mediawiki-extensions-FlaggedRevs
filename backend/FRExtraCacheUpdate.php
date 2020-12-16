@@ -94,9 +94,14 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 		JobQueueGroup::singleton()->push( $jobs );
 	}
 
+	/**
+	 * @return array
+	 */
 	public function getToCondition() {
-		return [ 'ftr_namespace' => $this->mTitle->getNamespace(),
-			'ftr_title' => $this->mTitle->getDBkey() ];
+		return [
+			'ftr_namespace' => $this->mTitle->getNamespace(),
+			'ftr_title' => $this->mTitle->getDBkey(),
+		];
 	}
 
 	/**

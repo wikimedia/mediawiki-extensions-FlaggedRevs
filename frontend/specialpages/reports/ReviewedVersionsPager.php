@@ -28,10 +28,16 @@ class ReviewedVersionsPager extends ReverseChronologicalPager {
 		parent::__construct();
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function formatRow( $row ) {
 		return $this->mForm->formatRow( $row );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getQueryInfo() {
 		$db = $this->getDatabase();
 		$conds = $this->mConds;
@@ -46,6 +52,9 @@ class ReviewedVersionsPager extends ReverseChronologicalPager {
 		];
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getIndexField() {
 		return 'fr_rev_id';
 	}
