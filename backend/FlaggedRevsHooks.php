@@ -1412,7 +1412,7 @@ class FlaggedRevsHooks {
 	 */
 	public static function setSessionKey( User $user ) {
 		global $wgRequest;
-		if ( $user->isLoggedIn() && MediaWikiServices::getInstance()->getPermissionManager()
+		if ( $user->isRegistered() && MediaWikiServices::getInstance()->getPermissionManager()
 				->userHasRight( $user, 'review' )
 		) {
 			$key = $wgRequest->getSessionData( 'wsFlaggedRevsKey' );
