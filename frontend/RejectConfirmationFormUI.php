@@ -2,9 +2,12 @@
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Revision\RevisionStore;
 
 /**
  * Reject confirmation review form UI
+ *
+ * TODO inject dependencies
  */
 class RejectConfirmationFormUI {
 	/** @var RevisionReviewForm */
@@ -16,16 +19,20 @@ class RejectConfirmationFormUI {
 	/** @var RevisionRecord */
 	private $newRevRecord;
 
+	/** @var RevisionStore */
+	private $revisionStore;
+
 	/**
 	 * @param RevisionReviewForm $form
 	 */
 	public function __construct( RevisionReviewForm $form ) {
 		$this->form = $form;
 
-		$revLookup = MediaWikiServices::getInstance()->getRevisionLookup();
+		$revisionStore = MediaWikiServices::getInstance()->getRevisionStore();
 		$page = $form->getPage();
-		$this->newRevRecord = $revLookup->getRevisionByTitle( $page, $form->getOldId() );
-		$this->oldRevRecord = $revLookup->getRevisionByTitle( $page, $form->getRefId() );
+		$this->newRevRecord = $revisionStore->getRevisionByTitle( $page, $form->getOldId() );
+		$this->oldRevRecord = $revisionStore->getRevisionByTitle( $page, $form->getRefId() );
+		$this->revisionStore = $revisionStore;
 	}
 
 	/**
@@ -50,10 +57,8 @@ class RejectConfirmationFormUI {
 			return [ '', 'review_bad_oldid' ];
 		}
 
-		$form = '<div class="plainlinks">';
-
 		$dbr = wfGetDB( DB_REPLICA );
-		$revQuery = MediaWikiServices::getInstance()->getRevisionStore()->getQueryInfo();
+		$revQuery = $this->revisionStore->getQueryInfo();
 		$res = $dbr->select(
 			$revQuery['tables'],
 			$revQuery['fields'],
@@ -80,9 +85,8 @@ class RejectConfirmationFormUI {
 		$rejectIds = [];
 		$rejectAuthors = [];
 		$lastRejectAuthor = null;
-		$revFactory = MediaWikiServices::getInstance()->getRevisionFactory();
 		foreach ( $res as $row ) {
-			$revRecord = $revFactory->newRevisionFromRow( $row );
+			$revRecord = $this->revisionStore->newRevisionFromRow( $row );
 
 			// skip null edits; if $lastRevRecord is null then this is the first
 			// edit being checked, otherwise compare the content to the previous
@@ -108,10 +112,12 @@ class RejectConfirmationFormUI {
 
 		// List of revisions being undone...
 		$oldTitle = Title::newFromLinkTarget( $oldRevRecord->getPageAsLinkTarget() );
-		$form .= wfMessage( 'revreview-reject-text-list' )
+
+		$formHTML = '<div class="plainlinks">';
+		$formHTML .= wfMessage( 'revreview-reject-text-list' )
 			->numParams( count( $rejectIds ) )
 			->params( $oldTitle->getPrefixedText() )->parse();
-		$form .= '<ul>';
+		$formHTML .= '<ul>';
 
 		$list = new RevisionList( RequestContext::getMain(), $oldTitle );
 		$list->filterByIds( $rejectIds );
@@ -119,14 +125,14 @@ class RejectConfirmationFormUI {
 		for ( $list->reset(); $list->current(); $list->next() ) {
 			$item = $list->current();
 			if ( $item->canView() ) {
-				$form .= $item->getHTML();
+				$formHTML .= $item->getHTML();
 			}
 		}
-		$form .= '</ul>';
+		$formHTML .= '</ul>';
 
 		if ( $newRevRecord->isCurrent() ) {
 			// Revision this will revert to (when reverting the top X revs)...
-			$form .= wfMessage( 'revreview-reject-text-revto',
+			$formHTML .= wfMessage( 'revreview-reject-text-revto',
 				$oldTitle->getPrefixedDBkey(),
 				$oldRevRecord->getId(),
 				$wgLang->timeanddate( $oldRevRecord->getTimestamp(), true )
@@ -149,7 +155,8 @@ class RejectConfirmationFormUI {
 			? 'revreview-reject-summary-cur'
 			: 'revreview-reject-summary-old';
 		$contLang = MediaWikiServices::getInstance()->getContentLanguage();
-		$defaultSummary = wfMessage( $msg,
+		$defaultSummary = wfMessage(
+			$msg,
 			$contLang->formatNum( count( $rejectIds ) ),
 			$contLang->listToText( $rejectAuthors ),
 			$oldRevRecord->getId(),
@@ -179,29 +186,40 @@ class RejectConfirmationFormUI {
 			$defaultSummary .= $comment;
 		}
 
-		$form .= '</div>';
+		$formHTML .= '</div>';
 
 		$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
-		$form .= Xml::openElement( 'form',
-			[ 'method' => 'POST', 'action' => $reviewTitle->getFullURL() ] );
-		$form .= Html::hidden( 'action', 'reject' );
-		$form .= Html::hidden( 'wpReject', 1 );
-		$form .= Html::hidden( 'wpRejectConfirm', 1 );
-		$form .= Html::hidden( 'oldid', $this->form->getOldId() );
-		$form .= Html::hidden( 'refid', $this->form->getRefId() );
-		$form .= Html::hidden( 'target', $oldTitle->getPrefixedDBkey() );
-		$form .= Html::hidden( 'wpEditToken', $this->form->getUser()->getEditToken() );
-		$form .= Html::hidden( 'changetime', $newRevRecord->getTimestamp() );
-		$form .= Xml::inputLabel( wfMessage( 'revreview-reject-summary' )->text(), 'wpReason',
-			'wpReason', 120, $defaultSummary,
-			[ 'maxlength' => CommentStore::COMMENT_CHARACTER_LIMIT ] ) . "<br />";
-		$form .= Html::input( 'wpSubmit', wfMessage( 'revreview-reject-confirm' )->text(), 'submit' );
-		$form .= ' ';
-		$form .= Linker::link( $this->form->getPage(), wfMessage( 'revreview-reject-cancel' )->escaped(),
+		$formHTML .= Xml::openElement(
+			'form',
+			[ 'method' => 'POST', 'action' => $reviewTitle->getFullURL() ]
+		);
+		$formHTML .= Html::hidden( 'action', 'reject' );
+		$formHTML .= Html::hidden( 'wpReject', 1 );
+		$formHTML .= Html::hidden( 'wpRejectConfirm', 1 );
+		$formHTML .= Html::hidden( 'oldid', $this->form->getOldId() );
+		$formHTML .= Html::hidden( 'refid', $this->form->getRefId() );
+		$formHTML .= Html::hidden( 'target', $oldTitle->getPrefixedDBkey() );
+		$formHTML .= Html::hidden( 'wpEditToken', $this->form->getUser()->getEditToken() );
+		$formHTML .= Html::hidden( 'changetime', $newRevRecord->getTimestamp() );
+		$formHTML .= Xml::inputLabel(
+			wfMessage( 'revreview-reject-summary' )->text(),
+			'wpReason',
+			'wpReason',
+			120,
+			$defaultSummary,
+			[ 'maxlength' => CommentStore::COMMENT_CHARACTER_LIMIT ]
+		);
+		$formHTML .= "<br />";
+		$formHTML .= Html::input( 'wpSubmit', wfMessage( 'revreview-reject-confirm' )->text(), 'submit' );
+		$formHTML .= ' ';
+		$formHTML .= Linker::link(
+			$this->form->getPage(),
+			wfMessage( 'revreview-reject-cancel' )->escaped(),
 			[ 'onClick' => 'history.back(); return history.length <= 1;' ],
-			[ 'oldid' => $this->form->getRefId(), 'diff' => $this->form->getOldId() ] );
-		$form .= Xml::closeElement( 'form' );
+			[ 'oldid' => $this->form->getRefId(), 'diff' => $this->form->getOldId() ]
+		);
+		$formHTML .= Xml::closeElement( 'form' );
 
-		return [ $form, true ];
+		return [ $formHTML, true ];
 	}
 }
