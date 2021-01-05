@@ -171,18 +171,14 @@ class FlaggedRevsXML {
 		}
 		switch ( $quality ) {
 			case 2:
-				$css = 'flaggedrevs-color-3';
-				break;
+				return 'flaggedrevs-color-3';
 			case 1:
-				$css = 'flaggedrevs-color-2';
-				break;
+				return 'flaggedrevs-color-2';
 			case 0:
-				$css = 'flaggedrevs-color-1';
-				break;
+				return 'flaggedrevs-color-1';
 			default:
-				$css = '';
+				return '';
 		}
-		return $css;
 	}
 
 	/**
@@ -195,8 +191,15 @@ class FlaggedRevsXML {
 	public static function addTagRatings( $flags, $prettyBox = false, $css = '' ) {
 		$tag = '';
 		if ( $prettyBox ) {
-			$tag .= "<table id='mw-fr-revisionratings-box' style='margin: auto;' class='$css' " .
-				"cellpadding='0'>";
+			$tag .= Html::openElement(
+				'table',
+				[
+					'id' => 'mw-fr-revisionratings-box',
+					'style' => 'margin: auto;',
+					'class' => $css,
+					'cellpadding' => '0',
+				]
+			);
 		}
 		foreach ( FlaggedRevs::getTags() as $quality ) {
 			// Give grep a chance to find the usages:
@@ -226,7 +229,7 @@ class FlaggedRevsXML {
 			}
 		}
 		if ( $prettyBox ) {
-			$tag .= '</table>';
+			$tag .= Html::closeElement( 'table' );
 		}
 		return $tag;
 	}
@@ -268,11 +271,9 @@ class FlaggedRevsXML {
 			$html = wfMessage( $msg, $frev->getRevId(), $time )->parse();
 		} else {
 			if ( $type == 'stable' ) {
-				$msg = $quality ?
-					'revreview-quality' : 'revreview-basic';
+				$msg = $quality ? 'revreview-quality' : 'revreview-basic';
 			} else { // draft
-				$msg = $quality ?
-					'revreview-newest-quality' : 'revreview-newest-basic';
+				$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
 			}
 			# For searching: uses messages 'revreview-quality-i', 'revreview-basic-i',
 			# 'revreview-newest-quality-i', 'revreview-newest-basic-i'
@@ -285,11 +286,13 @@ class FlaggedRevsXML {
 		$box .= "</div>\n";
 		// For rel-absolute child div (the fly-out)
 		$box .= '<div id="mw-fr-revisiondetails-wrapper" style="position:relative;">';
-		$box .= Xml::openElement( 'div',
+		$box .= Xml::openElement(
+			'div',
 			[
 				'id'    => 'mw-fr-revisiondetails',
 				'class' => 'flaggedrevs_short_details',
-				'style' => 'display:none' ]
+				'style' => 'display:none'
+			]
 		);
 		$box .= $html; // details text
 		# Add any rating tags as needed...
@@ -324,10 +327,16 @@ class FlaggedRevsXML {
 	 * @return string
 	 */
 	public static function ratingToggle() {
-		return '<a id="mw-fr-revisiontoggle" class="fr-toggle-symbol"' .
-			' style="display:none;" title="' .
-			wfMessage( 'revreview-toggle-title' )->escaped() . '" >' .
-			wfMessage( 'revreview-toggle-show' )->escaped() . '</a>';
+		return Html::rawElement(
+			'a',
+			[
+				'id' => 'mw-fr-revisiontoggle',
+				'class' => 'fr-toggle-symbol',
+				'style' => 'display:none;',
+				'title' => wfMessage( 'revreview-toggle-title' )->text(),
+			],
+			wfMessage( 'revreview-toggle-show' )->escaped()
+		);
 	}
 
 	/**
@@ -350,11 +359,23 @@ class FlaggedRevsXML {
 	 * @return string
 	 */
 	public static function logToggle() {
-		$toggle = '<a class="fr-toggle-text" title="' .
-			wfMessage( 'revreview-log-toggle-title' )->escaped() . '" >' .
-			wfMessage( 'revreview-log-toggle-hide' )->escaped() . '</a>';
-		return '<span id="mw-fr-logtoggle" class="fr-logtoggle-excerpt" style="display:none;">' .
-			wfMessage( 'parentheses' )->rawParams( $toggle )->escaped() . '</span>';
+		$toggle = Html::rawElement(
+			'a',
+			[
+				'class' => 'fr-toggle-text',
+				'title' => wfMessage( 'revreview-log-toggle-title' )->text(),
+			],
+			wfMessage( 'revreview-log-toggle-hide' )->escaped()
+		);
+		return Html::rawElement(
+			'span',
+			[
+				'id' => 'mw-fr-logtoggle',
+				'class' => 'fr-logtoggle-excerpt',
+				'style' => 'display:none;',
+			],
+			wfMessage( 'parentheses' )->rawParams( $toggle )->escaped()
+		);
 	}
 
 	/**
@@ -362,11 +383,23 @@ class FlaggedRevsXML {
 	 * @return string
 	 */
 	public static function logDetailsToggle() {
-		$toggle = '<a class="fr-toggle-text" title="' .
-			wfMessage( 'revreview-log-details-title' )->escaped() . '" >' .
-			wfMessage( 'revreview-log-details-show' )->escaped() . '</a>';
-		return '<span id="mw-fr-logtoggle" class="fr-logtoggle-details" style="display:none;">' .
-			wfMessage( 'parentheses' )->rawParams( $toggle )->escaped() . '</span>';
+		$toggle = Html::rawElement(
+			'a',
+			[
+				'class' => 'fr-toggle-text',
+				'title' => wfMessage( 'revreview-log-details-title' )->text(),
+			],
+			wfMessage( 'revreview-log-details-show' )->escaped()
+		);
+		return Html::rawElement(
+			'span',
+			[
+				'id' => 'mw-fr-logtoggle',
+				'class' => 'fr-logtoggle-details',
+				'style' => 'display:none;',
+			],
+			wfMessage( 'parentheses' )->rawParams( $toggle )->escaped()
+		);
 	}
 
 	/**
@@ -470,7 +503,11 @@ class FlaggedRevsXML {
 		];
 		LogEventsList::showLogExtract( $logHtml, 'stable',
 			$article->getTitle()->getPrefixedText(), '', $params );
-		return "<div id=\"mw-fr-logexcerpt\">$logHtml</div>";
+		return Html::rawElement(
+			'div',
+			[ 'id' => 'mw-fr-logexcerpt' ],
+			$logHtml
+		);
 	}
 
 }
