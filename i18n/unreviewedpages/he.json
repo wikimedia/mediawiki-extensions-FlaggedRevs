@@ -14,7 +14,7 @@
 	"unreviewedpages-diff": "לסקור",
 	"unreviewedpages-unwatched": "לא במעקב",
 	"unreviewedpages-watched": "({{PLURAL:$1|משתמש פעיל אחד עוקב|$1 משתמשים פעילים עוקבים}})",
-	"unreviewedpages-list": "רשימת דפי תוכן שטרם [[{{MediaWiki:Validationpage}}|נסקרו]] ברמה המוגדרת.",
+	"unreviewedpages-list": "הדף הזה מציג רשימת דפי תוכן שטרם [[{{MediaWiki:Validationpage}}|נסקרו]] ברמה המוגדרת.",
 	"unreviewedpages-none": "אין כרגע דפים המתאימים להגדרות האלו",
 	"unreviewedpages-viewing": "(במהלך סקירה)",
 	"unreviewedpages-hours": "({{PLURAL:$1|שעה|שעתיים|$1 שעות}})",
