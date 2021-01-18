@@ -96,7 +96,7 @@ class FlaggablePageView extends ContextSource {
 	 */
 	public static function globalArticleInstance() {
 		$title = RequestContext::getMain()->getTitle();
-		if ( $title ) {
+		if ( $title && $title->canExist() ) {
 			return FlaggableWikiPage::getTitleInstance( $title );
 		}
 		return null;

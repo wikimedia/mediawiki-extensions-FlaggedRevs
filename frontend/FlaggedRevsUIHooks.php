@@ -51,7 +51,8 @@ class FlaggedRevsUIHooks {
 		}
 
 		// Get page-specific meta-data
-		$fa = FlaggableWikiPage::getTitleInstance( $out->getTitle() );
+		$title = $out->getTitle();
+		$fa = $title->canExist() ? FlaggableWikiPage::getTitleInstance( $title ) : null;
 
 		// Try to only add to relevant pages
 		if ( $fa && $fa->isReviewable() ) {

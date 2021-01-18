@@ -19,7 +19,7 @@ class FlaggablePageTest extends PHPUnit\Framework\TestCase {
 	}
 
 	public function testPageDataFromTitle() {
-		$title = Title::makeTitle( NS_MAIN, "somePage" );
+		$title = Title::makeTitle( NS_MAIN, "SomePage" );
 		$article = new FlaggableWikiPage( $title );
 
 		$user = $this->user;

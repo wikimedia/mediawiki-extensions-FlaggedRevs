@@ -52,8 +52,8 @@ class ApiReviewActivity extends ApiBase {
 
 		$title = Title::newFromLinkTarget( $linkTarget );
 
-		$fa = FlaggableWikiPage::getTitleInstance( $title );
-		if ( !$fa->isReviewable() ) {
+		$fa = $title->canExist() ? FlaggableWikiPage::getTitleInstance( $title ) : null;
+		if ( !$fa || !$fa->isReviewable() ) {
 			$this->dieWithError( 'apierror-flaggedrevs-notreviewable', 'notreviewable' );
 		}
 
