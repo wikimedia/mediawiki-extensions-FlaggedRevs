@@ -110,7 +110,7 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 				$title = Title::newFromRow( $row );
 				$data[] = [
 					'pageid' 		=> intval( $row->page_id ),
-					'ns' 			=> intval( $title->getNamespace() ),
+					'ns' 			=> $title->getNamespace(),
 					'title' 		=> $title->getPrefixedText(),
 					'revid' 		=> intval( $row->page_latest ),
 					'stable_revid' 	=> intval( $row->fp_stable ),

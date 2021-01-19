@@ -113,7 +113,7 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 				$title = Title::newFromRow( $row );
 				$data[] = [
 					'pageid'        => intval( $row->page_id ),
-					'ns'            => intval( $title->getNamespace() ),
+					'ns'            => $title->getNamespace(),
 					'title'         => $title->getPrefixedText(),
 					'revid'         => intval( $row->page_latest ),
 					'under_review'  => FRUserActivity::pageIsUnderReview( $row->page_id )
