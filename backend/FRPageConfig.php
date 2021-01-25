@@ -14,18 +14,11 @@ class FRPageConfig {
 		$db = ( $flags & FR_MASTER ) ?
 			wfGetDB( DB_MASTER ) : wfGetDB( DB_REPLICA );
 		$row = $db->selectRow( 'flaggedpage_config',
-			self::selectFields(),
+			[ 'fpc_override', 'fpc_level', 'fpc_expiry' ],
 			[ 'fpc_page_id' => $title->getArticleID() ],
 			__METHOD__
 		);
 		return self::getVisibilitySettingsFromRow( $row );
-	}
-
-	/**
-	 * @return string[] basic select fields for FRPageConfig DB row
-	 */
-	public static function selectFields() {
-		return [ 'fpc_override', 'fpc_level', 'fpc_expiry' ];
 	}
 
 	/**
