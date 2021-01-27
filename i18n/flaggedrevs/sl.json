@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Dbc334",
+			"Eleassar",
 			"Upwinxp"
 		]
 	},
@@ -25,6 +26,7 @@
 	"flaggedrevs-hidereviewed": "$1 pregledanih urejanj",
 	"flaggedrevs-hidereviewed-hide": "Skrij",
 	"flaggedrevs-hidereviewed-show": "Prikaži",
+	"flaggedrevs-rcfilters-reviewed-label": "Pregledano",
 	"group-editor": "Uredniki",
 	"group-editor-member": "{{GENDER:$1|urednik|urednica}}",
 	"group-reviewer": "Pregledovalci",
