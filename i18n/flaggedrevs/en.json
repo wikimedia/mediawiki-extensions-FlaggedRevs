@@ -56,7 +56,7 @@
 	"group-autoreview.js": "/* JS placed here will affect autoreviewers only */",
 	"logentry-review-approve": "$1 {{GENDER:$2|reviewed}} a version of $3",
 	"logentry-review-approve-auto": "$1 automatically {{GENDER:$2|reviewed}} a version of $3",
-	"logentry-review-unapprove":  "$1 {{GENDER:$2|deprecated}} a version of $3",
+	"logentry-review-unapprove": "$1 {{GENDER:$2|deprecated}} a version of $3",
 	"logentry-stable-config": "$1 {{GENDER:$2|set}} stable version settings for $3 $4",
 	"logentry-stable-modify": "$1 {{GENDER:$2|changed}} stable version settings for $3 $4",
 	"logentry-stable-reset": "$1 {{GENDER:$2|reset}} stable version settings for $3 $4",
