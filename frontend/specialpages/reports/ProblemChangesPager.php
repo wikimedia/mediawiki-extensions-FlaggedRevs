@@ -64,6 +64,12 @@ class ProblemChangesPager extends AlphabeticPager {
 		$conds = [ 'ctd_id = ct_tag_id' ];
 
 		$fields = [ 'page_namespace' , 'page_title', 'page_latest' ];
+
+		// T270033 'change_tag' indexes are being renamed
+		$ctIndex = $this->mDb->indexExists( 'change_tag', 'ct_tag_rev_tag_id', __METHOD__ )
+			? 'ct_tag_rev_tag_id'
+			: 'change_tag_rev_tag_id';
+
 		# Show outdated "stable" pages
 		if ( $this->level < 0 ) {
 			$fields[] = 'fp_stable AS stable';
@@ -80,7 +86,7 @@ class ProblemChangesPager extends AlphabeticPager {
 			$conds[] = 'page_id = fp_page_id';
 			$useIndex = [
 				'flaggedpages' => 'fp_pending_since',
-				'change_tag' => 'change_tag_rev_tag_id'
+				'change_tag' => $ctIndex
 			];
 
 			# Filter by category
@@ -107,7 +113,7 @@ class ProblemChangesPager extends AlphabeticPager {
 			$conds[] = 'rev_id = ct_rev_id';
 			$conds['ctd_name'] = $this->tag;
 			$useIndex = [
-				'flaggedpage_pending' => 'fpp_quality_pending', 'change_tag' => 'change_tag_rev_tag_id' ];
+				'flaggedpage_pending' => 'fpp_quality_pending', 'change_tag' => $ctIndex ];
 			# Filter by review level
 			$conds['fpp_quality'] = $this->level;
 			# Filter by category
