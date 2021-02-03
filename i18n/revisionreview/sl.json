@@ -56,7 +56,7 @@
 	"revreview-adv-stop-link": "prenehaj razglaševati",
 	"revreview-toolow": "'''Vse atribute morate oceniti višje od »neustrezno«, če želite redakcijo označiti kot pregledano.'''\n\nZa odstranitev stanja pregleda redakcije kliknite »{{int:revreview-submit-unreview}}«.\n\nProsimo, kliknite gumb »nazaj« v vašem brskalniku in poskusite znova.",
 	"revreview-update": "'''Prosimo, [[{{MediaWiki:Validationpage}}|preglejte]] vse spremembe na čakanju ''(prikazane spodaj)'', ki so bile napravljene po ustaljeni redakciji.'''",
-	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Vaše spremembe še niso v ustaljeni različici.</span>\n\nProsimo, preglejte vse spremembe prikazane podaj, da prikažete vaše spremembe v ustaljeni različici.",
+	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Vaše spremembe še niso v stabilni različici.</span>\n\nDa se bodo vaša urejanja prikazala v stabilni različici, preglejte vse spodaj prikazane spremembe.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Vaše spremembe še niso v ustaljeni različici. Obstajajo pretekle spremembe, ki čakajo na pregled.</span>\n\nProsimo, preglejte vse spremembe prikazane podaj, da prikažete vaše spremembe v ustaljeni različici.",
 	"revreview-update-includes": "Predloge/datoteke so posodobljene (nepregledane strani so zapisane krepko):",
 	"revreview-reject-text-list": "Z izvedbo tega dejanja boste '''zavrnili''' spremembe izvornega besedila od {{PLURAL:$1|naslednje redakcije|naslednjih redakcij}} [[:$2|$2]]:",
