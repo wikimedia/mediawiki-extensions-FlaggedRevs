@@ -1,6 +1,8 @@
 <?php
 
 class FlaggedRevsLibraryTest extends Scribunto_LuaEngineTestBase {
+
+	/** @inheritDoc */
 	protected static $moduleName = 'FlaggedRevsLibraryTest';
 
 	protected function setUp() : void {
@@ -35,6 +37,7 @@ class FlaggedRevsLibraryTest extends Scribunto_LuaEngineTestBase {
 		$mDataLoaded->setValue( $article, true );
 	}
 
+	/** @inheritDoc */
 	public function getTestModules() {
 		 return parent::getTestModules() + [
 			 'FlaggedRevsLibraryTest' => __DIR__ . '/FlaggedRevsLibraryTests.lua'
