@@ -151,10 +151,10 @@ class PendingChangesPager extends AlphabeticPager {
 		}
 		# Filter by watchlist
 		if ( $this->watched ) {
-			$uid = (int)$this->getUser()->getId();
+			$uid = $this->getUser()->getId();
 			if ( $uid ) {
 				$tables[] = 'watchlist';
-				$conds[] = "wl_user = '$uid'";
+				$conds['wl_user'] = $uid;
 				$conds[] = 'page_namespace = wl_namespace';
 				$conds[] = 'page_title = wl_title';
 			}
