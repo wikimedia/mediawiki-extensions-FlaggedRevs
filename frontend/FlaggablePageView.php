@@ -258,8 +258,7 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	 * Is this a view page action?
-	 * @param string $action string from MediaWiki::getAction()
+	 * @param string $action {@see MediaWiki::getAction}
 	 * @return bool
 	 */
 	private static function isViewAction( $action ) {

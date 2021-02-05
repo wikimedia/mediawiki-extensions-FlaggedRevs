@@ -20,9 +20,9 @@ class RevisionReviewFormUI {
 	/** @var string[]|false|null */
 	private $fileVersion = null;
 	/** @var int[][]|null */
-	private $templateIDs = null;
+	private $templateIds = null;
 	/** @var array[]|null */
-	private $imageSHA1Keys = null;
+	private $fileSha1Keys = null;
 	/** @var WebRequest */
 	private $request;
 	/** @var OutputPage */
@@ -86,12 +86,12 @@ class RevisionReviewFormUI {
 
 	/**
 	 * Set the template/file version parameters of what the user is viewing
-	 * @param int[][] $templateIDs
-	 * @param array[] $imageSHA1Keys
+	 * @param int[][] $templateIds
+	 * @param array[] $fileSha1Keys
 	 */
-	public function setIncludeVersions( array $templateIDs, array $imageSHA1Keys ) {
-		$this->templateIDs = $templateIDs;
-		$this->imageSHA1Keys = $imageSHA1Keys;
+	public function setIncludeVersions( array $templateIds, array $fileSha1Keys ) {
+		$this->templateIds = $templateIds;
+		$this->fileSha1Keys = $fileSha1Keys;
 	}
 
 	/**
@@ -240,10 +240,10 @@ class RevisionReviewFormUI {
 		# Get the file version used for File: pages as needed
 		$fileKey = $this->getFileVersion();
 		# Get template/file version info as needed
-		list( $templateIDs, $imageSHA1Keys ) = $this->getIncludeVersions();
+		[ $templateIds, $fileSha1Keys ] = $this->getIncludeVersions();
 		# Convert these into flat string params
-		list( $templateParams, $imageParams, $fileVersion ) =
-			RevisionReviewForm::getIncludeParams( $templateIDs, $imageSHA1Keys, $fileKey );
+		[ $templateParams, $imageParams, $fileVersion ] =
+			RevisionReviewForm::getIncludeParams( $templateIds, $fileSha1Keys, $fileKey );
 
 		# Hidden params
 		$form .= Html::hidden( 'title', $reviewTitle->getPrefixedText() ) . "\n";
@@ -477,11 +477,11 @@ class RevisionReviewFormUI {
 	 * @return array[]
 	 */
 	private function getIncludeVersions() {
-		if ( $this->templateIDs === null || $this->imageSHA1Keys === null ) {
+		if ( $this->templateIds === null || $this->fileSha1Keys === null ) {
 			throw new Exception(
 				"Template or file versions not provided to review form; call setIncludeVersions()."
 			);
 		}
-		return [ $this->templateIDs, $this->imageSHA1Keys ];
+		return [ $this->templateIds, $this->fileSha1Keys ];
 	}
 }
