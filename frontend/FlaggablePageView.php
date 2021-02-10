@@ -2280,8 +2280,12 @@ class FlaggablePageView extends ContextSource {
 				# Treat this like a revert to a base revision.
 				# We are undoing all edits *after* some rev ID (undoafter).
 				# If undoafter is not given, then it is the previous rev ID.
+				$revisionLookup = MediaWikiServices::getInstance()->getRevisionLookup();
+				$revision = $revisionLookup->getRevisionById( $latestId );
+				$previousRevision = $revision ? $revisionLookup->getPreviousRevision( $revision ) : null;
 				$revId = $request->getInt( 'undoafter',
-					$article->getTitle()->getPreviousRevisionID( $latestId ) );
+					$previousRevision ? $previousRevision->getId() : null
+				);
 			} else {
 				$revId = $request->getInt( 'altBaseRevId' );
 			}
