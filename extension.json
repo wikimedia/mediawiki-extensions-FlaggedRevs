@@ -399,7 +399,7 @@
 		"ParserFirstCallInit": "FlaggedRevsHooks::onParserFirstCallInit",
 		"ParserGetVariableValueSwitch": "FlaggedRevsHooks::onParserGetVariableValueSwitch",
 		"ParserTestTables": "FlaggedRevsTestHooks::onParserTestTables",
-		"ProtectionForm::buildForm": "FlaggedRevsUIHooks::onProtectionForm",
+		"ProtectionFormAddFormFields": "FlaggedRevsUIHooks::onProtectionForm",
 		"ProtectionForm::save": "FlaggedRevsUIHooks::onProtectionSave",
 		"ProtectionForm::showLogExtract": "FlaggedRevsUIHooks::insertStabilityLog",
 		"RecentChange_save": "FlaggedRevsHooks::autoMarkPatrolled",

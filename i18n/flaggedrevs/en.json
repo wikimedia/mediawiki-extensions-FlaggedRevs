@@ -192,7 +192,7 @@
 	"tooltip-ca-current": "View this page with the pending changes",
 	"tooltip-ca-stable": "View the stable version of this page",
 	"tooltip-ca-default": "Quality assurance settings",
-	"flaggedrevs-protect-legend": "Automatic edit review ([[{{MediaWiki:Validationpage}}|help]])",
+	"flaggedrevs-protect-legend": "Automatic edit review",
 	"flaggedrevs-protect-none": "Allow all users",
 	"flaggedrevs-protect-sysop": "Allow only administrators",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Unreviewed pages]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Pending changes]",

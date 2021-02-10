@@ -1098,18 +1098,15 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ProtectionForm::buildForm
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ProtectionFormAddFormFields
 	 *
 	 * Add selector of review "protection" options
-	 * Code stolen from Stabilization (which was stolen from ProtectionForm)
 	 * @param Article $article
-	 * @param string &$output
+	 * @param array &$fields
 	 */
-	public static function onProtectionForm(
-		Article $article,
-		&$output
-	) {
-		global $wgOut, $wgRequest, $wgLang, $wgFlaggedRevsProtection;
+	public static function onProtectionForm( Article $article, array &$fields ) {
+		global $wgRequest, $wgLang, $wgOut, $wgFlaggedRevsProtection;
+
 		$wikiPage = $article->getPage();
 		$title = $wikiPage->getTitle();
 
@@ -1120,137 +1117,108 @@ class FlaggedRevsUIHooks {
 		) {
 			return;
 		}
-		$form = new PageStabilityProtectForm( $article->getContext()->getUser() );
-		$form->setPage( $title );
-		# Can the user actually do anything?
-		$isAllowed = $form->isAllowed();
-		$disabledAttrib = $isAllowed ?
-			[] : [ 'disabled' => 'disabled' ];
 
-		# Get the current config/expiry
+		$user = $article->getContext()->getUser();
 		$mode = $wgRequest->wasPosted() ? FR_MASTER : 0;
-		$config = FRPageConfig::getStabilitySettings( $title, $mode );
-		$oldExpirySelect = ( $config['expiry'] == 'infinity' ) ? 'infinite' : 'existing';
+		$form = new PageStabilityProtectForm( $user );
+		$form->setPage( $title );
 
-		# Load requested restriction level, default to current level...
-		$restriction = $wgRequest->getVal( 'mwStabilityLevel',
-			FRPageConfig::getProtectionLevel( $config ) );
-		# Load the requested expiry time (dropdown)
-		$expirySelect = $wgRequest->getVal( 'mwStabilizeExpirySelection', $oldExpirySelect );
-		# Load the requested expiry time (field)
-		$expiryOther = $wgRequest->getVal( 'mwStabilizeExpiryOther', '' );
-		if ( $expiryOther != '' ) {
+		$config = FRPageConfig::getStabilitySettings( $title, $mode );
+		$expirySelect = $wgRequest->getVal(
+			'mwStabilizeExpirySelection',
+			$config['expiry'] == 'infinity' ? 'infinite' : 'existing'
+		);
+		$isAllowed = $form->isAllowed();
+
+		$expiryOther = $wgRequest->getVal( 'mwStabilizeExpiryOther' );
+		if ( $expiryOther ) {
 			$expirySelect = 'othertime'; // mutual exclusion
 		}
 
-		# Add an extra row to the protection fieldset tables.
-		# Includes restriction dropdown and expiry dropdown & field.
-		$output .= "<tr><td>";
-		$output .= Xml::openElement( 'fieldset' );
-		$legendMsg = wfMessage( 'flaggedrevs-protect-legend' )->parse();
-		$output .= "<legend>{$legendMsg}</legend>";
-		# Add a "no restrictions" level
+		# Get and add restriction levels to an array
 		$effectiveLevels = FlaggedRevs::getRestrictionLevels();
-		array_unshift( $effectiveLevels, "none" );
-		# Show all restriction levels in a <select>...
-		$attribs = [
-			'id'    => 'mwStabilityLevel',
-			'name'  => 'mwStabilityLevel',
-			'size'  => count( $effectiveLevels ),
-		] + $disabledAttrib;
-		$output .= Xml::openElement( 'select', $attribs );
-		foreach ( $effectiveLevels as $limit ) {
-			if ( $limit == 'none' ) {
-				$label = wfMessage( 'flaggedrevs-protect-none' )->text();
-			} else {
-				$label = wfMessage( 'flaggedrevs-protect-' . $limit )->text();
-			}
-			// Default to the key itself if no UI message
-			if ( wfMessage( 'flaggedrevs-protect-' . $limit )->isDisabled() ) {
-				$label = 'flaggedrevs-protect-' . $limit;
-			}
-			$output .= Xml::option( $label, $limit, $limit == $restriction );
-		}
-		$output .= Xml::closeElement( 'select' );
+		$options = [];
 
-		# Get expiry dropdown <select>...
-		$scExpiryOptions = wfMessage( 'protect-expiry-options' )->inContentLanguage()->text();
-		$showProtectOptions = ( $scExpiryOptions !== '-' && $isAllowed );
-		# Add the current expiry as an option
-		$expiryFormOptions = '';
-		if ( $config['expiry'] != 'infinity' ) {
-			$timestamp = $wgLang->timeanddate( $config['expiry'] );
-			$d = $wgLang->date( $config['expiry'] );
-			$t = $wgLang->time( $config['expiry'] );
-			$expiryFormOptions .=
-				Xml::option(
-					wfMessage( 'protect-existing-expiry', $timestamp, $d, $t )->text(),
-					'existing',
-					$expirySelect == 'existing'
-				) . "\n";
+		array_unshift( $effectiveLevels, 'none' );
+		foreach ( $effectiveLevels as $limit ) {
+			$msg = wfMessage( 'flaggedrevs-protect-' . $limit );
+			// Default to the key itself if no UI message
+			$options[$msg->isDisabled() ? 'flaggedrevs-protect-' . $limit : $msg->text()] = $limit;
 		}
-		$expiryFormOptions .= Xml::option( wfMessage(
-				'protect-othertime-op' )->text(),
-				'othertime'
-		) . "\n";
-		# Add custom dropdown levels (from MediaWiki message)
+
+		# Get and add expiry options to an array
+		$scExpiryOptions = wfMessage( 'protect-expiry-options' )->inContentLanguage()->text();
+		$expiryOptions = [];
+
+		if ( $config['expiry'] != 'infinity' ) {
+			$timestamp = $wgLang->userTimeAndDate( $config['expiry'], $user );
+			$date = $wgLang->userDate( $config['expiry'], $user );
+			$time = $wgLang->userTime( $config['expiry'], $user );
+			$existingExpiryMessage = wfMessage( 'protect-existing-expiry', $timestamp, $date, $time );
+			$expiryOptions[$existingExpiryMessage->text()] = 'existing';
+		}
+
+		$expiryOptions[wfMessage( 'protect-othertime-op' )->text()] = 'othertime';
+
 		foreach ( explode( ',', $scExpiryOptions ) as $option ) {
 			$pair = explode( ':', $option, 2 );
-			$show = $pair[0];
-			$value = $pair[1] ?? $show;
-			$expiryFormOptions .= Xml::option( $show, $value, $expirySelect == $value ) . "\n";
+			$expiryOptions[$pair[0]] = $pair[1] ?? $pair[0];
 		}
-		# Actually add expiry dropdown to form
-		$output .= "<table>"; // expiry table start
-		if ( $showProtectOptions && $isAllowed ) {
-			$output .= "
-				<tr>
-					<td class='mw-label'>" .
-						Xml::label( wfMessage( 'stabilization-expiry' )->text(),
-							'mwStabilizeExpirySelection' ) .
-					"</td>
-					<td class='mw-input'>" .
-						Xml::tags( 'select',
-							[
-								'id'        => 'mwStabilizeExpirySelection',
-								'name'      => 'mwStabilizeExpirySelection',
-								'onchange'  => 'onFRChangeExpiryDropdown()',
-							] + $disabledAttrib,
-							$expiryFormOptions ) .
-					"</td>
-				</tr>";
+
+		# Create restriction level select
+		$fields['mwStabilityLevel'] = [
+			'type' => 'select',
+			'name' => 'mwStabilityLevel',
+			'id' => 'mwStabilityLevel',
+			'disabled' => !$isAllowed ,
+			'options' => $options,
+			'default' => $wgRequest->getVal( 'mwStabilityLevel', FRPageConfig::getProtectionLevel( $config ) ),
+			'section' => 'flaggedrevs-protect-legend',
+		];
+
+		# Create expiry options select
+		if ( $scExpiryOptions !== '-' ) {
+			$fields['mwStabilizeExpirySelection'] = [
+				'type' => 'select',
+				'name' => 'mwStabilizeExpirySelection',
+				'id' => 'mwStabilizeExpirySelection',
+				'disabled' => !$isAllowed,
+				'label' => wfMessage( 'stabilization-expiry' )->text(),
+				'options' => $expiryOptions,
+				'default' => $expirySelect,
+				'section' => 'flaggedrevs-protect-legend',
+			];
 		}
-		# Add custom expiry field to form
-		$attribs = [ 'id' => 'mwStabilizeExpiryOther',
-			'onkeyup' => 'onFRChangeExpiryField()' ] + $disabledAttrib;
-		$output .= "
-			<tr>
-				<td class='mw-label'>" .
-					Xml::label(
-						wfMessage( 'stabilization-othertime' )->text(),
-						'mwStabilizeExpiryOther'
-					) .
-				'</td>
-				<td class="mw-input">' .
-					Xml::input( 'mwStabilizeExpiryOther', 50, $expiryOther, $attribs ) .
-				'</td>
-			</tr>';
-		$output .= "</table>"; // expiry table end
-		# Close field set and table row
-		$output .= Xml::closeElement( 'fieldset' );
-		$output .= "</td></tr>";
+
+		# Create other expiry time input
+		if ( $isAllowed ) {
+			$fields['mwStabilizeExpiryOther'] = [
+				'type' => 'text',
+				'name' => 'mwStabilizeExpiryOther',
+				'id' => 'mwStabilizeExpiryOther',
+				'label' => wfMessage( 'stabilization-othertime' )->text(),
+				'default' => $expiryOther,
+				'section' => 'flaggedrevs-protect-legend'
+			];
+		}
 
 		# Add some javascript for expiry dropdowns
-		$wgOut->addScript(
-			"<script type=\"text/javascript\">
-				function onFRChangeExpiryDropdown() {
-					document.getElementById('mwStabilizeExpiryOther').value = '';
+		$wgOut->addInlineScript( ResourceLoader::makeInlineCodeWithModule( 'oojs-ui-core', "
+			var changeExpiryDropdown = OO.ui.infuse( $( '#mwStabilizeExpirySelection' ) ),
+				changeExpiryInput = OO.ui.infuse( $( '#mwStabilizeExpiryOther' ) );
+
+			changeExpiryDropdown.on( 'change', function ( val ) {
+				if ( val !== 'othertime' ) {
+					changeExpiryInput.setValue( '' );
 				}
-				function onFRChangeExpiryField() {
-					document.getElementById('mwStabilizeExpirySelection').value = 'othertime';
+			} );
+
+			changeExpiryInput.on( 'change', function ( val ) {
+				if ( val ) {
+					changeExpiryDropdown.setValue( 'othertime' );
 				}
-			</script>"
-		);
+			} );
+		" ) );
 	}
 
 	/**
