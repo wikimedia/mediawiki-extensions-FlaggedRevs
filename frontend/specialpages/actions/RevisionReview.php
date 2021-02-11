@@ -9,8 +9,14 @@ class RevisionReview extends UnlistedSpecialPage {
 	/** @var Title|null */
 	private $page;
 
+	/** @var PermissionManager */
+	private $permissionManager;
+
 	public function __construct() {
 		parent::__construct( 'RevisionReview', 'review' );
+
+		// TODO use dependency injection
+		$this->permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
 	}
 
 	/**
@@ -28,8 +34,6 @@ class RevisionReview extends UnlistedSpecialPage {
 		$user = $this->getUser();
 		$request = $this->getRequest();
 
-		$confirmed = $user->matchEditToken( $request->getVal( 'wpEditToken' ) );
-
 		# Our target page
 		$this->page = Title::newFromText( $request->getVal( 'target' ) );
 		if ( !$this->page ) {
@@ -37,29 +41,32 @@ class RevisionReview extends UnlistedSpecialPage {
 			return;
 		}
 
-		$pm = MediaWikiServices::getInstance()->getPermissionManager();
-		if ( !$pm->userHasRight( $user, 'review' ) ) {
+		if ( !$this->permissionManager->userHasRight( $user, 'review' ) ) {
 			throw new PermissionsError( 'review' );
 		}
 
-		if ( $pm->isBlockedFrom( $user, $this->page, !$confirmed ) ) {
+		$confirmed = $user->matchEditToken( $request->getVal( 'wpEditToken' ) );
+		if ( $this->permissionManager->isBlockedFrom( $user, $this->page, !$confirmed ) ) {
 			throw new UserBlockedError( $user->getBlock( !$confirmed ) );
 		}
 
 		$this->checkReadOnly();
-
 		$this->setHeaders();
 
 		# Basic page permission checks...
-		$permErrors = $pm->getPermissionErrors( 'review', $user,
-			$this->page, PermissionManager::RIGOR_QUICK );
+		$permErrors = $this->permissionManager->getPermissionErrors(
+			'review',
+			$user,
+			$this->page,
+			PermissionManager::RIGOR_QUICK
+		);
 		if ( $permErrors ) {
 			$out->showPermissionsErrorPage( $permErrors, 'review' );
 			return;
 		}
 
-		$this->form = new RevisionReviewForm( $user );
-		$form = $this->form; // convenience
+		$form = new RevisionReviewForm( $user );
+		$this->form = $form;
 
 		$form->setPage( $this->page );
 		# Param for sites with binary flagging
@@ -88,76 +95,79 @@ class RevisionReview extends UnlistedSpecialPage {
 		$form->setComment( $request->getText( 'wpReason' ) );
 		$form->ready();
 
-		# Review the edit if requested (POST)...
-		if ( $request->wasPosted() ) {
-			// Check the edit token...
-			if ( !$confirmed ) {
-				$out->addWikiMsg( 'sessionfailure' );
-				$out->returnToMain( false, $this->page );
-				return;
-			}
-			// Use confirmation screen for reject...
-			if ( $form->getAction() == 'reject' && !$request->getBool( 'wpRejectConfirm' ) ) {
-				$rejectForm = new RejectConfirmationFormUI( $form );
-				list( $html, $status ) = $rejectForm->getHtml();
+		if ( !$request->wasPosted() ) {
+			// No form to view (GET)
+			$out->returnToMain( false, $this->page );
+			return;
+		}
+		// Review the edit if requested (POST)...
+
+		// Check the edit token...
+		if ( !$confirmed ) {
+			$out->addWikiMsg( 'sessionfailure' );
+			$out->returnToMain( false, $this->page );
+			return;
+		}
+
+		// Use confirmation screen for reject...
+		if ( $form->getAction() == 'reject' && !$request->getBool( 'wpRejectConfirm' ) ) {
+			$rejectForm = new RejectConfirmationFormUI( $form );
+			list( $html, $status ) = $rejectForm->getHtml();
+			if ( $status === true ) {
 				// Success...
-				if ( $status === true ) {
-					$out->addHTML( $html );
-				// Failure...
-				} else {
-					if ( $status === 'review_page_unreviewable' ) {
-						$out->addWikiMsg( 'revreview-main' );
-						return;
-					} elseif ( $status === 'review_page_notexists' ) {
-						$out->showErrorPage( 'internalerror', 'nopagetext' );
-						return;
-					} elseif ( $status === 'review_bad_oldid' ) {
-						$out->showErrorPage( 'internalerror', 'revreview-revnotfound' );
-					} else {
-						$out->showErrorPage( 'internalerror', $status );
-					}
-					$out->returnToMain( false, $this->page );
-				}
-			// Otherwise submit...
+				$out->addHTML( $html );
 			} else {
-				$status = $form->submit();
-				// Success...
-				if ( $status === true ) {
-					$out->setPageTitle( $this->msg( 'actioncomplete' ) );
-					if ( $form->getAction() === 'approve' ) {
-						$out->addHTML( $this->approvalSuccessHTML( true ) );
-					} elseif ( $form->getAction() === 'unapprove' ) {
-						$out->addHTML( $this->deapprovalSuccessHTML( true ) );
-					} elseif ( $form->getAction() === 'reject' ) {
-						$query = $this->page->isRedirect() ? [ 'redirect' => 'no' ] : [];
-						$out->redirect( $this->page->getFullURL( $query ) );
-					}
 				// Failure...
+				if ( $status === 'review_page_unreviewable' ) {
+					$out->addWikiMsg( 'revreview-main' );
+					return;
+				} elseif ( $status === 'review_page_notexists' ) {
+					$out->showErrorPage( 'internalerror', 'nopagetext' );
+					return;
+				} elseif ( $status === 'review_bad_oldid' ) {
+					$out->showErrorPage( 'internalerror', 'revreview-revnotfound' );
 				} else {
-					if ( $status === 'review_page_unreviewable' ) {
-						$out->addWikiMsg( 'revreview-main' );
-						return;
-					} elseif ( $status === 'review_page_notexists' ) {
-						$out->showErrorPage( 'internalerror', 'nopagetext' );
-						return;
-					} elseif ( $status === 'review_denied' ) {
-						throw new PermissionsError( 'badaccess-group0' ); // protected?
-					} elseif ( $status === 'review_bad_key' ) {
-						throw new PermissionsError( 'badaccess-group0' ); // fiddling
-					} elseif ( $status === 'review_bad_oldid' ) {
-						$out->showErrorPage( 'internalerror', 'revreview-revnotfound' );
-					} elseif ( $status === 'review_not_flagged' ) {
-						$out->redirect( $this->page->getFullURL() ); // already unflagged
-					} elseif ( $status === 'review_too_low' ) {
-						$out->addWikiMsg( 'revreview-toolow' );
-					} else {
-						$out->showErrorPage( 'internalerror', $status );
-					}
-					$out->returnToMain( false, $this->page );
+					$out->showErrorPage( 'internalerror', $status );
 				}
+				$out->returnToMain( false, $this->page );
 			}
-		// No form to view (GET)
+			return;
+		}
+
+		// Otherwise submit...
+		$status = $form->submit();
+		if ( $status === true ) {
+			// Success...
+			$out->setPageTitle( $this->msg( 'actioncomplete' ) );
+			if ( $form->getAction() === 'approve' ) {
+				$out->addHTML( $this->approvalSuccessHTML( true ) );
+			} elseif ( $form->getAction() === 'unapprove' ) {
+				$out->addHTML( $this->deapprovalSuccessHTML( true ) );
+			} elseif ( $form->getAction() === 'reject' ) {
+				$query = $this->page->isRedirect() ? [ 'redirect' => 'no' ] : [];
+				$out->redirect( $this->page->getFullURL( $query ) );
+			}
 		} else {
+			// Failure...
+			if ( $status === 'review_page_unreviewable' ) {
+				$out->addWikiMsg( 'revreview-main' );
+				return;
+			} elseif ( $status === 'review_page_notexists' ) {
+				$out->showErrorPage( 'internalerror', 'nopagetext' );
+				return;
+			} elseif ( $status === 'review_denied' ) {
+				throw new PermissionsError( 'badaccess-group0' ); // protected?
+			} elseif ( $status === 'review_bad_key' ) {
+				throw new PermissionsError( 'badaccess-group0' ); // fiddling
+			} elseif ( $status === 'review_bad_oldid' ) {
+				$out->showErrorPage( 'internalerror', 'revreview-revnotfound' );
+			} elseif ( $status === 'review_not_flagged' ) {
+				$out->redirect( $this->page->getFullURL() ); // already unflagged
+			} elseif ( $status === 'review_too_low' ) {
+				$out->addWikiMsg( 'revreview-toolow' );
+			} else {
+				$out->showErrorPage( 'internalerror', $status );
+			}
 			$out->returnToMain( false, $this->page );
 		}
 	}
@@ -172,8 +182,8 @@ class RevisionReview extends UnlistedSpecialPage {
 			$title->getPrefixedURL(), $this->form->getOldId() )->parseAsBlock();
 		$s .= "</div>";
 		# Handy links to special pages
-		if ( $showlinks && MediaWikiServices::getInstance()->getPermissionManager()
-				->userHasRight( $this->getUser(), 'unreviewedpages' )
+		if ( $showlinks &&
+			$this->permissionManager->userHasRight( $this->getUser(), 'unreviewedpages' )
 		) {
 			$s .= $this->getSpecialLinks();
 		}
@@ -190,8 +200,9 @@ class RevisionReview extends UnlistedSpecialPage {
 			$title->getPrefixedURL(), $this->form->getOldId() )->parseAsBlock();
 		$s .= "</div>";
 		# Handy links to special pages
-		if ( $showlinks && MediaWikiServices::getInstance()->getPermissionManager()
-				->userHasRight( $this->getUser(), 'unreviewedpages' ) ) {
+		if ( $showlinks &&
+			$this->permissionManager->userHasRight( $this->getUser(), 'unreviewedpages' )
+		) {
 			$s .= $this->getSpecialLinks();
 		}
 		return $s;
