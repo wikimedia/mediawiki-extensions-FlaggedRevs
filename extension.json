@@ -119,7 +119,9 @@
 		"sysop": {
 			"autoreview": true,
 			"stablesettings": true,
-			"movestable": true
+			"movestable": true,
+			"review": true,
+			"unreviewedpages": true
 		},
 		"autoreview": {
 			"autoreview": true
