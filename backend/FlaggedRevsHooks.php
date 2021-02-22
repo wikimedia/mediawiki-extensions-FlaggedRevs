@@ -1216,10 +1216,11 @@ class FlaggedRevsHooks {
 		EditResult $editResult
 	) {
 		global $wgFlaggedRevsAutopromote, $wgFlaggedRevsAutoconfirm;
+		$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
 		# Ignore null edits edits by anon users, and MW role account edits
 		if ( $editResult->isNullEdit() ||
 			!$userIdentity->getId() ||
-			!User::isUsableName( $userIdentity->getName() )
+			!$userNameUtils->isUsable( $userIdentity->getName() )
 		) {
 			return;
 		# No sense in running counters if nothing uses them
