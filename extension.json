@@ -13,9 +13,6 @@
 		"MediaWiki": ">= 1.36.0"
 	},
 	"callback": "FlaggedRevsHooks::onRegistration",
-	"ExtensionFunctions": [
-		"FlaggedRevsHooks::onExtensionFunctions"
-	],
 	"ActionFilteredLogs": {
 		"review": {
 			"accept": [
@@ -371,6 +368,7 @@
 		"LocalFile::getHistory": "FlaggedRevsUIHooks::addToFileHistQuery",
 		"MagicWordwgVariableIDs": "FlaggedRevsHooks::onMagicWordwgVariableIDs",
 		"MakeGlobalVariablesScript": "FlaggedRevsUIHooks::onMakeGlobalVariablesScript",
+		"MediaWikiServices": "FlaggedRevsHooks::onMediaWikiServices",
 		"MergeAccountFromTo": "FlaggedRevsHooks::onMergeAccountFromTo",
 		"NewDifferenceEngine": "FlaggedRevsUIHooks::checkDiffUrl",
 		"RevisionFromEditComplete": [
