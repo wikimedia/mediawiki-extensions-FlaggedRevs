@@ -159,12 +159,12 @@ class ProblemChanges extends SpecialPage {
 	 * @param string $type
 	 */
 	private function feed( $type ) {
-		if ( !$this->getConfig()->get( '$wgFeed' ) ) {
+		if ( !$this->getConfig()->get( 'Feed' ) ) {
 			$this->getOutput()->addWikiMsg( 'feed-unavailable' );
 			return;
 		}
 
-		$feedClasses = $this->getConfig()->get( '$wgFeedClasses' );
+		$feedClasses = $this->getConfig()->get( 'FeedClasses' );
 		if ( !isset( $feedClasses[$type] ) ) {
 			$this->getOutput()->addWikiMsg( 'feed-invalid' );
 			return;
@@ -175,7 +175,7 @@ class ProblemChanges extends SpecialPage {
 			$this->msg( 'tagline' )->text(),
 			$this->getPageTitle()->getFullURL()
 		);
-		$this->pager->mLimit = min( $this->getConfig()->get( '$wgFeedLimit' ), $this->pager->mLimit );
+		$this->pager->mLimit = min( $this->getConfig()->get( 'FeedLimit' ), $this->pager->mLimit );
 
 		$feed->outHeader();
 		if ( $this->pager->getNumRows() > 0 ) {
@@ -187,8 +187,8 @@ class ProblemChanges extends SpecialPage {
 	}
 
 	private function feedTitle() {
-		$languageCode = $this->getConfig()->get( '$wgLanguageCode' );
-		$sitename = $this->getConfig()->get( '$wgSitename' );
+		$languageCode = $this->getConfig()->get( 'LanguageCode' );
+		$sitename = $this->getConfig()->get( 'Sitename' );
 
 		$page = MediaWikiServices::getInstance()->getSpecialPageFactory()
 			->getPage( 'ProblemChanges' );
