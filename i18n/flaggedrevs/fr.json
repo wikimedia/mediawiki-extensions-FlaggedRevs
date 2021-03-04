@@ -210,7 +210,7 @@
 	"tooltip-ca-current": "Voir les changements en attente sur cette page",
 	"tooltip-ca-stable": "Voir la version publiée de cette page",
 	"tooltip-ca-default": "Paramètres pour l'assurance-qualité",
-	"flaggedrevs-protect-legend": "Relecture automatique des modifications ([[{{MediaWiki:Validationpage}}|aide]])",
+	"flaggedrevs-protect-legend": "Relecture automatique des modifications",
 	"flaggedrevs-protect-none": "Autoriser tous les utilisateurs",
 	"flaggedrevs-protect-sysop": "Autoriser seulement les administrateurs",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Pages non relues]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Modifications en attente]",

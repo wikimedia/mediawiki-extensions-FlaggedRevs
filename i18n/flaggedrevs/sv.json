@@ -187,7 +187,7 @@
 	"tooltip-ca-current": "Visa denna sida med väntande ändringar",
 	"tooltip-ca-stable": "Visa den publicerade versionen av denna sida",
 	"tooltip-ca-default": "Inställningar för kvalitetssäkring",
-	"flaggedrevs-protect-legend": "Automatisk redigeringsgranskning ([[{{MediaWiki:Validationpage}}|hjälp]])",
+	"flaggedrevs-protect-legend": "Automatisk redigeringsgranskning",
 	"flaggedrevs-protect-none": "Tillåt alla användare",
 	"flaggedrevs-protect-sysop": "Tillåt endast administratörer",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Ogranskade sidor]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Väntande ändringar]",

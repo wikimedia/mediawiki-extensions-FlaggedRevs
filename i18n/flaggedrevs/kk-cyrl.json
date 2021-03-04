@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Arystanbek"
+			"Arystanbek",
+			"Hedeyohu22"
 		]
 	},
 	"action-review": "нұсқаларды қайта қарау",
@@ -113,7 +114,7 @@
 	"tooltip-ca-current": "Бұл беттің тексерілуі күтілген өзгерістерін қарау",
 	"tooltip-ca-stable": "Бұл беттің тұрақты нұсқасын қарау",
 	"tooltip-ca-default": "Сапа қамсыздандыруды баптау",
-	"flaggedrevs-protect-legend": "Автоматты өңдеуді қарау ([[{{MediaWiki:Validationpage}}|анықтама]])",
+	"flaggedrevs-protect-legend": "Автоматты өңдеуді қарау",
 	"flaggedrevs-protect-none": "Барлық қатысушыларға рұқсат ету",
 	"validationpage": "{{ns:help}}:Мақала ақталуы"
 }
