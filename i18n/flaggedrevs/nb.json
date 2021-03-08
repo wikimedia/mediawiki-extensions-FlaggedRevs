@@ -199,7 +199,7 @@
 	"tooltip-ca-current": "Vis denne siden med ventende endringer",
 	"tooltip-ca-stable": "Vis den stabile versjonen av denne siden",
 	"tooltip-ca-default": "Innstillinger for kvalitetssikring",
-	"flaggedrevs-protect-legend": "Automatisk redigeringsrevisjon ([[{{MediaWiki:Validationpage}}|hjelp]])",
+	"flaggedrevs-protect-legend": "Automatisk redigeringsrevisjon",
 	"flaggedrevs-protect-none": "Tillat alle brukere",
 	"flaggedrevs-protect-sysop": "Tillat kun administratorer",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Ureviderte sider]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Ventende endringer]",
