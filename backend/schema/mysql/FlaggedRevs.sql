@@ -140,7 +140,7 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedrevs_promote (
 CREATE TABLE /*_*/flaggedrevs_statistics (
   -- Timestamp stat was recorded
   frs_timestamp varbinary(14) NOT NULL,
-  -- Stat key name, colons separate paramaters
+  -- Stat key name, colons separate parameters
   frs_stat_key varchar(255) NOT NULL,
   -- Stat value as an integer
   frs_stat_val bigint NOT NULL,
