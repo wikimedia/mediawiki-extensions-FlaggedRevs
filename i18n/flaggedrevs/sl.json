@@ -165,7 +165,7 @@
 	"tooltip-ca-current": "Prikaži to stran s spremembami v teku",
 	"tooltip-ca-stable": "Prikaži ustaljeno različico strani",
 	"tooltip-ca-default": "Nastavitve zagotavljanja kakovosti",
-	"flaggedrevs-protect-legend": "Samodejni pregled urejanja ([[{{MediaWiki:Validationpage}}|pomoč]])",
+	"flaggedrevs-protect-legend": "Samodejni pregled urejanja",
 	"flaggedrevs-protect-none": "Dovoli vsem uporabnikom",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Nepregledane strani]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Čakajoče spremembe]",
 	"revreview-locked-title": "Urejanja te strani zahtevajo pregled.",
