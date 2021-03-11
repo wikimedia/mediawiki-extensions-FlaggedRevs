@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Andreyyshore",
 			"Cin",
 			"Danutz",
 			"Emily",
@@ -50,7 +51,7 @@
 	"revreview-log-toggle-hide": "ascunde jurnalul de stabilitate",
 	"revreview-log-details-show": "arată detalii",
 	"revreview-log-details-hide": "ascunde detalii",
-	"review-diff2stable": "Vezi toate modificările în aşteptare",
+	"review-diff2stable": "Vezi toate modificările în așteptare",
 	"review-logentry-id": "revizuire: $2",
 	"review-logentry-diff": "modificări revizuite",
 	"review-logentry-diff2": "modificări învechite",
@@ -127,7 +128,7 @@
 	"revreview-restriction-any": "oricare",
 	"revreview-restriction-none": "nimic",
 	"revreview-reviewlink": "modificări în așteptare",
-	"revreview-reviewlink-title": "Vezi diferenţele între modificările în curs",
+	"revreview-reviewlink-title": "Vezi diferențele dintre modificările în curs",
 	"revreview-unreviewedpage": "pagină neverificată",
 	"tooltip-ca-current": "Vizualizați această pagină cu modificările în așteptare",
 	"tooltip-ca-stable": "Vizualizați versiunea stabilă a acestei pagini",
