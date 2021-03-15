@@ -24,26 +24,6 @@
 	white-space: nowrap;
 }
 
-.fr-rating-option-0 {
-	background-color: #eaecf0;
-}
-
-.fr-rating-option-1 {
-	background-color: #eaf3ff;
-}
-
-.fr-rating-option-2 {
-	background-color: #d5fdf4;
-}
-
-.fr-rating-option-3 {
-	background-color: #fef6e7;
-}
-
-.fr-rating-option-4 {
-	background-color: #f8f9fa;
-}
-
 /* stylelint-disable-next-line selector-max-id */
 #mw-fr-commentbox {
 	margin-right: 1.5em;
