@@ -25,11 +25,8 @@ class FlaggedRevsLog {
 		# Skip rating list if flagging is just an 0/1 feature...
 		if ( !FlaggedRevs::binaryFlagging() ) {
 			// Give grep a chance to find the usages:
-			// revreview-accuracy, revreview-depth, revreview-style,
 			// revreview-accuracy-0, revreview-accuracy-1, revreview-accuracy-2,
-			// revreview-accuracy-3, revreview-accuracy-4, revreview-depth-0, revreview-depth-1,
-			// revreview-depth-2, revreview-depth-3, revreview-depth-4, revreview-style-0,
-			// revreview-style-1, revreview-style-2, revreview-style-3, revreview-style-4
+			// revreview-accuracy-3, revreview-accuracy-4, revreview-accuracy
 			foreach ( $dims as $quality => $level ) {
 				$ratings[] = wfMessage( "revreview-$quality" )->inContentLanguage()->text() .
 					wfMessage( 'colon-separator' )->inContentLanguage()->text() .
