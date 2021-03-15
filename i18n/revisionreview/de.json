@@ -29,7 +29,7 @@
 	"review_denied": "Der Zugriff wurde verweigert.",
 	"review_param_missing": "Ein Parameter fehlt oder ist ungültig.",
 	"review_cannot_undo": "Diese Änderungen können nicht rückgängig gemacht werden, da weitere ausstehende Änderungen in den gleichen Bereichen gemacht wurden.",
-	"review_cannot_reject": "Diese Änderungen können nicht verworfen werden, da ein anderer Benutzer bereits ein paar oder alle Bearbeitungen akzeptiert hat.",
+	"review_cannot_reject": "Diese Änderungen können nicht verworfen werden, da ein anderer Benutzer bereits ein paar oder alle Bearbeitungen akzeptiert oder verworfen hat.",
 	"review_reject_excessive": "So viele Bearbeitungen können nicht auf einmal verworfen werden.",
 	"review_reject_nulledits": "Diese Änderungen können nicht verworfen werden, da all diese Versionen keine Änderungsbearbeitungen enthielten.",
 	"revreview-check-flag-p": "Diese Version akzeptieren (inklusive {{PLURAL:$1|einer ausstehenden Änderung|$1 ausstehender Änderungen}})",

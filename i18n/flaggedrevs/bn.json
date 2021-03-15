@@ -32,7 +32,7 @@
 	"flaggedrevs-rcfilters-reviewed-label": "পর্যালোচিত",
 	"group-editor": "সম্পাদকগণ",
 	"group-editor-member": "{{GENDER:$1|সম্পাদক}}",
-	"group-reviewer": "নিরীক্ষকগণ",
+	"group-reviewer": "নিরীক্ষক",
 	"group-reviewer-member": "{{GENDER:$1|নিরীক্ষক}}",
 	"grouppage-editor": "{{ns:project}}:সম্পাদক",
 	"grouppage-reviewer": "{{ns:project}}:নিরীক্ষক",
