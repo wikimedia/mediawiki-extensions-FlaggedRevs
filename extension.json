@@ -214,7 +214,6 @@
 		"PageStabilityProtectForm": "business/PageStabilityProtectForm.php",
 		"FlaggablePageView": "frontend/FlaggablePageView.php",
 		"FlaggedRevsHookRunner": "backend/hook/FlaggedRevsHookRunner.php",
-		"FlaggedRevsFRGenericSubmitFormReadyHook": "backend/hook/FlaggedRevsFRGenericSubmitFormReadyHook.php",
 		"FlaggedRevsRevisionReviewFormAfterDoSubmitHook": "backend/hook/FlaggedRevsRevisionReviewFormAfterDoSubmitHook.php",
 		"FlaggedRevsReviewLogFormatter": "frontend/FlaggedRevsReviewLogFormatter.php",
 		"FlaggedRevsStableLogFormatter": "frontend/FlaggedRevsStableLogFormatter.php",

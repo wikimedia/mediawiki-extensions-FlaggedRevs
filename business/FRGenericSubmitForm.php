@@ -69,14 +69,6 @@ abstract class FRGenericSubmitForm {
 			throw new Exception( __CLASS__ . " ready() already called.\n" );
 		}
 
-		$result = '';
-		if ( !FlaggedRevsHookRunner::getRunner()->onFlaggedRevsFRGenericSubmitFormReady(
-			$this,
-			$status
-		) ) {
-			return $result;
-		}
-
 		$this->state = self::FORM_READY;
 		$status = $this->doCheckTargetGiven();
 		if ( $status !== true ) {

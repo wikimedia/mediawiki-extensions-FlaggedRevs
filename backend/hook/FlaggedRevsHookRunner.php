@@ -14,7 +14,6 @@ use MediaWiki\User\UserIdentity;
 class FlaggedRevsHookRunner implements
 	NewRevisionFromEditCompleteHook,
 	RevisionFromEditCompleteHook,
-	FlaggedRevsFRGenericSubmitFormReadyHook,
 	FlaggedRevsRevisionReviewFormAfterDoSubmitHook
 {
 
@@ -81,18 +80,6 @@ class FlaggedRevsHookRunner implements
 		$this->hookContainer->run(
 			'RevisionFromEditComplete',
 			[ $wikiPage, $rev, $originalRevId, $user, &$tags ]
-		);
-	}
-
-	/**
-	 * @param FRGenericSubmitForm $form
-	 * @param string &$result
-	 * @return bool|void
-	 */
-	public function onFlaggedRevsFRGenericSubmitFormReady( $form, &$result ) {
-		return $this->hookContainer->run(
-			'FlaggedRevsFRGenericSubmitFormReady',
-			[ $form, &$result ]
 		);
 	}
 
