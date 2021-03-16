@@ -34,7 +34,6 @@ class ApiFlagConfig extends ApiBase {
 	public function execute() {
 		$this->getMain()->setCacheMode( 'public' );
 		$minQLTags = FlaggedRevs::quickTags( FR_QUALITY );
-		$minPLTags = FlaggedRevs::quickTags( FR_PRISTINE );
 		$data = [];
 		foreach ( FlaggedRevs::getDimensions() as $tag => $levels ) {
 			$data[] = [
@@ -42,7 +41,6 @@ class ApiFlagConfig extends ApiBase {
 				'levels' => count( $levels ) - 1, // exclude '0' level
 				'tier1'  => 1,
 				'tier2'  => $minQLTags[$tag],
-				'tier3'  => $minPLTags[$tag]
 			];
 		}
 		$result = $this->getResult();

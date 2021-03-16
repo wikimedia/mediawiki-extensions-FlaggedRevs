@@ -236,7 +236,7 @@ class FlaggedRevision {
 	 * @param Title $title page title
 	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
 	 * @param array $config optional page config (use to skip queries)
-	 * @param string $precedence (latest,quality,pristine)
+	 * @param string $precedence (latest,quality)
 	 * @return self|null (null on failure)
 	 */
 	public static function determineStable(
@@ -280,31 +280,12 @@ class FlaggedRevision {
 		$frQuery = self::getQueryInfo();
 		$row = null;
 		if ( $precedence !== 'latest' ) {
-			# Look for the latest pristine revision...
-			if ( FlaggedRevs::pristineVersions() ) {
-				$prow = $db->selectRow(
-					$frQuery['tables'],
-					$frQuery['fields'],
-					array_merge( $baseConds, [ 'fr_quality' => FR_PRISTINE ] ),
-					__METHOD__,
-					$options,
-					$frQuery['joins']
-				);
-				# Looks like a plausible revision
-				$row = $prow ?: $row;
-			}
-			if ( $row && $precedence === 'pristine' ) {
-				// we have what we want already
 			# Look for the latest quality revision...
-			} elseif ( FlaggedRevs::qualityVersions() ) {
-				// If we found a pristine rev above, this one must be newer...
-				$newerClause = $row
-					? [ 'fr_rev_timestamp > ' . $db->addQuotes( $row->fr_rev_timestamp ) ]
-					: [];
+			if ( FlaggedRevs::qualityVersions() ) {
 				$qrow = $db->selectRow(
 					$frQuery['tables'],
 					$frQuery['fields'],
-					array_merge( $baseConds, [ 'fr_quality' => FR_QUALITY ], $newerClause ),
+					array_merge( $baseConds, [ 'fr_quality' => FR_QUALITY ] ),
 					__METHOD__,
 					$options,
 					$frQuery['joins']
@@ -502,7 +483,7 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * @return int quality level (FR_CHECKED,FR_QUALITY,FR_PRISTINE)
+	 * @return int quality level (FR_CHECKED,FR_QUALITY)
 	 */
 	public function getQuality() {
 		return $this->mQuality;

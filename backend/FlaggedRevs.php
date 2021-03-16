@@ -25,12 +25,8 @@ class FlaggedRevs {
 	private static $minSL = [];
 	/** @var int[] */
 	private static $minQL = [];
-	/** @var int[] */
-	private static $minPL = [];
 	/** @var bool */
 	private static $qualityVersions = false;
-	/** @var bool */
-	private static $pristineVersions = false;
 	/** @var int[][] Copy of $wgFlaggedRevsTagsRestrictions */
 	private static $tagRestrictions = [];
 	/** @var bool */
@@ -88,7 +84,6 @@ class FlaggedRevs {
 		# Assume true, then set to false if needed
 		if ( !empty( $wgFlaggedRevsTags ) ) {
 			self::$qualityVersions = true;
-			self::$pristineVersions = true;
 			self::$binaryFlagging = ( count( $wgFlaggedRevsTags ) <= 1 );
 		}
 		foreach ( $wgFlaggedRevsTags as $tag => $levels ) {
@@ -98,9 +93,8 @@ class FlaggedRevs {
 				throw new Exception( 'FlaggedRevs given invalid tag name!' );
 			}
 
-			# Define "quality" and "pristine" reqs
+			# Define "quality" reqs
 			$minQL = $levels['quality'];
-			$minPL = $levels['pristine'];
 			$ratingLevels = $levels['levels'];
 
 			# Set FlaggedRevs tags
@@ -112,18 +106,13 @@ class FlaggedRevs {
 				self::$binaryFlagging = false; // more than one level
 			}
 			# Sanity checks
-			if ( !is_int( $minQL ) || !is_int( $minPL ) ) {
+			if ( !is_int( $minQL ) ) {
 				throw new Exception( 'FlaggedRevs given invalid tag value!' );
 			}
 			if ( $minQL > $ratingLevels ) {
 				self::$qualityVersions = false;
-				self::$pristineVersions = false;
-			}
-			if ( $minPL > $ratingLevels ) {
-				self::$pristineVersions = false;
 			}
 			self::$minQL[$tag] = max( $minQL, 1 );
-			self::$minPL[$tag] = max( $minPL, 1 );
 			self::$minSL[$tag] = 1;
 		}
 
@@ -166,23 +155,12 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * Are pristine versions enabled?
-	 * @return bool
-	 */
-	public static function pristineVersions() {
-		self::load();
-		return self::$pristineVersions;
-	}
-
-	/**
 	 * Get the highest review tier that is enabled
-	 * @return int One of FR_PRISTINE,FR_QUALITY,FR_CHECKED
+	 * @return int One of FR_QUALITY,FR_CHECKED
 	 */
 	public static function highestReviewTier() {
 		self::load();
-		if ( self::$pristineVersions ) {
-			return FR_PRISTINE;
-		} elseif ( self::$qualityVersions ) {
+		if ( self::$qualityVersions ) {
 			return FR_QUALITY;
 		}
 		return FR_CHECKED;
@@ -358,7 +336,6 @@ class FlaggedRevs {
 		return [
 			0 => 'stable',
 			1 => 'quality',
-			2 => 'pristine',
 		][$level] ?? '';
 	}
 
@@ -820,15 +797,6 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * @param int[] $flags
-	 * @return bool is this revision at pristine review condition?
-	 */
-	public static function isPristine( array $flags ) {
-		self::load();
-		return self::tagsAtLevel( $flags, self::$minPL );
-	}
-
-	/**
 	 * Checks if $flags meets $reqFlagLevels
 	 * @param int[] $flags
 	 * @param int[] $reqFlagLevels
@@ -851,12 +819,10 @@ class FlaggedRevs {
 	 * Get the quality tier of review flags
 	 * @param int[] $flags
 	 * @param int $default Return value if one of the tags has value < 0
-	 * @return int flagging tier (FR_PRISTINE,FR_QUALITY,FR_CHECKED,-1)
+	 * @return int flagging tier (FR_QUALITY,FR_CHECKED,-1)
 	 */
 	public static function getQualityTier( array $flags, $default = -1 ) {
-		if ( self::isPristine( $flags ) ) {
-			return FR_PRISTINE; // 2
-		} elseif ( self::isQuality( $flags ) ) {
+		if ( self::isQuality( $flags ) ) {
 			return FR_QUALITY; // 1
 		} elseif ( self::isChecked( $flags ) ) {
 			return FR_CHECKED; // 0
@@ -866,14 +832,12 @@ class FlaggedRevs {
 
 	/**
 	 * Get minimum level tags for a tier
-	 * @param int $tier FR_PRISTINE/FR_QUALITY/FR_CHECKED
+	 * @param int $tier FR_QUALITY/FR_CHECKED
 	 * @return int[]
 	 */
 	public static function quickTags( $tier ) {
 		self::load();
-		if ( $tier == FR_PRISTINE ) {
-			return self::$minPL;
-		} elseif ( $tier == FR_QUALITY ) {
+		if ( $tier == FR_QUALITY ) {
 			return self::$minQL;
 		}
 		return self::$minSL;
@@ -1106,7 +1070,6 @@ class FlaggedRevs {
 			$tagsJS[$tag] = [
 				'levels' => count( $x ) - 1,
 				'quality' => self::$minQL[$tag],
-				'pristine' => self::$minPL[$tag],
 			];
 		}
 		return $tagsJS ? [ 'tags' => $tagsJS ] : null;

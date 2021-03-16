@@ -511,7 +511,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		$flags = $this->dims;
 		$quality = 0; // quality tier from flags
 		if ( FlaggedRevs::isQuality( $flags ) ) {
-			$quality = FlaggedRevs::isPristine( $flags ) ? 2 : 1;
+			$quality = 1;
 		}
 		# Our template/file version pointers
 		list( $tmpVersions, $fileVersions ) = $this->getIncludeVersions(

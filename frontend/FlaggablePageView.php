@@ -421,8 +421,6 @@ class FlaggablePageView extends ContextSource {
 			// As it is the only message for non-simple UI, it must be displayed
 			if ( !$frev ) {
 				$tagClass = 'flaggedrevs_notice';
-			} elseif ( FlaggedRevs::isPristine( $frev->getTags() ) ) {
-				$tagClass = 'flaggedrevs_pristine';
 			} elseif ( FlaggedRevs::isQuality( $frev->getTags() ) ) {
 				$tagClass = 'flaggedrevs_quality';
 			} else {
