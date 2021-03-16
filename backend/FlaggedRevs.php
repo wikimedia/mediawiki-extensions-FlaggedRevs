@@ -84,37 +84,34 @@ class FlaggedRevs {
 		# Assume true, then set to false if needed
 		if ( !empty( $wgFlaggedRevsTags ) ) {
 			self::$qualityVersions = true;
-			self::$binaryFlagging = ( count( $wgFlaggedRevsTags ) <= 1 );
 		}
-		foreach ( $wgFlaggedRevsTags as $tag => $levels ) {
-			# Sanity checks
-			$safeTag = htmlspecialchars( $tag );
-			if ( !preg_match( '/^[a-zA-Z]{1,20}$/', $tag ) || $safeTag !== $tag ) {
-				throw new Exception( 'FlaggedRevs given invalid tag name!' );
-			}
-
-			# Define "quality" reqs
-			$minQL = $levels['quality'];
-			$ratingLevels = $levels['levels'];
-
-			# Set FlaggedRevs tags
-			self::$dimensions[$tag] = [];
-			for ( $i = 0; $i <= $ratingLevels; $i++ ) {
-				self::$dimensions[$tag][$i] = "{$tag}-{$i}";
-			}
-			if ( $ratingLevels > 1 ) {
-				self::$binaryFlagging = false; // more than one level
-			}
-			# Sanity checks
-			if ( !is_int( $minQL ) ) {
-				throw new Exception( 'FlaggedRevs given invalid tag value!' );
-			}
-			if ( $minQL > $ratingLevels ) {
-				self::$qualityVersions = false;
-			}
-			self::$minQL[$tag] = max( $minQL, 1 );
-			self::$minSL[$tag] = 1;
+		if ( count( $wgFlaggedRevsTags ) != 1 ) {
+			throw new Exception( 'FlaggedRevs given invalid tag name! We only support one dimension now.' );
 		}
+
+		$tag = self::getTagName();
+		$levels = $wgFlaggedRevsTags[$tag];
+		# Define "quality"
+		$minQL = $levels['quality'];
+		$ratingLevels = $levels['levels'];
+
+		# Set FlaggedRevs tags
+		self::$dimensions[$tag] = [];
+		for ( $i = 0; $i <= $ratingLevels; $i++ ) {
+			self::$dimensions[$tag][$i] = "{$tag}-{$i}";
+		}
+		if ( $ratingLevels > 1 ) {
+			self::$binaryFlagging = false; // more than one level
+		}
+		# Sanity checks
+		if ( !is_int( $minQL ) ) {
+			throw new Exception( 'FlaggedRevs given invalid tag value!' );
+		}
+		if ( $minQL > $ratingLevels ) {
+			self::$qualityVersions = false;
+		}
+		self::$minQL[$tag] = max( $minQL, 1 );
+		self::$minSL[$tag] = 1;
 
 		# Handle restrictions on tags
 		global $wgFlaggedRevsTagsRestrictions;
@@ -141,8 +138,16 @@ class FlaggedRevs {
 		if ( !self::binaryFlagging() ) {
 			return null;
 		}
-		$tags = array_keys( self::$dimensions );
-		return empty( $tags ) ? null : $tags[0];
+		return self::getTagName();
+	}
+
+	/**
+	 * Get the supported dimension name.
+	 * @return string
+	 */
+	public static function getTagName(): string {
+		global $wgFlaggedRevsTags;
+		return array_keys( $wgFlaggedRevsTags )[0];
 	}
 
 	/**
@@ -266,20 +271,12 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * Get the array of tag dimensions and level messages
-	 * @return string[][]
-	 */
-	public static function getDimensions() {
-		self::load();
-		return self::$dimensions;
-	}
-
-	/**
+	 * Get the array of levels messages
 	 * @return string[]
 	 */
-	public static function getTags() {
+	public static function getLevels() {
 		self::load();
-		return array_keys( self::$dimensions );
+		return self::$dimensions[self::getTagName()];
 	}
 
 	/**
@@ -376,10 +373,9 @@ class FlaggedRevs {
 	 * @return bool
 	 */
 	public static function flagsAreValid( array $flags ) {
-		foreach ( self::getDimensions() as $qal => $levels ) {
-			if ( !isset( $flags[$qal] ) || !self::tagIsValid( $qal, $flags[$qal] ) ) {
-				return false;
-			}
+		$tag = self::getTagName();
+		if ( !isset( $flags[$tag] ) || !self::tagIsValid( $tag, $flags[$tag] ) ) {
+			return false;
 		}
 		return true;
 	}
@@ -430,18 +426,15 @@ class FlaggedRevs {
 		) {
 			return false; // User is not able to review pages
 		}
-		# Check if all of the required site flags have
-		# a valid value that the user is allowed to set...
-		foreach ( self::getDimensions() as $qal => $levels ) {
-			if ( !isset( $flags[$qal] ) ) {
-				return false; // unspecified
-			} elseif ( !self::userCanSetTag( $user, $qal, $flags[$qal] ) ) {
-				return false; // user cannot set proposed flag
-			} elseif ( isset( $oldflags[$qal] )
-				&& !self::userCanSetTag( $user, $qal, $oldflags[$qal] )
-			) {
-				return false; // user cannot change old flag
-			}
+		$qal = self::getTagName();
+		if ( !isset( $flags[$qal] ) ) {
+			return false; // unspecified
+		} elseif ( !self::userCanSetTag( $user, $qal, $flags[$qal] ) ) {
+			return false; // user cannot set proposed flag
+		} elseif ( isset( $oldflags[$qal] )
+			&& !self::userCanSetTag( $user, $qal, $oldflags[$qal] )
+		) {
+			return false; // user cannot change old flag
 		}
 		return true;
 	}
@@ -855,19 +848,18 @@ class FlaggedRevs {
 			return null; // shouldn't happen
 		}
 		$flags = [];
-		foreach ( self::getTags() as $tag ) {
-			# Try to keep this tag val the same as the stable rev's
-			$val = $oldFlags[$tag] ?? 1;
-			$val = min( $val, self::maxAutoReviewLevel( $tag ) );
-			# Dial down the level to one the user has permission to set
-			while ( !self::userCanSetTag( $user, $tag, $val ) ) {
-				$val--;
-				if ( $val <= 0 ) {
-					return null; // all tags vals must be > 0
-				}
+		$tag = self::getTagName();
+		# Try to keep this tag val the same as the stable rev's
+		$val = $oldFlags[$tag] ?? 1;
+		$val = min( $val, self::maxAutoReviewLevel( $tag ) );
+		# Dial down the level to one the user has permission to set
+		while ( !self::userCanSetTag( $user, $tag, $val ) ) {
+			$val--;
+			if ( $val <= 0 ) {
+				return null; // all tags vals must be > 0
 			}
-			$flags[$tag] = $val;
 		}
+		$flags[$tag] = $val;
 		return $flags;
 	}
 

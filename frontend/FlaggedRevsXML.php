@@ -195,30 +195,29 @@ class FlaggedRevsXML {
 				]
 			);
 		}
-		foreach ( FlaggedRevs::getTags() as $quality ) {
-			// Give grep a chance to find the usages:
-			// revreview-accuracy-0, revreview-accuracy-1, revreview-accuracy-2,
-			// revreview-accuracy-3, revreview-accuracy-4
-			$level = $flags[$quality] ?? 0;
-			$encValueText = wfMessage( "revreview-$quality-$level" )->escaped();
-			$level = $flags[$quality];
+		$quality = FlaggedRevs::getTagName();
+		// Give grep a chance to find the usages:
+		// revreview-accuracy-0, revreview-accuracy-1, revreview-accuracy-2,
+		// revreview-accuracy-3, revreview-accuracy-4
+		$level = $flags[$quality] ?? 0;
+		$encValueText = wfMessage( "revreview-$quality-$level" )->escaped();
+		$level = $flags[$quality];
 
-			$levelmarker = $level * 20 + 20;
-			if ( $prettyBox ) {
-				// Give grep a chance to find the usages:
-				// revreview-accuracy
-				$tag .= "<tr><td class='fr-text' style='vertical-align: middle;'>" .
-					wfMessage( "revreview-$quality" )->escaped() .
-					"</td><td class='fr-value$levelmarker' style='vertical-align: middle;'>" .
-					$encValueText . "</td></tr>\n";
-			} else {
-				// Give grep a chance to find the usages:
-				// revreview-accuracy
-				$tag .= "&#160;<span class='fr-marker-$levelmarker'><strong>" .
-					wfMessage( "revreview-$quality" )->escaped() .
-					"</strong>: <span class='fr-text-value'>$encValueText&#160;</span>&#160;" .
-					"</span>\n";
-			}
+		$levelmarker = $level * 20 + 20;
+		if ( $prettyBox ) {
+			// Give grep a chance to find the usages:
+			// revreview-accuracy
+			$tag .= "<tr><td class='fr-text' style='vertical-align: middle;'>" .
+				wfMessage( "revreview-$quality" )->escaped() .
+				"</td><td class='fr-value$levelmarker' style='vertical-align: middle;'>" .
+				$encValueText . "</td></tr>\n";
+		} else {
+			// Give grep a chance to find the usages:
+			// revreview-accuracy
+			$tag .= "&#160;<span class='fr-marker-$levelmarker'><strong>" .
+				wfMessage( "revreview-$quality" )->escaped() .
+				"</strong>: <span class='fr-text-value'>$encValueText&#160;</span>&#160;" .
+				"</span>\n";
 		}
 		if ( $prettyBox ) {
 			$tag .= Html::closeElement( 'table' );

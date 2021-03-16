@@ -35,14 +35,12 @@ class ApiFlagConfig extends ApiBase {
 		$this->getMain()->setCacheMode( 'public' );
 		$minQLTags = FlaggedRevs::quickTags( FR_QUALITY );
 		$data = [];
-		foreach ( FlaggedRevs::getDimensions() as $tag => $levels ) {
-			$data[] = [
-				'name'   => $tag,
-				'levels' => count( $levels ) - 1, // exclude '0' level
-				'tier1'  => 1,
-				'tier2'  => $minQLTags[$tag],
-			];
-		}
+		$data[] = [
+			'name'   => FlaggedRevs::getTagName(),
+			'levels' => count( FlaggedRevs::getLevels() ) - 1, // exclude '0' level
+			'tier1'  => 1,
+			'tier2'  => $minQLTags[FlaggedRevs::getTagName()],
+		];
 		$result = $this->getResult();
 		$result->setIndexedTagName( $data, 'tag' );
 		$result->addValue( null, $this->getModuleName(), $data );
