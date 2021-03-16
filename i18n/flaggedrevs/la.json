@@ -18,7 +18,6 @@
 	"grouppage-reviewer": "{{ns:project}}:Revisor",
 	"group-autoreview": "recensor passivus",
 	"reviewer": "Revisor",
-	"revreview-style-2": "Bonus",
 	"revreview-revnotfound": "Illa redactio quaesita non invenitur.\nSpectes, quaesumus, eum URL, quo ad hanc paginam pervenisti.",
 	"rights-editor-revoke": "removit statum recensorem usoris [[$1]]"
 }

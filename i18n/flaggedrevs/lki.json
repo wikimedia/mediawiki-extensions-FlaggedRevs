@@ -17,12 +17,6 @@
 	"revreview-log-details-show": "نمایش جزئیات",
 	"revreview-log-details-hide": "نهفتن جزئیات",
 	"review-logpage": "سیاههٔ دووارە دئین",
-	"revreview-depth": "عمق/قۆڵی",
-	"revreview-depth-0": "نابسنده",
-	"revreview-depth-1": "مقدماتی",
-	"revreview-depth-2": "متوسط",
-	"revreview-depth-3": "بالا/بِڵنگ",
-	"revreview-depth-4": "برگزیده/نازار",
 	"revreview-draft-title": "تغییرات در حال انتظار در این صفحه نمایش داده می‌شوند",
 	"revreview-statusfilter": "کار دووارە دئین :",
 	"tooltip-ca-current": "نمایش این صفحه همراه با تغییرات در حال انتظار"

@@ -24,11 +24,5 @@
 	"revreview-hist-pending": "ennawn ngái",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} ennawn ngái]]'''",
 	"revreview-current": "Tihdanglam nghâkte",
-	"revreview-depth": "Thûkzáwng",
-	"revreview-depth-0": "Tâwk lo",
-	"revreview-depth-1": "Bulthüm",
-	"revreview-depth-2": "Pángngai",
-	"revreview-depth-3": "Sáng",
-	"revreview-depth-4": "Tlángrèlthang",
 	"revreview-draft-title": "Hë phêkah hian tihdanglam nghâkte pholan a ni"
 }
