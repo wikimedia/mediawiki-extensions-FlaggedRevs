@@ -166,7 +166,6 @@
 	"revreview-lev-all": "any",
 	"revreview-lev-basic": "checked",
 	"revreview-lev-quality": "quality",
-	"revreview-lev-pristine": "pristine",
 	"revreview-defaultfilter": "Default version:",
 	"revreview-def-all": "any",
 	"revreview-def-draft": "latest",

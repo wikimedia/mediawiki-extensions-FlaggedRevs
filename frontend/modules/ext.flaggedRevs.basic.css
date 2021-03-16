@@ -6,7 +6,6 @@
 /* Standard User Interface */
 div.flaggedrevs_basic,
 div.flaggedrevs_quality,
-div.flaggedrevs_pristine,
 div.flaggedrevs_notice {
 	border: 1px solid #a2a9b1;
 	padding: 5px;
@@ -27,10 +26,6 @@ div.flaggedrevs_basic {
 
 div.flaggedrevs_quality {
 	background-color: #d5fdf4;
-}
-
-div.flaggedrevs_pristine {
-	background-color: #fef6e7;
 }
 
 div.flaggedrevs_notice {
@@ -228,10 +223,6 @@ div.flaggedrevs_short_details {
 
 .flaggedrevs-color-2 {
 	background-color: #d5fdf4;
-}
-
-.flaggedrevs-color-3 {
-	background-color: #fef6e7;
 }
 
 .flaggedrevs-pending {

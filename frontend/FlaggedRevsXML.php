@@ -68,10 +68,6 @@ class FlaggedRevsXML {
 		if ( FlaggedRevs::qualityVersions() ) {
 			$s .= Xml::option( wfMessage( 'revreview-lev-quality' )->text(), 1, $selected === 1 );
 		}
-		if ( $max >= 2 && FlaggedRevs::pristineVersions() ) {
-			$s .= Xml::option( wfMessage( 'revreview-lev-pristine' )->text(), 2, $selected === 2 );
-		}
-		# Note: Pristine not tracked at sp:QualityOversight (counts as quality)
 		$s .= Xml::closeElement( 'select' ) . "\n";
 		return $s;
 	}
@@ -170,8 +166,6 @@ class FlaggedRevsXML {
 			return 'flaggedrevs-color-0';
 		}
 		switch ( $quality ) {
-			case 2:
-				return 'flaggedrevs-color-3';
 			case 1:
 				return 'flaggedrevs-color-2';
 			case 0:
@@ -248,12 +242,9 @@ class FlaggedRevsXML {
 		# Get quality level
 		$flags = $frev->getTags();
 		$quality = FlaggedRevs::isQuality( $flags );
-		$pristine = FlaggedRevs::isPristine( $flags );
 		$time = $wgLang->date( $frev->getTimestamp(), true );
 		# Some checks for which tag CSS to use
-		if ( $pristine ) {
-			$color = 'flaggedrevs-color-3';
-		} elseif ( $quality ) {
+		if ( $quality ) {
 			$color = 'flaggedrevs-color-2';
 		} else {
 			$color = 'flaggedrevs-color-1';
