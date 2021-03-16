@@ -3,16 +3,14 @@ https://www.mediawiki.org/wiki/Extension:FlaggedRevs
 
 ==Prerequisites==
 * Downloaded the extension from GIT
-* MediaWiki 1.34+
+* MediaWiki 1.36+
 * Shell access
 
 == Setup ==
-* Run 'maintenance/populateSha1.php' if not already done.
 * Add the following line to 'LocalSettings.php':
 	wfLoadExtension( 'FlaggedRevs' );
 * Run 'maintenance/update.php' to add the SQL tables
-* Run FlaggedRevs/maintenance/updateAutoPromote.php.
-  You can ignore this if you aren't using $wgFlaggedRevsAutopromote.
+* If you are using $wgFlaggedRevsAutopromote, run FlaggedRevs/maintenance/updateAutoPromote.php.
 * To enable article validation statistics, $wgPhpCli must be set correctly. This is not necessary
   if you set a cron job to run FlaggedRevs/maintenance/updateStats.php every so often, which is preferable.
 
