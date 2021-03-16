@@ -53,13 +53,6 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	}
 
 	/**
-	 * @return bool|null
-	 */
-	public function getWatchThis() {
-		return $this->watchThis;
-	}
-
-	/**
 	 * @param bool|null $value
 	 */
 	public function setWatchThis( $value ) {
