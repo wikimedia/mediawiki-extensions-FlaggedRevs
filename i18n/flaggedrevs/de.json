@@ -183,7 +183,6 @@
 	"revreview-lev-all": "alle",
 	"revreview-lev-basic": "gesichtet",
 	"revreview-lev-quality": "geprüft",
-	"revreview-lev-pristine": "ursprünglich",
 	"revreview-defaultfilter": "Standard-Version:",
 	"revreview-def-all": "alle",
 	"revreview-def-draft": "neueste",

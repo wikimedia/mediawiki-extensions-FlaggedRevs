@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Soued031"
 		]
 	},
 	"unreviewedpages": "Säit déi net nogekuckt ass",
@@ -11,7 +12,7 @@
 	"unreviewedpages-unwatched": "(net iwwerwaacht)",
 	"unreviewedpages-watched": "($1 {{PLURAL:$1|Benotzer iwwerwaacht|Benotzer iwwerwaachen}})",
 	"unreviewedpages-list": "Op dëser Säit sti Säiten déi nach net mam Niveau den uginn ass [[{{MediaWiki:Validationpage}}|nogekuckt]] goufen.",
-	"unreviewedpages-none": "Et gëtt keng Säiten, déi dene Critèren entspriechen déi Dir uginn hutt",
+	"unreviewedpages-none": "Et gëtt keng Säiten, déi deene Krittären entspriechen déi Dir uginn hutt",
 	"unreviewedpages-viewing": "(gëtt nogekuckt)",
 	"unreviewedpages-hours": "($1 {{PLURAL:$1|Stonn|Stonnen}})",
 	"unreviewedpages-days": "($1 {{PLURAL:$1|Dag|Deeg}})",

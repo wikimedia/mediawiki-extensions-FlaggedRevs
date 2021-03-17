@@ -148,7 +148,6 @@
 	"revreview-lev-all": "alle",
 	"revreview-lev-basic": "gecontroleerd",
 	"revreview-lev-quality": "kwaliteitsversie",
-	"revreview-lev-pristine": "onaangeroerd",
 	"revreview-defaultfilter": "Standaardversie:",
 	"revreview-def-all": "alle",
 	"revreview-def-draft": "laatste",

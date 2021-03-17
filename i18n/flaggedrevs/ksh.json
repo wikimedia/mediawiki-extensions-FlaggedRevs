@@ -144,7 +144,6 @@
 	"revreview-lev-all": "all",
 	"revreview-lev-basic": "{{lcfirst:{{int:revreview-accuracy-1}}}} Väsjohn",
 	"revreview-lev-quality": "jepröhfte Qualliteits-Väsjohn",
-	"revreview-lev-pristine": "orshprönglesche Väsjohn",
 	"revreview-defaultfilter": "De schtandattmähßeje Väsjohn:",
 	"revreview-def-all": "all",
 	"revreview-def-draft": "neuste",

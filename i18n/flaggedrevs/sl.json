@@ -139,7 +139,6 @@
 	"revreview-lev-all": "vse",
 	"revreview-lev-basic": "preverjeno",
 	"revreview-lev-quality": "kakovostno",
-	"revreview-lev-pristine": "prvinsko",
 	"revreview-defaultfilter": "Privzeta različica:",
 	"revreview-def-all": "vse",
 	"revreview-def-draft": "najnovejše",
