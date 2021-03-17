@@ -198,18 +198,9 @@ class FlaggablePageView extends ContextSource {
 		if ( $preference === FR_SHOW_STABLE_ALWAYS || $preference === FR_SHOW_STABLE_NEVER ) {
 			return $preference;
 		}
-		# Check if the user belongs to an "insider" group: one that is aware of the possibility
-		# of problematic content appearing on pages and is involved in content creation/curation.
-		foreach ( $this->getConfig()->get( 'FlaggedRevsExceptions' ) as $group ) {
-			if ( $group === 'user' ) {
-				if ( $user->getId() ) {
-					return FR_SHOW_STABLE_NEVER;
-				}
-			} elseif ( in_array( $group, $user->getGroups() ) ) {
-				return FR_SHOW_STABLE_NEVER;
-			}
+		if ( $user->getId() ) {
+			return FR_SHOW_STABLE_NEVER;
 		}
-
 		return FR_SHOW_STABLE_DEFAULT;
 	}
 

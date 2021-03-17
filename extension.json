@@ -442,12 +442,6 @@
 			"description": "Is a \"stable version\" used as the default display version for all pages in reviewable namespaces?",
 			"value": true
 		},
-		"FlaggedRevsExceptions": {
-			"description": "Below are groups that see the current revision by default. This makes editing easier since the users always start off viewing the latest version of pages.",
-			"value": [
-				"user"
-			]
-		},
 		"FlaggedRevsAutoReview": {
 			"description": [
 				"Auto-review settings for edits/new pages:",
