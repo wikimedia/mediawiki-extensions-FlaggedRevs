@@ -434,10 +434,6 @@
 				10
 			]
 		},
-		"FlaggedRevsWhitelist": {
-			"description": "Pages exempt from reviewing. No flagging UI will be shown for them",
-			"value": []
-		},
 		"FlaggedRevsOverride": {
 			"description": "Is a \"stable version\" used as the default display version for all pages in reviewable namespaces?",
 			"value": true

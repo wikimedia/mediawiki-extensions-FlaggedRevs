@@ -882,14 +882,12 @@ class FlaggedRevs {
 
 	/**
 	 * Is this page in reviewable namespace?
-	 * Note: this checks $wgFlaggedRevsWhitelist
 	 * @param Title $title
 	 * @return bool
 	 */
 	public static function inReviewNamespace( Title $title ) {
-		global $wgFlaggedRevsWhitelist;
-		if ( in_array( $title->getPrefixedDBkey(), $wgFlaggedRevsWhitelist ) ) {
-			return false; // page is one exemption whitelist
+		if ( $title->isMainPage() ) {
+			return false;
 		}
 		$ns = ( $title->getNamespace() === NS_MEDIA ) ?
 			NS_FILE : $title->getNamespace(); // treat NS_MEDIA as NS_FILE
