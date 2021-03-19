@@ -68,8 +68,8 @@ class FlaggedRevsUIHooks {
 	 */
 	private static function injectStyleForSpecial( $out ) {
 		$title = $out->getTitle();
-		$spPages = [ 'UnreviewedPages', 'PendingChanges', 'ProblemChanges',
-			'Watchlist', 'Recentchanges', 'Contributions', 'Recentchangeslinked' ];
+		$spPages = [ 'UnreviewedPages', 'PendingChanges', 'Watchlist',
+			'Recentchanges', 'Contributions', 'Recentchangeslinked' ];
 		foreach ( $spPages as $key ) {
 			if ( $title->isSpecial( $key ) ) {
 				$out->addModuleStyles( 'ext.flaggedRevs.basic' ); // CSS only
@@ -1304,17 +1304,13 @@ class FlaggedRevsUIHooks {
 	 * @param array &$list
 	 */
 	public static function onSpecialPageInitList( array &$list ) {
-		global $wgFlaggedRevsProtection, $wgFlaggedRevsNamespaces, $wgUseTagFilter;
+		global $wgFlaggedRevsProtection, $wgFlaggedRevsNamespaces;
 
 		// Show special pages only if FlaggedRevs is enabled on some namespaces
 		if ( count( $wgFlaggedRevsNamespaces ) ) {
 			$list['RevisionReview'] = 'RevisionReview'; // unlisted
 			$list['ReviewedVersions'] = 'ReviewedVersions'; // unlisted
 			$list['PendingChanges'] = 'PendingChanges';
-			// Show tag filtered pending edit page if there are tags
-			if ( $wgUseTagFilter ) {
-				$list['ProblemChanges'] = 'ProblemChanges';
-			}
 			if ( !$wgFlaggedRevsProtection ) {
 				$list['ReviewedPages'] = 'ReviewedPages';
 				$list['UnreviewedPages'] = 'UnreviewedPages';
