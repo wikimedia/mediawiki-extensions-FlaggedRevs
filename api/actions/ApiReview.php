@@ -22,6 +22,7 @@
  */
 
 use MediaWiki\MediaWikiServices;
+use Wikimedia\ParamValidator\ParamValidator;
 
 /**
  * API module to review revisions
@@ -67,12 +68,11 @@ class ApiReview extends ApiBase {
 		}
 		// The flagging parameters have the form 'flag_$name'.
 		// Extract them and put the values into $form->dims
-		foreach ( FlaggedRevs::getTags() as $tag ) {
-			if ( FlaggedRevs::binaryFlagging() ) {
-				$form->setDim( $tag, 1 );
-			} else {
-				$form->setDim( $tag, (int)$params['flag_' . $tag] );
-			}
+		$tag = FlaggedRevs::getTagName();
+		if ( FlaggedRevs::binaryFlagging() ) {
+			$form->setDim( $tag, 1 );
+		} else {
+			$form->setDim( $tag, (int)$params['flag_' . $tag] );
 		}
 		if ( $form->getAction() === 'approve' ) {
 			$article = new FlaggableWikiPage( $title );
@@ -160,14 +160,12 @@ class ApiReview extends ApiBase {
 			'unapprove' => false
 		];
 		if ( !FlaggedRevs::binaryFlagging() ) {
-			foreach ( FlaggedRevs::getDimensions() as $flagname => $levels ) {
-				$strLevels = array_map( 'strval', array_keys( $levels ) );
-				$pars['flag_' . $flagname] = [
-					ApiBase::PARAM_DFLT => '1', // default
-					ApiBase::PARAM_TYPE => $strLevels, // array of allowed values
-					ApiBase::PARAM_HELP_MSG => [ 'apihelp-review-param-flag', $flagname ],
-				];
-			}
+			$strLevels = array_map( 'strval', array_keys( FlaggedRevs::getLevels() ) );
+			$pars['flag_' . FlaggedRevs::getTagName()] = [
+				ParamValidator::PARAM_DEFAULT => '1', // default
+				ParamValidator::PARAM_TYPE => $strLevels, // array of allowed values
+				ApiBase::PARAM_HELP_MSG => [ 'apihelp-review-param-flag', FlaggedRevs::getTagName() ],
+			];
 		}
 		return $pars;
 	}

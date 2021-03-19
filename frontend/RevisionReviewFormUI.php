@@ -312,11 +312,10 @@ class RevisionReviewFormUI {
 		# Build rating form...
 		if ( $disabled ) {
 			// Display the value for each tag as text
-			foreach ( FlaggedRevs::getTags() as $quality ) {
-				$selected = $flags[$quality] ?? 0;
-				$items[] = FlaggedRevs::getTagMsg( $quality )->escaped() . ": " .
-					FlaggedRevs::getTagValueMsg( $quality, $selected );
-			}
+			$quality = FlaggedRevs::getTagName();
+			$selected = $flags[$quality] ?? 0;
+			$items[] = FlaggedRevs::getTagMsg( $quality )->escaped() . ": " .
+				FlaggedRevs::getTagValueMsg( $quality, $selected );
 		} else {
 			$size = count( $labels, 1 ) - count( $labels );
 			foreach ( $labels as $quality => $levels ) {
@@ -374,27 +373,26 @@ class RevisionReviewFormUI {
 	private function ratingFormTags( $user, $selected ) {
 		$labels = [];
 		$minLevels = [];
-		# Build up all levels available to user
-		foreach ( FlaggedRevs::getDimensions() as $tag => $levels ) {
-			if ( isset( $selected[$tag] ) &&
-				!FlaggedRevs::userCanSetTag( $user, $tag, $selected[$tag] )
-			) {
-				return [ false, false ]; // form will have to be disabled
+		$tag = FlaggedRevs::getTagName();
+		$levels = FlaggedRevs::getLevels();
+		if ( isset( $selected[$tag] ) &&
+			!FlaggedRevs::userCanSetTag( $user, $tag, $selected[$tag] )
+		) {
+			return [ false, false ]; // form will have to be disabled
+		}
+		$labels[$tag] = []; // applicable tag levels
+		$minLevels[$tag] = false; // first non-zero level number
+		foreach ( $levels as $i => $msg ) {
+			# Some levels may be restricted or not applicable...
+			if ( !FlaggedRevs::userCanSetTag( $user, $tag, $i ) ) {
+				continue; // skip this level
+			} elseif ( $i > 0 && !$minLevels[$tag] ) {
+				$minLevels[$tag] = $i; // first non-zero level number
 			}
-			$labels[$tag] = []; // applicable tag levels
-			$minLevels[$tag] = false; // first non-zero level number
-			foreach ( $levels as $i => $msg ) {
-				# Some levels may be restricted or not applicable...
-				if ( !FlaggedRevs::userCanSetTag( $user, $tag, $i ) ) {
-					continue; // skip this level
-				} elseif ( $i > 0 && !$minLevels[$tag] ) {
-					$minLevels[$tag] = $i; // first non-zero level number
-				}
-				$labels[$tag][$i] = $msg; // set label
-			}
-			if ( !$minLevels[$tag] ) {
-				return [ false, false ]; // form will have to be disabled
-			}
+			$labels[$tag][$i] = $msg; // set label
+		}
+		if ( !$minLevels[$tag] ) {
+			return [ false, false ]; // form will have to be disabled
 		}
 		return [ $labels, $minLevels ];
 	}

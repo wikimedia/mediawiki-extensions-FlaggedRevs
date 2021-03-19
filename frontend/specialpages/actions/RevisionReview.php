@@ -80,11 +80,10 @@ class RevisionReview extends UnlistedSpecialPage {
 		# Session key
 		$form->setSessionKey( $request->getSessionData( 'wsFlaggedRevsKey' ) );
 		# Tag values
-		foreach ( FlaggedRevs::getTags() as $tag ) {
-			# This can be NULL if we uncheck a checkbox
-			$val = $request->getInt( "wp$tag" );
-			$form->setDim( $tag, $val );
-		}
+		# This can be NULL if we uncheck a checkbox
+		$tag = FlaggedRevs::getTagName();
+		$val = $request->getInt( "wp$tag" );
+		$form->setDim( $tag, $val );
 		# Log comment
 		$form->setComment( $request->getText( 'wpReason' ) );
 		$form->ready();
@@ -225,7 +224,6 @@ class RevisionReview extends UnlistedSpecialPage {
 			return '<err#>' . wfMessage( 'revreview-failed' )->parse() .
 				wfMessage( 'revreview-submission-invalid' )->parse();
 		}
-		$tags = FlaggedRevs::getTags();
 		// Make review interface object
 		$form = new RevisionReviewForm( $user );
 		$title = null; // target page
@@ -280,9 +278,8 @@ class RevisionReview extends UnlistedSpecialPage {
 					$editToken = $val;
 					break;
 				default:
-					$p = preg_replace( '/^wp/', '', $par ); // kill any "wp" prefix
-					if ( in_array( $p, $tags ) ) {
-						$form->setDim( $p, $val );
+					if ( $par === 'wp' . FlaggedRevs::getTagName() ) {
+						$form->setDim( FlaggedRevs::getTagName(), $val );
 					}
 					break;
 			}
