@@ -9,5 +9,5 @@
 	"reviewedversions-page": "Mě boka:",
 	"reviewedversions-none": "\"[[:$1]]\" njama pśeglědane wersije.",
 	"reviewedversions-list": "To jo lisćina {{PLURAL:$2|jadnučkeje wersije|wersijowu|wersijow|wersijow}} wót [[:$1]], {{PLURAL:$2|kótaraž jo se pśeglědała|kótarejž stej se pśeglědałej|kótarež su se pśeglědali|kótarež su se pśeglědali}}:",
-	"reviewedversions-review": "Pśeglědany <i>$1</i> wót $2"
+	"reviewedversions-review": "Pśeglědany $1 wót $2"
 }

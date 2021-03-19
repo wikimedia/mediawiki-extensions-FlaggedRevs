@@ -9,5 +9,5 @@
 	"reviewedversions-page": "ناوی پەڕە:",
 	"reviewedversions-none": "«[[:$1]]» ھیچ پێداچوونەوەیەکی بەسەرداچووی نییە.",
 	"reviewedversions-list": "ژێرەوە پێرستێکە لە {{PLURAL:$2|تەنیا پێداچوونەی|پێداچوونەوە}} {{PLURAL:$2|بەسەرداچووە|بەسەرداچووەکان}}ی پەڕەی [[:$1]]:",
-	"reviewedversions-review": "بەسەرداچووە لە <i>$1</i>دا لە لایەن $2"
+	"reviewedversions-review": "بەسەرداچووە لە $1دا لە لایەن $2"
 }

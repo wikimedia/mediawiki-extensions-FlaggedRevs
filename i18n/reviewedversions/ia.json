@@ -9,5 +9,5 @@
 	"reviewedversions-page": "Nomine del pagina:",
 	"reviewedversions-none": "\"[[:$1]]\" non ha versiones revidite.",
 	"reviewedversions-list": "Ecce {{PLURAL:$2|le sol version|le lista del versiones}} de [[:$1]] que ha essite revidite:",
-	"reviewedversions-review": "Revidite le <i>$1</i> per $2"
+	"reviewedversions-review": "Revidite le $1 per $2"
 }

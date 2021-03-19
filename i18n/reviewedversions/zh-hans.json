@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Gaoxuewei",
+			"Hmgrmb",
 			"Hydra",
 			"Impersonator 1",
 			"Liangent",
@@ -16,5 +17,5 @@
 	"reviewedversions-page": "页面名称：",
 	"reviewedversions-none": "“[[:$1]]”没有已复核的修订版本。",
 	"reviewedversions-list": "下面列出了[[:$1]]的{{PLURAL:$2|已|已}}复审{{PLURAL:$2|版本}}：",
-	"reviewedversions-review": "$2于$1复核"
+	"reviewedversions-review": "$2在$1复查"
 }

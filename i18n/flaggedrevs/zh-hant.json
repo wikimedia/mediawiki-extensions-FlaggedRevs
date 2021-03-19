@@ -185,7 +185,7 @@
 	"tooltip-ca-current": "檢視此頁面目前待審查的變更",
 	"tooltip-ca-stable": "檢視此頁面的穩定版本",
 	"tooltip-ca-default": "品質保證設定",
-	"flaggedrevs-protect-legend": "自動編輯審查 ([[{{MediaWiki:Validationpage}}|說明]])",
+	"flaggedrevs-protect-legend": "自動編輯審查",
 	"flaggedrevs-protect-none": "允許所有使用者",
 	"flaggedrevs-protect-sysop": "僅允許管理員",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} 未審查的頁面]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} 待審查的變更]",

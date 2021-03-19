@@ -9,5 +9,5 @@
 	"reviewedversions-page": "Mjeno nastawka",
 	"reviewedversions-none": "[[:$1]] přepruwowane wersije nima.",
 	"reviewedversions-list": "Slědowaca lisćina je lisćina {{PLURAL:$2|jeničkeje wersije|wersijow|wersijow|wersijow}} [[:$1]], {{PLURAL:$2|bu přepruwowana|buštej přepruwowanej|buchu přepruwowane|buchu přepruwowane}}:",
-	"reviewedversions-review": "Dnja <i>$1</i> wot $2 přepruwowany"
+	"reviewedversions-review": "Dnja $1 wot $2 přepruwowany"
 }

@@ -9,5 +9,5 @@
 	"reviewedversions-page": "Nombre d'a pachina:",
 	"reviewedversions-none": "\"[[:$1]]\" no tiene versions revisatas.",
 	"reviewedversions-list": "A siguient ye una lista con {{PLURAL:%2|a sola versión|as versions}} de [[:$1]] que s'han revisato:",
-	"reviewedversions-review": "Revisata por $2 o <i>$1</i>"
+	"reviewedversions-review": "Revisata por $2 o $1"
 }

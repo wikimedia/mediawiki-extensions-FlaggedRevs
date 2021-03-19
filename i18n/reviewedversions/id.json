@@ -11,5 +11,5 @@
 	"reviewedversions-page": "Nama halaman:",
 	"reviewedversions-none": "\"[[:$1]]\" tidak memiliki revisi tertinjau.",
 	"reviewedversions-list": "Berikut adalah daftar {{PLURAL:$2|revisi|revisi-revisi}} dari [[:$1]] yang {{PLURAL:$2|telah|telah}} ditinjau:",
-	"reviewedversions-review": "Ditinjau pada ''$1'' oleh $2"
+	"reviewedversions-review": "Ditinjau pada $1 oleh $2"
 }

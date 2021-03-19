@@ -11,5 +11,5 @@
 	"reviewedversions-page": "Namey perre:",
 	"reviewedversions-none": "\"[[:$1]]\" wayirê revizyonê konrol biyayeyan niyo.",
 	"reviewedversions-list": "Sıradaki, [[:$1]] için gözden geçirilmiş {{PLURAL:$2|tek revizyonun|revizyonların}} bir listesidir:",
-	"reviewedversions-review": "hetê $2 ra <i>$1</i> tarix de kontrol bı"
+	"reviewedversions-review": "hetê $2 ra $1 tarix de kontrol bı"
 }

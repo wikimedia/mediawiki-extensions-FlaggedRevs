@@ -9,5 +9,5 @@
 	"reviewedversions-page": "版名",
 	"reviewedversions-none": "[[:$1]]無複審過嘅修訂。",
 	"reviewedversions-list": "下面係[[:$1]]{{PLURAL:$2|已經|已經}}複審過嘅{{PLURAL:$2|唯一修訂|修訂}}：",
-	"reviewedversions-review": "由$2響<i>$1</i>複審過"
+	"reviewedversions-review": "由$2響$1複審過"
 }

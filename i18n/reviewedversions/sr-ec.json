@@ -16,5 +16,5 @@
 	"reviewedversions-page": "Име странице:",
 	"reviewedversions-none": "„[[:$1]]“ нема проверених измена.",
 	"reviewedversions-list": "Ово је списак {{PLURAL:$2|једне измене|измене|измена}} странице [[:$1]] {{PLURAL:$2|која је проверена|које су проверене}}:",
-	"reviewedversions-review": "Проверио $2 на дан <i>$1</i>"
+	"reviewedversions-review": "Проверио $2 на дан $1"
 }

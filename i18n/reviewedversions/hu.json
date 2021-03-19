@@ -11,5 +11,5 @@
 	"reviewedversions-page": "A lap címe:",
 	"reviewedversions-none": "A(z) „[[:$1]]” lapnak nincsenek ellenőrzött változatai.",
 	"reviewedversions-list": "Alább a(z) „[[:$1]]” lap azon {{PLURAL:$2|változata látható|változatai láthatóak}}, {{PLURAL:$2|amelyet|amelyeket}} ellenőriztek:",
-	"reviewedversions-review": "Ellenőrizte $2, <i>$1</i>-kor"
+	"reviewedversions-review": "Ellenőrizte $2, $1-kor"
 }

@@ -11,5 +11,5 @@
 	"reviewedversions-page": "Paginanaam:",
 	"reviewedversions-none": "\"[[:$1]]\" heeft geen gecontroleerde versies",
 	"reviewedversions-list": "Hieronder staat {{PLURAL:$2|de versie|een lijst met gecontroleerde versies}} van [[:$1]]:",
-	"reviewedversions-review": "Gecontroleerd op <i>$1</i> door $2"
+	"reviewedversions-review": "Gecontroleerd op $1 door $2"
 }

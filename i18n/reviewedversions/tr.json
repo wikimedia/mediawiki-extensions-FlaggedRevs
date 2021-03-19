@@ -10,5 +10,5 @@
 	"reviewedversions-page": "Sayfa adı:",
 	"reviewedversions-none": "\"[[:$1]]\" hiç gözden geçirilmiş revizyona sahip değil.",
 	"reviewedversions-list": "Sıradaki, [[:$1]] için gözden geçirilmiş {{PLURAL:$2|tek revizyonun|revizyonların}} bir listesidir:",
-	"reviewedversions-review": "$2 tarafından <i>$1</i> tarihinde gözden geçirildi"
+	"reviewedversions-review": "$2 tarafından $1 tarihinde gözden geçirildi"
 }

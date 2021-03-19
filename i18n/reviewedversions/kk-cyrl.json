@@ -7,5 +7,5 @@
 	"reviewedversions-page": "Бет атауы:",
 	"reviewedversions-none": "«[[:$1]]» бетінде сын берілген еш нұсқа жоқ.",
 	"reviewedversions-list": "Келесі тізімде [[:$1]] бетінің сын берілген нұсқалары келтіріледі:",
-	"reviewedversions-review": "$2 <i>$1</i> кезінде сын берді"
+	"reviewedversions-review": "$2 $1 кезінде сын берді"
 }

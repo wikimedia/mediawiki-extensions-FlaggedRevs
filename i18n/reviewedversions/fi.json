@@ -12,5 +12,5 @@
 	"reviewedversions-page": "Sivun nimi:",
 	"reviewedversions-none": "Sivusta [[:$1]] ei ole arvioituja versioita.",
 	"reviewedversions-list": "Tämä on {{PLURAL:$2|ainoa versio, joka|luettelo versioista, jotka}} on arvioitu kohteesta [[:$1]]:",
-	"reviewedversions-review": "$2 arvioi sivun <i>$1</i>"
+	"reviewedversions-review": "$2 arvioi sivun $1"
 }

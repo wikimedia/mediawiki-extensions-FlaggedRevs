@@ -9,5 +9,5 @@
 	"reviewedversions-page": "Nom de la pâge :",
 	"reviewedversions-none": "« [[:$1]] » at gins de vèrsion revua.",
 	"reviewedversions-list": "La lista que siut contint {{PLURAL:$2|la solèta vèrsion|des vèrsions}} de « [[:$1]] » qu’{{PLURAL:$2|at étâ revua|ont étâ revues}} :",
-	"reviewedversions-review": "Revua lo <i>$1</i> per $2"
+	"reviewedversions-review": "Revua lo $1 per $2"
 }

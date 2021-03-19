@@ -12,5 +12,5 @@
 	"reviewedversions-page": "Sidnamn:",
 	"reviewedversions-none": "\"[[:$1]]\" har inga granskade versioner.",
 	"reviewedversions-list": "Följande är en lista av {{PLURAL:$2|den enda versionen|versioner}} av [[:$1]] som har granskats:",
-	"reviewedversions-review": "Granskad den <i>$1</i> av $2"
+	"reviewedversions-review": "Granskad den $1 av $2"
 }

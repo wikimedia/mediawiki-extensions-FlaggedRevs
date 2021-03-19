@@ -9,5 +9,5 @@
 	"reviewedversions-page": "Artikelname:",
 	"reviewedversions-none": "„[[:$1]]“ het kei Versione, wu vum Fäldhieter gsäh sin.",
 	"reviewedversions-list": "Des isch d Lischt vu dr {{PLURAL:$2|Version|Versione}} vu [[:$1]], wu vum Fäldhieter aagluegt {{PLURAL:$2|isch|sin}}:",
-	"reviewedversions-review": "aagluegt <i>$1</i> dur $2"
+	"reviewedversions-review": "aagluegt $1 dur $2"
 }

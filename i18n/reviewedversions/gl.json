@@ -11,5 +11,5 @@
 	"reviewedversions-page": "Nome da páxina:",
 	"reviewedversions-none": "\"[[:$1]]\" non ten revisións examinadas.",
 	"reviewedversions-list": "A continuación hai unha lista {{PLURAL:$2|coa única revisión|coas revisións}} de \"[[:$1]]\" que {{PLURAL:$2|foi revisada|foron revisadas}}:",
-	"reviewedversions-review": "Revisado o <i>$1</i> por $2"
+	"reviewedversions-review": "Revisado o $1 por $2"
 }

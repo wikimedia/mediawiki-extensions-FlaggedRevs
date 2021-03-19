@@ -10,5 +10,5 @@
 	"reviewedversions-page": "Tên trang:",
 	"reviewedversions-none": "\"[[:$1]]\" không có bản nào được duyệt.",
 	"reviewedversions-list": "Dưới đây là danh sách {{PLURAL:$2|phiên bản|các phiên bản}} của [[:$1]] đã được duyệt:",
-	"reviewedversions-review": "Đã được $2 duyệt vào <i>$1</i>"
+	"reviewedversions-review": "Đã được $2 duyệt vào $1"
 }

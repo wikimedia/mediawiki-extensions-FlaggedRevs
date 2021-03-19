@@ -10,5 +10,5 @@
 	"reviewedversions-page": "Ime stranice:",
 	"reviewedversions-none": "„[[:$1]]“ nema proverenih izmena.",
 	"reviewedversions-list": "Ovo je spisak {{PLURAL:$2|jedne izmene|izmene|izmena}} stranice [[:$1]] {{PLURAL:$2|koja je proverena|koje su proverene}}:",
-	"reviewedversions-review": "Proverio $2 na dan <i>$1</i>"
+	"reviewedversions-review": "Proverio $2 na dan $1"
 }

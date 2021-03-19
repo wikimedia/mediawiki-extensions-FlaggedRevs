@@ -9,5 +9,5 @@
 	"reviewedversions-page": "Ὄνομα δέλτου:",
 	"reviewedversions-none": "Τὸ \"[[:$1]]\" οὐκ ἔχει ἐπιθεωρημένας ἀναθεωρήσεις.",
 	"reviewedversions-list": "Ἀκολουθεῖ κατάλογος {{PLURAL:$2|τῆς μεταγραφῆς|μεταγραφῶν}} {{PLURAL:$2|τῆς ἐπιτεθεωρημένης|ἐπιτεθεωρημένων}} τῆς [[:$1]]:",
-	"reviewedversions-review": "Ἐπιθεωρημένη τὴν <i>$1</i> ἐκ τοῦ $2"
+	"reviewedversions-review": "Ἐπιθεωρημένη τὴν $1 ἐκ τοῦ $2"
 }

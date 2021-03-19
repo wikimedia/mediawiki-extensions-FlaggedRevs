@@ -10,5 +10,5 @@
 	"reviewedversions-page": "Sidenamn",
 	"reviewedversions-none": "«[[:$1]]» har ingen vurderte versjonar.",
 	"reviewedversions-list": "Fylgjande er ei lista over vurderte versjonar av [[:$1]]:",
-	"reviewedversions-review": "Vurdert den <i>$1</i> av $2"
+	"reviewedversions-review": "Vurdert den $1 av $2"
 }

@@ -12,5 +12,5 @@
 	"reviewedversions-page": "Име на страницата:",
 	"reviewedversions-none": "Страницата „[[:$1]]“ няма проверени версии.",
 	"reviewedversions-list": "Следва {{PLURAL:$2|единствената версия|списък на версиите}} на [[:$1]], {{PLURAL:$2|която е била проверена|които са били проверени}}:",
-	"reviewedversions-review": "Проверена на <i>$1</i> от $2"
+	"reviewedversions-review": "Проверена на $1 от $2"
 }

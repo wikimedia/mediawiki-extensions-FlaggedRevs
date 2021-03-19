@@ -9,5 +9,5 @@
 	"reviewedversions-page": "Lehtpolen nimi:",
 	"reviewedversions-none": "\"[[:$1]]\"-lehtpolel ei ole kodvdud versijoid",
 	"reviewedversions-list": "Naku om nimikirjutez, kudambas om [[:$1]]-lehtpolen {{PLURAL:$2|üksjäine kodvdud redakcii|kodvdud redakcijoid}}",
-	"reviewedversions-review": "Om kodvdud datal <i>$1</i> $2-arvostelijal"
+	"reviewedversions-review": "Om kodvdud datal $1 $2-arvostelijal"
 }
