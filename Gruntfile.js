@@ -28,7 +28,6 @@ module.exports = function ( grunt ) {
 			configuredpages: 'i18n/configuredpages/',
 			flaggedrevs: 'i18n/flaggedrevs/',
 			pendingchanges: 'i18n/pendingchanges/',
-			problemchanges: 'i18n/problemchanges/',
 			qualityoversight: 'i18n/qualityoversight/',
 			reviewedpages: 'i18n/reviewedpages/',
 			reviewedversions: 'i18n/reviewedversions/',
