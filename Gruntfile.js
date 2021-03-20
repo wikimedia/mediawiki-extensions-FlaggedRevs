@@ -29,7 +29,6 @@ module.exports = function ( grunt ) {
 			flaggedrevs: 'i18n/flaggedrevs/',
 			pendingchanges: 'i18n/pendingchanges/',
 			qualityoversight: 'i18n/qualityoversight/',
-			reviewedpages: 'i18n/reviewedpages/',
 			reviewedversions: 'i18n/reviewedversions/',
 			revisionreview: 'i18n/revisionreview/',
 			stabilization: 'i18n/stabilization/',
