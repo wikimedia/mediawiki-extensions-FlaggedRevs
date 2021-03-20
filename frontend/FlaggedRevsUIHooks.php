@@ -412,7 +412,7 @@ class FlaggedRevsUIHooks {
 	 * @param array[] &$filters
 	 */
 	public static function addHideReviewedUnstructuredFilter( $specialPage, &$filters ) {
-		if ( !FlaggedRevs::useSimpleConfig() ) {
+		if ( !FlaggedRevs::useOnlyIfProtected() ) {
 			$filters['hideReviewed'] = [
 				'msg' => 'flaggedrevs-hidereviewed', 'default' => false
 			];
@@ -429,7 +429,7 @@ class FlaggedRevsUIHooks {
 	 *   Special:RecentChanges or Special:Watchlist
 	 */
 	public static function addHideReviewedFilter( ChangesListSpecialPage $specialPage ) {
-		if ( FlaggedRevs::useSimpleConfig() ) {
+		if ( FlaggedRevs::useOnlyIfProtected() ) {
 			return;
 		}
 
@@ -754,7 +754,7 @@ class FlaggedRevsUIHooks {
 	) {
 		global $wgRequest;
 
-		if ( $wgRequest->getBool( 'hideReviewed' ) && !FlaggedRevs::useSimpleConfig() ) {
+		if ( $wgRequest->getBool( 'hideReviewed' ) && !FlaggedRevs::useOnlyIfProtected() ) {
 			self::hideReviewedChangesUnconditionally( $conds );
 		}
 	}
@@ -960,7 +960,7 @@ class FlaggedRevsUIHooks {
 		if ( $rc->getAttribute( 'fp_stable' ) == null ) {
 			// Is this a config were pages start off reviewable?
 			// Hide notice from non-reviewers due to vandalism concerns (bug 24002).
-			if ( !FlaggedRevs::useSimpleConfig() && MediaWikiServices::getInstance()
+			if ( !FlaggedRevs::useOnlyIfProtected() && MediaWikiServices::getInstance()
 					->getPermissionManager()
 					->userHasRight( $list->getUser(), 'review' )
 			) {

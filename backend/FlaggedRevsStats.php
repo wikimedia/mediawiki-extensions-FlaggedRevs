@@ -260,7 +260,7 @@ class FlaggedRevsStats {
 			'sampleStartTS' => null,
 			'sampleEndTS'   => null
 		];
-		if ( FlaggedRevs::useSimpleConfig() ) {
+		if ( FlaggedRevs::useOnlyIfProtected() ) {
 			return $result; // disabled
 		}
 

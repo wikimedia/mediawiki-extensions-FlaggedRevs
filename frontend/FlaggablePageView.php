@@ -834,7 +834,7 @@ class FlaggablePageView extends ContextSource {
 	 * @return bool
 	 */
 	private function showRatingIcon() {
-		if ( FlaggedRevs::useSimpleConfig() ) {
+		if ( FlaggedRevs::useOnlyIfProtected() ) {
 			// If there is only one quality level and we have tabs to know
 			// which version we are looking at, then just use the lock icon...
 			return false;
@@ -1240,7 +1240,7 @@ class FlaggablePageView extends ContextSource {
 			return;
 		}
 
-		if ( !FlaggedRevs::useSimpleConfig() ) {
+		if ( !FlaggedRevs::useOnlyIfProtected() ) {
 			# Add links to lists of unreviewed pages and pending changes in this category
 			$category = $this->article->getTitle()->getText();
 			$this->out->addSubtitle(
@@ -1350,7 +1350,7 @@ class FlaggablePageView extends ContextSource {
 	public function addStabilizationLink() {
 		$request = $this->getRequest();
 		$this->load();
-		if ( FlaggedRevs::useSimpleConfig() ) {
+		if ( FlaggedRevs::useOnlyIfProtected() ) {
 			// Simple custom levels set for action=protect
 			return;
 		}
@@ -1393,7 +1393,7 @@ class FlaggablePageView extends ContextSource {
 
 		$reqUser = $this->getUser();
 
-		if ( FlaggedRevs::useSimpleConfig() ) {
+		if ( FlaggedRevs::useOnlyIfProtected() ) {
 			return; // simple custom levels set for action=protect
 		}
 

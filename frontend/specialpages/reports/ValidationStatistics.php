@@ -72,7 +72,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 		$out->addWikiMsg( 'validationstatistics-pndtime',
 			$lang->formatTimePeriod( $pt, [ 'avoid' => 'avoidminutes' ] ) );
 		# Show review time stats...
-		if ( !FlaggedRevs::useSimpleConfig() ) {
+		if ( !FlaggedRevs::useOnlyIfProtected() ) {
 			$out->addWikiMsg( 'validationstatistics-revtime',
 				$lang->formatTimePeriod( $mt, [ 'avoid' => 'avoidminutes' ] ),
 				$lang->formatTimePeriod( $mdt, [ 'avoid' => 'avoidminutes' ] ),

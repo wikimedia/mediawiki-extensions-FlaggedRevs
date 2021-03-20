@@ -74,7 +74,7 @@ class FlaggedRevs {
 		}
 
 		// When using a simple config, we don't need to initialize the other settings
-		if ( self::useSimpleConfig() ) {
+		if ( self::useOnlyIfProtected() ) {
 			return;
 		}
 
@@ -219,7 +219,7 @@ class FlaggedRevs {
 	 */
 	public static function isStableShownByDefault() {
 		global $wgFlaggedRevsOverride;
-		if ( self::useSimpleConfig() ) {
+		if ( self::useOnlyIfProtected() ) {
 			return false; // must be configured per-page
 		}
 		return (bool)$wgFlaggedRevsOverride;
@@ -233,14 +233,6 @@ class FlaggedRevs {
 	public static function useOnlyIfProtected() {
 		global $wgFlaggedRevsProtection;
 		return (bool)$wgFlaggedRevsProtection;
-	}
-
-	/**
-	 * Whether simple configuration settings should be used
-	 * @return bool
-	 */
-	public static function useSimpleConfig() {
-		return self::useOnlyIfProtected();
 	}
 
 	/**
@@ -924,7 +916,7 @@ class FlaggedRevs {
 		$oldSv = FlaggedRevision::newFromStable( $title, FR_MASTER );
 		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
 
-		if ( self::useSimpleConfig() ) {
+		if ( self::useOnlyIfProtected() ) {
 			$flags = [];
 			$quality = FR_CHECKED;
 			$tags = '';
