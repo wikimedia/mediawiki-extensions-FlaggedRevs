@@ -1312,7 +1312,6 @@ class FlaggedRevsUIHooks {
 			$list['ReviewedVersions'] = 'ReviewedVersions'; // unlisted
 			$list['PendingChanges'] = 'PendingChanges';
 			if ( !$wgFlaggedRevsProtection ) {
-				$list['ReviewedPages'] = 'ReviewedPages';
 				$list['UnreviewedPages'] = 'UnreviewedPages';
 			}
 			$list['QualityOversight'] = 'QualityOversight';
