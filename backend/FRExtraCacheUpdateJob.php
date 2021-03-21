@@ -49,9 +49,9 @@ class FRExtraCacheUpdateJob extends Job {
 			$conds[] = 'ftr_from <= ' . $dbr->addQuotes( $this->params['end'] );
 		}
 		// Run query to get page Ids
-		$res = $dbr->select( 'flaggedrevs_tracking', 'ftr_from', $conds, __METHOD__ );
+		$pageIds = $dbr->selectFieldValues( 'flaggedrevs_tracking', 'ftr_from', $conds, __METHOD__ );
 		// Invalidate the pages
-		$update->invalidateIDs( $res );
+		$update->invalidateIDs( $pageIds );
 		return true;
 	}
 
