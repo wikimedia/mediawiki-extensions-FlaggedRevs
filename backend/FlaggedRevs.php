@@ -870,9 +870,6 @@ class FlaggedRevs {
 	 * @return bool
 	 */
 	public static function inReviewNamespace( Title $title ) {
-		if ( $title->isMainPage() ) {
-			return false;
-		}
 		$ns = ( $title->getNamespace() === NS_MEDIA ) ?
 			NS_FILE : $title->getNamespace(); // treat NS_MEDIA as NS_FILE
 		return in_array( $ns, self::getReviewNamespaces() );
