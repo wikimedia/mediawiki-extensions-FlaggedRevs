@@ -3,6 +3,7 @@
 		"authors": [
 			"Consta",
 			"Dead3y3",
+			"Geraki",
 			"Glavkos",
 			"Omnipaedista"
 		]
@@ -12,5 +13,5 @@
 	"reviewedversions-page": "Όνομα σελίδας:",
 	"reviewedversions-none": "Η \"[[:$1]]\" δεν έχει αναθεωρήσεις που να έχουν κριθεί.",
 	"reviewedversions-list": "Ο ακόλουθος είναι ένας κατάλογος {{PLURAL:$2|της μοναδικής αναθεώρησης|των αναθεωρήσεων}} της σελίδας [[:$1]] που {{PLURAL:$2|έχει|έχουν}} κριθεί:",
-	"reviewedversions-review": "Κρίθηκε στις $1 από τον/την $2"
+	"reviewedversions-review": "Επιθεωρήθηκε στις $1 από {{GENDER:$5|τον|την}} $2"
 }
