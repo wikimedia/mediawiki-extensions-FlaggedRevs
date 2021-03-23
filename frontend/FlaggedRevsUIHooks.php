@@ -1309,7 +1309,6 @@ class FlaggedRevsUIHooks {
 		// Show special pages only if FlaggedRevs is enabled on some namespaces
 		if ( count( $wgFlaggedRevsNamespaces ) ) {
 			$list['RevisionReview'] = 'RevisionReview'; // unlisted
-			$list['ReviewedVersions'] = 'ReviewedVersions'; // unlisted
 			$list['PendingChanges'] = 'PendingChanges';
 			if ( !$wgFlaggedRevsProtection ) {
 				$list['UnreviewedPages'] = 'UnreviewedPages';
