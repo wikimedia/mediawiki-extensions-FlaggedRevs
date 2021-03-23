@@ -65,9 +65,6 @@ class FlaggedRevsXML {
 			$s .= Xml::option( wfMessage( $all )->text(), -1, $selected === -1 );
 		}
 		$s .= Xml::option( wfMessage( 'revreview-lev-basic' )->text(), 0, $selected === 0 );
-		if ( FlaggedRevs::qualityVersions() ) {
-			$s .= Xml::option( wfMessage( 'revreview-lev-quality' )->text(), 1, $selected === 1 );
-		}
 		$s .= Xml::closeElement( 'select' ) . "\n";
 		return $s;
 	}
@@ -165,14 +162,10 @@ class FlaggedRevsXML {
 		if ( $quality === false ) {
 			return 'flaggedrevs-color-0';
 		}
-		switch ( $quality ) {
-			case 1:
-				return 'flaggedrevs-color-2';
-			case 0:
-				return 'flaggedrevs-color-1';
-			default:
-				return '';
+		if ( $quality === 0 ) {
+			return 'flaggedrevs-color-1';
 		}
+		return '';
 	}
 
 	/**
@@ -240,30 +233,22 @@ class FlaggedRevsXML {
 		$frev, $shtml, $revsSince, $type = 'oldstable', $synced = false
 	) {
 		global $wgLang;
-		# Get quality level
 		$flags = $frev->getTags();
-		$quality = FlaggedRevs::isQuality( $flags );
 		$time = $wgLang->date( $frev->getTimestamp(), true );
 		# Some checks for which tag CSS to use
-		if ( $quality ) {
-			$color = 'flaggedrevs-color-2';
-		} else {
-			$color = 'flaggedrevs-color-1';
-		}
+		$color = 'flaggedrevs-color-1';
 		# Construct some tagging
 		if ( $synced && ( $type == 'stable' || $type == 'draft' ) ) {
-			$msg = $quality ?
-				'revreview-quality-same' : 'revreview-basic-same';
+			$msg = 'revreview-basic-same';
 			$html = wfMessage( $msg, $frev->getRevId(), $time )->numParams( $revsSince )->parse();
 		} elseif ( $type == 'oldstable' ) {
-			$msg = $quality ?
-				'revreview-quality-old' : 'revreview-basic-old';
+			$msg = 'revreview-basic-old';
 			$html = wfMessage( $msg, $frev->getRevId(), $time )->parse();
 		} else {
 			if ( $type == 'stable' ) {
-				$msg = $quality ? 'revreview-quality' : 'revreview-basic';
+				$msg = 'revreview-basic';
 			} else { // draft
-				$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
+				$msg = 'revreview-newest-basic';
 			}
 			# For searching: uses messages 'revreview-quality-i', 'revreview-basic-i',
 			# 'revreview-newest-quality-i', 'revreview-newest-basic-i'
@@ -409,17 +394,13 @@ class FlaggedRevsXML {
 
 	/**
 	 * Creates CSS stable page icon
-	 * @param bool $isQuality
 	 * @return string
 	 */
-	public static function stableStatusIcon( $isQuality ) {
-		$icon = $isQuality ? 'check' : 'eye';
-		$encTitle = $isQuality
-			? wfMessage( 'revreview-quality-title' )->text()
-			: wfMessage( 'revreview-basic-title' )->text();
+	public static function stableStatusIcon() {
+		$encTitle = wfMessage( 'revreview-basic-title' )->text();
 		return ( new OOUI\IconWidget(
 			[
-				'icon' => $icon,
+				'icon' => 'eye',
 				'classes' => [ 'flaggedrevs-icon' ],
 				'title' => $encTitle,
 			]
@@ -474,10 +455,7 @@ class FlaggedRevsXML {
 		$flags = $frev->getTags();
 		$time = $wgLang->date( $frev->getTimestamp(), true );
 		# Add message text for pending edits
-		$msg = FlaggedRevs::isQuality( $flags )
-			? 'revreview-pending-quality'
-			: 'revreview-pending-basic';
-		return wfMessage( $msg, $frev->getRevId(), $time )->numParams( $revsSince );
+		return wfMessage( 'revreview-pending-basic', $frev->getRevId(), $time )->numParams( $revsSince );
 	}
 
 	/**

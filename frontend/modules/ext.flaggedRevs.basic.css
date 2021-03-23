@@ -5,7 +5,6 @@
 
 /* Standard User Interface */
 div.flaggedrevs_basic,
-div.flaggedrevs_quality,
 div.flaggedrevs_notice {
 	border: 1px solid #a2a9b1;
 	padding: 5px;

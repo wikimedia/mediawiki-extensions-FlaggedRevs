@@ -23,8 +23,6 @@ class FlaggedRevs {
 	private static $dimensions = [];
 	/** @var int[] */
 	private static $minSL = [];
-	/** @var int[] */
-	private static $minQL = [];
 	/** @var bool */
 	private static $qualityVersions = false;
 	/** @var int[][] Copy of $wgFlaggedRevsTagsRestrictions */
@@ -80,11 +78,6 @@ class FlaggedRevs {
 
 		# Handle levelled tags
 		global $wgFlaggedRevsTags;
-
-		# Assume true, then set to false if needed
-		if ( !empty( $wgFlaggedRevsTags ) ) {
-			self::$qualityVersions = true;
-		}
 		if ( count( $wgFlaggedRevsTags ) != 1 ) {
 			throw new Exception( 'FlaggedRevs given invalid tag name! We only support one dimension now.' );
 		}
@@ -92,7 +85,6 @@ class FlaggedRevs {
 		$tag = self::getTagName();
 		$levels = $wgFlaggedRevsTags[$tag];
 		# Define "quality"
-		$minQL = $levels['quality'];
 		$ratingLevels = $levels['levels'];
 
 		# Set FlaggedRevs tags
@@ -103,14 +95,7 @@ class FlaggedRevs {
 		if ( $ratingLevels > 1 ) {
 			self::$binaryFlagging = false; // more than one level
 		}
-		# Sanity checks
-		if ( !is_int( $minQL ) ) {
-			throw new Exception( 'FlaggedRevs given invalid tag value!' );
-		}
-		if ( $minQL > $ratingLevels ) {
-			self::$qualityVersions = false;
-		}
-		self::$minQL[$tag] = max( $minQL, 1 );
+
 		self::$minSL[$tag] = 1;
 
 		# Handle restrictions on tags
@@ -148,27 +133,6 @@ class FlaggedRevs {
 	public static function getTagName(): string {
 		global $wgFlaggedRevsTags;
 		return array_keys( $wgFlaggedRevsTags )[0];
-	}
-
-	/**
-	 * Are quality versions enabled?
-	 * @return bool
-	 */
-	public static function qualityVersions() {
-		self::load();
-		return self::$qualityVersions;
-	}
-
-	/**
-	 * Get the highest review tier that is enabled
-	 * @return int One of FR_QUALITY,FR_CHECKED
-	 */
-	public static function highestReviewTier() {
-		self::load();
-		if ( self::$qualityVersions ) {
-			return FR_QUALITY;
-		}
-		return FR_CHECKED;
 	}
 
 	/**
@@ -780,15 +744,6 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * @param int[] $flags
-	 * @return bool is this revision at quality review condition?
-	 */
-	public static function isQuality( array $flags ) {
-		self::load();
-		return self::tagsAtLevel( $flags, self::$minQL );
-	}
-
-	/**
 	 * Checks if $flags meets $reqFlagLevels
 	 * @param int[] $flags
 	 * @param int[] $reqFlagLevels
@@ -811,12 +766,10 @@ class FlaggedRevs {
 	 * Get the quality tier of review flags
 	 * @param int[] $flags
 	 * @param int $default Return value if one of the tags has value < 0
-	 * @return int flagging tier (FR_QUALITY,FR_CHECKED,-1)
+	 * @return int flagging tier (FR_CHECKED or default value)
 	 */
 	public static function getQualityTier( array $flags, $default = -1 ) {
-		if ( self::isQuality( $flags ) ) {
-			return FR_QUALITY; // 1
-		} elseif ( self::isChecked( $flags ) ) {
+		if ( self::isChecked( $flags ) ) {
 			return FR_CHECKED; // 0
 		}
 		return (int)$default;
@@ -824,14 +777,10 @@ class FlaggedRevs {
 
 	/**
 	 * Get minimum level tags for a tier
-	 * @param int $tier FR_QUALITY/FR_CHECKED
 	 * @return int[]
 	 */
-	public static function quickTags( $tier ) {
+	public static function quickTags() {
 		self::load();
-		if ( $tier == FR_QUALITY ) {
-			return self::$minQL;
-		}
 		return self::$minSL;
 	}
 
@@ -942,7 +891,7 @@ class FlaggedRevs {
 						$flags = self::getAutoReviewTags( $user, $oldSv->getTags() );
 					}
 				} else { // new page?
-					$flags = self::quickTags( FR_CHECKED ); // use minimal level
+					$flags = self::quickTags();
 				}
 				if ( !is_array( $flags ) ) {
 					return false; // can't auto-review this revision
@@ -1057,8 +1006,7 @@ class FlaggedRevs {
 		$tagsJS = [];
 		foreach ( self::$dimensions as $tag => $x ) {
 			$tagsJS[$tag] = [
-				'levels' => count( $x ) - 1,
-				'quality' => self::$minQL[$tag],
+				'levels' => count( $x ) - 1
 			];
 		}
 		return $tagsJS ? [ 'tags' => $tagsJS ] : null;

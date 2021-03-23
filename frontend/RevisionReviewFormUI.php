@@ -115,7 +115,7 @@ class RevisionReviewFormUI {
 		}
 		$oldFlags = $frev
 			? $frev->getTags() // existing tags
-			: FlaggedRevs::quickTags( FR_CHECKED ); // basic tags
+			: FlaggedRevs::quickTags();
 		$reviewTime = $frev ? $frev->getTimestamp() : ''; // last review of rev
 
 		$priorRevId = $this->refRevRecord ? $this->refRevRecord->getId() : 0;

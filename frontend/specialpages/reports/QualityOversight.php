@@ -93,11 +93,6 @@ class QualityOversight extends SpecialPage {
 			'<fieldset><legend>' . $this->msg( 'qualityoversight-legend' )->escaped() . '</legend><p>' .
 			Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBkey() ) .
 			FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&#160;' .
-			( FlaggedRevs::qualityVersions()
-				? FlaggedRevsXML::getLevelMenu( $this->level, 'revreview-filter-all', 1 ) .
-					'&#160;'
-				: ""
-			) .
 			Xml::inputLabel( $this->msg( 'specialloguserlabel' )->text(), 'user', 'user', 20,
 				$this->user ) .
 				'<br />' .

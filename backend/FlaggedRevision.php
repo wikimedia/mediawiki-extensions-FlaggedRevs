@@ -236,11 +236,10 @@ class FlaggedRevision {
 	 * @param Title $title page title
 	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
 	 * @param array $config optional page config (use to skip queries)
-	 * @param string $precedence (latest,quality)
 	 * @return self|null (null on failure)
 	 */
 	public static function determineStable(
-		Title $title, $flags = 0, $config = [], $precedence = 'latest'
+		Title $title, $flags = 0, $config = []
 	) {
 		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
 			return null; // short-circuit
@@ -278,34 +277,16 @@ class FlaggedRevision {
 		$options['ORDER BY'] = 'fr_rev_timestamp DESC';
 
 		$frQuery = self::getQueryInfo();
-		$row = null;
-		if ( $precedence !== 'latest' ) {
-			# Look for the latest quality revision...
-			if ( FlaggedRevs::qualityVersions() ) {
-				$qrow = $db->selectRow(
-					$frQuery['tables'],
-					$frQuery['fields'],
-					array_merge( $baseConds, [ 'fr_quality' => FR_QUALITY ] ),
-					__METHOD__,
-					$options,
-					$frQuery['joins']
-				);
-				$row = $qrow ?: $row;
-			}
-		}
-		# Do we have one? If not, try the latest reviewed revision...
+		$row = $db->selectRow(
+			$frQuery['tables'],
+			$frQuery['fields'],
+			$baseConds,
+			__METHOD__,
+			$options,
+			$frQuery['joins']
+		);
 		if ( !$row ) {
-			$row = $db->selectRow(
-				$frQuery['tables'],
-				$frQuery['fields'],
-				$baseConds,
-				__METHOD__,
-				$options,
-				$frQuery['joins']
-			);
-			if ( !$row ) {
-				return null;
-			}
+			return null;
 		}
 
 		return new self( $row, $title, $flags );
@@ -480,13 +461,6 @@ class FlaggedRevision {
 			return '';
 		}
 		return ContentHandler::getContentText( $content );
-	}
-
-	/**
-	 * @return int quality level (FR_CHECKED,FR_QUALITY)
-	 */
-	public function getQuality() {
-		return $this->mQuality;
 	}
 
 	/**

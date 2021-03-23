@@ -87,9 +87,6 @@ class UnreviewedPages extends SpecialPage {
 		if ( count( FlaggedRevs::getReviewNamespaces() ) > 1 ) {
 			$form .= FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&#160;';
 		}
-		if ( FlaggedRevs::qualityVersions() ) {
-			$form .= FlaggedRevsXML::getLevelMenu( $this->level, false, 1 ) . '&#160;';
-		}
 		$form .=
 			"<span style='white-space: nowrap;'>" .
 			Xml::label( $this->msg( 'unreviewedpages-category' )->text(), 'category' ) . '&#160;' .

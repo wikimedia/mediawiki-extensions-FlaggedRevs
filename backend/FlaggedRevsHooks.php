@@ -28,7 +28,6 @@ class FlaggedRevsHooks {
 
 		# Review tier constants...
 		define( 'FR_CHECKED', 0 ); // "basic"/"checked"
-		define( 'FR_QUALITY', 1 );
 
 		# Inclusion (templates/files) settings
 		define( 'FR_INCLUDES_CURRENT', 0 );

@@ -33,7 +33,7 @@ class FlaggedRevsLog {
 					wfMessage( "revreview-$quality-$level" )->inContentLanguage()->text();
 			}
 		}
-		$isAuto = ( $auto && !FlaggedRevs::isQuality( $dims ) ); // Paranoid check
+		$isAuto = ( $auto ); // Paranoid check
 		// Approved revisions
 		if ( $approve ) {
 			# Make comma-separated list of ratings
@@ -45,8 +45,7 @@ class FlaggedRevsLog {
 				$comment .= $comment ? " $rating" : $rating;
 			}
 			# Sort into the proper action (useful for filtering)
-			$action = ( FlaggedRevs::isQuality( $dims ) || FlaggedRevs::isQuality( $oldDims ) ) ?
-				'approve2' : 'approve';
+			$action = 'approve';
 			if ( !$stableId ) { // first time
 				$action .= $isAuto ? "-ia" : "-i";
 			} elseif ( $isAuto ) { // automatic
@@ -54,8 +53,7 @@ class FlaggedRevsLog {
 			}
 		// De-approved revisions
 		} else {
-			$action = FlaggedRevs::isQuality( $oldDims ) ?
-				'unapprove2' : 'unapprove';
+			$action = 'unapprove';
 		}
 		$ts = MediaWikiServices::getInstance()
 			->getRevisionLookup()
