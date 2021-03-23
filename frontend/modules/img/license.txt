@@ -1,2 +1,0 @@
-All the images are originated in the OOUI library and licensed under MIT.
-See https://www.mediawiki.org/wiki/OOUI.

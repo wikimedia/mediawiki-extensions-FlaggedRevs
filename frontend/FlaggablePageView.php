@@ -287,13 +287,6 @@ class FlaggablePageView extends ContextSource {
 				$flags = $frev->getTags();
 				$msg = 'revreview-basic-source';
 				$tag = $this->msg( $msg, $frev->getRevId(), $time )->parse();
-				# Hide clutter
-				if ( !$this->useSimpleUI() && !empty( $flags ) ) {
-					$tag .= FlaggedRevsXML::ratingToggle() .
-						"<div id='mw-fr-revisiondetails'>" .
-						$this->msg( 'revreview-oldrating' )->escaped() .
-						FlaggedRevsXML::addTagRatings( $flags ) . '</div>';
-				}
 				$css = 'flaggedrevs_notice plainlinks noprint';
 				$tag = "<div id='mw-fr-revisiontag-old' class='$css'>$tag</div>";
 				$this->out->addHTML( $tag );
@@ -626,13 +619,6 @@ class FlaggablePageView extends ContextSource {
 				$msg = 'revreview-basic-old';
 				$tag = $prot . $icon;
 				$tag .= $this->msg( $msg, $frev->getRevId(), $time )->parse();
-				# Hide clutter
-				if ( !empty( $flags ) ) {
-					$tag .= FlaggedRevsXML::ratingToggle();
-					$tag .= "<div id='mw-fr-revisiondetails'>" .
-						$this->msg( 'revreview-oldrating' )->escaped() .
-						FlaggedRevsXML::addTagRatings( $flags ) . '</div>';
-				}
 			}
 		}
 
@@ -707,11 +693,6 @@ class FlaggablePageView extends ContextSource {
 				$tag = $prot . $icon;
 				$tag .= $this->msg( $msg, $srev->getRevId(), $time )
 					->numParams( $revsSince )->parse();
-				if ( !empty( $flags ) ) {
-					$tag .= FlaggedRevsXML::ratingToggle();
-					$tag .= "<div id='mw-fr-revisiondetails'>" .
-						FlaggedRevsXML::addTagRatings( $flags ) . '</div>';
-				}
 			}
 		}
 

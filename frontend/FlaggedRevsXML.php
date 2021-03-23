@@ -170,25 +170,23 @@ class FlaggedRevsXML {
 
 	/**
 	 * @param int[] $flags
-	 * @param bool $prettyBox
 	 * @param string $css class to wrap box in
 	 * @return string
 	 * Generates a review box/tag
 	 */
-	public static function addTagRatings( $flags, $prettyBox = false, $css = '' ) {
+	public static function addTagRatings( $flags, $css = '' ) {
 		$tag = '';
-		if ( $prettyBox ) {
-			$tag .= Html::openElement(
-				'table',
-				[
-					'id' => 'mw-fr-revisionratings-box',
-					'style' => 'margin: auto;',
-					'class' => $css,
-					'cellpadding' => '0',
-				]
-			);
-		}
+		$tag .= Html::openElement(
+			'table',
+			[
+				'id' => 'mw-fr-revisionratings-box',
+				'style' => 'margin: auto;',
+				'class' => $css,
+				'cellpadding' => '0',
+			]
+		);
 		$quality = FlaggedRevs::getTagName();
+
 		if ( !FlaggedRevs::useOnlyIfProtected() ) {
 			// Give grep a chance to find the usages:
 			// revreview-accuracy-0, revreview-accuracy-1, revreview-accuracy-2,
@@ -198,23 +196,12 @@ class FlaggedRevsXML {
 			$level = $flags[$quality];
 
 			$levelmarker = $level * 20 + 20;
-			if ( $prettyBox ) {
-				// Give grep a chance to find the usages:
-				// revreview-accuracy
-				$tag .= "<tr><td class='fr-text' style='vertical-align: middle;'>" .
-					wfMessage( "revreview-$quality" )->escaped() .
-					"</td><td class='fr-value$levelmarker' style='vertical-align: middle;'>" .
-					$encValueText . "</td></tr>\n";
-			} else {
-				// Give grep a chance to find the usages:
-				// revreview-accuracy
-				$tag .= "&#160;<span class='fr-marker-$levelmarker'><strong>" .
-					wfMessage( "revreview-$quality" )->escaped() .
-					"</strong>: <span class='fr-text-value'>$encValueText&#160;</span>&#160;" .
-					"</span>\n";
-			}
-		}
-		if ( $prettyBox ) {
+			// Give grep a chance to find the usages:
+			// revreview-accuracy
+			$tag .= "<tr><td class='fr-text' style='vertical-align: middle;'>" .
+				wfMessage( "revreview-$quality" )->escaped() .
+				"</td><td class='fr-value$levelmarker' style='vertical-align: middle;'>" .
+				$encValueText . "</td></tr>\n";
 			$tag .= Html::closeElement( 'table' );
 		}
 		return $tag;
@@ -274,7 +261,7 @@ class FlaggedRevsXML {
 		if ( $flags && !FlaggedRevs::binaryFlagging() ) {
 			# Don't show the ratings on draft views
 			if ( $type == 'stable' || $type == 'oldstable' ) {
-				$box .= '<p>' . self::addTagRatings( $flags, true, $color ) . '</p>';
+				$box .= '<p>' . self::addTagRatings( $flags, $color ) . '</p>';
 			}
 		}
 		$box .= Xml::closeElement( 'div' ) . "\n";
@@ -295,23 +282,6 @@ class FlaggedRevsXML {
 				'title' => wfMessage( 'revreview-toggle-title' )->text(),
 			]
 		) )->toString();
-	}
-
-	/**
-	 * Generates (+/-) JS toggle HTML (monospace to keep things in place)
-	 * @return string
-	 */
-	public static function ratingToggle() {
-		return Html::rawElement(
-			'a',
-			[
-				'id' => 'mw-fr-revisiontoggle',
-				'class' => 'fr-toggle-symbol',
-				'style' => 'display:none;',
-				'title' => wfMessage( 'revreview-toggle-title' )->text(),
-			],
-			wfMessage( 'revreview-toggle-show' )->escaped()
-		);
 	}
 
 	/**

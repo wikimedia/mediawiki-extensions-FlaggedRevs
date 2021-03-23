@@ -21,28 +21,6 @@
 	}
 
 	/**
-	 * Toggles flag info box details for (+/-) control
-	 *
-	 * @this {jQuery}
-	 */
-	function toggleBoxDetails() {
-		var $toggle = $( '#mw-fr-revisiontoggle' ),
-			$ratings = $( '#mw-fr-revisiondetails' );
-
-		if ( $toggle.length && $ratings.length ) {
-			// Collapsed -> expand
-			if ( $ratings.css( 'display' ) === 'none' ) {
-				showBoxDetails();
-				$toggle.text( mw.msg( 'revreview-toggle-hide' ) );
-			// Expanded -> collapse
-			} else {
-				hideBoxDetails();
-				$toggle.text( mw.msg( 'revreview-toggle-show' ) );
-			}
-		}
-	}
-
-	/**
 	 * Checks if mouseOut event is for a child of parentId
 	 *
 	 * @param {jQuery.Event} e
@@ -192,9 +170,6 @@
 		if ( $toggle.length ) {
 			hideBoxDetails(); // hide the initially displayed ratings
 		}
-
-		// Bar UI: Toggle the box when the toggle is clicked
-		$( '.fr-toggle-symbol#mw-fr-revisiontoggle' ).on( 'click', toggleBoxDetails );
 
 		// Simple UI: Show the box on mouseOver
 		$( '.fr-toggle-arrow#mw-fr-revisiontoggle' ).on( 'mouseover', onBoxMouseOver );

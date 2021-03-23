@@ -88,31 +88,6 @@ div.flaggedrevs_notes {
 	padding-bottom: 3px;
 }
 
-.fr-marker-20 {
-	/* @embed */
-	background-image: url( img/bar_20.png );
-}
-
-.fr-marker-40 {
-	/* @embed */
-	background-image: url( img/bar_40.png );
-}
-
-.fr-marker-60 {
-	/* @embed */
-	background-image: url( img/bar_60.png );
-}
-
-.fr-marker-80 {
-	/* @embed */
-	background-image: url( img/bar_80.png );
-}
-
-.fr-marker-100 {
-	/* @embed */
-	background-image: url( img/bar_100.png );
-}
-
 /* Short User Interface */
 div.flaggedrevs_short {
 	border: 1px solid #c8ccd1;
@@ -184,31 +159,6 @@ div.flaggedrevs_short_details {
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	text-align: center;
-}
-
-.fr-value20 {
-	/* @embed */
-	background-image: url( img/fr-marker-20.png );
-}
-
-.fr-value40 {
-	/* @embed */
-	background-image: url( img/fr-marker-40.png );
-}
-
-.fr-value60 {
-	/* @embed */
-	background-image: url( img/fr-marker-60.png );
-}
-
-.fr-value80 {
-	/* @embed */
-	background-image: url( img/fr-marker-80.png );
-}
-
-.fr-value100 {
-	/* @embed */
-	background-image: url( img/fr-marker-100.png );
 }
 
 /* Both User Interfaces */
