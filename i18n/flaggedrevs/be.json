@@ -169,7 +169,7 @@
 	"tooltip-ca-current": "Праглядзець старонку з недагледжанымі зменамі.",
 	"tooltip-ca-stable": "Паказаць апублікаваную версію старонкі",
 	"tooltip-ca-default": "Наладкі кантролю якасці",
-	"flaggedrevs-protect-legend": "Аўтаматычная праверка праўкі ([[{{MediaWiki:Validationpage}}|даведка]])",
+	"flaggedrevs-protect-legend": "Аўтаматычны догляд праўкі",
 	"flaggedrevs-protect-none": "Дазволена ўсім удзельнікам",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Неправераныя старонкі]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Старонкі з неправеранымі зменамі]",
 	"revreview-locked-title": "Праўкі старонкі патрабуюць праверкі.",
