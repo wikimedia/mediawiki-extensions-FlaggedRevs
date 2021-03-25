@@ -78,9 +78,12 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 		);
 		$this->addWhere( 'fp_page_id IS NULL OR
 			fp_quality < ' . intval( $params['filterlevel'] ) );
+
+		$pageIndex = $this->getDB()->indexExists( 'page', 'name_title', __METHOD__ )
+			? 'name_title' : 'page_name_title';
 		$this->addOption(
 			'USE INDEX',
-			[ 'page' => 'name_title', 'flaggedpages' => 'PRIMARY' ]
+			[ 'page' => $pageIndex, 'flaggedpages' => 'PRIMARY' ]
 		);
 
 		if ( $resultPageSet === null ) {
