@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\User\UserIdentity;
+
 /**
  * Class containing utility functions for per-user stats
  */
@@ -23,11 +25,12 @@ class FRUserCounters {
 
 	/**
 	 * Get params for a user
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @return array|null
+	 * @suppress PhanUndeclaredProperty
 	 */
-	public static function getParams( User $user ) {
-		if ( $user->getId() ) {
+	public static function getParams( UserIdentity $user ) {
+		if ( $user->isRegistered() ) {
 			if ( !isset( $user->fr_user_params ) ) { // process cache...
 				$user->fr_user_params = self::getUserParams( $user->getId() );
 			}
@@ -100,9 +103,9 @@ class FRUserCounters {
 	}
 
 	/**
-	 * @param User $user
+	 * @param UserIdentity $user
 	 */
-	public static function deleteUserParams( User $user ) {
+	public static function deleteUserParams( UserIdentity $user ) {
 		$dbw = wfGetDB( DB_PRIMARY );
 		$dbw->delete(
 			'flaggedrevs_promote',
@@ -112,10 +115,10 @@ class FRUserCounters {
 	}
 
 	/**
-	 * @param User $oldUser
-	 * @param User $newUser
+	 * @param UserIdentity $oldUser
+	 * @param UserIdentity $newUser
 	 */
-	public static function mergeUserParams( User $oldUser, User $newUser ) {
+	public static function mergeUserParams( UserIdentity $oldUser, UserIdentity $newUser ) {
 		$oldParams = self::getUserParams( $oldUser->getId(), FR_MASTER );
 		$newParams = self::getUserParams( $newUser->getId(), FR_MASTER );
 		$newParams['uniqueContentPages'] = array_unique( array_merge(

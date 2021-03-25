@@ -198,7 +198,7 @@ class FlaggablePageView extends ContextSource {
 		if ( $preference === FR_SHOW_STABLE_ALWAYS || $preference === FR_SHOW_STABLE_NEVER ) {
 			return $preference;
 		}
-		if ( $user->getId() ) {
+		if ( $user->isRegistered() ) {
 			return FR_SHOW_STABLE_NEVER;
 		}
 		return FR_SHOW_STABLE_DEFAULT;
@@ -274,23 +274,27 @@ class FlaggablePageView extends ContextSource {
 	public function addStableLink() {
 		$request = $this->getRequest();
 		$this->load();
-		if ( !$this->article->isReviewable() || !$request->getVal( 'oldid' ) ) {
+		if ( !$this->article->isReviewable() ||
+			!$request->getVal( 'oldid' ) ||
+			$this->out->isPrintable()
+		) {
 			return;
 		}
-		if ( !$this->out->isPrintable() ) {
-			# We may have nav links like "direction=prev&oldid=x"
-			$revID = $this->getOldIDFromRequest();
-			$frev = FlaggedRevision::newFromTitle( $this->article->getTitle(), $revID );
-			# Give a notice if this rev ID corresponds to a reviewed version...
-			if ( $frev ) {
-				$time = $this->getLanguage()->date( $frev->getTimestamp(), true );
-				$msg = 'revreview-basic-source';
-				$tag = $this->msg( $msg, $frev->getRevId(), $time )->parse();
-				$css = 'flaggedrevs_notice plainlinks noprint';
-				$tag = "<div id='mw-fr-revisiontag-old' class='$css'>$tag</div>";
-				$this->out->addHTML( $tag );
-			}
+
+		# We may have nav links like "direction=prev&oldid=x"
+		$revID = $this->getOldIDFromRequest();
+		$frev = FlaggedRevision::newFromTitle( $this->article->getTitle(), $revID );
+		if ( !$frev ) {
+			return;
 		}
+
+		# Give a notice if this rev ID corresponds to a reviewed version...
+		$time = $this->getLanguage()->date( $frev->getTimestamp(), true );
+		$msg = 'revreview-basic-source';
+		$tag = $this->msg( $msg, $frev->getRevId(), $time )->parse();
+		$css = 'flaggedrevs_notice plainlinks noprint';
+		$tag = "<div id='mw-fr-revisiontag-old' class='$css'>$tag</div>";
+		$this->out->addHTML( $tag );
 	}
 
 	/**
@@ -454,14 +458,8 @@ class FlaggablePageView extends ContextSource {
 			return; // all this function does is add notices; don't show them
 		}
 		$this->enableOOUI();
-		$icon = FlaggedRevsXML::draftStatusIcon();
-		// Simple icon-based UI
-		if ( $this->useSimpleUI() ) {
-			$tag .= $prot . $icon . $this->msg( 'revreview-quick-none' )->parse();
-		// Standard UI
-		} else {
-			$tag .= $prot . $icon . $this->msg( 'revreview-noflagged' )->parse();
-		}
+		$msg = $this->useSimpleUI() ? 'revreview-quick-none' : 'revreview-noflagged';
+		$tag .= $prot . FlaggedRevsXML::draftStatusIcon() . $this->msg( $msg )->parse();
 	}
 
 	/**
@@ -531,7 +529,7 @@ class FlaggablePageView extends ContextSource {
 			$revsSince = $this->article->getPendingRevCount();
 			// Simple icon-based UI
 			if ( $this->useSimpleUI() ) {
-				if ( !$reqUser->getId() ) {
+				if ( !$reqUser->isRegistered() ) {
 					$msgHTML = ''; // Anons just see simple icons
 				} elseif ( $synced ) {
 					$msg = 'revreview-quick-basic-same';
@@ -600,7 +598,7 @@ class FlaggablePageView extends ContextSource {
 					$icon = FlaggedRevsXML::stableStatusIcon();
 				}
 				$revsSince = $this->article->getPendingRevCount();
-				if ( !$reqUser->getId() ) {
+				if ( !$reqUser->isRegistered() ) {
 					$msgHTML = ''; // Anons just see simple icons
 				} else {
 					$msg = 'revreview-quick-basic-old';
@@ -661,7 +659,7 @@ class FlaggablePageView extends ContextSource {
 					$icon = FlaggedRevsXML::stableStatusIcon();
 					$this->enableOOUI();
 				}
-				if ( !$reqUser->getId() ) {
+				if ( !$reqUser->isRegistered() ) {
 					$msgHTML = ''; // Anons just see simple icons
 				} else {
 					$msg = 'revreview-quick-basic';
@@ -783,18 +781,15 @@ class FlaggablePageView extends ContextSource {
 	 * @return bool
 	 */
 	private function showRatingIcon() {
-		if ( FlaggedRevs::useOnlyIfProtected() ) {
-			// If there is only one quality level and we have tabs to know
-			// which version we are looking at, then just use the lock icon...
-			return false;
-		}
-		return true;
+		// If there is only one quality level and we have tabs to know which version we are looking
+		// at, then just use the lock icon...
+		return !FlaggedRevs::useOnlyIfProtected();
 	}
 
 	/**
 	 * Get collapsible diff-to-stable html to add to the review notice as needed
 	 * @param FlaggedRevision $srev stable version
-	 * @return string the html line (either "" or "<diff toggle><diff div>")
+	 * @return string|false the html line (either "" or "<diff toggle><diff div>")
 	 */
 	private function getTopDiffToggle( FlaggedRevision $srev ) {
 		$reqUser = $this->getUser();

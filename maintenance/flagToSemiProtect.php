@@ -35,7 +35,7 @@ class FlagProtectToSemiProtect extends Maintenance {
 		}
 
 		$user = User::newFromName( $this->getOption( 'user' ) );
-		if ( !$user || !$user->getId() ) {
+		if ( !$user || !$user->isRegistered() ) {
 			$this->fatalError( "Invalid user specified!" );
 		}
 		$reason = $this->getOption( 'reason',

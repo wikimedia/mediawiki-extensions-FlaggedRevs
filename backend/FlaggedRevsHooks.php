@@ -1474,8 +1474,7 @@ class FlaggedRevsHooks {
 	 * @param User $newUser
 	 */
 	public static function onMergeAccountFromTo( User $oldUser, User $newUser ) {
-		// Don't merge into anonymous users...
-		if ( $newUser->getId() !== 0 ) {
+		if ( $newUser->isRegistered() ) {
 			FRUserCounters::mergeUserParams( $oldUser, $newUser );
 		}
 	}
