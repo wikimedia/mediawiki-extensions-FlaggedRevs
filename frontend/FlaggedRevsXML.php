@@ -149,18 +149,17 @@ class FlaggedRevsXML {
 
 	/**
 	 * @param int[] $flags
-	 * @param string $css class to wrap box in
 	 * @return string
 	 * Generates a review box/tag
 	 */
-	public static function addTagRatings( $flags, $css = '' ) {
+	public static function addTagRatings( $flags ) {
 		$tag = '';
 		$tag .= Html::openElement(
 			'table',
 			[
 				'id' => 'mw-fr-revisionratings-box',
 				'style' => 'margin: auto;',
-				'class' => $css,
+				'class' => 'flaggedrevs-color-1',
 				'cellpadding' => '0',
 			]
 		);
@@ -201,8 +200,6 @@ class FlaggedRevsXML {
 		global $wgLang;
 		$flags = $frev->getTags();
 		$time = $wgLang->date( $frev->getTimestamp(), true );
-		# Some checks for which tag CSS to use
-		$color = 'flaggedrevs-color-1';
 		# Construct some tagging
 		if ( $synced && ( $type == 'stable' || $type == 'draft' ) ) {
 			$msg = 'revreview-basic-same';
@@ -240,7 +237,7 @@ class FlaggedRevsXML {
 		if ( $flags && !FlaggedRevs::binaryFlagging() ) {
 			# Don't show the ratings on draft views
 			if ( $type == 'stable' || $type == 'oldstable' ) {
-				$box .= '<p>' . self::addTagRatings( $flags, $color ) . '</p>';
+				$box .= '<p>' . self::addTagRatings( $flags ) . '</p>';
 			}
 		}
 		$box .= Xml::closeElement( 'div' ) . "\n";

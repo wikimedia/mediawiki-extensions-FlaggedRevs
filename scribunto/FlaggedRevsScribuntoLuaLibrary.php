@@ -20,15 +20,8 @@ class FlaggedRevsScribuntoLuaLibrary extends Scribunto_LuaLibraryBase {
 		$this->checkTypeOptional(
 			'mw.ext.FlaggedRevs.getStabilitySettings', 1, $pagename, 'string', null
 		);
-		if ( $pagename ) {
-			$title = Title::newFromText( $pagename );
-			if ( !( $title instanceof Title ) ) {
-				return [ null ];
-			}
-		} else {
-			$title = $this->getTitle();
-		}
-		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
+		$title = $pagename !== null ? Title::newFromText( $pagename ) : $this->getTitle();
+		if ( !$title || !FlaggedRevs::inReviewNamespace( $title ) ) {
 			return [ null ];
 		}
 		$page = FlaggableWikiPage::getTitleInstance( $title );

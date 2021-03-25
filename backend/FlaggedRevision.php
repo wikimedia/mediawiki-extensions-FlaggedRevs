@@ -770,11 +770,9 @@ class FlaggedRevision {
 	private function fileTimestampUsed( $stableTS, $reviewedTS ) {
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
 			# Select newest of (stable rev, rev when reviewed) as "version used"
-			$usedTS = max( $stableTS, $reviewedTS );
-		} else {
-			$usedTS = $reviewedTS;
+			return max( $stableTS, $reviewedTS );
 		}
-		return $usedTS;
+		return $reviewedTS;
 	}
 
 	private function fileChanged( $title, $usedTS, $noForeign ) {

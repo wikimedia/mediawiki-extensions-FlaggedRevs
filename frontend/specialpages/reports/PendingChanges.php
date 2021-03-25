@@ -233,35 +233,35 @@ class PendingChanges extends SpecialPage {
 	 */
 	private function feedItem( $row ) {
 		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
-		if ( $title ) {
-			$date = $row->pending_since;
-			$comments = $title->getTalkPage()->getFullURL();
-			$curRevRecord = MediaWikiServices::getInstance()
-				->getRevisionLookup()
-				->getRevisionByTitle( $title );
-			$currentComment = $curRevRecord->getComment() ?
-				$curRevRecord->getComment()->text :
-				'';
-			$currentUserText = $curRevRecord->getUser() ?
-				$curRevRecord->getUser()->getName() :
-				'';
-			return new FeedItem(
-				$title->getPrefixedText(),
-				FeedUtils::formatDiffRow(
-					$title,
-					$row->stable,
-					$curRevRecord->getId(),
-					$row->pending_since,
-					$currentComment
-				),
-				$title->getFullURL(),
-				$date,
-				$currentUserText,
-				$comments
-			);
-		} else {
+		if ( !$title ) {
 			return null;
 		}
+
+		$date = $row->pending_since;
+		$comments = $title->getTalkPage()->getFullURL();
+		$curRevRecord = MediaWikiServices::getInstance()
+			->getRevisionLookup()
+			->getRevisionByTitle( $title );
+		$currentComment = $curRevRecord->getComment() ?
+			$curRevRecord->getComment()->text :
+			'';
+		$currentUserText = $curRevRecord->getUser() ?
+			$curRevRecord->getUser()->getName() :
+			'';
+		return new FeedItem(
+			$title->getPrefixedText(),
+			FeedUtils::formatDiffRow(
+				$title,
+				$row->stable,
+				$curRevRecord->getId(),
+				$row->pending_since,
+				$currentComment
+			),
+			$title->getFullURL(),
+			$date,
+			$currentUserText,
+			$comments
+		);
 	}
 
 	/**

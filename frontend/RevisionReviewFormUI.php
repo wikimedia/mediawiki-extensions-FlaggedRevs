@@ -325,9 +325,8 @@ class RevisionReviewFormUI {
 				$numLevels = count( $levels );
 				$minLevel = $minLevels[$quality];
 				# Determine the level selected by default
-				if ( !empty( $flags[$quality] ) && isset( $levels[$flags[$quality]] ) ) {
-					$selected = $flags[$quality]; // valid non-zero value
-				} else {
+				$selected = $flags[$quality] ?? 0;
+				if ( !$selected || !isset( $levels[$selected] ) ) {
 					$selected = $minLevel;
 				}
 				# Show label as needed

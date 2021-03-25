@@ -31,12 +31,9 @@ class ConfiguredPagesPager extends AlphabeticPager {
 		$this->mConds = $conds;
 		# Must be content pages...
 		$validNS = FlaggedRevs::getReviewNamespaces();
-		if ( is_int( $namespace ) ) {
-			if ( !in_array( $namespace, $validNS ) ) {
-				$namespace = $validNS; // fallback to "all"
-			}
-		} else {
-			$namespace = $validNS; // "all"
+		if ( !is_int( $namespace ) || !in_array( $namespace, $validNS ) ) {
+			// Fallback to "all"
+			$namespace = $validNS;
 		}
 		$this->namespace = $namespace;
 		if ( !is_int( $override ) ) {

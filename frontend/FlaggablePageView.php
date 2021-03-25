@@ -726,22 +726,20 @@ class FlaggablePageView extends ContextSource {
 			}
 		}
 
-		# Add the parser output to the page view
-		if ( $parserOut instanceof ParserOutput ) {
-			$pm = MediaWikiServices::getInstance()->getPermissionManager();
-			$poOptions = [];
-			if (
-				$this->out->isPrintable() ||
-				!$pm->quickUserCan( 'edit', $reqUser, $this->article->getTitle() )
-			) {
-				$poOptions['enableSectionEditLinks'] = false;
-			}
-			$this->out->addParserOutput( $parserOut, $poOptions );
-		} else {
+		if ( !$parserOut ) {
 			$this->showMissingRevError( $srev->getRevId() );
-
 			return null;
 		}
+
+		# Add the parser output to the page view
+		$pm = MediaWikiServices::getInstance()->getPermissionManager();
+		$poOptions = [];
+		if ( $this->out->isPrintable() ||
+			!$pm->quickUserCan( 'edit', $reqUser, $this->article->getTitle() )
+		) {
+			$poOptions['enableSectionEditLinks'] = false;
+		}
+		$this->out->addParserOutput( $parserOut, $poOptions );
 
 		# Update page sync status for tracking purposes.
 		# NOTE: avoids master hits and doesn't have to be perfect for what it does
