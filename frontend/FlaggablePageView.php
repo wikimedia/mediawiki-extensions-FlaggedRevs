@@ -319,7 +319,7 @@ class FlaggablePageView extends ContextSource {
 	 * Replaces a page with the last stable version if possible
 	 * Adds stable version status/info tags and notes
 	 * Adds a quick review form on the bottom if needed
-	 * @param bool &$outputDone
+	 * @param bool|ParserOutput|null &$outputDone
 	 * @param bool &$useParserCache
 	 */
 	public function setPageContent( &$outputDone, &$useParserCache ) {
