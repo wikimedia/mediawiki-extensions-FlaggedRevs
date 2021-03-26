@@ -50,7 +50,9 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	private $skipValidationKey = false;
 
 	protected function initialize() {
-		$this->dims[FlaggedRevs::getTagName()] = 0; // default to "inadequate"
+		if ( FlaggedRevs::useOnlyIfProtected() ) {
+			$this->dims[FlaggedRevs::getTagName()] = 0; // default to "inadequate"
+		}
 	}
 
 	/**
@@ -177,7 +179,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * @param int $value
 	 */
 	public function setDim( $tag, $value ) {
-		if ( $tag !== FlaggedRevs::getTagName() ) {
+		if ( $tag !== FlaggedRevs::getTagName() || FlaggedRevs::useOnlyIfProtected() ) {
 			throw new Exception( "FlaggedRevs tag $tag does not exist.\n" );
 		}
 		$this->trySet( $this->dims[$tag], (int)$value );
