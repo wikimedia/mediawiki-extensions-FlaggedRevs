@@ -365,6 +365,9 @@ class FlaggedRevs {
 	 * @return bool
 	 */
 	public static function flagsAreValid( array $flags ) {
+		if ( self::useOnlyIfProtected() ) {
+			return true;
+		}
 		$tag = self::getTagName();
 		if ( !isset( $flags[$tag] ) || !self::tagIsValid( $tag, $flags[$tag] ) ) {
 			return false;
@@ -418,6 +421,10 @@ class FlaggedRevs {
 		) {
 			return false; // User is not able to review pages
 		}
+		if ( self::useOnlyIfProtected() ) {
+			return true;
+		}
+
 		$qal = self::getTagName();
 		if ( !isset( $flags[$qal] ) ) {
 			return false; // unspecified
@@ -840,6 +847,9 @@ class FlaggedRevs {
 			return null; // shouldn't happen
 		}
 		$flags = [];
+		if ( self::useOnlyIfProtected() ) {
+			return $flags;
+		}
 		$tag = self::getTagName();
 		# Try to keep this tag val the same as the stable rev's
 		$val = $oldFlags[$tag] ?? 1;

@@ -68,11 +68,13 @@ class ApiReview extends ApiBase {
 		}
 		// The flagging parameters have the form 'flag_$name'.
 		// Extract them and put the values into $form->dims
-		$tag = FlaggedRevs::getTagName();
-		if ( FlaggedRevs::binaryFlagging() ) {
-			$form->setDim( $tag, 1 );
-		} else {
-			$form->setDim( $tag, (int)$params['flag_' . $tag] );
+		if ( !FlaggedRevs::useOnlyIfProtected() ) {
+			$tag = FlaggedRevs::getTagName();
+			if ( FlaggedRevs::binaryFlagging() ) {
+				$form->setDim( $tag, 1 );
+			} else {
+				$form->setDim( $tag, (int)$params['flag_' . $tag] );
+			}
 		}
 		if ( $form->getAction() === 'approve' ) {
 			$article = new FlaggableWikiPage( $title );
@@ -159,7 +161,7 @@ class ApiReview extends ApiBase {
 			'comment' => null,
 			'unapprove' => false
 		];
-		if ( !FlaggedRevs::binaryFlagging() ) {
+		if ( !FlaggedRevs::binaryFlagging() && !FlaggedRevs::useOnlyIfProtected() ) {
 			$strLevels = array_map( 'strval', array_keys( FlaggedRevs::getLevels() ) );
 			$pars['flag_' . FlaggedRevs::getTagName()] = [
 				ParamValidator::PARAM_DEFAULT => '1', // default

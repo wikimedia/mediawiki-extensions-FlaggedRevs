@@ -311,11 +311,13 @@ class RevisionReviewFormUI {
 		$items = [];
 		# Build rating form...
 		if ( $disabled ) {
-			// Display the value for each tag as text
-			$quality = FlaggedRevs::getTagName();
-			$selected = $flags[$quality] ?? 0;
-			$items[] = FlaggedRevs::getTagMsg( $quality )->escaped() . ": " .
-				FlaggedRevs::getTagValueMsg( $quality, $selected );
+			if ( !FlaggedRevs::useOnlyIfProtected() ) {
+				// Display the value for each tag as text
+				$quality = FlaggedRevs::getTagName();
+				$selected = $flags[$quality] ?? 0;
+				$items[] = FlaggedRevs::getTagMsg( $quality )->escaped() . ": " .
+					FlaggedRevs::getTagValueMsg( $quality, $selected );
+			}
 		} else {
 			$size = count( $labels, 1 ) - count( $labels );
 			foreach ( $labels as $quality => $levels ) {
@@ -373,6 +375,9 @@ class RevisionReviewFormUI {
 	private function ratingFormTags( $user, $selected ) {
 		$labels = [];
 		$minLevels = [];
+		if ( FlaggedRevs::useOnlyIfProtected() ) {
+			return [ $labels, $minLevels ];
+		}
 		$tag = FlaggedRevs::getTagName();
 		$levels = FlaggedRevs::getLevels();
 		if ( isset( $selected[$tag] ) &&
