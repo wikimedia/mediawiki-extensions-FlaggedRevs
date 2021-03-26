@@ -932,7 +932,9 @@ class FlaggedRevision {
 	 */
 	public static function expandRevisionTags( $tags ) {
 		$flags = [];
-		$flags[FlaggedRevs::getTagName()] = 0;
+		if ( !FlaggedRevs::useOnlyIfProtected() ) {
+			$flags[FlaggedRevs::getTagName()] = 0;
+		}
 		$tags = str_replace( '\n', "\n", $tags ); // B/C, old broken rows
 		// Tag string format is <tag:val\ntag:val\n...>
 		$tags = explode( "\n", $tags );
