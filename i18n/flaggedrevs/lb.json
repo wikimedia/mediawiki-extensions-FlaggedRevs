@@ -119,7 +119,7 @@
 	"revreview-visibility-nostable": "'''Dës Säit huet keng [[{{MediaWiki:Validationpage}}|publizéiert Versioun]]; d'Astellunge vun der Säitestabilitéit kënnen  [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} agestallt] ginn.'''",
 	"revreview-revnotfound": "Déi Versioun vun der Säit déi Dir gefrot hutt konnt net fonnt ginn. Kuckt d'URL no, déi Dir benotzt hutt fir op dës Säit ze kommen.",
 	"right-autoreview": "Versiounen automatesch als \"nogekuckt\" markéieren",
-	"right-autoreviewrestore": "Automatesch nokucke beim zrécksetzen",
+	"right-autoreviewrestore": "Automatesch nokucke beim Zrécksetzen",
 	"right-movestable": "Publizéiert Säite réckelen",
 	"right-review": "Versiounen als \"nogekuckt\" markéieren",
 	"right-stablesettings": "Astelle wéi eng publizéiert Versioun erausgesicht an ugewise gëtt",
