@@ -154,7 +154,7 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 				ApiBase::PARAM_TYPE => [ 'ascending', 'descending' ],
 			],
 			'namespace' => [
-				ApiBase::PARAM_DFLT => !$namespaces ? NS_MAIN : $namespaces[0],
+				ApiBase::PARAM_DFLT => $namespaces[0] ?? NS_MAIN,
 				ApiBase::PARAM_TYPE => 'namespace',
 				ApiBase::PARAM_ISMULTI => true,
 			],

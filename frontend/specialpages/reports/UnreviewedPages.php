@@ -46,9 +46,7 @@ class UnreviewedPages extends SpecialPage {
 
 		# Get default namespace
 		$namespaces = FlaggedRevs::getReviewNamespaces();
-		$defaultNS = !$namespaces ? NS_MAIN : $namespaces[0];
-
-		$this->namespace = $request->getInt( 'namespace', $defaultNS );
+		$this->namespace = $request->getInt( 'namespace', $namespaces[0] ?? NS_MAIN );
 		$category = trim( $request->getVal( 'category' ) );
 		$catTitle = Title::makeTitleSafe( NS_CATEGORY, $category );
 		$this->category = $catTitle === null ? '' : $catTitle->getText();
