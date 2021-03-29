@@ -10,6 +10,7 @@
 			"আফতাবুজ্জামান"
 		]
 	},
+	"action-autoreviewrestore": "রোলব্যাকের ক্ষেত্রে স্বয়ংক্রিয় পর্যালোচনা করার",
 	"action-review": "সংশোধন পর্যালোচনা",
 	"editor": "সম্পাদক",
 	"flaggedrevs": "চিহ্নিত সংশোধনসমূহ",
@@ -148,7 +149,7 @@
 	"tooltip-ca-current": "অমীমাংসিত পরিবর্তনসহ এই পাতাটি দেখুন",
 	"tooltip-ca-stable": "এই পাতার স্থিতিশীল সংস্করণটি দেখুন",
 	"tooltip-ca-default": "মান নিশ্চিতকরণ সেটিংস",
-	"flaggedrevs-protect-legend": "পরিবর্তন স্বয়ংক্রিয়ভাবে পর্যালোচিত ([[{{MediaWiki:Validationpage}}|সাহায্য]])",
+	"flaggedrevs-protect-legend": "সম্পাদনার স্বয়ংক্রিয় পর্যালোচনা",
 	"flaggedrevs-protect-none": "সমস্ত ব্যবহারকারীর জন্য",
 	"flaggedrevs-protect-sysop": "শুধুমাত্র প্রশাসকদের জন্য অনুমোদিত",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} অপর্যালোচিত পাতা]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} অমীমাংসিত পরিবর্তন]",
