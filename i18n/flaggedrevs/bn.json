@@ -50,7 +50,7 @@
 	"logentry-stable-move_stable": "$1 $4 থেকে $3-এ স্থিতিশীল সংস্করণের সেটিং {{GENDER:$2|সরিয়েছেন}}",
 	"revreview-hist-draft": "অপরীক্ষিত সংশোধন",
 	"revreview-hist-pending": "অমীমাংসিত সংশোধন",
-	"revreview-hist-quality": "গুণমানের সংশোধন",
+	"revreview-hist-quality": "গুণমানগত সংশোধন",
 	"revreview-hist-basic": "পরীক্ষিত সংশোধন",
 	"revreview-hist-quality-user": "[[User:$3|$3]] দ্বারা অনুমোদিত",
 	"revreview-hist-basic-user": "[[User:$3|$3]] দ্বারা পরীক্ষিত",
@@ -93,6 +93,7 @@
 	"revreview-edited-section": "\"[[#$1|$2]]\" নামক পাতা অনুচ্ছেদে ফেরত।",
 	"revreview-newest-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} এই সংস্করণটিতে $3টি {{PLURAL:$3|পরিবর্তনের}}] [[{{MediaWiki:Validationpage}}|পর্যালোচনা]] প্রয়োজন।\n[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} সাম্প্রতিক স্থিতিশীল সংস্করণটি] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} পরীক্ষিত] হয়েছিল <i>$2</i> তারিখে।",
 	"revreview-newest-basic-i": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} এই সংস্করণটিতে] টেমপ্লেট/ফাইল পরিবর্তনের [[{{MediaWiki:Validationpage}}|পর্যালোচনা]] প্রয়োজন।\n[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} স্থিতিশীল সংস্করণটি] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} পরীক্ষিত] হয়েছিল <i>$2</i> তারিখে।",
+	"revreview-newest-quality": "এই সংস্করণটিতে [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3টি {{PLURAL:$3|পরিবর্তনের}}] [[{{MediaWiki:Validationpage}}|পর্যালোচনা]] প্রয়োজন।\n[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} সাম্প্রতিক স্থিতিশীল সংস্করণটি] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} পরীক্ষিত] হয়েছিল <i>$2</i> তারিখে।",
 	"revreview-newest-quality-i": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} এই সংস্করণটিতে] টেমপ্লেট/ফাইল পরিবর্তনের [[{{MediaWiki:Validationpage}}|পর্যালোচনা]] প্রয়োজন।\n[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} স্থিতিশীল সংস্করণটি] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} অনুমোদিত] হয়েছিল <i>$2</i> তারিখে।",
 	"revreview-pending-basic": "[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} স্থিতিশীল সংস্করণটি] <i>$2</i> তারিখে [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} পরীক্ষিত হয়েছিল]। বর্তমানে এখানে [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3টি অমীমাংসিত {{PLURAL:$3|পরিবর্তন}}] পর্যালোচনার জন্য অপেক্ষমান রয়েছে।",
 	"revreview-oldrating": "পূর্বে মূল্যায়ন ছিল:",
@@ -166,5 +167,6 @@
 	"log-action-filter-stable": "কনফিগারেশন পরিবর্তনের ধরন:",
 	"log-action-filter-stable-config": "নতুন কনফিগারেশন",
 	"log-action-filter-stable-modify": "সম্পাদিত কনফিগারেশন",
-	"log-action-filter-stable-reset": "কনফিগারেশন পুনঃনির্ধারণ"
+	"log-action-filter-stable-reset": "কনফিগারেশন পুনঃনির্ধারণ",
+	"log-action-filter-stable-move_stable": "স্থানান্তরিত কনফিগারেশন"
 }
