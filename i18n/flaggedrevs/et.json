@@ -151,7 +151,7 @@
 	"tooltip-ca-current": "Vaata seda lehekülge ootel muudatustega",
 	"tooltip-ca-stable": "Vaata selle lehekülje püsivat versiooni",
 	"tooltip-ca-default": "Headuse tagamise sätted",
-	"flaggedrevs-protect-legend": "Automaatne muudatuste ülevaatus ([[{{MediaWiki:Validationpage}}|abi]])",
+	"flaggedrevs-protect-legend": "Automaatne muudatuste ülevaatus",
 	"flaggedrevs-protect-none": "Lubatud kõigile kasutajatele",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Ülevaatamata leheküljed]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Ootel muudatused]",
 	"revreview-locked-title": "Sellel leheküljel tehtud muudatused vajavad ülevaatamist.",
