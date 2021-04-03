@@ -239,7 +239,6 @@
 		"ApiStabilizeProtect": "api/actions/ApiStabilizeProtect.php",
 		"ApiQueryOldreviewedpages": "api/reports/ApiQueryOldreviewedpages.php",
 		"ApiQueryUnreviewedpages": "api/reports/ApiQueryUnreviewedpages.php",
-		"ApiQueryReviewedpages": "api/reports/ApiQueryReviewedpages.php",
 		"ApiQueryConfiguredpages": "api/reports/ApiQueryConfiguredpages.php",
 		"ApiQueryFlagged": "api/reports/ApiQueryFlagged.php",
 		"ApiFlagConfig": "api/reports/ApiFlagConfig.php",
