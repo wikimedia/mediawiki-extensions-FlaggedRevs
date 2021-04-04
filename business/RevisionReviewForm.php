@@ -702,26 +702,30 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 	/**
 	 * Get template and image parameters from parser output to use on forms.
-	 * @param int[][] $templateIDs Array (from ParserOutput/OutputPage->mTemplateIds)
-	 * @param string[][] $imageSHA1Keys Array (from ParserOutput/OutputPage->mImageTimeKeys)
+	 * @param int[][] $templateIds {@see ParserOutput::$mTemplateIds} or
+	 *  {@see OutputPage::$mTemplateIds}
+	 * @param array[] $fileSha1Keys array with [ time, sha1 ] elements,
+	 *  {@see ParserOutput::$mFileSearchOptions} or {@see OutputPage::$mImageTimeKeys}
 	 * @param string[]|false $fileVersion Version of file for File: pages (time, sha1)
 	 * @return string[] [ templateParams, imageParams, fileVersion ]
 	 */
 	public static function getIncludeParams(
-		array $templateIDs, array $imageSHA1Keys, $fileVersion
+		array $templateIds,
+		array $fileSha1Keys,
+		$fileVersion
 	) {
 		$templateParams = '';
 		$imageParams = '';
 		$fileParam = '';
 		# NS -> title -> rev ID mapping
-		foreach ( $templateIDs as $namespace => $t ) {
+		foreach ( $templateIds as $namespace => $t ) {
 			foreach ( $t as $dbKey => $revId ) {
 				$temptitle = Title::makeTitle( $namespace, $dbKey );
 				$templateParams .= $temptitle->getPrefixedDBkey() . "|" . $revId . "#";
 			}
 		}
 		# Image -> timestamp -> sha1 mapping
-		foreach ( $imageSHA1Keys as $dbKey => $timeAndSHA1 ) {
+		foreach ( $fileSha1Keys as $dbKey => $timeAndSHA1 ) {
 			$imageParams .= $dbKey . "|" . $timeAndSHA1['time'] . "|" . $timeAndSHA1['sha1'] . "#";
 		}
 		# For File: pages, note the displayed image version
@@ -735,9 +739,11 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * Get template and image versions from form value for parser output.
 	 * @param string $templateParams
 	 * @param string $imageParams
-	 * @return array[] [ templateIds, fileSHA1Keys ]
-	 * templateIds like ParserOutput->mTemplateIds
-	 * fileSHA1Keys like ParserOutput->mImageTimeKeys
+	 * @return array[] [ templateIds, fileSha1Keys ], where
+	 *  - templateIds is an int[][] array, {@see ParserOutput::$mTemplateIds} or
+	 *    {@see OutputPage::$mTemplateIds}
+	 *  - fileSha1Keys is an array with [ time, sha1 ] elements,
+	 *    {@see ParserOutput::$mFileSearchOptions} or {@see OutputPage::$mImageTimeKeys}
 	 */
 	private function getIncludeVersions( $templateParams, $imageParams ) {
 		$templateIds = [];
@@ -759,7 +765,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			$templateIds[$tmp_title->getNamespace()][$tmp_title->getDBkey()] = $rev_id;
 		}
 		# Our image version pointers
-		$fileSHA1Keys = [];
+		$fileSha1Keys = [];
 		$imageMap = explode( '#', trim( $imageParams ) );
 		foreach ( $imageMap as $image ) {
 			if ( !$image ) {
@@ -776,10 +782,11 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			if ( $img_title === null ) {
 				continue; // Page must be valid!
 			}
-			$fileSHA1Keys[$img_title->getDBkey()] = [];
-			$fileSHA1Keys[$img_title->getDBkey()]['time'] = $time ?: false;
-			$fileSHA1Keys[$img_title->getDBkey()]['sha1'] = strlen( $key ) ? $key : false;
+			$fileSha1Keys[$img_title->getDBkey()] = [
+				'time' => $time ?: false,
+				'sha1' => $key ?: false,
+			];
 		}
-		return [ $templateIds, $fileSHA1Keys ];
+		return [ $templateIds, $fileSha1Keys ];
 	}
 }

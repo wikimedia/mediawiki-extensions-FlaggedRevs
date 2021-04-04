@@ -15,9 +15,11 @@ class FRInclusionCache {
 	 * @param RevisionRecord $revRecord
 	 * @param User $user
 	 * @param string $regen use 'regen' to force regeneration
-	 * @return array[] [ templateIds, fileSHA1Keys ]
-	 * templateIds like ParserOutput->mTemplateIds
-	 * fileSHA1Keys like ParserOutput->mImageTimeKeys
+	 * @return array[] [ templateIds, fileSha1Keys ], where
+	 *  - templateIds is an int[][] array, {@see ParserOutput::$mTemplateIds} or
+	 *    {@see OutputPage::$mTemplateIds}
+	 *  - fileSha1Keys is an array with [ time, sha1 ] elements,
+	 *    {@see ParserOutput::$mFileSearchOptions} or {@see OutputPage::$mImageTimeKeys}
 	 */
 	public static function getRevIncludes(
 		WikiPage $wikiPage,
