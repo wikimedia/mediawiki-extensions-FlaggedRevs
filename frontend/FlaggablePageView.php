@@ -602,7 +602,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param FlaggedRevision $frev selected flagged revision
 	 * @param string &$tag review box/bar info
 	 * @param string $prot protection notice icon
-	 * @return ParserOutput
+	 * @return ParserOutput|null
 	 */
 	private function showOldReviewedVersion( FlaggedRevision $frev, &$tag, $prot ) {
 		$reqUser = $this->getUser();
@@ -659,6 +659,9 @@ class FlaggablePageView extends ContextSource {
 		# Generate the uncached parser output for this old reviewed version
 		$parserOptions = $this->article->makeParserOptions( $reqUser );
 		$parserOut = FlaggedRevs::parseStableRevision( $frev, $parserOptions );
+		if ( !$parserOut ) {
+			return null;
+		}
 
 		# Add the parser output to the page view
 		$this->out->addParserOutput( $parserOut, [ 'enableSectionEditLinks' => false ] );
@@ -672,7 +675,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param FlaggedRevision $srev stable version
 	 * @param string &$tag review box/bar info
 	 * @param string $prot protection notice
-	 * @return ParserOutput
+	 * @return ParserOutput|null
 	 */
 	private function showStableVersion( FlaggedRevision $srev, &$tag, $prot ) {
 		$reqUser = $this->getUser();

@@ -478,7 +478,7 @@ class FlaggedRevs {
 	 *
 	 * @param FlaggedRevision $frev
 	 * @param ParserOptions $pOpts
-	 * @return ParserOutput|Status|null
+	 * @return ParserOutput|Status|false|null
 	 */
 	public static function parseStableRevisionPooled(
 		FlaggedRevision $frev, ParserOptions $pOpts
