@@ -105,11 +105,6 @@ class PendingChanges extends SpecialPage {
 			$items[] = "<span style='white-space: nowrap;'>" .
 				FlaggedRevsXML::getNamespaceMenu( $this->namespace, '' ) . '</span>';
 		}
-		if ( FlaggedRevs::qualityVersions() ) {
-			$items[] = "<span style='white-space: nowrap;'>" .
-				FlaggedRevsXML::getLevelMenu( $this->level, 'revreview-filter-stable' ) .
-				'</span>';
-		}
 		if ( !FlaggedRevs::isStableShownByDefault() && !FlaggedRevs::useOnlyIfProtected() ) {
 			$items[] = "<span style='white-space: nowrap;'>" .
 				Xml::check( 'stable', $this->stable, [ 'id' => 'wpStable' ] ) .
@@ -297,13 +292,6 @@ class PendingChanges extends SpecialPage {
 			[],
 			[ 'diff' => 'cur', 'oldid' => $row->stable ] + FlaggedRevs::diffOnlyCGI()
 		);
-		# Show quality level if there are several
-		if ( FlaggedRevs::qualityVersions() ) {
-			$quality = $row->quality
-				? $this->msg( 'revreview-lev-quality' )->escaped()
-				: $this->msg( 'revreview-lev-basic' )->escaped();
-			$quality = " <b>[{$quality}]</b>";
-		}
 		# Is anybody watching?
 		if ( !$this->including() && MediaWikiServices::getInstance()->getPermissionManager()
 				->userHasRight( $this->getUser(), 'unreviewedpages' )

@@ -509,10 +509,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	) {
 		# Revision rating flags
 		$flags = $this->dims;
-		$quality = 0; // quality tier from flags
-		if ( FlaggedRevs::isQuality( $flags ) ) {
-			$quality = 1;
-		}
 		# Our template/file version pointers
 		list( $tmpVersions, $fileVersions ) = $this->getIncludeVersions(
 			$this->templateParams, $this->imageParams
@@ -548,7 +544,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			'revrecord'         => $revRecord,
 			'user_id'           => $this->user->getId(),
 			'timestamp'         => wfTimestampNow(),
-			'quality'           => $quality,
+			'quality'           => FR_CHECKED,
 			'tags'              => FlaggedRevision::flattenRevisionTags( $flags ),
 			'img_name'          => $fileData['name'],
 			'img_timestamp'     => $fileData['timestamp'],

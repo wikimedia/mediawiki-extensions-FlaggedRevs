@@ -467,22 +467,6 @@ class FlaggableWikiPage extends WikiPage {
 			$latest = $this->mTitle->getLatestRevID( Title::GAID_FOR_UPDATE );
 		}
 		$dbw = wfGetDB( DB_MASTER );
-		# Get the highest quality revision (not necessarily this one)...
-		if ( $srev->getQuality() === FlaggedRevs::highestReviewTier() ) {
-			$maxQuality = $srev->getQuality(); // save a query
-		} else {
-			$maxQuality = $dbw->selectField( [ 'flaggedrevs', 'revision' ],
-				'fr_quality',
-				[ 'fr_page_id' => $this->getId(),
-					'rev_id = fr_rev_id',
-					'rev_page = fr_page_id',
-					$dbw->bitAnd( 'rev_deleted', RevisionRecord::DELETED_TEXT ) . ' = 0'
-				],
-				__METHOD__,
-				[ 'ORDER BY' => 'fr_quality DESC', 'LIMIT' => 1 ]
-			);
-			$maxQuality = max( $maxQuality, $srev->getQuality() ); // sanity
-		}
 		# Get the timestamp of the first edit after the stable version (if any)...
 		$nextTimestamp = null;
 		if ( $revRecord->getId() != $latest ) {
@@ -513,7 +497,7 @@ class FlaggableWikiPage extends WikiPage {
 				'fp_page_id'       => $revRecord->getPageId(), // Don't use $this->getId(), T246720
 				'fp_stable'        => $revRecord->getId(),
 				'fp_reviewed'      => $synced ? 1 : 0,
-				'fp_quality'       => ( $maxQuality === false ) ? null : $maxQuality,
+				'fp_quality'       => FR_CHECKED,
 				'fp_pending_since' => $dbw->timestampOrNull( $nextTimestamp )
 			],
 			__METHOD__
@@ -541,62 +525,49 @@ class FlaggableWikiPage extends WikiPage {
 	 */
 	private function updatePendingList( $pageId, $latest ) {
 		$data = [];
-		# Get the highest tier used on this wiki
-		$level = FlaggedRevs::highestReviewTier();
 
 		$dbw = wfGetDB( DB_MASTER );
-		# Update pending times for each level, going from highest to lowest
-		$higherLevelId = 0;
-		$higherLevelTS = '';
-		while ( $level >= 0 ) {
-			# Get the latest revision of this level...
-			# Any revision of one tier is also a revision of lower tiers.
-			# Instead of doing fr_quality > X queries we do exact comparisons
-			# for better INDEX usage. However, in order to treat a rev as the
-			# latest tier X rev, we make sure it is newer than all tier (X+1) revs.
-			$row = $dbw->selectRow(
-				[ 'flaggedrevs', 'revision' ],
-				[ 'fr_rev_id', 'rev_timestamp' ],
-				[
-					'fr_page_id' => $pageId,
-					'fr_quality' => $level, // this level
-					'fr_rev_timestamp > ' . $dbw->addQuotes( $higherLevelTS ),
-					'rev_id = fr_rev_id', // rev exists
-					'rev_page = fr_page_id', // sanity
-					$dbw->bitAnd( 'rev_deleted', RevisionRecord::DELETED_TEXT ) . ' = 0'
-				],
+
+		# Get the latest revision of FR_CHECKED
+		$row = $dbw->selectRow(
+			[ 'flaggedrevs', 'revision' ],
+			[ 'fr_rev_id', 'rev_timestamp' ],
+			[
+				'fr_page_id' => $pageId,
+				'fr_quality' => FR_CHECKED, // this level
+				'fr_rev_timestamp > ' . $dbw->addQuotes( '' ),
+				'rev_id = fr_rev_id', // rev exists
+				'rev_page = fr_page_id', // sanity
+				$dbw->bitAnd( 'rev_deleted', RevisionRecord::DELETED_TEXT ) . ' = 0'
+			],
+			__METHOD__,
+			[ 'ORDER BY' => 'fr_rev_timestamp DESC', 'LIMIT' => 1 ]
+		);
+		# If there is a revision of this level, track it...
+		# Revisions accepted to one tier count as accepted
+		# at the lower tiers (i.e. quality -> checked).
+		if ( $row ) {
+			$id = $row->fr_rev_id;
+			$ts = $row->rev_timestamp;
+		} else { // use previous rev of higher tier (if any)
+			$id = 0;
+			$ts = '';
+		}
+		# Get edits that actually are pending...
+		if ( $id && $latest > $id ) {
+			# Get the timestamp of the edit after this version (if any)
+			$nextTimestamp = $dbw->selectField( 'revision',
+				'rev_timestamp',
+				[ 'rev_page' => $pageId, "rev_timestamp > " . $dbw->addQuotes( $ts ) ],
 				__METHOD__,
-				[ 'ORDER BY' => 'fr_rev_timestamp DESC', 'LIMIT' => 1 ]
+				[ 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 1 ]
 			);
-			# If there is a revision of this level, track it...
-			# Revisions accepted to one tier count as accepted
-			# at the lower tiers (i.e. quality -> checked).
-			if ( $row ) {
-				$id = $row->fr_rev_id;
-				$ts = $row->rev_timestamp;
-			} else { // use previous rev of higher tier (if any)
-				$id = $higherLevelId;
-				$ts = $higherLevelTS;
-			}
-			# Get edits that actually are pending...
-			if ( $id && $latest > $id ) {
-				# Get the timestamp of the edit after this version (if any)
-				$nextTimestamp = $dbw->selectField( 'revision',
-					'rev_timestamp',
-					[ 'rev_page' => $pageId, "rev_timestamp > " . $dbw->addQuotes( $ts ) ],
-					__METHOD__,
-					[ 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 1 ]
-				);
-				$data[] = [
-					'fpp_page_id'       => $pageId,
-					'fpp_quality'       => $level,
-					'fpp_rev_id'        => $id,
-					'fpp_pending_since' => $nextTimestamp
-				];
-				$higherLevelId = $id;
-				$higherLevelTS = $ts;
-			}
-			$level--;
+			$data[] = [
+				'fpp_page_id'       => $pageId,
+				'fpp_quality'       => FR_CHECKED,
+				'fpp_rev_id'        => $id,
+				'fpp_pending_since' => $nextTimestamp
+			];
 		}
 		# Clear any old junk, and insert new rows
 		$dbw->delete( 'flaggedpage_pending', [ 'fpp_page_id' => $pageId ], __METHOD__ );

@@ -65,7 +65,7 @@ class ReviewAllPages extends Maintenance {
 		$blockEnd = (int)( $start + $this->mBatchSize - 1 );
 		$count = 0;
 		$changed = 0;
-		$flags = FlaggedRevs::quickTags( FR_CHECKED ); // Assume basic level
+		$flags = FlaggedRevs::quickTags(); // Assume basic level
 
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 
