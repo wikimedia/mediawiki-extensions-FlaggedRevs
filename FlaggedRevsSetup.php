@@ -142,7 +142,6 @@ class FlaggedRevsSetup {
 			$wgAPIModules['stabilize'] = 'ApiStabilizeProtect';
 		} else {
 			$wgAPIModules['stabilize'] = 'ApiStabilizeGeneral';
-			$wgAPIListModules['reviewedpages'] = 'ApiQueryReviewedpages';
 			$wgAPIListModules['unreviewedpages'] = 'ApiQueryUnreviewedpages';
 			$wgAPIListModules['configuredpages'] = 'ApiQueryConfiguredpages';
 		}
