@@ -118,7 +118,7 @@ class FlaggedRevs {
 	 * If there only one tag and it has only one level, return it
 	 * @return string|null
 	 */
-	public static function binaryTagName() {
+	public static function binaryTagName(): ?string {
 		self::load();
 		if ( !self::binaryFlagging() ) {
 			return null;
@@ -128,11 +128,11 @@ class FlaggedRevs {
 
 	/**
 	 * Get the supported dimension name.
-	 * @return string
+	 * @return string|null
 	 */
-	public static function getTagName(): string {
+	public static function getTagName(): ?string {
 		global $wgFlaggedRevsTags;
-		return array_keys( $wgFlaggedRevsTags )[0];
+		return array_keys( $wgFlaggedRevsTags )[0] ?? null;
 	}
 
 	/**
@@ -746,7 +746,7 @@ class FlaggedRevs {
 	 */
 	private static function tagsAtLevel( array $flags, $reqFlagLevels ) {
 		self::load();
-		if ( empty( $flags ) ) {
+		if ( !$flags ) {
 			return false;
 		}
 		foreach ( self::$dimensions as $f => $x ) {

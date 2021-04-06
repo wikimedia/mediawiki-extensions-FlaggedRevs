@@ -40,7 +40,7 @@ class QualityOversight extends SpecialPage {
 
 		# Are the dropdown params given even valid?
 		$actions = $this->getActions();
-		if ( empty( $actions ) ) {
+		if ( !$actions ) {
 			$out->addWikiMsg( 'qualityoversight-list', 0 );
 			$this->showForm();
 			$out->addWikiMsg( 'logempty' );

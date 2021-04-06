@@ -58,7 +58,7 @@ class PurgeReviewablePages extends Maintenance {
 		if ( !$wgUseCdn && !$wgUseFileCache ) {
 			$this->output( "CDN/file cache not enabled ... nothing to purge.\n" );
 			return;
-		} elseif ( empty( $wgFlaggedRevsNamespaces ) ) {
+		} elseif ( !$wgFlaggedRevsNamespaces ) {
 			$this->output( "There are no reviewable namespaces ... nothing to purge.\n" );
 			return;
 		}

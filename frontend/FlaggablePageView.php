@@ -2166,9 +2166,7 @@ class FlaggablePageView extends ContextSource {
 			self::getBaseRevId( $editPage, $this->getRequest() ) ) );
 		$out->addHTML( "\n" . Html::hidden( 'altBaseRevId',
 			self::getAltBaseRevId( $editPage, $this->getRequest() ) ) );
-		$out->addHTML( "\n" . Html::hidden( 'undidRev',
-			empty( $editPage->undidRev ) ? 0 : $editPage->undidRev )
-		);
+		$out->addHTML( "\n" . Html::hidden( 'undidRev', $editPage->undidRev ) );
 	}
 
 	/**

@@ -37,7 +37,7 @@ class FlaggedRevsLog {
 		// Approved revisions
 		if ( $approve ) {
 			# Make comma-separated list of ratings
-			$rating = !empty( $ratings )
+			$rating = $ratings
 				? '[' . implode( ', ', $ratings ) . ']'
 				: '';
 			# Append comment with ratings
