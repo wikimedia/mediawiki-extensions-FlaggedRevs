@@ -13,7 +13,6 @@
 	"apihelp-query+oldreviewedpages-param-filterwatched": "Како да филтрирате странице на Вашем списку надгледања.",
 	"apihelp-query+oldreviewedpages-param-category": "Само странице у датој категорији.",
 	"apihelp-query+oldreviewedpages-param-filterredir": "Како да филтрирате преусмерења.",
-	"apihelp-query+reviewedpages-example-1": "Прикажи списак проверених страница",
 	"apihelp-query+unreviewedpages-param-dir": "Смер сортирања.",
 	"apihelp-query+unreviewedpages-param-filterredir": "Како да филтрирате преусмерења.",
 	"apihelp-query+unreviewedpages-example-1": "Прикажи списак непроверених страница",

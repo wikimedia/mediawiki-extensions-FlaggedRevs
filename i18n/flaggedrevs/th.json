@@ -38,9 +38,7 @@
 	"group-editor.js": "/* เจเอสในที่นี้จะมีผลต่อผู้แก้ไขเท่านั้น */",
 	"revreview-hist-draft": "รุ่นแก้ไขที่ยังไม่ถูกตรวจสอบ",
 	"revreview-hist-pending": "รุ่นแก้ไขที่รอการตรวจทาน",
-	"revreview-hist-quality": "รุ่นแก้ไขคุณภาพ",
 	"revreview-hist-basic": "รุ่นแก้ไขที่ถูกตรวจสอบแล้ว",
-	"revreview-hist-quality-user": "ถูกอนุมัติโดย [[User:$3|$3]]",
 	"revreview-diff-toggle-show": "แสดงการเปลี่ยนแปลงเหล่านั้น",
 	"revreview-diff-toggle-hide": "ซ่อนการเปลี่ยนแปลงเหล่านั้น",
 	"revreview-log-details-show": "แสดงรายละเอียด",
@@ -61,7 +59,6 @@
 	"revreview-typefilter": "ประเภท:",
 	"revreview-filter-auto": "อัตโนมัติ",
 	"revreview-filter-manual": "กำหนดเอง",
-	"revreview-lev-quality": "คุณภาพ",
 	"revreview-def-draft": "ล่าสุด",
 	"revreview-restriction-none": "ไม่มี",
 	"tooltip-ca-current": "ดูหน้านี้พร้อมขณะกำลังเปลี่ยนแปลง"

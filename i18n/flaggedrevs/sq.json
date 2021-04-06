@@ -22,7 +22,6 @@
 	"group-editor-member": "{{GENDER:$1|redaktor|redaktore}}",
 	"grouppage-editor": "{{ns:project}}:Redaktor",
 	"group-autoreview": "Përdorues automatikisht të kontrolluar",
-	"revreview-hist-quality-auto": "miratuar automatikisht",
 	"revreview-hist-basic-auto": "kontrolluar automatikisht",
 	"revreview-diff-toggle-show": "trego ndryshimet",
 	"revreview-diff-toggle-hide": "fshih ndryshimet",

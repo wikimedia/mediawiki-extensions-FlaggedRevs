@@ -7,8 +7,6 @@
 	"apihelp-flagconfig-example-1": "Hämta flaggkonfiguration",
 	"apihelp-query+oldreviewedpages-param-filterwatched": "Hur du filtrerar sidor i din bevakningssida.",
 	"apihelp-query+oldreviewedpages-param-limit": "Hur många sidor att returnera totalt.",
-	"apihelp-query+reviewedpages-example-1": "Visa en lista över ogranskade sidor",
-	"apihelp-query+reviewedpages-example-2": "Visa info om några ogranskade sidor",
 	"apihelp-query+unreviewedpages-param-dir": "Riktning att sortera i.",
 	"apihelp-query+unreviewedpages-param-filterredir": "Hur man filtrerar för omdirigeringar.",
 	"apihelp-query+unreviewedpages-param-limit": "Hur många sidor att returnera totalt.",

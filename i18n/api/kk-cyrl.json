@@ -10,8 +10,6 @@
 	"apihelp-query+configuredpages-param-autoreview": "Қайта қарау/автоматты түрде қарау бағыттау деңгейін.",
 	"apihelp-query+configuredpages-param-limit": "Қайтуға балығы қанша бет.",
 	"apihelp-query+oldreviewedpages-param-limit": "Қайтуға барлығы қанша бет.",
-	"apihelp-query+reviewedpages-param-start": "Тізімдеуді мына бет сәйкестендіргішінен бастау",
-	"apihelp-query+reviewedpages-param-end": "Тізімдеуді мына бет сәйкестендіргішінен тоқтату",
 	"apihelp-stabilize-param-reason": "Себебі.",
 	"apihelp-stabilize-param-watch": "Мына бетті қараңыз.",
 	"apihelp-stabilize-param-expiry-general": "Мына баптаулардың уақыты бітетін мерзім.",

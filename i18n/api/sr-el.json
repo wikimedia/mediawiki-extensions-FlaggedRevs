@@ -7,7 +7,6 @@
 	"apihelp-query+oldreviewedpages-param-filterwatched": "Kako da filtrirate stranice na Vašem spisku nadgledanja.",
 	"apihelp-query+oldreviewedpages-param-category": "Samo stranice u datoj kategoriji.",
 	"apihelp-query+oldreviewedpages-param-filterredir": "Kako da filtrirate preusmerenja.",
-	"apihelp-query+reviewedpages-example-1": "Prikaži spisak proverenih stranica",
 	"apihelp-query+unreviewedpages-param-dir": "Smer sortiranja.",
 	"apihelp-query+unreviewedpages-param-filterredir": "Kako da filtrirate preusmerenja.",
 	"apihelp-query+unreviewedpages-example-1": "Prikaži spisak neproverenih stranica",
