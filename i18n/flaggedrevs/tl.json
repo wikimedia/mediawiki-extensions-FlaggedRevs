@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"AnakngAraw",
+			"GinawaSaHapon",
 			"Sky Harbor"
 		]
 	},
@@ -136,7 +137,7 @@
 	"revreview-reviewlink": "mga pagbabagong naghihintay",
 	"revreview-reviewlink-title": "Tingnan ang pagkakaiba ng lahat ng mga pagbabagong naghihintay",
 	"revreview-unreviewedpage": "pahinang hindi nasuri",
-	"tooltip-ca-current": "Tingnan ang pahinang ito na may naghihintay na mga pagbabago",
+	"tooltip-ca-current": "Tingnan ang pahinang ito na may nakapilang pagbabago",
 	"tooltip-ca-stable": "Tingnan ang tanggap na bersyon ng pahinang ito",
 	"tooltip-ca-default": "Katakdaan ng pagtitiyak ng pagkakaroon ng mataas na uri (kalidad)",
 	"flaggedrevs-protect-legend": "Pagsusuri ng kusang pamamatnugot ([[{{MediaWiki:Validationpage}}|tulong]])",
