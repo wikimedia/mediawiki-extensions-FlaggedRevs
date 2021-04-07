@@ -433,11 +433,10 @@ class FlaggedRevs {
 	/**
 	 * Get the HTML output of a revision, using PoolCounter in the process
 	 *
-	 * Returns a Status if pool is full, null if the revision is missing
-	 *
 	 * @param FlaggedRevision $frev
 	 * @param ParserOptions $pOpts
-	 * @return ParserOutput|Status|false|null
+	 * @return Status Fatal if the pool is full. Otherwise good with an optional ParserOutput, or
+	 *  null if the revision is missing.
 	 */
 	public static function parseStableRevisionPooled(
 		FlaggedRevision $frev, ParserOptions $pOpts
@@ -458,15 +457,15 @@ class FlaggedRevs {
 			$keyPrefix . ':revid:' . $frev->getRevId(),
 			[
 				'doWork' => function () use ( $frev, $pOpts ) {
-					return self::parseStableRevision( $frev, $pOpts );
+					return Status::newGood( self::parseStableRevision( $frev, $pOpts ) );
 				},
 				'doCachedWork' => function () use ( $page, $pOpts, $parserCache ) {
 					// Use new cache value from other thread
-					return $parserCache->get( $page, $pOpts );
+					return Status::newGood( $parserCache->get( $page, $pOpts ) ?: null );
 				},
-				'fallback' => function () use ( $page, $pOpts, $parserCache ) {
+				'fallback' => function ( bool $fast ) use ( $page, $pOpts, $parserCache ) {
 					// Use stale cache if possible
-					return $parserCache->getDirty( $page, $pOpts );
+					return Status::newGood( $parserCache->getDirty( $page, $pOpts ) ?: null );
 				},
 				'error' => function ( Status $status ) {
 					return $status;
