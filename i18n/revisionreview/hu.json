@@ -66,7 +66,7 @@
 	"revreview-update": "'''Kérlek, [[{{MediaWiki:Validationpage}}|ellenőrizd]] a közzétett változat utáni, még függőben lévő változtatásokat ''(lásd alább).'''''",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">A változtatásaid még nincsenek közzétéve.</span>\n\nKérlek ellenőrizd az alább látható változtatásokat, hogy a szerkesztéseid megjelenhessenek a közzétett változatban.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">A változtatásaid még nincsenek közzétéve. Korábbi változtatások várnak ellenőrzésre.</span>\n\nKérlek ellenőrizd az alább látható változtatásokat, hogy a szerkesztéseid megjelenhessenek a közzétett változatban.",
-	"revreview-update-includes": "Néhány sablon vagy fájl megváltozott (az ellenőrzésre várók félkövérrel szedve):",
+	"revreview-update-includes": "Néhány sablon vagy fájl megváltozott (a soha nem ellenőrzöttek félkövérrel szedve):",
 	"revreview-reject-text-list": "Ezzel a művelettel '''visszavonod''' [[:$2|$2]] forrásszövegének összes módosítását, amik az alábbi {{PLURAL:$1|változatban|változatokban}} kerültek bele:",
 	"revreview-reject-text-revto": "Ezzel visszaállítod a lapot a [{{fullurl:$1|oldid=$2}} $3-i változatra].",
 	"revreview-reject-summary": "Összefoglaló:",
