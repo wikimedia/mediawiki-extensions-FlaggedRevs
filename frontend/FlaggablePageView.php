@@ -725,11 +725,8 @@ class FlaggablePageView extends ContextSource {
 				$stableParserCache->save( $parserOut, $this->article, $parserOptions );
 				# Enqueue a job to update the "stable version only" dependencies
 				if ( !wfReadOnly() ) {
-					FlaggedRevs::updateStableOnlyDeps(
-						$this->article,
-						$parserOut,
-						FRDependencyUpdate::DEFERRED
-					);
+					$update = new FRDependencyUpdate( $this->article->getTitle(), $parserOut );
+					$update->doUpdate( FRDependencyUpdate::DEFERRED );
 				}
 			}
 		}

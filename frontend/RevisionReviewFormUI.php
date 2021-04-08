@@ -315,8 +315,8 @@ class RevisionReviewFormUI {
 				// Display the value for each tag as text
 				$quality = FlaggedRevs::getTagName();
 				$selected = $flags[$quality] ?? 0;
-				$items[] = FlaggedRevs::getTagMsg( $quality )->escaped() . ": " .
-					FlaggedRevs::getTagValueMsg( $quality, $selected );
+				$items[] = $this->getTagMsg( $quality )->escaped() . ": " .
+					$this->getTagValueMsg( $quality, $selected );
 			}
 		} else {
 			$size = count( $labels, 1 ) - count( $labels );
@@ -333,7 +333,7 @@ class RevisionReviewFormUI {
 				# Show label as needed
 				if ( !FlaggedRevs::binaryFlagging() ) {
 					$item .= Xml::tags( 'label', [ 'for' => "wp$quality" ],
-						FlaggedRevs::getTagMsg( $quality )->escaped() ) . ":\n";
+						$this->getTagMsg( $quality )->escaped() ) . ":\n";
 				}
 				# If the sum of qualities of all flags is above 6, use drop down boxes.
 				# 6 is an arbitrary value choosen according to screen space and usability.
@@ -342,7 +342,7 @@ class RevisionReviewFormUI {
 					$item .= Xml::openElement( 'select', $attribs ) . "\n";
 					foreach ( $levels as $i => $name ) {
 						$optionClass = [ 'class' => "fr-rating-option-$i" ];
-						$item .= Xml::option( FlaggedRevs::getTagMsg( $name )->text(), $i,
+						$item .= Xml::option( $this->getTagMsg( $name )->text(), $i,
 							( $i == $selected ), $optionClass ) . "\n";
 					}
 					$item .= Xml::closeElement( 'select' ) . "\n";
@@ -350,7 +350,7 @@ class RevisionReviewFormUI {
 				} elseif ( $numLevels > 2 ) {
 					foreach ( $levels as $i => $name ) {
 						$attribs = [ 'class' => "fr-rating-option-$i" ];
-						$item .= Xml::radioLabel( FlaggedRevs::getTagMsg( $name )->text(), "wp$quality",
+						$item .= Xml::radioLabel( $this->getTagMsg( $name )->text(), "wp$quality",
 							$i, "wp$quality" . $i, ( $i == $selected ), $attribs ) . "\n";
 					}
 				# Otherwise make checkboxes (two levels available for current user)
@@ -365,6 +365,27 @@ class RevisionReviewFormUI {
 			}
 		}
 		return implode( '&#160;&#160;&#160;', $items );
+	}
+
+	/**
+	 * @param string $tag
+	 * @return Message the UI name for a tag
+	 */
+	private function getTagMsg( $tag ) {
+		return wfMessage( "revreview-$tag" );
+	}
+
+	/**
+	 * @param string $tag
+	 * @param int $value
+	 * @return string the UI name for a value of a tag
+	 */
+	private function getTagValueMsg( $tag, $value ) {
+		$levels = FlaggedRevs::getTagLevels( $tag );
+		if ( isset( $levels[$value] ) ) {
+			return wfMessage( 'revreview-' . $levels[$value] )->escaped();
+		}
+		return '';
 	}
 
 	/**

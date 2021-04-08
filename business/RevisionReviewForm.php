@@ -295,7 +295,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * @return int[]|null
 	 */
 	private function implicitDims() {
-		$tag = FlaggedRevs::binaryTagName();
+		$tag = FlaggedRevs::binaryFlagging() ? FlaggedRevs::getTagName() : null;
 		if ( $tag ) {
 			if ( $this->approve ) {
 				return [ $tag => 1 ];
