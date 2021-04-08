@@ -18,9 +18,9 @@ class PurgeReviewablePages extends Maintenance {
 	public function __construct() {
 		$this->addDescription( "Use to purge CDN/file cache for all reviewable pages" );
 		$this->addOption( 'makelist',
-			"Build the list of reviewable pages to pagesToPurge.list", false, false );
+			"Build the list of reviewable pages to pagesToPurge.list" );
 		$this->addOption( 'purgelist',
-			"Purge the list of pages in pagesToPurge.list", false, false );
+			"Purge the list of pages in pagesToPurge.list" );
 		$this->setBatchSize( 1000 );
 		$this->requireExtension( 'FlaggedRevs' );
 	}

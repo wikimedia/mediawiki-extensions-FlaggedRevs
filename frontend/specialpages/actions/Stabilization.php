@@ -171,7 +171,7 @@ class Stabilization extends UnlistedSpecialPage {
 			'action' => $this->getPageTitle()->getLocalURL(), 'method' => 'post' ] );
 		# Add stable version override and selection options
 		$s .=
-			Xml::fieldset( $this->msg( 'stabilization-def' )->text(), false ) . "\n" .
+			Xml::fieldset( $this->msg( 'stabilization-def' )->text() ) . "\n" .
 			Xml::radioLabel( $this->msg( 'stabilization-def1' )->text(), 'wpStableconfig-override', 1,
 				'default-stable', $form->getOverride() == 1, $this->disabledAttr() ) .
 				'<br />' . "\n" .
@@ -179,11 +179,11 @@ class Stabilization extends UnlistedSpecialPage {
 				'default-current', $form->getOverride() == 0, $this->disabledAttr() ) . "\n" .
 			Xml::closeElement( 'fieldset' );
 		# Add autoreview restriction select
-		$s .= Xml::fieldset( $this->msg( 'stabilization-restrict' )->text(), false ) .
+		$s .= Xml::fieldset( $this->msg( 'stabilization-restrict' )->text() ) .
 			$this->buildSelector( $form->getAutoreview() ) .
 			Xml::closeElement( 'fieldset' ) .
 
-			Xml::fieldset( $this->msg( 'stabilization-leg' )->text(), false ) .
+			Xml::fieldset( $this->msg( 'stabilization-leg' )->text() ) .
 			Xml::openElement( 'table' );
 		# Add expiry dropdown to form...
 		if ( $showProtectOptions && $form->isAllowed() ) {

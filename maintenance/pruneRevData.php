@@ -22,7 +22,7 @@ class PruneFRIncludeData extends Maintenance {
 			"it will just output how many rows can be deleted. Use the 'prune' option " .
 			"to actually delete them."
 		);
-		$this->addOption( 'prune', 'Actually do a live run', false );
+		$this->addOption( 'prune', 'Actually do a live run' );
 		$this->addOption( 'start', 'The ID of the starting rev', false, true );
 		$this->setBatchSize( 500 );
 		$this->requireExtension( 'FlaggedRevs' );

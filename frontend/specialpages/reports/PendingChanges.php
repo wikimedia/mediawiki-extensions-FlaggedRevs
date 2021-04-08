@@ -12,9 +12,6 @@ class PendingChanges extends SpecialPage {
 	/** @var int|null */
 	private $namespace;
 
-	/** @var int */
-	private $level;
-
 	/** @var string */
 	private $category;
 
@@ -43,7 +40,7 @@ class PendingChanges extends SpecialPage {
 		$this->currentUnixTS = wfTimestamp( TS_UNIX ); // now
 
 		$this->namespace = $request->getIntOrNull( 'namespace' );
-		$this->level = $request->getInt( 'level', -1 );
+		$level = $request->getInt( 'level', -1 );
 		$category = trim( $request->getVal( 'category' ) );
 		$catTitle = Title::makeTitleSafe( NS_CATEGORY, $category );
 		$this->category = $catTitle === null ? '' : $catTitle->getText();
@@ -58,7 +55,7 @@ class PendingChanges extends SpecialPage {
 		}
 
 		$this->pager = new PendingChangesPager( $this, $this->namespace,
-			$this->level, $this->category, $this->size, $this->watched, $this->stable );
+			$level, $this->category, $this->size, $this->watched, $this->stable );
 
 		# Output appropriate format...
 		if ( $feedType != null ) {
@@ -309,26 +306,23 @@ class PendingChanges extends SpecialPage {
 		if ( $row->pending_since ) {
 			$firstPendingTime = wfTimestamp( TS_UNIX, $row->pending_since );
 			$hours = ( $this->currentUnixTS - $firstPendingTime ) / 3600;
-			// After three days, just use days
-			if ( $hours > ( 3 * 24 ) ) {
-				$days = round( $hours / 24, 0 );
+			$days = round( $hours / 24 );
+			if ( $days >= 3 ) {
 				$age = $this->msg( 'pendingchanges-days' )->numParams( $days )->escaped();
-			// If one or more hours, use hours
 			} elseif ( $hours >= 1 ) {
-				$hours = round( $hours, 0 );
-				$age = $this->msg( 'pendingchanges-hours' )->numParams( $hours )->escaped();
+				$age = $this->msg( 'pendingchanges-hours' )->numParams( round( $hours ) )->escaped();
 			} else {
 				$age = $this->msg( 'pendingchanges-recent' )->escaped(); // hot off the press :)
 			}
 			// Oh-noes!
-			$css = $this->getLineClass( $hours, $uw );
-			$css = $css ? " class='$css'" : "";
+			$class = $this->getLineClass( $hours, $uw );
+			$css = $class ? " class='$class'" : "";
 		} else {
 			$age = ""; // wtf?
 		}
 		# Show if a user is looking at this page
-		list( $u, $ts ) = FRUserActivity::getUserReviewingDiff( $row->stable, $row->page_latest );
-		if ( $u !== null ) {
+		[ $username ] = FRUserActivity::getUserReviewingDiff( $row->stable, $row->page_latest );
+		if ( $username !== null ) {
 			$underReview = ' <span class="fr-under-review">' .
 				$this->msg( 'pendingchanges-viewing' )->escaped() . '</span>';
 		}

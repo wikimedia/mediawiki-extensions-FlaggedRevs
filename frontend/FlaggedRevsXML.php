@@ -49,27 +49,6 @@ class FlaggedRevsXML {
 	}
 
 	/**
-	 * Get a selector of review levels. Used for filters.
-	 * @param int|null $selected selected level
-	 * @param string $all all selector msg?
-	 * @param int $max max level?
-	 * @return string
-	 */
-	public static function getLevelMenu(
-		$selected = null, $all = 'revreview-filter-all', $max = 2
-	) {
-		$s = "<label for='wpLevel'>" . wfMessage( 'revreview-levelfilter' )->escaped() .
-			"</label>\n";
-		$s .= Xml::openElement( 'select', [ 'name' => 'level', 'id' => 'wpLevel' ] );
-		if ( $all !== false ) {
-			$s .= Xml::option( wfMessage( $all )->text(), -1, $selected === -1 );
-		}
-		$s .= Xml::option( wfMessage( 'revreview-lev-basic' )->text(), 0, $selected === 0 );
-		$s .= Xml::closeElement( 'select' ) . "\n";
-		return $s;
-	}
-
-	/**
 	 * Get a <select> of default page version (stable or draft). Used for filters.
 	 * @param int|null $selected (0=draft, 1=stable, null=either )
 	 * @return string
@@ -422,7 +401,6 @@ class FlaggedRevsXML {
 	 */
 	public static function pendingEditNoticeMessage( $flaggedArticle, $frev, $revsSince ) {
 		global $wgLang;
-		$flags = $frev->getTags();
 		$time = $wgLang->date( $frev->getTimestamp(), true );
 		# Add message text for pending edits
 		return wfMessage( 'revreview-pending-basic', $frev->getRevId(), $time )->numParams( $revsSince );

@@ -15,9 +15,6 @@ class UnreviewedPages extends SpecialPage {
 	/** @var string */
 	private $category;
 
-	/** @var int */
-	private $level;
-
 	/** @var bool */
 	private $hideRedirs;
 
@@ -50,12 +47,12 @@ class UnreviewedPages extends SpecialPage {
 		$category = trim( $request->getVal( 'category' ) );
 		$catTitle = Title::makeTitleSafe( NS_CATEGORY, $category );
 		$this->category = $catTitle === null ? '' : $catTitle->getText();
-		$this->level = $request->getInt( 'level' );
+		$level = $request->getInt( 'level' );
 		$this->hideRedirs = $request->getBool( 'hideredirs', true );
 		$this->live = $this->generalQueryOK();
 
 		$this->pager = new UnreviewedPagesPager( $this, $this->live,
-			$this->namespace, !$this->hideRedirs, $this->category, $this->level );
+			$this->namespace, !$this->hideRedirs, $this->category, $level );
 
 		$this->showForm();
 		$this->showPageList();
@@ -156,14 +153,11 @@ class UnreviewedPages extends SpecialPage {
 		# Get how long the first unreviewed edit has been waiting...
 		$firstPendingTime = wfTimestamp( TS_UNIX, $row->creation );
 		$hours = ( $this->currentUnixTS - $firstPendingTime ) / 3600;
-		// After three days, just use days
-		if ( $hours > ( 3 * 24 ) ) {
-			$days = round( $hours / 24, 0 );
+		$days = round( $hours / 24 );
+		if ( $days >= 3 ) {
 			$age = ' ' . $this->msg( 'unreviewedpages-days' )->numParams( $days )->escaped();
-		// If one or more hours, use hours
 		} elseif ( $hours >= 1 ) {
-			$hours = round( $hours, 0 );
-			$age = ' ' . $this->msg( 'unreviewedpages-hours' )->numParams( $hours )->escaped();
+			$age = ' ' . $this->msg( 'unreviewedpages-hours' )->numParams( round( $hours ) )->escaped();
 		} else {
 			$age = ' ' . $this->msg( 'unreviewedpages-recent' )->escaped(); // hot off the press :)
 		}
@@ -182,8 +176,8 @@ class UnreviewedPages extends SpecialPage {
 		$css = $css ? " class='$css'" : "";
 
 		# Show if a user is looking at this page
-		list( $u, $ts ) = FRUserActivity::getUserReviewingPage( $row->page_id );
-		if ( $u !== null ) {
+		[ $username ] = FRUserActivity::getUserReviewingPage( $row->page_id );
+		if ( $username !== null ) {
 			$underReview = " <span class='fr-under-review'>" .
 				$this->msg( 'unreviewedpages-viewing' )->escaped() . '</span>';
 		}
@@ -198,11 +192,12 @@ class UnreviewedPages extends SpecialPage {
 	 * @return string HTML
 	 */
 	private function getLineClass( $hours, $numUsersWatching ) {
+		$days = $hours / 24;
 		if ( $numUsersWatching == 0 ) {
 			return 'fr-unreviewed-unwatched';
-		} elseif ( $hours > 20 * 24 ) {
+		} elseif ( $days > 20 ) {
 			return 'fr-pending-long2';
-		} elseif ( $hours > 7 * 24 ) {
+		} elseif ( $days > 7 ) {
 			return 'fr-pending-long';
 		} else {
 			return "";
