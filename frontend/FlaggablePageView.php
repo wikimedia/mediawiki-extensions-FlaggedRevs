@@ -712,12 +712,12 @@ class FlaggablePageView extends ContextSource {
 
 			if ( !$parserOut ) {
 				# Regenerate the parser output, debouncing parse requests via PoolCounter
-				$parserOut = FlaggedRevs::parseStableRevisionPooled( $srev, $parserOptions );
-				if ( $parserOut instanceof Status ) {
-					$this->showPoolError( $parserOut );
-
+				$status = FlaggedRevs::parseStableRevisionPooled( $srev, $parserOptions );
+				if ( !$status->isGood() ) {
+					$this->showPoolError( $status );
 					return null;
 				}
+				$parserOut = $status->getValue();
 			}
 
 			if ( $parserOut instanceof ParserOutput ) {
