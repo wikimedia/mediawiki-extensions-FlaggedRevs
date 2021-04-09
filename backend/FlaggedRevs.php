@@ -23,8 +23,6 @@ class FlaggedRevs {
 	private static $dimensions = [];
 	/** @var int[] */
 	private static $minSL = [];
-	/** @var bool */
-	private static $qualityVersions = false;
 	/** @var int[][] Copy of $wgFlaggedRevsTagsRestrictions */
 	private static $tagRestrictions = [];
 	/** @var bool */
@@ -112,18 +110,6 @@ class FlaggedRevs {
 	public static function binaryFlagging() {
 		self::load();
 		return self::$binaryFlagging;
-	}
-
-	/**
-	 * If there only one tag and it has only one level, return it
-	 * @return string|null
-	 */
-	public static function binaryTagName(): ?string {
-		self::load();
-		if ( !self::binaryFlagging() ) {
-			return null;
-		}
-		return self::getTagName();
 	}
 
 	/**
@@ -232,7 +218,7 @@ class FlaggedRevs {
 	 */
 	public static function getLevels() {
 		self::load();
-		return self::$dimensions[self::getTagName()];
+		return self::$dimensions[self::getTagName()] ?? [];
 	}
 
 	/**
@@ -246,37 +232,14 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * Get the UI name for a tag
-	 * @param string $tag
-	 * @return Message
-	 */
-	public static function getTagMsg( $tag ) {
-		return wfMessage( "revreview-$tag" );
-	}
-
-	/**
 	 * Get the levels for a tag. Gives map of level to message name.
 	 * @param string $tag
 	 * @return string[] (integer -> string)
+	 * @deprecated Support for multiple tags was removed, simply use {@see getLevels}
 	 */
 	public static function getTagLevels( $tag ) {
 		self::load();
 		return self::$dimensions[$tag] ?? [];
-	}
-
-	/**
-	 * Get the UI name for a value of a tag
-	 * @param string $tag
-	 * @param int $value
-	 * @return string
-	 */
-	public static function getTagValueMsg( $tag, $value ) {
-		self::load();
-		if ( !isset( self::$dimensions[$tag][$value] ) ) {
-			return '';
-		}
-		# Return empty string if not there
-		return wfMessage( 'revreview-' . self::$dimensions[$tag][$value] )->escaped();
 	}
 
 	/**
@@ -647,21 +610,6 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * @param FlaggableWikiPage $article
-	 * @param ParserOutput $stableOut
-	 * @param int $mode FRDependencyUpdate::DEFERRED/FRDependencyUpdate::IMMEDIATE
-	 * Updates the stable-only cache dependency table
-	 */
-	public static function updateStableOnlyDeps(
-		FlaggableWikiPage $article,
-		ParserOutput $stableOut,
-		$mode
-	) {
-		$frDepUpdate = new FRDependencyUpdate( $article->getTitle(), $stableOut );
-		$frDepUpdate->doUpdate( $mode );
-	}
-
-	/**
 	 * Clear tracking table of stable-only links for this page
 	 * @param int|int[] $pageId (int or array)
 	 */
@@ -733,23 +681,12 @@ class FlaggedRevs {
 	 * @return bool is this revision at basic review condition?
 	 */
 	private static function isChecked( array $flags ) {
-		self::load();
-		return self::tagsAtLevel( $flags, self::$minSL );
-	}
-
-	/**
-	 * Checks if $flags meets $reqFlagLevels
-	 * @param int[] $flags
-	 * @param int[] $reqFlagLevels
-	 * @return bool
-	 */
-	private static function tagsAtLevel( array $flags, $reqFlagLevels ) {
-		self::load();
 		if ( !$flags ) {
 			return false;
 		}
+		self::load();
 		foreach ( self::$dimensions as $f => $x ) {
-			if ( !isset( $flags[$f] ) || $reqFlagLevels[$f] > $flags[$f] ) {
+			if ( !isset( $flags[$f] ) || self::$minSL[$f] > $flags[$f] ) {
 				return false;
 			}
 		}
@@ -990,23 +927,4 @@ class FlaggedRevs {
 		return true;
 	}
 
-	/**
-	 * Get JS script params.
-	 *
-	 * These will be exported client-side as wgFlaggedRevsParams,
-	 * for use by ext.flaggedRevs.review.js.
-	 *
-	 * @return int[][][]|null
-	 */
-	public static function getJSTagParams() {
-		self::load();
-		// Param to pass to JS function to know if tags are at quality level
-		$tagsJS = [];
-		foreach ( self::$dimensions as $tag => $x ) {
-			$tagsJS[$tag] = [
-				'levels' => count( $x ) - 1
-			];
-		}
-		return $tagsJS ? [ 'tags' => $tagsJS ] : null;
-	}
 }

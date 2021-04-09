@@ -44,7 +44,7 @@ class FlaggedRevsUIHooks {
 	 */
 	public static function onMakeGlobalVariablesScript( array &$vars, OutputPage $out ) {
 		// Get the review tags on this wiki
-		$rTags = FlaggedRevs::getJSTagParams();
+		$rTags = self::getJSTagParams();
 		if ( $rTags !== null ) {
 			// Only register this variable in <head> when needed (T219342).
 			$vars['wgFlaggedRevsParams'] = $rTags;
@@ -60,6 +60,22 @@ class FlaggedRevsUIHooks {
 			$stableId = $frev ? $frev->getRevId() : 0;
 			$vars['wgStableRevisionId'] = $stableId;
 		}
+	}
+
+	/**
+	 * @return int[][][]|null
+	 */
+	private static function getJSTagParams() : ?array {
+		$tagName = FlaggedRevs::getTagName();
+		if ( $tagName === null ) {
+			return null;
+		}
+
+		return [
+			'tags' => [
+				$tagName => [ 'levels' => count( FlaggedRevs::getLevels() ) - 1 ]
+			],
+		];
 	}
 
 	/**
