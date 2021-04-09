@@ -23,8 +23,6 @@ class FlaggedRevs {
 	private static $dimensions = [];
 	/** @var int[] */
 	private static $minSL = [];
-	/** @var bool */
-	private static $qualityVersions = false;
 	/** @var int[][] Copy of $wgFlaggedRevsTagsRestrictions */
 	private static $tagRestrictions = [];
 	/** @var bool */

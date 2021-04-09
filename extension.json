@@ -525,8 +525,6 @@
 				"How to handle templates and files used in stable versions:",
 				"0 - (FR_INCLUDES_CURRENT)",
 				"  Always use the current version of templates/files",
-				"1 - (FR_INCLUDES_FREEZE)",
-				"  Use the version of templates/files that the page used when reviewed",
 				"2 - (FR_INCLUDES_STABLE)",
 				"  For each template/file, check if a version of it was used when the page was reviewed and if the template/file itself has a stable version; use the newest those versions",
 				"NOTE: We may have templates that do not have stable version. Also, given situational inclusion of templates (e.g. parser functions selecting template X or Y based on date) there may also be no \"review time version\" revision ID for a template used on a page. In such cases, we select the current (unreviewed) revision. Likewise for files."
