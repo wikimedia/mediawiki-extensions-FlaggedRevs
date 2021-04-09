@@ -134,14 +134,14 @@ class FlaggedRevsXML {
 	}
 
 	/**
-	 * @param int $quality
+	 * @param int|string|bool $quality
 	 * @return string css color for this quality
 	 */
 	public static function getQualityColor( $quality ) {
 		if ( $quality === false ) {
 			return 'flaggedrevs-color-0';
 		}
-		if ( $quality === 0 ) {
+		if ( $quality == 0 ) {
 			return 'flaggedrevs-color-1';
 		}
 		return '';
