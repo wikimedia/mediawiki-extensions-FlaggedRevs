@@ -31,7 +31,6 @@ class FlaggedRevsHooks {
 
 		# Inclusion (templates/files) settings
 		define( 'FR_INCLUDES_CURRENT', 0 );
-		define( 'FR_INCLUDES_FREEZE', 1 );
 		define( 'FR_INCLUDES_STABLE', 2 );
 
 		# Autoreview settings for priviledged users

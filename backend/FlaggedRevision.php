@@ -626,7 +626,6 @@ class FlaggedRevision {
 	 * For each template, the "version used" (for stable parsing) is:
 	 *    (a) (the latest rev) if FR_INCLUDES_CURRENT. Might be non-existing.
 	 *    (b) newest( stable rev, rev at time of review ) if FR_INCLUDES_STABLE
-	 *    (c) ( rev at time of review ) if FR_INCLUDES_FREEZE
 	 * Pending changes exist for a template iff the template is used in
 	 * the current rev of this page and one of the following holds:
 	 *    (a) Current template is newer than the "version used" above (updated)
@@ -640,17 +639,15 @@ class FlaggedRevision {
 			return []; // short-circuit
 		}
 		$dbr = wfGetDB( DB_REPLICA );
-		# Only get templates with stable or "review time" versions.
-		# Note: ft_tmp_rev_id is nullable (for deadlinks), so use ft_title
-		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
-			$reviewed = "ft_title IS NOT NULL OR fp_stable IS NOT NULL";
-		} else {
-			$reviewed = "ft_title IS NOT NULL";
-		}
 		$ret = $dbr->select(
 			[ 'templatelinks', 'flaggedtemplates', 'page', 'flaggedpages' ],
 			[ 'tl_namespace', 'tl_title', 'fp_stable', 'ft_tmp_rev_id', 'page_latest' ],
-			[ 'tl_from' => $this->getPage(), $reviewed ], // current version templates
+			[
+				'tl_from' => $this->getPage(),
+				# Only get templates with stable or "review time" versions.
+				# Note: ft_tmp_rev_id is nullable (for deadlinks), so use ft_title
+				"ft_title IS NOT NULL OR fp_stable IS NOT NULL"
+			], // current version templates
 			__METHOD__,
 			[], /* OPTIONS */
 			[
@@ -717,7 +714,6 @@ class FlaggedRevision {
 	 * For each file, the "version used" (for stable parsing) is:
 	 *    (a) (the latest rev) if FR_INCLUDES_CURRENT. Might be non-existing.
 	 *    (b) newest( stable rev, rev at time of review ) if FR_INCLUDES_STABLE
-	 *    (c) ( rev at time of review ) if FR_INCLUDES_FREEZE
 	 * Pending changes exist for a file iff the file is used in
 	 * the current rev of this page and one of the following holds:
 	 *    (a) Current file is newer than the "version used" above (updated)
@@ -732,17 +728,16 @@ class FlaggedRevision {
 			return []; // short-circuit
 		}
 		$dbr = wfGetDB( DB_REPLICA );
-		# Only get templates with stable or "review time" versions.
-		# Note: fi_img_timestamp is nullable (for deadlinks), so use fi_name
-		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
-			$reviewed = "fi_name IS NOT NULL OR fr_img_timestamp IS NOT NULL";
-		} else {
-			$reviewed = "fi_name IS NOT NULL";
-		}
+
 		$ret = $dbr->select(
 			[ 'imagelinks', 'flaggedimages', 'page', 'flaggedpages', 'flaggedrevs' ],
 			[ 'il_to', 'fi_img_timestamp', 'fr_img_timestamp' ],
-			[ 'il_from' => $this->getPage(), $reviewed ], // current version files
+			[
+				'il_from' => $this->getPage(),
+				# Only get templates with stable or "review time" versions.
+				# Note: fi_img_timestamp is nullable (for deadlinks), so use fi_name
+				"fi_name IS NOT NULL OR fr_img_timestamp IS NOT NULL"
+			], // current version files
 				__METHOD__,
 			[], /* OPTIONS */
 			[
