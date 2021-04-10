@@ -29,7 +29,7 @@ class StablePages extends SpecialPage {
 
 		$this->namespace = $request->getIntOrNull( 'namespace' );
 		$this->autoreview = $request->getVal( 'restriction', '' );
-		$this->indef = $request->getBool( 'indef', false );
+		$this->indef = $request->getBool( 'indef' );
 
 		$this->pager = new StablePagesPager( $this, [],
 			$this->namespace, $this->autoreview, $this->indef );

@@ -401,7 +401,6 @@ class FlaggedRevsXML {
 	 */
 	public static function pendingEditNoticeMessage( $flaggedArticle, $frev, $revsSince ) {
 		global $wgLang;
-		$flags = $frev->getTags();
 		$time = $wgLang->date( $frev->getTimestamp(), true );
 		# Add message text for pending edits
 		return wfMessage( 'revreview-pending-basic', $frev->getRevId(), $time )->numParams( $revsSince );

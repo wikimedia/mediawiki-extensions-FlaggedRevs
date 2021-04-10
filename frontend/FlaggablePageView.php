@@ -284,7 +284,6 @@ class FlaggablePageView extends ContextSource {
 			# Give a notice if this rev ID corresponds to a reviewed version...
 			if ( $frev ) {
 				$time = $this->getLanguage()->date( $frev->getTimestamp(), true );
-				$flags = $frev->getTags();
 				$msg = 'revreview-basic-source';
 				$tag = $this->msg( $msg, $frev->getRevId(), $time )->parse();
 				$css = 'flaggedrevs_notice plainlinks noprint';
@@ -480,7 +479,6 @@ class FlaggablePageView extends ContextSource {
 		if ( $this->out->isPrintable() ) {
 			return; // all this function does is add notices; don't show them
 		}
-		$flags = $srev->getTags();
 		$time = $this->getLanguage()->date( $srev->getTimestamp(), true );
 		# Get stable version sync status
 		$synced = $this->article->stableVersionIsSynced();
@@ -586,7 +584,6 @@ class FlaggablePageView extends ContextSource {
 	private function showOldReviewedVersion( FlaggedRevision $frev, &$tag, $prot ) {
 		$reqUser = $this->getUser();
 		$this->load();
-		$flags = $frev->getTags();
 		$time = $this->getLanguage()->date( $frev->getTimestamp(), true );
 		# Set display revision ID
 		$this->out->setRevisionId( $frev->getRevId() );
@@ -611,8 +608,7 @@ class FlaggablePageView extends ContextSource {
 						->numParams( $revsSince )->parse();
 				}
 				$msgHTML = $prot . $icon . $msgHTML;
-				$tag = FlaggedRevsXML::prettyRatingBox( $frev, $msgHTML,
-					$revsSince, 'oldstable', false /*synced*/ );
+				$tag = FlaggedRevsXML::prettyRatingBox( $frev, $msgHTML, $revsSince );
 			// Standard UI
 			} else {
 				$icon = FlaggedRevsXML::stableStatusIcon();
@@ -646,7 +642,6 @@ class FlaggablePageView extends ContextSource {
 	private function showStableVersion( FlaggedRevision $srev, &$tag, $prot ) {
 		$reqUser = $this->getUser();
 		$this->load();
-		$flags = $srev->getTags();
 		$time = $this->getLanguage()->date( $srev->getTimestamp(), true );
 		# Set display revision ID
 		$this->out->setRevisionId( $srev->getRevId() );
@@ -1998,9 +1993,9 @@ class FlaggablePageView extends ContextSource {
 	 * Note: interacts with 'review pending changes' checkbox
 	 * @todo would be nice if hook passed in button attribs, not XML
 	 * @param EditPage $editPage
-	 * @param \OOUI\ButtonInputWidget[] &$buttons
+	 * @param \OOUI\ButtonInputWidget[] $buttons
 	 */
-	public function changeSaveButton( EditPage $editPage, array &$buttons ) {
+	public function changeSaveButton( EditPage $editPage, array $buttons ) {
 		if ( !$this->editWillRequireReview( $editPage ) ) {
 			// Edit will go live or be reviewed on save
 			return;
