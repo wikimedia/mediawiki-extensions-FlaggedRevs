@@ -801,7 +801,9 @@ class FlaggablePageView extends ContextSource {
 	private function getTopDiffToggle( FlaggedRevision $srev ) {
 		$reqUser = $this->getUser();
 		$this->load();
-		if ( !$reqUser->getBoolOption( 'flaggedrevsviewdiffs' ) ) {
+		if ( !MediaWikiServices::getInstance()->getUserOptionsLookup()
+			->getBoolOption( $reqUser, 'flaggedrevsviewdiffs' )
+		) {
 			return false; // nothing to do here
 		}
 		# Diff should only show for the draft
@@ -1024,7 +1026,8 @@ class FlaggablePageView extends ContextSource {
 		$latestId = $this->article->getLatest();
 		$revId  = $oldid ?: $latestId;
 		if ( $frev && $frev->getRevId() < $latestId // changes were made
-			&& $reqUser->getBoolOption( 'flaggedrevseditdiffs' ) // not disabled via prefs
+			&& MediaWikiServices::getInstance()->getUserOptionsLookup()
+				->getBoolOption( $reqUser, 'flaggedrevseditdiffs' ) // not disabled via prefs
 			&& $revId === $latestId // only for current rev
 		) {
 			// Construct a link to the diff
@@ -1080,7 +1083,8 @@ class FlaggablePageView extends ContextSource {
 			# Show diff to stable, to make things less confusing.
 			# This can be disabled via user preferences and other conditions...
 			if ( $frev->getRevId() < $latestId // changes were made
-				&& $reqUser->getBoolOption( 'flaggedrevseditdiffs' ) // not disable via prefs
+				&& MediaWikiServices::getInstance()->getUserOptionsLookup()
+					->getBoolOption( $reqUser, 'flaggedrevseditdiffs' ) // not disable via prefs
 				&& $revId == $latestId // only for current rev
 				&& $editPage->section != 'new' // not for new sections
 				&& $editPage->formtype != 'diff' // not "show changes"
