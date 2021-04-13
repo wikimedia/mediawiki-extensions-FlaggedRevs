@@ -150,7 +150,7 @@
 	"tooltip-ca-current": "Vider iste pagina con le modificationes pendente",
 	"tooltip-ca-stable": "Vider le version stabile de iste pagina",
 	"tooltip-ca-default": "Configurationes pro assecurantia de qualitate",
-	"flaggedrevs-protect-legend": "Revision automatic de modificationes ([[{{MediaWiki:Validationpage}}|adjuta]])",
+	"flaggedrevs-protect-legend": "Revision automatic de modificationes",
 	"flaggedrevs-protect-none": "Permitter omne usatores",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Paginas non revidite]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Modificationes pendente]",
 	"revreview-locked-title": "Le modificationes in iste pagina require revision.",
