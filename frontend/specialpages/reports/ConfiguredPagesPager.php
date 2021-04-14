@@ -10,7 +10,7 @@ class ConfiguredPagesPager extends AlphabeticPager {
 	/** @var array */
 	private $mConds;
 
-	/** @var int|null */
+	/** @var int|int[] */
 	private $namespace;
 
 	/** @var int|null */

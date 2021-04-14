@@ -10,7 +10,7 @@ class PendingChangesPager extends AlphabeticPager {
 	/** @var string|null */
 	private $category;
 
-	/** @var int */
+	/** @var int|int[] */
 	private $namespace;
 
 	/** @var int */
