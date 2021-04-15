@@ -1250,7 +1250,7 @@ class FlaggedRevsHooks {
 				$result = ( $p && $p['editComments'] >= $params[0] );
 				break;
 			case APCOND_FR_NEVERBLOCKED:
-				if ( $user->getBlock() && $user->getBlock()->appliesToRight( 'edit' ) ) {
+				if ( $user->getBlock() ) {
 					$result = false; // failed
 				} else {
 					// See T262970 for an explanation of this
