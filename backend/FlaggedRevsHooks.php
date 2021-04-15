@@ -61,9 +61,9 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:$wgExtensionFunctions
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/MediaWikiServices
 	 */
-	public static function onExtensionFunctions() {
+	public static function onMediaWikiServices() {
 		( new FlaggedRevsSetup() )->doSetup();
 	}
 
