@@ -229,7 +229,7 @@ class FlaggedRevsUIHooks {
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ArticleViewHeader
 	 *
 	 * @param Article $article
-	 * @param bool &$outputDone
+	 * @param bool|ParserOutput|null &$outputDone
 	 * @param bool &$useParserCache
 	 */
 	public static function onArticleViewHeader( $article, &$outputDone, &$useParserCache ) {
