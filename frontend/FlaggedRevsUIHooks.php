@@ -1323,7 +1323,7 @@ class FlaggedRevsUIHooks {
 		global $wgFlaggedRevsProtection, $wgFlaggedRevsNamespaces;
 
 		// Show special pages only if FlaggedRevs is enabled on some namespaces
-		if ( count( $wgFlaggedRevsNamespaces ) ) {
+		if ( $wgFlaggedRevsNamespaces ) {
 			$list['RevisionReview'] = 'RevisionReview'; // unlisted
 			$list['PendingChanges'] = 'PendingChanges';
 			if ( !$wgFlaggedRevsProtection ) {

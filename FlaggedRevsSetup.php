@@ -126,7 +126,7 @@ class FlaggedRevsSetup {
 		global $wgSpecialPageCacheUpdates, $wgFlaggedRevsProtection, $wgFlaggedRevsNamespaces;
 
 		// Show special pages only if FlaggedRevs is enabled on some namespaces
-		if ( count( $wgFlaggedRevsNamespaces ) ) {
+		if ( $wgFlaggedRevsNamespaces ) {
 			if ( !$wgFlaggedRevsProtection ) {
 				$wgSpecialPageCacheUpdates['UnreviewedPages'] = 'UnreviewedPages::updateQueryCache';
 			}
