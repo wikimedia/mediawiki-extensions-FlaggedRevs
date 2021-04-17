@@ -336,8 +336,6 @@ class FlaggedRevsHooks {
 			return;
 		}
 
-		$parser->setFunctionHook( 'pagesusingpendingchanges',
-			[ __CLASS__, 'parserPagesUsingPendingChanges' ] );
 		$parser->setFunctionHook( 'pendingchangelevel',
 			[ __CLASS__, 'parserPendingChangeLevel' ], Parser::SFH_NO_HASH );
 	}
@@ -371,31 +369,6 @@ class FlaggedRevsHooks {
 		}
 
 		$words[] = 'pendingchangelevel';
-	}
-
-	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Parser_functions#The_setFunctionHook_hook
-	 *
-	 * @param Parser $parser
-	 * @param string $ns Namespace number, or the empty string for all namespaces
-	 * @return int
-	 */
-	public static function parserPagesUsingPendingChanges( Parser $parser, $ns = '' ) {
-		$namespaces = FlaggedRevs::getReviewNamespaces();
-		if ( !$namespaces || ( $ns !== '' && !in_array( (int)$ns, $namespaces ) ) ) {
-			return 0;
-		}
-
-		static $pageCounts = [];
-		if ( !$pageCounts ) {
-			$pageCounts['all'] = 0;
-			foreach ( FlaggedRevsStats::getStats()['reviewedPages-NS'] as $id => $count ) {
-				$pageCounts[$id] = $count;
-				$pageCounts['all'] += $count;
-			}
-		}
-
-		return $pageCounts[ $ns === '' ? 'all' : (int)$ns ] ?? 0;
 	}
 
 	/**
