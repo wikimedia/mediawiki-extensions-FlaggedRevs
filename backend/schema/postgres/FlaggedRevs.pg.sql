@@ -28,7 +28,7 @@ CREATE TABLE flaggedrevs (
   fr_rev_id        BIGINT      NOT NULL DEFAULT 0,
   fr_rev_timestamp TIMESTAMPTZ NOT NULL,
   fr_page_id       BIGINT      NOT NULL DEFAULT 0,
-  fr_user          BIGINT      NULL REFERENCES mwuser(user_id) ON DELETE SET NULL,
+  fr_user          BIGINT      NULL,
   fr_timestamp     TIMESTAMPTZ,
   fr_quality       INTEGER     NOT NULL DEFAULT 0,
   fr_tags          TEXT        NOT NULL DEFAULT '',
