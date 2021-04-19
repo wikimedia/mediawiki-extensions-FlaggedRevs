@@ -174,7 +174,7 @@
 	"tooltip-ca-current": "Переглянути цю сторінку з неперевіреними змінами",
 	"tooltip-ca-stable": "Переглянути стабільну версію цієї сторінки",
 	"tooltip-ca-default": "Налаштування контролю якості",
-	"flaggedrevs-protect-legend": "Автоматична перевірка редагування ([[{{MediaWiki:Validationpage}}|допомога]])",
+	"flaggedrevs-protect-legend": "Автоматична перевірка редагування",
 	"flaggedrevs-protect-none": "Дозволено всім користувачам",
 	"flaggedrevs-protect-sysop": "Дозволити лише адміністраторам",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Неперевірені сторінки]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Зміни, що очікують на перевірку]",
