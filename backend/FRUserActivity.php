@@ -30,7 +30,6 @@ class FRUserActivity {
 				$dbr = wfGetDB( DB_REPLICA );
 				$setOpts += Database::getCacheSetOptions( $dbr );
 				// Get number of active editors watching this page...
-				$actorQuery = ActorMigration::newMigration()->getJoin( 'rc_user' );
 				$count = (int)$dbr->selectField(
 					[ 'watchlist', 'user' ],
 					'COUNT(*)',
@@ -39,16 +38,16 @@ class FRUserActivity {
 						'wl_title' => $title->getDBkey(),
 						'wl_user = user_id',
 						'EXISTS(' . $dbr->selectSQLText(
-							[ 'recentchanges' ] + $actorQuery['tables'],
+							[ 'recentchanges', 'actor' ],
 							'1',
 							[
-								'user_name = ' . $actorQuery['fields']['rc_user_text'],
+								'actor_name=user_name',
 								'rc_timestamp > ' .
 									$dbr->timestamp( time() - 86400 * $wgActiveUserDays )
 							],
 							$fname,
 							[],
-							$actorQuery['joins']
+							[ 'actor' => [ 'JOIN', 'actor_id=rc_actor' ] ]
 						) . ')'
 					],
 					$fname
