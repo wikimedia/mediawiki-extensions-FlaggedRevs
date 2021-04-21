@@ -385,16 +385,6 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 			$article, $insertedRevRecord, $oldLatest, $this->user, $tags
 		);
 
-		if ( $hookContainer->isRegistered( 'NewRevisionFromEditComplete' ) ) {
-			// Hook is hard deprecated in 1.35, meaning that the Revision object
-			// can be constructed here without triggering deprecation warnings
-			// since it won't be reached in deployed code
-			$insertedRev = new Revision( $insertedRevRecord );
-			$hookRunner->onNewRevisionFromEditComplete(
-				$article, $insertedRev, $oldLatest, $this->user, $tags
-			);
-		}
-
 		# Return null RevisionRecord object for autoreview check
 		return $insertedRevRecord;
 	}
