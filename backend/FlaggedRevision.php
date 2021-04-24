@@ -912,12 +912,7 @@ class FlaggedRevision {
 			if ( count( $set ) == 2 ) {
 				list( $tag, $value ) = $set;
 				$value = max( 0, (int)$value ); // validate
-				# Add only currently recognized tags
-				if ( isset( $flags[$tag] ) ) {
-					$levels = FlaggedRevs::getTagLevels( $tag );
-					# If a level was removed, default to the highest...
-					$flags[$tag] = min( $value, count( $levels ) - 1 );
-				}
+				$flags[$tag] = min( $value, count( FlaggedRevs::getLevels() ) - 1 );
 			}
 		}
 		return $flags;
@@ -931,10 +926,7 @@ class FlaggedRevision {
 	public static function flattenRevisionTags( array $tags ) {
 		$flags = '';
 		foreach ( $tags as $tag => $value ) {
-			# Add only currently recognized ones
-			if ( FlaggedRevs::getTagLevels( $tag ) ) {
-				$flags .= $tag . ':' . intval( $value ) . "\n";
-			}
+			$flags .= $tag . ':' . intval( $value ) . "\n";
 		}
 		return $flags;
 	}

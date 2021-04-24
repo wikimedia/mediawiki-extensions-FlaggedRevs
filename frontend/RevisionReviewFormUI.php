@@ -316,7 +316,7 @@ class RevisionReviewFormUI {
 				$quality = FlaggedRevs::getTagName();
 				$selected = $flags[$quality] ?? 0;
 				$items[] = $this->getTagMsg( $quality )->escaped() . ": " .
-					$this->getTagValueMsg( $quality, $selected );
+					$this->getTagValueMsg( $selected );
 			}
 		} else {
 			$size = count( $labels, 1 ) - count( $labels );
@@ -375,12 +375,11 @@ class RevisionReviewFormUI {
 	}
 
 	/**
-	 * @param string $tag
 	 * @param int $value
 	 * @return string the UI name for a value of a tag
 	 */
-	private function getTagValueMsg( $tag, $value ) {
-		$levels = FlaggedRevs::getTagLevels( $tag );
+	private function getTagValueMsg( $value ) {
+		$levels = FlaggedRevs::getLevels();
 		if ( isset( $levels[$value] ) ) {
 			return wfMessage( 'revreview-' . $levels[$value] )->escaped();
 		}
@@ -401,7 +400,7 @@ class RevisionReviewFormUI {
 		$tag = FlaggedRevs::getTagName();
 		$levels = FlaggedRevs::getLevels();
 		if ( isset( $selected[$tag] ) &&
-			!FlaggedRevs::userCanSetTag( $user, $tag, $selected[$tag] )
+			!FlaggedRevs::userCanSetValue( $user,  $selected[$tag] )
 		) {
 			return [ false, false ]; // form will have to be disabled
 		}
@@ -409,7 +408,7 @@ class RevisionReviewFormUI {
 		$minLevels[$tag] = false; // first non-zero level number
 		foreach ( $levels as $i => $msg ) {
 			# Some levels may be restricted or not applicable...
-			if ( !FlaggedRevs::userCanSetTag( $user, $tag, $i ) ) {
+			if ( !FlaggedRevs::userCanSetValue( $user, $i ) ) {
 				continue; // skip this level
 			} elseif ( $i > 0 && !$minLevels[$tag] ) {
 				$minLevels[$tag] = $i; // first non-zero level number

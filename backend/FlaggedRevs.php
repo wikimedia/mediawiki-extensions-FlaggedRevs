@@ -148,18 +148,17 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * Get the maximum level that $tag can be autoreviewed to
-	 * @param string $tag
+	 * Get the maximum level that can be autoreviewed
 	 * @return int
 	 */
-	private static function maxAutoReviewLevel( $tag ) {
+	private static function maxAutoReviewLevel() {
 		global $wgFlaggedRevsTagsAuto;
 		self::load();
 		if ( !self::autoReviewEnabled() ) {
 			return 0; // shouldn't happen
 		}
 		// B/C (before $wgFlaggedRevsTagsAuto)
-		return (int)( $wgFlaggedRevsTagsAuto[$tag] ?? 1 );
+		return (int)( $wgFlaggedRevsTagsAuto[self::getTagName()] ?? 1 );
 	}
 
 	/**
@@ -223,23 +222,12 @@ class FlaggedRevs {
 
 	/**
 	 * Get the associative array of tag restrictions
-	 * (tags => [rights => levels])
-	 * @return int[][] Value from $wgFlaggedRevsTagsRestrictions
+	 * ([rights => levels])
+	 * @return int[] Value from $wgFlaggedRevsTagsRestrictions
 	 */
-	private static function getTagRestrictions() {
+	private static function getRestrictions() {
 		self::load();
-		return self::$tagRestrictions;
-	}
-
-	/**
-	 * Get the levels for a tag. Gives map of level to message name.
-	 * @param string $tag
-	 * @return string[] (integer -> string)
-	 * @deprecated Support for multiple tags was removed, simply use {@see getLevels}
-	 */
-	public static function getTagLevels( $tag ) {
-		self::load();
-		return self::$dimensions[$tag] ?? [];
+		return self::$tagRestrictions[self::getTagName()] ?? [];
 	}
 
 	/**
@@ -272,13 +260,11 @@ class FlaggedRevs {
 	# ################ Permission functions #################
 
 	/**
-	 * Sanity check a (tag,value) pair
-	 * @param string $tag
 	 * @param int $value
 	 * @return bool
 	 */
-	private static function tagIsValid( $tag, $value ) {
-		return $value >= 0 && $value < count( self::getTagLevels( $tag ) );
+	private static function valueIsValid( $value ) {
+		return $value >= 0 && $value < count( self::getLevels() );
 	}
 
 	/**
@@ -291,28 +277,27 @@ class FlaggedRevs {
 			return true;
 		}
 		$tag = self::getTagName();
-		if ( !isset( $flags[$tag] ) || !self::tagIsValid( $tag, $flags[$tag] ) ) {
+		if ( !isset( $flags[$tag] ) || !self::valueIsValid( $flags[$tag] ) ) {
 			return false;
 		}
 		return true;
 	}
 
 	/**
-	 * Returns true if a user can set $tag to $value
+	 * Returns true if a user can set $value
 	 * @param User $user
-	 * @param string $tag
 	 * @param int $value
 	 * @return bool
 	 */
-	public static function userCanSetTag( $user, $tag, $value ) {
+	public static function userCanSetValue( $user, $value ) {
 		$pm = MediaWikiServices::getInstance()->getPermissionManager();
 		# Sanity check tag and value
-		if ( !self::tagIsValid( $tag, $value ) ) {
+		if ( !self::valueIsValid( $value ) ) {
 			return false; // flag range is invalid
 		}
-		$restrictions = self::getTagRestrictions();
+		$restrictions = self::getRestrictions();
 		# No restrictions -> full access
-		if ( !isset( $restrictions[$tag] ) ) {
+		if ( !$restrictions ) {
 			return true;
 		}
 		# Validators always have full access
@@ -321,7 +306,7 @@ class FlaggedRevs {
 		}
 		# Check if this user has any right that lets him/her set
 		# up to this particular value
-		foreach ( $restrictions[$tag] as $right => $level ) {
+		foreach ( $restrictions as $right => $level ) {
 			if ( $value <= $level && $level > 0 && $pm->userHasRight( $user, $right ) ) {
 				return true;
 			}
@@ -350,10 +335,10 @@ class FlaggedRevs {
 		$qal = self::getTagName();
 		if ( !isset( $flags[$qal] ) ) {
 			return false; // unspecified
-		} elseif ( !self::userCanSetTag( $user, $qal, $flags[$qal] ) ) {
+		} elseif ( !self::userCanSetValue( $user, $flags[$qal] ) ) {
 			return false; // user cannot set proposed flag
 		} elseif ( isset( $oldflags[$qal] )
-			&& !self::userCanSetTag( $user, $qal, $oldflags[$qal] )
+			&& !self::userCanSetValue( $user, $oldflags[$qal] )
 		) {
 			return false; // user cannot change old flag
 		}
@@ -733,9 +718,9 @@ class FlaggedRevs {
 		$tag = self::getTagName();
 		# Try to keep this tag val the same as the stable rev's
 		$val = $oldFlags[$tag] ?? 1;
-		$val = min( $val, self::maxAutoReviewLevel( $tag ) );
+		$val = min( $val, self::maxAutoReviewLevel() );
 		# Dial down the level to one the user has permission to set
-		while ( !self::userCanSetTag( $user, $tag, $val ) ) {
+		while ( !self::userCanSetValue( $user, $val ) ) {
 			$val--;
 			if ( $val <= 0 ) {
 				return null; // all tags vals must be > 0
