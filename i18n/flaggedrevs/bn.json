@@ -64,7 +64,7 @@
 	"revreview-log-details-show": "বিস্তারিত দেখান",
 	"revreview-log-details-hide": "বিস্তারিত লুকান",
 	"revreview-log-details-title": "স্থিতিশীলতা সেটিং লগের প্রদর্শন দেখান/লুকান",
-	"review-diff2stable": "সকল মুলতুবি পরিবির্তন দেখুন",
+	"review-diff2stable": "সকল অমীমাংসিত পরিবর্তন দেখুন",
 	"review-logentry-id": "সংস্করণ: $2",
 	"review-logentry-diff": "পরিবর্তন পর্যালোচিত",
 	"review-logpage": "পর্যবেক্ষণ লগ",
