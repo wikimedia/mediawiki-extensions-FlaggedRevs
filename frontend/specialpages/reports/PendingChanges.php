@@ -294,13 +294,13 @@ class PendingChanges extends SpecialPage {
 				->userHasRight( $this->getUser(), 'unreviewedpages' )
 		) {
 			$uw = FRUserActivity::numUsersWatchingPage( $title );
-			$watching = $uw
+			$watching = ' ';
+			$watching .= $uw
 				? $this->msg( 'pendingchanges-watched' )->numParams( $uw )->escaped()
 				: $this->msg( 'pendingchanges-unwatched' )->escaped();
-			$watching = " {$watching}";
 		} else {
 			$uw = -1;
-			$watching = ''; // leave out data
+			$watching = '';
 		}
 		# Get how long the first unreviewed edit has been waiting...
 		if ( $row->pending_since ) {
@@ -333,11 +333,11 @@ class PendingChanges extends SpecialPage {
 
 	/**
 	 * @param float $hours
-	 * @param int $numUsersWatching
+	 * @param int $numUsersWatching Number of users or -1 when not allowed to see the number
 	 * @return string
 	 */
 	private function getLineClass( $hours, $numUsersWatching ) {
-		return $numUsersWatching > 0 ? '' : 'fr-unreviewed-unwatched';
+		return $numUsersWatching == 0 ? 'fr-unreviewed-unwatched' : '';
 	}
 
 	/**
