@@ -431,10 +431,11 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	 */
 	private function updateWatchlist() {
 		# Apply watchlist checkbox value (may be NULL)
+		$watchlistManager = MediaWikiServices::getInstance()->getWatchlistManager();
 		if ( $this->watchThis === true ) {
-			$this->user->addWatch( $this->page );
+			$watchlistManager->addWatch( $this->user, $this->page );
 		} elseif ( $this->watchThis === false ) {
-			$this->user->removeWatch( $this->page );
+			$watchlistManager->removeWatch( $this->user, $this->page );
 		}
 	}
 }
