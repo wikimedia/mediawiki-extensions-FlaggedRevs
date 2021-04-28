@@ -1,6 +1,8 @@
 <?php
 
 // Assumes $wgFlaggedRevsProtection is off
+use MediaWiki\MediaWikiServices;
+
 class PageStabilityGeneralForm extends PageStabilityForm {
 
 	/**
@@ -35,7 +37,8 @@ class PageStabilityGeneralForm extends PageStabilityForm {
 		$oldConfig = $this->getOldConfig();
 		$this->override = $oldConfig['override'];
 		$this->autoreview = $oldConfig['autoreview'];
-		$this->watchThis = $this->getUser()->isWatched( $this->page );
+		$this->watchThis = MediaWikiServices::getInstance()->getWatchlistManager()
+			->isWatched( $this->getUser(), $this->page );
 	}
 
 	protected function reallyDoCheckParameters() {

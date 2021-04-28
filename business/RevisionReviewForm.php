@@ -484,8 +484,12 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		}
 		# Watch page if set to do so
 		if ( $status === true ) {
-			if ( $user->getOption( 'flaggedrevswatch' ) && !$user->isWatched( $this->page ) ) {
-				$user->addWatch( $this->page );
+			$services = MediaWikiServices::getInstance();
+			$userOptionsLookup = $services->getUserOptionsLookup();
+			$watchlistManager = $services->getWatchlistManager();
+			if ( $userOptionsLookup->getOption( $user, 'flaggedrevswatch' ) &&
+				!$watchlistManager->isWatched( $user, $this->page ) ) {
+				$watchlistManager->addWatch( $user, $this->page );
 			}
 		}
 

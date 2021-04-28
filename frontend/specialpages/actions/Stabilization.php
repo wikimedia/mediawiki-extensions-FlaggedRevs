@@ -222,8 +222,11 @@ class Stabilization extends UnlistedSpecialPage {
 			$watchLabel = $this->msg( 'watchthis' )->parse();
 			$watchAttribs = [ 'accesskey' => $this->msg( 'accesskey-watch' )->text(),
 				'id' => 'wpWatchthis' ];
-			$watchChecked = ( $user->getOption( 'watchdefault' )
-				|| $user->isWatched( $title ) );
+			$services = MediaWikiServices::getInstance();
+			$userOptionsLookup = $services->getUserOptionsLookup();
+			$watchlistManager = $services->getWatchlistManager();
+			$watchChecked = ( $userOptionsLookup->getOption( $user, 'watchdefault' )
+				|| $watchlistManager->isWatched( $user, $title ) );
 			$reviewLabel = $this->msg( 'stabilization-review' )->parse();
 
 			$s .= ' <tr>

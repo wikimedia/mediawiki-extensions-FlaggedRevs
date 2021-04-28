@@ -1,11 +1,14 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 // Assumes $wgFlaggedRevsProtection is on
 class PageStabilityProtectForm extends PageStabilityForm {
 	protected function reallyDoPreloadParameters() {
 		$oldConfig = $this->getOldConfig();
 		$this->autoreview = $oldConfig['autoreview']; // protect level
-		$this->watchThis = $this->getUser()->isWatched( $this->page );
+		$this->watchThis = MediaWikiServices::getInstance()->getWatchlistManager()
+			->isWatched( $this->getUser(), $this->page );
 	}
 
 	protected function reallyDoCheckParameters() {
