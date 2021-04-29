@@ -875,7 +875,14 @@ class FlaggedRevsUIHooks {
 				? 'fr-hist-quality-user'
 				: 'fr-hist-basic-user';
 		}
-		$name = $row->reviewer ?? User::whoIs( $row->fr_user );
+		if ( isset( $row->reviewer ) ) {
+			$name = $row->reviewer;
+		} else {
+			$reviewer = MediaWikiServices::getInstance()
+				->getActorStore()
+				->getUserIdentityByUserId( $row->fr_user );
+			$name = $reviewer ? $reviewer->getName() : false;
+		}
 		$link = $ctx->msg( $msg, $title->getPrefixedDBkey(), $row->rev_id, $name )->parse();
 		$link = "<span class='$css plainlinks'>[$link]</span>";
 		return [ $link, $liCss ];

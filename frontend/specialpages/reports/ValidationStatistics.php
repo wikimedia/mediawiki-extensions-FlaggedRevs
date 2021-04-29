@@ -194,8 +194,8 @@ class ValidationStatistics extends IncludableSpecialPage {
 			$reviewChart = "<table class='$css' style='white-space: nowrap;'>\n";
 			$reviewChart .= '<tr><th>' . $this->msg( 'validationstatistics-user' )->escaped() .
 				'</th><th>' . $this->msg( 'validationstatistics-reviews' )->escaped() . '</th></tr>';
-			foreach ( $data as $userId => $reviews ) {
-				$reviewChart .= '<tr><td>' . htmlspecialchars( User::whoIs( $userId ) ) .
+			foreach ( $data as [ $user, $reviews ] ) {
+				$reviewChart .= '<tr><td>' . htmlspecialchars( $user->getName() ) .
 					'</td><td>' . htmlspecialchars( $lang->formatNum( $reviews ) ) . '</td></tr>';
 			}
 			$reviewChart .= "</table>\n";
@@ -312,7 +312,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 
 	/**
 	 * Get top X reviewers in the last Y hours
-	 * @return int[] number of reviews indexed by user name
+	 * @return array[] array of tuples ( UserIdentity $user, int $reviews )
 	 */
 	private function getTopReviewers() {
 		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
@@ -330,7 +330,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 				$cutoff = $dbr->timestamp( time() - $seconds );
 				$res = $dbr->select(
 					[ 'logging', 'actor' ],
-					[ 'user' => 'actor_user', 'COUNT(*) AS reviews' ],
+					[ 'actor_id', 'actor_name', 'actor_user', 'COUNT(*) AS reviews' ],
 					[
 						'log_type' => 'review', // page reviews
 						// manual approvals (filter on log_action)
@@ -346,16 +346,17 @@ class ValidationStatistics extends IncludableSpecialPage {
 					[ 'actor' => [ 'JOIN', 'actor_id=log_actor' ] ]
 				);
 
+				$actorStore = MediaWikiServices::getInstance()->getActorStore();
 				$data = [];
 				foreach ( $res as $row ) {
-					$data[$row->user] = $row->reviews;
+					$data[] = [ $actorStore->newActorFromRow( $row ), $row->reviews ];
 				}
-
 				return $data;
 			},
 			[
 				'lockTSE' => 300,
-				'staleTTL' => $cache::TTL_MINUTE
+				'staleTTL' => $cache::TTL_MINUTE,
+				'version' => 2,
 			]
 		);
 	}
