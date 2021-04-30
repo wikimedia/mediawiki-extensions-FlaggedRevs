@@ -133,7 +133,6 @@ class UnreviewedPages extends SpecialPage {
 
 		$stxt = '';
 		$underReview = '';
-		$watching = '';
 		$linkRenderer = $this->getLinkRenderer();
 		$link = $linkRenderer->makeLink( $title, null, [], [ 'redirect' => 'no' ] );
 		$dirmark = $this->getLanguage()->getDirMark();
@@ -165,12 +164,13 @@ class UnreviewedPages extends SpecialPage {
 			->userHasRight( $this->getUser(), 'unwatchedpages' )
 		) {
 			$uw = FRUserActivity::numUsersWatchingPage( $title );
-			$watching = $uw
+			$watching = ' ';
+			$watching .= $uw
 				? $this->msg( 'unreviewedpages-watched' )->numParams( $uw )->escaped()
 				: $this->msg( 'unreviewedpages-unwatched' )->escaped();
-			$watching = " $watching"; // Oh-noes!
 		} else {
 			$uw = -1;
+			$watching = '';
 		}
 		$css = $this->getLineClass( $hours, $uw );
 		$css = $css ? " class='$css'" : "";
@@ -188,8 +188,8 @@ class UnreviewedPages extends SpecialPage {
 
 	/**
 	 * @param float $hours
-	 * @param int $numUsersWatching
-	 * @return string HTML
+	 * @param int $numUsersWatching Number of users or -1 when not allowed to see the number
+	 * @return string
 	 */
 	private function getLineClass( $hours, $numUsersWatching ) {
 		$days = $hours / 24;
@@ -200,7 +200,7 @@ class UnreviewedPages extends SpecialPage {
 		} elseif ( $days > 7 ) {
 			return 'fr-pending-long';
 		} else {
-			return "";
+			return '';
 		}
 	}
 
