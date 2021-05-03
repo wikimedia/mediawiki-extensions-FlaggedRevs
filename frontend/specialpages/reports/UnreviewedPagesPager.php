@@ -111,9 +111,12 @@ class UnreviewedPagesPager extends AlphabeticPager {
 			$useIndex = [ 'categorylinks' => 'cl_sortkey' ];
 			$groupBy = 'cl_sortkey,cl_from';
 		} else {
+			$pageIndex = $this->mDb->indexExists( 'page', 'name_title', __METHOD__ )
+				? 'name_title' : 'page_name_title';
+
 			$tables = [ 'page', 'flaggedpages', 'revision' ];
 			$this->mIndexField = 'page_title';
-			$useIndex = [ 'page' => 'name_title' ];
+			$useIndex = [ 'page' => $pageIndex ];
 			$groupBy = 'page_title';
 		}
 		// T270033 Index renaming
