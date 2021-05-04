@@ -63,7 +63,7 @@ class PurgeReviewablePages extends Maintenance {
 			return;
 		}
 
-		$db = wfGetDB( DB_MASTER );
+		$db = wfGetDB( DB_PRIMARY );
 
 		$start = $db->selectField( 'page', 'MIN(page_id)', false, __METHOD__ );
 		$end = $db->selectField( 'page', 'MAX(page_id)', false, __METHOD__ );

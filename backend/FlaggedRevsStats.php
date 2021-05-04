@@ -96,7 +96,7 @@ class FlaggedRevsStats {
 		# Get wait (till review) time samples for logged-in user edits...
 		$reviewDataUser = self::getEditReviewTimes( $cache, 'users' );
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		// The timestamp to identify this whole batch of data
 		$encDataTimestamp = $dbw->timestamp();
 
@@ -376,7 +376,7 @@ class FlaggedRevsStats {
 		$edits = $cache->getWithSetCallback(
 			$cache->makeKey( 'flaggedrevs', 'rcEditCount', $users, $days ),
 			$cache::TTL_WEEK * 2,
-			function () use ( $dbr, $fname, $userCondition, $timeCondition, $actorQuery ) {
+			static function () use ( $dbr, $fname, $userCondition, $timeCondition, $actorQuery ) {
 				return (int)$dbr->selectField(
 					[ 'page', 'revision' ] + $actorQuery['tables'],
 					'COUNT(*)',

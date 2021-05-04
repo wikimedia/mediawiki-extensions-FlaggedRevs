@@ -48,7 +48,7 @@ class PruneFRIncludeData extends Maintenance {
 			$this->output( "Running dry-run of old flagged revision inclusion data pruning...\n" );
 		}
 
-		$db = wfGetDB( DB_MASTER );
+		$db = wfGetDB( DB_PRIMARY );
 
 		if ( $start === null ) {
 			$start = $db->selectField( 'flaggedpages', 'MIN(fp_page_id)', false, __METHOD__ );

@@ -75,7 +75,7 @@ class FlaggedRevsHooks {
 	 * @param int $oldPageID
 	 */
 	public static function onRevisionRestore( RevisionRecord $revision, $oldPageID ) {
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		# Some revisions may have had null rev_id values stored when deleted.
 		# This hook is called after insertOn() however, in which case it is set
 		# as a new one.
@@ -97,7 +97,7 @@ class FlaggedRevsHooks {
 		$oldPageID = $sourceTitle->getArticleID();
 		$newPageID = $destTitle->getArticleID();
 		# Get flagged revisions from old page id that point to destination page
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$revIDs = $dbw->selectFieldValues(
 			[ 'flaggedrevs', 'revision' ],
 			'fr_rev_id',
@@ -662,7 +662,7 @@ class FlaggedRevsHooks {
 		if ( !$srev || $baseRevId != $srev->getRevId() ) {
 			return false; // user reports they are not the same
 		}
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		# Such a revert requires 1+ revs between it and the stable
 		$revWhere = ActorMigration::newMigration()->getWhere( $dbw, 'rev_user', $user );
 		$revertedRevs = $dbw->selectField(
@@ -826,7 +826,7 @@ class FlaggedRevsHooks {
 			$frev = FlaggedRevision::newFromTitle( $rc->getTitle(), $revId, FR_MASTER );
 			// Reviewed => patrolled
 			if ( $frev ) {
-				DeferredUpdates::addCallableUpdate( function () use ( $rc, $frev ) {
+				DeferredUpdates::addCallableUpdate( static function () use ( $rc, $frev ) {
 					RevisionReviewForm::updateRecentChanges( $rc, 'patrol', $frev );
 				} );
 				$rcAttribs = $rc->getAttributes();
@@ -851,7 +851,7 @@ class FlaggedRevsHooks {
 		$badUser = $badRev->getUser( RevisionRecord::RAW );
 		$badUserId = $badUser ? $badUser->getId() : 0;
 		if ( $badUserId && $user->getId() != $badUserId ) {
-			DeferredUpdates::addCallableUpdate( function () use ( $badUserId ) {
+			DeferredUpdates::addCallableUpdate( static function () use ( $badUserId ) {
 				$p = FRUserCounters::getUserParams( $badUserId, FR_FOR_UPDATE );
 				if ( !isset( $p['revertedEdits'] ) ) {
 					$p['revertedEdits'] = 0;
@@ -1185,7 +1185,7 @@ class FlaggedRevsHooks {
 		}
 
 		$userId = $userIdentity->getId();
-		DeferredUpdates::addCallableUpdate( function () use ( $userId, $wikiPage, $summary ) {
+		DeferredUpdates::addCallableUpdate( static function () use ( $userId, $wikiPage, $summary ) {
 			$p = FRUserCounters::getUserParams( $userId, FR_FOR_UPDATE );
 			$changed = FRUserCounters::updateUserParams( $p, $wikiPage, $summary );
 			if ( $changed ) {

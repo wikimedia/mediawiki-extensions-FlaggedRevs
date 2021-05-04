@@ -285,14 +285,14 @@ class FlaggedRevsUIHooks {
 			$stableRedirect = $cache->getWithSetCallback(
 				$cache->makeKey( 'flaggedrevs-stable-redirect', $wikiPage->getId() ),
 				$wgParserCacheExpireTime,
-				function () use ( $fa, $srev ) {
+				static function () use ( $fa, $srev ) {
 					$content = $srev->getRevisionRecord()
 						->getContent( SlotRecord::MAIN );
 
 					return $fa->getRedirectURL( $content->getUltimateRedirectTarget() ) ?: '';
 				},
 				[
-					'touchedCallback' => function () use ( $wikiPage ) {
+					'touchedCallback' => static function () use ( $wikiPage ) {
 						return wfTimestampOrNull( TS_UNIX, $wikiPage->getTouched() );
 					}
 				]
@@ -487,7 +487,7 @@ class FlaggedRevsUIHooks {
 						'label' => 'flaggedrevs-rcfilters-need-review-label',
 						'description' => 'flaggedrevs-rcfilters-need-review-desc',
 						'cssClassSuffix' => 'need-review',
-						'isRowApplicableCallable' => function ( $ctx, $rc ) {
+						'isRowApplicableCallable' => static function ( $ctx, $rc ) {
 							$namespaces = FlaggedRevs::getReviewNamespaces();
 							return ( in_array( $rc->getAttribute( 'rc_namespace' ), $namespaces ) &&
 								$rc->getAttribute( 'rc_type' ) !== RC_EXTERNAL ) &&
@@ -509,7 +509,7 @@ class FlaggedRevsUIHooks {
 						'label' => 'flaggedrevs-rcfilters-reviewed-label',
 						'description' => 'flaggedrevs-rcfilters-reviewed-desc',
 						'cssClassSuffix' => 'reviewed',
-						'isRowApplicableCallable' => function ( $ctx, $rc ) {
+						'isRowApplicableCallable' => static function ( $ctx, $rc ) {
 							$namespaces = FlaggedRevs::getReviewNamespaces();
 							return ( in_array( $rc->getAttribute( 'rc_namespace' ), $namespaces ) &&
 								$rc->getAttribute( 'rc_type' ) !== RC_EXTERNAL ) &&
@@ -525,13 +525,13 @@ class FlaggedRevsUIHooks {
 						'label' => 'flaggedrevs-rcfilters-not-reviewable-label',
 						'description' => 'flaggedrevs-rcfilters-not-reviewable-desc',
 						'cssClassSuffix' => 'not-reviewable',
-						'isRowApplicableCallable' => function ( $ctx, $rc ) {
+						'isRowApplicableCallable' => static function ( $ctx, $rc ) {
 							$namespaces = FlaggedRevs::getReviewNamespaces();
 							return !in_array( $rc->getAttribute( 'rc_namespace' ), $namespaces );
 						}
 					],
 				],
-				'queryCallable' => function ( $specialClassName, $ctx, $dbr, &$tables,
+				'queryCallable' => static function ( $specialClassName, $ctx, $dbr, &$tables,
 					&$fields, &$conds, &$query_options, &$join_conds, $selectedValues
 				) {
 					$fields[] = 'fp_stable';

@@ -147,7 +147,7 @@ class FlaggableWikiPage extends WikiPage {
 		$callback = function (
 			$oldValue = null, &$ttl = null, array &$setOpts = []
 		) use ( $flags, $srev, $fname ) {
-			$db = wfGetDB( ( $flags & FR_MASTER ) ? DB_MASTER : DB_REPLICA );
+			$db = wfGetDB( ( $flags & FR_MASTER ) ? DB_PRIMARY : DB_REPLICA );
 			$setOpts += Database::getCacheSetOptions( $db );
 
 			return (int)$db->selectField(
@@ -216,7 +216,7 @@ class FlaggableWikiPage extends WikiPage {
 		return (bool)$cache->getWithSetCallback(
 			$cache->makeKey( 'flaggedrevs-includes-synced', $this->getId() ),
 			$wgParserCacheExpireTime,
-			function () use ( $srev ) {
+			static function () use ( $srev ) {
 				# Since the stable and current revisions have the same text and only outputs, the
 				# only other things to check for are template and file differences in the output.
 				# (a) Check if the current output has a newer template/file used
@@ -427,7 +427,7 @@ class FlaggableWikiPage extends WikiPage {
 		# Fetch data from DB as needed...
 		$from = WikiPage::convertSelectType( $data );
 		if ( $from === self::READ_NORMAL || $from === self::READ_LATEST ) {
-			$db = wfGetDB( $from === self::READ_LATEST ? DB_MASTER : DB_REPLICA );
+			$db = wfGetDB( $from === self::READ_LATEST ? DB_PRIMARY : DB_REPLICA );
 			$data = $this->pageDataFromTitle( $db, $this->mTitle );
 		}
 		# Load in primary page data...
@@ -466,7 +466,7 @@ class FlaggableWikiPage extends WikiPage {
 		if ( !$latest ) {
 			$latest = $this->mTitle->getLatestRevID( Title::GAID_FOR_UPDATE );
 		}
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		# Get the timestamp of the first edit after the stable version (if any)...
 		$nextTimestamp = null;
 		if ( $revRecord->getId() != $latest ) {
@@ -513,7 +513,7 @@ class FlaggableWikiPage extends WikiPage {
 		if ( !$this->exists() ) {
 			return; // nothing to do
 		}
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$dbw->delete( 'flaggedpages', [ 'fp_page_id' => $this->getId() ], __METHOD__ );
 		$dbw->delete( 'flaggedpage_pending', [ 'fpp_page_id' => $this->getId() ], __METHOD__ );
 	}
@@ -526,7 +526,7 @@ class FlaggableWikiPage extends WikiPage {
 	private function updatePendingList( $pageId, $latest ) {
 		$data = [];
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 
 		# Get the latest revision of FR_CHECKED
 		$row = $dbw->selectRow(

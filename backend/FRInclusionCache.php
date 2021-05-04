@@ -32,7 +32,7 @@ class FRInclusionCache {
 		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		$key = self::getCacheKey( $cache, $wikiPage->getTitle(), $revRecord->getId() );
 
-		$callback = function () use ( $wikiPage, $revRecord, $user ) {
+		$callback = static function () use ( $wikiPage, $revRecord, $user ) {
 			$pOut = false;
 			if ( $revRecord->isCurrent() ) {
 				$parserCache = MediaWikiServices::getInstance()->getParserCache();
@@ -70,7 +70,7 @@ class FRInclusionCache {
 		} else {
 			if ( $revRecord->isCurrent() ) {
 				// Check cache entry against page_touched
-				$touchedCallback = function () use ( $wikiPage ) {
+				$touchedCallback = static function () use ( $wikiPage ) {
 					return wfTimestampOrNull( TS_UNIX, $wikiPage->getTouched() );
 				};
 			} else {

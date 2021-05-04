@@ -84,7 +84,7 @@ class FRExtraCacheUpdateJob extends Job {
 
 		$synced = $fpage->stableVersionIsSynced();
 		if ( $fpage->syncedInTracking() != $synced ) {
-			$dbw = wfGetDB( DB_MASTER );
+			$dbw = wfGetDB( DB_PRIMARY );
 			$dbw->update( 'flaggedpages',
 				[ 'fp_reviewed' => $synced ? 1 : 0 ],
 				[ 'fp_page_id' => $fpage->getId() ],

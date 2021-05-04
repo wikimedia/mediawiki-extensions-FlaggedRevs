@@ -90,7 +90,7 @@ class FRDependencyUpdate {
 			$existing = $this->getExistingDeps( FR_MASTER );
 			$insertions = $this->getDepInsertions( $existing, $deps );
 			$deletions = $this->getDepDeletions( $existing, $deps );
-			$dbw = wfGetDB( DB_MASTER );
+			$dbw = wfGetDB( DB_PRIMARY );
 			# Delete removed links
 			if ( $deletions ) {
 				$dbw->delete( 'flaggedrevs_tracking', $deletions, __METHOD__ );
@@ -109,7 +109,7 @@ class FRDependencyUpdate {
 	 */
 	private function getExistingDeps( $flags = 0 ) {
 		$db = ( $flags & FR_MASTER ) ?
-			wfGetDB( DB_MASTER ) : wfGetDB( DB_REPLICA );
+			wfGetDB( DB_PRIMARY ) : wfGetDB( DB_REPLICA );
 		$res = $db->select( 'flaggedrevs_tracking',
 			[ 'ftr_namespace', 'ftr_title' ],
 			[ 'ftr_from' => $this->title->getArticleID() ],
@@ -163,7 +163,7 @@ class FRDependencyUpdate {
 			}
 		}
 		if ( $del ) {
-			$clause = $this->makeWhereFrom2d( $del, wfGetDB( DB_MASTER ) );
+			$clause = $this->makeWhereFrom2d( $del, wfGetDB( DB_PRIMARY ) );
 			if ( $clause ) {
 				return [ $clause, 'ftr_from' => $this->title->getArticleID() ];
 			}

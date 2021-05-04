@@ -12,7 +12,7 @@ class FRPageConfig {
 	 */
 	public static function getStabilitySettings( Title $title, $flags = 0 ) {
 		$db = ( $flags & FR_MASTER ) ?
-			wfGetDB( DB_MASTER ) : wfGetDB( DB_REPLICA );
+			wfGetDB( DB_PRIMARY ) : wfGetDB( DB_REPLICA );
 		$row = $db->selectRow( 'flaggedpage_config',
 			[ 'fpc_override', 'fpc_level', 'fpc_expiry' ],
 			[ 'fpc_page_id' => $title->getArticleID() ],
@@ -81,7 +81,7 @@ class FRPageConfig {
 	 * @return bool Row changed
 	 */
 	public static function setStabilitySettings( Title $title, array $config ) {
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		# Purge expired entries on one in every 10 queries
 		if ( !mt_rand( 0, 10 ) ) {
 			self::purgeExpiredConfigurations();
@@ -189,7 +189,7 @@ class FRPageConfig {
 		if ( wfReadOnly() ) {
 			return;
 		}
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		# Find pages with expired configs...
 		$config = self::getDefaultVisibilitySettings(); // config is to be reset
 		$encCutoff = $dbw->addQuotes( $dbw->timestamp() );

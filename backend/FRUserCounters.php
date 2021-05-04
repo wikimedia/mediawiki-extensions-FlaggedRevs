@@ -65,7 +65,7 @@ class FRUserCounters {
 	private static function fetchParamsRow( $uid, $flags = 0, $dBName = false ) {
 		$options = [];
 		if ( $flags & FR_MASTER || $flags & FR_FOR_UPDATE ) {
-			$db = wfGetDB( DB_MASTER, [], $dBName );
+			$db = wfGetDB( DB_PRIMARY, [], $dBName );
 			if ( $flags & FR_FOR_UPDATE ) {
 				$options[] = 'FOR UPDATE';
 			}
@@ -87,7 +87,7 @@ class FRUserCounters {
 	 * @param bool|string $dBName optional wiki name
 	 */
 	public static function saveUserParams( $uid, array $params, $dBName = false ) {
-		$dbw = wfGetDB( DB_MASTER, [], $dBName );
+		$dbw = wfGetDB( DB_PRIMARY, [], $dBName );
 		$dbw->replace(
 			'flaggedrevs_promote',
 			'frp_user_id',
@@ -103,7 +103,7 @@ class FRUserCounters {
 	 * @param User $user
 	 */
 	public static function deleteUserParams( User $user ) {
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$dbw->delete(
 			'flaggedrevs_promote',
 			[ 'frp_user_id' => $user->getId() ],

@@ -49,7 +49,7 @@ class ReviewAllPages extends Maintenance {
 			return;
 		}
 
-		$db = wfGetDB( DB_MASTER );
+		$db = wfGetDB( DB_PRIMARY );
 
 		$this->output( "Reviewer username: " . $user->getName() . "\n" );
 

@@ -407,15 +407,15 @@ class FlaggedRevs {
 				'doWork' => function () use ( $frev, $pOpts ) {
 					return Status::newGood( self::parseStableRevision( $frev, $pOpts ) );
 				},
-				'doCachedWork' => function () use ( $page, $pOpts, $parserCache ) {
+				'doCachedWork' => static function () use ( $page, $pOpts, $parserCache ) {
 					// Use new cache value from other thread
 					return Status::newGood( $parserCache->get( $page, $pOpts ) ?: null );
 				},
-				'fallback' => function ( bool $fast ) use ( $page, $pOpts, $parserCache ) {
+				'fallback' => static function ( bool $fast ) use ( $page, $pOpts, $parserCache ) {
 					// Use stale cache if possible
 					return Status::newGood( $parserCache->getDirty( $page, $pOpts ) ?: null );
 				},
-				'error' => function ( Status $status ) {
+				'error' => static function ( Status $status ) {
 					return $status;
 				},
 			]
@@ -588,7 +588,7 @@ class FlaggedRevs {
 	 * @param int|int[] $pageId (int or array)
 	 */
 	public static function clearTrackingRows( $pageId ) {
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$dbw->delete( 'flaggedpages', [ 'fp_page_id' => $pageId ], __METHOD__ );
 		$dbw->delete( 'flaggedrevs_tracking', [ 'ftr_from' => $pageId ], __METHOD__ );
 		$dbw->delete( 'flaggedpage_pending', [ 'fpp_page_id' => $pageId ], __METHOD__ );
@@ -599,7 +599,7 @@ class FlaggedRevs {
 	 * @param int|int[] $pageId (int or array)
 	 */
 	public static function clearStableOnlyDeps( $pageId ) {
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$dbw->delete( 'flaggedrevs_tracking', [ 'ftr_from' => $pageId ], __METHOD__ );
 	}
 
@@ -608,7 +608,7 @@ class FlaggedRevs {
 	 * Updates squid cache for a title. Defers till after main commit().
 	 */
 	public static function purgeSquid( Title $title ) {
-		DeferredUpdates::addCallableUpdate( function () use ( $title ) {
+		DeferredUpdates::addCallableUpdate( static function () use ( $title ) {
 			$title->purgeSquid();
 			HTMLFileCache::clearFileCache( $title );
 		} );
@@ -650,7 +650,7 @@ class FlaggedRevs {
 			->getRcIdIfUnpatrolled( $revRecord );
 		# Make sure it is now marked patrolled...
 		if ( $rcid ) {
-			$dbw = wfGetDB( DB_MASTER );
+			$dbw = wfGetDB( DB_PRIMARY );
 			$dbw->update( 'recentchanges',
 				[ 'rc_patrolled' => 1 ],
 				[ 'rc_id' => $rcid ],

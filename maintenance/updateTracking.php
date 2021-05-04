@@ -61,7 +61,7 @@ class UpdateFRTracking extends Maintenance {
 
 		$BATCH_SIZE = 1000;
 
-		$db = $this->getDB( DB_MASTER );
+		$db = $this->getDB( DB_PRIMARY );
 
 		if ( $start === null ) {
 			$start = $db->selectField( 'revision', 'MIN(rev_id)', false, __METHOD__ );
@@ -156,7 +156,7 @@ class UpdateFRTracking extends Maintenance {
 
 		$BATCH_SIZE = 300;
 
-		$db = $this->getDB( DB_MASTER );
+		$db = $this->getDB( DB_PRIMARY );
 		$revisionStore = MediaWikiServices::getInstance()->getRevisionStore();
 
 		if ( $start === null ) {
@@ -270,7 +270,7 @@ class UpdateFRTracking extends Maintenance {
 
 		$BATCH_SIZE = 1000;
 
-		$db = $this->getDB( DB_MASTER );
+		$db = $this->getDB( DB_PRIMARY );
 
 		if ( $start === null ) {
 			$start = $db->selectField( 'flaggedimages', 'MIN(fi_rev_id)', false, __METHOD__ );

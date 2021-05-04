@@ -93,7 +93,7 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 			return; // sanity check
 		}
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$timestamp = $dbw->timestamp();
 
 		$hcu = MediaWikiServices::getInstance()->getHtmlCacheUpdater();

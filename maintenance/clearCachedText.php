@@ -19,7 +19,7 @@ $pageId = 0;
 $revId = 0;
 
 $dbr = wfGetDB( DB_REPLICA );
-$dbw = wfGetDB( DB_MASTER );
+$dbw = wfGetDB( DB_PRIMARY );
 $batchSize = 1000;
 $maxPage = $dbr->selectField( 'flaggedrevs', 'MAX(fr_page_id)', '', __METHOD__ );
 

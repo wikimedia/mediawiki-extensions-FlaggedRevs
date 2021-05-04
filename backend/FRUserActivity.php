@@ -24,7 +24,7 @@ class FRUserActivity {
 		return $cache->getWithSetCallback(
 			$cache->makeKey( 'flaggedrevs-users-watching', $title->getArticleID() ),
 			$cache::TTL_MINUTE * 5,
-			function ( $oldValue, &$ttl, array &$setOpts ) use ( $cache, $title, $fname ) {
+			static function ( $oldValue, &$ttl, array &$setOpts ) use ( $cache, $title, $fname ) {
 				global $wgActiveUserDays;
 
 				$dbr = wfGetDB( DB_REPLICA );
@@ -190,7 +190,7 @@ class FRUserActivity {
 		$now = wfTimestampNow();
 		self::getActivityStore()->merge(
 			$key,
-			function ( BagOStuff $store, $key, $oldVal ) use ( $user, &$wasSet, $now ) {
+			static function ( BagOStuff $store, $key, $oldVal ) use ( $user, &$wasSet, $now ) {
 				if ( is_array( $oldVal ) && count( $oldVal ) == 3 ) { // flag set
 					list( $u, $ts, $cnt ) = $oldVal;
 					if ( $u === $user->getName() ) { // by this user
@@ -221,7 +221,7 @@ class FRUserActivity {
 
 		self::getActivityStore()->merge(
 			$key,
-			function ( BagOStuff $store, $key, $oldVal ) use ( $user, &$wasSet ) {
+			static function ( BagOStuff $store, $key, $oldVal ) use ( $user, &$wasSet ) {
 				if ( is_array( $oldVal ) && count( $oldVal ) != 3 ) {
 					return false; // flag not set
 				}

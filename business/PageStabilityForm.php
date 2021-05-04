@@ -363,7 +363,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 
 		# Insert a null revision...
 		$revStore = MediaWikiServices::getInstance()->getRevisionStore();
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$nullRevRecord = $revStore->newNullRevision(
 			$dbw,
 			$article->getTitle(),

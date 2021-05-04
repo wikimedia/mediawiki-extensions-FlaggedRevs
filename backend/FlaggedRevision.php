@@ -120,7 +120,7 @@ class FlaggedRevision {
 		$options = [];
 		# User master/replica as appropriate...
 		if ( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
-			$db = wfGetDB( DB_MASTER );
+			$db = wfGetDB( DB_PRIMARY );
 			if ( $flags & FR_FOR_UPDATE ) {
 				$options[] = 'FOR UPDATE';
 			}
@@ -168,7 +168,7 @@ class FlaggedRevision {
 		$options = [];
 		# User master/replica as appropriate...
 		if ( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
-			$db = wfGetDB( DB_MASTER );
+			$db = wfGetDB( DB_PRIMARY );
 			if ( $flags & FR_FOR_UPDATE ) {
 				$options[] = 'FOR UPDATE';
 			}
@@ -247,7 +247,7 @@ class FlaggedRevision {
 		$options = [];
 		# User master/replica as appropriate...
 		if ( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
-			$db = wfGetDB( DB_MASTER );
+			$db = wfGetDB( DB_PRIMARY );
 			if ( $flags & FR_FOR_UPDATE ) {
 				$options[] = 'FOR UPDATE';
 			}
@@ -298,7 +298,7 @@ class FlaggedRevision {
 	 * @return bool success
 	 */
 	public function insert() {
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		# Set any flagged revision flags
 		$this->mFlags = array_merge( $this->mFlags, [ 'dynamic' ] ); // legacy
 		# Build the template/file inclusion data chunks
@@ -366,7 +366,7 @@ class FlaggedRevision {
 	 * Remove a FlaggedRevision object from the database
 	 */
 	public function delete() {
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		# Delete from flaggedrevs table
 		$dbw->delete( 'flaggedrevs',
 			[ 'fr_rev_id' => $this->getRevId() ], __METHOD__ );
@@ -504,7 +504,7 @@ class FlaggedRevision {
 		if ( $this->mTemplates == null ) {
 			$this->mTemplates = [];
 			$db = ( $flags & FR_MASTER ) ?
-				wfGetDB( DB_MASTER ) : wfGetDB( DB_REPLICA );
+				wfGetDB( DB_PRIMARY ) : wfGetDB( DB_REPLICA );
 			$res = $db->select( 'flaggedtemplates',
 				[ 'ft_namespace', 'ft_title', 'ft_tmp_rev_id' ],
 				[ 'ft_rev_id' => $this->getRevId() ],
@@ -527,7 +527,7 @@ class FlaggedRevision {
 		if ( $this->mFiles == null ) {
 			$this->mFiles = [];
 			$db = ( $flags & FR_MASTER ) ?
-				wfGetDB( DB_MASTER ) : wfGetDB( DB_REPLICA );
+				wfGetDB( DB_PRIMARY ) : wfGetDB( DB_REPLICA );
 			$res = $db->select( 'flaggedimages',
 				[ 'fi_name', 'fi_img_timestamp', 'fi_img_sha1' ],
 				[ 'fi_rev_id' => $this->getRevId() ],
@@ -560,7 +560,7 @@ class FlaggedRevision {
 		if ( $this->mStableTemplates == null ) {
 			$this->mStableTemplates = [];
 			$db = ( $flags & FR_MASTER ) ?
-				wfGetDB( DB_MASTER ) : wfGetDB( DB_REPLICA );
+				wfGetDB( DB_PRIMARY ) : wfGetDB( DB_REPLICA );
 			$res = $db->select(
 				[ 'flaggedtemplates', 'page', 'flaggedpages' ],
 				[ 'ft_namespace', 'ft_title', 'fp_stable' ],
@@ -591,7 +591,7 @@ class FlaggedRevision {
 		if ( $this->mStableFiles == null ) {
 			$this->mStableFiles = [];
 			$db = ( $flags & FR_MASTER ) ?
-				wfGetDB( DB_MASTER ) : wfGetDB( DB_REPLICA );
+				wfGetDB( DB_PRIMARY ) : wfGetDB( DB_REPLICA );
 			$res = $db->select(
 				[ 'flaggedimages', 'page', 'flaggedpages', 'flaggedrevs' ],
 				[ 'fi_name', 'fr_img_timestamp', 'fr_img_sha1' ],
@@ -876,7 +876,7 @@ class FlaggedRevision {
 	 */
 	public static function getRevQuality( $rev_id, $flags = 0 ) {
 		$db = ( $flags & FR_MASTER ) ?
-			wfGetDB( DB_MASTER ) : wfGetDB( DB_REPLICA );
+			wfGetDB( DB_PRIMARY ) : wfGetDB( DB_REPLICA );
 		return $db->selectField( 'flaggedrevs',
 			'fr_quality',
 			[ 'fr_rev_id' => $rev_id ],

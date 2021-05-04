@@ -258,7 +258,7 @@ class UnreviewedPages extends SpecialPage {
 		}
 		$dbr->freeResult( $res );
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		$dbw->startAtomic( __METHOD__ );
 		# Clear out any old cached data

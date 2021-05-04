@@ -61,7 +61,7 @@ class FlagProtectToSemiProtect extends Maintenance {
 			return;
 		}
 
-		$db = wfGetDB( DB_MASTER );
+		$db = wfGetDB( DB_PRIMARY );
 		$start = $db->selectField( 'flaggedpage_config', 'MIN(fpc_page_id)', false, __METHOD__ );
 		$end = $db->selectField( 'flaggedpage_config', 'MAX(fpc_page_id)', false, __METHOD__ );
 		if ( $start === null || $end === null ) {
