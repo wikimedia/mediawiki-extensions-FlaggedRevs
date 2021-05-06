@@ -4,6 +4,7 @@
 			"Cekli829",
 			"NMW03",
 			"Neriman2003",
+			"Toghrul Rahimli",
 			"Vago",
 			"Vugar 1981",
 			"Wertuose"
@@ -25,7 +26,7 @@
 	"stabilization-notcontent": "\"[[:$1|$1]]\" adlı səhifə nəzərdən keçirilə bilməz.\nHeç bir konfiqurasiya mümkün deyil.",
 	"stabilization-comment": "Səbəb:",
 	"stabilization-otherreason": "Digər səbəb:",
-	"stabilization-expiry": "Vaxtı bitib:",
+	"stabilization-expiry": "Bitmə vaxtı:",
 	"stabilization-othertime": "Başqa vaxt:",
 	"stabilization-def-short": "Susmaya görə",
 	"stabilization-def-short-0": "Hazırkı",
