@@ -2,6 +2,7 @@
 <ruleset>
 	<rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
 		<exclude name="Generic.CodeAnalysis.ForLoopWithTestFunctionCall.NotAllowed" />
+		<exclude name="Generic.Files.LineLength.TooLong" />
 		<exclude name="Generic.Files.OneObjectStructurePerFile.MultipleFound" />
 		<exclude name="MediaWiki.Commenting.FunctionComment.DefaultNullTypeParam" />
 		<exclude name="Squiz.Classes.ValidClassName.NotCamelCaps" />
