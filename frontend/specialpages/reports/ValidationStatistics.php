@@ -14,7 +14,6 @@ class ValidationStatistics extends IncludableSpecialPage {
 	 * @inheritDoc
 	 */
 	public function execute( $par ) {
-		$flaggedRevsStats = $this->getConfig()->get( 'FlaggedRevsStats' );
 		$flaggedRevsProtection = $this->getConfig()->get( 'FlaggedRevsProtection' );
 
 		$out = $this->getOutput();
@@ -22,9 +21,6 @@ class ValidationStatistics extends IncludableSpecialPage {
 
 		$this->setHeaders();
 		$this->addHelpLink( 'Help:Extension:FlaggedRevs' );
-
-		$this->maybeUpdate();
-
 		$ec = $this->getEditorCount();
 		$rc = $this->getReviewerCount();
 		$mt = $this->getMeanReviewWaitAnon();
@@ -187,8 +183,8 @@ class ValidationStatistics extends IncludableSpecialPage {
 		$data = $this->getTopReviewers();
 		if ( is_array( $data ) && count( $data ) ) {
 			$out->addWikiMsg( 'validationstatistics-utable',
-				$lang->formatNum( $flaggedRevsStats['topReviewersCount'] ),
-				$lang->formatNum( $flaggedRevsStats['topReviewersHours'] )
+				$lang->formatNum( 5 ),
+				$lang->formatNum( 1 )
 			);
 			$css = 'wikitable flaggedrevs_stats_table';
 			$reviewChart = "<table class='$css' style='white-space: nowrap;'>\n";
@@ -200,31 +196,6 @@ class ValidationStatistics extends IncludableSpecialPage {
 			}
 			$reviewChart .= "</table>\n";
 			$out->addHTML( $reviewChart );
-		}
-	}
-
-	private function maybeUpdate() {
-		if ( !$this->getConfig()->get( 'FlaggedRevsStatsAge' ) ) {
-			return;
-		}
-
-		$cache = ObjectCache::getLocalClusterInstance();
-		$key = $cache->makeKey( 'flaggedrevs', 'statsUpdated' );
-		$keySQL = $cache->makeKey( 'flaggedrevs', 'statsUpdating' );
-		// If a cache update is needed, do so asynchronously.
-		// Don't trigger query while another is running.
-		if ( $cache->get( $key ) ) {
-			wfDebugLog( 'ValidationStatistics', __METHOD__ . " skipping, got data" );
-		} elseif ( $cache->get( $keySQL ) ) {
-			wfDebugLog( 'ValidationStatistics', __METHOD__ . " skipping, in progress" );
-		} else {
-			$ext = $this->getConfig()->get( 'PhpCli' ) ?: 'php';
-			$path = wfEscapeShellArg( dirname( __DIR__, 3 ) . '/maintenance/updateStats.php' );
-			$wiki = wfEscapeShellArg( wfWikiID() );
-			$devNull = wfIsWindows() ? "NUL:" : "/dev/null";
-			$commandLine = "$ext $path --wiki=$wiki > $devNull &";
-			wfDebugLog( 'ValidationStatistics', __METHOD__ . " executing: $commandLine" );
-			wfShellExec( $commandLine );
 		}
 	}
 
@@ -321,12 +292,11 @@ class ValidationStatistics extends IncludableSpecialPage {
 		return $cache->getWithSetCallback(
 			$cache->makeKey( 'flaggedrevs', 'reviewTopUsers' ),
 			$cache::TTL_HOUR,
-			function () use ( $fname ) {
-				$flaggedRevsStats = $this->getConfig()->get( 'FlaggedRevsStats' );
+			static function () use ( $fname ) {
 				$dbr = wfGetDB( DB_REPLICA, 'vslow' );
 
-				$limit = (int)$flaggedRevsStats['topReviewersCount'];
-				$seconds = 3600 * $flaggedRevsStats['topReviewersHours'];
+				$limit = 5;
+				$seconds = 3600;
 				$cutoff = $dbr->timestamp( time() - $seconds );
 				$res = $dbr->select(
 					[ 'logging', 'actor' ],

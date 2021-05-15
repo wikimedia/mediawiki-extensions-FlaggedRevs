@@ -73,16 +73,11 @@ class FlaggedRevsStats {
 	 * @return void
 	 */
 	public static function updateCache() {
-		global $wgFlaggedRevsStatsAge;
 		$rNamespaces = FlaggedRevs::getReviewNamespaces();
+		$cache = ObjectCache::getLocalClusterInstance();
 		if ( !$rNamespaces ) {
 			return; // no SQL errors please :)
 		}
-
-		// Set key to limit duplicate updates...
-		$cache = ObjectCache::getLocalClusterInstance();
-		$keySQL = $cache->makeKey( 'flaggedrevs', 'statsUpdating' );
-		$cache->set( $keySQL, '1', $wgFlaggedRevsStatsAge );
 
 		// Get total, reviewed, and synced page count for each namespace
 		list( $ns_total, $ns_reviewed, $ns_synced ) = self::getPerNamespaceTotals();
@@ -181,11 +176,6 @@ class FlaggedRevsStats {
 
 		// Save the data...
 		$dbw->insert( 'flaggedrevs_statistics', $dataSet, __METHOD__, [ 'IGNORE' ] );
-
-		// Stats are now up to date!
-		$key = $cache->makeKey( 'flaggedrevs', 'statsUpdated' );
-		$cache->set( $key, '1', $wgFlaggedRevsStatsAge );
-		$cache->delete( $keySQL );
 	}
 
 	/**

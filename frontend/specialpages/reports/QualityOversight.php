@@ -52,7 +52,7 @@ class QualityOversight extends SpecialPage {
 		# Get cutoff time (mainly for performance)
 		if ( !$u ) {
 			$dbr = wfGetDB( DB_REPLICA );
-			$cutoff_unixtime = time() - $this->getConfig()->get( 'FlaggedRevsOversightAge' );
+			$cutoff_unixtime = time() - 2592000;
 			$cutoff = $dbr->addQuotes( $dbr->timestamp( $cutoff_unixtime ) );
 			$conds[] = "log_timestamp >= $cutoff";
 		}
