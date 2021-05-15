@@ -499,25 +499,6 @@
 			"description": "Define when users get to have their own edits auto-reviewed. Set to false to disable. This can be used for newer, semi-trusted users to improve workflow. It is done by granting some users the implicit 'autoreview' group.",
 			"value": false
 		},
-		"FlaggedRevsOversightAge": {
-			"description": "How far the logs for overseeing quality revisions and depreciations go",
-			"value": 2592000
-		},
-		"FlaggedRevsStatsAge": {
-			"description": "How long before Special:ValidationStatistics is updated. Set to false to disable (perhaps using a cron job instead).",
-			"value": 7200
-		},
-		"FlaggedRevsStats": {
-			"description": [
-				"Configurable information to collect and display at Special:ValidationStatistics",
-				" topReviewersCount - how many top reviewers to list",
-				" topReviewersHours - how many hours of the last reviews to count"
-			],
-			"value": {
-				"topReviewersCount": 5,
-				"topReviewersHours": 1
-			}
-		},
 		"FlaggedRevsHandleIncludes": {
 			"description": [
 				"How to handle templates and files used in stable versions:",
