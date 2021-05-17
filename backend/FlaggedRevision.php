@@ -417,7 +417,7 @@ class FlaggedRevision {
 		} catch ( RevisionAccessException $e ) {
 			return '';
 		}
-		return ContentHandler::getContentText( $content );
+		return ( $content instanceof TextContent ) ? $content->getText() : null;
 	}
 
 	/**
