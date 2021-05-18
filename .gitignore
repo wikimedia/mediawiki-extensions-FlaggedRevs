@@ -2,6 +2,7 @@ node_modules/
 /vendor/
 /composer.lock
 .eslintcache
+.api-testing.config.json
 
 # Editors
 *.kate-swp
