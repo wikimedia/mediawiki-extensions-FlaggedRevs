@@ -2,6 +2,7 @@
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
+use MediaWiki\Session\CsrfTokenSet;
 
 class RevisionReview extends UnlistedSpecialPage {
 	/** @var RevisionReviewForm|null */
@@ -230,21 +231,13 @@ class RevisionReview extends UnlistedSpecialPage {
 	 * @return string
 	 */
 	// phpcs:ignore MediaWiki.NamingConventions.LowerCamelFunctionsName
-	public static function AjaxReview() {
-		$context = RequestContext::getMain();
-		$user = $context->getUser();
-		$out = $context->getOutput();
-		$request = $context->getRequest();
-
+	public static function AjaxReview( /*$args...*/ ) {
 		$args = func_get_args();
+		$argsMap = [];
 		if ( wfReadOnly() ) {
 			return '<err#>' . wfMessage( 'revreview-failed' )->parse() .
 				wfMessage( 'revreview-submission-invalid' )->parse();
 		}
-		// Make review interface object
-		$form = new RevisionReviewForm( $user );
-		$title = null; // target page
-		$editToken = ''; // edit token
 		// Each ajax url argument is of the form param|val.
 		// This means that there is no ugly order dependence.
 		foreach ( $args as $arg ) {
@@ -254,6 +247,36 @@ class RevisionReview extends UnlistedSpecialPage {
 					wfMessage( 'revreview-submission-invalid' )->parse();
 			}
 			list( $par, $val ) = $set;
+			$argsMap[$par] = $val;
+		}
+
+		$result = self::doReview( $argsMap );
+		if ( $result[ 'error-html' ] ) {
+			return '<err#>' . $result[ 'error-html' ];
+		} else {
+			return "<suc#><lct#{$result[ 'change-time' ]}>";
+		}
+	}
+
+	/**
+	 * @param array $argsMap
+	 * @return array
+	 */
+	public static function doReview( $argsMap ) {
+		$context = RequestContext::getMain();
+		$user = $context->getUser();
+		$out = $context->getOutput();
+		$request = $context->getRequest();
+		if ( wfReadOnly() ) {
+			return [ 'error-html' => wfMessage( 'revreview-failed' )->parse() .
+				wfMessage( 'revreview-submission-invalid' )->parse() ];
+		}
+		// Make review interface object
+		$form = new RevisionReviewForm( $user );
+		$title = null; // target page
+		$editToken = ''; // edit token
+
+		foreach ( $argsMap as $par => $val ) {
 			switch ( $par ) {
 				case "target":
 					$title = Title::newFromURL( $val );
@@ -295,25 +318,28 @@ class RevisionReview extends UnlistedSpecialPage {
 					break;
 			}
 		}
+
 		# Valid target title?
 		if ( !$title ) {
-			return '<err#>' . wfMessage( 'notargettext' )->parse();
+			return [ 'error-html' => wfMessage( 'notargettext' )->parse() ];
 		}
+
 		$form->setPage( $title );
 		$form->setSessionKey( $request->getSessionData( 'wsFlaggedRevsKey' ) );
 
 		$form->ready(); // all params loaded
 		# Check session via user token
-		if ( !$user->matchEditToken( $editToken ) ) {
-			return '<err#>' . wfMessage( 'sessionfailure' )->parse();
+		$userToken = new CsrfTokenSet( $request );
+		if ( !$userToken->matchToken( $editToken ) ) {
+			return [ 'error-html' => wfMessage( 'sessionfailure' )->parse() ];
 		}
 		# Basic permission checks...
 		$permErrors = MediaWikiServices::getInstance()->getPermissionManager()
 			->getPermissionErrors( 'review', $user, $title, PermissionManager::RIGOR_QUICK );
 		if ( $permErrors ) {
-			return '<err#>' . $out->parseAsInterface(
+			return [ 'error-html' => $out->parseAsInterface(
 				$out->formatPermissionsErrorMessage( $permErrors, 'review' )
-			);
+			) ];
 		}
 		# Try submission...
 		$status = $form->submit();
@@ -322,18 +348,18 @@ class RevisionReview extends UnlistedSpecialPage {
 			# Sent new lastChangeTime TS to client for later submissions...
 			$changeTime = $form->getNewLastChangeTime();
 			if ( $form->getAction() === 'approve' ) { // approve
-				return "<suc#><lct#$changeTime>";
+				return [ 'change-time' => $changeTime ];
 			} elseif ( $form->getAction() === 'unapprove' ) { // de-approve
-				return "<suc#><lct#$changeTime>";
+				return [ 'change-time' => $changeTime ];
 			} elseif ( $form->getAction() === 'reject' ) { // revert
-				return "<suc#><lct#$changeTime>";
+				return [ 'change-time' => $changeTime ];
 			}
 		# Failure...
 		} else {
-			return '<err#>' . wfMessage( 'revreview-failed' )->parseAsBlock() .
-				'<p>' . wfMessage( $status )->escaped() . '</p>';
+			return [ 'error-html' => wfMessage( 'revreview-failed' )->parseAsBlock() .
+				'<p>' . wfMessage( $status )->escaped() . '</p>' ];
 		}
 
-		return '';
+		return [ 'error-html' => wfMessage( 'revreview-failed' )->parse() ];
 	}
 }

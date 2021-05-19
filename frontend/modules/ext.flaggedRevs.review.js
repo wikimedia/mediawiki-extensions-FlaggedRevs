@@ -114,15 +114,10 @@
 	 */
 	function postSubmitRevisionReview( form, response ) {
 		var changeTime, $asubmit, $usubmit, $rsubmit, $diffNotice,
-			$tagBox, $diffUIParams, oldId, newId, restPath,
-			msg = response.substr( 6 ), // remove <err#> or <suc#>
-			// Read new "last change time" timestamp for conflict handling
-			// @TODO: pass last-chage-time data using JSON or something not retarded
-			m = msg.match( /^<lct#(\d*)>(.*)/m );
-		if ( m ) {
-			msg = m[ 2 ]; // remove tag from msg
-		}
-		changeTime = m ? m[ 1 ] : null; // MW TS
+			$tagBox, $diffUIParams, oldId, newId, restPath, respObj;
+
+		respObj = JSON.parse( response );
+		changeTime = respObj[ 'change-time' ];
 
 		// Review form elements
 		$asubmit = $( '#mw-fr-submit-accept' ); // ACCEPT
@@ -134,8 +129,8 @@
 		// Diff parameters
 		$diffUIParams = $( '#mw-fr-diff-dataform' );
 
-		// On success...
-		if ( response.indexOf( '<suc#>' ) === 0 ) {
+		// On success... (change-time can be an empty string for 'unapproved')
+		if ( respObj[ 'change-time' ] || respObj[ 'change-time' ] === '' ) {
 			// (a) Update document title and form buttons...
 			if ( $asubmit.length && $usubmit.length ) {
 				// Revision was flagged
@@ -200,8 +195,8 @@
 				}
 			}
 			// (b) Output any error response message
-			if ( response.indexOf( '<err#>' ) === 0 ) {
-				mw.notify( $.parseHTML( msg ), { tag: 'review' } ); // failure notice
+			if ( respObj[ 'error-html' ] ) {
+				mw.notify( $.parseHTML( respObj[ 'error-html' ] ), { tag: 'review' } ); // failure notice
 			} else {
 				mw.notify( response, { tag: 'review' } ); // fatal notice
 			}
@@ -220,32 +215,34 @@
 	 * based on patch by Daniel Arnold (bug 13744)
 	 */
 	function submitRevisionReview( button, form ) {
-		var i, l, requestArgs, inputs, input, selects, select, soption,
-			postData;
+		var i, l, postData, inputs, input, selects, select,
+			soption, restPath, target;
 		lockReviewForm( form ); // disallow submissions
 		// Build up arguments array and update submit button text...
-		requestArgs = []; // array of strings of the format <"pname|pval">.
+		postData = {}; // dictionary of the form: {key: value}
 		inputs = form.find( 'input' );
 		for ( i = 0; i < inputs.length; i++ ) {
 			input = inputs.eq( i );
+			if ( input.prop( 'name' ) === 'target' ) {
+				target = input.val();
+			}
 			// Different input types may occur depending on tags...
 			if ( input.prop( 'name' ) === 'title' || input.prop( 'name' ) === 'action' ) {
 				continue; // No need to send these...
 			} else if ( input.prop( 'type' ) === 'submit' ) {
 				if ( input.prop( 'id' ) === button.id ) {
-					requestArgs.push( input.prop( 'name' ) + '|1' );
+					postData[ input.prop( 'name' ) ] = '1';
 					// Show that we are submitting via this button
 					input.val( mw.msg( 'revreview-submitting' ) );
 				}
 			} else if ( input.prop( 'type' ) === 'checkbox' ) {
-				requestArgs.push( input.prop( 'name' ) + '|' + // must send a number
-					( input.prop( 'checked' ) ? input.val() : 0 ) );
+				postData[ input.prop( 'name' ) ] = input.prop( 'checked' ) ? input.val() : 0;
 			} else if ( input.prop( 'type' ) === 'radio' ) {
 				if ( input.prop( 'checked' ) ) { // must be checked
-					requestArgs.push( input.prop( 'name' ) + '|' + input.val() );
+					postData[ input.prop( 'name' ) ] = input.val();
 				}
 			} else {
-				requestArgs.push( input.prop( 'name' ) + '|' + input.val() ); // text/hiddens...
+				postData[ input.prop( 'name' ) ] = input.val(); // text/hiddens...
 			}
 		}
 		selects = form.find( 'select' );
@@ -254,19 +251,17 @@
 			// Get the selected tag level...
 			if ( select.prop( 'selectedIndex' ) >= 0 ) {
 				soption = select.find( 'option' ).eq( select.prop( 'selectedIndex' ) );
-				requestArgs.push( select.prop( 'name' ) + '|' + soption.val() );
+				postData[ select.prop( 'name' ) ] = soption.val();
 			}
 		}
-		// Send encoded function plus all arguments...
-		postData = 'action=ajax&rs=RevisionReview::AjaxReview';
-		for ( i = 0; i < requestArgs.length; i++ ) {
-			postData += '&rsargs[]=' + encodeURIComponent( requestArgs[ i ] );
-		}
+
+		restPath = '/flaggedrevs/internal/review/' + encodeURIComponent( target );
 		// Send POST request via AJAX!
 		$.ajax( {
-			url: mw.util.wikiScript( 'index' ),
+			url: mw.util.wikiScript( 'rest' ) + restPath,
 			type: 'POST',
-			data: postData,
+			data: JSON.stringify( postData ),
+			contentType: 'application/json',
 			dataType: 'html', // response type
 			success: function ( response ) {
 				postSubmitRevisionReview( form, response );

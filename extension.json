@@ -67,6 +67,11 @@
 			"path": "/flaggedrevs/internal/diffheader/{oldId}/{newId}",
 			"method": "GET",
 			"class": "MediaWiki\\Extension\\FlaggedRevs\\Rest\\DiffHeaderHandler"
+		},
+		{
+			"path": "/flaggedrevs/internal/review/{target}",
+			"method": "POST",
+			"class": "MediaWiki\\Extension\\FlaggedRevs\\Rest\\ReviewHandler"
 		}
 	],
 	"AvailableRights": [
