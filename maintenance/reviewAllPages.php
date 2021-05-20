@@ -39,7 +39,7 @@ class ReviewAllPages extends Maintenance {
 	 */
 	private function autoreview_current( User $user ) {
 		$this->output( "Auto-reviewing all current page versions...\n" );
-		if ( !$user->getId() ) {
+		if ( !$user->isRegistered() ) {
 			$this->output( "Invalid user specified.\n" );
 			return;
 		} elseif ( !MediaWikiServices::getInstance()->getPermissionManager()
