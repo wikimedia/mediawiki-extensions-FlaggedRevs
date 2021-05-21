@@ -113,8 +113,8 @@
 	 * Update form elements after AJAX review.
 	 */
 	function postSubmitRevisionReview( form, response ) {
-		var changeTime, $asubmit, $usubmit, $rsubmit, $diffNotice, $tagBox, $diffUIParams,
-			requestArgs, urlParams, i, l,
+		var changeTime, $asubmit, $usubmit, $rsubmit, $diffNotice,
+			$tagBox, $diffUIParams, oldId, newId, restPath,
 			msg = response.substr( 6 ), // remove <err#> or <suc#>
 			// Read new "last change time" timestamp for conflict handling
 			// @TODO: pass last-chage-time data using JSON or something not retarded
@@ -166,17 +166,17 @@
 				// Hide "review this" box on diffs
 				$diffNotice.hide();
 				// Update the contents of the mw-fr-diff-headeritems div
-				requestArgs = []; // <oldid, newid>
-				requestArgs.push( $diffUIParams.find( 'input' ).eq( 0 ).val() );
-				requestArgs.push( $diffUIParams.find( 'input' ).eq( 1 ).val() );
+				oldId = $diffUIParams.find( 'input' ).eq( 0 ).val();
+				newId = $diffUIParams.find( 'input' ).eq( 1 ).val();
+
 				// Send encoded function plus all arguments...
-				urlParams = '?action=ajax&rs=FlaggablePageView::AjaxBuildDiffHeaderItems';
-				for ( i = 0, l = requestArgs.length; i < l; i++ ) {
-					urlParams += '&rsargs[]=' + encodeURIComponent( requestArgs[ i ] );
-				}
+				restPath = '/flaggedrevs/internal/diffheader/' +
+					encodeURIComponent( oldId ) + '/' +
+					encodeURIComponent( newId );
+
 				// Send GET request via AJAX!
 				$.ajax( {
-					url: mw.util.wikiScript( 'index' ) + urlParams,
+					url: mw.util.wikiScript( 'rest' ) + restPath,
 					type: 'GET',
 					dataType: 'html', // response type
 					success: function ( html ) {
