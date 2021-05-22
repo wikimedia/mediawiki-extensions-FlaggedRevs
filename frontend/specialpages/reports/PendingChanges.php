@@ -290,8 +290,10 @@ class PendingChanges extends SpecialPage {
 			[ 'diff' => 'cur', 'oldid' => $row->stable ] + FlaggedRevs::diffOnlyCGI()
 		);
 		# Is anybody watching?
+		// Only show information to users with the `unwatchedpages` who could find this
+		// information elsewhere anyway, T281065
 		if ( !$this->including() && MediaWikiServices::getInstance()->getPermissionManager()
-				->userHasRight( $this->getUser(), 'unreviewedpages' )
+				->userHasRight( $this->getUser(), 'unwatchedpages' )
 		) {
 			$uw = FRUserActivity::numUsersWatchingPage( $title );
 			$watching = ' ';
