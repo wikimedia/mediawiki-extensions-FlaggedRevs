@@ -43,7 +43,7 @@
 	"revreview-submit-reject": "Йухабаха хийцамаш",
 	"revreview-submit-reviewed": "Кийчча йу. Бакъйина!",
 	"revreview-submit-unreviewed": "Кийча йу. Бакъйар дӀадаьккхина!",
-	"revreview-successful": "'''Хаьржина верси [[:$1|$1]] кхиамца билгалла йира. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} чӀагӀъелла версешка хьажар])'''",
+	"revreview-successful": "'''Верси [[:$1|$1]] билгалйина. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} чӀагӀйелла версешка хьажар])'''",
 	"revreview-successful2": "'''Хаьржиначу версийн тӀера [[:$1|$1]] дӀаяьккхина билгало.'''",
 	"revreview-adv-reviewing-p": "ДӀахьедар. Кхечу къобалечарна {{GENDER:$1|хьо}} хьокху агӀоне хьожуш хилар га там бу.",
 	"revreview-adv-reviewing-c": "ДӀахьедар. Кхечу къобалечарна {{GENDER:$1|хьо}} хьокху хийцамашка хьожуш хилар га там бу.",
