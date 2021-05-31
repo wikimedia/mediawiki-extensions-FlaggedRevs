@@ -139,7 +139,7 @@ abstract class FRGenericSubmitForm {
 	 * Validate and clean up target/parameters (e.g. from POST request)
 	 * @return true|string true on success, error string on failure
 	 */
-	final protected function checkParameters() {
+	private function checkParameters() {
 		$status = $this->doCheckTarget( self::FOR_SUBMISSION );
 		if ( $status !== true ) {
 			return $status; // bad target

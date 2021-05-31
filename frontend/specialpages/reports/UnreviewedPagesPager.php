@@ -139,7 +139,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 	/**
 	 * @return array
 	 */
-	public function getQueryCacheInfo() {
+	private function getQueryCacheInfo() {
 		$conds = [];
 		$fields = [ 'page_namespace', 'page_title', 'page_len', 'page_id',
 			'qc_value', 'MIN(rev_timestamp) AS creation' ];

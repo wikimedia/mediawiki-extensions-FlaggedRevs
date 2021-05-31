@@ -99,7 +99,7 @@ class Stabilization extends UnlistedSpecialPage {
 	/**
 	 * @param string|null $err
 	 */
-	public function showForm( $err = null ) {
+	private function showForm( $err = null ) {
 		$out = $this->getOutput();
 		$user = $this->getUser();
 

@@ -84,7 +84,7 @@ class PendingChanges extends SpecialPage {
 		$this->getOutput()->setFeedAppendQuery( wfArrayToCgi( $queryParams ) );
 	}
 
-	public function showForm() {
+	private function showForm() {
 		# Explanatory text
 		$this->getOutput()->addWikiMsg( 'pendingchanges-list',
 			$this->getLanguage()->formatNum( $this->pager->getNumRows() ) );
@@ -130,7 +130,7 @@ class PendingChanges extends SpecialPage {
 		$this->getOutput()->addHTML( $form );
 	}
 
-	public function showPageList() {
+	private function showPageList() {
 		$out = $this->getOutput();
 		if ( $this->pager->getNumRows() ) {
 			// To style output of ChangesList::showCharacterDifference

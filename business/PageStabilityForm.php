@@ -162,7 +162,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	 * Get the final reason, all inputs considered
 	 * @return string
 	 */
-	public function getReason() {
+	private function getReason() {
 		# Custom reason replaces dropdown
 		if ( $this->reasonSelection != 'other' ) {
 			$comment = $this->reasonSelection; // start with dropdown reason

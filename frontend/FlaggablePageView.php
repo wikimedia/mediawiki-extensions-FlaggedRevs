@@ -180,7 +180,7 @@ class FlaggablePageView extends ContextSource {
 	 * Check the user's preferences first, using the site settings as the default.
 	 * @return bool
 	 */
-	public function useSimpleUI() {
+	private function useSimpleUI() {
 		$reqUser = $this->getUser();
 		$config = $this->getConfig();
 		return $reqUser->getOption( 'flaggedrevssimpleui',
@@ -1519,7 +1519,7 @@ class FlaggablePageView extends ContextSource {
 	 *   (the blue background)
 	 * @return void
 	 */
-	public function setPendingNotice(
+	private function setPendingNotice(
 		FlaggedRevision $srev, $diffToggle = '', $background = true
 	) {
 		$this->load();
