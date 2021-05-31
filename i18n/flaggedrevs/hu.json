@@ -25,7 +25,7 @@
 		]
 	},
 	"action-review": "változatok ellenőrzése",
-	"action-unreviewedpages": "ellenőrizetlen lapok listájának megtekintése",
+	"action-unreviewedpages": "az ellenőrizetlen lapok listájának megtekintése",
 	"editor": "járőr",
 	"flaggedrevs": "Jelölt lapváltozatok",
 	"flaggedrevs-watched-pending": "Elavult ellenőrzött lapok vannak a figyelőlistádon. [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} '''Segíts az átnézésükben!''']",
