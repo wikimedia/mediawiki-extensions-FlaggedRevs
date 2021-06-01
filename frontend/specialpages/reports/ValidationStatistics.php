@@ -199,6 +199,9 @@ class ValidationStatistics extends IncludableSpecialPage {
 		}
 	}
 
+	/**
+	 * @return bool
+	 */
 	private function readyForQuery() {
 		$dbr = wfGetDB( DB_REPLICA );
 
@@ -209,6 +212,9 @@ class ValidationStatistics extends IncludableSpecialPage {
 		}
 	}
 
+	/**
+	 * @return int
+	 */
 	private function getEditorCount() {
 		$dbr = wfGetDB( DB_REPLICA );
 
@@ -220,6 +226,9 @@ class ValidationStatistics extends IncludableSpecialPage {
 			__METHOD__ );
 	}
 
+	/**
+	 * @return int
+	 */
 	private function getReviewerCount() {
 		$dbr = wfGetDB( DB_REPLICA );
 
@@ -241,41 +250,68 @@ class ValidationStatistics extends IncludableSpecialPage {
 		return $this->latestData;
 	}
 
+	/**
+	 * @return int|string
+	 */
 	private function getMeanReviewWaitAnon() {
 		$stats = $this->getStats();
 		return $stats['reviewLag-anon-average'];
 	}
 
+	/**
+	 * @return int|string
+	 */
 	private function getMedianReviewWaitAnon() {
 		$stats = $this->getStats();
 		return $stats['reviewLag-anon-median'];
 	}
 
+	/**
+	 * @return int|string
+	 */
 	private function getMeanPendingWait() {
 		$stats = $this->getStats();
 		return $stats['pendingLag-average'];
 	}
 
+	/**
+	 * @param int $ns
+	 * @return int|string
+	 */
 	private function getTotalPages( $ns ) {
 		$stats = $this->getStats();
 		return $stats['totalPages-NS'][$ns] ?? '-';
 	}
 
+	/**
+	 * @param int $ns
+	 * @return int|string
+	 */
 	private function getReviewedPages( $ns ) {
 		$stats = $this->getStats();
 		return $stats['reviewedPages-NS'][$ns] ?? '-';
 	}
 
+	/**
+	 * @param int $ns
+	 * @return int|string
+	 */
 	private function getSyncedPages( $ns ) {
 		$stats = $this->getStats();
 		return $stats['syncedPages-NS'][$ns] ?? '-';
 	}
 
+	/**
+	 * @return int[]
+	 */
 	private function getReviewPercentilesAnon() {
 		$stats = $this->getStats();
 		return $stats['reviewLag-anon-percentile'];
 	}
 
+	/**
+	 * @return string
+	 */
 	private function getLastUpdate() {
 		$stats = $this->getStats();
 		return $stats['statTimestamp'];

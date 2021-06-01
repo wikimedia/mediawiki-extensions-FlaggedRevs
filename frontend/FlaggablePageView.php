@@ -758,6 +758,9 @@ class FlaggablePageView extends ContextSource {
 		$this->out->enableOOUI();
 	}
 
+	/**
+	 * @param Status $status
+	 */
 	private function showPoolError( Status $status ) {
 		$this->out->enableClientCache( false );
 		$this->out->setRobotPolicy( 'noindex,nofollow' );
@@ -766,6 +769,9 @@ class FlaggablePageView extends ContextSource {
 		$this->out->wrapWikiTextAsInterface( 'errorbox', $errortext );
 	}
 
+	/**
+	 * @param int $revId
+	 */
 	private function showMissingRevError( $revId ) {
 		$this->out->enableClientCache( false );
 		$this->out->setRobotPolicy( 'noindex,nofollow' );
@@ -1497,6 +1503,9 @@ class FlaggablePageView extends ContextSource {
 		return false;
 	}
 
+	/**
+	 * @return int
+	 */
 	private function getOldIDFromRequest() {
 		$article = Article::newFromWikiPage( $this->article, RequestContext::getMain() );
 		return $article->getOldIDFromRequest();

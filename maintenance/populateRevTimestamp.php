@@ -29,18 +29,18 @@ class PopulateFRRevTimestamp extends Maintenance {
 		$startRev = $this->getOption( 'startrev' );
 		if ( $startRev !== null ) {
 			if ( $startRev === 'prev' ) {
-				$startRev = (int)file_get_contents( $this->last_pos_file() );
+				$startRev = (int)file_get_contents( $this->lastPosFile() );
 			} else {
 				$startRev = (int)$startRev;
 			}
 		}
-		$this->populate_fr_rev_timestamp( $startRev );
+		$this->populateFRRevTimestamp( $startRev );
 	}
 
 	/**
 	 * @param int|null $start Revision ID
 	 */
-	private function populate_fr_rev_timestamp( $start = null ) {
+	private function populateFRRevTimestamp( $start = null ) {
 		$this->output( "Populating and correcting flaggedrevs columns from $start\n" );
 
 		$db = wfGetDB( DB_PRIMARY );
@@ -100,12 +100,15 @@ class PopulateFRRevTimestamp extends Maintenance {
 			$blockEnd += $this->mBatchSize;
 			$lbFactory->waitForReplication( [ 'ifWritesSince' => 5 ] );
 		}
-		file_put_contents( $this->last_pos_file(), $end );
+		file_put_contents( $this->lastPosFile(), $end );
 		$this->output( "fr_rev_timestamp columns update complete ..." .
 			" {$count} rows [{$changed} changed]\n" );
 	}
 
-	private function last_pos_file() {
+	/**
+	 * @return string
+	 */
+	private function lastPosFile() {
 		return __DIR__ . "/popRevTimestampLast-" . wfWikiID();
 	}
 }

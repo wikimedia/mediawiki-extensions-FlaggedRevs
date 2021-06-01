@@ -31,13 +31,13 @@ class ReviewAllPages extends Maintenance {
 	 */
 	public function execute() {
 		$user = User::newFromName( $this->getOption( 'username' ) );
-		$this->autoreview_current( $user );
+		$this->autoReviewCurrent( $user );
 	}
 
 	/**
 	 * @param User $user
 	 */
-	private function autoreview_current( User $user ) {
+	private function autoReviewCurrent( User $user ) {
 		$this->output( "Auto-reviewing all current page versions...\n" );
 		if ( !$user->isRegistered() ) {
 			$this->output( "Invalid user specified.\n" );

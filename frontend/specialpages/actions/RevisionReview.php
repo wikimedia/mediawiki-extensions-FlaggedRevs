@@ -174,6 +174,10 @@ class RevisionReview extends UnlistedSpecialPage {
 		}
 	}
 
+	/**
+	 * @param bool $showlinks
+	 * @return string HTML
+	 */
 	private function approvalSuccessHTML( $showlinks = false ) {
 		$title = $this->form->getPage();
 		# Show success message
@@ -192,6 +196,10 @@ class RevisionReview extends UnlistedSpecialPage {
 		return $s;
 	}
 
+	/**
+	 * @param bool $showlinks
+	 * @return string HTML
+	 */
 	private function deapprovalSuccessHTML( $showlinks = false ) {
 		$title = $this->form->getPage();
 		# Show success message
@@ -210,6 +218,9 @@ class RevisionReview extends UnlistedSpecialPage {
 		return $s;
 	}
 
+	/**
+	 * @return string HTML
+	 */
 	private function getSpecialLinks() {
 		$linkRenderer = $this->getLinkRenderer();
 		$s = '<p>' . $this->msg( 'returnto' )->rawParams(

@@ -36,7 +36,7 @@ class PurgeReviewablePages extends Maintenance {
 			if ( !$fileHandle ) {
 				$this->fatalError( "Can't open file to create purge list." );
 			}
-			$this->list_reviewable_pages( $fileHandle );
+			$this->listReviewablePages( $fileHandle );
 			fclose( $fileHandle );
 		// Purge pages on the list file...
 		} elseif ( $this->getOption( 'purgelist' ) ) {
@@ -44,14 +44,17 @@ class PurgeReviewablePages extends Maintenance {
 			if ( !$fileHandle ) {
 				$this->fatalError( "Can't open file to read purge list." );
 			}
-			$this->purge_reviewable_pages( $fileHandle );
+			$this->purgeReviewablePages( $fileHandle );
 			fclose( $fileHandle );
 		} else {
 			$this->fatalError( "No purge list action specified." );
 		}
 	}
 
-	private function list_reviewable_pages( $fileHandle ) {
+	/**
+	 * @param resource $fileHandle
+	 */
+	private function listReviewablePages( $fileHandle ) {
 		global $wgFlaggedRevsNamespaces, $wgUseCdn, $wgUseFileCache;
 
 		$this->output( "Building list of all reviewable pages to purge ...\n" );
@@ -105,7 +108,10 @@ class PurgeReviewablePages extends Maintenance {
 		$this->output( "List of reviewable pages to purge complete ... {$count} pages\n" );
 	}
 
-	private function purge_reviewable_pages( $fileHandle ) {
+	/**
+	 * @param resource $fileHandle
+	 */
+	private function purgeReviewablePages( $fileHandle ) {
 		global $wgUseCdn, $wgUseFileCache;
 		$this->output( "Purging CDN cache for list of pages to purge ...\n" );
 		if ( !$wgUseCdn && !$wgUseFileCache ) {

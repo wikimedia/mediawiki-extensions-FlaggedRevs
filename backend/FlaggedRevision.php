@@ -677,6 +677,11 @@ class FlaggedRevision {
 		return $tmpChanges;
 	}
 
+	/**
+	 * @param int $revIdStable
+	 * @param int $revIdReviewed
+	 * @return int
+	 */
 	private function templateIdUsed( $revIdStable, $revIdReviewed ) {
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
 			# Select newest of (stable rev, rev when reviewed) as "version used"
@@ -687,6 +692,11 @@ class FlaggedRevision {
 		return (int)$revIdUsed;
 	}
 
+	/**
+	 * @param int $revIdDraft Can be 0
+	 * @param int $revIdUsed Can be 0
+	 * @return bool
+	 */
 	private function templateChanged( $revIdDraft, $revIdUsed ) {
 		if ( $revIdDraft && !$revIdUsed ) {
 			return true; // later created
@@ -767,6 +777,11 @@ class FlaggedRevision {
 		return $fileChanges;
 	}
 
+	/**
+	 * @param string|null $stableTS
+	 * @param string|null $reviewedTS
+	 * @return string|null
+	 */
 	private function fileTimestampUsed( $stableTS, $reviewedTS ) {
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
 			# Select newest of (stable rev, rev when reviewed) as "version used"
@@ -775,6 +790,12 @@ class FlaggedRevision {
 		return $reviewedTS;
 	}
 
+	/**
+	 * @param Title $title
+	 * @param string|null $usedTS
+	 * @param string|false $noForeign
+	 * @return bool
+	 */
 	private function fileChanged( $title, $usedTS, $noForeign ) {
 		$repoGroup = MediaWikiServices::getInstance()->getRepoGroup();
 		$file = $repoGroup->findFile( $title ); // current file version

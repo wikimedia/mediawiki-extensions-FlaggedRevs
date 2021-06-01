@@ -1087,6 +1087,9 @@ class FlaggedRevsUIHooks {
 		}
 	}
 
+	/**
+	 * @param OutputPage $out
+	 */
 	private static function maybeAddBacklogNotice( OutputPage $out ) {
 		if ( !MediaWikiServices::getInstance()->getPermissionManager()
 			->userHasRight( $out->getUser(), 'review' ) ) {

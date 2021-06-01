@@ -45,14 +45,14 @@ class FlagProtectToSemiProtect extends Maintenance {
 		$this->output( "Running in 5 seconds...Press ctrl-c to abort.\n" );
 		sleep( 5 );
 
-		$this->flag_to_semi_protect( $user, $reason );
+		$this->flagToSemiProtect( $user, $reason );
 	}
 
 	/**
 	 * @param User $user
 	 * @param string $reason
 	 */
-	private function flag_to_semi_protect( User $user, $reason ) {
+	private function flagToSemiProtect( User $user, $reason ) {
 		global $wgFlaggedRevsNamespaces;
 
 		$this->output( "Semi-protecting all flag-protected pages...\n" );

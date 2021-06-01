@@ -1084,9 +1084,15 @@ class FlaggedRevsHooks {
 		return (bool)$db->selectField( 'logging', '1', $conds, __METHOD__ );
 	}
 
-	private static function recentEditCount( $uid, $seconds, $limit ) {
+	/**
+	 * @param int $userId
+	 * @param int $seconds
+	 * @param int $limit
+	 * @return int
+	 */
+	private static function recentEditCount( $userId, $seconds, $limit ) {
 		$dbr = wfGetDB( DB_REPLICA );
-		$queryData = self::getQueryData( $dbr, User::newFromId( $uid ) );
+		$queryData = self::getQueryData( $dbr, User::newFromId( $userId ) );
 		# Get cutoff timestamp (edits that are too recent)
 		$encCutoff = $dbr->addQuotes( $dbr->timestamp( time() - $seconds ) );
 		# Check all recent edits...
@@ -1108,9 +1114,15 @@ class FlaggedRevsHooks {
 		return $ct;
 	}
 
-	private static function recentContentEditCount( $uid, $seconds, $limit ) {
+	/**
+	 * @param int $userId
+	 * @param int $seconds
+	 * @param int $limit
+	 * @return int
+	 */
+	private static function recentContentEditCount( $userId, $seconds, $limit ) {
 		$dbr = wfGetDB( DB_REPLICA );
-		$queryData = self::getQueryData( $dbr, User::newFromId( $uid ) );
+		$queryData = self::getQueryData( $dbr, User::newFromId( $userId ) );
 		# Get cutoff timestamp (edits that are too recent)
 		$encCutoff = $dbr->addQuotes( $dbr->timestamp( time() - $seconds ) );
 		# Check all recent content edits...

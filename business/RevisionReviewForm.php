@@ -627,15 +627,15 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * @param string $tmpP
 	 * @param string $imgP
 	 * @param string $imgV
-	 * @param int $rid rev ID
+	 * @param int $revisionId
 	 * @param string $sessKey Session key
 	 * @return string
 	 */
-	public static function validationKey( $tmpP, $imgP, $imgV, $rid, $sessKey ) {
+	public static function validationKey( $tmpP, $imgP, $imgV, $revisionId, $sessKey ) {
 		global $wgSecretKey;
 		$key = md5( $wgSecretKey );
 		$keyBits = $key[3] . $key[9] . $key[13] . $key[19] . $key[26];
-		return md5( "{$imgP}{$tmpP}{$imgV}{$rid}{$sessKey}{$keyBits}" );
+		return md5( "{$imgP}{$tmpP}{$imgV}{$revisionId}{$sessKey}{$keyBits}" );
 	}
 
 	/**

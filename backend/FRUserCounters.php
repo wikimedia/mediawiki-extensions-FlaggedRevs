@@ -8,14 +8,14 @@ use MediaWiki\User\UserIdentity;
 class FRUserCounters {
 	/**
 	 * Get params for a user ID
-	 * @param int $uid
+	 * @param int $userId
 	 * @param int $flags FR_MASTER, FR_FOR_UPDATE
 	 * @param bool|string $dBName optional wiki name
 	 * @return array
 	 */
-	public static function getUserParams( $uid, $flags = 0, $dBName = false ) {
+	public static function getUserParams( $userId, $flags = 0, $dBName = false ) {
 		$p = [];
-		$row = self::fetchParamsRow( $uid, $flags, $dBName );
+		$row = self::fetchParamsRow( $userId, $flags, $dBName );
 		if ( $row ) {
 			$p = self::expandParams( $row->frp_user_params );
 		}
@@ -60,12 +60,12 @@ class FRUserCounters {
 
 	/**
 	 * Get the params row for a user
-	 * @param int $uid
+	 * @param int $userId
 	 * @param int $flags FR_MASTER, FR_FOR_UPDATE
 	 * @param bool|string $dBName optional wiki name
 	 * @return stdClass|false
 	 */
-	private static function fetchParamsRow( $uid, $flags = 0, $dBName = false ) {
+	private static function fetchParamsRow( $userId, $flags = 0, $dBName = false ) {
 		$options = [];
 		if ( $flags & FR_MASTER || $flags & FR_FOR_UPDATE ) {
 			$db = wfGetDB( DB_PRIMARY, [], $dBName );
@@ -77,7 +77,7 @@ class FRUserCounters {
 		}
 		return $db->selectRow( 'flaggedrevs_promote',
 			'frp_user_params',
-			[ 'frp_user_id' => $uid ],
+			[ 'frp_user_id' => $userId ],
 			__METHOD__,
 			$options
 		);
@@ -85,17 +85,17 @@ class FRUserCounters {
 
 	/**
 	 * Save params for a user
-	 * @param int $uid
+	 * @param int $userId
 	 * @param array $params
 	 * @param bool|string $dBName optional wiki name
 	 */
-	public static function saveUserParams( $uid, array $params, $dBName = false ) {
+	public static function saveUserParams( $userId, array $params, $dBName = false ) {
 		$dbw = wfGetDB( DB_PRIMARY, [], $dBName );
 		$dbw->replace(
 			'flaggedrevs_promote',
 			'frp_user_id',
 			[
-				'frp_user_id' => $uid,
+				'frp_user_id' => $userId,
 				'frp_user_params' => self::flattenParams( $params )
 			],
 			__METHOD__
@@ -135,16 +135,16 @@ class FRUserCounters {
 
 	/**
 	 * Increments a count for a user
-	 * @param int $uid User id
+	 * @param int $userId
 	 * @param string $param Count name
 	 */
-	public static function incCount( $uid, $param ) {
-		$p = self::getUserParams( $uid, FR_FOR_UPDATE );
+	public static function incCount( $userId, $param ) {
+		$p = self::getUserParams( $userId, FR_FOR_UPDATE );
 		if ( !isset( $p[$param] ) ) {
 			$p[$param] = 0;
 		}
 		$p[$param]++;
-		self::saveUserParams( $uid, $p );
+		self::saveUserParams( $userId, $p );
 	}
 
 	/**

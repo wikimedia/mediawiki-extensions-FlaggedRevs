@@ -298,6 +298,10 @@ class Stabilization extends UnlistedSpecialPage {
 		);
 	}
 
+	/**
+	 * @param string $selected
+	 * @return string HTML
+	 */
 	private function buildSelector( $selected ) {
 		$allowedLevels = [];
 		$levels = FlaggedRevs::getRestrictionLevels();

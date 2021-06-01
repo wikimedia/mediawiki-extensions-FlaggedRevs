@@ -38,25 +38,28 @@ class UpdateFRTracking extends Maintenance {
 		if ( $updateonly ) {
 			switch ( $updateonly ) {
 				case 'revs':
-					$this->update_flaggedrevs( $startRev );
+					$this->updateFlaggedRevs( $startRev );
 					break;
 				case 'pages':
-					$this->update_flaggedpages( $startPage );
+					$this->updateFlaggedPages( $startPage );
 					break;
 				case 'images':
-					$this->update_flaggedimages( $startRev );
+					$this->updateFlaggedImages( $startRev );
 					break;
 				default:
 					$this->fatalError( "Invalidate operation specified.\n" );
 			}
 		} else {
-			$this->update_flaggedrevs( $startRev );
-			$this->update_flaggedpages( $startPage );
-			$this->update_flaggedimages( $startRev );
+			$this->updateFlaggedRevs( $startRev );
+			$this->updateFlaggedPages( $startPage );
+			$this->updateFlaggedImages( $startRev );
 		}
 	}
 
-	private function update_flaggedrevs( $start = null ) {
+	/**
+	 * @param int|null $start Revision ID
+	 */
+	private function updateFlaggedRevs( $start = null ) {
 		$this->output( "Populating and correcting flaggedrevs columns\n" );
 
 		$BATCH_SIZE = 1000;
@@ -151,7 +154,10 @@ class UpdateFRTracking extends Maintenance {
 			" {$count} rows [{$changed} changed]\n" );
 	}
 
-	private function update_flaggedpages( $start = null ) {
+	/**
+	 * @param int|null $start Page ID
+	 */
+	private function updateFlaggedPages( $start = null ) {
 		$this->output( "Populating and correcting flaggedpages/flaggedpage_config columns\n" );
 
 		$BATCH_SIZE = 300;
@@ -265,7 +271,10 @@ class UpdateFRTracking extends Maintenance {
 			" {$count} rows [{$fixed} fixed] [{$deleted} deleted]\n" );
 	}
 
-	private function update_flaggedimages( $start = null ) {
+	/**
+	 * @param int|null $start Revision ID
+	 */
+	private function updateFlaggedImages( $start = null ) {
 		$this->output( "Cleaning up flaggedimages columns\n" );
 
 		$BATCH_SIZE = 1000;
