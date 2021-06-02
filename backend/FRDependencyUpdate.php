@@ -98,8 +98,7 @@ class FRDependencyUpdate {
 	 * @return int[][] (ns => dbKey => 1)
 	 */
 	private function getExistingDeps( $flags = 0 ) {
-		$db = ( $flags & FR_MASTER ) ?
-			wfGetDB( DB_PRIMARY ) : wfGetDB( DB_REPLICA );
+		$db = wfGetDB( ( $flags & FR_MASTER ) ? DB_PRIMARY : DB_REPLICA );
 		$res = $db->select( 'flaggedrevs_tracking',
 			[ 'ftr_namespace', 'ftr_title' ],
 			[ 'ftr_from' => $this->title->getArticleID() ],

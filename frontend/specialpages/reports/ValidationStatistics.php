@@ -204,12 +204,8 @@ class ValidationStatistics extends IncludableSpecialPage {
 	 */
 	private function readyForQuery() {
 		$dbr = wfGetDB( DB_REPLICA );
-
-		if ( !$dbr->tableExists( 'flaggedrevs_statistics', __METHOD__ ) ) {
-			return false;
-		} else {
-			return $dbr->selectField( 'flaggedrevs_statistics', 'COUNT(*)', [], __METHOD__ ) != 0;
-		}
+		return $dbr->tableExists( 'flaggedrevs_statistics', __METHOD__ ) &&
+			$dbr->selectField( 'flaggedrevs_statistics', '1', [], __METHOD__ );
 	}
 
 	/**
