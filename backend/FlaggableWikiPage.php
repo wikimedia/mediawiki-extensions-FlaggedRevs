@@ -223,7 +223,7 @@ class FlaggableWikiPage extends WikiPage {
 				# (b) Check if the stable version has a file/template that was deleted
 				$synced = (
 					!$srev->findPendingTemplateChanges() &&
-					!$srev->findPendingFileChanges( 'noForeign' )
+					!$srev->findPendingFileChanges()
 				);
 
 				return $synced ? 1 : 0;
@@ -487,7 +487,7 @@ class FlaggableWikiPage extends WikiPage {
 		$synced = !(
 			$nextTimestamp !== null || // edits pending
 			$srev->findPendingTemplateChanges() || // template changes pending
-			$srev->findPendingFileChanges( 'noForeign' ) // file changes pending
+			$srev->findPendingFileChanges() // file changes pending
 		);
 		# Alter table metadata
 		$dbw->replace(

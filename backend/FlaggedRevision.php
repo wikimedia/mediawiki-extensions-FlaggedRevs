@@ -730,10 +730,9 @@ class FlaggedRevision {
 	 *    (b) Current file exists and the "version used" was non-existing (created)
 	 *    (c) Current file doesn't exist and the "version used" existed (deleted)
 	 *
-	 * @param bool|string $noForeign Using 'noForeign' skips foreign file updates (bug 15748)
 	 * @return array[] of (title, MW file timestamp in reviewed version, has stable rev) tuples
 	 */
-	public function findPendingFileChanges( $noForeign = false ) {
+	public function findPendingFileChanges() {
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
 			return []; // short-circuit
 		}
@@ -768,7 +767,7 @@ class FlaggedRevision {
 			$usedTS = self::fileTimestampUsed( $stableTS, $reviewedTS );
 			# Check for edits/creations/deletions...
 			$title = Title::makeTitleSafe( NS_FILE, $row->il_to );
-			if ( self::fileChanged( $title, $usedTS, $noForeign ) ) {
+			if ( self::fileChanged( $title, $usedTS ) ) {
 				if ( !$title->equals( $this->getTitle() ) ) { // bug 42297
 					$fileChanges[] = [ $title, $usedTS, (bool)$stableTS ];
 				}
@@ -793,16 +792,15 @@ class FlaggedRevision {
 	/**
 	 * @param Title $title
 	 * @param string|null $usedTS
-	 * @param string|false $noForeign
 	 * @return bool
 	 */
-	private function fileChanged( $title, $usedTS, $noForeign ) {
+	private function fileChanged( $title, $usedTS ) {
 		$repoGroup = MediaWikiServices::getInstance()->getRepoGroup();
 		$file = $repoGroup->findFile( $title ); // current file version
 		# Compare this version to the current version and check for things
 		# that would make the stable version unsynced with the draft...
 		if ( $file instanceof File ) { // file exists
-			if ( $noForeign === 'noForeign' && !$file->isLocal() ) {
+			if ( !$file->isLocal() ) {
 				# Avoid counting edits to Commons files, which can effect
 				# many pages, as there is no expedient way to review them.
 				$updated = !$usedTS; // created (ignore new versions)
@@ -857,10 +855,9 @@ class FlaggedRevision {
 	 * See findPendingFileChanges() for details.
 	 *
 	 * @param string[] $newFiles
-	 * @param bool|string $noForeign Using 'noForeign' skips foreign file updates (bug 15748)
 	 * @return array[] of (title, MW file timestamp in reviewed version, has stable rev) tuples
 	 */
-	public function findFileChanges( array $newFiles, $noForeign = false ) {
+	public function findFileChanges( array $newFiles ) {
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
 			return []; // short-circuit
 		}
@@ -874,7 +871,7 @@ class FlaggedRevision {
 			$usedTS = self::fileTimestampUsed( $stableTS, $reviewedTS );
 			# Check for edits/creations/deletions...
 			$title = Title::makeTitleSafe( NS_FILE, $dbKey );
-			if ( self::fileChanged( $title, $usedTS, $noForeign ) ) {
+			if ( self::fileChanged( $title, $usedTS ) ) {
 				$fileChanges[] = [ $title, $usedTS, (bool)$stableTS ];
 			}
 		}

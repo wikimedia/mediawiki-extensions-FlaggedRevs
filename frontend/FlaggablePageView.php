@@ -1861,9 +1861,9 @@ class FlaggablePageView extends ContextSource {
 	private static function fetchFileChanges( FlaggedRevision $frev, $newFiles = null ) {
 		$diffLinks = [];
 		if ( $newFiles === null ) {
-			$changes = $frev->findPendingFileChanges( 'noForeign' );
+			$changes = $frev->findPendingFileChanges();
 		} else {
-			$changes = $frev->findFileChanges( $newFiles, 'noForeign' );
+			$changes = $frev->findFileChanges( $newFiles );
 		}
 		foreach ( $changes as $tuple ) {
 			list( $title, $revIdStable, $hasStable ) = $tuple;
