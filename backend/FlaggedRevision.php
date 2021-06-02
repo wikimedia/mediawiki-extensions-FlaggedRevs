@@ -18,7 +18,7 @@ class FlaggedRevision {
 
 	/** @var RevisionRecord base revision */
 	private $mRevRecord;
-	/** @var array|null included template versions */
+	/** @var int[][]|null included template versions */
 	private $mTemplates;
 	/** @var array[]|null included file versions */
 	private $mFiles;
