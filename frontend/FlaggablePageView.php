@@ -531,12 +531,8 @@ class FlaggablePageView extends ContextSource {
 			if ( $this->useSimpleUI() ) {
 				if ( !$reqUser->isRegistered() ) {
 					$msgHTML = ''; // Anons just see simple icons
-				} elseif ( $synced ) {
-					$msg = 'revreview-quick-basic-same';
-					$msgHTML = $this->msg( $msg, $srev->getRevId() )
-						->numParams( $revsSince )->parse();
 				} else {
-					$msg = 'revreview-quick-see-basic';
+					$msg = $synced ? 'revreview-quick-basic-same' : 'revreview-quick-see-basic';
 					$msgHTML = $this->msg( $msg, $srev->getRevId() )
 						->numParams( $revsSince )->parse();
 				}

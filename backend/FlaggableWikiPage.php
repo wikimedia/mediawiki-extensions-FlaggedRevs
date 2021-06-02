@@ -163,7 +163,7 @@ class FlaggableWikiPage extends WikiPage {
 			);
 		};
 
-		if ( ( $flags & FR_MASTER ) ) {
+		if ( $flags & FR_MASTER ) {
 			$this->pendingRevCount = $callback();
 		} else {
 			$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();

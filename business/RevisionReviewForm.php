@@ -473,13 +473,12 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 				&& $newRevRecord->getParentId() == $oldRevRecord->getId()
 				&& $newRevRecord->getUser( RevisionRecord::RAW )
 				&& $newRevRecord->getUser( RevisionRecord::RAW )->isRegistered()
+				&& !$newRevRecord->getUser( RevisionRecord::RAW )->equals( $user ) // no self-reverts
 			) {
-				if ( !( $newRevRecord->getUser( RevisionRecord::RAW )->equals( $user ) ) ) { // no self-reverts
-					FRUserCounters::incCount(
-						$newRevRecord->getUser( RevisionRecord::RAW )->getId(),
-						'revertedEdits'
-					);
-				}
+				FRUserCounters::incCount(
+					$newRevRecord->getUser( RevisionRecord::RAW )->getId(),
+					'revertedEdits'
+				);
 			}
 		}
 		# Watch page if set to do so

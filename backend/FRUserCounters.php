@@ -30,13 +30,14 @@ class FRUserCounters {
 	 * @suppress PhanUndeclaredProperty
 	 */
 	public static function getParams( UserIdentity $user ) {
-		if ( $user->isRegistered() ) {
-			if ( !isset( $user->fr_user_params ) ) { // process cache...
-				$user->fr_user_params = self::getUserParams( $user->getId() );
-			}
-			return $user->fr_user_params;
+		if ( !$user->isRegistered() ) {
+			return null;
 		}
-		return null;
+
+		if ( !isset( $user->fr_user_params ) ) { // process cache...
+			$user->fr_user_params = self::getUserParams( $user->getId() );
+		}
+		return $user->fr_user_params;
 	}
 
 	/**

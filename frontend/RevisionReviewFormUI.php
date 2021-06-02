@@ -280,11 +280,10 @@ class RevisionReviewFormUI {
 		if ( $this->refRevRecord ) {
 			$priorId = $this->refRevRecord->getId();
 			if ( $priorId == $this->article->getStable() &&
-				$priorId != $this->revRecord->getId()
+				$priorId != $this->revRecord->getId() &&
+				!$this->revRecord->hasSameContent( $this->refRevRecord )
 			) {
-				if ( !$this->revRecord->hasSameContent( $this->refRevRecord ) ) {
-					return $priorId; // left rev must be stable and right one newer
-				}
+				return $priorId; // left rev must be stable and right one newer
 			}
 		}
 		return 0;
