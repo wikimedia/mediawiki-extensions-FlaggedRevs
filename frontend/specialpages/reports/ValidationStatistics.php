@@ -212,7 +212,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 	private function getEditorCount() {
 		$dbr = wfGetDB( DB_REPLICA );
 
-		return $dbr->selectField( 'user_groups', 'COUNT(*)',
+		return (int)$dbr->selectField( 'user_groups', 'COUNT(*)',
 			[
 				'ug_group' => 'editor',
 				'ug_expiry IS NULL OR ug_expiry >= ' . $dbr->addQuotes( $dbr->timestamp() )
@@ -223,7 +223,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 	private function getReviewerCount() {
 		$dbr = wfGetDB( DB_REPLICA );
 
-		return $dbr->selectField( 'user_groups', 'COUNT(*)',
+		return (int)$dbr->selectField( 'user_groups', 'COUNT(*)',
 			[
 				'ug_group' => 'reviewer',
 				'ug_expiry IS NULL OR ug_expiry >= ' . $dbr->addQuotes( $dbr->timestamp() )
@@ -319,7 +319,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 				$actorStore = MediaWikiServices::getInstance()->getActorStore();
 				$data = [];
 				foreach ( $res as $row ) {
-					$data[] = [ $actorStore->newActorFromRow( $row ), $row->reviews ];
+					$data[] = [ $actorStore->newActorFromRow( $row ), (int)$row->reviews ];
 				}
 				return $data;
 			},

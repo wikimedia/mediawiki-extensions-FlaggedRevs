@@ -309,10 +309,10 @@ class FlaggedRevision {
 			foreach ( (array)$this->mTemplates as $namespace => $titleAndID ) {
 				foreach ( $titleAndID as $dbkey => $id ) {
 					$tmpInsertRows[] = [
-						'ft_rev_id'     => $this->getRevId(),
-						'ft_namespace'  => (int)$namespace,
-						'ft_title'      => $dbkey,
-						'ft_tmp_rev_id' => (int)$id
+						'ft_rev_id' => $this->getRevId(),
+						'ft_namespace' => $namespace,
+						'ft_title' => $dbkey,
+						'ft_tmp_rev_id' => $id
 					];
 				}
 			}
@@ -511,7 +511,7 @@ class FlaggedRevision {
 				__METHOD__
 			);
 			foreach ( $res as $row ) {
-				$this->mTemplates[$row->ft_namespace][$row->ft_title] = $row->ft_tmp_rev_id;
+				$this->mTemplates[$row->ft_namespace][$row->ft_title] = (int)$row->ft_tmp_rev_id;
 			}
 		}
 		return $this->mTemplates;
