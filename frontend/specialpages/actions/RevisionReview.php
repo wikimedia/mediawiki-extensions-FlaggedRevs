@@ -142,9 +142,9 @@ class RevisionReview extends UnlistedSpecialPage {
 			// Success...
 			$out->setPageTitle( $this->msg( 'actioncomplete' ) );
 			if ( $form->getAction() === 'approve' ) {
-				$out->addHTML( $this->approvalSuccessHTML( true ) );
+				$out->addHTML( $this->approvalSuccessHTML() );
 			} elseif ( $form->getAction() === 'unapprove' ) {
-				$out->addHTML( $this->deapprovalSuccessHTML( true ) );
+				$out->addHTML( $this->deapprovalSuccessHTML() );
 			} elseif ( $form->getAction() === 'reject' ) {
 				$query = $this->page->isRedirect() ? [ 'redirect' => 'no' ] : [];
 				$out->redirect( $this->page->getFullURL( $query ) );
@@ -175,10 +175,9 @@ class RevisionReview extends UnlistedSpecialPage {
 	}
 
 	/**
-	 * @param bool $showlinks
 	 * @return string HTML
 	 */
-	private function approvalSuccessHTML( $showlinks = false ) {
+	private function approvalSuccessHTML() {
 		$title = $this->form->getPage();
 		# Show success message
 		$s = "<div class='plainlinks'>";
@@ -188,19 +187,16 @@ class RevisionReview extends UnlistedSpecialPage {
 			$title->getPrefixedURL(), $this->form->getOldId() )->parseAsBlock();
 		$s .= "</div>";
 		# Handy links to special pages
-		if ( $showlinks &&
-			$this->permissionManager->userHasRight( $this->getUser(), 'unreviewedpages' )
-		) {
+		if ( $this->permissionManager->userHasRight( $this->getUser(), 'unreviewedpages' ) ) {
 			$s .= $this->getSpecialLinks();
 		}
 		return $s;
 	}
 
 	/**
-	 * @param bool $showlinks
 	 * @return string HTML
 	 */
-	private function deapprovalSuccessHTML( $showlinks = false ) {
+	private function deapprovalSuccessHTML() {
 		$title = $this->form->getPage();
 		# Show success message
 		$s = "<div class='plainlinks'>";
@@ -210,9 +206,7 @@ class RevisionReview extends UnlistedSpecialPage {
 			$title->getPrefixedURL(), $this->form->getOldId() )->parseAsBlock();
 		$s .= "</div>";
 		# Handy links to special pages
-		if ( $showlinks &&
-			$this->permissionManager->userHasRight( $this->getUser(), 'unreviewedpages' )
-		) {
+		if ( $this->permissionManager->userHasRight( $this->getUser(), 'unreviewedpages' ) ) {
 			$s .= $this->getSpecialLinks();
 		}
 		return $s;
