@@ -97,7 +97,7 @@ class ReviewAllPages extends Maintenance {
 						true,
 						true // approve the reverted tag update
 					);
-					FlaggedRevs::HTMLCacheUpdates( $wikiPage->getTitle() );
+					FlaggedRevs::updateHtmlCaches( $wikiPage->getTitle() );
 					$db->endAtomic( __METHOD__ );
 					$changed++;
 				}

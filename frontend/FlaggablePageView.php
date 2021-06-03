@@ -1676,6 +1676,7 @@ class FlaggablePageView extends ContextSource {
 	 * get new diff header items for in-place AJAX page review
 	 * @return string
 	 */
+	// phpcs:ignore MediaWiki.NamingConventions.LowerCamelFunctionsName
 	public static function AjaxBuildDiffHeaderItems() {
 		$args = func_get_args(); // <oldid, newid>
 		if ( count( $args ) >= 2 ) {

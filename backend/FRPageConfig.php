@@ -235,7 +235,7 @@ class FRPageConfig {
 		foreach ( $titlesClearTracking as $title ) {
 			FlaggedRevs::purgeSquid( $title );
 			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
-				FlaggedRevs::HTMLCacheUpdates( $title ); // purge pages that use this page
+				FlaggedRevs::updateHtmlCaches( $title ); // purge pages that use this page
 			}
 		}
 	}

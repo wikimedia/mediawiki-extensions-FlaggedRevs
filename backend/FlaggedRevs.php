@@ -619,7 +619,7 @@ class FlaggedRevs {
 	 * Invalidates/purges pages that include the given page.
 	 * @param Title $title
 	 */
-	public static function HTMLCacheUpdates( Title $title ) {
+	public static function updateHtmlCaches( Title $title ) {
 		$jobs = [];
 		$jobs[] = HTMLCacheUpdateJob::newForBacklinks( $title, 'templatelinks' );
 		if ( $title->getNamespace() === NS_FILE ) {

@@ -231,7 +231,8 @@ class RevisionReview extends UnlistedSpecialPage {
 	 *
 	 * @return string
 	 */
-	public static function AjaxReview( /*$args...*/ ) {
+	// phpcs:ignore MediaWiki.NamingConventions.LowerCamelFunctionsName
+	public static function AjaxReview() {
 		$context = RequestContext::getMain();
 		$user = $context->getUser();
 		$out = $context->getOutput();

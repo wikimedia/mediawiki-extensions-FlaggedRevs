@@ -19,6 +19,7 @@ class FlaggedRevsHooks {
 	 */
 	public static function onRegistration() {
 		global $wgAjaxExportList;
+		// These method names are part of a public API. Renaming them is a breaking change.
 		$wgAjaxExportList[] = 'RevisionReview::AjaxReview';
 		$wgAjaxExportList[] = 'FlaggablePageView::AjaxBuildDiffHeaderItems';
 
@@ -116,9 +117,9 @@ class FlaggedRevsHooks {
 		}
 		# Update pages...stable versions possibly lost to another page
 		FlaggedRevs::stableVersionUpdates( $sourceTitle );
-		FlaggedRevs::HTMLCacheUpdates( $sourceTitle );
+		FlaggedRevs::updateHtmlCaches( $sourceTitle );
 		FlaggedRevs::stableVersionUpdates( $destTitle );
-		FlaggedRevs::HTMLCacheUpdates( $destTitle );
+		FlaggedRevs::updateHtmlCaches( $destTitle );
 	}
 
 	/**
@@ -189,9 +190,9 @@ class FlaggedRevsHooks {
 
 		# Update page and tracking tables and clear cache
 		FlaggedRevs::stableVersionUpdates( $otitle );
-		FlaggedRevs::HTMLCacheUpdates( $otitle );
+		FlaggedRevs::updateHtmlCaches( $otitle );
 		FlaggedRevs::stableVersionUpdates( $ntitle );
-		FlaggedRevs::HTMLCacheUpdates( $ntitle );
+		FlaggedRevs::updateHtmlCaches( $ntitle );
 	}
 
 	/**
@@ -238,7 +239,7 @@ class FlaggedRevsHooks {
 	 */
 	public static function onArticleUndelete( Title $title ) {
 		FlaggedRevs::stableVersionUpdates( $title );
-		FlaggedRevs::HTMLCacheUpdates( $title );
+		FlaggedRevs::updateHtmlCaches( $title );
 	}
 
 	/**
@@ -263,7 +264,7 @@ class FlaggedRevsHooks {
 	public static function onRevisionDelete( Title $title ) {
 		$changed = FlaggedRevs::stableVersionUpdates( $title );
 		if ( $changed ) {
-			FlaggedRevs::HTMLCacheUpdates( $title );
+			FlaggedRevs::updateHtmlCaches( $title );
 		}
 	}
 

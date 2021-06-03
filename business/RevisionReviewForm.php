@@ -584,7 +584,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		# Update page and tracking tables and clear cache
 		$changed = FlaggedRevs::stableVersionUpdates( $this->page, $sv, $oldSv );
 		if ( $changed ) {
-			FlaggedRevs::HTMLCacheUpdates( $this->page ); // purge pages that use this page
+			FlaggedRevs::updateHtmlCaches( $this->page ); // purge pages that use this page
 		}
 
 		# Caller may want to get the change time
@@ -615,7 +615,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		# Update page and tracking tables and clear cache
 		$changed = FlaggedRevs::stableVersionUpdates( $this->page, $sv, $oldSv );
 		if ( $changed ) {
-			FlaggedRevs::HTMLCacheUpdates( $this->page ); // purge pages that use this page
+			FlaggedRevs::updateHtmlCaches( $this->page ); // purge pages that use this page
 		}
 
 		# Caller may want to get the change time
