@@ -17,14 +17,11 @@ class FlaggedRevsXML {
 	public static function getNamespaceMenu( $selected = null, $all = null ) {
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		$s = "<label for='namespace'>" . wfMessage( 'namespace' )->escaped() . "</label>";
+		# No namespace selected; let exact match work without hitting Main
+		$selected = $selected ?? '';
 		if ( $selected !== '' ) {
-			if ( $selected === null ) {
-				# No namespace selected; let exact match work without hitting Main
-				$selected = '';
-			} else {
-				# Let input be numeric strings without breaking the empty match.
-				$selected = intval( $selected );
-			}
+			# Let input be numeric strings without breaking the empty match.
+			$selected = (int)$selected;
 		}
 		$s .= "\n<select id='namespace' name='namespace' class='namespaceselector'>\n";
 		$arr = MediaWikiServices::getInstance()->getContentLanguage()->getFormattedNamespaces();

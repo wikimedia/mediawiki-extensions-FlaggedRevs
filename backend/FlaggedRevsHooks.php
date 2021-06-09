@@ -510,11 +510,10 @@ class FlaggedRevsHooks {
 		if ( $editTimestamp
 			&& $wgRequest->getCheck( 'wpReviewEdit' )
 			&& $pm->getPermissionErrors( 'review', $user, $title ) === []
+			&& self::editCheckReview( $fa, $revRecord, $user, $editTimestamp )
 		) {
-			if ( self::editCheckReview( $fa, $revRecord, $user, $editTimestamp ) ) {
-				// Reviewed... done!
-				return;
-			}
+			// Reviewed... done!
+			return;
 		}
 		# All cases below require auto-review of edits to be enabled
 		if ( !FlaggedRevs::autoReviewEnabled() ) {

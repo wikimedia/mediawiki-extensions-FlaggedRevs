@@ -27,12 +27,11 @@ class PopulateFRRevTimestamp extends Maintenance {
 	 */
 	public function execute() {
 		$startRev = $this->getOption( 'startrev' );
+		if ( $startRev === 'prev' ) {
+			$startRev = file_get_contents( $this->lastPosFile() );
+		}
 		if ( $startRev !== null ) {
-			if ( $startRev === 'prev' ) {
-				$startRev = (int)file_get_contents( $this->lastPosFile() );
-			} else {
-				$startRev = (int)$startRev;
-			}
+			$startRev = (int)$startRev;
 		}
 		$this->populateFRRevTimestamp( $startRev );
 	}

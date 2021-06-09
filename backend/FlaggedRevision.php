@@ -767,10 +767,10 @@ class FlaggedRevision {
 			$usedTS = self::fileTimestampUsed( $stableTS, $reviewedTS );
 			# Check for edits/creations/deletions...
 			$title = Title::makeTitleSafe( NS_FILE, $row->il_to );
-			if ( self::fileChanged( $title, $usedTS ) ) {
-				if ( !$title->equals( $this->getTitle() ) ) { // bug 42297
-					$fileChanges[] = [ $title, $usedTS, (bool)$stableTS ];
-				}
+			if ( self::fileChanged( $title, $usedTS )
+				&& !$title->equals( $this->getTitle() ) // bug 42297
+			) {
+				$fileChanges[] = [ $title, $usedTS, (bool)$stableTS ];
 			}
 		}
 		return $fileChanges;
@@ -799,22 +799,21 @@ class FlaggedRevision {
 		$file = $repoGroup->findFile( $title ); // current file version
 		# Compare this version to the current version and check for things
 		# that would make the stable version unsynced with the draft...
-		if ( $file instanceof File ) { // file exists
-			if ( !$file->isLocal() ) {
-				# Avoid counting edits to Commons files, which can effect
-				# many pages, as there is no expedient way to review them.
-				$updated = !$usedTS; // created (ignore new versions)
-			} else {
-				$updated = ( $file->getTimestamp() > $usedTS ); // edited/created
-			}
-			$deleted = $usedTS // included file deleted after review
-				&& $file->getTimestamp() != $usedTS
-				&& !$repoGroup->findFile( $title, [ 'time' => $usedTS ] );
-		} else { // file doesn't exist
-			$updated = false;
-			$deleted = (bool)$usedTS; // included file deleted after review
+		if ( !$file ) {
+			return (bool)$usedTS; // included file deleted after review
 		}
-		return ( $deleted || $updated );
+
+		if ( !$file->isLocal() ) {
+			# Avoid counting edits to Commons files, which can effect
+			# many pages, as there is no expedient way to review them.
+			$updated = !$usedTS; // created (ignore new versions)
+		} else {
+			$updated = $file->getTimestamp() > $usedTS; // edited/created
+		}
+		$deleted = $usedTS // included file deleted after review
+			&& $file->getTimestamp() != $usedTS
+			&& !$repoGroup->findFile( $title, [ 'time' => $usedTS ] );
+		return $deleted || $updated;
 	}
 
 	/**

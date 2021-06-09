@@ -11,18 +11,16 @@ class FlaggedRevsReviewLogFormatter extends LogFormatter {
 	 */
 	protected function getMessageKey() {
 		$rawAction = $this->entry->getSubtype();
-		if ( $rawAction[0] === 'a' ) {
-			if ( $rawAction[strlen( $rawAction ) - 1] === 'a' ) {
-				// approve-a, approve2-a, approve-ia, approve2-ia
-				return "logentry-review-approve-auto";
-			} else {
-				// approve, approve2, approve-i, approve2-i
-				return "logentry-review-approve";
-			}
-		} else {
+		if ( $rawAction[0] !== 'a' ) {
 			// unapprove, unapprove2
 			$this->isDeapproval = true;
-			return "logentry-review-unapprove";
+			return 'logentry-review-unapprove';
+		} elseif ( substr( $rawAction, -1 ) === 'a' ) {
+			// approve-a, approve2-a, approve-ia, approve2-ia
+			return 'logentry-review-approve-auto';
+		} else {
+			// approve, approve2, approve-i, approve2-i
+			return 'logentry-review-approve';
 		}
 	}
 
