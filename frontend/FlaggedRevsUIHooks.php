@@ -627,49 +627,6 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/LocalFile::getHistory
-	 *
-	 * @param File $file
-	 * @param array &$tables
-	 * @param array &$fields
-	 * @param array &$conds
-	 * @param array &$opts
-	 * @param array &$join_conds
-	 */
-	public static function addToFileHistQuery(
-		File $file, array &$tables, array &$fields, &$conds, array &$opts, array &$join_conds
-	) {
-		if (
-			defined( 'MW_HTML_FOR_DUMP' )
-			|| !$file->isLocal() // local files only
-		) {
-			return;
-		}
-		$flaggedArticle = FlaggableWikiPage::getTitleInstance( $file->getTitle() );
-		# Non-content pages cannot be validated. Stable version must exist.
-		if ( $flaggedArticle->isReviewable() && $flaggedArticle->getStableRev() ) {
-			$tables[] = 'flaggedrevs';
-			$fields[] = 'MAX(fr_quality) AS fr_quality';
-			# Avoid duplicate rows due to multiple revs with the same sha-1 key
-
-			# This is a stupid hack to get all the field names in our GROUP BY
-			# clause. Postgres yells at you for not including all of the selected
-			# columns, so grab the full list, unset the two we actually want to
-			# order by, then append the rest of them to our two. It would be
-			# REALLY nice if we handled this automagically in makeSelectOptions()
-			# or something *sigh*
-			$groupBy = OldLocalFile::getQueryInfo()['fields'];
-			unset( $groupBy[ array_search( 'oi_name', $groupBy ) ] );
-			unset( $groupBy[ array_search( 'oi_timestamp', $groupBy ) ] );
-			array_unshift( $groupBy, 'oi_name', 'oi_timestamp' );
-			$opts['GROUP BY'] = implode( ',', $groupBy );
-
-			$join_conds['flaggedrevs'] = [ 'LEFT JOIN',
-				'oi_sha1 = fr_img_sha1 AND oi_timestamp = fr_img_timestamp' ];
-		}
-	}
-
-	/**
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ContribsPager::getQueryInfo
 	 *
 	 * @param ContribsPager $pager

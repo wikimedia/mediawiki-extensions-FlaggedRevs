@@ -365,7 +365,6 @@
 		"ImagePageFindFile": "FlaggedRevsUIHooks::onImagePageFindFile",
 		"InitializeArticleMaybeRedirect": "FlaggedRevsUIHooks::overrideRedirect",
 		"LoadExtensionSchemaUpdates": "FlaggedRevsUpdaterHooks::addSchemaUpdates",
-		"LocalFile::getHistory": "FlaggedRevsUIHooks::addToFileHistQuery",
 		"MagicWordwgVariableIDs": "FlaggedRevsHooks::onMagicWordwgVariableIDs",
 		"MakeGlobalVariablesScript": "FlaggedRevsUIHooks::onMakeGlobalVariablesScript",
 		"MediaWikiServices": "FlaggedRevsHooks::onMediaWikiServices",
