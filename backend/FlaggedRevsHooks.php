@@ -849,7 +849,7 @@ class FlaggedRevsHooks {
 					'tsField' => 'rev_timestamp',
 					'cond' => $cond,
 					'joins' => [],
-					'useIndex' => [ 'revision' => 'actor_timestamp' ],
+					'useIndex' => [ 'revision' => 'rev_actor_timestamp' ],
 				];
 			}
 			$queryData[] = $data;
