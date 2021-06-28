@@ -23,12 +23,11 @@ class FlaggablePageTest extends PHPUnit\Framework\TestCase {
 		$article = new FlaggableWikiPage( $title );
 
 		$user = $this->user;
-		$article->doEditContent(
+		$article->doUserEditContent(
 			ContentHandler::makeContent( "Some text to insert", $title ),
+			$user,
 			"creating a page",
-			EDIT_NEW,
-			false,
-			$user
+			EDIT_NEW
 		);
 
 		$data = (array)$article->pageDataFromTitle( wfGetDB( DB_REPLICA ), $title );

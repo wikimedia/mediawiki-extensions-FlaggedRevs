@@ -413,12 +413,12 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			// Note: this should be changed to use the $undidRevId parameter so that the
 			// edit is properly marked as an undo. Do this only after T153570 is merged
 			// into Echo, otherwise we would get duplicate revert notifications.
-			$editStatus = $article->doEditContent(
+			$editStatus = $article->doUserEditContent(
 				$new_content,
+				$user,
 				$comment,
-				0,
-				$baseRevId,
-				$user
+				0, // flags
+				$baseRevId
 			);
 
 			$status = $editStatus->isOK() ? true : 'review_cannot_undo';
