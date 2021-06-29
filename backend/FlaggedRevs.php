@@ -903,8 +903,10 @@ class FlaggedRevs {
 		}
 
 		# Update the article review log
-		FlaggedRevsLog::updateReviewLog( $title,
-			$flags, [], '', $revRecord->getId(), $oldSvId, true, $auto, $user );
+		if ( !$auto ) {
+			FlaggedRevsLog::updateReviewLog( $title,
+				$flags, [], '', $revRecord->getId(), $oldSvId, true, $user );
+		}
 
 		# Update page and tracking tables and clear cache
 		self::stableVersionUpdates( $article );

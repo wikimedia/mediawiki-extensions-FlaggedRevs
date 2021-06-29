@@ -10,9 +10,6 @@ class QualityOversight extends SpecialPage {
 	/** @var int|null */
 	private $status;
 
-	/** @var int|null */
-	private $automatic;
-
 	/** @var string|null */
 	private $user;
 
@@ -32,7 +29,6 @@ class QualityOversight extends SpecialPage {
 		$this->namespace = $request->getInt( 'namespace' );
 		$this->level = $request->getIntOrNull( 'level' );
 		$this->status = $request->getIntOrNull( 'status' );
-		$this->automatic = $request->getIntOrNull( 'automatic' );
 		$this->user = $request->getVal( 'user' );
 		# Check if the user exists
 		$usertitle = Title::makeTitleSafe( NS_USER, $this->user );
@@ -97,7 +93,6 @@ class QualityOversight extends SpecialPage {
 				$this->user ) .
 				'<br />' .
 			FlaggedRevsXML::getStatusFilterMenu( $this->status ) . '&#160;' .
-			FlaggedRevsXML::getAutoFilterMenu( $this->automatic ) . '&#160;' .
 			Xml::submitButton( $this->msg( 'go' )->text() ) .
 			'</p></fieldset>' . Xml::closeElement( 'form' )
 		);
@@ -118,41 +113,24 @@ class QualityOversight extends SpecialPage {
 			$actions['unapprove2'] = 0;
 		} elseif ( $this->level === 1 ) { // quality revisions
 			$actions['approve'] = 0;
-			$actions['approve-a'] = 0;
 			$actions['approve-i'] = 0;
-			$actions['approve-ia'] = 0;
 			$actions['unapprove'] = 0;
 		}
 		if ( $this->status === 1 ) { // approved first time
 			$actions['approve'] = 0;
-			$actions['approve-a'] = 0;
 			$actions['approve2'] = 0;
 			$actions['unapprove'] = 0;
 			$actions['unapprove2'] = 0;
 		} elseif ( $this->status === 2 ) { // re-approved
 			$actions['approve-i'] = 0;
-			$actions['approve-ia'] = 0;
 			$actions['approve2-i'] = 0;
 			$actions['unapprove'] = 0;
 			$actions['unapprove2'] = 0;
 		} elseif ( $this->status === 3 ) { // deprecated
 			$actions['approve'] = 0;
-			$actions['approve-a'] = 0;
-			$actions['approve-i'] = 0;
-			$actions['approve-ia'] = 0;
-			$actions['approve2'] = 0;
-			$actions['approve2-i'] = 0;
-		}
-		if ( $this->automatic === 0 ) { // manual review
-			$actions['approve-a'] = 0;
-			$actions['approve-ia'] = 0;
-		} elseif ( $this->automatic === 1 ) { // auto-reviewed
-			$actions['approve'] = 0;
 			$actions['approve-i'] = 0;
 			$actions['approve2'] = 0;
 			$actions['approve2-i'] = 0;
-			$actions['unapprove'] = 0;
-			$actions['unapprove2'] = 0;
 		}
 		$showActions = [];
 		foreach ( $actions as $action => $show ) {
