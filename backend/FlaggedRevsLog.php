@@ -13,12 +13,11 @@ class FlaggedRevsLog {
 	 * @param int $revId revision ID
 	 * @param int $stableId prior stable revision ID
 	 * @param bool $approve approved? (otherwise unapproved)
-	 * @param bool $auto
 	 * @param User $user performing the action
 	 */
 	public static function updateReviewLog(
 		Title $title, array $dims, array $oldDims,
-		$comment, $revId, $stableId, $approve, $auto, $user
+		$comment, $revId, $stableId, $approve, $user
 	) {
 		# Tag rating list (e.g. accuracy=x, depth=y, style=z)
 		$ratings = [];
@@ -33,7 +32,6 @@ class FlaggedRevsLog {
 					wfMessage( "revreview-$quality-$level" )->inContentLanguage()->text();
 			}
 		}
-		$isAuto = ( $auto ); // Paranoid check
 		// Approved revisions
 		if ( $approve ) {
 			# Make comma-separated list of ratings
@@ -47,9 +45,7 @@ class FlaggedRevsLog {
 			# Sort into the proper action (useful for filtering)
 			$action = 'approve';
 			if ( !$stableId ) { // first time
-				$action .= $isAuto ? "-ia" : "-i";
-			} elseif ( $isAuto ) { // automatic
-				$action .= "-a";
+				$action .= "-i";
 			}
 		// De-approved revisions
 		} else {
@@ -70,9 +66,7 @@ class FlaggedRevsLog {
 		$logEntry->setRelations( [ 'rev_id' => $revId ] );
 
 		$logid = $logEntry->insert();
-		if ( !$auto ) {
-			$logEntry->publish( $logid, 'udp' );
-		}
+		$logEntry->publish( $logid, 'udp' );
 	}
 
 	/**

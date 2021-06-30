@@ -115,22 +115,6 @@ class FlaggedRevsXML {
 	}
 
 	/**
-	 * Get a selector of "auto"/"manual". Used for filters.
-	 * @param int|null $selected selected level
-	 * @return string
-	 */
-	public static function getAutoFilterMenu( $selected = null ) {
-		$s = "<label for='wpApproved'>" . wfMessage( 'revreview-typefilter' )->escaped() .
-			"</label>\n";
-		$s .= Xml::openElement( 'select', [ 'name' => 'automatic', 'id' => 'wpApproved' ] );
-		$s .= Xml::option( wfMessage( "revreview-filter-all" )->text(), -1, $selected === -1 );
-		$s .= Xml::option( wfMessage( "revreview-filter-manual" )->text(), 0, $selected === 0 );
-		$s .= Xml::option( wfMessage( "revreview-filter-auto" )->text(), 1, $selected === 1 );
-		$s .= Xml::closeElement( 'select' ) . "\n";
-		return $s;
-	}
-
-	/**
 	 * @param int|string|bool $quality
 	 * @return string css color for this quality
 	 */
