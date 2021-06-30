@@ -37,7 +37,7 @@
 	"revreview-stable1": "Хила мега хьо хьажа лууш [{{fullurl:$1|stableid=$2}} хӀокхy къастам биначу башхоне] йа хӀокху агӀонан [{{fullurl:$1|stable=1}} чутоьхначу башхоне], нагахь исанниг йалахь.",
 	"revreview-stable2": "Хьона хьажалур ду [{{fullurl:$1|stable=1}} чутоьхначу башхоне] хӀокху агӀон.",
 	"revreview-submit": "Дахьийта хетарг",
-	"revreview-submitting": "ДӀаяхьийтар…",
+	"revreview-submitting": "ДӀайахьийтар…",
 	"revreview-submit-review": "Верси бакъйар",
 	"revreview-submit-unreview": "Бакъйар дӀадаккха",
 	"revreview-submit-reject": "Йухабаха хийцамаш",
