@@ -28,9 +28,6 @@
 	"revreview-filter-approved": "Aprovuar",
 	"revreview-filter-reapproved": "Ri-miratuar",
 	"revreview-filter-unapproved": "De-miratuar",
-	"revreview-typefilter": "Tipi:",
-	"revreview-filter-auto": "Automatik",
-	"revreview-filter-manual": "Dore",
 	"revreview-levelfilter": "Niveli:",
 	"revreview-lev-all": "ndonjë",
 	"revreview-lev-basic": "kontrolluar"

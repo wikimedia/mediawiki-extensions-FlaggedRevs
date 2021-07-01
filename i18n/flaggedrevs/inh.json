@@ -5,7 +5,6 @@
 		]
 	},
 	"revreview-submitedit": "ДIаязъе оагӀув",
-	"revreview-filter-manual": "Кара",
 	"tooltip-ca-current": "Тахканза хувцамашца бIаргтоха укх оагIон",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Таллар даь доаца оагIонаш]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Талларга хьежаш дола хувцамаш]"
 }

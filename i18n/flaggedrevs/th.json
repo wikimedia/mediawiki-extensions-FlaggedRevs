@@ -56,9 +56,6 @@
 	"revreview-revnotfound": "ไม่พบรุ่นการปรับปรุงรุ่นเก่าที่ต้องการ กรุณาตรวจสอบยูอาร์แอลที่ใช้เข้ามายังหน้านี้",
 	"right-autoreviewrestore": "ทบทวนอัตโนมัติซึ่งการย้อนรวดเดียว",
 	"revreview-filter-all": "ทั้งหมด",
-	"revreview-typefilter": "ประเภท:",
-	"revreview-filter-auto": "อัตโนมัติ",
-	"revreview-filter-manual": "กำหนดเอง",
 	"revreview-def-draft": "ล่าสุด",
 	"revreview-restriction-none": "ไม่มี",
 	"tooltip-ca-current": "ดูหน้านี้พร้อมขณะกำลังเปลี่ยนแปลง"

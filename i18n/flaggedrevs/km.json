@@ -25,8 +25,6 @@
 	"revreview-revnotfound": "កំណែប្រែចាស់របស់ទំព័រដែលអ្នកស្វែងរកមិនមានទេ។ ចូរពិនិត្យURLដែលអ្នកធ្លាប់ដំណើរការទំព័រនេះ។",
 	"revreview-filter-all": "ទាំងអស់",
 	"revreview-statusfilter": "សកម្មភាពត្រួតពិនិត្យឡើងវិញ៖",
-	"revreview-typefilter": "ប្រភេទ:",
-	"revreview-filter-auto": "ដោយស្វ័យប្រវត្តិ",
 	"revreview-reviewlink": "កំណែរងចាំការពិនិត្យឡើងវិញ",
 	"tooltip-ca-current": "មើលទំព័រនេះជាមួយបន្លាស់ប្ដូរក្រោមការត្រួតពិនិត្យ",
 	"validationpage": "{{ns:help}}:សុពលកម្ម​ទំព័រ"
