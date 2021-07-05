@@ -17,6 +17,7 @@
 			"Shirayuki",
 			"Suyama",
 			"Whym",
+			"しぃ",
 			"青子守歌"
 		]
 	},
@@ -157,7 +158,7 @@
 	"tooltip-ca-current": "このページの保留中の変更を表示する",
 	"tooltip-ca-stable": "このページの公開版を表示する",
 	"tooltip-ca-default": "品質保証設定",
-	"flaggedrevs-protect-legend": "編集の自動査読 ([[{{MediaWiki:Validationpage}}|ヘルプ]])",
+	"flaggedrevs-protect-legend": "編集の自動査読",
 	"flaggedrevs-protect-none": "全利用者を許可",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} 未査読ページ]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} 保留中の変更]",
 	"revreview-locked-title": "このページの編集には査読が必要です。",
