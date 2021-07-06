@@ -16,6 +16,7 @@ require_once "$IP/maintenance/Maintenance.php";
 class FlagProtectToSemiProtect extends Maintenance {
 
 	public function __construct() {
+		parent::__construct();
 		$this->addDescription( 'Convert flag-protected pages to semi-protection.' );
 		$this->addOption( 'user', 'The name of the admin user to use as the "protector"', true, true );
 		$this->addOption( 'reason', 'The reason for the conversion', false, true );
