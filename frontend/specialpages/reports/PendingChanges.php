@@ -317,7 +317,7 @@ class PendingChanges extends SpecialPage {
 				$age = $this->msg( 'pendingchanges-recent' )->escaped(); // hot off the press :)
 			}
 			// Oh-noes!
-			$class = $this->getLineClass( $hours, $uw );
+			$class = $this->getLineClass( $uw );
 			$css = $class ? " class='$class'" : "";
 		} else {
 			$age = ""; // wtf?
@@ -334,11 +334,10 @@ class PendingChanges extends SpecialPage {
 	}
 
 	/**
-	 * @param float $hours
 	 * @param int $numUsersWatching Number of users or -1 when not allowed to see the number
 	 * @return string
 	 */
-	private function getLineClass( $hours, $numUsersWatching ) {
+	private function getLineClass( $numUsersWatching ) {
 		return $numUsersWatching == 0 ? 'fr-unreviewed-unwatched' : '';
 	}
 
