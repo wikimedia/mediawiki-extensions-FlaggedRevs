@@ -140,7 +140,6 @@ class FlaggableWikiPage extends WikiPage {
 		if ( !$srev ) {
 			return 0; // none
 		}
-		$count = null;
 		$sRevId = $srev->getRevId();
 
 		$fname = __METHOD__;
