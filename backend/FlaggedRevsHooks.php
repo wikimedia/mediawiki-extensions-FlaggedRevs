@@ -144,46 +144,41 @@ class FlaggedRevsHooks {
 		$reason,
 		RevisionRecord $revisionRecord
 	) {
+		$services = MediaWikiServices::getInstance();
+
 		$ntitle = Title::newFromLinkTarget( $nLinkTarget );
 		$otitle = Title::newFromLinkTarget( $oLinkTarget );
 		if ( FlaggedRevs::inReviewNamespace( $ntitle ) ) {
 			$user = User::newFromIdentity( $userIdentity );
 
-			if ( !FlaggedRevs::inReviewNamespace( $otitle ) ) {
-				if ( FlaggedRevs::autoReviewNewPages() ) {
-					$fa = FlaggableWikiPage::getTitleInstance( $ntitle );
-					$fa->loadPageData( FlaggableWikiPage::READ_LATEST );
-					// Re-validate NS/config (new title may not be reviewable)
-					if ( $fa->isReviewable() && MediaWikiServices::getInstance()->getPermissionManager()
-							->userCan( 'autoreview', $user, $ntitle )
-					) {
-						// Auto-review such edits like new pages...
-						$revRecord = MediaWikiServices::getInstance()
-							->getRevisionLookup()
-							->getRevisionByTitle(
-								$ntitle,
-								0,
-								RevisionLookup::READ_LATEST
-							);
-						if ( $revRecord ) { // sanity
-							FlaggedRevs::autoReviewEdit(
-								$fa,
-								$user,
-								$revRecord,
-								null,
-								true,
-								true // approve the reverted tag update
-							);
-						}
-					}
-				}
-			} else {
+			if ( FlaggedRevs::inReviewNamespace( $otitle ) ) {
 				$fa = FlaggableWikiPage::getTitleInstance( $ntitle );
 				$fa->loadPageData( FlaggableWikiPage::READ_LATEST );
 				$config = $fa->getStabilitySettings();
 				// Insert a stable log entry if page doesn't have default wiki settings
 				if ( !FRPageConfig::configIsReset( $config ) ) {
 					FlaggedRevsLog::updateStabilityLogOnMove( $ntitle, $otitle, $reason, $user );
+				}
+			} elseif ( FlaggedRevs::autoReviewNewPages() ) {
+				$fa = FlaggableWikiPage::getTitleInstance( $ntitle );
+				$fa->loadPageData( FlaggableWikiPage::READ_LATEST );
+				// Re-validate NS/config (new title may not be reviewable)
+				if ( $fa->isReviewable() &&
+					$services->getPermissionManager()->userCan( 'autoreview', $user, $ntitle )
+				) {
+					// Auto-review such edits like new pages...
+					$revRecord = $services->getRevisionLookup()
+						->getRevisionByTitle( $ntitle, 0, RevisionLookup::READ_LATEST );
+					if ( $revRecord ) { // sanity
+						FlaggedRevs::autoReviewEdit(
+							$fa,
+							$user,
+							$revRecord,
+							null,
+							true,
+							true // approve the reverted tag update
+						);
+					}
 				}
 			}
 		}

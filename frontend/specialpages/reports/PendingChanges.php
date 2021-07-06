@@ -132,26 +132,24 @@ class PendingChanges extends SpecialPage {
 
 	private function showPageList() {
 		$out = $this->getOutput();
-		if ( $this->pager->getNumRows() ) {
-			// To style output of ChangesList::showCharacterDifference
-			$out->addModuleStyles( 'mediawiki.special.changeslist' );
+
+		if ( !$this->pager->getNumRows() ) {
+			$out->addWikiMsg( 'pendingchanges-none' );
+			return;
 		}
-		// Viewing the list normally...
-		if ( !$this->including() ) {
-			if ( $this->pager->getNumRows() ) {
-				$out->addHTML( $this->pager->getNavigationBar() );
-				$out->addHTML( $this->pager->getBody() );
-				$out->addHTML( $this->pager->getNavigationBar() );
-			} else {
-				$out->addWikiMsg( 'pendingchanges-none' );
-			}
-		// If this list is transcluded...
+
+		// To style output of ChangesList::showCharacterDifference
+		$out->addModuleStyles( 'mediawiki.special.changeslist' );
+
+		if ( $this->including() ) {
+			// If this list is transcluded...
+			$out->addHTML( $this->pager->getBody() );
 		} else {
-			if ( $this->pager->getNumRows() ) {
-				$out->addHTML( $this->pager->getBody() );
-			} else {
-				$out->addWikiMsg( 'pendingchanges-none' );
-			}
+			// Viewing the list normally...
+			$navigationBar = $this->pager->getNavigationBar();
+			$out->addHTML( $navigationBar );
+			$out->addHTML( $this->pager->getBody() );
+			$out->addHTML( $navigationBar );
 		}
 	}
 
