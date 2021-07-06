@@ -75,9 +75,6 @@ class FlaggablePageView extends ContextSource {
 		self::$instance = null;
 	}
 
-	/**
-	 * Load the global FlaggableWikiPage instance
-	 */
 	private function load() {
 		if ( !$this->loaded ) {
 			$this->loaded = true;
@@ -298,7 +295,7 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	 * @return mixed int/false/null
+	 * @return string|int|null
 	 */
 	private function getRequestedStableId() {
 		$request = $this->getRequest();

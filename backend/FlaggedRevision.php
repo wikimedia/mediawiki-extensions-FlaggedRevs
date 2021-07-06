@@ -44,7 +44,7 @@ class FlaggedRevision {
 
 	/* Redundant fields for lazy-loading */
 
-	/** @var Title|null page title */
+	/** @var Title|null */
 	private $mTitle;
 	/** @var array|null stable versions of template version used */
 	private $mStableTemplates;
