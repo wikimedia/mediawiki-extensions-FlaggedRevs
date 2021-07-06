@@ -52,9 +52,10 @@ while ( true ) {
 			"fr_flags NOT LIKE '%dynamic%'",
 		], __METHOD__, [ 'LIMIT' => $batchSize ]
 	);
-	if ( !$res->numRows() ) {
-		break;
-	}
+
+	$pageId = null;
+	$revId = null;
+
 	foreach ( $res as $row ) {
 		$flags = explode( ',', $row->fr_flags );
 		$backupRecord = [ $row->fr_page_id, $row->fr_rev_id, $row->fr_flags, $row->fr_text ];
@@ -71,11 +72,15 @@ while ( true ) {
 			],
 			__METHOD__
 		);
+
+		$pageId = $row->fr_page_id;
+		$revId = $row->fr_rev_id;
 	}
-	// @phan-suppress-next-line PhanPossiblyUndeclaredGlobalVariable
-	$pageId = $row->fr_page_id;
-	// @phan-suppress-next-line PhanPossiblyUndeclaredGlobalVariable
-	$revId = $row->fr_rev_id;
+
+	if ( !$pageId || !$revId ) {
+		break;
+	}
+
 	$lbFactory->waitForReplication( [ 'ifWritesSince' => 5 ] );
 	wfPrintProgress( $pageId, $maxPage );
 }
