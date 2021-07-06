@@ -16,6 +16,7 @@ require_once "$IP/maintenance/Maintenance.php";
 class PurgeReviewablePages extends Maintenance {
 
 	public function __construct() {
+		parent::__construct();
 		$this->addDescription( "Use to purge CDN/file cache for all reviewable pages" );
 		$this->addOption( 'makelist',
 			"Build the list of reviewable pages to pagesToPurge.list" );
