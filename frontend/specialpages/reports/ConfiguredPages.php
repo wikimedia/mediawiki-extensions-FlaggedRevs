@@ -97,11 +97,8 @@ class ConfiguredPages extends SpecialPage {
 			[ 'page' => $title->getPrefixedDBkey() ]
 		);
 		# Show which version is the default (stable or draft)
-		if ( intval( $row->fpc_override ) ) {
-			$default = $this->msg( 'configuredpages-def-stable' )->escaped();
-		} else {
-			$default = $this->msg( 'configuredpages-def-draft' )->escaped();
-		}
+		$msg = $row->fpc_override ? 'configuredpages-def-stable' : 'configuredpages-def-draft';
+		$default = $this->msg( $msg )->escaped();
 		# Autoreview/review restriction level
 		$restr = '';
 		if ( $row->fpc_level != '' ) {

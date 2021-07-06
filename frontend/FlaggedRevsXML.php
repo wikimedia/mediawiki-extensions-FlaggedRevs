@@ -189,11 +189,7 @@ class FlaggedRevsXML {
 			$msg = 'revreview-basic-old';
 			$html = wfMessage( $msg, $frev->getRevId(), $time )->parse();
 		} else {
-			if ( $type == 'stable' ) {
-				$msg = 'revreview-basic';
-			} else { // draft
-				$msg = 'revreview-newest-basic';
-			}
+			$msg = $type === 'stable' ? 'revreview-basic' : 'revreview-newest-basic';
 			# For searching: uses messages 'revreview-quality-i', 'revreview-basic-i',
 			# 'revreview-newest-quality-i', 'revreview-newest-basic-i'
 			$msg .= ( $revsSince == 0 ) ? '-i' : '';
