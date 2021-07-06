@@ -870,6 +870,7 @@ class FlaggedRevsUIHooks {
 				__METHOD__
 			);
 		} else {
+			// FIXME: To what does this quality/getQuality() property/method refer to?
 			$quality = $file->quality === null ? false : $file->quality;
 		}
 		# If reviewed, class the line

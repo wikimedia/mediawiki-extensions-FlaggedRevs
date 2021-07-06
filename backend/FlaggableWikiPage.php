@@ -386,7 +386,7 @@ class FlaggableWikiPage extends WikiPage {
 	 * @param IDatabase $dbr Database object
 	 * @param array $conditions
 	 * @param array $options
-	 * @return mixed Database result resource, or false on failure
+	 * @return stdClass|false
 	 */
 	protected function pageData( $dbr, $conditions, $options = [] ) {
 		$pageQuery = WikiPage::getQueryInfo();
