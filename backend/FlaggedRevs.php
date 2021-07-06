@@ -822,7 +822,7 @@ class FlaggedRevs {
 		# This is for consistency and also to avoid triggering a second parse otherwise.
 		$editInfo = $article->prepareContentForEdit(
 			$revRecord->getContent( SlotRecord::MAIN ), null, $user );
-		$poutput  = $editInfo->output; // revision HTML output
+		$poutput  = $editInfo->getOutput(); // revision HTML output
 
 		# Get the "review time" versions of templates and files.
 		# This tries to make sure each template/file version either came from the stable
