@@ -4,5 +4,8 @@
 			"Joanmp17"
 		]
 	},
-	"editor": "መታዓራረይ"
+	"editor": "ኣርታዒ",
+	"group-editor": "ኣርታዕቲ",
+	"group-editor-member": "{{GENDER:$1|ኣርታዒ|ኣርታዒት}}",
+	"grouppage-editor": "{{ns:project}}:ኣርታዒ"
 }
