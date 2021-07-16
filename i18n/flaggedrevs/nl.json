@@ -141,7 +141,7 @@
 	"tooltip-ca-current": "Ongecontroleerde wijzigingen voor deze pagina bekijken",
 	"tooltip-ca-stable": "Gepubliceerde versie van deze pagina bekijken",
 	"tooltip-ca-default": "Instellingen kwaliteitsbewaking",
-	"flaggedrevs-protect-legend": "Automatisch bewerkingen controleren ([[{{MediaWiki:Validationpage}}|?]])",
+	"flaggedrevs-protect-legend": "Automatisch bewerkingen controleren",
 	"flaggedrevs-protect-none": "Alle gebruikers toestaan",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Ongecontroleerde pagina's]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Te controleren wijzigingen]",
 	"revreview-locked-title": "Bewerkingen aan deze pagina moeten gecontroleerd worden.",
