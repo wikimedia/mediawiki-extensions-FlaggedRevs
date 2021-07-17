@@ -45,7 +45,7 @@
 	"revreview-submit-reject": "Reject changes",
 	"revreview-submit-reviewed": "Done. Accepted!",
 	"revreview-submit-unreviewed": "Done. Unaccepted!",
-	"revreview-successful": "'''Revision of [[:$1|$1]] flagged. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} view reviewed versions])'''",
+	"revreview-successful": "'''Revision of [[:$1|$1]] flagged.'''",
 	"revreview-successful2": "'''Revision of [[:$1|$1]] unflagged.'''",
 	"revreview-poss-conflict-p": "'''Warning: [[User:$1|$1]] started reviewing this page on $2 at $3.'''",
 	"revreview-poss-conflict-c": "'''Warning: [[User:$1|$1]] started reviewing these changes on $2 at $3.'''",
