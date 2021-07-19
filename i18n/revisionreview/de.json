@@ -52,7 +52,7 @@
 	"revreview-submit-reject": "Änderungen verwerfen",
 	"revreview-submit-reviewed": "Erledigt und markiert!",
 	"revreview-submit-unreviewed": "Erledigt und Markierung aufgehoben!",
-	"revreview-successful": "'''Die Version der Seite ''[[:$1|$1]]'' wurde erfolgreich markiert ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} alle markierten Versionen dieser Seite])'''.",
+	"revreview-successful": "'''Die Version der Seite ''[[:$1|$1]]'' wurde erfolgreich markiert.'''",
 	"revreview-successful2": "'''Die Markierung der Version von [[:$1|$1]] wurde erfolgreich aufgehoben.'''",
 	"revreview-poss-conflict-p": "'''Achtung: Ein anderer Benutzer ([[User:$1|$1]]) hat am $2 um $3 Uhr damit begonnen, diese Seite zu überprüfen.'''",
 	"revreview-poss-conflict-c": "'''Achtung: Ein anderer Benutzer ([[User:$1|$1]]) hat am $2 um $3 Uhr damit begonnen, diese Änderungen zu überprüfen.'''",

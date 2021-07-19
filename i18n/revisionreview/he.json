@@ -48,7 +48,7 @@
 	"revreview-submit-reject": "דחיית השינויים",
 	"revreview-submit-reviewed": "בוצע. התקבל!",
 	"revreview-submit-unreviewed": "בוצע. נדחה!",
-	"revreview-successful": "'''הגרסה של [[:$1|$1]] סומנה. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} צפייה בגרסאות שנסקרו])'''",
+	"revreview-successful": "'''הגרסה של [[:$1|$1]] סומנה.",
 	"revreview-successful2": "'''סימון הגרסה [[:$1|$1]] הוסר.'''",
 	"revreview-poss-conflict-p": "'''אזהרה: [[User:$1|$1]] {{gender:$1|התחיל|התחילה}} לסקור את הדף הזה ב־$2 בשעה $3.'''",
 	"revreview-poss-conflict-c": "'''אזהרה: [[User:$1|$1]] {{gender:$1|התחיל|התחילה}} לסקור את השינויים האלה ב־$2 בשעה $3.'''",
