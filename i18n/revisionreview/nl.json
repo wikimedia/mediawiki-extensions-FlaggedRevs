@@ -45,7 +45,7 @@
 	"revreview-submit-reject": "Wijzigingen afwijzen",
 	"revreview-submit-reviewed": "Klaar. Gecontroleerd!",
 	"revreview-submit-unreviewed": "Klaar. Niet gecontroleerd!",
-	"revreview-successful": "'''De versie van [[:$1|$1]] is gecontroleerd. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} gepubliceerde versies bekijken])'''",
+	"revreview-successful": "'''De versie van [[:$1|$1]] is gecontroleerd.'''",
 	"revreview-successful2": "'''De versie van [[:$1|$1]] is niet meer als gepubliceerd aangemerkt.'''",
 	"revreview-poss-conflict-p": "'''Waarschuwing: [[User:$1|$1]] is begonnen met de controle van deze pagina op $2 om $3.'''",
 	"revreview-poss-conflict-c": "'''Waarschuwing: [[User:$1|$1]] is begonnen met de controle van deze wijzigingen op $2 om $3.'''",

@@ -54,7 +54,7 @@
 	"revreview-submit-reject": "Révoquer les modifications",
 	"revreview-submit-reviewed": "Fait. Approuvé !",
 	"revreview-submit-unreviewed": "Fait. Désapprouvé !",
-	"revreview-successful": "'''Révision de [[:$1|$1]] marquée. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} voir les versions relues])'''",
+	"revreview-successful": "'''Révision de [[:$1|$1]] marquée.'''",
 	"revreview-successful2": "'''Révision de [[:$1|$1]] plus marquée.'''",
 	"revreview-poss-conflict-p": "'''Attention : [[User:$1|$1]] a commencé à relire cette page le $2 à $3.'''",
 	"revreview-poss-conflict-c": "'''Attention : [[User:$1|$1]] a commencé à relire ces modifications le $2 à $3.'''",

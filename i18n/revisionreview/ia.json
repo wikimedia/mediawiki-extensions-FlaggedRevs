@@ -43,7 +43,7 @@
 	"revreview-submit-reject": "Rejectar modificationes",
 	"revreview-submit-reviewed": "Facite. Acceptate!",
 	"revreview-submit-unreviewed": "Facite. Disacceptate!",
-	"revreview-successful": "'''Le version de [[:$1|$1]] ha essite marcate. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vider versiones revidite])'''",
+	"revreview-successful": "'''Le version de [[:$1|$1]] ha essite marcate.'''",
 	"revreview-successful2": "'''Le version de [[:$1|$1]] ha essite dismarcate.'''",
 	"revreview-poss-conflict-p": "'''Attention: [[User:$1|$1]] comenciava a revider iste pagina le $2 a $3.'''",
 	"revreview-poss-conflict-c": "'''Attention: [[User:$1|$1]] comenciava a revider iste modificationes le $2 a $3.'''",
