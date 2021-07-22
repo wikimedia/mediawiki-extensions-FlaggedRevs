@@ -65,7 +65,7 @@ class FlaggedRevsUIHooks {
 	/**
 	 * @return int[][][]|null
 	 */
-	private static function getJSTagParams() : ?array {
+	private static function getJSTagParams(): ?array {
 		$tagName = FlaggedRevs::getTagName();
 		if ( $tagName === null ) {
 			return null;

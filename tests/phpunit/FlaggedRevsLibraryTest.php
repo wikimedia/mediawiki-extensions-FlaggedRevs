@@ -5,7 +5,7 @@ class FlaggedRevsLibraryTest extends Scribunto_LuaEngineTestBase {
 	/** @inheritDoc */
 	protected static $moduleName = 'FlaggedRevsLibraryTest';
 
-	protected function setUp() : void {
+	protected function setUp(): void {
 		parent::setUp();
 
 		if ( !ExtensionRegistry::getInstance()->isLoaded( 'Scribunto' ) ) {

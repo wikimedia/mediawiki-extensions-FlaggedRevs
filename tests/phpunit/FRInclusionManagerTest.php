@@ -67,7 +67,7 @@ class FRInclusionManagerTest extends PHPUnit\Framework\TestCase {
 	/**
 	 * Cleans up the environment after running a test.
 	 */
-	protected function tearDown() : void {
+	protected function tearDown(): void {
 		parent::tearDown();
 		FRInclusionManager::singleton()->clear();
 	}
