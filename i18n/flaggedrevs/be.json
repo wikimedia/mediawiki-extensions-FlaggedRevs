@@ -18,7 +18,7 @@
 	"action-unreviewedpages": "прагляд спісу недагледжаных старонак",
 	"editor": "Даглядчык",
 	"flaggedrevs": "Адзначаныя версіі",
-	"flaggedrevs-watched-pending": "У вашым спісе назірання [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} прысутнічаюць праўкі], якія чакаюць праверкі. '''Калі ласка, звярніце ўвагу!'''",
+	"flaggedrevs-watched-pending": "У вашым спісе назірання [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ёсць праўкі], якія чакаюць праверкі. '''Калі ласка, звярніце ўвагу!'''",
 	"flaggedrevs-desc": "Дае даглядчыкам магчымасць даглядаць версіі старонак і вызначаць стабільныя версіі",
 	"flaggedrevs-pref-UI": "Просты інтэрфейс:",
 	"flaggedrevs-pref-UI-0": "Падрабязная інфармацыя аб стане пацверджання старонкі",
