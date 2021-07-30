@@ -242,9 +242,6 @@
 		"FlaggedRevsApiHooks": "api/FlaggedRevsApiHooks.php",
 		"FlaggedRevsUpdaterHooks": "backend/schema/FlaggedRevsUpdaterHooks.php"
 	},
-	"TestAutoloadClasses": {
-		"FlaggedRevsTestHooks": "tests/phpunit/FlaggedRevsTestHooks.php"
-	},
 	"ResourceModules": {
 		"ext.flaggedRevs.basic": {
 			"skinStyles": {
@@ -384,7 +381,6 @@
 		"PageMoveComplete": "FlaggedRevsHooks::onPageMoveComplete",
 		"ParserFirstCallInit": "FlaggedRevsHooks::onParserFirstCallInit",
 		"ParserGetVariableValueSwitch": "FlaggedRevsHooks::onParserGetVariableValueSwitch",
-		"ParserTestTables": "FlaggedRevsTestHooks::onParserTestTables",
 		"ProtectionFormAddFormFields": "FlaggedRevsUIHooks::onProtectionForm",
 		"ProtectionForm::save": "FlaggedRevsUIHooks::onProtectionSave",
 		"ProtectionForm::showLogExtract": "FlaggedRevsUIHooks::insertStabilityLog",
