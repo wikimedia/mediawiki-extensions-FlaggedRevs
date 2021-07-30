@@ -1246,11 +1246,7 @@ class FlaggedRevsHooks {
 							// value, check for all time (since time 0).
 							// The time of the last check is itself the cached
 							// value.
-							if ( is_int( $oldValue ) ) {
-								$startingTimestamp = $oldValue;
-							} else {
-								$startingTimestamp = 0;
-							}
+							$startingTimestamp = is_int( $oldValue ) ? $oldValue : 0;
 
 							// If the user still hasn't been blocked, we will
 							// update the cached value to be the current timestamp

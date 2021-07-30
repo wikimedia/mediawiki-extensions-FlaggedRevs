@@ -55,7 +55,7 @@ class FlaggablePageView extends ContextSource {
 	 * @return self
 	 */
 	public static function singleton() {
-		if ( self::$instance == null ) {
+		if ( !self::$instance ) {
 			self::$instance = new self();
 		}
 		return self::$instance;
@@ -76,14 +76,16 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	private function load() {
-		if ( !$this->loaded ) {
-			$this->loaded = true;
-			$this->article = self::globalArticleInstance();
-			if ( $this->article == null ) {
-				throw new Exception( 'FlaggablePageView has no context article!' );
-			}
-			$this->out = $this->getOutput(); // convenience
+		if ( $this->loaded ) {
+			return;
 		}
+
+		$this->loaded = true;
+		$this->article = self::globalArticleInstance();
+		if ( !$this->article ) {
+			throw new Exception( 'FlaggablePageView has no context article!' );
+		}
+		$this->out = $this->getOutput(); // convenience
 	}
 
 	/**
@@ -178,10 +180,8 @@ class FlaggablePageView extends ContextSource {
 	 * @return bool
 	 */
 	private function useSimpleUI() {
-		$reqUser = $this->getUser();
-		$config = $this->getConfig();
-		return $reqUser->getOption( 'flaggedrevssimpleui',
-			intval( $config->get( 'SimpleFlaggedRevsUI' ) ) );
+		$default = (int)$this->getConfig()->get( 'SimpleFlaggedRevsUI' );
+		return $this->getUser()->getOption( 'flaggedrevssimpleui', $default );
 	}
 
 	/**
@@ -195,10 +195,7 @@ class FlaggablePageView extends ContextSource {
 		if ( $preference === FR_SHOW_STABLE_ALWAYS || $preference === FR_SHOW_STABLE_NEVER ) {
 			return $preference;
 		}
-		if ( $user->isRegistered() ) {
-			return FR_SHOW_STABLE_NEVER;
-		}
-		return FR_SHOW_STABLE_DEFAULT;
+		return $user->isRegistered() ? FR_SHOW_STABLE_NEVER : FR_SHOW_STABLE_DEFAULT;
 	}
 
 	/**
@@ -287,21 +284,23 @@ class FlaggablePageView extends ContextSource {
 
 		# Give a notice if this rev ID corresponds to a reviewed version...
 		$time = $this->getLanguage()->date( $frev->getTimestamp(), true );
-		$msg = 'revreview-basic-source';
-		$tag = $this->msg( $msg, $frev->getRevId(), $time )->parse();
-		$css = 'flaggedrevs_notice plainlinks noprint';
-		$tag = "<div id='mw-fr-revisiontag-old' class='$css'>$tag</div>";
-		$this->out->addHTML( $tag );
+		$this->out->addHTML( Html::rawElement(
+			'div',
+			[
+				'id' => 'mw-fr-revisiontag-old',
+				'class' => 'flaggedrevs_notice plainlinks noprint',
+			],
+			$this->msg( 'revreview-basic-source', $frev->getRevId(), $time )->parse()
+		) );
 	}
 
 	/**
 	 * @return string|int|null
 	 */
 	private function getRequestedStableId() {
-		$request = $this->getRequest();
-		$reqId = $request->getVal( 'stableid' );
+		$reqId = $this->getRequest()->getVal( 'stableid' );
 		if ( $reqId === "best" ) {
-			$reqId = $this->article->getBestFlaggedRevId();
+			return $this->article->getBestFlaggedRevId();
 		}
 		return $reqId;
 	}
@@ -401,11 +400,7 @@ class FlaggablePageView extends ContextSource {
 			$inject = !$this->isOnMobile();
 		} else {
 			// As it is the only message for non-simple UI, it must be displayed
-			if ( !$frev ) {
-				$tagClass = 'flaggedrevs_notice';
-			} else {
-				$tagClass = 'flaggedrevs_basic';
-			}
+			$tagClass = $frev ? 'flaggedrevs_basic' : 'flaggedrevs_notice';
 		}
 		# Wrap tag contents in a div, with class indicating sync status and
 		# whether stable version is shown (for customization of the notice)

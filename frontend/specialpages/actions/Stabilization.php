@@ -114,11 +114,8 @@ class Stabilization extends UnlistedSpecialPage {
 			$out->addHTML( "<p class='error'>{$err}</p>\n" );
 		}
 		# Add header text
-		if ( !$form->isAllowed() ) {
-			$s .= $this->msg( 'stabilization-perm', $title->getPrefixedText() )->parseAsBlock();
-		} else {
-			$s .= $this->msg( 'stabilization-text', $title->getPrefixedText() )->parseAsBlock();
-		}
+		$msg = $form->isAllowed() ? 'stabilization-text' : 'stabilization-perm';
+		$s .= $this->msg( $msg, $title->getPrefixedText() )->parseAsBlock();
 		# Traditionally, the list of reasons for stabilization is the same as
 		# for protection.  In some cases, however, it might be desirable to
 		# use a different list for stabilization.
