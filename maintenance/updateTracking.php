@@ -88,17 +88,13 @@ class UpdateFRTracking extends Maintenance {
 			$this->beginTransaction( $db, __METHOD__ );
 			$res = $db->select(
 				[ 'revision', 'flaggedrevs', 'page' ],
-				[ 'fr_rev_id', 'fr_tags', 'fr_quality', 'page_namespace', 'page_title',
+				[ 'fr_rev_id', 'fr_tags', 'page_namespace', 'page_title',
 					'fr_img_name', 'fr_img_timestamp', 'fr_img_sha1', 'rev_page' ],
 				$cond,
 				__METHOD__
 			);
-			# Go through and clean up missing items, as well as correct fr_quality...
+			# Go through and clean up missing items
 			foreach ( $res as $row ) {
-				$tags = FlaggedRevision::expandRevisionTags( $row->fr_tags );
-				# Quality rating levels may have changed due to config tweaks...
-				$quality = FlaggedRevs::getQualityTier( $tags, 0 /* sanity */ );
-
 				$file = $row->fr_img_name;
 				$fileTime = $row->fr_img_timestamp;
 				$fileSha1 = $row->fr_img_sha1;
@@ -124,15 +120,13 @@ class UpdateFRTracking extends Maintenance {
 				}
 
 				# Check if anything needs updating
-				if ( $quality != $row->fr_quality
-					|| $file != $row->fr_img_name
+				if ( $file != $row->fr_img_name
 					|| $fileSha1 != $row->fr_img_sha1
 					|| $fileTime != $row->fr_img_timestamp
 				) {
 					# Update the row...
 					$db->update( 'flaggedrevs',
 						[
-							'fr_quality'        => $quality,
 							'fr_img_name'       => $file,
 							'fr_img_sha1'       => $fileSha1,
 							'fr_img_timestamp'  => $fileTime
@@ -150,7 +144,7 @@ class UpdateFRTracking extends Maintenance {
 			$blockStart += $BATCH_SIZE;
 			$blockEnd += $BATCH_SIZE;
 		}
-		$this->output( "fr_quality and fr_img_* columns update complete ..." .
+		$this->output( "fr_img_* columns update complete ..." .
 			" {$count} rows [{$changed} changed]\n" );
 	}
 

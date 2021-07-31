@@ -358,7 +358,7 @@ class FlaggableWikiPage extends WikiPage {
 			],
 			__METHOD__,
 			[
-				'ORDER BY' 	=> 'fr_quality DESC, fr_rev_timestamp DESC'
+				'ORDER BY' 	=> 'fr_rev_timestamp DESC'
 			]
 		);
 		return (int)$oldid;
@@ -533,7 +533,6 @@ class FlaggableWikiPage extends WikiPage {
 			[ 'fr_rev_id', 'rev_timestamp' ],
 			[
 				'fr_page_id' => $pageId,
-				'fr_quality' => FR_CHECKED, // this level
 				'fr_rev_timestamp > ' . $dbw->addQuotes( '' ),
 				'rev_id = fr_rev_id', // rev exists
 				'rev_page = fr_page_id', // sanity

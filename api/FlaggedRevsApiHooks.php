@@ -69,7 +69,6 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 			'fr_page_id',
 			'fr_rev_id',
 			'fr_timestamp',
-			'fr_quality',
 			'fr_tags',
 			'user_name'
 		] );
@@ -92,8 +91,8 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 			$data = [
 				'user' 			=> $row->user_name,
 				'timestamp' 	=> wfTimestamp( TS_ISO_8601, $row->fr_timestamp ),
-				'level' 		=> intval( $row->fr_quality ),
-				'level_text' 	=> FlaggedRevs::getQualityLevelText( $row->fr_quality ),
+				'level' 		=> 0,
+				'level_text' 	=> 'stable',
 				'tags' 			=> FlaggedRevision::expandRevisionTags( $row->fr_tags )
 			];
 			$result->addValue(

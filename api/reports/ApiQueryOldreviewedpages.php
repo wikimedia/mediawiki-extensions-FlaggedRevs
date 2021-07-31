@@ -145,7 +145,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 					'stable_revid' 		=> intval( $row->fp_stable ),
 					'pending_since' 	=> wfTimestamp( TS_ISO_8601, $row->fp_pending_since ),
 					'flagged_level' 	=> intval( $row->fp_quality ),
-					'flagged_level_text' => FlaggedRevs::getQualityLevelText( $row->fp_quality ),
+					'flagged_level_text' => 'stable',
 					'diff_size' 		=> (int)$row->page_len - (int)$row->rev_len,
 					'under_review' 		=> $underReview
 				];

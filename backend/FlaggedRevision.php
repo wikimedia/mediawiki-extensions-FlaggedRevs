@@ -31,8 +31,6 @@ class FlaggedRevision {
 
 	/** @var mixed review timestamp */
 	private $mTimestamp;
-	/** @var int review tier */
-	private $mQuality;
 	/** @var int[] review tags */
 	private $mTags;
 	/** @var string[] flags (for auto-review ect...) */
@@ -61,7 +59,6 @@ class FlaggedRevision {
 	public function __construct( $row, Title $title = null, $flags = 0 ) {
 		if ( is_object( $row ) ) {
 			$this->mTimestamp = $row->fr_timestamp;
-			$this->mQuality = intval( $row->fr_quality );
 			$this->mTags = self::expandRevisionTags( strval( $row->fr_tags ) );
 			$this->mFlags = explode( ',', $row->fr_flags );
 			$this->mUser = intval( $row->fr_user );
@@ -82,7 +79,6 @@ class FlaggedRevision {
 			$this->mRevRecord = $revRecord;
 		} elseif ( is_array( $row ) ) {
 			$this->mTimestamp = $row['timestamp'];
-			$this->mQuality = intval( $row['quality'] );
 			$this->mTags = self::expandRevisionTags( strval( $row['tags'] ) );
 			$this->mFlags = explode( ',', $row['flags'] );
 			$this->mUser = intval( $row['user_id'] );
@@ -339,7 +335,7 @@ class FlaggedRevision {
 			'fr_rev_timestamp' => $dbw->timestamp( $this->getRevTimestamp() ),
 			'fr_user'          => $this->mUser,
 			'fr_timestamp'     => $dbw->timestamp( $this->mTimestamp ),
-			'fr_quality'       => $this->mQuality,
+			'fr_quality'       => FR_CHECKED,
 			'fr_tags'          => self::flattenRevisionTags( $this->mTags ),
 			'fr_flags'         => implode( ',', $this->mFlags ),
 			'fr_img_name'      => $this->mFileName,
@@ -387,7 +383,7 @@ class FlaggedRevision {
 			'tables' => array_merge( [ 'flaggedrevs' ], $revQuery['tables'] ),
 			'fields' => array_merge( $revQuery['fields'], [
 				'fr_rev_id', 'fr_page_id', 'fr_rev_timestamp',
-				'fr_user', 'fr_timestamp', 'fr_quality', 'fr_tags', 'fr_flags',
+				'fr_user', 'fr_timestamp', 'fr_tags', 'fr_flags',
 				'fr_img_name', 'fr_img_sha1', 'fr_img_timestamp'
 			] ),
 			'joins' => [
@@ -888,17 +884,18 @@ class FlaggedRevision {
 	/**
 	 * @param int $rev_id
 	 * @param int $flags FR_MASTER
-	 * @return int|false
+	 * @return int|false FR_CHECKED if checked, otherwise false
 	 * Get quality of a revision
 	 */
 	public static function getRevQuality( $rev_id, $flags = 0 ) {
 		$db = ( $flags & FR_MASTER ) ?
 			wfGetDB( DB_PRIMARY ) : wfGetDB( DB_REPLICA );
-		return $db->selectField( 'flaggedrevs',
-			'fr_quality',
+		$exists = $db->selectField( 'flaggedrevs',
+			'1',
 			[ 'fr_rev_id' => $rev_id ],
 			__METHOD__
 		);
+		return $exists ? FR_CHECKED : false;
 	}
 
 	/**

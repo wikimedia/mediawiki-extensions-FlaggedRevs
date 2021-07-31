@@ -21,8 +21,6 @@ class FlaggedRevs {
 
 	/** @var string[][] Tag name/level config */
 	private static $dimensions = [];
-	/** @var int[] */
-	private static $minSL = [];
 	/** @var int[][] Copy of $wgFlaggedRevsTagsRestrictions */
 	private static $tagRestrictions = [];
 	/** @var bool */
@@ -93,8 +91,6 @@ class FlaggedRevs {
 		if ( $ratingLevels > 1 ) {
 			self::$binaryFlagging = false; // more than one level
 		}
-
-		self::$minSL[$tag] = 1;
 
 		# Handle restrictions on tags
 		global $wgFlaggedRevsTagsRestrictions;
@@ -228,19 +224,6 @@ class FlaggedRevs {
 	private static function getRestrictions() {
 		self::load();
 		return self::$tagRestrictions[self::getTagName()] ?? [];
-	}
-
-	/**
-	 * Get corresponding text for the api output of flagging levels
-	 *
-	 * @param int $level
-	 * @return string An empty string if the level is unknown
-	 */
-	public static function getQualityLevelText( $level ) {
-		return [
-			0 => 'stable',
-			1 => 'quality',
-		][$level] ?? '';
 	}
 
 	/**
@@ -671,7 +654,7 @@ class FlaggedRevs {
 		}
 		self::load();
 		foreach ( self::$dimensions as $f => $x ) {
-			if ( !isset( $flags[$f] ) || self::$minSL[$f] > $flags[$f] ) {
+			if ( !isset( $flags[$f] ) || $flags[$f] < 1 ) {
 				return false;
 			}
 		}
@@ -697,7 +680,10 @@ class FlaggedRevs {
 	 */
 	public static function quickTags() {
 		self::load();
-		return self::$minSL;
+		if ( self::useOnlyIfProtected() ) {
+			return [];
+		}
+		return [ self::getTagName() => 1 ];
 	}
 
 	/**
@@ -814,7 +800,7 @@ class FlaggedRevs {
 				}
 			}
 
-			$quality = self::getQualityTier( $flags, FR_CHECKED /* sanity */ );
+			$quality = FR_CHECKED;
 			$tags = FlaggedRevision::flattenRevisionTags( $flags );
 		}
 

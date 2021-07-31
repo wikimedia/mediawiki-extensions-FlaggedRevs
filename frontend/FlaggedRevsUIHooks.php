@@ -612,7 +612,7 @@ class FlaggedRevsUIHooks {
 		if ( $flaggedArticle->isReviewable() && $flaggedArticle->getStableRev() ) {
 			# Highlight flaggedrevs
 			$queryInfo['tables'][] = 'flaggedrevs';
-			$queryInfo['fields'][] = 'fr_quality';
+			$queryInfo['fields'][] = 'fr_rev_id';
 			$queryInfo['fields'][] = 'fr_user';
 			$queryInfo['fields'][] = 'fr_flags';
 			$queryInfo['join_conds']['flaggedrevs'] = [ 'LEFT JOIN', "fr_rev_id = rev_id" ];
@@ -641,7 +641,7 @@ class FlaggedRevsUIHooks {
 
 		# Highlight flaggedrevs
 		$queryInfo['tables'][] = 'flaggedrevs';
-		$queryInfo['fields'][] = 'fr_quality';
+		$queryInfo['fields'][] = 'fr_rev_id';
 		$queryInfo['join_conds']['flaggedrevs'] = [ 'LEFT JOIN', "fr_rev_id = rev_id" ];
 		# Highlight unchecked content
 		$queryInfo['tables'][] = 'flaggedpages';
@@ -784,7 +784,7 @@ class FlaggedRevsUIHooks {
 			$link = '<span class="plainlinks mw-fr-hist-difflink">' . $link . '</span>';
 			$history->fr_pendingRevs = true; // pending rev shown above stable
 		// Reviewed revision: highlight and add link
-		} elseif ( isset( $row->fr_quality ) ) {
+		} elseif ( isset( $row->fr_rev_id ) ) {
 			if ( !( $row->rev_deleted & RevisionRecord::DELETED_TEXT ) ) {
 				# Add link to stable version of *this* rev, if any
 				list( $link, $class ) = self::markHistoryRow( $history, $title, $row );
@@ -812,25 +812,17 @@ class FlaggedRevsUIHooks {
 	 * @return string[]
 	 */
 	private static function markHistoryRow( IContextSource $ctx, Title $title, $row ) {
-		if ( !isset( $row->fr_quality ) ) {
+		if ( !isset( $row->fr_rev_id ) ) {
 			return [ "", "" ]; // not reviewed
 		}
-		$liCss = FlaggedRevsXML::getQualityColor( $row->fr_quality );
+		$liCss = FlaggedRevsXML::getQualityColor( FR_CHECKED );
 		$flags = explode( ',', $row->fr_flags );
 		if ( in_array( 'auto', $flags ) ) {
-			$msg = ( $row->fr_quality >= 1 )
-				? 'revreview-hist-quality-auto'
-				: 'revreview-hist-basic-auto';
-			$css = ( $row->fr_quality >= 1 )
-				? 'fr-hist-quality-auto'
-				: 'fr-hist-basic-auto';
+			$msg = 'revreview-hist-basic-auto';
+			$css = 'fr-hist-basic-auto';
 		} else {
-			$msg = ( $row->fr_quality >= 1 )
-				? 'revreview-hist-quality-user'
-				: 'revreview-hist-basic-user';
-			$css = ( $row->fr_quality >= 1 )
-				? 'fr-hist-quality-user'
-				: 'fr-hist-basic-user';
+			$msg = 'revreview-hist-basic-user';
+			$css = 'fr-hist-basic-user';
 		}
 		if ( isset( $row->reviewer ) ) {
 			$name = $row->reviewer;
@@ -864,11 +856,13 @@ class FlaggedRevsUIHooks {
 		# Commons queries cannot be done all at once...
 		if ( !$file->isOld() || !$file->isLocal() ) {
 			$dbr = wfGetDB( DB_REPLICA );
-			$quality = $dbr->selectField( 'flaggedrevs', 'fr_quality',
+			$rev_id = $dbr->selectField( 'flaggedrevs', 'fr_rev_id',
 				[ 'fr_img_sha1' => $file->getSha1(),
 					'fr_img_timestamp' => $dbr->timestamp( $file->getTimestamp() ) ],
 				__METHOD__
 			);
+			// Check if the row exist
+			$quality = $rev_id ? FR_CHECKED : false;
 		} else {
 			// FIXME: To what does this quality/getQuality() property/method refer to?
 			$quality = $file->quality === null ? false : $file->quality;
@@ -897,8 +891,8 @@ class FlaggedRevsUIHooks {
 			$namespaces = FlaggedRevs::getReviewNamespaces();
 			if ( !in_array( $row->page_namespace, $namespaces ) ) {
 				// do nothing
-			} elseif ( isset( $row->fr_quality ) ) {
-				$classes[] = FlaggedRevsXML::getQualityColor( $row->fr_quality );
+			} elseif ( isset( $row->fr_rev_id ) ) {
+				$classes[] = FlaggedRevsXML::getQualityColor( FR_CHECKED );
 			} elseif ( isset( $row->fp_pending_since )
 				&& $row->rev_timestamp >= $row->fp_pending_since // bug 15515
 			) {
@@ -1294,9 +1288,6 @@ class FlaggedRevsUIHooks {
 		if ( $wgFlaggedRevsNamespaces ) {
 			$list['RevisionReview'] = 'RevisionReview'; // unlisted
 			$list['PendingChanges'] = 'PendingChanges';
-			if ( !$wgFlaggedRevsProtection ) {
-				$list['UnreviewedPages'] = 'UnreviewedPages';
-			}
 			$list['QualityOversight'] = 'QualityOversight';
 			$list['ValidationStatistics'] = 'ValidationStatistics';
 			// Protect levels define allowed stability settings
@@ -1304,6 +1295,7 @@ class FlaggedRevsUIHooks {
 				$list['StablePages'] = 'StablePages';
 			} else {
 				$list['ConfiguredPages'] = 'ConfiguredPages';
+				$list['UnreviewedPages'] = 'UnreviewedPages';
 				$list['Stabilization'] = 'Stabilization'; // unlisted
 			}
 		}

@@ -49,7 +49,7 @@ class UpdateFRAutoPromote extends Maintenance {
 			$this->output( "...doing user_id from $blockStart to $blockEnd\n" );
 			$cond = "user_id BETWEEN $blockStart AND $blockEnd\n";
 			$res = $dbr->select( 'user', '*', $cond, __METHOD__ );
-			# Go through and clean up missing items, as well as correct fr_quality...
+			# Go through and clean up missing items
 			foreach ( $res as $row ) {
 				$this->beginTransaction( $dbw, __METHOD__ );
 				$user = User::newFromRow( $row );

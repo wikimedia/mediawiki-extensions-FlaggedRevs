@@ -75,7 +75,7 @@ class PopulateFRRevTimestamp extends Maintenance {
 					'archive' => [ 'LEFT JOIN', 'ar_rev_id = fr_rev_id' ] ] // non-unique but OK
 			);
 			$db->begin( __METHOD__ );
-			# Go through and clean up missing items, as well as correct fr_quality...
+			# Go through and clean up missing items
 			foreach ( $res as $row ) {
 				$timestamp = '';
 				if ( $row->rev_timestamp ) {

@@ -53,7 +53,7 @@ class ApiQueryFlagged extends ApiQueryBase {
 			$data = [
 				'stable_revid' 	=> intval( $row->fp_stable ),
 				'level' 		=> intval( $row->fp_quality ),
-				'level_text' 	=> FlaggedRevs::getQualityLevelText( $row->fp_quality )
+				'level_text' 	=> 'stable'
 			];
 			if ( $row->fp_pending_since ) {
 				$data['pending_since'] = wfTimestamp( TS_ISO_8601, $row->fp_pending_since );
