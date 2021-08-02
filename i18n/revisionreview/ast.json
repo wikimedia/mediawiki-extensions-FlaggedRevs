@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Esbardu",
+			"Tokvo",
 			"Xuacu"
 		]
 	},
@@ -44,7 +45,7 @@
 	"revreview-submit-reject": "Refugar los cambios",
 	"revreview-submit-reviewed": "Fecho. ¡Aceutada!",
 	"revreview-submit-unreviewed": "Fecho. ¡Desaprobada!",
-	"revreview-successful": "'''Marcada la revisión de [[:$1|$1]]. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} ver les versiones revisaes])'''",
+	"revreview-successful": "'''Marcada la revisión de [[:$1|$1]].'''",
 	"revreview-successful2": "'''Desmarcada la revisión de [[:$1|$1]].'''",
 	"revreview-poss-conflict-p": "'''Avisu: [[User:$1|$1]] principió a revisar esta páxina'l $2 a les $3.'''",
 	"revreview-poss-conflict-c": "'''Avisu: [[User:$1|$1]] principió a revisar estos cambios el $2 a les $3.'''",
