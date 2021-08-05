@@ -15,12 +15,12 @@
 	"validationstatistics-table": "Ніжэй прадстаўлена статыстыка праверак па кожнай прасторы назваў, ''выключаючы'' старонкі перасылак.\nСтаронкі разглядаюцца як ''{{int:validationstatistics-old}}'', калі яны маюць неправераныя праўкі;\nстаронкі пазначаюцца як ''{{int:validationstatistics-latest}}'', калі ў іх няма правак, якія чакаюць праверкі.",
 	"validationstatistics-ns": "Прастора назваў",
 	"validationstatistics-total": "Старонак",
-	"validationstatistics-stable": "Правераныя",
+	"validationstatistics-stable": "Дагледжаныя",
 	"validationstatistics-latest": "Пераправераныя",
 	"validationstatistics-synced": "Доля перадагледжаных у дагледжаных",
 	"validationstatistics-old": "Састарэлыя",
 	"validationstatistics-unreviewed": "Недагледжаныя",
-	"validationstatistics-utable": "Ніжэй пададзены пералік з $1 найбольш актыўных даглядчыкаў за апошнюю гадзіну.",
+	"validationstatistics-utable": "Ніжэй пададзены пералік з {{PLURAL:$1|найбольш актыўнага дагладчыка|$1 найбольш актыўных даглядчыкаў}} за {{PLURAL:$2|апошнюю гадзіну|$2 апошнія гадзіны}}.",
 	"validationstatistics-user": "Удзельнік",
 	"validationstatistics-reviews": "Праверкі"
 }
