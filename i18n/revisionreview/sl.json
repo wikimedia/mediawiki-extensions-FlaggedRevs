@@ -44,7 +44,7 @@
 	"revreview-submit-reject": "Zavrni spremembe",
 	"revreview-submit-reviewed": "Končano. Potrjeno!",
 	"revreview-submit-unreviewed": "Končano. Od-potrjeno!",
-	"revreview-successful": "'''Redakcijo [[:$1|$1]] smo označili. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} ogled pregledanih različic])'''",
+	"revreview-successful": "'''Redakcijo [[:$1|$1]] smo označili.'''",
 	"revreview-successful2": "'''Redakcijo [[:$1|$1]] smo odznačili.'''",
 	"revreview-poss-conflict-p": "'''Opozorilo: [[User:$1|$1]] je pričel(-a) pregledovati to stran dne $2 ob $3.'''",
 	"revreview-poss-conflict-c": "'''Opozorilo: [[User:$1|$1]] je pričel(-a) pregledovati te spremembe dne $2 ob $3.'''",
