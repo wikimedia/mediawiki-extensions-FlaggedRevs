@@ -24,6 +24,7 @@ class PruneFRIncludeData extends Maintenance {
 		);
 		$this->addOption( 'prune', 'Actually do a live run' );
 		$this->addOption( 'start', 'The ID of the starting rev', false, true );
+		$this->addOption( 'sleep', 'Extra sleep time between each batch', false, true );
 		$this->setBatchSize( 500 );
 		$this->requireExtension( 'FlaggedRevs' );
 	}
@@ -67,6 +68,7 @@ class PruneFRIncludeData extends Maintenance {
 		$fDeleted = 0;
 
 		$newerRevs = 50;
+		$sleep = (int)$this->getOption( 'sleep', 0 );
 		$cutoff = $db->timestamp( time() - 3600 );
 
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
@@ -145,6 +147,7 @@ class PruneFRIncludeData extends Maintenance {
 					if ( $batchCount >= $this->mBatchSize ) {
 						$batchCount = 0;
 						$lbFactory->waitForReplication( [ 'ifWritesSince' => 5 ] );
+						sleep( $sleep );
 					}
 				} else {
 					$db->freeResult( $sres );
