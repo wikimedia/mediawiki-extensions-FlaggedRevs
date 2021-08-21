@@ -111,8 +111,11 @@ class PruneFRIncludeData extends Maintenance {
 					}
 					$batchCount += count( $revsClearIncludes ); // # of revs to prune
 					$db->freeResult( $sres );
-					// Write run: clear the include data for these old revs
-					if ( $prune ) {
+					if ( !$revsClearIncludes ) {
+						$tDeleted = 0;
+						$fDeleted = 0;
+					} elseif ( $prune ) {
+						// Write run: clear the include data for these old revs
 						$db->begin( __METHOD__ );
 						$db->delete( 'flaggedtemplates',
 							[ 'ft_rev_id' => $revsClearIncludes ],
@@ -125,8 +128,8 @@ class PruneFRIncludeData extends Maintenance {
 						);
 						$fDeleted += $db->affectedRows();
 						$db->commit( __METHOD__ );
-					// Dry run: say how many includes rows would have been cleared
-					} elseif ( count( $revsClearIncludes ) ) {
+					} else {
+						// Dry run: say how many includes rows would have been cleared
 						$tDeleted += $db->selectField( 'flaggedtemplates',
 							'COUNT(*)',
 							[ 'ft_rev_id' => $revsClearIncludes ],
