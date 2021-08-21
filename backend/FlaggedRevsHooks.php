@@ -30,7 +30,7 @@ class FlaggedRevsHooks {
 		# Review tier constants...
 		define( 'FR_CHECKED', 0 ); // "basic"/"checked"
 
-		# Inclusion (templates/files) settings
+		# Inclusion (templates) settings
 		define( 'FR_INCLUDES_CURRENT', 0 );
 		define( 'FR_INCLUDES_STABLE', 2 );
 
@@ -238,19 +238,6 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/FileUpload
-	 *
-	 * (a) Update flaggedrevs page/tracking tables
-	 * (b) Pages with stable versions that use this page will be purged
-	 * Note: pages with current versions that use this page should already be purged
-	 * @param File $file
-	 */
-	public static function onFileUpload( File $file ) {
-		FlaggedRevs::stableVersionUpdates( $file->getTitle() );
-		FlaggedRevs::extraHTMLCacheUpdate( $file->getTitle() );
-	}
-
-	/**
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ArticleRevisionVisibilitySet
 	 *
 	 * Update flaggedrevs page/tracking tables
@@ -260,63 +247,6 @@ class FlaggedRevsHooks {
 		$changed = FlaggedRevs::stableVersionUpdates( $title );
 		if ( $changed ) {
 			FlaggedRevs::updateHtmlCaches( $title );
-		}
-	}
-
-	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforeParserFetchFileAndTitle
-	 *
-	 * Select the desired images based on the selected stable version time/SHA-1
-	 * @param Parser|false $parser
-	 * @param Title $title
-	 * @param array &$options
-	 * @param string &$query
-	 */
-	public static function parserFetchStableFile( $parser, Title $title, &$options, &$query ) {
-		if ( !( $parser instanceof Parser ) ) {
-			return;
-		}
-		$incManager = FRInclusionManager::singleton();
-		if ( !$incManager->parserOutputIsStabilized() ) {
-			// Trigger for stable version parsing only
-			return;
-		}
-		# Normalize NS_MEDIA to NS_FILE
-		if ( $title->getNamespace() === NS_MEDIA ) {
-			$title = Title::makeTitle( NS_FILE, $title->getDBkey() );
-			$title->resetArticleID( $title->getArticleID() ); // avoid extra queries
-		}
-		# Check if this file is only on a foreign repo
-		$file = MediaWikiServices::getInstance()->getRepoGroup()->findFile( $title );
-		if ( $file && !$file->isLocal() ) {
-			// Just use the current version (bug 41832)
-			return;
-		}
-		# Check for the version of this file used when reviewed...
-		list( $maybeTS, $maybeSha1 ) = $incManager->getReviewedFileVersion( $title );
-		// Use if specified (even '0'), otherwise unspecified (defaults to current version)
-		$time = $maybeTS ?? false;
-		$sha1 = $maybeSha1 ?? false;
-		# Check for stable version of file if this feature is enabled...
-		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
-			list( $maybeTS, $maybeSha1 ) = $incManager->getStableFileVersion( $title );
-			# Take the newest of these two...
-			if ( $maybeTS && $maybeTS > $time ) {
-				$time = $maybeTS;
-				$sha1 = $maybeSha1;
-			}
-		}
-		# Tell Parser what file version to use
-		if ( $time === '0' ) {
-			$options['broken'] = true;
-		} elseif ( $time !== false ) {
-			$options['time'] = $time;
-			$options['sha1'] = $sha1;
-			# Stabilize the file link
-			if ( $query != '' ) {
-				$query .= '&';
-			}
-			$query .= "filetimestamp=" . urlencode( wfTimestamp( TS_MW, $time ) );
 		}
 	}
 

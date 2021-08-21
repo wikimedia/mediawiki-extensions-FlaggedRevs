@@ -13,14 +13,6 @@ class FRInclusionManagerTest extends PHPUnit\Framework\TestCase {
 		4 	=> [ 'Cite' => '30', 'Moo' => 0 ],
 		0 	=> [ 'ZZ' => 464, '0' => 13 ]
 	];
-	private const INPUT_FILES = [
-		'FileXX' => [ 'time' => '20100405192110', 'sha1' => 'abc1' ],
-		'FileYY' => [ 'time' => '20000403101300', 'sha1' => 1134 ],
-		'FileZZ' => [ 'time' => '0', 'sha1' => '' ],
-		'Filele' => [ 'time' => 0, 'sha1' => '' ],
-		'FileKK' => [ 'time' => false, 'sha1' => false ],
-		'0'   	 => [ 'time' => '20000203101350', 'sha1' => 'ae33' ],
-	];
 	/* output to test against (<test,NS,dbkey,expected rev ID>) */
 	private const REVIEWED_OUTPUT_TEMPLATES = [
 		[ "Output template version when given '1224'", 10, 'XX', 1242 ],
@@ -42,27 +34,6 @@ class FRInclusionManagerTest extends PHPUnit\Framework\TestCase {
 		[ "Output template version when given 13", 0, '0', 13 ],
 		[ "Output template version when not given", 0, 'NotexistsPage1111', 0 ],
 	];
-	/* output to test against (<test,dbkey,expected TS,expected sha1>) */
-	private const REVIEWED_OUTPUT_FILES = [
-		[ "Output file version when given '20100405192110'/'abc1'",
-			'FileXX', '20100405192110', 'abc1' ],
-		[ "Output file version when given '20000403101300'/'ffc2'",
-			'FileYY', '20000403101300', '1134' ],
-		[ "Output file version when given '0'/''", 'FileZZ', '0', false ],
-		[ "Output file version when given false/''", 'FileKK', '0', false ],
-		[ "Output file version when given 0/''", 'Filele', '0', false ],
-		[ "Output file version when not given", 'Notgiven', null, null ],
-	];
-	private const STABLE_OUTPUT_FILES = [
-		[ "Output file version when given '20100405192110'/'abc1'",
-			'FileXX', '20100405192110', 'abc1' ],
-		[ "Output file version when given '20000403101300'/'ffc2'",
-			'FileYY', '20000403101300', '1134' ],
-		[ "Output file version when given '0'/''", 'FileZZ', '0', false ],
-		[ "Output file version when given false/''", 'FileKK', '0', false ],
-		[ "Output file version when given 0/''", 'Filele', '0', false ],
-		[ "Output file version when not given", 'NotexistsPage1111', '0', false ],
-	];
 
 	/**
 	 * Cleans up the environment after running a test.
@@ -80,7 +51,7 @@ class FRInclusionManagerTest extends PHPUnit\Framework\TestCase {
 	public function testManagerClear() {
 		/** @var FRInclusionManager $im */
 		$im = TestingAccessWrapper::newFromObject( FRInclusionManager::singleton() );
-		$im->setReviewedVersions( self::INPUT_TEMPLATES, self::INPUT_FILES );
+		$im->setReviewedVersions( self::INPUT_TEMPLATES );
 		$im->clear();
 		$this->assertFalse( $im->parserOutputIsStabilized(), "Empty on clear()" );
 	}
@@ -88,7 +59,7 @@ class FRInclusionManagerTest extends PHPUnit\Framework\TestCase {
 	public function testReviewedTemplateVersions() {
 		/** @var FRInclusionManager $im */
 		$im = TestingAccessWrapper::newFromObject( FRInclusionManager::singleton() );
-		$im->setReviewedVersions( self::INPUT_TEMPLATES, self::INPUT_FILES );
+		$im->setReviewedVersions( self::INPUT_TEMPLATES );
 		foreach ( self::REVIEWED_OUTPUT_TEMPLATES as $triple ) {
 			list( $test,$ns,$dbKey,$expId ) = $triple;
 			$title = Title::makeTitleSafe( $ns, $dbKey );
@@ -97,24 +68,11 @@ class FRInclusionManagerTest extends PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testReviewedFileVersions() {
-		/** @var FRInclusionManager $im */
-		$im = TestingAccessWrapper::newFromObject( FRInclusionManager::singleton() );
-		$im->setReviewedVersions( self::INPUT_TEMPLATES, self::INPUT_FILES );
-		foreach ( self::REVIEWED_OUTPUT_FILES as $triple ) {
-			list( $test,$dbKey,$expTS,$expSha1 ) = $triple;
-			$title = Title::makeTitleSafe( NS_FILE, $dbKey );
-			list( $actualTS,$actualSha1 ) = $im->getReviewedFileVersion( $title );
-			$this->assertEquals( $expTS, $actualTS, "Timestamp test: $test" );
-			$this->assertEquals( $expSha1, $actualSha1, "Sha1 test: $test" );
-		}
-	}
-
 	public function testStableTemplateVersions() {
 		/** @var FRInclusionManager $im */
 		$im = TestingAccessWrapper::newFromObject( FRInclusionManager::singleton() );
 		$im->setReviewedVersions( [], [] );
-		$im->setStableVersionCache( self::INPUT_TEMPLATES, self::INPUT_FILES );
+		$im->setStableVersionCache( self::INPUT_TEMPLATES );
 		foreach ( self::STABLE_OUTPUT_TEMPLATES as $triple ) {
 			list( $test,$ns,$dbKey,$expId ) = $triple;
 			$title = Title::makeTitleSafe( $ns, $dbKey );
@@ -123,17 +81,4 @@ class FRInclusionManagerTest extends PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testStableFileVersions() {
-		/** @var FRInclusionManager $im */
-		$im = TestingAccessWrapper::newFromObject( FRInclusionManager::singleton() );
-		$im->setReviewedVersions( [], [] );
-		$im->setStableVersionCache( self::INPUT_TEMPLATES, self::INPUT_FILES );
-		foreach ( self::STABLE_OUTPUT_FILES as $triple ) {
-			list( $test,$dbKey,$expTS,$expSha1 ) = $triple;
-			$title = Title::makeTitleSafe( NS_FILE, $dbKey );
-			list( $actualTS,$actualSha1 ) = $im->getStableFileVersion( $title );
-			$this->assertEquals( $expTS, $actualTS, "Timestamp test: $test" );
-			$this->assertEquals( $expSha1, $actualSha1, "Sha1 test: $test" );
-		}
-	}
 }

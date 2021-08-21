@@ -10,8 +10,7 @@ use MediaWiki\Revision\SlotRecord;
 /**
  * Class representing a stable version of a MediaWiki revision
  *
- * This contains a page revision, a file version, and versions
- * of templates and files (to determine template inclusion and thumbnails)
+ * This contains a page revision, and versions of templates (to determine template inclusion)
  */
 
 class FlaggedRevision {
@@ -20,15 +19,8 @@ class FlaggedRevision {
 	private $mRevRecord;
 	/** @var int[][]|null included template versions */
 	private $mTemplates;
-	/** @var array[]|null included file versions */
-	private $mFiles;
-	/** @var string|null file version sha-1 (for revisions of File pages) */
-	private $mFileSha1;
-	/** @var string|null file version timestamp (for revisions of File pages) */
-	private $mFileTimestamp;
 
 	/* Flagging metadata */
-
 	/** @var mixed review timestamp */
 	private $mTimestamp;
 	/** @var int[] review tags */
@@ -37,17 +29,12 @@ class FlaggedRevision {
 	private $mFlags;
 	/** @var int reviewing user */
 	private $mUser;
-	/** @var string|null file name when reviewed */
-	private $mFileName;
 
 	/* Redundant fields for lazy-loading */
-
 	/** @var Title|null */
 	private $mTitle;
 	/** @var array|null stable versions of template version used */
 	private $mStableTemplates;
-	/** @var array|null stable versions of file versions used */
-	private $mStableFiles;
 
 	/**
 	 * @param stdClass|array $row DB row or array
@@ -62,10 +49,6 @@ class FlaggedRevision {
 			$this->mTags = self::expandRevisionTags( strval( $row->fr_tags ) );
 			$this->mFlags = explode( ',', $row->fr_flags );
 			$this->mUser = intval( $row->fr_user );
-			# Image page revision relevant params
-			$this->mFileName = $row->fr_img_name ?: null;
-			$this->mFileSha1 = $row->fr_img_sha1 ?: null;
-			$this->mFileTimestamp = $row->fr_img_timestamp ?: null;
 			# Optional fields
 			if ( $title ) {
 				$this->mTitle = $title;
@@ -84,13 +67,8 @@ class FlaggedRevision {
 			$this->mUser = intval( $row['user_id'] );
 			# Base Revision object
 			$this->mRevRecord = $row['revrecord'];
-			# Image page revision relevant params
-			$this->mFileName = $row['img_name'] ?: null;
-			$this->mFileSha1 = $row['img_sha1'] ?: null;
-			$this->mFileTimestamp = $row['img_timestamp'] ?: null;
 			# Optional fields
 			$this->mTemplates = $row['templateVersions'] ?? null;
-			$this->mFiles = $row['fileVersions'] ?? null;
 		} else {
 			throw new Exception( 'FlaggedRevision constructor passed invalid row format.' );
 		}
@@ -297,9 +275,8 @@ class FlaggedRevision {
 		$dbw = wfGetDB( DB_PRIMARY );
 		# Set any flagged revision flags
 		$this->mFlags = array_merge( $this->mFlags, [ 'dynamic' ] ); // legacy
-		# Build the template/file inclusion data chunks
+		# Build the template inclusion data chunks
 		$tmpInsertRows = [];
-		$fileInsertRows = [];
 		# Avoid saving this data if we don't use it to stabilize pages
 		if ( FlaggedRevs::inclusionSetting() !== FR_INCLUDES_CURRENT ) {
 			foreach ( (array)$this->mTemplates as $namespace => $titleAndID ) {
@@ -309,17 +286,6 @@ class FlaggedRevision {
 						'ft_namespace' => $namespace,
 						'ft_title' => $dbkey,
 						'ft_tmp_rev_id' => $id
-					];
-				}
-			}
-			if ( $this->mFiles !== null ) {
-				foreach ( $this->mFiles as $dbkey => $timeSHA1 ) {
-					$fileInsertRows[] = [
-						'fi_rev_id'         => $this->getRevId(),
-						'fi_name'           => $dbkey,
-						'fi_img_sha1'       => strval( $timeSHA1['sha1'] ),
-						'fi_img_timestamp'  => $timeSHA1['time'] ? // false => NULL
-							$dbw->timestamp( $timeSHA1['time'] ) : null
 					];
 				}
 			}
@@ -338,9 +304,9 @@ class FlaggedRevision {
 			'fr_quality'       => FR_CHECKED,
 			'fr_tags'          => self::flattenRevisionTags( $this->mTags ),
 			'fr_flags'         => implode( ',', $this->mFlags ),
-			'fr_img_name'      => $this->mFileName,
-			'fr_img_timestamp' => $dbw->timestampOrNull( $this->mFileTimestamp ),
-			'fr_img_sha1'      => $this->mFileSha1
+			'fr_img_name'      => null,
+			'fr_img_timestamp' => null,
+			'fr_img_sha1'      => null
 		];
 		# Update the main flagged revisions table...
 		$dbw->insert( 'flaggedrevs', $revRow, __METHOD__, [ 'IGNORE' ] );
@@ -350,10 +316,6 @@ class FlaggedRevision {
 		# ...and insert template version data
 		if ( $tmpInsertRows ) {
 			$dbw->insert( 'flaggedtemplates', $tmpInsertRows, __METHOD__, [ 'IGNORE' ] );
-		}
-		# ...and insert file version data
-		if ( $fileInsertRows ) {
-			$dbw->insert( 'flaggedimages', $fileInsertRows, __METHOD__, [ 'IGNORE' ] );
 		}
 		return true;
 	}
@@ -369,8 +331,6 @@ class FlaggedRevision {
 		# Wipe versioning params...
 		$dbw->delete( 'flaggedtemplates',
 			[ 'ft_rev_id' => $this->getRevId() ], __METHOD__ );
-		$dbw->delete( 'flaggedimages',
-			[ 'fi_rev_id' => $this->getRevId() ], __METHOD__ );
 	}
 
 	/**
@@ -467,22 +427,6 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * @return string sha1 key accosciated with this revision.
-	 * This returns NULL for non-image page revisions.
-	 */
-	public function getFileSha1() {
-		return $this->mFileSha1;
-	}
-
-	/**
-	 * @return string timestamp accosciated with this revision.
-	 * This returns NULL for non-image page revisions.
-	 */
-	public function getFileTimestamp() {
-		return wfTimestampOrNull( TS_MW, $this->mFileTimestamp );
-	}
-
-	/**
 	 * @param User $user
 	 * @return bool
 	 */
@@ -514,39 +458,6 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * Get original file versions at time of review
-	 * @param int $flags FR_MASTER
-	 * @return array[] file versions (dbKey => ['time' => MW timestamp,'sha1' => sha1] )
-	 * Note: false used for file timestamp/sha1 if it didn't exist
-	 */
-	public function getFileVersions( $flags = 0 ) {
-		if ( $this->mFiles == null ) {
-			$this->mFiles = [];
-			$db = ( $flags & FR_MASTER ) ?
-				wfGetDB( DB_PRIMARY ) : wfGetDB( DB_REPLICA );
-			$res = $db->select( 'flaggedimages',
-				[ 'fi_name', 'fi_img_timestamp', 'fi_img_sha1' ],
-				[ 'fi_rev_id' => $this->getRevId() ],
-				__METHOD__
-			);
-			foreach ( $res as $row ) {
-				$reviewedTS = false;
-				$reviewedSha1 = false;
-				$fi_img_timestamp = trim( $row->fi_img_timestamp ); // may have \0's
-				if ( $fi_img_timestamp ) {
-					$reviewedTS = wfTimestamp( TS_MW, $fi_img_timestamp );
-					$reviewedSha1 = strval( $row->fi_img_sha1 );
-				}
-				$this->mFiles[$row->fi_name] = [
-					'time' => $reviewedTS,
-					'sha1' => $reviewedSha1,
-				];
-			}
-		}
-		return $this->mFiles;
-	}
-
-	/**
 	 * Get the current stable version of the templates used at time of review
 	 * @param int $flags FR_MASTER
 	 * @return int[][] template versions (ns -> dbKey -> rev Id)
@@ -575,46 +486,6 @@ class FlaggedRevision {
 			}
 		}
 		return $this->mStableTemplates;
-	}
-
-	/**
-	 * Get the current stable version of the files used at time of review
-	 * @param int $flags FR_MASTER
-	 * @return array[] file versions (dbKey => ['time' => MW timestamp,'sha1' => sha1] )
-	 * Note: false used for file timestamp/sha1 if it didn't exist
-	 */
-	public function getStableFileVersions( $flags = 0 ) {
-		if ( $this->mStableFiles == null ) {
-			$this->mStableFiles = [];
-			$db = ( $flags & FR_MASTER ) ?
-				wfGetDB( DB_PRIMARY ) : wfGetDB( DB_REPLICA );
-			$res = $db->select(
-				[ 'flaggedimages', 'page', 'flaggedpages', 'flaggedrevs' ],
-				[ 'fi_name', 'fr_img_timestamp', 'fr_img_sha1' ],
-				[ 'fi_rev_id' => $this->getRevId() ],
-				__METHOD__,
-				[],
-				[
-					'page'          => [ 'LEFT JOIN',
-					'page_namespace = ' . NS_FILE . ' AND page_title = fi_name' ],
-					'flaggedpages'  => [ 'LEFT JOIN', 'fp_page_id = page_id' ],
-					'flaggedrevs'   => [ 'LEFT JOIN', 'fr_rev_id = fp_stable' ]
-				]
-			);
-			foreach ( $res as $row ) {
-				$reviewedTS = false;
-				$reviewedSha1 = false;
-				if ( $row->fr_img_timestamp ) {
-					$reviewedTS = wfTimestamp( TS_MW, $row->fr_img_timestamp );
-					$reviewedSha1 = strval( $row->fr_img_sha1 );
-				}
-				$this->mStableFiles[$row->fi_name] = [
-					'time' => $reviewedTS,
-					'sha1' => $reviewedSha1,
-				];
-			}
-		}
-		return $this->mStableFiles;
 	}
 
 	/**
@@ -716,103 +587,6 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * Fetch pending file changes for this reviewed page version.
-	 * For each file, the "version used" (for stable parsing) is:
-	 *    (a) (the latest rev) if FR_INCLUDES_CURRENT. Might be non-existing.
-	 *    (b) newest( stable rev, rev at time of review ) if FR_INCLUDES_STABLE
-	 * Pending changes exist for a file iff the file is used in
-	 * the current rev of this page and one of the following holds:
-	 *    (a) Current file is newer than the "version used" above (updated)
-	 *    (b) Current file exists and the "version used" was non-existing (created)
-	 *    (c) Current file doesn't exist and the "version used" existed (deleted)
-	 *
-	 * @return array[] of (title, MW file timestamp in reviewed version, has stable rev) tuples
-	 */
-	public function findPendingFileChanges() {
-		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
-			return []; // short-circuit
-		}
-		$dbr = wfGetDB( DB_REPLICA );
-
-		$ret = $dbr->select(
-			[ 'imagelinks', 'flaggedimages', 'page', 'flaggedpages', 'flaggedrevs' ],
-			[ 'il_to', 'fi_img_timestamp', 'fr_img_timestamp' ],
-			[
-				'il_from' => $this->getPage(),
-				# Only get templates with stable or "review time" versions.
-				# Note: fi_img_timestamp is nullable (for deadlinks), so use fi_name
-				"fi_name IS NOT NULL OR fr_img_timestamp IS NOT NULL"
-			], // current version files
-				__METHOD__,
-			[], /* OPTIONS */
-			[
-				'flaggedimages' => [ 'LEFT JOIN',
-					[ 'fi_rev_id' => $this->getRevId(), 'fi_name = il_to' ] ],
-				'page'          => [ 'LEFT JOIN',
-					'page_namespace = ' . NS_FILE . ' AND page_title = il_to' ],
-				'flaggedpages'  => [ 'LEFT JOIN', 'fp_page_id = page_id' ],
-				'flaggedrevs'   => [ 'LEFT JOIN', 'fr_rev_id = fp_stable' ]
-			]
-		);
-		$fileChanges = [];
-		foreach ( $ret as $row ) { // each file
-			$reviewedTS = trim( $row->fi_img_timestamp ); // may have \0's
-			$reviewedTS = $reviewedTS ? wfTimestamp( TS_MW, $reviewedTS ) : null;
-			$stableTS = wfTimestampOrNull( TS_MW, $row->fr_img_timestamp );
-			# Get file timestamp used in this FlaggedRevision when parsed
-			$usedTS = self::fileTimestampUsed( $stableTS, $reviewedTS );
-			# Check for edits/creations/deletions...
-			$title = Title::makeTitleSafe( NS_FILE, $row->il_to );
-			if ( self::fileChanged( $title, $usedTS )
-				&& !$title->equals( $this->getTitle() ) // bug 42297
-			) {
-				$fileChanges[] = [ $title, $usedTS, (bool)$stableTS ];
-			}
-		}
-		return $fileChanges;
-	}
-
-	/**
-	 * @param string|null $stableTS
-	 * @param string|null $reviewedTS
-	 * @return string|null
-	 */
-	private function fileTimestampUsed( $stableTS, $reviewedTS ) {
-		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
-			# Select newest of (stable rev, rev when reviewed) as "version used"
-			return max( $stableTS, $reviewedTS );
-		}
-		return $reviewedTS;
-	}
-
-	/**
-	 * @param Title $title
-	 * @param string|null $usedTS
-	 * @return bool
-	 */
-	private function fileChanged( $title, $usedTS ) {
-		$repoGroup = MediaWikiServices::getInstance()->getRepoGroup();
-		$file = $repoGroup->findFile( $title ); // current file version
-		# Compare this version to the current version and check for things
-		# that would make the stable version unsynced with the draft...
-		if ( !$file ) {
-			return (bool)$usedTS; // included file deleted after review
-		}
-
-		if ( !$file->isLocal() ) {
-			# Avoid counting edits to Commons files, which can effect
-			# many pages, as there is no expedient way to review them.
-			$updated = !$usedTS; // created (ignore new versions)
-		} else {
-			$updated = $file->getTimestamp() > $usedTS; // edited/created
-		}
-		$deleted = $usedTS // included file deleted after review
-			&& $file->getTimestamp() != $usedTS
-			&& !$repoGroup->findFile( $title, [ 'time' => $usedTS ] );
-		return $deleted || $updated;
-	}
-
-	/**
 	 * Fetch pending template changes for this reviewed page
 	 * version against a list of current versions of templates.
 	 * See findPendingTemplateChanges() for details.
@@ -842,35 +616,6 @@ class FlaggedRevision {
 			}
 		}
 		return $tmpChanges;
-	}
-
-	/**
-	 * Fetch pending file changes for this reviewed page
-	 * version against a list of current versions of files.
-	 * See findPendingFileChanges() for details.
-	 *
-	 * @param string[] $newFiles
-	 * @return array[] of (title, MW file timestamp in reviewed version, has stable rev) tuples
-	 */
-	public function findFileChanges( array $newFiles ) {
-		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
-			return []; // short-circuit
-		}
-		$fileChanges = [];
-		$rFiles = $this->getFileVersions();
-		$sFiles = $this->getStableFileVersions();
-		foreach ( $newFiles as $dbKey => $sha1Time ) {
-			$reviewedTS = $rFiles[$dbKey]['time'] ?? null;
-			$stableTS = $sFiles[$dbKey]['time']	?? null;
-			# Get file timestamp used in this FlaggedRevision when parsed
-			$usedTS = self::fileTimestampUsed( $stableTS, $reviewedTS );
-			# Check for edits/creations/deletions...
-			$title = Title::makeTitleSafe( NS_FILE, $dbKey );
-			if ( self::fileChanged( $title, $usedTS ) ) {
-				$fileChanges[] = [ $title, $usedTS, (bool)$stableTS ];
-			}
-		}
-		return $fileChanges;
 	}
 
 	/**
