@@ -1,16 +1,16 @@
 <?php
 
 /**
- * Class containing template/file version usage requirements for
+ * Class containing template version usage requirements for
  * Parser based on the source text (being parsed) revision ID.
  *
- * Parser hooks check this to determine what template/file version to use.
+ * Parser hooks check this to determine what template version to use.
  * If no requirements are set, the page is parsed as normal.
  */
 class FRInclusionManager {
-	/** @var array[]|null Files/templates at review time */
+	/** @var array[]|null templates at review time */
 	private $reviewedVersions = null;
-	/** @var array[] Stable versions of files/templates */
+	/** @var array[] Stable versions of templates */
 	private $stableVersions = [];
 
 	/** @var self|null */
@@ -31,39 +31,33 @@ class FRInclusionManager {
 
 	private function __construct() {
 		$this->stableVersions['templates'] = [];
-		$this->stableVersions['files'] = [];
 	}
 
 	/**
-	 * Reset all template/image version data
+	 * Reset all template version data
 	 * @return void
 	 */
 	public function clear() {
 		$this->reviewedVersions = null;
 		$this->stableVersions['templates'] = [];
-		$this->stableVersions['files'] = [];
 	}
 
 	/**
 	 * (a) Stabilize inclusions in Parser output
-	 * (b) Set the template/image versions used in the flagged version of a revision
+	 * (b) Set the template versions used in the flagged version of a revision
 	 * @param int[][] $tmpParams (ns => dbKey => revId )
-	 * @param array[] $imgParams (dbKey => ['time' => MW timestamp,'sha1' => sha1] )
 	 */
-	private function setReviewedVersions( array $tmpParams, array $imgParams ) {
+	private function setReviewedVersions( array $tmpParams ) {
 		$this->reviewedVersions = [];
 		$this->reviewedVersions['templates'] = self::formatTemplateArray( $tmpParams );
-		$this->reviewedVersions['files'] = self::formatFileArray( $imgParams );
 	}
 
 	/**
-	 * Set the stable versions of some template/images
+	 * Set the stable versions of some template
 	 * @param int[][] $tmpParams (ns => dbKey => revId )
-	 * @param array[] $imgParams (dbKey => ['time' => MW timestamp,'sha1' => sha1] )
 	 */
-	private function setStableVersionCache( array $tmpParams, array $imgParams ) {
+	private function setStableVersionCache( array $tmpParams ) {
 		$this->stableVersions['templates'] = self::formatTemplateArray( $tmpParams );
-		$this->stableVersions['files'] = self::formatFileArray( $imgParams );
 	}
 
 	/**
@@ -83,26 +77,8 @@ class FRInclusionManager {
 	}
 
 	/**
-	 * Clean up a file version array
-	 * @param array[] $params (dbKey => ['time' => MW timestamp,'sha1' => sha1] )
-	 * @phan-param array<string,array{time:string,sha1:string}> $params
-	 * @return array[]
-	 */
-	private function formatFileArray( array $params ) {
-		$res = [];
-		foreach ( $params as $dbKey => $timeKey ) {
-			if ( $timeKey['time'] ) {
-				$res[$dbKey] = [ 'time' => $timeKey['time'], 'sha1' => strval( $timeKey['sha1'] ) ];
-			} else {
-				$res[$dbKey] = [ 'time' => '0', 'sha1' => false ];
-			}
-		}
-		return $res;
-	}
-
-	/**
 	 * (a) Stabilize inclusions in Parser output
-	 * (b) Load all of the "review time" versions of template/files from $frev
+	 * (b) Load all of the "review time" versions of template from $frev
 	 * (c) Load their stable version counterparts (avoids DB hits)
 	 * Note: Used when calling FlaggedRevs::parseStableRevision().
 	 * @param FlaggedRevision $frev
@@ -111,16 +87,13 @@ class FRInclusionManager {
 	public function stabilizeParserOutput( FlaggedRevision $frev ) {
 		// Stable versions
 		$tStbVersions = [];
-		$fStbVersions = [];
 		$tRevVersions = $frev->getTemplateVersions();
-		$fRevVersions = $frev->getFileVersions();
 		# We can preload *most* of the stable version IDs the parser will need...
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
 			$tStbVersions = $frev->getStableTemplateVersions();
-			$fStbVersions = $frev->getStableFileVersions();
 		}
-		$this->setReviewedVersions( $tRevVersions, $fRevVersions );
-		$this->setStableVersionCache( $tStbVersions, $fStbVersions );
+		$this->setReviewedVersions( $tRevVersions );
+		$this->setStableVersionCache( $tStbVersions );
 	}
 
 	/**
@@ -147,25 +120,6 @@ class FRInclusionManager {
 	}
 
 	/**
-	 * Get the "review time" file version for parser
-	 * @param Title $title
-	 * @throws Exception
-	 * @return array (MW timestamp/'0'/null, sha1/''/null )
-	 */
-	public function getReviewedFileVersion( Title $title ) {
-		if ( !is_array( $this->reviewedVersions ) ) {
-			throw new Exception( "prepareForParse() nor setReviewedVersions() called yet" );
-		}
-		$dbKey = $title->getDBkey();
-		# All NS_FILE, no need to check namespace
-		if ( isset( $this->reviewedVersions['files'][$dbKey] ) ) {
-			[ 'time' => $time, 'sha1' => $sha1 ] = $this->reviewedVersions['files'][$dbKey];
-			return [ $time, $sha1 ];
-		}
-		return [ null, null ]; // missing version
-	}
-
-	/**
 	 * Get the stable version of a template
 	 * @param Title $title
 	 * @return int
@@ -177,28 +131,5 @@ class FRInclusionManager {
 			FlaggedRevision::getStableRevId( $title );
 		$this->stableVersions['templates'][$namespace][$dbKey] = $id; // cache
 		return $id;
-	}
-
-	/**
-	 * Get the stable version of a file
-	 * @param Title $title
-	 * @return array (MW timestamp/'0', sha1/'')
-	 */
-	public function getStableFileVersion( Title $title ) {
-		$dbKey = $title->getDBkey();
-		# All NS_FILE, no need to check namespace
-		if ( !isset( $this->stableVersions['files'][$dbKey] ) ) {
-			$srev = FlaggedRevision::newFromStable( $title );
-			if ( $srev && $srev->getFileTimestamp() ) {
-				$time = $srev->getFileTimestamp();
-				$sha1 = $srev->getFileSha1();
-			} else {
-				$time = '0';
-				$sha1 = false;
-			}
-			$this->stableVersions['files'][$dbKey] = [ 'time' => $time, 'sha1' => $sha1 ];
-		}
-		[ 'time' => $time, 'sha1' => $sha1 ] = $this->stableVersions['files'][$dbKey];
-		return [ $time, $sha1 ];
 	}
 }

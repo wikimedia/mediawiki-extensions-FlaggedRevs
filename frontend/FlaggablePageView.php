@@ -17,7 +17,7 @@ class FlaggablePageView extends ContextSource {
 	/** @var array|null of old and new RevisionsRecords for diffs */
 	private $diffRevRecords = null;
 
-	/** @var array|null [ array of templates, array of file ] */
+	/** @var array|null [ array of templates ] */
 	private $oldRevIncludes = null;
 
 	/** @var bool */
@@ -889,75 +889,6 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	 * Get the normal and display files for the underlying ImagePage.
-	 * If the a stable version needs to be displayed, this will set $normalFile
-	 * to the current version, and $displayFile to the desired version.
-	 *
-	 * If no stable version is required, the reference parameters will not be set
-	 *
-	 * Depends on $request
-	 * @param File|false &$normalFile
-	 * @param File|false &$displayFile
-	 */
-	public function imagePageFindFile( &$normalFile, &$displayFile ) {
-		$request = $this->getRequest();
-		$this->load();
-		# Determine timestamp. A reviewed version may have explicitly been requested...
-		$frev = null;
-		$time = false;
-		$reqId = $request->getVal( 'stableid' );
-		if ( $reqId ) {
-			$frev = FlaggedRevision::newFromTitle( $this->article->getTitle(), $reqId );
-		} elseif ( $this->showingStable() ) {
-			$frev = $this->article->getStableRev();
-		}
-		if ( $frev ) {
-			$time = $frev->getFileTimestamp();
-			// B/C, may be stored in associated image version metadata table
-			// @TODO: remove, updateTracking.php does this
-			if ( !$time ) {
-				$dbr = wfGetDB( DB_REPLICA );
-				$time = $dbr->selectField( 'flaggedimages',
-					'fi_img_timestamp',
-					[ 'fi_rev_id' => $frev->getRevId(),
-						'fi_name' => $this->article->getTitle()->getDBkey() ],
-					__METHOD__
-				);
-				$time = trim( $time ); // remove garbage
-				$time = $time ? wfTimestamp( TS_MW, $time ) : false;
-			}
-		}
-		if ( !$time && $request->getRawVal( 'filetimestamp' ) !== null ) {
-			# Try request parameter
-			$time = MWTimestamp::convert( TS_MW, $request->getRawVal( 'filetimestamp' ) );
-		}
-
-		if ( !$time ) {
-			return; // Use the default behavior
-		}
-
-		$title = $this->article->getTitle();
-		$repoGroup = MediaWikiServices::getInstance()->getRepoGroup();
-		$displayFile = $repoGroup->findFile( $title, [ 'time' => $time ] );
-		# If none found, try current
-		if ( !$displayFile ) {
-			wfDebug(
-				__METHOD__ . ": {$title->getPrefixedDBkey()}: $time not found, using current\n"
-			);
-			$displayFile = $repoGroup->findFile( $title );
-			# If none found, use a valid local placeholder
-			if ( !$displayFile ) {
-				$displayFile = $repoGroup->getLocalRepo()->newFile( $title ); // fallback to current
-			}
-			$normalFile = $displayFile;
-		# If found, set $normalFile
-		} else {
-			wfDebug( __METHOD__ . ": {$title->getPrefixedDBkey()}: using timestamp $time\n" );
-			$normalFile = $repoGroup->findFile( $title );
-		}
-	}
-
-	/**
 	 * Adds stable version tags to page when viewing history
 	 */
 	public function addToHistView() {
@@ -1025,7 +956,7 @@ class FlaggablePageView extends ContextSource {
 				FlaggedRevsXML::diffToggle( $diffUrl );
 		}
 
-		if ( $this->article->onlyTemplatesOrFilesPending() &&
+		if ( $this->article->onlyTemplatesPending() &&
 			$this->article->getPendingRevCount() == 0
 		) {
 			$this->setPendingNotice( $frev, '', false );
@@ -1245,31 +1176,27 @@ class FlaggablePageView extends ContextSource {
 			$form->setTopNotice( $this->diffNoticeBox );
 			$form->setBottomNotice( $this->diffIncChangeBox );
 
-			# Set the file version we are viewing (for File: pages)
-			$form->setFileVersion( $this->out->getFileVersion() );
 			# $wgOut might not have the inclusion IDs, such as for diffs with diffonly=1.
 			# If they're lacking, then we use getRevIncludes() to get the draft inclusion versions.
 			# Note: showStableVersion() already makes sure that $wgOut
 			# has the stable inclusion versions.
 			if ( FlaggedRevs::inclusionSetting() === FR_INCLUDES_CURRENT ) {
 				$tmpVers = []; // unused
-				$fileVers = []; // unused
 			} elseif ( $this->out->getRevisionId() == $revRecord->getId() ) {
 				$tmpVers = $this->out->getTemplateIds();
-				$fileVers = $this->out->getFileSearchOptions();
 			} elseif ( $this->oldRevIncludes ) { // e.g. diffonly=1, stable diff
-				# We may have already fetched the inclusion IDs to get the template/file changes.
-				list( $tmpVers, $fileVers ) = $this->oldRevIncludes; // reuse
+				# We may have already fetched the inclusion IDs to get the template changes.
+				$tmpVers = $this->oldRevIncludes[0]; // reuse
 			} else { // e.g. diffonly=1, other diffs
 				# $wgOut may not already have the inclusion IDs, such as for diffonly=1.
 				# RevisionReviewForm will fetch them as needed however.
-				list( $tmpVers, $fileVers ) = FRInclusionCache::getRevIncludes(
+				$tmpVers = FRInclusionCache::getRevIncludes(
 					$this->article,
 					$revRecord,
 					$reqUser
-				);
+				)[0];
 			}
-			$form->setIncludeVersions( $tmpVers, $fileVers );
+			$form->setIncludeVersions( $tmpVers );
 
 			list( $html, $status ) = $form->getHtml();
 			# Diff action: place the form at the top of the page
@@ -1442,8 +1369,8 @@ class FlaggablePageView extends ContextSource {
 			// Are we looking at a pending revision?
 			if ( $ts > $srev->getRevTimestamp() ) { // bug 15515
 				$tabs['draft']['class'] .= ' selected';
-			// Are there *just* pending template/file changes.
-			} elseif ( $this->article->onlyTemplatesOrFilesPending()
+			// Are there *just* pending template changes.
+			} elseif ( $this->article->onlyTemplatesPending()
 				&& $this->out->getRevisionId() == $this->article->getStable()
 			) {
 				$tabs['draft']['class'] .= ' selected';
@@ -1532,7 +1459,7 @@ class FlaggablePageView extends ContextSource {
 	 * (b) Mark off which versions are checked or not
 	 * (c) When comparing the stable revision to the current:
 	 *   (i)  Show a tag with some explanation for the diff
-	 *   (ii) List any template/file changes pending review
+	 *   (ii) List any template changes pending review
 	 *
 	 * @param DifferenceEngine $diff
 	 * @param RevisionRecord|null $oldRevRecord
@@ -1559,7 +1486,7 @@ class FlaggablePageView extends ContextSource {
 		}
 		# Check if this is a diff-to-stable. If so:
 		# (a) prompt reviewers to review the changes
-		# (b) list template/file changes if only includes are pending
+		# (b) list template changes if only includes are pending
 		if ( $srev
 			&& $this->isDiffFromStable
 			&& !$this->article->stableVersionIsSynced() // pending changes
@@ -1569,8 +1496,6 @@ class FlaggablePageView extends ContextSource {
 			if ( !$this->article->revsArePending() ) {
 				# Add a list of links to each changed template...
 				$changeList = self::fetchTemplateChanges( $srev );
-				# Add a list of links to each changed file...
-				$changeList = array_merge( $changeList, self::fetchFileChanges( $srev ) );
 				# Correct bad cache which said they were not synced...
 				if ( !count( $changeList ) ) {
 					$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
@@ -1590,12 +1515,10 @@ class FlaggablePageView extends ContextSource {
 				$this->oldRevIncludes = $incs; // process cache
 				# Add a list of links to each changed template...
 				$changeList = self::fetchTemplateChanges( $srev, $incs[0] );
-				# Add a list of links to each changed file...
-				$changeList = array_merge( $changeList, self::fetchFileChanges( $srev, $incs[1] ) );
 			} else {
 				$changeList = []; // unused
 			}
-			# If there are pending revs or templates/files changes, notify the user...
+			# If there are pending revs or templates changes, notify the user...
 			if ( $this->article->revsArePending() || count( $changeList ) ) {
 				# If the user can review then prompt them to review them...
 				if ( $pm->userHasRight( $reqUser, 'review' ) ) {
@@ -1633,7 +1556,7 @@ class FlaggablePageView extends ContextSource {
 						'&#160;' . implode( ', ', $changeList ) . "</p>\n";
 				}
 			}
-			# template/file change list
+			# template change list
 			if ( $changeText != '' ) {
 				if ( $pm->userHasRight( $reqUser, 'review' ) ) {
 					$this->diffIncChangeBox = "<p>$changeText</p>";
@@ -1833,31 +1756,6 @@ class FlaggablePageView extends ContextSource {
 				htmlspecialchars( $title->getPrefixedText() ),
 				[],
 				[ 'diff' => 'cur', 'oldid' => $revIdStable ] );
-			if ( !$hasStable ) {
-				$link = "<strong>$link</strong>";
-			}
-			$diffLinks[] = $link;
-		}
-		return $diffLinks;
-	}
-
-	/**
-	 * Fetch file changes for a reviewed revision since review
-	 * @param FlaggedRevision $frev
-	 * @param string[]|null $newFiles
-	 * @return string[]
-	 */
-	private static function fetchFileChanges( FlaggedRevision $frev, $newFiles = null ) {
-		$diffLinks = [];
-		if ( $newFiles === null ) {
-			$changes = $frev->findPendingFileChanges();
-		} else {
-			$changes = $frev->findFileChanges( $newFiles );
-		}
-		foreach ( $changes as $tuple ) {
-			list( $title, $revIdStable, $hasStable ) = $tuple;
-			// @TODO: change when MW has file diffs
-			$link = Linker::link( $title, htmlspecialchars( $title->getPrefixedText() ) );
 			if ( !$hasStable ) {
 				$link = "<strong>$link</strong>";
 			}

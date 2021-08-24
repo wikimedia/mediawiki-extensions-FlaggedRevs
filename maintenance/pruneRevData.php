@@ -17,7 +17,7 @@ class PruneFRIncludeData extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
-		$this->addDescription( "This script clears template/image data for reviewed versions" .
+		$this->addDescription( "This script clears template data for reviewed versions" .
 			"that are 1+ month old and have 50+ newer versions in page. By default," .
 			"it will just output how many rows can be deleted. Use the 'prune' option " .
 			"to actually delete them."
@@ -124,22 +124,12 @@ class PruneFRIncludeData extends Maintenance {
 							__METHOD__
 						);
 						$tDeleted += $db->affectedRows();
-						$db->delete( 'flaggedimages',
-							[ 'fi_rev_id' => $revsClearIncludes ],
-							__METHOD__
-						);
-						$fDeleted += $db->affectedRows();
 						$db->commit( __METHOD__ );
 					} else {
 						// Dry run: say how many includes rows would have been cleared
 						$tDeleted += $db->selectField( 'flaggedtemplates',
 							'COUNT(*)',
 							[ 'ft_rev_id' => $revsClearIncludes ],
-							__METHOD__
-						);
-						$fDeleted += $db->selectField( 'flaggedimages',
-							'COUNT(*)',
-							[ 'fi_rev_id' => $revsClearIncludes ],
 							__METHOD__
 						);
 					}
@@ -162,7 +152,7 @@ class PruneFRIncludeData extends Maintenance {
 		} else {
 			$this->output( "Flagged revision inclusion prune test complete ...\n" );
 		}
-		$this->output( "Rows: \tflaggedtemplates:$tDeleted\t\tflaggedimages:$fDeleted\n" );
+		$this->output( "Rows: \tflaggedtemplates:$tDeleted\n" );
 	}
 }
 

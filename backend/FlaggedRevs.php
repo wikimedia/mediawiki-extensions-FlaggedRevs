@@ -418,7 +418,7 @@ class FlaggedRevs {
 		$resetManager = false;
 		$incManager = FRInclusionManager::singleton();
 		if ( $frev->getRevId() && self::inclusionSetting() != FR_INCLUDES_CURRENT ) {
-			# Use FRInclusionManager to do the template/file version query
+			# Use FRInclusionManager to do the template version query
 			# up front unless the versions are already specified there...
 			if ( !$incManager->parserOutputIsStabilized() ) {
 				$incManager->stabilizeParserOutput( $frev );
@@ -492,7 +492,7 @@ class FlaggedRevs {
 	 * @param FlaggedRevision|null $sv the new stable version (optional)
 	 * @param FlaggedRevision|null $oldSv the old stable version (optional)
 	 * @param RenderedRevision|null $renderedRevision (optional)
-	 * @return bool stable version text/file changed and FR_INCLUDES_STABLE
+	 * @return bool stable version text changed and FR_INCLUDES_STABLE
 	 * @throws Exception
 	 */
 	public static function stableVersionUpdates(
@@ -540,12 +540,10 @@ class FlaggedRevs {
 			if ( self::inclusionSetting() == FR_INCLUDES_STABLE ) {
 				$changed = (
 					!$oldSv ||
-					$sv->getRevId() != $oldSv->getRevId() ||
-					$sv->getFileTimestamp() != $oldSv->getFileTimestamp() ||
-					$sv->getFileSha1() != $oldSv->getFileSha1()
+					$sv->getRevId() != $oldSv->getRevId()
 				);
 			}
-			# Update template/file version cache...
+			# Update template version cache...
 			if (
 				$renderedRevision &&
 				$sv->getRevId() != $renderedId &&
@@ -593,7 +591,6 @@ class FlaggedRevs {
 	public static function purgeSquid( Title $title ) {
 		DeferredUpdates::addCallableUpdate( static function () use ( $title ) {
 			$title->purgeSquid();
-			HTMLFileCache::clearFileCache( $title );
 		} );
 	}
 
@@ -605,9 +602,6 @@ class FlaggedRevs {
 	public static function updateHtmlCaches( Title $title ) {
 		$jobs = [];
 		$jobs[] = HTMLCacheUpdateJob::newForBacklinks( $title, 'templatelinks' );
-		if ( $title->getNamespace() === NS_FILE ) {
-			$jobs[] = HTMLCacheUpdateJob::newForBacklinks( $title, 'imagelinks' );
-		}
 		JobQueueGroup::singleton()->lazyPush( $jobs );
 
 		DeferredUpdates::addUpdate( new FRExtraCacheUpdate( $title ) );
@@ -810,18 +804,16 @@ class FlaggedRevs {
 			$revRecord->getContent( SlotRecord::MAIN ), null, $user );
 		$poutput  = $editInfo->getOutput(); // revision HTML output
 
-		# Get the "review time" versions of templates and files.
-		# This tries to make sure each template/file version either came from the stable
-		# version of that template/file or was a "review time" version used in the stable
-		# version of this page. If a pending version of a template/file is currently vandalism,
+		# Get the "review time" versions of templates.
+		# This tries to make sure each template version either came from the stable
+		# version of that template or was a "review time" version used in the stable
+		# version of this page. If a pending version of a template is currently vandalism,
 		# we try to avoid storing its ID as the "review time" version so it won't show up when
-		# someone views the page. If not possible, this stores the current template/file.
+		# someone views the page. If not possible, this stores the current template.
 		if ( self::inclusionSetting() === FR_INCLUDES_CURRENT ) {
 			$tVersions = $poutput->getTemplateIds();
-			$fVersions = $poutput->getFileSearchOptions();
 		} else {
 			$tVersions = $oldSv ? $oldSv->getTemplateVersions() : [];
-			$fVersions = $oldSv ? $oldSv->getFileVersions() : [];
 			foreach ( $poutput->getTemplateIds() as $ns => $pages ) {
 				foreach ( $pages as $dbKey => $revId ) {
 					if ( !isset( $tVersions[$ns][$dbKey] ) ) {
@@ -829,37 +821,6 @@ class FlaggedRevs {
 						$tVersions[$ns][$dbKey] = $srev ? $srev->getRevId() : $revId;
 					}
 				}
-			}
-			foreach ( $poutput->getFileSearchOptions() as $dbKey => $info ) {
-				if ( !isset( $fVersions[$dbKey] ) ) {
-					$srev = FlaggedRevision::newFromStable( Title::makeTitle( NS_FILE, $dbKey ) );
-					if ( $srev && $srev->getFileTimestamp() ) { // use stable
-						$fVersions[$dbKey] = [
-							'time' => $srev->getFileTimestamp(),
-							'sha1' => $srev->getFileSha1(),
-						];
-					} else { // use current
-						$fVersions[$dbKey] = [
-							'time' => $info['time'],
-							'sha1' => $info['sha1'],
-						];
-					}
-				}
-			}
-		}
-
-		# If this is an image page, get the corresponding file version info...
-		$fileData = [ 'name' => null, 'timestamp' => null, 'sha1' => null ];
-		if ( $title->getNamespace() === NS_FILE ) {
-			# We must use WikiFilePage process cache on upload or get bitten by replica lag
-			$file = $article instanceof WikiFilePage
-				? $article->getFile() // uses up-to-date process cache on new uploads
-				: MediaWikiServices::getInstance()->getRepoGroup()
-					->findFile( $title, [ 'bypassCache' => true ] ); // skip cache; bug 31056
-			if ( is_object( $file ) && $file->exists() ) {
-				$fileData['name'] = $title->getDBkey();
-				$fileData['timestamp'] = $file->getTimestamp();
-				$fileData['sha1'] = $file->getSha1();
 			}
 		}
 
@@ -870,11 +831,11 @@ class FlaggedRevs {
 			'timestamp'     	=> $revRecord->getTimestamp(), // same as edit time
 			'quality'      	 	=> $quality,
 			'tags'	       		=> $tags,
-			'img_name'      	=> $fileData['name'],
-			'img_timestamp' 	=> $fileData['timestamp'],
-			'img_sha1'      	=> $fileData['sha1'],
+			'img_name'      	=> null,
+			'img_timestamp' 	=> null,
+			'img_sha1'      	=> null,
 			'templateVersions' 	=> $tVersions,
-			'fileVersions'     	=> $fVersions,
+			'fileVersions'     	=> [],
 			'flags'             => $auto ? 'auto' : '',
 		], $title );
 

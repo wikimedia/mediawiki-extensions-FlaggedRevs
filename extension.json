@@ -338,7 +338,6 @@
 		"ArticleViewHeader": "FlaggedRevsUIHooks::onArticleViewHeader",
 		"AutopromoteCondition": "FlaggedRevsHooks::checkAutoPromoteCond",
 		"BeforePageDisplay": "FlaggedRevsUIHooks::onBeforePageDisplay",
-		"BeforeParserFetchFileAndTitle": "FlaggedRevsHooks::parserFetchStableFile",
 		"BeforeRevertedTagUpdate": "FlaggedRevsHooks::onBeforeRevertedTagUpdate",
 		"CategoryPageView": "FlaggedRevsUIHooks::onCategoryPageView",
 		"ChangesListInsertArticleLink": "FlaggedRevsUIHooks::addToChangeListLine",
@@ -354,12 +353,9 @@
 		"EditPageBeforeEditButtons": "FlaggedRevsUIHooks::onBeforeEditButtons",
 		"EditPageGetCheckboxesDefinition": "FlaggedRevsUIHooks::onEditPageGetCheckboxesDefinition",
 		"EditPageNoSuchSection": "FlaggedRevsUIHooks::onNoSuchSection",
-		"FileUpload": "FlaggedRevsHooks::onFileUpload",
 		"GetPreferences": "FlaggedRevsUIHooks::onGetPreferences",
 		"getUserPermissionsErrors": "FlaggedRevsHooks::onGetUserPermissionsErrors",
 		"GoogleNewsSitemap::Query": "FlaggedRevsHooks::gnsmQueryModifier",
-		"ImagePageFileHistoryLine": "FlaggedRevsUIHooks::addToFileHistLine",
-		"ImagePageFindFile": "FlaggedRevsUIHooks::onImagePageFindFile",
 		"InitializeArticleMaybeRedirect": "FlaggedRevsUIHooks::overrideRedirect",
 		"LoadExtensionSchemaUpdates": "FlaggedRevsUpdaterHooks::addSchemaUpdates",
 		"MagicWordwgVariableIDs": "FlaggedRevsHooks::onMagicWordwgVariableIDs",
@@ -496,12 +492,12 @@
 		},
 		"FlaggedRevsHandleIncludes": {
 			"description": [
-				"How to handle templates and files used in stable versions:",
+				"How to handle templates used in stable versions:",
 				"0 - (FR_INCLUDES_CURRENT)",
-				"  Always use the current version of templates/files",
+				"  Always use the current version of templates",
 				"2 - (FR_INCLUDES_STABLE)",
-				"  For each template/file, check if a version of it was used when the page was reviewed and if the template/file itself has a stable version; use the newest those versions",
-				"NOTE: We may have templates that do not have stable version. Also, given situational inclusion of templates (e.g. parser functions selecting template X or Y based on date) there may also be no \"review time version\" revision ID for a template used on a page. In such cases, we select the current (unreviewed) revision. Likewise for files."
+				"  For each template, check if a version of it was used when the page was reviewed and if the template itself has a stable version; use the newest those versions",
+				"NOTE: We may have templates that do not have stable version. Also, given situational inclusion of templates (e.g. parser functions selecting template X or Y based on date) there may also be no \"review time version\" revision ID for a template used on a page. In such cases, we select the current (unreviewed) revision."
 			],
 			"value": 2
 		}

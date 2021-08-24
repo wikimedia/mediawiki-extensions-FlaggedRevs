@@ -33,7 +33,7 @@ class ApiReview extends ApiBase {
 
 	/**
 	 * This function does essentially the same as RevisionReview::AjaxReview,
-	 * except that it generates the template and image parameters itself.
+	 * except that it generates the template parameters itself.
 	 */
 	public function execute() {
 		$params = $this->extractRequestParams();
@@ -78,29 +78,17 @@ class ApiReview extends ApiBase {
 		}
 		if ( $form->getAction() === 'approve' ) {
 			$article = new FlaggableWikiPage( $title );
-			// Get the file version used for File: pages
-			$file = $article->getFile();
-			if ( $file ) {
-				$fileVer = [ 'time' => $file->getTimestamp(), 'sha1' => $file->getSha1() ];
-			} else {
-				$fileVer = null;
-			}
-			// Now get the template and image parameters needed
+			// Now get the template parameters needed
 			if ( FlaggedRevs::inclusionSetting() === FR_INCLUDES_CURRENT ) {
 				$templateIds = []; // unused
-				$fileTimeKeys = []; // unused
 			} else {
-				list( $templateIds, $fileTimeKeys ) =
-					FRInclusionCache::getRevIncludes( $article, $revRecord, $this->getUser() );
+				$templateIds = FRInclusionCache::getRevIncludes( $article, $revRecord, $this->getUser() )[0];
 			}
 			// Get version parameters for review submission (flat strings)
-			list( $templateParams, $imageParams, $fileParam ) =
-				RevisionReviewForm::getIncludeParams( $templateIds, $fileTimeKeys, $fileVer );
+			$templateParams = RevisionReviewForm::getIncludeParams( $templateIds );
 			// Set the version parameters...
 			$form->setTemplateParams( $templateParams );
-			$form->setFileParams( $imageParams );
-			$form->setFileVersion( $fileParam );
-			$form->bypassValidationKey(); // always OK; uses current templates/files
+			$form->bypassValidationKey(); // always OK; uses current templates
 		}
 
 		$form->ready(); // all params set

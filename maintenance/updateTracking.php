@@ -24,7 +24,7 @@ class UpdateFRTracking extends Maintenance {
 		);
 		$this->addOption( 'startpage', 'Page ID to start on', false, true );
 		$this->addOption( 'startrev', 'Rev ID to start on', false, true );
-		$this->addOption( 'updateonly', 'One of (revs, pages, images)', false, true );
+		$this->addOption( 'updateonly', 'One of (revs, pages)', false, true );
 		$this->requireExtension( 'FlaggedRevs' );
 	}
 
@@ -43,16 +43,12 @@ class UpdateFRTracking extends Maintenance {
 				case 'pages':
 					$this->updateFlaggedPages( $startPage );
 					break;
-				case 'images':
-					$this->updateFlaggedImages( $startRev );
-					break;
 				default:
 					$this->fatalError( "Invalidate operation specified.\n" );
 			}
 		} else {
 			$this->updateFlaggedRevs( $startRev );
 			$this->updateFlaggedPages( $startPage );
-			$this->updateFlaggedImages( $startRev );
 		}
 	}
 
@@ -100,23 +96,13 @@ class UpdateFRTracking extends Maintenance {
 				$fileSha1 = $row->fr_img_sha1;
 				# Check for file version to see if it's stored the old way...
 				if ( $row->page_namespace === NS_FILE && !$file ) {
-					$irow = $db->selectRow( 'flaggedimages',
-						[ 'fi_img_timestamp', 'fi_img_sha1' ],
-						[ 'fi_rev_id' => $row->fr_rev_id, 'fi_name' => $row->page_title ],
+					$crow = $db->selectRow( 'image',
+						[ 'img_timestamp', 'img_sha1' ],
+						[ 'img_name' => $row->page_title ],
 						__METHOD__ );
-					$fileTime = $irow ? $irow->fi_img_timestamp : null;
-					$fileSha1 = $irow ? $irow->fi_img_sha1 : null;
-					$file = $irow ? $row->page_title : null;
-					# Fill in from current if broken
-					if ( !$irow ) {
-						$crow = $db->selectRow( 'image',
-							[ 'img_timestamp', 'img_sha1' ],
-							[ 'img_name' => $row->page_title ],
-							__METHOD__ );
-						$fileTime = $crow ? $crow->img_timestamp : null;
-						$fileSha1 = $crow ? $crow->img_sha1 : null;
-						$file = $crow ? $row->page_title : null;
-					}
+					$fileTime = $crow ? $crow->img_timestamp : null;
+					$fileSha1 = $crow ? $crow->img_sha1 : null;
+					$file = $crow ? $row->page_title : null;
 				}
 
 				# Check if anything needs updating
@@ -263,49 +249,6 @@ class UpdateFRTracking extends Maintenance {
 		}
 		$this->output( "flaggedpage columns update complete ..." .
 			" {$count} rows [{$fixed} fixed] [{$deleted} deleted]\n" );
-	}
-
-	/**
-	 * @param int|null $start Revision ID
-	 */
-	private function updateFlaggedImages( $start = null ) {
-		$this->output( "Cleaning up flaggedimages columns\n" );
-
-		$BATCH_SIZE = 1000;
-
-		$db = $this->getDB( DB_PRIMARY );
-
-		if ( $start === null ) {
-			$start = $db->selectField( 'flaggedimages', 'MIN(fi_rev_id)', false, __METHOD__ );
-		}
-		$end = $db->selectField( 'flaggedimages', 'MAX(fi_rev_id)', false, __METHOD__ );
-		if ( $start === null || $end === null ) {
-			$this->output( "...flaggedimages table seems to be empty.\n" );
-			return;
-		}
-		# Do remaining chunk
-		$end += $BATCH_SIZE - 1;
-		$blockStart = (int)$start;
-		$blockEnd = (int)$start + $BATCH_SIZE - 1;
-		$nulled = 0;
-		while ( $blockEnd <= $end ) {
-			$this->output( "...doing fi_rev_id from $blockStart to $blockEnd\n" );
-			$cond = "fi_rev_id BETWEEN $blockStart AND $blockEnd";
-
-			$this->beginTransaction( $db, __METHOD__ );
-			# Remove padding garbage and such...turn to NULL instead
-			$db->update( 'flaggedimages',
-				[ 'fi_img_timestamp' => null ],
-				[ $cond, "fi_img_timestamp = '' OR LOCATE( '\\0', fi_img_timestamp )" ],
-				__METHOD__
-			);
-			$nulled += $db->affectedRows();
-			$this->commitTransaction( $db, __METHOD__ );
-
-			$blockStart += $BATCH_SIZE;
-			$blockEnd += $BATCH_SIZE;
-		}
-		$this->output( "flaggedimages columns update complete ... [{$nulled} fixed]\n" );
 	}
 }
 

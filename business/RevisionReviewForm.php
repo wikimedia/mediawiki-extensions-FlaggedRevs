@@ -24,10 +24,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	private $refid = 0;
 	/** @var string Included template versions (flat string) */
 	private $templateParams = '';
-	/** @var string Included file versions (flat string) */
-	private $imageParams = '';
-	/** @var string File page file version (flat string) */
-	private $fileVersion = '';
 	/** @var string Parameter key */
 	private $validatedParams = '';
 	/** @var string Review comments */
@@ -142,20 +138,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	/**
 	 * @param string $value
 	 */
-	public function setFileParams( $value ) {
-		$this->trySet( $this->imageParams, $value );
-	}
-
-	/**
-	 * @param string $value
-	 */
-	public function setFileVersion( $value ) {
-		$this->trySet( $this->fileVersion, $value );
-	}
-
-	/**
-	 * @param string $value
-	 */
 	public function setValidatedParams( $value ) {
 		$this->trySet( $this->validatedParams, $value );
 	}
@@ -258,11 +240,9 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			if ( in_array( 0, $this->dims, true ) ) {
 				return 'review_too_low';
 			}
-			# Special token to discourage fiddling with templates/files...
+			# Special token to discourage fiddling with templates...
 			if ( !$this->skipValidationKey ) {
-				$k = self::validationKey(
-					$this->templateParams, $this->imageParams, $this->fileVersion,
-					$this->oldid, $this->sessionKey );
+				$k = self::validationKey( $this->templateParams, $this->oldid, $this->sessionKey );
 				if ( $this->validatedParams !== $k ) {
 					return 'review_bad_key';
 				}
@@ -512,32 +492,15 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	) {
 		# Revision rating flags
 		$flags = $this->dims;
-		# Our template/file version pointers
-		list( $tmpVersions, $fileVersions ) = $this->getIncludeVersions(
-			$this->templateParams, $this->imageParams
-		);
-		# If this is an image page, store corresponding file info
-		$fileData = [ 'name' => null, 'timestamp' => null, 'sha1' => null ];
-		if ( $this->page->getNamespace() === NS_FILE && $this->fileVersion ) {
-			# Stable upload version for file pages...
-			$data = explode( '#', $this->fileVersion, 2 );
-			if ( count( $data ) == 2 ) {
-				$fileData['name'] = $this->page->getDBkey();
-				$fileData['timestamp'] = $data[0];
-				$fileData['sha1'] = $data[1];
-			}
-		}
-
+		# Our template version pointers
+		$tmpVersions = $this->getIncludeVersions( $this->templateParams );
 		# Get current stable version ID (for logging)
 		$oldSv = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
 
 		# Is this a duplicate review?
 		if ( $oldFrev &&
 			$oldFrev->getTags() == $flags && // tags => quality
-			$oldFrev->getFileSha1() == $fileData['sha1'] &&
-			$oldFrev->getFileTimestamp() == $fileData['timestamp'] &&
-			$oldFrev->getTemplateVersions( FR_MASTER ) == $tmpVersions &&
-			$oldFrev->getFileVersions( FR_MASTER ) == $fileVersions
+			$oldFrev->getTemplateVersions( FR_MASTER ) == $tmpVersions
 		) {
 			return; // don't record if the same
 		}
@@ -549,11 +512,11 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			'timestamp'         => wfTimestampNow(),
 			'quality'           => FR_CHECKED,
 			'tags'              => FlaggedRevision::flattenRevisionTags( $flags ),
-			'img_name'          => $fileData['name'],
-			'img_timestamp'     => $fileData['timestamp'],
-			'img_sha1'          => $fileData['sha1'],
+			'img_name'          => null,
+			'img_timestamp'     => null,
+			'img_sha1'          => null,
 			'templateVersions'  => $tmpVersions,
-			'fileVersions'      => $fileVersions,
+			'fileVersions'      => [],
 			'flags'             => ''
 		] );
 		# Delete the old review entry if it exists...
@@ -622,19 +585,17 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	}
 
 	/**
-	 * Get a validation key from template/file versioning metadata
+	 * Get a validation key from template versioning metadata
 	 * @param string $tmpP
-	 * @param string $imgP
-	 * @param string $imgV
 	 * @param int $revisionId
 	 * @param string $sessKey Session key
 	 * @return string
 	 */
-	public static function validationKey( $tmpP, $imgP, $imgV, $revisionId, $sessKey ) {
+	public static function validationKey( $tmpP, $revisionId, $sessKey ) {
 		global $wgSecretKey;
 		$key = md5( $wgSecretKey );
 		$keyBits = $key[3] . $key[9] . $key[13] . $key[19] . $key[26];
-		return md5( "{$imgP}{$tmpP}{$imgV}{$revisionId}{$sessKey}{$keyBits}" );
+		return md5( "{$tmpP}{$revisionId}{$sessKey}{$keyBits}" );
 	}
 
 	/**
@@ -700,22 +661,13 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	}
 
 	/**
-	 * Get template and image parameters from parser output to use on forms.
+	 * Get template parameters from parser output to use on forms.
 	 * @param int[][] $templateIds {@see ParserOutput::$mTemplateIds} or
 	 *  {@see OutputPage::$mTemplateIds}
-	 * @param array[] $fileSha1Keys array with [ time, sha1 ] elements,
-	 *  {@see ParserOutput::$mFileSearchOptions} or {@see OutputPage::$mImageTimeKeys}
-	 * @param string[]|false $fileVersion Version of file for File: pages (time, sha1)
-	 * @return string[] [ templateParams, imageParams, fileVersion ]
+	 * @return string templateParams
 	 */
-	public static function getIncludeParams(
-		array $templateIds,
-		array $fileSha1Keys,
-		$fileVersion
-	) {
+	public static function getIncludeParams( array $templateIds ) {
 		$templateParams = '';
-		$imageParams = '';
-		$fileParam = '';
 		# NS -> title -> rev ID mapping
 		foreach ( $templateIds as $namespace => $t ) {
 			foreach ( $t as $dbKey => $revId ) {
@@ -723,28 +675,16 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 				$templateParams .= $temptitle->getPrefixedDBkey() . "|" . $revId . "#";
 			}
 		}
-		# Image -> timestamp -> sha1 mapping
-		foreach ( $fileSha1Keys as $dbKey => $timeAndSHA1 ) {
-			$imageParams .= $dbKey . "|" . $timeAndSHA1['time'] . "|" . $timeAndSHA1['sha1'] . "#";
-		}
-		# For File: pages, note the displayed image version
-		if ( is_array( $fileVersion ) ) {
-			$fileParam = $fileVersion['time'] . "#" . $fileVersion['sha1'];
-		}
-		return [ $templateParams, $imageParams, $fileParam ];
+		return $templateParams;
 	}
 
 	/**
-	 * Get template and image versions from form value for parser output.
+	 * Get template versions from form value for parser output.
 	 * @param string $templateParams
-	 * @param string $imageParams
-	 * @return array[] [ templateIds, fileSha1Keys ], where
-	 *  - templateIds is an int[][] array, {@see ParserOutput::$mTemplateIds} or
+	 * @return int[][] {@see ParserOutput::$mTemplateIds} or
 	 *    {@see OutputPage::$mTemplateIds}
-	 *  - fileSha1Keys is an array with [ time, sha1 ] elements,
-	 *    {@see ParserOutput::$mFileSearchOptions} or {@see OutputPage::$mImageTimeKeys}
 	 */
-	private function getIncludeVersions( $templateParams, $imageParams ) {
+	private function getIncludeVersions( $templateParams ) {
 		$templateIds = [];
 		$templateMap = explode( '#', trim( $templateParams ) );
 		foreach ( $templateMap as $template ) {
@@ -763,29 +703,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			}
 			$templateIds[$tmp_title->getNamespace()][$tmp_title->getDBkey()] = $rev_id;
 		}
-		# Our image version pointers
-		$fileSha1Keys = [];
-		$imageMap = explode( '#', trim( $imageParams ) );
-		foreach ( $imageMap as $image ) {
-			if ( !$image ) {
-				continue;
-			}
-			$m = explode( '|', $image, 3 );
-			# Expand our parameters ... <name>#<timestamp>#<key>
-			if ( !isset( $m[2] ) || !$m[0] ) {
-				continue;
-			}
-			list( $dbkey, $time, $key ) = $m;
-			# Get the file title
-			$img_title = Title::makeTitle( NS_FILE, $dbkey ); // Normalize
-			if ( $img_title === null ) {
-				continue; // Page must be valid!
-			}
-			$fileSha1Keys[$img_title->getDBkey()] = [
-				'time' => $time ?: false,
-				'sha1' => $key ?: false,
-			];
-		}
-		return [ $templateIds, $fileSha1Keys ];
+
+		return $templateIds;
 	}
 }

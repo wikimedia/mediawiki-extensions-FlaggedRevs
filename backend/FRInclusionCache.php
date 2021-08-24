@@ -5,21 +5,19 @@ use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 
 /**
- * Class containing draft template/file version usage for
+ * Class containing draft template version usage for
  * Parser based on the source text of a revision ID & title.
  */
 class FRInclusionCache {
 	/**
-	 * Get template and image versions from parsing a revision
+	 * Get template versions from parsing a revision
 	 * @param WikiPage $wikiPage
 	 * @param RevisionRecord $revRecord
 	 * @param User $user
 	 * @param string $regen use 'regen' to force regeneration
-	 * @return array[] [ templateIds, fileSha1Keys ], where
+	 * @return array[] [ templateIds ], where
 	 *  - templateIds is an int[][] array, {@see ParserOutput::$mTemplateIds} or
 	 *    {@see OutputPage::$mTemplateIds}
-	 *  - fileSha1Keys is an array with [ time, sha1 ] elements,
-	 *    {@see ParserOutput::$mFileSearchOptions} or {@see OutputPage::$mImageTimeKeys}
 	 */
 	public static function getRevIncludes(
 		WikiPage $wikiPage,
@@ -61,8 +59,8 @@ class FRInclusionCache {
 				}
 			}
 
-			# Get the template/file versions used...
-			return [ $pOut->getTemplateIds(), $pOut->getFileSearchOptions() ];
+			# Get the template versions used...
+			return [ $pOut->getTemplateIds() ];
 		};
 
 		if ( $regen === 'regen' ) {
@@ -78,8 +76,8 @@ class FRInclusionCache {
 				// Also, we don't care if page_touched changed due to a direct edit.
 				$touchedCallback = function ( $oldValue ) {
 					// Sanity check that the cache is reasonably up to date
-					list( $templates, $files ) = $oldValue;
-					if ( self::templatesStale( $templates ) || self::filesStale( $files ) ) {
+					$templates = $oldValue[0];
+					if ( self::templatesStale( $templates ) ) {
 						// Treat value as if it just expired
 						return time();
 					}
@@ -124,29 +122,7 @@ class FRInclusionCache {
 	}
 
 	/**
-	 * @param array[] $fVersions
-	 * @return bool
-	 */
-	private static function filesStale( array $fVersions ) {
-		$repoGroup = MediaWikiServices::getInstance()->getRepoGroup();
-		# Check if any of these files have a newer version
-		foreach ( $fVersions as $name => $timeAndSHA1 ) {
-			$file = $repoGroup->findFile( $name );
-			if ( $file ) {
-				if ( $file->getTimestamp() != $timeAndSHA1['time'] ) {
-					return true;
-				}
-			} else {
-				if ( $timeAndSHA1['time'] ) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-
-	/**
-	 * Set the cache of template and image versions from parsing a revision
+	 * Set the cache of template versions from parsing a revision
 	 * @param Title $title
 	 * @param int $revId
 	 * @param ParserOutput $pOut
@@ -154,8 +130,8 @@ class FRInclusionCache {
 	public static function setRevIncludes( Title $title, $revId, ParserOutput $pOut ) {
 		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		$key = self::getCacheKey( $cache, $title, $revId );
-		# Get the template/file versions used...
-		$versions = [ $pOut->getTemplateIds(), $pOut->getFileSearchOptions() ];
+		# Get the template versions used...
+		$versions = [ $pOut->getTemplateIds() ];
 		# Save to cache (check cache expiry for dynamic elements)...
 		$cache->set( $key, $versions, $pOut->getCacheExpiry() );
 	}

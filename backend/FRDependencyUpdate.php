@@ -13,8 +13,6 @@ class FRDependencyUpdate {
 	private $sLinks;
 	/** @var int[][] */
 	private $sTemplates;
-	/** @var int[] */
-	private $sImages;
 	/** @var string[] */
 	private $sCategories;
 
@@ -32,7 +30,6 @@ class FRDependencyUpdate {
 		# Stable version links
 		$this->sLinks = $stableOutput->getLinks();
 		$this->sTemplates = $stableOutput->getTemplates();
-		$this->sImages = $stableOutput->getImages();
 		$this->sCategories = $stableOutput->getCategories();
 	}
 
@@ -48,13 +45,6 @@ class FRDependencyUpdate {
 				if ( !isset( $cLinks[$ns][$title] ) ) {
 					$this->addDependency( $deps, $ns, $title );
 				}
-			}
-		}
-		# Get any images that are only in the stable version...
-		$cImages = $this->getCurrentVersionImages();
-		foreach ( $this->sImages as $image => $n ) {
-			if ( !isset( $cImages[$image] ) ) {
-				$this->addDependency( $deps, NS_FILE, $image );
 			}
 		}
 		# Get any templates that are only in the stable version...
@@ -226,21 +216,6 @@ class FRDependencyUpdate {
 			$arr[$row->tl_namespace][$row->tl_title] = 1;
 		}
 		return $arr;
-	}
-
-	/**
-	 * Get an array of existing images, image names in the keys
-	 * @return int[] (dbKey => 1)
-	 */
-	private function getCurrentVersionImages() {
-		$dbr = wfGetDB( DB_REPLICA );
-		$fileNames = $dbr->selectFieldValues(
-			'imagelinks',
-			'il_to',
-			[ 'il_from' => $this->title->getArticleID() ],
-			__METHOD__
-		);
-		return array_fill_keys( $fileNames, 1 );
 	}
 
 	/**

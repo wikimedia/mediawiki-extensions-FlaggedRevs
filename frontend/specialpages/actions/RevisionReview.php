@@ -78,8 +78,6 @@ class RevisionReview extends UnlistedSpecialPage {
 		$form->setRefId( $request->getInt( 'refid' ) );
 		# Special parameter mapping
 		$form->setTemplateParams( $request->getVal( 'templateParams' ) );
-		$form->setFileParams( $request->getVal( 'imageParams' ) );
-		$form->setFileVersion( $request->getVal( 'fileVersion' ) );
 		# Special token to discourage fiddling...
 		$form->setValidatedParams( $request->getVal( 'validatedParams' ) );
 		# Conflict handling
@@ -271,12 +269,6 @@ class RevisionReview extends UnlistedSpecialPage {
 					break;
 				case "templateParams":
 					$form->setTemplateParams( $val );
-					break;
-				case "imageParams":
-					$form->setFileParams( $val );
-					break;
-				case "fileVersion":
-					$form->setFileVersion( $val );
 					break;
 				case "wpApprove":
 					$form->setApprove( $val );

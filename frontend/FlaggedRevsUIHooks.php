@@ -189,24 +189,6 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ImagePageFindFile
-	 *
-	 * @param ImagePage $imagePage
-	 * @param File|false &$normalFile
-	 * @param File|false &$displayFile
-	 */
-	public static function onImagePageFindFile( $imagePage, &$normalFile, &$displayFile ) {
-		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
-			return;
-		}
-
-		if ( FlaggablePageView::globalArticleInstance() !== null ) {
-			$view = FlaggablePageView::singleton();
-			$view->imagePageFindFile( $normalFile, $displayFile );
-		}
-	}
-
-	/**
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SkinTemplateNavigation
 	 *
 	 * Vector et al: $links is all the tabs (2 levels)
@@ -835,42 +817,6 @@ class FlaggedRevsUIHooks {
 		$link = $ctx->msg( $msg, $title->getPrefixedDBkey(), $row->rev_id, $name )->parse();
 		$link = "<span class='$css plainlinks'>[$link]</span>";
 		return [ $link, $liCss ];
-	}
-
-	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ImagePageFileHistoryLine
-	 *
-	 * @param ImageHistoryList $hist
-	 * @param File $file
-	 * @param string &$s
-	 * @param string|null &$rowClass
-	 */
-	public static function addToFileHistLine( $hist, File $file, &$s, &$rowClass ) {
-		if (
-			defined( 'MW_HTML_FOR_DUMP' )
-			|| !$file->isVisible() // Don't bother showing notice for deleted revs
-		) {
-			return;
-		}
-		# Quality level for old versions selected all at once.
-		# Commons queries cannot be done all at once...
-		if ( !$file->isOld() || !$file->isLocal() ) {
-			$dbr = wfGetDB( DB_REPLICA );
-			$rev_id = $dbr->selectField( 'flaggedrevs', 'fr_rev_id',
-				[ 'fr_img_sha1' => $file->getSha1(),
-					'fr_img_timestamp' => $dbr->timestamp( $file->getTimestamp() ) ],
-				__METHOD__
-			);
-			// Check if the row exist
-			$quality = $rev_id ? FR_CHECKED : false;
-		} else {
-			// FIXME: To what does this quality/getQuality() property/method refer to?
-			$quality = $file->quality === null ? false : $file->quality;
-		}
-		# If reviewed, class the line
-		if ( $quality !== false ) {
-			$rowClass = FlaggedRevsXML::getQualityColor( $quality );
-		}
 	}
 
 	/**

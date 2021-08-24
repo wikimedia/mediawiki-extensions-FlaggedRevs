@@ -22,8 +22,6 @@ class FlaggableWikiPage extends WikiPage {
 	private $pageConfig = null;
 	/** @var bool|null */
 	private $syncedInTracking = null;
-	/** @var File|false|null For file pages */
-	private $file = null;
 
 	/**
 	 * Get a FlaggableWikiPage for a given title
@@ -61,20 +59,7 @@ class FlaggableWikiPage extends WikiPage {
 		$this->pendingRevCount = null;
 		$this->pageConfig = null;
 		$this->syncedInTracking = null;
-		$this->file = null;
 		parent::clear(); // call super!
-	}
-
-	/**
-	 * Get the current file version (null if this not a File page)
-	 * @return File|false|null
-	 */
-	public function getFile() {
-		if ( $this->file === null && $this->mTitle->getNamespace() === NS_FILE ) {
-			$this->file = MediaWikiServices::getInstance()->getRepoGroup()
-				->findFile( $this->mTitle );
-		}
-		return $this->file;
 	}
 
 	/**
@@ -198,12 +183,6 @@ class FlaggableWikiPage extends WikiPage {
 		# Stable text revision must be the same as the current
 		if ( $this->revsArePending() ) {
 			return false;
-		# Stable file revision must be the same as the current
-		} elseif ( $this->mTitle->getNamespace() === NS_FILE ) {
-			$file = $this->getFile(); // current upload version
-			if ( $file && $file->getTimestamp() > $srev->getFileTimestamp() ) {
-				return false;
-			}
 		}
 		# If using the current version of includes, there is nothing else to check.
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
@@ -217,15 +196,10 @@ class FlaggableWikiPage extends WikiPage {
 			$wgParserCacheExpireTime,
 			static function () use ( $srev ) {
 				# Since the stable and current revisions have the same text and only outputs, the
-				# only other things to check for are template and file differences in the output.
-				# (a) Check if the current output has a newer template/file used
-				# (b) Check if the stable version has a file/template that was deleted
-				$synced = (
-					!$srev->findPendingTemplateChanges() &&
-					!$srev->findPendingFileChanges()
-				);
-
-				return $synced ? 1 : 0;
+				# only other things to check for are template differences in the output.
+				# (a) Check if the current output has a newer template used
+				# (b) Check if the stable version has a template that was deleted
+				return ( !$srev->findPendingTemplateChanges() ) ? 1 : 0;
 			},
 			[
 				'touchedCallback' => function () {
@@ -236,10 +210,10 @@ class FlaggableWikiPage extends WikiPage {
 	}
 
 	/**
-	 * Are template/file changes and ONLY template/file changes pending?
+	 * Are template changes and ONLY template changes pending?
 	 * @return bool
 	 */
-	public function onlyTemplatesOrFilesPending() {
+	public function onlyTemplatesPending() {
 		return ( !$this->revsArePending() && !$this->stableVersionIsSynced() );
 	}
 
@@ -485,8 +459,7 @@ class FlaggableWikiPage extends WikiPage {
 		# Get the new page sync status...
 		$synced = !(
 			$nextTimestamp !== null || // edits pending
-			$srev->findPendingTemplateChanges() || // template changes pending
-			$srev->findPendingFileChanges() // file changes pending
+			$srev->findPendingTemplateChanges() // template changes pending
 		);
 		# Alter table metadata
 		$dbw->replace(

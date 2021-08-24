@@ -31,7 +31,7 @@ use MediaWiki\MediaWikiServices;
 class ApiReviewActivity extends ApiBase {
 	/**
 	 * This function does essentially the same as RevisionReview::AjaxReview,
-	 * except that it generates the template and image parameters itself.
+	 * except that it generates the template parameters itself.
 	 */
 	public function execute() {
 		$user = $this->getUser();

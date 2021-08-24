@@ -17,12 +17,8 @@ class RevisionReviewFormUI {
 	private $topNotice = '';
 	/** @var string */
 	private $bottomNotice = '';
-	/** @var string[]|false|null */
-	private $fileVersion = null;
 	/** @var int[][]|null */
 	private $templateIds = null;
-	/** @var array[]|null */
-	private $fileSha1Keys = null;
 	/** @var WebRequest */
 	private $request;
 	/** @var OutputPage */
@@ -77,21 +73,11 @@ class RevisionReviewFormUI {
 	}
 
 	/**
-	 * Set the file version parameters of what the user is viewing
-	 * @param string[]|null $version ('time' => MW timestamp, 'sha1' => sha1)
-	 */
-	public function setFileVersion( $version ) {
-		$this->fileVersion = is_array( $version ) ? $version : false;
-	}
-
-	/**
-	 * Set the template/file version parameters of what the user is viewing
+	 * Set the template version parameters of what the user is viewing
 	 * @param int[][] $templateIds
-	 * @param array[] $fileSha1Keys
 	 */
-	public function setIncludeVersions( array $templateIds, array $fileSha1Keys ) {
+	public function setIncludeVersions( array $templateIds ) {
 		$this->templateIds = $templateIds;
-		$this->fileSha1Keys = $fileSha1Keys;
 	}
 
 	/**
@@ -129,7 +115,7 @@ class RevisionReviewFormUI {
 			if ( !FlaggedRevs::userCanSetFlags( $this->user, $oldFlags ) ) {
 				$flags = $oldFlags;
 			}
-			# Re-review button is need for template/file only review case
+			# Re-review button is need for template only review case
 			$reviewIncludes = ( $srev->getRevId() == $revId && !$article->stableVersionIsSynced() );
 		} else { // views
 			$flags = $oldFlags;
@@ -237,13 +223,10 @@ class RevisionReviewFormUI {
 		# Show explanatory text
 		$form .= $this->bottomNotice;
 
-		# Get the file version used for File: pages as needed
-		$fileKey = $this->getFileVersion();
-		# Get template/file version info as needed
-		[ $templateIds, $fileSha1Keys ] = $this->getIncludeVersions();
+		# Get template version info as needed
+		$templateIds = $this->getIncludeVersions();
 		# Convert these into flat string params
-		[ $templateParams, $imageParams, $fileVersion ] =
-			RevisionReviewForm::getIncludeParams( $templateIds, $fileSha1Keys, $fileKey );
+		$templateParams = RevisionReviewForm::getIncludeParams( $templateIds );
 
 		# Hidden params
 		$form .= Html::hidden( 'title', $reviewTitle->getPrefixedText() ) . "\n";
@@ -257,13 +240,9 @@ class RevisionReviewFormUI {
 			[ 'id' => 'mw-fr-user-reviewing' ] ) . "\n"; // id for JS
 		# Add review parameters
 		$form .= Html::hidden( 'templateParams', $templateParams ) . "\n";
-		$form .= Html::hidden( 'imageParams', $imageParams ) . "\n";
-		$form .= Html::hidden( 'fileVersion', $fileVersion ) . "\n";
 		# Special token to discourage fiddling...
 		$key = $this->request->getSessionData( 'wsFlaggedRevsKey' );
-		$checkCode = RevisionReviewForm::validationKey(
-			$templateParams, $imageParams, $fileVersion, $revId, $key
-		);
+		$checkCode = RevisionReviewForm::validationKey( $templateParams, $revId, $key );
 		$form .= Html::hidden( 'validatedParams', $checkCode ) . "\n";
 
 		$form .= Xml::closeElement( 'fieldset' ) . "\n";
@@ -435,7 +414,7 @@ class RevisionReviewFormUI {
 		$disAttrib = [ 'disabled' => 'disabled' ];
 		# ACCEPT BUTTON: accept a revision
 		# We may want to re-review to change:
-		# (a) notes (b) tags (c) pending template/file changes
+		# (a) notes (b) tags (c) pending template changes
 		if ( FlaggedRevs::binaryFlagging() ) { // just the buttons
 			$applicable = ( !$frev || $reviewIncludes ); // no tags/notes
 			$needsChange = false; // no state change possible
@@ -483,26 +462,14 @@ class RevisionReviewFormUI {
 	}
 
 	/**
-	 * @return string[]|false
-	 */
-	private function getFileVersion() {
-		if ( $this->fileVersion === null ) {
-			throw new Exception(
-				"File page file version not provided to review form; call setFileVersion()."
-			);
-		}
-		return $this->fileVersion;
-	}
-
-	/**
 	 * @return array[]
 	 */
 	private function getIncludeVersions() {
-		if ( $this->templateIds === null || $this->fileSha1Keys === null ) {
+		if ( $this->templateIds === null ) {
 			throw new Exception(
-				"Template or file versions not provided to review form; call setIncludeVersions()."
+				"Template versions not provided to review form; call setIncludeVersions()."
 			);
 		}
-		return [ $this->templateIds, $this->fileSha1Keys ];
+		return $this->templateIds;
 	}
 }
