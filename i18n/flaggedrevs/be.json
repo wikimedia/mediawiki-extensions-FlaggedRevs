@@ -56,7 +56,7 @@
 	"revreview-hist-draft": "недагледжаная версія",
 	"revreview-hist-pending": "чакае догляду",
 	"revreview-hist-basic": "дагледжаная версія",
-	"revreview-hist-basic-user": "дагледжана {{GENDER:$3|удзельнікам|удзельніцай}} [[User:$3|$3]]",
+	"revreview-hist-basic-user": "дагледжана {{GENDER:$3|ўдзельнікам|ўдзельніцай}} [[User:$3|$3]]",
 	"revreview-hist-basic-auto": "аўтаматычна дагледжана",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} чакае догляду]]'''",
 	"review-edit-diff": "'''ЗАЎВАГА. Да вобласці старонкі, якую вы правіце, адносяцца некаторыя праўкі, якія чакаюць догляду.'''",
