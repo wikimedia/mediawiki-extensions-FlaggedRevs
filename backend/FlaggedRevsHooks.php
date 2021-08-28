@@ -590,7 +590,7 @@ class FlaggedRevsHooks {
 		$dbw = wfGetDB( DB_PRIMARY );
 		# Such a revert requires 1+ revs between it and the stable
 		$revWhere = ActorMigration::newMigration()->getWhere( $dbw, 'rev_user', $user );
-		$revertedRevs = $dbw->selectField(
+		$revertedRevs = (bool)$dbw->selectField(
 			[ 'revision' ] + $revWhere['tables'],
 			'1',
 			[
@@ -607,7 +607,7 @@ class FlaggedRevsHooks {
 			return false; // can't be a revert
 		}
 		# Check that this user is ONLY reverting his/herself.
-		$otherUsers = $dbw->selectField(
+		$otherUsers = (bool)$dbw->selectField(
 			[ 'revision' ] + $revWhere['tables'],
 			'1',
 			[

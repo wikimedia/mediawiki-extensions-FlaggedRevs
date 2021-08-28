@@ -443,8 +443,7 @@ class FlaggedRevision {
 	public function getTemplateVersions( $flags = 0 ) {
 		if ( $this->mTemplates == null ) {
 			$this->mTemplates = [];
-			$db = ( $flags & FR_MASTER ) ?
-				wfGetDB( DB_PRIMARY ) : wfGetDB( DB_REPLICA );
+			$db = wfGetDB( ( $flags & FR_MASTER ) ? DB_PRIMARY : DB_REPLICA );
 			$res = $db->select( 'flaggedtemplates',
 				[ 'ft_namespace', 'ft_title', 'ft_tmp_rev_id' ],
 				[ 'ft_rev_id' => $this->getRevId() ],
@@ -466,8 +465,7 @@ class FlaggedRevision {
 	public function getStableTemplateVersions( $flags = 0 ) {
 		if ( $this->mStableTemplates == null ) {
 			$this->mStableTemplates = [];
-			$db = ( $flags & FR_MASTER ) ?
-				wfGetDB( DB_PRIMARY ) : wfGetDB( DB_REPLICA );
+			$db = wfGetDB( ( $flags & FR_MASTER ) ? DB_PRIMARY : DB_REPLICA );
 			$res = $db->select(
 				[ 'flaggedtemplates', 'page', 'flaggedpages' ],
 				[ 'ft_namespace', 'ft_title', 'fp_stable' ],
@@ -633,10 +631,8 @@ class FlaggedRevision {
 	 * Get quality of a revision
 	 */
 	public static function getRevQuality( $rev_id, $flags = 0 ) {
-		$db = ( $flags & FR_MASTER ) ?
-			wfGetDB( DB_PRIMARY ) : wfGetDB( DB_REPLICA );
-		$exists = $db->selectField( 'flaggedrevs',
-			'1',
+		$db = wfGetDB( ( $flags & FR_MASTER ) ? DB_PRIMARY : DB_REPLICA );
+		$exists = (bool)$db->selectField( 'flaggedrevs', '1',
 			[ 'fr_rev_id' => $rev_id ],
 			__METHOD__
 		);
