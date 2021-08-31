@@ -41,7 +41,7 @@
 	"revreview-submit-reject": "Lükka muudatused tagasi",
 	"revreview-submit-reviewed": "Tehtud ja heaks kiidetud!",
 	"revreview-submit-unreviewed": "Tehtud ja tagasi lükatud!",
-	"revreview-successful": "'''Lehekülje [[:$1|$1]] redaktsioon vaadatud. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vaata ülevaadatud versioone])'''",
+	"revreview-successful": "'''Lehekülje [[:$1|$1]] redaktsioon vaadatud.'''",
 	"revreview-successful2": "'''Lehekülje [[:$1|$1]] redaktsioonilt vaatamismärkus eemaldatud.'''",
 	"revreview-poss-conflict-p": "'''Hoiatus: [[User:$1|$1]] hakkas seda lehekülge üle vaatama ($2, kell $3).'''",
 	"revreview-poss-conflict-c": "'''Hoiatus: [[User:$1|$1]] hakkas neid muudatusi üle vaatama ($2, kell $3).'''",
