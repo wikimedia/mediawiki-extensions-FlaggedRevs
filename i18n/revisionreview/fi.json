@@ -7,6 +7,7 @@
 			"Mies",
 			"Nedergard",
 			"Nike",
+			"Nwme",
 			"Olli",
 			"Pxos",
 			"Str4nd"
@@ -51,7 +52,7 @@
 	"revreview-submit-reject": "Hylkää muutokset",
 	"revreview-submit-reviewed": "Valmis. Hyväksytty!",
 	"revreview-submit-unreviewed": "Valmis. Arviointi poistettu!",
-	"revreview-successful": "'''Sivun [[:$1|$1]] versio on arvioitu. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} näytä arvioidut versiot])'''",
+	"revreview-successful": "'''Sivun [[:$1|$1]] versio on arvioitu.'''",
 	"revreview-successful2": "'''Sivun [[:$1|$1]] version arviointimerkintä on poistettu.'''",
 	"revreview-poss-conflict-p": "'''Varoitus: Käyttäjä [[User:$1|$1]] on aloittanut tämän sivun arvioinnin $2 kello $3.'''",
 	"revreview-poss-conflict-c": "'''Varoitus: Käyttäjä [[User:$1|$1]] on aloittanut näiden muutosten arvioinnin $2 kello $3.'''",
