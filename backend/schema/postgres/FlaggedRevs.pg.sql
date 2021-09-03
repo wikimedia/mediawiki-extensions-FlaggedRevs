@@ -53,14 +53,6 @@ CREATE TABLE flaggedtemplates (
   PRIMARY KEY (ft_rev_id,ft_namespace,ft_title)
 );
 
-CREATE TABLE flaggedimages (
-  fi_rev_id         BIGINT      NOT NULL DEFAULT 0,
-  fi_name           TEXT        NOT NULL DEFAULT '',
-  fi_img_timestamp  TIMESTAMPTZ NULL DEFAULT NULL,
-  fi_img_sha1       CHAR(64)    NOT NULL DEFAULT '',
-  PRIMARY KEY (fi_rev_id,fi_name)
-);
-
 CREATE TABLE flaggedpage_config (
   fpc_page_id   BIGINT       NOT NULL PRIMARY KEY DEFAULT 0,
   fpc_select    INTEGER      NOT NULL,

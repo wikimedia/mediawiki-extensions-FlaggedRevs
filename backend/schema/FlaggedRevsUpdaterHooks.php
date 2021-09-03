@@ -11,6 +11,7 @@ class FlaggedRevsUpdaterHooks {
 	 */
 	public static function addSchemaUpdates( DatabaseUpdater $du ) {
 		$dbType = $du->getDB()->getType();
+		$du->dropExtensionTable( 'flaggedimages' );
 
 		if ( $dbType == 'mysql' ) {
 			$base = __DIR__ . '/mysql';

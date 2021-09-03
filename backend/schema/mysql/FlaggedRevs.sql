@@ -87,19 +87,6 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedtemplates (
   PRIMARY KEY (ft_rev_id,ft_namespace,ft_title)
 ) /*$wgDBTableOptions*/;
 
--- This stores all of our image revision pointers
-CREATE TABLE IF NOT EXISTS /*_*/flaggedimages (
-  fi_rev_id integer unsigned NOT NULL,
-  -- Name of included image
-  fi_name varchar(255) binary NOT NULL default '',
-  -- Timestamp of image used when reviewed
-  fi_img_timestamp varbinary(14) NULL,
-  -- Statistically unique SHA-1 key
-  fi_img_sha1 varbinary(32) NOT NULL default '',
-
-  PRIMARY KEY (fi_rev_id,fi_name)
-) /*$wgDBTableOptions*/;
-
 -- This stores settings on how to select the stable/default revision
 CREATE TABLE IF NOT EXISTS /*_*/flaggedpage_config (
   -- Foreign key to page.page_id
