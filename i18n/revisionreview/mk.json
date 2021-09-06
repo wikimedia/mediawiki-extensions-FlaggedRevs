@@ -46,7 +46,7 @@
 	"revreview-submit-reject": "Одбиј промени",
 	"revreview-submit-reviewed": "Готово. Одобрено!",
 	"revreview-submit-unreviewed": "Готово. Тргнато одобрение!",
-	"revreview-successful": "'''Преработката  на [[:$1|$1]] e означена. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} прегледани верзии])'''",
+	"revreview-successful": "'''Преработката  на [[:$1|$1]] e означена.",
 	"revreview-successful2": "'''Отстранета ознака од преработката на [[:$1|$1]].'''",
 	"revreview-poss-conflict-p": "'''Предупредување: [[User:$1|$1]] почна да ја проверува страницава на $2 во $3 ч.'''",
 	"revreview-poss-conflict-c": "'''Предупредување: [[User:$1|$1]] почна да ги проверува промениве на $2 во $3.'''",
