@@ -92,7 +92,7 @@ class FlaggedRevision {
 			return null; // short-circuit
 		}
 		$options = [];
-		# User master/replica as appropriate...
+		# User primary/replica as appropriate...
 		if ( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
 			$db = wfGetDB( DB_PRIMARY );
 			if ( $flags & FR_FOR_UPDATE ) {
@@ -140,7 +140,7 @@ class FlaggedRevision {
 			return null; // short-circuit
 		}
 		$options = [];
-		# User master/replica as appropriate...
+		# User primary/replica as appropriate...
 		if ( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
 			$db = wfGetDB( DB_PRIMARY );
 			if ( $flags & FR_FOR_UPDATE ) {
@@ -219,7 +219,7 @@ class FlaggedRevision {
 			return null; // short-circuit
 		}
 		$options = [];
-		# User master/replica as appropriate...
+		# User primary/replica as appropriate...
 		if ( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
 			$db = wfGetDB( DB_PRIMARY );
 			if ( $flags & FR_FOR_UPDATE ) {

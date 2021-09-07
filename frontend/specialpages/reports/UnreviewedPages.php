@@ -275,7 +275,7 @@ class UnreviewedPages extends SpecialPage {
 			__METHOD__
 		);
 		$dbw->endAtomic( __METHOD__ );
-		$lbFactory->commitMasterChanges( __METHOD__ );
+		$lbFactory->commitPrimaryChanges( __METHOD__ );
 
 		$insertRows = [];
 		// Find pages that were never marked as "quality"...
@@ -313,7 +313,7 @@ class UnreviewedPages extends SpecialPage {
 			[ 'qci_type' => 'fr_unreviewedpages_q', 'qci_timestamp' => $dbw->timestamp() ],
 			__METHOD__ );
 		$dbw->endAtomic( __METHOD__ );
-		$lbFactory->commitMasterChanges( __METHOD__ );
+		$lbFactory->commitPrimaryChanges( __METHOD__ );
 	}
 
 	/**

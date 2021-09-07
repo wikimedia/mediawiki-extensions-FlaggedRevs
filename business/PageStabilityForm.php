@@ -208,7 +208,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	 * @return true|string true on success, error string on failure
 	 */
 	protected function doCheckParameters() {
-		# Load old config settings from the master
+		# Load old config settings from the primary DB
 		$this->oldConfig = FRPageConfig::getStabilitySettings( $this->page, FR_MASTER );
 		if ( $this->expiryCustom != '' ) {
 			// Custom expiry takes precedence

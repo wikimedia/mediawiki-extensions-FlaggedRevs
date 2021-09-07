@@ -728,7 +728,7 @@ class FlaggablePageView extends ContextSource {
 		$this->out->addParserOutput( $parserOut, $poOptions );
 
 		# Update page sync status for tracking purposes.
-		# NOTE: avoids master hits and doesn't have to be perfect for what it does
+		# NOTE: avoids primary hits and doesn't have to be perfect for what it does
 		if ( $this->article->syncedInTracking() != $synced ) {
 			$this->article->lazyUpdateSyncStatus();
 		}
@@ -1299,7 +1299,7 @@ class FlaggablePageView extends ContextSource {
 		}
 		# Hack for bug 16734 (some actions update and view all at once)
 		if ( $this->pageWriteOpRequested() &&
-			MediaWikiServices::getInstance()->getDBLoadBalancer()->hasOrMadeRecentMasterChanges()
+			MediaWikiServices::getInstance()->getDBLoadBalancer()->hasOrMadeRecentPrimaryChanges()
 		) {
 			# Tabs need to reflect the new stable version so users actually
 			# see the results of their action (i.e. "delete"/"rollback")
@@ -1842,7 +1842,7 @@ class FlaggablePageView extends ContextSource {
 		$reqUser = $this->getUser();
 		$this->load();
 		$this->article->loadPageData( FlaggableWikiPage::READ_LATEST );
-		# Get the stable version from the master
+		# Get the stable version from the primary DB
 		$frev = $this->article->getStableRev();
 		if ( !$frev ) {
 			// Only for pages with stable versions
