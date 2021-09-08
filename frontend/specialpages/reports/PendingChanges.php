@@ -227,7 +227,6 @@ class PendingChanges extends SpecialPage {
 	/**
 	 * @param stdClass $row
 	 * @return FeedItem|null
-	 * @suppress SecurityCheck-DoubleEscaped false positive
 	 */
 	private function feedItem( $row ) {
 		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
