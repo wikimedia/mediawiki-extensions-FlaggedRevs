@@ -816,7 +816,7 @@ class FlaggablePageView extends ContextSource {
 		$rightNote = "<span class='$rClass'>[" .
 			$this->msg( 'revreview-hist-pending' )->escaped() . "]</span>";
 		# Get the actual body of the diff...
-		$diffEngine = new DifferenceEngine( $title, $srev->getRevId(), $latest );
+		$diffEngine = new DifferenceEngine( $this, $srev->getRevId(), $latest );
 		$diffBody = $diffEngine->getDiffBody();
 		if ( strlen( $diffBody ) > 0 ) {
 			$nEdits = $revsSince - 1; // full diff-to-stable, no need for query
@@ -1027,7 +1027,7 @@ class FlaggablePageView extends ContextSource {
 					$text = MediaWikiServices::getInstance()->getParser()->getSection( $text, $section );
 				}
 				if ( $text !== false && strcmp( $text, $editPage->textbox1 ) !== 0 ) {
-					$diffEngine = new DifferenceEngine( $this->article->getTitle() );
+					$diffEngine = new DifferenceEngine( $this );
 					$diffBody = $diffEngine->generateTextDiffBody( $text, $editPage->textbox1 );
 					$diffHtml =
 						$this->msg( 'review-edit-diff' )->parse() . ' ' .
