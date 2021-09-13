@@ -165,7 +165,7 @@
 	"tooltip-ca-current": "Ver esta página com as alterações pendentes",
 	"tooltip-ca-stable": "Ver a versão publicada desta página",
 	"tooltip-ca-default": "Parâmetros da garantia de qualidade",
-	"flaggedrevs-protect-legend": "Revisão automática de edições ([[{{MediaWiki:Validationpage}}|ajuda]])",
+	"flaggedrevs-protect-legend": "Revisão automática de edições",
 	"flaggedrevs-protect-none": "Permitir todos os utilizadores",
 	"flaggedrevs-protect-sysop": "Só permitir administradores",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Páginas não revistas]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Alterações pendentes]",
