@@ -1046,6 +1046,7 @@ class FlaggablePageView extends ContextSource {
 					$html .= '<tr><td>' . $item . '</td></tr>';
 				}
 				$html .= '</table>';
+				// @phan-suppress-next-line SecurityCheck-XSS Possible DiffEngine::generateTextDiffBody
 				$this->out->addHTML( $html );
 			}
 		}

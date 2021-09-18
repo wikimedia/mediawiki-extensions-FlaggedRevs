@@ -114,6 +114,7 @@ class PruneFRIncludeData extends Maintenance {
 					$batchCount += count( $revsClearIncludes ); // # of revs to prune
 					$db->freeResult( $sres );
 					if ( !$revsClearIncludes ) {
+						// @phan-suppress-previous-line PhanPluginRedundantAssignmentInLoop
 						$tDeleted = 0;
 						$fDeleted = 0;
 					} elseif ( $prune ) {

@@ -943,7 +943,6 @@ class FlaggedRevsHooks {
 		// Users with many revisions will only have the last 10k inspected.
 		$lowCutoff = false;
 		if ( $user->getEditCount() > 10000 ) {
-			$lowCutoff = false;
 			foreach ( $queryData as $data ) {
 				$lowCutoff = max( $lowCutoff, $dbr->selectField(
 					$data['tables'],
