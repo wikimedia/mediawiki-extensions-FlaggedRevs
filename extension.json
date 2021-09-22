@@ -62,6 +62,13 @@
 	"APIPropModules": {
 		"flagged": "ApiQueryFlagged"
 	},
+	"RestRoutes": [
+		{
+			"path": "/flaggedrevs/internal/diffheader/{oldId}/{newId}",
+			"method": "GET",
+			"class": "MediaWiki\\Extension\\FlaggedRevs\\Rest\\DiffHeaderHandler"
+		}
+	],
 	"AvailableRights": [
 		"review",
 		"validate",
@@ -241,6 +248,9 @@
 		"FlaggedRevsUIHooks": "frontend/FlaggedRevsUIHooks.php",
 		"FlaggedRevsApiHooks": "api/FlaggedRevsApiHooks.php",
 		"FlaggedRevsUpdaterHooks": "backend/schema/FlaggedRevsUpdaterHooks.php"
+	},
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\FlaggedRevs\\Rest\\": "rest/"
 	},
 	"ResourceModules": {
 		"ext.flaggedRevs.basic": {
