@@ -20,7 +20,7 @@ describe( 'DiffHeaderItems', () => {
 		it( 'diff header response that return html snippet', async () => {
 			const { status: statusCode, headers: headers } = await client.get( `/diffheader/${oldId}/${newId}` );
 			assert.equal( statusCode, 200 );
-			assert.equal( headers[ 'content-type' ], 'text/html' );
+			assert.equal( headers[ 'content-type' ], 'text/html;charset=UTF-8' );
 		} );
 	} );
 } );
