@@ -226,39 +226,6 @@ class RevisionReview extends UnlistedSpecialPage {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:$wgAjaxExportList
-	 *
-	 * @return string
-	 */
-	// phpcs:ignore MediaWiki.NamingConventions.LowerCamelFunctionsName
-	public static function AjaxReview( /*$args...*/ ) {
-		$args = func_get_args();
-		$argsMap = [];
-		if ( wfReadOnly() ) {
-			return '<err#>' . wfMessage( 'revreview-failed' )->parse() .
-				wfMessage( 'revreview-submission-invalid' )->parse();
-		}
-		// Each ajax url argument is of the form param|val.
-		// This means that there is no ugly order dependence.
-		foreach ( $args as $arg ) {
-			$set = explode( '|', $arg, 2 );
-			if ( count( $set ) != 2 ) {
-				return '<err#>' . wfMessage( 'revreview-failed' )->parse() .
-					wfMessage( 'revreview-submission-invalid' )->parse();
-			}
-			list( $par, $val ) = $set;
-			$argsMap[$par] = $val;
-		}
-
-		$result = self::doReview( $argsMap );
-		if ( isset( $result[ 'error-html' ] ) ) {
-			return '<err#>' . $result[ 'error-html' ];
-		} else {
-			return "<suc#><lct#{$result[ 'change-time' ]}>";
-		}
-	}
-
-	/**
 	 * @param array $argsMap
 	 * @return array
 	 */

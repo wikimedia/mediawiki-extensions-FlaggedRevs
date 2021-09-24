@@ -32,8 +32,10 @@ use Wikimedia\ParamValidator\ParamValidator;
 class ApiReview extends ApiBase {
 
 	/**
-	 * This function does essentially the same as RevisionReview::AjaxReview,
-	 * except that it generates the template parameters itself.
+	 * The method checks basic permissions of the user to interact
+	 * with the page. Then it submits the form of the revision on
+	 * approve or unapprove action. It also generates the template
+	 * parameters itself.
 	 */
 	public function execute() {
 		$params = $this->extractRequestParams();

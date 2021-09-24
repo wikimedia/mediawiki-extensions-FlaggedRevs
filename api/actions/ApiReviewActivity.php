@@ -30,8 +30,10 @@ use MediaWiki\MediaWikiServices;
  */
 class ApiReviewActivity extends ApiBase {
 	/**
-	 * This function does essentially the same as RevisionReview::AjaxReview,
-	 * except that it generates the template parameters itself.
+	 * The method checks basic permissions of the user to interact
+	 * with the page. Then it sets the user who is checking the
+	 * revision and make this info visible for other reviewers. It
+	 * also generates the template parameters itself.
 	 */
 	public function execute() {
 		$user = $this->getUser();

@@ -1583,13 +1583,11 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:$wgAjaxExportList
 	 *
-	 * get new diff header items for in-place AJAX page review
+	 * get new diff header items for in-place page review
 	 * @return string
 	 */
-	// phpcs:ignore MediaWiki.NamingConventions.LowerCamelFunctionsName
-	public static function AjaxBuildDiffHeaderItems() {
+	public static function buildDiffHeaderItems() {
 		$args = func_get_args(); // <oldid, newid>
 		if ( count( $args ) >= 2 ) {
 			$oldid = (int)$args[0];
