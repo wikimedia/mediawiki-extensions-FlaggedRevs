@@ -1051,6 +1051,9 @@ class FlaggedRevsHooks {
 		$encCutoff = $dbr->addQuotes( $dbr->timestamp( time() - $seconds ) );
 		# Check all recent content edits...
 		$ct = 0;
+		$contentNamespaces = MediaWikiServices::getInstance()
+			->getNamespaceInfo()
+			->getContentNamespaces();
 		foreach ( $queryData as $data ) {
 			if ( $ct > $limit ) {
 				break;
@@ -1061,7 +1064,7 @@ class FlaggedRevsHooks {
 				[
 					$data['cond'],
 					"{$data['tsField']} > $encCutoff",
-					'page_namespace' => MWNamespace::getContentNamespaces()
+					'page_namespace' => $contentNamespaces
 				],
 				__METHOD__,
 				[ 'LIMIT' => $limit + 1 - $ct, 'USE INDEX' => $data['useIndex'] ],

@@ -28,7 +28,8 @@ class UpdateFRAutoPromote extends Maintenance {
 		global $wgFlaggedRevsAutopromote;
 		$this->output( "Populating and updating flaggedrevs_promote table\n" );
 
-		$revisionStore = MediaWikiServices::getInstance()->getRevisionStore();
+		$services = MediaWikiServices::getInstance();
+		$revisionStore = $services->getRevisionStore();
 		$revQuery = $revisionStore->getQueryInfo();
 		$revPageQuery = $revisionStore->getQueryInfo( [ 'page' ] );
 		$dbr = wfGetDB( DB_REPLICA );
@@ -42,7 +43,8 @@ class UpdateFRAutoPromote extends Maintenance {
 		$count = 0;
 		$changed = 0;
 
-		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+		$lbFactory = $services->getDBLoadBalancerFactory();
+		$contentNamespaces = $services->getNamespaceInfo()->getContentNamespaces();
 
 		for ( $blockStart = (int)$start; $blockStart <= $end; $blockStart += (int)$this->mBatchSize ) {
 			$blockEnd = (int)min( $end, $blockStart + $this->mBatchSize - 1 );
@@ -76,7 +78,7 @@ class UpdateFRAutoPromote extends Maintenance {
 					'1',
 					[
 						$revWhere['conds'],
-						'page_namespace' => MWNamespace::getContentNamespaces() ],
+						'page_namespace' => $contentNamespaces ],
 					__METHOD__,
 					[ 'LIMIT' => max( $wgFlaggedRevsAutopromote['totalContentEdits'], 500 ) ],
 					$revPageQuery['joins']
@@ -88,7 +90,7 @@ class UpdateFRAutoPromote extends Maintenance {
 					'DISTINCT(rev_page)',
 					[
 						$revWhere['conds'],
-						'page_namespace' => MWNamespace::getContentNamespaces() ],
+						'page_namespace' => $contentNamespaces ],
 					__METHOD__,
 					[ 'LIMIT' => max( $wgFlaggedRevsAutopromote['uniqueContentPages'], 50 ) ],
 					$revPageQuery['joins']
