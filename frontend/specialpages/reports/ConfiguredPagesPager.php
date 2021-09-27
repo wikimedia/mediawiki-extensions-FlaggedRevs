@@ -16,7 +16,7 @@ class ConfiguredPagesPager extends AlphabeticPager {
 	/** @var int|null */
 	private $override;
 
-	/** @var string */
+	/** @var string|null */
 	private $autoreview;
 
 	/**

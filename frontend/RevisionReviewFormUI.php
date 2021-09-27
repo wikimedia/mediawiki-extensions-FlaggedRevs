@@ -402,7 +402,7 @@ class RevisionReviewFormUI {
 	/**
 	 * Generates review form submit buttons
 	 * @param int $rejectId left rev ID for "reject" on diffs
-	 * @param FlaggedRevision $frev the flagged revision, if any
+	 * @param FlaggedRevision|null $frev the flagged revision, if any
 	 * @param bool $disabled is the form disabled?
 	 * @param bool $reviewIncludes force the review button to be usable?
 	 * @param OutputPage $out
