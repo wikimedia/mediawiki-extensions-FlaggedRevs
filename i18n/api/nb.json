@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"4ing",
 			"Jeblad",
 			"Jon Harald Søby"
 		]
@@ -29,7 +30,7 @@
 	"apihelp-query+oldreviewedpages-param-start": "Start opplisting på dette tidspunktet.",
 	"apihelp-query+oldreviewedpages-param-end": "Stopp opplistingen på dette tidspunktet.",
 	"apihelp-query+oldreviewedpages-param-maxsize": "Maksimalt endring i antall karakterer.",
-	"apihelp-query+oldreviewedpages-param-filterwatched": "Hvordan filtrere for sider på din overvåkingsliste.",
+	"apihelp-query+oldreviewedpages-param-filterwatched": "Hvordan filtrere for sider på din overvåkningsliste.",
 	"apihelp-query+oldreviewedpages-param-namespace": "Navnerommet som skal listes opp.",
 	"apihelp-query+oldreviewedpages-param-category": "Vis bare sider fra den angitte kategorien.",
 	"apihelp-query+oldreviewedpages-param-filterredir": "Hvordan filtrere på omdirigeringer.",
