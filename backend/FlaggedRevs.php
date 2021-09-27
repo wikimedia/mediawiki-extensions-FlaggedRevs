@@ -545,7 +545,7 @@ class FlaggedRevs {
 			}
 			# Update template version cache...
 			if (
-				$renderedRevision &&
+				$renderedRevision && $renderedId && $renderedOutput &&
 				$sv->getRevId() != $renderedId &&
 				self::inclusionSetting() !== FR_INCLUDES_CURRENT
 			) {

@@ -554,7 +554,7 @@ class FlaggedRevsHooks {
 				->getTimestampFromId( $prevRevId, RevisionLookup::READ_LATEST );
 		}
 		# Was $revRecord an edit to an existing page?
-		if ( $prevTimestamp ) {
+		if ( $prevTimestamp && $prevRevId ) {
 			# Check wpEdittime against the former current revision's time.
 			# If an edit was auto-merged in between, then the new revision
 			# has content different than what the user expected. However, if

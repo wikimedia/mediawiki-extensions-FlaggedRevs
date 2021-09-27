@@ -956,7 +956,7 @@ class FlaggablePageView extends ContextSource {
 				FlaggedRevsXML::diffToggle( $diffUrl );
 		}
 
-		if ( $this->article->onlyTemplatesPending() &&
+		if ( $frev && $this->article->onlyTemplatesPending() &&
 			$this->article->getPendingRevCount() == 0
 		) {
 			$this->setPendingNotice( $frev, '', false );
@@ -1026,7 +1026,7 @@ class FlaggablePageView extends ContextSource {
 				if ( $section !== false ) {
 					$text = MediaWikiServices::getInstance()->getParser()->getSection( $text, $section );
 				}
-				if ( $text !== false && strcmp( $text, $editPage->textbox1 ) !== 0 ) {
+				if ( $text !== null && strcmp( $text, $editPage->textbox1 ) !== 0 ) {
 					$diffEngine = new DifferenceEngine( $this );
 					$diffBody = $diffEngine->generateTextDiffBody( $text, $editPage->textbox1 );
 					$diffHtml =
@@ -1625,7 +1625,7 @@ class FlaggablePageView extends ContextSource {
 		$s .= Html::hidden( 'oldid', $oldRevRecord ? $oldRevRecord->getId() : 0 );
 		$s .= Html::hidden( 'newid', $newRevRecord ? $newRevRecord->getId() : 0 );
 		$s .= "</form>\n";
-		if ( $newRevRecord ) { // sanity check
+		if ( $newRevRecord && $oldRevRecord ) { // sanity check
 			$s .= self::diffToStableLink( $article, $oldRevRecord, $newRevRecord );
 			$s .= self::diffReviewMarkers( $article, $oldRevRecord, $newRevRecord );
 		}

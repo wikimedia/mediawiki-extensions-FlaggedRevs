@@ -375,10 +375,16 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 				->getContentHandler(
 					$newRevRecord->getSlot( SlotRecord::MAIN )->getModel()
 				);
+			$currentContent = $article->getRevisionRecord()->getContent( SlotRecord::MAIN );
+			$undoContent = $newRevRecord->getContent( SlotRecord::MAIN );
+			$undoAfterContent = $oldRevRecord->getContent( SlotRecord::MAIN );
+			if ( !$currentContent || !$undoContent || !$undoAfterContent ) {
+				return 'review_cannot_undo';
+			}
 			$new_content = $undoHandler->getUndoContent(
-				$article->getRevisionRecord()->getContent( SlotRecord::MAIN ),
-				$newRevRecord->getContent( SlotRecord::MAIN ),
-				$oldRevRecord->getContent( SlotRecord::MAIN ),
+				$currentContent,
+				$undoContent,
+				$undoAfterContent,
 				$newRevRecord->isCurrent()
 			);
 			if ( $new_content === false ) {
