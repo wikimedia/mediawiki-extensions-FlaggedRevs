@@ -82,7 +82,8 @@
 		"flaggedrevssimpleui": 1,
 		"flaggedrevsstable": 0,
 		"flaggedrevseditdiffs": true,
-		"flaggedrevsviewdiffs": false
+		"flaggedrevsviewdiffs": false,
+		"flaggedrevswatch": false
 	},
 	"FilterLogTypes": {
 		"review": true
