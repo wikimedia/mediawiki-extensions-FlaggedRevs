@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"JSantos",
 			"Joao Xavier",
 			"Malafaya"
 		]
@@ -14,5 +15,6 @@
 	"stabilization-othertime": "Altra tempo:",
 	"stabilization-def-short-0": "Aktuala",
 	"stabilization-def-short-1": "Stabila",
+	"stabilize_expiry_invalid": "Nevalida fino-dato.",
 	"stabilize_denied": "Nepermisata."
 }
