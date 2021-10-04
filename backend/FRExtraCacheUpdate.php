@@ -108,7 +108,12 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 			);
 
 			# Update CDN
-			$titles = Title::newFromIDs( $ids );
+			$titles = MediaWikiServices::getInstance()
+				->getPageStore()
+				->newSelectQueryBuilder()
+				->wherePageIds( $ids )
+				->caller( __METHOD__ )
+				->fetchPageRecords();
 			$hcu->purgeTitleUrls( $titles, $hcu::PURGE_INTENT_TXROUND_REFLECTED );
 		}
 	}
