@@ -7,7 +7,8 @@
 			"Liangent",
 			"Liuxinyu970226",
 			"Mywood",
-			"PhiLiP"
+			"PhiLiP",
+			"Xiplus"
 		]
 	},
 	"stabilization-tab": "检查",
@@ -33,7 +34,7 @@
 	"stabilization-def-short-1": "稳定",
 	"stabilize_page_invalid": "目标页面名称无效。",
 	"stabilize_page_notexists": "目标页面不存在。",
-	"stabilize_page_unreviewable": "目标页面不在可复审的名字空间内。",
+	"stabilize_page_unreviewable": "目标页面不在可复审的命名空间内。",
 	"stabilize_invalid_autoreview": "无效的自动复审限制。",
 	"stabilize_invalid_level": "无效的保护级别。",
 	"stabilize_expiry_invalid": "无效的终止日期。",
