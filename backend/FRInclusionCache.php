@@ -26,14 +26,14 @@ class FRInclusionCache {
 		$regen = ''
 	) {
 		global $wgParserCacheExpireTime;
-
-		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
+		$services = MediaWikiServices::getInstance();
+		$cache = $services->getMainWANObjectCache();
 		$key = self::getCacheKey( $cache, $wikiPage->getTitle(), $revRecord->getId() );
 
-		$callback = static function () use ( $wikiPage, $revRecord, $user ) {
+		$callback = static function () use ( $wikiPage, $revRecord, $user, $services ) {
 			$pOut = false;
 			if ( $revRecord->isCurrent() ) {
-				$parserCache = MediaWikiServices::getInstance()->getParserCache();
+				$parserCache = $services->getParserCache();
 				# Try current version parser cache for this user...
 				$pOut = $parserCache->get( $wikiPage, $wikiPage->makeParserOptions( $user ) );
 				if ( $pOut == false ) {
@@ -51,7 +51,9 @@ class FRInclusionCache {
 					// Just for extra sanity
 					$pOut = new ParserOutput();
 				} else {
-					$pOut = $content->getParserOutput(
+					$contentRenderer = $services->getContentRenderer();
+					$pOut = $contentRenderer->getParserOutput(
+						$content,
 						$wikiPage->getTitle(),
 						$revRecord->getId(),
 						ParserOptions::newFromUser( $user )
