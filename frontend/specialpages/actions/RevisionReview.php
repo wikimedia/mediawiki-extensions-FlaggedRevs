@@ -251,7 +251,7 @@ class RevisionReview extends UnlistedSpecialPage {
 		}
 
 		$result = self::doReview( $argsMap );
-		if ( $result[ 'error-html' ] ) {
+		if ( isset( $result[ 'error-html' ] ) ) {
 			return '<err#>' . $result[ 'error-html' ];
 		} else {
 			return "<suc#><lct#{$result[ 'change-time' ]}>";
