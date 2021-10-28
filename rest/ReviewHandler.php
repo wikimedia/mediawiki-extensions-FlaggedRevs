@@ -94,8 +94,8 @@ class ReviewHandler extends SimpleHandler {
 			],
 			'wp' . FlaggedRevs::getTagName() => [
 				self::PARAM_SOURCE => 'body',
-				ParamValidator::PARAM_TYPE => 'boolean',
-				ParamValidator::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_TYPE => 'array',
+				ParamValidator::PARAM_REQUIRED => false,
 			]
 		] );
 	}
