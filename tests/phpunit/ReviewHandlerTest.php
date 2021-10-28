@@ -162,4 +162,63 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 		$assocFromResp = json_decode( $response->getBody()->getContents(), true );
 		$this->assertStringContainsString( 'The target page does not exist.', $assocFromResp[ 'error-html' ] );
 	}
+
+	public function testWithConfiguredAccuracyParams() {
+		$context = $this->createContext();
+		$page = $this->getExistingTestPage();
+
+		$this->setMwGlobals( [
+			'wgFlaggedRevsTags' => [ 'accuracy' => [ 'levels' => 1, 'quality' => 20, 'pristine' => 21 ] ],
+		] );
+
+		$oldid = $page->getLatest();
+		$this->editPage( $page, 'SecondEdit' );
+		$refid = $page->getLatest();
+		$target = $page->getTitle()->getPrefixedDBkey();
+		$templateParams = 'templateParamsValue';
+		$wpApprove = 1;
+		$wpUnapprove = 0;
+		$wpReject = 0;
+		$wpReason = 'wpReasonValue';
+		$changetime = null;
+		$csrf = new CsrfTokenSet( $context->getRequest() );
+		$wpEditToken = $csrf->getToken( 'edit' )->toString();
+		$wpDimName = 'wp' . FlaggedRevs::getTagName();
+		$wpDimValue = count( FlaggedRevs::getLevels() ) - 1; // max level
+		$validatedParams = RevisionReviewForm::validationKey(
+			$templateParams, $oldid, $context->getRequest()->getSessionData( 'wsFlaggedRevsKey' )
+		);
+
+		$request = new RequestData( [
+			'method' => 'POST',
+			'pathParams' => [ 'target' => $target ],
+			'bodyContents' => json_encode( [
+				'oldid' => $oldid,
+				'wpEditToken' => $wpEditToken,
+				'refid' => $refid,
+				'validatedParams' => $validatedParams,
+				'templateParams' => $templateParams,
+				'wpApprove' => $wpApprove,
+				'wpUnapprove' => $wpUnapprove,
+				'wpReject' => $wpReject,
+				'wpReason' => $wpReason,
+				'changetime' => $changetime,
+				$wpDimName => $wpDimValue,
+			] ),
+			'headers' => [
+				'Content-Type' => 'application/json',
+			],
+		] );
+		$handler = $this->newHandler();
+		$response = $this->executeHandler( $handler, $request );
+		$this->assertTrue(
+			$response->getStatusCode() >= 200 && $response->getStatusCode() < 300,
+			'Status should be in 2xx range.'
+		);
+
+		$this->assertSame( 'application/json', $response->getHeaderLine( 'Content-Type' ) );
+
+		$assocFromResp = json_decode( $response->getBody()->getContents(), true );
+		$this->assertNull( $assocFromResp['change-time'] );
+	}
 }
