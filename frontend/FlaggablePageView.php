@@ -204,11 +204,7 @@ class FlaggablePageView extends ContextSource {
 	 * @return bool
 	 */
 	private function isPageViewOrDiff( WebRequest $request ) {
-		global $mediaWiki;
-
-		$action = isset( $mediaWiki )
-			? $mediaWiki->getAction()
-			: $request->getVal( 'action', 'view' ); // cli
+		$action = Action::getActionName( $this->getContext() );
 
 		return self::isViewAction( $action );
 	}
@@ -228,11 +224,7 @@ class FlaggablePageView extends ContextSource {
 	 * @return bool
 	 */
 	private function isDefaultPageView( WebRequest $request ) {
-		global $mediaWiki;
-
-		$action = isset( $mediaWiki )
-			? $mediaWiki->getAction()
-			: $request->getVal( 'action', 'view' ); // cli
+		$action = Action::getActionName( $this->getContext() );
 
 		return ( self::isViewAction( $action )
 			&& $request->getVal( 'oldid' ) === null
