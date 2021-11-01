@@ -10,11 +10,20 @@
 	},
 	"flaggedrevs-hidereviewed-hide": "Ammuccia",
 	"flaggedrevs-hidereviewed-show": "Ammustra",
+	"revreview-diff-toggle-show": "ammustri sti canciamenti",
+	"revreview-diff-toggle-hide": "ammuccia sti canciamenti",
 	"revreview-log-details-show": "ammustra li dittagghî",
 	"revreview-log-details-hide": "ammuccia li dittagghî",
+	"review-logentry-id": "virsioni: $2",
 	"revreview-revnotfound": "La virsioni pricidenti di st'artìculu c'hai addumannatu nun hà statu attruvata. Cuntrolla pi favuri la URL c'hai usatu p'accèdiri a sta pàggina.",
 	"revreview-filter-all": "tutti",
 	"revreview-levelfilter": "Liveddu:",
+	"revreview-lev-all": "quarsiasi",
+	"revreview-def-all": "quarsiasi",
+	"revreview-def-draft": "ùrtima",
+	"revreview-restriction-any": "quarsiasi",
 	"revreview-restriction-none": "nuddu",
-	"tooltip-ca-current": "Talìa sta pàggina chî canciamenti pinnenti"
+	"tooltip-ca-current": "Talìa sta pàggina chî canciamenti pinnenti",
+	"flaggedrevs-protect-none": "Cunzenti a tutti l'utenti",
+	"flaggedrevs-protect-sysop": "Cunzenti sulu a l'amministratura"
 }

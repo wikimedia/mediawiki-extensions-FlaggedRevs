@@ -4,5 +4,9 @@
 			"Ajeje Brazorf"
 		]
 	},
+	"revreview-log": "Cummentu:",
+	"revreview-submit-reviewed": "Fattu. Accittata!",
+	"revreview-submit-unreviewed": "Fattu. Nun accittata!",
+	"revreview-reject-summary": "Summariu:",
 	"revreview-reject-cancel": "Annulla"
 }

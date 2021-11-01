@@ -15,6 +15,8 @@
 	"group-editor-member": "{{GENDER:$1|redaktero}}",
 	"group-reviewer": "Revizeri",
 	"grouppage-editor": "{{ns:project}}:Redaktero",
+	"group-editor.css": "/* CSS skribita hike nur afektesos redakteri */",
+	"group-editor.js": "/* JS skribita hike nur afektesos redakteri */",
 	"revreview-diff-toggle-show": "Montrez la modifiki",
 	"review-logentry-id": "revizuro: $2",
 	"revreview-accuracy": "Exakteso",

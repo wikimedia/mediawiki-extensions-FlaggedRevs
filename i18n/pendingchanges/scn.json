@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ajeje Brazorf"
+		]
+	},
+	"pendingchanges-hours": "($1 {{PLURAL:$1|ura|uri}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|jornu|jorna}})",
+	"pendingchanges-category": "Catigurìa:"
+}
