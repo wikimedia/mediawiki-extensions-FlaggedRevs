@@ -21,10 +21,6 @@
 				"approve-i",
 				"approve2-i"
 			],
-			"autoaccept": [
-				"approve-a",
-				"approve-ia"
-			],
 			"unaccept": [
 				"unapprove",
 				"unapprove2"

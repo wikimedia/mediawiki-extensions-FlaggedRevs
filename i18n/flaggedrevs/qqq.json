@@ -208,7 +208,6 @@
 	"validationpage": "{{Flagged Revs-small}}\n{{doc-important|Do not translate the <code><nowiki>{{ns:help}}:</nowiki></code> part, including the colon.}}\nLink to the general help page.",
 	"log-action-filter-review": "{{doc-log-action-filter-type|review}}\n{{Related|Log-action-filter}}",
 	"log-action-filter-review-accept": "{{doc-log-action-filter-action|review|accept}}\n{{Related|Log-action-filter}}",
-	"log-action-filter-review-autoaccept": "{{doc-log-action-filter-action|review|autoaccept}}\n{{Related|Log-action-filter}}",
 	"log-action-filter-review-unaccept": "{{doc-log-action-filter-action|review|unaccept}}\n{{Related|Log-action-filter}}",
 	"log-action-filter-stable": "{{doc-log-action-filter-type|stable}}\n{{Related|Log-action-filter}}",
 	"log-action-filter-stable-config": "{{doc-log-action-filter-action|stable|config}}\n{{Related|Log-action-filter}}",

@@ -174,7 +174,6 @@
 	"validationpage": "{{ns:help}}:Page validation",
 	"log-action-filter-review": "Type of review:",
 	"log-action-filter-review-accept": "Manual accept",
-	"log-action-filter-review-autoaccept": "Automatic accept",
 	"log-action-filter-review-unaccept": "Manual unaccept",
 	"log-action-filter-stable": "Type of configuration change:",
 	"log-action-filter-stable-config": "New configuration",
