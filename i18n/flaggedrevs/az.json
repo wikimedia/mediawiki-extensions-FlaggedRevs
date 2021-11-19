@@ -166,7 +166,6 @@
 	"validationpage": "{{ns:help}}:Səhifənin təsdiqlənməsi",
 	"log-action-filter-review": "Yoxlama növü:",
 	"log-action-filter-review-accept": "Əl ilə qəbul et",
-	"log-action-filter-review-autoaccept": "Avtomatik qəbul et",
 	"log-action-filter-review-unaccept": "Əl ilə qəbul edilməz",
 	"log-action-filter-stable": "Konfiqurasiya dəyişikliyinin növü:",
 	"log-action-filter-stable-config": "Yeni konfiqurasiya",

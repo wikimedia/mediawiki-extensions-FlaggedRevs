@@ -180,7 +180,6 @@
 	"validationpage": "{{ns:Project}}:مراجعات معلمة",
 	"log-action-filter-review": "نوع المراجعة:",
 	"log-action-filter-review-accept": "قبول يدوي",
-	"log-action-filter-review-autoaccept": "قبول آلي",
 	"log-action-filter-review-unaccept": "رفض يدوي",
 	"log-action-filter-stable": "نوع تغيير التكوين:",
 	"log-action-filter-stable-config": "التكوين الجديد",

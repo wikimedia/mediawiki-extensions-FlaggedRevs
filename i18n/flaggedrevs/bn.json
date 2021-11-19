@@ -147,7 +147,6 @@
 	"validationpage": "{{ns:help}}:নিবন্ধ বৈধকরণ",
 	"log-action-filter-review": "পর্যালোচনার ধরন:",
 	"log-action-filter-review-accept": "হাতদ্বারা গ্রহণ",
-	"log-action-filter-review-autoaccept": "স্বয়ংক্রিয় গ্রহণ",
 	"log-action-filter-review-unaccept": "হাতদ্বারা প্রত্যাখ্যান",
 	"log-action-filter-stable": "কনফিগারেশন পরিবর্তনের ধরন:",
 	"log-action-filter-stable-config": "নতুন কনফিগারেশন",

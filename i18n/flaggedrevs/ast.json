@@ -167,7 +167,6 @@
 	"validationpage": "{{ns:help}}:Convalidación de la páxina",
 	"log-action-filter-review": "Tipu de revisión:",
 	"log-action-filter-review-accept": "Aceptación manual",
-	"log-action-filter-review-autoaccept": "Aceptación automática",
 	"log-action-filter-review-unaccept": "Refugu manual",
 	"log-action-filter-stable": "Tipu de cambéu de configuración:",
 	"log-action-filter-stable-config": "Configuración nueva",

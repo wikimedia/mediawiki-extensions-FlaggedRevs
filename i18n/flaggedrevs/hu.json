@@ -172,7 +172,6 @@
 	"validationpage": "{{ns:help}}:Jelölt lapváltozatok",
 	"log-action-filter-review": "Ellenőrzés típusa:",
 	"log-action-filter-review-accept": "Kézi elfogadás",
-	"log-action-filter-review-autoaccept": "Automatikus elfogadás",
 	"log-action-filter-review-unaccept": "Kézi visszautasítás",
 	"log-action-filter-stable": "Konfigurációs változás típusa:",
 	"log-action-filter-stable-config": "Új konfiguráció",

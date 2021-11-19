@@ -169,7 +169,6 @@
 	"logeventslist-review-log": "검토 기록",
 	"validationpage": "{{ns:help}}:문서 검토",
 	"log-action-filter-review": "검토 종류:",
-	"log-action-filter-review-autoaccept": "자동 수락",
 	"log-action-filter-stable": "구성 변경 종류:",
 	"log-action-filter-stable-config": "새 구성",
 	"log-action-filter-stable-reset": "구성 초기화",

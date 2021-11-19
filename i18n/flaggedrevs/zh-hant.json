@@ -177,7 +177,6 @@
 	"validationpage": "{{ns:help}}:頁面檢驗",
 	"log-action-filter-review": "複核類型：",
 	"log-action-filter-review-accept": "手動接受",
-	"log-action-filter-review-autoaccept": "自動接受",
 	"log-action-filter-review-unaccept": "手動不接受",
 	"log-action-filter-stable": "設定變更的類型：",
 	"log-action-filter-stable-config": "新配置",

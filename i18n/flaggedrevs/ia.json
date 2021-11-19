@@ -159,7 +159,6 @@
 	"validationpage": "{{ns:help}}:Validation de paginas",
 	"log-action-filter-review": "Typo de revision:",
 	"log-action-filter-review-accept": "Marcate manualmente como revidite",
-	"log-action-filter-review-autoaccept": "Marcate automaticamente como revidite",
 	"log-action-filter-review-unaccept": "Dismarcate manualmente como revidite",
 	"log-action-filter-stable": "Typo de cambio de configuration:",
 	"log-action-filter-stable-config": "Nove configuration",

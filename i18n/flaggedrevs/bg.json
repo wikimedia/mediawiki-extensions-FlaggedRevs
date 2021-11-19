@@ -106,7 +106,6 @@
 	"validationpage": "{{ns:help}}:Валидиране на страници",
 	"log-action-filter-review": "Вид проверка:",
 	"log-action-filter-review-accept": "Ръчно потвърждение",
-	"log-action-filter-review-autoaccept": "Автоматично потвърждение",
 	"log-action-filter-stable": "Тип на конфигурационната промяна:",
 	"log-action-filter-stable-config": "Нова конфигурация",
 	"log-action-filter-stable-modify": "Променена конфигурация",

@@ -169,7 +169,6 @@
 	"validationpage": "{{ns:help}}:Sivujen arviointi",
 	"log-action-filter-review": "Arvioinnin luonne:",
 	"log-action-filter-review-accept": "Käsin tehty hyväksyminen",
-	"log-action-filter-review-autoaccept": "Automaattinen hyväksyminen",
 	"log-action-filter-review-unaccept": "Käsin tehty arvioinnin poistaminen",
 	"log-action-filter-stable": "Asetusmuutosten luonne:",
 	"log-action-filter-stable-config": "Uudet asetukset",

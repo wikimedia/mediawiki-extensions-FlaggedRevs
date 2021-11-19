@@ -159,7 +159,6 @@
 	"validationpage": "{{ns:help}}:Pregled stranice",
 	"log-action-filter-review": "Vrsta pregleda:",
 	"log-action-filter-review-accept": "Ručno pregledano",
-	"log-action-filter-review-autoaccept": "Automatski pregledano",
 	"log-action-filter-review-unaccept": "Ručno odbijeno",
 	"log-action-filter-stable": "Vrsta izmjene postavki:",
 	"log-action-filter-stable-config": "Nove postavke",

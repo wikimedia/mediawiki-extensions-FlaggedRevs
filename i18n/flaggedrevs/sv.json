@@ -166,7 +166,6 @@
 	"validationpage": "{{ns:help}}:Sidvalidering",
 	"log-action-filter-review": "Typ av granskning:",
 	"log-action-filter-review-accept": "Manuell acceptering",
-	"log-action-filter-review-autoaccept": "Automatisk acceptering",
 	"log-action-filter-stable": "Typ av konfigurationsändring:",
 	"log-action-filter-stable-config": "Ny konfiguration",
 	"log-action-filter-stable-modify": "Ändrad konfiguration",

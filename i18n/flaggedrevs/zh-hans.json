@@ -189,7 +189,6 @@
 	"validationpage": "{{ns:help}}:页面确认",
 	"log-action-filter-review": "复核类型：",
 	"log-action-filter-review-accept": "手动接受",
-	"log-action-filter-review-autoaccept": "自动接受",
 	"log-action-filter-review-unaccept": "手动不接受",
 	"log-action-filter-stable": "配置更改的类型：",
 	"log-action-filter-stable-config": "新配置",

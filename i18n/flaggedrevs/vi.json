@@ -162,7 +162,6 @@
 	"validationpage": "{{ns:help}}:Phê chuẩn trang",
 	"log-action-filter-review": "Kiểu xem qua:",
 	"log-action-filter-review-accept": "Chấp nhận thủ công",
-	"log-action-filter-review-autoaccept": "Chấp nhận tự động",
 	"log-action-filter-review-unaccept": "Không chấp nhận thủ công",
 	"log-action-filter-stable": "Kiểu cấu hình thay đổi:",
 	"log-action-filter-stable-config": "Cấu hình mới",

@@ -184,7 +184,6 @@
 	"validationpage": "{{ns:help}}:Перевірка сторінки",
 	"log-action-filter-review": "Тип огляду:",
 	"log-action-filter-review-accept": "Ручне затвердження",
-	"log-action-filter-review-autoaccept": "Автоматичне затвердження",
 	"log-action-filter-review-unaccept": "Ручне відхилення",
 	"log-action-filter-stable": "Тип зміни конфігурації:",
 	"log-action-filter-stable-config": "Нова конфігурація",

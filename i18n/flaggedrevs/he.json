@@ -174,7 +174,6 @@
 	"validationpage": "{{ns:help}}:אישור דפים",
 	"log-action-filter-review": "סוג הסקירה:",
 	"log-action-filter-review-accept": "קבלה ידנית",
-	"log-action-filter-review-autoaccept": "קבלה אוטומטית",
 	"log-action-filter-review-unaccept": "ביטול קבלה אוטומטי",
 	"log-action-filter-stable": "סוג שינוי ההגדרה:",
 	"log-action-filter-stable-config": "הגדרה חדשה",

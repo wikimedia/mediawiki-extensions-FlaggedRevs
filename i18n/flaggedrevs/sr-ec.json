@@ -170,7 +170,6 @@
 	"validationpage": "{{ns:help}}:Провера странице",
 	"log-action-filter-review": "Врста провере:",
 	"log-action-filter-review-accept": "Ручно прихватање",
-	"log-action-filter-review-autoaccept": "Аутоматско прихватање",
 	"log-action-filter-review-unaccept": "Ручно одбијање",
 	"log-action-filter-stable": "Врста промене подешавања:",
 	"log-action-filter-stable-config": "Нова конфигурација",

@@ -149,7 +149,6 @@
 	"validationpage": "{{ns:help}}:Lehekülgede ülevaatus",
 	"log-action-filter-review": "Ülevaatuse tüüp:",
 	"log-action-filter-review-accept": "Käsitsi heakskiitmine",
-	"log-action-filter-review-autoaccept": "Automaatne heakskiitmine",
 	"log-action-filter-review-unaccept": "Käsitsi tagasilükkamine",
 	"log-action-filter-stable": "Häälestuse muudatuse tüüp:",
 	"log-action-filter-stable-config": "Uus häälestus",

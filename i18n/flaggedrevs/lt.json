@@ -97,6 +97,5 @@
 	"revreview-unlocked-title": "Šio puslapio redagavimo veiksmai nereikalaują peržiūros.",
 	"validationpage": "{{ns:help}}:Puslapio vertinimas",
 	"log-action-filter-review-accept": "Rankinis priėmimas",
-	"log-action-filter-review-autoaccept": "Automatinis priėmimas",
 	"log-action-filter-stable-config": "Nauja konfigūracija"
 }

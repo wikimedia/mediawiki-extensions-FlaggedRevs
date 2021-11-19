@@ -152,7 +152,6 @@
 	"logeventslist-review-log": "Controlelogboek",
 	"validationpage": "{{ns:help}}:Paginaredactie",
 	"log-action-filter-review-accept": "Handmatig geaccepteerd",
-	"log-action-filter-review-autoaccept": "Automatisch geaccepteerd",
 	"log-action-filter-review-unaccept": "Handmatig afgewezen",
 	"log-action-filter-stable-config": "Nieuwe configuratie",
 	"log-action-filter-stable-modify": "Gewijzigde configuratie",

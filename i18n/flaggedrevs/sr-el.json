@@ -163,7 +163,6 @@
 	"validationpage": "{{ns:help}}:Provera stranice",
 	"log-action-filter-review": "Tip provere:",
 	"log-action-filter-review-accept": "Ručno prihvatanje",
-	"log-action-filter-review-autoaccept": "Automatsko prihvatanje",
 	"log-action-filter-review-unaccept": "Ručno odbijanje",
 	"log-action-filter-stable": "Tip promene konfiguracije:",
 	"log-action-filter-stable-config": "Nova konfiguracija",

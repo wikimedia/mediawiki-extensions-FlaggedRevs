@@ -185,7 +185,6 @@
 	"validationpage": "{{ns:help}}:Validação de páginas",
 	"log-action-filter-review": "Tipo de revisão:",
 	"log-action-filter-review-accept": "Aceitar manualmente",
-	"log-action-filter-review-autoaccept": "Aceitar automaticamente",
 	"log-action-filter-review-unaccept": "Desacordo manual",
 	"log-action-filter-stable": "Tipo de mudança de configuração:",
 	"log-action-filter-stable-config": "Nova configuração",

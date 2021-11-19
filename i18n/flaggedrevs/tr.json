@@ -183,7 +183,6 @@
 	"validationpage": "{{ns:help}}:Sayfa doğrulaması",
 	"log-action-filter-review": "İnceleme türü:",
 	"log-action-filter-review-accept": "Elle onay",
-	"log-action-filter-review-autoaccept": "Otomatik onay",
 	"log-action-filter-review-unaccept": "Elle onayı geri alma",
 	"log-action-filter-stable": "Yapılandırma değişikliğinin türü:",
 	"log-action-filter-stable-config": "Yeni yapılandırma",

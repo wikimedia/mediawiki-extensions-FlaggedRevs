@@ -189,7 +189,6 @@
 	"validationpage": "{{ns:help}}:Проверка страниц",
 	"log-action-filter-review": "Тип действия:",
 	"log-action-filter-review-accept": "Ручное подтверждение",
-	"log-action-filter-review-autoaccept": "Автоматическое подтверждение",
 	"log-action-filter-review-unaccept": "Ручное снятие отметки",
 	"log-action-filter-stable": "Тип действия:",
 	"log-action-filter-stable-config": "Установка стабилизации",

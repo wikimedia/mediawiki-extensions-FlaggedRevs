@@ -188,7 +188,6 @@
 	"validationpage": "{{ns:help}}:Gesichtete und geprüfte Versionen",
 	"log-action-filter-review": "Typ der Sichtung:",
 	"log-action-filter-review-accept": "Manuelle Sichtung",
-	"log-action-filter-review-autoaccept": "Automatische Sichtung",
 	"log-action-filter-review-unaccept": "Manuelle Entfernung der Sichtung",
 	"log-action-filter-stable": "Typ der Konfigurationsänderung:",
 	"log-action-filter-stable-config": "Neue Konfiguration",

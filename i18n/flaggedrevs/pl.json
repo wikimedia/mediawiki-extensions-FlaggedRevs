@@ -178,7 +178,6 @@
 	"validationpage": "{{ns:help}}:Wersje oznaczone",
 	"log-action-filter-review": "Typ przeglądu:",
 	"log-action-filter-review-accept": "Ręczna akceptacja",
-	"log-action-filter-review-autoaccept": "Automatyczna akceptacja",
 	"log-action-filter-review-unaccept": "Ręczne wycofanie akceptacji",
 	"log-action-filter-stable": "Rodzaj zmiany konfiguracji:",
 	"log-action-filter-stable-config": "Nowa konfiguracja",

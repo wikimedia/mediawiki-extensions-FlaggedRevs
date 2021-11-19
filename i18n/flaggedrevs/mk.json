@@ -168,7 +168,6 @@
 	"validationpage": "{{ns:help}}:Проверка на страница",
 	"log-action-filter-review": "Вид на проверка:",
 	"log-action-filter-review-accept": "Рачно прифаќање",
-	"log-action-filter-review-autoaccept": "Автоматско прифаќање",
 	"log-action-filter-review-unaccept": "Рачно неприфаќање",
 	"log-action-filter-stable": "Вид измена во поставеноста:",
 	"log-action-filter-stable-config": "Нова поставеност",

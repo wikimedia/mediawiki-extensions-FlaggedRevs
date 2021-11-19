@@ -142,7 +142,6 @@
 	"validationpage": "{{ns:help}}:Vrednotenje strani",
 	"log-action-filter-review": "Vrsta pregleda:",
 	"log-action-filter-review-accept": "Ročno sprejetje",
-	"log-action-filter-review-autoaccept": "Samodejno sprejetje",
 	"log-action-filter-review-unaccept": "Ročna razveljavitev sprejetja",
 	"log-action-filter-stable": "Vrsta konfiguracijske spremembe:",
 	"log-action-filter-stable-config": "Nova konfiguracija",
