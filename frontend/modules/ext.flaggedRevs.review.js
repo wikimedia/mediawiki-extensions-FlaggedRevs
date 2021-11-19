@@ -113,11 +113,10 @@
 	 * Update form elements after AJAX review.
 	 */
 	function postSubmitRevisionReview( form, response ) {
-		var changeTime, $asubmit, $usubmit, $rsubmit, $diffNotice,
+		var $asubmit, $usubmit, $rsubmit, $diffNotice,
 			$tagBox, $diffUIParams, oldId, newId, restPath, respObj;
 
-		respObj = JSON.parse( response );
-		changeTime = respObj[ 'change-time' ];
+		respObj = response;
 
 		// Review form elements
 		$asubmit = $( '#mw-fr-submit-accept' ); // ACCEPT
@@ -130,7 +129,7 @@
 		$diffUIParams = $( '#mw-fr-diff-dataform' );
 
 		// On success... (change-time can be an empty string for 'unapproved')
-		if ( respObj[ 'change-time' ] || respObj[ 'change-time' ] === '' ) {
+		if ( Object.prototype.hasOwnProperty.call( respObj, 'change-time' ) ) {
 			// (a) Update document title and form buttons...
 			if ( $asubmit.length && $usubmit.length ) {
 				// Revision was flagged
@@ -195,15 +194,11 @@
 				}
 			}
 			// (b) Output any error response message
-			if ( respObj[ 'error-html' ] ) {
-				mw.notify( $.parseHTML( respObj[ 'error-html' ] ), { tag: 'review' } ); // failure notice
-			} else {
-				mw.notify( response, { tag: 'review' } ); // fatal notice
-			}
+			mw.notify( $.parseHTML( respObj[ 'error-html' ] ), { tag: 'review' } ); // failure notice
 		}
 		// Update changetime for conflict handling
-		if ( changeTime !== null ) {
-			$( '#mw-fr-input-changetime' ).val( changeTime );
+		if ( Object.prototype.hasOwnProperty.call( respObj, 'change-time' ) ) {
+			$( '#mw-fr-input-changetime' ).val( respObj[ 'change-time' ] );
 		}
 		unlockReviewForm( form );
 	}
@@ -262,12 +257,12 @@
 			type: 'POST',
 			data: JSON.stringify( postData ),
 			contentType: 'application/json',
-			dataType: 'html', // response type
+			dataType: 'json', // response type
 			success: function ( response ) {
 				postSubmitRevisionReview( form, response );
 			},
-			error: function () {
-				unlockReviewForm( form );
+			error: function ( response ) {
+				postSubmitRevisionReview( form, response.responseJSON );
 			}
 		} );
 	}
