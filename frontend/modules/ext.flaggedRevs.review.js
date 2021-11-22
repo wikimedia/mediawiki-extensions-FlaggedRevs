@@ -110,7 +110,7 @@
 	}
 
 	/*
-	 * Update form elements after AJAX review.
+	 * Update form elements after review.
 	 */
 	function postSubmitRevisionReview( form, response ) {
 		var $asubmit, $usubmit, $rsubmit, $diffNotice,
@@ -383,9 +383,9 @@
 	}
 
 	/*
-	 * Enable AJAX-based functionality to set that a user is reviewing a page/diff
+	 * Enable functionality to set that a user is reviewing a page/diff
 	 */
-	function enableAjaxReviewActivity() {
+	function enableReviewActivity() {
 		// User is already reviewing in another tab...
 		if ( $( '#mw-fr-user-reviewing' ).val() === 1 ) {
 			isUserReviewing = 1;
@@ -401,7 +401,7 @@
 	function init() {
 		var $form = $( '#mw-fr-reviewform' );
 
-		// Enable AJAX-based submit functionality to the review form on this page
+		// Enable submit functionality to the review form on this page
 		$( '#mw-fr-submit-accept, #mw-fr-submit-unaccept' ).on( 'click', function () {
 			submitRevisionReview( this, $form );
 			return false; // don't do normal non-AJAX submit
@@ -423,7 +423,7 @@
 		} );
 
 		// Display "advertise" notice
-		enableAjaxReviewActivity();
+		enableReviewActivity();
 		// "De-advertise" user as "no longer reviewing" on navigate-away
 		$( window ).on( 'unload', function () {
 			if ( isUserReviewing === 1 ) {

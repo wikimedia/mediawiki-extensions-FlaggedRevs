@@ -20,7 +20,7 @@ class DiffHeaderHandler extends SimpleHandler {
 	 * @return Response
 	 */
 	public function run( int $oldId, int $newId ) {
-		$html = FlaggablePageView::AjaxBuildDiffHeaderItems( $oldId, $newId );
+		$html = FlaggablePageView::buildDiffHeaderItems( $oldId, $newId );
 		$response = $this->getResponseFactory()->create();
 		$response->setBody( new StringStream( $html ) );
 		$response->setHeader( 'Content-Type', 'text/html' );

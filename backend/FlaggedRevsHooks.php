@@ -18,11 +18,6 @@ class FlaggedRevsHooks {
 	 * @see https://www.mediawiki.org/wiki/Manual:Extension_registration#Customizing_registration
 	 */
 	public static function onRegistration() {
-		global $wgAjaxExportList;
-		// These method names are part of a public API. Renaming them is a breaking change.
-		$wgAjaxExportList[] = 'RevisionReview::AjaxReview';
-		$wgAjaxExportList[] = 'FlaggablePageView::AjaxBuildDiffHeaderItems';
-
 		# Query SELECT parameters...
 		define( 'FR_FOR_UPDATE', 1 );
 		define( 'FR_MASTER', 2 );
