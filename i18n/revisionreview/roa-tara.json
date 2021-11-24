@@ -43,7 +43,7 @@
 	"revreview-submit-reject": "Refiute le cangiaminde",
 	"revreview-submit-reviewed": "Apposte. Accettate!",
 	"revreview-submit-unreviewed": "Apposte. None accettate!",
-	"revreview-successful": "'''Revisione de [[:$1|$1]] ha state mise 'u flag.''' ([{{fullurl:{{#Special:ReviewedVersions}}|pàgene=$2}} vide le versiune secure])'''",
+	"revreview-successful": "'''Revisione de [[:$1|$1]] ha state mise 'u flag.'''",
 	"revreview-successful2": "'''Revisione de [[:$1|$1]] ha state luete 'u flag.'''",
 	"revreview-poss-conflict-p": "'''Attenziò: [[User:$1|$1]] ave accumenzate a revisità sta pàgene 'u $2 a le $3.'''",
 	"revreview-poss-conflict-c": "'''Attenziò: [[User:$1|$1]] ave accumenzate a revisità ste cangiaminde 'u $2 a le $3.'''",

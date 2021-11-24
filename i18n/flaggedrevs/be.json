@@ -53,6 +53,7 @@
 	"logentry-review-approve-auto": "$1 аўтаматычна {{GENDER:$2|даглядзеў|даглядзела}} версію старонкі $3",
 	"logentry-review-unapprove": "$1 {{GENDER:$2|зняў|зняла}} пазнаку догляду з версіі старонкі $3",
 	"logentry-stable-config": "$1 {{GENDER:$2|вызначыў|вызначыла}} настройкі стабільнасці версіі старонкі $3 $4",
+	"logentry-stable-move_stable": "$1 {{GENDER:$2|перанёс|перанесла}} настройкі стабільнай версіі са старонкі «$4» на «$3»",
 	"revreview-hist-draft": "недагледжаная версія",
 	"revreview-hist-pending": "чакае догляду",
 	"revreview-hist-basic": "дагледжаная версія",

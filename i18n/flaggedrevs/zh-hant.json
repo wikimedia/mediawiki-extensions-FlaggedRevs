@@ -100,7 +100,7 @@
 	"revreview-accuracy-4": "精選",
 	"revreview-basic": "此頁面為[[{{MediaWiki:Validationpage}}|穩定版本]]，[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 已檢查]於 <i>$2</i>。\n有 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 筆待審核的{{PLURAL:$3|變更|變更}}]{{PLURAL:$3|等侯|等侯}}審查。",
 	"revreview-basic-i": "此頁面為[[{{MediaWiki:Validationpage}}|穩定版本]]，[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 已複核]於 <i>$2</i>。\n有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 模板/檔案變更]等侯複核。",
-	"revreview-basic-old": "此頁面為[[{{MediaWiki:Validationpage}}|已檢查]]版本 ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} 所有清單])，[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 核准]於 <i>$2</i>。\n可能有新的[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 變更]已經完成。",
+	"revreview-basic-old": "此頁面為[[{{MediaWiki:Validationpage}}|已檢查]]版本，[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 核准]於 <i>$2</i>。可能有新的[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 變更]已經完成。",
 	"revreview-basic-same": "此頁面為[[{{MediaWiki:Validationpage}}|穩定版本]]，[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 已檢查]於 <i>$2</i>。",
 	"revreview-basic-source": "此為此頁面的[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} 已檢查版本]，[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 核准]於 <i>$2</i>，不以此修訂為基礎。",
 	"revreview-current": "待審查的變更",

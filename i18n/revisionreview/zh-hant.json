@@ -56,7 +56,7 @@
 	"revreview-submit-reject": "拒絕變更",
 	"revreview-submit-reviewed": "完成，已接受！",
 	"revreview-submit-unreviewed": "完成，已取消接受！",
-	"revreview-successful": "'''已標記 [[:$1|$1]] 的修訂。 ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} 檢視已審查的版本])'''",
+	"revreview-successful": "'''已標記[[:$1|$1]]的修訂。'''",
 	"revreview-successful2": "'''已取消標記 [[:$1|$1]] 的修訂。'''",
 	"revreview-poss-conflict-p": "'''警告：[[User:$1|$1]] 於 $2 $3 開始審查此頁面。'''",
 	"revreview-poss-conflict-c": "'''警告：[[User:$1|$1]] 於 $2 $3 開始審查這些變更。'''",

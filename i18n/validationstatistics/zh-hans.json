@@ -9,7 +9,8 @@
 			"Mywood",
 			"PhiLiP",
 			"Xiaomingyan",
-			"阿pp"
+			"阿pp",
+			"Xiplus"
 		]
 	},
 	"validationstatistics": "页面复核统计",
@@ -17,8 +18,8 @@
 	"validationstatistics-lastupdate": "''以下数据最后更新于$1 $2。''",
 	"validationstatistics-pndtime": "已确认用户已经检查这些编辑，并认为它们是''{{int:validationstatistics-stable}}''的。\n\n[[Special:OldReviewedPages|含有正待复审的页面编辑]]的平均复审延迟是'''$1'''；这一延迟可以确定最早待复审编辑会有多久处于未复审状态。",
 	"validationstatistics-revtime": "未登录用户等待编辑复审的平均时间为'''$1'''，中位数为'''$2'''。$3",
-	"validationstatistics-table": "每个名字空间的页面复审统计信息如下所示，''除了''重定向页。含有待复审编辑的页面会被标记为''{{int:validationstatistics-old}}''；不存在待复审编辑的页面会被标记为''{{int:validationstatistics-latest}}''。",
-	"validationstatistics-ns": "名字空间",
+	"validationstatistics-table": "每个命名空间的页面复审统计信息如下所示，''除了''重定向页。含有待复审编辑的页面会被标记为''{{int:validationstatistics-old}}''；不存在待复审编辑的页面会被标记为''{{int:validationstatistics-latest}}''。",
+	"validationstatistics-ns": "命名空间",
 	"validationstatistics-total": "页面",
 	"validationstatistics-stable": "已复核",
 	"validationstatistics-latest": "已同步",
