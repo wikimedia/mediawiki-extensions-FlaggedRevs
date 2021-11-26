@@ -283,8 +283,6 @@ class FlaggedRevision {
 				foreach ( $titleAndID as $dbkey => $id ) {
 					$tmpInsertRows[] = [
 						'ft_rev_id' => $this->getRevId(),
-						'ft_namespace' => $namespace,
-						'ft_title' => $dbkey,
 						'ft_tmp_rev_id' => $id
 					];
 				}
@@ -444,13 +442,19 @@ class FlaggedRevision {
 		if ( $this->mTemplates == null ) {
 			$this->mTemplates = [];
 			$db = wfGetDB( ( $flags & FR_MASTER ) ? DB_PRIMARY : DB_REPLICA );
-			$res = $db->select( 'flaggedtemplates',
-				[ 'ft_namespace', 'ft_title', 'ft_tmp_rev_id' ],
+			$res = $db->select(
+				[ 'flaggedtemplates', 'revision', 'page' ],
+				[ 'page_namespace', 'page_title', 'ft_tmp_rev_id' ],
 				[ 'ft_rev_id' => $this->getRevId() ],
-				__METHOD__
+				__METHOD__,
+				[],
+				[
+					'revision' => [ 'LEFT JOIN', [ 'ft_tmp_rev_id = rev_id' ] ],
+					'page' => [ 'LEFT JOIN', [ 'page_id = rev_page' ] ],
+				]
 			);
 			foreach ( $res as $row ) {
-				$this->mTemplates[$row->ft_namespace][$row->ft_title] = (int)$row->ft_tmp_rev_id;
+				$this->mTemplates[$row->page_namespace][$row->page_title] = (int)$row->ft_tmp_rev_id;
 			}
 		}
 		return $this->mTemplates;
@@ -467,20 +471,20 @@ class FlaggedRevision {
 			$this->mStableTemplates = [];
 			$db = wfGetDB( ( $flags & FR_MASTER ) ? DB_PRIMARY : DB_REPLICA );
 			$res = $db->select(
-				[ 'flaggedtemplates', 'page', 'flaggedpages' ],
-				[ 'ft_namespace', 'ft_title', 'fp_stable' ],
+				[ 'flaggedtemplates', 'revision', 'page', 'flaggedpages' ],
+				[ 'page_namespace', 'page_title', 'fp_stable' ],
 				[ 'ft_rev_id' => $this->getRevId() ],
 				__METHOD__,
 				[],
 				[
-					'page' => [ 'LEFT JOIN',
-						'page_namespace = ft_namespace AND page_title = ft_title' ],
+					'revision' => [ 'LEFT JOIN', [ 'ft_tmp_rev_id = rev_id' ] ],
+					'page' => [ 'LEFT JOIN', [ 'page_id = rev_page' ] ],
 					'flaggedpages' => [ 'LEFT JOIN', 'fp_page_id = page_id' ]
 				]
 			);
 			foreach ( $res as $row ) {
 				$revId = (int)$row->fp_stable; // 0 => none
-				$this->mStableTemplates[$row->ft_namespace][$row->ft_title] = $revId;
+				$this->mStableTemplates[$row->page_namespace][$row->page_title] = $revId;
 			}
 		}
 		return $this->mStableTemplates;
@@ -491,7 +495,7 @@ class FlaggedRevision {
 	 * For each template, the "version used" (for stable parsing) is:
 	 *    (a) (the latest rev) if FR_INCLUDES_CURRENT. Might be non-existing.
 	 *    (b) newest( stable rev, rev at time of review ) if FR_INCLUDES_STABLE
-	 * Pending changes exist for a template iff the template is used in
+	 * Pending changes exist for a template if the template is used in
 	 * the current rev of this page and one of the following holds:
 	 *    (a) Current template is newer than the "version used" above (updated)
 	 *    (b) Current template exists and the "version used" was non-existing (created)
@@ -505,22 +509,26 @@ class FlaggedRevision {
 		}
 		$dbr = wfGetDB( DB_REPLICA );
 		$ret = $dbr->select(
-			[ 'templatelinks', 'flaggedtemplates', 'page', 'flaggedpages' ],
+			[ 'templatelinks', 'page', 'revision', 'flaggedtemplates', 'flaggedpages', ],
 			[ 'tl_namespace', 'tl_title', 'fp_stable', 'ft_tmp_rev_id', 'page_latest' ],
 			[
 				'tl_from' => $this->getPage(),
+				'ft_rev_id' => $this->getRevId(),
 				# Only get templates with stable or "review time" versions.
-				# Note: ft_tmp_rev_id is nullable (for deadlinks), so use ft_title
-				"ft_title IS NOT NULL OR fp_stable IS NOT NULL"
+				"ft_tmp_rev_id IS NOT NULL OR fp_stable IS NOT NULL"
 			], // current version templates
 			__METHOD__,
 			[], /* OPTIONS */
 			[
+				'page' => [ 'LEFT JOIN',
+					'page_namespace = tl_namespace AND page_title = tl_title'
+				],
+				'revision' => [ 'LEFT JOIN',
+					[ 'rev_page = page_id' ],
+				],
 				'flaggedtemplates'  => [ 'LEFT JOIN',
-					[ 'ft_rev_id' => $this->getRevId(),
-						'ft_namespace = tl_namespace AND ft_title = tl_title' ] ],
-				'page'              => [ 'LEFT JOIN',
-					'page_namespace = tl_namespace AND page_title = tl_title' ],
+					[ 'ft_tmp_rev_id = rev_id' ]
+				],
 				'flaggedpages'      => [ 'LEFT JOIN', 'fp_page_id = page_id' ]
 			]
 		);
