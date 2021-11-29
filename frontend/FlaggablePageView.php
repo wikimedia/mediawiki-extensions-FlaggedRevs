@@ -181,7 +181,12 @@ class FlaggablePageView extends ContextSource {
 	 */
 	private function useSimpleUI() {
 		$default = (int)$this->getConfig()->get( 'SimpleFlaggedRevsUI' );
-		return $this->getUser()->getOption( 'flaggedrevssimpleui', $default );
+		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+		return $userOptionsLookup->getOption(
+			$this->getUser(),
+			'flaggedrevssimpleui',
+			$default
+		);
 	}
 
 	/**
@@ -191,7 +196,8 @@ class FlaggablePageView extends ContextSource {
 	 */
 	private function getPageViewStabilityModeForUser( $user ) {
 		# Check user preferences (e.g. "show stable version by default?")
-		$preference = (int)$user->getOption( 'flaggedrevsstable' );
+		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+		$preference = (int)$userOptionsLookup->getOption( $user, 'flaggedrevsstable' );
 		if ( $preference === FR_SHOW_STABLE_ALWAYS || $preference === FR_SHOW_STABLE_NEVER ) {
 			return $preference;
 		}
