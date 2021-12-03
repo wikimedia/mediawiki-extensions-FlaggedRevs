@@ -78,13 +78,10 @@ CREATE INDEX /*i*/fr_user ON /*_*/flaggedrevs (fr_user);
 -- This stores all of our transclusion revision pointers
 CREATE TABLE IF NOT EXISTS /*_*/flaggedtemplates (
   ft_rev_id integer unsigned NOT NULL,
-  -- Namespace and title of included page
-  ft_namespace int NOT NULL default '0',
-  ft_title varchar(255) binary NOT NULL default '',
   -- Revisions ID used when reviewed
   ft_tmp_rev_id integer unsigned NULL,
 
-  PRIMARY KEY (ft_rev_id,ft_namespace,ft_title)
+  PRIMARY KEY (ft_rev_id, ft_tmp_rev_id)
 ) /*$wgDBTableOptions*/;
 
 -- This stores settings on how to select the stable/default revision
