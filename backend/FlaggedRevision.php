@@ -281,6 +281,9 @@ class FlaggedRevision {
 		if ( FlaggedRevs::inclusionSetting() !== FR_INCLUDES_CURRENT ) {
 			foreach ( (array)$this->mTemplates as $namespace => $titleAndID ) {
 				foreach ( $titleAndID as $dbkey => $id ) {
+					if ( !$id ) {
+						continue;
+					}
 					$tmpInsertRows[] = [
 						'ft_rev_id' => $this->getRevId(),
 						'ft_tmp_rev_id' => $id
