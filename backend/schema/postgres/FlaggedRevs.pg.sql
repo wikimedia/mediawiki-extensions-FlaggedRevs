@@ -47,10 +47,8 @@ CREATE INDEX fr_user ON flaggedrevs (fr_user);
 
 CREATE TABLE flaggedtemplates (
   ft_rev_id      BIGINT   NOT NULL DEFAULT 0 ,
-  ft_namespace   SMALLINT NOT NULL DEFAULT 0,
-  ft_title       TEXT     NOT NULL DEFAULT '',
   ft_tmp_rev_id  BIGINT   NOT NULL DEFAULT 0,
-  PRIMARY KEY (ft_rev_id,ft_namespace,ft_title)
+  PRIMARY KEY (ft_rev_id, ft_tmp_rev_id)
 );
 
 CREATE TABLE flaggedpage_config (
