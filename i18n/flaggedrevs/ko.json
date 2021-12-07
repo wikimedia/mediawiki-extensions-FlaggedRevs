@@ -16,6 +16,7 @@
 			"아라"
 		]
 	},
+	"action-autoreviewrestore": "되돌리면서 자동으로 검토하기",
 	"action-review": "편집 검토",
 	"action-unreviewedpages": "검토되지 않은 문서 목록 보기",
 	"editor": "편집자",
@@ -57,6 +58,8 @@
 	"group-reviewer.js": "/* 이 자바스크립트 설정은 평론가에만 적용됩니다 */",
 	"group-autoreview.css": "/* 이 CSS 설정은 자동 검사자에만 적용됩니다 */",
 	"group-autoreview.js": "/* 이 자바스크립트 설정은 자동 검사자에만 적용됩니다 */",
+	"logentry-review-approve": "$1님이 $3의 새 판을 {{GENDER:$2|검토했습니다}}",
+	"logentry-review-approve-auto": "$1님이 $3의 새 판을 자동적으로 {{GENDER:$2|검토했습니다}}",
 	"logentry-stable-config": "$1 님이 \"$3\" 문서의 배포 설정을 {{GENDER:$2|정했습니다}} $4",
 	"logentry-stable-reset": "$1 님이 \"$3\" 문서의 배포 설정을 {{GENDER:$2|재설정했습니다}} $4",
 	"revreview-hist-draft": "검토되지 않은 판",

@@ -4,12 +4,14 @@
 			"Mainframe98",
 			"Robin van der Vliet",
 			"Robin0van0der0vliet",
-			"Sjoerddebruin"
+			"Sjoerddebruin",
+			"Romaine"
 		]
 	},
 	"apihelp-query+unreviewedpages-param-dir": "Richting om in te sorteren.",
 	"apihelp-query+unreviewedpages-param-namespace": "De naamruimte om door te lopen.",
 	"apihelp-stabilize-param-reason": "Reden.",
 	"apihelp-stabilize-param-watch": "Deze pagina volgen.",
+	"apihelp-stabilize-param-review": "Beoordeel deze pagina.",
 	"apierror-flaggedrevs-pagedoesnotexist": "De opgegeven pagina bestaat niet."
 }

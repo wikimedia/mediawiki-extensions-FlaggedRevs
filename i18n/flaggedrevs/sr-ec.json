@@ -15,7 +15,8 @@
 			"Vlad5250",
 			"Жељко Тодоровић",
 			"Михајло Анђелковић",
-			"Сербијана"
+			"Сербијана",
+			"Kizule"
 		]
 	},
 	"action-review": "проверавате измене",
@@ -161,7 +162,7 @@
 	"tooltip-ca-current": "Погледај ову страницу са променама на чекању",
 	"tooltip-ca-stable": "Погледајте стабилну измену ове странице",
 	"tooltip-ca-default": "Подешавања за контролу квалитета",
-	"flaggedrevs-protect-legend": "Аутоматска провера измена ([[{{MediaWiki:Validationpage}}|помоћ]])",
+	"flaggedrevs-protect-legend": "Аутоматска провера измена",
 	"flaggedrevs-protect-none": "Дозволи свим корисницима",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Непроверене странице]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Промене на чекању]",
 	"revreview-locked-title": "Измене на овој страници захтевају проверу.",

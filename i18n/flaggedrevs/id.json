@@ -12,7 +12,8 @@
 			"Iwan Novirion",
 			"Kenrick95",
 			"Rachmat04",
-			"Rex"
+			"Rex",
+			"Hidayatsrf"
 		]
 	},
 	"action-autoreview": "tandai suntingan seseorang secara otomatis sebagai \"terperiksa\"",
@@ -160,8 +161,9 @@
 	"tooltip-ca-current": "Lihat laman ini berikut perubahan tundanya",
 	"tooltip-ca-stable": "Lihat versi stabil halaman ini",
 	"tooltip-ca-default": "Pengaturan pemeriksaan kualitas",
-	"flaggedrevs-protect-legend": "Tinjauan suntingan otomatis ([[{{MediaWiki:Validationpage}}|bantuan]])",
+	"flaggedrevs-protect-legend": "Tinjauan suntingan otomatis",
 	"flaggedrevs-protect-none": "Izinkan semua pengguna",
+	"flaggedrevs-protect-sysop": "Hanya untuk pengurus",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Halaman yang belum ditinjau]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Perubahan yang ditunda]",
 	"revreview-locked-title": "Suntingan terhadap halaman ini membutuhkan tinjauan.",
 	"revreview-unlocked-title": "Suntingan terhadap halaman ini tidak membutuhkan tinjauan.",

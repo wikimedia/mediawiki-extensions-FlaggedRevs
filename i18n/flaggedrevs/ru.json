@@ -181,7 +181,7 @@
 	"tooltip-ca-current": "Просмотреть эту страницу с непроверенными изменениями",
 	"tooltip-ca-stable": "Показать опубликованную версию этой страницы",
 	"tooltip-ca-default": "Настройки контроля качества",
-	"flaggedrevs-protect-legend": "Автоматическая проверка правки ([[{{MediaWiki:Validationpage}}|справка]])",
+	"flaggedrevs-protect-legend": "Автоматическая проверка правки",
 	"flaggedrevs-protect-none": "Разрешено всем участникам",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Непроверенные страницы]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Ожидающие проверки изменения]",
 	"revreview-locked-title": "Правки этой страницы требуют проверки.",

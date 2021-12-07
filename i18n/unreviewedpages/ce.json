@@ -9,11 +9,11 @@
 	"unreviewedpages-legend": "Талланза агӀонийн могӀам",
 	"unreviewedpages-category": "Категори:",
 	"unreviewedpages-diff": "хьажа",
-	"unreviewedpages-unwatched": "(терго яц)",
+	"unreviewedpages-unwatched": "(терго йац)",
 	"unreviewedpages-watched": "({{PLURAL:$1|1=терго йеш $1 жигара декъашхо|терго йеш $1 жигара декъашхой}})",
 	"unreviewedpages-list": "ХӀокху агӀонгахь гойту [[{{MediaWiki:Validationpage}}|мах ца хадина]] агӀонаш.",
-	"unreviewedpages-none": "ХӀинца йолу хана иштта хьал долу агӀонаш яц",
-	"unreviewedpages-viewing": "(талламяхь ю)",
+	"unreviewedpages-none": "ХӀинца йолу хана иштта хьал долу агӀонаш йац",
+	"unreviewedpages-viewing": "(талламбеш йу)",
 	"unreviewedpages-hours": "($1 сахьт)",
 	"unreviewedpages-days": "($1 {{PLURAL:$1|де}})"
 }

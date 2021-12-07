@@ -142,5 +142,12 @@
 	"revreview-unlocked-title": "Urejanja te strani ne zahtevajo pregleda.",
 	"revreview-locked": "'''Opomba:''' Urejanja morajo biti [[{{MediaWiki:Validationpage}}|pregledana]], preden so prikazana bralcem na tej strani.",
 	"revreview-unlocked": "'''Opomba:''' Urejanja ne rabijo biti [[{{MediaWiki:Validationpage}}|pregledana]], preden so prikazana bralcem na tej strani.",
-	"validationpage": "{{ns:help}}:Vrednotenje strani"
+	"validationpage": "{{ns:help}}:Vrednotenje strani",
+	"log-action-filter-review": "Vrsta pregleda:",
+	"log-action-filter-review-accept": "Ročno sprejetje",
+	"log-action-filter-review-unaccept": "Ročna razveljavitev sprejetja",
+	"log-action-filter-stable": "Vrsta konfiguracijske spremembe:",
+	"log-action-filter-stable-config": "Nova konfiguracija",
+	"log-action-filter-stable-modify": "Spremenjena konfiguracija",
+	"log-action-filter-stable-reset": "Ponastavitev konfiguracije"
 }

@@ -15,7 +15,8 @@
 			"Str4nd",
 			"Stryn",
 			"Zache",
-			"ZeiP"
+			"ZeiP",
+			"Nwme"
 		]
 	},
 	"action-review": "arvioida versioita",
@@ -159,8 +160,9 @@
 	"tooltip-ca-current": "Näytä arviointia odottavat muutokset",
 	"tooltip-ca-stable": "Näytä vakaa versio tästä sivusta",
 	"tooltip-ca-default": "Laadunvarmistusasetukset",
-	"flaggedrevs-protect-legend": "Automaattinen muutosten arviointi ([[{{MediaWiki:Validationpage}}|ohje]])",
+	"flaggedrevs-protect-legend": "Automaattinen muutosten arviointi",
 	"flaggedrevs-protect-none": "Salli kaikki käyttäjät",
+	"flaggedrevs-protect-sysop": "Salli vain ylläpitäjät",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Arvioimattomat sivut]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Odottavat muutokset]",
 	"revreview-locked-title": "Tälle sivulle tehtävät muutokset vaativat arviointia.",
 	"revreview-unlocked-title": "Tälle sivulle tehtävät muutokset eivät edellytä arviointia.",

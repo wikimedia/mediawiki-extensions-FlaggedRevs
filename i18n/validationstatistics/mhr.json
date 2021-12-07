@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Сай"
+			"Сай",
+			"Kareyac"
 		]
 	},
-	"validationstatistics-ns": "Лӱм-влакын кумдыкышт"
+	"validationstatistics-ns": "Лӱм-влакын кумдыкышт",
+	"validationstatistics-user": "Пайдаланыше"
 }

@@ -16,7 +16,8 @@
 			"Ssola",
 			"Syum90",
 			"Toniher",
-			"Vriullop"
+			"Vriullop",
+			"Jmarchn"
 		]
 	},
 	"action-review": "supervisa les revisions",
@@ -148,7 +149,7 @@
 	"tooltip-ca-current": "Vegeu aquesta pàgina amb els canvis en curs",
 	"tooltip-ca-stable": "Vegeu la versió estable d'aquesta pàgina",
 	"tooltip-ca-default": "Paràmetres de l'assegurança de qualitat",
-	"flaggedrevs-protect-legend": "Revisió automàtica dels canvis ([[{{MediaWiki:Validationpage}}|ajuda]])",
+	"flaggedrevs-protect-legend": "Revisió automàtica dels canvis",
 	"flaggedrevs-protect-none": "Autoritza tothom",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Pàgines no comprovades]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Canvis en curs]",
 	"revreview-locked-title": "Canvis en aquesta pàgina necessiten una revisió.",

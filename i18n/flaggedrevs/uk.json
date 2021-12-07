@@ -17,11 +17,12 @@
 			"Test",
 			"Vlad5250",
 			"Ата",
-			"Тест"
+			"Тест",
+			"DDPAT"
 		]
 	},
 	"action-autoreview": "автоматичне позначення власних редагувань як перевірених",
-	"action-autoreviewrestore": "автоперевіреність при відкоті",
+	"action-autoreviewrestore": "автоматичний огляд при відкаті",
 	"action-movestable": "перейменування сторінок зі стабільними версіями",
 	"action-review": "перевірку версій",
 	"action-stablesettings": "налаштування вибору і показу стабільної версії",
@@ -174,7 +175,7 @@
 	"tooltip-ca-current": "Переглянути цю сторінку з неперевіреними змінами",
 	"tooltip-ca-stable": "Переглянути стабільну версію цієї сторінки",
 	"tooltip-ca-default": "Налаштування контролю якості",
-	"flaggedrevs-protect-legend": "Автоматична перевірка редагування ([[{{MediaWiki:Validationpage}}|допомога]])",
+	"flaggedrevs-protect-legend": "Автоматична перевірка редагування",
 	"flaggedrevs-protect-none": "Дозволено всім користувачам",
 	"flaggedrevs-protect-sysop": "Дозволити лише адміністраторам",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Неперевірені сторінки]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Зміни, що очікують на перевірку]",

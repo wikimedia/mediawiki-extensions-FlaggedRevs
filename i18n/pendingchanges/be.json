@@ -2,12 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Хомелка",
-			"Чаховіч Уладзіслаў"
+			"Чаховіч Уладзіслаў",
+			"Maksim L."
 		]
 	},
 	"pendingchanges": "Старонкі з неправеранымі зменамі",
 	"pendingchanges-legend": "Пералік правераных старонак з неправеранымі версіямі",
-	"pendingchanges-list": "На гэтай старонцы пералічаны [[{{MediaWiki:Validationpage}}|правераныя]] старонкі, якія ў далейшым правіліся",
+	"pendingchanges-list": "На гэтай старонцы пералічаны [[{{MediaWiki:Validationpage}}|дагледжаныя]] старонкі, якія пазней правілі",
 	"pendingchanges-none": "У цяперашні час няма старонак, якія задавальняюць гэтым умовам",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|гадзіну|гадзіны|гадзін}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|дзень|дня|дзён}})",

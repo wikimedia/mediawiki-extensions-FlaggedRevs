@@ -2,10 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Aushulz",
-			"Sarvaturi"
+			"Sarvaturi",
+			"Ajeje Brazorf"
 		]
 	},
 	"stabilization-page": "Nomu dâ pàggina:",
+	"stabilization-submit": "Cunferma",
 	"stabilization-comment": "Mutivu:",
-	"stabilization-otherreason": "Àutru mutivu:"
+	"stabilization-otherreason": "Àutru mutivu:",
+	"stabilization-def-short-0": "Attuali"
 }

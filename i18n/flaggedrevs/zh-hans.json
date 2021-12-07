@@ -24,7 +24,8 @@
 			"Xiaomingyan",
 			"Xiplus",
 			"阿pp",
-			"飞舞回堂前"
+			"飞舞回堂前",
+			"GuoPC"
 		]
 	},
 	"action-autoreview": "自动标记自己的编辑为“已复核”",
@@ -181,6 +182,7 @@
 	"tooltip-ca-default": "质量保证设置",
 	"flaggedrevs-protect-legend": "自动编辑复核",
 	"flaggedrevs-protect-none": "允许所有用户",
+	"flaggedrevs-protect-sysop": "仅允许管理员",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} 未复核页面]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} 待定更改]",
 	"revreview-locked-title": "对该页面的编辑需要复核。",
 	"revreview-unlocked-title": "对该页面的编辑不需要复核。",

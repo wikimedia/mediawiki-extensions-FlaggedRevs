@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Jeblad",
-			"Jon Harald Søby"
+			"Jon Harald Søby",
+			"4ing"
 		]
 	},
 	"apihelp-flagconfig-description": "Hent grunnleggende informasjon om gjennomgangskonfigurasjonen for dette nettstedet.\n\nFølgende parametre returneres for hver tagg:\n;name:Nøkkelen til denne taggen.\n;levels:Antall nivåer denne taggen har (i tillegg til «ikke tagget»).\n;tier2:Nivået taggen må være for at en revisjon er nivå 2 (kvalitet).\n;tier3:Nivået taggen må være for at en revisjon er nivå 3 (utmerket).\nFlaggede revisjoner har et nivå for hver tagg. Det høyeste nivået alle taggene har er gjennomgangsnivået for hele revisjonen.",
@@ -29,7 +30,7 @@
 	"apihelp-query+oldreviewedpages-param-start": "Start opplisting på dette tidspunktet.",
 	"apihelp-query+oldreviewedpages-param-end": "Stopp opplistingen på dette tidspunktet.",
 	"apihelp-query+oldreviewedpages-param-maxsize": "Maksimalt endring i antall karakterer.",
-	"apihelp-query+oldreviewedpages-param-filterwatched": "Hvordan filtrere for sider på din overvåkingsliste.",
+	"apihelp-query+oldreviewedpages-param-filterwatched": "Hvordan filtrere for sider på din overvåkningsliste.",
 	"apihelp-query+oldreviewedpages-param-namespace": "Navnerommet som skal listes opp.",
 	"apihelp-query+oldreviewedpages-param-category": "Vis bare sider fra den angitte kategorien.",
 	"apihelp-query+oldreviewedpages-param-filterredir": "Hvordan filtrere på omdirigeringer.",

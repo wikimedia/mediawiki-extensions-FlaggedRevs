@@ -144,7 +144,7 @@
 	"tooltip-ca-current": "Паказаць гэтую старонку зь неправеранымі зьменамі",
 	"tooltip-ca-stable": "Паказаць апублікаваную вэрсію гэтай старонкі",
 	"tooltip-ca-default": "Налады кантролю якасьці",
-	"flaggedrevs-protect-legend": "Аўтаматычнае рэцэнзаваньне рэдагаваньня ([[{{MediaWiki:Validationpage}}|дапамога]])",
+	"flaggedrevs-protect-legend": "Аўтаматычнае рэцэнзаваньне рэдагаваньня",
 	"flaggedrevs-protect-none": "Дазволіць усім удзельнікам",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Нерэцэнзаваныя старонкі]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Зьмены, якія чакаюць рэцэнзіі]",
 	"revreview-locked-title": "Зьмены гэтай старонкі патрабуюць рэцэнзаваньня.",

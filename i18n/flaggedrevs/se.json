@@ -6,5 +6,7 @@
 		]
 	},
 	"flaggedrevs-hidereviewed-hide": "Čiega",
-	"revreview-revnotfound": "Veršuvdna, man ohcet, ii dihtto. Dárkkis URL-čujuhusa, mainna ohcet dán siiddu."
+	"flaggedrevs-hidereviewed-show": "Čájet",
+	"revreview-revnotfound": "Veršuvdna, man ohcet, ii dihtto. Dárkkis URL-čujuhusa, mainna ohcet dán siiddu.",
+	"revreview-filter-all": "buot"
 }

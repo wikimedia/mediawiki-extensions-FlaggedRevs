@@ -14,11 +14,13 @@
 			"Ommmmid",
 			"Reza1615",
 			"Sahim",
-			"Wayiran"
+			"Wayiran",
+			"Jeeputer"
 		]
 	},
+	"action-autoreviewrestore": "بازبینی خودکار در زمان واگردانی",
 	"action-review": "بازبینی نسخه‌ها",
-	"action-unreviewedpages": "مشاهدهٔ صفحه‌های پی‌گیری نشده",
+	"action-unreviewedpages": "مشاهدهٔ فهرست صفحه‌های بازبینی‌نشده",
 	"editor": "ویرایشگر",
 	"flaggedrevs": "نسخه‌های علامت‌دار",
 	"flaggedrevs-watched-pending": "هم‌اکنون [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} تغییرات در حال انتظار] در صفحه‌های بازبینی‌شده  در فهرست پی‌گیری‌های شما وجود دارند.\n'''به توجه شما نیاز است!'''",
@@ -155,7 +157,7 @@
 	"tooltip-ca-current": "نمایش این صفحه همراه با تغییرات در حال انتظار",
 	"tooltip-ca-stable": "نمایش نسخهٔ پایدار این صفحه",
 	"tooltip-ca-default": "تنظیمات کنترل کیفیت",
-	"flaggedrevs-protect-legend": "بازبینی ویرایش خودکار ([[{{MediaWiki:Validationpage}}|کمک]])",
+	"flaggedrevs-protect-legend": "بازبینی ویرایش خودکار",
 	"flaggedrevs-protect-none": "همهٔ کاربرها",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} صفحه‌های بازبینی نشده]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} تغییرات در حال انتظار]",
 	"revreview-locked-title": "لزوم بازبینی برای تغییرات صورت گرفته در این صفحه.",

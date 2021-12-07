@@ -13,7 +13,8 @@
 			"Nikosgranturismogt",
 			"Omnipaedista",
 			"Protnet",
-			"ZaDiak"
+			"ZaDiak",
+			"Giannaras99"
 		]
 	},
 	"action-review": "επισκόπηση εκδόσεων",
@@ -74,7 +75,7 @@
 	"reviewer": "Κριτικός",
 	"revreview-accuracy": "Ακρίβεια",
 	"revreview-accuracy-0": "Ανεπαρκές",
-	"revreview-accuracy-1": "Επιθεωρημένο",
+	"revreview-accuracy-1": "Αποδεκτό",
 	"revreview-accuracy-2": "Ακριβές",
 	"revreview-accuracy-3": "Με επαρκείς πηγές",
 	"revreview-accuracy-4": "Επιλεγμένο",
@@ -150,7 +151,7 @@
 	"tooltip-ca-current": "Προβάλετε αυτήν τη σελίδα με τις εκκρεμείς αλλαγές",
 	"tooltip-ca-stable": "Προβάλετε την σταθερή έκδοση αυτής της σελίδας",
 	"tooltip-ca-default": "Ρυθμίσεις διασφάλισης ποιότητας",
-	"flaggedrevs-protect-legend": "Αυτόματη επιθεώρηση επεξεργασίας ([[{{MediaWiki:Validationpage}}|βοήθεια]])",
+	"flaggedrevs-protect-legend": "Αυτόματη επιθεώρηση επεξεργασίας",
 	"flaggedrevs-protect-none": "Να επιτρέπονται όλοι οι χρήστες",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Μη επιθεωρημένες σελίδες]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Εκκρεμείς αλλαγές]",
 	"revreview-locked-title": "Επεξεργασίες σε αυτή τη σελίδα απαιτούν επανεξέταση.",
