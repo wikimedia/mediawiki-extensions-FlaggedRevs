@@ -26,6 +26,18 @@ class PruneFRIncludeData extends Maintenance {
 		$this->addOption( 'start', 'The ID of the starting rev', false, true );
 		$this->addOption( 'sleep', 'Extra sleep time between each batch', false, true );
 		$this->setBatchSize( 500 );
+		$this->addOption(
+			'rev-age',
+			'Revisions older than this age will be deleted in seconds (default: 3600)',
+			false,
+			true
+		);
+		$this->addOption(
+			'rev-num',
+			'Revisions must have at least this number of reviewed revisions on top (default: 50)',
+			false,
+			true
+		);
 		$this->requireExtension( 'FlaggedRevs' );
 	}
 
@@ -67,9 +79,9 @@ class PruneFRIncludeData extends Maintenance {
 		// Tally
 		$tDeleted = 0;
 
-		$newerRevs = 50;
+		$newerRevs = (int)$this->getOption( 'sleep', 50 );
 		$sleep = (int)$this->getOption( 'sleep', 0 );
-		$cutoff = $dbr->timestamp( time() - 3600 );
+		$cutoff = $dbr->timestamp( time() - (int)$this->getOption( 'sleep', 3600 ) );
 
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 
