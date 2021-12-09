@@ -79,9 +79,9 @@ class PruneFRIncludeData extends Maintenance {
 		// Tally
 		$tDeleted = 0;
 
-		$newerRevs = (int)$this->getOption( 'sleep', 50 );
+		$newerRevs = (int)$this->getOption( 'rev-num', 50 );
 		$sleep = (int)$this->getOption( 'sleep', 0 );
-		$cutoff = $dbr->timestamp( time() - (int)$this->getOption( 'sleep', 3600 ) );
+		$cutoff = $dbr->timestamp( time() - (int)$this->getOption( 'rev-age', 3600 ) );
 
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 
