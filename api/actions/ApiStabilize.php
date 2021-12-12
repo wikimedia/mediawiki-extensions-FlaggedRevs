@@ -26,28 +26,9 @@
  * @ingroup FlaggedRevs
  */
 abstract class ApiStabilize extends ApiBase {
-	use ApiWatchlistTrait;
 
 	/** @var Title|null */
 	protected $title;
-
-	/**
-	 * @param ApiMain $mainModule
-	 * @param string $moduleName
-	 * @param string $modulePrefix
-	 */
-	public function __construct( ApiMain $mainModule, $moduleName, $modulePrefix = '' ) {
-		parent::__construct( $mainModule, $moduleName, $modulePrefix );
-
-		// Variables provided by ApiWatchlistTrait. But, watchlist handling is done within
-		// the form objects that the Api modules create, and those don't yet support watchlist
-		// expiration.
-		// $this->watchlistExpiryEnabled = $this->getConfig()->get( 'WatchlistExpiry' );
-		$this->watchlistExpiryEnabled = false;
-
-		// Need to provide some value, might as well be the correct one
-		$this->watchlistMaxDuration = $this->getConfig()->get( 'WatchlistExpiryMaxDuration' );
-	}
 
 	/**
 	 * @inheritDoc

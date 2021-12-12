@@ -63,7 +63,6 @@
 	"apihelp-stabilize-description-protect": "Configure review-protection settings for a page.",
 	"apihelp-stabilize-summary-protect": "Configure review-protection settings for a page.",
 	"apihelp-stabilize-param-reason": "Reason.",
-	"apihelp-stabilize-param-watch": "Watch this page.",
 	"apihelp-stabilize-param-expiry-general": "Expiry for these settings.",
 	"apihelp-stabilize-param-expiry-protect": "Review-protection expiry.",
 	"apihelp-stabilize-param-title-general": "Title of the page to be stabilized.",
