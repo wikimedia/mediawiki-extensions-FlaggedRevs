@@ -35,11 +35,6 @@ class ApiStabilizeGeneral extends ApiStabilize {
 
 		$form = new PageStabilityGeneralForm( $user );
 		$form->setPage( $this->title ); # Our target page
-
-		$watch = $params['watch'] ??
-			$this->getWatchlistValue( $params['watchlist'], $this->title, $user );
-
-		$form->setWatchThis( $watch ); # Watch this page
 		$form->setReasonExtra( $params['reason'] ); # Reason
 		$form->setReasonSelection( 'other' ); # Reason dropdown
 		$form->setExpiryCustom( $params['expiry'] ); # Expiry
@@ -109,14 +104,7 @@ class ApiStabilizeGeneral extends ApiStabilize {
 			],
 			'reason' => '',
 			'review' => false,
-			'watch' => [
-				ApiBase::PARAM_DEPRECATED => true,
-			],
 		];
-
-		// Params appear in the docs in the order they are defined,
-		// which is why this is here and not at the bottom.
-		$pars += $this->getWatchlistParams();
 
 		$pars += [
 			'title' => [
