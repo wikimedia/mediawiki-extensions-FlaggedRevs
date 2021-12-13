@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ansumang"
+			"Ansumang",
+			"Psubhashish"
 		]
 	},
 	"revisionreview": "ସମୀକ୍ଷା ସଂଶୋଧନସବୁ",
 	"revreview-submit": "ଦାଖଲ କରିବା",
 	"revreview-submitting": "ଦାଖଲ ହେଉଛି...",
-	"revreview-submit-reject": "ଅସ୍ଵୀକାର ବଦଳଗୁଡ଼ିକ",
+	"revreview-submit-reject": "ବଦଳସବୁ ହଟାନ୍ତୁ",
 	"revreview-adv-start-link": "ବିଜ୍ଞାପନ",
 	"revreview-reject-summary": "ସାରକଥା:",
 	"revreview-reject-cancel": "ବାତିଲ"

@@ -181,8 +181,13 @@
 	"revreview-unlocked-title": "Bewerkingen aan deze pagina hoeven niet gecontroleerd te worden.",
 	"revreview-locked": "'''Let op:''' Bewerkingen aan deze pagina moeten [[{{MediaWiki:Validationpage}}|gecontroleerd]] worden voordat ze worden weergegeven.",
 	"revreview-unlocked": "'''Let op:''' Bewerkingen aan deze pagina hoeven niet [[{{MediaWiki:Validationpage}}|gecontroleerd]] te worden voordat ze worden weergegeven.",
+	"logeventslist-review-log": "Controlelogboek",
 	"validationpage": "{{ns:help}}:Paginaredactie",
 	"log-action-filter-review-accept": "Handmatig geaccepteerd",
 	"log-action-filter-review-autoaccept": "Automatisch geaccepteerd",
-	"log-action-filter-review-unaccept": "Handmatig afgewezen"
+	"log-action-filter-review-unaccept": "Handmatig afgewezen",
+	"log-action-filter-stable-config": "Nieuwe configuratie",
+	"log-action-filter-stable-modify": "Gewijzigde configuratie",
+	"log-action-filter-stable-reset": "Configuratie resetten",
+	"log-action-filter-stable-move_stable": "Configuratie verplaatst"
 }

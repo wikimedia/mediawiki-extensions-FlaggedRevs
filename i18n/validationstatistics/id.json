@@ -7,7 +7,8 @@
 			"IvanLanin",
 			"Iwan Novirion",
 			"Kenrick95",
-			"Rex"
+			"Rex",
+			"Daud I.F. Argana"
 		]
 	},
 	"validationstatistics": "Statistik validasi / tinjauan halaman",
@@ -15,13 +16,14 @@
 	"validationstatistics-lastupdate": "''Data berikut terakhir dimutakhirkan pada tanggal $1 pukul $2.''",
 	"validationstatistics-pndtime": "Suntingan yang telah diperiksa oleh Editor dianggap ''{{int:validationstatistics-stable}}''.\n\nLama penundaan tinjauan rata-rata untuk [[Special:OldReviewedPages|halaman dengan penundaan tinjauan suntingan]] adalah '''$1'''; penundaan menunjukkan lama waktu suntingan tunda terlama belum ditinjau.",
 	"validationstatistics-revtime": "Lama waktu rata-rata untuk suntingan oleh ''pengguna yang tidak masuk log'' agar ditinjau adalah '''$1'''; mediannya adalah '''$2'''.\n$3",
-	"validationstatistics-table": "Statistik tinjauan halaman untuk setiap ruang nama ditampilkan di bawah ini, ''kecuali'' halaman pengalihan. Halaman dianggap ''kedaluwarsa'' jika memiliki tinjauan suntingan tertunda; halaman dianggap ''sinkron'' jika tidak memiliki tinjauan suntingan tertunda.",
+	"validationstatistics-table": "Statistik tinjauan halaman untuk setiap ruang nama ditampilkan di bawah ini, ''kecuali'' halaman pengalihan. Halaman dianggap ''{{int:validationstatistics-old}}'' jika memiliki tinjauan suntingan tertunda; halaman dianggap ''{{int:validationstatistics-latest}}'' jika tidak memiliki tinjauan suntingan tertunda.",
 	"validationstatistics-ns": "Ruang nama",
 	"validationstatistics-total": "Halaman",
 	"validationstatistics-stable": "Telah ditinjau",
 	"validationstatistics-latest": "Tersinkron",
 	"validationstatistics-synced": "Sinkron/Tertinjau",
 	"validationstatistics-old": "Usang",
+	"validationstatistics-unreviewed": "Belum ditinjau",
 	"validationstatistics-utable": "Berikut adalah daftar {{PLURAL:$1|peninjau|peninjau}} teraktif selama {{PLURAL:$2|satu jam|$2 jam}} terakhir.",
 	"validationstatistics-user": "Pengguna",
 	"validationstatistics-reviews": "Tinjauan"

@@ -48,6 +48,7 @@
 	"review-logentry-id": "revision: $2",
 	"reviewer": "Korrekturlæser",
 	"revreview-accuracy-4": "Fremhævet",
+	"revreview-current": "Ventende ændringer",
 	"revreview-depth": "Dybde",
 	"revreview-depth-1": "Grundlæggende",
 	"revreview-depth-2": "Middel",
@@ -59,11 +60,15 @@
 	"revreview-style-4": "Fremhævet",
 	"revreview-toggle-title": "vis/skjul detaljer",
 	"revreview-revnotfound": "Den gamle version af den side du spurgte efter kan\nikke findes. Kontrollér den URL du brugte til at få adgang til denne side.",
+	"revreview-filter-all": "alle",
+	"revreview-filter-stable": "stabil",
 	"revreview-typefilter": "Type:",
 	"revreview-filter-auto": "Automatisk",
 	"revreview-filter-manual": "Manuelt",
 	"revreview-lev-quality": "kvalitet",
 	"revreview-def-draft": "seneste",
 	"revreview-restriction-none": "ingen",
-	"tooltip-ca-current": "Se denne side med de afventende ændringer"
+	"revreview-reviewlink": "ventende ændringer",
+	"tooltip-ca-current": "Se denne side med de afventende ændringer",
+	"flaggedrevs-protect-none": "Tillad alle brugere"
 }

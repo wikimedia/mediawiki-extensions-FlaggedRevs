@@ -6,9 +6,11 @@
 			"Robin van der Vliet"
 		]
 	},
-	"validationstatistics-users": "'''{{SITENAME}}''' nune havas '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|uzero|uzeri}} kun [[{{MediaWiki:Validationpage}}|editera yuri]].\n\nEditeri esas redakteri qui povas revizar la pagini.",
+	"validationstatistics-users": "'''{{SITENAME}}''' nun havas '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|uzero|uzeri}} kun [[{{MediaWiki:Validationpage}}|editera yuri]].\n\nEditeri esas redakteri qui povas revizar la pagini.",
 	"validationstatistics-ns": "Nomaro",
 	"validationstatistics-total": "Pagini",
+	"validationstatistics-stable": "Revizita",
 	"validationstatistics-old": "Sen aktualigi",
+	"validationstatistics-unreviewed": "Sen revizo",
 	"validationstatistics-user": "Uzero"
 }

@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Joseph",
-			"Srhat"
+			"Srhat",
+			"MuratTheTurkish"
 		]
 	},
 	"configuredpages": "İnceleme yapılandırması olan sayfalar",
-	"configuredpages-list": "Aşağıdaki, site varsayılanından farklı onay ayarına sahip olarak yapılandırılmış sayfaların bir listesidir.\nBazı ayarlar, okuyuculara hangi sürümün görüntüleneceğini değiştirebilir ya da inceleme gerektirmeyen değişiklikleri kimin yapabileceğini ayrıca kısıtlayabilir.",
+	"configuredpages-list": "Bu sayfa, site varsayılanından farklı onay ayarlarına sahip olacak şekilde yapılandırılmış sayfaları listeler.\nBazı ayarlar, okuyuculara hangi sürümün gösterileceğini değiştirebilir veya incelenmesi gerekmeyen revizyonları kimlerin yapabileceğini daha da kısıtlayabilir.",
 	"configuredpages-none": "Bu listede hiç sayfa yok.",
 	"configuredpages-config": "Yapılandırma",
 	"configuredpages-def-draft": "son sürüm",

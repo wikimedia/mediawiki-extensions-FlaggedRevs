@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Robby",
-			"Soued031"
+			"Soued031",
+			"Les Meloures"
 		]
 	},
 	"revisionreview": "Versiounen nokucken",
@@ -26,7 +27,7 @@
 	"review_reject_nulledits": "Dës Ännerungen kënnen net refuséiert ginn wëll all d'Ännerungen eidel sinn.",
 	"revreview-check-flag-p": "Dës Versioun (mat {{PLURAL:$1|enger Ännerungen déi elo am Suspens ass|$1 Ännerungen déi elo am Suspens sinn}}) akzeptéieren  publizéieren",
 	"revreview-check-flag-p-title": "All déi Ännerungen déi elo am Suspens sinn zesumme mat Ärer Ännerung akzeptéieren. Benotzt dëst nëmme wann Dir Iech all Ännerungen déi am Suspens sinn ugekuckt hutt.",
-	"revreview-check-flag-u": "Dës net nogekuckte Säit akzeptéieren",
+	"revreview-check-flag-u": "Dës net nogekuckt Säit akzeptéieren",
 	"revreview-check-flag-u-title": "Dës Versioun vun der Säit akzeptéieren. Benotzt dëst nëmme wann Dir schonn déi ganz Säit gesinn hutt.",
 	"revreview-check-flag-y": "Dës Ännerungen akzeptéieren",
 	"revreview-check-flag-y-title": "All Ännerungen akzeptéieren déi Dir bei dëser Ännerung gemaach hutt.",

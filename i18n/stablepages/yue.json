@@ -2,12 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Ktchankt",
-			"Shinjiman"
+			"Shinjiman",
+			"Moon0319"
 		]
 	},
 	"stablepages": "用緊編輯覆核嘅版",
 	"stablepages-list": "呢版列示咗啲版都係唔使覆核，只係某啲用戶可以改嘅。\n第啲用戶嘅改動響有授權用戶覆核之前，都唔會向讀者顯示。",
 	"stablepages-none": "無版響呢個表度",
-	"stablepages-config": "設定",
+	"stablepages-config": "自定喜好",
 	"stablepages-indef": "只係無期限"
 }

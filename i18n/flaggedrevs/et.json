@@ -35,6 +35,13 @@
 	"group-autoreview": "Automaatsed ülevaatajad",
 	"group-autoreview-member": "automaatne ülevaataja",
 	"grouppage-autoreview": "{{ns:project}}:Automaatsed ülevaatajad",
+	"logentry-review-approve": "$1 {{GENDER:$2|vaatas üle}} lehekülje $3 versiooni",
+	"logentry-review-approve-auto": "$1 {{GENDER:$2|vaatas}} automaatselt üle lehekülje $3 versiooni",
+	"logentry-review-unapprove": "$1 {{GENDER:$2|laitis maha}} lehekülje $3 versiooni",
+	"logentry-stable-config": "$1 {{GENDER:$2|määras}} leheküljele $3 püsiva versiooni sätted $4",
+	"logentry-stable-modify": "$1 {{GENDER:$2|muutis}} lehekülje $3 püsiva versiooni sätteid $4",
+	"logentry-stable-reset": "$1 {{GENDER:$2|lähtestas}} lehekülje $3 püsiva versiooni sätted $4",
+	"logentry-stable-move_stable": "$1 {{GENDER:$2|teisaldas}} lehekülje $4 püsiva versiooni sätted leheküljele $3",
 	"revreview-hist-draft": "kord vaatamata redaktsioon",
 	"revreview-hist-pending": "ootel redaktsioon",
 	"revreview-hist-quality": "hea redaktsioon",
@@ -172,5 +179,13 @@
 	"revreview-locked": "'''Märkus:''' Sellel leheküljel peab muudatused enne lugejatele kuvamist [[{{MediaWiki:Validationpage}}|üle vaatama]].",
 	"revreview-unlocked": "'''Märkus:''' Sellel leheküljel ei pea muudatusi enne lugejatele kuvamist [[{{MediaWiki:Validationpage}}|üle vaatama]].",
 	"logeventslist-review-log": "Ülevaatuslogi",
-	"validationpage": "{{ns:help}}:Lehekülgede ülevaatus"
+	"validationpage": "{{ns:help}}:Lehekülgede ülevaatus",
+	"log-action-filter-review": "Ülevaatuse tüüp:",
+	"log-action-filter-review-accept": "Käsitsi heakskiitmine",
+	"log-action-filter-review-unaccept": "Käsitsi tagasilükkamine",
+	"log-action-filter-stable": "Häälestuse muudatuse tüüp:",
+	"log-action-filter-stable-config": "Uus häälestus",
+	"log-action-filter-stable-modify": "Häälestuse muutmine",
+	"log-action-filter-stable-reset": "Häälestuse lähtestamine",
+	"log-action-filter-stable-move_stable": "Häälestuse teisaldamine"
 }

@@ -9,7 +9,8 @@
 			"Sadrettin",
 			"Srhat",
 			"Szoszv",
-			"Vito Genovese"
+			"Vito Genovese",
+			"SaldırganSincap"
 		]
 	},
 	"revisionreview": "Revizyonları incele",
@@ -25,7 +26,7 @@
 	"review_too_low": "Revizyon, bazı alanlar ''yetersiz'' olarak bırakılmışken incelenemez.",
 	"review_bad_key": "Geçersiz kapsama parametresi anahtarı",
 	"review_bad_tags": "Belirtilen etiket değerlerinin bazıları geçersizdir.",
-	"review_denied": "İzin reddedildi.",
+	"review_denied": "İzin verilmedi.",
 	"review_param_missing": "Bir parametre eksik veya geçersiz.",
 	"review_cannot_undo": "Bu değişiklikler geri alınamıyor, çünkü bekleyen düzenlemeler aynı alanları değiştirmiş.",
 	"review_cannot_reject": "Bu değişiklikler reddedilemiyor, çünkü biri düzenlemelerin bazılarını (ya da tamamını) zaten kabul etmiş.",
@@ -58,7 +59,7 @@
 	"revreview-adv-reviewing-p": "Bilgi: Diğer kullanıcılar bu değişikliği {{GENDER:$1|incelediğinizi}} görebilirler.",
 	"revreview-adv-reviewing-c": "Bildirim: Diğer kullanıcılar bu değişiklikleri şu an {{GENDER:$1|inceliyor olduğunuzu}} görebilirler.",
 	"revreview-sadv-reviewing-p": "Bu sayfayı şu an inceliyor olduğunuzu diğer kullanıcılara [$1 ilan edebilirsiniz].",
-	"revreview-sadv-reviewing-c": "Bu değişiklikleri incelediğiniz diğer kullanıcılara [$1 reklam verebilirsiniz].",
+	"revreview-sadv-reviewing-c": "Diğer kullanıcılara bu değişiklikleri incelemekte olduğunuzu [$1 gösterebilirsiniz].",
 	"revreview-adv-start-link": "ilan edebilirsiniz",
 	"revreview-adv-stop-link": "Bildirme!",
 	"revreview-toolow": "'''Bir sürümün incelenmiş sayılabilmesi için özniteliklerin hepsini \"yetersiz\" düzeyden yüksek derecelendirmelisiniz.'''\n\nBir sürümün inceleme durumunu kaldırmak için \"{{int:revreview-submit-unreview}}\" seçeneğine tıklayın.\n\nLütfen tarayıcınızdaki \"geri\" tuşuna basın ve tekrar deneyin.",
@@ -66,7 +67,7 @@
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Değişiklikleriniz henüz kararlı sürüm içinde değildir.</span>\n\nDeğişikliklerinizin kararlı sürümde yer alması için lütfen aşağıda gösterilen tüm değişiklikleri inceleyin.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Değişiklikleriniz henüz kararlı sürüm için değildir. İnceleme bekleyen eski değişiklikler bulunmaktadır.</span>\n\nDeğişikliklerinizin kararlı sürümde yer alması için, lütfen aşağıda gösterilen tüm değişiklikleri inceleyin.",
 	"revreview-update-includes": "Şablonlar/dosyalar güncellenmiş (gözden geçirilmemiş sayfalar koyu renkli):",
-	"revreview-reject-text-list": "Bu eylemi tamamlayarak [[:$2|$2]] sayfasındaki şu {{PLURAL:$1|sürümü|sürümleri}} '''reddetmiş''' olacaksınız:",
+	"revreview-reject-text-list": "Bu işlemi tamamlayarak [[:$2|$2]] sayfasındaki şu $1 sürümü '''reddetmiş''' olacaksınız:",
 	"revreview-reject-text-revto": "Bu sayfa [{{fullurl:$1|oldid=$2}} $3 tarihli] revizyona geri dönecektir.",
 	"revreview-reject-summary": "Özet:",
 	"revreview-reject-confirm": "Bu değişiklikleri reddet",

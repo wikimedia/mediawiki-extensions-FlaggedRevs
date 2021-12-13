@@ -7,7 +7,9 @@
 			"Memo18",
 			"Mihai",
 			"Minisarm",
-			"Stelistcristi"
+			"Stelistcristi",
+			"Andreyyshore",
+			"NGC 54"
 		]
 	},
 	"stabilization-tab": "config.",
@@ -30,8 +32,8 @@
 	"stabilization-def-short": "Implicit",
 	"stabilization-def-short-0": "Curent",
 	"stabilization-def-short-1": "Stabil",
-	"stabilize_page_invalid": "Titlul paginii ţintă este invalid.",
-	"stabilize_page_notexists": "Pagina-ţintă nu există.",
+	"stabilize_page_invalid": "Titlul paginii țintă este invalid.",
+	"stabilize_page_notexists": "Pagina-țintă nu există.",
 	"stabilize_invalid_level": "Nivel de protecție nevalid.",
 	"stabilize_expiry_invalid": "Data expirării incorectă.",
 	"stabilize_expiry_old": "Această dată de expirare a trecut deja.",

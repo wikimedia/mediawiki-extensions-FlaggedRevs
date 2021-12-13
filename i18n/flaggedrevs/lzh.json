@@ -6,7 +6,8 @@
 			"Jason924tw",
 			"Omnipaedista",
 			"Xiplus",
-			"逆襲的天邪鬼"
+			"逆襲的天邪鬼",
+			"LaMagiaaa"
 		]
 	},
 	"editor": "分校官",
@@ -27,6 +28,7 @@
 	"revreview-hist-pending": "待審",
 	"revreview-hist-quality": "校正本",
 	"revreview-hist-basic": "初定本",
+	"revreview-hist-basic-user": "經[[User:$3|$3]]校",
 	"revreview-hist-basic-auto": "經校",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} 待審]]'''",
 	"revreview-accuracy-1": "過目",

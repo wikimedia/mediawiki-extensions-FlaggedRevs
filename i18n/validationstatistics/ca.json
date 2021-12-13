@@ -4,13 +4,14 @@
 			"Aleator",
 			"Grondin",
 			"SMP",
-			"Solde"
+			"Solde",
+			"Mguix"
 		]
 	},
 	"validationstatistics": "Estadístiques de revisió",
 	"validationstatistics-users": "'''{{SITENAME}}''' té actualment '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usuari|usuaris}} amb drets d'[[{{MediaWiki:Validationpage}}|Editor]].\n\nEls Editors són usuaris experimentats que poden validar les revisions de les pàgines.",
 	"validationstatistics-lastupdate": "''Les dades següents van ser actualitzades el $1 a les $2.''",
-	"validationstatistics-pndtime": "Són considerades com a « revisades » les edicions que han comprovat els usuaris habilitats.\n\nEl temps mitjà pel que fa a [[Special:OldReviewedPages|les pagines amb edicions en curs de revisió]] és d'uns '''$1'''; es mesura el retard en funció del temps que es necessita la verificació de la versió més antiga.",
+	"validationstatistics-pndtime": "Les edicions que han estat comprovades pels usuaris establerts es consideren ''{{int:validationstatistics-stable}}''. <br><br>El retard mitjà de revisió per a [[Special:OldReviewedPages|pàgines amb edicions actualment pendents de revisió]] és ''$1'''; el retard mesura quant de temps ha passat sense revisar l'edició pendent més antiga.",
 	"validationstatistics-ns": "Espai de noms",
 	"validationstatistics-total": "Pàgines",
 	"validationstatistics-stable": "S'ha revisat",

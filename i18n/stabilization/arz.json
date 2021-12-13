@@ -3,7 +3,8 @@
 		"authors": [
 			"Dudi",
 			"Meno25",
-			"Ramsis II"
+			"Ramsis II",
+			"HitomiAkane"
 		]
 	},
 	"stabilization-tab": "تج",
@@ -14,7 +15,7 @@
 	"stabilization-leg": "اتأكيد من تظبيطات النسخه المنشوره",
 	"stabilization-def": "المراجعه المعروضه عند رؤيه الصفحه افتراضيا",
 	"stabilization-def1": "المراجعه المنشوره; لو مش موجوده, يبقى المراجعه بتاعة دلوقتى/المسوده",
-	"stabilization-def2": "المراجعه الحالية/المسودة",
+	"stabilization-def2": "المراجعه الحاليه/المسوده",
 	"stabilization-restrict": "ضوابط المراجعه التلقائية",
 	"stabilization-restrict-none": "لا ضوابط إضافية",
 	"stabilization-submit": "تأكيد",

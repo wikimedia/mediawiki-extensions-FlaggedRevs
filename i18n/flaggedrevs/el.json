@@ -12,7 +12,9 @@
 			"Nikosgranturismogt",
 			"Omnipaedista",
 			"Protnet",
-			"ZaDiak"
+			"ZaDiak",
+			"Giannaras99",
+			"NikosLikomitros"
 		]
 	},
 	"action-review": "επισκόπηση εκδόσεων",
@@ -76,7 +78,7 @@
 	"reviewer": "Κριτικός",
 	"revreview-accuracy": "Ακρίβεια",
 	"revreview-accuracy-0": "Ανεπαρκές",
-	"revreview-accuracy-1": "Επιθεωρημένο",
+	"revreview-accuracy-1": "Αποδεκτό",
 	"revreview-accuracy-2": "Ακριβές",
 	"revreview-accuracy-3": "Με επαρκείς πηγές",
 	"revreview-accuracy-4": "Επιλεγμένο",

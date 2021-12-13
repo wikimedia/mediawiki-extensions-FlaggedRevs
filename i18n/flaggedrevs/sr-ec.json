@@ -15,7 +15,8 @@
 			"Vlad5250",
 			"Жељко Тодоровић",
 			"Михајло Анђелковић",
-			"Сербијана"
+			"Сербијана",
+			"Kizule"
 		]
 	},
 	"action-review": "проверавате измене",
@@ -200,11 +201,11 @@
 	"revreview-unlocked": "'''Напомена:''' измене не морају бити [[{{MediaWiki:Validationpage}}|проверене]] пре него што буду приказане читаоцима.",
 	"logeventslist-review-log": "Дневник прегледа",
 	"validationpage": "{{ns:help}}:Провера странице",
-	"log-action-filter-review": "Тип провере:",
+	"log-action-filter-review": "Врста провере:",
 	"log-action-filter-review-accept": "Ручно прихватање",
 	"log-action-filter-review-autoaccept": "Аутоматско прихватање",
 	"log-action-filter-review-unaccept": "Ручно одбијање",
-	"log-action-filter-stable": "Тип промене конфигурације:",
+	"log-action-filter-stable": "Врста промене подешавања:",
 	"log-action-filter-stable-config": "Нова конфигурација",
 	"log-action-filter-stable-modify": "Измењена конфигурација",
 	"log-action-filter-stable-reset": "Ресетовање конфигурације",

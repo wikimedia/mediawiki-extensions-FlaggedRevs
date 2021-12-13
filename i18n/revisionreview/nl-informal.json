@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Siebrand"
+			"Siebrand",
+			"McDutchie"
 		]
 	},
 	"review_conflict_oldid": "Iemand heeft deze versie al goedgekeurd of afgekeurd terwijl je de versie aan het beoordelen was.",
@@ -13,7 +14,7 @@
 	"revreview-adv-reviewing-p": "Let op: andere gebruikers zien dat {{GENDER:$1|jij}} bezig bent met het beoordelen van deze pagina.",
 	"revreview-adv-reviewing-c": "Let op: andere gebruikers zien dat {{GENDER:$1|jij}} bezig bent met het beoordelen van deze wijzigingen.",
 	"revreview-sadv-reviewing-p": "Je kunt aan andere gebruikers aangeven dat jij deze pagina [$1 aan het controleren bent].",
-	"revreview-sadv-reviewing-c": "Je kunt aan andere gebruikers aangeven dat jij deze wijzigingen [$1 aan het controleren bent].",
+	"revreview-sadv-reviewing-c": "Je kunt aan andere gebruikers [$1 aangeven] dat jij deze wijzigingen aan het controleren bent.",
 	"revreview-toolow": "'''Je moet ten minste alle eigenschappen hoger instellen dan \"{{int:Revreview-accuracy-0}}\" om voor een versie aan te geven dat deze is gecontroleerd.'''\n\nKlik op \"{{int:revreview-submit-unreview}}\" om de waardering van een versie te verwijderen.\n\nKlik op de knop \"Terug\" in je browser en probeer het opnieuw.",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Je wijzigingen zijn nog niet zichtbaar in de stabiele versie.</span>\n\nControleer alle wijzigingen hieronder om je bewerkingen zichtbaar te maken in de stabiele versie.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Je wijzigingen zijn nog niet opgenomen in de stabiele versie. Er moeten nog bewerkingen gecontroleerd worden.</span>\n\nControleer alle hieronder weergegeven wijzigingen om ook jouw bewerking zichtbaar te maken in de stabiele versie.",

@@ -5,7 +5,9 @@
 			"Neriman2003",
 			"Vago",
 			"Vugar 1981",
-			"Wertuose"
+			"Wertuose",
+			"NMW03",
+			"Toghrul Rahimli"
 		]
 	},
 	"stabilization-tab": "vet",
@@ -24,7 +26,7 @@
 	"stabilization-notcontent": "\"[[:$1|$1]]\" adlı səhifə nəzərdən keçirilə bilməz.\nHeç bir konfiqurasiya mümkün deyil.",
 	"stabilization-comment": "Səbəb:",
 	"stabilization-otherreason": "Digər səbəb:",
-	"stabilization-expiry": "Vaxtı bitib:",
+	"stabilization-expiry": "Bitmə vaxtı:",
 	"stabilization-othertime": "Başqa vaxt:",
 	"stabilization-def-short": "Susmaya görə",
 	"stabilization-def-short-0": "Hazırkı",

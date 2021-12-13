@@ -6,7 +6,8 @@
 			"KlaudiuMihaila",
 			"Mihai",
 			"Minisarm",
-			"Stelistcristi"
+			"Stelistcristi",
+			"NGC 54"
 		]
 	},
 	"pendingchanges": "Pagini cu modificări în așteptare",
@@ -19,7 +20,7 @@
 	"pendingchanges-category": "Categorie:",
 	"pendingchanges-onwatchlist": "Pagini în lista mea de urmărire",
 	"pendingchanges-stable": "Versiunea stabilă este cea implicită",
-	"pendingchanges-diff": "recenzie",
+	"pendingchanges-diff": "revizuire",
 	"pendingchanges-size": "Schimbare maximă (octeți):",
 	"pendingchanges-unwatched": "(neurmărite)",
 	"pendingchanges-watched": "($1 {{PLURAL:$1|utilizator activ care urmărește|utilizatori activi care urmăresc}})",

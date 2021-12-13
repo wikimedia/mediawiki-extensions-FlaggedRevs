@@ -15,11 +15,13 @@
 			"Ssola",
 			"Syum90",
 			"Toniher",
-			"Vriullop"
+			"Vriullop",
+			"Jmarchn",
+			"Mguix"
 		]
 	},
 	"action-review": "supervisa les revisions",
-	"action-unreviewedpages": "visualitza la llista de les pàgines no revisades",
+	"action-unreviewedpages": "mostra la llista de pàgines sense revisar",
 	"editor": "Editor",
 	"flaggedrevs": "Revisions senyalades",
 	"flaggedrevs-watched-pending": "Hi ha actualment [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} canvis en curs] es trobant a la seva llista de seguiment que ha de revisar. '''Necessita la seva atenció!'''",

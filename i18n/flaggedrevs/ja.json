@@ -17,9 +17,12 @@
 			"Shirayuki",
 			"Suyama",
 			"Whym",
-			"青子守歌"
+			"青子守歌",
+			"RYOUMA1117",
+			"しぃ"
 		]
 	},
+	"action-autoreview": "自分の編集を自動的に「確認済み」にする",
 	"action-autoreviewrestore": "巻き戻し時の自動査読",
 	"action-review": "特定版の査読",
 	"action-unreviewedpages": "未査読ページの一覧の閲覧",

@@ -163,6 +163,8 @@
 	"revreview-style-2": "Bonne",
 	"revreview-style-3": "Concise",
 	"revreview-style-4": "Remarquable",
+	"revreview-toggle-show": "(+)",
+	"revreview-toggle-hide": "(−)",
 	"revreview-toggle-title": "montrer/cacher les détails",
 	"revreview-visibility-synced": "Cette page possède une [[{{MediaWiki:Validationpage}}|version publiée]]. Les paramètres de stabilité peuvent être [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurés].'''",
 	"revreview-visibility-outdated": "Cette page comporte une [[{{MediaWiki:Validationpage}}|version publiée]] périmée. Les paramètres de stabilité de la page peuvent être [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurés].'''",

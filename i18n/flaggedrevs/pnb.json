@@ -1,8 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Khalid Mahmood"
+			"Khalid Mahmood",
+			"Abbas dhothar"
 		]
 	},
-	"tooltip-ca-current": "صفے نوں رکیاں تبدیلیاں نال ویکھو"
+	"flaggedrevs-hidereviewed-hide": "لُکاؤ",
+	"revreview-log-details-hide": "تفصیل لُکاؤ",
+	"revreview-toggle-title": "تفصیل دکھاؤ/لُکاؤ",
+	"revreview-restriction-none": "کوئی نئیں",
+	"tooltip-ca-current": "صفحے نوں رکیاں تبدیلیاں نال ویکھو"
 }

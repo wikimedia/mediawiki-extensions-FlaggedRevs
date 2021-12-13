@@ -4,7 +4,8 @@
 			"Elisardojm",
 			"Gallaecio",
 			"Toliño",
-			"Xosé"
+			"Xosé",
+			"ArenaL5"
 		]
 	},
 	"revisionreview": "Examinar as revisións",
@@ -53,7 +54,7 @@
 	"revreview-adv-reviewing-p": "Aviso: Os outros revisores poden ver que {{GENDER:$1|vostede}} está a revisar esta páxina.",
 	"revreview-adv-reviewing-c": "Aviso: Os outros revisores poden ver que {{GENDER:$1|vostede}} está a revisar estes cambios.",
 	"revreview-sadv-reviewing-p": "Pode [$1 advertir] a outros usuarios que está revisando esta páxina.",
-	"revreview-sadv-reviewing-c": "Podes [$1 advertir] a outros usuarios que está revisando estes cambios.",
+	"revreview-sadv-reviewing-c": "Podes [$1 advertir] a outros usuarios que estás revisando estes cambios.",
 	"revreview-adv-start-link": "advertir",
 	"revreview-adv-stop-link": "retirar a advertencia",
 	"revreview-toolow": "'''Debe valorar cada un dos atributos cunha puntuación maior que \"inadecuado\" para que unha revisión sexa considerada como revisada.'''\n\nPara retirar o estado de aprobación dunha revisión, prema en \"{{int:revreview-submit-unreview}}\".\n\nPor favor, prema sobre o botón \"Volver\" do seu navegador e inténteo de novo.",

@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Luh Gede Krismayanti"
+			"Luh Gede Krismayanti",
+			"Chinamoonroll"
 		]
 	},
-	"tooltip-ca-current": "Tolih kaca ene ajak pagubahan kaundur"
+	"tooltip-ca-current": "Cingakin kaca puniki sareng pauahan katahan",
+	"log-action-filter-stable-reset": "Jumu pangaturan"
 }

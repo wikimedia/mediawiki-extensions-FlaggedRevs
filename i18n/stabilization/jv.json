@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"NoiX180"
+			"NoiX180",
+			"Sumbukompor"
 		]
 	},
 	"stabilization-tab": "cèk",
@@ -32,7 +33,7 @@
 	"stabilize_invalid_level": "Tataran rereksan ora trep.",
 	"stabilize_expiry_invalid": "Tanggal kadaluwarsa ora trep.",
 	"stabilize_expiry_old": "Wektu kadaluwarsa iki wis kapungkur.",
-	"stabilize_denied": "Idin ditolak.",
+	"stabilize_denied": "Idin ditulak.",
 	"stabilize-expiring": "kadaluwarsa $1 (UTC)",
 	"stabilization-review": "Cénthangi révisi saiki"
 }

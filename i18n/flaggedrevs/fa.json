@@ -14,11 +14,13 @@
 			"Ommmmid",
 			"Reza1615",
 			"Sahim",
-			"Wayiran"
+			"Wayiran",
+			"Jeeputer"
 		]
 	},
+	"action-autoreviewrestore": "بازبینی خودکار در زمان واگردانی",
 	"action-review": "بازبینی نسخه‌ها",
-	"action-unreviewedpages": "مشاهدهٔ صفحه‌های پی‌گیری نشده",
+	"action-unreviewedpages": "مشاهدهٔ فهرست صفحه‌های بازبینی‌نشده",
 	"editor": "ویرایشگر",
 	"flaggedrevs": "نسخه‌های علامت‌دار",
 	"flaggedrevs-watched-pending": "هم‌اکنون [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} تغییرات در حال انتظار] در صفحه‌های بازبینی‌شده  در فهرست پی‌گیری‌های شما وجود دارند.\n'''به توجه شما نیاز است!'''",

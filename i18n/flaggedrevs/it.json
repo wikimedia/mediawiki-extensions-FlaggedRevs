@@ -14,7 +14,8 @@
 			"Nemo bis",
 			"Pietrodn",
 			"Sakretsu",
-			"Ximo17"
+			"Ximo17",
+			"Ajeje Brazorf"
 		]
 	},
 	"action-review": "revisionare versioni",
@@ -138,7 +139,7 @@
 	"revreview-visibility-synced": "'''Questa pagina ha una [[{{MediaWiki:Validationpage}}|versione stabile]] aggiornata; le impostazioni della stabilità della pagina possono essere [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurate].'''",
 	"revreview-visibility-outdated": "'''Questa pagina ha una [[{{MediaWiki:Validationpage}}|versione stabile]] obsoleta; le impostazioni di stabilità della pagina possono essere [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurate].'''",
 	"revreview-visibility-nostable": "'''Questa pagina non ha una [[{{MediaWiki:Validationpage}}|versione stabile]]; le impostazioni di stabilità della pagina possono essere [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurate].'''",
-	"revreview-revnotfound": "La versione richiesta della pagina non è stata trovata.\nVerificare la URL usata per accedere a questa pagina.",
+	"revreview-revnotfound": "La versione richiesta della pagina non è stata trovata.\nVerificare l'URL usato per accedere a questa pagina.",
 	"right-autoreview": "Segna automaticamente le proprie modifiche come \"controllate\"",
 	"right-autoreviewrestore": "Auto-verifica su rollback",
 	"right-movestable": "Sposta pagine con versioni stabili",

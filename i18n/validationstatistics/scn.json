@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Aushulz"
+			"Aushulz",
+			"Ajeje Brazorf"
 		]
 	},
+	"validationstatistics-ns": "Namespace",
 	"validationstatistics-total": "Pàggini",
 	"validationstatistics-user": "Utenti"
 }

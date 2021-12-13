@@ -3,7 +3,8 @@
 		"authors": [
 			"Robin van der Vliet",
 			"Robin0van0der0vliet",
-			"Snakesteuben"
+			"Snakesteuben",
+			"PiefPafPier"
 		]
 	},
 	"editor": "Redakteur",
@@ -18,5 +19,6 @@
 	"revreview-depth-0": "Ôfkeurd",
 	"revreview-style-2": "Goed",
 	"revreview-revnotfound": "De âlde ferzje fan dizze side dêr't jo om frege hawwe, is der net.\nGean nei of de keppeling dy jo brûkt hawwe wol goed is.",
-	"revreview-restriction-none": "gjin"
+	"revreview-restriction-none": "gjin",
+	"tooltip-ca-current": "Dizze side besjen mei de wizigings yn 'e wacht"
 }

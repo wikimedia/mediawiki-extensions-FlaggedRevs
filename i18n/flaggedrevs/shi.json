@@ -1,10 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Dalinanir"
+			"Dalinanir",
+			"Amire80",
+			"Ayour2002"
 		]
 	},
-	"flaggedrevs-prefs-stable": "Ml dima lqm lli ibidn n tisniwin ( iɣ llant)",
+	"flaggedrevs-prefs-stable": "Manag a rad mlɣ lvirsyun lli ibidn n tasniwin",
 	"flaggedrevs-prefs-watch": "Zayd tisniwin lli ttasɣ i umuɣ n tilli n tfur.",
-	"flaggedrevs-prefs-editdiffs": "Ml inaḥyatn gr imbdln lli zul iqln ɣ tizi lliɣ at sbadlt tisniwin"
+	"flaggedrevs-prefs-editdiffs": "Ml inaḥyatn gr imbdln lli zul iqln ɣ tizi lliɣ at sbadlt tisniwin",
+	"tooltip-ca-current": "Ẓr tasna ad d isnfln ittyagaln"
 }

@@ -14,7 +14,7 @@
 	"unreviewedpages": "Pages non revues",
 	"unreviewedpages-legend": "Liste des pages de contenu non révisées",
 	"unreviewedpages-category": "Catégorie :",
-	"unreviewedpages-diff": "révision",
+	"unreviewedpages-diff": "relecture",
 	"unreviewedpages-unwatched": "(non suivie)",
 	"unreviewedpages-watched": "($1 {{PLURAL:$1|utilisateur actif suit|utilisateurs actifs suivent}} cette page)",
 	"unreviewedpages-list": "Cette page liste les pages de contenu qui n’ont ''pas'' été [[{{MediaWiki:Validationpage}}|révisées]] au niveau spécifié.",

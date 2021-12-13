@@ -1,17 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"NoiX180"
+			"NoiX180",
+			"Sumbukompor"
 		]
 	},
 	"revreview-submit": "Kirim",
 	"revreview-submitting": "Ngirimaké...",
 	"revreview-submit-review": "Tampa révisi",
 	"revreview-submit-unreview": "Tulak révisi",
-	"revreview-submit-reject": "Tolak owah-owahan",
+	"revreview-submit-reject": "Tulak owah-owahan",
 	"revreview-submit-reviewed": "Rampung. Ditampa!",
-	"revreview-submit-unreviewed": "Rampun. Ditolak!",
+	"revreview-submit-unreviewed": "Rampung. Ditulak!",
 	"revreview-reject-summary": "Ringkesan:",
-	"revreview-reject-confirm": "Tolak owah-owahan iki",
+	"revreview-reject-confirm": "Tulak owah-owahan iki",
 	"revreview-reject-cancel": "Wurung"
 }

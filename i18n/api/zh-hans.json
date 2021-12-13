@@ -3,7 +3,8 @@
 		"authors": [
 			"Jiang123aa",
 			"Liuxinyu970226",
-			"Yfdyh000"
+			"Yfdyh000",
+			"Xiplus"
 		]
 	},
 	"apihelp-flagconfig-description": "获取有关此网站复核标记配置的信息。\n\n为每个标记返回以下参数：\n;name:此标签的键名。\n;levels:标签拥有的级别数（“未标记”以上）。\n;tier2:标签必须触及等级2（优良）修订的级别。\n;tier3:标签必须触及等级3（原始）修订的级别。\n为每个标签标记有分配级别的修订。所有标签都满足的最高等级是实体修订的复核等级。",
@@ -14,7 +15,7 @@
 	"apihelp-query+configuredpages-summary": "列举所有拥有自定义复核配置的页面。",
 	"apihelp-query+configuredpages-param-start": "从此页面ID开始列出。",
 	"apihelp-query+configuredpages-param-end": "列出至此页面ID为止。",
-	"apihelp-query+configuredpages-param-namespace": "要列举的名字空间。",
+	"apihelp-query+configuredpages-param-namespace": "要列举的命名空间。",
 	"apihelp-query+configuredpages-param-default": "默认页面视图版本。",
 	"apihelp-query+configuredpages-param-autoreview": "复核/自动复核限制级别。",
 	"apihelp-query+configuredpages-param-limit": "返回的总计页面数。",
@@ -31,7 +32,7 @@
 	"apihelp-query+oldreviewedpages-param-end": "列出至此时间戳为止。",
 	"apihelp-query+oldreviewedpages-param-maxsize": "最大字符数变化大小。",
 	"apihelp-query+oldreviewedpages-param-filterwatched": "如何筛选您的监视列表的页面。",
-	"apihelp-query+oldreviewedpages-param-namespace": "要列举的名字空间。",
+	"apihelp-query+oldreviewedpages-param-namespace": "要列举的命名空间。",
 	"apihelp-query+oldreviewedpages-param-category": "只显示给定分类的页面。",
 	"apihelp-query+oldreviewedpages-param-filterredir": "如何过滤重定向。",
 	"apihelp-query+oldreviewedpages-param-limit": "返回的总计页面数。",
@@ -53,7 +54,7 @@
 	"apihelp-query+unreviewedpages-param-start": "从此页面标题开始列出。",
 	"apihelp-query+unreviewedpages-param-end": "列出至此页面标题为止。",
 	"apihelp-query+unreviewedpages-param-dir": "排序方向。",
-	"apihelp-query+unreviewedpages-param-namespace": "要列举的名字空间。",
+	"apihelp-query+unreviewedpages-param-namespace": "要列举的命名空间。",
 	"apihelp-query+unreviewedpages-param-filterredir": "如何过滤重定向。",
 	"apihelp-query+unreviewedpages-param-filterlevel": "如何依质量过滤（0=checked, 1=quality）。",
 	"apihelp-query+unreviewedpages-param-limit": "返回的总计页面数。",

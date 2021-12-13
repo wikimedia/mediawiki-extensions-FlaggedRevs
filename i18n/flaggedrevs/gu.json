@@ -3,7 +3,8 @@
 		"authors": [
 			"Arbhatt",
 			"KartikMistry",
-			"NehalDaveND"
+			"NehalDaveND",
+			"CptViraj"
 		]
 	},
 	"editor": "સંપાદક",
@@ -15,6 +16,7 @@
 	"group-reviewer-member": "{{GENDER:$1|પુનરાવલોકન}}",
 	"grouppage-editor": "{{ns:project}}:સમ્પાદક",
 	"grouppage-reviewer": "{{ns:project}}:પુનરાવલોકન કરનારા",
+	"reviewer": "સમીક્ષક",
 	"revreview-depth": "ઊંડાણ",
 	"revreview-depth-1": "પ્રાથમિક",
 	"revreview-depth-3": "ઉચ્ચ",
@@ -32,5 +34,5 @@
 	"revreview-def-stable": "સ્થિર",
 	"revreview-restriction-any": "કોઈ પણ",
 	"revreview-restriction-none": "કોઇ નહીં",
-	"tooltip-ca-current": "બાકી ફેરફારો છતા આ પાનું જુવો"
+	"tooltip-ca-current": "બાકી રહેલા ફેરફારો સાથે આ પાનું જુઓ"
 }

@@ -10,7 +10,7 @@
 	},
 	"pendingchanges": "דפים עם שינויים ממתינים",
 	"pendingchanges-legend": "רשימת דפים שנסקרו ושיש בהם שינויים ממתינים",
-	"pendingchanges-list": "רשימת דפים ש[[{{MediaWiki:Validationpage}}|נסקרו בעבר]] ושנעשו בהם עריכות שממתינות לסקירה.",
+	"pendingchanges-list": "הדף הזה מציג רשימת דפים ש[[{{MediaWiki:Validationpage}}|נסקרו בעבר]] ושנעשו בהם עריכות שממתינות לסקירה.",
 	"pendingchanges-none": "אין כרגע דפים המתאימים להגדרות האלו",
 	"pendingchanges-hours": "({{PLURAL:$1|שעה|שעתיים|$1 שעות}})",
 	"pendingchanges-days": "({{PLURAL:$1|יום|יומיים|$1 ימים}})",

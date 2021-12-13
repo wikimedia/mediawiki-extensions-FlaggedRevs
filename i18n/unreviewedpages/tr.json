@@ -4,19 +4,20 @@
 			"Joseph",
 			"Karduelis",
 			"Runningfridgesrule",
-			"Sadrettin"
+			"Sadrettin",
+			"MuratTheTurkish"
 		]
 	},
-	"unreviewedpages": "Gözden geçirilmemiş sayfalar",
-	"unreviewedpages-legend": "Gözden geçirilmemiş içerik sayfalarını listele",
+	"unreviewedpages": "İncelenmemiş sayfalar",
+	"unreviewedpages-legend": "İncelenmemiş içerik sayfalarını listele",
 	"unreviewedpages-category": "Kategori:",
-	"unreviewedpages-diff": "gözden geçir",
+	"unreviewedpages-diff": "incele",
 	"unreviewedpages-unwatched": "(izlenmiyor)",
-	"unreviewedpages-watched": "($1 etkin {{PLURAL:$1|kullanıcı|kullanıcı}} izliyor)",
-	"unreviewedpages-list": "Bu sayfa, belirlenen seviyeye göre [[{{MediaWiki:Validationpage}}|gözden geçirilmemiş]] içerik sayfalarını listeler.",
+	"unreviewedpages-watched": "($1 etkin kullanıcı izliyor)",
+	"unreviewedpages-list": "Bu sayfa, belirlenen seviyeye göre [[{{MediaWiki:Validationpage}}|incelenmemiş]] içerik sayfalarını listeler.",
 	"unreviewedpages-none": "Şu anda bu kriterleri karşılayan bir sayfa bulunmamaktadır",
-	"unreviewedpages-viewing": "(gözden geçiriliyor)",
-	"unreviewedpages-hours": "($1 {{PLURAL:$1|saat|saat}})",
-	"unreviewedpages-days": "($1 {{PLURAL:$1|gün|gün}})",
+	"unreviewedpages-viewing": "(inceleme aşamasında)",
+	"unreviewedpages-hours": "($1 saat)",
+	"unreviewedpages-days": "($1 gün)",
 	"unreviewedpages-recent": "(1 saatten az)"
 }

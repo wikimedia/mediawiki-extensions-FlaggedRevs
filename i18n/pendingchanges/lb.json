@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Soued031"
 		]
 	},
 	"pendingchanges": "Säite mat Ännerungen déi nozekucke sinn",
 	"pendingchanges-legend": "Lëscht vun den nogekuckte Säite mat net nogekuckte Versiounen",
 	"pendingchanges-list": "Op dëser Säit stinn [[{{MediaWiki:Validationpage}}|nogekuckte]] Säite mat enger oder méi Ännerungen déi drop waarde fir nogekuckt ze ginn.",
-	"pendingchanges-none": "Et gëtt elo keng Säiten déi dene Critèren entspriechen",
+	"pendingchanges-none": "Et gëtt elo keng Säiten déi deene Krittären entspriechen",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|Stonn|Stonnen}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|Dag|Deeg}})",
 	"pendingchanges-recent": "(manner wéi 1 Stonn)",

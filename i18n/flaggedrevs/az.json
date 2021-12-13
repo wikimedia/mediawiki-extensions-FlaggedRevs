@@ -8,7 +8,8 @@
 			"Vago",
 			"Vugar 1981",
 			"Wertuose",
-			"Şeyx Şamil"
+			"Şeyx Şamil",
+			"NMW03"
 		]
 	},
 	"action-autoreview": "Öz redaktələri avtomatik olaraq \"yoxlanılır\"",
@@ -17,7 +18,7 @@
 	"action-review": "təftişləri yoxla",
 	"action-stablesettings": "Sabit versiyanın necə seçildiyini və göstərildiyini konfiqurasiya et",
 	"action-validate": "Düzəlişi \"keyfiyyət\" olaraq işarələ",
-	"action-unreviewedpages": "Yoxlanılmamış səhifələrin siyahısını göstər",
+	"action-unreviewedpages": "yoxlanılmamış səhifələrin siyahısına baxın",
 	"editor": "Redaktor",
 	"flaggedrevs": "İşarələnmiş yoxlamalar",
 	"flaggedrevs-watched-pending": "İzləmə siyahınızda nəzərdən keçirilmiş səhifələr üçün [{{fullurl:{{#Special:OldReviewedPages}}|izlənildi=1}}] hazırda dəyişikliklər var. '''Diqqətiniz lazımdır'''",

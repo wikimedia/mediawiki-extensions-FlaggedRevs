@@ -6,7 +6,8 @@
 			"KlaudiuMihaila",
 			"Mihai",
 			"Minisarm",
-			"Stelistcristi"
+			"Stelistcristi",
+			"NGC 54"
 		]
 	},
 	"validationstatistics": "Statistici revizuire pagină",
@@ -18,6 +19,7 @@
 	"validationstatistics-latest": "Sincronizată",
 	"validationstatistics-synced": "Sincronizată/Revizualizată",
 	"validationstatistics-old": "Învechită",
+	"validationstatistics-unreviewed": "Nerevizuită",
 	"validationstatistics-utable": "Mai jos se află {{PLURAL:$1|cel mai activ recenzent|lista cu cei mai activi $1 (de) recenzenți}} din {{PLURAL:$2|ultima oră|ultimele $2 ore}}.",
 	"validationstatistics-user": "Utilizator",
 	"validationstatistics-reviews": "Recenzii"

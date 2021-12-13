@@ -5,10 +5,12 @@
 			"Malafaya"
 		]
 	},
+	"pendingchanges-legend": "Montrez pagini revizinda kun modifikuri vartanta revizo",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|horo|hori}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|dio|dii}})",
 	"pendingchanges-recent": "(min kam 1 horo)",
 	"pendingchanges-category": "Kategorio:",
 	"pendingchanges-stable": "Stabila versiono esas ''default''",
+	"pendingchanges-size": "Maxima [grandeso di la] modifikuro (en bicoki*):",
 	"pendingchanges-watched": "($1 aktiva {{PLURAL:$1|uzero|uzeri}} vigilas ica pagino)"
 }

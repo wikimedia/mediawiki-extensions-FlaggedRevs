@@ -3,7 +3,8 @@
 		"authors": [
 			"AmaryllisGardener",
 			"John Reid",
-			"Vlad5250"
+			"Vlad5250",
+			"MJL"
 		]
 	},
 	"flaggedrevs-hidereviewed-hide": "Skauk",
@@ -11,5 +12,6 @@
 	"revreview-revnotfound": "The auld reveesion o the page that ye socht coudna be foond. Please check the URL that ye uised tae access this page.",
 	"right-autoreview": "Hae ye'r ain eedits autaematiclie maurked aes \"checked\"",
 	"right-movestable": "Muive pages wi stable versions",
+	"revreview-filter-approved": "Appruived",
 	"tooltip-ca-current": "View this page wi the pendin chynges"
 }

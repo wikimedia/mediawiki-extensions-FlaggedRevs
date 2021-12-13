@@ -35,7 +35,9 @@
 			"Umherirrender",
 			"Xiplus",
 			"Yekrats",
-			"Тест"
+			"Тест",
+			"BaRaN6161 TURK",
+			"Srđan"
 		]
 	},
 	"action-autoreview": "{{Flagged Revs}}\n\n{{doc-action|autoreview}}",
@@ -122,7 +124,7 @@
 	"revreview-accuracy": "{{Flagged Revs}}\nUsed on the review form for the tag with this name. It is the label for the currently selected value (such as \"basic\" or \"well sourced\").\nAlso used in the box shown on page view, that gives information about the acceptance status of a revision.\n{{Identical|Accuracy}}",
 	"revreview-accuracy-0": "{{Flagged Revs-small}}\nPossible value of the 'accuracy' tag for a revision. All accepted revisions must have ratings for each tag type.\nThe value name of any review tag indicating that the revision fails to meet basic standards for that tag type. For example, \"accuracy\" can be \"inadequate\".",
 	"revreview-accuracy-1": "The revision was 'seen', 'looked at', and didn't contain anything obvious to reject; previously called 'sighted'.\nCan also be translated as 'okay', 'ready', 'acceptable', 'accepted'; cf. [[w:imprimatur]].\n\n{{Flagged Revs-small}}\nPossible value of the 'accuracy' tag for a revision. All accepted revisions must have ratings for each tag type.",
-	"revreview-accuracy-2": "{{Flagged Revs}}\nPossible value of the 'accuracy' tag for a revision. All accepted revisions must have ratings for each tag type.\n{{Identical|Accurate}}",
+	"revreview-accuracy-2": "{{Flagged Revs}}\nPossible value of the <code>'accuracy'</code> tag for a revision. All accepted revisions must have ratings for each tag type.",
 	"revreview-accuracy-3": "{{Flagged Revs}}\nPossible value of the 'accuracy' tag for a revision. All accepted revisions must have ratings for each tag type.",
 	"revreview-accuracy-4": "{{Flagged Revs}}\nPossible value of the 'accuracy' tag for a revision. All accepted revisions must have ratings for each tag type.\n{{Identical|Featured}}",
 	"revreview-basic": "{{Flagged Revs}}\nShown when viewing the stable version of a \"checked\" page when there are pending revisions.\n\nRefers to {{msg-mw|Validationpage}} and {{msg-mw|Flaggedrevs-diffonly}}.\n\nParameters:\n* $1 - stable revision ID\n* $2 - the date of the approval\n* $3 - the number of pending edits (revisions)\n{{Related|Revreview}}",
@@ -196,7 +198,7 @@
 	"stable-logentry-reset": "{{Flagged Revs}}\nShown in the null edit summary accompanying a change in stability settings.\n\nParameters:\n* $1 - page title, with or without link\n{{Related|Stable-logentry}}",
 	"stable-log-restriction": "{{Flagged Revs}}\nShown on the stability log [[Special:Log/stability]]. Parameters:\n* $1 - name of the permission that is required to review and autoreview in addition to any required rights",
 	"stable-logpage": "{{Flagged Revs}}\n{{doc-logpage}}\n\n\nSame of the stability log at Special:Log/stability",
-	"stable-logpagetext": "{{Flagged Revs}}\nShown on the stability log [[Special:Log/stability]].\n\nRefers to {{msg-mw|Validationpage}}.\n{{Identical|Content pages}}",
+	"stable-logpagetext": "{{Flagged Revs}}\nShown on the stability log [[Special:Log/stability]].\n\nRefers to {{msg-mw|Validationpage}}.",
 	"revreview-filter-all": "{{Flagged Revs}}\nShown as dropdown option on lists or log pages.\n{{Identical|All}}",
 	"revreview-filter-stable": "{{Flagged Revs}}\nShown as dropdown option on lists or log pages.\n{{Identical|Stable}}",
 	"revreview-statusfilter": "{{Flagged Revs}}\nShown on lists or log pages.\n\nUsed as label for the select box which has the following options:\n* {{msg-mw|Revreview-filter-all}}\n* {{msg-mw|Revreview-filter-approved}}\n* {{msg-mw|Revreview-filter-reapproved}}\n* {{msg-mw|Revreview-filter-unapproved}}",
@@ -206,7 +208,7 @@
 	"revreview-typefilter": "{{Flagged Revs}}\nShown on lists or log pages to filter results.\n\nUsed as label for the select box which has the following options:\n* {{msg-mw|Revreview-filter-all}}\n* {{msg-mw|Revreview-filter-manual}}\n* {{msg-mw|Revreview-filter-auto}}\n{{Identical|Type}}",
 	"revreview-filter-auto": "{{Flagged Revs}}\nShown as dropdown option on lists or log pages to filter results.\n{{Identical|Automatic}}",
 	"revreview-filter-manual": "{{Flagged Revs}}\nShown as dropdown option on lists or log pages to filter results.\n{{Identical|Manual}}",
-	"revreview-levelfilter": "{{Flagged Revs}}\nShown as dropdown option on lists or log pages to filter results.\n\nFollowed by the following options:\n* {{msg-mw|Revreview-lev-all}}\n* {{msg-mw|Revreview-lev-basic}}\n* {{msg-mw|Revreview-lev-quality}}\n* {{msg-mw|Revreview-lev-pristine}}\n{{Identical|Level}}",
+	"revreview-levelfilter": "{{Flagged Revs}}\nShown as dropdown option on lists or log pages to filter results.\n\nFollowed by the following options:\n* {{msg-mw|Revreview-lev-all}}\n* {{msg-mw|Revreview-lev-basic}}\n* {{msg-mw|Revreview-lev-quality}}\n{{Identical|Level}}",
 	"revreview-lev-all": "{{Flagged Revs}}\nShown as dropdown option on lists or log pages to filter results.\n{{Related|Revreview-lev}}\n{{Identical|Any}}",
 	"revreview-lev-basic": "{{Flagged Revs}}\nShown as dropdown option on lists or log pages to filter results.\n\nUsed in {{msg-mw|Reviewedpages-lev-0}}.\n{{Related|Revreview-lev}}\n{{Identical|Checked}}",
 	"revreview-lev-quality": "{{Flagged Revs}}\nShown as dropdown option on lists or log pages to filter results.\n\nUsed in {{msg-mw|Reviewedpages-lev-1}}.\n{{Related|Revreview-lev}}",

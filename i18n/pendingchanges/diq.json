@@ -5,17 +5,18 @@
 			"Erdemaslancan",
 			"Marmase",
 			"Mirzali",
-			"Xoser"
+			"Xoser",
+			"1917 Ekim Devrimi"
 		]
 	},
 	"pendingchanges": "Pelanê ho vurneyeni",
-	"pendingchanges-legend": "Vurnayîşanê etiket biyo înan liste bike",
+	"pendingchanges-legend": "Vurnayışê çımeştışi pawen pela liste kerê",
 	"pendingchanges-list": "Ena pele pelanê [[{{MediaWiki:Validationpage}}|çımraviyarnayeyan]], êyê ke yew ya zi zêdeyêr vurnayışê cı estê, lista kena.",
 	"pendingchanges-none": "Ser ena kriteri de pelan çini yo",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|seet|seetan}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|roc|rocan}})",
 	"pendingchanges-recent": "(1 seet ra tay)",
-	"pendingchanges-category": "Kategori:",
+	"pendingchanges-category": "Kategoriye:",
 	"pendingchanges-onwatchlist": "Peleyê ke lista da seyri deyê",
 	"pendingchanges-stable": "Versiyono sebit hesıbyayo",
 	"pendingchanges-diff": "Çım berze cı",

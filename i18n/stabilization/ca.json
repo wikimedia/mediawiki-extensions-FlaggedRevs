@@ -7,7 +7,8 @@
 			"Paucabot",
 			"Qllach",
 			"Solde",
-			"Toniher"
+			"Toniher",
+			"Mguix"
 		]
 	},
 	"stabilization-tab": "verifica",
@@ -31,11 +32,11 @@
 	"stabilization-def-short": "Per defecte",
 	"stabilization-def-short-0": "Actual",
 	"stabilization-def-short-1": "Publicat",
-	"stabilize_page_invalid": "El títol de la pàgina sol·licitada és invàlid.",
+	"stabilize_page_invalid": "El títol de la pàgina sol·licitada no és vàlid.",
 	"stabilize_page_notexists": "La pàgina sol·licitada no existeix.",
 	"stabilize_page_unreviewable": "La pàgina sol·licitada no pot ser revisada en aquesta espai de nom.",
 	"stabilize_invalid_autoreview": "Restricció de revista automàtica invàlida.",
-	"stabilize_invalid_level": "Nivell de protecció invàlid.",
+	"stabilize_invalid_level": "Nivell de protecció no vàlid.",
 	"stabilize_expiry_invalid": "La data de venciment no és vàlida.",
 	"stabilize_expiry_old": "Aquesta data de venciment ja ha passat.",
 	"stabilize_denied": "Permís denegat.",

@@ -25,7 +25,7 @@
 	"stabilization-def": "{{Flagged Revs}}\nUsed on Special:Stabilization.\nThis is referring to the revision of the page that most users will see unless the specify a different revision (e.g. ?oldid=X or ?stable=0)",
 	"stabilization-def1": "{{Flagged Revs-small}}\nUsed on Special:Stabilization as an option for \"Revision displayed on default page view\".\n\nThis option has sub-options, see \"How the published version is selected\".",
 	"stabilization-def2": "{{Flagged Revs-small}}\nUsed on [[Special:Stabilization]] as an option for \"Revision displayed on default page view\".",
-	"stabilization-dropdown": "{{Flagged Revs-small}}\nUsed on [[Special:Stabilization]] as a dropdown list of stabilization reasons. Should be empty by default.",
+	"stabilization-dropdown": "{{notranslate}}\n{{Flagged Revs-small}}\nUsed on [[Special:Stabilization]] as a dropdown list of stabilization reasons. Should be empty by default.",
 	"stabilization-restrict": "{{Flagged Revs}}\nUsed on Special:Stabilization.\nThis means: \"restrictions on automatic reviews\" (''it does not mean: \n\"automatically review the restrictions\")\n\nNote that this restricts not just auto-reviewing, but manual reviewing as well.",
 	"stabilization-restrict-none": "{{Flagged Revs}}\nUsed on Special:Stabilization.\nMessage wording is a bit vague due to the fact that wikis can restrict the 'review' and 'autoreview' rights site-wide to any extent. It should *not* say \"allow all users\" or such.",
 	"stabilization-submit": "{{Flagged Revs}}\nUsed on Special:Stabilization.\n{{Identical|Confirm}}",

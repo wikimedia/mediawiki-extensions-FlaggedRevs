@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Rachmat04"
+		]
+	},
+	"apihelp-query+oldreviewedpages-example-2": "Tampilkan informasi tentang beberapa halaman tetinjau yang lama",
+	"apihelp-query+unreviewedpages-description": "Hitung halaman yang belum ditinjau pada tingkat kualitas tertentu.",
+	"apihelp-stabilize-description-general": "Ubah pengaturan kestabilan halaman.",
+	"apihelp-stabilize-summary-general": "Ubah pengaturan kestabilan halaman.",
+	"apihelp-stabilize-param-reason": "Alasan.",
+	"apihelp-stabilize-param-watch": "Pantau halaman ini.",
+	"apihelp-stabilize-param-expiry-general": "Kedaluwarsa pengaturan ini.",
+	"apihelp-stabilize-param-expiry-protect": "Kedaluwarsa perlindungan peninjauan.",
+	"apihelp-stabilize-param-title-general": "Judul halaman yang akan distabilkan."
+}

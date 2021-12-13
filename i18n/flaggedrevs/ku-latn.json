@@ -2,15 +2,18 @@
 	"@metadata": {
 		"authors": [
 			"Bikarhêner",
-			"George Animal"
+			"George Animal",
+			"Balyozxane",
+			"Guherto"
 		]
 	},
-	"flaggedrevs-hidereviewed": "Guherandinên nîşankirî $1",
+	"flaggedrevs-hidereviewed": "Guhartinên nîşankirî $1",
 	"flaggedrevs-hidereviewed-hide": "Veşêre",
 	"flaggedrevs-hidereviewed-show": "Nîşan bide",
 	"group-editor": "Edîtor",
 	"group-editor-member": "{{GENDER:$1|edîtor}}",
-	"revreview-submitedit": "Guherandinan tomar bike",
+	"revreview-submitedit": "Guhartinan tomar bike",
 	"revreview-filter-all": "hemû",
-	"revreview-typefilter": "Cure:"
+	"revreview-typefilter": "Cure:",
+	"tooltip-ca-current": "Vê rûpelê tevî guhartinên li bendê ne bibîne"
 }

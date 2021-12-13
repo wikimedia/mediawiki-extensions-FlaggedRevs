@@ -6,10 +6,11 @@
 			"Meno25",
 			"OsamaK",
 			"Shbib Al-Subaie",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"Mohanad Kh"
 		]
 	},
-	"validationstatistics": "إحصاءات مراجعة الصفحة",
+	"validationstatistics": "إحصاءات التحقق",
 	"validationstatistics-users": "في '''{{SITENAME}}''' حاليا {{PLURAL:$1||'''[[Special:ListUsers/editor|مستخدم واحد]]'''|'''[[Special:ListUsers/editor|مستخدمان]]'''|'''[[Special:ListUsers/editor|$1]]''' مستخدمين|'''[[Special:ListUsers/editor|$1]]''' مستخدمًا|'''[[Special:ListUsers/editor|$1]]''' مستخدم}} بصلاحية [[{{MediaWiki:Validationpage}}|محرر]].\n\nالمحررون هم مستخدمون موثوقون يمكنهم اعتماد مراجعات الصفحات.",
 	"validationstatistics-lastupdate": "''حدثت البيانات التالية آخر مرة يوم $1 عند الساعة $2.''",
 	"validationstatistics-pndtime": "تعتبر التعديلات التي فحصها مستخدمون معتمدون ''{{int:validationstatistics-stable}}''.\n\nمتوسط التأخير في المراجعة [[Special:OldReviewedPages|للصفحات التي في انتظار المراجعة حاليا]] هو ''' $1 '''؛ التأخير يقاس بالفترة التي مضت على أقدم تعديل لم يُراجع.",

@@ -2,9 +2,10 @@
 	"@metadata": {
 		"authors": [
 			"George Animal",
-			"Ghybu"
+			"Ghybu",
+			"Bikarhêner"
 		]
 	},
-	"pendingchanges-days": "($1 {{PLURAL:$1|roj|roj}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|roj}})",
 	"pendingchanges-category": "Kategorî:"
 }

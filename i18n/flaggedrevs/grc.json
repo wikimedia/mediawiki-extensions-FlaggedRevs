@@ -3,16 +3,17 @@
 		"authors": [
 			"Crazymadlover",
 			"Gts-tg",
-			"Omnipaedista"
+			"Omnipaedista",
+			"PastelKos"
 		]
 	},
 	"editor": "Μεταγραφεύς",
 	"flaggedrevs": "Ἐληλεγμέναι Ἀναθεωρήσεις",
 	"prefs-flaggedrevs-ui": "Σεσημασμέναι ἀναθεωρήσεις",
 	"group-editor": "Μεταγραφεῖς",
-	"group-editor-member": "μεταγραφεύς",
+	"group-editor-member": "{{GENDER:$1|μεταγραφεύς}}",
 	"group-reviewer": "Ἐπιθεωρηταί",
-	"group-reviewer-member": "ἐπιθεωρητής",
+	"group-reviewer-member": "{{GENDER:$1|ἐπιθεωρητής}}",
 	"grouppage-editor": "{{ns:project}}:Μεταγραφεύς",
 	"grouppage-reviewer": "{{ns:project}}:Ἐπιθεωρητής",
 	"group-autoreview": "Αὐτόματοι ἐπιθεωρηταί",
