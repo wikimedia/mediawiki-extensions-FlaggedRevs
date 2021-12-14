@@ -55,7 +55,6 @@
 	"apihelp-stabilize-description-protect": "Konfiguriert die Einstellungen zum Sichtungsschutz für eine Seite.",
 	"apihelp-stabilize-summary-protect": "Konfiguriert die Einstellungen zum Sichtungsschutz für eine Seite.",
 	"apihelp-stabilize-param-reason": "Grund.",
-	"apihelp-stabilize-param-watch": "Beobachtet diese Seite.",
 	"apihelp-stabilize-param-expiry-general": "Ablauf für diese Einstellungen.",
 	"apihelp-stabilize-param-expiry-protect": "Ablauf des Überprüfungsschutzes.",
 	"apihelp-stabilize-param-title-general": "Titel der zu stabilisierenden Seite.",

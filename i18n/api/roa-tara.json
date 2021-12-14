@@ -65,7 +65,6 @@
 	"apihelp-stabilize-description-protect": "Configure le 'mbostaziune de revisitazione-protezione pe 'na pàgene.",
 	"apihelp-stabilize-summary-protect": "Configure le 'mbostaziune de revisitazione-protezione pe 'na pàgene.",
 	"apihelp-stabilize-param-reason": "Mutive.",
-	"apihelp-stabilize-param-watch": "'Ndruche sta pàgene.",
 	"apihelp-stabilize-param-expiry-general": "Scadenze pe ste 'mbostaziune.",
 	"apihelp-stabilize-param-expiry-protect": "Scadenze d'a protezzione de revisione.",
 	"apihelp-stabilize-param-title-general": "Titole d'a pàgene da stabbilizzà.",

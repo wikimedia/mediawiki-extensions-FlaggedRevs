@@ -15,7 +15,6 @@
 	"apihelp-review-param-comment": "Komentar za proveru",
 	"apihelp-review-example-1": "Odobri izmenu 12345 sa komentarom „U redu”",
 	"apihelp-stabilize-param-reason": "Razlog.",
-	"apihelp-stabilize-param-watch": "Nadgledaj ovu stranicu.",
 	"apihelp-stabilize-param-expiry-general": "Istek ovih podešavanja.",
 	"apihelp-stabilize-param-expiry-protect": "Istek zaštite od provere.",
 	"apihelp-stabilize-param-title-general": "Naslov stranice koja treba da se stabilizuje.",

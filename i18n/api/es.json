@@ -46,7 +46,6 @@
 	"apihelp-stabilize-description-protect": "Configurar los ajustes de protección de revisión de una página.",
 	"apihelp-stabilize-summary-protect": "Configurar las opciones de protección de revisiones de una página.",
 	"apihelp-stabilize-param-reason": "Motivo:",
-	"apihelp-stabilize-param-watch": "Vigilar esta página.",
 	"apihelp-stabilize-param-expiry-general": "Vencimiento de esta configuración.",
 	"apihelp-stabilize-param-expiry-protect": "Vencimiento de la protección de revisión.",
 	"apihelp-stabilize-param-title-general": "Título de la página a estabilizar.",

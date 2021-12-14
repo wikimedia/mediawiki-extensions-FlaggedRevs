@@ -68,7 +68,6 @@
 	"apihelp-stabilize-description-protect": "Bir sayfa için inceleme koruma ayarlarını yapılandırın.",
 	"apihelp-stabilize-summary-protect": "Bir sayfa için inceleme koruması ayarlarını yapılandırın.",
 	"apihelp-stabilize-param-reason": "Sebep.",
-	"apihelp-stabilize-param-watch": "Bu sayfayı izleyin.",
 	"apihelp-stabilize-param-expiry-general": "Bu ayarlar için bitiş tarihi.",
 	"apihelp-stabilize-param-expiry-protect": "İnceleme korumasının bitil tarihi.",
 	"apihelp-stabilize-param-title-general": "Sabitlenecek sayfanın başlığı.",

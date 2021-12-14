@@ -57,7 +57,6 @@
 	"apihelp-reviewactivity-param-previd": "A korábbi lapváltozat azonosítója (csak változtatások ellenőrzésekor).",
 	"apihelp-reviewactivity-param-oldid": "Az ellenőrzés alatt álló lapváltozat azonosítója.",
 	"apihelp-stabilize-param-reason": "Indoklás.",
-	"apihelp-stabilize-param-watch": "A lap figyelése.",
 	"apihelp-stabilize-param-expiry-general": "A beállítások lejárata.",
 	"apihelp-stabilize-param-default": "Az alapértelmezettként megjelenített változat.",
 	"apihelp-stabilize-param-autoreview": "Automatikus ellenőrzés korlátozásai.",

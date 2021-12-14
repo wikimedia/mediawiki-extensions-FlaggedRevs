@@ -67,7 +67,6 @@
 	"apihelp-stabilize-description-protect": "Konfigurer innstillinger for gjennomgangs-beskyttelse av siden.",
 	"apihelp-stabilize-summary-protect": "Konfigurer gjennomgangsbeskyttelsesinnstillingene for en side.",
 	"apihelp-stabilize-param-reason": "Årsak.",
-	"apihelp-stabilize-param-watch": "Overvåk denne siden.",
 	"apihelp-stabilize-param-expiry-general": "Utløp for disse innstillingene.",
 	"apihelp-stabilize-param-expiry-protect": "Gjennomgangs-beskyttelsens utløp.",
 	"apihelp-stabilize-param-title-general": "Tittel for siden som skal stabiliseres.",

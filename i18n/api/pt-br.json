@@ -65,7 +65,6 @@
 	"apihelp-stabilize-description-protect": "Configure as configurações de revisão de proteção para uma página.",
 	"apihelp-stabilize-summary-protect": "Configure as configurações de revisão de proteção para uma página.",
 	"apihelp-stabilize-param-reason": "Motivo.",
-	"apihelp-stabilize-param-watch": "Vigiar esta página.",
 	"apihelp-stabilize-param-expiry-general": "Expiração para estas configurações.",
 	"apihelp-stabilize-param-expiry-protect": "Expiração da proteção de revisão.",
 	"apihelp-stabilize-param-title-general": "Título da página a ser estabilizada.",

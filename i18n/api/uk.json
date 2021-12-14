@@ -68,7 +68,6 @@
 	"apihelp-stabilize-description-protect": "Налаштування захисту від перевірок сторінки.",
 	"apihelp-stabilize-summary-protect": "Налаштування захисту від перевірок сторінки.",
 	"apihelp-stabilize-param-reason": "Причина.",
-	"apihelp-stabilize-param-watch": "Спостерігати за цією сторінкою",
 	"apihelp-stabilize-param-expiry-general": "Закінчення терміну цих параметрів.",
 	"apihelp-stabilize-param-expiry-protect": "Закінчення терміну захисту від перевірок.",
 	"apihelp-stabilize-param-title-general": "Назва сторінки, яка стабілізується.",

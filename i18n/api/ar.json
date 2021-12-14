@@ -67,7 +67,6 @@
 	"apihelp-stabilize-description-protect": "تكوين إعدادات حماية المراجعة لصفحة.",
 	"apihelp-stabilize-summary-protect": "تكوين إعدادات حماية المراجعة لصفحة.",
 	"apihelp-stabilize-param-reason": "السبب.",
-	"apihelp-stabilize-param-watch": "راقب هذه الصفحة",
 	"apihelp-stabilize-param-expiry-general": "انتهاء هذه الإعدادات.",
 	"apihelp-stabilize-param-expiry-protect": "انتهاء صلاحية حماية المراجعة.",
 	"apihelp-stabilize-param-title-general": "عنوان الصفحة يجب أن يستقر.",

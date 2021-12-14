@@ -68,7 +68,6 @@
 	"apihelp-stabilize-description-protect": "Cấu hình thiết lập duyệt-khóa của một trang.",
 	"apihelp-stabilize-summary-protect": "Cấu hình thiết lập duyệt-khóa của một trang.",
 	"apihelp-stabilize-param-reason": "Lý do.",
-	"apihelp-stabilize-param-watch": "Theo dõi trang này.",
 	"apihelp-stabilize-param-expiry-general": "Thời hạn của những thiết lập này.",
 	"apihelp-stabilize-param-expiry-protect": "Thời hạn duyệt-khóa.",
 	"apihelp-stabilize-param-title-general": "Tiêu đề trang sẽ được ổn định hóa.",

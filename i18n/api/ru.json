@@ -68,7 +68,6 @@
 	"apihelp-stabilize-description-protect": "Установить настройки защиты по уровню проверки для этой страницы.",
 	"apihelp-stabilize-summary-protect": "Установить настройки защиты по уровню проверки для этой страницы.",
 	"apihelp-stabilize-param-reason": "Причина.",
-	"apihelp-stabilize-param-watch": "Следить за этой страницей.",
 	"apihelp-stabilize-param-expiry-general": "Время истечения этих настроек.",
 	"apihelp-stabilize-param-expiry-protect": "Время изменения защиты по уровню проверки.",
 	"apihelp-stabilize-param-title-general": "Название стабилизируемой страницы.",

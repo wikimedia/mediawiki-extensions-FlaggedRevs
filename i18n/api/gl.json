@@ -64,7 +64,6 @@
 	"apihelp-stabilize-description-protect": "Configurar os parámetros de protección de revisión dunha páxina.",
 	"apihelp-stabilize-summary-protect": "Configurar os parámetros de protección de revisión dunha páxina.",
 	"apihelp-stabilize-param-reason": "Motivo.",
-	"apihelp-stabilize-param-watch": "Vixiar esta páxina.",
 	"apihelp-stabilize-param-expiry-general": "Caducidade destes parámetros.",
 	"apihelp-stabilize-param-expiry-protect": "Caducidade da protección de revisión.",
 	"apihelp-stabilize-param-title-general": "Título da páxina a estabilizar.",

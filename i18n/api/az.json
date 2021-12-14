@@ -69,7 +69,6 @@
 	"apihelp-stabilize-description-protect": "Səhifə üzrə yenidən baxma-qoruma parametrlərini konfiqurasiya etmək.",
 	"apihelp-stabilize-summary-protect": "Səhifə üzrə yenidən baxma-qoruma parametrlərini konfiqurasiya etmək.",
 	"apihelp-stabilize-param-reason": "Səbəb.",
-	"apihelp-stabilize-param-watch": "Bu səhifəni izlə.",
 	"apihelp-stabilize-param-expiry-general": "Bu parametrlər üçün müddət bitdi.",
 	"apihelp-stabilize-param-expiry-protect": "Baxış-qoruma müddəti bitdi.",
 	"apihelp-stabilize-param-title-general": "Stabil ediləcək səhifənin adı.",

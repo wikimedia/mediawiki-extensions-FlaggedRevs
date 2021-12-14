@@ -69,7 +69,6 @@
 	"apihelp-stabilize-description-protect": "Configurer les paramètres de protection de relecture pour une page.",
 	"apihelp-stabilize-summary-protect": "Configurer les indicateurs de protection de relecture  d'une page.",
 	"apihelp-stabilize-param-reason": "Motif.",
-	"apihelp-stabilize-param-watch": "Suivre cette page.",
 	"apihelp-stabilize-param-expiry-general": "Expiration de ces paramètres.",
 	"apihelp-stabilize-param-expiry-protect": "Expiration de la protection de relecture.",
 	"apihelp-stabilize-param-title-general": "Titre de la page à stabiliser.",

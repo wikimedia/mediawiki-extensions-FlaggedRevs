@@ -15,6 +15,5 @@
 	"apihelp-review-param-comment": "Kommentar för granskningen.",
 	"apihelp-review-example-1": "Godkänn sidversionen 12345 med kommentaren \"Ok\"",
 	"apihelp-stabilize-param-reason": "Anledning.",
-	"apihelp-stabilize-param-watch": "Bevaka denna sida.",
 	"apihelp-stabilize-param-review": "Granska denna sida."
 }

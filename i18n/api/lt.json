@@ -7,7 +7,6 @@
 	},
 	"apihelp-stabilize-description-general": "Keisti puslapio stabilumo nustatymus.",
 	"apihelp-stabilize-param-reason": "Priežastis.",
-	"apihelp-stabilize-param-watch": "Stebėti šį puslapį.",
 	"apihelp-stabilize-param-expiry-general": "Šių nustatymų pabaiga.",
 	"apihelp-stabilize-param-title-general": "Stabilizuojamo puslapio pavadinimas.",
 	"apihelp-stabilize-param-review": "Apžvelgti šį puslapį."

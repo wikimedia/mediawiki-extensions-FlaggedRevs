@@ -68,7 +68,6 @@
 	"apihelp-stabilize-description-protect": "为一个页面配置复核保护设置。",
 	"apihelp-stabilize-summary-protect": "为一个页面配置复核保护设置。",
 	"apihelp-stabilize-param-reason": "原因。",
-	"apihelp-stabilize-param-watch": "监视本页。",
 	"apihelp-stabilize-param-expiry-general": "这些设置的期限。",
 	"apihelp-stabilize-param-expiry-protect": "复核保护期限。",
 	"apihelp-stabilize-param-title-general": "要稳定化的页面标题。",

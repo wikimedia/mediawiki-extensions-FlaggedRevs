@@ -67,7 +67,6 @@
 	"apihelp-stabilize-description-protect": "設置頁面的審查保護設定。",
 	"apihelp-stabilize-summary-protect": "設置頁面的審查保護設定。",
 	"apihelp-stabilize-param-reason": "原因。",
-	"apihelp-stabilize-param-watch": "監視此頁面。",
 	"apihelp-stabilize-param-expiry-general": "這些設定的期限。",
 	"apihelp-stabilize-param-expiry-protect": "審查保護期限。",
 	"apihelp-stabilize-param-title-general": "要穩定的頁面標題。",

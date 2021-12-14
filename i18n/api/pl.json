@@ -13,7 +13,6 @@
 	"apihelp-query+unreviewedpages-param-limit": "Łączna liczba stron do zwrócenia.",
 	"apihelp-query+unreviewedpages-example-1": "Pokaż listę nieprzejrzanych stron",
 	"apihelp-stabilize-param-reason": "Powód.",
-	"apihelp-stabilize-param-watch": "Obserwuj tę stronę.",
 	"apihelp-stabilize-param-review": "Przejrzyj tę stronę.",
 	"apierror-flaggedrevs-cantreview": "Nie masz wymaganych uprawnień do ustawiania określonych flag.",
 	"apierror-flaggedrevs-badflags": "Wybrane znaczniki nie są poprawne.",

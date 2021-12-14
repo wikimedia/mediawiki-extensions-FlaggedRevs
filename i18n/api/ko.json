@@ -11,7 +11,6 @@
 	"apihelp-query+unreviewedpages-param-namespace": "열거할 이름공간입니다.",
 	"apihelp-stabilize-summary-general": "문서 안정성 설정을 변경합니다.",
 	"apihelp-stabilize-param-reason": "이유입니다.",
-	"apihelp-stabilize-param-watch": "이 문서를 주시합니다.",
 	"apihelp-stabilize-param-default": "표시할 기본 판입니다.",
 	"apihelp-stabilize-param-review": "이 문서를 검토합니다.",
 	"apihelp-stabilize-param-protectlevel": "검토-보호 수준입니다.",

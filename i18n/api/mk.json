@@ -65,7 +65,6 @@
 	"apihelp-stabilize-description-protect": "Поставки за заштита при проверката на страницава.",
 	"apihelp-stabilize-summary-protect": "Поставки за заштита при проверката на страницава.",
 	"apihelp-stabilize-param-reason": "Причина.",
-	"apihelp-stabilize-param-watch": "Набљудувај ја страницава.",
 	"apihelp-stabilize-param-expiry-general": "Истек на овие поставки.",
 	"apihelp-stabilize-param-expiry-protect": "Истек на ваштитата при проверка.",
 	"apihelp-stabilize-param-title-general": "Наслов на страницата што треба да се стабилизира.",
