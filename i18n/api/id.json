@@ -4,13 +4,24 @@
 			"Rachmat04"
 		]
 	},
+	"apihelp-flagconfig-summary": "Dapatkan informasi dasar tentang konfigurasi penanda tinjauan di situs ini.",
+	"apihelp-flagconfig-example-1": "Ambil konfigurasi penanda",
 	"apihelp-query+oldreviewedpages-example-2": "Tampilkan informasi tentang beberapa halaman tetinjau yang lama",
 	"apihelp-query+unreviewedpages-description": "Hitung halaman yang belum ditinjau pada tingkat kualitas tertentu.",
+	"apihelp-review-example-1": "Terima revisi 12345 dengan komentar \"Oke\"",
 	"apihelp-stabilize-description-general": "Ubah pengaturan kestabilan halaman.",
 	"apihelp-stabilize-summary-general": "Ubah pengaturan kestabilan halaman.",
 	"apihelp-stabilize-param-reason": "Alasan.",
 	"apihelp-stabilize-param-watch": "Pantau halaman ini.",
 	"apihelp-stabilize-param-expiry-general": "Kedaluwarsa pengaturan ini.",
 	"apihelp-stabilize-param-expiry-protect": "Kedaluwarsa perlindungan peninjauan.",
-	"apihelp-stabilize-param-title-general": "Judul halaman yang akan distabilkan."
+	"apihelp-stabilize-param-title-general": "Judul halaman yang akan distabilkan.",
+	"apihelp-stabilize-param-title-protect": "Judul halaman yang akan dilindungi-tinjaukan.",
+	"apihelp-stabilize-param-default": "Revisi baku untuk ditampilkan.",
+	"apihelp-stabilize-param-autoreview": "Batasan peninjauan otomatis.",
+	"apihelp-stabilize-param-review": "Tinjau halaman ini.",
+	"apierror-flaggedrevs-notreviewable": "Halaman yang diberikan tidak dapat ditinjau.",
+	"apierror-flaggedrevs-notsamepage": "Revisi bukan milik halaman yang sama.",
+	"apierror-flaggedrevs-pagedoesnotexist": "Halaman yang diberikan tidak ada.",
+	"apierror-flaggedrevs-cantreview": "Anda tidak memiliki hak akses mencukupi untuk mengatur penanda tertentu."
 }

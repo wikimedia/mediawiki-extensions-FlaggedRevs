@@ -17,7 +17,8 @@
 			"Mor",
 			"Savh",
 			"Translationista",
-			"Vivaelcelta"
+			"Vivaelcelta",
+			"DDPAT"
 		]
 	},
 	"revisionreview": "Revisar versiones",
@@ -59,7 +60,7 @@
 	"revreview-submit-reject": "Rechazar los cambios",
 	"revreview-submit-reviewed": "Hecho. Aceptado.",
 	"revreview-submit-unreviewed": "Hecho. Desaprobado.",
-	"revreview-successful": "'''La versión de [[:$1|$1]] ha sido marcada. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} ver versiones revisadas])'''",
+	"revreview-successful": "'''La versión de [[:$1|$1]] ha sido marcada.'''",
 	"revreview-successful2": "'''Se ha desmarcado la revisión de [[:$1|$1]].'''",
 	"revreview-poss-conflict-p": "'''Aviso: [[User:$1|$1]] empezó a revisar esta página el $2 a las $3.'''",
 	"revreview-poss-conflict-c": "'''Aviso: [[User:$1|$1]] empezó a revisar estos cambios el $2 a las $3.'''",

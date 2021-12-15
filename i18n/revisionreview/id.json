@@ -9,7 +9,8 @@
 			"Iwan Novirion",
 			"Kenrick95",
 			"Rex",
-			"Sumbukompor"
+			"Sumbukompor",
+			"Rachmat04"
 		]
 	},
 	"revisionreview": "Tinjau revisi",
@@ -51,7 +52,7 @@
 	"revreview-submit-reject": "Tolak perubahan",
 	"revreview-submit-reviewed": "Selesai. Diterima!",
 	"revreview-submit-unreviewed": "Selesai. Tidak diterima!",
-	"revreview-successful": "'''Revisi [[:$1|$1]] ditandai. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} lihat revisi stabil])'''",
+	"revreview-successful": "'''Revisi [[:$1|$1]] telah ditandai.'''",
 	"revreview-successful2": "'''Penandaan revisi [[:$1|$1]] dibatalkan.'''",
 	"revreview-poss-conflict-p": "'''Peringatan: [[User:$1|$1]] mulai meninjau halaman ini pada $2 $3.'''",
 	"revreview-poss-conflict-c": "'''Peringatan: [[User:$1|$1]] mulai meninjau perubahan ini pada $2 $3.'''",

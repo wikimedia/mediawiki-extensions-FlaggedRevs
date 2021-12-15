@@ -3,10 +3,11 @@
 		"authors": [
 			"Maksim L.",
 			"Хомелка",
-			"Чаховіч Уладзіслаў"
+			"Чаховіч Уладзіслаў",
+			"ZlyiLev"
 		]
 	},
-	"pendingchanges": "Старонкі з неправеранымі зменамі",
+	"pendingchanges": "Старонкі з недагледжанымі зменамі",
 	"pendingchanges-legend": "Пералік правераных старонак з неправеранымі версіямі",
 	"pendingchanges-list": "На гэтай старонцы пералічаны [[{{MediaWiki:Validationpage}}|дагледжаныя]] старонкі, якія пазней правілі",
 	"pendingchanges-none": "У цяперашні час няма старонак, якія задавальняюць гэтым умовам",
@@ -15,7 +16,7 @@
 	"pendingchanges-recent": "(Менш 1 гадзіны)",
 	"pendingchanges-category": "Катэгорыя:",
 	"pendingchanges-onwatchlist": "Старонкі з майго спіса назірання",
-	"pendingchanges-stable": "Стабільная версія па змоўчванні",
+	"pendingchanges-stable": "Стабільная версія па змоўчанні",
 	"pendingchanges-diff": "праверыць",
 	"pendingchanges-size": "Найбольшае змяненне ў байтах:",
 	"pendingchanges-unwatched": "(не сочаць)",
