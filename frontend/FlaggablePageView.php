@@ -119,13 +119,12 @@ class FlaggablePageView extends ContextSource {
 	private function showingStableAsDefault() {
 		$this->load();
 
-		$request = $this->getRequest();
 		$reqUser = $this->getUser();
 		$defaultForUser = $this->getPageViewStabilityModeForUser( $reqUser );
 
 		return (
 			# Request is for the default page version
-			$this->isDefaultPageView( $request ) &&
+			$this->isDefaultPageView() &&
 			# Page is reviewable and has a stable version
 			$this->article->getStableRev() &&
 			# User is not configured to prefer current versions
@@ -151,7 +150,7 @@ class FlaggablePageView extends ContextSource {
 		# Are we explicity requesting the stable version?
 		if ( $request->getIntOrNull( 'stable' ) === 1 ) {
 			# This only applies to viewing a version of the page...
-			if ( !$this->isPageView( $request ) ) {
+			if ( !$this->isPageView() ) {
 				return false;
 			# ...with no version parameters other than ?stable=1...
 			} elseif ( $request->getVal( 'oldid' ) || $request->getVal( 'stableid' ) ) {
@@ -206,46 +205,33 @@ class FlaggablePageView extends ContextSource {
 
 	/**
 	 * Is this a view page action (including diffs)?
-	 * @param WebRequest $request
 	 * @return bool
 	 */
-	private function isPageViewOrDiff( WebRequest $request ) {
+	private function isPageViewOrDiff() {
 		$action = Action::getActionName( $this->getContext() );
-
-		return self::isViewAction( $action );
+		return $action === 'view' || $action === 'purge' || $action === 'render';
 	}
 
 	/**
 	 * Is this a view page action (not including diffs)?
-	 * @param WebRequest $request
 	 * @return bool
 	 */
-	private function isPageView( WebRequest $request ) {
-		return ( $this->isPageViewOrDiff( $request ) && $request->getVal( 'diff' ) === null );
+	private function isPageView() {
+		$request = $this->getRequest();
+		return $this->isPageViewOrDiff()
+			&& $request->getVal( 'diff' ) === null;
 	}
 
 	/**
 	 * Is this a web request to just *view* the *default* version of a page?
-	 * @param WebRequest $request
 	 * @return bool
 	 */
-	private function isDefaultPageView( WebRequest $request ) {
-		$action = Action::getActionName( $this->getContext() );
-
-		return ( self::isViewAction( $action )
+	private function isDefaultPageView() {
+		$request = $this->getRequest();
+		return $this->isPageView()
 			&& $request->getVal( 'oldid' ) === null
 			&& $request->getVal( 'stable' ) === null
-			&& $request->getVal( 'stableid' ) === null
-			&& $request->getVal( 'diff' ) === null
-		);
-	}
-
-	/**
-	 * @param string $action {@see MediaWiki::getAction}
-	 * @return bool
-	 */
-	private static function isViewAction( $action ) {
-		return ( $action == 'view' || $action == 'purge' || $action == 'render' );
+			&& $request->getVal( 'stableid' ) === null;
 	}
 
 	/**
@@ -314,7 +300,7 @@ class FlaggablePageView extends ContextSource {
 		$request = $this->getRequest();
 		$this->load();
 		# Only trigger on page views with no oldid=x param
-		if ( !$this->isPageView( $request ) || $request->getVal( 'oldid' ) ) {
+		if ( !$this->isPageView() || $request->getVal( 'oldid' ) ) {
 			return;
 		# Only trigger for reviewable pages that exist
 		} elseif ( !$this->article->exists() || !$this->article->isReviewable() ) {
@@ -1128,7 +1114,6 @@ class FlaggablePageView extends ContextSource {
 	 * @param string|OutputPage &$output
 	 */
 	public function addReviewForm( &$output ) {
-		$request = $this->getRequest();
 		$reqUser = $this->getUser();
 		$this->load();
 
@@ -1147,7 +1132,7 @@ class FlaggablePageView extends ContextSource {
 			return;
 		}
 		# Must be a page view action...
-		if ( !$this->isPageViewOrDiff( $request ) ) {
+		if ( !$this->isPageViewOrDiff() ) {
 			return;
 		}
 		# Get the revision being displayed
@@ -1354,7 +1339,7 @@ class FlaggablePageView extends ContextSource {
 		if ( $this->showingStable() || $request->getVal( 'stableid' ) ) {
 			// We are looking a the stable version or an old reviewed one
 			$tabs['read']['class'] = 'selected';
-		} elseif ( $this->isPageViewOrDiff( $request ) ) {
+		} elseif ( $this->isPageViewOrDiff() ) {
 			$ts = null;
 			if ( $this->out->getRevisionId() ) { // @TODO: avoid same query in Skin.php
 				if ( $this->out->getRevisionId() == $this->article->getLatest() ) {
