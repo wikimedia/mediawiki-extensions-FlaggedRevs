@@ -19,7 +19,7 @@ class UnreviewedPages extends SpecialPage {
 	private $hideRedirs;
 
 	/** @var bool */
-	private $live;
+	private $isMiser;
 
 	public function __construct() {
 		parent::__construct( 'UnreviewedPages', 'unreviewedpages' );
@@ -30,6 +30,8 @@ class UnreviewedPages extends SpecialPage {
 	 */
 	public function execute( $par ) {
 		$request = $this->getRequest();
+
+		$this->isMiser = $this->getConfig()->get( 'MiserMode' );
 
 		$this->setHeaders();
 		$this->addHelpLink( 'Help:Extension:FlaggedRevs' );
@@ -49,9 +51,8 @@ class UnreviewedPages extends SpecialPage {
 		$this->category = $catTitle === null ? '' : $catTitle->getText();
 		$level = $request->getInt( 'level' );
 		$this->hideRedirs = $request->getBool( 'hideredirs', true );
-		$this->live = $this->generalQueryOK();
 
-		$this->pager = new UnreviewedPagesPager( $this, $this->live,
+		$this->pager = new UnreviewedPagesPager( $this, !$this->isMiser,
 			$this->namespace, !$this->hideRedirs, $this->category, $level );
 
 		$this->showForm();
@@ -95,7 +96,7 @@ class UnreviewedPages extends SpecialPage {
 		$form .= Html::closeElement( 'form' ) . "\n";
 
 		# Query may get too slow to be live...
-		if ( !$this->live ) {
+		if ( $this->isMiser ) {
 			$dbr = wfGetDB( DB_REPLICA );
 			$ts = $dbr->selectField( 'querycache_info', 'qci_timestamp',
 				[ 'qci_type' => 'fr_unreviewedpages' ], __METHOD__ );
@@ -202,27 +203,6 @@ class UnreviewedPages extends SpecialPage {
 		} else {
 			return '';
 		}
-	}
-
-	/**
-	 * There may be many pages, most of which are reviewed
-	 * @return bool
-	 */
-	private function generalQueryOK() {
-		$namespaces = FlaggedRevs::getReviewNamespaces();
-		if ( !$namespaces || !wfQueriesMustScale() ) {
-			return true;
-		}
-		# Get est. of fraction of pages that are reviewed
-		$dbr = wfGetDB( DB_REPLICA );
-		$reviewedpages = $dbr->estimateRowCount( 'flaggedpages', '*', [], __METHOD__ );
-		$pages = $dbr->estimateRowCount( 'page', '*',
-			[ 'page_namespace' => $namespaces ],
-			__METHOD__
-		);
-		$ratio = $pages / ( $pages - $reviewedpages );
-		# If dist. is equal, # of rows scanned = $ratio * LIMIT (or until list runs out)
-		return ( $ratio <= 400 );
 	}
 
 	/**
