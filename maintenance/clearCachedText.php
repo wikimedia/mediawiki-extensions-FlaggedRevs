@@ -13,7 +13,7 @@ if ( strval( $IP ) == '' ) {
 	$IP = __DIR__ . '/../../..';
 }
 $optionsWithArgs = [ 'backup' ];
-require "$IP/maintenance/commandLine.inc";
+require "$IP/maintenance/CommandLineInc.php";
 
 $pageId = 0;
 $revId = 0;
