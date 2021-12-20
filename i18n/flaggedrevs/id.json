@@ -21,6 +21,7 @@
 	"action-movestable": "memindahkan halaman versi stabil",
 	"action-review": "tinjau revisi",
 	"action-stablesettings": "atur bagaimana versi stabil dipilih dan ditampilkan",
+	"action-validate": "tandai revisi sebagai \"berkualitas\"",
 	"action-unreviewedpages": "lihat daftar halaman yang belum ditinjau",
 	"editor": "Editor",
 	"flaggedrevs": "Revisi bertanda",
@@ -198,5 +199,14 @@
 	"revreview-unlocked-title": "Suntingan terhadap halaman ini tidak membutuhkan tinjauan.",
 	"revreview-locked": "'''Catatan:''' Suntingan harus [[{{MediaWiki:Validationpage}}|ditinjau]] sebelum ditampilkan kepada pembaca laman ini.",
 	"revreview-unlocked": "'''Catatan:''' Suntingan tidak perlu [[{{MediaWiki:Validationpage}}|ditinjau]] sebelum ditampilkan kepada pembaca laman ini.",
-	"validationpage": "{{ns:help}}:Validasi halaman"
+	"logeventslist-review-log": "Log tinjauan",
+	"validationpage": "{{ns:help}}:Validasi halaman",
+	"log-action-filter-review": "Jenis tinjauan:",
+	"log-action-filter-review-accept": "Terima secara manual",
+	"log-action-filter-review-unaccept": "Tolak secara manual",
+	"log-action-filter-stable": "Jenis perubahan konfigurasi:",
+	"log-action-filter-stable-config": "Konfigurasi baru",
+	"log-action-filter-stable-modify": "Konfigurasi terubah",
+	"log-action-filter-stable-reset": "Set ulang konfigurasi",
+	"log-action-filter-stable-move_stable": "Konfigurasi terpindah"
 }
