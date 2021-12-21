@@ -30,7 +30,8 @@
 			"Sanbec",
 			"Tiberius1701",
 			"Translationista",
-			"XalD"
+			"XalD",
+			"DDPAT"
 		]
 	},
 	"action-review": "verificar ediciones",
@@ -181,7 +182,7 @@
 	"tooltip-ca-current": "Ver esta página con los cambios pendientes",
 	"tooltip-ca-stable": "Ver la versión publicada de esta página",
 	"tooltip-ca-default": "Opciones de control de calidad",
-	"flaggedrevs-protect-legend": "Revisión automática de ediciones ([[{{MediaWiki:Validationpage}}|ayuda]])",
+	"flaggedrevs-protect-legend": "Revisión automática de ediciones",
 	"flaggedrevs-protect-none": "Permitir todos los usuarios",
 	"flaggedrevs-protect-sysop": "Permitir solo administradores",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Páginas no revisadas]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Cambios pendientes]",
