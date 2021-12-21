@@ -109,7 +109,7 @@ class PopulateFRRevTimestamp extends Maintenance {
 	 * @return string
 	 */
 	private function lastPosFile() {
-		return __DIR__ . "/popRevTimestampLast-" . wfWikiID();
+		return __DIR__ . "/popRevTimestampLast-" . WikiMap::getCurrentWikiId();
 	}
 }
 
