@@ -56,7 +56,7 @@
 	"revreview-oldrating": "Бұл мына баға алды:",
 	"revreview-quick-basic": "'''[[{{MediaWiki:Validationpage}}|Шолынған]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} жоба жазбасын қарау]]",
 	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|Тексерілген]]'''",
-	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Текснрілген]]'''",
+	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Тексерілген]]'''",
 	"revreview-quick-invalid": "'''Жарамсыз нұсқа сәйкестендіргіші'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Тексерілмеген]]'''",
 	"revreview-quick-see-basic": "'''Жоба жазба''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} тиянақты мақаланы қарау]]\n($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|өзгеріс|өзгеріс}}]]",
