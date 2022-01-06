@@ -126,7 +126,6 @@ class UpdateFRTracking extends Maintenance {
 			}
 			$this->commitTransaction( $db, __METHOD__ );
 
-			$db->freeResult( $res );
 			$blockStart += $BATCH_SIZE;
 			$blockEnd += $BATCH_SIZE;
 		}
@@ -232,7 +231,6 @@ class UpdateFRTracking extends Maintenance {
 				}
 				$count++;
 			}
-			$db->freeResult( $res );
 			# Remove manual config settings that simply restate the site defaults
 			$db->delete( 'flaggedpage_config',
 				[ "fpc_page_id BETWEEN $blockStart AND $blockEnd",
