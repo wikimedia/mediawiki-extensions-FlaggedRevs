@@ -1233,7 +1233,6 @@ class FlaggedRevsUIHooks {
 		if ( $wgFlaggedRevsNamespaces ) {
 			$list['RevisionReview'] = 'RevisionReview'; // unlisted
 			$list['PendingChanges'] = 'PendingChanges';
-			$list['QualityOversight'] = 'QualityOversight';
 			$list['ValidationStatistics'] = 'ValidationStatistics';
 			// Protect levels define allowed stability settings
 			if ( $wgFlaggedRevsProtection ) {

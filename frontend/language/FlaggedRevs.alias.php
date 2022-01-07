@@ -11,7 +11,6 @@ $specialPageAliases = [];
 /** English (English) */
 $specialPageAliases['en'] = [
 	'PendingChanges' => [ 'PendingChanges', 'OldReviewedPages' ],
-	'QualityOversight' => [ 'AdvancedReviewLog', 'QualityOversight' ],
 	'RevisionReview' => [ 'RevisionReview' ],
 	'Stabilization' => [ 'Stabilization', 'Stabilisation' ],
 	'StablePages' => [ 'StablePages' ],
@@ -23,7 +22,6 @@ $specialPageAliases['en'] = [
 /** Aragonese (aragonés) */
 $specialPageAliases['an'] = [
 	'PendingChanges' => [ 'PachinasSupervisatasAntigas' ],
-	'QualityOversight' => [ 'SupervisataDeCalidat' ],
 	'StablePages' => [ 'PachinasEstables' ],
 	'UnreviewedPages' => [ 'PachinasNoRevisatas' ],
 ];
@@ -31,7 +29,6 @@ $specialPageAliases['an'] = [
 /** Arabic (العربية) */
 $specialPageAliases['ar'] = [
 	'PendingChanges' => [ 'صفحات_مراجعة_قديمة' ],
-	'QualityOversight' => [ 'سجل_المراجعة_المتقدم', 'نظر_الجودة' ],
 	'RevisionReview' => [ 'مراجعة_نسخة' ],
 	'Stabilization' => [ 'استقرار' ],
 	'StablePages' => [ 'صفحات_مستقرة' ],
@@ -43,7 +40,6 @@ $specialPageAliases['ar'] = [
 /** Egyptian Arabic (مصرى) */
 $specialPageAliases['arz'] = [
 	'PendingChanges' => [ 'صفح_مراجعه_قديمه' ],
-	'QualityOversight' => [ 'مراقبة_الجوده' ],
 	'RevisionReview' => [ 'مراجعة_نسخه' ],
 	'Stabilization' => [ 'استقرار' ],
 	'StablePages' => [ 'صفح_مستقر' ],
@@ -55,7 +51,6 @@ $specialPageAliases['arz'] = [
 /** Avaric (авар) */
 $specialPageAliases['av'] = [
 	'PendingChanges' => [ 'Ожидающие_проверки_изменения', 'Устаревшие_проверенные_страницы' ],
-	'QualityOversight' => [ 'Расширенный_журнал_проверок_версий' ],
 	'RevisionReview' => [ 'Проверка_версий' ],
 	'Stabilization' => [ 'Стабилизация' ],
 	'StablePages' => [ 'Стабильные_страницы' ],
@@ -67,7 +62,6 @@ $specialPageAliases['av'] = [
 /** Bashkir (башҡортса) */
 $specialPageAliases['ba'] = [
 	'PendingChanges' => [ 'PendingChanges' ],
-	'QualityOversight' => [ 'AdvancedReviewLog' ],
 	'RevisionReview' => [ 'RevisionReview' ],
 	'Stabilization' => [ 'Stabilization' ],
 	'StablePages' => [ 'StablePages' ],
@@ -79,7 +73,6 @@ $specialPageAliases['ba'] = [
 /** Southern Balochi (بلوچی مکرانی) */
 $specialPageAliases['bcc'] = [
 	'PendingChanges' => [ 'صفحات-بازبینی-قدیمی' ],
-	'QualityOversight' => [ 'رویت-کیفیت' ],
 	'StablePages' => [ 'صفحات-ثابت' ],
 	'UnreviewedPages' => [ 'صفحات-بی-بازبینی' ],
 ];
@@ -87,7 +80,6 @@ $specialPageAliases['bcc'] = [
 /** Western Balochi (بلوچی رخشانی) */
 $specialPageAliases['bgn'] = [
 	'PendingChanges' => [ 'تغیر_به_انتزاری_تا_انت' ],
-	'QualityOversight' => [ 'پوره_ئین_دیستین' ],
 	'RevisionReview' => [ 'نخسه_پدا_دیستین' ],
 	'Stabilization' => [ 'پایدار_کورتین' ],
 	'StablePages' => [ 'پایدارین_وّرق_ئان' ],
@@ -98,7 +90,6 @@ $specialPageAliases['bgn'] = [
 
 /** Banjar (Bahasa Banjar) */
 $specialPageAliases['bjn'] = [
-	'QualityOversight' => [ 'Pamariksa_kualitas' ],
 	'RevisionReview' => [ 'Tinjauan_ralatan' ],
 	'Stabilization' => [ 'Stabilitasi' ],
 	'StablePages' => [ 'Tungkaran_stabil' ],
@@ -109,7 +100,6 @@ $specialPageAliases['bjn'] = [
 /** Bengali (বাংলা) */
 $specialPageAliases['bn'] = [
 	'PendingChanges' => [ 'অমীমাংসিত_পরিবর্তন', 'পুরনো_পর্যালোচিত_পাতা' ],
-	'QualityOversight' => [ 'উন্নত_পর্যালোচনা_লগ' ],
 	'RevisionReview' => [ 'সংশোধন_পর্যালোচনা' ],
 	'Stabilization' => [ 'স্থিতিশীলতা' ],
 	'StablePages' => [ 'স্থিতিশীল_পাতাসমূহ' ],
@@ -130,7 +120,6 @@ $specialPageAliases['br'] = [
 /** Bosnian (bosanski) */
 $specialPageAliases['bs'] = [
 	'PendingChanges' => [ 'StarePregledaneStranice' ],
-	'QualityOversight' => [ 'KvalitetNadzora' ],
 	'RevisionReview' => [ 'PregledRevizija' ],
 	'Stabilization' => [ 'Stabilizacija' ],
 	'StablePages' => [ 'StabilneStranice' ],
@@ -141,7 +130,6 @@ $specialPageAliases['bs'] = [
 /** Chechen (нохчийн) */
 $specialPageAliases['ce'] = [
 	'PendingChanges' => [ 'Хьажа_хан_хила_хийцамаш' ],
-	'QualityOversight' => [ 'Версешка_хьажаран_шордина_тептар' ],
 	'RevisionReview' => [ 'Версега_хьажар' ],
 	'Stabilization' => [ 'ЧӀагӀдалар' ],
 	'StablePages' => [ 'ЧӀагӀелла_агӀонаш' ],
@@ -153,7 +141,6 @@ $specialPageAliases['ce'] = [
 /** Central Kurdish (کوردیی ناوەندی) */
 $specialPageAliases['ckb'] = [
 	'PendingChanges' => [ 'گۆڕانکارییە_ھەڵواسراوەکان' ],
-	'QualityOversight' => [ 'لۆگی_بەسەرداچوونەوەی_پێشکەوتوو' ],
 	'RevisionReview' => [ 'بەسەرداچوونەوەی_پێداچوونەوە' ],
 	'StablePages' => [ 'پەڕە_جێگرتووەکان' ],
 ];
@@ -161,7 +148,6 @@ $specialPageAliases['ckb'] = [
 /** German (Deutsch) */
 $specialPageAliases['de'] = [
 	'PendingChanges' => [ 'Seiten_mit_ungesichteten_Versionen' ],
-	'QualityOversight' => [ 'Erweitertes_Sichtungslogbuch', 'Markierungsübersicht' ],
 	'RevisionReview' => [ 'Versionsprüfung' ],
 	'Stabilization' => [ 'Seitenkonfiguration', 'Stabilisierung' ],
 	'StablePages' => [ 'Markierte_Seiten' ],
@@ -173,7 +159,6 @@ $specialPageAliases['de'] = [
 /** Zazaki (Zazaki) */
 $specialPageAliases['diq'] = [
 	'PendingChanges' => [ 'VurnayışêKePawiyenê' ],
-	'QualityOversight' => [ 'VênayışêQeydanoGırd' ],
 	'RevisionReview' => [ 'RewizyonWeynayış' ],
 	'Stabilization' => [ 'Dengekerdış' ],
 	'StablePages' => [ 'DengeyaPelan' ],
@@ -185,7 +170,6 @@ $specialPageAliases['diq'] = [
 /** Lower Sorbian (dolnoserbski) */
 $specialPageAliases['dsb'] = [
 	'PendingChanges' => [ 'Zasej njepśeglědane boki' ],
-	'QualityOversight' => [ 'Kwalitna_kontrola' ],
 	'RevisionReview' => [ 'Wersijowe_pśeglědanje' ],
 	'Stabilization' => [ 'Stabilizacija' ],
 	'StablePages' => [ 'Stabilne_boki' ],
@@ -196,7 +180,6 @@ $specialPageAliases['dsb'] = [
 /** Esperanto (Esperanto) */
 $specialPageAliases['eo'] = [
 	'PendingChanges' => [ 'Malfreŝe_kontrolitaj_paĝoj' ],
-	'QualityOversight' => [ 'Kvalita_kontrolo' ],
 	'Stabilization' => [ 'Stabilado' ],
 	'StablePages' => [ 'Stabilaj_paĝoj' ],
 	'ConfiguredPages' => [ 'Agorditaj_paĝoj' ],
@@ -216,7 +199,6 @@ $specialPageAliases['es'] = [
 /** Persian (فارسی) */
 $specialPageAliases['fa'] = [
 	'PendingChanges' => [ 'تغییرات_در_حال_انتظار' ],
-	'QualityOversight' => [ 'نظارت_کیفی' ],
 	'RevisionReview' => [ 'بازبینی_نسخه' ],
 	'Stabilization' => [ 'پایدارسازی' ],
 	'StablePages' => [ 'صفحه‌های_پایدار' ],
@@ -237,7 +219,6 @@ $specialPageAliases['fi'] = [
 /** French (français) */
 $specialPageAliases['fr'] = [
 	'PendingChanges' => [ 'AnciennesPagesRelues' ],
-	'QualityOversight' => [ 'SuperviseurQualité' ],
 	'RevisionReview' => [ 'Relecture_des_révisions' ],
 	'StablePages' => [ 'Pages_stables' ],
 	'UnreviewedPages' => [ 'Pages_non_relues' ],
@@ -247,7 +228,6 @@ $specialPageAliases['fr'] = [
 /** Arpitan (arpetan) */
 $specialPageAliases['frp'] = [
 	'PendingChanges' => [ 'Pâges_que_les_vèrsions_sont_dèpassâs', 'PâgesQueLesVèrsionsSontDèpassâs' ],
-	'QualityOversight' => [ 'Supèrvision_de_qualitât', 'SupèrvisionDeQualitât' ],
 	'RevisionReview' => [ 'Rèvision_de_les_vèrsions', 'RèvisionDeLesVèrsions' ],
 	'Stabilization' => [ 'Stabilisacion' ],
 	'StablePages' => [ 'Pâges_stâbles', 'PâgesStâbles' ],
@@ -258,7 +238,6 @@ $specialPageAliases['frp'] = [
 /** Galician (galego) */
 $specialPageAliases['gl'] = [
 	'PendingChanges' => [ 'Páxinas_revisadas_hai_tempo' ],
-	'QualityOversight' => [ 'Revisión_de_calidade' ],
 	'RevisionReview' => [ 'Revisión_da_revisión' ],
 	'Stabilization' => [ 'Estabilización' ],
 	'StablePages' => [ 'Páxinas_estábeis' ],
@@ -270,7 +249,6 @@ $specialPageAliases['gl'] = [
 /** Swiss German (Alemannisch) */
 $specialPageAliases['gsw'] = [
 	'PendingChanges' => [ 'Syte_mit_Versione_wu_nit_gsichtet_sin' ],
-	'QualityOversight' => [ 'Markierigsibersicht' ],
 	'RevisionReview' => [ 'Versionspriefig' ],
 	'Stabilization' => [ 'Sytekonfiguration' ],
 	'StablePages' => [ 'Konfigurierti_Syte' ],
@@ -281,7 +259,6 @@ $specialPageAliases['gsw'] = [
 /** Gujarati (ગુજરાતી) */
 $specialPageAliases['gu'] = [
 	'PendingChanges' => [ 'જુનાં_તપાસાયેલા_પાનાં' ],
-	'QualityOversight' => [ 'ગુણવતા_દુર્લક્ષ' ],
 	'RevisionReview' => [ 'આવૃત્તિરીવ્યુ' ],
 	'Stabilization' => [ 'સ્થિરતા' ],
 	'StablePages' => [ 'સ્થિરપાનાઓ' ],
@@ -290,7 +267,6 @@ $specialPageAliases['gu'] = [
 /** Hebrew (עברית) */
 $specialPageAliases['he'] = [
 	'PendingChanges' => [ 'שינויים_ממתינים', 'שינויים_הממתינים_לסקירה', 'עריכות_הממתינות_לסקירה' ],
-	'QualityOversight' => [ 'יומן_סקירה_מתקדם' ],
 	'RevisionReview' => [ 'סקירת_גרסה' ],
 	'Stabilization' => [ 'ייצוב' ],
 	'StablePages' => [ 'דפים_יציבים' ],
@@ -302,7 +278,6 @@ $specialPageAliases['he'] = [
 /** Hindi (हिन्दी) */
 $specialPageAliases['hi'] = [
 	'PendingChanges' => [ 'अनिरीक्षित_पृष्ठ', 'अनिरीक्षित_पन्ने', 'पुरानेदेखेंहुएपन्ने' ],
-	'QualityOversight' => [ 'उन्नत_समीक्षा_लॉग', 'गुणवत्ता_निरीक्षण', 'गुणवत्ताओव्हरसाईट' ],
 	'RevisionReview' => [ 'अवतरण_निरीक्षण' ],
 	'StablePages' => [ 'स्थिर_पृष्ठ', 'स्थिर_पन्ने', 'स्थिरपन्ने' ],
 	'UnreviewedPages' => [ 'नदेखेंहुएपन्ने' ],
@@ -317,7 +292,6 @@ $specialPageAliases['hr'] = [
 /** Upper Sorbian (hornjoserbsce) */
 $specialPageAliases['hsb'] = [
 	'PendingChanges' => [ 'Zaso_njepřehladane_strony' ],
-	'QualityOversight' => [ 'Kwalitna_kontrola' ],
 	'RevisionReview' => [ 'Wersijowe_přehladanje' ],
 	'Stabilization' => [ 'Stabilizacija' ],
 	'StablePages' => [ 'Stabilne_strony' ],
@@ -329,7 +303,6 @@ $specialPageAliases['hsb'] = [
 /** Haitian (Kreyòl ayisyen) */
 $specialPageAliases['ht'] = [
 	'PendingChanges' => [ 'ChanjmanKapTann', 'AnsyenPajRevize' ],
-	'QualityOversight' => [ 'JounalRevizyonAvanse', 'SipèvizyonKalite' ],
 	'RevisionReview' => [ 'VerifyeRevizyon' ],
 	'Stabilization' => [ 'Estabilizasyon' ],
 	'StablePages' => [ 'PajEstab' ],
@@ -341,7 +314,6 @@ $specialPageAliases['ht'] = [
 /** Hungarian (magyar) */
 $specialPageAliases['hu'] = [
 	'PendingChanges' => [ 'Elavult_ellenőrzött_lapok', 'Régen_ellenőrzött_lapok' ],
-	'QualityOversight' => [ 'Minőségellenőrzés' ],
 	'RevisionReview' => [ 'Változat_ellenőrzése' ],
 	'Stabilization' => [ 'Lap_rögzítése' ],
 	'StablePages' => [ 'Rögzített_lapok' ],
@@ -352,7 +324,6 @@ $specialPageAliases['hu'] = [
 /** Interlingua (interlingua) */
 $specialPageAliases['ia'] = [
 	'PendingChanges' => [ 'Modificationes_pendente', 'Paginas_revidite_ancian' ],
-	'QualityOversight' => [ 'Registro_de_revision_avantiate', 'Supervision_de_qualitate' ],
 	'RevisionReview' => [ 'Revision_de_versiones' ],
 	'StablePages' => [ 'Paginas_stabile', 'Paginas_publicate' ],
 	'ConfiguredPages' => [ 'Paginas_configurate' ],
@@ -363,7 +334,6 @@ $specialPageAliases['ia'] = [
 /** Indonesian (Bahasa Indonesia) */
 $specialPageAliases['id'] = [
 	'PendingChanges' => [ 'Halaman_tertinjau_usang', 'HalamanTertinjauUsang' ],
-	'QualityOversight' => [ 'Pemeriksaan_kualitas', 'PemeriksaanKualitas' ],
 	'RevisionReview' => [ 'Tinjauan_revisi', 'TinjauanRevisi' ],
 	'Stabilization' => [ 'Stabilisasi' ],
 	'StablePages' => [ 'Halaman_stabil', 'HalamanStabil' ],
@@ -375,7 +345,6 @@ $specialPageAliases['id'] = [
 /** Italian (italiano) */
 $specialPageAliases['it'] = [
 	'PendingChanges' => [ 'CambiamentiInAttesa' ],
-	'QualityOversight' => [ 'RegistroAvanzatoRevisioni' ],
 	'RevisionReview' => [ 'RevisionaVersione' ],
 	'Stabilization' => [ 'Stabilizza' ],
 	'StablePages' => [ 'PagineStabili' ],
@@ -387,7 +356,6 @@ $specialPageAliases['it'] = [
 /** Japanese (日本語) */
 $specialPageAliases['ja'] = [
 	'PendingChanges' => [ '保留中の変更', '古くなった査読済みページ' ],
-	'QualityOversight' => [ '上級査読記録', '品質監督' ],
 	'RevisionReview' => [ '特定版の査読', '版指定査読' ],
 	'Stabilization' => [ '固定', '採択', 'ページの採択' ],
 	'StablePages' => [ '固定ページ', '安定ページ', '採用ページ' ],
@@ -399,7 +367,6 @@ $specialPageAliases['ja'] = [
 /** Korean (한국어) */
 $specialPageAliases['ko'] = [
 	'PendingChanges' => [ '보류중바뀜', '오래된검토된문서' ],
-	'QualityOversight' => [ '고급검토기록', '품질감시' ],
 	'RevisionReview' => [ '편집검토' ],
 	'Stabilization' => [ '안정화' ],
 	'StablePages' => [ '안정된문서' ],
@@ -416,7 +383,6 @@ $specialPageAliases['ksh'] = [
 
 /** Ladino (Ladino) */
 $specialPageAliases['lad'] = [
-	'QualityOversight' => [ 'Sorvelyança_de_calidad' ],
 	'RevisionReview' => [ 'Egzamén_de_rēvizyones' ],
 	'Stabilization' => [ 'Estabilizasyón' ],
 	'StablePages' => [ 'HojasEstables' ],
@@ -428,7 +394,6 @@ $specialPageAliases['lad'] = [
 /** Luxembourgish (Lëtzebuergesch) */
 $specialPageAliases['lb'] = [
 	'PendingChanges' => [ 'Säite_mat_Versiounen_déi_net_iwwerpréift_sinn' ],
-	'QualityOversight' => [ 'Qualitéitsiwwersiicht' ],
 	'RevisionReview' => [ 'Versioun_iwwerpréifen' ],
 	'Stabilization' => [ 'Stabilisatioun' ],
 	'StablePages' => [ 'Stabil_Säiten' ],
@@ -440,7 +405,6 @@ $specialPageAliases['lb'] = [
 /** Macedonian (македонски) */
 $specialPageAliases['mk'] = [
 	'PendingChanges' => [ 'СтариОценетиСтраници' ],
-	'QualityOversight' => [ 'НадзорНаКвалитетот' ],
 	'RevisionReview' => [ 'ПрегледНаПреработки' ],
 	'Stabilization' => [ 'Стабилизација' ],
 	'StablePages' => [ 'СтабилниСтраници' ],
@@ -452,7 +416,6 @@ $specialPageAliases['mk'] = [
 /** Malayalam (മലയാളം) */
 $specialPageAliases['ml'] = [
 	'PendingChanges' => [ 'മുമ്പ്_സംശോധനം_ചെയ്ത_താളുകൾ' ],
-	'QualityOversight' => [ 'ഗുണമേന്മാമേൽനോട്ടം' ],
 	'RevisionReview' => [ 'നാൾപ്പതിപ്പ്സംശോധനം' ],
 	'Stabilization' => [ 'സ്ഥിരപ്പെടുത്തൽ' ],
 	'StablePages' => [ 'സ്ഥിരതാളുകൾ' ],
@@ -464,7 +427,6 @@ $specialPageAliases['ml'] = [
 /** Marathi (मराठी) */
 $specialPageAliases['mr'] = [
 	'PendingChanges' => [ 'जुनीतपासलेलीपाने' ],
-	'QualityOversight' => [ 'गुणवत्ताओव्हरसाईट' ],
 	'RevisionReview' => [ 'आवृत्तीसमीक्षा' ],
 	'Stabilization' => [ 'स्थिरीकरण' ],
 	'StablePages' => [ 'स्थिरपाने' ],
@@ -474,7 +436,6 @@ $specialPageAliases['mr'] = [
 /** Malay (Bahasa Melayu) */
 $specialPageAliases['ms'] = [
 	'PendingChanges' => [ 'Perubahan_tertunggu', 'Laman_diperiksa_lapuk' ],
-	'QualityOversight' => [ 'Kawalan_mutu' ],
 	'Stabilization' => [ 'Penstabilan' ],
 	'StablePages' => [ 'Laman_stabil' ],
 	'UnreviewedPages' => [ 'Laman_tidak_diperiksa' ],
@@ -484,7 +445,6 @@ $specialPageAliases['ms'] = [
 /** Norwegian Bokmål (norsk bokmål) */
 $specialPageAliases['nb'] = [
 	'PendingChanges' => [ 'Gamle_anmeldte_sider' ],
-	'QualityOversight' => [ 'Kvalitetsoversikt' ],
 	'RevisionReview' => [ 'Revisjonsgjennomgang' ],
 	'Stabilization' => [ 'Stabilisering' ],
 	'StablePages' => [ 'Stabile_sider' ],
@@ -496,7 +456,6 @@ $specialPageAliases['nb'] = [
 /** Low Saxon (Netherlands) (Nedersaksies) */
 $specialPageAliases['nds-nl'] = [
 	'PendingChanges' => [ 'Wiezigingen_in_wachtrie' ],
-	'QualityOversight' => [ 'Kwaliteitskontraole' ],
 	'RevisionReview' => [ 'Eindredaksie_versies' ],
 	'Stabilization' => [ 'Stabilisasie' ],
 	'StablePages' => [ 'Stabiele_ziejen' ],
@@ -508,7 +467,6 @@ $specialPageAliases['nds-nl'] = [
 /** Dutch (Nederlands) */
 $specialPageAliases['nl'] = [
 	'PendingChanges' => [ 'PaginasVerouderdeEindredactie', 'Pagina\'sVerouderdeEindredactie' ],
-	'QualityOversight' => [ 'KwaliteitsControle' ],
 	'RevisionReview' => [ 'EindredactieVersies' ],
 	'Stabilization' => [ 'Stabilisatie' ],
 	'StablePages' => [ 'StabielePaginas', 'StabielePagina\'s' ],
@@ -520,7 +478,6 @@ $specialPageAliases['nl'] = [
 /** Norwegian Nynorsk (norsk nynorsk) */
 $specialPageAliases['nn'] = [
 	'PendingChanges' => [ 'Gamle_vurderte_sider' ],
-	'QualityOversight' => [ 'Kvalitetsoversyn' ],
 	'RevisionReview' => [ 'Versjonsvurdering' ],
 	'Stabilization' => [ 'Stabilisering' ],
 	'StablePages' => [ 'Stabile_sider' ],
@@ -531,7 +488,6 @@ $specialPageAliases['nn'] = [
 /** Occitan (occitan) */
 $specialPageAliases['oc'] = [
 	'PendingChanges' => [ 'PaginasAncianasRelegidas' ],
-	'QualityOversight' => [ 'SupervisorQualitat' ],
 	'RevisionReview' => [ 'Relectura_de_las_revisions' ],
 	'StablePages' => [ 'Paginas_establas', 'PaginasEstablas' ],
 	'UnreviewedPages' => [ 'Paginas_pas_relegidas', 'PaginasPasRelegidas' ],
@@ -540,7 +496,6 @@ $specialPageAliases['oc'] = [
 /** Polish (polski) */
 $specialPageAliases['pl'] = [
 	'PendingChanges' => [ 'Zdezaktualizowane_przejrzane_strony' ],
-	'QualityOversight' => [ 'Rejestr_oznaczania_wersji' ],
 	'RevisionReview' => [ 'Oznaczenie_wersji' ],
 	'Stabilization' => [ 'Konfiguracja_strony' ],
 	'StablePages' => [ 'Strony_stabilizowane', 'Strony_z_domyślnie_pokazywaną_wersją_oznaczoną' ],
@@ -552,7 +507,6 @@ $specialPageAliases['pl'] = [
 /** Portuguese (português) */
 $specialPageAliases['pt'] = [
 	'PendingChanges' => [ 'Versões_antigas_de_páginas_analisadas', 'Páginas_analisadas_antigas' ],
-	'QualityOversight' => [ 'Controlo_de_qualidade', 'Controle_de_qualidade' ],
 	'RevisionReview' => [ 'Revisão_de_versões' ],
 	'Stabilization' => [ 'Estabilização' ],
 	'StablePages' => [ 'Páginas_estáveis' ],
@@ -563,7 +517,6 @@ $specialPageAliases['pt'] = [
 /** Brazilian Portuguese (português do Brasil) */
 $specialPageAliases['pt-br'] = [
 	'PendingChanges' => [ 'Versões_antigas_de_páginas_analisadas' ],
-	'QualityOversight' => [ 'Observatório_da_qualidade' ],
 	'RevisionReview' => [ 'Revisão_de_edições' ],
 	'Stabilization' => [ 'Estabilização' ],
 	'StablePages' => [ 'Páginas_estáveis' ],
@@ -575,7 +528,6 @@ $specialPageAliases['pt-br'] = [
 /** Russian (русский) */
 $specialPageAliases['ru'] = [
 	'PendingChanges' => [ 'Ожидающие_проверки_изменения', 'Устаревшие_проверенные_страницы' ],
-	'QualityOversight' => [ 'Расширенный_журнал_проверок_версий' ],
 	'RevisionReview' => [ 'Проверка_версий' ],
 	'Stabilization' => [ 'Стабилизация' ],
 	'StablePages' => [ 'Стабильные_страницы' ],
@@ -587,7 +539,6 @@ $specialPageAliases['ru'] = [
 /** Sanskrit (संस्कृतम्) */
 $specialPageAliases['sa'] = [
 	'PendingChanges' => [ 'पूर्वतनआवलोकीतपृष्ठ:' ],
-	'QualityOversight' => [ 'गुणपूर्णवृजावलोकन' ],
 	'RevisionReview' => [ 'आवृत्तीसमसमीक्षा' ],
 	'Stabilization' => [ 'स्वास्थ्य' ],
 	'StablePages' => [ 'स्वस्थपृष्ठ' ],
@@ -598,7 +549,6 @@ $specialPageAliases['sa'] = [
 /** Sicilian (sicilianu) */
 $specialPageAliases['scn'] = [
 	'PendingChanges' => [ 'CambiamentiInAttesa' ],
-	'QualityOversight' => [ 'RivisualizzaRegistroAvanzato' ],
 	'RevisionReview' => [ 'RivisualizzaRevisione' ],
 	'Stabilization' => [ 'Stabilizzazione' ],
 	'StablePages' => [ 'PagineStabili' ],
@@ -610,7 +560,6 @@ $specialPageAliases['scn'] = [
 /** Slovak (slovenčina) */
 $specialPageAliases['sk'] = [
 	'PendingChanges' => [ 'StaréSkontrolovanéStránky' ],
-	'QualityOversight' => [ 'DohľadNadKvalitou' ],
 	'RevisionReview' => [ 'KontrolaKontroly' ],
 	'Stabilization' => [ 'Stabilizácia' ],
 	'StablePages' => [ 'StabilnéStránky' ],
@@ -627,7 +576,6 @@ $specialPageAliases['sq'] = [
 /** Serbian (Cyrillic script) (српски (ћирилица)‎) */
 $specialPageAliases['sr-ec'] = [
 	'PendingChanges' => [ 'СтареПрегледанеСтране' ],
-	'QualityOversight' => [ 'НадгледањеКвалитета' ],
 	'RevisionReview' => [ 'ПрегледИзмене', 'Преглед_измене' ],
 	'Stabilization' => [ 'Стабилизација' ],
 	'StablePages' => [ 'СтабилнеСтране', 'Стабилне_странице' ],
@@ -638,7 +586,6 @@ $specialPageAliases['sr-ec'] = [
 /** Swedish (svenska) */
 $specialPageAliases['sv'] = [
 	'PendingChanges' => [ 'Gamla_granskade_sidor' ],
-	'QualityOversight' => [ 'Kvalitetsöversikt' ],
 	'RevisionReview' => [ 'Versionsgranskning' ],
 	'Stabilization' => [ 'Stabilisering' ],
 	'StablePages' => [ 'Stabila_sidor' ],
@@ -659,7 +606,6 @@ $specialPageAliases['sw'] = [
 /** Tagalog (Tagalog) */
 $specialPageAliases['tl'] = [
 	'PendingChanges' => [ 'Nasuring_lumang_mga_pahina' ],
-	'QualityOversight' => [ 'Maingat_na_pamamahala_ng_kalidad' ],
 	'RevisionReview' => [ 'Pagsusuri_ng_pagbabago' ],
 	'Stabilization' => [ 'Pagpapatatag', 'Pagpapatibay' ],
 	'StablePages' => [ 'Matatag_na_mga_pahina' ],
@@ -670,7 +616,6 @@ $specialPageAliases['tl'] = [
 /** Turkish (Türkçe) */
 $specialPageAliases['tr'] = [
 	'PendingChanges' => [ 'BekleyenDeğişiklikler', 'EskiİncelenmişSayfalar' ],
-	'QualityOversight' => [ 'GelişmişİncelemeGünlüğü', 'KaliteGözetimi' ],
 	'RevisionReview' => [ 'Revizyonİnceleme', 'Revizyonİncele' ],
 	'Stabilization' => [ 'Kararlılık', 'Stabilizasyon' ],
 	'StablePages' => [ 'KararlıSayfalar', 'StabilSayfalar' ],
@@ -687,7 +632,6 @@ $specialPageAliases['tt-cyrl'] = [
 /** Ukrainian (українська) */
 $specialPageAliases['uk'] = [
 	'PendingChanges' => [ 'Сторінки_до_перевірки', 'Ожидающие_проверки_изменения', 'Устаревшие_проверенные_страницы' ],
-	'QualityOversight' => [ 'Поглиблений_журнал_перевірок', 'Расширенный_журнал_проверок_версий' ],
 	'RevisionReview' => [ 'Перевірка_версій', 'Проверка_версий' ],
 	'Stabilization' => [ 'Стабілізація', 'Стабилизация' ],
 	'StablePages' => [ 'Стабілізовані_сторінки', 'Стабильные_страницы' ],
@@ -699,7 +643,6 @@ $specialPageAliases['uk'] = [
 /** Venetian (vèneto) */
 $specialPageAliases['vec'] = [
 	'PendingChanges' => [ 'PagineRiesaminàVèce' ],
-	'QualityOversight' => [ 'ControloQualità' ],
 	'StablePages' => [ 'PagineStabili' ],
 	'UnreviewedPages' => [ 'PagineNonRiesaminà' ],
 	'ValidationStatistics' => [ 'StatìstegheDeValidassion' ],
@@ -708,7 +651,6 @@ $specialPageAliases['vec'] = [
 /** Vietnamese (Tiếng Việt) */
 $specialPageAliases['vi'] = [
 	'PendingChanges' => [ 'Trang_chưa_duyệt_cũ' ],
-	'QualityOversight' => [ 'Giám_sát_chất_lượng' ],
 	'RevisionReview' => [ 'Duyệt_phiên_bản' ],
 	'Stabilization' => [ 'Ổn_định_hóa' ],
 	'StablePages' => [ 'Trang_ổn_định' ],
@@ -725,7 +667,6 @@ $specialPageAliases['yi'] = [
 /** Simplified Chinese (中文（简体）‎) */
 $specialPageAliases['zh-hans'] = [
 	'PendingChanges' => [ '待定更改', '旧复核页面' ],
-	'QualityOversight' => [ '高级复核日志', '质量监督' ],
 	'RevisionReview' => [ '修订复审' ],
 	'Stabilization' => [ '稳定化' ],
 	'StablePages' => [ '固定页面', '稳定页面' ],
@@ -737,7 +678,6 @@ $specialPageAliases['zh-hans'] = [
 /** Traditional Chinese (中文（繁體）‎) */
 $specialPageAliases['zh-hant'] = [
 	'PendingChanges' => [ '等待審核的更改' ],
-	'QualityOversight' => [ '進階審閱日誌' ],
 	'RevisionReview' => [ '版本審核' ],
 	'Stabilization' => [ '穩定性' ],
 	'StablePages' => [ '穩定頁面' ],
