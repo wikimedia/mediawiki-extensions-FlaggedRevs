@@ -103,7 +103,6 @@ class ReviewAllPages extends Maintenance {
 				}
 				$count++;
 			}
-			$db->freeResult( $res );
 			$blockStart += $this->mBatchSize - 1;
 			$blockEnd += $this->mBatchSize - 1;
 

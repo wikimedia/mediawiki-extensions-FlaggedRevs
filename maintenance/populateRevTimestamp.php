@@ -95,7 +95,6 @@ class PopulateFRRevTimestamp extends Maintenance {
 				$count++;
 			}
 			$db->commit( __METHOD__ );
-			$db->freeResult( $res );
 			$blockStart += $this->mBatchSize;
 			$blockEnd += $this->mBatchSize;
 			$lbFactory->waitForReplication( [ 'ifWritesSince' => 5 ] );

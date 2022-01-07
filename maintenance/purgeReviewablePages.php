@@ -101,7 +101,6 @@ class PurgeReviewablePages extends Maintenance {
 					$count++;
 				}
 			}
-			$db->freeResult( $res );
 			$blockStart += $this->mBatchSize - 1;
 			$blockEnd += $this->mBatchSize - 1;
 			$lbFactory->waitForReplication( [ 'ifWritesSince' => 5 ] );

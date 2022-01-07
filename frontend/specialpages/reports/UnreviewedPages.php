@@ -256,7 +256,6 @@ class UnreviewedPages extends SpecialPage {
 				'qc_value'      => $row->page_id
 			];
 		}
-		$dbr->freeResult( $res );
 
 		$dbw = wfGetDB( DB_PRIMARY );
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
@@ -297,7 +296,6 @@ class UnreviewedPages extends SpecialPage {
 				'qc_value'      => $row->page_id
 			];
 		}
-		$dbr->freeResult( $res );
 
 		$dbw->startAtomic( __METHOD__ );
 		# Clear out any old cached data
