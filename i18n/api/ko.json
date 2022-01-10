@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ykhwong"
+			"Ykhwong",
+			"Yunbj"
 		]
 	},
 	"apihelp-query+configuredpages-param-namespace": "열거할 이름공간입니다.",
@@ -21,5 +22,7 @@
 	"apihelp-stabilize-param-protectlevel": "검토-보호 수준입니다.",
 	"apierror-flaggedrevs-notreviewable": "지정된 문서는 검토가 불가능합니다.",
 	"apierror-flaggedrevs-notsamepage": "판들이 동일 문서에 속하지 않습니다.",
-	"apierror-flaggedrevs-pagedoesnotexist": "지정된 페이지가 존재하지 않습니다."
+	"apierror-flaggedrevs-pagedoesnotexist": "지정된 페이지가 존재하지 않습니다.",
+	"apierror-flaggedrevs-cantreview": "당신에게 해당 플래그를 설정하는데 필요한 권한이 없습니다.",
+	"apierror-flaggedrevs-badflags": "해당 플래그는 잘못되었습니다."
 }

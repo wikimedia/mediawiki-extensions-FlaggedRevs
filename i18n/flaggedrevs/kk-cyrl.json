@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Arystanbek"
+			"Arystanbek",
+			"Hedeyohu22"
 		]
 	},
 	"action-review": "нұсқаларды қайта қарау",
@@ -66,7 +67,7 @@
 	"revreview-quality": "Бұл ең соңғы [[{{MediaWiki:Validationpage}}|сапалы]] нұсқа,\n<i>$2</i> кезінде [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бекітілген]. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Жоба жазбасы]\n[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} өзгертілуі] мүмкін; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|өзгерісі|өзгерісі}}]\nсын беруді {{PLURAL:$3|күтуде|күтуде}}.",
 	"revreview-quick-basic": "'''[[{{MediaWiki:Validationpage}}|Шолынған]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} жоба жазбасын қарау]]",
 	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|Тексерілген]]'''",
-	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Текснрілген]]'''",
+	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Тексерілген]]'''",
 	"revreview-quick-invalid": "'''Жарамсыз нұсқа сәйкестендіргіші'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Тексерілмеген]]'''",
 	"revreview-quick-quality": "'''[[{{MediaWiki:Validationpage}}|Сапалы]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} жоба жазбасын қарау]]",
