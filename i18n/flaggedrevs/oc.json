@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Cedric31",
-			"Jfblanc"
+			"Jfblanc",
+			"Jeeputer"
 		]
 	},
 	"action-review": "Repassar las versions",
@@ -22,12 +23,15 @@
 	"flaggedrevs-prefs-editdiffs": "Far veire lo diff de las modificacions en espèra quand modificatz de paginas",
 	"flaggedrevs-prefs-viewdiffs": "Far veire lo diff de las modificacions en espèra quand la darrièra version en espèra d'una pagina es consultada",
 	"flaggedrevs-hidereviewed": "$1 a examinat las modificacions",
+	"flaggedrevs-hidereviewed-hide": "Hide",
+	"flaggedrevs-hidereviewed-show": "Show",
+	"flaggedrevs-rcfilters-need-review-label": "Need review",
 	"group-editor": "Contributors",
 	"group-editor-member": "{{GENDER:$1|contributor|contributritz}}",
 	"group-reviewer": "Revisors",
 	"group-reviewer-member": "{{GENDER:$1|relector|relectritz}}",
 	"grouppage-editor": "{{ns:project}}:Editor",
-	"grouppage-reviewer": "{{ns:project}}:Reviewer",
+	"grouppage-reviewer": "{{ns:project}}:بازبینی",
 	"group-autoreview": "Revisadors automatics",
 	"group-autoreview-member": "{{GENDER:$1|relector automatic|relectritz automatica}}",
 	"grouppage-autoreview": "{{ns:project}}:Revisador automatic",
