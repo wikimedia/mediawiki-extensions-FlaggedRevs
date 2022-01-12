@@ -49,7 +49,7 @@
 	"revreview-submit-reject": "Avvis endringer",
 	"revreview-submit-reviewed": "Ferdig. Godkjent!",
 	"revreview-submit-unreviewed": "Ferdig. Ikke godkjent!",
-	"revreview-successful": "'''Revisjonen av [[:$1|$1]] har blitt merket. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} se alle stabile versjoner])'''",
+	"revreview-successful": "'''Revisjonen av [[:$1|$1]] har blitt merket.'''",
 	"revreview-successful2": "'''Valgt versjon av [[:$1|$1]] ble avmerket.'''",
 	"revreview-poss-conflict-p": "'''Advarsel: [[User:$1|$1]] begynte å revidere denne siden den $2, $3.'''",
 	"revreview-poss-conflict-c": "'''Advarsel: [[User:$1|$1]] begynte å revidere disse endringene den $2, $3.'''",
