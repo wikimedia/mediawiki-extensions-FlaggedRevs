@@ -256,13 +256,11 @@
 	},
 	"ResourceModules": {
 		"ext.flaggedRevs.basic": {
+			"localBasePath": "modules/ext.flaggedRevs.basic",
+			"remoteExtPath": "FlaggedRevs/modules/ext.flaggedRevs.basic",
 			"skinStyles": {
-				"default": [
-					"ext.flaggedRevs.basic.css"
-				],
-				"minerva": [
-					"ext.flaggedRevs.basic.minerva.css"
-				]
+				"default": "default.css",
+				"minerva": "minerva.css"
 			},
 			"targets": [
 				"desktop",
@@ -270,8 +268,10 @@
 			]
 		},
 		"ext.flaggedRevs.advanced": {
+			"localBasePath": "modules/ext.flaggedRevs.advanced",
+			"remoteExtPath": "FlaggedRevs/modules/ext.flaggedRevs.advanced",
 			"scripts": [
-				"ext.flaggedRevs.advanced.js"
+				"advanced.js"
 			],
 			"messages": [
 				"revreview-toggle-show",
@@ -288,8 +288,10 @@
 			]
 		},
 		"ext.flaggedRevs.review": {
+			"localBasePath": "modules/ext.flaggedRevs.review",
+			"remoteExtPath": "FlaggedRevs/modules/ext.flaggedRevs.review",
 			"scripts": [
-				"ext.flaggedRevs.review.js"
+				"review.js"
 			],
 			"messages": [
 				"publishchanges",
@@ -319,9 +321,9 @@
 			]
 		},
 		"ext.flaggedRevs.review.styles": {
-			"styles": [
-				"ext.flaggedRevs.review.css"
-			]
+			"localBasePath": "modules/ext.flaggedRevs.review.styles",
+			"remoteExtPath": "FlaggedRevs/modules/ext.flaggedRevs.review.styles",
+			"styles": "review.css"
 		},
 		"ext.flaggedRevs.icons": {
 			"class": "ResourceLoaderOOUIIconPackModule",
@@ -334,10 +336,6 @@
 				"articleCheck"
 			]
 		}
-	},
-	"ResourceFileModulePaths": {
-		"localBasePath": "frontend/modules",
-		"remoteExtPath": "FlaggedRevs/frontend/modules"
 	},
 	"Hooks": {
 		"APIGetAllowedParams": "FlaggedRevsApiHooks::addApiRevisionParams",
