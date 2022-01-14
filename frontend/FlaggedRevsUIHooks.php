@@ -32,7 +32,6 @@ class FlaggedRevsUIHooks {
 			->userHasRight( $out->getUser(), 'review' )
 		) {
 			$out->addModules( 'ext.flaggedRevs.review' );
-			$out->addModuleStyles( 'ext.flaggedRevs.review.styles' );
 		}
 	}
 

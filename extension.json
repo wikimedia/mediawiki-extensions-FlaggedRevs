@@ -258,6 +258,9 @@
 		"ext.flaggedRevs.basic": {
 			"localBasePath": "modules/ext.flaggedRevs.basic",
 			"remoteExtPath": "FlaggedRevs/modules/ext.flaggedRevs.basic",
+			"styles": [
+				"RevisionReviewFormUI.css"
+			],
 			"skinStyles": {
 				"default": "default.css",
 				"minerva": "minerva.css"
@@ -319,11 +322,6 @@
 				"mediawiki.user",
 				"mediawiki.jqueryMsg"
 			]
-		},
-		"ext.flaggedRevs.review.styles": {
-			"localBasePath": "modules/ext.flaggedRevs.review.styles",
-			"remoteExtPath": "FlaggedRevs/modules/ext.flaggedRevs.review.styles",
-			"styles": "review.css"
 		},
 		"ext.flaggedRevs.icons": {
 			"class": "ResourceLoaderOOUIIconPackModule",
