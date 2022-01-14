@@ -14,20 +14,15 @@ class FlaggedRevsUIHooks {
 	 * @param OutputPage $out
 	 */
 	private static function injectStyleAndJS( OutputPage $out ) {
-		static $loadedModules = false;
-		if ( $loadedModules ) {
-			return; // don't double-load
-		}
-		$loadedModules = true;
 		$fa = FlaggablePageView::globalArticleInstance();
-		# Try to only add to relevant pages
+		// Try to only add to relevant pages
 		if ( !$fa || !$fa->isReviewable() ) {
 			return;
 		}
-		# Add main CSS & JS files
+		// Add main CSS & JS files
 		$out->addModuleStyles( 'ext.flaggedRevs.basic' );
 		$out->addModules( 'ext.flaggedRevs.advanced' );
-		# Add review form JS for reviewers
+		// Add review form JS for reviewers
 		if ( MediaWikiServices::getInstance()->getPermissionManager()
 			->userHasRight( $out->getUser(), 'review' )
 		) {
