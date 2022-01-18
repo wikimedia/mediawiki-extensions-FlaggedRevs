@@ -4,6 +4,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RenderedRevision;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
+use Wikimedia\Assert\PreconditionException;
 
 /**
  * Class containing utility functions for a FlaggedRevs environment
@@ -798,11 +799,33 @@ class FlaggedRevs {
 			$tags = FlaggedRevision::flattenRevisionTags( $flags );
 		}
 
-		# Note: this needs to match the prepareContentForEdit() call WikiPage::doEditContent.
-		# This is for consistency and also to avoid triggering a second parse otherwise.
-		$editInfo = $article->prepareContentForEdit(
-			$revRecord->getContent( SlotRecord::MAIN ), null, $user );
-		$poutput  = $editInfo->getOutput(); // revision HTML output
+		try {
+			$updater = $article->getCurrentUpdate();
+			$poutput = $updater->getParserOutputForMetaData();
+		} catch ( PreconditionException | LogicException $exception ) {
+			$services = MediaWikiServices::getInstance();
+			$content = $revRecord->getContent( SlotRecord::MAIN );
+			$stashedEdit = $services->getPageEditStash()->checkCache(
+				$title,
+				$content,
+				$user
+			);
+			if ( $stashedEdit ) {
+				// Try getting the value from edit stash
+				/** @var ParserOutput $output */
+				$poutput = $stashedEdit->output;
+			} else {
+				// Last resort, parse the page.
+				$contentRenderer = $services->getContentRenderer();
+				$poutput = $contentRenderer->getParserOutput(
+					$content,
+					$title,
+					null,
+					null,
+					false
+				);
+			}
+		}
 
 		# Get the "review time" versions of templates.
 		# This tries to make sure each template version either came from the stable
