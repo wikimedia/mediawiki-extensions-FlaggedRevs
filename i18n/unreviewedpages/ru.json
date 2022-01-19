@@ -10,7 +10,8 @@
 			"NBS",
 			"Putnik",
 			"Sergey kudryavtsev",
-			"Александр Сигачёв"
+			"Александр Сигачёв",
+			"Kylaix"
 		]
 	},
 	"unreviewedpages": "Непроверенные страницы",
@@ -19,7 +20,7 @@
 	"unreviewedpages-diff": "проверить",
 	"unreviewedpages-unwatched": "(не следят)",
 	"unreviewedpages-watched": "({{PLURAL:$1|следит $1 активный участник|следят $1 активных участника|следят $1 активных участников}})",
-	"unreviewedpages-list": "На этой странице перечислены статьи, которые ещё ''не'' были [[{{MediaWiki:Validationpage}}|оценены]] на указанный уровень.",
+	"unreviewedpages-list": "Эта страница содержит статьи, которые ещё ''не'' были [[{{MediaWiki:Validationpage}}|отпатрулированы]].",
 	"unreviewedpages-none": "В настоящий момент нет страниц, удовлетворяющих указанным условиям",
 	"unreviewedpages-viewing": "(проверяется)",
 	"unreviewedpages-hours": "($1 {{PLURAL:$1|час|часа|часов}})",
