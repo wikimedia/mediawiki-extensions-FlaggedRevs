@@ -422,7 +422,7 @@ class FlaggedRevsStats {
 		$secondsR = 0; // total wait seconds for edits later reviewed
 		$secondsP = 0; // total wait seconds for edits still pending
 		$times = [];
-		if ( $dbr->numRows( $res ) ) {
+		if ( $res->numRows() ) {
 			# Get the elapsed times revs were pending (flagged time - edit time)
 			foreach ( $res as $row ) {
 				$time = wfTimestamp( TS_UNIX, $row->nft ) - wfTimestamp( TS_UNIX, $row->rt );
