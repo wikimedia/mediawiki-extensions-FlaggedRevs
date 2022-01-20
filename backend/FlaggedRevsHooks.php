@@ -1028,7 +1028,7 @@ class FlaggedRevsHooks {
 				[ 'LIMIT' => $limit + 1 - $ct ],
 				$data['joins']
 			);
-			$ct += $dbr->numRows( $res );
+			$ct += $res->numRows();
 		}
 		return $ct;
 	}
