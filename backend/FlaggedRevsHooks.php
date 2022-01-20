@@ -972,7 +972,7 @@ class FlaggedRevsHooks {
 				[ 'LIMIT' => $editsReq - $ct ],
 				[ 'flaggedpages' => [ 'JOIN', 'fp_page_id = rev_page' ] ] + $data['joins']
 			);
-			$ct += $dbr->numRows( $res );
+			$ct += $res->numRows();
 		}
 		return ( $ct >= $editsReq );
 	}
@@ -1065,7 +1065,7 @@ class FlaggedRevsHooks {
 				[ 'LIMIT' => $limit + 1 - $ct, 'USE INDEX' => $data['useIndex'] ],
 				[ 'page' => [ 'JOIN', 'rev_page = page_id' ] ] + $data['joins']
 			);
-			$ct += $dbr->numRows( $res );
+			$ct += $res->numRows();
 		}
 		return $ct;
 	}

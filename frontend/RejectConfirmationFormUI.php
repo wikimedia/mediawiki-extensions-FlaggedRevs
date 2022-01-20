@@ -73,9 +73,9 @@ class RejectConfirmationFormUI {
 			[ 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 251 ], // sanity check
 			$revQuery['joins']
 		);
-		if ( !$dbr->numRows( $res ) ) {
+		if ( !$res->numRows() ) {
 			return [ '', 'review_bad_oldid' ];
-		} elseif ( $dbr->numRows( $res ) > 250 ) {
+		} elseif ( $res->numRows() > 250 ) {
 			return [ '', 'review_reject_excessive' ];
 		}
 
