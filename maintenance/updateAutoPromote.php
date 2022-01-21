@@ -71,7 +71,7 @@ class UpdateFRAutoPromote extends Maintenance {
 					[ 'LIMIT' => max( $wgFlaggedRevsAutopromote['editComments'], 500 ) ],
 					$revQuery['joins']
 				);
-				$p['editComments'] = $res->numRows();
+				$p['editComments'] = $sres->numRows();
 				# Get content page edits
 				$sres = $dbr->select(
 					$revPageQuery['tables'],
