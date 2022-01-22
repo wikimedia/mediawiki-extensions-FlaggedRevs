@@ -133,7 +133,6 @@ class UnreviewedPages extends SpecialPage {
 		$title = Title::newFromRow( $row );
 
 		$stxt = '';
-		$underReview = '';
 		$linkRenderer = $this->getLinkRenderer();
 		$link = $linkRenderer->makeLink( $title, null, [], [ 'redirect' => 'no' ] );
 		$dirmark = $this->getLanguage()->getDirMark();
@@ -176,15 +175,8 @@ class UnreviewedPages extends SpecialPage {
 		$css = $this->getLineClass( $hours, $uw );
 		$css = $css ? " class='$css'" : "";
 
-		# Show if a user is looking at this page
-		[ $username ] = FRUserActivity::getUserReviewingPage( $row->page_id );
-		if ( $username !== null ) {
-			$underReview = " <span class='fr-under-review'>" .
-				$this->msg( 'unreviewedpages-viewing' )->escaped() . '</span>';
-		}
-
 		return ( "<li{$css}>{$link} $dirmark {$stxt} ({$hist})" .
-			"{$age}{$watching}{$underReview}</li>" );
+			"{$age}{$watching}</li>" );
 	}
 
 	/**

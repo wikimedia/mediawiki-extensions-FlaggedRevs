@@ -7,9 +7,7 @@
 ( function () {
 	'use strict';
 
-	var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams', {} ),
-		/* User is reviewing this page? */
-		isUserReviewing = 0;
+	var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams', {} );
 
 	/*
 	 * Update <select> color for the selected item/option
@@ -267,136 +265,6 @@
 		} );
 	}
 
-	/*
-	 * Set reviewing status for this page/diff
-	 */
-	function setReviewingStatus( value ) {
-		var res = false,
-			// Get [previd, oldid]  array for this page view.
-			// The previd value will be 0 if this is not a diff view.
-			$inputRefId = $( '#mw-fr-input-refid' ),
-			oRevId = $inputRefId.length ? $inputRefId.val() : 0,
-			$inputOldId = $( '#mw-fr-input-oldid' ),
-			nRevId = $inputOldId.length ? $inputOldId.val() : 0;
-		if ( nRevId > 0 ) {
-			// Send GET request via AJAX!
-			$.ajax( {
-				url: mw.util.wikiScript( 'api' ),
-				data: {
-					action: 'reviewactivity',
-					previd: oRevId,
-					oldid: nRevId,
-					reviewing: value,
-					token: mw.user.tokens.get( 'csrfToken' ),
-					format: 'json'
-				},
-				type: 'POST',
-				dataType: 'json', // response type
-				timeout: 1700, // don't delay user exiting
-				success: function ( data ) { res = data; },
-				async: false
-			} );
-			if ( res && res.reviewactivity && res.reviewactivity.result === 'Success' ) {
-				isUserReviewing = value;
-				return true;
-			}
-		}
-		return false;
-	}
-
-	// Adapted from mw.jqueryMsg#extlink
-	function makeButtonLink( label, callback ) {
-		return $( '<a>' )
-			.text( label )
-			.attr( {
-				role: 'button',
-				tabindex: 0
-			} )
-			.on( 'click keypress', function ( e ) {
-				if (
-					e.type === 'click' ||
-					e.type === 'keypress' && e.which === 13
-				) {
-					callback.call( this, e );
-				}
-			} );
-	}
-
-	/*
-	 * Flag users as "now reviewing"
-	 */
-	function advertiseReviewing( e, isInitial ) {
-		var msgkey, $underReview;
-		if ( isInitial !== true ) { // don't send if just setting up form
-			if ( !setReviewingStatus( 1 ) ) {
-				return; // failed
-			}
-		}
-		// Build notice to say that user is advertising...
-		msgkey = $( '#mw-fr-input-refid' ).length ?
-			'revreview-adv-reviewing-c' : // diff
-			'revreview-adv-reviewing-p'; // page
-		$underReview = $( '<span>' )
-			.addClass( 'fr-under-review' )
-			// eslint-disable-next-line mediawiki/msg-doc
-			.text( mw.msg( msgkey, mw.user ) );
-		// Update notice to say that user is advertising...
-		$( '#mw-fr-reviewing-status' )
-			.empty()
-			.append(
-				$underReview,
-				' (',
-				// eslint-disable-next-line no-use-before-define
-				makeButtonLink( mw.msg( 'revreview-adv-stop-link' ), deadvertiseReviewing ),
-				')'
-			);
-	}
-
-	/*
-	 * Flag users as "no longer reviewing"
-	 */
-	function deadvertiseReviewing( e, isInitial ) {
-		var msgkey, $underReview;
-		if ( isInitial !== true ) { // don't send if just setting up form
-			if ( !setReviewingStatus( 0 ) ) {
-				return; // failed
-			}
-		}
-		// Build notice to say that user is not advertising...
-		msgkey = $( '#mw-fr-input-refid' ).length ?
-			'revreview-sadv-reviewing-c' : // diff
-			'revreview-sadv-reviewing-p'; // page
-		// eslint-disable-next-line mediawiki/msg-doc
-		$underReview = $( '<span>' )
-			.addClass( 'fr-make-under-review' )
-			.msg(
-				msgkey,
-				// The 'revreview-sadv-reviewing-*' messages normally use $1 as link
-				// target. An older version (still on some wikis), used $1 plainly, with
-				// the link+label passed in. To support both, pass the link with old label.
-				// If $1 is a link target, jqueryMsg uses the link but discards its label.
-				// If $1 is plain, the link is used with the old revreview-adv-start-link label.
-				makeButtonLink( mw.msg( 'revreview-adv-start-link' ), advertiseReviewing )
-			);
-		// Update notice to say that user is not advertising...
-		$( '#mw-fr-reviewing-status' ).empty().append( $underReview );
-	}
-
-	/*
-	 * Enable functionality to set that a user is reviewing a page/diff
-	 */
-	function enableReviewActivity() {
-		// User is already reviewing in another tab...
-		if ( $( '#mw-fr-user-reviewing' ).val() === 1 ) {
-			isUserReviewing = 1;
-			advertiseReviewing( null, true );
-		// User is not already reviewing this....
-		} else {
-			deadvertiseReviewing( null, true );
-		}
-		$( '#mw-fr-reviewing-status' ).show();
-	}
-
 	/* Startup function */
 	function init() {
 		var $form = $( '#mw-fr-reviewform' );
@@ -420,15 +288,6 @@
 		// Update review form on change
 		$form.find( 'input, select' ).on( 'change', function () {
 			updateReviewForm( $form );
-		} );
-
-		// Display "advertise" notice
-		enableReviewActivity();
-		// "De-advertise" user as "no longer reviewing" on navigate-away
-		$( window ).on( 'unload', function () {
-			if ( isUserReviewing === 1 ) {
-				deadvertiseReviewing();
-			}
 		} );
 	}
 

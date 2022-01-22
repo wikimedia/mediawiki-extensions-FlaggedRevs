@@ -119,7 +119,6 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 					'ns'            => $title->getNamespace(),
 					'title'         => $title->getPrefixedText(),
 					'revid'         => intval( $row->page_latest ),
-					'under_review'  => FRUserActivity::pageIsUnderReview( $row->page_id )
 				];
 			} else {
 				$resultPageSet->processDbRow( $row );

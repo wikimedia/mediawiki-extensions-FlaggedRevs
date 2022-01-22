@@ -52,7 +52,6 @@
 	},
 	"APIModules": {
 		"review": "ApiReview",
-		"reviewactivity": "ApiReviewActivity",
 		"flagconfig": "ApiFlagConfig"
 	},
 	"APIPropModules": {
@@ -236,7 +235,6 @@
 		"QualityOversight": "frontend/specialpages/reports/QualityOversight.php",
 		"ValidationStatistics": "frontend/specialpages/reports/ValidationStatistics.php",
 		"ApiReview": "api/actions/ApiReview.php",
-		"ApiReviewActivity": "api/actions/ApiReviewActivity.php",
 		"ApiStabilize": "api/actions/ApiStabilize.php",
 		"ApiStabilizeGeneral": "api/actions/ApiStabilizeGeneral.php",
 		"ApiStabilizeProtect": "api/actions/ApiStabilizeProtect.php",
@@ -306,13 +304,7 @@
 				"revreview-submit-unreviewed",
 				"revreview-submitting",
 				"actioncomplete",
-				"actionfailed",
-				"revreview-adv-reviewing-p",
-				"revreview-adv-reviewing-c",
-				"revreview-sadv-reviewing-p",
-				"revreview-sadv-reviewing-c",
-				"revreview-adv-start-link",
-				"revreview-adv-stop-link"
+				"actionfailed"
 			],
 			"dependencies": [
 				"mediawiki.util",

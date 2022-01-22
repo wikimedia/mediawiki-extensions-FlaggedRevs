@@ -268,7 +268,6 @@ class PendingChanges extends SpecialPage {
 	public function formatRow( $row ) {
 		$css = '';
 		$quality = '';
-		$underReview = '';
 		$title = Title::newFromRow( $row );
 		$stxt = ChangesList::showCharacterDifference( $row->rev_len, $row->page_len );
 		# Page links...
@@ -319,15 +318,9 @@ class PendingChanges extends SpecialPage {
 		} else {
 			$age = ""; // wtf?
 		}
-		# Show if a user is looking at this page
-		[ $username ] = FRUserActivity::getUserReviewingDiff( $row->stable, $row->page_latest );
-		if ( $username !== null ) {
-			$underReview = ' <span class="fr-under-review">' .
-				$this->msg( 'pendingchanges-viewing' )->escaped() . '</span>';
-		}
 
 		return ( "<li{$css}>{$link} ({$hist}) {$stxt} ({$review}) <i>{$age}</i>" .
-			"{$quality}{$watching}{$underReview}</li>" );
+			"{$quality}{$watching}</li>" );
 	}
 
 	/**
