@@ -13,7 +13,8 @@
 			"Meno25",
 			"Nghtwlkr",
 			"Njardarlogar",
-			"Stigmj"
+			"Stigmj",
+			"Abuluntu"
 		]
 	},
 	"action-autoreview": "få merket dine egne redigeringer som «sjekket»",
@@ -47,7 +48,7 @@
 	"flaggedrevs-rcfilters-reviewed-desc": "Redigeringer som har blitt gjennomgått.",
 	"flaggedrevs-rcfilters-not-reviewable-label": "Trenger ikke å gjennomgås",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "Endringer av alle typer som ikke trenger gjennomgang.",
-	"group-editor": "Skribenter",
+	"group-editor": "Brukere",
 	"group-editor-member": "{{GENDER:$1|skribent}}",
 	"group-reviewer": "Anmeldere",
 	"group-reviewer-member": "{{GENDER:$1|anmelder}}",
