@@ -40,7 +40,6 @@
 	"apihelp-review-param-comment": "Comentario de la revisión.",
 	"apihelp-review-param-unapprove": "Si se aplica, la revisión anulará la aprobación en lugar de aprobarla.",
 	"apihelp-review-example-1": "Aprobar la revisión 12345 con el comentario \"Ok\"",
-	"apihelp-reviewactivity-param-oldid": "La ID de la revisión que está siendo revisada.",
 	"apihelp-stabilize-description-general": "Cambiar ajustes de estabilidad de la página.",
 	"apihelp-stabilize-summary-general": "Cambiar la configuración de estabilidad de páginas.",
 	"apihelp-stabilize-description-protect": "Configurar los ajustes de protección de revisión de una página.",

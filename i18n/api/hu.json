@@ -54,8 +54,6 @@
 	"apihelp-review-param-unapprove": "Ha meg van adva, a lapváltozat ellenőrizetlenné lesz téve ellenőrzöttnek jelölés helyett.",
 	"apihelp-review-param-flag": "A(z) ''$1'' megadott értékre állítása.",
 	"apihelp-review-example-1": "Az 12345-ös lapváltozat ellenőrzöttnek jelölése „Ok” megjegyzéssel",
-	"apihelp-reviewactivity-param-previd": "A korábbi lapváltozat azonosítója (csak változtatások ellenőrzésekor).",
-	"apihelp-reviewactivity-param-oldid": "Az ellenőrzés alatt álló lapváltozat azonosítója.",
 	"apihelp-stabilize-param-reason": "Indoklás.",
 	"apihelp-stabilize-param-expiry-general": "A beállítások lejárata.",
 	"apihelp-stabilize-param-default": "Az alapértelmezettként megjelenített változat.",
