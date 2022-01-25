@@ -71,7 +71,7 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 			}
 		}
 
-		JobQueueGroup::singleton()->push( $jobs );
+		MediaWikiServices::getInstance()->getJobQueueGroup()->push( $jobs );
 	}
 
 	/**

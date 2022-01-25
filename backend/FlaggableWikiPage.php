@@ -345,7 +345,7 @@ class FlaggableWikiPage extends WikiPage {
 			return;
 		}
 
-		JobQueueGroup::singleton()->push(
+		MediaWikiServices::getInstance()->getJobQueueGroup()->push(
 			new FRExtraCacheUpdateJob(
 				$this->getTitle(),
 				[ 'type' => 'updatesyncstate' ]

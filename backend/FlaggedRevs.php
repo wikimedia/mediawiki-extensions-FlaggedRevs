@@ -603,7 +603,7 @@ class FlaggedRevs {
 	public static function updateHtmlCaches( Title $title ) {
 		$jobs = [];
 		$jobs[] = HTMLCacheUpdateJob::newForBacklinks( $title, 'templatelinks' );
-		JobQueueGroup::singleton()->lazyPush( $jobs );
+		MediaWikiServices::getInstance()->getJobQueueGroup()->lazyPush( $jobs );
 
 		DeferredUpdates::addUpdate( new FRExtraCacheUpdate( $title ) );
 	}

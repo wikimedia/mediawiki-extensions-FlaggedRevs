@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
 use Wikimedia\Rdbms\IDatabase;
 
 /**
@@ -67,7 +68,7 @@ class FRDependencyUpdate {
 		if ( $this->getExistingDeps() != $deps ) {
 			if ( $mode === self::DEFERRED ) {
 				# Let the job queue parse and update
-				JobQueueGroup::singleton()->push(
+				MediaWikiServices::getInstance()->getJobQueueGroup()->push(
 					new FRExtraCacheUpdateJob(
 						$this->title,
 						[ 'type' => 'updatelinks' ]
