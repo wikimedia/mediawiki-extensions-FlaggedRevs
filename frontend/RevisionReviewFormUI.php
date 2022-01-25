@@ -85,7 +85,6 @@ class RevisionReviewFormUI {
 	 * @return array (html string, error string or true)
 	 */
 	public function getHtml() {
-		global $wgLang;
 		$revId = $this->revRecord->getId();
 		if ( $this->revRecord->isDeleted( RevisionRecord::DELETED_TEXT ) ) {
 			return [ '', 'review_bad_oldid' ]; # The revision must be valid and public
@@ -146,32 +145,8 @@ class RevisionReviewFormUI {
 		# Show explanatory text
 		$form .= $this->topNotice;
 
-		# Check if anyone is reviewing this already and
-		# show a conflict warning message as needed...
-		if ( $priorRevId ) {
-			list( $u, $ts ) = FRUserActivity::getUserReviewingDiff(
-				$priorRevId,
-				$this->revRecord->getId()
-			);
-		} else {
-			list( $u, $ts ) = FRUserActivity::getUserReviewingPage(
-				$this->revRecord->getPageId()
-			);
-		}
 		$form .= Xml::openElement( 'p' );
-		// Page under review (and not by this user)...
-		if ( $u !== null && $u != $this->user->getName() ) {
-			$form .= '<span class="fr-under-review">';
-			$msg = $priorRevId
-				? 'revreview-poss-conflict-c'
-				: 'revreview-poss-conflict-p';
-			$form .= wfMessage( $msg, $u, $wgLang->date( $ts, true ), $wgLang->time( $ts, true ) )
-				->parse();
-			$form .= "</span>";
-		// Page not under review or under review by this user...
-		} elseif ( !$frev ) { // rev not already reviewed
-			$form .= '<span id="mw-fr-reviewing-status" style="display:none;"></span>'; // JS widget
-		}
+		$form .= '<span id="mw-fr-reviewing-status" style="display:none;"></span>'; // JS widget
 		$form .= Xml::closeElement( 'p' ) . "\n";
 
 		# Start rating controls
@@ -236,8 +211,6 @@ class RevisionReviewFormUI {
 		$form .= Html::hidden( 'wpEditToken', $this->user->getEditToken() ) . "\n";
 		$form .= Html::hidden( 'changetime', $reviewTime,
 			[ 'id' => 'mw-fr-input-changetime' ] ) . "\n"; // id for JS
-		$form .= Html::hidden( 'userreviewing', (int)( $u === $this->user->getName() ),
-			[ 'id' => 'mw-fr-user-reviewing' ] ) . "\n"; // id for JS
 		# Add review parameters
 		$form .= Html::hidden( 'templateParams', $templateParams ) . "\n";
 		# Special token to discourage fiddling...

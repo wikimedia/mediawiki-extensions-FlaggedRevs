@@ -135,8 +135,6 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 
 			if ( $resultPageSet === null ) {
 				$title = Title::newFromRow( $row );
-				$underReview = FRUserActivity::diffIsUnderReview(
-					$row->fp_stable, $row->page_latest );
 				$data[] = [
 					'pageid' 			=> intval( $row->page_id ),
 					'ns' 				=> intval( $row->page_namespace ),
@@ -147,7 +145,6 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 					'flagged_level' 	=> intval( $row->fp_quality ),
 					'flagged_level_text' => 'stable',
 					'diff_size' 		=> (int)$row->page_len - (int)$row->rev_len,
-					'under_review' 		=> $underReview
 				];
 			} else {
 				$resultPageSet->processDbRow( $row );
