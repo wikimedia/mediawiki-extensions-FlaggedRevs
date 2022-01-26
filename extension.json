@@ -288,7 +288,7 @@
 		"ext.flaggedRevs.review": {
 			"localBasePath": "modules/ext.flaggedRevs.review",
 			"remoteExtPath": "FlaggedRevs/modules/ext.flaggedRevs.review",
-			"scripts": [
+			"packageFiles": [
 				"review.js"
 			],
 			"messages": [
