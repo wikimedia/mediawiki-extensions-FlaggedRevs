@@ -38,10 +38,7 @@ class FlaggedRevsBackendTest extends MediaWikiIntegrationTestCase {
 			'fr_quality' => null,
 			'fr_tags' => null,
 			'fr_flags' => null,
-			'fr_user' => $user->getId(),
-			'fr_img_name' => null,
-			'fr_img_sha1' => null,
-			'fr_img_timestamp' => null
+			'fr_user' => $user->getId()
 		];
 
 		$popts = ParserOptions::newFromAnon();

@@ -305,9 +305,6 @@ class FlaggedRevision {
 			'fr_quality'       => FR_CHECKED,
 			'fr_tags'          => self::flattenRevisionTags( $this->mTags ),
 			'fr_flags'         => implode( ',', $this->mFlags ),
-			'fr_img_name'      => null,
-			'fr_img_timestamp' => null,
-			'fr_img_sha1'      => null
 		];
 		# Update the main flagged revisions table...
 		$dbw->insert( 'flaggedrevs', $revRow, __METHOD__, [ 'IGNORE' ] );
@@ -344,8 +341,7 @@ class FlaggedRevision {
 			'tables' => array_merge( [ 'flaggedrevs' ], $revQuery['tables'] ),
 			'fields' => array_merge( $revQuery['fields'], [
 				'fr_rev_id', 'fr_page_id', 'fr_rev_timestamp',
-				'fr_user', 'fr_timestamp', 'fr_tags', 'fr_flags',
-				'fr_img_name', 'fr_img_sha1', 'fr_img_timestamp'
+				'fr_user', 'fr_timestamp', 'fr_tags', 'fr_flags'
 			] ),
 			'joins' => [
 				'revision' => [ 'JOIN', [

@@ -58,21 +58,13 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedrevs (
   -- Comma-separated list of flags:
   -- dynamic: conversion marker for inclusion handling (legacy schema had fr_text with PST text)
   -- auto: revision reviewed automatically
-  fr_flags tinyblob NOT NULL,
-  -- Parameters for revisions of File pages:
-  -- Name of included image (NULL if n/a)
-  fr_img_name varchar(255) binary NULL default NULL,
-  -- Timestamp of file (when uploaded) (NULL if n/a)
-  fr_img_timestamp varbinary(14) NULL default NULL,
-  -- Statistically unique SHA-1 key (NULL if n/a)
-  fr_img_sha1 varbinary(32) NULL default NULL
+  fr_flags tinyblob NOT NULL
 ) /*$wgDBTableOptions*/;
 
 CREATE INDEX /*i*/fr_page_rev ON /*_*/flaggedrevs (fr_page_id,fr_rev_id);
 CREATE INDEX /*i*/fr_page_time ON /*_*/flaggedrevs (fr_page_id,fr_rev_timestamp);
 CREATE INDEX /*i*/fr_page_qal_rev ON /*_*/flaggedrevs (fr_page_id,fr_quality,fr_rev_id);
 CREATE INDEX /*i*/fr_page_qal_time ON /*_*/flaggedrevs (fr_page_id,fr_quality,fr_rev_timestamp);
-CREATE INDEX /*i*/fr_img_sha1 ON /*_*/flaggedrevs (fr_img_sha1);
 CREATE INDEX /*i*/fr_user ON /*_*/flaggedrevs (fr_user);
 
 -- This stores all of our transclusion revision pointers

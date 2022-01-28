@@ -18,13 +18,8 @@ class UpdateFRTracking extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
-		$this->addDescription( "Correct the page data in the flaggedrevs tracking tables. " .
-			"Update the quality tier of revisions based on their rating tags. " .
-			"Migrate flagged revision file version data to proper table."
-		);
+		$this->addDescription( "Correct the page data in the flaggedrevs tracking tables. " );
 		$this->addOption( 'startpage', 'Page ID to start on', false, true );
-		$this->addOption( 'startrev', 'Rev ID to start on', false, true );
-		$this->addOption( 'updateonly', 'One of (revs, pages)', false, true );
 		$this->requireExtension( 'FlaggedRevs' );
 	}
 
@@ -33,104 +28,7 @@ class UpdateFRTracking extends Maintenance {
 	 */
 	public function execute() {
 		$startPage = $this->getOption( 'startpage' );
-		$startRev = $this->getOption( 'startrev' );
-		$updateonly = $this->getOption( 'updateonly' );
-		if ( $updateonly ) {
-			switch ( $updateonly ) {
-				case 'revs':
-					$this->updateFlaggedRevs( $startRev );
-					break;
-				case 'pages':
-					$this->updateFlaggedPages( $startPage );
-					break;
-				default:
-					$this->fatalError( "Invalidate operation specified.\n" );
-			}
-		} else {
-			$this->updateFlaggedRevs( $startRev );
-			$this->updateFlaggedPages( $startPage );
-		}
-	}
-
-	/**
-	 * @param int|null $start Revision ID
-	 */
-	private function updateFlaggedRevs( $start = null ) {
-		$this->output( "Populating and correcting flaggedrevs columns\n" );
-
-		$BATCH_SIZE = 1000;
-
-		$db = $this->getDB( DB_PRIMARY );
-
-		if ( $start === null ) {
-			$start = $db->selectField( 'revision', 'MIN(rev_id)', false, __METHOD__ );
-		}
-		$end = $db->selectField( 'revision', 'MAX(rev_id)', false, __METHOD__ );
-		if ( $start === null || $end === null ) {
-			$this->output( "...revision table seems to be empty.\n" );
-			return;
-		}
-		# Do remaining chunk
-		$end += $BATCH_SIZE - 1;
-		$blockStart = (int)$start;
-		$blockEnd = (int)$start + $BATCH_SIZE - 1;
-		$count = 0;
-		$changed = 0;
-		while ( $blockEnd <= $end ) {
-			$this->output( "...doing fr_rev_id from $blockStart to $blockEnd\n" );
-			$cond = "rev_id BETWEEN $blockStart AND $blockEnd
-				AND fr_rev_id = rev_id AND page_id = rev_page";
-
-			$this->beginTransaction( $db, __METHOD__ );
-			$res = $db->select(
-				[ 'revision', 'flaggedrevs', 'page' ],
-				[ 'fr_rev_id', 'fr_tags', 'page_namespace', 'page_title',
-					'fr_img_name', 'fr_img_timestamp', 'fr_img_sha1', 'rev_page' ],
-				$cond,
-				__METHOD__
-			);
-			# Go through and clean up missing items
-			foreach ( $res as $row ) {
-				$file = $row->fr_img_name;
-				$fileTime = $row->fr_img_timestamp;
-				$fileSha1 = $row->fr_img_sha1;
-				# Check for file version to see if it's stored the old way...
-				if ( $row->page_namespace === NS_FILE && !$file ) {
-					$crow = $db->selectRow( 'image',
-						[ 'img_timestamp', 'img_sha1' ],
-						[ 'img_name' => $row->page_title ],
-						__METHOD__ );
-					$fileTime = $crow ? $crow->img_timestamp : null;
-					$fileSha1 = $crow ? $crow->img_sha1 : null;
-					$file = $crow ? $row->page_title : null;
-				}
-
-				# Check if anything needs updating
-				if ( $file != $row->fr_img_name
-					|| $fileSha1 != $row->fr_img_sha1
-					|| $fileTime != $row->fr_img_timestamp
-				) {
-					# Update the row...
-					$db->update( 'flaggedrevs',
-						[
-							'fr_img_name'       => $file,
-							'fr_img_sha1'       => $fileSha1,
-							'fr_img_timestamp'  => $fileTime
-						],
-						[ 'fr_rev_id' => $row->fr_rev_id ],
-						__METHOD__
-					);
-					$changed++;
-				}
-				$count++;
-			}
-			$this->commitTransaction( $db, __METHOD__ );
-
-			$blockStart += $BATCH_SIZE;
-			$blockEnd += $BATCH_SIZE;
-		}
-		$this->output( "fr_img_* columns update complete ..." .
-			" {$count} rows [{$changed} changed]\n" );
+		$this->updateFlaggedPages( $startPage );
 	}
 
 	/**
