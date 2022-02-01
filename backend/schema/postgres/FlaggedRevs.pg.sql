@@ -33,16 +33,12 @@ CREATE TABLE flaggedrevs (
   fr_quality       INTEGER     NOT NULL DEFAULT 0,
   fr_tags          TEXT        NOT NULL DEFAULT '',
   fr_flags         TEXT        NOT NULL,
-  fr_img_name      TEXT        NULL DEFAULT NULL,
-  fr_img_timestamp TIMESTAMPTZ NULL DEFAULT NULL,
-  fr_img_sha1      TEXT        NULL DEFAULT NULL,
   PRIMARY KEY (fr_rev_id)
 );
 CREATE INDEX page_rev ON flaggedrevs (fr_page_id,fr_rev_id);
 CREATE INDEX page_time ON flaggedrevs (fr_page_id,fr_rev_timestamp);
 CREATE INDEX page_qal_rev ON flaggedrevs (fr_page_id,fr_quality,fr_rev_id);
 CREATE INDEX page_qal_time ON flaggedrevs (fr_page_id,fr_quality,fr_rev_timestamp);
-CREATE INDEX fr_img_sha1 ON flaggedrevs (fr_img_sha1);
 CREATE INDEX fr_user ON flaggedrevs (fr_user);
 
 CREATE TABLE flaggedtemplates (
