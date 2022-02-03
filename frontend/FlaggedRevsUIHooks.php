@@ -1194,7 +1194,8 @@ class FlaggedRevsUIHooks {
 			return;
 		}
 
-		if ( wfReadOnly() || !MediaWikiServices::getInstance()->getPermissionManager()
+		$services = MediaWikiServices::getInstance();
+		if ( $services->getReadOnlyMode()->isReadOnly() || !$services->getPermissionManager()
 				->userHasRight( $user, 'stablesettings' )
 		) {
 			// User cannot change anything

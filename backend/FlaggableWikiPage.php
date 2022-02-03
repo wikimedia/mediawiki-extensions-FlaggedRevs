@@ -341,11 +341,12 @@ class FlaggableWikiPage extends WikiPage {
 	 * Updates the fp_reviewed field for this article
 	 */
 	public function lazyUpdateSyncStatus() {
-		if ( wfReadOnly() ) {
+		$services = MediaWikiServices::getInstance();
+		if ( $services->getReadOnlyMode()->isReadOnly() ) {
 			return;
 		}
 
-		MediaWikiServices::getInstance()->getJobQueueGroup()->push(
+		$services->getJobQueueGroup()->push(
 			new FRExtraCacheUpdateJob(
 				$this->getTitle(),
 				[ 'type' => 'updatesyncstate' ]

@@ -234,7 +234,7 @@ class RevisionReview extends UnlistedSpecialPage {
 		$user = $context->getUser();
 		$out = $context->getOutput();
 		$request = $context->getRequest();
-		if ( wfReadOnly() ) {
+		if ( MediaWikiServices::getInstance()->getReadOnlyMode()->isReadOnly() ) {
 			return [ 'error-html' => wfMessage( 'revreview-failed' )->parse() .
 				wfMessage( 'revreview-submission-invalid' )->parse() ];
 		}

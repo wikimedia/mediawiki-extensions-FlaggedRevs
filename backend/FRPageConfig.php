@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * Page stability configuration functions
  */
@@ -185,7 +187,7 @@ class FRPageConfig {
 	 * The stable version of pages may change and invalidation may be required.
 	 */
 	private static function purgeExpiredConfigurations() {
-		if ( wfReadOnly() ) {
+		if ( MediaWikiServices::getInstance()->getReadOnlyMode()->isReadOnly() ) {
 			return;
 		}
 		$dbw = wfGetDB( DB_PRIMARY );
