@@ -509,6 +509,9 @@ class FlaggedRevs {
 		} else {
 			throw new Exception( "First argument must be a Title or WikiPage." );
 		}
+		if ( !$article->isReviewable() ) {
+			return false;
+		}
 		$title = $article->getTitle();
 
 		$changed = false;
