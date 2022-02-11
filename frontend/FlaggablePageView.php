@@ -734,7 +734,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param Status $status
 	 */
 	private function showPoolError( Status $status ) {
-		$this->out->enableClientCache( false );
+		$this->out->disableClientCache();
 		$this->out->setRobotPolicy( 'noindex,nofollow' );
 
 		$errortext = $status->getWikiText( false, 'view-pool-error' );
@@ -745,7 +745,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param int $revId
 	 */
 	private function showMissingRevError( $revId ) {
-		$this->out->enableClientCache( false );
+		$this->out->disableClientCache();
 		$this->out->setRobotPolicy( 'noindex,nofollow' );
 
 		$this->out->addWikiMsg( 'missing-article',
