@@ -819,14 +819,12 @@ class FlaggedRevs {
 				$poutput = $stashedEdit->output;
 			} else {
 				// Last resort, parse the page.
-				$contentRenderer = $services->getContentRenderer();
-				$poutput = $contentRenderer->getParserOutput(
-					$content,
-					$title,
-					null,
-					null,
-					false
-				);
+				$poutputAccess = $services->getParserOutputAccess();
+				$poutput = $poutputAccess->getParserOutput(
+					$article,
+					ParserOptions::newFromContext( RequestContext::getMain() ),
+					$revRecord
+				)->getValue();
 			}
 		}
 
