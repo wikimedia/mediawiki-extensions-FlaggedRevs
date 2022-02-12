@@ -85,6 +85,36 @@ class PruneFRIncludeData extends Maintenance {
 
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 
+		// First clean up revisions that don't exist anymore.
+		while ( true ) {
+			if ( !$prune ) {
+				break;
+			}
+			$sres = $dbr->selectFieldValues(
+				[ 'flaggedtemplates', 'revision' ],
+				'ft_rev_id',
+				[
+					'rev_id' => null,
+				],
+				__METHOD__,
+				[ 'LIMIT' => $this->mBatchSize ],
+				[ 'revision' => [ 'LEFT JOIN', 'rev_id = ft_rev_id' ] ]
+			);
+
+			if ( !$sres ) {
+				break;
+			}
+			$dbw->delete( 'flaggedtemplates',
+				[ 'ft_rev_id' => $sres ],
+				__METHOD__
+			);
+			$rowsCount = $dbw->affectedRows();
+			$this->output( "...deleted $rowsCount rows\n" );
+			$tDeleted += $rowsCount;
+			$lbFactory->waitForReplication();
+			sleep( $sleep );
+		}
+
 		while ( $blockEnd <= $end ) {
 			$this->output( "...doing fp_page_id from $blockStart to $blockEnd\n" );
 			$cond = "fp_page_id BETWEEN $blockStart AND $blockEnd";
