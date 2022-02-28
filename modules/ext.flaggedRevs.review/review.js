@@ -151,7 +151,10 @@ function postSubmitRevisionReview( $form, respObj ) {
 				// Undo dislay:none from RevisionReviewFormUI.php
 				usubmit.style.display = '';
 				usubmit.disabled = false; // unlock
-				rsubmit.disabled = true; // lock if present
+				// lock if present
+				if ( rsubmit ) {
+					rsubmit.disabled = true;
+				}
 			// Revision was unflagged
 			} else if ( usubmit.value === mw.msg( 'revreview-submitting' ) ) {
 				usubmit.value = mw.msg( 'revreview-submit-unreviewed' ); // done!
@@ -160,7 +163,10 @@ function postSubmitRevisionReview( $form, respObj ) {
 				asubmit.value = mw.msg( 'revreview-submit-review' );
 				asubmit.style.fontWeight = ''; // back to normal
 				asubmit.disabled = false; // unlock
-				rsubmit.disabled = false; // unlock if present
+				// unlock if present
+				if ( rsubmit ) {
+					rsubmit.disabled = false;
+				}
 			}
 		}
 		// (b) Remove review tag from drafts
