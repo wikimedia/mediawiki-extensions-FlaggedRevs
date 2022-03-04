@@ -507,7 +507,6 @@ class FlaggableWikiPage extends WikiPage {
 			[ 'fr_rev_id', 'rev_timestamp' ],
 			[
 				'fr_page_id' => $pageId,
-				'fr_rev_timestamp > ' . $dbw->addQuotes( '' ),
 				'rev_id = fr_rev_id', // rev exists
 				'rev_page = fr_page_id', // sanity
 				$dbw->bitAnd( 'rev_deleted', RevisionRecord::DELETED_TEXT ) . ' = 0'
