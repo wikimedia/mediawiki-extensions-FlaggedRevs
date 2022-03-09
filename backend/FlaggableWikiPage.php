@@ -363,22 +363,31 @@ class FlaggableWikiPage extends WikiPage {
 	 * @return stdClass|false
 	 */
 	protected function pageData( $dbr, $conditions, $options = [] ) {
-		$pageQuery = WikiPage::getQueryInfo();
-		$row = $dbr->selectRow(
-			array_merge( $pageQuery['tables'], [ 'flaggedpages', 'flaggedpage_config' ] ),
-			array_merge(
-				$pageQuery['fields'],
-				[ 'fpc_override', 'fpc_level', 'fpc_expiry' ],
-				[ 'fp_pending_since', 'fp_stable', 'fp_reviewed' ]
-			),
-			$conditions,
-			__METHOD__,
-			$options,
-			$pageQuery['joins'] + [
-				'flaggedpages' 		 => [ 'LEFT JOIN', 'fp_page_id = page_id' ],
-				'flaggedpage_config' => [ 'LEFT JOIN', 'fpc_page_id = page_id' ],
-			]
+		$cache = MediaWikiServices::getInstance()->getLocalServerObjectCache();
+		$fname = __METHOD__;
+		$row = $cache->getWithSetCallback(
+			$cache->makeKey( 'flaggedrevs-pageData', $this->getNamespace(), $this->getDBkey() ),
+			$cache::TTL_MINUTE,
+			static function () use ( $dbr, $conditions, $options, $fname ) {
+				$pageQuery = WikiPage::getQueryInfo();
+				return $dbr->selectRow(
+					array_merge( $pageQuery['tables'], [ 'flaggedpages', 'flaggedpage_config' ] ),
+					array_merge(
+						$pageQuery['fields'],
+						[ 'fpc_override', 'fpc_level', 'fpc_expiry' ],
+						[ 'fp_pending_since', 'fp_stable', 'fp_reviewed' ]
+					),
+					$conditions,
+					$fname,
+					$options,
+					$pageQuery['joins'] + [
+						'flaggedpages' 		 => [ 'LEFT JOIN', 'fp_page_id = page_id' ],
+						'flaggedpage_config' => [ 'LEFT JOIN', 'fpc_page_id = page_id' ],
+					]
+				);
+			}
 		);
+
 		return $row;
 	}
 
