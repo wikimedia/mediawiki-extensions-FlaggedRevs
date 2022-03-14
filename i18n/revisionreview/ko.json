@@ -3,6 +3,7 @@
 		"authors": [
 			"Gapo",
 			"Kwj2772",
+			"MemphisA5",
 			"Ykhwong",
 			"렌즈",
 			"아라"
@@ -47,7 +48,7 @@
 	"revreview-submit-reject": "바뀜 거부",
 	"revreview-submit-reviewed": "완료. 승인하였습니다!",
 	"revreview-submit-unreviewed": "완료. 승인 취소하였습니다!",
-	"revreview-successful": "'''[[:$1|$1]] 문서의 판이 성공적으로 검토되었습니다. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} 검토된 판 보기])'''",
+	"revreview-successful": "'''[[:$1|$1]] 문서의 판이 검토되었습니다.'''",
 	"revreview-successful2": "'''[[:$1|$1]] 문서의 판이 검토 철회되었습니다.'''",
 	"revreview-toolow": "'''문서를 검토하려면 등급을 모두 \"부적절\"보다 높게 매겨야 합니다.'''\n\n판의 검토를 철회하려면 모든 란을 \"{{int:revreview-submit-unreview}}\"로 설정하십시오.\n\n브라우저의 \"뒤로\" 버튼을 눌러 다시 시도하십시오.",
 	"revreview-update": "'''승인된 판에 이루어진 아래의 검토를 기다리고 있는 편집을 [[{{MediaWiki:Validationpage}}|검토]]해주십시오.'''",
