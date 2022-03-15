@@ -13,7 +13,8 @@
 			"Ykhwong",
 			"Yknok29",
 			"렌즈",
-			"아라"
+			"아라",
+			"MemphisA5"
 		]
 	},
 	"action-autoreviewrestore": "되돌리면서 자동으로 검토하기",
@@ -161,7 +162,7 @@
 	"tooltip-ca-current": "검토를 기다리고 있는 편집이 있는 상태로 이 문서 보기",
 	"tooltip-ca-stable": "이 문서의 배포판 보기",
 	"tooltip-ca-default": "문서 품질 보증 설정",
-	"flaggedrevs-protect-legend": "자동으로 편집 검토하기 ([[{{MediaWiki:Validationpage}}|도움말]])",
+	"flaggedrevs-protect-legend": "자동으로 편집 검토하기",
 	"flaggedrevs-protect-none": "모든 사용자에게 허용",
 	"flaggedrevs-protect-sysop": "관리자만 허용",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} 검토되지 않은 문서]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} 검토 대기 중인 문서]",
