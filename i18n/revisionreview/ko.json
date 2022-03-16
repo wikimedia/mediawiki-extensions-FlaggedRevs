@@ -5,7 +5,8 @@
 			"Kwj2772",
 			"Ykhwong",
 			"렌즈",
-			"아라"
+			"아라",
+			"MemphisA5"
 		]
 	},
 	"revisionreview": "편집을 검토하기",
@@ -47,7 +48,7 @@
 	"revreview-submit-reject": "바뀜 거부",
 	"revreview-submit-reviewed": "완료. 승인하였습니다!",
 	"revreview-submit-unreviewed": "완료. 승인 취소하였습니다!",
-	"revreview-successful": "'''[[:$1|$1]] 문서의 판이 성공적으로 검토되었습니다. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} 검토된 판 보기])'''",
+	"revreview-successful": "'''[[:$1|$1]] 문서의 판이 검토되었습니다.'''",
 	"revreview-successful2": "'''[[:$1|$1]] 문서의 판이 검토 철회되었습니다.'''",
 	"revreview-poss-conflict-p": "'''경고: [[User:$1|$1]]님이 $2 $3에 이 문서를 검토하기 시작했습니다.'''",
 	"revreview-poss-conflict-c": "'''경고: [[User:$1|$1]]님이 $2 $3에 이 바뀜을 검토하기 시작했습니다.'''",
