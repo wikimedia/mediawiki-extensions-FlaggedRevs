@@ -822,8 +822,7 @@ class FlaggedRevs {
 				$poutputAccess = $services->getParserOutputAccess();
 				$poutput = $poutputAccess->getParserOutput(
 					$article,
-					ParserOptions::newFromContext( RequestContext::getMain() ),
-					$revRecord
+					ParserOptions::newFromContext( RequestContext::getMain() )
 				)->getValue();
 			}
 		}
