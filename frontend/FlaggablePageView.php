@@ -738,7 +738,9 @@ class FlaggablePageView extends ContextSource {
 		$this->out->setRobotPolicy( 'noindex,nofollow' );
 
 		$errortext = $status->getWikiText( false, 'view-pool-error' );
-		$this->out->wrapWikiTextAsInterface( 'errorbox', $errortext );
+		$this->out->addHTML(
+			Html::errorBox( $this->out->parseAsContent( $errortext ) )
+		);
 	}
 
 	/**

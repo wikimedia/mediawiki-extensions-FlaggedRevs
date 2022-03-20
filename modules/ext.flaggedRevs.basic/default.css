@@ -221,14 +221,6 @@ span.flaggedrevs-icon {
 	line-height: 1em;
 }
 
-/* RC pending changes notice */
-.fr-watchlist-pending-notice {
-	padding: 3px;
-	margin-bottom: 5px;
-	border: 1px solid #b32424;
-	background-color: #fee7e6;
-}
-
 /* Special pages */
 .fr-pending-long {
 	background-color: #eaecf0;
