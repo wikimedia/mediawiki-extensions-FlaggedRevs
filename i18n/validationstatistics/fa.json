@@ -7,13 +7,14 @@
 			"FarsiNevis",
 			"Huji",
 			"Ladsgroup",
+			"LordProfo",
 			"Mjbmr",
 			"Sahim",
 			"Wayiran"
 		]
 	},
 	"validationstatistics": "آمار بازبینی صفحه",
-	"validationstatistics-users": "'''{{SITENAME}}''' در حال حاضر '''[[Special:ListUsers/editor|$1]]''' کاربر با اختیارات [[{{MediaWiki:Validationpage}}|ویرایشگر]] دارد.\n\nویرایشگران کاربران تثبیت‌شده‌ای هستند که می‌توانند نسخه‌های صفحات را بررسی سرسری کنند.",
+	"validationstatistics-users": "'''{{SITENAME}}''' در حال حاضر '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|کاربر|کاربر}} با امتیازات [[{{MediaWiki:Validationpage}}|ویرایشگر]] دارد.\n\nویرایشگران کاربران تثبیت‌شده‌ای هستند که می‌توانند نسخه‌های صفحات را بررسی سرسری کنند.",
 	"validationstatistics-lastupdate": "''داده‌های زیر آخرین بار در تاریخ $1 در $2 به‌روزرسانی شده‌است.''",
 	"validationstatistics-pndtime": "ویرایش‌هایی که توسط کاربران مجرب بررسی شده‌اند ''{{int:validationstatistics-stable}}'' در نظر گرفته شده‌اند.\n\nمیانگین تأخیر برای [[Special:OldReviewedPages|صفحه‌های دارای ویرایش‌های بازبینی‌نشدهٔ در حال انتظار]] '''$1''' است؛ این تأخیر نشان‌دهنده مدت زمانی‌است که قدیمی‌ترین نسخهٔ بررسی‌نشده در انتظار بررسی باقی‌مانده‌است.",
 	"validationstatistics-revtime": "میانگین انتظار برای بازبینی ویرایش‌های ''کاربرانی که وارد نشده‌اند''، '''$1''' است؛ میانهٔ آن '''$2''' است.\n$3",
