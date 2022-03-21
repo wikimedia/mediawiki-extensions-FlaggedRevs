@@ -766,7 +766,10 @@ class FlaggedRevsUIHooks {
 			$history->fr_pendingRevs = true; // pending rev shown above stable
 		// Reviewed revision: highlight and add link
 		} elseif ( isset( $row->fr_rev_id ) ) {
-			if ( !( $row->rev_deleted & RevisionRecord::DELETED_TEXT ) ) {
+			if (
+				!( $row->rev_deleted & RevisionRecord::DELETED_TEXT )
+				&& !( $row->rev_deleted & RevisionRecord::DELETED_USER )
+			) {
 				# Add link to stable version of *this* rev, if any
 				list( $link, $class ) = self::markHistoryRow( $history, $title, $row );
 				# Space out and demark the stable revision
