@@ -1005,9 +1005,9 @@ class FlaggedRevsUIHooks {
 			);
 			# Give a notice if pages on the users's wachlist have pending edits
 			if ( $watchedOutdated ) {
-				$css = 'plainlinks fr-watchlist-pending-notice warningbox';
+				$css = 'plainlinks fr-watchlist-pending-notice mw-message-box mw-message-box-warning';
 				// @todo: Use Html::warningBox. We can't use it here because warningBox cannot have an id.
-				// Thus we must either remove the need of the id attribute or add support in core.
+				// Thus we must either remove the need of the id attribute or use two <div>s.
 				$out->prependHTML( "<div id='mw-fr-watchlist-pending-notice' class='$css'>" .
 					wfMessage( 'flaggedrevs-watched-pending' )->parse() . "</div>" );
 			}
