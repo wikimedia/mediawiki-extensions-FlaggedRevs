@@ -918,14 +918,14 @@ class FlaggedRevsUIHooks {
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/NewDifferenceEngine
 	 *
 	 * diff=review param (bug 16923)
-	 * @param Title $titleObj
+	 * @param Title|null $titleObj
 	 * @param int &$mOldid
 	 * @param int &$mNewid
 	 * @param string $old
 	 * @param string $new
 	 */
 	public static function checkDiffUrl( $titleObj, &$mOldid, &$mNewid, $old, $new ) {
-		if ( $new === 'review' && isset( $titleObj ) ) {
+		if ( $new === 'review' && $titleObj ) {
 			$sRevId = FlaggedRevision::getStableRevId( $titleObj );
 			if ( $sRevId ) {
 				$mOldid = $sRevId; // stable
