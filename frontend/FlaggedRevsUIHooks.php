@@ -51,8 +51,7 @@ class FlaggedRevsUIHooks {
 		// Try to only add to relevant pages
 		if ( $fa && $fa->isReviewable() ) {
 			$frev = $fa->getStableRev();
-			$stableId = $frev ? $frev->getRevId() : 0;
-			$vars['wgStableRevisionId'] = $stableId;
+			$vars['wgStableRevisionId'] = $frev ? $frev->getRevId() : 0;
 		}
 	}
 
@@ -514,6 +513,11 @@ class FlaggedRevsUIHooks {
 					$fields[] = 'fp_pending_since';
 					$fields[] = 'rc_namespace';
 
+					if ( !$selectedValues || count( $selectedValues ) > 2 ) {
+						// Nothing/everything was selected, no filter needed
+						return;
+					}
+
 					$namespaces = FlaggedRevs::getReviewNamespaces();
 					$needReviewCond = 'rc_timestamp >= fp_pending_since OR fp_stable IS NULL';
 					$reviewedCond = '(fp_pending_since IS NULL OR rc_timestamp < fp_pending_since) ' .
@@ -523,51 +527,24 @@ class FlaggedRevsUIHooks {
 					$reviewableCond = 'rc_namespace IN (' . $dbr->makeList( $namespaces ) .
 						') AND rc_type != ' . $dbr->addQuotes( RC_EXTERNAL );
 
-					if ( $selectedValues === [ 'needreview', 'notreviewable', 'reviewed' ] ) {
-						// no filters
-						return;
+					$filters = [];
+					if ( in_array( 'needreview', $selectedValues ) ) {
+						$filters[] = $needReviewCond;
+					}
+					if ( in_array( 'reviewed', $selectedValues ) ) {
+						$filters[] = $reviewedCond;
+					}
+					if ( count( $filters ) > 1 ) {
+						// Both selected, no filter needed
+						$filters = [];
 					}
 
-					if ( $selectedValues === [ 'needreview', 'reviewed' ] ) {
-						$conds[] = $reviewableCond;
-						return;
-					}
-
-					if ( $selectedValues === [ 'needreview', 'notreviewable' ] ) {
-						$conds[] = $dbr->makeList( [
-							$notReviewableCond,
-							$needReviewCond
-						], LIST_OR );
-						return;
-					}
-
-					if ( $selectedValues === [ 'notreviewable', 'reviewed' ] ) {
-						$conds[] = $dbr->makeList( [
-							$notReviewableCond,
-							$reviewedCond
-						], LIST_OR );
-						return;
-					}
-
-					if ( $selectedValues === [ 'needreview' ] ) {
-						$conds[] = $dbr->makeList( [
-							$reviewableCond,
-							$needReviewCond
-						], LIST_AND );
-						return;
-					}
-
-					if ( $selectedValues === [ 'notreviewable' ] ) {
-						$conds[] = $notReviewableCond;
-						return;
-					}
-
-					if ( $selectedValues === [ 'reviewed' ] ) {
-						$conds[] = $dbr->makeList( [
-							$reviewableCond,
-							$reviewedCond
-						], LIST_AND );
-						return;
+					if ( in_array( 'notreviewable', $selectedValues ) ) {
+						$filters[] = $notReviewableCond;
+						$conds[] = $dbr->makeList( $filters, LIST_OR );
+					} else {
+						$filters[] = $reviewableCond;
+						$conds[] = $dbr->makeList( $filters, LIST_AND );
 					}
 				}
 			]
