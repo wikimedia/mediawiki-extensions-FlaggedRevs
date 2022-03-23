@@ -52,7 +52,7 @@
 	"revreview-submit-reject": "Változások elutasítása",
 	"revreview-submit-reviewed": "Kész. Ellenőrizve!",
 	"revreview-submit-unreviewed": "Kész. A változat nem ellenőrzött!",
-	"revreview-successful": "'''A(z) [[:$1|$1]] változatát sikeresen megjelölted. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} ellenőrzött változatok megjelenítése])'''",
+	"revreview-successful": "'''A(z) [[:$1|$1]] változatát sikeresen megjelölted.'''",
 	"revreview-successful2": "'''A(z) [[:$1|$1]] változatáról sikeresen eltávolítottad a jelölést.'''",
 	"revreview-poss-conflict-p": "'''Figyelem: [[User:$1|$1]] elkezdte ellenőrizni a lapot ekkor: $2   $3'''",
 	"revreview-poss-conflict-c": "'''Figyelem: [[User:$1|$1]] elkezdte ellenőrizni a lapon történt változásokat ekkor: $2   $3'''",
