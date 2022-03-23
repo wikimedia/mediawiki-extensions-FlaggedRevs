@@ -58,8 +58,8 @@ class FlaggedRevsXML {
 		$s .= Xml::openElement( 'select',
 			[ 'name' => 'stable', 'id' => 'wpStable' ] );
 		$s .= Xml::option( wfMessage( 'revreview-def-all' )->text(), '', $selected == '' );
-		$s .= Xml::option( wfMessage( 'revreview-def-stable' )->text(), 1, $selected === 1 );
-		$s .= Xml::option( wfMessage( 'revreview-def-draft' )->text(), 0, $selected === 0 );
+		$s .= Xml::option( wfMessage( 'revreview-def-stable' )->text(), '1', $selected === 1 );
+		$s .= Xml::option( wfMessage( 'revreview-def-draft' )->text(), '0', $selected === 0 );
 		$s .= Xml::closeElement( 'select' ) . "\n";
 		return $s;
 	}
@@ -106,10 +106,10 @@ class FlaggedRevsXML {
 		$s = "<label for='wpStatus'>" . wfMessage( 'revreview-statusfilter' )->escaped() .
 			"</label>\n";
 		$s .= Xml::openElement( 'select', [ 'name' => 'status', 'id' => 'wpStatus' ] );
-		$s .= Xml::option( wfMessage( "revreview-filter-all" )->text(), -1, $selected === -1 );
-		$s .= Xml::option( wfMessage( "revreview-filter-approved" )->text(), 1, $selected === 1 );
-		$s .= Xml::option( wfMessage( "revreview-filter-reapproved" )->text(), 2, $selected === 2 );
-		$s .= Xml::option( wfMessage( "revreview-filter-unapproved" )->text(), 3, $selected === 3 );
+		$s .= Xml::option( wfMessage( "revreview-filter-all" )->text(), '-1', $selected === -1 );
+		$s .= Xml::option( wfMessage( "revreview-filter-approved" )->text(), '1', $selected === 1 );
+		$s .= Xml::option( wfMessage( "revreview-filter-reapproved" )->text(), '2', $selected === 2 );
+		$s .= Xml::option( wfMessage( "revreview-filter-unapproved" )->text(), '3', $selected === 3 );
 		$s .= Xml::closeElement( 'select' ) . "\n";
 		return $s;
 	}

@@ -319,14 +319,14 @@ class FlaggablePageView extends ContextSource {
 			if ( !$stableId ) {
 				$reqId = false; // must be invalid
 			# Treat requesting the stable version by ID as &stable=1
-			} elseif ( $reqId != $stableId ) {
+			} elseif ( $stableId == $reqId ) {
+				$stable = true; // stable version requested by ID
+			} else {
 				$old = true; // old reviewed version requested by ID
 				$frev = FlaggedRevision::newFromTitle( $this->article->getTitle(), $reqId );
 				if ( !$frev ) {
 					$reqId = false; // invalid ID given
 				}
-			} else {
-				$stable = true; // stable version requested by ID
 			}
 		}
 		// $reqId is null if nothing requested, false if invalid
@@ -361,6 +361,7 @@ class FlaggablePageView extends ContextSource {
 			// to override page view with the stable version.
 			} elseif ( $stable || $this->showingStable() ) {
 				# Tell MW that parser output is done by setting $outputDone
+				// @phan-suppress-next-line PhanTypeMismatchArgumentNullable FIXME, this should be unreachable with null
 				$outputDone = $this->showStableVersion( $srev, $tag, $prot );
 				$useParserCache = false;
 				$tagTypeClass = ( $this->article->stableVersionIsSynced() ) ?
@@ -368,6 +369,7 @@ class FlaggablePageView extends ContextSource {
 			// Looking at some specific old revision (&oldid=x) or if FlaggedRevs is not
 			// set to override given the relevant conditions (like &stable=0).
 			} else {
+				// @phan-suppress-next-line PhanTypeMismatchArgumentNullable FIXME, this should be unreachable with null
 				$this->showDraftVersion( $srev, $tag, $prot );
 				$tagTypeClass = ( $this->article->stableVersionIsSynced() ) ?
 					'flaggedrevs_draft_synced' : 'flaggedrevs_draft_notsynced';

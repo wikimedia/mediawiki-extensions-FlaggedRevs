@@ -53,6 +53,7 @@ class ApiReview extends ApiBase {
 
 		$linkTarget = $revRecord->getPageAsLinkTarget();
 		if ( $this->getPermissionManager()->isBlockedFrom( $this->getUser(), $linkTarget, false ) ) {
+			// @phan-suppress-next-line PhanTypeMismatchArgumentNullable Guaranteed via isBlockedFrom() above
 			$this->dieBlocked( $this->getUser()->getBlock() );
 		}
 

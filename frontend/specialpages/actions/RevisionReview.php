@@ -48,6 +48,7 @@ class RevisionReview extends UnlistedSpecialPage {
 
 		$confirmed = $user->matchEditToken( $request->getVal( 'wpEditToken' ) );
 		if ( $this->permissionManager->isBlockedFrom( $user, $this->page, !$confirmed ) ) {
+			// @phan-suppress-next-line PhanTypeMismatchArgumentNullable Guaranteed via isBlockedFrom() above
 			throw new UserBlockedError( $user->getBlock( !$confirmed ) );
 		}
 

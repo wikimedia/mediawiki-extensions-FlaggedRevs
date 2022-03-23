@@ -320,7 +320,7 @@ class FlaggedRevsStats {
 		# Avoid having to censor data
 		# Note: if no edits pending, $worstLagTS is the cur time just before we checked
 		# for the worst lag. Thus, new edits *right* after the check are properly excluded.
-		$maxTSUnix = wfTimestamp( TS_UNIX, $worstLagTS ) - 1; // all edits later reviewed
+		$maxTSUnix = (int)wfTimestamp( TS_UNIX, $worstLagTS ) - 1; // all edits later reviewed
 		$encMaxTS = $dbr->addQuotes( $dbr->timestamp( $maxTSUnix ) );
 		# Use a one week time range
 		$days = 7;
@@ -425,7 +425,7 @@ class FlaggedRevsStats {
 		if ( $res->numRows() ) {
 			# Get the elapsed times revs were pending (flagged time - edit time)
 			foreach ( $res as $row ) {
-				$time = wfTimestamp( TS_UNIX, $row->nft ) - wfTimestamp( TS_UNIX, $row->rt );
+				$time = (int)wfTimestamp( TS_UNIX, $row->nft ) - (int)wfTimestamp( TS_UNIX, $row->rt );
 				$time = max( $time, 0 ); // sanity
 				$secondsR += $time;
 				$times[] = $time;

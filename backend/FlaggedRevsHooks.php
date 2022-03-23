@@ -891,7 +891,7 @@ class FlaggedRevsHooks {
 		if ( $lower ) {
 			$benchmarks++; // the first edit above counts
 			while ( $lower && $benchmarks < $pointsReq ) {
-				$next = wfTimestamp( TS_UNIX, $lower ) + $spacingReq;
+				$next = (int)wfTimestamp( TS_UNIX, $lower ) + $spacingReq;
 				$lower = false;
 				foreach ( $queryData as $data ) {
 					$ts = $dbr->selectField(

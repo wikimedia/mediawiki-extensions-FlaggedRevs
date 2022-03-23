@@ -100,7 +100,7 @@ class FlagProtectToSemiProtect extends Maintenance {
 					? 'infinity'
 					: wfTimestamp( TS_MW, $row->fpc_expiry );
 				# Build the new protection settings
-				$cascade = 0;
+				$cascade = false;
 				$limit = [];
 				$expiry = [];
 				foreach ( $title->getRestrictionTypes() as $type ) {

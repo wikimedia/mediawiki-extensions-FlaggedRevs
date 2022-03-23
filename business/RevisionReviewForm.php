@@ -311,7 +311,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		if ( !$this->isAllowed() ) {
 			return 'review_denied';
 		}
-		$status = null;
 		$user = $this->user;
 		# We can only approve actual revisions...
 		$revLookup = MediaWikiServices::getInstance()->getRevisionLookup();
@@ -466,6 +465,8 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 					'revertedEdits'
 				);
 			}
+		} else {
+			return 'review_param_missing';
 		}
 		# Watch page if set to do so
 		if ( $status === true ) {
