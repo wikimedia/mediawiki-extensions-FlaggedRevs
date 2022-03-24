@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Beginneruser",
 			"Calak",
 			"Ebraminio",
 			"Huji",
@@ -18,7 +19,7 @@
 	"pendingchanges-days": "($1 {{PLURAL:$1|روز|روز}})",
 	"pendingchanges-recent": "(کمتر از ۱ ساعت)",
 	"pendingchanges-category": "رده:",
-	"pendingchanges-onwatchlist": "صفحه‌های موجود در فهرست پی‌گیری‌های من",
+	"pendingchanges-onwatchlist": "صفحه‌های موجود در فهرست پیگیری‌ من",
 	"pendingchanges-stable": "نسخهٔ پایدار پیش‌فرض است",
 	"pendingchanges-diff": "بازبینی",
 	"pendingchanges-size": "بزرگترین تغییر (بایت):",
