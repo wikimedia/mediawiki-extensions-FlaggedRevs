@@ -80,6 +80,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		}
 		$fields = [ 'page_namespace', 'page_title', 'page_len', 'page_id',
 			'MIN(rev_timestamp) AS creation' ];
+		$groupBy = [ 'page_namespace', 'page_title', 'page_len', 'page_id' ];
 		# Filter by level
 		$conds = [];
 		if ( $this->level == 1 ) {
@@ -97,6 +98,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		if ( $this->category != '' ) {
 			$tables = [ 'categorylinks', 'page', 'flaggedpages', 'revision' ];
 			$fields[] = 'cl_sortkey';
+			$groupBy[] = 'cl_sortkey';
 			$conds['cl_to'] = $this->category;
 			$conds[] = 'cl_from = page_id';
 			# Note: single NS always specified
@@ -109,7 +111,6 @@ class UnreviewedPagesPager extends AlphabeticPager {
 			}
 			$this->mIndexField = 'cl_sortkey';
 			$useIndex = [ 'categorylinks' => 'cl_sortkey' ];
-			$groupBy = 'cl_sortkey,cl_from';
 		} else {
 			$pageIndex = $this->mDb->indexExists( 'page', 'name_title', __METHOD__ )
 				? 'name_title' : 'page_name_title';
@@ -117,7 +118,6 @@ class UnreviewedPagesPager extends AlphabeticPager {
 			$tables = [ 'page', 'flaggedpages', 'revision' ];
 			$this->mIndexField = 'page_title';
 			$useIndex = [ 'page' => $pageIndex ];
-			$groupBy = 'page_title';
 		}
 		// T270033 Index renaming
 		$revIndex = $this->mDb->indexExists( 'revision', 'page_timestamp',  __METHOD__ )
