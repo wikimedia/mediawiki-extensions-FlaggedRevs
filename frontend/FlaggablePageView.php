@@ -886,7 +886,7 @@ class FlaggablePageView extends ContextSource {
 			$this->enableOOUI();
 			$tag = "<div id='mw-fr-revisiontag-edit' class='flaggedrevs_notice plainlinks'>" .
 				FlaggedRevsXML::lockStatusIcon( $this->article ) . # flag protection icon as needed
-				FlaggedRevsXML::pendingEditNotice( $this->article, $srev, $revsSince ) . "</div>";
+				FlaggedRevsXML::pendingEditNotice( $srev, $revsSince ) . "</div>";
 			$this->out->addHTML( $tag );
 		}
 	}
@@ -922,7 +922,7 @@ class FlaggablePageView extends ContextSource {
 		if ( $frev && $this->article->revsArePending() ) {
 			$revsSince = $this->article->getPendingRevCount();
 			$pendingMsg = FlaggedRevsXML::pendingEditNoticeMessage(
-				$this->article, $frev, $revsSince
+				$frev, $revsSince
 			);
 			$notices[$pendingMsg->getKey()] = '<div class="plainlinks">'
 				. $pendingMsg->parseAsBlock() . '</div>';
@@ -982,7 +982,7 @@ class FlaggablePageView extends ContextSource {
 			# Add a notice if there are pending edits...
 			if ( $this->article->revsArePending() ) {
 				$revsSince = $this->article->getPendingRevCount();
-				$items[] = FlaggedRevsXML::pendingEditNotice( $this->article, $frev, $revsSince );
+				$items[] = FlaggedRevsXML::pendingEditNotice( $frev, $revsSince );
 			}
 			# Show diff to stable, to make things less confusing.
 			# This can be disabled via user preferences and other conditions...
@@ -1065,10 +1065,9 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	 * @param EditPage $editPage
 	 * @param string &$s
 	 */
-	public function addToNoSuchSection( EditPage $editPage, &$s ) {
+	public function addToNoSuchSection( &$s ) {
 		$this->load();
 		$srev = $this->article->getStableRev();
 		# Add notice for users that may have clicked "edit" for a
@@ -1236,10 +1235,9 @@ class FlaggablePageView extends ContextSource {
 	/**
 	 * Modify an array of action links, as used by SkinTemplateNavigation and
 	 * SkinTemplateTabs, to inlude flagged revs UI elements
-	 * @param Skin $skin
 	 * @param array &$actions
 	 */
-	public function setActionTabs( $skin, array &$actions ) {
+	public function setActionTabs( array &$actions ) {
 		$this->load();
 
 		$reqUser = $this->getUser();
@@ -1447,11 +1445,10 @@ class FlaggablePageView extends ContextSource {
 	 *   (i)  Show a tag with some explanation for the diff
 	 *   (ii) List any template changes pending review
 	 *
-	 * @param DifferenceEngine $diff
 	 * @param RevisionRecord|null $oldRevRecord
 	 * @param RevisionRecord|null $newRevRecord
 	 */
-	public function addToDiffView( $diff, $oldRevRecord, $newRevRecord ) {
+	public function addToDiffView( $oldRevRecord, $newRevRecord ) {
 		$pm = MediaWikiServices::getInstance()->getPermissionManager();
 		$request = $this->getRequest();
 		$reqUser = $this->getUser();

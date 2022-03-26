@@ -8,7 +8,6 @@ class FlaggedRevsLog {
 	 * Record a log entry on the review action
 	 * @param Title $title
 	 * @param int[] $dims
-	 * @param int[] $oldDims
 	 * @param string $comment
 	 * @param int $revId revision ID
 	 * @param int $stableId prior stable revision ID
@@ -16,7 +15,7 @@ class FlaggedRevsLog {
 	 * @param User $user performing the action
 	 */
 	public static function updateReviewLog(
-		Title $title, array $dims, array $oldDims,
+		Title $title, array $dims,
 		$comment, $revId, $stableId, $approve, $user
 	) {
 		# Tag rating list (e.g. accuracy=x, depth=y, style=z)

@@ -395,7 +395,7 @@ class FlaggedRevs {
 					// Use new cache value from other thread
 					return Status::newGood( $parserCache->get( $page, $pOpts ) ?: null );
 				},
-				'fallback' => static function ( bool $fast ) use ( $page, $pOpts, $parserCache ) {
+				'fallback' => static function () use ( $page, $pOpts, $parserCache ) {
 					// Use stale cache if possible
 					return Status::newGood( $parserCache->getDirty( $page, $pOpts ) ?: null );
 				},
@@ -651,10 +651,8 @@ class FlaggedRevs {
 			return false;
 		}
 		self::load();
-		foreach ( self::$dimensions as $f => $x ) {
-			if ( !isset( $flags[$f] ) || $flags[$f] < 1 ) {
-				return false;
-			}
+		if ( !isset( $flags[self::getTagName()] ) || $flags[self::getTagName()] < 1 ) {
+			return false;
 		}
 		return true;
 	}
@@ -875,7 +873,7 @@ class FlaggedRevs {
 		# Update the article review log
 		if ( !$auto ) {
 			FlaggedRevsLog::updateReviewLog( $title,
-				$flags, [], '', $revRecord->getId(), $oldSvId, true, $user );
+				$flags, '', $revRecord->getId(), $oldSvId, true, $user );
 		}
 
 		# Update page and tracking tables and clear cache
