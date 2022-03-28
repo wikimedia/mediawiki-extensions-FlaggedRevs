@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Esbardu",
-			"Xuacu"
+			"Xuacu",
+			"Fitoschido"
 		]
 	},
 	"action-autoreview": "marcar automáticamente les ediciones propies como «revisaes»",
@@ -69,7 +70,7 @@
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} esperando revisión]]'''",
 	"review-edit-diff": "'''Avisu: ''Dalgunos'' de los cambios pendientes afeuten al área de la páxina que ta editando.'''",
 	"revreview-diff-toggle-show": "amosar esos cambios",
-	"revreview-diff-toggle-hide": "tapecer esos cambios",
+	"revreview-diff-toggle-hide": "anubrir esos cambeos",
 	"revreview-diff-toggle-title": "Conmutar la vista de los cambios pendientes a la versión estable",
 	"revreview-log-toggle-show": "amosar el rexistru d'estabilidá",
 	"revreview-log-toggle-hide": "tapecer el rexistru d'estabilidá",

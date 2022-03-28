@@ -202,6 +202,7 @@
 	"revreview-unlocked-title": "A lap szerkesztéseit nem kell ellenőrizni.",
 	"revreview-locked": "'''Megjegyzés:''' a szerkesztéseket [[{{MediaWiki:Validationpage}}|ellenőrizni]] kell, mielőtt megjelennek ezen a lapon.",
 	"revreview-unlocked": "'''Megjegyzés:''' a szerkesztéseket nem kell [[{{MediaWiki:Validationpage}}|ellenőrizni]], mielőtt megjelennek ezen a lapon.",
+	"logeventslist-review-log": "Ellenőrzési napló (review)",
 	"validationpage": "{{ns:help}}:Jelölt lapváltozatok",
 	"log-action-filter-review": "Ellenőrzés típusa:",
 	"log-action-filter-review-accept": "Kézi elfogadás",
