@@ -663,10 +663,9 @@ class FlaggablePageView extends ContextSource {
 			}
 		}
 
+		// TODO: Rewrite to use ParserOutputAccess
 		# Check the stable version cache for the parser output
-		$stableParserCache = MediaWikiServices::getInstance()
-			->getParserCacheFactory()
-			->getParserCache( FlaggedRevs::PARSER_CACHE_NAME );
+		$stableParserCache = MediaWikiServices::getInstance()->getService( 'FlaggedRevsParserCache' );
 		$parserOptions = $this->article->makeParserOptions( $reqUser );
 		$parserOut = $stableParserCache->get( $this->article, $parserOptions );
 
@@ -690,6 +689,7 @@ class FlaggablePageView extends ContextSource {
 			if ( $parserOut instanceof ParserOutput ) {
 				# Update the stable version cache
 				$stableParserCache->save( $parserOut, $this->article, $parserOptions );
+
 				# Enqueue a job to update the "stable version only" dependencies
 				if ( !MediaWikiServices::getInstance()->getReadOnlyMode()->isReadOnly() ) {
 					$update = new FRDependencyUpdate( $this->article->getTitle(), $parserOut );
