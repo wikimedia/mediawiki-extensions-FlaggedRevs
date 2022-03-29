@@ -184,7 +184,6 @@
 			"i18n/pendingchanges",
 			"i18n/stablepages",
 			"i18n/configuredpages",
-			"i18n/qualityoversight",
 			"i18n/validationstatistics",
 			"i18n/api"
 		]
@@ -232,7 +231,6 @@
 		"StablePagesPager": "frontend/specialpages/reports/StablePagesPager.php",
 		"ConfiguredPages": "frontend/specialpages/reports/ConfiguredPages.php",
 		"ConfiguredPagesPager": "frontend/specialpages/reports/ConfiguredPagesPager.php",
-		"QualityOversight": "frontend/specialpages/reports/QualityOversight.php",
 		"ValidationStatistics": "frontend/specialpages/reports/ValidationStatistics.php",
 		"ApiReview": "api/actions/ApiReview.php",
 		"ApiStabilize": "api/actions/ApiStabilize.php",
