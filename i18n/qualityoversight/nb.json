@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Danmichaelo",
+			"Jeblad"
+		]
+	},
+	"qualityoversight": "Avansert godkjenningslogg",
+	"qualityoversight-list": "Denne siden viser de siste merkinger av revisjoner som godkjent eller avvist.",
+	"qualityoversight-legend": "Søk i logg for nylige gjennomganger"
+}

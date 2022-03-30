@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Aaron Schulz"
+		]
+	},
+	"qualityoversight": "{{Flagged Revs}}\nName of the Special:QualityOversight page. This is basically Special:Log/review with some extra filtering ability and only includes recent reviews.",
+	"qualityoversight-list": "{{Flagged Revs}}\nName of the Special:QualityOversight page.\nParameters:\n* $1 - (optional) Number of items in the list, to be used with PLURAL, when unavoidable.",
+	"qualityoversight-legend": "{{Flagged Revs}}\nName of the Special:QualityOversight page."
+}

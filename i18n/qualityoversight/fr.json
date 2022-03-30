@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Grondin"
+		]
+	},
+	"qualityoversight": "Supervision de qualité",
+	"qualityoversight-list": "Cette page liste les approbations récentes et les dépréciations des versions.",
+	"qualityoversight-legend": "Rechercher les journaux des révisions récentes"
+}

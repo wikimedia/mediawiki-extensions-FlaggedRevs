@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Siebrand"
+		]
+	},
+	"qualityoversight": "Kwaliteitscontrolelogboek",
+	"qualityoversight-list": "Op deze pagina's worden recent gecontroleerde kwaliteitsversies weergegeven en pagina's waarvoor de kwaliteit lager is ingesteld.",
+	"qualityoversight-legend": "Recente controlelogboeken doorzoeken"
+}

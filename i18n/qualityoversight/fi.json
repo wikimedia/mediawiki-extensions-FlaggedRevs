@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Olli",
+			"Pxos",
+			"ZeiP"
+		]
+	},
+	"qualityoversight": "Kehittynyt arviointiloki",
+	"qualityoversight-list": "Tässä luettelossa ovat tuoreimmat arvioinnit ja arviointien poistot.",
+	"qualityoversight-legend": "Hae tuoreista arviointilokeista"
+}

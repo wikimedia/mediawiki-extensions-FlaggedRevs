@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Siddhartha Ghai"
+		]
+	},
+	"qualityoversight": "उच्च पुनरीक्षण लॉग",
+	"qualityoversight-list": "यह पृष्ठ अवतरणों के नवीनतम पुनरीक्षणों और पुनरीक्षण वापिस लिए जाने की सूची दर्शाता है।",
+	"qualityoversight-legend": "हाल की पुनरीक्षण लॉग में खोजें"
+}
