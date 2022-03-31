@@ -156,7 +156,7 @@ class RevisionReviewFormUI {
 		# Add main checkboxes/selects
 		$form .= Xml::openElement( 'span',
 			[ 'id' => 'mw-fr-ratingselects', 'class' => 'fr-rating-options' ] ) . "\n";
-		$form .= $this->ratingInputs( $this->user, $flags, (bool)$disabled, (bool)$frev ) . "\n";
+		$form .= $this->ratingInputs( $this->user, $flags, (bool)$disabled ) . "\n";
 		$form .= Xml::closeElement( 'span' ) . "\n";
 
 		# Don't put buttons & comment field on the same line as tag inputs.
@@ -245,11 +245,10 @@ class RevisionReviewFormUI {
 	 * @param User $user
 	 * @param int[] $flags selected flags
 	 * @param bool $disabled form disabled
-	 * @param bool $reviewed rev already reviewed
 	 * @return string
 	 * Generates a main tag inputs (checkboxes/radios/selects) for review form
 	 */
-	private function ratingInputs( $user, $flags, $disabled, $reviewed ) {
+	private function ratingInputs( $user, $flags, $disabled ) {
 		# Get all available tags for this page/user
 		list( $labels, $minLevels ) = $this->ratingFormTags( $user, $flags );
 		if ( $labels === false ) {

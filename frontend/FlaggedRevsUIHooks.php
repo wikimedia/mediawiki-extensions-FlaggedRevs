@@ -196,7 +196,7 @@ class FlaggedRevsUIHooks {
 
 		if ( FlaggablePageView::globalArticleInstance() != null ) {
 			$view = FlaggablePageView::singleton();
-			$view->setActionTabs( $skin, $links['actions'] );
+			$view->setActionTabs( $links['actions'] );
 			$view->setViewTabs( $skin, $links['views'] );
 		}
 	}
@@ -339,7 +339,7 @@ class FlaggedRevsUIHooks {
 	public static function onNoSuchSection( $editPage, &$s ) {
 		if ( FlaggablePageView::globalArticleInstance() !== null ) {
 			$view = FlaggablePageView::singleton();
-			$view->addToNoSuchSection( $editPage, $s );
+			$view->addToNoSuchSection( $s );
 		}
 	}
 
@@ -948,7 +948,7 @@ class FlaggedRevsUIHooks {
 			$oldRevRecord = $diff->getOldRevision();
 			$newRevRecord = $diff->getNewRevision();
 			$view->setViewFlags( $diff, $oldRevRecord, $newRevRecord );
-			$view->addToDiffView( $diff, $oldRevRecord, $newRevRecord );
+			$view->addToDiffView( $oldRevRecord, $newRevRecord );
 		}
 	}
 

@@ -355,25 +355,23 @@ class FlaggedRevsXML {
 	}
 
 	/**
-	 * @param FlaggableWikiPage $flaggedArticle
 	 * @param FlaggedRevision $frev
 	 * @param int $revsSince
 	 * @return string
 	 * Creates "stable rev reviewed on"/"x pending edits" message
 	 */
-	public static function pendingEditNotice( $flaggedArticle, $frev, $revsSince ) {
-		$msg = self::pendingEditNoticeMessage( $flaggedArticle, $frev, $revsSince );
+	public static function pendingEditNotice( $frev, $revsSince ) {
+		$msg = self::pendingEditNoticeMessage( $frev, $revsSince );
 		return $msg->parse();
 	}
 
 	/**
 	 * Same as pendingEditNotice(), but returns a Message object.
-	 * @param FlaggableWikiPage $flaggedArticle
 	 * @param FlaggedRevision $frev
 	 * @param int $revsSince
 	 * @return Message
 	 */
-	public static function pendingEditNoticeMessage( $flaggedArticle, $frev, $revsSince ) {
+	public static function pendingEditNoticeMessage( $frev, $revsSince ) {
 		global $wgLang;
 		$time = $wgLang->date( $frev->getTimestamp(), true );
 		# Add message text for pending edits
