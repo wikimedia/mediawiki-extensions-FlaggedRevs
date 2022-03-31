@@ -43,9 +43,9 @@ class UpdateFRTracking extends Maintenance {
 		$revisionStore = MediaWikiServices::getInstance()->getRevisionStore();
 
 		if ( $start === null ) {
-			$start = $db->selectField( 'page', 'MIN(page_id)', false, __METHOD__ );
+			$start = $db->selectField( 'page', 'MIN(page_id)', '', __METHOD__ );
 		}
-		$end = $db->selectField( 'page', 'MAX(page_id)', false, __METHOD__ );
+		$end = $db->selectField( 'page', 'MAX(page_id)', '', __METHOD__ );
 		if ( $start === null || $end === null ) {
 			$this->output( "...flaggedpages table seems to be empty.\n" );
 			return;

@@ -502,7 +502,7 @@ class FlaggableWikiPage extends WikiPage {
 
 	/**
 	 * Updates the flaggedpage_pending table
-	 * @param int $pageId Page ID
+	 * @param int $pageId
 	 * @param int $latest Latest revision
 	 */
 	private function updatePendingList( $pageId, $latest ) {

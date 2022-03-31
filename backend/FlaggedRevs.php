@@ -111,11 +111,11 @@ class FlaggedRevs {
 
 	/**
 	 * Get the supported dimension name.
-	 * @return string|null
+	 * @return string
 	 */
-	public static function getTagName(): ?string {
+	public static function getTagName(): string {
 		global $wgFlaggedRevsTags;
-		return array_keys( $wgFlaggedRevsTags )[0] ?? null;
+		return array_keys( $wgFlaggedRevsTags )[0] ?? '';
 	}
 
 	/**
@@ -806,11 +806,11 @@ class FlaggedRevs {
 		} catch ( PreconditionException | LogicException $exception ) {
 			$services = MediaWikiServices::getInstance();
 			$content = $revRecord->getContent( SlotRecord::MAIN );
-			$stashedEdit = $services->getPageEditStash()->checkCache(
+			$stashedEdit = $content ? $services->getPageEditStash()->checkCache(
 				$title,
 				$content,
 				$user
-			);
+			) : false;
 			if ( $stashedEdit ) {
 				// Try getting the value from edit stash
 				/** @var ParserOutput $output */

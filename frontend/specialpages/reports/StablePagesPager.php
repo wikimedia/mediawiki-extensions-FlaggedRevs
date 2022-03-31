@@ -13,7 +13,7 @@ class StablePagesPager extends AlphabeticPager {
 	/** @var int|int[] */
 	private $namespace;
 
-	/** @var string */
+	/** @var bool */
 	private $indef;
 
 	/** @var string|null */
@@ -24,7 +24,7 @@ class StablePagesPager extends AlphabeticPager {
 	 * @param array $conds
 	 * @param int|null $namespace (null for "all")
 	 * @param string $autoreview ('' for "all", 'none' for no restriction)
-	 * @param string $indef
+	 * @param bool $indef
 	 */
 	public function __construct( $form, $conds, $namespace, $autoreview, $indef ) {
 		$this->mForm = $form;

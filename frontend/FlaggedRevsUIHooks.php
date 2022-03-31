@@ -38,10 +38,13 @@ class FlaggedRevsUIHooks {
 	 */
 	public static function onMakeGlobalVariablesScript( array &$vars, OutputPage $out ) {
 		// Get the review tags on this wiki
-		$rTags = self::getJSTagParams();
-		if ( $rTags !== null ) {
-			// Only register this variable in <head> when needed (T219342).
-			$vars['wgFlaggedRevsParams'] = $rTags;
+		$levels = count( FlaggedRevs::getLevels() ) - 1; // exclude '0' level
+		if ( $levels > 0 ) {
+			$vars['wgFlaggedRevsParams'] = [
+				'tags' => [
+					FlaggedRevs::getTagName() => [ 'levels' => $levels ]
+				],
+			];
 		}
 
 		// Get page-specific meta-data
@@ -54,22 +57,6 @@ class FlaggedRevsUIHooks {
 			$stableId = $frev ? $frev->getRevId() : 0;
 			$vars['wgStableRevisionId'] = $stableId;
 		}
-	}
-
-	/**
-	 * @return int[][][]|null
-	 */
-	private static function getJSTagParams(): ?array {
-		$tagName = FlaggedRevs::getTagName();
-		if ( $tagName === null ) {
-			return null;
-		}
-
-		return [
-			'tags' => [
-				$tagName => [ 'levels' => count( FlaggedRevs::getLevels() ) - 1 ]
-			],
-		];
 	}
 
 	/**
@@ -1197,7 +1184,7 @@ class FlaggedRevsUIHooks {
 		}
 		$form = new PageStabilityProtectForm( $user );
 		$form->setPage( $title ); // target page
-		$permission = $wgRequest->getVal( 'mwStabilityLevel' );
+		$permission = (string)$wgRequest->getVal( 'mwStabilityLevel', '' );
 		if ( $permission == "none" ) {
 			$permission = ''; // 'none' => ''
 		}

@@ -6,7 +6,7 @@ class PendingChanges extends SpecialPage {
 	/** @var PendingChangesPager|null */
 	private $pager = null;
 
-	/** @var string */
+	/** @var int */
 	private $currentUnixTS;
 
 	/** @var int|null */
@@ -37,7 +37,7 @@ class PendingChanges extends SpecialPage {
 
 		$this->setHeaders();
 		$this->addHelpLink( 'Help:Extension:FlaggedRevs' );
-		$this->currentUnixTS = wfTimestamp( TS_UNIX ); // now
+		$this->currentUnixTS = (int)wfTimestamp();
 
 		$this->namespace = $request->getIntOrNull( 'namespace' );
 		$level = $request->getInt( 'level', -1 );
@@ -122,7 +122,7 @@ class PendingChanges extends SpecialPage {
 		$form .= implode( ' ', $items ) . '<br />';
 		$form .=
 			Xml::label( $this->msg( 'pendingchanges-size' )->text(), 'wpSize' ) .
-			Xml::input( 'size', 4, $this->size, [ 'id' => 'wpSize' ] ) . ' ' .
+			Xml::input( 'size', 4, (string)$this->size, [ 'id' => 'wpSize' ] ) . ' ' .
 			Xml::submitButton( $this->msg( 'allpagessubmit' )->text() ) . "\n";
 		$form .= "</fieldset>";
 		$form .= Html::closeElement( 'form' ) . "\n";
@@ -302,7 +302,7 @@ class PendingChanges extends SpecialPage {
 		}
 		# Get how long the first unreviewed edit has been waiting...
 		if ( $row->pending_since ) {
-			$firstPendingTime = wfTimestamp( TS_UNIX, $row->pending_since );
+			$firstPendingTime = (int)wfTimestamp( TS_UNIX, $row->pending_since );
 			$hours = ( $this->currentUnixTS - $firstPendingTime ) / 3600;
 			$days = round( $hours / 24 );
 			if ( $days >= 3 ) {

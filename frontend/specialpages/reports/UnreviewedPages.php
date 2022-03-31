@@ -6,7 +6,7 @@ class UnreviewedPages extends SpecialPage {
 	/** @var UnreviewedPagesPager */
 	private $pager = null;
 
-	/** @var string */
+	/** @var int */
 	private $currentUnixTS;
 
 	/** @var int */
@@ -41,7 +41,7 @@ class UnreviewedPages extends SpecialPage {
 			throw new PermissionsError( 'unreviewedpages' );
 		}
 
-		$this->currentUnixTS = wfTimestamp( TS_UNIX ); // now
+		$this->currentUnixTS = (int)wfTimestamp();
 
 		# Get default namespace
 		$namespaces = FlaggedRevs::getReviewNamespaces();
@@ -65,11 +65,15 @@ class UnreviewedPages extends SpecialPage {
 			$this->getLanguage()->formatNum( $this->pager->getNumRows() ) );
 
 		# show/hide links
-		$showhide = [ $this->msg( 'show' )->text(), $this->msg( 'hide' )->text() ];
-		$onoff = 1 - $this->hideRedirs;
-		$link = $this->getLinkRenderer()->makeLink( $this->getPageTitle(), $showhide[$onoff], [],
-			[ 'hideredirs' => $onoff, 'category' => $this->category,
-				'namespace' => $this->namespace ]
+		$link = $this->getLinkRenderer()->makeLink(
+			$this->getPageTitle(),
+			$this->msg( $this->hideRedirs ? 'show' : 'hide' )->text(),
+			[],
+			[
+				'hideredirs' => !$this->hideRedirs,
+				'category' => $this->category,
+				'namespace' => $this->namespace,
+			]
 		);
 		$showhideredirs = $this->msg( 'whatlinkshere-hideredirs' )->rawParams( $link )->escaped();
 
@@ -150,7 +154,7 @@ class UnreviewedPages extends SpecialPage {
 			$stxt = " <small>$stxt</small>";
 		}
 		# Get how long the first unreviewed edit has been waiting...
-		$firstPendingTime = wfTimestamp( TS_UNIX, $row->creation );
+		$firstPendingTime = (int)wfTimestamp( TS_UNIX, $row->creation );
 		$hours = ( $this->currentUnixTS - $firstPendingTime ) / 3600;
 		$days = round( $hours / 24 );
 		if ( $days >= 3 ) {

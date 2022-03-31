@@ -42,6 +42,7 @@ class Stabilization extends UnlistedSpecialPage {
 				throw new PermissionsError( 'stablesettings' );
 			}
 			if ( $pm->isBlockedFrom( $user, $title, !$confirmed ) ) {
+				// @phan-suppress-next-line PhanTypeMismatchArgumentNullable Guaranteed via isBlockedFrom() above
 				throw new UserBlockedError( $user->getBlock( !$confirmed ) );
 			}
 			$this->checkReadOnly();
@@ -169,10 +170,10 @@ class Stabilization extends UnlistedSpecialPage {
 		# Add stable version override and selection options
 		$s .=
 			Xml::fieldset( $this->msg( 'stabilization-def' )->text() ) . "\n" .
-			Xml::radioLabel( $this->msg( 'stabilization-def1' )->text(), 'wpStableconfig-override', 1,
+			Xml::radioLabel( $this->msg( 'stabilization-def1' )->text(), 'wpStableconfig-override', '1',
 				'default-stable', $form->getOverride() == 1, $this->disabledAttr() ) .
 				'<br />' . "\n" .
-			Xml::radioLabel( $this->msg( 'stabilization-def2' )->text(), 'wpStableconfig-override', 0,
+			Xml::radioLabel( $this->msg( 'stabilization-def2' )->text(), 'wpStableconfig-override', '0',
 				'default-current', $form->getOverride() == 0, $this->disabledAttr() ) . "\n" .
 			Xml::closeElement( 'fieldset' );
 		# Add autoreview restriction select
