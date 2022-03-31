@@ -24,7 +24,7 @@ class FRPageConfig {
 
 	/**
 	 * Get page configuration settings from a DB row
-	 * @param stdClass $row
+	 * @param stdClass|false $row
 	 * @return array [ 'override' => int, 'autoreview' => string, 'expiry' => string ]
 	 */
 	public static function getVisibilitySettingsFromRow( $row ) {
