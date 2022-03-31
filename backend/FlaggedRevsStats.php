@@ -385,7 +385,7 @@ class FlaggedRevsStats {
 		# For edits that started off pending, how long do they take to get reviewed?
 		# Edits started off pending if made when a flagged rev of the page already existed.
 		# Get the *first* reviewed rev *after* each edit and get the time difference.
-		$sql = $dbr->selectSQLText(
+		$res = $dbr->select(
 			[ 'revision' ] + $actorQuery['tables'],
 			[
 				'rev_timestamp AS rt', // time revision was made
@@ -416,8 +416,6 @@ class FlaggedRevsStats {
 			[],
 			$actorQuery['joins']
 		);
-		// foreach ( $dbr->query( "EXPLAIN $sql" ) as $row ) { print_r( $row ); }
-		$res = $dbr->query( $sql, __METHOD__ );
 
 		$secondsR = 0; // total wait seconds for edits later reviewed
 		$secondsP = 0; // total wait seconds for edits still pending
