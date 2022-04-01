@@ -30,8 +30,6 @@ class FlaggedRevs {
 	private static $reviewNamespaces = [];
 	/** @var string[] Restriction levels/config, copy from $wgFlaggedRevsRestrictionLevels */
 	private static $restrictionLevels = [];
-	/** @var int Autoreview config, copy from $wgFlaggedRevsAutoReview */
-	private static $autoReviewConfig = 0;
 
 	/** @var bool */
 	private static $loaded = false;
@@ -61,12 +59,6 @@ class FlaggedRevs {
 			}
 		}
 		self::$reviewNamespaces = $wgFlaggedRevsNamespaces;
-
-		# Handle $wgFlaggedRevsAutoReview settings
-		global $wgFlaggedRevsAutoReview;
-		if ( is_int( $wgFlaggedRevsAutoReview ) ) {
-			self::$autoReviewConfig = $wgFlaggedRevsAutoReview;
-		}
 
 		// When using a simple config, we don't need to initialize the other settings
 		if ( self::useOnlyIfProtected() ) {
@@ -123,8 +115,8 @@ class FlaggedRevs {
 	 * @return bool
 	 */
 	public static function autoReviewEdits() {
-		self::load();
-		return ( self::$autoReviewConfig & FR_AUTOREVIEW_CHANGES ) != 0;
+		global $wgFlaggedRevsAutoReview;
+		return (bool)( $wgFlaggedRevsAutoReview & FR_AUTOREVIEW_CHANGES );
 	}
 
 	/**
@@ -132,8 +124,8 @@ class FlaggedRevs {
 	 * @return bool
 	 */
 	public static function autoReviewNewPages() {
-		self::load();
-		return ( self::$autoReviewConfig & FR_AUTOREVIEW_CREATION ) != 0;
+		global $wgFlaggedRevsAutoReview;
+		return (bool)( $wgFlaggedRevsAutoReview & FR_AUTOREVIEW_CREATION );
 	}
 
 	/**
