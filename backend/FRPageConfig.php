@@ -37,27 +37,24 @@ class FRPageConfig {
 			}
 		}
 		// Is there a non-expired row?
-		if ( $row ) {
-			$level = $row->fpc_level;
-			if ( !self::isValidRestriction( $row->fpc_level ) ) {
-				$level = ''; // site default; ignore fpc_level
-			}
-			$config = [
-				'override'   => $row->fpc_override ? 1 : 0,
-				'autoreview' => $level,
-				'expiry'	 => $expiry // TS_MW
-			];
-			# If there are protection levels defined check if this is valid...
-			if ( FlaggedRevs::useProtectionLevels() ) {
-				$level = self::getProtectionLevel( $config );
-				if ( $level == 'invalid' || $level == 'none' ) {
-					// If 'none', make sure expiry is 'infinity'
-					$config = self::getDefaultVisibilitySettings(); // revert to default (none)
-				}
-			}
-		} else {
+		if ( !$row ) {
 			# Return the default config if this page doesn't have its own
-			$config = self::getDefaultVisibilitySettings();
+			return self::getDefaultVisibilitySettings();
+		}
+
+		$level = self::isValidRestriction( $row->fpc_level ) ? $row->fpc_level : '';
+		$config = [
+			'override' => $row->fpc_override ? 1 : 0,
+			'autoreview' => $level,
+			'expiry' => $expiry // TS_MW
+		];
+		# If there are protection levels defined check if this is valid...
+		if ( FlaggedRevs::useProtectionLevels() ) {
+			$level = self::getProtectionLevel( $config );
+			if ( $level == 'invalid' || $level == 'none' ) {
+				// If 'none', make sure expiry is 'infinity'
+				return self::getDefaultVisibilitySettings(); // revert to default (none)
+			}
 		}
 		return $config;
 	}
