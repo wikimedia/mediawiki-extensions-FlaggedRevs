@@ -68,7 +68,7 @@ class UpdateFRTracking extends Maintenance {
 			# Go through and update the de-normalized references...
 			foreach ( $res as $row ) {
 				$title = Title::newFromRow( $row );
-				$article = new FlaggableWikiPage( $title );
+				$article = FlaggableWikiPage::newInstance( $title );
 				$oldFrev = FlaggedRevision::newFromStable( $title, FR_MASTER );
 				$frev = FlaggedRevision::determineStable( $title, FR_MASTER );
 				# Update fp_stable, fp_quality, and fp_reviewed

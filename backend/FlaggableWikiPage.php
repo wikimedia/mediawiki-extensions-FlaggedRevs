@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Page\PageIdentity;
 use MediaWiki\Revision\RevisionRecord;
 use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\IDatabase;
@@ -33,9 +34,25 @@ class FlaggableWikiPage extends WikiPage {
 		// Check if there is already an instance on this title
 		if ( !isset( $title->flaggedRevsArticle ) ) {
 			$ctitle = clone $title; // avoid cycles
-			$title->flaggedRevsArticle = new self( $ctitle );
+			$title->flaggedRevsArticle = self::newInstance( $ctitle );
 		}
 		return $title->flaggedRevsArticle;
+	}
+
+	/**
+	 * @param PageIdentity $page
+	 * @return self
+	 */
+	public static function newInstance( PageIdentity $page ) {
+		return $page instanceof self ? $page : new self( $page );
+	}
+
+	/**
+	 * @deprecated Please use {@see newInstance} instead
+	 * @param PageIdentity $pageIdentity
+	 */
+	public function __construct( PageIdentity $pageIdentity ) {
+		parent::__construct( $pageIdentity );
 	}
 
 	/**

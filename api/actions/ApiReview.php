@@ -80,7 +80,7 @@ class ApiReview extends ApiBase {
 			}
 		}
 		if ( $form->getAction() === 'approve' ) {
-			$article = new FlaggableWikiPage( $title );
+			$article = FlaggableWikiPage::newInstance( $title );
 			// Now get the template parameters needed
 			if ( FlaggedRevs::inclusionSetting() === FR_INCLUDES_CURRENT ) {
 				$templateIds = []; // unused

@@ -279,7 +279,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		$changed = FRPageConfig::setStabilitySettings( $this->page, $this->getNewConfig() );
 		# Log if this actually changed anything...
 		if ( $changed ) {
-			$article = new FlaggableWikiPage( $this->page );
+			$article = FlaggableWikiPage::newInstance( $this->page );
 			if ( FlaggedRevs::useOnlyIfProtected() ) {
 				# Config may have changed to allow stable versions, so refresh
 				# the tracking table to account for any hidden reviewed versions...
