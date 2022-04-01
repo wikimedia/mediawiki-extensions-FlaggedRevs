@@ -467,7 +467,6 @@
 		"FlaggedRevsRestrictionLevels": {
 			"description": "Restriction levels for 'autoreview'/'review' rights. When a level is selected for a page, an edit made by a user will not be auto-reviewed if the user lacks the specified permission. Levels are set at the Stabilization special page.",
 			"value": [
-				"",
 				"sysop"
 			]
 		},
