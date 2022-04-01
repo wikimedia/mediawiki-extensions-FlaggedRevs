@@ -261,10 +261,7 @@ class FlaggedRevs {
 			return true;
 		}
 		$tag = self::getTagName();
-		if ( !isset( $flags[$tag] ) || !self::valueIsValid( $flags[$tag] ) ) {
-			return false;
-		}
-		return true;
+		return isset( $flags[$tag] ) && self::valueIsValid( $flags[$tag] );
 	}
 
 	/**
@@ -643,34 +640,6 @@ class FlaggedRevs {
 	# ################ Other utility functions #################
 
 	/**
-	 * @param int[] $flags
-	 * @return bool is this revision at basic review condition?
-	 */
-	private static function isChecked( array $flags ) {
-		if ( !$flags ) {
-			return false;
-		}
-		self::load();
-		if ( !isset( $flags[self::getTagName()] ) || $flags[self::getTagName()] < 1 ) {
-			return false;
-		}
-		return true;
-	}
-
-	/**
-	 * Get the quality tier of review flags
-	 * @param int[] $flags
-	 * @param int $default Return value if one of the tags has value < 0
-	 * @return int flagging tier (FR_CHECKED or default value)
-	 */
-	public static function getQualityTier( array $flags, $default = -1 ) {
-		if ( self::isChecked( $flags ) ) {
-			return FR_CHECKED; // 0
-		}
-		return (int)$default;
-	}
-
-	/**
 	 * Get minimum level tags for a tier
 	 * @return int[]
 	 */
@@ -693,9 +662,8 @@ class FlaggedRevs {
 		if ( !self::autoReviewEdits() ) {
 			return null; // shouldn't happen
 		}
-		$flags = [];
 		if ( self::useOnlyIfProtected() ) {
-			return $flags;
+			return [];
 		}
 		$tag = self::getTagName();
 		# Try to keep this tag val the same as the stable rev's
@@ -708,8 +676,7 @@ class FlaggedRevs {
 				return null; // all tags vals must be > 0
 			}
 		}
-		$flags[$tag] = $val;
-		return $flags;
+		return [ $tag => $val ];
 	}
 
 	/**
