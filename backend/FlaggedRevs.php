@@ -17,6 +17,10 @@ class FlaggedRevs {
 	 *
 	 * @note This name is used as a part of the ParserCache key, so
 	 * changing it will invalidate the parser cache for stable revisions.
+	 *
+	 * TODO: Extract constant to FlaggedRevsParserCache
+	 *
+	 * @deprecated 1.39
 	 */
 	public const PARSER_CACHE_NAME = 'stable-pcache';
 
@@ -374,15 +378,8 @@ class FlaggedRevs {
 		FlaggedRevision $frev, ParserOptions $pOpts
 	) {
 		$page = WikiPage::factory( $frev->getTitle() );
-		$parserCache = MediaWikiServices::getInstance()
-			->getParserCacheFactory()
-			->getParserCache( self::PARSER_CACHE_NAME );
-		$parserCacheMetadata = $parserCache->getMetadata( $page );
-		$keyPrefix = $parserCache->makeParserOutputKey(
-			$page,
-			$pOpts,
-			$parserCacheMetadata ? $parserCacheMetadata->getUsedOptions() : null
-		);
+		$stableParserCache = MediaWikiServices::getInstance()->getService( 'FlaggedRevsParserCache' );
+		$keyPrefix = $stableParserCache->makeKey( $page, $pOpts );
 
 		$work = new PoolCounterWorkViaCallback(
 			'ArticleView', // use standard parse PoolCounter config
@@ -391,13 +388,13 @@ class FlaggedRevs {
 				'doWork' => function () use ( $frev, $pOpts ) {
 					return Status::newGood( self::parseStableRevision( $frev, $pOpts ) );
 				},
-				'doCachedWork' => static function () use ( $page, $pOpts, $parserCache ) {
+				'doCachedWork' => static function () use ( $page, $pOpts, $stableParserCache ) {
 					// Use new cache value from other thread
-					return Status::newGood( $parserCache->get( $page, $pOpts ) ?: null );
+					return Status::newGood( $stableParserCache->get( $page, $pOpts ) ?: null );
 				},
-				'fallback' => static function () use ( $page, $pOpts, $parserCache ) {
+				'fallback' => static function () use ( $page, $pOpts, $stableParserCache ) {
 					// Use stale cache if possible
-					return Status::newGood( $parserCache->getDirty( $page, $pOpts ) ?: null );
+					return Status::newGood( $stableParserCache->getDirty( $page, $pOpts ) ?: null );
 				},
 				'error' => static function ( Status $status ) {
 					return $status;

@@ -208,6 +208,7 @@
 		"FRInclusionManager": "backend/FRInclusionManager.php",
 		"FlaggableWikiPage": "backend/FlaggableWikiPage.php",
 		"FlaggedRevision": "backend/FlaggedRevision.php",
+		"FlaggedRevsParserCache": "backend/FlaggedRevsParserCache.php",
 		"FRGenericSubmitForm": "business/FRGenericSubmitForm.php",
 		"RevisionReviewForm": "business/RevisionReviewForm.php",
 		"PageStabilityForm": "business/PageStabilityForm.php",
@@ -325,6 +326,9 @@
 			]
 		}
 	},
+	"ServiceWiringFiles": [
+		"backend/ServiceWiring.php"
+	],
 	"Hooks": {
 		"APIGetAllowedParams": "FlaggedRevsApiHooks::addApiRevisionParams",
 		"APIQueryAfterExecute": "FlaggedRevsApiHooks::addApiRevisionData",
