@@ -1,31 +1,22 @@
 <?php
 
 use MediaWiki\Page\PageRecord;
-use Psr\Log\LoggerInterface;
 
 /**
  * Encapsulate FlaggedRevs's ParserCache
- *
- * TODO: Refactor to make testable
  */
 class FlaggedRevsParserCache {
-
-	/** @var LoggerInterface */
-	private $logger;
 
 	/** @var ParserCache */
 	private $stableParserCache;
 
 	/**
+	 * Instantiate this class using $services->getService( 'FlaggedRevsParserCache' )
+	 *
 	 * @param ParserCache $stableParserCache
-	 * @param LoggerInterface $logger
 	 */
-	public function __construct(
-		ParserCache $stableParserCache,
-		LoggerInterface $logger
-	) {
+	public function __construct( ParserCache $stableParserCache ) {
 		$this->stableParserCache = $stableParserCache;
-		$this->logger = $logger;
 	}
 
 	/**
@@ -36,7 +27,6 @@ class FlaggedRevsParserCache {
 	 * @return ParserOutput|false
 	 */
 	public function get( PageRecord $page, ParserOptions $parserOptions ) {
-		$this->logger->debug( __METHOD__ );
 		return $this->stableParserCache->get( $page, $parserOptions );
 	}
 
@@ -48,7 +38,6 @@ class FlaggedRevsParserCache {
 	 * @return ParserOutput|false
 	 */
 	public function getDirty( PageRecord $page, ParserOptions $parserOptions ) {
-		$this->logger->debug( __METHOD__ );
 		return $this->stableParserCache->getDirty( $page, $parserOptions );
 	}
 
@@ -62,7 +51,6 @@ class FlaggedRevsParserCache {
 	public function save( ParserOutput $output, PageRecord $page,
 		ParserOptions $parserOptions
 	): void {
-		$this->logger->debug( __METHOD__ );
 		$this->stableParserCache->save( $output, $page, $parserOptions );
 	}
 
