@@ -21,6 +21,8 @@
  * http://www.gnu.org/copyleft/gpl.html
  */
 
+use Wikimedia\ParamValidator\TypeDef\IntegerDef;
+
 /**
  * Query module to list pages with outdated review flag.
  *
@@ -185,7 +187,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 			'maxsize' => [
 				ApiBase::PARAM_TYPE => 'integer',
 				ApiBase::PARAM_DFLT => null,
-				ApiBase::PARAM_MIN 	=> 0
+				IntegerDef::PARAM_MIN 	=> 0
 			],
 			'filterwatched' => [
 				ApiBase::PARAM_DFLT => 'all',
@@ -206,9 +208,9 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 			'limit' => [
 				ApiBase::PARAM_DFLT => 10,
 				ApiBase::PARAM_TYPE => 'limit',
-				ApiBase::PARAM_MIN 	=> 1,
-				ApiBase::PARAM_MAX 	=> ApiBase::LIMIT_BIG1,
-				ApiBase::PARAM_MAX2 => ApiBase::LIMIT_BIG2
+				IntegerDef::PARAM_MIN 	=> 1,
+				IntegerDef::PARAM_MAX 	=> ApiBase::LIMIT_BIG1,
+				IntegerDef::PARAM_MAX2 => ApiBase::LIMIT_BIG2
 			]
 		];
 	}

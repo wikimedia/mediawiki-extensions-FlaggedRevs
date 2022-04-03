@@ -21,6 +21,8 @@
  * http://www.gnu.org/copyleft/gpl.html
  */
 
+use Wikimedia\ParamValidator\TypeDef\IntegerDef;
+
 /**
  * Query module to list pages unreviewed pages
  *
@@ -171,15 +173,15 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 			'filterlevel' => [
 				ApiBase::PARAM_DFLT => 0,
 				ApiBase::PARAM_TYPE => 'integer',
-				ApiBase::PARAM_MIN  => 0,
-				ApiBase::PARAM_MAX  => 2,
+				IntegerDef::PARAM_MIN  => 0,
+				IntegerDef::PARAM_MAX  => 2,
 			],
 			'limit' => [
 				ApiBase::PARAM_DFLT => 10,
 				ApiBase::PARAM_TYPE => 'limit',
-				ApiBase::PARAM_MIN => 1,
-				ApiBase::PARAM_MAX => ApiBase::LIMIT_BIG1,
-				ApiBase::PARAM_MAX2 => ApiBase::LIMIT_BIG2
+				IntegerDef::PARAM_MIN => 1,
+				IntegerDef::PARAM_MAX => ApiBase::LIMIT_BIG1,
+				IntegerDef::PARAM_MAX2 => ApiBase::LIMIT_BIG2
 			]
 		];
 	}
