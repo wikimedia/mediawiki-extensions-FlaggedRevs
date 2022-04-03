@@ -21,6 +21,7 @@
  */
 
 use MediaWiki\MediaWikiServices;
+use Wikimedia\ParamValidator\ParamValidator;
 
 /**
  * API module to stabilize pages
@@ -91,15 +92,15 @@ class ApiStabilizeGeneral extends ApiStabilize {
 		$autoreviewLevels[] = 'none';
 		$pars = [
 			'default' => [
-				ApiBase::PARAM_REQUIRED => true,
-				ApiBase::PARAM_TYPE => [ 'latest', 'stable' ],
+				ParamValidator::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_TYPE => [ 'latest', 'stable' ],
 			],
 			'autoreview' => [
-				ApiBase::PARAM_TYPE => $autoreviewLevels,
-				ApiBase::PARAM_DFLT => 'none',
+				ParamValidator::PARAM_TYPE => $autoreviewLevels,
+				ParamValidator::PARAM_DEFAULT => 'none',
 			],
 			'expiry' => [
-				ApiBase::PARAM_DFLT => 'infinite',
+				ParamValidator::PARAM_DEFAULT => 'infinite',
 				ApiBase::PARAM_HELP_MSG => 'apihelp-stabilize-param-expiry-general',
 			],
 			'reason' => '',
@@ -108,7 +109,7 @@ class ApiStabilizeGeneral extends ApiStabilize {
 
 		$pars += [
 			'title' => [
-				ApiBase::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_REQUIRED => true,
 				ApiBase::PARAM_HELP_MSG => 'apihelp-stabilize-param-title-general',
 			],
 		];

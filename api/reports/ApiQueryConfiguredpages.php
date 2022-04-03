@@ -21,6 +21,7 @@
  * http://www.gnu.org/copyleft/gpl.html
  */
 
+use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
 /**
@@ -158,35 +159,35 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 		$autoreviewLevels[] = 'none';
 		return [
 			'start' => [
-				ApiBase::PARAM_TYPE 	=> 'integer'
+				ParamValidator::PARAM_TYPE => 'integer'
 			],
 			'end' => [
-				ApiBase::PARAM_TYPE 	=> 'integer'
+				ParamValidator::PARAM_TYPE => 'integer'
 			],
 			'dir' => [
-				ApiBase::PARAM_DFLT 	=> 'newer',
-				ApiBase::PARAM_TYPE 	=> [ 'newer', 'older' ],
+				ParamValidator::PARAM_DEFAULT => 'newer',
+				ParamValidator::PARAM_TYPE => [ 'newer', 'older' ],
 				ApiBase::PARAM_HELP_MSG => 'api-help-param-direction',
 			],
 			'namespace' => [
-				ApiBase::PARAM_DFLT 	=> null,
-				ApiBase::PARAM_TYPE 	=> 'namespace',
-				ApiBase::PARAM_ISMULTI 	=> true,
+				ParamValidator::PARAM_DEFAULT => null,
+				ParamValidator::PARAM_TYPE => 'namespace',
+				ParamValidator::PARAM_ISMULTI => true,
 			],
 			'default' => [
-				ApiBase::PARAM_DFLT 	=> null,
-				ApiBase::PARAM_TYPE 	=> [ 'latest', 'stable' ],
+				ParamValidator::PARAM_DEFAULT => null,
+				ParamValidator::PARAM_TYPE => [ 'latest', 'stable' ],
 			],
 			'autoreview' => [
-				ApiBase::PARAM_DFLT 	=> null,
-				ApiBase::PARAM_TYPE 	=> $autoreviewLevels,
+				ParamValidator::PARAM_DEFAULT => null,
+				ParamValidator::PARAM_TYPE => $autoreviewLevels,
 			],
 			'limit' => [
-				ApiBase::PARAM_DFLT 	=> 10,
-				ApiBase::PARAM_TYPE 	=> 'limit',
-				IntegerDef::PARAM_MIN  	=> 1,
-				IntegerDef::PARAM_MAX  	=> ApiBase::LIMIT_BIG1,
-				IntegerDef::PARAM_MAX2 	=> ApiBase::LIMIT_BIG2
+				ParamValidator::PARAM_DEFAULT => 10,
+				ParamValidator::PARAM_TYPE => 'limit',
+				IntegerDef::PARAM_MIN => 1,
+				IntegerDef::PARAM_MAX => ApiBase::LIMIT_BIG1,
+				IntegerDef::PARAM_MAX2 => ApiBase::LIMIT_BIG2
 			]
 		];
 	}

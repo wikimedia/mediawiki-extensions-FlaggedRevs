@@ -21,6 +21,7 @@
  * http://www.gnu.org/copyleft/gpl.html
  */
 
+use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
 /**
@@ -174,40 +175,40 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		return [
 			'start' => [
-				ApiBase::PARAM_TYPE => 'timestamp'
+				ParamValidator::PARAM_TYPE => 'timestamp'
 			],
 			'end' => [
-				ApiBase::PARAM_TYPE => 'timestamp'
+				ParamValidator::PARAM_TYPE => 'timestamp'
 			],
 			'dir' => [
-				ApiBase::PARAM_DFLT => 'newer',
-				ApiBase::PARAM_TYPE => [ 'newer', 'older' ],
+				ParamValidator::PARAM_DEFAULT => 'newer',
+				ParamValidator::PARAM_TYPE => [ 'newer', 'older' ],
 				ApiBase::PARAM_HELP_MSG => 'api-help-param-direction',
 			],
 			'maxsize' => [
-				ApiBase::PARAM_TYPE => 'integer',
-				ApiBase::PARAM_DFLT => null,
+				ParamValidator::PARAM_TYPE => 'integer',
+				ParamValidator::PARAM_DEFAULT => null,
 				IntegerDef::PARAM_MIN 	=> 0
 			],
 			'filterwatched' => [
-				ApiBase::PARAM_DFLT => 'all',
-				ApiBase::PARAM_TYPE => [ 'watched', 'all' ]
+				ParamValidator::PARAM_DEFAULT => 'all',
+				ParamValidator::PARAM_TYPE => [ 'watched', 'all' ]
 			],
 			'namespace' => [
-				ApiBase::PARAM_DFLT => $namespaces[0] ?? NS_MAIN,
-				ApiBase::PARAM_TYPE => 'namespace',
-				ApiBase::PARAM_ISMULTI => true,
+				ParamValidator::PARAM_DEFAULT => $namespaces[0] ?? NS_MAIN,
+				ParamValidator::PARAM_TYPE => 'namespace',
+				ParamValidator::PARAM_ISMULTI => true,
 			],
 			'category' => [
-				ApiBase::PARAM_TYPE => 'string'
+				ParamValidator::PARAM_TYPE => 'string'
 			],
 			'filterredir' => [
-				ApiBase::PARAM_DFLT => 'all',
-				ApiBase::PARAM_TYPE => [ 'redirects', 'nonredirects', 'all' ]
+				ParamValidator::PARAM_DEFAULT => 'all',
+				ParamValidator::PARAM_TYPE => [ 'redirects', 'nonredirects', 'all' ]
 			],
 			'limit' => [
-				ApiBase::PARAM_DFLT => 10,
-				ApiBase::PARAM_TYPE => 'limit',
+				ParamValidator::PARAM_DEFAULT => 10,
+				ParamValidator::PARAM_TYPE => 'limit',
 				IntegerDef::PARAM_MIN 	=> 1,
 				IntegerDef::PARAM_MAX 	=> ApiBase::LIMIT_BIG1,
 				IntegerDef::PARAM_MAX2 => ApiBase::LIMIT_BIG2

@@ -21,6 +21,7 @@
  * http://www.gnu.org/copyleft/gpl.html
  */
 
+use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
 /**
@@ -148,37 +149,37 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		return [
 			'start' => [
-				ApiBase::PARAM_TYPE => 'string'
+				ParamValidator::PARAM_TYPE => 'string'
 			],
 			'end' => [
-				ApiBase::PARAM_TYPE => 'string'
+				ParamValidator::PARAM_TYPE => 'string'
 			],
 			'dir' => [
-				ApiBase::PARAM_DFLT => 'ascending',
-				ApiBase::PARAM_TYPE => [ 'ascending', 'descending' ],
+				ParamValidator::PARAM_DEFAULT => 'ascending',
+				ParamValidator::PARAM_TYPE => [ 'ascending', 'descending' ],
 			],
 			'namespace' => [
-				ApiBase::PARAM_DFLT => $namespaces[0] ?? NS_MAIN,
-				ApiBase::PARAM_TYPE => 'namespace',
-				ApiBase::PARAM_ISMULTI => true,
+				ParamValidator::PARAM_DEFAULT => $namespaces[0] ?? NS_MAIN,
+				ParamValidator::PARAM_TYPE => 'namespace',
+				ParamValidator::PARAM_ISMULTI => true,
 			],
 			'filterredir' => [
-				ApiBase::PARAM_DFLT => 'all',
-				ApiBase::PARAM_TYPE => [
+				ParamValidator::PARAM_DEFAULT => 'all',
+				ParamValidator::PARAM_TYPE => [
 					'redirects',
 					'nonredirects',
 					'all'
 				]
 			],
 			'filterlevel' => [
-				ApiBase::PARAM_DFLT => 0,
-				ApiBase::PARAM_TYPE => 'integer',
+				ParamValidator::PARAM_DEFAULT => 0,
+				ParamValidator::PARAM_TYPE => 'integer',
 				IntegerDef::PARAM_MIN  => 0,
 				IntegerDef::PARAM_MAX  => 2,
 			],
 			'limit' => [
-				ApiBase::PARAM_DFLT => 10,
-				ApiBase::PARAM_TYPE => 'limit',
+				ParamValidator::PARAM_DEFAULT => 10,
+				ParamValidator::PARAM_TYPE => 'limit',
 				IntegerDef::PARAM_MIN => 1,
 				IntegerDef::PARAM_MAX => ApiBase::LIMIT_BIG1,
 				IntegerDef::PARAM_MAX2 => ApiBase::LIMIT_BIG2
