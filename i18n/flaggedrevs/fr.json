@@ -147,7 +147,7 @@
 	"right-movestable": "Renommer des pages publiées",
 	"right-review": "Marquer les versions comme vérifiées",
 	"right-stablesettings": "Configurer les paramètres de sélection et d'affichage des versions publiées",
-	"right-validate": "Marquer les versions comme étant de « qualité »",
+	"right-validate": "Marquer les versions comme étant « de qualité »",
 	"right-unreviewedpages": "Voir [[Special:UnreviewedPages|la liste des pages non révisées]]",
 	"rights-editor-revoke": "a révoqué les droits de contributeur de [[$1]]",
 	"specialpages-group-quality": "Approbation des modifications",
