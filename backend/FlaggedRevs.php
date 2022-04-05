@@ -310,6 +310,7 @@ class FlaggedRevs {
 		FlaggedRevision $frev, ParserOptions $pOpts
 	) {
 		$page = WikiPage::factory( $frev->getTitle() );
+		/** @var FlaggedRevsParserCache $stableParserCache */
 		$stableParserCache = MediaWikiServices::getInstance()->getService( 'FlaggedRevsParserCache' );
 		$keyPrefix = $stableParserCache->makeKey( $page, $pOpts );
 

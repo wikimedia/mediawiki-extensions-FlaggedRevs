@@ -37,8 +37,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 	/** @var FlaggedRevision|null Prior FlaggedRevision for Rev with ID $oldid */
 	private $oldFrev = null;
-	/** @var int[] Prior flags for Rev with ID $oldid */
-	private $oldFlags = [];
 
 	/** @var string User session key */
 	private $sessionKey = '';
@@ -225,7 +223,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		}
 		# Get the revision's current flags (if any)
 		$this->oldFrev = FlaggedRevision::newFromTitle( $this->page, $this->oldid, FR_MASTER );
-		$this->oldFlags = ( $this->oldFrev )
+		$oldFlags = $this->oldFrev
 			? $this->oldFrev->getTags()
 			: FlaggedRevision::expandRevisionTags( '' ); // default
 		# Set initial value for newLastChangeTime (if unchanged on submit)
@@ -252,12 +250,12 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 				return 'review_bad_tags';
 			}
 			# Check permissions with tags
-			if ( !FlaggedRevs::userCanSetFlags( $this->user, $this->dims, $this->oldFlags ) ) {
+			if ( !FlaggedRevs::userCanSetFlags( $this->user, $this->dims, $oldFlags ) ) {
 				return 'review_denied';
 			}
 		} elseif ( $action === 'unapprove' ) {
 			# Check permissions with old tags
-			if ( !FlaggedRevs::userCanSetFlags( $this->user, $this->oldFlags ) ) {
+			if ( !FlaggedRevs::userCanSetFlags( $this->user, $oldFlags ) ) {
 				return 'review_denied';
 			}
 		}
@@ -602,7 +600,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		global $wgSecretKey;
 		$key = md5( $wgSecretKey );
 		$keyBits = $key[3] . $key[9] . $key[13] . $key[19] . $key[26];
-		return md5( "{$tmpP}{$revisionId}{$sessKey}{$keyBits}" );
+		return md5( $tmpP . $revisionId . $sessKey . $keyBits );
 	}
 
 	/**

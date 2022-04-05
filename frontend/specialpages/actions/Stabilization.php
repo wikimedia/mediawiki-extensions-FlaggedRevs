@@ -337,16 +337,15 @@ class Stabilization extends UnlistedSpecialPage {
 	 * @return string
 	 */
 	private function getOptionLabel( $permission ) {
-		if ( $permission == '' ) {
+		if ( !$permission ) {
 			return $this->msg( 'stabilization-restrict-none' )->text();
-		} else {
-			$key = "protect-level-{$permission}";
-			$msg = $this->msg( $key );
-			if ( $msg->isDisabled() ) {
-				$msg = $this->msg( 'protect-fallback', $permission );
-			}
-			return $msg->text();
 		}
+
+		$msg = $this->msg( "protect-level-$permission" );
+		if ( $msg->isDisabled() ) {
+			$msg = $this->msg( 'protect-fallback', $permission );
+		}
+		return $msg->text();
 	}
 
 	/**

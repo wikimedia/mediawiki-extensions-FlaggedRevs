@@ -279,8 +279,8 @@ class FlaggedRevision {
 		$tmpInsertRows = [];
 		# Avoid saving this data if we don't use it to stabilize pages
 		if ( FlaggedRevs::inclusionSetting() !== FR_INCLUDES_CURRENT ) {
-			foreach ( (array)$this->mTemplates as $namespace => $titleAndID ) {
-				foreach ( $titleAndID as $dbkey => $id ) {
+			foreach ( (array)$this->mTemplates as $titleAndID ) {
+				foreach ( $titleAndID as $id ) {
 					if ( !$id ) {
 						continue;
 					}

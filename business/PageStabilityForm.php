@@ -307,8 +307,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 					$article,
 					$this->user,
 					$nullRevRecord,
-					$flags,
-					true
+					$flags
 				);
 				if ( $ok ) {
 					FlaggedRevs::markRevisionPatrolled( $nullRevRecord ); // reviewed -> patrolled
@@ -358,7 +357,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 			$comment .= wfMessage( 'colon-separator' )->inContentLanguage()->text() . $reason; // add reason
 		}
 		if ( $settings != '' ) {
-			$comment .= " {$settings}"; // add settings
+			$comment .= ' ' . $settings;
 		}
 
 		# Insert a null revision...

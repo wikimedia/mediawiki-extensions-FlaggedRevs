@@ -636,9 +636,7 @@ class FlaggablePageView extends ContextSource {
 				if ( !$reqUser->isRegistered() ) {
 					$msgHTML = ''; // Anons just see simple icons
 				} else {
-					$msg = 'revreview-quick-basic';
-					# Uses messages 'revreview-quick-quality-same', 'revreview-quick-basic-same'
-					$msg = $synced ? "{$msg}-same" : $msg;
+					$msg = $synced ? 'revreview-quick-basic-same' : 'revreview-quick-basic';
 					$msgHTML = $this->msg( $msg, $srev->getRevId() )
 						->numParams( $revsSince )->parse();
 				}
@@ -649,13 +647,10 @@ class FlaggablePageView extends ContextSource {
 			} else {
 				$icon = FlaggedRevsXML::stableStatusIcon();
 				$this->enableOOUI();
-				$msg = 'revreview-basic';
 				if ( $synced ) {
-					# uses messages 'revreview-quality-same', 'revreview-basic-same'
-					$msg .= '-same';
-				} elseif ( $revsSince == 0 ) {
-					# uses messages 'revreview-quality-i', 'revreview-basic-i'
-					$msg .= '-i';
+					$msg = 'revreview-basic-same';
+				} else {
+					$msg = !$revsSince ? 'revreview-basic-i' : 'revreview-basic';
 				}
 				$tag = $prot . $icon;
 				$tag .= $this->msg( $msg, $srev->getRevId(), $time )
@@ -665,6 +660,7 @@ class FlaggablePageView extends ContextSource {
 
 		// TODO: Rewrite to use ParserOutputAccess
 		# Check the stable version cache for the parser output
+		/** @var FlaggedRevsParserCache $stableParserCache */
 		$stableParserCache = MediaWikiServices::getInstance()->getService( 'FlaggedRevsParserCache' );
 		$parserOptions = $this->article->makeParserOptions( $reqUser );
 		$parserOut = $stableParserCache->get( $this->article, $parserOptions );
@@ -1185,7 +1181,7 @@ class FlaggablePageView extends ContextSource {
 			}
 			$form->setIncludeVersions( $tmpVers );
 
-			list( $html, $status ) = $form->getHtml();
+			[ $html, ] = $form->getHtml();
 			# Diff action: place the form at the top of the page
 			if ( $output instanceof OutputPage ) {
 				$output->prependHTML( $html );

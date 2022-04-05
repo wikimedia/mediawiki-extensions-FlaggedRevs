@@ -221,7 +221,7 @@ class FlaggedRevsStats {
 	 */
 	private static function getMeanPendingEditTime() {
 		$dbr = wfGetDB( DB_REPLICA, 'vslow' );
-		$nowUnix = wfTimestamp( TS_UNIX ); // current time in UNIX TS
+		$nowUnix = wfTimestamp();
 		$unixTimeCall = self::dbUnixTime( $dbr, 'fp_pending_since' );
 		return (int)$dbr->selectField(
 			[ 'flaggedpages', 'page' ],
@@ -241,7 +241,7 @@ class FlaggedRevsStats {
 	 * @return array associative
 	 * @throws Exception
 	 */
-	private static function getEditReviewTimes( $cache, $users = 'anons' ) {
+	private static function getEditReviewTimes( $cache, $users ) {
 		$result = [
 			'average'       => 0,
 			'median'        => 0,
@@ -261,15 +261,12 @@ class FlaggedRevsStats {
 		# Only go so far back...otherwise we will get garbage values due to
 		# the fact that FlaggedRevs wasn't enabled until after a while.
 		$dbr = wfGetDB( DB_REPLICA, 'vslow' );
-		$installedUnix = (int)$dbr->selectField( 'logging',
+		$installedUnix = $dbr->selectField( 'logging',
 			self::dbUnixTime( $dbr, 'MIN(log_timestamp)' ),
 			[ 'log_type' => 'review' ],
 			__METHOD__
 		);
-		if ( !$installedUnix ) {
-			$installedUnix = wfTimestamp( TS_UNIX ); // now
-		}
-		$encInstalled = $dbr->addQuotes( $dbr->timestamp( $installedUnix ) );
+		$encInstalled = $dbr->addQuotes( $dbr->timestamp( $installedUnix ?: wfTimestamp() ) );
 		# Skip the most recent recent revs as they are likely to just
 		# be WHERE condition misses. This also gives us more data to use.
 		# Lastly, we want to avoid bias that would make the time too low

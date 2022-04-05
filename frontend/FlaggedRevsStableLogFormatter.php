@@ -8,8 +8,7 @@ class FlaggedRevsStableLogFormatter extends LogFormatter {
 	 * @inheritDoc
 	 */
 	protected function getMessageKey() {
-		$rawAction = $this->entry->getSubtype();
-		return "logentry-stable-{$rawAction}";
+		return 'logentry-stable-' . $this->entry->getSubtype();
 	}
 
 	/**
@@ -41,8 +40,7 @@ class FlaggedRevsStableLogFormatter extends LogFormatter {
 			[],
 			[ 'action' => 'history', 'offset' => $this->entry->getTimestamp() ]
 		);
-		$hist = $this->msg( 'parentheses' )->rawParams( $hist )->escaped();
-		return $hist;
+		return $this->msg( 'parentheses' )->rawParams( $hist )->escaped();
 	}
 
 	/**

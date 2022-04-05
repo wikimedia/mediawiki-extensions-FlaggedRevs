@@ -382,7 +382,7 @@ class FlaggableWikiPage extends WikiPage {
 	protected function pageData( $dbr, $conditions, $options = [] ) {
 		$cache = MediaWikiServices::getInstance()->getLocalServerObjectCache();
 		$fname = __METHOD__;
-		$row = $cache->getWithSetCallback(
+		return $cache->getWithSetCallback(
 			$cache->makeKey( 'flaggedrevs-pageData', $this->getNamespace(), $this->getDBkey() ),
 			$cache::TTL_MINUTE,
 			static function () use ( $dbr, $conditions, $options, $fname ) {
@@ -404,8 +404,6 @@ class FlaggableWikiPage extends WikiPage {
 				);
 			}
 		);
-
-		return $row;
 	}
 
 	/**

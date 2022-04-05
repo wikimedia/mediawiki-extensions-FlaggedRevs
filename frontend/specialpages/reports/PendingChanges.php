@@ -80,7 +80,7 @@ class PendingChanges extends SpecialPage {
 			'level'     => $request->getIntOrNull( 'level' ),
 			'category'  => $request->getVal( 'category' ),
 		];
-		$this->getOutput()->setSyndicated( true );
+		$this->getOutput()->setSyndicated();
 		$this->getOutput()->setFeedAppendQuery( wfArrayToCgi( $queryParams ) );
 	}
 

@@ -6,17 +6,6 @@
  * Note: avoid  FlaggedRevs class calls here for performance (like load.php).
  */
 class FlaggedRevsSetup {
-	/** @var bool Status of whether FlaggedRevs::load() can be called */
-	private static $canLoad = false;
-
-	/**
-	 * The FlaggedRevs class uses this as a sanity check.
-	 *
-	 * @return bool
-	 */
-	public static function isReady() {
-		return self::$canLoad;
-	}
 
 	/**
 	 * Entry point for hook handler
@@ -24,9 +13,6 @@ class FlaggedRevsSetup {
 	 * TODO make this the hook handler directly, and combine the methods here
 	 */
 	public function doSetup() {
-		# LocalSettings.php loaded, safe to load config
-		self::$canLoad = true;
-
 		# Conditional autopromote groups
 		$this->setAutopromoteConfig();
 

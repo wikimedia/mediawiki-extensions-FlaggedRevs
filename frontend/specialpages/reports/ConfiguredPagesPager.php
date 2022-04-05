@@ -70,8 +70,7 @@ class ConfiguredPagesPager extends AlphabeticPager {
 		}
 		$conds['page_namespace'] = $this->namespace;
 		# Be sure not to include expired items
-		$encCutoff = $this->mDb->addQuotes( $this->mDb->timestamp() );
-		$conds[] = "fpc_expiry > {$encCutoff}";
+		$conds[] = 'fpc_expiry > ' . $this->mDb->addQuotes( $this->mDb->timestamp() );
 		return [
 			'tables' => [ 'flaggedpage_config', 'page' ],
 			'fields' => [ 'page_namespace', 'page_title', 'fpc_override',

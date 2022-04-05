@@ -85,31 +85,10 @@ class FlaggedRevsXML {
 		foreach ( FlaggedRevs::getRestrictionLevels() as $perm ) {
 			// Give grep a chance to find the usages:
 			// revreview-restriction-any, revreview-restriction-none
-			$key = "revreview-restriction-{$perm}";
-			if ( wfMessage( $key )->isDisabled() ) {
-				$msg = $perm; // fallback to user right key
-			} else {
-				$msg = wfMessage( $key )->text();
-			}
+			$key = "revreview-restriction-$perm";
+			$msg = wfMessage( $key )->isDisabled() ? $perm : wfMessage( $key )->text();
 			$s .= Xml::option( $msg, $perm, $selected == $perm );
 		}
-		$s .= Xml::closeElement( 'select' ) . "\n";
-		return $s;
-	}
-
-	/**
-	 * Get a selector of "approved"/"unapproved". Used for filters.
-	 * @param int|null $selected selected level
-	 * @return string
-	 */
-	public static function getStatusFilterMenu( $selected = null ) {
-		$s = "<label for='wpStatus'>" . wfMessage( 'revreview-statusfilter' )->escaped() .
-			"</label>\n";
-		$s .= Xml::openElement( 'select', [ 'name' => 'status', 'id' => 'wpStatus' ] );
-		$s .= Xml::option( wfMessage( "revreview-filter-all" )->text(), '-1', $selected === -1 );
-		$s .= Xml::option( wfMessage( "revreview-filter-approved" )->text(), '1', $selected === 1 );
-		$s .= Xml::option( wfMessage( "revreview-filter-reapproved" )->text(), '2', $selected === 2 );
-		$s .= Xml::option( wfMessage( "revreview-filter-unapproved" )->text(), '3', $selected === 3 );
 		$s .= Xml::closeElement( 'select' ) . "\n";
 		return $s;
 	}

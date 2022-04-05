@@ -102,8 +102,7 @@ class ConfiguredPages extends SpecialPage {
 		# Autoreview/review restriction level
 		$restr = '';
 		if ( $row->fpc_level != '' ) {
-			$restr = 'autoreview=' . htmlspecialchars( $row->fpc_level );
-			$restr = "[$restr]";
+			$restr = '[autoreview=' . htmlspecialchars( $row->fpc_level ) . ']';
 		}
 		# When these configuration settings expire
 		if ( $row->fpc_expiry != 'infinity' && strlen( $row->fpc_expiry ) ) {
