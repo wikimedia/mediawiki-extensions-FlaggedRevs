@@ -653,7 +653,7 @@ class FlaggedRevision {
 	 * Useful for quickly pinging to see if a revision is flagged
 	 */
 	public static function revIsFlagged( $rev_id, $flags = 0 ) {
-		return ( self::getRevQuality( $rev_id, $flags ) !== false );
+		return self::getRevQuality( $rev_id, $flags ) === FR_CHECKED;
 	}
 
 	/**

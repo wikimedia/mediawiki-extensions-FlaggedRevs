@@ -530,9 +530,7 @@ class FlaggablePageView extends ContextSource {
 				if ( $synced ) {
 					$msg = 'revreview-basic-same';
 				} else {
-					$msg = 'revreview-newest-basic';
-					// Messages: revreview-newest-quality-i, revreview-newest-basic-i
-					$msg .= ( $revsSince == 0 ) ? '-i' : '';
+					$msg = !$revsSince ? 'revreview-newest-basic-i' : 'revreview-newest-basic';
 				}
 				$msgHTML = $this->msg( $msg, $srev->getRevId(), $time )
 					->numParams( $revsSince )->parse();
@@ -1422,14 +1420,12 @@ class FlaggablePageView extends ContextSource {
 		$this->load();
 		$time = $this->getLanguage()->date( $srev->getTimestamp(), true );
 		$revsSince = $this->article->getPendingRevCount();
-		$msg = 'revreview-newest-basic';
-		$msg .= ( $revsSince == 0 ) ? '-i' : '';
+		$msg = !$revsSince ? 'revreview-newest-basic-i' : 'revreview-newest-basic';
 		# Add bar msg to the top of the page...
 		$css = 'plainlinks';
 		if ( $background ) {
 			$css .= ' flaggedrevs_preview';
 		}
-		// Messages: revreview-newest-quality-i, revreview-newest-basic-i
 		$msgHTML = $this->msg( $msg, $srev->getRevId(), $time )->numParams( $revsSince )->parse();
 		$this->reviewNotice .= "<div id='mw-fr-reviewnotice' class='$css'>" .
 			"$msgHTML$diffToggle</div>";
@@ -1702,10 +1698,8 @@ class FlaggablePageView extends ContextSource {
 		RevisionRecord $revRecord, FlaggedRevision $srev = null
 	) {
 		$tier = FlaggedRevision::getRevQuality( $revRecord->getId() );
-		if ( $tier !== false ) {
-			$msg = $tier ?
-				'revreview-hist-quality' :
-				'revreview-hist-basic';
+		if ( $tier === FR_CHECKED ) {
+			$msg = 'revreview-hist-basic';
 		} else {
 			$msg = ( $srev && $revRecord->getTimestamp() > $srev->getRevTimestamp() ) ? // bug 15515
 				'revreview-hist-pending' :
