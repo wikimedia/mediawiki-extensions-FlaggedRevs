@@ -164,7 +164,7 @@
 	"right-validate": "{{Flagged Revs}}\n\n{{doc-right|validate}}",
 	"right-unreviewedpages": "{{Flagged Revs}}\n\n{{doc-right|unreviewedpages}}",
 	"rights-editor-revoke": "{{Flagged Revs}}\nShown for review log entries on Special:Log/rights.\n\nParameters:\n* $1 - user's user page title\n{{Related|Review-logentry}}",
-	"specialpages-group-quality": "{{Flagged Revs-small}}\n{{doc-special-group|that=are related to the extension FlaggedRevs|like=[[Special:PendingChanges]], [[Special:ReviewedPages]], [[Special:QualityOversight]], etc}}\n{{Identical|Edit review}}",
+	"specialpages-group-quality": "{{Flagged Revs-small}}\n{{doc-special-group|that=are related to the extension FlaggedRevs|like=[[Special:PendingChanges]], [[Special:ReviewedPages]], etc}}\n{{Identical|Edit review}}",
 	"stable-logentry-config": "{{Flagged Revs}}\nShown in the null edit summary accompanying a change in stability settings.\n\nParameters:\n* $1 - page title, with or without link\n{{Related|Stable-logentry}}",
 	"stable-logentry-modify": "{{Flagged Revs}}\nShown in the null edit summary accompanying a change in stability settings.\n\nParameters:\n* $1 - page title, with or without link\n{{Related|Stable-logentry}}",
 	"stable-logentry-reset": "{{Flagged Revs}}\nShown in the null edit summary accompanying a change in stability settings.\n\nParameters:\n* $1 - page title, with or without link\n{{Related|Stable-logentry}}",
