@@ -26,8 +26,6 @@ class FlaggedRevs {
 
 	/** @var string[][] Tag name/level config */
 	private static $dimensions = [];
-	/** @var bool */
-	private static $binaryFlagging = true;
 	/** @var int[] Namespace config, copy of $wgFlaggedRevsNamespaces */
 	private static $reviewNamespaces = [];
 	/** @var string[] Restriction levels/config, copy from $wgFlaggedRevsRestrictionLevels */
@@ -74,17 +72,13 @@ class FlaggedRevs {
 		}
 
 		$tag = self::getTagName();
-		$levels = $wgFlaggedRevsTags[$tag];
 		# Define "quality"
-		$ratingLevels = $levels['levels'];
+		$ratingLevels = $wgFlaggedRevsTags[$tag]['levels'];
 
 		# Set FlaggedRevs tags
 		self::$dimensions[$tag] = [];
 		for ( $i = 0; $i <= $ratingLevels; $i++ ) {
 			self::$dimensions[$tag][$i] = "{$tag}-{$i}";
-		}
-		if ( $ratingLevels > 1 ) {
-			self::$binaryFlagging = false; // more than one level
 		}
 	}
 
@@ -95,8 +89,8 @@ class FlaggedRevs {
 	 * @return bool
 	 */
 	public static function binaryFlagging() {
-		self::load();
-		return self::$binaryFlagging;
+		global $wgFlaggedRevsTags;
+		return reset( $wgFlaggedRevsTags )['levels'] <= 1;
 	}
 
 	/**
