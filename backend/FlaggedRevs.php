@@ -26,8 +26,6 @@ class FlaggedRevs {
 
 	/** @var string[][] Tag name/level config */
 	private static $dimensions = [];
-	/** @var int[][] Copy of $wgFlaggedRevsTagsRestrictions */
-	private static $tagRestrictions = [];
 	/** @var bool */
 	private static $binaryFlagging = true;
 	/** @var int[] Namespace config, copy of $wgFlaggedRevsNamespaces */
@@ -88,10 +86,6 @@ class FlaggedRevs {
 		if ( $ratingLevels > 1 ) {
 			self::$binaryFlagging = false; // more than one level
 		}
-
-		# Handle restrictions on tags
-		global $wgFlaggedRevsTagsRestrictions;
-		self::$tagRestrictions = $wgFlaggedRevsTagsRestrictions;
 	}
 
 	# ################ Basic config accessors #################
@@ -214,16 +208,6 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * Get the associative array of tag restrictions
-	 * ([rights => levels])
-	 * @return int[] Value from $wgFlaggedRevsTagsRestrictions
-	 */
-	private static function getRestrictions() {
-		self::load();
-		return self::$tagRestrictions[self::getTagName()] ?? [];
-	}
-
-	/**
 	 * Get the 'diffonly=' value for diff URLs. Either ('1','0','')
 	 * @return int[]
 	 */
@@ -267,12 +251,14 @@ class FlaggedRevs {
 	 * @return bool
 	 */
 	public static function userCanSetValue( $user, $value ) {
+		global $wgFlaggedRevsTagsRestrictions;
+
 		$pm = MediaWikiServices::getInstance()->getPermissionManager();
 		# Sanity check tag and value
 		if ( !self::valueIsValid( $value ) ) {
 			return false; // flag range is invalid
 		}
-		$restrictions = self::getRestrictions();
+		$restrictions = $wgFlaggedRevsTagsRestrictions[self::getTagName()] ?? [];
 		# No restrictions -> full access
 		if ( !$restrictions ) {
 			return true;
