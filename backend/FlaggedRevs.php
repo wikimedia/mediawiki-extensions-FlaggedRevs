@@ -24,63 +24,12 @@ class FlaggedRevs {
 	 */
 	public const PARSER_CACHE_NAME = 'stable-pcache';
 
-	/** @var string[][] Tag name/level config */
-	private static $dimensions = [];
-	/** @var int[] Namespace config, copy of $wgFlaggedRevsNamespaces */
-	private static $reviewNamespaces = [];
-	/** @var string[] Restriction levels/config, copy from $wgFlaggedRevsRestrictionLevels */
-	private static $restrictionLevels = [];
-
-	/** @var bool */
-	private static $loaded = false;
-
-	private static function load() {
-		if ( self::$loaded ) {
-			return;
-		}
-		if ( !FlaggedRevsSetup::isReady() ) { // sanity
-			throw new Exception( 'FlaggedRevs config loaded too soon! Possibly before LocalSettings.php!' );
-		}
-		self::$loaded = true;
-
-		# Make sure that the restriction levels are unique
-		global $wgFlaggedRevsRestrictionLevels;
-		self::$restrictionLevels = array_unique( $wgFlaggedRevsRestrictionLevels );
-		self::$restrictionLevels = array_filter( self::$restrictionLevels, 'strlen' );
-
-		# Make sure no talk namespaces are in review namespace
-		$namespaceInfo = MediaWikiServices::getInstance()->getNamespaceInfo();
-		global $wgFlaggedRevsNamespaces;
-		foreach ( $wgFlaggedRevsNamespaces as $ns ) {
-			if ( $namespaceInfo->isTalk( $ns ) ) {
-				throw new Exception( 'FlaggedRevs given talk namespace in $wgFlaggedRevsNamespaces!' );
-			} elseif ( $ns === NS_MEDIAWIKI ) {
-				throw new Exception( 'FlaggedRevs given NS_MEDIAWIKI in $wgFlaggedRevsNamespaces!' );
-			}
-		}
-		self::$reviewNamespaces = $wgFlaggedRevsNamespaces;
-
-		// When using a simple config, we don't need to initialize the other settings
-		if ( self::useOnlyIfProtected() ) {
-			return;
-		}
-
-		# Handle levelled tags
-		global $wgFlaggedRevsTags;
-		if ( count( $wgFlaggedRevsTags ) != 1 ) {
-			throw new Exception( 'FlaggedRevs given invalid tag name! We only support one dimension now.' );
-		}
-
-		$tag = self::getTagName();
-		# Define "quality"
-		$ratingLevels = $wgFlaggedRevsTags[$tag]['levels'];
-
-		# Set FlaggedRevs tags
-		self::$dimensions[$tag] = [];
-		for ( $i = 0; $i <= $ratingLevels; $i++ ) {
-			self::$dimensions[$tag][$i] = "{$tag}-{$i}";
-		}
-	}
+	/** @var string[]|null */
+	private static $dimensions = null;
+	/** @var int[]|null Namespace config, copy of $wgFlaggedRevsNamespaces */
+	private static $reviewNamespaces = null;
+	/** @var string[]|null */
+	private static $restrictionLevels = null;
 
 	# ################ Basic config accessors #################
 
@@ -99,7 +48,10 @@ class FlaggedRevs {
 	 */
 	public static function getTagName(): string {
 		global $wgFlaggedRevsTags;
-		return array_keys( $wgFlaggedRevsTags )[0] ?? '';
+		if ( count( $wgFlaggedRevsTags ) !== 1 ) {
+			throw new Exception( 'FlaggedRevs given invalid tag name! We only support one dimension now.' );
+		}
+		return array_keys( $wgFlaggedRevsTags )[0];
 	}
 
 	/**
@@ -134,7 +86,6 @@ class FlaggedRevs {
 	 */
 	private static function maxAutoReviewLevel() {
 		global $wgFlaggedRevsTagsAuto;
-		self::load();
 		if ( !self::autoReviewEnabled() ) {
 			return 0; // shouldn't happen
 		}
@@ -188,7 +139,11 @@ class FlaggedRevs {
 	 * @return string[] Value from $wgFlaggedRevsRestrictionLevels
 	 */
 	public static function getRestrictionLevels() {
-		self::load();
+		global $wgFlaggedRevsRestrictionLevels;
+		if ( self::$restrictionLevels === null ) {
+			# Make sure that the restriction levels are unique
+			self::$restrictionLevels = array_filter( array_unique( $wgFlaggedRevsRestrictionLevels ) );
+		}
 		return self::$restrictionLevels;
 	}
 
@@ -197,8 +152,16 @@ class FlaggedRevs {
 	 * @return string[]
 	 */
 	public static function getLevels() {
-		self::load();
-		return self::$dimensions[self::getTagName()] ?? [];
+		global $wgFlaggedRevsTags;
+		if ( self::$dimensions === null ) {
+			self::$dimensions = [];
+			$tag = self::getTagName();
+			$ratingLevels = $wgFlaggedRevsTags[$tag]['levels'];
+			for ( $i = 0; $i <= $ratingLevels; $i++ ) {
+				self::$dimensions[$i] = "$tag-$i";
+			}
+		}
+		return self::$dimensions;
 	}
 
 	/**
@@ -613,7 +576,6 @@ class FlaggedRevs {
 	 * @return int[]
 	 */
 	public static function quickTags() {
-		self::load();
 		if ( self::useOnlyIfProtected() ) {
 			return [];
 		}
@@ -653,7 +615,18 @@ class FlaggedRevs {
 	 * @return int[] Value from $wgFlaggedRevsNamespaces
 	 */
 	public static function getReviewNamespaces() {
-		self::load(); // validates namespaces
+		global $wgFlaggedRevsNamespaces;
+		if ( self::$reviewNamespaces === null ) {
+			$namespaceInfo = MediaWikiServices::getInstance()->getNamespaceInfo();
+			foreach ( $wgFlaggedRevsNamespaces as $ns ) {
+				if ( $namespaceInfo->isTalk( $ns ) ) {
+					throw new Exception( 'FlaggedRevs given talk namespace in $wgFlaggedRevsNamespaces!' );
+				} elseif ( $ns === NS_MEDIAWIKI ) {
+					throw new Exception( 'FlaggedRevs given NS_MEDIAWIKI in $wgFlaggedRevsNamespaces!' );
+				}
+			}
+			self::$reviewNamespaces = $wgFlaggedRevsNamespaces;
+		}
 		return self::$reviewNamespaces;
 	}
 
