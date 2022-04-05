@@ -1732,11 +1732,12 @@ class FlaggablePageView extends ContextSource {
 		} else {
 			$changes = $frev->findTemplateChanges( $newTemplates );
 		}
+		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 		foreach ( $changes as $tuple ) {
 			list( $title, $revIdStable, $hasStable ) = $tuple;
-			$link = Linker::linkKnown(
+			$link = $linkRenderer->makeKnownLink(
 				$title,
-				htmlspecialchars( $title->getPrefixedText() ),
+				$title->getPrefixedText(),
 				[],
 				[ 'diff' => 'cur', 'oldid' => $revIdStable ] );
 			if ( !$hasStable ) {
