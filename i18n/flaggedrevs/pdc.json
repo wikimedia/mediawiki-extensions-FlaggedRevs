@@ -8,6 +8,5 @@
 	"group-editor": "Schreiwer",
 	"group-editor-member": "{{GENDER:$1|Schreiwer}}",
 	"grouppage-editor": "{{ns:project}}:Schreiwer",
-	"revreview-filter-all": "All",
 	"revreview-restriction-none": "ken"
 }

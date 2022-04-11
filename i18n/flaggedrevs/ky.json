@@ -6,10 +6,6 @@
 	},
 	"revreview-toggle-show": "(+)",
 	"revreview-toggle-hide": "(-)",
-	"revreview-filter-all": "баары",
-	"revreview-levelfilter": "Деңгээл:",
-	"revreview-lev-all": "каалаган",
-	"revreview-lev-basic": "текшерилген",
 	"revreview-restriction-any": "каалаган",
 	"revreview-restriction-none": "жок"
 }
