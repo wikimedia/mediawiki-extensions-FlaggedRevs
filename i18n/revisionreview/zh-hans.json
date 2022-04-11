@@ -12,7 +12,9 @@
 			"PhiLiP",
 			"Waihorace",
 			"Xiaomingyan",
-			"阿pp"
+			"阿pp",
+			"GuoPC",
+			"Stang"
 		]
 	},
 	"revisionreview": "复核版本",
@@ -43,14 +45,14 @@
 	"revreview-flag": "复核该版本",
 	"revreview-reflag": "重新复核该版本",
 	"revreview-invalid": "'''无效的目标：'''没有与指定ID对应的[[{{MediaWiki:Validationpage}}|已复审]]版本。",
-	"revreview-log": "评论：",
+	"revreview-log": "注释：",
 	"revreview-main": "您必须选择内容页的特定版本以复审。\n\n参见[[Special:Unreviewedpages|未复审页面列表]]。",
 	"revreview-stable1": "您可能想要查看[{{fullurl:$1|stableid=$2}} 此已标记的版本]，并检查现在是否已有该页面的[{{fullurl:$1|stable=1}} 稳定版本]。",
 	"revreview-stable2": "您可能想要查看该页面的[{{fullurl:$1|stable=1}} 稳定版本]。",
 	"revreview-submit": "提交",
 	"revreview-submitting": "提交中……",
-	"revreview-submit-review": "接受版本",
-	"revreview-submit-unreview": "不接受版本",
+	"revreview-submit-review": "接受修订",
+	"revreview-submit-unreview": "不接受修订",
 	"revreview-submit-reject": "拒绝更改",
 	"revreview-submit-reviewed": "完成。接受！",
 	"revreview-submit-unreviewed": "完成。不接受！",
