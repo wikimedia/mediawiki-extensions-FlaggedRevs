@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedpage_config (
   -- 0: quality -> stable
   -- 1: latest reviewed
   -- 2: pristine -> quality -> stable
-  fpc_select integer NOT NULL,
+  fpc_select integer default NULL,
   -- Override the page?
   fpc_override bool NOT NULL,
   -- The protection level (Sysop, etc) for autoreview/review

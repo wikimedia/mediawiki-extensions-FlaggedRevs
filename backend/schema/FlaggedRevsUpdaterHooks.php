@@ -28,7 +28,11 @@ class FlaggedRevsUpdaterHooks {
 				'fr_img_name',
 				"$base/patch-drop-fr_img.sql"
 			);
-
+			$du->modifyExtensionField(
+				'flaggedpage_config',
+				'fpc_select',
+				"$base/patch-nullable-fpc_select.sql"
+			);
 		} elseif ( $dbType == 'postgres' ) {
 			$base = __DIR__ . '/postgres';
 			// Initial install tables (current schema)
@@ -59,7 +63,9 @@ class FlaggedRevsUpdaterHooks {
 			$du->addExtensionUpdate(
 				[ 'dropPgField', 'flaggedrevs', 'fr_img_sha1' ]
 			);
-
+			$du->addExtensionUpdate(
+				[ 'changeNullableField', 'flaggedpage_config', 'fpc_select', 'NULL' ]
+			);
 		} elseif ( $dbType == 'sqlite' ) {
 			$base = __DIR__ . '/mysql';
 			$du->addExtensionTable( 'flaggedrevs', "$base/FlaggedRevs.sql" );

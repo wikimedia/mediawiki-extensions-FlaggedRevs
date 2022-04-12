@@ -49,7 +49,7 @@ CREATE TABLE flaggedtemplates (
 
 CREATE TABLE flaggedpage_config (
   fpc_page_id   BIGINT       NOT NULL PRIMARY KEY DEFAULT 0,
-  fpc_select    INTEGER      NOT NULL,
+  fpc_select    INTEGER      NULL default NULL,
   fpc_override  INTEGER      NOT NULL,
   fpc_level     TEXT         NULL,
   fpc_expiry    TIMESTAMPTZ  NULL
