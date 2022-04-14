@@ -330,7 +330,8 @@ class FlaggedRevsHooks {
 		if ( $result === false ) {
 			return true; // nothing to do
 		}
-		$pm = MediaWikiServices::getInstance()->getPermissionManager();
+		$services = MediaWikiServices::getInstance();
+		$pm = $services->getPermissionManager();
 		# Don't let users vandalize pages by moving them...
 		if ( $action === 'move' ) {
 			if ( !FlaggedRevs::inReviewNamespace( $title ) || !$title->exists() ) {
@@ -372,7 +373,7 @@ class FlaggedRevsHooks {
 			# Respect page protection to handle cases of "review wars".
 			# If a page is restricted from editing such that a user cannot
 			# edit it, then said user should not be able to review it.
-			foreach ( $title->getRestrictions( 'edit' ) as $right ) {
+			foreach ( $services->getRestrictionStore()->getRestrictions( $title, 'edit' ) as $right ) {
 				if ( $right === 'sysop' ) {
 					// Backwards compatibility, rewrite sysop -> editprotected
 					$right = 'editprotected';

@@ -75,7 +75,9 @@ class FlagProtectToSemiProtect extends Maintenance {
 		$blockEnd = (int)( $start + $this->mBatchSize - 1 );
 		$count = 0;
 
-		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+		$services = MediaWikiServices::getInstance();
+		$lbFactory = $services->getDBLoadBalancerFactory();
+		$restrictionStore = $services->getRestrictionStore();
 
 		while ( $blockEnd <= $end ) {
 			$this->output( "...doing fpc_page_id from $blockStart to $blockEnd\n" );
@@ -91,7 +93,7 @@ class FlagProtectToSemiProtect extends Maintenance {
 			# Go through and protect each page...
 			foreach ( $res as $row ) {
 				$title = Title::newFromID( $row->fpc_page_id );
-				if ( $title->isProtected( 'edit' ) ) {
+				if ( $restrictionStore->isProtected( $title, 'edit' ) ) {
 					continue; // page already has edit protection - skip it
 				}
 				# Flagged protection settings
@@ -103,10 +105,10 @@ class FlagProtectToSemiProtect extends Maintenance {
 				$cascade = false;
 				$limit = [];
 				$expiry = [];
-				foreach ( $title->getRestrictionTypes() as $type ) {
+				foreach ( $restrictionStore->listApplicableRestrictionTypes( $title ) as $type ) {
 					# Get existing restrictions for this action
-					$oldLimit = $title->getRestrictions( $type ); // array
-					$oldExpiry = $title->getRestrictionExpiry( $type ); // MW_TS
+					$oldLimit = $restrictionStore->getRestrictions( $title, $type ); // array
+					$oldExpiry = $restrictionStore->getRestrictionExpiry( $title, $type ); // MW_TS
 					# Move or Edit rights - take highest of (flag,type) settings
 					if ( $type == 'edit' || $type == 'move' ) {
 						# Sysop flag-protect -> full protect
