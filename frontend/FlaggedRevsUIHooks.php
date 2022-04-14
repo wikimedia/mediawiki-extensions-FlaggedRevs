@@ -251,7 +251,7 @@ class FlaggedRevsUIHooks {
 					$content = $srev->getRevisionRecord()
 						->getContent( SlotRecord::MAIN );
 
-					return $fa->getRedirectURL( $content->getUltimateRedirectTarget() ) ?: '';
+					return $fa->getRedirectURL( $content->getRedirectTarget() ) ?: '';
 				},
 				[
 					'touchedCallback' => static function () use ( $wikiPage ) {
