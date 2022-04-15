@@ -208,7 +208,7 @@ class FlaggablePageView extends ContextSource {
 	 * @return bool
 	 */
 	private function isPageViewOrDiff() {
-		$action = Action::getActionName( $this->getContext() );
+		$action = $this->getActionName();
 		return $action === 'view' || $action === 'purge' || $action === 'render';
 	}
 
