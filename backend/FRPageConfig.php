@@ -114,7 +114,6 @@ class FRPageConfig {
 					'fpc_page_id',
 					[
 						'fpc_page_id'  => $title->getArticleID(),
-						'fpc_select'   => -1, // unused
 						'fpc_override' => (int)$config['override'],
 						'fpc_level'    => $config['autoreview'],
 						'fpc_expiry'   => $dbExpiry
