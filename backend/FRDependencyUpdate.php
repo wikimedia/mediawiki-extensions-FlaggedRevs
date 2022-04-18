@@ -206,14 +206,18 @@ class FRDependencyUpdate {
 	 */
 	private function getCurrentVersionTemplates() {
 		$dbr = wfGetDB( DB_REPLICA );
-		$res = $dbr->select( 'templatelinks',
-			[ 'tl_namespace', 'tl_title' ],
+		$linksMigration = MediaWikiServices::getInstance()->getLinksMigration();
+		$queryInfo = $linksMigration->getQueryInfo( 'templatelinks' );
+		list( $nsField, $titleField ) = $linksMigration->getTitleFields( 'templatelinks' );
+		$res = $dbr->select( $queryInfo['tables'],
+			$queryInfo['fields'],
 			[ 'tl_from' => $this->title->getArticleID() ],
-			__METHOD__
+			__METHOD__,
+			$queryInfo['joins']
 		);
 		$arr = [];
 		foreach ( $res as $row ) {
-			$arr[$row->tl_namespace][$row->tl_title] = 1;
+			$arr[$row->$nsField][$row->$titleField] = 1;
 		}
 		return $arr;
 	}
