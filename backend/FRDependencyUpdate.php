@@ -213,6 +213,7 @@ class FRDependencyUpdate {
 			$queryInfo['fields'],
 			[ 'tl_from' => $this->title->getArticleID() ],
 			__METHOD__,
+			[],
 			$queryInfo['joins']
 		);
 		$arr = [];
