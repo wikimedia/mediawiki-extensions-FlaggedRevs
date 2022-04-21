@@ -4,9 +4,11 @@
 			"Dgstranz",
 			"Fitoschido",
 			"Macofe",
-			"Ryo567"
+			"Ryo567",
+			"DiegoAmbrocio"
 		]
 	},
+	"apihelp-flagconfig-summary": "Obtenga información básica sobre la configuración de la marca de revisión para este sitio.",
 	"apihelp-query+configuredpages-description": "Enumerar todas las páginas que tienen configuraciones de revisiones personalizadas.",
 	"apihelp-query+configuredpages-param-start": "Empezar a listar en la ID de esta página.",
 	"apihelp-query+configuredpages-param-end": "Terminar de listar en la ID de esta página.",
@@ -19,6 +21,7 @@
 	"apihelp-query+oldreviewedpages-description": "Enumera las páginas que tienen cambios pendientes de revisión.",
 	"apihelp-query+oldreviewedpages-param-start": "Comenzar listado en este cronomarcador.",
 	"apihelp-query+oldreviewedpages-param-end": "Detener listado en este cronomarcador.",
+	"apihelp-query+oldreviewedpages-param-maxsize": "Tamaño máximo de cambio en el recuento de caracteres.",
 	"apihelp-query+oldreviewedpages-param-filterwatched": "Cómo filtrar las páginas en tu lista de seguimiento.",
 	"apihelp-query+oldreviewedpages-param-namespace": "Los espacios de nombres que aparecerán.",
 	"apihelp-query+oldreviewedpages-param-category": "Mostrar solo páginas en la categoría dada.",

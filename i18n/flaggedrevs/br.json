@@ -4,7 +4,8 @@
 			"Fohanno",
 			"Fulup",
 			"Gwendal",
-			"Y-M D"
+			"Y-M D",
+			"Huñvreüs"
 		]
 	},
 	"action-review": "Adwelet an adweladennoù",
@@ -139,6 +140,7 @@
 	"revreview-unlocked-title": "Ne rank ket bezañ adlennet kemmoù ar bajenn-mañ.",
 	"revreview-locked": "'''Notenn :''' Rankout a ra bezañ [[{{MediaWiki:Validationpage}}|adlennet]] ar c'hemmoù a-raok bezañ embannet er bajenn-mañ.",
 	"revreview-unlocked": "'''Notenn :''' Ne rank ket bezañ [[{{MediaWiki:Validationpage}}|adlennet]] ar c'hemmoù a-raok bezañ embannet er bajenn-mañ.",
+	"logeventslist-review-log": "Marilh an adweladennoù",
 	"validationpage": "{{ns:help}}:Kadarnaat ar bajenn",
 	"log-action-filter-stable-modify": "Kefluniadur kemmet"
 }
