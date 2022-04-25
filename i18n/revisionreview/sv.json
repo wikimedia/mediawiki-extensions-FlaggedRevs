@@ -36,7 +36,7 @@
 	"review_cannot_reject": "Kan inte avvisa dessa ändringar eftersom någon redan accepterat vissa (eller samtliga) av redigeringarna.",
 	"review_reject_excessive": "Kan inte avvisa så många ändringar på en gång.",
 	"review_reject_nulledits": "Kan inte avvisa dessa ändringar eftersom alla revideringar inte har några redigeringar.",
-	"revreview-check-flag-p": "Accept this version (includes $1 pending {{PLURAL:$1|change|changes}})",
+	"revreview-check-flag-p": "Acceptera denna version (innehåller $1 {{PLURAL:$1|ogranskad ändring|ogranskade ändringar}})",
 	"revreview-check-flag-p-title": "Acceptera alla nuvarande väntande ändringar tillsammans med din egen redigering. Använd endast detta om du redan har sett hela diffen för väntande ändringar.",
 	"revreview-check-flag-u": "Acceptera denna ogranskade sida",
 	"revreview-check-flag-u-title": "Acceptera den här versionen av sidan. Använd endast detta om du redan sett hela sidan.",

@@ -30,7 +30,10 @@
 			"Sanbec",
 			"Tiberius1701",
 			"Translationista",
-			"XalD"
+			"XalD",
+			"DDPAT",
+			"DiegoAmbrocio",
+			"Ice bulldog"
 		]
 	},
 	"action-review": "verificar ediciones",
@@ -221,8 +224,10 @@
 	"logeventslist-review-log": "Registro de revisiones",
 	"validationpage": "{{ns:help}}:Validación de página",
 	"log-action-filter-review": "Tipo de revisión:",
+	"log-action-filter-review-accept": "Aceptación manual",
 	"log-action-filter-stable": "Tipo de cambio de configuración:",
 	"log-action-filter-stable-config": "Configuración nueva",
 	"log-action-filter-stable-modify": "Configuración modificada",
-	"log-action-filter-stable-reset": "Restablecimiento de configuración"
+	"log-action-filter-stable-reset": "Restablecimiento de configuración",
+	"log-action-filter-stable-move_stable": "Configuración movida"
 }

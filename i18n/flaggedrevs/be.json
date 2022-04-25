@@ -7,7 +7,8 @@
 			"Дзяніс Тутэйшы",
 			"Хомелка",
 			"Чаховіч Уладзіслаў",
-			"Chadyka"
+			"Chadyka",
+			"Tomato Cream"
 		]
 	},
 	"action-autoreview": "аўтаматычна пазначаць уласныя праўкі як дагледжаныя",
@@ -54,6 +55,7 @@
 	"logentry-review-approve-auto": "$1 аўтаматычна {{GENDER:$2|даглядзеў|даглядзела}} версію старонкі $3",
 	"logentry-review-unapprove": "$1 {{GENDER:$2|зняў|зняла}} пазнаку догляду з версіі старонкі $3",
 	"logentry-stable-config": "$1 {{GENDER:$2|вызначыў|вызначыла}} настройкі стабільнасці версіі старонкі $3 $4",
+	"logentry-stable-modify": "$1 {{GENDER:$2|змяніў|змяніла}} настройкі стабільнасці версіі старонкі $3 $4",
 	"logentry-stable-move_stable": "$1 {{GENDER:$2|перанёс|перанесла}} настройкі стабільнай версіі са старонкі «$4» на «$3»",
 	"revreview-hist-draft": "недагледжаная версія",
 	"revreview-hist-pending": "чакае догляду",
@@ -192,5 +194,11 @@
 	"revreview-locked": "'''Заўвага.''' Праўкі павінны быць [[{{MediaWiki:Validationpage}}|правераны]], перш чым яны будуць паказаны чытачам гэтай старонкі.",
 	"revreview-unlocked": "'''Заўвага.''' Праўкі не патрабуюць папярэдняй [[{{MediaWiki:Validationpage}}|праверкі]] для адлюстравання чытачам гэтай старонкі.",
 	"logeventslist-review-log": "Журнал праверак версій",
-	"validationpage": "{{ns:help}}:Праверка старонак"
+	"validationpage": "{{ns:help}}:Праверка старонак",
+	"log-action-filter-review-accept": "Ручное пазначэнне дагледжаным",
+	"log-action-filter-review-unaccept": "Ручное пазначэнне недагледжаным",
+	"log-action-filter-stable-config": "Новая канфігурацыя",
+	"log-action-filter-stable-modify": "Змененая канфігурацыя",
+	"log-action-filter-stable-reset": "Скід канфігурацыі",
+	"log-action-filter-stable-move_stable": "Перамяшчэнне канфігурацыі"
 }
