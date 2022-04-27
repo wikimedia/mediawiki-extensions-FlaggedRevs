@@ -35,7 +35,7 @@ function updateReviewFormColors( $form ) {
  *
  * Originally introduced as part of T15744.
  *
-  Visually update the revision rating form on change:
+ * Visually update the revision rating form on change:
  * - Disable submit in case of invalid input.
  * - Update colors when <select> changes.
  * - Also remove comment box clutter in case of invalid input.
