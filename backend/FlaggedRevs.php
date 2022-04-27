@@ -117,7 +117,6 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * Return the include handling configuration
 	 * @return int
 	 */
 	public static function inclusionSetting() {
@@ -327,7 +326,10 @@ class FlaggedRevs {
 				},
 				'fallback' => static function () use ( $page, $pOpts, $stableParserCache ) {
 					// Use stale cache if possible
-					return Status::newGood( $stableParserCache->getDirty( $page, $pOpts ) ?: null );
+					$parserOutput = $stableParserCache->getDirty( $page, $pOpts );
+					// The fallback wasn't able to prevent the error situation, return false to
+					// continue the original error handling
+					return $parserOutput ? Status::newGood( $parserOutput ) : false;
 				},
 				'error' => static function ( Status $status ) {
 					return $status;
