@@ -116,7 +116,7 @@
 	"revreview-quick-basic": "'''[[{{MediaWiki:Validationpage}}|דף בדוק]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} סקירת השינויים הממתינים]]",
 	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|דף בדוק]]'''",
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|דף בדוק]]'''",
-	"revreview-quick-invalid": "'''מספר גרסה בלתי תקין'''",
+	"revreview-quick-invalid": "'''מספר גרסה בלתי־תקין'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|לא בדוק]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} סקירת השינויים הממתינים]]",
 	"revreview-basic-title": "זוהי גרסה בדוקה של הדף הזה",
