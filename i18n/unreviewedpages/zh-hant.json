@@ -7,13 +7,14 @@
 			"Gaoxuewei",
 			"LNDDYL",
 			"Liuxinyu970226",
-			"Oapbtommy"
+			"Oapbtommy",
+			"Winston Sung"
 		]
 	},
 	"unreviewedpages": "未審查頁面",
 	"unreviewedpages-legend": "未審查的內容頁面清單",
 	"unreviewedpages-category": "分類：",
-	"unreviewedpages-diff": "審查",
+	"unreviewedpages-diff": "審核",
 	"unreviewedpages-unwatched": "(未被監視)",
 	"unreviewedpages-watched": "($1 位活躍{{PLURAL:$1|使用者}}正在監視)",
 	"unreviewedpages-list": "此頁面列出了'''尚未'''達到指定[[{{MediaWiki:Validationpage}}|審查]]等級的內容頁面。",

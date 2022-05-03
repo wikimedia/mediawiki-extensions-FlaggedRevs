@@ -11,7 +11,8 @@
 			"Mark85296341",
 			"Tomchiukc",
 			"Waihorace",
-			"Xiplus"
+			"Xiplus",
+			"Winston Sung"
 		]
 	},
 	"validationstatistics": "頁面審查統計資訊",
@@ -22,12 +23,12 @@
 	"validationstatistics-table": "每個命名空間的頁面審查統計資訊如下所示，其中 '''不包含''' 重新導向頁面。\n有編輯待審查的頁面會以 ''{{int:validationstatistics-old}}'' 統計，\n無編輯待審查的頁面會以 ''{{int:validationstatistics-latest}}'' 統計。",
 	"validationstatistics-ns": "命名空間",
 	"validationstatistics-total": "頁面",
-	"validationstatistics-stable": "已審查",
+	"validationstatistics-stable": "已審核",
 	"validationstatistics-latest": "已同步",
-	"validationstatistics-synced": "已同步/已審查",
+	"validationstatistics-synced": "已同步/已審核",
 	"validationstatistics-old": "已過時",
 	"validationstatistics-unreviewed": "未審查",
 	"validationstatistics-utable": "下列為最近{{PLURAL:$2|一小時|$2 小時}}內{{PLURAL:$1|最活躍的審查員|最活躍的 $1 位審查員}}。",
 	"validationstatistics-user": "使用者",
-	"validationstatistics-reviews": "審查"
+	"validationstatistics-reviews": "審核"
 }

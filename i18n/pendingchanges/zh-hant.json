@@ -11,7 +11,8 @@
 			"Oapbtommy",
 			"Shinjiman",
 			"Waihorace",
-			"Wrightbus"
+			"Wrightbus",
+			"Winston Sung"
 		]
 	},
 	"pendingchanges": "有待審查變更的頁面",
@@ -24,7 +25,7 @@
 	"pendingchanges-category": "分類：",
 	"pendingchanges-onwatchlist": "在我的監視清單中的頁面",
 	"pendingchanges-stable": "穩定版本為預設值",
-	"pendingchanges-diff": "審查",
+	"pendingchanges-diff": "審核",
 	"pendingchanges-size": "最大變更 (位元組)：",
 	"pendingchanges-unwatched": "(未被監視)",
 	"pendingchanges-watched": "(有 $1 位活躍的使用者監視中)",
