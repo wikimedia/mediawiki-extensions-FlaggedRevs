@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\GoogleNewsSitemap\Specials\GoogleNewsSitemap;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RenderedRevision;
