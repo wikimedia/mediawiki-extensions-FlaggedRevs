@@ -1,5 +1,7 @@
 <?php
 
+namespace MediaWiki\Extension\GoogleNewsSitemap\Specials;
+
 class GoogleNewsSitemap {
 	public const OPT_INCLUDE = 0;
 	public const OPT_ONLY = 1;
