@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = function ( grunt ) {
+	const conf = grunt.file.readJSON( 'extension.json' );
 	grunt.loadNpmTasks( 'grunt-banana-checker' );
 	grunt.loadNpmTasks( 'grunt-eslint' );
 	grunt.loadNpmTasks( 'grunt-stylelint' );
@@ -23,18 +24,10 @@ module.exports = function ( grunt ) {
 			]
 		},
 		banana: {
-			api: 'i18n/api/',
-			configuredpages: 'i18n/configuredpages/',
-			flaggedrevs: 'i18n/flaggedrevs/',
-			pendingchanges: 'i18n/pendingchanges/',
-			revisionreview: 'i18n/revisionreview/',
-			stabilization: 'i18n/stabilization/',
-			stablepages: 'i18n/stablepages/',
-			unreviewedpages: 'i18n/unreviewedpages/',
-			validationstatistics: 'i18n/validationstatistics/',
 			options: {
 				requireLowerCase: 'initial'
-			}
+			},
+			all: conf.MessagesDirs.FlaggedRevs
 		}
 	} );
 
