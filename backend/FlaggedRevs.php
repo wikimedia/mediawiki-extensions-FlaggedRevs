@@ -39,7 +39,7 @@ class FlaggedRevs {
 	 */
 	public static function binaryFlagging() {
 		global $wgFlaggedRevsTags;
-		return reset( $wgFlaggedRevsTags )['levels'] <= 1;
+		return self::useOnlyIfProtected() || reset( $wgFlaggedRevsTags )['levels'] <= 1;
 	}
 
 	/**
