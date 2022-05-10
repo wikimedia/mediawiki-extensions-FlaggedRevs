@@ -1,23 +1,40 @@
 <?php
 
+use Wikimedia\TestingAccessWrapper;
+
 /**
  * @covers \FlaggedRevs
  */
 class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 
-	public function testGetLevels() {
+	public function provideGetLevels() {
+		return [
+			'three levels' => [
+				'revsTags' => [ 'accuracy' => [ 'levels' => 3, 'quality' => 2 ] ],
+				'expected' => [ 'accuracy-0', 'accuracy-1', 'accuracy-2', 'accuracy-3' ],
+			],
+			'two named levels' => [
+				'revsTags' => [ 'accuracy' => [ 'levels' => 2, 'quality' => 20, 'pristine' => 21 ] ],
+				'expected' => [ 'accuracy-0', 'accuracy-1', 'accuracy-2' ],
+			],
+		];
+	}
+
+	/**
+	 * @dataProvider provideGetLevels
+	 */
+	public function testGetLevels( $revsTags, $expected ) {
 		$this->setMwGlobals( [
 			'wgExtensionFunctions' => [],
 			'wgFlaggedRevsProtection' => false,
-			'wgFlaggedRevsTags' => [ 'accuracy' => [ 'levels' => 3, 'quality' => 2 ] ],
+			'wgFlaggedRevsTags' => $revsTags,
 		] );
 
-		$this->assertSame( [
-			'accuracy-0',
-			'accuracy-1',
-			'accuracy-2',
-			'accuracy-3'
-		], FlaggedRevs::getLevels() );
+		/** @var FlaggedRevs $staticAccess */
+		$staticAccess = TestingAccessWrapper::newFromClass( FlaggedRevs::class );
+		$staticAccess->dimensions = null;
+
+		$this->assertSame( $expected, FlaggedRevs::getLevels() );
 	}
 
 }
