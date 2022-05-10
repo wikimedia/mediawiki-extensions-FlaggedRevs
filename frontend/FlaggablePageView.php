@@ -1952,9 +1952,8 @@ class FlaggablePageView extends ContextSource {
 	 * (b) this is an unreviewed page (bug 23970)
 	 * @param EditPage $editPage
 	 * @param array &$checkboxes
-	 * @param int|null &$tabindex
 	 */
-	public function addReviewCheck( EditPage $editPage, array &$checkboxes, &$tabindex = null ) {
+	public function addReviewCheck( EditPage $editPage, array &$checkboxes ) {
 		$this->load();
 		$request = $this->getRequest();
 		$title = $this->article->getTitle(); // convenience
@@ -1999,22 +1998,7 @@ class FlaggablePageView extends ContextSource {
 				$options['title-message'] = 'revreview-check-flag-u-title';
 				$options['label-message'] = 'revreview-check-flag-u';
 			}
-			if ( $tabindex === null ) {
-				// New style
-				$checkboxes[$name] = $options;
-			} else {
-				// Old style
-				$checkbox = Xml::check(
-					$name,
-					$options['default'],
-					[ 'tabindex' => ++$tabindex, 'id' => $name ]
-				);
-				$attribs = [ 'for' => $name ];
-				$attribs['title'] = $this->msg( $options['title-message'] )->text();
-				$label = Xml::tags( 'label', $attribs,
-					$this->msg( $options['label-message'] )->parse() );
-				$checkboxes[ $options['legacy-name'] ] = $checkbox . '&#160;' . $label;
-			}
+			$checkboxes[$name] = $options;
 		}
 	}
 
