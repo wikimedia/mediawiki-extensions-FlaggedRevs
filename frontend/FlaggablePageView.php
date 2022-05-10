@@ -831,45 +831,11 @@ class FlaggablePageView extends ContextSource {
 			$this->isDiffFromStable = true; // alter default review form tags
 			return FlaggedRevsXML::diffToggle() .
 				"<div id='mw-fr-stablediff'>\n" .
-				$this->getFormattedDiff( $diffBody, $multiNotice, $leftNote, $rightNote ) .
+				$diffEngine->addHeader( $diffBody, "<b>$leftNote</b>", "<b>$rightNote</b>", $multiNotice ) .
 				"</div>\n";
 		}
 
 		return '';
-	}
-
-	/**
-	 * $n number of in-between revs
-	 * @param string $diffBody
-	 * @param string $multiNotice
-	 * @param string $leftStatus
-	 * @param string $rightStatus
-	 * @return string
-	 */
-	private function getFormattedDiff(
-		$diffBody, $multiNotice, $leftStatus, $rightStatus
-	) {
-		$tableClass = 'diff diff-contentalign-' .
-			htmlspecialchars( $this->getTitle()->getPageLanguage()->alignStart() );
-		if ( $multiNotice != '' ) {
-			$multiNotice = "<tr><td colspan='4' style='text-align: center;' class='diff-multi'>" .
-				$multiNotice . "</td></tr>";
-		}
-		return "<table border='0' cellpadding='0' cellspacing='4' style='width: 98%;' " .
-				"class='$tableClass'>" .
-				"<col class='diff-marker' />" .
-				"<col class='diff-content' />" .
-				"<col class='diff-marker' />" .
-				"<col class='diff-content' />" .
-				"<tr>" .
-					"<td colspan='2' style='text-align: center; width: 50%;' class='diff-otitle'>" .
-						"<b>" . $leftStatus . "</b></td>" .
-					"<td colspan='2' style='text-align: center; width: 50%;' class='diff-ntitle'>" .
-						"<b>" . $rightStatus . "</b></td>" .
-				"</tr>" .
-				$multiNotice .
-				$diffBody .
-			"</table>";
 	}
 
 	/**
@@ -1017,7 +983,7 @@ class FlaggablePageView extends ContextSource {
 						$this->msg( 'review-edit-diff' )->parse() . ' ' .
 						FlaggedRevsXML::diffToggle() .
 						"<div id='mw-fr-stablediff'>" .
-						$this->getFormattedDiff( $diffBody, '', $leftNote, $rightNote ) .
+						$diffEngine->addHeader( $diffBody, "<b>$leftNote</b>", "<b>$rightNote</b>" ) .
 						"</div>\n";
 					$items[] = $diffHtml;
 					$diffEngine->showDiffStyle(); // add CSS
