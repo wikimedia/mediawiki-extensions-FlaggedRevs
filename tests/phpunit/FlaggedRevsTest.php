@@ -10,11 +10,11 @@ class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 	public function provideGetLevels() {
 		return [
 			'three levels' => [
-				'revsTags' => [ 'accuracy' => [ 'levels' => 3, 'quality' => 2 ] ],
+				'revsTags' => [ 'accuracy' => [ 'levels' => 3 ] ],
 				'expected' => [ 'accuracy-0', 'accuracy-1', 'accuracy-2', 'accuracy-3' ],
 			],
 			'two named levels' => [
-				'revsTags' => [ 'accuracy' => [ 'levels' => 2, 'quality' => 20, 'pristine' => 21 ] ],
+				'revsTags' => [ 'accuracy' => [ 'levels' => 2 ] ],
 				'expected' => [ 'accuracy-0', 'accuracy-1', 'accuracy-2' ],
 			],
 		];

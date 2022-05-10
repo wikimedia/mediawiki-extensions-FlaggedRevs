@@ -168,7 +168,7 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 		$page = $this->getExistingTestPage();
 
 		$this->setMwGlobals( [
-			'wgFlaggedRevsTags' => [ 'accuracy' => [ 'levels' => 3, 'quality' => 20, 'pristine' => 21 ] ],
+			'wgFlaggedRevsTags' => [ 'accuracy' => [ 'levels' => 3 ] ],
 		] );
 
 		$oldid = $page->getLatest();
