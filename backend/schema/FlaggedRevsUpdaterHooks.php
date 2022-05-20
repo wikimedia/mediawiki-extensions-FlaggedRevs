@@ -28,10 +28,10 @@ class FlaggedRevsUpdaterHooks {
 				'fr_img_name',
 				"$base/patch-drop-fr_img.sql"
 			);
-			$du->modifyExtensionField(
+			$du->dropExtensionField(
 				'flaggedpage_config',
 				'fpc_select',
-				"$base/patch-nullable-fpc_select.sql"
+				"$base/patch-drop-fpc_select.sql"
 			);
 		} elseif ( $dbType == 'postgres' ) {
 			$base = __DIR__ . '/postgres';
@@ -64,7 +64,7 @@ class FlaggedRevsUpdaterHooks {
 				[ 'dropPgField', 'flaggedrevs', 'fr_img_sha1' ]
 			);
 			$du->addExtensionUpdate(
-				[ 'changeNullableField', 'flaggedpage_config', 'fpc_select', 'NULL' ]
+				[ 'dropPgField', 'flaggedpage_config', 'fpc_select' ]
 			);
 		} elseif ( $dbType == 'sqlite' ) {
 			$base = __DIR__ . '/mysql';
@@ -78,6 +78,11 @@ class FlaggedRevsUpdaterHooks {
 				'flaggedrevs',
 				'fr_img_name',
 				"$base/patch-drop-fr_img.sql"
+			);
+			$du->dropExtensionField(
+				'flaggedpage_config',
+				'fpc_select',
+				"$base/patch-drop-fpc_select.sql"
 			);
 		}
 	}
