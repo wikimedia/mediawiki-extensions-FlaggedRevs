@@ -154,7 +154,7 @@ class FlaggedRevsLog {
 	 */
 	public static function expandParams( array $pars ) {
 		$res = [];
-		$pars = array_filter( $pars, 'strlen' );
+		$pars = array_filter( $pars );
 		foreach ( $pars as $paramAndValue ) {
 			list( $param, $value ) = explode( '=', $paramAndValue, 2 );
 			$res[$param] = $value;
