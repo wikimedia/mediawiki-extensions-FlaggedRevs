@@ -94,17 +94,11 @@ class FlaggedRevsXML {
 	}
 
 	/**
-	 * @param int|string|bool $quality
+	 * @param int|false $quality FR_CHECKED or false
 	 * @return string css color for this quality
 	 */
 	public static function getQualityColor( $quality ) {
-		if ( $quality === false ) {
-			return 'flaggedrevs-color-0';
-		}
-		if ( $quality == 0 ) {
-			return 'flaggedrevs-color-1';
-		}
-		return '';
+		return $quality === FR_CHECKED ? 'flaggedrevs-color-1' : 'flaggedrevs-color-0';
 	}
 
 	/**
@@ -169,9 +163,8 @@ class FlaggedRevsXML {
 			$html = wfMessage( $msg, $frev->getRevId(), $time )->parse();
 		} else {
 			$msg = $type === 'stable' ? 'revreview-basic' : 'revreview-newest-basic';
-			# For searching: uses messages 'revreview-quality-i', 'revreview-basic-i',
-			# 'revreview-newest-quality-i', 'revreview-newest-basic-i'
-			$msg .= ( $revsSince == 0 ) ? '-i' : '';
+			# For searching: uses messages 'revreview-basic-i', 'revreview-newest-basic-i'
+			$msg .= !$revsSince ? '-i' : '';
 			$html = wfMessage( $msg, $frev->getRevId(), $time )->numParams( $revsSince )->parse();
 		}
 		# Make fancy box...
