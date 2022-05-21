@@ -80,11 +80,6 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedtemplates (
 CREATE TABLE IF NOT EXISTS /*_*/flaggedpage_config (
   -- Foreign key to page.page_id
   fpc_page_id integer unsigned NOT NULL PRIMARY KEY,
-  -- Integers to represent what to show by default:
-  -- 0: quality -> stable
-  -- 1: latest reviewed
-  -- 2: pristine -> quality -> stable
-  fpc_select integer default NULL,
   -- Override the page?
   fpc_override bool NOT NULL,
   -- The protection level (Sysop, etc) for autoreview/review
