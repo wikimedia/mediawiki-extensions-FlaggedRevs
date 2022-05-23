@@ -9,7 +9,7 @@
 		]
 	},
 	"action-review": "Adwelet an adweladennoù",
-	"action-unreviewedpages": "Gwelet roll ar pajennoù n'int ket bet adwelet",
+	"action-unreviewedpages": "gwelet roll ar pajennoù n'int ket bet adwelet",
 	"editor": "Skridaozer",
 	"flaggedrevs": "Adweladennoù merket",
 	"flaggedrevs-watched-pending": "Er mare-mañ ez eus [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} kemmoù o c'hortoz] evit pajennoù adlennet en ho roll evezhiañ. '''Bezit war evezh !'''",
