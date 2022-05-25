@@ -40,7 +40,7 @@
 	"revreview-reflag": "Enê çımraviyarnayışi qontrol ke",
 	"revreview-invalid": "'''hedefo nemeqbul:''' yew revizyono [[{{MediaWiki:Validationpage}}|konrol biyaye]] zi ID de pê nêgıneni.",
 	"revreview-log": "Mışewre:",
-	"revreview-main": "qey çım ser çarnayişi, şıma gani pelê muhtewayi ra yew revizyon bıvıcini.\n\nbıewnê [[Special:Unreviewedpages|listeya pelê konrol nêbiyayeyan]].",
+	"revreview-main": "Seba etudkerdene ra şıma gani yew çımraviyarnayışê pela zerrekiyê kıfşkerdeyi weçinê.\n\n[[Special:Unreviewedpages|Lista pelanê kontrolnêbiyayeyan]] bıvênên.",
 	"revreview-stable1": "[{{fullurl:$1|stableid=$2}} Ena versiyanê nişan biye] bivini, ena pele [{{fullurl:$1|stable=1}} versiyonşê sebiti] eka este ya zi cino bivini.",
 	"revreview-stable2": "Ena pele de [{{fullurl:$1|stable=1}} versiyonê sebiti] (eka este) ti eşkena bivini.",
 	"revreview-submit": "Bırışe",
