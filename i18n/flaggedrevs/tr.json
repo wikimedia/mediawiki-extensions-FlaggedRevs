@@ -25,6 +25,7 @@
 			"Srhat",
 			"TmY e12",
 			"ToprakM",
+			"Victor Trevor",
 			"Vito Genovese"
 		]
 	},
@@ -134,7 +135,7 @@
 	"revreview-visibility-outdated": "'''Bu sayfanın tarihi geçmiş bir [[{{MediaWiki:Validationpage}}|kararlı sürümü]] mevcut. Sayfa kararlılık ayarları [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} yapılandırılabilir].'''",
 	"revreview-visibility-nostable": "'''Bu sayfanın [[{{MediaWiki:Validationpage}}|kararlı bir sürümü]] bulunmuyor. Sayfa kararlılık ayarları [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} yapılandırılabilir].'''",
 	"revreview-revnotfound": "İstemiş olduğunuz sayfanın eski sürümü bulunamadı. \nLütfen bu sayfaya erişmek için kullandığınız URL'yi kontrol edin.",
-	"right-autoreview": "Değişikliklerini otomatik olarak kontrol edilmiş işaretle",
+	"right-autoreview": "Kendin tarafından yapılan değişiklikleri otomatik olarak kontrol edilmiş işaretle",
 	"right-autoreviewrestore": "Geri döndürürken otomatik gözden geçir",
 	"right-movestable": "Kararlı sürümleri olan sayfaları taşı",
 	"right-review": "Revizyonları \"kontrol edilmiş\" olarak işaretler",
