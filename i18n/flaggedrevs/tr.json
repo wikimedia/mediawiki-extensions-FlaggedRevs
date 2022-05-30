@@ -25,7 +25,8 @@
 			"ToprakM",
 			"Vito Genovese",
 			"MuratTheTurkish",
-			"SaldırganSincap"
+			"SaldırganSincap",
+			"Victor Trevor"
 		]
 	},
 	"action-autoreview": "kendi düzenlemelerinin otomatik olarak \"kontrol edildi\" olarak işaretlenmesini sağlayın",
@@ -71,7 +72,7 @@
 	"logentry-review-approve": "$1, $3 sayfasının bir sürümünü {{GENDER:$2|inceledi}}",
 	"logentry-review-approve-auto": "$1, $3 sayfasının bir sürümünü otomatik olarak {{GENDER:$2|inceledi}}",
 	"logentry-review-unapprove": "$1, $3 sayfasının bir sürümünü {{GENDER:$2|reddetti}}",
-	"logentry-stable-config": "$1, $3 için kararlı sürüm ayarlarını belirledi $4",
+	"logentry-stable-config": "$1, $3 için kararlı sürüm ayarlarını {{GENDER:$2|belirledi}} $4",
 	"logentry-stable-modify": "$1, $3 için kararlı sürüm ayarları {{GENDER:$2|değiştirdi}} $4",
 	"logentry-stable-reset": "$1, $3 için kararlı sürüm ayarlarını {{GENDER:$2|sıfırladı}} $4",
 	"logentry-stable-move_stable": "$1, $3 için kararlı sürüm ayarlarını {{GENDER:$2|taşıdı}} $4",
@@ -162,7 +163,7 @@
 	"revreview-visibility-outdated": "'''Bu sayfanın tarihi geçmiş bir [[{{MediaWiki:Validationpage}}|kararlı sürümü]] mevcut. Sayfa kararlılık ayarları [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} yapılandırılabilir].'''",
 	"revreview-visibility-nostable": "'''Bu sayfanın [[{{MediaWiki:Validationpage}}|kararlı bir sürümü]] bulunmuyor. Sayfa kararlılık ayarları [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} yapılandırılabilir].'''",
 	"revreview-revnotfound": "İstemiş olduğunuz sayfanın eski sürümü bulunamadı. \nLütfen bu sayfaya erişmek için kullandığınız URL'yi kontrol edin.",
-	"right-autoreview": "Değişikliklerini otomatik olarak kontrol edilmiş işaretle",
+	"right-autoreview": "Kendin tarafından yapılan değişiklikleri otomatik olarak kontrol edilmiş işaretle",
 	"right-autoreviewrestore": "Geri döndürürken otomatik gözden geçir",
 	"right-movestable": "Kararlı sürümleri olan sayfaları taşı",
 	"right-review": "Revizyonları \"kontrol edilmiş\" olarak işaretler",
