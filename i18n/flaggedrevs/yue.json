@@ -3,6 +3,7 @@
 		"authors": [
 			"Antonytse",
 			"Deryck Chan",
+			"Sun8908",
 			"Suzukaze-c",
 			"Yueman"
 		]
@@ -22,7 +23,7 @@
 	"grouppage-reviewer": "{{ns:project}}:評論家",
 	"revreview-hist-draft": "草稿修訂",
 	"revreview-hist-basic": "視察修訂",
-	"revreview-hist-basic-user": "由[[User:$3|$3]]視察]過",
+	"revreview-hist-basic-user": "由[[User:$3|$3]]視察過",
 	"review-diff2stable": "同上次穩定修訂嘅差異",
 	"review-logentry-id": "修訂 ID: $2",
 	"review-logentry-diff": "同穩定版嘅差異",
