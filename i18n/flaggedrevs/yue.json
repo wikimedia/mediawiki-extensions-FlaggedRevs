@@ -4,7 +4,8 @@
 			"Antonytse",
 			"Deryck Chan",
 			"Suzukaze-c",
-			"Yueman"
+			"Yueman",
+			"Sun8908"
 		]
 	},
 	"editor": "編輯",
@@ -24,7 +25,7 @@
 	"revreview-hist-quality": "質素修訂",
 	"revreview-hist-basic": "視察修訂",
 	"revreview-hist-quality-user": "由[[User:$3|$3]]確認]過",
-	"revreview-hist-basic-user": "由[[User:$3|$3]]視察]過",
+	"revreview-hist-basic-user": "由[[User:$3|$3]]視察過",
 	"review-diff2stable": "同上次穩定修訂嘅差異",
 	"review-logentry-id": "修訂 ID: $2",
 	"review-logentry-diff": "同穩定版嘅差異",
