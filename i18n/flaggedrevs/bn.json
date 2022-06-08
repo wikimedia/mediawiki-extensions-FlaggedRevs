@@ -7,7 +7,8 @@
 			"Jayantanth",
 			"Wikitanvir",
 			"Zaheen",
-			"আফতাবুজ্জামান"
+			"আফতাবুজ্জামান",
+			"Ahmad Kanik"
 		]
 	},
 	"action-autoreviewrestore": "রোলব্যাকের ক্ষেত্রে স্বয়ংক্রিয় পর্যালোচনা করার",
@@ -67,7 +68,7 @@
 	"review-diff2stable": "সকল অমীমাংসিত পরিবর্তন দেখুন",
 	"review-logentry-id": "সংস্করণ: $2",
 	"review-logentry-diff": "পরিবর্তন পর্যালোচিত",
-	"review-logpage": "পর্যবেক্ষণ লগ",
+	"review-logpage": "নিরীক্ষা লগ",
 	"review-logpagetext": "এটি একটি লগ যেখানে পাতাগুলোর কোন সংস্করণগুলো [[{{MediaWiki:Validationpage}}|পর্যবেক্ষণকৃত]] তা দেখানো হয়েছে।",
 	"reviewer": "নিরীক্ষক",
 	"revreview-accuracy": "প্রাসঙ্গিকতা",
