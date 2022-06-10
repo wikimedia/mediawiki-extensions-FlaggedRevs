@@ -17,7 +17,8 @@ class FlaggedRevsUpdaterHooks {
 			$base = __DIR__ . '/mysql';
 			// Initial install tables (current schema)
 			$du->addExtensionTable( 'flaggedrevs', "$base/FlaggedRevs.sql" );
-			$du->addExtensionIndex( 'flaggedrevs', 'fr_user', "$base/patch-fr_user-index.sql" );
+
+			// 1.38
 			$du->dropExtensionField(
 				'flaggedtemplates',
 				'ft_title',
@@ -28,6 +29,8 @@ class FlaggedRevsUpdaterHooks {
 				'fr_img_name',
 				"$base/patch-drop-fr_img.sql"
 			);
+
+			// 1.39
 			$du->dropExtensionField(
 				'flaggedpage_config',
 				'fpc_select',
@@ -37,11 +40,8 @@ class FlaggedRevsUpdaterHooks {
 			$base = __DIR__ . '/postgres';
 			// Initial install tables (current schema)
 			$du->addExtensionTable( 'flaggedrevs', "$base/FlaggedRevs.pg.sql" );
-			$du->addExtensionIndex( 'flaggedrevs', 'fr_user', "$base/patch-fr_user-index.sql" );
-			$du->addExtensionUpdate( [
-				'dropFkey',
-				'flaggedrevs', 'fr_user'
-			] );
+
+			// 1.38
 			$du->addExtensionUpdate(
 				[ 'changePrimaryKey', 'flaggedtemplates', [ 'ft_rev_id', 'ft_tmp_rev_id' ], 'flaggedtemplates_pk' ]
 			);
@@ -63,12 +63,16 @@ class FlaggedRevsUpdaterHooks {
 			$du->addExtensionUpdate(
 				[ 'dropPgField', 'flaggedrevs', 'fr_img_sha1' ]
 			);
+
+			// 1.39
 			$du->addExtensionUpdate(
 				[ 'dropPgField', 'flaggedpage_config', 'fpc_select' ]
 			);
 		} elseif ( $dbType == 'sqlite' ) {
 			$base = __DIR__ . '/mysql';
 			$du->addExtensionTable( 'flaggedrevs', "$base/FlaggedRevs.sql" );
+
+			// 1.38
 			$du->dropExtensionField(
 				'flaggedtemplates',
 				'ft_title',
@@ -79,6 +83,8 @@ class FlaggedRevsUpdaterHooks {
 				'fr_img_name',
 				"$base/patch-drop-fr_img.sql"
 			);
+
+			// 1.39
 			$du->dropExtensionField(
 				'flaggedpage_config',
 				'fpc_select',
