@@ -1,0 +1,318 @@
+[
+	{
+		"name": "flaggedpages",
+		"comment": "Add page tracking table for flagged revisions",
+		"columns": [
+			{
+				"name": "fp_page_id",
+				"comment": "Foreign key to page.page_id",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "fp_reviewed",
+				"comment": "Is the stable version synced?",
+				"type": "mwtinyint",
+				"options": { "notnull": true, "length": 1, "default": 0 }
+			},
+			{
+				"name": "fp_pending_since",
+				"comment": "When (or NULL) the first edit after the stable version was made",
+				"type": "mwtimestamp",
+				"options": { "notnull": false }
+			},
+			{
+				"name": "fp_stable",
+				"comment": "Foreign key to flaggedrevs.fr_rev_id",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "fp_quality",
+				"comment": "The highest quality of the page's reviewed revisions. Note that this may not be set to display by default though.",
+				"type": "mwtinyint",
+				"options": { "notnull": false, "length": 1 }
+			}
+		],
+		"indexes": [
+			{
+				"name": "fp_reviewed_page",
+				"columns": [ "fp_reviewed", "fp_page_id" ],
+				"unique": false
+			},
+			{
+				"name": "fp_quality_page",
+				"columns": [ "fp_quality", "fp_page_id" ],
+				"unique": false
+			},
+			{
+				"name": "fp_pending_since",
+				"columns": [ "fp_pending_since" ],
+				"unique": false
+			}
+		],
+		"pk": [ "fp_page_id" ]
+	},
+	{
+		"name": "flaggedpage_pending",
+		"comment": "Add tracking table for edits needing review (for all levels)",
+		"columns": [
+			{
+				"name": "fpp_page_id",
+				"comment": "Foreign key to page.page_id",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "fpp_quality",
+				"comment": "The quality tier (0=checked, 1=quality, 2=pristine)",
+				"type": "mwtinyint",
+				"options": { "notnull": true, "length": 1 }
+			},
+			{
+				"name": "fpp_rev_id",
+				"comment": "The last rev ID with this quality",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "fpp_pending_since",
+				"comment": "Time of the first edit after the last revision reviewed to this level",
+				"type": "mwtimestamp",
+				"options": { "notnull": true }
+			}
+		],
+		"indexes": [
+			{
+				"name": "fpp_quality_pending",
+				"columns": [ "fpp_quality", "fpp_pending_since" ],
+				"unique": false
+			}
+		],
+		"pk": [ "fpp_page_id", "fpp_quality" ]
+	},
+	{
+		"name": "flaggedrevs",
+		"comment": "This stores all of our revision reviews; it is the main table. The template/file version data is stored in the next two tables",
+		"columns": [
+			{
+				"name": "fr_rev_id",
+				"comment": "Foreign key to revision.rev_id",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "fr_rev_timestamp",
+				"comment": "Timestamp of revision reviewed (revision.rev_timestamp)",
+				"type": "mwtimestamp",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "fr_page_id",
+				"comment": "Foreign key to page.page_id",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "fr_user",
+				"comment": "Foreign key to user.user_id",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "fr_timestamp",
+				"comment": "Timestamp of review",
+				"type": "mwtimestamp",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "fr_quality",
+				"comment": "Store the precedence level",
+				"type": "mwtinyint",
+				"options": { "notnull": true, "length": 1, "default": 0 }
+			},
+			{
+				"name": "fr_tags",
+				"comment": "Store tag metadata as newline separated, colon separated tag:value pairs",
+				"type": "blob",
+				"options": { "notnull": true, "length": 16777215 }
+			},
+			{
+				"name": "fr_flags",
+				"comment": "Comma-separated list of flags: - dynamic: conversion marker for inclusion handling (legacy schema had fr_text with PST text). - auto: revision reviewed automatically",
+				"type": "blob",
+				"options": { "notnull": true, "length": 255 }
+			}
+		],
+		"indexes": [
+			{
+				"name": "fr_page_rev",
+				"columns": [ "fr_page_id", "fr_rev_id" ],
+				"unique": false
+			},
+			{
+				"name": "fr_page_time",
+				"columns": [ "fr_page_id", "fr_rev_timestamp" ],
+				"unique": false
+			},
+			{
+				"name": "fr_page_qal_rev",
+				"columns": [ "fr_page_id", "fr_quality", "fr_rev_id" ],
+				"unique": false
+			},
+			{
+				"name": "fr_page_qal_time",
+				"columns": [ "fr_page_id", "fr_quality", "fr_rev_timestamp" ],
+				"unique": false
+			},
+			{
+				"name": "fr_user",
+				"columns": [ "fr_user" ],
+				"unique": false
+			}
+		],
+		"pk": [ "fr_rev_id" ]
+	},
+	{
+		"name": "flaggedtemplates",
+		"comment": "This stores all of our transclusion revision pointers",
+		"columns": [
+			{
+				"name": "ft_rev_id",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "ft_tmp_rev_id",
+				"comment": "Revisions ID used when reviewed",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			}
+		],
+		"indexes": [],
+		"pk": [ "ft_rev_id", "ft_tmp_rev_id" ]
+	},
+	{
+		"name": "flaggedpage_config",
+		"comment": "This stores settings on how to select the stable/default revision",
+		"columns": [
+			{
+				"name": "fpc_page_id",
+				"comment": "Foreign key to page.page_id",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "fpc_override",
+				"comment": "Override the page?",
+				"type": "mwtinyint",
+				"options": { "notnull": true, "length": 1 }
+			},
+			{
+				"name": "fpc_level",
+				"comment": "The protection level (Sysop, etc) for autoreview/review",
+				"type": "binary",
+				"options": { "notnull": false, "length": 60 }
+			},
+			{
+				"name": "fpc_expiry",
+				"comment": "Field for time-limited settings",
+				"type": "mwtimestamp",
+				"options": { "notnull": true, "CustomSchemaOptions": { "allowInfinite": true } }
+			}
+		],
+		"indexes": [
+			{
+				"name": "fpc_expiry",
+				"columns": [ "fpc_expiry" ],
+				"unique": false
+			}
+		],
+		"pk": [ "fpc_page_id" ]
+	},
+	{
+		"name": "flaggedrevs_tracking",
+		"comment": "Track includes/links only in stable versions",
+		"columns": [
+			{
+				"name": "ftr_from",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true, "default": 0 }
+			},
+			{
+				"name": "ftr_namespace",
+				"type": "integer",
+				"options": { "notnull": true, "default": 0 }
+			},
+			{
+				"name": "ftr_title",
+				"type": "binary",
+				"options": { "notnull": true, "length": 255, "default": "" }
+			}
+		],
+		"indexes": [
+			{
+				"name": "frt_from_namespace_title",
+				"columns": [ "ftr_from", "ftr_namespace", "ftr_title" ],
+				"unique": true
+			},
+			{
+				"name": "frt_namespace_title_from",
+				"columns": [ "ftr_namespace", "ftr_title", "ftr_from" ],
+				"unique": false
+			}
+		],
+		"pk": []
+	},
+	{
+		"name": "flaggedrevs_promote",
+		"comment": "This stores user demotions and stats",
+		"columns": [
+			{
+				"name": "frp_user_id",
+				"comment": "Foreign key to user.user_id",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "frp_user_params",
+				"type": "blob",
+				"options": { "notnull": true, "length": 16777215 }
+			}
+		],
+		"indexes": [],
+		"pk": [ "frp_user_id" ]
+	},
+	{
+		"name": "flaggedrevs_statistics",
+		"comment": "This stores overall stats",
+		"columns": [
+			{
+				"name": "frs_timestamp",
+				"comment": "Timestamp stat was recorded",
+				"type": "mwtimestamp",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "frs_stat_key",
+				"comment": "Stat key name, colons separate parameters",
+				"type": "string",
+				"options": { "notnull": true, "length": 255 }
+			},
+			{
+				"name": "frs_stat_val",
+				"comment": "Stat value as an integer",
+				"type": "bigint",
+				"options": { "notnull": true }
+			}
+		],
+		"indexes": [
+			{
+				"name": "frs_timestamp",
+				"columns": [ "frs_timestamp" ],
+				"unique": false
+			}
+		],
+		"pk": [ "frs_stat_key", "frs_timestamp" ]
+	}
+]

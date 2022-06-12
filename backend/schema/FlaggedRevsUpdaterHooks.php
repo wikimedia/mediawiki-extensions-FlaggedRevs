@@ -16,7 +16,7 @@ class FlaggedRevsUpdaterHooks {
 		if ( $dbType == 'mysql' ) {
 			$base = __DIR__ . '/mysql';
 			// Initial install tables (current schema)
-			$du->addExtensionTable( 'flaggedrevs', "$base/FlaggedRevs.sql" );
+			$du->addExtensionTable( 'flaggedrevs', "$base/tables-generated.sql" );
 
 			// 1.38
 			$du->dropExtensionField(
@@ -69,7 +69,7 @@ class FlaggedRevsUpdaterHooks {
 		} elseif ( $dbType == 'postgres' ) {
 			$base = __DIR__ . '/postgres';
 			// Initial install tables (current schema)
-			$du->addExtensionTable( 'flaggedrevs', "$base/FlaggedRevs.pg.sql" );
+			$du->addExtensionTable( 'flaggedrevs', "$base/tables-generated.sql" );
 
 			// 1.38
 			$du->addExtensionUpdate(
@@ -98,15 +98,129 @@ class FlaggedRevsUpdaterHooks {
 			$du->addExtensionUpdate(
 				[ 'dropPgField', 'flaggedpage_config', 'fpc_select' ]
 			);
+			$du->addExtensionUpdate( [
+				'dropDefault', 'flaggedpages', 'fp_page_id'
+			] );
+			$du->addExtensionUpdate( [
+				'dropDefault', 'flaggedpages', 'fp_stable'
+			] );
+			$du->addExtensionUpdate( [
+				'changeField', 'flaggedpages', 'fp_page_id', 'INT', ''
+			] );
+			$du->addExtensionUpdate( [
+				'changeField', 'flaggedpages', 'fp_reviewed', 'SMALLINT', 'fp_reviewed::SMALLINT DEFAULT 0'
+			] );
+			$du->addExtensionUpdate( [
+				'changeField', 'flaggedpages', 'fp_stable', 'INT', ''
+			] );
+			$du->addExtensionUpdate( [
+				'changeField', 'flaggedpages', 'fp_quality', 'SMALLINT', ''
+			] );
+			$du->addExtensionUpdate( [
+				'changeNullableField', 'flaggedpage_pending', 'fpp_pending_since', 'NOT NULL', true
+			] );
+			$du->addExtensionUpdate( [
+				'changeField', 'flaggedpage_pending', 'fpp_page_id', 'INT', ''
+			] );
+			$du->addExtensionUpdate( [
+				'changeField', 'flaggedpage_pending', 'fpp_quality', 'SMALLINT', ''
+			] );
+			$du->addExtensionUpdate( [
+				'changeField', 'flaggedpage_pending', 'fpp_rev_id', 'INT', ''
+			] );
+			$du->addExtensionUpdate( [
+				'dropDefault', 'flaggedrevs', 'fr_rev_id'
+			] );
+			$du->addExtensionUpdate( [
+				'dropDefault', 'flaggedrevs', 'fr_page_id'
+			] );
+			$du->addExtensionUpdate( [
+				'dropDefault', 'flaggedrevs', 'fr_tags'
+			] );
+			$du->addExtensionUpdate( [
+				'changeNullableField', 'flaggedrevs', 'fr_user', 'NOT NULL', true
+			] );
+			$du->addExtensionUpdate( [
+				'changeNullableField', 'flaggedrevs', 'fr_timestamp', 'NOT NULL', true
+			] );
+			$du->addExtensionUpdate( [
+				'renameIndex', 'flaggedrevs', 'page_rev', 'fr_page_rev'
+			] );
+			$du->addExtensionUpdate( [
+				'renameIndex', 'flaggedrevs', 'page_time', 'fr_page_time'
+			] );
+			$du->addExtensionUpdate( [
+				'renameIndex', 'flaggedrevs', 'page_qal_rev', 'fr_page_qal_rev'
+			] );
+			$du->addExtensionUpdate( [
+				'renameIndex', 'flaggedrevs', 'page_qal_time', 'fr_page_qal_time'
+			] );
+			$du->addExtensionUpdate( [
+				'changeField', 'flaggedrevs', 'fr_rev_id', 'INT', ''
+			] );
+			$du->addExtensionUpdate( [
+				'changeField', 'flaggedrevs', 'fr_page_id', 'INT', ''
+			] );
+			$du->addExtensionUpdate( [
+				'changeField', 'flaggedrevs', 'fr_user', 'INT', ''
+			] );
+			$du->addExtensionUpdate( [
+				'changeField', 'flaggedrevs', 'fr_quality', 'SMALLINT', 'fr_quality::SMALLINT DEFAULT 0'
+			] );
+			$du->addExtensionUpdate( [
+				'dropDefault', 'flaggedtemplates', 'ft_rev_id'
+			] );
+			$du->addExtensionUpdate( [
+				'dropDefault', 'flaggedtemplates', 'ft_tmp_rev_id'
+			] );
+			$du->addExtensionUpdate( [
+				'changeField', 'flaggedtemplates', 'ft_rev_id', 'INT', ''
+			] );
+			$du->addExtensionUpdate( [
+				'changeField', 'flaggedtemplates', 'ft_tmp_rev_id', 'INT', ''
+			] );
+			$du->addExtensionUpdate( [
+				'dropDefault', 'flaggedpage_config', 'fpc_page_id'
+			] );
+			$du->addExtensionUpdate( [
+				'changeNullableField', 'flaggedpage_config', 'fpc_expiry', 'NOT NULL', true
+			] );
+			$du->addExtensionUpdate( [
+				'changeField', 'flaggedpage_config', 'fpc_page_id', 'INT', ''
+			] );
+			$du->addExtensionUpdate( [
+				'changeField', 'flaggedpage_config', 'fpc_override', 'SMALLINT', ''
+			] );
+			$du->addExtensionUpdate( [
+				'renameIndex', 'flaggedrevs_tracking', 'namespace_title_from', 'frt_namespace_title_from'
+			] );
+			$du->addExtensionUpdate( [
+				'changeField', 'flaggedrevs_tracking', 'ftr_from', 'INT', 'ftr_from::INT DEFAULT 0'
+			] );
+			$du->addExtensionUpdate( [
+				'changeField', 'flaggedrevs_tracking', 'ftr_namespace', 'INT', 'ftr_namespace::INT DEFAULT 0'
+			] );
+			$du->dropExtensionIndex(
+				'flaggedrevs_tracking', 'flaggedrevs_tracking_pkey', "$base/patch-flaggedrevs_tracking-drop-pk.sql"
+			);
+			$du->addExtensionUpdate( [
+				'dropDefault', 'flaggedrevs_promote', 'frp_user_id'
+			] );
+			$du->addExtensionUpdate( [
+				'dropDefault', 'flaggedrevs_promote', 'frp_user_params'
+			] );
+			$du->addExtensionUpdate( [
+				'changeField', 'flaggedrevs_promote', 'frp_user_id', 'INT', ''
+			] );
 		} elseif ( $dbType == 'sqlite' ) {
-			$base = __DIR__ . '/mysql';
-			$du->addExtensionTable( 'flaggedrevs', "$base/FlaggedRevs.sql" );
+			$base = __DIR__ . '/sqlite';
+			$du->addExtensionTable( 'flaggedrevs', "$base/tables-generated.sql" );
 
 			// 1.38
 			$du->dropExtensionField(
 				'flaggedtemplates',
 				'ft_title',
-				__DIR__ . '/sqlite/patch-flaggedtemplates-fr_title.sql'
+				"$base/patch-flaggedtemplates-fr_title.sql"
 			);
 			$du->dropExtensionField(
 				'flaggedrevs',
