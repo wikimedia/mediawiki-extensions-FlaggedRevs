@@ -28,6 +28,8 @@ class FlaggedRevsUpdaterHooks {
 				'fr_img_name',
 				"$base/patch-drop-fr_img.sql"
 			);
+
+			// 1.39
 			$du->dropExtensionField(
 				'flaggedpage_config',
 				'fpc_select',
@@ -37,6 +39,31 @@ class FlaggedRevsUpdaterHooks {
 				'flaggedtemplates',
 				'ft_tmp_rev_id',
 				"$base/patch-flaggedtemplates-ft_tmp_rev_id.sql"
+			);
+			$du->modifyExtensionField(
+				'flaggedpages',
+				'fp_pending_since',
+				"$base/patch-flaggedpages-timestamp.sql"
+			);
+			$du->modifyExtensionField(
+				'flaggedpage_pending',
+				'fpp_pending_since',
+				"$base/patch-flaggedpage_pending-timestamp.sql"
+			);
+			$du->modifyExtensionField(
+				'flaggedrevs',
+				'fr_timestamp',
+				"$base/patch-flaggedrevs-timestamps.sql"
+			);
+			$du->modifyExtensionField(
+				'flaggedrevs_statistics',
+				'frs_timestamp',
+				"$base/patch-flaggedrevs_statistics-timestamp.sql"
+			);
+			$du->modifyExtensionField(
+				'flaggedpage_config',
+				'fpc_expiry',
+				"$base/patch-flaggedpage_config-timestamp.sql"
 			);
 		} elseif ( $dbType == 'postgres' ) {
 			$base = __DIR__ . '/postgres';
