@@ -122,7 +122,7 @@
 	"revreview-visibility-outdated": "'''Ова страница има застарелу [[{{MediaWiki:Validationpage}}|стабилну измену]]; можете [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} променити] подешавања стабилности страница.'''",
 	"revreview-visibility-nostable": "'''Ова страница нема [[{{MediaWiki:Validationpage}}|стабилну измену]]; можете [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} променити] подешавања стабилности страница.'''",
 	"revreview-revnotfound": "Не могу да пронађем старију измену странице.\nПроверите исправност URL адресе која Вас је довела до ове странице.",
-	"right-autoreview": "аутоматско означавање властитих измена „провереним“",
+	"right-autoreview": "аутоматско означавање властитих измена као проверене",
 	"right-autoreviewrestore": "аутоматски проверено при враћању",
 	"right-movestable": "премештање страница са стабилним изменама",
 	"right-review": "означавање измена као „проверене”",
