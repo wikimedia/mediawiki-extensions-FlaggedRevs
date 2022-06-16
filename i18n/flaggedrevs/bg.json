@@ -101,7 +101,7 @@
 	"tooltip-ca-current": "Преглед на страницата с непроверените промени",
 	"tooltip-ca-stable": "Преглед на стабилната версия на страницата",
 	"tooltip-ca-default": "Настройки на контрола на качеството",
-	"flaggedrevs-protect-legend": "([[{{MediaWiki:Validationpage}}|Помощ]]) за автоматична проверка на редакции",
+	"flaggedrevs-protect-legend": "Автоматична проверка на редакции",
 	"flaggedrevs-protect-none": "Позволяване на всички потребители",
 	"validationpage": "{{ns:help}}:Валидиране на страници",
 	"log-action-filter-review": "Вид проверка:",
