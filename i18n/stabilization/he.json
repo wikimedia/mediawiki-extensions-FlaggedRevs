@@ -25,8 +25,8 @@
 	"stabilization-notcontent": "אין אפשרות לסקור את הדף \"[[:$1|$1]]\".\nלא ניתן לבצע הגדרות.",
 	"stabilization-comment": "סיבה:",
 	"stabilization-otherreason": "סיבה אחרת:",
-	"stabilization-expiry": "פקיעה:",
-	"stabilization-othertime": "זמן פקיעה אחר:",
+	"stabilization-expiry": "תפוגה:",
+	"stabilization-othertime": "זמן תפוגה אחר:",
 	"stabilization-def-short": "ברירת המחדל",
 	"stabilization-def-short-0": "נוכחי",
 	"stabilization-def-short-1": "יציב",
@@ -35,9 +35,9 @@
 	"stabilize_page_unreviewable": "דף היעד אינו במרחב שסקירת דפים מופעלת בו.",
 	"stabilize_invalid_autoreview": "הגבלה בלתי־תקינה של סקירה אוטומטית.",
 	"stabilize_invalid_level": "רמת הגנה בלתי־תקינה.",
-	"stabilize_expiry_invalid": "תאריך הפקיעה אינו תקין.",
-	"stabilize_expiry_old": "תאריך הפקיעה כבר עבר.",
+	"stabilize_expiry_invalid": "תאריך התפוגה אינו תקין.",
+	"stabilize_expiry_old": "תאריך התפוגה כבר עבר.",
 	"stabilize_denied": "ההרשאה נדחתה.",
-	"stabilize-expiring": "פקיעה: $1 (UTC)",
+	"stabilize-expiring": "פגה ב־$1 (UTC)",
 	"stabilization-review": "סימון הגרסה הנוכחית כבדוקה"
 }
