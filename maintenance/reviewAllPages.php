@@ -38,13 +38,12 @@ class ReviewAllPages extends Maintenance {
 	 * @param User $user
 	 */
 	private function autoReviewCurrent( User $user ) {
+		$services = MediaWikiServices::getInstance();
 		$this->output( "Auto-reviewing all current page versions...\n" );
 		if ( !$user->isRegistered() ) {
 			$this->output( "Invalid user specified.\n" );
 			return;
-		} elseif ( !MediaWikiServices::getInstance()->getPermissionManager()
-			->userHasRight( $user, 'review' )
-		) {
+		} elseif ( !$services->getPermissionManager()->userHasRight( $user, 'review' ) ) {
 			$this->output( "User specified (id: {$user->getId()}) does not have \"review\" rights.\n" );
 			return;
 		}
@@ -67,7 +66,9 @@ class ReviewAllPages extends Maintenance {
 		$changed = 0;
 		$flags = FlaggedRevs::quickTags(); // Assume basic level
 
-		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+		$lbFactory = $services->getDBLoadBalancerFactory();
+		$wikiPageFactory = $services->getWikiPageFactory();
+		$revisionStore = $services->getRevisionStore();
 
 		while ( $blockEnd <= $end ) {
 			$this->output( "...doing page_id from $blockStart to $blockEnd\n" );
@@ -79,7 +80,6 @@ class ReviewAllPages extends Maintenance {
 				__METHOD__
 			);
 			# Go through and autoreview the current version of every page...
-			$revisionStore = MediaWikiServices::getInstance()->getRevisionStore();
 			foreach ( $res as $row ) {
 				$title = Title::newFromRow( $row );
 				$rev = $revisionStore->newRevisionFromRow( $row, RevisionStore::READ_LATEST );
@@ -87,7 +87,7 @@ class ReviewAllPages extends Maintenance {
 				$frev = FlaggedRevision::newFromTitle( $title, $row->page_latest, FR_MASTER );
 				# Rev should exist, but to be safe...
 				if ( !$frev && $rev ) {
-					$wikiPage = WikiPage::factory( $title );
+					$wikiPage = $wikiPageFactory->newFromTitle( $title );
 					$db->startAtomic( __METHOD__ );
 					FlaggedRevs::autoReviewEdit(
 						$wikiPage,

@@ -34,7 +34,9 @@ class CachePendingRevs extends Maintenance {
 		}
 
 		$dbr = wfGetDB( DB_REPLICA );
-		$revQuery = MediaWikiServices::getInstance()->getRevisionStore()->getQueryInfo();
+		$services = MediaWikiServices::getInstance();
+		$revFactory = $services->getRevisionFactory();
+		$revQuery = $revFactory->getQueryInfo();
 		$pageQuery = WikiPage::getQueryInfo();
 		$ret = $dbr->select(
 			array_merge( [ 'flaggedpages' ], $revQuery['tables'], $pageQuery['tables'] ),
@@ -52,10 +54,10 @@ class CachePendingRevs extends Maintenance {
 		);
 
 		$user = User::newSystemUser( 'Maintenance script', [ 'steal' => true ] );
-		$revFactory = MediaWikiServices::getInstance()->getRevisionFactory();
+		$wikiPageFactory = $services->getWikiPageFactory();
 		foreach ( $ret as $row ) {
 			$title = Title::newFromRow( $row );
-			$wikiPage = WikiPage::factory( $title );
+			$wikiPage = $wikiPageFactory->newFromTitle( $title );
 			$revRecord = $revFactory->newRevisionFromRow(
 				$row,
 				RevisionFactory::READ_NORMAL,

@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * @group Database
  * @covers \FRUserCounters
@@ -43,7 +45,7 @@ class FRUserCountersTest extends PHPUnit\Framework\TestCase {
 		$p = FRUserCounters::getUserParams( -1 );
 		# Assumes (main) IN content namespace
 		$title = Title::makeTitleSafe( 0, 'helloworld' );
-		$wikiPage = WikiPage::factory( $title );
+		$wikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
 
 		$copyP = $p;
 		FRUserCounters::updateUserParams( $copyP, $wikiPage, "Manual edit comment" );
@@ -64,7 +66,7 @@ class FRUserCountersTest extends PHPUnit\Framework\TestCase {
 
 		# Assumes (user) NOT IN content namespace
 		$title = Title::makeTitleSafe( NS_USER, 'helloworld' );
-		$wikiPage = WikiPage::factory( $title );
+		$wikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
 
 		$copyP = $p;
 		FRUserCounters::updateUserParams( $copyP, $wikiPage, "Manual edit comment" );
@@ -75,7 +77,7 @@ class FRUserCountersTest extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( $p['editComments'], $copyP['editComments'], "Auto summary" );
 
 		$title = Title::makeTitleSafe( NS_USER, 'helloworld' );
-		$wikiPage = WikiPage::factory( $title );
+		$wikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
 
 		$copyP = $p;
 		FRUserCounters::updateUserParams( $copyP, $wikiPage, "edit summary" );

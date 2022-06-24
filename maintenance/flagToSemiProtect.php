@@ -78,6 +78,7 @@ class FlagProtectToSemiProtect extends Maintenance {
 		$services = MediaWikiServices::getInstance();
 		$lbFactory = $services->getDBLoadBalancerFactory();
 		$restrictionStore = $services->getRestrictionStore();
+		$wikiPageFactory = $services->getWikiPageFactory();
 
 		while ( $blockEnd <= $end ) {
 			$this->output( "...doing fpc_page_id from $blockStart to $blockEnd\n" );
@@ -132,7 +133,7 @@ class FlagProtectToSemiProtect extends Maintenance {
 				}
 
 				$db->begin( __METHOD__ );
-				$wikiPage = WikiPage::factory( $title );
+				$wikiPage = $wikiPageFactory->newFromTitle( $title );
 				$ok = $wikiPage->doUpdateRestrictions( $limit, $expiry, $cascade, $reason, $user );
 				if ( $ok ) {
 					$count++;

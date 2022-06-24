@@ -311,9 +311,10 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		}
 		$user = $this->user;
 		# We can only approve actual revisions...
-		$revLookup = MediaWikiServices::getInstance()->getRevisionLookup();
+		$services = MediaWikiServices::getInstance();
+		$revStore = $services->getRevisionStore();
 		if ( $this->getAction() === 'approve' ) {
-			$revRecord = $revLookup->getRevisionByTitle( $this->page, $this->oldid );
+			$revRecord = $revStore->getRevisionByTitle( $this->page, $this->oldid );
 			# Check for archived/deleted revisions...
 			if ( !$revRecord || $revRecord->getVisibility() ) {
 				return 'review_bad_oldid';
@@ -343,8 +344,8 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			$this->unapproveRevision( $this->oldFrev );
 			$status = true;
 		} elseif ( $this->getAction() === 'reject' ) {
-			$newRevRecord = $revLookup->getRevisionByTitle( $this->page, $this->oldid );
-			$oldRevRecord = $revLookup->getRevisionByTitle( $this->page, $this->refid );
+			$newRevRecord = $revStore->getRevisionByTitle( $this->page, $this->oldid );
+			$oldRevRecord = $revStore->getRevisionByTitle( $this->page, $this->refid );
 			# Do not mess with archived/deleted revisions
 			if ( !$oldRevRecord ||
 				$oldRevRecord->isDeleted( RevisionRecord::DELETED_TEXT ) ||
@@ -362,13 +363,12 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			if ( $srev && $oldRevRecord->getTimestamp() < $srev->getRevTimestamp() ) {
 				return 'review_cannot_reject'; // not really a use case
 			}
-			$article = WikiPage::factory( $this->page );
+			$article = $services->getWikiPageFactory()->newFromTitle( $this->page );
 			# Get text with changes after $oldRev up to and including $newRev removed
 			if ( WikiPage::hasDifferencesOutsideMainSlot( $newRevRecord, $oldRevRecord ) ) {
 				return 'review_cannot_undo';
 			}
-			$undoHandler = MediaWikiServices::getInstance()
-				->getContentHandlerFactory()
+			$undoHandler = $services->getContentHandlerFactory()
 				->getContentHandler(
 					$newRevRecord->getSlot( SlotRecord::MAIN )->getModel()
 				);
@@ -415,9 +415,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 				ExtensionRegistry::getInstance()->isLoaded( 'Echo' )
 			) {
 				$affectedRevisions = []; // revid -> userid
-				$revQuery = MediaWikiServices::getInstance()
-					->getRevisionStore()
-					->getQueryInfo();
+				$revQuery = $revStore->getQueryInfo();
 				$dbr = wfGetDB( DB_REPLICA );
 				$revisions = $dbr->select(
 					$revQuery['tables'],
@@ -468,7 +466,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		}
 		# Watch page if set to do so
 		if ( $status === true ) {
-			$services = MediaWikiServices::getInstance();
 			$userOptionsLookup = $services->getUserOptionsLookup();
 			$watchlistManager = $services->getWatchlistManager();
 			if ( $userOptionsLookup->getOption( $user, 'flaggedrevswatch' ) &&

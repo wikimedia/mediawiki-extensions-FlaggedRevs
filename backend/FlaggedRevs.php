@@ -308,9 +308,10 @@ class FlaggedRevs {
 	public static function parseStableRevisionPooled(
 		FlaggedRevision $frev, ParserOptions $pOpts
 	) {
-		$page = WikiPage::factory( $frev->getTitle() );
+		$services = MediaWikiServices::getInstance();
+		$page = $services->getWikiPageFactory()->newFromTitle( $frev->getTitle() );
 		/** @var FlaggedRevsParserCache $stableParserCache */
-		$stableParserCache = MediaWikiServices::getInstance()->getService( 'FlaggedRevsParserCache' );
+		$stableParserCache = $services->getService( 'FlaggedRevsParserCache' );
 		$keyPrefix = $stableParserCache->makeKey( $page, $pOpts );
 
 		$work = new PoolCounterWorkViaCallback(
