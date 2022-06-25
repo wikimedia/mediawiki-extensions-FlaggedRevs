@@ -5,6 +5,7 @@
 	"unreviewedpages": "Unreviewed pages",
 	"unreviewedpages-legend": "List unreviewed content pages",
 	"unreviewedpages-category": "Category:",
+	"unreviewedpages-showhide-redirect": "$1 redirects",
 	"unreviewedpages-diff": "review",
 	"unreviewedpages-unwatched": "(unwatched)",
 	"unreviewedpages-watched": "($1 active {{PLURAL:$1|user|users}} watching)",

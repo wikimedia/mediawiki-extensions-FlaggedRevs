@@ -16,6 +16,7 @@
 	"unreviewedpages": "{{Flagged Revs}}\nName of the [[Special:UnreviewedPages]] page, which lists out pages lacking a stable version.",
 	"unreviewedpages-legend": "{{Flagged Revs}}\nUsed on the page Special:UnreviewedPages.\nNote that \"content pages\" are any page that *can* be reviewed.\n{{Identical|Content page}}",
 	"unreviewedpages-category": "{{Flagged Revs}}\nUsed on the page Special:UnreviewedPages.\n{{Identical|Category}}",
+	"unreviewedpages-showhide-redirect": "{{Flagged Revs}}\nUsed on the page Special:UnreviewedPages. Parameters:\n* $1 - the \"show/hide\" command, with the text taken from either {{msg-mw|show}} or {{msg-mw|hide}}",
 	"unreviewedpages-diff": "{{Flagged Revs}}\nUsed on the page Special:UnreviewedPages.\n{{Identical|Review}}",
 	"unreviewedpages-unwatched": "{{Flagged Revs}}\nUsed on the page [[Special:UnreviewedPages]].",
 	"unreviewedpages-watched": "{{Flagged Revs}}\nUsed on the page [[Special:UnreviewedPages]].\n* $1 is the number of active users that have the page on their watchlist\nNote that \"active\" is based roughly on logging in and out",
