@@ -70,7 +70,7 @@ class UnreviewedPages extends SpecialPage {
 			$this->msg( $this->hideRedirs ? 'show' : 'hide' )->text(),
 			[],
 			[
-				'hideredirs' => !$this->hideRedirs,
+				'hideredirs' => $this->hideRedirs ? '0' : '1',
 				'category' => $this->category,
 				'namespace' => $this->namespace,
 			]
