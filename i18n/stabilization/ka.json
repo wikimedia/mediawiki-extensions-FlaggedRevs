@@ -3,13 +3,14 @@
 		"authors": [
 			"BRUTE",
 			"David1010",
-			"გიორგიმელა"
+			"გიორგიმელა",
+			"Გიო ოქრო"
 		]
 	},
 	"stabilization-tab": "vet",
 	"stabilization": "გვერდის სტაბილიზაცია",
 	"stabilization-page": "გვერდის სახელი:",
-	"stabilization-leg": "გამოქვეყნებული ვერსიის პარამეტრების დამოწმება",
+	"stabilization-leg": "სტაბილური ვერსიის პარამეტრების დამოწმება",
 	"stabilization-def2": "ბოლო ვერსია",
 	"stabilization-restrict-none": "არც-ერთი დამატებითი აკრძალვა",
 	"stabilization-submit": "დამოწმება",

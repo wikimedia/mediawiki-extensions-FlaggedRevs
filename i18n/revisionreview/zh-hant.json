@@ -14,7 +14,8 @@
 			"Simon Shek",
 			"Waihorace",
 			"Xiplus",
-			"Zhxy 519"
+			"Zhxy 519",
+			"Ericliu1912"
 		]
 	},
 	"revisionreview": "審查修訂",
@@ -72,7 +73,7 @@
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">您所做的變更還不在穩定版本當中。這裡還有先前的變更正在等待審查。</span>\n\n請審查以下顯示的所有變更，以讓您的編輯在穩定版本中顯示。",
 	"revreview-update-includes": "模板或檔案已更新（未審查頁面以粗體表示）：",
 	"revreview-reject-text-list": "完成此操作後，您將'''拒絕'''在 [[:$2|$2]] 的以下{{PLURAL:$1|修訂|修訂}}中對原始內容的變更：",
-	"revreview-reject-text-revto": "此操作將還原頁面至 [{{fullurl:$1|oldid=$2}} $3 的版本]。",
+	"revreview-reject-text-revto": "此操作將還原頁面至[{{fullurl:$1|oldid=$2}} $3的版本]。",
 	"revreview-reject-summary": "摘要：",
 	"revreview-reject-confirm": "拒絕這些變更",
 	"revreview-reject-cancel": "取消",
