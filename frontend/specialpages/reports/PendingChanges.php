@@ -140,6 +140,7 @@ class PendingChanges extends SpecialPage {
 
 		// To style output of ChangesList::showCharacterDifference
 		$out->addModuleStyles( 'mediawiki.special.changeslist' );
+		$out->addModuleStyles( 'mediawiki.interface.helpers.styles' );
 
 		if ( $this->including() ) {
 			// If this list is transcluded...
