@@ -75,7 +75,7 @@ class UnreviewedPages extends SpecialPage {
 				'namespace' => $this->namespace,
 			]
 		);
-		$showhideredirs = $this->msg( 'whatlinkshere-hideredirs' )->rawParams( $link )->escaped();
+		$showhideredirs = $this->msg( 'unreviewedpages-showhide-redirect' )->rawParams( $link )->escaped();
 
 		# Add form...
 		$form = Html::openElement( 'form', [
