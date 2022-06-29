@@ -18,7 +18,8 @@
 			"Xiplus",
 			"Zhxy 519",
 			"一個正常人",
-			"Winston Sung"
+			"Winston Sung",
+			"SunAfterRain"
 		]
 	},
 	"action-autoreview": "將自己的編輯自動標記為「已檢查」",
@@ -142,7 +143,7 @@
 	"stable-logentry-modify": "已變更 $1 的穩定版本設定",
 	"stable-logentry-reset": "重設 $1 的穩定版本設定",
 	"stable-log-restriction": "自動審查：需要 \"$1\" 的權限",
-	"stable-logpage": "穩定性日誌",
+	"stable-logpage": "穩定版本日誌",
 	"stable-logpagetext": "此日誌記錄內容頁面[[{{MediaWiki:Validationpage}}|穩定版本]]的設定變更。",
 	"revreview-filter-all": "全部",
 	"revreview-filter-stable": "穩定",
