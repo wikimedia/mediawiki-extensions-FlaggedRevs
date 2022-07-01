@@ -9,12 +9,14 @@
 			"Najami",
 			"Per",
 			"Rotsee",
+			"Sabelöga",
 			"WikiPhoenix"
 		]
 	},
 	"unreviewedpages": "Ogranskade sidor",
 	"unreviewedpages-legend": "Lista ogranskade innehållssidor",
 	"unreviewedpages-category": "Kategori:",
+	"unreviewedpages-showhide-redirect": "$1 omdirigeringar",
 	"unreviewedpages-diff": "granska",
 	"unreviewedpages-unwatched": "(obevakad)",
 	"unreviewedpages-watched": "($1 {{PLURAL:$1|aktiv användare|aktiva användare}} bevakar)",

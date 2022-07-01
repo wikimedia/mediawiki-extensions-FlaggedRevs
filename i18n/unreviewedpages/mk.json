@@ -8,6 +8,7 @@
 	"unreviewedpages": "Непроверени страници",
 	"unreviewedpages-legend": "Список на непрегледани статии",
 	"unreviewedpages-category": "Категорија:",
+	"unreviewedpages-showhide-redirect": "$1 пренасочувања",
 	"unreviewedpages-diff": "преглед",
 	"unreviewedpages-unwatched": "(ненабљудувана)",
 	"unreviewedpages-watched": "($1 {{PLURAL:$1|активен корисник ја набљудува|активни корисници ја набљудуваат}})",

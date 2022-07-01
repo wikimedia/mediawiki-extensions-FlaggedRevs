@@ -11,7 +11,7 @@
 		]
 	},
 	"stablepages": "Pages utilisant la validation des modifications",
-	"stablepages-list": "Ci-dessous figure une liste de pages qui sont restreintes, c'est-à-dire que seuls certains utilisateurs peuvent les modifier sans qu'une relecture soit nécessaire.\nLes modifications faites par les autres utilisateurs ne sont pas affichées par défaut aux lecteurs tant qu'un utilisateur habilité ne les a pas relues.",
+	"stablepages-list": "Voici une liste des pages que seuls certains utilisateurs habilités peuvent modifier sans qu’une relecture soit nécessaire.\nLes modifications effectuées par les autres utilisateurs ne sont pas affichées par défaut aux lecteurs tant qu’un utilisateur habilité ne les a pas relues.",
 	"stablepages-none": "Il n’y a aucune page dans cette liste.",
 	"stablepages-config": "Configuration",
 	"stablepages-indef": "Délai d’expiration infini seulement"

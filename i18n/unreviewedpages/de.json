@@ -12,6 +12,7 @@
 	"unreviewedpages": "Ungesichtete Seiten",
 	"unreviewedpages-legend": "Liste ungesichteter Seiten",
 	"unreviewedpages-category": "Kategorie:",
+	"unreviewedpages-showhide-redirect": "Weiterleitungen $1",
 	"unreviewedpages-diff": "sichten",
 	"unreviewedpages-unwatched": "(unbeobachtet)",
 	"unreviewedpages-watched": "(von {{PLURAL:$1|einem aktiven Benutzer|$1 aktiven Benutzern}} beobachtet)",

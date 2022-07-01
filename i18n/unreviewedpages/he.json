@@ -11,6 +11,7 @@
 	"unreviewedpages": "דפים שלא נסקרו",
 	"unreviewedpages-legend": "רשימה של דפי תוכן שלא נסקרו",
 	"unreviewedpages-category": "קטגוריה:",
+	"unreviewedpages-showhide-redirect": "$1 הפניות",
 	"unreviewedpages-diff": "לסקור",
 	"unreviewedpages-unwatched": "לא במעקב",
 	"unreviewedpages-watched": "({{PLURAL:$1|משתמש פעיל אחד עוקב|$1 משתמשים פעילים עוקבים}})",

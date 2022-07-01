@@ -11,6 +11,7 @@
 	"unreviewedpages": "Pagine non revisionate",
 	"unreviewedpages-legend": "Elenco delle pagine non revisionate",
 	"unreviewedpages-category": "Categoria:",
+	"unreviewedpages-showhide-redirect": "$1 redirezioni",
 	"unreviewedpages-diff": "revisiona",
 	"unreviewedpages-unwatched": "(non osservata)",
 	"unreviewedpages-watched": "(osservata da $1 {{PLURAL:$1|utente attivo|utenti attivi}})",
