@@ -8,7 +8,8 @@
 			"Nodar Kherkheulidze",
 			"Otogi",
 			"გიორგიმელა",
-			"Გიო ოქრო"
+			"Გიო ოქრო",
+			"Mehman97"
 		]
 	},
 	"action-review": "გვერდის ვერსიების შემოწმება",
@@ -43,9 +44,9 @@
 	"group-reviewer-member": "{{GENDER:$1|შემმოწმებელი}}",
 	"grouppage-editor": "{{ns:project}}:რედაქტორი",
 	"grouppage-reviewer": "{{ns:project}}:რეცენზენტი",
-	"group-autoreview": "სანდო მომხმარებლები",
-	"group-autoreview-member": "{{GENDER:$1|სანდო მომხმარებელი}}",
-	"grouppage-autoreview": "{{ns:project}}:სანდო მომხმარებლები",
+	"group-autoreview": "შემოწმებულები",
+	"group-autoreview-member": "{{GENDER:$1|ავტომატურად დადასტურებული მომხმარებელი}}",
+	"grouppage-autoreview": "{{ns:project}}:შემოწმებული მომხმარებლები",
 	"logentry-review-approve": "მომხმარებელმა $1 შეამოწმა გვერდის ვერსია $3",
 	"logentry-review-approve-auto": "მომხმარებელმა $1 ავტომატურად შეამოწმა გვერდის ვერსია $3",
 	"revreview-hist-draft": "შეუმოწმებელი ვერსია",

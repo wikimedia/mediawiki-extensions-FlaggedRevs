@@ -13,18 +13,18 @@
 		]
 	},
 	"pendingchanges": "Pages ayant des modifications en attente",
-	"pendingchanges-legend": "Lister les pages revues avec des versions à réviser",
-	"pendingchanges-list": "Cette page liste des [[{{MediaWiki:Validationpage}}|pages déjà revues]] ayant une ou plusieurs modifications en attente d'examen.",
-	"pendingchanges-none": "Il n’existe actuellement aucune page respectant ces critères",
+	"pendingchanges-legend": "Lister les pages relues avec des modifications en attente",
+	"pendingchanges-list": "Cette page liste des [[{{MediaWiki:Validationpage}}|pages relues]] ayant une ou plusieurs modifications en attente d’examen.",
+	"pendingchanges-none": "Il n’y a actuellement aucune page remplissant ces critères.",
 	"pendingchanges-hours": "($1 heure{{PLURAL:$1||s}})",
 	"pendingchanges-days": "($1 jour{{PLURAL:$1||s}})",
 	"pendingchanges-recent": "(moins d’une heure)",
-	"pendingchanges-category": "Catégorie :",
+	"pendingchanges-category": "Catégorie :",
 	"pendingchanges-onwatchlist": "Pages dans ma liste de suivi",
 	"pendingchanges-stable": "La version stable est celle par défaut",
-	"pendingchanges-diff": "relecture",
-	"pendingchanges-size": "Différence de taille maximale (en octets) :",
+	"pendingchanges-diff": "relire",
+	"pendingchanges-size": "Différence de taille maximale (en octets) :",
 	"pendingchanges-unwatched": "(non suivie)",
 	"pendingchanges-watched": "($1 utilisateur{{PLURAL:$1||s}} suivent la page)",
-	"pendingchanges-viewing": "(en révision)"
+	"pendingchanges-viewing": "(en relecture)"
 }

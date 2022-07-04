@@ -23,7 +23,10 @@
 			"Xiaomingyan",
 			"Xiplus",
 			"阿pp",
-			"飞舞回堂前"
+			"飞舞回堂前",
+			"GuoPC",
+			"Lakejason0",
+			"SunAfterRain"
 		]
 	},
 	"action-autoreview": "自动标记自己的编辑为“已复核”",
@@ -179,7 +182,7 @@
 	"stable-logentry-modify": "更改“$1”的稳定版本设置",
 	"stable-logentry-reset": "重置“$1”的稳定版本设置",
 	"stable-log-restriction": "自动复核：需要“$1”权限",
-	"stable-logpage": "固定日志",
+	"stable-logpage": "稳定版本日志",
 	"stable-logpagetext": "这是对内容页面[[{{MediaWiki:Validationpage}}|稳定版本]]配置的更改的日志。",
 	"revreview-filter-all": "所有",
 	"revreview-filter-stable": "稳定",
