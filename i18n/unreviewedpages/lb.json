@@ -8,6 +8,7 @@
 	"unreviewedpages": "Säit déi net nogekuckt ass",
 	"unreviewedpages-legend": "Lëscht vun den net nogekuckte Säiten",
 	"unreviewedpages-category": "Kategorie:",
+	"unreviewedpages-showhide-redirect": "Viruleedunge $1",
 	"unreviewedpages-diff": "iwwerkucken",
 	"unreviewedpages-unwatched": "(net iwwerwaacht)",
 	"unreviewedpages-watched": "($1 {{PLURAL:$1|Benotzer iwwerwaacht|Benotzer iwwerwaachen}})",

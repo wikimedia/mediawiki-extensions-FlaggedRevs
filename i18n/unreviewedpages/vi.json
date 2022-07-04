@@ -2,12 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Minh Nguyen",
+			"RiceCracker12",
 			"Vinhtantran"
 		]
 	},
 	"unreviewedpages": "Các trang chưa được duyệt",
 	"unreviewedpages-legend": "Liệt kê các trang có nội dung chưa được duyệt",
 	"unreviewedpages-category": "Thể loại:",
+	"unreviewedpages-showhide-redirect": "$1 đổi hướng",
 	"unreviewedpages-diff": "duyệt",
 	"unreviewedpages-unwatched": "(chưa theo dõi)",
 	"unreviewedpages-watched": "($1 thành viên tích cực đang theo dõi)",
