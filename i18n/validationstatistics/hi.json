@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Ansumang",
-			"Siddhartha Ghai"
+			"Siddhartha Ghai",
+			"Saurmandal"
 		]
 	},
 	"validationstatistics": "पृष्ठ पुनरीक्षण आँकड़े",
@@ -10,7 +11,7 @@
 	"validationstatistics-lastupdate": "''निम्न डाटा $1 को $2 बजे अद्यतित किया गया था।''",
 	"validationstatistics-pndtime": "सम्पादन जिन्हें अधिकृत सदस्यों ने जाँच लिया है ''{{int:validationstatistics-stable}}'' माने जाते हैं।\n\n[[Special:OldReviewedPages|अनिरीक्षित बदलावों वाले पृष्ठों]] के लिए औसत पुनरीक्षण समय '''$1''' है; यह समय दर्शाता है कि सबसे पुराना अनिरीक्षित सम्पादन कितने समय तक अनिरीक्षित रहा है।",
 	"validationstatistics-revtime": "''अपंजीकृत सदस्यों'' द्वारा किये सम्पादनों के पुनरीक्षण का औसत समय '''$1''' है; मध्यस्थ '''$2''' है।\n$3",
-	"validationstatistics-table": "सभी नामस्थानों के लिए पुनरीक्षण आँकड़े नीचे दिखी गए हैं, पुनर्निर्देश पृष्ठों ''को छोड़ कर''।\nयदि पृष्ठों में अनिरीक्षित सम्पादन हैं तो उन्हें ''{{int:validationstatistics-old}}'' माना जाता है;\nयदि कोई अनिरीक्षित सम्पादन नहीं हैं तो उन्हें ''{{int:validationstatistics-latest}}'' माना जाता है।",
+	"validationstatistics-table": "सभी नामस्थानों के लिए पुनरीक्षण आँकड़े नीचे दिखी गए हैं, मगर अनुप्रेषण पृष्ठों के अलावा।\nअगर पृष्ठों में अपरीक्षित संपादन हैं तो उन्हें '{{int:validationstatistics-old}}' माना जाता है;\nअगर कोई अपरीक्षित संपादन नहीं है तो उन्हें '{{int:validationstatistics-latest}}' माना जाता है।",
 	"validationstatistics-ns": "नामस्थान",
 	"validationstatistics-total": "पृष्ठ",
 	"validationstatistics-stable": "पुनरीक्षित",
