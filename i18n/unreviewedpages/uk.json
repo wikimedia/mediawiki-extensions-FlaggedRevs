@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Ahonc",
+			"Base",
 			"Gzhegozh",
 			"Olvin",
 			"Piramidion",
@@ -14,6 +15,7 @@
 	"unreviewedpages": "Неперевірені сторінки",
 	"unreviewedpages-legend": "Список неперевірених статей",
 	"unreviewedpages-category": "Категорія:",
+	"unreviewedpages-showhide-redirect": "$1 перенаправлення",
 	"unreviewedpages-diff": "перевірити",
 	"unreviewedpages-unwatched": "(не спостерігають)",
 	"unreviewedpages-watched": "({{PLURAL:$1|спостерігає $1 активний користувач|спостерігають $1 активні користувачі|спостерігають $1 активних користувачів}})",
