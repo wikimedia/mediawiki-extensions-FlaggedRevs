@@ -2,13 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Peter17",
-			"Urhixidur"
+			"Urhixidur",
+			"Verdy p"
 		]
 	},
 	"configuredpages": "Pages avec des configurations de relecture",
-	"configuredpages-list": "La liste ci-dessous contient les pages qui ont des paramètres d’approbation différents de ceux par défaut pour ce site.\nCertains paramètres peuvent faire apparaître une version différente pour les lecteurs ou restreindre la liste des contributeurs dont les modifications n’ont pas besoin d’être vérifiées.",
+	"configuredpages-list": "La liste ci-dessous contient les pages qui ont des paramètres d’approbation différents de ceux par défaut pour ce site.\nCertains paramètres peuvent changer la version affichée par défaut aux lecteurs ou restreindre la liste des contributeurs dont les modifications n’ont pas besoin d’être vérifiées.",
 	"configuredpages-none": "Il n’y a aucune page dans cette liste.",
 	"configuredpages-config": "Configuration",
 	"configuredpages-def-draft": "dernière version",
-	"configuredpages-def-stable": "version publiée"
+	"configuredpages-def-stable": "version stable"
 }
