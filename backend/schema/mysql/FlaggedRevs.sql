@@ -71,7 +71,7 @@ CREATE INDEX /*i*/fr_user ON /*_*/flaggedrevs (fr_user);
 CREATE TABLE IF NOT EXISTS /*_*/flaggedtemplates (
   ft_rev_id integer unsigned NOT NULL,
   -- Revisions ID used when reviewed
-  ft_tmp_rev_id integer unsigned NULL,
+  ft_tmp_rev_id integer unsigned NOT NULL,
 
   PRIMARY KEY (ft_rev_id, ft_tmp_rev_id)
 ) /*$wgDBTableOptions*/;

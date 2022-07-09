@@ -28,6 +28,11 @@ class FlaggedRevsUpdaterHooks {
 				'fr_img_name',
 				"$base/patch-drop-fr_img.sql"
 			);
+			$du->modifyExtensionField(
+				'flaggedtemplates',
+				'ft_tmp_rev_id',
+				"$base/patch-flaggedtemplates-ft_tmp_rev_id.sql"
+			);
 
 		} elseif ( $dbType == 'postgres' ) {
 			$base = __DIR__ . '/postgres';
