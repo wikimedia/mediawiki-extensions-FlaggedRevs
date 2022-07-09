@@ -88,7 +88,7 @@ class FlagProtectToSemiProtect extends Maintenance {
 				[ "fpc_page_id BETWEEN $blockStart AND $blockEnd",
 					'page_namespace' => $wgFlaggedRevsNamespaces,
 					'page_id = fpc_page_id',
-					"fpc_level != ''" ],
+					'fpc_level != ' . $db->addQuotes( '' ) ],
 				__METHOD__
 			);
 			# Go through and protect each page...
