@@ -33,6 +33,11 @@ class FlaggedRevsUpdaterHooks {
 				'fpc_select',
 				"$base/patch-drop-fpc_select.sql"
 			);
+			$du->modifyExtensionField(
+				'flaggedtemplates',
+				'ft_tmp_rev_id',
+				"$base/patch-flaggedtemplates-ft_tmp_rev_id.sql"
+			);
 		} elseif ( $dbType == 'postgres' ) {
 			$base = __DIR__ . '/postgres';
 			// Initial install tables (current schema)
