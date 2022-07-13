@@ -542,7 +542,7 @@ class FlaggableWikiPage extends WikiPage {
 		# Revisions accepted to one tier count as accepted
 		# at the lower tiers (i.e. quality -> checked).
 		if ( $row ) {
-			$id = $row->fr_rev_id;
+			$id = (int)$row->fr_rev_id;
 			$ts = $row->rev_timestamp;
 		} else { // use previous rev of higher tier (if any)
 			$id = 0;
@@ -553,19 +553,30 @@ class FlaggableWikiPage extends WikiPage {
 			# Get the timestamp of the edit after this version (if any)
 			$nextTimestamp = $dbw->selectField( 'revision',
 				'rev_timestamp',
-				[ 'rev_page' => $pageId, "rev_timestamp > " . $dbw->addQuotes( $ts ) ],
+				[
+					'rev_page' => $pageId,
+					$dbw->makeList( [
+						'rev_timestamp > ' . $dbw->addQuotes( $ts ),
+						'rev_timestamp = ' . $dbw->addQuotes( $ts ) . ' AND rev_id > ' . $id,
+					], IDatabase::LIST_OR ),
+				],
 				__METHOD__,
-				[ 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 1 ]
+				[ 'ORDER BY' => [ 'rev_timestamp ASC', 'rev_id ASC' ], 'LIMIT' => 1 ]
 			);
-			$data[] = [
-				'fpp_page_id'       => $pageId,
-				'fpp_quality'       => FR_CHECKED,
-				'fpp_rev_id'        => $id,
-				'fpp_pending_since' => $nextTimestamp
-			];
+			// No newer revision found
+			if ( $nextTimestamp !== false ) {
+				$data[] = [
+					'fpp_page_id'       => $pageId,
+					'fpp_quality'       => FR_CHECKED,
+					'fpp_rev_id'        => $id,
+					'fpp_pending_since' => $nextTimestamp
+				];
+			}
 		}
 		# Clear any old junk, and insert new rows
 		$dbw->delete( 'flaggedpage_pending', [ 'fpp_page_id' => $pageId ], __METHOD__ );
-		$dbw->insert( 'flaggedpage_pending', $data, __METHOD__ );
+		if ( $data !== [] ) {
+			$dbw->insert( 'flaggedpage_pending', $data, __METHOD__ );
+		}
 	}
 }
