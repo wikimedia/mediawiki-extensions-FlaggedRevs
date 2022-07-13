@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedpages (
   -- Is the stable version synced?
   fp_reviewed bool NOT NULL default '0',
   -- When (or NULL) the first edit after the stable version was made
-  fp_pending_since varbinary(14) NULL,
+  fp_pending_since binary(14) NULL,
   -- Foreign key to flaggedrevs.fr_rev_id
   fp_stable integer unsigned NOT NULL,
   -- The highest quality of the page's reviewed revisions.
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedpage_pending (
   -- The last rev ID with this quality
   fpp_rev_id integer unsigned NOT NULL,
   -- Time of the first edit after the last revision reviewed to this level
-  fpp_pending_since varbinary(14) NOT NULL,
+  fpp_pending_since binary(14) NOT NULL,
 
   PRIMARY KEY (fpp_page_id,fpp_quality)
 ) /*$wgDBTableOptions*/;
@@ -43,13 +43,13 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedrevs (
   -- Foreign key to revision.rev_id
   fr_rev_id integer unsigned NOT NULL PRIMARY KEY,
   -- Timestamp of revision reviewed (revision.rev_timestamp)
-  fr_rev_timestamp varbinary(14) NOT NULL default '',
+  fr_rev_timestamp binary(14) NOT NULL,
   -- Foreign key to page.page_id
   fr_page_id integer unsigned NOT NULL,
   -- Foreign key to user.user_id
   fr_user integer unsigned NOT NULL,
   -- Timestamp of review
-  fr_timestamp varbinary(14) NOT NULL,
+  fr_timestamp binary(14) NOT NULL,
   -- Store the precedence level
   fr_quality tinyint(1) NOT NULL default 0,
   -- Store tag metadata as newline separated,
@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedpage_config (
   -- The protection level (Sysop, etc) for autoreview/review
   fpc_level varbinary(60) NULL,
   -- Field for time-limited settings
-  fpc_expiry varbinary(14) NOT NULL default 'infinity'
+  fpc_expiry varbinary(14) NOT NULL
 ) /*$wgDBTableOptions*/;
 
 CREATE INDEX /*i*/fpc_expiry ON /*_*/flaggedpage_config (fpc_expiry);
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedrevs_promote (
 -- This stores overall stats
 CREATE TABLE /*_*/flaggedrevs_statistics (
   -- Timestamp stat was recorded
-  frs_timestamp varbinary(14) NOT NULL,
+  frs_timestamp binary(14) NOT NULL,
   -- Stat key name, colons separate parameters
   frs_stat_key varchar(255) NOT NULL,
   -- Stat value as an integer
