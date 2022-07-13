@@ -119,11 +119,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 			$this->mIndexField = 'page_title';
 			$useIndex = [ 'page' => $pageIndex ];
 		}
-		// T270033 Index renaming
-		$revIndex = $this->mDb->indexExists( 'revision', 'page_timestamp',  __METHOD__ )
-			? 'page_timestamp'
-			: 'rev_page_timestamp';
-		$useIndex['revision'] = $revIndex;
+		$useIndex['revision'] = 'rev_page_timestamp';
 		return [
 			'tables'  => $tables,
 			'fields'  => $fields,
@@ -176,12 +172,8 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		} else {
 			$tables = [ 'page', 'querycache', 'flaggedpages', 'revision' ];
 		}
-		// T270033 Index renaming
-		$revIndex = $this->mDb->indexExists( 'revision', 'page_timestamp',  __METHOD__ )
-			? 'page_timestamp'
-			: 'rev_page_timestamp';
 
-		$useIndex = [ 'querycache' => 'qc_type', 'page' => 'PRIMARY', 'revision' => $revIndex ];
+		$useIndex = [ 'querycache' => 'qc_type', 'page' => 'PRIMARY', 'revision' => 'rev_page_timestamp' ];
 		return [
 			'tables'  => $tables,
 			'fields'  => $fields,
