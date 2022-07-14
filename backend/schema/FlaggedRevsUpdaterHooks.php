@@ -13,10 +13,11 @@ class FlaggedRevsUpdaterHooks {
 		$dbType = $du->getDB()->getType();
 		$du->dropExtensionTable( 'flaggedimages' );
 
+		// Initial install tables (current schema)
+		$du->addExtensionTable( 'flaggedrevs', __DIR__ . "/$dbType/tables-generated.sql" );
+
 		if ( $dbType == 'mysql' ) {
 			$base = __DIR__ . '/mysql';
-			// Initial install tables (current schema)
-			$du->addExtensionTable( 'flaggedrevs', "$base/tables-generated.sql" );
 
 			// 1.38
 			$du->dropExtensionField(
@@ -68,8 +69,6 @@ class FlaggedRevsUpdaterHooks {
 			);
 		} elseif ( $dbType == 'postgres' ) {
 			$base = __DIR__ . '/postgres';
-			// Initial install tables (current schema)
-			$du->addExtensionTable( 'flaggedrevs', "$base/tables-generated.sql" );
 
 			// 1.38
 			$du->addExtensionUpdate(
@@ -214,7 +213,6 @@ class FlaggedRevsUpdaterHooks {
 			] );
 		} elseif ( $dbType == 'sqlite' ) {
 			$base = __DIR__ . '/sqlite';
-			$du->addExtensionTable( 'flaggedrevs', "$base/tables-generated.sql" );
 
 			// 1.38
 			$du->dropExtensionField(
