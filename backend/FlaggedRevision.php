@@ -507,9 +507,12 @@ class FlaggedRevision {
 			return []; // short-circuit
 		}
 		$dbr = wfGetDB( DB_REPLICA );
+		$linksMigration = MediaWikiServices::getInstance()->getLinksMigration();
+		list( $nsField, $titleField ) = $linksMigration->getTitleFields( 'templatelinks' );
+		$queryInfo = $linksMigration->getQueryInfo( 'templatelinks' );
 		$ret = $dbr->select(
-			[ 'templatelinks', 'page', 'revision', 'flaggedtemplates', 'flaggedpages', ],
-			[ 'tl_namespace', 'tl_title', 'fp_stable', 'ft_tmp_rev_id', 'page_latest' ],
+			array_merge( $queryInfo['tables'], [ 'page', 'revision', 'flaggedtemplates', 'flaggedpages', ] ),
+			[ $nsField, $titleField, 'fp_stable', 'ft_tmp_rev_id', 'page_latest' ],
 			[
 				'tl_from' => $this->getPage(),
 				'ft_rev_id' => $this->getRevId(),
@@ -518,9 +521,11 @@ class FlaggedRevision {
 			], // current version templates
 			__METHOD__,
 			[], /* OPTIONS */
-			[
+			array_merge(
+				$queryInfo['joins'],
+				[
 				'page' => [ 'LEFT JOIN',
-					'page_namespace = tl_namespace AND page_title = tl_title'
+					"page_namespace = $nsField AND page_title = $titleField"
 				],
 				'revision' => [ 'LEFT JOIN',
 					[ 'rev_page = page_id' ],
@@ -529,7 +534,7 @@ class FlaggedRevision {
 					[ 'ft_tmp_rev_id = rev_id' ]
 				],
 				'flaggedpages'      => [ 'LEFT JOIN', 'fp_page_id = page_id' ]
-			]
+			] )
 		);
 		$tmpChanges = [];
 		foreach ( $ret as $row ) { // each template
@@ -540,7 +545,7 @@ class FlaggedRevision {
 			$revIdUsed = self::templateIdUsed( $revIdStable, $revIdReviewed );
 			# Check for edits/creations/deletions...
 			if ( self::templateChanged( $revIdDraft, $revIdUsed ) ) {
-				$title = Title::makeTitleSafe( $row->tl_namespace, $row->tl_title );
+				$title = Title::makeTitleSafe( $row->$nsField, $row->$titleField );
 				if ( !$title->equals( $this->getTitle() ) ) { // bug 42297
 					$tmpChanges[] = [ $title, $revIdUsed, (bool)$revIdStable ];
 				}
