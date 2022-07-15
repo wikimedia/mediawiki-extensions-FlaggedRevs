@@ -4,7 +4,6 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RenderedRevision;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
-use Wikimedia\Assert\Assert;
 use Wikimedia\Assert\PreconditionException;
 
 /**
@@ -732,14 +731,10 @@ class FlaggedRevs {
 			} else {
 				// Last resort, parse the page.
 				$poutputAccess = $services->getParserOutputAccess();
-				$status = $poutputAccess->getParserOutput(
+				$poutput = $poutputAccess->getParserOutput(
 					$article,
 					ParserOptions::newFromContext( RequestContext::getMain() )
-				);
-				$poutput = $status->getValue();
-				if ( !$poutput ) {
-					Assert::invariant( $status->isOK(), $status->getMessage()->serialize() );
-				}
+				)->getValue();
 			}
 		}
 
