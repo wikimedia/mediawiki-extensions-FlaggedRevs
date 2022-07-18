@@ -401,6 +401,10 @@ class FlaggedRevsHooks {
 	 * (c) The user can 'autoreview' new pages and this edit is a new page
 	 * (d) The user can 'review' and the "review pending edits" checkbox was checked
 	 *
+	 * Note: This hook handler is triggered in a variety of places, not just
+	 *       during edits. Example include null revision creation, imports,
+	 *       and page moves.
+	 *
 	 * Note: RC items not inserted yet, RecentChange_save hook does rc_patrolled bit...
 	 * @param WikiPage $wikiPage
 	 * @param RevisionRecord $revRecord

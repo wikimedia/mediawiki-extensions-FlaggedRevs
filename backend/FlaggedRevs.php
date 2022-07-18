@@ -717,25 +717,18 @@ class FlaggedRevs {
 			$updater = $article->getCurrentUpdate();
 			$poutput = $updater->getParserOutputForMetaData();
 		} catch ( PreconditionException | LogicException $exception ) {
+			// If there is no ongoing edit, we still need to get the
+			// parsed page somehow. This happens when the RevisionFromEditComplete hook
+			// is triggered during page moves, imports, null revisions for page protection,
+			// etc.
+			// It would be nice if we could get a PreparedUpdate in these situations as
+			// well. See FlaggableWikiPage::preloadPreparedEdit() and its callers.
 			$services = MediaWikiServices::getInstance();
-			$content = $revRecord->getContent( SlotRecord::MAIN );
-			$stashedEdit = $content ? $services->getPageEditStash()->checkCache(
-				$title,
-				$content,
-				$user
-			) : false;
-			if ( $stashedEdit ) {
-				// Try getting the value from edit stash
-				/** @var ParserOutput $output */
-				$poutput = $stashedEdit->output;
-			} else {
-				// Last resort, parse the page.
-				$poutputAccess = $services->getParserOutputAccess();
-				$poutput = $poutputAccess->getParserOutput(
-					$article,
-					ParserOptions::newFromContext( RequestContext::getMain() )
-				)->getValue();
-			}
+			$poutputAccess = $services->getParserOutputAccess();
+			$poutput = $poutputAccess->getParserOutput(
+				$article,
+				ParserOptions::newFromContext( RequestContext::getMain() )
+			)->getValue();
 		}
 
 		# Get the "review time" versions of templates.
