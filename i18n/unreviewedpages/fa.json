@@ -4,6 +4,7 @@
 			"Calak",
 			"Ebraminio",
 			"Huji",
+			"Jeeputer",
 			"Mardetanha",
 			"Mjbmr",
 			"Reza1615"
@@ -12,6 +13,7 @@
 	"unreviewedpages": "صفحه‌های بررسی‌نشده",
 	"unreviewedpages-legend": "فهرست صفحه‌های بازبینی نشده",
 	"unreviewedpages-category": "رده:",
+	"unreviewedpages-showhide-redirect": "$1 تغییر مسیر",
 	"unreviewedpages-diff": "بازبینی",
 	"unreviewedpages-unwatched": "(پی‌گیری‌نشده)",
 	"unreviewedpages-watched": "($1 {{PLURAL:$1|کاربر}} فعال پی‌گیرنده)",
