@@ -738,6 +738,10 @@ class FlaggedRevs {
 			}
 		}
 
+		if ( !$poutput ) {
+			return false;
+		}
+
 		# Get the "review time" versions of templates.
 		# This tries to make sure each template version either came from the stable
 		# version of that template or was a "review time" version used in the stable
