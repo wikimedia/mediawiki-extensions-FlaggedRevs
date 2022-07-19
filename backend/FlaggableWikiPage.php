@@ -3,6 +3,8 @@
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Storage\PreparedUpdate;
+use Wikimedia\Assert\PreconditionException;
 use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\IDatabase;
 
@@ -24,6 +26,8 @@ class FlaggableWikiPage extends WikiPage {
 	private $pageConfig = null;
 	/** @var bool|null */
 	private $syncedInTracking = null;
+	/** @var PreparedUpdate|null */
+	private $preparedUpdate = null;
 
 	/**
 	 * Get a FlaggableWikiPage for a given title
@@ -56,13 +60,34 @@ class FlaggableWikiPage extends WikiPage {
 	}
 
 	/**
-	 * Transfer the prepared edit cache from a WikiPage object
+	 * Transfer the prepared edit cache from a WikiPage object.
+	 * Also make available the current prepared update to later
+	 * calls to getCurrentUpdate().
+	 *
+	 * @note This will throw unless called during an ongoing edit!
 	 *
 	 * @param WikiPage $page
 	 * @return void
 	 */
 	public function preloadPreparedEdit( WikiPage $page ) {
 		$this->mPreparedEdit = $page->mPreparedEdit;
+
+		try {
+			$this->preparedUpdate = $page->getCurrentUpdate();
+		} catch ( PreconditionException | LogicException $ex ) {
+			// Ignore. getCurrentUpdate() will throw.
+		}
+	}
+
+	/**
+	 * @inheritDoc
+	 * @return PreparedUpdate
+	 */
+	public function getCurrentUpdate(): PreparedUpdate {
+		if ( $this->preparedUpdate ) {
+			return $this->preparedUpdate;
+		}
+		return parent::getCurrentUpdate();
 	}
 
 	/**
