@@ -74,7 +74,7 @@
 	"group-reviewer.js": "/* Le Javascript placé ici n’affectera que les relecteurs */",
 	"group-autoreview.css": "/* Le CSS placé ici n’affectera que les relecteurs automatiques */",
 	"group-autoreview.js": "/* Le Javascript placé ici n’affectera que les relecteurs automatiques */",
-	"logentry-review-approve": "$1 {{GENDER:$2|a relu}} une version of $3",
+	"logentry-review-approve": "$1{{GENDER:$2|}} a relu une version de $3",
 	"logentry-review-approve-auto": "$1 {{GENDER:$2|a relu}} automatiquement une version of $3",
 	"logentry-review-unapprove": "$1 {{GENDER:$2|a rendu désuète}} une version de $3",
 	"logentry-stable-config": "$1 {{GENDER:$2|a mis à jour}} les paramètres de la version stable concernant $3 $4",
