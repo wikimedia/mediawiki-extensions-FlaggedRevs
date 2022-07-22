@@ -573,7 +573,7 @@ $specialPageAliases['sq'] = [
 	'StablePages' => [ 'FaqetStabile' ],
 ];
 
-/** Serbian (Cyrillic script) (српски (ћирилица)‎) */
+/** Serbian (Cyrillic script) (српски (ћирилица)) */
 $specialPageAliases['sr-ec'] = [
 	'PendingChanges' => [ 'СтареПрегледанеСтране' ],
 	'RevisionReview' => [ 'ПрегледИзмене', 'Преглед_измене' ],
@@ -664,7 +664,7 @@ $specialPageAliases['yi'] = [
 	'UnreviewedPages' => [ 'אומרעצענזירטע_בלעטער' ],
 ];
 
-/** Simplified Chinese (中文（简体）‎) */
+/** Simplified Chinese (中文（简体）) */
 $specialPageAliases['zh-hans'] = [
 	'PendingChanges' => [ '待定更改', '旧复核页面' ],
 	'RevisionReview' => [ '修订复审' ],
@@ -675,7 +675,7 @@ $specialPageAliases['zh-hans'] = [
 	'ValidationStatistics' => [ '确认统计信息' ],
 ];
 
-/** Traditional Chinese (中文（繁體）‎) */
+/** Traditional Chinese (中文（繁體）) */
 $specialPageAliases['zh-hant'] = [
 	'PendingChanges' => [ '等待審核的更改' ],
 	'RevisionReview' => [ '版本審核' ],
