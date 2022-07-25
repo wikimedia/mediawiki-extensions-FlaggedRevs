@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Duke of Wikipädia",
 			"Eduardo Addad de Oliveira",
 			"Eduardo.mps",
 			"Felipe L. Ewald",
@@ -11,6 +12,7 @@
 	"unreviewedpages": "Páginas não analisadas",
 	"unreviewedpages-legend": "Lista páginas de conteúdo a serem analisadas",
 	"unreviewedpages-category": "Categoria:",
+	"unreviewedpages-showhide-redirect": "$1 redirecionamentos",
 	"unreviewedpages-diff": "analisar",
 	"unreviewedpages-unwatched": "(não-vigiada)",
 	"unreviewedpages-watched": "(vigiada por $1 {{PLURAL:$1|usuários ativo|usuários ativos}})",

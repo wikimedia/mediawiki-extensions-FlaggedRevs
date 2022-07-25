@@ -26,7 +26,7 @@
 	"action-validate": "علامت‌گذاری نسخه‌ها به‌عنوان «باکیفیت»",
 	"action-unreviewedpages": "مشاهدهٔ فهرست صفحه‌های بازبینی‌نشده",
 	"editor": "ویرایشگر",
-	"flaggedrevs": "نسخه‌های علامت‌دار",
+	"flaggedrevs": "Flagged Revisions",
 	"flaggedrevs-watched-pending": "هم‌اکنون [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} تغییرات در حال انتظار] در صفحه‌های بازبینی‌شده در فهرست پیگیری‌‌تان وجود دارند.\n'''به توجه شما نیاز است!'''",
 	"flaggedrevs-desc": "به ویرایشگران توانایی بازبینی نسخه‌ها و پایدارسازی صفحات را می‌دهد",
 	"flaggedrevs-pref-UI": "رابط پایه:",
