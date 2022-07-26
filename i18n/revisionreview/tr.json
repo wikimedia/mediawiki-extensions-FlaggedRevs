@@ -10,7 +10,8 @@
 			"SaldırganSincap",
 			"Srhat",
 			"Szoszv",
-			"Vito Genovese"
+			"Vito Genovese",
+			"Victor Trevor"
 		]
 	},
 	"revisionreview": "Revizyonları incele",
@@ -72,9 +73,9 @@
 	"revreview-reject-summary": "Özet:",
 	"revreview-reject-confirm": "Bu değişiklikleri reddet",
 	"revreview-reject-cancel": "İptal",
-	"revreview-reject-summary-cur": "$4 adlı kullanıcının son {{PLURAL:$1|değişikliği|$1 değişikliği}} ({{PLURAL:$7|{{GENDER:$5|tarafından}}}} $2) reddedilerek sürümüne ($3) \n{{GENDER:$6|tarafından}} geri dönüldü",
+	"revreview-reject-summary-cur": "$2 adlı kullanıcının yapmış olduğu değişiklik(ler) reddedilerek $4 kullanıcısının son düzenlemesi ($3) geri yüklendi",
 	"revreview-reject-summary-old": "$4 adlı kullanıcının son {{PLURAL:$1|değişikliği|$1 değişikliği}} ({{PLURAL:$7|{{GENDER:$5|tarafından}}}} $2) reddedilerek sürümüne ($3) \n{{GENDER:$6|tarafından}} izlendi",
-	"revreview-reject-summary-cur-short": "Son {{PLURAL:$1|değişiklik|$1 değişiklik}} reddedilerek $3 sürümüne ($2) {{GENDER:$4|tarafından}} geri dönüldü",
+	"revreview-reject-summary-cur-short": "Son değişiklik(ler) reddedilerek $2 sürümü $3 {{GENDER:$4|tarafından}} geri yüklendi",
 	"revreview-reject-summary-old-short": "$3 sürümünü ($2) takip eden ilk {{PLURAL:$1|değişiklik|$1 değişiklik}} {{GENDER:$4|tarafından}} reddedildi",
 	"revreview-tt-flag": "Bu revizyonu kontrol edilmiş olarak işaretleyerek onayla",
 	"revreview-tt-unflag": "Bu revizyonu \"kontrol edilmemiş\" olarak işaretleyerek kabul etme",
