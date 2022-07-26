@@ -11,12 +11,14 @@
 			"NBS",
 			"Putnik",
 			"Sergey kudryavtsev",
+			"WindEwriX",
 			"Александр Сигачёв"
 		]
 	},
 	"unreviewedpages": "Непроверенные страницы",
 	"unreviewedpages-legend": "Список непроверенных статей",
 	"unreviewedpages-category": "Категория:",
+	"unreviewedpages-showhide-redirect": "$1 перенаправления",
 	"unreviewedpages-diff": "проверить",
 	"unreviewedpages-unwatched": "(не следят)",
 	"unreviewedpages-watched": "({{PLURAL:$1|следит $1 активный участник|следят $1 активных участника|следят $1 активных участников}})",
