@@ -68,11 +68,11 @@ CREATE TABLE /*_*/flaggedrevs_tracking (
   ftr_from INT UNSIGNED DEFAULT 0 NOT NULL,
   ftr_namespace INT DEFAULT 0 NOT NULL,
   ftr_title VARBINARY(255) DEFAULT '' NOT NULL,
-  UNIQUE INDEX frt_from_namespace_title (
-    ftr_from, ftr_namespace, ftr_title
-  ),
   INDEX frt_namespace_title_from (
     ftr_namespace, ftr_title, ftr_from
+  ),
+  PRIMARY KEY(
+    ftr_from, ftr_namespace, ftr_title
   )
 ) /*$wgDBTableOptions*/;
 
