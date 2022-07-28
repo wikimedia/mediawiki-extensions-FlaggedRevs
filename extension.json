@@ -285,6 +285,10 @@
 			],
 			"dependencies": [
 				"mediawiki.util"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
 			]
 		},
 		"ext.flaggedRevs.review": {
@@ -312,6 +316,10 @@
 				"mediawiki.util",
 				"mediawiki.user",
 				"mediawiki.jqueryMsg"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
 			]
 		},
 		"ext.flaggedRevs.icons": {
