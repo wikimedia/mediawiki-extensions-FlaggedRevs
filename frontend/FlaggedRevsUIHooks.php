@@ -14,7 +14,7 @@ class FlaggedRevsUIHooks {
 	 * @param OutputPage $out
 	 */
 	private static function injectStyleAndJS( OutputPage $out ) {
-		$fa = FlaggablePageView::globalArticleInstance();
+		$fa = FlaggableWikiPage::getTitleInstance( $out->getTitle() );
 		// Try to only add to relevant pages
 		if ( !$fa || !$fa->isReviewable() ) {
 			return;
@@ -87,10 +87,10 @@ class FlaggedRevsUIHooks {
 			return;
 		}
 
-		if ( $out->getTitle()->getNamespace() !== NS_SPECIAL ) {
-			if ( FlaggablePageView::globalArticleInstance() === null ) {
-				return;
-			}
+		if ( $out->getTitle()->getNamespace() === NS_SPECIAL ) {
+			self::maybeAddBacklogNotice( $out ); // RC/Watchlist notice
+			self::injectStyleForSpecial( $out ); // try special page CSS
+		} elseif ( $out->getTitle()->canExist() ) {
 			$view = FlaggablePageView::singleton();
 			$view->addStabilizationLink(); // link on protect form
 			$view->displayTag(); // show notice bar/icon in subtitle
@@ -103,9 +103,6 @@ class FlaggedRevsUIHooks {
 			}
 			$view->setRobotPolicy(); // set indexing policy
 			self::injectStyleAndJS( $out ); // full CSS/JS
-		} else {
-			self::maybeAddBacklogNotice( $out ); // RC/Watchlist notice
-			self::injectStyleForSpecial( $out ); // try special page CSS
 		}
 	}
 
@@ -180,8 +177,8 @@ class FlaggedRevsUIHooks {
 			return;
 		}
 
-		if ( FlaggablePageView::globalArticleInstance() != null ) {
-			$view = FlaggablePageView::singleton();
+		if ( $skin->getTitle()->canExist() ) {
+			$view = FlaggablePageView::newFromTitle( $skin->getTitle() );
 			$view->setActionTabs( $links['actions'] );
 			$view->setViewTabs( $skin, $links['views'] );
 		}
@@ -199,7 +196,7 @@ class FlaggedRevsUIHooks {
 			return;
 		}
 
-		if ( FlaggablePageView::globalArticleInstance() !== null ) {
+		if ( $article->getTitle()->canExist() ) {
 			$view = FlaggablePageView::singleton();
 			$view->addStableLink();
 			$view->setPageContent( $outputDone, $useParserCache );
@@ -283,7 +280,7 @@ class FlaggedRevsUIHooks {
 	 * @param EditPage $editPage
 	 */
 	public static function addToEditView( $editPage ) {
-		if ( FlaggablePageView::globalArticleInstance() !== null ) {
+		if ( $editPage->getTitle()->canExist() ) {
 			$view = FlaggablePageView::singleton();
 			$view->addToEditView( $editPage );
 		}
@@ -297,7 +294,7 @@ class FlaggedRevsUIHooks {
 	 * @param string[] &$notices
 	 */
 	public static function getEditNotices( $title, $oldid, &$notices ) {
-		if ( FlaggablePageView::globalArticleInstance() !== null ) {
+		if ( $title->canExist() ) {
 			$view = FlaggablePageView::singleton();
 			$view->getEditNotices( $title, $oldid, $notices );
 		}
@@ -310,7 +307,7 @@ class FlaggedRevsUIHooks {
 	 * @param \OOUI\ButtonInputWidget[] &$buttons
 	 */
 	public static function onBeforeEditButtons( $editPage, &$buttons ) {
-		if ( FlaggablePageView::globalArticleInstance() !== null ) {
+		if ( $editPage->getTitle()->canExist() ) {
 			$view = FlaggablePageView::singleton();
 			$view->changeSaveButton( $editPage, $buttons );
 		}
@@ -323,7 +320,7 @@ class FlaggedRevsUIHooks {
 	 * @param string &$s
 	 */
 	public static function onNoSuchSection( $editPage, &$s ) {
-		if ( FlaggablePageView::globalArticleInstance() !== null ) {
+		if ( $editPage->getTitle()->canExist() ) {
 			$view = FlaggablePageView::singleton();
 			$view->addToNoSuchSection( $s );
 		}
@@ -335,7 +332,7 @@ class FlaggedRevsUIHooks {
 	 * @param Article $article
 	 */
 	public static function addToHistView( $article ) {
-		if ( FlaggablePageView::globalArticleInstance() !== null ) {
+		if ( $article->getTitle()->canExist() ) {
 			$view = FlaggablePageView::singleton();
 			$view->addToHistView();
 		}
@@ -344,14 +341,14 @@ class FlaggedRevsUIHooks {
 	/**
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/CategoryPageView
 	 *
-	 * @param CategoryPage $category
+	 * @param CategoryPage|Article $category
 	 */
-	public static function onCategoryPageView( $category ) {
+	public static function onCategoryPageView( Article $category ) {
 		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
 			return;
 		}
 
-		if ( FlaggablePageView::globalArticleInstance() !== null ) {
+		if ( $category->getTitle()->canExist() ) {
 			$view = FlaggablePageView::singleton();
 			$view->addToCategoryView();
 		}
@@ -361,17 +358,17 @@ class FlaggedRevsUIHooks {
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SkinAfterContent
 	 *
 	 * @param string &$data
+	 * @param Skin $skin
 	 */
-	public static function onSkinAfterContent( &$data ) {
+	public static function onSkinAfterContent( &$data, $skin ) {
 		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
 			return;
 		}
 
-		global $wgOut;
-		if ( $wgOut->isArticleRelated()
-			&& FlaggablePageView::globalArticleInstance() != null
+		if ( $skin->getOutput()->isArticleRelated()
+			&& $skin->getTitle()->canExist()
 		) {
-			$view = FlaggablePageView::singleton();
+			$view = FlaggablePageView::newFromTitle( $skin->getTitle() );
 			// Only use this hook if we want to append the form.
 			// We *prepend* the form for diffs, so skip that case here.
 			if ( !$view->diffRevRecordsAreSet() ) {
@@ -875,7 +872,7 @@ class FlaggedRevsUIHooks {
 	 * @param string &$extraQuery
 	 */
 	public static function injectPostEditURLParams( $article, &$sectionAnchor, &$extraQuery ) {
-		if ( FlaggablePageView::globalArticleInstance() != null ) {
+		if ( $article->getTitle()->canExist() ) {
 			$view = FlaggablePageView::singleton();
 			$view->injectPostEditURLParams( $sectionAnchor, $extraQuery );
 		}
@@ -909,7 +906,7 @@ class FlaggedRevsUIHooks {
 	public static function onDifferenceEngineViewHeader( DifferenceEngine $diff ) {
 		self::injectStyleAndJS( $diff->getOutput() );
 
-		if ( FlaggablePageView::globalArticleInstance() !== null ) {
+		if ( $diff->getTitle()->canExist() ) {
 			$view = FlaggablePageView::singleton();
 
 			$oldRevRecord = $diff->getOldRevision();
@@ -926,7 +923,7 @@ class FlaggedRevsUIHooks {
 	 * @param OutputPage $out
 	 */
 	public static function addRevisionIDField( $editPage, $out ) {
-		if ( FlaggablePageView::globalArticleInstance() !== null ) {
+		if ( $editPage->getTitle()->canExist() ) {
 			$view = FlaggablePageView::singleton();
 			$view->addRevisionIDField( $editPage, $out );
 		}
@@ -939,7 +936,7 @@ class FlaggedRevsUIHooks {
 	 * @param array &$checkboxes
 	 */
 	public static function onEditPageGetCheckboxesDefinition( $editPage, &$checkboxes ) {
-		if ( FlaggablePageView::globalArticleInstance() !== null ) {
+		if ( $editPage->getTitle()->canExist() ) {
 			$view = FlaggablePageView::singleton();
 			$view->addReviewCheck( $editPage, $checkboxes );
 		}
