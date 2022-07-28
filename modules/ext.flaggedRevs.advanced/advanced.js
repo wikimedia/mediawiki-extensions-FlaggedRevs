@@ -124,43 +124,6 @@
 	}
 
 	/**
-	 * Update save button when "review this" checkbox changes
-	 *
-	 * @this {jQuery}
-	 */
-	function updateSaveButton() {
-		var $save = $( '#wpSave' ),
-			$checkbox = $( '#wpReviewEdit' );
-
-		if ( $save.length && $checkbox.length ) {
-			// Review pending changes
-			if ( $checkbox.prop( 'checked' ) ) {
-				if ( mw.config.get( 'wgEditSubmitButtonLabelPublish' ) ) {
-					$save
-						.val( mw.msg( 'publishchanges' ) )
-						.attr( 'title',
-							mw.msg( 'tooltip-publish' )
-						);
-				} else {
-					$save
-						.val( mw.msg( 'savearticle' ) )
-						.attr( 'title',
-							mw.msg( 'tooltip-save' )
-						);
-				}
-			// Submit for review
-			} else {
-				$save
-					.val( mw.msg( 'revreview-submitedit' ) )
-					.attr( 'title',
-						mw.msg( 'revreview-submitedit-title' )
-					);
-			}
-			$save.updateTooltipAccessKeys();
-		}
-	}
-
-	/**
 	 * Startup function
 	 */
 	function init() {
@@ -194,9 +157,6 @@
 			}
 		}
 		$toggle.children( 'a' ).on( 'click', toggleLog );
-
-		// Enables changing of save button when "review this" checkbox changes
-		$( '#wpReviewEdit' ).on( 'click', updateSaveButton );
 	}
 
 	// Perform some onload events:

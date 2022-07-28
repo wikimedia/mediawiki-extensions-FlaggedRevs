@@ -9,28 +9,6 @@
 var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ) || {};
 
 /**
- * Update `<select>` color for the selected item/option
- *
- * @param {jQuery} $form
- */
-function updateReviewFormColors( $form ) {
-	for ( var tag in wgFlaggedRevsParams.tags ) { // for each tag
-		var select = $form.find( '[name="wp' + tag + '"]' ).get( 0 );
-		// Look for a selector for this tag
-		if ( select && select.nodeName === 'SELECT' ) {
-			var selectedlevel = select.selectedIndex;
-			var value = select.options[ selectedlevel ].value;
-			// FIXME: Which class names does this produce, and why?
-			// eslint-disable-next-line mediawiki/class-doc
-			select.className = 'fr-rating-option-' + value;
-			// Fix FF one-time jitter bug of changing an <option>
-			select.selectedIndex = null;
-			select.selectedIndex = selectedlevel;
-		}
-	}
-}
-
-/**
  * Update radios/checkboxes.
  *
  * Originally introduced as part of T15744.
@@ -87,9 +65,6 @@ function updateReviewForm( $form ) {
 	$( '#mw-fr-submit-accept' )
 		.prop( 'disabled', somezero )
 		.val( mw.msg( 'revreview-submit-review' ) ); // reset to "Accept"
-
-	// Update colors of <select>
-	updateReviewFormColors( $form );
 }
 
 /**
@@ -284,6 +259,43 @@ function submitRevisionReview( button, $form ) {
 	} );
 }
 
+/**
+ * Update save button in the edit form when "review this" checkbox changes
+ *
+ * @this {jQuery}
+ */
+function updateSaveButton() {
+	var $save = $( '#wpSave' ),
+		$checkbox = $( '#wpReviewEdit' );
+
+	if ( $save.length && $checkbox.length ) {
+		// Review pending changes
+		if ( $checkbox.prop( 'checked' ) ) {
+			if ( mw.config.get( 'wgEditSubmitButtonLabelPublish' ) ) {
+				$save
+					.val( mw.msg( 'publishchanges' ) )
+					.attr( 'title',
+						mw.msg( 'tooltip-publish' )
+					);
+			} else {
+				$save
+					.val( mw.msg( 'savearticle' ) )
+					.attr( 'title',
+						mw.msg( 'tooltip-save' )
+					);
+			}
+			// Submit for review
+		} else {
+			$save
+				.val( mw.msg( 'revreview-submitedit' ) )
+				.attr( 'title',
+					mw.msg( 'revreview-submitedit-title' )
+				);
+		}
+		$save.updateTooltipAccessKeys();
+	}
+}
+
 function init() {
 	var $form = $( '#mw-fr-reviewform' );
 
@@ -297,12 +309,14 @@ function init() {
 	// This is used so that they can be re-enabled if a rating changes.
 	/* global jsReviewNeedsChange */
 	// wtf? this is set in frontend/RevisionReviewFormUI by outputting JS
+	// FIXME the button should be re-disabled if the user re-selects the status quo option
 	if ( typeof jsReviewNeedsChange !== 'undefined' && jsReviewNeedsChange === 1 ) {
 		$( '#mw-fr-submit-accept' ).prop( 'disabled', true );
 	}
 
-	// Setup <select> form option colors
-	updateReviewFormColors( $form );
+	// Enables changing of save button when "review this" checkbox changes
+	$( '#wpReviewEdit' ).on( 'click', updateSaveButton );
+
 	// Update review form on change
 	$form.find( 'input, select' ).on( 'change', function () {
 		updateReviewForm( $form );
