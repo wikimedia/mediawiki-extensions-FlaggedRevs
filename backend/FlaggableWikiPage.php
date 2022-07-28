@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Cache\CacheKeyHelper;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Revision\RevisionRecord;
@@ -28,19 +29,34 @@ class FlaggableWikiPage extends WikiPage {
 	private $syncedInTracking = null;
 	/** @var PreparedUpdate|null */
 	private $preparedUpdate = null;
+	/** @var MapCacheLRU|null */
+	private static $instances = null;
+
+	/**
+	 * @return MapCacheLRU
+	 */
+	private static function getInstanceCache(): MapCacheLRU {
+		if ( !self::$instances ) {
+			self::$instances = new MapCacheLRU( 10 );
+		}
+		return self::$instances;
+	}
 
 	/**
 	 * Get a FlaggableWikiPage for a given title
-	 * @param Title $title
+	 *
+	 * @param Title|PageIdentity $title
 	 * @return self
 	 */
-	public static function getTitleInstance( Title $title ) {
-		// Check if there is already an instance on this title
-		if ( !isset( $title->flaggedRevsArticle ) ) {
-			$ctitle = clone $title; // avoid cycles
-			$title->flaggedRevsArticle = self::newInstance( $ctitle );
+	public static function getTitleInstance( $title ) {
+		$cache = self::getInstanceCache();
+		$key = CacheKeyHelper::getKeyForPage( $title );
+		$fwp = $cache->get( $key );
+		if ( !$fwp ) {
+			$fwp = self::newInstance( $title );
+			$cache->set( $key, $fwp );
 		}
-		return $title->flaggedRevsArticle;
+		return $fwp;
 	}
 
 	/**
