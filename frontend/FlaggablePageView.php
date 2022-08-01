@@ -1,67 +1,93 @@
 <?php
 
+use MediaWiki\Cache\CacheKeyHelper;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Page\PageIdentity;
 use MediaWiki\Revision\RevisionRecord;
 
 /**
  * Class representing a web view of a MediaWiki page
  */
 class FlaggablePageView extends ContextSource {
+	/** @var MapCacheLRU|null */
+	private static $instances = null;
 
-	/** @var OutputPage|null */
-	private $out = null;
-
-	/** @var FlaggableWikiPage|null */
-	private $article = null;
-
+	/** @var OutputPage */
+	private $out;
+	/** @var FlaggableWikiPage */
+	private $article;
 	/** @var array|null of old and new RevisionsRecords for diffs */
 	private $diffRevRecords = null;
-
 	/** @var array|null [ array of templates ] */
 	private $oldRevIncludes = null;
-
 	/** @var bool */
 	private $isReviewableDiff = false;
-
 	/** @var bool */
 	private $isDiffFromStable = false;
-
 	/** @var bool */
 	private $isMultiPageDiff = false;
-
 	/** @var string */
 	private $reviewNotice = '';
-
 	/** @var string */
 	private $diffNoticeBox = '';
-
 	/** @var string */
 	private $diffIncChangeBox = '';
-
 	/** @var RevisionRecord|false */
 	private $reviewFormRevRecord = false;
-
-	/** @var bool */
-	private $loaded = false;
-
 	/** @var bool */
 	private $noticesDone = false;
 
-	/** @var self|null */
-	private static $instance = null;
+	/**
+	 * @return MapCacheLRU
+	 */
+	private static function getInstanceCache(): MapCacheLRU {
+		if ( !self::$instances ) {
+			self::$instances = new MapCacheLRU( 10 );
+		}
+		return self::$instances;
+	}
+
+	/**
+	 * Get a FlaggableWikiPage for a given title
+	 *
+	 * @param Title|PageIdentity $title
+	 * @return self
+	 */
+	public static function newFromTitle( PageIdentity $title ) {
+		$cache = self::getInstanceCache();
+		$key = CacheKeyHelper::getKeyForPage( $title );
+		$view = $cache->get( $key );
+		if ( !$view ) {
+			$view = new self( $title );
+			$cache->set( $key, $view );
+		}
+		return $view;
+	}
 
 	/**
 	 * Get the FlaggablePageView for this request
+	 *
+	 * @deprecated Use ::newFromTitle() instead
 	 * @return self
 	 */
 	public static function singleton() {
-		if ( !self::$instance ) {
-			self::$instance = new self();
-		}
-		return self::$instance;
+		return self::newFromTitle( RequestContext::getMain()->getTitle() );
 	}
 
-	private function __construct() {
+	/**
+	 * @param Title|PageIdentity $title
+	 */
+	private function __construct( PageIdentity $title ) {
+		// Title is injected (a step up from everything being global), but
+		// the rest is still implicitly uses RequestContext::getMain()
+		// via parent class ContextSource::getContext().
+		// TODO: Inject $context and call setContext() here.
+
+		if ( !$title->canExist() ) {
+			throw new Exception( 'FlaggablePageView needs a proper page' );
+		}
+		$this->article = FlaggableWikiPage::getTitleInstance( $title );
+		$this->out = $this->getOutput(); // convenience
 	}
 
 	private function __clone() {
@@ -72,25 +98,14 @@ class FlaggablePageView extends ContextSource {
 	 * Only needed when page redirection changes the environment.
 	 */
 	public function clear() {
-		self::$instance = null;
-	}
-
-	private function load() {
-		if ( $this->loaded ) {
-			return;
-		}
-
-		$this->loaded = true;
-		$this->article = self::globalArticleInstance();
-		if ( !$this->article ) {
-			throw new Exception( 'FlaggablePageView has no context article!' );
-		}
-		$this->out = $this->getOutput(); // convenience
+		self::$instances = null;
 	}
 
 	/**
 	 * Get the FlaggableWikiPage instance associated with the current page title,
 	 * or false if there isn't such a title
+	 *
+	 * @deprecated Use FlaggableWikiPage::getTitleInstance() instead
 	 * @return FlaggableWikiPage|null
 	 */
 	public static function globalArticleInstance() {
@@ -117,8 +132,6 @@ class FlaggablePageView extends ContextSource {
 	 * @return bool
 	 */
 	private function showingStableAsDefault() {
-		$this->load();
-
 		$reqUser = $this->getUser();
 		$defaultForUser = $this->getPageViewStabilityModeForUser( $reqUser );
 
@@ -146,7 +159,6 @@ class FlaggablePageView extends ContextSource {
 	 */
 	private function showingStableByRequest() {
 		$request = $this->getRequest();
-		$this->load();
 		# Are we explicity requesting the stable version?
 		if ( $request->getIntOrNull( 'stable' ) === 1 ) {
 			# This only applies to viewing a version of the page...
@@ -238,7 +250,6 @@ class FlaggablePageView extends ContextSource {
 	 * Output review notice
 	 */
 	public function displayTag() {
-		$this->load();
 		// Sanity check that this is a reviewable page
 		if ( $this->article->isReviewable() && $this->reviewNotice ) {
 			$this->out->addSubtitle( $this->reviewNotice );
@@ -251,7 +262,6 @@ class FlaggablePageView extends ContextSource {
 	 */
 	public function addStableLink() {
 		$request = $this->getRequest();
-		$this->load();
 		if ( !$this->article->isReviewable() ||
 			!$request->getVal( 'oldid' ) ||
 			$this->out->isPrintable()
@@ -298,7 +308,6 @@ class FlaggablePageView extends ContextSource {
 	 */
 	public function setPageContent( &$outputDone, &$useParserCache ) {
 		$request = $this->getRequest();
-		$this->load();
 		# Only trigger on page views with no oldid=x param
 		if ( !$this->isPageView() || $request->getVal( 'oldid' ) ) {
 			return;
@@ -451,7 +460,6 @@ class FlaggablePageView extends ContextSource {
 	private function showDraftVersion( FlaggedRevision $srev, &$tag, $prot ) {
 		$request = $this->getRequest();
 		$reqUser = $this->getUser();
-		$this->load();
 		if ( $this->out->isPrintable() ) {
 			return; // all this function does is add notices; don't show them
 		}
@@ -553,7 +561,6 @@ class FlaggablePageView extends ContextSource {
 	 */
 	private function showOldReviewedVersion( FlaggedRevision $frev, &$tag, $prot ) {
 		$reqUser = $this->getUser();
-		$this->load();
 		$time = $this->getLanguage()->date( $frev->getTimestamp(), true );
 		# Set display revision ID
 		$this->out->setRevisionId( $frev->getRevId() );
@@ -611,7 +618,6 @@ class FlaggablePageView extends ContextSource {
 	 */
 	private function showStableVersion( FlaggedRevision $srev, &$tag, $prot ) {
 		$reqUser = $this->getUser();
-		$this->load();
 		$time = $this->getLanguage()->date( $srev->getTimestamp(), true );
 		# Set display revision ID
 		$this->out->setRevisionId( $srev->getRevId() );
@@ -769,7 +775,6 @@ class FlaggablePageView extends ContextSource {
 	 */
 	private function getTopDiffToggle( FlaggedRevision $srev ) {
 		$reqUser = $this->getUser();
-		$this->load();
 		if ( !MediaWikiServices::getInstance()->getUserOptionsLookup()
 			->getBoolOption( $reqUser, 'flaggedrevsviewdiffs' )
 		) {
@@ -840,7 +845,6 @@ class FlaggablePageView extends ContextSource {
 	 * Adds stable version tags to page when viewing history
 	 */
 	public function addToHistView() {
-		$this->load();
 		# Add a notice if there are pending edits...
 		$srev = $this->article->getStableRev();
 		if ( $srev && $this->article->revsArePending() ) {
@@ -862,7 +866,6 @@ class FlaggablePageView extends ContextSource {
 		// HACK: EditPage invokes addToEditView() before this function, so $this->noticesDone
 		// will only be true if we're being called by EditPage, in which case we need to do nothing
 		// to avoid duplicating the notices.
-		$this->load();
 		if ( $this->noticesDone || !$this->article->isReviewable() ) {
 			return;
 		}
@@ -918,7 +921,6 @@ class FlaggablePageView extends ContextSource {
 	 */
 	public function addToEditView( EditPage $editPage ) {
 		$reqUser = $this->getUser();
-		$this->load();
 
 		# Must be reviewable. UI may be limited to unobtrusive patrolling system.
 		if ( !$this->article->isReviewable() ) {
@@ -1006,7 +1008,6 @@ class FlaggablePageView extends ContextSource {
 	 * @return string
 	 */
 	private function stabilityLogNotice( $showToggle = true ) {
-		$this->load();
 		$s = '';
 		# Only for pages manually made to be stable...
 		if ( $this->article->isPageLocked() ) {
@@ -1030,7 +1031,6 @@ class FlaggablePageView extends ContextSource {
 	 * @param string &$s
 	 */
 	public function addToNoSuchSection( &$s ) {
-		$this->load();
 		$srev = $this->article->getStableRev();
 		# Add notice for users that may have clicked "edit" for a
 		# section in the stable version that isn't in the draft.
@@ -1048,10 +1048,7 @@ class FlaggablePageView extends ContextSource {
 	 * Add unreviewed pages links
 	 */
 	public function addToCategoryView() {
-		$this->load();
-
 		$reqUser = $this->getUser();
-
 		$pm = MediaWikiServices::getInstance()->getPermissionManager();
 		if ( !$pm->userHasRight( $reqUser, 'review' ) ) {
 			return;
@@ -1077,14 +1074,13 @@ class FlaggablePageView extends ContextSource {
 	 * @param string|OutputPage &$output
 	 */
 	public function addReviewForm( &$output ) {
-		$reqUser = $this->getUser();
-		$this->load();
-
 		if ( $this->out->isPrintable() ) {
 			// Must be on non-printable output
 			return;
 		}
+
 		# User must have review rights
+		$reqUser = $this->getUser();
 		if ( !MediaWikiServices::getInstance()->getPermissionManager()
 			->userHasRight( $reqUser, 'review' )
 		) {
@@ -1161,7 +1157,6 @@ class FlaggablePageView extends ContextSource {
 	 */
 	public function addStabilizationLink() {
 		$request = $this->getRequest();
-		$this->load();
 		if ( FlaggedRevs::useOnlyIfProtected() ) {
 			// Simple custom levels set for action=protect
 			return;
@@ -1200,8 +1195,6 @@ class FlaggablePageView extends ContextSource {
 	 * @param array &$actions
 	 */
 	public function setActionTabs( array &$actions ) {
-		$this->load();
-
 		$reqUser = $this->getUser();
 
 		if ( FlaggedRevs::useOnlyIfProtected() ) {
@@ -1238,7 +1231,6 @@ class FlaggablePageView extends ContextSource {
 	 * @param array[] &$views
 	 */
 	public function setViewTabs( Skin $skin, array &$views ) {
-		$this->load();
 		if ( !FlaggedRevs::inReviewNamespace( $this->article->getTitle() ) ) {
 			// Short-circuit for non-reviewable pages
 			return;
@@ -1383,7 +1375,6 @@ class FlaggablePageView extends ContextSource {
 	private function setPendingNotice(
 		FlaggedRevision $srev, $diffToggle = '', $background = true
 	) {
-		$this->load();
 		$time = $this->getLanguage()->date( $srev->getTimestamp(), true );
 		$revsSince = $this->article->getPendingRevCount();
 		$msg = !$revsSince ? 'revreview-newest-basic-i' : 'revreview-newest-basic';
@@ -1412,7 +1403,6 @@ class FlaggablePageView extends ContextSource {
 		$pm = MediaWikiServices::getInstance()->getPermissionManager();
 		$request = $this->getRequest();
 		$reqUser = $this->getUser();
-		$this->load();
 		# Exempt printer-friendly output
 		if ( $this->out->isPrintable() ) {
 			return;
@@ -1711,7 +1701,6 @@ class FlaggablePageView extends ContextSource {
 	 * @param RevisionRecord|null $newRevRecord
 	 */
 	public function setViewFlags( $diff, $oldRevRecord, $newRevRecord ) {
-		$this->load();
 		// We only want valid diffs that actually make sense...
 		if ( !( $newRevRecord
 			&& $oldRevRecord
@@ -1780,7 +1769,6 @@ class FlaggablePageView extends ContextSource {
 	 */
 	public function injectPostEditURLParams( &$sectionAnchor, &$extraQuery ) {
 		$reqUser = $this->getUser();
-		$this->load();
 		$this->article->loadPageData( FlaggableWikiPage::READ_LATEST );
 		# Get the stable version from the primary DB
 		$frev = $this->article->getStableRev();
@@ -1914,7 +1902,6 @@ class FlaggablePageView extends ContextSource {
 	 * @param array &$checkboxes
 	 */
 	public function addReviewCheck( EditPage $editPage, array &$checkboxes ) {
-		$this->load();
 		$request = $this->getRequest();
 		$title = $this->article->getTitle(); // convenience
 		if ( !$this->article->isReviewable() ||
