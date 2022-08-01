@@ -120,6 +120,7 @@ class PruneFRIncludeData extends Maintenance {
 			$cond = "fp_page_id BETWEEN $blockStart AND $blockEnd";
 			$res = $dbr->select( 'flaggedpages', 'fp_page_id', $cond, __METHOD__ );
 			// Go through a chunk of flagged pages...
+			$revsClearIncludes = [];
 			foreach ( $res as $row ) {
 				// Get the newest X ($newerRevs) flagged revs for this page
 				$sres = $dbr->selectFieldValues( 'flaggedrevs',
@@ -146,33 +147,32 @@ class PruneFRIncludeData extends Maintenance {
 					[ 'ORDER BY' => 'fr_rev_id ASC', 'LIMIT' => 5000 ]
 				);
 				// Build an array of these rev Ids
-				$revsClearIncludes = [];
 				foreach ( $sres as $srow ) {
 					$revsClearIncludes[] = $srow->fr_rev_id;
-				}
-				if ( !$revsClearIncludes ) {
-					continue;
-				} elseif ( $prune ) {
-					foreach ( array_chunk( $revsClearIncludes, $this->mBatchSize ) as $batch ) {
-						$dbw->delete( 'flaggedtemplates',
-							[ 'ft_rev_id' => $batch ],
-							__METHOD__
-						);
-						$tDeleted += $dbw->affectedRows();
-						$lbFactory->waitForReplication();
-						sleep( $sleep );
-					}
-				} else {
-					// Dry run: say how many includes rows would have been cleared
-					$tDeleted += $dbr->selectField( 'flaggedtemplates',
-						'COUNT(*)',
-						[ 'ft_rev_id' => $revsClearIncludes ],
-						__METHOD__
-					);
 				}
 			}
 			$blockStart += $this->mBatchSize;
 			$blockEnd += $this->mBatchSize;
+			if ( !$revsClearIncludes ) {
+				continue;
+			} elseif ( $prune ) {
+				foreach ( array_chunk( $revsClearIncludes, $this->mBatchSize ) as $batch ) {
+					$dbw->delete( 'flaggedtemplates',
+						[ 'ft_rev_id' => $batch ],
+						__METHOD__
+					);
+					$tDeleted += $dbw->affectedRows();
+					$lbFactory->waitForReplication();
+					sleep( $sleep );
+				}
+			} else {
+				// Dry run: say how many includes rows would have been cleared
+				$tDeleted += $dbr->selectField( 'flaggedtemplates',
+					'COUNT(*)',
+					[ 'ft_rev_id' => $revsClearIncludes ],
+					__METHOD__
+				);
+			}
 		}
 		if ( $prune ) {
 			$this->output( "Flagged revision inclusion prunning complete ...\n" );
