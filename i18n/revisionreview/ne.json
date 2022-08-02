@@ -1,9 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"NehalDaveND"
+			"NehalDaveND",
+			"Bada Kaji"
 		]
 	},
 	"revreview-reject-summary": "सारांश :",
-	"revreview-reject-cancel": "रद्द गर्ने"
+	"revreview-reject-cancel": "रद्द गर्नुहोस्"
 }
