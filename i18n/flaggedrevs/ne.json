@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bada Kaji",
 			"Bhawani Gautam",
 			"Bhawani Gautam Rhk",
 			"NehalDaveND",
@@ -42,7 +43,7 @@
 	"revreview-diff-toggle-show": "ती परिवर्तनहरू हेर्ने",
 	"revreview-diff-toggle-hide": "ती परिवर्तनहरू लुकाउने",
 	"revreview-log-details-show": "विस्तृत जानकारी हेर्ने",
-	"revreview-log-details-hide": "विस्तृत जानकारी लुकाउने",
+	"revreview-log-details-hide": "विस्तृत जानकारी लुकाउनुहोस्",
 	"reviewer": "समीक्षकहरू",
 	"revreview-def-all": "कोहि",
 	"revreview-def-stable": "स्थिर",
