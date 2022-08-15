@@ -6,7 +6,8 @@
 			"NehalDaveND",
 			"RajeshPandey",
 			"राम प्रसाद जोशी",
-			"सरोज कुमार ढकाल"
+			"सरोज कुमार ढकाल",
+			"Bada Kaji"
 		]
 	},
 	"action-review": "समीक्षा संशोधन",
@@ -45,7 +46,7 @@
 	"revreview-diff-toggle-show": "ती परिवर्तनहरू हेर्ने",
 	"revreview-diff-toggle-hide": "ती परिवर्तनहरू लुकाउने",
 	"revreview-log-details-show": "विस्तृत जानकारी हेर्ने",
-	"revreview-log-details-hide": "विस्तृत जानकारी लुकाउने",
+	"revreview-log-details-hide": "विस्तृत जानकारी लुकाउनुहोस्",
 	"reviewer": "समीक्षकहरू",
 	"revreview-depth": "गहिराई",
 	"revreview-depth-1": "सामान्य",
