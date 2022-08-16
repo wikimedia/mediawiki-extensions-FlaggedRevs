@@ -112,12 +112,9 @@ class UnreviewedPagesPager extends AlphabeticPager {
 			$this->mIndexField = 'cl_sortkey';
 			$useIndex = [ 'categorylinks' => 'cl_sortkey' ];
 		} else {
-			$pageIndex = $this->mDb->indexExists( 'page', 'name_title', __METHOD__ )
-				? 'name_title' : 'page_name_title';
-
 			$tables = [ 'page', 'flaggedpages', 'revision' ];
 			$this->mIndexField = 'page_title';
-			$useIndex = [ 'page' => $pageIndex ];
+			$useIndex = [ 'page' => 'page_name_title' ];
 		}
 		$useIndex['revision'] = 'rev_page_timestamp';
 		return [
