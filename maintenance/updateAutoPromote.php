@@ -29,6 +29,7 @@ class UpdateFRAutoPromote extends Maintenance {
 		$this->output( "Populating and updating flaggedrevs_promote table\n" );
 
 		$services = MediaWikiServices::getInstance();
+		$commentQuery = $services->getCommentStore()->getJoin( 'rev_comment' );
 		$revisionStore = $services->getRevisionStore();
 		$revQuery = $revisionStore->getQueryInfo();
 		$revPageQuery = $revisionStore->getQueryInfo( [ 'page' ] );
@@ -60,16 +61,16 @@ class UpdateFRAutoPromote extends Maintenance {
 				# Get edit comments used
 				$revWhere = ActorMigration::newMigration()->getWhere( $dbr, 'rev_user', $user );
 				$sres = $dbr->select(
-					$revQuery['tables'],
+					$revQuery['tables'] + $commentQuery['tables'],
 					'1',
 					[
 						$revWhere['conds'],
 						// @todo Should there be a "rev_comment != ''" here too?
-						$revWhere['fields']['rev_comment_text'] . " NOT LIKE '/*%*/'", // manual comments only
+						$commentQuery['fields']['rev_comment_text'] . " NOT LIKE '/*%*/'", // manual comments only
 					],
 					__METHOD__,
 					[ 'LIMIT' => max( $wgFlaggedRevsAutopromote['editComments'], 500 ) ],
-					$revQuery['joins']
+					$commentQuery['joins']
 				);
 				$p['editComments'] = $sres->numRows();
 				# Get content page edits
