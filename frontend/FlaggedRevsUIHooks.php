@@ -14,6 +14,9 @@ class FlaggedRevsUIHooks {
 	 * @param OutputPage $out
 	 */
 	private static function injectStyleAndJS( OutputPage $out ) {
+		if ( !$out->getTitle()->canExist() ) {
+			return;
+		}
 		$fa = FlaggableWikiPage::getTitleInstance( $out->getTitle() );
 		// Try to only add to relevant pages
 		if ( !$fa || !$fa->isReviewable() ) {
