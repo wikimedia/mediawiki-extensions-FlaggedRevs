@@ -2,9 +2,16 @@
 	"@metadata": {
 		"authors": [
 			"Ladsgroup",
-			"Reza1615"
+			"Reza1615",
+			"Jeeputer"
 		]
 	},
+	"apihelp-query+oldreviewedpages-param-category": "فقط صفحه‌های موجود در ردهٔ مشخص‌شده نمایش یابند.",
+	"apihelp-query+oldreviewedpages-param-filterredir": "چگونگی پالایش تغییرمسیرها.",
+	"apihelp-query+oldreviewedpages-param-limit": "مجموع تعداد صفحه‌هایی که باید برگردانده‌شوند.",
+	"apihelp-query+oldreviewedpages-example-1": "نمایش فهرستی از صفحه‌های دارای تغییرات بازبینی‌نشدهٔ در انتظار",
+	"apihelp-query+oldreviewedpages-example-2": "نمایش اطلاعات دربارهٔ برخی صفحه‌های بازبینی‌شدهٔ قدیمی",
+	"apihelp-query+revisions-paramvalue-prop-flagged": "وضعیت بازبینی نسخه.",
 	"apihelp-review-param-comment": "نظر برای بازبینی",
 	"apihelp-stabilize-param-reason": "دلیل.",
 	"apihelp-stabilize-param-review": "بازبینی این صفحه",

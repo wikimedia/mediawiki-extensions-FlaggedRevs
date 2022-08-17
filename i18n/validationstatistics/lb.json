@@ -7,7 +7,7 @@
 	},
 	"validationstatistics": "Statistike vun den nogekuckte Säiten",
 	"validationstatistics-users": "'''{{SITENAME}}''' huet elo '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|Benotzer}} mat [[{{MediaWiki:Validationpage}}|Editeursrechter]].\n\nEditeure si confirméiert Benotzer déi nogekuckt Versioune vu Säiten dobäisetze kënnen.",
-	"validationstatistics-lastupdate": "''Dës Date goufe fir d'lescht den $1 ëm $2 Auer aktualiséiert.''",
+	"validationstatistics-lastupdate": "''Dës Date goufe fir d'lescht den $1 um $2 Auer aktualiséiert.''",
 	"validationstatistics-pndtime": "Ännerungen déi vun engem confirméierte Benotzer nogekuckt si ginn als ''{{int:validationstatistics-stable}}'' betruecht.\n\nDen duerchschnëttlechen Delai fir [[Special:OldReviewedPages|Säite mat net nogekuckten Ännerungen am Suspens]] ass '''$1'''; den Delai moosst wéi laang déi eelst Ännerung am Suspens war ier se nogekuckt gouf.",
 	"validationstatistics-revtime": "Déi duerchschnëttlech Waardezäit fir Ännerunge vu ''Benotzer déi net ageloggt waren'' ier hier Ännerung nogekuckt ass ass '''$1'''; d'Median ass '''$2'''.\n$3",
 	"validationstatistics-table": "Statistike vun den nogekuckte Säite fir jiddwer Nummraum sinn hei drënner, Viruleedungssäite sinn ''net berücksichtegt''.\nSäite ginn als ''{{int:validationstatistics-old}}'' betruecht wann et Ännerunge gëtt déi nach mussen nogekuckt ginn;\nSäite ginn als  ''{{int:validationstatistics-latest}}'' betruecht wa keng Ännerungen am Suspens sinn,.",

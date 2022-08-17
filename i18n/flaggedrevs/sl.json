@@ -42,7 +42,7 @@
 	"revreview-hist-basic-user": "preveril(-a) [[User:$3|$3]]",
 	"revreview-hist-basic-auto": "samodejno preverjena",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} čaka na pregled]]'''",
-	"review-edit-diff": "'''OPOZORILO: Nekatere čakajoče spremembe vplivajo na območje strani, ki ga urejate.'''",
+	"review-edit-diff": "'''Opomba: ''Nekatere'' čakajoče spremembe vplivajo na območje strani, ki ga urejate.'''",
 	"revreview-diff-toggle-show": "prikaži spremembe",
 	"revreview-diff-toggle-hide": "skrij spremembe",
 	"revreview-diff-toggle-title": "Preklopi prikaz sprememb v teku na ustaljeno različico",
