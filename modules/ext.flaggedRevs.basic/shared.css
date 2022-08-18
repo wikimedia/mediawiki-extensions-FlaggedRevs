@@ -1,0 +1,28 @@
+/* Both User Interfaces */
+.flaggedrevs-color-0 {
+	background-color: #f8f9fa;
+}
+
+.flaggedrevs-color-1 {
+	background-color: #eaf3ff;
+}
+
+.flaggedrevs-pending {
+	background-color: #fff2cc; /* equals WikimediaUI's Yellow50 `#fc3` at 0.25 opacity */
+}
+
+.flaggedrevs-unreviewed {
+	background-color: #fef6e7;
+}
+
+/* Diff items */
+/* stylelint-disable-next-line selector-max-id */
+#mw-fr-diff-headeritems {
+	direction: ltr;
+}
+
+/* stylelint-disable-next-line selector-max-id */
+#mw-fr-stablediff {
+	background-color: #fff;
+	text-align: left; /* bug 35202 */
+}
