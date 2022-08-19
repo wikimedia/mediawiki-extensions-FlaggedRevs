@@ -1,14 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Arystanbek"
+			"Arystanbek",
+			"СеніңШешең"
 		]
 	},
 	"unreviewedpages": "Сын берілмеген беттер",
 	"unreviewedpages-category": "Санат:",
 	"unreviewedpages-diff": "Өзгерістер",
 	"unreviewedpages-unwatched": "(көрілмеген)",
-	"unreviewedpages-watched": "($1 белсенді {{PLURAL:$1|қатысушы|қатысушы}} қарауда)",
+	"unreviewedpages-watched": "($1 белсенді {{PLURAL:$1|қатысушы}} бақылауда)",
 	"unreviewedpages-list": "Бұл бетте сын берілмеген мақалалар не жаңадан жасалған, сын берілмеген, нұсқалары бар мақалар тізімделінеді.",
 	"unreviewedpages-hours": "($1 {{PLURAL:$1|сағат|сағат}})",
 	"unreviewedpages-days": "($1 {{PLURAL:$1|күн|күн}})",
