@@ -124,7 +124,7 @@
 	"tooltip-ca-current": "Gwelet ar c'hemmoù o c'hortoz eus ar bajenn-mañ",
 	"tooltip-ca-stable": "Gwelet stumm embannet ar bajenn-mañ",
 	"tooltip-ca-default": "Arventennoù Kontrolliñ ar Berzhded",
-	"flaggedrevs-protect-legend": "Adweladenn emgefre ar c'hemmoù ([[{{MediaWiki:Validationpage}}|skoazell]])",
+	"flaggedrevs-protect-legend": "Adweladenn emgefre ar c'hemmoù",
 	"flaggedrevs-protect-none": "Aotren an holl implijerien",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} pajennoù da adwelet]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} kemmoù o c'hortoz bezañ aprouet]",
 	"revreview-locked-title": "Ret eo adlenn kemmoù ar bajenn-mañ.",
