@@ -496,10 +496,6 @@ class FlaggedRevsUIHooks {
 				'queryCallable' => static function ( $specialClassName, $ctx, $dbr, &$tables,
 					&$fields, &$conds, &$query_options, &$join_conds, $selectedValues
 				) {
-					$fields[] = 'fp_stable';
-					$fields[] = 'fp_pending_since';
-					$fields[] = 'rc_namespace';
-
 					if ( !$selectedValues || count( $selectedValues ) > 2 ) {
 						// Nothing/everything was selected, no filter needed
 						return;
