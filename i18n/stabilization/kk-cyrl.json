@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Arystanbek"
+			"Arystanbek",
+			"СеніңШешең"
 		]
 	},
 	"stabilization-tab": "(сқ)",
@@ -13,7 +14,7 @@
 	"stabilization-def": "Беттің әдепкі көрінісінде келтірілетін нұсқа",
 	"stabilization-def1": "Тиянақты нұсқасы; егер жоқ болса, ағымдағылардың біреуі болады",
 	"stabilization-def2": "Ағымдық нұсқасы",
-	"stabilization-restrict": "Қайта қарау/автоматты түрде қарау бағыттауларды.",
+	"stabilization-restrict": "Тексеру/автотексеру шектеуі.",
 	"stabilization-restrict-none": "Қосымша бағыттаулар жоқ",
 	"stabilization-submit": "Құптау",
 	"stabilization-notexists": "«[[:$1|$1]]» деп аталған еш бет жоқ. Еш бапталым реттелмейді.",

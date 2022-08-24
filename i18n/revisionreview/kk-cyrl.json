@@ -1,14 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Arystanbek"
+			"Arystanbek",
+			"СеніңШешең"
 		]
 	},
 	"revisionreview": "Нұсқаларға сын беру",
 	"revreview-check-flag-y": "Менің өзгерістерістерімді қабылдау",
 	"revreview-check-flag-y-title": "Мұнда жасаған барлық өзгерістерді қабылдау",
 	"revreview-flag": "Бұл нұсқаға сын беру",
-	"revreview-reflag": "Бұл нұсқаға қайта қарау",
+	"revreview-reflag": "Бұл нұсқаны тексеру",
 	"revreview-log": "Мәндемесі:",
 	"revreview-main": "Сын беру үшін мағлұмат бетінің ерекше нұсқасын бөлектеуіңіз керек.\n\nСын берілмеген бет тізімі үшін [[{{ns:special}}:Unreviewedpages]] бетін қараңыз.",
 	"revreview-submit": "Сын жіберу",
