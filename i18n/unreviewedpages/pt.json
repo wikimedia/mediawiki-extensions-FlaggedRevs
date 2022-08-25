@@ -13,6 +13,7 @@
 	"unreviewedpages": "Páginas não revistas",
 	"unreviewedpages-legend": "Listar páginas de conteúdo não revistas",
 	"unreviewedpages-category": "Categoria:",
+	"unreviewedpages-showhide-redirect": "$1 redirecionamentos",
 	"unreviewedpages-diff": "rever",
 	"unreviewedpages-unwatched": "(não vigiada)",
 	"unreviewedpages-watched": "(vigiada por $1 {{PLURAL:$1|utilizador ativo|utilizadores ativos}})",
