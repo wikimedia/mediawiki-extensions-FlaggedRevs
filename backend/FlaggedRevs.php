@@ -24,7 +24,7 @@ class FlaggedRevs {
 	 */
 	public const PARSER_CACHE_NAME = 'stable-pcache';
 
-	/** @var string[]|null */
+	/** @var array<int,string>|null */
 	private static $dimensions = null;
 	/** @var int[]|null Namespace config, copy of $wgFlaggedRevsNamespaces */
 	private static $reviewNamespaces = null;
@@ -155,7 +155,7 @@ class FlaggedRevs {
 
 	/**
 	 * Get the array of levels messages
-	 * @return string[]
+	 * @return array<int,string>
 	 */
 	public static function getLevels() {
 		if ( self::$dimensions === null ) {

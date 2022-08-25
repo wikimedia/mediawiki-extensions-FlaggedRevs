@@ -125,7 +125,6 @@ class FlaggedRevsXML {
 			// revreview-accuracy-3, revreview-accuracy-4
 			$level = $flags[$quality] ?? 0;
 			$encValueText = wfMessage( "revreview-$quality-$level" )->escaped();
-			$level = $flags[$quality];
 
 			$levelmarker = $level * 20 + 20;
 			// Give grep a chance to find the usages:
