@@ -1348,12 +1348,8 @@ class FlaggablePageView extends ContextSource {
 		$request = $this->getRequest();
 		# Hack for bug 16734 (some actions update and view all at once)
 		$action = $request->getVal( 'action' );
-		if ( $action === 'rollback' ) {
-			return true;
-		} elseif ( $action === 'delete' && $request->wasPosted() ) {
-			return true;
-		}
-		return false;
+		return $action === 'rollback' ||
+			( $action === 'delete' && $request->wasPosted() );
 	}
 
 	/**

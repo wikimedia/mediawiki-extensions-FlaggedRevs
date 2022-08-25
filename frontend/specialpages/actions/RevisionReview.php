@@ -157,10 +157,8 @@ class RevisionReview extends UnlistedSpecialPage {
 			} elseif ( $status === 'review_page_notexists' ) {
 				$out->showErrorPage( 'internalerror', 'nopagetext' );
 				return;
-			} elseif ( $status === 'review_denied' ) {
-				throw new PermissionsError( 'badaccess-group0' ); // protected?
-			} elseif ( $status === 'review_bad_key' ) {
-				throw new PermissionsError( 'badaccess-group0' ); // fiddling
+			} elseif ( $status === 'review_denied' || $status === 'review_bad_key' ) {
+				throw new PermissionsError( 'badaccess-group0' );
 			} elseif ( $status === 'review_bad_oldid' ) {
 				$out->showErrorPage( 'internalerror', 'revreview-revnotfound' );
 			} elseif ( $status === 'review_not_flagged' ) {

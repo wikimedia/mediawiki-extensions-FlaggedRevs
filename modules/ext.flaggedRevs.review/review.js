@@ -216,20 +216,25 @@ function submitRevisionReview( button, $form ) {
 		// Different input types may occur depending on tags...
 		if ( input.name === 'title' || input.name === 'action' ) {
 			continue; // No need to send these...
-		} else if ( input.type === 'submit' ) {
-			if ( input.id === button.id ) {
-				postData[ input.name ] = '1';
-				// Show that we are submitting via this button
-				input.value = mw.msg( 'revreview-submitting' );
-			}
-		} else if ( input.type === 'checkbox' ) {
-			postData[ input.name ] = input.checked ? input.value : 0;
-		} else if ( input.type === 'radio' ) {
-			if ( input.checked ) { // must be checked
-				postData[ input.name ] = input.value;
-			}
-		} else {
-			postData[ input.name ] = input.value; // text/hiddens...
+		}
+		switch ( input.type ) {
+			case 'submit':
+				if ( input.id === button.id ) {
+					postData[ input.name ] = '1';
+					// Show that we are submitting via this button
+					input.value = mw.msg( 'revreview-submitting' );
+				}
+				break;
+			case 'checkbox':
+				postData[ input.name ] = input.checked ? input.value : 0;
+				break;
+			case 'radio':
+				if ( input.checked ) { // must be checked
+					postData[ input.name ] = input.value;
+				}
+				break;
+			default:
+				postData[ input.name ] = input.value; // text/hiddens...
 		}
 	}
 	var $selects = $form.find( 'select' );
