@@ -17,12 +17,8 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	private $page = null;
 	/** @var FlaggableWikiPage|null Target page object */
 	private $article = null;
-	/** @var bool Approval requested */
-	private $approve = false;
-	/** @var bool De-approval requested */
-	private $unapprove = false;
-	/** @var bool Rejection requested */
-	private $reject = false;
+	/** @var string|null One of the self::ACTION_… constants */
+	private $action = null;
 	/** @var int ID being reviewed (last "bad" ID for rejection) */
 	private $oldid = 0;
 	/** @var int Old, "last good", ID (used for rejection) */
@@ -69,24 +65,10 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	}
 
 	/**
-	 * @param bool $value
+	 * @param string $action One of the self::ACTION… constants
 	 */
-	public function setApprove( $value ) {
-		$this->trySet( $this->approve, $value );
-	}
-
-	/**
-	 * @param bool $value
-	 */
-	public function setUnapprove( $value ) {
-		$this->trySet( $this->unapprove, $value );
-	}
-
-	/**
-	 * @param bool $value
-	 */
-	public function setReject( $value ) {
-		$this->trySet( $this->reject, $value );
+	public function setAction( string $action ) {
+		$this->trySet( $this->action, $action );
 	}
 
 	/**
@@ -278,11 +260,11 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * @return int[]|null
 	 */
 	private function implicitDims() {
-		$tag = FlaggedRevs::binaryFlagging() ? FlaggedRevs::getTagName() : null;
-		if ( $tag ) {
-			if ( $this->approve ) {
+		if ( FlaggedRevs::binaryFlagging() ) {
+			$tag = FlaggedRevs::getTagName();
+			if ( $this->action === self::ACTION_APPROVE ) {
 				return [ $tag => 1 ];
-			} elseif ( $this->unapprove ) {
+			} elseif ( $this->action === self::ACTION_UNAPPROVE ) {
 				return [ $tag => 0 ];
 			}
 		}
@@ -293,15 +275,8 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * Get the action this submission is requesting
 	 * @return string|null (approve,unapprove,reject)
 	 */
-	public function getAction() {
-		if ( !$this->reject && !$this->unapprove && $this->approve ) {
-			return self::ACTION_APPROVE;
-		} elseif ( !$this->reject && $this->unapprove && !$this->approve ) {
-			return self::ACTION_UNAPPROVE;
-		} elseif ( $this->reject && !$this->unapprove && !$this->approve ) {
-			return self::ACTION_REJECT;
-		}
-		return null; // nothing valid asserted
+	public function getAction(): ?string {
+		return $this->action;
 	}
 
 	/**

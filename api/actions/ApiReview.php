@@ -63,9 +63,9 @@ class ApiReview extends ApiBase {
 		$form = new RevisionReviewForm( $this->getUser() );
 		$form->setPage( $title );
 		$form->setOldId( $revid );
-		$unapprove = (bool)( $params['unapprove'] ?? false );
-		$form->setApprove( !$unapprove );
-		$form->setUnapprove( $unapprove );
+		$form->setAction( $params['unapprove'] ?
+			RevisionReviewForm::ACTION_UNAPPROVE :
+			RevisionReviewForm::ACTION_APPROVE );
 		if ( isset( $params['comment'] ) ) {
 			$form->setComment( $params['comment'] );
 		}

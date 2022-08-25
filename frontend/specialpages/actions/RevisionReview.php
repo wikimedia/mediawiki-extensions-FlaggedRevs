@@ -72,9 +72,13 @@ class RevisionReview extends UnlistedSpecialPage {
 
 		$form->setPage( $this->page );
 		# Param for sites with binary flagging
-		$form->setApprove( $request->getCheck( 'wpApprove' ) );
-		$form->setUnapprove( $request->getCheck( 'wpUnapprove' ) );
-		$form->setReject( $request->getCheck( 'wpReject' ) );
+		if ( $request->getCheck( 'wpApprove' ) ) {
+			$form->setAction( RevisionReviewForm::ACTION_APPROVE );
+		} elseif ( $request->getCheck( 'wpUnapprove' ) ) {
+			$form->setAction( RevisionReviewForm::ACTION_UNAPPROVE );
+		} elseif ( $request->getCheck( 'wpReject' ) ) {
+			$form->setAction( RevisionReviewForm::ACTION_REJECT );
+		}
 		# Rev ID
 		$form->setOldId( $request->getInt( 'oldid' ) );
 		$form->setRefId( $request->getInt( 'refid' ) );
@@ -260,13 +264,19 @@ class RevisionReview extends UnlistedSpecialPage {
 					$form->setTemplateParams( $val );
 					break;
 				case "wpApprove":
-					$form->setApprove( $val );
+					if ( $val ) {
+						$form->setAction( RevisionReviewForm::ACTION_APPROVE );
+					}
 					break;
 				case "wpUnapprove":
-					$form->setUnapprove( $val );
+					if ( $val ) {
+						$form->setAction( RevisionReviewForm::ACTION_UNAPPROVE );
+					}
 					break;
 				case "wpReject":
-					$form->setReject( $val );
+					if ( $val ) {
+						$form->setAction( RevisionReviewForm::ACTION_REJECT );
+					}
 					break;
 				case "wpReason":
 					$form->setComment( $val );
@@ -309,23 +319,15 @@ class RevisionReview extends UnlistedSpecialPage {
 		}
 		# Try submission...
 		$status = $form->submit();
-		# Success...
-		if ( $status === true ) {
-			# Sent new lastChangeTime TS to client for later submissions...
-			$changeTime = $form->getNewLastChangeTime();
-			if ( $form->getAction() === RevisionReviewForm::ACTION_APPROVE ) { // approve
-				return [ 'change-time' => $changeTime ];
-			} elseif ( $form->getAction() === RevisionReviewForm::ACTION_UNAPPROVE ) { // de-approve
-				return [ 'change-time' => $changeTime ];
-			} elseif ( $form->getAction() === RevisionReviewForm::ACTION_REJECT ) { // revert
-				return [ 'change-time' => $changeTime ];
-			}
 		# Failure...
-		} else {
+		if ( $status !== true ) {
 			return [ 'error-html' => wfMessage( 'revreview-failed' )->parseAsBlock() .
 				'<p>' . wfMessage( $status )->escaped() . '</p>' ];
+		} elseif ( !$form->getAction() ) {
+			return [ 'error-html' => wfMessage( 'revreview-failed' )->parse() ];
 		}
 
-		return [ 'error-html' => wfMessage( 'revreview-failed' )->parse() ];
+		# Sent new lastChangeTime TS to client for later submissions...
+		return [ 'change-time' => $form->getNewLastChangeTime() ];
 	}
 }
