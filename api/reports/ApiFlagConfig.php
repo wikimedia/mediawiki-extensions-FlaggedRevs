@@ -37,7 +37,7 @@ class ApiFlagConfig extends ApiBase {
 		if ( !FlaggedRevs::useOnlyIfProtected() ) {
 			$data[] = [
 				'name'   => FlaggedRevs::getTagName(),
-				'levels' => count( FlaggedRevs::getLevels() ) - 1, // exclude '0' level
+				'levels' => FlaggedRevs::getMaxLevel(),
 				'tier1'  => 1,
 			];
 		}
