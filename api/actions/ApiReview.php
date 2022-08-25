@@ -71,14 +71,10 @@ class ApiReview extends ApiBase {
 		}
 		// The flagging parameters have the form 'flag_$name'.
 		// Extract them and put the values into $form->dims
-		if ( !FlaggedRevs::useOnlyIfProtected() ) {
-			$tag = FlaggedRevs::getTagName();
-			if ( FlaggedRevs::binaryFlagging() ) {
-				$form->setDim( $tag, 1 );
-			} else {
-				$form->setDim( $tag, (int)$params['flag_' . $tag] );
-			}
-		}
+		$form->setDim( FlaggedRevs::binaryFlagging() ?
+			1 :
+			(int)$params['flag_' . FlaggedRevs::getTagName() ]
+		);
 		if ( $form->getAction() === RevisionReviewForm::ACTION_APPROVE ) {
 			$article = FlaggableWikiPage::newInstance( $title );
 			// Now get the template parameters needed
