@@ -5,7 +5,8 @@
 			"Calak",
 			"Lost Whispers",
 			"Sarchia",
-			"Épine"
+			"Épine",
+			"Aram"
 		]
 	},
 	"action-review": "بەسەرداچوونەوەی پێداچوونەوەکان",
@@ -28,6 +29,7 @@
 	"flaggedrevs-hidereviewed": "دەستکاریی بەسەرداچووە $1",
 	"flaggedrevs-hidereviewed-hide": "بیشارەوە",
 	"flaggedrevs-hidereviewed-show": "نیشان بدە",
+	"flaggedrevs-rcfilters-reviewed-label": "پێداچوونەوە بۆ کراو",
 	"group-editor": "دەستکاریکەران",
 	"group-editor-member": "{{GENDER:$1|دەستکاریکەر}}",
 	"group-reviewer": "بەسەرداچوونەوەکەران",
@@ -177,5 +179,6 @@
 	"revreview-unlocked-title": "دەستکاریی ئەم پەڕەیە بەسەرداچوونەوەی پێویستە نییە.",
 	"revreview-locked": "'''تێبینی:''' دەستکارییەکانی ئەم پەڕەیە بەر لە پێشان دران بە خوێنەران، پێویستی بە [[{{MediaWiki:Validationpage}}|بەسەرداچوونەوە]] ھەیە.",
 	"revreview-unlocked": "'''تێبینی:''' دەستکارییەکانی ئەم پەڕەیە بەر لە پێشان دران بە خوێنەران، پێویستی بە [[{{MediaWiki:Validationpage}}|بەسەرداچوونەوە]] نییە.",
+	"logeventslist-review-log": "لۆگی بەسەرداچوونەوە",
 	"validationpage": "{{ns:wikipedia}}:گۆڕانکاریی ھەڵواسراو"
 }
