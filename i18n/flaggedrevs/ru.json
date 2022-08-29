@@ -38,7 +38,12 @@
 			"Синкретик"
 		]
 	},
+	"action-autoreview": "правки участника автоматически отмечаются как досмотренные",
+	"action-autoreviewrestore": "автовыверка при откате",
+	"action-movestable": "переименование страниц со стабильными версиями",
 	"action-review": "проверка версий страниц",
+	"action-stablesettings": "настройка способа выбора и отображения стабильной версии",
+	"action-validate": "отметка версий страниц как «качественных»",
 	"action-unreviewedpages": "просмотр списка непроверенных страниц",
 	"editor": "Досматривающий",
 	"flaggedrevs": "Проверка изменений",
@@ -160,7 +165,7 @@
 	"revreview-def-all": "любая",
 	"revreview-def-draft": "последняя",
 	"revreview-def-stable": "опубликованная",
-	"revreview-restrictfilter": "Ограничение автопроверки:",
+	"revreview-restrictfilter": "Ограничение автовыверки:",
 	"revreview-restriction-any": "любой",
 	"revreview-restriction-none": "нет",
 	"revreview-reviewlink": "непроверенные изменения",
