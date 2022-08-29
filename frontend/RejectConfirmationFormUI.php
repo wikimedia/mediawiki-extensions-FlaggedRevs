@@ -194,7 +194,7 @@ class RejectConfirmationFormUI {
 			'form',
 			[ 'method' => 'POST', 'action' => $reviewTitle->getFullURL() ]
 		);
-		$formHTML .= Html::hidden( 'action', 'reject' );
+		$formHTML .= Html::hidden( 'action', RevisionReviewForm::ACTION_REJECT );
 		$formHTML .= Html::hidden( 'wpReject', 1 );
 		$formHTML .= Html::hidden( 'wpRejectConfirm', 1 );
 		$formHTML .= Html::hidden( 'oldid', $this->form->getOldId() );

@@ -42,13 +42,13 @@ class FlaggedRevsLog {
 				$comment .= $comment ? " $rating" : $rating;
 			}
 			# Sort into the proper action (useful for filtering)
-			$action = 'approve';
+			$action = RevisionReviewForm::ACTION_APPROVE;
 			if ( !$stableId ) { // first time
 				$action .= "-i";
 			}
 		// De-approved revisions
 		} else {
-			$action = 'unapprove';
+			$action = RevisionReviewForm::ACTION_UNAPPROVE;
 		}
 		$ts = MediaWikiServices::getInstance()
 			->getRevisionLookup()

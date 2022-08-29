@@ -79,7 +79,7 @@ class ApiReview extends ApiBase {
 				$form->setDim( $tag, (int)$params['flag_' . $tag] );
 			}
 		}
-		if ( $form->getAction() === 'approve' ) {
+		if ( $form->getAction() === RevisionReviewForm::ACTION_APPROVE ) {
 			$article = FlaggableWikiPage::newInstance( $title );
 			// Now get the template parameters needed
 			if ( FlaggedRevs::inclusionSetting() === FR_INCLUDES_CURRENT ) {
@@ -108,7 +108,7 @@ class ApiReview extends ApiBase {
 		} elseif ( $status === 'review_page_unreviewable' ) {
 			$this->dieWithError( 'apierror-flaggedrevs-notreviewable', 'notreviewable' );
 		# Approve-specific failures
-		} elseif ( $form->getAction() === 'approve' ) {
+		} elseif ( $form->getAction() === RevisionReviewForm::ACTION_APPROVE ) {
 			if ( $status === 'review_denied' ) {
 				$this->dieWithError( 'apierror-flaggedrevs-cantreview', 'permissiondenied' );
 			} elseif ( $status === 'review_too_low' ) {
@@ -124,7 +124,7 @@ class ApiReview extends ApiBase {
 				$this->dieWithError( [ 'apierror-unknownerror-nocode' ], 'unknownerror' );
 			}
 		# De-approve specific failure
-		} elseif ( $form->getAction() === 'unapprove' ) {
+		} elseif ( $form->getAction() === RevisionReviewForm::ACTION_UNAPPROVE ) {
 			if ( $status === 'review_denied' ) {
 				$this->dieWithError( 'apierror-flaggedrevs-cantunreview', 'permissiondenied' );
 			} elseif ( $status === 'review_not_flagged' ) {
