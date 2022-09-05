@@ -63,10 +63,8 @@ class FlaggedRevision {
 
 	/**
 	 * @param array $row
-	 * @param Title|null $title
-	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
 	 */
-	public function __construct( array $row, Title $title = null, $flags = 0 ) {
+	public function __construct( array $row ) {
 		$this->mTimestamp = $row['timestamp'];
 		$this->mTags = self::expandRevisionTags( strval( $row['tags'] ) );
 		$this->mFlags = explode( ',', $row['flags'] );

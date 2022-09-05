@@ -685,7 +685,6 @@ class FlaggedRevs {
 
 		if ( self::useOnlyIfProtected() ) {
 			$flags = [];
-			$quality = FR_CHECKED;
 			$tags = '';
 		} else {
 			# Set the auto-review tags from the prior stable version.
@@ -709,7 +708,6 @@ class FlaggedRevs {
 				}
 			}
 
-			$quality = FR_CHECKED;
 			$tags = FlaggedRevision::flattenRevisionTags( $flags );
 		}
 
@@ -760,15 +758,10 @@ class FlaggedRevs {
 			'revrecord'    		=> $revRecord,
 			'user_id'	       	=> $user->getId(),
 			'timestamp'     	=> $revRecord->getTimestamp(), // same as edit time
-			'quality'      	 	=> $quality,
 			'tags'	       		=> $tags,
-			'img_name'      	=> null,
-			'img_timestamp' 	=> null,
-			'img_sha1'      	=> null,
 			'templateVersions' 	=> $tVersions,
-			'fileVersions'     	=> [],
 			'flags'             => $auto ? 'auto' : '',
-		], $title );
+		] );
 
 		// Insert the flagged revision
 		$success = $flaggedRevision->insert();
