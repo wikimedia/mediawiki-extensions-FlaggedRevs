@@ -42,7 +42,7 @@ class FlaggedRevsBackendTest extends MediaWikiIntegrationTestCase {
 		];
 
 		$popts = ParserOptions::newFromAnon();
-		$frev = new FlaggedRevision( (object)$row, $title );
+		$frev = FlaggedRevision::newFromRow( (object)$row, $title );
 
 		$out = FlaggedRevs::parseStableRevisionPooled( $frev, $popts );
 		$this->assertInstanceOf( ParserOutput::class, $out->getValue() );
