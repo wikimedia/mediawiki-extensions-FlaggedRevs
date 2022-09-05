@@ -61,8 +61,12 @@ class FlaggedRevision {
 	 * @param array $row
 	 */
 	public function __construct( array $row ) {
+		if ( !is_array( $row['tags'] ) ) {
+			$row['tags'] = self::expandRevisionTags( $row['tags'] );
+		}
+
 		$this->mTimestamp = $row['timestamp'];
-		$this->mTags = self::expandRevisionTags( strval( $row['tags'] ) );
+		$this->mTags = array_merge( self::getDefaultTags(), $row['tags'] );
 		$this->mFlags = explode( ',', $row['flags'] );
 		$this->mUser = intval( $row['user_id'] );
 		# Base Revision object
@@ -641,19 +645,18 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * @return int[]
+	 * @return array<string,int>
 	 */
 	public static function getDefaultTags(): array {
 		return FlaggedRevs::useOnlyIfProtected() ? [] : [ FlaggedRevs::getTagName() => 0 ];
 	}
 
 	/**
-	 * Get flags for a revision
 	 * @param string $tags
-	 * @return int[]
+	 * @return array<string,int>
 	 */
-	public static function expandRevisionTags( $tags ) {
-		$flags = self::getDefaultTags();
+	public static function expandRevisionTags( string $tags ): array {
+		$flags = [];
 		$tags = str_replace( '\n', "\n", $tags ); // B/C, old broken rows
 		// Tag string format is <tag:val\ntag:val\n...>
 		$tags = explode( "\n", $tags );
@@ -669,11 +672,10 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * Get flags for a revision
-	 * @param int[] $tags
+	 * @param array<string,int> $tags
 	 * @return string
 	 */
-	public static function flattenRevisionTags( array $tags ) {
+	public static function flattenRevisionTags( array $tags ): string {
 		$flags = '';
 		foreach ( $tags as $tag => $value ) {
 			$flags .= $tag . ':' . intval( $value ) . "\n";

@@ -41,6 +41,28 @@ class FlaggedRevisionTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame( [ 'example' => 0, 'a' => 2 ], $frev->getTags() );
 	}
 
+	public function provideNonDefaultTags() {
+		return [
+			[ '', [ 'example' => 0 ] ],
+			[ [], [ 'example' => 0 ] ],
+			[ [ 'a' => 2 ], [ 'example' => 0, 'a' => 2 ] ],
+		];
+	}
+
+	/**
+	 * @dataProvider provideNonDefaultTags
+	 */
+	public function testConstructorInitializesDefaultTags( $tags, array $expected ) {
+		$frev = new FlaggedRevision( [
+			'timestamp' => '20221231000000',
+			'tags' => $tags,
+			'flags' => '',
+			'user_id' => 0,
+			'revrecord' => $this->createMock( RevisionRecord::class ),
+		] );
+		$this->assertSame( $expected, $frev->getTags() );
+	}
+
 	public function provideRevisionTagArrays() {
 		return [
 			[ [], '' ],
@@ -61,9 +83,9 @@ class FlaggedRevisionTest extends MediaWikiIntegrationTestCase {
 
 	public function provideFlattenedRevisionTags() {
 		return [
-			[ '', [ 'example' => 0 ] ],
-			[ "a\nb=3", [ 'example' => 0 ] ],
-			[ 'a:2\nb:3', [ 'example' => 0, 'a' => 2, 'b' => 3 ] ],
+			[ '', [] ],
+			[ "a\nb=3", [] ],
+			[ 'a:2\nb:3', [ 'a' => 2, 'b' => 3 ] ],
 			[ "example: 2 \nb:3.9\n", [ 'example' => 2, 'b' => 3 ] ],
 			[ "example:-8\nb:9\n", [ 'example' => 0, 'b' => 3 ] ],
 		];

@@ -102,7 +102,7 @@ class FlaggedRevsXML {
 	}
 
 	/**
-	 * @param int[] $flags
+	 * @param array<string,int> $flags
 	 * @return string
 	 * Generates a review box/tag
 	 */

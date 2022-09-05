@@ -491,7 +491,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			'user_id'           => $this->user->getId(),
 			'timestamp'         => wfTimestampNow(),
 			'quality'           => FR_CHECKED,
-			'tags'              => FlaggedRevision::flattenRevisionTags( $flags ),
+			'tags'              => $flags,
 			'img_name'          => null,
 			'img_timestamp'     => null,
 			'img_sha1'          => null,

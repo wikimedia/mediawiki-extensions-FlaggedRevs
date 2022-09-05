@@ -243,7 +243,7 @@ class RevisionReviewFormUI {
 
 	/**
 	 * @param User $user
-	 * @param int[] $flags selected flags
+	 * @param array<string,int> $flags selected flags
 	 * @param bool $disabled form disabled
 	 * @return string
 	 * Generates a main tag inputs (checkboxes/radios/selects) for review form
@@ -338,7 +338,7 @@ class RevisionReviewFormUI {
 
 	/**
 	 * @param User $user
-	 * @param int[] $selected
+	 * @param array<string,int> $selected
 	 * @return array[]|false[]
 	 */
 	private function ratingFormTags( $user, $selected ) {

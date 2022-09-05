@@ -7,7 +7,7 @@ class FlaggedRevsLog {
 	/**
 	 * Record a log entry on the review action
 	 * @param Title $title
-	 * @param int[] $dims
+	 * @param array<string,int> $dims
 	 * @param string $comment
 	 * @param int $revId revision ID
 	 * @param int $stableId prior stable revision ID

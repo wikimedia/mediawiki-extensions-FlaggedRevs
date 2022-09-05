@@ -195,7 +195,7 @@ class FlaggedRevs {
 
 	/**
 	 * Check if all of the required site flags have a valid value
-	 * @param int[] $flags
+	 * @param array<string,int> $flags
 	 * @return bool
 	 */
 	public static function flagsAreValid( array $flags ) {
@@ -243,8 +243,8 @@ class FlaggedRevs {
 	 * Returns true if a user can set $flags for a revision via review.
 	 * Requires the same for $oldflags if given.
 	 * @param User $user
-	 * @param int[] $flags suggested flags
-	 * @param int[] $oldflags pre-existing flags
+	 * @param array<string,int> $flags suggested flags
+	 * @param array<string,int> $oldflags pre-existing flags
 	 * @return bool
 	 */
 	public static function userCanSetFlags( $user, array $flags, $oldflags = [] ) {
@@ -582,7 +582,7 @@ class FlaggedRevs {
 
 	/**
 	 * Get minimum level tags for a tier
-	 * @return int[]
+	 * @return array<string,int>
 	 */
 	public static function quickTags() {
 		return self::useOnlyIfProtected() ?
@@ -594,8 +594,8 @@ class FlaggedRevs {
 	 * Get minimum tags that are closest to $oldFlags
 	 * given the site, page, and user rights limitations.
 	 * @param User $user
-	 * @param int[] $oldFlags previous stable rev flags
-	 * @return int[]|null array or null
+	 * @param array<string,int> $oldFlags previous stable rev flags
+	 * @return array<string,int>|null
 	 */
 	private static function getAutoReviewTags( $user, array $oldFlags ) {
 		if ( !self::autoReviewEdits() ) {
@@ -689,7 +689,6 @@ class FlaggedRevs {
 
 		if ( self::useOnlyIfProtected() ) {
 			$flags = [];
-			$tags = '';
 		} else {
 			# Set the auto-review tags from the prior stable version.
 			# Normally, this should already be done and given here...
@@ -711,8 +710,6 @@ class FlaggedRevs {
 					return false; // can't auto-review this revision
 				}
 			}
-
-			$tags = FlaggedRevision::flattenRevisionTags( $flags );
 		}
 
 		try {
@@ -762,7 +759,7 @@ class FlaggedRevs {
 			'revrecord'    		=> $revRecord,
 			'user_id'	       	=> $user->getId(),
 			'timestamp'     	=> $revRecord->getTimestamp(), // same as edit time
-			'tags'	       		=> $tags,
+			'tags'	       		=> $flags,
 			'templateVersions' 	=> $tVersions,
 			'flags'             => $auto ? 'auto' : '',
 		] );
