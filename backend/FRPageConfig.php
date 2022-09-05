@@ -142,7 +142,6 @@ class FRPageConfig {
 	/**
 	 * Find what protection level a config is in
 	 * @param array $config
-	 * @throws Exception
 	 * @return string
 	 */
 	public static function getProtectionLevel( array $config ) {
