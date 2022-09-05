@@ -41,7 +41,7 @@ class FlaggedRevision {
 	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
 	 * @return self
 	 */
-	public static function newFromRow( stdClass $row, Title $title = null, $flags = 0 ) {
+	private static function newFromRow( stdClass $row, Title $title = null, $flags = 0 ) {
 		# Optional fields
 		if ( !$title && isset( $row->page_namespace ) && isset( $row->page_title ) ) {
 			$title = Title::makeTitleSafe( $row->page_namespace, $row->page_title );
