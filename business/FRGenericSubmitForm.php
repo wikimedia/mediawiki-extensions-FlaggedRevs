@@ -66,7 +66,7 @@ abstract class FRGenericSubmitForm {
 	 */
 	final public function ready() {
 		if ( $this->state != self::FORM_UNREADY ) {
-			throw new Exception( __CLASS__ . " ready() already called.\n" );
+			throw new LogicException( __CLASS__ . " ready() already called.\n" );
 		}
 
 		$this->state = self::FORM_READY;
@@ -95,7 +95,7 @@ abstract class FRGenericSubmitForm {
 	 */
 	final protected function trySet( &$field, $value ) {
 		if ( $this->state != self::FORM_UNREADY ) {
-			throw new Exception( __CLASS__ . " fields cannot be set anymore.\n" );
+			throw new LogicException( __CLASS__ . " fields cannot be set anymore.\n" );
 		} else {
 			$field = $value; // still allowing input
 		}
@@ -126,7 +126,7 @@ abstract class FRGenericSubmitForm {
 	 */
 	final public function checkTarget() {
 		if ( $this->state != self::FORM_READY ) {
-			throw new Exception( __CLASS__ . " input fields not set yet.\n" );
+			throw new LogicException( __CLASS__ . " input fields not set yet.\n" );
 		}
 		$status = $this->doCheckTargetGiven();
 		if ( $status !== true ) {
@@ -162,7 +162,7 @@ abstract class FRGenericSubmitForm {
 	 */
 	final public function preload() {
 		if ( $this->state != self::FORM_READY ) {
-			throw new Exception( __CLASS__ . " input fields not set yet.\n" );
+			throw new LogicException( __CLASS__ . " input fields not set yet.\n" );
 		}
 		$status = $this->checkTarget();
 		if ( $status !== true ) {
@@ -186,7 +186,7 @@ abstract class FRGenericSubmitForm {
 	 */
 	final public function submit() {
 		if ( $this->state != self::FORM_READY ) {
-			throw new Exception( __CLASS__ . " input fields preloaded or not set yet.\n" );
+			throw new LogicException( __CLASS__ . " input fields preloaded or not set yet.\n" );
 		}
 		$status = $this->checkParameters();
 		if ( $status !== true ) {

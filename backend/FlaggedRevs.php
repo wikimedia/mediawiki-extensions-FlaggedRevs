@@ -49,7 +49,7 @@ class FlaggedRevs {
 	public static function getTagName(): string {
 		global $wgFlaggedRevsTags;
 		if ( count( $wgFlaggedRevsTags ) !== 1 ) {
-			throw new Exception( 'FlaggedRevs given invalid tag name! We only support one dimension now.' );
+			throw new ConfigException( 'FlaggedRevs given invalid tag name! We only support one dimension now.' );
 		}
 		return array_keys( $wgFlaggedRevsTags )[0];
 	}
@@ -440,7 +440,7 @@ class FlaggedRevs {
 		} elseif ( $page instanceof Title ) {
 			$article = FlaggableWikiPage::getTitleInstance( $page );
 		} else {
-			throw new Exception( "First argument must be a Title or WikiPage." );
+			throw new InvalidArgumentException( "First argument must be a Title or WikiPage." );
 		}
 		if ( !$article->isReviewable() ) {
 			return false;
@@ -624,9 +624,9 @@ class FlaggedRevs {
 			$namespaceInfo = MediaWikiServices::getInstance()->getNamespaceInfo();
 			foreach ( $wgFlaggedRevsNamespaces as $ns ) {
 				if ( $namespaceInfo->isTalk( $ns ) ) {
-					throw new Exception( 'FlaggedRevs given talk namespace in $wgFlaggedRevsNamespaces!' );
+					throw new ConfigException( 'FlaggedRevs given talk namespace in $wgFlaggedRevsNamespaces!' );
 				} elseif ( $ns === NS_MEDIAWIKI ) {
-					throw new Exception( 'FlaggedRevs given NS_MEDIAWIKI in $wgFlaggedRevsNamespaces!' );
+					throw new ConfigException( 'FlaggedRevs given NS_MEDIAWIKI in $wgFlaggedRevsNamespaces!' );
 				}
 			}
 			self::$reviewNamespaces = $wgFlaggedRevsNamespaces;

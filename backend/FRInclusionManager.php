@@ -112,7 +112,7 @@ class FRInclusionManager {
 	 */
 	public function getReviewedTemplateVersion( Title $title ) {
 		if ( !is_array( $this->reviewedVersions ) ) {
-			throw new Exception( "prepareForParse() nor setReviewedVersions() called yet" );
+			throw new LogicException( "prepareForParse() nor setReviewedVersions() called yet" );
 		}
 		$dbKey = $title->getDBkey();
 		$namespace = $title->getNamespace();

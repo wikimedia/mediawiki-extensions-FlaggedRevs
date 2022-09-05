@@ -159,7 +159,7 @@ class FRUserCounters {
 		$flatRows = [];
 		foreach ( $params as $key => $value ) {
 			if ( strpos( $key, '=' ) !== false || strpos( $key, "\n" ) !== false ) {
-				throw new Exception( "flattenParams() - key cannot use '=' or newline" );
+				throw new InvalidArgumentException( "flattenParams() - key cannot use '=' or newline" );
 			}
 			if ( $key === 'uniqueContentPages' ) { // list
 				$value = implode( ',', array_map( 'intval', $value ) );
