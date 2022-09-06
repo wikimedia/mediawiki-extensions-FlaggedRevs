@@ -38,8 +38,7 @@ class FlaggedRevs {
 	 * @return bool
 	 */
 	public static function binaryFlagging() {
-		global $wgFlaggedRevsTags;
-		return self::useOnlyIfProtected() || reset( $wgFlaggedRevsTags )['levels'] <= 1;
+		return self::useOnlyIfProtected() || self::getMaxLevel() <= 1;
 	}
 
 	/**
@@ -150,7 +149,8 @@ class FlaggedRevs {
 	 * @return int Number of levels, excluding "0" level
 	 */
 	public static function getMaxLevel() {
-		return count( self::getLevels() ) - 1;
+		global $wgFlaggedRevsTags;
+		return reset( $wgFlaggedRevsTags )['levels'];
 	}
 
 	/**
@@ -158,11 +158,10 @@ class FlaggedRevs {
 	 * @return string[]
 	 */
 	public static function getLevels() {
-		global $wgFlaggedRevsTags;
 		if ( self::$dimensions === null ) {
 			self::$dimensions = [];
 			$tag = self::getTagName();
-			$ratingLevels = $wgFlaggedRevsTags[$tag]['levels'];
+			$ratingLevels = self::getMaxLevel();
 			for ( $i = 0; $i <= $ratingLevels; $i++ ) {
 				self::$dimensions[$i] = "$tag-$i";
 			}

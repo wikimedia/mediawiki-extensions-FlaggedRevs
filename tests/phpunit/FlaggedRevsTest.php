@@ -35,6 +35,7 @@ class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 		$staticAccess->dimensions = null;
 
 		$this->assertSame( $expected, FlaggedRevs::getLevels() );
+		$this->assertSame( count( $expected ) - 1, FlaggedRevs::getMaxLevel() );
 	}
 
 }
