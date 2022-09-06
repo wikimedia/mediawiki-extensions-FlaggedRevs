@@ -657,15 +657,16 @@ class FlaggedRevision {
 	 */
 	public static function expandRevisionTags( string $tags ): array {
 		$flags = [];
+		$max = FlaggedRevs::getMaxLevel();
 		$tags = str_replace( '\n', "\n", $tags ); // B/C, old broken rows
 		// Tag string format is <tag:val\ntag:val\n...>
 		$tags = explode( "\n", $tags );
 		foreach ( $tags as $tuple ) {
 			$set = explode( ':', $tuple, 2 );
+			// Skip broken and old serializations that end with \n, which shows up as [ "" ] here
 			if ( count( $set ) == 2 ) {
 				list( $tag, $value ) = $set;
-				$value = max( 0, (int)$value ); // validate
-				$flags[$tag] = min( $value, FlaggedRevs::getMaxLevel() );
+				$flags[$tag] = min( max( 0, (int)$value ), $max );
 			}
 		}
 		return $flags;
@@ -678,7 +679,10 @@ class FlaggedRevision {
 	public static function flattenRevisionTags( array $tags ): string {
 		$flags = '';
 		foreach ( $tags as $tag => $value ) {
-			$flags .= $tag . ':' . intval( $value ) . "\n";
+			if ( $flags ) {
+				$flags .= "\n";
+			}
+			$flags .= $tag . ':' . (int)$value;
 		}
 		return $flags;
 	}
