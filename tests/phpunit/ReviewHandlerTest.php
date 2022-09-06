@@ -40,8 +40,6 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 		$target = $page->getTitle()->getPrefixedDBkey();
 		$templateParams = 'templateParamsValue';
 		$wpApprove = 1;
-		$wpUnapprove = 0;
-		$wpReject = 0;
 		$wpReason = 'wpReasonValue';
 		$changetime = null;
 		$csrf = new CsrfTokenSet( $context->getRequest() );
@@ -62,8 +60,6 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 				'validatedParams' => $validatedParams,
 				'templateParams' => $templateParams,
 				'wpApprove' => $wpApprove,
-				'wpUnapprove' => $wpUnapprove,
-				'wpReject' => $wpReject,
 				'wpReason' => $wpReason,
 				'changetime' => $changetime,
 				$wpDimName => $wpDimValue,
@@ -177,8 +173,6 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 		$target = $page->getTitle()->getPrefixedDBkey();
 		$templateParams = 'templateParamsValue';
 		$wpApprove = 1;
-		$wpUnapprove = 0;
-		$wpReject = 0;
 		$wpReason = 'wpReasonValue';
 		$changetime = null;
 		$csrf = new CsrfTokenSet( $context->getRequest() );
@@ -199,8 +193,6 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 				'validatedParams' => $validatedParams,
 				'templateParams' => $templateParams,
 				'wpApprove' => $wpApprove,
-				'wpUnapprove' => $wpUnapprove,
-				'wpReject' => $wpReject,
 				'wpReason' => $wpReason,
 				'changetime' => $changetime,
 				$wpDimName => $wpDimValue,
