@@ -8,7 +8,7 @@ use MediaWiki\Revision\RevisionRecord;
 class FlaggedRevsBackendTest extends MediaWikiIntegrationTestCase {
 
 	/**
-	 * @covers FlaggedRevs::parseStableRevisionPooled
+	 * @covers \FlaggedRevs::parseStableRevisionPooled
 	 */
 	public function testParseStableRevisionPooled() {
 		$page = $this->getExistingTestPage( __METHOD__ );
@@ -34,10 +34,10 @@ class FlaggedRevsBackendTest extends MediaWikiIntegrationTestCase {
 			'page_namespace' => $title->getNamespace(),
 			'page_title' => $title->getDBkey(),
 			'page_latest' => $title->getLatestRevID(),
-			'fr_timestamp' => null,
-			'fr_quality' => null,
-			'fr_tags' => null,
-			'fr_flags' => null,
+			'fr_timestamp' => '',
+			'fr_quality' => 0,
+			'fr_tags' => '',
+			'fr_flags' => '',
 			'fr_user' => $user->getId()
 		];
 

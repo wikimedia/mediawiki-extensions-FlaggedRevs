@@ -1,16 +1,13 @@
 <?php
 
-namespace FlaggedRevs\tests\phpunit;
-
 use MediaWiki\Extension\FlaggedRevs\Rest\DiffHeaderHandler;
 use MediaWiki\Rest\LocalizedHttpException;
 use MediaWiki\Rest\RequestData;
 use MediaWiki\Tests\Rest\Handler\HandlerTestTrait;
-use MediaWikiIntegrationTestCase;
 use Wikimedia\Message\MessageValue;
 
 /**
- * @covers MediaWiki\Extension\FlaggedRevs\Rest\DiffHeaderHandler
+ * @covers \MediaWiki\Extension\FlaggedRevs\Rest\DiffHeaderHandler
  *
  * @group Database
  */

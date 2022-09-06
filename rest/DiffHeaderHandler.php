@@ -9,7 +9,6 @@ use MediaWiki\Rest\StringStream;
 use Wikimedia\ParamValidator\ParamValidator;
 
 /**
- *
  * Handler class for REST API endpoints that update diff header items
  */
 class DiffHeaderHandler extends SimpleHandler {
