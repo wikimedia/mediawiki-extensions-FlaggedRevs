@@ -12,7 +12,6 @@ use MediaWiki\Revision\SlotRecord;
  *
  * This contains a page revision, and versions of templates (to determine template inclusion)
  */
-
 class FlaggedRevision {
 
 	/** @var RevisionRecord base revision */
@@ -37,41 +36,45 @@ class FlaggedRevision {
 	private $mStableTemplates;
 
 	/**
-	 * @param stdClass|array $row DB row or array
+	 * @param stdClass $row DB row
 	 * @param Title|null $title
 	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
-	 *
-	 * @throws Exception
+	 * @return self
 	 */
-	public function __construct( $row, Title $title = null, $flags = 0 ) {
-		if ( is_object( $row ) ) {
-			$this->mTimestamp = $row->fr_timestamp;
-			$this->mTags = self::expandRevisionTags( strval( $row->fr_tags ) );
-			$this->mFlags = explode( ',', $row->fr_flags );
-			$this->mUser = intval( $row->fr_user );
-			# Optional fields
-			if ( $title ) {
-				$this->mTitle = $title;
-			} elseif ( isset( $row->page_namespace ) && isset( $row->page_title ) ) {
-				$this->mTitle = Title::makeTitleSafe( $row->page_namespace, $row->page_title );
-			}
-			# Base Revision object
-			$revFactory = MediaWikiServices::getInstance()->getRevisionFactory();
-			$revFlags = $flags ? RevisionFactory::READ_LATEST : RevisionFactory::READ_NORMAL;
-			$revRecord = $revFactory->newRevisionFromRow( $row, $revFlags, $this->mTitle );
-			$this->mRevRecord = $revRecord;
-		} elseif ( is_array( $row ) ) {
-			$this->mTimestamp = $row['timestamp'];
-			$this->mTags = self::expandRevisionTags( strval( $row['tags'] ) );
-			$this->mFlags = explode( ',', $row['flags'] );
-			$this->mUser = intval( $row['user_id'] );
-			# Base Revision object
-			$this->mRevRecord = $row['revrecord'];
-			# Optional fields
-			$this->mTemplates = $row['templateVersions'] ?? null;
-		} else {
-			throw new Exception( 'FlaggedRevision constructor passed invalid row format.' );
+	public static function newFromRow( stdClass $row, Title $title = null, $flags = 0 ) {
+		# Optional fields
+		if ( !$title && isset( $row->page_namespace ) && isset( $row->page_title ) ) {
+			$title = Title::makeTitleSafe( $row->page_namespace, $row->page_title );
 		}
+		# Base Revision object
+		$revFactory = MediaWikiServices::getInstance()->getRevisionFactory();
+		$revFlags = $flags ? RevisionFactory::READ_LATEST : RevisionFactory::READ_NORMAL;
+		$revRecord = $revFactory->newRevisionFromRow( $row, $revFlags, $title );
+		$frev = new self( [
+			'timestamp' => $row->fr_timestamp,
+			'tags' => $row->fr_tags,
+			'flags' => $row->fr_flags,
+			'user_id' => $row->fr_user,
+			'revrecord' => $revRecord,
+		] );
+		$frev->mTitle = $title;
+		return $frev;
+	}
+
+	/**
+	 * @param array $row
+	 * @param Title|null $title
+	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
+	 */
+	public function __construct( array $row, Title $title = null, $flags = 0 ) {
+		$this->mTimestamp = $row['timestamp'];
+		$this->mTags = self::expandRevisionTags( strval( $row['tags'] ) );
+		$this->mFlags = explode( ',', $row['flags'] );
+		$this->mUser = intval( $row['user_id'] );
+		# Base Revision object
+		$this->mRevRecord = $row['revrecord'];
+		# Optional fields
+		$this->mTemplates = $row['templateVersions'] ?? null;
 		if ( !( $this->mRevRecord instanceof RevisionRecord ) ) {
 			throw new Exception(
 				'FlaggedRevision constructor passed invalid RevisionRecord object.'
@@ -122,7 +125,7 @@ class FlaggedRevision {
 		);
 		# Sorted from highest to lowest, so just take the first one if any
 		if ( $row ) {
-			return new self( $row, $title, $flags );
+			return self::newFromRow( $row, $title, $flags );
 		}
 		return null;
 	}
@@ -188,7 +191,7 @@ class FlaggedRevision {
 				return null;
 			}
 
-			return new self( $row, $title, $flags );
+			return self::newFromRow( $row, $title, $flags );
 		}
 		return null;
 	}
@@ -263,7 +266,7 @@ class FlaggedRevision {
 			return null;
 		}
 
-		return new self( $row, $title, $flags );
+		return self::newFromRow( $row, $title, $flags );
 	}
 
 	/**
