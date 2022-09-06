@@ -6,5 +6,6 @@
 	},
 	"pendingchanges-hours": "($1 {{PLURAL:$1|čiâss|čiâss|čiâssâd}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|peiʹvv|peeiʹv|peiʹvved}})",
-	"pendingchanges-category": "Kategoria:"
+	"pendingchanges-category": "Kategoria:",
+	"pendingchanges-onwatchlist": "Seeid, kook lie muu valvvâmliistâst"
 }
