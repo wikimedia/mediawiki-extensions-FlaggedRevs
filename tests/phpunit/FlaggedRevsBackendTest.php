@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Revision\RevisionRecord;
+use Wikimedia\TestingAccessWrapper;
 
 /**
  * @group Database
@@ -42,7 +43,9 @@ class FlaggedRevsBackendTest extends MediaWikiIntegrationTestCase {
 		];
 
 		$popts = ParserOptions::newFromAnon();
-		$frev = FlaggedRevision::newFromRow( (object)$row, $title );
+		/** @var FlaggedRevision $frev */
+		$frev = TestingAccessWrapper::newFromClass( FlaggedRevision::class );
+		$frev = $frev->newFromRow( (object)$row, $title );
 
 		$out = FlaggedRevs::parseStableRevisionPooled( $frev, $popts );
 		$this->assertInstanceOf( ParserOutput::class, $out->getValue() );
