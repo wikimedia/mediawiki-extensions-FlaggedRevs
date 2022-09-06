@@ -112,7 +112,7 @@ class RevisionReview extends UnlistedSpecialPage {
 		}
 
 		// Use confirmation screen for reject...
-		if ( $form->getAction() == 'reject' && !$request->getBool( 'wpRejectConfirm' ) ) {
+		if ( $form->getAction() == RevisionReviewForm::ACTION_REJECT && !$request->getBool( 'wpRejectConfirm' ) ) {
 			$rejectForm = new RejectConfirmationFormUI( $form );
 			list( $html, $status ) = $rejectForm->getHtml();
 			if ( $status === true ) {
@@ -141,11 +141,11 @@ class RevisionReview extends UnlistedSpecialPage {
 		if ( $status === true ) {
 			// Success...
 			$out->setPageTitle( $this->msg( 'actioncomplete' ) );
-			if ( $form->getAction() === 'approve' ) {
+			if ( $form->getAction() === RevisionReviewForm::ACTION_APPROVE ) {
 				$out->addHTML( $this->approvalSuccessHTML() );
-			} elseif ( $form->getAction() === 'unapprove' ) {
+			} elseif ( $form->getAction() === RevisionReviewForm::ACTION_UNAPPROVE ) {
 				$out->addHTML( $this->deapprovalSuccessHTML() );
-			} elseif ( $form->getAction() === 'reject' ) {
+			} elseif ( $form->getAction() === RevisionReviewForm::ACTION_REJECT ) {
 				$query = $this->page->isRedirect() ? [ 'redirect' => 'no' ] : [];
 				$out->redirect( $this->page->getFullURL( $query ) );
 			}
@@ -313,11 +313,11 @@ class RevisionReview extends UnlistedSpecialPage {
 		if ( $status === true ) {
 			# Sent new lastChangeTime TS to client for later submissions...
 			$changeTime = $form->getNewLastChangeTime();
-			if ( $form->getAction() === 'approve' ) { // approve
+			if ( $form->getAction() === RevisionReviewForm::ACTION_APPROVE ) { // approve
 				return [ 'change-time' => $changeTime ];
-			} elseif ( $form->getAction() === 'unapprove' ) { // de-approve
+			} elseif ( $form->getAction() === RevisionReviewForm::ACTION_UNAPPROVE ) { // de-approve
 				return [ 'change-time' => $changeTime ];
-			} elseif ( $form->getAction() === 'reject' ) { // revert
+			} elseif ( $form->getAction() === RevisionReviewForm::ACTION_REJECT ) { // revert
 				return [ 'change-time' => $changeTime ];
 			}
 		# Failure...

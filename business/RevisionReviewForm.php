@@ -8,6 +8,11 @@ use MediaWiki\Revision\SlotRecord;
  * Class containing revision review form business logic
  */
 class RevisionReviewForm extends FRGenericSubmitForm {
+
+	public const ACTION_APPROVE = 'approve';
+	public const ACTION_UNAPPROVE = 'unapprove';
+	public const ACTION_REJECT = 'reject';
+
 	/** @var Title|null Target title object */
 	private $page = null;
 	/** @var FlaggableWikiPage|null Target page object */
@@ -233,7 +238,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		if ( $iDims ) {
 			$this->dims = $iDims; // binary flag case
 		}
-		if ( $action === 'approve' ) {
+		if ( $action === self::ACTION_APPROVE ) {
 			# We must at least rate each category as 1, the minimum
 			if ( in_array( 0, $this->dims, true ) ) {
 				return 'review_too_low';
@@ -253,7 +258,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			if ( !FlaggedRevs::userCanSetFlags( $this->user, $this->dims, $oldFlags ) ) {
 				return 'review_denied';
 			}
-		} elseif ( $action === 'unapprove' ) {
+		} elseif ( $action === self::ACTION_UNAPPROVE ) {
 			# Check permissions with old tags
 			if ( !FlaggedRevs::userCanSetFlags( $this->user, $oldFlags ) ) {
 				return 'review_denied';
@@ -290,11 +295,11 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 */
 	public function getAction() {
 		if ( !$this->reject && !$this->unapprove && $this->approve ) {
-			return 'approve';
+			return self::ACTION_APPROVE;
 		} elseif ( !$this->reject && $this->unapprove && !$this->approve ) {
-			return 'unapprove';
+			return self::ACTION_UNAPPROVE;
 		} elseif ( $this->reject && !$this->unapprove && !$this->approve ) {
-			return 'reject';
+			return self::ACTION_REJECT;
 		}
 		return null; // nothing valid asserted
 	}
@@ -313,7 +318,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		# We can only approve actual revisions...
 		$services = MediaWikiServices::getInstance();
 		$revStore = $services->getRevisionStore();
-		if ( $this->getAction() === 'approve' ) {
+		if ( $this->getAction() === self::ACTION_APPROVE ) {
 			$revRecord = $revStore->getRevisionByTitle( $this->page, $this->oldid );
 			# Check for archived/deleted revisions...
 			if ( !$revRecord || $revRecord->getVisibility() ) {
@@ -329,7 +334,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			$this->approveRevision( $revRecord, $this->oldFrev );
 			$status = true;
 		# We can only unapprove approved revisions...
-		} elseif ( $this->getAction() === 'unapprove' ) {
+		} elseif ( $this->getAction() === self::ACTION_UNAPPROVE ) {
 			# Check for review conflicts...
 			if ( $this->lastChangeTime !== null ) { // API uses null
 				$lastChange = $this->oldFrev ? $this->oldFrev->getTimestamp() : '';
@@ -343,7 +348,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			}
 			$this->unapproveRevision( $this->oldFrev );
 			$status = true;
-		} elseif ( $this->getAction() === 'reject' ) {
+		} elseif ( $this->getAction() === self::ACTION_REJECT ) {
 			$newRevRecord = $revStore->getRevisionByTitle( $this->page, $this->oldid );
 			$oldRevRecord = $revStore->getRevisionByTitle( $this->page, $this->refid );
 			# Do not mess with archived/deleted revisions
