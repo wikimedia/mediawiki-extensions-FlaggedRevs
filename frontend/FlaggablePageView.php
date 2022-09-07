@@ -601,9 +601,14 @@ class FlaggablePageView extends ContextSource {
 		if ( !$parserOut ) {
 			return null;
 		}
+		$skinOptions = $this->getSkin()->getOptions();
+		$this->out->setSections( $parserOut->getSections() );
 
 		# Add the parser output to the page view
-		$this->out->addParserOutput( $parserOut, [ 'enableSectionEditLinks' => false ] );
+		$this->out->addParserOutput(
+			$parserOut,
+			[ 'enableSectionEditLinks' => false, 'injectTOC' => $skinOptions['toc'] ]
+		);
 
 		return $parserOut;
 	}
@@ -711,6 +716,10 @@ class FlaggablePageView extends ContextSource {
 		) {
 			$poOptions['enableSectionEditLinks'] = false;
 		}
+		$skinOptions = $this->getSkin()->getOptions();
+		$this->out->setSections( $parserOut->getSections() );
+		$poOptions['injectTOC'] = $skinOptions['toc'];
+
 		$this->out->addParserOutput( $parserOut, $poOptions );
 
 		# Update page sync status for tracking purposes.
