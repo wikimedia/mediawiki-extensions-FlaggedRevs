@@ -438,7 +438,7 @@ class RevisionReviewFormUI {
 	 */
 	private function getIncludeVersions() {
 		if ( $this->templateIds === null ) {
-			throw new Exception(
+			throw new LogicException(
 				"Template versions not provided to review form; call setIncludeVersions()."
 			);
 		}

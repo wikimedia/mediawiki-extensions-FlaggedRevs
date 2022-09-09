@@ -70,7 +70,7 @@ class FlaggedRevision {
 		# Optional fields
 		$this->mTemplates = $row['templateVersions'] ?? null;
 		if ( !( $this->mRevRecord instanceof RevisionRecord ) ) {
-			throw new Exception(
+			throw new InvalidArgumentException(
 				'FlaggedRevision constructor passed invalid RevisionRecord object.'
 			);
 		}

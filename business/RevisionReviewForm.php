@@ -147,7 +147,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 */
 	public function setDim( $tag, $value ) {
 		if ( $tag !== FlaggedRevs::getTagName() || FlaggedRevs::useOnlyIfProtected() ) {
-			throw new Exception( "FlaggedRevs tag $tag does not exist.\n" );
+			throw new InvalidArgumentException( "FlaggedRevs tag $tag does not exist.\n" );
 		}
 		$this->trySet( $this->dims[$tag], (int)$value );
 	}
@@ -506,7 +506,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		}
 		# Insert the new review entry...
 		if ( !$flaggedRevision->insert() ) {
-			throw new Exception(
+			throw new UnexpectedValueException(
 				'Flagged revision with ID ' .
 				(string)$revRecord->getId() .
 				' exists with unexpected fr_page_id'

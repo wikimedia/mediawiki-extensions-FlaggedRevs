@@ -311,7 +311,7 @@ class FlaggedRevsStats {
 		} elseif ( $users === 'users' ) {
 			$userCondition = $actorMigration->isNotAnon( $actorQuery['fields']['rev_user'] );
 		} else {
-			throw new Exception( 'Invalid $users param given.' );
+			throw new InvalidArgumentException( 'Invalid $users param given.' );
 		}
 		# Avoid having to censor data
 		# Note: if no edits pending, $worstLagTS is the cur time just before we checked

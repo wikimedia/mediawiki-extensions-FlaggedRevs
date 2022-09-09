@@ -84,7 +84,7 @@ class FlaggablePageView extends ContextSource {
 		// TODO: Inject $context and call setContext() here.
 
 		if ( !$title->canExist() ) {
-			throw new Exception( 'FlaggablePageView needs a proper page' );
+			throw new InvalidArgumentException( 'FlaggablePageView needs a proper page' );
 		}
 		$this->article = FlaggableWikiPage::getTitleInstance( $title );
 		$this->out = $this->getOutput(); // convenience
