@@ -152,7 +152,6 @@ class FRUserCounters {
 	 * Flatten params for a user for DB storage
 	 * Note: param values must be integers
 	 * @param array $params
-	 * @throws Exception
 	 * @return string
 	 */
 	private static function flattenParams( array $params ) {

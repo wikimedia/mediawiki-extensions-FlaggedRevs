@@ -427,7 +427,6 @@ class FlaggedRevs {
 	 * @param FlaggedRevision|null $oldSv the old stable version (optional)
 	 * @param RenderedRevision|null $renderedRevision (optional)
 	 * @return bool stable version text changed and FR_INCLUDES_STABLE
-	 * @throws Exception
 	 */
 	public static function stableVersionUpdates(
 		object $page, $sv = null, $oldSv = null, $renderedRevision = null

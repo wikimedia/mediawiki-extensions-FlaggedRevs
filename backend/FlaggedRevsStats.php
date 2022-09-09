@@ -239,7 +239,6 @@ class FlaggedRevsStats {
 	 * @param BagOStuff $cache
 	 * @param string $users string "anons" or "users"
 	 * @return array associative
-	 * @throws Exception
 	 */
 	private static function getEditReviewTimes( $cache, $users ) {
 		$result = [

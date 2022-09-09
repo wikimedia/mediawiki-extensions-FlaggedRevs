@@ -107,7 +107,6 @@ class FRInclusionManager {
 	/**
 	 * Get the "review time" template version for parser
 	 * @param Title $title
-	 * @throws Exception
 	 * @return int|null
 	 */
 	public function getReviewedTemplateVersion( Title $title ) {

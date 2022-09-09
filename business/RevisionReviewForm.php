@@ -466,7 +466,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * Adds or updates the flagged revision table for this page/id set
 	 * @param RevisionRecord $revRecord The revision to be accepted
 	 * @param FlaggedRevision|null $oldFrev Currently accepted version of $rev or null
-	 * @throws Exception
 	 */
 	private function approveRevision(
 		RevisionRecord $revRecord,
