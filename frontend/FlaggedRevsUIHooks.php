@@ -41,7 +41,7 @@ class FlaggedRevsUIHooks {
 	 */
 	public static function onMakeGlobalVariablesScript( array &$vars, OutputPage $out ) {
 		// Get the review tags on this wiki
-		$levels = count( FlaggedRevs::getLevels() ) - 1; // exclude '0' level
+		$levels = FlaggedRevs::getMaxLevel();
 		if ( $levels > 0 ) {
 			$vars['wgFlaggedRevsParams'] = [
 				'tags' => [

@@ -46,7 +46,6 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 		$csrf = new CsrfTokenSet( $context->getRequest() );
 		$wpEditToken = $csrf->getToken( 'edit' )->toString();
 		$wpDimName = 'wp' . FlaggedRevs::getTagName();
-		$wpDimValue = count( FlaggedRevs::getLevels() ) - 1; // max level
 		$validatedParams = RevisionReviewForm::validationKey(
 			$templateParams, $oldid, $context->getRequest()->getSessionData( 'wsFlaggedRevsKey' )
 		);
@@ -63,7 +62,7 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 				'wpApprove' => $wpApprove,
 				'wpReason' => $wpReason,
 				'changetime' => $changetime,
-				$wpDimName => $wpDimValue,
+				$wpDimName => FlaggedRevs::getMaxLevel(),
 			] ),
 			'headers' => [
 				'Content-Type' => 'application/json',
@@ -94,7 +93,6 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 		$csrf = new CsrfTokenSet( $context->getRequest() );
 		$wpEditToken = $csrf->getToken( 'edit' )->toString();
 		$wpDimName = 'wp' . FlaggedRevs::getTagName();
-		$wpDimValue = count( FlaggedRevs::getLevels() ) - 1; // max level
 		$validatedParams = RevisionReviewForm::validationKey(
 			$templateParams, $oldid, $context->getRequest()->getSessionData( 'wsFlaggedRevsKey' )
 		);
@@ -108,7 +106,7 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 				'validatedParams' => $validatedParams,
 				'templateParams' => $templateParams,
 				'wpApprove' => $wpApprove,
-				$wpDimName => $wpDimValue,
+				$wpDimName => FlaggedRevs::getMaxLevel(),
 			] ),
 			'headers' => [
 				'Content-Type' => 'application/json',
@@ -135,14 +133,13 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 		$csrf = new CsrfTokenSet( $context->getRequest() );
 		$wpEditToken = $csrf->getToken( 'edit' )->toString();
 		$wpDimName = 'wp' . FlaggedRevs::getTagName();
-		$wpDimValue = count( FlaggedRevs::getLevels() ) - 1; // max level
 
 		$request = new RequestData( [
 			'method' => 'POST',
 			'pathParams' => [ 'target' => $target ],
 			'bodyContents' => json_encode( [
 				'wpEditToken' => $wpEditToken,
-				$wpDimName => $wpDimValue,
+				$wpDimName => FlaggedRevs::getMaxLevel(),
 			] ),
 			'headers' => [
 				'Content-Type' => 'application/json',
@@ -179,7 +176,6 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 		$csrf = new CsrfTokenSet( $context->getRequest() );
 		$wpEditToken = $csrf->getToken( 'edit' )->toString();
 		$wpDimName = 'wp' . FlaggedRevs::getTagName();
-		$wpDimValue = count( FlaggedRevs::getLevels() ) - 1; // max level
 		$validatedParams = RevisionReviewForm::validationKey(
 			$templateParams, $oldid, $context->getRequest()->getSessionData( 'wsFlaggedRevsKey' )
 		);
@@ -196,7 +192,7 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 				'wpApprove' => $wpApprove,
 				'wpReason' => $wpReason,
 				'changetime' => $changetime,
-				$wpDimName => $wpDimValue,
+				$wpDimName => FlaggedRevs::getMaxLevel(),
 			] ),
 			'headers' => [
 				'Content-Type' => 'application/json',

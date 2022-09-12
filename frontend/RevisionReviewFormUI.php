@@ -348,15 +348,14 @@ class RevisionReviewFormUI {
 			return [ $labels, $minLevels ];
 		}
 		$tag = FlaggedRevs::getTagName();
-		$levels = FlaggedRevs::getLevels();
 		if ( isset( $selected[$tag] ) &&
-			!FlaggedRevs::userCanSetValue( $user,  $selected[$tag] )
+			!FlaggedRevs::userCanSetValue( $user, $selected[$tag] )
 		) {
 			return [ false, false ]; // form will have to be disabled
 		}
 		$labels[$tag] = []; // applicable tag levels
 		$minLevels[$tag] = false; // first non-zero level number
-		foreach ( $levels as $i => $msg ) {
+		foreach ( FlaggedRevs::getLevels() as $i => $msg ) {
 			# Some levels may be restricted or not applicable...
 			if ( !FlaggedRevs::userCanSetValue( $user, $i ) ) {
 				continue; // skip this level

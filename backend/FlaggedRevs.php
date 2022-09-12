@@ -147,6 +147,13 @@ class FlaggedRevs {
 	}
 
 	/**
+	 * @return int Number of levels, excluding "0" level
+	 */
+	public static function getMaxLevel() {
+		return count( self::getLevels() ) - 1;
+	}
+
+	/**
 	 * Get the array of levels messages
 	 * @return string[]
 	 */
@@ -184,7 +191,7 @@ class FlaggedRevs {
 	 * @return bool
 	 */
 	private static function valueIsValid( $value ) {
-		return $value >= 0 && $value < count( self::getLevels() );
+		return $value >= 0 && $value <= self::getMaxLevel();
 	}
 
 	/**
@@ -579,10 +586,9 @@ class FlaggedRevs {
 	 * @return int[]
 	 */
 	public static function quickTags() {
-		if ( self::useOnlyIfProtected() ) {
-			return [];
-		}
-		return [ self::getTagName() => 1 ];
+		return self::useOnlyIfProtected() ?
+			[] :
+			[ self::getTagName() => 1 ];
 	}
 
 	/**

@@ -676,7 +676,7 @@ class FlaggedRevision {
 			if ( count( $set ) == 2 ) {
 				list( $tag, $value ) = $set;
 				$value = max( 0, (int)$value ); // validate
-				$flags[$tag] = min( $value, count( FlaggedRevs::getLevels() ) - 1 );
+				$flags[$tag] = min( $value, FlaggedRevs::getMaxLevel() );
 			}
 		}
 		return $flags;

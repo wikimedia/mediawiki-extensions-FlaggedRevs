@@ -93,9 +93,7 @@ class RevisionReview extends UnlistedSpecialPage {
 		# Tag values
 		# This can be NULL if we uncheck a checkbox
 		if ( !FlaggedRevs::useOnlyIfProtected() ) {
-			$tag = FlaggedRevs::getTagName();
-			$val = $request->getInt( "wp$tag" );
-			$form->setDim( $tag, $val );
+			$form->setDim( FlaggedRevs::getTagName(), $request->getInt( 'wp' . FlaggedRevs::getTagName() ) );
 		}
 		# Log comment
 		$form->setComment( $request->getText( 'wpReason' ) );
