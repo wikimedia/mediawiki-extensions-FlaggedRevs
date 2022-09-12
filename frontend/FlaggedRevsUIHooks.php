@@ -86,10 +86,6 @@ class FlaggedRevsUIHooks {
 	 * @param Skin $skin
 	 */
 	public static function onBeforePageDisplay( $out, $skin ) {
-		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
-			return;
-		}
-
 		if ( $out->getTitle()->getNamespace() === NS_SPECIAL ) {
 			self::maybeAddBacklogNotice( $out ); // RC/Watchlist notice
 			self::injectStyleForSpecial( $out ); // try special page CSS
@@ -176,10 +172,6 @@ class FlaggedRevsUIHooks {
 	 * @param array[] &$links
 	 */
 	public static function onSkinTemplateNavigationUniversal( Skin $skin, array &$links ) {
-		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
-			return;
-		}
-
 		if ( $skin->getTitle()->canExist() ) {
 			$view = FlaggablePageView::newFromTitle( $skin->getTitle() );
 			$view->setActionTabs( $links['actions'] );
@@ -195,10 +187,6 @@ class FlaggedRevsUIHooks {
 	 * @param bool &$useParserCache
 	 */
 	public static function onArticleViewHeader( $article, &$outputDone, &$useParserCache ) {
-		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
-			return;
-		}
-
 		if ( $article->getTitle()->canExist() ) {
 			$view = FlaggablePageView::newFromTitle( $article->getTitle() );
 			$view->addStableLink();
@@ -224,10 +212,6 @@ class FlaggedRevsUIHooks {
 	) {
 		global $wgParserCacheExpireTime;
 		$wikiPage = $article->getPage();
-
-		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
-			return;
-		}
 
 		$fa = FlaggableWikiPage::getTitleInstance( $title );
 		if ( !$fa->isReviewable() ) {
@@ -347,10 +331,6 @@ class FlaggedRevsUIHooks {
 	 * @param CategoryPage|Article $category
 	 */
 	public static function onCategoryPageView( Article $category ) {
-		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
-			return;
-		}
-
 		if ( $category->getTitle()->canExist() ) {
 			$view = FlaggablePageView::newFromTitle( $category->getTitle() );
 			$view->addToCategoryView();
@@ -364,10 +344,6 @@ class FlaggedRevsUIHooks {
 	 * @param Skin $skin
 	 */
 	public static function onSkinAfterContent( &$data, $skin ) {
-		if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
-			return;
-		}
-
 		if ( $skin->getOutput()->isArticleRelated()
 			&& $skin->getTitle()->canExist()
 		) {
