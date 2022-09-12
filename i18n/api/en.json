@@ -2,9 +2,9 @@
 	"@metadata": {
 		"authors": []
 	},
-	"apihelp-flagconfig-description": "Get basic information about review flag configuration for this site.\n\nThe following parameters are returned for each tag:\n;name:The key name of this tag.\n;levels:Number of levels the tag has (above \"not tagged\").\n;tier2:Level the tag must reach for a revision to be tier 2 (quality).\n;tier3:Level the tag must reach for a revision to be tier 3 (pristine).\nFlagged revisions have an assigned level for each tag. The highest tier that all the tags meet is the review tier of the entire revision.",
+	"apihelp-flagconfig-description": "Get basic information about review flag configuration for this site.\n\nThe following parameters are returned for each tag:\n;name:The key name of this tag.\n;levels:Number of levels the tag has (above \"not tagged\").\nFlagged revisions have an assigned level for each tag. The highest tier that all the tags meet is the review tier of the entire revision.",
 	"apihelp-flagconfig-summary": "Get basic information about review flag configuration for this site.",
-	"apihelp-flagconfig-extended-description": "The following parameters are returned for each tag:\n;name:The key name of this tag.\n;levels:Number of levels the tag has (above \"not tagged\").\n;tier2:Level the tag must reach for a revision to be tier 2 (quality).\n;tier3:Level the tag must reach for a revision to be tier 3 (pristine).\nFlagged revisions have an assigned level for each tag. The highest tier that all the tags meet is the review tier of the entire revision.",
+	"apihelp-flagconfig-extended-description": "The following parameters are returned for each tag:\n;name:The key name of this tag.\n;levels:Number of levels the tag has (above \"not tagged\").\nFlagged revisions have an assigned level for each tag. The highest tier that all the tags meet is the review tier of the entire revision.",
 	"apihelp-flagconfig-example-1": "Fetch flag configuration",
 	"apihelp-query+configuredpages-description": "Enumerate all pages that have custom review configurations.",
 	"apihelp-query+configuredpages-summary": "Enumerate all pages that have custom review configurations.",
