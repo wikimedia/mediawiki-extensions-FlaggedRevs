@@ -5,7 +5,8 @@
 			"Хомелка",
 			"Чаховіч Уладзіслаў",
 			"ZlyiLev",
-			"No Sleep till Krupki"
+			"No Sleep till Krupki",
+			"Amire80"
 		]
 	},
 	"unreviewedpages": "Недагледжаныя старонкі",
@@ -18,6 +19,6 @@
 	"unreviewedpages-none": "Цяпер няма старонак, якія адпавядаюць гэтым умовам",
 	"unreviewedpages-viewing": "(правяраецца)",
 	"unreviewedpages-hours": "($1 {{PLURAL:$1|гадзіну|гадзіны|гадзін}})",
-	"unreviewedpages-days": "($1 {{PLURAL:$1|дзень|дня|дзён}})",
-	"unreviewedpages-recent": "(Менш 1 гадзіны)"
+	"unreviewedpages-days": "($1 {{PLURAL:$1|дзень|дні|дзён}})",
+	"unreviewedpages-recent": "(Меней за 1 гадзіну)"
 }
