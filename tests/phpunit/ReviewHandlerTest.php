@@ -1,4 +1,5 @@
 <?php
+
 use MediaWiki\Extension\FlaggedRevs\Rest\ReviewHandler;
 use MediaWiki\Rest\RequestData;
 use MediaWiki\Session\CsrfTokenSet;

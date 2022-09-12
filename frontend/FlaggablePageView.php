@@ -1520,7 +1520,6 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	 *
 	 * get new diff header items for in-place page review
 	 * @return string
 	 */
