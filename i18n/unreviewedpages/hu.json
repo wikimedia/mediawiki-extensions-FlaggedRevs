@@ -15,6 +15,7 @@
 	"unreviewedpages": "Ellenőrizetlen lapok",
 	"unreviewedpages-legend": "Nem ellenőrzött lapok listája",
 	"unreviewedpages-category": "Kategória:",
+	"unreviewedpages-showhide-redirect": "átirányítások $1",
 	"unreviewedpages-diff": "ellenőrzés",
 	"unreviewedpages-unwatched": "(nem figyelt)",
 	"unreviewedpages-watched": "({{PLURAL:$1|egy|$1}} aktív szerkesztő figyeli)",
