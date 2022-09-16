@@ -1165,16 +1165,16 @@ class FlaggedRevsUIHooks {
 
 		// Show special pages only if FlaggedRevs is enabled on some namespaces
 		if ( $wgFlaggedRevsNamespaces ) {
-			$list['RevisionReview'] = 'RevisionReview'; // unlisted
-			$list['PendingChanges'] = 'PendingChanges';
-			$list['ValidationStatistics'] = 'ValidationStatistics';
+			$list['RevisionReview'] = RevisionReview::class; // unlisted
+			$list['PendingChanges'] = PendingChanges::class;
+			$list['ValidationStatistics'] = ValidationStatistics::class;
 			// Protect levels define allowed stability settings
 			if ( $wgFlaggedRevsProtection ) {
-				$list['StablePages'] = 'StablePages';
+				$list['StablePages'] = StablePages::class;
 			} else {
-				$list['ConfiguredPages'] = 'ConfiguredPages';
-				$list['UnreviewedPages'] = 'UnreviewedPages';
-				$list['Stabilization'] = 'Stabilization'; // unlisted
+				$list['ConfiguredPages'] = ConfiguredPages::class;
+				$list['UnreviewedPages'] = UnreviewedPages::class;
+				$list['Stabilization'] = Stabilization::class; // unlisted
 			}
 		}
 	}

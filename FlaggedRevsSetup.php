@@ -114,9 +114,9 @@ class FlaggedRevsSetup {
 		// Show special pages only if FlaggedRevs is enabled on some namespaces
 		if ( $wgFlaggedRevsNamespaces ) {
 			if ( !$wgFlaggedRevsProtection ) {
-				$wgSpecialPageCacheUpdates['UnreviewedPages'] = 'UnreviewedPages::updateQueryCache';
+				$wgSpecialPageCacheUpdates['UnreviewedPages'] = [ UnreviewedPages::class, 'updateQueryCache' ];
 			}
-			$wgSpecialPageCacheUpdates['ValidationStatistics'] = 'FlaggedRevsStats::updateCache';
+			$wgSpecialPageCacheUpdates['ValidationStatistics'] = [ FlaggedRevsStats::class, 'updateCache' ];
 		}
 	}
 
@@ -125,11 +125,11 @@ class FlaggedRevsSetup {
 		global $wgFlaggedRevsProtection;
 
 		if ( $wgFlaggedRevsProtection ) {
-			$wgAPIModules['stabilize'] = 'ApiStabilizeProtect';
+			$wgAPIModules['stabilize'] = ApiStabilizeProtect::class;
 		} else {
-			$wgAPIModules['stabilize'] = 'ApiStabilizeGeneral';
-			$wgAPIListModules['unreviewedpages'] = 'ApiQueryUnreviewedpages';
-			$wgAPIListModules['configuredpages'] = 'ApiQueryConfiguredpages';
+			$wgAPIModules['stabilize'] = ApiStabilizeGeneral::class;
+			$wgAPIListModules['unreviewedpages'] = ApiQueryUnreviewedpages::class;
+			$wgAPIListModules['configuredpages'] = ApiQueryConfiguredpages::class;
 		}
 	}
 
