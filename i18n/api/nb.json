@@ -2,13 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"4ing",
+			"EdoAug",
 			"Jeblad",
 			"Jon Harald Søby"
 		]
 	},
-	"apihelp-flagconfig-description": "Hent grunnleggende informasjon om gjennomgangskonfigurasjonen for dette nettstedet.\n\nFølgende parametre returneres for hver tagg:\n;name:Nøkkelen til denne taggen.\n;levels:Antall nivåer denne taggen har (i tillegg til «ikke tagget»).\n;tier2:Nivået taggen må være for at en revisjon er nivå 2 (kvalitet).\n;tier3:Nivået taggen må være for at en revisjon er nivå 3 (utmerket).\nFlaggede revisjoner har et nivå for hver tagg. Det høyeste nivået alle taggene har er gjennomgangsnivået for hele revisjonen.",
+	"apihelp-flagconfig-description": "Hent grunnleggende informasjon om gjennomgangskonfigurasjonen for dette nettstedet.\n\nFølgende parametre returneres for hver tagg:\n;name:Nøkkelen til denne taggen.\n;levels:Antall nivåer denne taggen har (i tillegg til «ikke tagget»).\nFlaggede revisjoner har et nivå for hver tagg. Det høyeste nivået alle taggene har er gjennomgangsnivået for hele revisjonen.",
 	"apihelp-flagconfig-summary": "Hent grunnleggende informasjon om gjennomgangsflaggkonfigurasjonen for dette nettstedet.",
-	"apihelp-flagconfig-extended-description": "Følgende parametre returneres for hver tagg:\n;name:Nøkkelen til denne taggen.\n;levels:Antall nivåer denne taggen har (i tillegg til «ikke tagget»).\n;tier2:Nivået taggen må være for at en revisjon er nivå 2 (kvalitet).\n;tier3:Nivået taggen må være for at en revisjon er nivå 3 (utmerket).\nFlaggede revisjoner har et nivå for hver tagg. Det høyeste nivået alle taggene har er gjennomgangsnivået for hele revisjonen.",
+	"apihelp-flagconfig-extended-description": "Følgende parametre returneres for hver tagg:\n;name:Nøkkelen til denne taggen.\n;levels:Antall nivåer denne taggen har (i tillegg til «ikke tagget»).\nFlaggede revisjoner har et nivå for hver tagg. Det høyeste nivået alle taggene har er gjennomgangsnivået for hele revisjonen.",
 	"apihelp-flagconfig-example-1": "Hent flaggkonfigurasjon",
 	"apihelp-query+configuredpages-description": "List opp alle sider som har tilpassede gjennomgangskonfigurasjoner.",
 	"apihelp-query+configuredpages-summary": "List opp alle sider som har egendefinerte gjennomgangskonfigurasjoner.",
