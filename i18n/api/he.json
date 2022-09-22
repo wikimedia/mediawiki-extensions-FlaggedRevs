@@ -77,5 +77,5 @@
 	"apierror-flaggedrevs-toolow": "כל הדגלים או אף לא אחד מהדגלים צריכים להיות מוגדרים לאפס.",
 	"apierror-flaggedrevs-badflags": "הדגלים שסופקו אינם תקינים.",
 	"apierror-flaggedrevs-cantunreview": "אין לך הרשאות דרושות להסרת הדגלים.",
-	"apierror-flaggedrevs-noflaggedrev": "אין גרסה מדוגלת עם המזהה שניתן."
+	"apierror-flaggedrevs-noflaggedrev": "אין גרסה מסימנת עם המזהה שניתן."
 }
