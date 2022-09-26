@@ -3,10 +3,13 @@
 		"authors": [
 			"Andreasburmeister",
 			"Giftpflanze",
+			"Justman10000",
 			"Metalhead64",
 			"Predatorix"
 		]
 	},
+	"apihelp-flagconfig-description": "Erhalte grundlegende Informationen über die Konfiguration der Prüfkennzeichen für diese Website.\n\nDie folgenden Parameter werden für jedes Tag zurückgegeben:\n;name:Der Schlüsselname dieses Tags.\nLevel:Die Anzahl der Level, die das Tag hat (über \"nicht markiert\").\nGekennzeichnete Revisionen haben für jedes Tag eine bestimmte Stufe. Die höchste Stufe, die alle Tags erfüllen, ist die Überprüfungsstufe der gesamten Überarbeitung.",
+	"apihelp-flagconfig-extended-description": "Die folgenden Parameter werden für jedes Tag zurückgegeben:\n;name:Der Schlüsselname dieses Tags.\nLevel: Die Anzahl der Level, die das Tag hat (über \"nicht getaggt\").\nGekennzeichnete Überarbeitungen haben für jedes Tag eine bestimmte Stufe. Die höchste Stufe, die alle Tags erfüllen, ist die Überprüfungsstufe der gesamten Revision.",
 	"apihelp-flagconfig-example-1": "Ruft die Markierungskonfiguration ab",
 	"apihelp-query+configuredpages-description": "Zählt alle Seiten auf, die benutzerdefinierte Sichtungskonfigurationen haben.",
 	"apihelp-query+configuredpages-summary": "Zählt alle Seiten auf, die benutzerdefinierte Sichtungskonfigurationen haben.",
