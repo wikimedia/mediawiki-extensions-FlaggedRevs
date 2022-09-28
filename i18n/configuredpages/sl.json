@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Dbc334"
+			"Dbc334",
+			"Eleassar"
 		]
 	},
 	"configuredpages": "Strani z nastavitvami pregledov",
@@ -9,5 +10,5 @@
 	"configuredpages-none": "Na tem seznamu ni strani.",
 	"configuredpages-config": "Konfiguracija",
 	"configuredpages-def-draft": "najnovejša različica",
-	"configuredpages-def-stable": "stabilna različica"
+	"configuredpages-def-stable": "stabilna redakcija"
 }
