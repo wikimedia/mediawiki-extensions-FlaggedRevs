@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Dbc334"
+			"Dbc334",
+			"Eleassar"
 		]
 	},
 	"stabilization-tab": "redakcije",
@@ -20,7 +21,7 @@
 	"stabilization-notcontent": "Strani »[[:$1|$1]]« ni mogoče pregledati.\nNastavitev ni mogoča.",
 	"stabilization-comment": "Razlog:",
 	"stabilization-otherreason": "Drug razlog:",
-	"stabilization-expiry": "Poteče:",
+	"stabilization-expiry": "Preteče:",
 	"stabilization-othertime": "Drugačen čas:",
 	"stabilization-def-short": "Privzeto",
 	"stabilization-def-short-0": "Trenutno",
