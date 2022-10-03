@@ -149,7 +149,7 @@
 	"revreview-quick-basic": "'''[[{{MediaWiki:Validationpage}}|Vérifiée]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} relire les modifications en attente]]",
 	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|Vérifiée]]'''",
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Vérifiée]]'''",
-	"revreview-quick-invalid": "'''Identifiant de version incorrect'''",
+	"revreview-quick-invalid": "'''Identifiant de révision incorrect'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Non vérifiée]]'''",
 	"revreview-quick-quality": "'''[[{{MediaWiki:Validationpage}}|Qualité]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} voir les modifications en attente]]",
 	"revreview-quick-quality-old": "'''[[{{MediaWiki:Validationpage}}|Qualité]]'''",
