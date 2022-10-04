@@ -21,7 +21,7 @@
 	"review_page_invalid": "Le titre de la page cible est invalide.",
 	"review_page_notexists": "La page cible n'existe pas.",
 	"review_page_unreviewable": "La page cible ne peut pas être relue.",
-	"review_no_oldid": "Aucun ID de révision n'a été spécifié.",
+	"review_no_oldid": "Aucun identifiant de révision n’a été spécifié.",
 	"review_bad_oldid": "La révision cible n'existe pas.",
 	"review_conflict_oldid": "Quelqu’un a déjà accepté ou rejeté cette révision, pendant que vous la relisiez.",
 	"review_not_flagged": "La révision cible n'est actuellement pas marquée comme relue.",

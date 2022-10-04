@@ -18,6 +18,6 @@
 	"pendingchanges-diff": "preglej",
 	"pendingchanges-size": "Največja sprememba (zlogov):",
 	"pendingchanges-unwatched": "(nespremljano)",
-	"pendingchanges-watched": "({{PLURAL:$1|spremlja $1 aktiven uporabnik|spremljata $1 aktivna uporabnika|spremljajo $1 aktivni uporabniki|spremlja $1 aktivnih uporabnikov}})",
+	"pendingchanges-watched": "({{PLURAL:$1|spremlja $1 dejaven uporabnik|spremljata $1 dejavna uporabnika|spremljajo $1 dejavni uporabniki|spremlja $1 dejavnih uporabnikov}})",
 	"pendingchanges-viewing": "(v pregledu)"
 }
