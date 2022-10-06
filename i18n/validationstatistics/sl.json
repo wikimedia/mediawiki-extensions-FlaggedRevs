@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Dbc334"
+			"Dbc334",
+			"Eleassar"
 		]
 	},
 	"validationstatistics": "Statistika pregledov strani",
@@ -17,7 +18,7 @@
 	"validationstatistics-synced": "Usklajeno/Pregledano",
 	"validationstatistics-old": "Zastarelo",
 	"validationstatistics-unreviewed": "Nepregledano",
-	"validationstatistics-utable": "Spodaj se nahaja seznam {{PLURAL:$1|najdejavnejšega pregledovalca|$1 najdejavnejših pregledovalcev}} v {{PLURAL:$1|zadnji uri|zadnjih $2 urah}}.",
+	"validationstatistics-utable": "Tu je prikazan seznam {{PLURAL:$1|najdejavnejšega pregledovalca|$1 najdejavnejših pregledovalcev}} v {{PLURAL:$1|zadnji uri|zadnjih $2 urah}}.",
 	"validationstatistics-user": "Uporabnik",
 	"validationstatistics-reviews": "Pregledi"
 }

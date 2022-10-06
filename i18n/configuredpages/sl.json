@@ -6,7 +6,7 @@
 		]
 	},
 	"configuredpages": "Strani z nastavitvami pregledov",
-	"configuredpages-list": "Spodaj se nahaja seznam strani, ki imajo nastavljene različne nastavitve odobritve, kot je privzeto za to mesto.\nNekatere nastavitve morda spremenijo, katera različica je prikazana bralcem, ali še bolj omejijo seznam uporabnikov, katerih urejanja ne potrebujejo pregleda.",
+	"configuredpages-list": "Tu je prikazan seznam strani, ki imajo nastavljene drugačne nastavitve odobritve, kot je privzeto za to mesto.\nNekatere nastavitve morda spremenijo različico, ki je prikazana bralcem, ali še bolj omejijo seznam uporabnikov, katerih urejanja ne potrebujejo pregleda.",
 	"configuredpages-none": "Na tem seznamu ni strani.",
 	"configuredpages-config": "Konfiguracija",
 	"configuredpages-def-draft": "najnovejša različica",
