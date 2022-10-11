@@ -7,7 +7,7 @@
 	},
 	"pendingchanges": "Strani s spremembami v teku",
 	"pendingchanges-legend": "Seznam pregledanih strani z urejanji na čakanju",
-	"pendingchanges-list": "Ta stran navaja [[{{MediaWiki:Validationpage}}|{{PLURAL:$1|pregledano|pregledani|pregledane}}]] {{PLURAL:$1|stran, ki ima|strani, ki imata|strani, ki imajo}} eno ali več urejanj, čakajočih na pregled.",
+	"pendingchanges-list": "Na tej strani [[{{MediaWiki:Validationpage}}|{{PLURAL:$1|je navedena pregledana|sta navedeni pregledani|so navedene pregledane}}]] {{PLURAL:$1|stran, ki ima|strani, ki imata|strani, ki imajo}} eno ali več urejanj, čakajočih na pregled.",
 	"pendingchanges-none": "Trenutno ni nobene strani, ki bi ustrezala izbranim merilom",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|ura|uri|ure|ur}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|dan|dneva|dnevi|dni}})",
