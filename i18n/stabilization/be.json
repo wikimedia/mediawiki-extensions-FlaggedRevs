@@ -3,6 +3,7 @@
 		"authors": [
 			"Artsiom91",
 			"Maksim L.",
+			"Plaga med",
 			"Хомелка"
 		]
 	},
@@ -19,7 +20,7 @@
 	"stabilization-restrict-none": "Няма дадатковых абмежаванняў",
 	"stabilization-submit": "Пацвердзіць",
 	"stabilization-notexists": "Адсутнічае старонка з назвай «[[:$1|$1]]». Наладка немагчыма.",
-	"stabilization-notcontent": "Старонка «[[:$1|$1]]» не можа быць праверана. Настройка немагчыма.",
+	"stabilization-notcontent": "Старонка «[[:$1|$1]]» не можа быць праверана. Канфігурацыя немагчыма.",
 	"stabilization-comment": "Прычына:",
 	"stabilization-otherreason": "Іншая прычына:",
 	"stabilization-expiry": "Канчаецца:",
