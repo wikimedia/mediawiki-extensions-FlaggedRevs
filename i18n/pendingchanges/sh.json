@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Vlad5250"
+		]
+	},
+	"pendingchanges": "Stranice s izmjenama na čekanju",
+	"pendingchanges-legend": "Spisak ocjenjenih stranica s izmjenama koje čekaju ocjenu",
+	"pendingchanges-list": "Ova stranica prikazuje [[{{MediaWiki:Validationpage}}|provjerene]] stranice koje imaju jednu ili više izmjena na čekanju.",
+	"pendingchanges-none": "Trenutno nema stranica koje zadovoljavaju ove kriterije"
+}
