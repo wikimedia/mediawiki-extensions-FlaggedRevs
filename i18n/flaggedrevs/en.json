@@ -38,6 +38,7 @@
 	"flaggedrevs-rcfilters-reviewed-desc": "Edits that have been reviewed.",
 	"flaggedrevs-rcfilters-not-reviewable-label": "Not subject to review",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "Changes of all types that don't require review.",
+	"flaggedrevs-contributions-filters-unreviewed-only": "Show only edits pending review",
 	"flaggedrevs-diffonly": "",
 	"group-editor": "Editors",
 	"group-editor-member": "{{GENDER:$1|editor}}",

@@ -249,7 +249,8 @@
 		"FlaggedRevsUpdaterHooks": "backend/schema/FlaggedRevsUpdaterHooks.php"
 	},
 	"AutoloadNamespaces": {
-		"MediaWiki\\Extension\\FlaggedRevs\\Rest\\": "rest/"
+		"MediaWiki\\Extension\\FlaggedRevs\\Rest\\": "rest/",
+		"MediaWiki\\Extension\\FlaggedRevs\\Backend\\": "backend/"
 	},
 	"ResourceModules": {
 		"ext.flaggedRevs.basic": {
@@ -354,7 +355,10 @@
 		"ChangesListInsertArticleLink": "FlaggedRevsUIHooks::addToChangeListLine",
 		"ChangesListSpecialPageQuery": "FlaggedRevsUIHooks::modifyChangesListSpecialPageQuery",
 		"ChangesListSpecialPageStructuredFilters": "FlaggedRevsUIHooks::addHideReviewedFilter",
-		"ContribsPager::getQueryInfo": "FlaggedRevsUIHooks::addToContribsQuery",
+		"ContribsPager::getQueryInfo": [
+			"FlaggedRevsUIHooks::addToContribsQuery",
+			"contributions"
+		],
 		"ContributionsLineEnding": "FlaggedRevsUIHooks::addToContribsLine",
 		"DeleteAccount": "FlaggedRevsHooks::onDeleteAccount",
 		"DifferenceEngineViewHeader": "FlaggedRevsUIHooks::onDifferenceEngineViewHeader",
@@ -398,6 +402,7 @@
 		"ScribuntoExternalLibraries": "FlaggedRevsHooks::onScribuntoExternalLibraries",
 		"SkinAfterContent": "FlaggedRevsUIHooks::onSkinAfterContent",
 		"SkinTemplateNavigation::Universal": "FlaggedRevsUIHooks::onSkinTemplateNavigationUniversal",
+		"SpecialContributions::getForm::filters": "contributions",
 		"SpecialNewpagesConditions": "FlaggedRevsUIHooks::modifyNewPagesQuery",
 		"SpecialNewPagesFilters": "FlaggedRevsUIHooks::addHideReviewedUnstructuredFilter",
 		"SpecialPage_initList": "FlaggedRevsUIHooks::onSpecialPageInitList",
@@ -406,6 +411,12 @@
 		"UserLoadAfterLoadFromSession": "FlaggedRevsHooks::setSessionKey",
 		"UserMergeAccountFields": "FlaggedRevsHooks::onUserMergeAccountFields",
 		"WikiExporter::dumpStableQuery": "FlaggedRevsHooks::stableDumpQuery"
+	},
+	"HookHandlers": {
+		"contributions": {
+			"class": "\\MediaWiki\\Extension\\FlaggedRevs\\Backend\\FlaggedRevsContributionsHooks",
+			"services": []
+		}
 	},
 	"config": {
 		"SimpleFlaggedRevsUI": {
