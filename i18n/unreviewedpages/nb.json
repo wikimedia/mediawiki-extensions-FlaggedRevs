@@ -11,6 +11,7 @@
 	"unreviewedpages": "Ureviderte sider",
 	"unreviewedpages-legend": "List ureviderte innholdssider",
 	"unreviewedpages-category": "Kategori:",
+	"unreviewedpages-showhide-redirect": "$1 omdirigeringer",
 	"unreviewedpages-diff": "revider",
 	"unreviewedpages-unwatched": "(uovervåket)",
 	"unreviewedpages-watched": "({{PLURAL:$1|én aktiv bruker|$1 aktive brukere}} overvåker)",
