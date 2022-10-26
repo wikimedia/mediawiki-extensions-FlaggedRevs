@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Feed\FeedItem;
 use MediaWiki\MediaWikiServices;
 
 class PendingChanges extends SpecialPage {
