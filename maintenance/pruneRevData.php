@@ -3,8 +3,6 @@
  * @ingroup Maintenance
  */
 
-use MediaWiki\MediaWikiServices;
-
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
@@ -83,8 +81,6 @@ class PruneFRIncludeData extends Maintenance {
 		$sleep = (int)$this->getOption( 'sleep', 0 );
 		$cutoff = $dbr->timestamp( time() - (int)$this->getOption( 'rev-age', 3600 ) );
 
-		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
-
 		// First clean up revisions that don't exist anymore.
 		while ( true ) {
 			if ( !$prune ) {
@@ -111,7 +107,7 @@ class PruneFRIncludeData extends Maintenance {
 			$rowsCount = $dbw->affectedRows();
 			$this->output( "...deleted $rowsCount rows\n" );
 			$tDeleted += $rowsCount;
-			$lbFactory->waitForReplication();
+			$this->waitForReplication();
 			sleep( $sleep );
 		}
 
@@ -162,7 +158,7 @@ class PruneFRIncludeData extends Maintenance {
 						__METHOD__
 					);
 					$tDeleted += $dbw->affectedRows();
-					$lbFactory->waitForReplication();
+					$this->waitForReplication();
 					sleep( $sleep );
 				}
 			} else {
