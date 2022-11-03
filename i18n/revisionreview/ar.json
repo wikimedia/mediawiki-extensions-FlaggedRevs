@@ -53,7 +53,7 @@
 	"revreview-submit-reject": "ارفض التغييرات",
 	"revreview-submit-reviewed": "تم. قبلت!",
 	"revreview-submit-unreviewed": "تم. لم يتم القبول!",
-	"revreview-successful": "'''عُلٍّمت مراجعة [[:$1|$1]]. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} اعرض النسخ المستقرة])'''",
+	"revreview-successful": "'''تم وضع علامة على مراجعة [[:$1|$1]].'''",
 	"revreview-successful2": "'''مراجعة [[:$1|$1]] تمت إزالة علمها .'''",
 	"revreview-toolow": "'''يجب عليك تقييم كل من المحددات بالأسفل أعلى من \"غير مقبولة\" لكي تعتبر المراجعة مراجعة.'''\n\nلسحب حالة المراجعة لمراجعة، اضغط \"{{int:revreview-submit-unreview}}\".\n\nمن فضلك اضغط زر \"رجوع\" في متصفحك وحاول مجددا.",
 	"revreview-update": "'''من فضلك [[{{MediaWiki:Validationpage}}|راجع]] أية تغييرات موقفة ''(معروضة بالأسفل)'' أجريت منذ النسخة المستقرة.'''",
