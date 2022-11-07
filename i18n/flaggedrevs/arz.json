@@ -91,7 +91,7 @@
 	"tooltip-ca-current": "اعرض الصفحه مع التغييرات المعلقة",
 	"tooltip-ca-stable": "شوف النسخه المنشوره بتاعة الصفحه دى",
 	"tooltip-ca-default": "إعدادات توكيد الجودة",
-	"flaggedrevs-protect-legend": "مراجعة اوتوماتيكى للتعديلات ([[{{MediaWiki:Validationpage}}|مساعده]])",
+	"flaggedrevs-protect-legend": "مراجعة التحرير التلقائي",
 	"flaggedrevs-protect-none": "السماح لكل المستخدمين",
 	"revreview-locked-title": "التعديلات يجب أن تتم مراجعتها قبل أن يتم عرضها فى هذه الصفحة!",
 	"revreview-unlocked-title": "التعديلات لا تتطلب مراجعه قبل أن يتم عرضها فى هذه الصفحة!",
