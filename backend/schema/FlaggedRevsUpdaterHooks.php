@@ -233,5 +233,12 @@ class FlaggedRevsUpdaterHooks {
 				"$base/patch-drop-fpc_select.sql"
 			);
 		}
+
+		// 1.40
+		$du->dropExtensionIndex(
+			'flaggedrevs_tracking',
+			'frt_from_namespace_title',
+			__DIR__ . "/$dbType/patch-flaggedrevs_tracking-unique-to-pk.sql"
+		);
 	}
 }

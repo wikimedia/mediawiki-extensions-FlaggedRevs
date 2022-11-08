@@ -252,17 +252,12 @@
 		],
 		"indexes": [
 			{
-				"name": "frt_from_namespace_title",
-				"columns": [ "ftr_from", "ftr_namespace", "ftr_title" ],
-				"unique": true
-			},
-			{
 				"name": "frt_namespace_title_from",
 				"columns": [ "ftr_namespace", "ftr_title", "ftr_from" ],
 				"unique": false
 			}
 		],
-		"pk": []
+		"pk": [ "ftr_from", "ftr_namespace", "ftr_title" ]
 	},
 	{
 		"name": "flaggedrevs_promote",

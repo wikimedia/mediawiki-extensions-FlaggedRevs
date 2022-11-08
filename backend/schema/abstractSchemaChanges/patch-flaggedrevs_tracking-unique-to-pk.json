@@ -1,0 +1,65 @@
+{
+	"comment": "Convert unique index to primary key (T312267)",
+	"before": {
+		"name": "flaggedrevs_tracking",
+		"comment": "Track includes/links only in stable versions",
+		"columns": [
+			{
+				"name": "ftr_from",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true, "default": 0 }
+			},
+			{
+				"name": "ftr_namespace",
+				"type": "integer",
+				"options": { "notnull": true, "default": 0 }
+			},
+			{
+				"name": "ftr_title",
+				"type": "binary",
+				"options": { "notnull": true, "length": 255, "default": "" }
+			}
+		],
+		"indexes": [
+			{
+				"name": "frt_from_namespace_title",
+				"columns": [ "ftr_from", "ftr_namespace", "ftr_title" ],
+				"unique": true
+			},
+			{
+				"name": "frt_namespace_title_from",
+				"columns": [ "ftr_namespace", "ftr_title", "ftr_from" ],
+				"unique": false
+			}
+		]
+	},
+	"after": {
+		"name": "flaggedrevs_tracking",
+		"comment": "Track includes/links only in stable versions",
+		"columns": [
+			{
+				"name": "ftr_from",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true, "default": 0 }
+			},
+			{
+				"name": "ftr_namespace",
+				"type": "integer",
+				"options": { "notnull": true, "default": 0 }
+			},
+			{
+				"name": "ftr_title",
+				"type": "binary",
+				"options": { "notnull": true, "length": 255, "default": "" }
+			}
+		],
+		"indexes": [
+			{
+				"name": "frt_namespace_title_from",
+				"columns": [ "ftr_namespace", "ftr_title", "ftr_from" ],
+				"unique": false
+			}
+		],
+		"pk": [ "ftr_from", "ftr_namespace", "ftr_title" ]
+	}
+}

@@ -75,12 +75,12 @@ CREATE INDEX fpc_expiry ON flaggedpage_config (fpc_expiry);
 
 
 CREATE TABLE flaggedrevs_tracking (
-  ftr_from INT DEFAULT 0 NOT NULL, ftr_namespace INT DEFAULT 0 NOT NULL,
-  ftr_title TEXT DEFAULT '' NOT NULL
-);
-
-CREATE UNIQUE INDEX frt_from_namespace_title ON flaggedrevs_tracking (
-  ftr_from, ftr_namespace, ftr_title
+  ftr_from INT DEFAULT 0 NOT NULL,
+  ftr_namespace INT DEFAULT 0 NOT NULL,
+  ftr_title TEXT DEFAULT '' NOT NULL,
+  PRIMARY KEY(
+    ftr_from, ftr_namespace, ftr_title
+  )
 );
 
 CREATE INDEX frt_namespace_title_from ON flaggedrevs_tracking (
