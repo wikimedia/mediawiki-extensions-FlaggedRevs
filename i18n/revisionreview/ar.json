@@ -53,7 +53,7 @@
 	"revreview-submit-reject": "ارفض التغييرات",
 	"revreview-submit-reviewed": "تم. قبلت!",
 	"revreview-submit-unreviewed": "تم. لم يتم القبول!",
-	"revreview-successful": "'''عُلٍّمت مراجعة [[:$1|$1]]. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} اعرض النسخ المستقرة])'''",
+	"revreview-successful": "'''تم وضع علامة على مراجعة [[:$1|$1]].'''",
 	"revreview-successful2": "'''مراجعة [[:$1|$1]] تمت إزالة علمها .'''",
 	"revreview-poss-conflict-p": "'''تحذير: بدأ [[User:$1|$1]] مراجعة هذه الصفحة في $2 عند $3.'''",
 	"revreview-poss-conflict-c": "'''تحذير: بدأ [[User:$1|$1]] مراجعة هذه النغييرات في $2 عند $3.'''",

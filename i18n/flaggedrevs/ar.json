@@ -17,7 +17,8 @@
 			"ديفيد",
 			"زكريا",
 			"علاء",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"FShbib"
 		]
 	},
 	"action-autoreview": "التعليم على تعديلاته كـ\"مراجعة\" تلقائيا",
@@ -104,7 +105,7 @@
 	"revreview-accuracy-4": "مميزة",
 	"revreview-basic": "هذه هي [[{{MediaWiki:Validationpage}}|النسخة المستقرة]]، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} المفحوصة] في <i>$2</i>.\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3||تغيير واحد معلق|تغييران معلقان|$3 تغييرات معلقة|$3 تغييرا معلقا|$3 تغيير معلق}}] {{PLURAL:$3||ينتظر|ينتظران|تنتظر|ينتظر}} المراجعة.",
 	"revreview-basic-i": "هذه هي [[{{MediaWiki:Validationpage}}|النسخة المستقرة]]، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} المفحوصة] في <i>$2</i>.\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} تغييرات قوالب/ملفات] تنتظر المراجعة.",
-	"revreview-basic-old": "هذه نسخة [[{{MediaWiki:Validationpage}}|مفحوصة]] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} اسرد الكل]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اعتمدت] في <i>$2</i>.\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} تغييرات] جديدة ربما تكون قد حدثت.",
+	"revreview-basic-old": "هذا إصدار [[{{MediaWiki:Validationpage}}|محدد]] ، [{{fullurl: {{# Special: Log}} | type = review & page = {{FULLPAGENAMEE}}}} موافق عليه] بتاريخ <i>$2</i> ! N ! ربما تم إجراء [{{fullurl: {{FULLPAGENAMEE}} | oldid = $1 & diff = cur {{MediaWiki: flaggedrevs-diffonly}}}} تغييرات].",
 	"revreview-basic-same": "هذه هي [[{{MediaWiki:Validationpage}}|النسخة المنشورة]]، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} المفحوصة] في <i>$2</i>.",
 	"revreview-basic-source": "[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} نسخة مفحوصة] من هذه الصفحة [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} أعتمدت] في <i>$2</i> مبنية على هذه المراجعة.",
 	"revreview-current": "تعديلات معلقة",
@@ -169,8 +170,9 @@
 	"tooltip-ca-current": "اعرض هذه الصفحة مع التغييرات المعلقة",
 	"tooltip-ca-stable": "رؤية النسخة المنشورة من هذه الصفحة",
 	"tooltip-ca-default": "إعدادات توكيد الجودة",
-	"flaggedrevs-protect-legend": "مراجعة تلقائية للتعديلات ([[{{MediaWiki:Validationpage}}|مساعدة]])",
+	"flaggedrevs-protect-legend": "مراجعة التحرير التلقائي",
 	"flaggedrevs-protect-none": "اسمح لكل المستخدمين",
+	"flaggedrevs-protect-sysop": "السماح للإداريين فقط",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} صفحات غير مراجعة]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} تعديلات بالانتظار]",
 	"revreview-locked-title": "يتطلب تعديل هذه الصفحة أن تراجع.",
 	"revreview-unlocked-title": "لا يتطلب تعديل هذه الصفحة أن تراجع.",
