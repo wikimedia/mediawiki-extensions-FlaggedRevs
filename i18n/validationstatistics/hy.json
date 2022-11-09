@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Armenoid",
+			"Սերգեյ Սաֆարյան"
+		]
+	},
+	"validationstatistics-stable": "Վերանայված",
+	"validationstatistics-old": "Հնացած",
+	"validationstatistics-unreviewed": "Չվերանայված"
+}
