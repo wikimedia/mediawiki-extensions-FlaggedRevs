@@ -54,7 +54,7 @@
 	"revreview-submit-reject": "Одбиј промене",
 	"revreview-submit-reviewed": "Готово. Прихваћено!",
 	"revreview-submit-unreviewed": "Готово. Одбијено!",
-	"revreview-successful": "'''Означена је измена странице [[:$1|$1]]. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} проверене верзије])'''",
+	"revreview-successful": "'''Означена је измена странице [[:$1|$1]].'''",
 	"revreview-successful2": "'''Са измене странице [[:$1|$1]] је уклоњена ознака.'''",
 	"revreview-update": "'''[[{{MediaWiki:Validationpage}}|Погледајте]] све промене на чекању ''(приказане испод)'' направљене након стабилне верзије.'''",
 	"revreview-update-includes": "Ажурирани шаблони/датотеке (непроверене странице су подебљане):",

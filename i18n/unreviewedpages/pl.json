@@ -5,12 +5,14 @@
 			"Derbeth",
 			"Leinad",
 			"Sp5uhe",
-			"ToSter"
+			"ToSter",
+			"Woytecr"
 		]
 	},
 	"unreviewedpages": "Nieprzejrzane strony",
 	"unreviewedpages-legend": "Lista nieprzejrzanych stron",
 	"unreviewedpages-category": "Kategoria",
+	"unreviewedpages-showhide-redirect": "$1 przekierowania",
 	"unreviewedpages-diff": "przejrzyj",
 	"unreviewedpages-unwatched": "(nieobserwowana)",
 	"unreviewedpages-watched": "(obserwowana przez $1 {{PLURAL:$1|aktywnego użytkownika|aktywnych użytkowników}})",
