@@ -8,7 +8,8 @@
 			"RajeshPandey",
 			"बडा काजी",
 			"राम प्रसाद जोशी",
-			"सरोज कुमार ढकाल"
+			"सरोज कुमार ढकाल",
+			"पर्वत सुबेदी"
 		]
 	},
 	"action-review": "समीक्षा संशोधन",
@@ -50,5 +51,6 @@
 	"revreview-def-stable": "स्थिर",
 	"revreview-restriction-any": "कोहि",
 	"revreview-restriction-none": "कुनै पनि होइन",
+	"revreview-reviewlink": "विचाराधीन सम्पादनहरू",
 	"tooltip-ca-current": "यस पृष्ठको अनिरिक्षित परिवर्तन हेर्नुहोस्"
 }
