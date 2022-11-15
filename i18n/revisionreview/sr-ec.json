@@ -54,7 +54,7 @@
 	"revreview-submit-reject": "Одбиј промене",
 	"revreview-submit-reviewed": "Готово. Прихваћено!",
 	"revreview-submit-unreviewed": "Готово. Одбијено!",
-	"revreview-successful": "'''Означена је измена странице [[:$1|$1]]. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} проверене верзије])'''",
+	"revreview-successful": "'''Означена је измена странице [[:$1|$1]].'''",
 	"revreview-successful2": "'''Са измене странице [[:$1|$1]] је уклоњена ознака.'''",
 	"revreview-poss-conflict-p": "'''Упозорење: [[User:$1|$1]] је почео проверу ове странице на дан  $2 у $3.'''",
 	"revreview-poss-conflict-c": "'''Упозорење: [[User:$1|$1]] је почео проверу ових промена на дан $2 у $3.'''",
