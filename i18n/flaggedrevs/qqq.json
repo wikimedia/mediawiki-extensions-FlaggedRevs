@@ -72,6 +72,7 @@
 	"flaggedrevs-rcfilters-reviewed-desc": "Description for the filter for showing edits that have been reviewed.",
 	"flaggedrevs-rcfilters-not-reviewable-label": "Label for the filter for showing edits of all types that don't require review.",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "Description for the filter for showing edits of all types that don't require review.",
+	"flaggedrevs-contributions-filters-unreviewed-only": "Description for the \"Only pending edits\" checkbox at Special:Contributions",
 	"flaggedrevs-diffonly": "{{Flagged Revs}}\n{{notranslate}}",
 	"group-editor": "{{Flagged Revs}}\n{{doc-group|editor}}\n{{Identical|Editor}}",
 	"group-editor-member": "{{Flagged Revs}}\n{{doc-group|editor|member}}\n{{Identical|Editor}}",
