@@ -39,8 +39,8 @@ class FlaggedRevsContributionsHooks implements
 			}
 
 			// filter down to pending changes only
-			$queryInfo['conds'][] = 'fp_stable < rev_id';
-			$queryInfo['conds'][] = 'fp_pending_since IS NOT NULL';
+			$queryInfo['conds'][] = '(fp_stable < rev_id AND fp_pending_since IS NOT NULL)' .
+				' OR (fp_stable IS NULL)';
 		}
 	}
 }
