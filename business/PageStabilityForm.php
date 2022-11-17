@@ -283,7 +283,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 			if ( FlaggedRevs::useOnlyIfProtected() ) {
 				# Config may have changed to allow stable versions, so refresh
 				# the tracking table to account for any hidden reviewed versions...
-				$frev = FlaggedRevision::determineStable( $this->page, FR_MASTER );
+				$frev = FlaggedRevision::determineStable( $this->page );
 				if ( $frev ) {
 					$article->updateStableVersion( $frev );
 				} else {

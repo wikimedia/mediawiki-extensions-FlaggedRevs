@@ -100,10 +100,7 @@ class FlaggableWikiPage extends WikiPage {
 	 * @return PreparedUpdate
 	 */
 	public function getCurrentUpdate(): PreparedUpdate {
-		if ( $this->preparedUpdate ) {
-			return $this->preparedUpdate;
-		}
-		return parent::getCurrentUpdate();
+		return $this->preparedUpdate ?? parent::getCurrentUpdate();
 	}
 
 	/**

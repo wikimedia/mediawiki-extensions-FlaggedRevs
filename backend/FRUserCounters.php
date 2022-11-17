@@ -10,12 +10,11 @@ class FRUserCounters {
 	 * Get params for a user ID
 	 * @param int $userId
 	 * @param int $flags FR_MASTER, FR_FOR_UPDATE
-	 * @param bool|string $dBName optional wiki name
 	 * @return array
 	 */
-	public static function getUserParams( $userId, $flags = 0, $dBName = false ) {
+	public static function getUserParams( $userId, $flags = 0 ) {
 		$p = [];
-		$row = self::fetchParamsRow( $userId, $flags, $dBName );
+		$row = self::fetchParamsRow( $userId, $flags );
 		if ( $row ) {
 			$p = self::expandParams( $row->frp_user_params );
 		}
@@ -63,18 +62,17 @@ class FRUserCounters {
 	 * Get the params row for a user
 	 * @param int $userId
 	 * @param int $flags FR_MASTER, FR_FOR_UPDATE
-	 * @param bool|string $dBName optional wiki name
 	 * @return stdClass|false
 	 */
-	private static function fetchParamsRow( $userId, $flags = 0, $dBName = false ) {
+	private static function fetchParamsRow( $userId, $flags = 0 ) {
 		$options = [];
 		if ( $flags & FR_MASTER || $flags & FR_FOR_UPDATE ) {
-			$db = wfGetDB( DB_PRIMARY, [], $dBName );
+			$db = wfGetDB( DB_PRIMARY );
 			if ( $flags & FR_FOR_UPDATE ) {
 				$options[] = 'FOR UPDATE';
 			}
 		} else {
-			$db = wfGetDB( DB_REPLICA, [], $dBName );
+			$db = wfGetDB( DB_REPLICA );
 		}
 		return $db->selectRow( 'flaggedrevs_promote',
 			'frp_user_params',
@@ -88,10 +86,9 @@ class FRUserCounters {
 	 * Save params for a user
 	 * @param int $userId
 	 * @param array $params
-	 * @param bool|string $dBName optional wiki name
 	 */
-	public static function saveUserParams( $userId, array $params, $dBName = false ) {
-		$dbw = wfGetDB( DB_PRIMARY, [], $dBName );
+	public static function saveUserParams( $userId, array $params ) {
+		$dbw = wfGetDB( DB_PRIMARY );
 		$dbw->replace(
 			'flaggedrevs_promote',
 			'frp_user_id',

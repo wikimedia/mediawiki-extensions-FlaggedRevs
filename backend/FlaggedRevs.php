@@ -458,7 +458,7 @@ class FlaggedRevs {
 			$oldSv = FlaggedRevision::newFromStable( $title, FR_MASTER );
 		}
 		if ( $sv === null ) { // optional
-			$sv = FlaggedRevision::determineStable( $title, FR_MASTER );
+			$sv = FlaggedRevision::determineStable( $title );
 		}
 
 		if ( !$sv ) {

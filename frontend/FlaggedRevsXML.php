@@ -18,7 +18,7 @@ class FlaggedRevsXML {
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		$s = "<label for='namespace'>" . wfMessage( 'namespace' )->escaped() . "</label>";
 		# No namespace selected; let exact match work without hitting Main
-		$selected = $selected ?? '';
+		$selected ??= '';
 		if ( $selected !== '' ) {
 			# Let input be numeric strings without breaking the empty match.
 			$selected = (int)$selected;

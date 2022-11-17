@@ -193,11 +193,10 @@ class FlaggedRevision {
 	/**
 	 * Get the ID of the stable version of a title.
 	 * @param Title $title page title
-	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
 	 * @return int (0 on failure)
 	 */
-	public static function getStableRevId( Title $title, $flags = 0 ) {
-		$srev = self::newFromStable( $title, $flags );
+	public static function getStableRevId( Title $title ) {
+		$srev = self::newFromStable( $title );
 		return $srev ? $srev->getRevId() : 0;
 	}
 
@@ -205,36 +204,21 @@ class FlaggedRevision {
 	 * Get a FlaggedRevision of the stable version of a title.
 	 * Skips tracking tables to figure out new stable version.
 	 * @param Title $title page title
-	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
-	 * @param array $config optional page config (use to skip queries)
 	 * @return self|null (null on failure)
 	 */
-	public static function determineStable(
-		Title $title, $flags = 0, $config = []
-	) {
+	public static function determineStable( Title $title ) {
 		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
 			return null; // short-circuit
 		}
 		$options = [];
-		# User primary/replica as appropriate...
-		if ( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
-			$db = wfGetDB( DB_PRIMARY );
-			if ( $flags & FR_FOR_UPDATE ) {
-				$options[] = 'FOR UPDATE';
-			}
-			$pageId = $title->getArticleID( Title::GAID_FOR_UPDATE );
-		} else {
-			$db = wfGetDB( DB_REPLICA );
-			$pageId = $title->getArticleID();
-		}
+		$db = wfGetDB( DB_PRIMARY );
+		$pageId = $title->getArticleID( Title::GAID_FOR_UPDATE );
 		if ( !$pageId ) {
 			return null; // short-circuit query
 		}
 		# Get visibility settings to see if page is reviewable...
 		if ( FlaggedRevs::useOnlyIfProtected() ) {
-			if ( !$config ) {
-			   $config = FRPageConfig::getStabilitySettings( $title, $flags );
-			}
+			$config = FRPageConfig::getStabilitySettings( $title, FR_MASTER );
 			if ( !$config['override'] ) {
 				return null; // page is not reviewable; no stable version
 			}
@@ -260,7 +244,7 @@ class FlaggedRevision {
 			return null;
 		}
 
-		return self::newFromRow( $row, $title, $flags );
+		return self::newFromRow( $row, $title, FR_MASTER );
 	}
 
 	/**
@@ -458,14 +442,13 @@ class FlaggedRevision {
 
 	/**
 	 * Get the current stable version of the templates used at time of review
-	 * @param int $flags FR_MASTER
 	 * @return int[][] template versions (ns -> dbKey -> rev Id)
 	 * Note: 0 used for template rev Id if it doesn't exist
 	 */
-	public function getStableTemplateVersions( $flags = 0 ) {
+	public function getStableTemplateVersions() {
 		if ( $this->mStableTemplates == null ) {
 			$this->mStableTemplates = [];
-			$db = wfGetDB( ( $flags & FR_MASTER ) ? DB_PRIMARY : DB_REPLICA );
+			$db = wfGetDB( DB_REPLICA );
 			$res = $db->select(
 				[ 'flaggedtemplates', 'revision', 'page', 'flaggedpages' ],
 				[ 'page_namespace', 'page_title', 'fp_stable' ],
@@ -650,12 +633,11 @@ class FlaggedRevision {
 
 	/**
 	 * @param int $rev_id
-	 * @param int $flags FR_MASTER
 	 * @return bool
 	 * Useful for quickly pinging to see if a revision is flagged
 	 */
-	public static function revIsFlagged( $rev_id, $flags = 0 ) {
-		return self::getRevQuality( $rev_id, $flags ) === FR_CHECKED;
+	public static function revIsFlagged( $rev_id ) {
+		return self::getRevQuality( $rev_id, FR_MASTER ) === FR_CHECKED;
 	}
 
 	/**

@@ -521,7 +521,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			$this->comment, $this->oldid, $oldSvId, true, $this->user );
 
 		# Get the new stable version as of now
-		$sv = FlaggedRevision::determineStable( $this->page, FR_MASTER /*consistent*/ );
+		$sv = FlaggedRevision::determineStable( $this->page );
 		# Update recent changes...
 		self::updateRecentChanges( $revRecord, 'patrol', $sv );
 		# Update page and tracking tables and clear cache
@@ -546,7 +546,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		$frev->delete();
 
 		# Get the new stable version as of now
-		$sv = FlaggedRevision::determineStable( $this->page, FR_MASTER /*consistent*/ );
+		$sv = FlaggedRevision::determineStable( $this->page );
 
 		# Update the article review log
 		$svId = $sv ? $sv->getRevId() : 0;
