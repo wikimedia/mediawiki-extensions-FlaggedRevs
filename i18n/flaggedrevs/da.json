@@ -7,6 +7,7 @@
 			"Jon Harald Søby",
 			"Saederup92",
 			"Sarrus",
+			"SiGNOUT",
 			"Tjernobyl"
 		]
 	},
@@ -27,6 +28,7 @@
 	"flaggedrevs-hidereviewed-hide": "Skjul",
 	"flaggedrevs-hidereviewed-show": "Vis",
 	"flaggedrevs-rcfilters-reviewed-desc": "Redigeringer som er blevet korrekturlæst.",
+	"flaggedrevs-contributions-filters-unreviewed-only": "Vis kun ændringer, der afventer gennemgang",
 	"group-editor": "Skribenter",
 	"group-editor-member": "{{GENDER:$1|skribent}}",
 	"group-reviewer": "Korrekturlæsere",

@@ -59,6 +59,7 @@
 	"flaggedrevs-rcfilters-reviewed-desc": "Modifications qui ont été relues.",
 	"flaggedrevs-rcfilters-not-reviewable-label": "Non concerné par la relecture",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "Modifications de tous types qui ne nécessitent aucune relecture.",
+	"flaggedrevs-contributions-filters-unreviewed-only": "Afficher uniquement les modifications en attente de relecture",
 	"group-editor": "Contributeurs",
 	"group-editor-member": "relect{{GENDER:$1|eur|rice}}",
 	"group-reviewer": "Relecteurs",

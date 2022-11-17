@@ -45,6 +45,7 @@
 	"flaggedrevs-rcfilters-reviewed-desc": "검토된 편집입니다.",
 	"flaggedrevs-rcfilters-not-reviewable-label": "검토 대상이 아님",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "검토가 불필요한 모든 종류의 변경사항.",
+	"flaggedrevs-contributions-filters-unreviewed-only": "검토 대기 중인 편집만 표시",
 	"group-editor": "편집자",
 	"group-editor-member": "{{GENDER:$1|편집자}}",
 	"group-reviewer": "평론가",

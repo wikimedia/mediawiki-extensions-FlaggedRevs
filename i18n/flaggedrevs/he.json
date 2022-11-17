@@ -44,6 +44,7 @@
 	"flaggedrevs-rcfilters-reviewed-desc": "עריכות שנסקרו.",
 	"flaggedrevs-rcfilters-not-reviewable-label": "לא לסקירה",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "שינויים מכל הסוגים שלא דורשים סקירה.",
+	"flaggedrevs-contributions-filters-unreviewed-only": "להציג רק עריכות שממתינות לסקירה",
 	"group-editor": "עורכים",
 	"group-editor-member": "{{GENDER:$1|עורך|עורכת}}",
 	"group-reviewer": "סוקרים",

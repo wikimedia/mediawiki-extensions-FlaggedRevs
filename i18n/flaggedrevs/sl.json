@@ -27,6 +27,7 @@
 	"flaggedrevs-hidereviewed-hide": "Skrij",
 	"flaggedrevs-hidereviewed-show": "Prikaži",
 	"flaggedrevs-rcfilters-reviewed-label": "Pregledano",
+	"flaggedrevs-contributions-filters-unreviewed-only": "Prikaži samo popravke, ki čakajo na pregled",
 	"group-editor": "Urejevalci",
 	"group-editor-member": "{{GENDER:$1|urejevalec|urejevalka|urejevalec/ka}}",
 	"group-reviewer": "Pregledovalci",

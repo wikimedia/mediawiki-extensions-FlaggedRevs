@@ -35,6 +35,7 @@
 	"flaggedrevs-rcfilters-reviewed-desc": "Modificationes que ha essite revidite.",
 	"flaggedrevs-rcfilters-not-reviewable-label": "Non subjecte a revision",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "Modificationes de tote le typos que non require revision.",
+	"flaggedrevs-contributions-filters-unreviewed-only": "Monstrar solmente modificationes que attende revision",
 	"group-editor": "Redactores",
 	"group-editor-member": "{{GENDER:$1|redactor|redactrice}}",
 	"group-reviewer": "Revisores",

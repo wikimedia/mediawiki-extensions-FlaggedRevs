@@ -38,6 +38,7 @@
 	"flaggedrevs-rcfilters-reviewed-desc": "Уредувања кои се веќе проверени.",
 	"flaggedrevs-rcfilters-not-reviewable-label": "Не е тема за проверка",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "Промени од сите видови кои не бараат проверка.",
+	"flaggedrevs-contributions-filters-unreviewed-only": "Прикажи само уредувања што чекаат на проверка",
 	"group-editor": "Уредници",
 	"group-editor-member": "{{GENDER:$1|уредник}}",
 	"group-reviewer": "Прегледувачи",

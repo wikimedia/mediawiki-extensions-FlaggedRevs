@@ -2,11 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Ernác",
-			"Iltever"
+			"Iltever",
+			"Къарачайлы"
 		]
 	},
 	"flaggedrevs-hidereviewed": "тинтилгенлени $1",
 	"flaggedrevs-hidereviewed-hide": "джашыр",
 	"flaggedrevs-hidereviewed-show": "кёргюз",
+	"flaggedrevs-contributions-filters-unreviewed-only": "Къуру тинтиуню сакълагъан тюзетиулени кёргюз",
 	"tooltip-ca-current": "Бу бетни алкъын тинтилмеген тюрлендириуле бла кёр"
 }
