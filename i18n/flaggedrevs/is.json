@@ -22,6 +22,7 @@
 	"flaggedrevs-hidereviewed-hide": "Fela",
 	"flaggedrevs-hidereviewed-show": "Birta",
 	"flaggedrevs-rcfilters-reviewed-label": "Yfirfarin",
+	"flaggedrevs-contributions-filters-unreviewed-only": "Sýna aðeins breytingar sem bíða yfirferðar",
 	"group-editor": "Ritstjórar",
 	"group-editor-member": "{{GENDER:$1|ritstjóri}}",
 	"group-reviewer": "Ritstjórar",

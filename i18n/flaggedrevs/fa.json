@@ -49,6 +49,7 @@
 	"flaggedrevs-rcfilters-reviewed-desc": "ویرایش‌های بازبینی‌شده.",
 	"flaggedrevs-rcfilters-not-reviewable-label": "هیچ موضوعی برای بازبینی نیست",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "همهٔ انواع تغییرات که نیازی به بازبینی ندارند.",
+	"flaggedrevs-contributions-filters-unreviewed-only": "نمایش تمام ویرایش‌های در انتظار بازبینی",
 	"group-editor": "ویرایشگران",
 	"group-editor-member": "{{GENDER:$1|ویرایشگر}}",
 	"group-reviewer": "بازبینی‌کنندگان",
