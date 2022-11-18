@@ -1,7 +1,7 @@
 [
 	{
 		"name": "flaggedpages",
-		"comment": "Add page tracking table for flagged revisions",
+		"comment": "Derived table for tracking flagged revisions. Contains a row for every page which has a stable version (ie. has at least one revision which has been reviewed).",
 		"columns": [
 			{
 				"name": "fp_page_id",
@@ -11,25 +11,25 @@
 			},
 			{
 				"name": "fp_reviewed",
-				"comment": "Is the stable version synced?",
+				"comment": "Is the stable version synced? On wikis where $wgFlaggedRevsHandleIncludes is set to FR_INCLUDES_STABLE, this will be true when all templates used on the page are either fully reviewed or haven't changed since this page was last reviewed. (See flaggedtemplates table.) On other wikis, always true.",
 				"type": "mwtinyint",
 				"options": { "notnull": true, "length": 1, "default": 0 }
 			},
 			{
 				"name": "fp_pending_since",
-				"comment": "When (or NULL) the first edit after the stable version was made",
+				"comment": "When (or NULL) the first edit after the stable version was made, ie. how long this page has been waiting for review",
 				"type": "mwtimestamp",
 				"options": { "notnull": false }
 			},
 			{
 				"name": "fp_stable",
-				"comment": "Foreign key to flaggedrevs.fr_rev_id",
+				"comment": "The revision ID of the stable revision. Foreign key to flaggedrevs.fr_rev_id",
 				"type": "integer",
 				"options": { "notnull": true, "unsigned": true }
 			},
 			{
 				"name": "fp_quality",
-				"comment": "The highest quality of the page's reviewed revisions. Note that this may not be set to display by default though.",
+				"comment": "The highest quality of the page's reviewed revisions. Not useful anymore as levels other than checked (0) have been removed. (Historical values are 1=quality, 2=pristine.)",
 				"type": "mwtinyint",
 				"options": { "notnull": false, "length": 1 }
 			}
@@ -55,7 +55,7 @@
 	},
 	{
 		"name": "flaggedpage_pending",
-		"comment": "Add tracking table for edits needing review (for all levels)",
+		"comment": "Derived table for tracking edits needing review. Contains a row for each page which has a stable version and pending edits. Basically the same as flaggedpages, without the rows where fp_pending_since is NULL. Was more useful in the past when there were multiple quality levels.",
 		"columns": [
 			{
 				"name": "fpp_page_id",
@@ -65,13 +65,13 @@
 			},
 			{
 				"name": "fpp_quality",
-				"comment": "The quality tier (0=checked, 1=quality, 2=pristine)",
+				"comment": "The quality tier. Not useful anymore as levels other than checked (0) have been removed. (Historical values are 1=quality, 2=pristine.)",
 				"type": "mwtinyint",
 				"options": { "notnull": true, "length": 1 }
 			},
 			{
 				"name": "fpp_rev_id",
-				"comment": "The last rev ID with this quality",
+				"comment": "The last rev ID with this quality (ie. the revision ID of the stable revision).",
 				"type": "integer",
 				"options": { "notnull": true, "unsigned": true }
 			},
@@ -93,7 +93,7 @@
 	},
 	{
 		"name": "flaggedrevs",
-		"comment": "This stores all of our revision reviews; it is the main table. The template/file version data is stored in the next two tables",
+		"comment": "Data about reviews of revisions. This is the primary data, most other tables are derived from this. The template version data is stored in flaggedtemplates.",
 		"columns": [
 			{
 				"name": "fr_rev_id",
@@ -103,7 +103,7 @@
 			},
 			{
 				"name": "fr_rev_timestamp",
-				"comment": "Timestamp of revision reviewed (revision.rev_timestamp)",
+				"comment": "Timestamp of when the edit happened (copy of revision.rev_timestamp)",
 				"type": "mwtimestamp",
 				"options": { "notnull": true }
 			},
@@ -115,25 +115,25 @@
 			},
 			{
 				"name": "fr_user",
-				"comment": "Foreign key to user.user_id",
+				"comment": "Reviewer ID. Foreign key to user.user_id.",
 				"type": "integer",
 				"options": { "notnull": true, "unsigned": true }
 			},
 			{
 				"name": "fr_timestamp",
-				"comment": "Timestamp of review",
+				"comment": "Timestamp of when the review happened.",
 				"type": "mwtimestamp",
 				"options": { "notnull": true }
 			},
 			{
 				"name": "fr_quality",
-				"comment": "Store the precedence level",
+				"comment": "Quality level of the review. Not useful anymore as levels other than checked (0) have been removed. (Historical values are 1=quality, 2=pristine.)",
 				"type": "mwtinyint",
 				"options": { "notnull": true, "length": 1, "default": 0 }
 			},
 			{
 				"name": "fr_tags",
-				"comment": "Store tag metadata as newline separated, colon separated tag:value pairs",
+				"comment": "Store tag metadata as newline separated, colon separated tag:value pairs. Tags used to represent different dimensions of the review, e.g. 'accuracy:1, coverage:1, style:2', with certain levels for certain tags required for each quality level. Since then, multiple quality levels and multiple dimensions have been discarded, so this field doesn't really have a point anymore.",
 				"type": "blob",
 				"options": { "notnull": true, "length": 16777215 }
 			},
@@ -175,16 +175,17 @@
 	},
 	{
 		"name": "flaggedtemplates",
-		"comment": "This stores all of our transclusion revision pointers",
+		"comment": "Per-article template reviews. Only used in FR_INCLUDES_STABLE mode. Stores which were the current revisions of each template used in the revision ft_rev_id when it last got reviewed. To hide template vandalism, when the stable version of the article is shown, each template will be shown using the newer of 1) the stable version of the template or 2) the template version which was shown when the article was last reviewed. Unreviewed template changes will make the article show up in the review queue even if the article itself has been fully reviewed. By default, there are template flaggedtemplates rows corresponding to every flaggedrevs row; pruneRevData.php can be used to remove template data for old revisions.",
 		"columns": [
 			{
 				"name": "ft_rev_id",
+				"comment": "Article revision ID. Foreign key to flaggedrevs.fr_rev_id.",
 				"type": "integer",
 				"options": { "notnull": true, "unsigned": true }
 			},
 			{
 				"name": "ft_tmp_rev_id",
-				"comment": "Revisions ID used when reviewed",
+				"comment": "Template revision ID (the last revision of the template at the moment the article corresponding to ft_rev_id was reviewed).",
 				"type": "integer",
 				"options": { "notnull": true, "unsigned": true }
 			}
@@ -194,7 +195,7 @@
 	},
 	{
 		"name": "flaggedpage_config",
-		"comment": "This stores settings on how to select the stable/default revision",
+		"comment": "Stores per-page settings on how to select the stable/default revision. Can be changed by users with the 'stablesettings' right.",
 		"columns": [
 			{
 				"name": "fpc_page_id",
@@ -204,19 +205,19 @@
 			},
 			{
 				"name": "fpc_override",
-				"comment": "Override the page?",
+				"comment": "Override the page? (0 = always show latest revision, 1 = show stable revision for anonymous users)",
 				"type": "mwtinyint",
 				"options": { "notnull": true, "length": 1 }
 			},
 			{
 				"name": "fpc_level",
-				"comment": "The protection level (Sysop, etc) for autoreview/review",
+				"comment": "The restriction level (sysop, etc) for reviewing/autoreviewing the page.",
 				"type": "binary",
 				"options": { "notnull": false, "length": 60 }
 			},
 			{
 				"name": "fpc_expiry",
-				"comment": "Field for time-limited settings",
+				"comment": "Expiry for time-limited settings; configuration reverts to default after this timestamp.",
 				"type": "mwtimestamp",
 				"options": { "notnull": true, "CustomSchemaOptions": { "allowInfinite": true } }
 			}
@@ -232,20 +233,23 @@
 	},
 	{
 		"name": "flaggedrevs_tracking",
-		"comment": "Track includes/links only in stable versions",
+		"comment": "Derived table for tracking dependencies for the stable versions. For a given page with a stable version, contains a row for every link, template and category which is present in the stable version but not in the current version (ie. not tracked in pagelinks/templatelinks/categorylinks). Used like the normal dependency tables, to re-render the stable version when a dependency changes.",
 		"columns": [
 			{
 				"name": "ftr_from",
+				"comment": "Page ID of the page with the stable version.",
 				"type": "integer",
 				"options": { "notnull": true, "unsigned": true, "default": 0 }
 			},
 			{
 				"name": "ftr_namespace",
+				"comment": "Namespace of the dependency.",
 				"type": "integer",
 				"options": { "notnull": true, "default": 0 }
 			},
 			{
 				"name": "ftr_title",
+				"comment": "Title (dbkey) of the dependency.",
 				"type": "binary",
 				"options": { "notnull": true, "length": 255, "default": "" }
 			}
@@ -261,7 +265,7 @@
 	},
 	{
 		"name": "flaggedrevs_promote",
-		"comment": "This stores user demotions and stats",
+		"comment": "Stores user statistics for autopromotion/autodemotion (see $wgFlaggedRevsAutoconfirm and $wgFlaggedRevsAutopromote).",
 		"columns": [
 			{
 				"name": "frp_user_id",
@@ -271,6 +275,7 @@
 			},
 			{
 				"name": "frp_user_params",
+				"comment": "A newline-separated list of user parameters in the param=value format. Parameters: - uniqueContentPages: comma-separated list of IDs of content page the user has edited (truncated to the length required for autopromotion features). - totalContentEdits: total edits made in content namespaces. - editComments: total edits made with a comment (in any namespace). - revertedEdits: total number of reverted edits. ",
 				"type": "blob",
 				"options": { "notnull": true, "length": 16777215 }
 			}
@@ -280,7 +285,7 @@
 	},
 	{
 		"name": "flaggedrevs_statistics",
-		"comment": "This stores overall stats",
+		"comment": "Derived table storing various site-level statistics. See FlaggedRevsStats.php.",
 		"columns": [
 			{
 				"name": "frs_timestamp",
@@ -290,7 +295,7 @@
 			},
 			{
 				"name": "frs_stat_key",
-				"comment": "Stat key name, colons separate parameters",
+				"comment": "Stat key name. Might contain a colon-delimited parameter at the end, for per-namespace stats or stats calculated at multiple percentile levels.",
 				"type": "string",
 				"options": { "notnull": true, "length": 255 }
 			},
