@@ -19,12 +19,17 @@
 			"Whym",
 			"青子守歌",
 			"RYOUMA1117",
-			"しぃ"
+			"しぃ",
+			"MathXplore",
+			"春春眠眠"
 		]
 	},
 	"action-autoreview": "自分の編集を自動的に「確認済み」にする",
 	"action-autoreviewrestore": "巻き戻し時の自動査読",
+	"action-movestable": "公開版のページを移動",
 	"action-review": "特定版の査読",
+	"action-stablesettings": "公開版の選択方法・表示方法を構成",
+	"action-validate": "版に「高品質」の印を付ける",
 	"action-unreviewedpages": "未査読ページの一覧の閲覧",
 	"editor": "編集者",
 	"flaggedrevs": "特定版の判定",
@@ -45,7 +50,11 @@
 	"flaggedrevs-hidereviewed-hide": "非表示",
 	"flaggedrevs-hidereviewed-show": "表示",
 	"flaggedrevs-rcfilters-need-review-label": "査読が必要",
+	"flaggedrevs-rcfilters-need-review-desc": "査読が必要な編集。",
 	"flaggedrevs-rcfilters-reviewed-label": "査読済",
+	"flaggedrevs-rcfilters-reviewed-desc": "査読済みの編集。",
+	"flaggedrevs-rcfilters-not-reviewable-label": "査読対象外",
+	"flaggedrevs-rcfilters-not-reviewable-desc": "査読する必要のないすべての変更。",
 	"group-editor": "編集者",
 	"group-editor-member": "編集者",
 	"group-reviewer": "査読者",
@@ -201,5 +210,7 @@
 	"revreview-unlocked": "編集がこのページの読者に表示される前に[[{{MediaWiki:Validationpage}}|査読]]がなされる必要はありません。",
 	"logeventslist-review-log": "査読記録",
 	"validationpage": "{{ns:help}}:ページの判定",
-	"log-action-filter-review": "査読の種類:"
+	"log-action-filter-review": "査読の種類:",
+	"log-action-filter-review-accept": "手動承認",
+	"log-action-filter-review-unaccept": "手動未承認"
 }
