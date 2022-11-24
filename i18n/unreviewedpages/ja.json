@@ -6,12 +6,14 @@
 			"Hosiryuhosi",
 			"JtFuruhata",
 			"Ohgi",
-			"Shirayuki"
+			"Shirayuki",
+			"春春眠眠"
 		]
 	},
 	"unreviewedpages": "未査読ページ",
 	"unreviewedpages-legend": "未査読記事を一覧",
 	"unreviewedpages-category": "カテゴリ:",
+	"unreviewedpages-showhide-redirect": "リダイレクトを$1",
 	"unreviewedpages-diff": "査読",
 	"unreviewedpages-unwatched": "(未ウォッチ)",
 	"unreviewedpages-watched": "($1 人の活動中の{{PLURAL:$1|利用者}}がウォッチ)",

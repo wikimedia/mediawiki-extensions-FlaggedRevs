@@ -20,7 +20,8 @@
 			"Whym",
 			"しぃ",
 			"青子守歌",
-			"春春眠眠"
+			"春春眠眠",
+			"MathXplore"
 		]
 	},
 	"action-autoreview": "自分の編集を自動的に「確認済み」にする",
@@ -71,6 +72,11 @@
 	"group-autoreview.js": "/* ここに記述したJSは自動査読者のみに影響します */",
 	"logentry-review-approve": "$1 が $3 の版を{{GENDER:$2|査読しました}}",
 	"logentry-review-approve-auto": "$1 が $3 の版を自動{{GENDER:$2|査読しました}}",
+	"logentry-review-unapprove": "$1 が $3 の版を{{GENDER:$2|却下しました}}",
+	"logentry-stable-config": "$1 が $3 の公開版設定を{{GENDER:$2|設定しました}} $4",
+	"logentry-stable-modify": "$1 が $3 の公開版設定を{{GENDER:$2|変更しました}} $4",
+	"logentry-stable-reset": "$1 が $3 の公開版設定を{{GENDER:$2|リセットしました}} $4",
+	"logentry-stable-move_stable": "$1 が公開版設定を $4 から $3 に{{GENDER:$2|移動しました}}",
 	"revreview-hist-draft": "未確認版",
 	"revreview-hist-pending": "査読待ち",
 	"revreview-hist-basic": "確認済み版",
@@ -144,7 +150,7 @@
 	"stable-logentry-reset": "「$1」の安定版設定を初期化",
 	"stable-log-restriction": "自動査読:「$1」の権限が必要",
 	"stable-logpage": "ページ採択記録",
-	"stable-logpagetext": "これは記事の[[{{MediaWiki:Validationpage}}|固定版]]設定の変更記録です。",
+	"stable-logpagetext": "これは記事の[[{{MediaWiki:Validationpage}}|公開版]]設定の変更記録です。",
 	"revreview-defaultfilter": "未設定状態で表示される版:",
 	"revreview-def-all": "任意",
 	"revreview-def-draft": "最新版",
@@ -170,5 +176,10 @@
 	"validationpage": "{{ns:help}}:ページの判定",
 	"log-action-filter-review": "査読の種類:",
 	"log-action-filter-review-accept": "手動承認",
-	"log-action-filter-review-unaccept": "手動未承認"
+	"log-action-filter-review-unaccept": "手動未承認",
+	"log-action-filter-stable": "設定変更の種類:",
+	"log-action-filter-stable-config": "新規設定",
+	"log-action-filter-stable-modify": "設定変更",
+	"log-action-filter-stable-reset": "設定のリセット",
+	"log-action-filter-stable-move_stable": "設定の移動"
 }
