@@ -26,7 +26,8 @@
 			"ToSter",
 			"Woytecr",
 			"Wpedzich",
-			"Žekřil71pl"
+			"Žekřil71pl",
+			"Nux"
 		]
 	},
 	"action-review": "przeglądania wersji",
@@ -169,6 +170,7 @@
 	"tooltip-ca-default": "Ustawienia mechanizmu zapewnienia jakości artykułów",
 	"flaggedrevs-protect-legend": "Automatycznie przeglądanie edycji",
 	"flaggedrevs-protect-none": "Pozwól wszystkim użytkownikom",
+	"flaggedrevs-protect-sysop": "Dozwolone tylko dla administratorów",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Nieprzejrzane strony]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Strony oczekujące na przejrzenie]",
 	"revreview-locked-title": "Zmiany treści tej strony wymagają przejrzenia.",
 	"revreview-unlocked-title": "Zmiany treści tej strony nie wymagają przejrzenia.",
