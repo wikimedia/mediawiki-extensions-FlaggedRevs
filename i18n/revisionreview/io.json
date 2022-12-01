@@ -9,5 +9,6 @@
 	"revreview-log": "Komento:",
 	"revreview-main": "Vu mustas selektar specifika revizo di ula kontenajo-pagino por revizar ol.\n\nVidez la [[Special:Unreviewedpages|listo pri pagini sen revizo]].",
 	"revreview-submit": "Sendez!",
+	"revreview-reject-summary": "Rezumo:",
 	"revreview-reject-cancel": "Anular"
 }

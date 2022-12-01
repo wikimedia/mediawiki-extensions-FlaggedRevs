@@ -58,7 +58,7 @@
 	"revreview-reject-cancel": "Prekliči",
 	"revreview-reject-summary-cur": "zavrnitev {{PLURAL:$1|zadnjo spremembo|zadnji $1 spremembi|zadnje $1 spremembe|zadnjih $1 sprememb}} besedila ({{PLURAL:$7|{{GENDER:$5|od}}}} $2) in obnovitev redakcije $3 {{GENDER:$6|od}} $4",
 	"revreview-reject-summary-old": "zavrnitev {{PLURAL:$1|prve spremembe besedila, ki je sledila|prvih $1 sprememb besedila, ki sta sledili|prvih $1 sprememb besedila, ki so sledile}} ({{PLURAL:$7|{{GENDER:$5|od}}}} $2) redakciji $3 {{GENDER:$6|od}} $4",
-	"revreview-reject-summary-cur-short": "zavrnitev {{PLURAL:$1|zadnje spremembe|zadnjih $1 sprememb|zadnjih $1 sprememb}} besedila in obnovitev redakcije $2 {{GENDER:$4|od}} $3",
+	"revreview-reject-summary-cur-short": "zavrnitev {{PLURAL:$1|one=zadnje spremembe|two=zadnjih $1 sprememb|few=zadnjih $1 sprememb|zadnjih $1 sprememb}} besedila in obnovitev redakcije $2 {{GENDER:$4|od}} $3",
 	"revreview-reject-summary-old-short": "zavrnitev {{PLURAL:$1|prve spremembe besedila, ki je sledila|prvih $1 sprememb besedila, ki sta sledili|prvih $1 sprememb besedila, ki so sledile}} redakciji $2 {{GENDER:$4|od}} $3",
 	"revreview-tt-flag": "Sprejmite to redakcijo tako, da jo označite kot »preverjeno«",
 	"revreview-tt-unflag": "Odsprejmite to redakcijo tako, da jo označite kot »nepreverjeno«",
