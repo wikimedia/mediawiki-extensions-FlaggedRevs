@@ -52,7 +52,7 @@
 	"group-reviewer.js": "/* Tu postavljeni JS bo vplival samo na pregledovalce */",
 	"group-autoreview.css": "/* Tu postavljeni CSS bo vplival samo na samodejne pregledovalce */",
 	"group-autoreview.js": "/* Tu postavljeni JS bo vplival samo na samodejne pregledovalce */",
-	"logentry-review-approve": "$1 je {{GENDER:$2|pregledal|pregledala|pregledal_a)}} redakcijo strani $3",
+	"logentry-review-approve": "$1 je {{GENDER:$2|pregledal|pregledala|pregledal_a}} redakcijo strani $3",
 	"logentry-review-approve-auto": "$1 je samodejno {{GENDER:$2|pregledal|pregledala|pregledal_a}} redakcijo strani $3",
 	"logentry-review-unapprove": "$1 je {{GENDER:$2|označil|označila|označil_a}} redakcijo strani $3 kot opuščeno",
 	"logentry-stable-config": "$1 je {{GENDER:$2|določil|določila|določil_a}} nastavitve stabilne redakcije za $3 $4",
