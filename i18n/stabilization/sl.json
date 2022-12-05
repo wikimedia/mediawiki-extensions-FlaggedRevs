@@ -32,7 +32,7 @@
 	"stabilize_invalid_autoreview": "Neveljavna omejitev samodejnih pregledov.",
 	"stabilize_invalid_level": "Neveljavna raven zaščite.",
 	"stabilize_expiry_invalid": "Neveljaven datum poteka.",
-	"stabilize_expiry_old": "Ta čas poteka je že minil.",
+	"stabilize_expiry_old": "Ta čas preteka je že minil.",
 	"stabilize_denied": "Dovoljenje je zavrnjeno.",
 	"stabilize-expiring": "poteče $1 (UTC)",
 	"stabilization-review": "Označi trenutno redakcijo kot pregledano"
