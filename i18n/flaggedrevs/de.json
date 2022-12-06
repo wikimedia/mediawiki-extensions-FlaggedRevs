@@ -29,6 +29,7 @@
 			"Tobi 406",
 			"Umherirrender",
 			"WhatamIdoing",
+			"Wnme",
 			"Xqt",
 			"✓"
 		]
@@ -64,7 +65,7 @@
 	"flaggedrevs-rcfilters-reviewed-desc": "Bearbeitungen, die bereits gesichtet sind.",
 	"flaggedrevs-rcfilters-not-reviewable-label": "Kein Sichten nötig",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "Logbuchaktionen und Änderungen in Namensräumen, die keine Sichtung benötigen.",
-	"flaggedrevs-contributions-filters-unreviewed-only": "Nur Änderungen anzeigen, deren Sichtung aussteht",
+	"flaggedrevs-contributions-filters-unreviewed-only": "Nur Bearbeitungen anzeigen, deren Sichtung aussteht",
 	"group-editor": "Sichter",
 	"group-editor-member": "{{GENDER:$1|Sichter|Sichterin}}",
 	"group-reviewer": "Prüfer",
