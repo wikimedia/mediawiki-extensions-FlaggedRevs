@@ -56,7 +56,7 @@
 	"revreview-submit-unreviewed": "Fait. Désapprouvé !",
 	"revreview-successful": "'''Version de [[:$1|$1]] signalée.'''",
 	"revreview-successful2": "'''Version de [[:$1|$1]] plus signalée.'''",
-	"revreview-toolow": "'''Vous devez affecter à chacun des attributs une évaluation plus élevée que « inappropriée » pour que la relecture soit prise en compte comme acceptée.'''\n\nPour enlever l’état de relecture d’une version, cliquez sur « {{int:revreview-submit-unreview}} ».\n\nVeuillez utiliser le bouton « Retour » de votre navigateur puis essayez de nouveau.",
+	"revreview-toolow": "'''Vous devez affecter à chacun des attributs une évaluation plus élevée que « inappropriée » pour que la relecture soit prise en compte comme acceptée.'''\n\nPour retirer l’état de relecture d’une version, cliquez sur « {{int:revreview-submit-unreview}} ».\n\nVeuillez utiliser le bouton « Retour » de votre navigateur puis essayer à nouveau.",
 	"revreview-update": "Veuillez [[{{MediaWiki:Validationpage}}|relire]] toutes les modifications ''(voir ci-dessous)'' apportées à la version acceptée.",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Vos modifications ne sont pas encore dans la version stable.</span>\n\nVeuillez vérifier toutes les modifications affichées ci-dessous pour que la vôtre apparaisse dans la version stable.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Vos modifications ne sont pas encore dans la version stable. Il y a de précédentes modifications en attente de relecture.</span>\n\nVous devez relire toutes les modifications affichées ci-dessous pour la votre apparaisse dans la version stable.",
