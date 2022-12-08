@@ -3,12 +3,14 @@
 		"authors": [
 			"EugeneZelenko",
 			"Jim-by",
-			"Red Winged Duck"
+			"Red Winged Duck",
+			"Vlad5250"
 		]
 	},
 	"unreviewedpages": "Неправераныя старонкі",
 	"unreviewedpages-legend": "Сьпіс неправераных старонак",
 	"unreviewedpages-category": "Катэгорыя:",
+	"unreviewedpages-showhide-redirect": "$1 перанакіраваньні",
 	"unreviewedpages-diff": "праверыць",
 	"unreviewedpages-unwatched": "(не назіраецца)",
 	"unreviewedpages-watched": "({{PLURAL:$1|назірае $1 актыўны ўдзельнік|назіраюць $1 актыўных ўдзельніка|назіраюць $1 актыўных ўдзельнікаў}})",
