@@ -10,7 +10,8 @@
 			"Chadyka",
 			"Tomato Cream",
 			"No Sleep till Krupki",
-			"Plaga med"
+			"Plaga med",
+			"Amire80"
 		]
 	},
 	"action-autoreview": "аўтаматычна пазначаць уласныя праўкі як дагледжаныя",
@@ -125,7 +126,7 @@
 	"revreview-quality-same": "Гэта [[{{MediaWiki:Validationpage}}|апублікаваная версія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} пацвержаная] <i>$2</i>.",
 	"revreview-quality-source": "[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Вывераная версія] гэтай старонкі, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} правераная] <i>$2</i>, была заснавана на гэтай версіі.",
 	"revreview-quality-title": "Гэта вывераная версія старонкі",
-	"revreview-quick-basic": "'''[[{{MediaWiki:Validationpage}}|Правераная]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} паказаць неправераныя змены]]",
+	"revreview-quick-basic": "'''[[{{MediaWiki:Validationpage}}|Дагледжаная]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} паказаць недагледжаныя змены]]",
 	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|Правераная]]'''",
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Правераная]]'''",
 	"revreview-quick-invalid": "'''Памылковы ідэнтыфікатар версіі старонкі'''",
@@ -133,7 +134,7 @@
 	"revreview-quick-quality": "'''[[{{MediaWiki:Validationpage}}|Вывераная]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} паказаць неправераныя змены]]",
 	"revreview-quick-quality-old": "'''[[{{MediaWiki:Validationpage}}|Вывераная]]'''",
 	"revreview-quick-quality-same": "'''[[{{MediaWiki:Validationpage}}|Вывераная]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} паказаць неправераныя змены]]",
+	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} паказаць недагледжаныя змены]]",
 	"revreview-quick-see-quality": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} паказаць неправераныя змены]]",
 	"revreview-basic-title": "Гэта дагледжаная версія старонкі",
 	"revreview-style": "Чытальнасць",
@@ -197,7 +198,7 @@
 	"revreview-locked": "'''Заўвага.''' Праўкі павінны быць [[{{MediaWiki:Validationpage}}|правераны]], перш чым яны будуць паказаны чытачам гэтай старонкі.",
 	"revreview-unlocked": "'''Заўвага.''' Праўкі не патрабуюць папярэдняй [[{{MediaWiki:Validationpage}}|праверкі]] для адлюстравання чытачам гэтай старонкі.",
 	"logeventslist-review-log": "Журнал праверак версій",
-	"validationpage": "{{ns:help}}:Праверка старонак",
+	"validationpage": "{{ns:help}}:Догляд старонак",
 	"log-action-filter-review": "Тып агляду:",
 	"log-action-filter-review-accept": "Ручное пазначэнне дагледжаным",
 	"log-action-filter-review-unaccept": "Ручное пазначэнне недагледжаным",
