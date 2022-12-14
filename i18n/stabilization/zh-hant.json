@@ -11,7 +11,8 @@
 			"Mark85296341",
 			"Shinjiman",
 			"Waihorace",
-			"Xiplus"
+			"Xiplus",
+			"捍粵者"
 		]
 	},
 	"stabilization-tab": "診斷",
@@ -26,8 +27,8 @@
 	"stabilization-restrict": "審查/自動審查限制",
 	"stabilization-restrict-none": "無額外限制",
 	"stabilization-submit": "確認",
-	"stabilization-notexists": "無名稱為 \"[[:$1|$1]]\" 的頁面。\n不能進行設定。",
-	"stabilization-notcontent": "無法審查頁面 \"[[:$1|$1]]\"。\n不能進行設定。",
+	"stabilization-notexists": "無頁面名為「[[:$1|$1]]」，\n不能設定。",
+	"stabilization-notcontent": "無法審查頁面「[[:$1|$1]]」。\n不能設定。",
 	"stabilization-comment": "原因：",
 	"stabilization-otherreason": "其他原因：",
 	"stabilization-expiry": "期限：",
