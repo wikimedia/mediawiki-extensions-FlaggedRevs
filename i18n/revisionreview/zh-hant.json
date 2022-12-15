@@ -15,7 +15,8 @@
 			"Simon Shek",
 			"Waihorace",
 			"Xiplus",
-			"Zhxy 519"
+			"Zhxy 519",
+			"捍粵者"
 		]
 	},
 	"revisionreview": "審查修訂",
@@ -28,7 +29,7 @@
 	"review_bad_oldid": "目標修訂不存在。",
 	"review_conflict_oldid": "在您檢視內容的同時，已經有人接受或取消接受了此修訂。",
 	"review_not_flagged": "目標修訂目前未被標記為已審查。",
-	"review_too_low": "此修訂不能進行審查，因為部份欄位狀態為 \"不足\"。",
+	"review_too_low": "部份欄位狀態為「不足」，不能審查此修訂。",
 	"review_bad_key": "無效的引用參數。",
 	"review_bad_tags": "指定的部分標籤值無效。",
 	"review_denied": "權限不足。",
