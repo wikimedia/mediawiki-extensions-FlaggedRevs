@@ -34,6 +34,6 @@
 	"stabilize_expiry_invalid": "Neveljaven datum poteka.",
 	"stabilize_expiry_old": "Ta čas preteka je že minil.",
 	"stabilize_denied": "Dovoljenje je zavrnjeno.",
-	"stabilize-expiring": "poteče $1 (UTC)",
+	"stabilize-expiring": "preteče $1 (UTC)",
 	"stabilization-review": "Označi trenutno redakcijo kot pregledano"
 }
