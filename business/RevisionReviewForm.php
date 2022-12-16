@@ -212,7 +212,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		$this->oldFrev = FlaggedRevision::newFromTitle( $this->page, $this->oldid, FR_MASTER );
 		$oldFlags = $this->oldFrev
 			? $this->oldFrev->getTags()
-			: FlaggedRevision::expandRevisionTags( '' ); // default
+			: FlaggedRevision::getDefaultTags();
 		# Set initial value for newLastChangeTime (if unchanged on submit)
 		$this->newLastChangeTime = $this->lastChangeTime;
 		# Fill in implicit tag data for binary flag case
