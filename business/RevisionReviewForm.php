@@ -296,7 +296,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		if ( $this->getAction() === self::ACTION_APPROVE ) {
 			$revRecord = $revStore->getRevisionByTitle( $this->page, $this->oldid );
 			# Check for archived/deleted revisions...
-			if ( !$revRecord || $revRecord->getVisibility() ) {
+			if ( !$revRecord || $revRecord->isDeleted( RevisionRecord::DELETED_TEXT ) ) {
 				return 'review_bad_oldid';
 			}
 			# Check for review conflicts...
