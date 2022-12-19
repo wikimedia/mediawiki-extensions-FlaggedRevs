@@ -15,7 +15,8 @@
 			"Waihorace",
 			"Xiplus",
 			"Zhxy 519",
-			"Ericliu1912"
+			"Ericliu1912",
+			"捍粵者"
 		]
 	},
 	"revisionreview": "審查修訂",
@@ -28,7 +29,7 @@
 	"review_bad_oldid": "目標修訂不存在。",
 	"review_conflict_oldid": "在您檢視內容的同時，已經有人接受或取消接受了此修訂。",
 	"review_not_flagged": "目標修訂目前未被標記為已審查。",
-	"review_too_low": "此修訂不能進行審查，因為部份欄位狀態為 \"不足\"。",
+	"review_too_low": "部份欄位狀態為「不足」，不能審查此修訂。",
 	"review_bad_key": "無效的引用參數。",
 	"review_bad_tags": "指定的部分標籤值無效。",
 	"review_denied": "權限不足。",
@@ -47,7 +48,7 @@
 	"revreview-reflag": "重新審查此次修訂",
 	"revreview-invalid": "'''無效的目標：'''指定的 ID 沒有[[{{MediaWiki:Validationpage}}|已審查]]的修訂。",
 	"revreview-log": "註解：",
-	"revreview-main": "您必須指定一個內容頁面的修訂來進行審查。\n\n請參考[[Special:Unreviewedpages|未審查的頁面清單]]。",
+	"revreview-main": "您必須指定內容頁面的修訂來審查。\n\n請參考[[Special:Unreviewedpages|未審查的頁面清單]]。",
 	"revreview-stable1": "您可能想檢視[{{fullurl:$1|stableid=$2}} 此標記的版本]並查看目前是否為此頁面的[{{fullurl:$1|stable=1}} 穩定版本]。",
 	"revreview-stable2": "您可能想檢視此頁面的[{{fullurl:$1|stable=1}} 穩定版本]。",
 	"revreview-submit": "送出",
