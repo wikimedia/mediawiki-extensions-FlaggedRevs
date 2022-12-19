@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * Query to list out unreviewed pages
  */
@@ -197,7 +199,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 	 * @inheritDoc
 	 */
 	protected function doBatchLookups() {
-		$lb = new LinkBatch();
+		$lb = MediaWikiServices::getInstance()->getLinkBatchFactory()->newLinkBatch();
 		foreach ( $this->mResult as $row ) {
 			$lb->add( $row->page_namespace, $row->page_title );
 		}

@@ -168,7 +168,7 @@ class FRDependencyUpdate {
 	 * @return string|bool
 	 */
 	private function makeWhereFrom2d( $arr, $db ) {
-		$lb = new LinkBatch();
+		$lb = MediaWikiServices::getInstance()->getLinkBatchFactory()->newLinkBatch();
 		$lb->setArray( $arr );
 		return $lb->constructSet( 'ftr', $db );
 	}

@@ -104,7 +104,7 @@ class FRInclusionCache {
 	 */
 	private static function templatesStale( array $tVersions ) {
 		# Do a link batch query for page_latest...
-		$lb = new LinkBatch();
+		$lb = MediaWikiServices::getInstance()->getLinkBatchFactory()->newLinkBatch();
 		foreach ( $tVersions as $ns => $tmps ) {
 			foreach ( $tmps as $dbKey => $revIdDraft ) {
 				$lb->add( $ns, $dbKey );
