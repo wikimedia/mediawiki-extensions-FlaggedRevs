@@ -19,7 +19,8 @@
 			"Zhxy 519",
 			"一個正常人",
 			"Winston Sung",
-			"SunAfterRain"
+			"SunAfterRain",
+			"捍粵者"
 		]
 	},
 	"action-autoreview": "將自己的編輯自動標記為「已檢查」",
@@ -117,7 +118,7 @@
 	"revreview-pending-basic": "[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 穩定版本]已[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 檢查]於 <i>$2</i>。尚有 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 筆待審核的{{PLURAL:$3|變更}}]正在等候審查。",
 	"revreview-pending-nosection": "請嘗試檢視[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 最新版本]，包含其中 \n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}}$2 筆待審查的{{PLURAL:$2|變更}}]，來查看章節是否被移動或刪除。",
 	"revreview-noflagged": "此頁面沒有[[{{MediaWiki:Validationpage}}|已審查的版本]]，因此可能'''尚未'''被檢查是否符合標準。",
-	"revreview-oldrating": "已被評定為：",
+	"revreview-oldrating": "已評為：",
 	"revreview-quick-basic": "'''[[{{MediaWiki:Validationpage}}|已檢查]]'''。[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 審查待審核的變更]]",
 	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|已審核]]'''",
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|已檢查]]'''",
