@@ -33,7 +33,7 @@
 	"stabilize_page_notexists": "Ciljna stranica ne postoji.",
 	"stabilize_page_unreviewable": "Odredišna stranica nije u imenskom prostoru koji je podložan proveri.",
 	"stabilize_invalid_autoreview": "Neispravno ograničenje automatskih provera.",
-	"stabilize_invalid_level": "Nevažeći nivo zaštite.",
+	"stabilize_invalid_level": "Nevažeći stepen zaštite.",
 	"stabilize_expiry_invalid": "Loš datum isticanja.",
 	"stabilize_expiry_old": "Vreme isticanja je već prošlo.",
 	"stabilize_denied": "Pristup je odbijen.",

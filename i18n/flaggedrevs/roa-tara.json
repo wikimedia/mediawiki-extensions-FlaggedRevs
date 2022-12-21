@@ -35,6 +35,7 @@
 	"flaggedrevs-rcfilters-reviewed-desc": "Cangiaminde ca onne state reviste.",
 	"flaggedrevs-rcfilters-not-reviewable-label": "Nisciune oggette da revedè",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "Cangiaminde de tutte le tipe ca non ge volene revisione.",
+	"flaggedrevs-contributions-filters-unreviewed-only": "Fà 'ndrucà sulamende le cangiaminde cu 'na revisione appese",
 	"group-editor": "Editore",
 	"group-editor-member": "{{GENDER:$1|editore}}",
 	"group-reviewer": "Rivisitatore",
