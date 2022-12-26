@@ -34,7 +34,7 @@
 	"revreview-reflag": "Ponovo proveri ovu izmenu",
 	"revreview-invalid": "'''Nevažeći cilj:''' nijedna [[{{MediaWiki:Validationpage}}|proverena]] izmena ne poseduje dati redni broj.",
 	"revreview-log": "Komentar:",
-	"revreview-main": "Morate izabrati određenu izmena stranice sa sadržajem da biste je proverili.\nPogledajte [[Special:Unreviewedpages|spisak neproverenih stranica]].",
+	"revreview-main": "Morate izabrati određenu izmenu stranice sadržaja da biste je proverili.\nPogledajte [[Special:Unreviewedpages|spisak neproverenih stranica]].",
 	"revreview-stable1": "Možda želite pogledati [{{fullurl:$1|stableid=$2}} ovu označenu verziju] i proveriti da li sada postoji [{{fullurl:$1|stable=1}} stabilna verzija] ove stranice.",
 	"revreview-stable2": "Možda želite da pogledate [{{fullurl:$1|stable=1}} stabilnu verziju] ove stranice.",
 	"revreview-submit": "Pošalji",
