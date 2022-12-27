@@ -22,7 +22,7 @@
 	"apihelp-stabilize-param-default": "Podrazumevana izmena za prikaz.",
 	"apihelp-stabilize-param-autoreview": "Ograničenje samoprovere.",
 	"apihelp-stabilize-param-review": "Proveri ovu stranicu.",
-	"apihelp-stabilize-param-protectlevel": "Nivo zaštite od pregleda.",
+	"apihelp-stabilize-param-protectlevel": "Stepen zaštite od pregleda.",
 	"apierror-flaggedrevs-notreviewable": "Navedena stranica nije preglediva.",
 	"apierror-flaggedrevs-pagedoesnotexist": "Data stranica ne postoji.",
 	"apierror-flaggedrevs-badflags": "Navedene oznake nisu ispravne.",

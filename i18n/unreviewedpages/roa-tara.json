@@ -7,6 +7,7 @@
 	"unreviewedpages": "Pàggene senza revisione",
 	"unreviewedpages-legend": "Liste de le pàggene cu le condenute senza rivisitaziune",
 	"unreviewedpages-category": "Categorije:",
+	"unreviewedpages-showhide-redirect": "$1 redirezionamiende",
 	"unreviewedpages-diff": "reviste",
 	"unreviewedpages-unwatched": "(no condrollà)",
 	"unreviewedpages-watched": "($1 {{PLURAL:$1|utende|utinde}} attive ca condrollene)",
