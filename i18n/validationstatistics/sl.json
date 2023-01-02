@@ -8,7 +8,7 @@
 	"validationstatistics": "Statistika pregledov strani",
 	"validationstatistics-users": "'''{{SITENAME}}''' ima trenutno '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|uporabnika|uporabnika|uporabnike|uporabnikov}} s pravicami [[{{MediaWiki:Validationpage}}|Urednika]].\n\nUredniki so uveljavljeni uporabniki, ki lahko samodejno preverijo redakcije strani.",
 	"validationstatistics-lastupdate": "''Naslednji podatki so bili nazadnje posodobljeni $1 ob $2.''",
-	"validationstatistics-pndtime": "Urejanja, ki so jih preverili uveljavljeni uporabniki, se smatrajo kot ''{{int:validationstatistics-stable}}''.\n\nPovprečni zamik pregleda [[Special:OldReviewedPages|strani z urejanji, ki trenutno čakajo na pregled]], je '''$1'''; zakasnitev meri, kako dolgo je bilo nepregledano najstarejše urejanje, ki je čakalo na pregled.",
+	"validationstatistics-pndtime": "Urejanja, ki so jih preverili uveljavljeni uporabniki, se smatrajo kot ''{{int:validationstatistics-stable}}''.\n\nPovprečna zakasnitev pregleda [[Special:OldReviewedPages|strani z urejanji, ki trenutno čakajo na pregled]], je '''$1'''; zakasnitev meri, kako dolgo je bilo nepregledano najstarejše urejanje, ki je čakalo na pregled.",
 	"validationstatistics-revtime": "Povprečna čakalna doba pregleda urejanj ''uporabnikov, ki niso prijavljeni''', je '''$1'''; mediana je '''$2'''.\n$3",
 	"validationstatistics-table": "Statistika pregleda strani za posamezni imenski prostor je prikazana spodaj, ''brez'' preusmeritvenih strani.\n\nStrani se obravnavajo kot ''{{int:validationstatistics-old}}'', če imajo urejanja, ki čakajo na pregled;\nstrani se štejejo kot ''{{int:validationstatistics-latest}}'', če na pregled ne čaka nobeno urejanje.",
 	"validationstatistics-ns": "Imenski prostor",
