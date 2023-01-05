@@ -8,6 +8,7 @@
 	"unreviewedpages": "Nepregledane strani",
 	"unreviewedpages-legend": "Seznam nepregledanih strani z vsebino",
 	"unreviewedpages-category": "Kategorija:",
+	"unreviewedpages-showhide-redirect": "$1 preusmeritev(ve)",
 	"unreviewedpages-diff": "preglej",
 	"unreviewedpages-unwatched": "(nespremljano)",
 	"unreviewedpages-watched": "({{PLURAL:$1|spremlja $1 dejavni uporabnik|spremljata $1 dejavna uporabnika|spremljajo $1 dejavni uporabniki|spremlja $1 dejavnih uporabnikov}})",

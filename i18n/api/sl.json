@@ -6,7 +6,11 @@
 	},
 	"apihelp-flagconfig-description": "Pridobite osnovne informacije o konfiguraciji zastavic pregledovanja na tem spletnem mestu.\n\nZa vsako oznako so vrnjeni naslednji parametri:\n;name:Ime ključa te oznake.\n;levels:Število ravni oznake (zgoraj »not tagged«).\nRedakcije z zastavico imajo dodeljeneno raven za vsako oznako. Najvišja raven, ki ji ustrezajo vse oznake, je raven pregleda celotne redakcije.",
 	"apihelp-flagconfig-extended-description": "Za vsako oznako so vrnjeni naslednji parametri:\n;name:Ime ključa te oznake.\n;levels:Število ravni oznake (zgoraj »not tagged«).\nRedakcije z zastavico imajo dodeljeneno raven za vsako oznako. Najvišja raven, ki ji ustrezajo vse oznake, je raven pregleda celotne redakcije.",
+	"apihelp-query+flagged-example-1": "Pridobi informacije o strani in stanje oznak za [[Main Page|Glavno stran]]",
+	"apihelp-query+unreviewedpages-param-start": "Začetek navajanja pri tem naslovu strani.",
+	"apihelp-query+unreviewedpages-param-end": "Konec navajanje pri tem naslovu strani.",
 	"apihelp-stabilize-param-reason": "Razlog.",
+	"apihelp-stabilize-param-title-protect": "Naslov strani za zaščito v pregledu.",
 	"apihelp-stabilize-param-review": "Pregled strani.",
 	"apierror-flaggedrevs-notreviewable": "Navedene strani ni mogoče pregledati."
 }
