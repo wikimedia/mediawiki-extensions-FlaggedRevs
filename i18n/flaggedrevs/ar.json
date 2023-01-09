@@ -18,7 +18,8 @@
 			"زكريا",
 			"علاء",
 			"محمد أحمد عبد الفتاح",
-			"FShbib"
+			"FShbib",
+			"Karim185.3"
 		]
 	},
 	"action-autoreview": "التعليم على تعديلاته كـ\"مراجعة\" تلقائيا",
@@ -60,7 +61,7 @@
 	"grouppage-reviewer": "{{ns:project}}:مراجع",
 	"group-autoreview": "مراجعون تلقائيًّا",
 	"group-autoreview-member": "{{GENDER:$1|مستخدم مراجع تلقائيا|مستخدمة مراجعة تلقائيا}}",
-	"grouppage-autoreview": "{{ns:project}}:مراجع تلقائي",
+	"grouppage-autoreview": "{{ns:project}}:مراجع تلقائيا",
 	"group-editor.css": "/* الأنماط المتراصة CSS المعروضة هنا ستؤثر على المحررين فقط */",
 	"group-editor.js": "/* الجافا سكريبت المعروضة هنا ستؤثر على المحررين فقط */",
 	"group-reviewer.css": "/* الأنماط المتراصة CSS المعروضة هنا ستؤثر على المراجعين فقط */",

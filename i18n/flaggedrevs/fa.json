@@ -64,7 +64,7 @@
 	"logentry-stable-config": "$1 تنظیمات نسخهٔ پایدار $3 $4 را تعیین {{GENDER:$2|کرد}}",
 	"logentry-stable-modify": "$1 تنظیمات نسخهٔ پایدار $3 $4 را تغییر {{GENDER:$2|داد}}",
 	"logentry-stable-reset": "$1 تنظیمات نسخهٔ پایدار $3 $4 را از نو {{GENDER:$2|کرد}}",
-	"logentry-stable-move_stable": "$1 تنظیمات نسخهٔ پایدار $3 $4 را منتقل {{GENDER:$2|کرد}}",
+	"logentry-stable-move_stable": "$1 تنظیمات نسخهٔ پایدار را از $3 به $4 منتقل {{GENDER:$2|کرد}}",
 	"revreview-hist-draft": "نسخهٔ بررسی‌نشده",
 	"revreview-hist-pending": "نسخهٔ در حال انتظار",
 	"revreview-hist-quality": "[با کیفیت]",
