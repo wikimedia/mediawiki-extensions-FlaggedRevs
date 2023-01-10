@@ -9,7 +9,7 @@
 	"stabilization": "Ustaljevanje strani",
 	"stabilization-text": "'''Spremenite spodnje nastavitve, da prilagodite, kako je izbrana in prikazana stabilna redakcija strani [[:$1|$1]].'''",
 	"stabilization-perm": "Vaš račun nima dovoljenja za spreminjanje nastavitev stabilne različice.\nTukaj so trenutne nastavitve [[:$1|$1]]:",
-	"stabilization-page": "Naslov strani:",
+	"stabilization-page": "Ime strani:",
 	"stabilization-leg": "Potrdi nastavitve stabilnih redakcij",
 	"stabilization-def": "Redakcija, prikazana pri privzetem ogledu strani",
 	"stabilization-def1": "Stabilna redakcija; če je ni, potem zadnja redakcija",
