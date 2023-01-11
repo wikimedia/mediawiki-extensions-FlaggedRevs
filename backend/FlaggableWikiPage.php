@@ -593,10 +593,10 @@ class FlaggableWikiPage extends WikiPage {
 				'rev_timestamp',
 				[
 					'rev_page' => $pageId,
-					$dbw->makeList( [
-						'rev_timestamp > ' . $dbw->addQuotes( $ts ),
-						'rev_timestamp = ' . $dbw->addQuotes( $ts ) . ' AND rev_id > ' . $id,
-					], IDatabase::LIST_OR ),
+					$dbw->buildComparison( '>', [
+						'rev_timestamp' => $ts,
+						'rev_id' => $id,
+					] ),
 				],
 				__METHOD__,
 				[ 'ORDER BY' => [ 'rev_timestamp ASC', 'rev_id ASC' ], 'LIMIT' => 1 ]
