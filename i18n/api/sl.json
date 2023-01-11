@@ -4,7 +4,12 @@
 			"Eleassar"
 		]
 	},
+	"apihelp-query+flagged-example-1": "Pridobi informacije o strani in stanje oznak za [[Main Page|Glavno stran]]",
+	"apihelp-query+oldreviewedpages-param-category": "Prikaži samo strani v dani kategoriji.",
+	"apihelp-query+unreviewedpages-param-start": "Začetek navajanja pri tem naslovu strani.",
+	"apihelp-query+unreviewedpages-param-end": "Konec navajanje pri tem naslovu strani.",
 	"apihelp-stabilize-param-reason": "Razlog.",
+	"apihelp-stabilize-param-title-protect": "Naslov strani za zaščito v pregledu.",
 	"apihelp-stabilize-param-review": "Pregled strani.",
 	"apierror-flaggedrevs-notreviewable": "Navedene strani ni mogoče pregledati."
 }
