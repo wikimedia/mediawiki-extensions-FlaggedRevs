@@ -3,6 +3,7 @@
 		"authors": [
 			"AS",
 			"Ahonc",
+			"Andriy.v",
 			"Andriykopanytsia",
 			"Andygol",
 			"Base",
@@ -53,6 +54,7 @@
 	"flaggedrevs-rcfilters-reviewed-desc": "Редагування, які було перевірено.",
 	"flaggedrevs-rcfilters-not-reviewable-label": "Не підлягають перевірці",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "Зміни всіх типів, яким непотрібна перевірка.",
+	"flaggedrevs-contributions-filters-unreviewed-only": "Показати тільки неперевірені редагування",
 	"group-editor": "Редактори",
 	"group-editor-member": "{{GENDER:$1|редактор|редакторка}}",
 	"group-reviewer": "Рецензенти",
