@@ -30,7 +30,9 @@
 			"Umherirrender",
 			"WhatamIdoing",
 			"Xqt",
-			"✓"
+			"✓",
+			"Brettchenweber",
+			"Wnme"
 		]
 	},
 	"action-autoreview": "eigene Bearbeitungen automatisch als gesichtet zu markieren",
@@ -43,7 +45,7 @@
 	"editor": "Sichter",
 	"flaggedrevs": "Gesichtete Versionen",
 	"flaggedrevs-watched-pending": "Es gibt momentan [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ungesichtete Bearbeitungen] gesichteter Seiten, die sich auf deiner Beobachtungsliste befinden. '''Deine Aufmerksamkeit wird daher benötigt!'''",
-	"flaggedrevs-desc": "Ermöglicht es Seitenversionen zu markieren sowie eine stabile Seitenversion festzulegen",
+	"flaggedrevs-desc": "Ermöglicht es, Seitenversionen zu markieren sowie eine stabile Seitenversion festzulegen",
 	"flaggedrevs-pref-UI": "Einfache Benutzeroberfläche:",
 	"flaggedrevs-pref-UI-0": "Verwende die detaillierte Übersicht, um den Markierungsstatus von Seiten anzuzeigen",
 	"flaggedrevs-pref-UI-1": "Verwende kleine Symbole und wenig Text, um den Markierungsstatus von Seiten anzuzeigen",

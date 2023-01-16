@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Patriot Kur"
+			"Patriot Kur",
+			"Patriot Kor"
 		]
 	},
+	"revreview-submit": "Təğdim",
 	"revreview-reject-cancel": "Ləğv karde"
 }
