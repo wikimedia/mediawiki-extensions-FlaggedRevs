@@ -603,7 +603,6 @@ class FlaggablePageView extends ContextSource {
 		}
 
 		# Add the parser output to the page view
-		$this->out->setSections( $parserOut->getSections() );
 		$this->out->addParserOutput(
 			$parserOut,
 			[ 'enableSectionEditLinks' => false, ]
@@ -715,7 +714,6 @@ class FlaggablePageView extends ContextSource {
 		) {
 			$poOptions['enableSectionEditLinks'] = false;
 		}
-		$this->out->setSections( $parserOut->getSections() );
 		$this->out->addParserOutput( $parserOut, $poOptions );
 
 		# Update page sync status for tracking purposes.
