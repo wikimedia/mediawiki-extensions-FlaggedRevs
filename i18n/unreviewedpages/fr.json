@@ -11,16 +11,16 @@
 			"Verdy p"
 		]
 	},
-	"unreviewedpages": "Pages non revues",
-	"unreviewedpages-legend": "Liste des pages de contenu non révisées",
-	"unreviewedpages-category": "Catégorie :",
+	"unreviewedpages": "Pages non relues",
+	"unreviewedpages-legend": "Liste des pages de contenu non relues",
+	"unreviewedpages-category": "Catégorie :",
 	"unreviewedpages-diff": "relecture",
 	"unreviewedpages-unwatched": "(non suivie)",
-	"unreviewedpages-watched": "($1 {{PLURAL:$1|utilisateur actif suit|utilisateurs actifs suivent}} cette page)",
-	"unreviewedpages-list": "Cette page liste les pages de contenu qui n’ont ''pas'' été [[{{MediaWiki:Validationpage}}|révisées]] au niveau spécifié.",
+	"unreviewedpages-watched": "($1 utilisateur{{PLURAL:$1||s}} actif{{PLURAL:$1||s}} sui{{PLURAL:$1||ven}}t cette page)",
+	"unreviewedpages-list": "Cette page liste les pages de contenu qui n’ont ''pas'' été [[{{MediaWiki:Validationpage}}|relues]] au niveau spécifié.",
 	"unreviewedpages-none": "Aucune page correspondant à ces critères n’a été trouvée",
-	"unreviewedpages-viewing": "(en révision)",
-	"unreviewedpages-hours": "($1 {{PLURAL:$1|heure|heures}})",
-	"unreviewedpages-days": "($1 {{PLURAL:$1|jour|jours}})",
+	"unreviewedpages-viewing": "(en relecture)",
+	"unreviewedpages-hours": "($1 heure{{PLURAL:$1||s}})",
+	"unreviewedpages-days": "($1 jour{{PLURAL:$1||s}})",
 	"unreviewedpages-recent": "(moins d’une heure)"
 }
