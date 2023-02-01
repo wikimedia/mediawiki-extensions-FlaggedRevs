@@ -53,6 +53,7 @@
 	"flaggedrevs-rcfilters-reviewed-desc": "Edições que foram revistas.",
 	"flaggedrevs-rcfilters-not-reviewable-label": "Não sujeitas a revisão",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "Mudanças de todos os tipos que não requerem revisão.",
+	"flaggedrevs-contributions-filters-unreviewed-only": "Mostrar apenas as edições com revisão pendente",
 	"group-editor": "Editores",
 	"group-editor-member": "{{GENDER:$1|editor|editora|editor(a)}}",
 	"group-reviewer": "Revisores",
