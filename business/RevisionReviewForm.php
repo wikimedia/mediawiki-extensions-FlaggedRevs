@@ -142,14 +142,13 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	}
 
 	/**
-	 * @param string $tag
 	 * @param int $value
 	 */
-	public function setDim( $tag, $value ) {
-		if ( $tag !== FlaggedRevs::getTagName() || FlaggedRevs::useOnlyIfProtected() ) {
-			throw new InvalidArgumentException( "FlaggedRevs tag $tag does not exist.\n" );
+	public function setDim( $value ) {
+		if ( !FlaggedRevs::useOnlyIfProtected() ) {
+			$tag = FlaggedRevs::getTagName();
+			$this->trySet( $this->dims[$tag], (int)$value );
 		}
-		$this->trySet( $this->dims[$tag], (int)$value );
 	}
 
 	/**
