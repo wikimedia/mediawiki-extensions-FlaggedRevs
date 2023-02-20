@@ -60,6 +60,7 @@
 	"flaggedrevs-rcfilters-reviewed-desc": "İncelenmiş değişiklikler",
 	"flaggedrevs-rcfilters-not-reviewable-label": "İncelemeye tâbi değil",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "İnceleme gerektirmeyen her tür değişiklik.",
+	"flaggedrevs-contributions-filters-unreviewed-only": "Yalnızca inceleme bekleyen değişiklikleri göster",
 	"group-editor": "Editörler",
 	"group-editor-member": "{{GENDER:$1|editör}}",
 	"group-reviewer": "İnceleyiciler",
