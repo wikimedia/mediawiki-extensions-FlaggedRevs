@@ -54,6 +54,7 @@
 	"flaggedrevs-rcfilters-reviewed-desc": "已審核的編輯。",
 	"flaggedrevs-rcfilters-not-reviewable-label": "沒有需要審查的主題。",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "所有類型不需要審查的更改。",
+	"flaggedrevs-contributions-filters-unreviewed-only": "僅顯示待審的編輯",
 	"group-editor": "編輯者",
 	"group-editor-member": "{{GENDER:$1|編輯者}}",
 	"group-reviewer": "審核員",
