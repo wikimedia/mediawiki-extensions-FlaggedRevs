@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Robby",
-			"Soued031"
+			"Soued031",
+			"Volvox"
 		]
 	},
-	"pendingchanges": "Säite mat Ännerungen déi nozekucke sinn",
+	"pendingchanges": "Säite mat Ännerungen, déi nozekucke sinn",
 	"pendingchanges-legend": "Lëscht vun den nogekuckte Säite mat net nogekuckte Versiounen",
 	"pendingchanges-list": "Op dëser Säit stinn [[{{MediaWiki:Validationpage}}|nogekuckte]] Säite mat enger oder méi Ännerungen déi drop waarde fir nogekuckt ze ginn.",
 	"pendingchanges-none": "Et gëtt elo keng Säiten déi deene Krittären entspriechen",
