@@ -249,71 +249,61 @@ class RevisionReviewFormUI {
 	 * Generates a main tag inputs (checkboxes/radios/selects) for review form
 	 */
 	private function ratingInputs( $user, $flags, $disabled ) {
-		if ( FlaggedRevs::useOnlyIfProtected() ) {
+		if ( FlaggedRevs::binaryFlagging() ) {
 			return '';
 		}
 
 		# Get all available tags for this page/user
 		list( $labels, $minLevels ) = $this->ratingFormTags( $user, $flags );
-		if ( $labels === false ) {
-			$disabled = true; // a tag is unsettable
-		}
-		# If there are no tags, make one checkbox to approve/unapprove
-		if ( FlaggedRevs::binaryFlagging() ) {
-			return '';
-		}
-		$items = [];
-		# Build rating form...
-		if ( $disabled ) {
+		if ( $disabled || $labels === false ) {
 			// Display the value for each tag as text
 			$quality = FlaggedRevs::getTagName();
 			$selected = $flags[$quality] ?? 0;
-			$items[] = $this->getTagMsg( $quality )->escaped() . ": " .
+			return $this->getTagMsg( $quality )->escaped() . ": " .
 				$this->getTagValueMsg( $selected );
-		} else {
-			$size = count( $labels, 1 ) - count( $labels );
-			foreach ( $labels as $quality => $levels ) {
-				$item = '';
-				$numLevels = count( $levels );
-				$minLevel = $minLevels[$quality];
-				# Determine the level selected by default
-				$selected = $flags[$quality] ?? 0;
-				if ( !$selected || !isset( $levels[$selected] ) ) {
-					$selected = $minLevel;
-				}
-				# Show label as needed
-				if ( !FlaggedRevs::binaryFlagging() ) {
-					$item .= Xml::tags( 'label', [ 'for' => "wp$quality" ],
-						$this->getTagMsg( $quality )->escaped() ) . ":\n";
-				}
-				# If the sum of qualities of all flags is above 6, use drop down boxes.
-				# 6 is an arbitrary value choosen according to screen space and usability.
-				if ( $size > 6 ) {
-					$attribs = [ 'name' => "wp$quality", 'id' => "wp$quality" ];
-					$item .= Xml::openElement( 'select', $attribs ) . "\n";
-					foreach ( $levels as $i => $name ) {
-						$optionClass = [ 'class' => "fr-rating-option-$i" ];
-						$item .= Xml::option( $this->getTagMsg( $name )->text(), $i,
-							( $i == $selected ), $optionClass ) . "\n";
-					}
-					$item .= Xml::closeElement( 'select' ) . "\n";
-				# If there are more than two levels, current user gets radio buttons
-				} elseif ( $numLevels > 2 ) {
-					foreach ( $levels as $i => $name ) {
-						$attribs = [ 'class' => "fr-rating-option-$i" ];
-						$item .= Xml::radioLabel( $this->getTagMsg( $name )->text(), "wp$quality",
-							$i, "wp$quality" . $i, ( $i == $selected ), $attribs ) . "\n";
-					}
-				# Otherwise make checkboxes (two levels available for current user)
-				} elseif ( $numLevels == 2 ) {
-					$i = $minLevel;
-					$attribs = [ 'class' => "fr-rating-option-$i" ];
-					$attribs += [ 'value' => $i ];
-					$item .= Xml::checkLabel( wfMessage( 'revreview-' . $levels[$i] )->text(),
-						"wp$quality", "wp$quality", ( $selected == $i ), $attribs ) . "\n";
-				}
-				$items[] = $item;
+		}
+
+		$items = [];
+		$size = count( $labels, 1 ) - count( $labels );
+		foreach ( $labels as $quality => $levels ) {
+			$item = '';
+			$numLevels = count( $levels );
+			$minLevel = $minLevels[$quality];
+			# Determine the level selected by default
+			$selected = $flags[$quality] ?? 0;
+			if ( !$selected || !isset( $levels[$selected] ) ) {
+				$selected = $minLevel;
 			}
+			# Show label as needed
+			$item .= Xml::tags( 'label', [ 'for' => "wp$quality" ],
+				$this->getTagMsg( $quality )->escaped() ) . ":\n";
+			# If the sum of qualities of all flags is above 6, use drop down boxes.
+			# 6 is an arbitrary value choosen according to screen space and usability.
+			if ( $size > 6 ) {
+				$attribs = [ 'name' => "wp$quality", 'id' => "wp$quality" ];
+				$item .= Xml::openElement( 'select', $attribs ) . "\n";
+				foreach ( $levels as $i => $name ) {
+					$optionClass = [ 'class' => "fr-rating-option-$i" ];
+					$item .= Xml::option( $this->getTagMsg( $name )->text(), $i,
+						( $i == $selected ), $optionClass ) . "\n";
+				}
+				$item .= Xml::closeElement( 'select' ) . "\n";
+			# If there are more than two levels, current user gets radio buttons
+			} elseif ( $numLevels > 2 ) {
+				foreach ( $levels as $i => $name ) {
+					$attribs = [ 'class' => "fr-rating-option-$i" ];
+					$item .= Xml::radioLabel( $this->getTagMsg( $name )->text(), "wp$quality",
+						$i, "wp$quality" . $i, ( $i == $selected ), $attribs ) . "\n";
+				}
+			# Otherwise make checkboxes (two levels available for current user)
+			} elseif ( $numLevels == 2 ) {
+				$i = $minLevel;
+				$attribs = [ 'class' => "fr-rating-option-$i" ];
+				$attribs += [ 'value' => $i ];
+				$item .= Xml::checkLabel( wfMessage( 'revreview-' . $levels[$i] )->text(),
+					"wp$quality", "wp$quality", ( $selected == $i ), $attribs ) . "\n";
+			}
+			$items[] = $item;
 		}
 		return implode( '&#160;&#160;&#160;', $items );
 	}
