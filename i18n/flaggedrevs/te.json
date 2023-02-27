@@ -21,6 +21,7 @@
 	"flaggedrevs-pref-stable-2": "ఎల్లప్పుడూ ఇట్టీవలి కూర్పునే చూపించు",
 	"flaggedrevs-prefs-watch": "నేను సమీక్షించిన పేజీలను నా వీక్షణాజాబితాలో చేర్చు",
 	"flaggedrevs-hidereviewed": "$1 సమీక్షించబడిన మార్పులు",
+	"flaggedrevs-hidereviewed-hide": "దాచు",
 	"group-editor": "ఎడిటర్లు",
 	"group-editor-member": "{{GENDER:$1|ఎడిటరు}}",
 	"group-reviewer": "సమీక్షకులు",
