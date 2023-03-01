@@ -249,6 +249,10 @@ class RevisionReviewFormUI {
 	 * Generates a main tag inputs (checkboxes/radios/selects) for review form
 	 */
 	private function ratingInputs( $user, $flags, $disabled ) {
+		if ( FlaggedRevs::useOnlyIfProtected() ) {
+			return '';
+		}
+
 		# Get all available tags for this page/user
 		list( $labels, $minLevels ) = $this->ratingFormTags( $user, $flags );
 		if ( $labels === false ) {
@@ -261,13 +265,11 @@ class RevisionReviewFormUI {
 		$items = [];
 		# Build rating form...
 		if ( $disabled ) {
-			if ( !FlaggedRevs::useOnlyIfProtected() ) {
-				// Display the value for each tag as text
-				$quality = FlaggedRevs::getTagName();
-				$selected = $flags[$quality] ?? 0;
-				$items[] = $this->getTagMsg( $quality )->escaped() . ": " .
-					$this->getTagValueMsg( $selected );
-			}
+			// Display the value for each tag as text
+			$quality = FlaggedRevs::getTagName();
+			$selected = $flags[$quality] ?? 0;
+			$items[] = $this->getTagMsg( $quality )->escaped() . ": " .
+				$this->getTagValueMsg( $selected );
 		} else {
 			$size = count( $labels, 1 ) - count( $labels );
 			foreach ( $labels as $quality => $levels ) {
@@ -344,9 +346,6 @@ class RevisionReviewFormUI {
 	private function ratingFormTags( $user, $selected ) {
 		$labels = [];
 		$minLevels = [];
-		if ( FlaggedRevs::useOnlyIfProtected() ) {
-			return [ $labels, $minLevels ];
-		}
 		$tag = FlaggedRevs::getTagName();
 		if ( isset( $selected[$tag] ) &&
 			!FlaggedRevs::userCanSetValue( $user, $selected[$tag] )
