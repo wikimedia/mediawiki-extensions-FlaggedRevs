@@ -797,13 +797,11 @@ class FlaggablePageView extends ContextSource {
 		$title = $this->article->getTitle(); // convenience
 		# Review status of left diff revision...
 		$leftNote = 'revreview-hist-basic';
-		$lClass = FlaggedRevsXML::getQualityColor( FR_CHECKED );
 		// @todo FIXME: i18n Hard coded brackets.
-		$leftNote = "<span class='$lClass'>[" . $this->msg( $leftNote )->escaped() . "]</span>";
+		$leftNote = "<span class='flaggedrevs-color-1'>[" . $this->msg( $leftNote )->escaped() . "]</span>";
 		# Review status of right diff revision...
-		$rClass = FlaggedRevsXML::getQualityColor( false );
 		// @todo FIXME: i18n Hard coded brackets.
-		$rightNote = "<span class='$rClass'>[" .
+		$rightNote = "<span class='flaggedrevs-color-0'>[" .
 			$this->msg( 'revreview-hist-pending' )->escaped() . "]</span>";
 		# Get the actual body of the diff...
 		$diffEngine = new DifferenceEngine( $this, $srev->getRevId(), $latest );
@@ -962,14 +960,12 @@ class FlaggablePageView extends ContextSource {
 			) {
 				# Left diff side...
 				$leftNote = 'revreview-hist-basic';
-				$lClass = FlaggedRevsXML::getQualityColor( FR_CHECKED );
 				// @todo i18n FIXME: Hard coded brackets
-				$leftNote = "<span class='$lClass'>[" .
+				$leftNote = "<span class='flaggedrevs-color-1'>[" .
 					$this->msg( $leftNote )->escaped() . "]</span>";
 				# Right diff side...
-				$rClass = FlaggedRevsXML::getQualityColor( false );
 				// @todo i18n FIXME: Hard coded brackets
-				$rightNote = "<span class='$rClass'>[" .
+				$rightNote = "<span class='flaggedrevs-color-0'>[" .
 					$this->msg( 'revreview-hist-pending' )->escaped() . "]</span>";
 				# Get the stable version source
 				$text = $frev->getRevText();
@@ -1651,16 +1647,15 @@ class FlaggablePageView extends ContextSource {
 	private static function getDiffRevMsgAndClass(
 		RevisionRecord $revRecord, FlaggedRevision $srev = null
 	) {
-		$tier = FlaggedRevision::getRevQuality( $revRecord->getId() );
-		if ( $tier === FR_CHECKED ) {
+		$checked = FlaggedRevision::revIsFlagged( $revRecord->getId() );
+		if ( $checked ) {
 			$msg = 'revreview-hist-basic';
 		} else {
 			$msg = ( $srev && $revRecord->getTimestamp() > $srev->getRevTimestamp() ) ? // bug 15515
 				'revreview-hist-pending' :
 				'revreview-hist-draft';
 		}
-		$css = FlaggedRevsXML::getQualityColor( $tier );
-		return [ $msg, $css ];
+		return [ $msg, $checked ? 'flaggedrevs-color-1' : 'flaggedrevs-color-0' ];
 	}
 
 	/**

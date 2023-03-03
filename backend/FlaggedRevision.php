@@ -623,25 +623,14 @@ class FlaggedRevision {
 	/**
 	 * @param int $rev_id
 	 * @param int $flags FR_MASTER
-	 * @return int|false FR_CHECKED if checked, otherwise false
-	 * Get quality of a revision
+	 * @return bool
 	 */
-	public static function getRevQuality( $rev_id, $flags = 0 ) {
+	public static function revIsFlagged( int $rev_id, int $flags = 0 ): bool {
 		$db = wfGetDB( ( $flags & FR_MASTER ) ? DB_PRIMARY : DB_REPLICA );
-		$exists = (bool)$db->selectField( 'flaggedrevs', '1',
+		return (bool)$db->selectField( 'flaggedrevs', '1',
 			[ 'fr_rev_id' => $rev_id ],
 			__METHOD__
 		);
-		return $exists ? FR_CHECKED : false;
-	}
-
-	/**
-	 * @param int $rev_id
-	 * @return bool
-	 * Useful for quickly pinging to see if a revision is flagged
-	 */
-	public static function revIsFlagged( $rev_id ) {
-		return self::getRevQuality( $rev_id, FR_MASTER ) === FR_CHECKED;
 	}
 
 	/**

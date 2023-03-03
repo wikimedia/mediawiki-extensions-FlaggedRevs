@@ -729,7 +729,6 @@ class FlaggedRevsUIHooks {
 		if ( !isset( $row->fr_rev_id ) ) {
 			return [ "", "" ]; // not reviewed
 		}
-		$liCss = FlaggedRevsXML::getQualityColor( FR_CHECKED );
 		$flags = explode( ',', $row->fr_flags );
 		if ( in_array( 'auto', $flags ) ) {
 			$msg = 'revreview-hist-basic-auto';
@@ -748,7 +747,7 @@ class FlaggedRevsUIHooks {
 		}
 		$link = $ctx->msg( $msg, $title->getPrefixedDBkey(), $row->rev_id, $name )->parse();
 		$link = "<span class='$css plainlinks'>[$link]</span>";
-		return [ $link, $liCss ];
+		return [ $link, 'flaggedrevs-color-1' ];
 	}
 
 	/**
@@ -770,7 +769,7 @@ class FlaggedRevsUIHooks {
 			if ( !in_array( $row->page_namespace, $namespaces ) ) {
 				// do nothing
 			} elseif ( isset( $row->fr_rev_id ) ) {
-				$classes[] = FlaggedRevsXML::getQualityColor( FR_CHECKED );
+				$classes[] = 'flaggedrevs-color-1';
 			} elseif ( isset( $row->fp_pending_since )
 				&& $row->rev_timestamp >= $row->fp_pending_since // bug 15515
 			) {

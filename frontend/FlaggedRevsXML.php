@@ -94,14 +94,6 @@ class FlaggedRevsXML {
 	}
 
 	/**
-	 * @param int|false $quality FR_CHECKED or false
-	 * @return string css color for this quality
-	 */
-	public static function getQualityColor( $quality ) {
-		return $quality === FR_CHECKED ? 'flaggedrevs-color-1' : 'flaggedrevs-color-0';
-	}
-
-	/**
 	 * @param array<string,int> $flags
 	 * @return string
 	 * Generates a review box/tag

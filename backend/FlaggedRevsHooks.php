@@ -562,7 +562,7 @@ class FlaggedRevsHooks {
 			# has content different than what the user expected. However, if
 			# the auto-merged edit was reviewed, then assume that it's OK.
 			if ( $editTimestamp != $prevTimestamp
-				&& !FlaggedRevision::revIsFlagged( $prevRevId )
+				&& !FlaggedRevision::revIsFlagged( $prevRevId, FR_MASTER )
 			) {
 				return false; // not flagged?
 			}
