@@ -163,10 +163,9 @@ class FlaggableWikiPage extends WikiPage {
 	/**
 	 * Get number of revs since the stable revision
 	 * Note: slower than revsArePending()
-	 * @param int $flags FR_MASTER (be sure to use loadFromDB( FR_MASTER ) if set)
 	 * @return int
 	 */
-	public function getPendingRevCount( $flags = 0 ) {
+	public function getPendingRevCount() {
 		global $wgParserCacheExpireTime;
 
 		if ( !$this->mDataLoaded ) {
@@ -185,8 +184,8 @@ class FlaggableWikiPage extends WikiPage {
 		$fname = __METHOD__;
 		$callback = function (
 			$oldValue = null, &$ttl = null, array &$setOpts = []
-		) use ( $flags, $srev, $fname ) {
-			$db = wfGetDB( ( $flags & FR_MASTER ) ? DB_PRIMARY : DB_REPLICA );
+		) use ( $srev, $fname ) {
+			$db = wfGetDB( DB_REPLICA );
 			$setOpts += Database::getCacheSetOptions( $db );
 
 			return (int)$db->selectField(
@@ -202,23 +201,19 @@ class FlaggableWikiPage extends WikiPage {
 			);
 		};
 
-		if ( $flags & FR_MASTER ) {
-			$this->pendingRevCount = $callback();
-		} else {
-			$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
-			$this->pendingRevCount = (int)$cache->getWithSetCallback(
-				# Confirm that cache value was made against the same stable rev Id.
-				# This avoids lengthy cache pollution if $sRevId is outdated.
-				$cache->makeKey( 'flaggedrevs-countPending', $this->getId(), $sRevId ),
-				$wgParserCacheExpireTime,
-				$callback,
-				[
-					'touchedCallback' => function () {
-						return wfTimestampOrNull( TS_UNIX, $this->getTouched() );
-					}
-				]
-			);
-		}
+		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
+		$this->pendingRevCount = (int)$cache->getWithSetCallback(
+			# Confirm that cache value was made against the same stable rev Id.
+			# This avoids lengthy cache pollution if $sRevId is outdated.
+			$cache->makeKey( 'flaggedrevs-countPending', $this->getId(), $sRevId ),
+			$wgParserCacheExpireTime,
+			$callback,
+			[
+				'touchedCallback' => function () {
+					return wfTimestampOrNull( TS_UNIX, $this->getTouched() );
+				}
+			]
+		);
 
 		return $this->pendingRevCount;
 	}

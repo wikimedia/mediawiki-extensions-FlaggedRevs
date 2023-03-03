@@ -38,7 +38,7 @@ class FlaggedRevision {
 	/**
 	 * @param stdClass $row DB row
 	 * @param Title $title
-	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
+	 * @param int $flags (FR_MASTER)
 	 * @return self
 	 */
 	private static function newFromRow( stdClass $row, Title $title, $flags ) {
@@ -85,7 +85,7 @@ class FlaggedRevision {
 	 * Note: will return NULL if the revision is deleted.
 	 * @param Title $title
 	 * @param int $revId
-	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
+	 * @param int $flags (FR_MASTER)
 	 * @return self|null (null on failure)
 	 */
 	public static function newFromTitle( Title $title, $revId, $flags = 0 ) {
@@ -94,11 +94,8 @@ class FlaggedRevision {
 		}
 		$options = [];
 		# User primary/replica as appropriate...
-		if ( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
+		if ( $flags & FR_MASTER ) {
 			$db = wfGetDB( DB_PRIMARY );
-			if ( $flags & FR_FOR_UPDATE ) {
-				$options[] = 'FOR UPDATE';
-			}
 			$pageId = $title->getArticleID( Title::READ_LATEST );
 		} else {
 			$db = wfGetDB( DB_REPLICA );
@@ -133,7 +130,7 @@ class FlaggedRevision {
 	 * Note: will return NULL if the revision is deleted, though this
 	 * should never happen as fp_stable is updated as revs are deleted.
 	 * @param Title $title page title
-	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
+	 * @param int $flags (FR_MASTER)
 	 * @return self|null (null on failure)
 	 */
 	public static function newFromStable( Title $title, $flags = 0 ) {
@@ -142,11 +139,8 @@ class FlaggedRevision {
 		}
 		$options = [];
 		# User primary/replica as appropriate...
-		if ( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
+		if ( $flags & FR_MASTER ) {
 			$db = wfGetDB( DB_PRIMARY );
-			if ( $flags & FR_FOR_UPDATE ) {
-				$options[] = 'FOR UPDATE';
-			}
 			$pageId = $title->getArticleID( Title::GAID_FOR_UPDATE );
 		} else {
 			$db = wfGetDB( DB_REPLICA );
