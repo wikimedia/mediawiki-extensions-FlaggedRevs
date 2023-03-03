@@ -22,7 +22,7 @@ class FlaggedRevsHooks {
 	public static function onRegistration() {
 		# Query SELECT parameters...
 		define( 'FR_FOR_UPDATE', 1 );
-		define( 'FR_MASTER', 2 );
+		define( 'FR_PRIMARY', 2 );
 
 		# Review tier constants...
 		define( 'FR_CHECKED', 0 ); // "basic"/"checked"
@@ -492,9 +492,9 @@ class FlaggedRevsHooks {
 				}
 				# Check if the base revision was reviewed...
 				if ( FlaggedRevs::autoReviewEdits() ) {
-					$frev = FlaggedRevision::newFromTitle( $title, $baseRevId, FR_MASTER );
+					$frev = FlaggedRevision::newFromTitle( $title, $baseRevId, FR_PRIMARY );
 					if ( !$frev && $altBaseRevId ) {
-						$frev = FlaggedRevision::newFromTitle( $title, $altBaseRevId, FR_MASTER );
+						$frev = FlaggedRevision::newFromTitle( $title, $altBaseRevId, FR_PRIMARY );
 					}
 				}
 				$reviewableChange = $frev ||
@@ -562,7 +562,7 @@ class FlaggedRevsHooks {
 			# has content different than what the user expected. However, if
 			# the auto-merged edit was reviewed, then assume that it's OK.
 			if ( $editTimestamp != $prevTimestamp
-				&& !FlaggedRevision::revIsFlagged( $prevRevId, FR_MASTER )
+				&& !FlaggedRevision::revIsFlagged( $prevRevId, FR_PRIMARY )
 			) {
 				return false; // not flagged?
 			}
@@ -750,7 +750,7 @@ class FlaggedRevsHooks {
 		if ( $fa->isReviewable() ) {
 			$revId = $rc->getAttribute( 'rc_this_oldid' );
 			// If the edit we just made was reviewed, then it's the stable rev
-			$frev = FlaggedRevision::newFromTitle( $rc->getTitle(), $revId, FR_MASTER );
+			$frev = FlaggedRevision::newFromTitle( $rc->getTitle(), $revId, FR_PRIMARY );
 			// Reviewed => patrolled
 			if ( $frev ) {
 				DeferredUpdates::addCallableUpdate( static function () use ( $rc, $frev ) {
@@ -1472,7 +1472,7 @@ class FlaggedRevsHooks {
 		$flaggedRev = FlaggedRevision::newFromTitle(
 			$wikiPage->getTitle(),
 			$revisionRecord->getId(),
-			FR_MASTER
+			FR_PRIMARY
 		);
 		// FlaggedRevision object exists if and only if for each of the defined review tags,
 		// the edit has at least a "minimum" review level.

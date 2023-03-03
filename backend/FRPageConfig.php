@@ -9,11 +9,11 @@ class FRPageConfig {
 	/**
 	 * Get visibility settings/restrictions for a page
 	 * @param Title $title page title
-	 * @param int $flags FR_MASTER
+	 * @param int $flags FR_PRIMARY
 	 * @return array [ 'override' => int, 'autoreview' => string, 'expiry' => string ]
 	 */
 	public static function getStabilitySettings( Title $title, $flags = 0 ) {
-		$db = wfGetDB( ( $flags & FR_MASTER ) ? DB_PRIMARY : DB_REPLICA );
+		$db = wfGetDB( ( $flags & FR_PRIMARY ) ? DB_PRIMARY : DB_REPLICA );
 		$row = $db->selectRow( 'flaggedpage_config',
 			[ 'fpc_override', 'fpc_level', 'fpc_expiry' ],
 			[ 'fpc_page_id' => $title->getArticleID() ],

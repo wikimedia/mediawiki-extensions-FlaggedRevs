@@ -454,7 +454,7 @@ class FlaggedRevs {
 
 		$changed = false;
 		if ( $oldSv === null ) { // optional
-			$oldSv = FlaggedRevision::newFromStable( $title, FR_MASTER );
+			$oldSv = FlaggedRevision::newFromStable( $title, FR_PRIMARY );
 		}
 		if ( $sv === null ) { // optional
 			$sv = FlaggedRevision::determineStable( $title );
@@ -684,7 +684,7 @@ class FlaggedRevs {
 	) {
 		$title = $article->getTitle(); // convenience
 		# Get current stable version ID (for logging)
-		$oldSv = FlaggedRevision::newFromStable( $title, FR_MASTER );
+		$oldSv = FlaggedRevision::newFromStable( $title, FR_PRIMARY );
 		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
 
 		if ( self::useOnlyIfProtected() ) {

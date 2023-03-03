@@ -38,7 +38,7 @@ class FlaggedRevision {
 	/**
 	 * @param stdClass $row DB row
 	 * @param Title $title
-	 * @param int $flags (FR_MASTER)
+	 * @param int $flags (FR_PRIMARY)
 	 * @return self
 	 */
 	private static function newFromRow( stdClass $row, Title $title, $flags ) {
@@ -85,7 +85,7 @@ class FlaggedRevision {
 	 * Note: will return NULL if the revision is deleted.
 	 * @param Title $title
 	 * @param int $revId
-	 * @param int $flags (FR_MASTER)
+	 * @param int $flags (FR_PRIMARY)
 	 * @return self|null (null on failure)
 	 */
 	public static function newFromTitle( Title $title, $revId, $flags = 0 ) {
@@ -94,7 +94,7 @@ class FlaggedRevision {
 		}
 		$options = [];
 		# User primary/replica as appropriate...
-		if ( $flags & FR_MASTER ) {
+		if ( $flags & FR_PRIMARY ) {
 			$db = wfGetDB( DB_PRIMARY );
 			$pageId = $title->getArticleID( Title::READ_LATEST );
 		} else {
@@ -130,7 +130,7 @@ class FlaggedRevision {
 	 * Note: will return NULL if the revision is deleted, though this
 	 * should never happen as fp_stable is updated as revs are deleted.
 	 * @param Title $title page title
-	 * @param int $flags (FR_MASTER)
+	 * @param int $flags (FR_PRIMARY)
 	 * @return self|null (null on failure)
 	 */
 	public static function newFromStable( Title $title, $flags = 0 ) {
@@ -139,7 +139,7 @@ class FlaggedRevision {
 		}
 		$options = [];
 		# User primary/replica as appropriate...
-		if ( $flags & FR_MASTER ) {
+		if ( $flags & FR_PRIMARY ) {
 			$db = wfGetDB( DB_PRIMARY );
 			$pageId = $title->getArticleID( Title::GAID_FOR_UPDATE );
 		} else {
@@ -216,7 +216,7 @@ class FlaggedRevision {
 		}
 		# Get visibility settings to see if page is reviewable...
 		if ( FlaggedRevs::useOnlyIfProtected() ) {
-			$config = FRPageConfig::getStabilitySettings( $title, FR_MASTER );
+			$config = FRPageConfig::getStabilitySettings( $title, FR_PRIMARY );
 			if ( !$config['override'] ) {
 				return null; // page is not reviewable; no stable version
 			}
@@ -242,7 +242,7 @@ class FlaggedRevision {
 			return null;
 		}
 
-		return self::newFromRow( $row, $title, FR_MASTER );
+		return self::newFromRow( $row, $title, FR_PRIMARY );
 	}
 
 	/**
@@ -412,14 +412,14 @@ class FlaggedRevision {
 
 	/**
 	 * Get original template versions at time of review
-	 * @param int $flags FR_MASTER
+	 * @param int $flags FR_PRIMARY
 	 * @return int[][] template versions (ns -> dbKey -> rev Id)
 	 * Note: 0 used for template rev Id if it didn't exist
 	 */
 	public function getTemplateVersions( $flags = 0 ) {
 		if ( $this->mTemplates == null ) {
 			$this->mTemplates = [];
-			$db = wfGetDB( ( $flags & FR_MASTER ) ? DB_PRIMARY : DB_REPLICA );
+			$db = wfGetDB( ( $flags & FR_PRIMARY ) ? DB_PRIMARY : DB_REPLICA );
 			$res = $db->select(
 				[ 'flaggedtemplates', 'revision', 'page' ],
 				[ 'page_namespace', 'page_title', 'ft_tmp_rev_id' ],
@@ -616,11 +616,11 @@ class FlaggedRevision {
 
 	/**
 	 * @param int $rev_id
-	 * @param int $flags FR_MASTER
+	 * @param int $flags FR_PRIMARY
 	 * @return bool
 	 */
 	public static function revIsFlagged( int $rev_id, int $flags = 0 ): bool {
-		$db = wfGetDB( ( $flags & FR_MASTER ) ? DB_PRIMARY : DB_REPLICA );
+		$db = wfGetDB( ( $flags & FR_PRIMARY ) ? DB_PRIMARY : DB_REPLICA );
 		return (bool)$db->selectField( 'flaggedrevs', '1',
 			[ 'fr_rev_id' => $rev_id ],
 			__METHOD__

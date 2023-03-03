@@ -974,7 +974,7 @@ class FlaggedRevsUIHooks {
 		}
 
 		$user = $article->getContext()->getUser();
-		$mode = $wgRequest->wasPosted() ? FR_MASTER : 0;
+		$mode = $wgRequest->wasPosted() ? FR_PRIMARY : 0;
 		$form = new PageStabilityProtectForm( $user );
 		$form->setPage( $title );
 

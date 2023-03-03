@@ -208,7 +208,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			return 'review_no_oldid'; // no revision target
 		}
 		# Get the revision's current flags (if any)
-		$this->oldFrev = FlaggedRevision::newFromTitle( $this->page, $this->oldid, FR_MASTER );
+		$this->oldFrev = FlaggedRevision::newFromTitle( $this->page, $this->oldid, FR_PRIMARY );
 		$oldFlags = $this->oldFrev
 			? $this->oldFrev->getTags()
 			: FlaggedRevision::getDefaultTags();
@@ -338,7 +338,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 				return 'review_cannot_undo';
 			}
 			# Make sure we are only rejecting pending changes
-			$srev = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
+			$srev = FlaggedRevision::newFromStable( $this->page, FR_PRIMARY );
 			if ( $srev && $oldRevRecord->getTimestamp() < $srev->getRevTimestamp() ) {
 				return 'review_cannot_reject'; // not really a use case
 			}
@@ -475,12 +475,12 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		# Our template version pointers
 		$tmpVersions = $this->getIncludeVersions( $this->templateParams );
 		# Get current stable version ID (for logging)
-		$oldSv = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
+		$oldSv = FlaggedRevision::newFromStable( $this->page, FR_PRIMARY );
 
 		# Is this a duplicate review?
 		if ( $oldFrev &&
 			$oldFrev->getTags() == $flags && // tags => quality
-			$oldFrev->getTemplateVersions( FR_MASTER ) == $tmpVersions
+			$oldFrev->getTemplateVersions( FR_PRIMARY ) == $tmpVersions
 		) {
 			return; // don't record if the same
 		}
@@ -539,7 +539,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 */
 	private function unapproveRevision( FlaggedRevision $frev ) {
 		# Get current stable version ID (for logging)
-		$oldSv = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
+		$oldSv = FlaggedRevision::newFromStable( $this->page, FR_PRIMARY );
 
 		# Delete from flaggedrevs table
 		$frev->delete();

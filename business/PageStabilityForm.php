@@ -209,7 +209,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	 */
 	protected function doCheckParameters() {
 		# Load old config settings from the primary DB
-		$this->oldConfig = FRPageConfig::getStabilitySettings( $this->page, FR_MASTER );
+		$this->oldConfig = FRPageConfig::getStabilitySettings( $this->page, FR_PRIMARY );
 		if ( $this->expiryCustom != '' ) {
 			// Custom expiry takes precedence
 			$this->expirySelection = 'othertime';
@@ -296,7 +296,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 			$frev = FlaggedRevision::newFromTitle(
 				$this->page,
 				$nullRevRecord->getId(),
-				FR_MASTER
+				FR_PRIMARY
 			);
 			$updatesDone = (bool)$frev; // stableVersionUpdates() already called?
 			# Check if this null edit is to be reviewed...

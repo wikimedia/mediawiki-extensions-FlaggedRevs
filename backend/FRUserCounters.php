@@ -9,7 +9,7 @@ class FRUserCounters {
 	/**
 	 * Get params for a user ID
 	 * @param int $userId
-	 * @param int $flags FR_MASTER, FR_FOR_UPDATE
+	 * @param int $flags FR_PRIMARY, FR_FOR_UPDATE
 	 * @return array
 	 */
 	public static function getUserParams( $userId, $flags = 0 ) {
@@ -61,12 +61,12 @@ class FRUserCounters {
 	/**
 	 * Get the params row for a user
 	 * @param int $userId
-	 * @param int $flags FR_MASTER, FR_FOR_UPDATE
+	 * @param int $flags FR_PRIMARY, FR_FOR_UPDATE
 	 * @return stdClass|false
 	 */
 	private static function fetchParamsRow( $userId, $flags = 0 ) {
 		$options = [];
-		if ( $flags & FR_MASTER || $flags & FR_FOR_UPDATE ) {
+		if ( $flags & FR_PRIMARY || $flags & FR_FOR_UPDATE ) {
 			$db = wfGetDB( DB_PRIMARY );
 			if ( $flags & FR_FOR_UPDATE ) {
 				$options[] = 'FOR UPDATE';
@@ -117,8 +117,8 @@ class FRUserCounters {
 	 * @param UserIdentity $newUser
 	 */
 	public static function mergeUserParams( UserIdentity $oldUser, UserIdentity $newUser ) {
-		$oldParams = self::getUserParams( $oldUser->getId(), FR_MASTER );
-		$newParams = self::getUserParams( $newUser->getId(), FR_MASTER );
+		$oldParams = self::getUserParams( $oldUser->getId(), FR_PRIMARY );
+		$newParams = self::getUserParams( $newUser->getId(), FR_PRIMARY );
 		$newParams['uniqueContentPages'] = array_unique( array_merge(
 			$newParams['uniqueContentPages'],
 			$oldParams['uniqueContentPages']
