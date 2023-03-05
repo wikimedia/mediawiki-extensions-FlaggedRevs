@@ -9,7 +9,7 @@ class FRUserCounters {
 	/**
 	 * Get params for a user ID
 	 * @param int $userId
-	 * @param int $flags FR_PRIMARY, FR_FOR_UPDATE
+	 * @param int $flags One of the IDBAccessObject::READ_… constants
 	 * @return array
 	 */
 	public static function getUserParams( $userId, $flags = 0 ) {
@@ -61,19 +61,15 @@ class FRUserCounters {
 	/**
 	 * Get the params row for a user
 	 * @param int $userId
-	 * @param int $flags FR_PRIMARY, FR_FOR_UPDATE
+	 * @param int $flags One of the IDBAccessObject::READ_… constants
 	 * @return stdClass|false
 	 */
 	private static function fetchParamsRow( $userId, $flags = 0 ) {
 		$options = [];
-		if ( $flags & FR_PRIMARY || $flags & FR_FOR_UPDATE ) {
-			$db = wfGetDB( DB_PRIMARY );
-			if ( $flags & FR_FOR_UPDATE ) {
-				$options[] = 'FOR UPDATE';
-			}
-		} else {
-			$db = wfGetDB( DB_REPLICA );
+		if ( ( $flags & IDBAccessObject::READ_EXCLUSIVE ) === IDBAccessObject::READ_EXCLUSIVE ) {
+			$options[] = 'FOR UPDATE';
 		}
+		$db = wfGetDB( ( $flags & IDBAccessObject::READ_LATEST ) ? DB_PRIMARY : DB_REPLICA );
 		return $db->selectRow( 'flaggedrevs_promote',
 			'frp_user_params',
 			[ 'frp_user_id' => $userId ],
@@ -117,8 +113,8 @@ class FRUserCounters {
 	 * @param UserIdentity $newUser
 	 */
 	public static function mergeUserParams( UserIdentity $oldUser, UserIdentity $newUser ) {
-		$oldParams = self::getUserParams( $oldUser->getId(), FR_PRIMARY );
-		$newParams = self::getUserParams( $newUser->getId(), FR_PRIMARY );
+		$oldParams = self::getUserParams( $oldUser->getId(), IDBAccessObject::READ_LATEST );
+		$newParams = self::getUserParams( $newUser->getId(), IDBAccessObject::READ_LATEST );
 		$newParams['uniqueContentPages'] = array_unique( array_merge(
 			$newParams['uniqueContentPages'],
 			$oldParams['uniqueContentPages']
@@ -137,7 +133,7 @@ class FRUserCounters {
 	 * @param string $param Count name
 	 */
 	public static function incCount( $userId, $param ) {
-		$p = self::getUserParams( $userId, FR_FOR_UPDATE );
+		$p = self::getUserParams( $userId, IDBAccessObject::READ_EXCLUSIVE );
 		if ( !isset( $p[$param] ) ) {
 			$p[$param] = 0;
 		}

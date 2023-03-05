@@ -84,7 +84,7 @@ class ReviewAllPages extends Maintenance {
 				$title = Title::newFromRow( $row );
 				$rev = $revisionStore->newRevisionFromRow( $row, RevisionStore::READ_LATEST );
 				# Is it already reviewed?
-				$frev = FlaggedRevision::newFromTitle( $title, $row->page_latest, FR_PRIMARY );
+				$frev = FlaggedRevision::newFromTitle( $title, $row->page_latest, IDBAccessObject::READ_LATEST );
 				# Rev should exist, but to be safe...
 				if ( !$frev && $rev ) {
 					$wikiPage = $wikiPageFactory->newFromTitle( $title );

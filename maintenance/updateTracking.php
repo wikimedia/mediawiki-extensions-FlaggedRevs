@@ -69,7 +69,7 @@ class UpdateFRTracking extends Maintenance {
 			foreach ( $res as $row ) {
 				$title = Title::newFromRow( $row );
 				$article = FlaggableWikiPage::newInstance( $title );
-				$oldFrev = FlaggedRevision::newFromStable( $title, FR_PRIMARY );
+				$oldFrev = FlaggedRevision::newFromStable( $title, IDBAccessObject::READ_LATEST );
 				$frev = FlaggedRevision::determineStable( $title );
 				# Update fp_stable, fp_quality, and fp_reviewed
 				if ( $frev ) {
