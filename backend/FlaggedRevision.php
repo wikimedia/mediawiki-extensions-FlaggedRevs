@@ -141,7 +141,7 @@ class FlaggedRevision {
 		# User primary/replica as appropriate...
 		if ( $flags & FR_MASTER ) {
 			$db = wfGetDB( DB_PRIMARY );
-			$pageId = $title->getArticleID( Title::GAID_FOR_UPDATE );
+			$pageId = $title->getArticleID( Title::READ_LATEST );
 		} else {
 			$db = wfGetDB( DB_REPLICA );
 			$pageId = $title->getArticleID();
@@ -210,7 +210,7 @@ class FlaggedRevision {
 		}
 		$options = [];
 		$db = wfGetDB( DB_PRIMARY );
-		$pageId = $title->getArticleID( Title::GAID_FOR_UPDATE );
+		$pageId = $title->getArticleID( Title::READ_LATEST );
 		if ( !$pageId ) {
 			return null; // short-circuit query
 		}

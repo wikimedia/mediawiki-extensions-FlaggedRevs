@@ -495,7 +495,7 @@ class FlaggableWikiPage extends WikiPage {
 
 		# Get the latest revision ID if not set
 		if ( !$latest ) {
-			$latest = $this->mTitle->getLatestRevID( Title::GAID_FOR_UPDATE );
+			$latest = $this->mTitle->getLatestRevID( Title::READ_LATEST );
 		}
 		$dbw = wfGetDB( DB_PRIMARY );
 		# Get the timestamp of the first edit after the stable version (if any)...
