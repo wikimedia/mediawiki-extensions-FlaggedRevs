@@ -88,13 +88,12 @@ class FlaggedRevision {
 	 * @return self|null (null on failure)
 	 */
 	public static function newFromTitle( Title $title, $revId, $flags = 0 ) {
-		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
+		if ( !$revId || !FlaggedRevs::inReviewNamespace( $title ) ) {
 			return null; // short-circuit
 		}
-		$options = [];
 		# User primary/replica as appropriate...
 		$pageId = $title->getArticleID( $flags );
-		if ( !$pageId || !$revId ) {
+		if ( !$pageId ) {
 			return null; // short-circuit query
 		}
 		$db = wfGetDB( ( $flags & IDBAccessObject::READ_LATEST ) ? DB_PRIMARY : DB_REPLICA );
@@ -109,7 +108,7 @@ class FlaggedRevision {
 				$db->bitAnd( 'rev_deleted', RevisionRecord::DELETED_TEXT ) . ' = 0'
 			],
 			__METHOD__,
-			$options,
+			[],
 			$frQuery['joins']
 		);
 		# Sorted from highest to lowest, so just take the first one if any
@@ -128,7 +127,6 @@ class FlaggedRevision {
 		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
 			return null; // short-circuit
 		}
-		$options = [];
 		# User primary/replica as appropriate...
 		$pageId = $title->getArticleID( $flags );
 		if ( !$pageId ) {
@@ -145,7 +143,7 @@ class FlaggedRevision {
 				$db->bitAnd( 'rev_deleted', RevisionRecord::DELETED_TEXT ) . ' = 0', // sanity
 			],
 			__METHOD__,
-			$options,
+			[],
 			[
 				'flaggedrevs' => [ 'JOIN', 'fr_rev_id = fp_stable' ],
 			] + $frQuery['joins']
