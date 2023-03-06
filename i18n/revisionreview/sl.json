@@ -36,7 +36,7 @@
 	"revreview-log": "Komentar:",
 	"revreview-main": "Za pregled morate izbrati neko redakcijo vsebinske strani.\n\nOglejte si [[Special:Unreviewedpages|seznam nepregledanih strani]].",
 	"revreview-stable1": "Morda si boste želeli ogledati [{{fullurl:$1|stableid=$2}} to označeno redakcijo], da vidite, ali je zdaj to [{{fullurl:$1|stable=1}} stabilna redakcija] te strani.",
-	"revreview-stable2": "Morda si boste želeli ogledati [{{fullurl:$1|stable=1}} stabilno redakcijo] strani.",
+	"revreview-stable2": "Mogoče si boste želeli ogledati [{{fullurl:$1|stable=1}} stabilno redakcijo] strani.",
 	"revreview-submit": "Predloži",
 	"revreview-submitting": "Predlaganje ...",
 	"revreview-submit-review": "Sprejmi redakcijo",
