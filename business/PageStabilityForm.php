@@ -194,7 +194,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	 * @return true|string true on success, error string on failure
 	 */
 	protected function doCheckTarget( $flags = 0 ) {
-		$flgs = ( $flags & self::FOR_SUBMISSION ) ? Title::GAID_FOR_UPDATE : 0;
+		$flgs = ( $flags & self::FOR_SUBMISSION ) ? Title::READ_LATEST : 0;
 		if ( !$this->page->getArticleID( $flgs ) ) {
 			return 'stabilize_page_notexists';
 		} elseif ( !FlaggedRevs::inReviewNamespace( $this->page ) ) {
