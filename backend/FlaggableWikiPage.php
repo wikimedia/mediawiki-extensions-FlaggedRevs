@@ -182,32 +182,30 @@ class FlaggableWikiPage extends WikiPage {
 		$sRevId = $srev->getRevId();
 
 		$fname = __METHOD__;
-		$callback = function (
-			$oldValue = null, &$ttl = null, array &$setOpts = []
-		) use ( $srev, $fname ) {
-			$db = wfGetDB( DB_REPLICA );
-			$setOpts += Database::getCacheSetOptions( $db );
-
-			return (int)$db->selectField(
-				'revision',
-				'COUNT(*)',
-				[
-					'rev_page' => $this->getId(),
-					// T17515
-					'rev_timestamp > ' .
-						$db->addQuotes( $db->timestamp( $srev->getRevTimestamp() ) )
-				],
-				$fname
-			);
-		};
-
 		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		$this->pendingRevCount = (int)$cache->getWithSetCallback(
 			# Confirm that cache value was made against the same stable rev Id.
 			# This avoids lengthy cache pollution if $sRevId is outdated.
 			$cache->makeKey( 'flaggedrevs-countPending', $this->getId(), $sRevId ),
 			$wgParserCacheExpireTime,
-			$callback,
+			function (
+				$oldValue = null, &$ttl = null, array &$setOpts = []
+			) use ( $srev, $fname ) {
+				$db = wfGetDB( DB_REPLICA );
+				$setOpts += Database::getCacheSetOptions( $db );
+
+				return (int)$db->selectField(
+					'revision',
+					'COUNT(*)',
+					[
+						'rev_page' => $this->getId(),
+						// T17515
+						'rev_timestamp > ' .
+							$db->addQuotes( $db->timestamp( $srev->getRevTimestamp() ) )
+					],
+					$fname
+				);
+			},
 			[
 				'touchedCallback' => function () {
 					return wfTimestampOrNull( TS_UNIX, $this->getTouched() );
