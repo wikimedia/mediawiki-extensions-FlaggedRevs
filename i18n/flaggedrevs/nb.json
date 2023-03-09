@@ -56,7 +56,7 @@
 	"grouppage-editor": "{{ns:project}}:Skribenter",
 	"grouppage-reviewer": "{{ns:project}}:Anmeldere",
 	"group-autoreview": "Autovurderer",
-	"group-autoreview-member": "{{GENDER:$1|autovurderte bruker}}",
+	"group-autoreview-member": "{{GENDER:$1|autovurdert bruker}}",
 	"grouppage-autoreview": "{{ns:project}}:Autovurderere",
 	"group-editor.css": "/* CSS plassert her vil kun gjelde redaktører */",
 	"group-editor.js": "/* JavaScript plassert her vil kun gjelde redaktører */",
