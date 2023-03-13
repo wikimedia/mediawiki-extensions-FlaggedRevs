@@ -3,11 +3,13 @@
 		"authors": [
 			"Imre",
 			"Yidel",
-			"פוילישער"
+			"פוילישער",
+			"Pacha Tchernof"
 		]
 	},
 	"editor": "רעדאַקטאָר",
 	"flaggedrevs-prefs-stable": "ווען צו ווייַזן די סטאַבילע ווערסיע פון אינהאַלט בלעטער (אויב ס'איז פֿאַראַן)",
+	"flaggedrevs-hidereviewed-hide": "באַהאַלטן",
 	"group-editor": "רעדאַקטאָרן",
 	"group-editor-member": "{{GENDER:$1|רעדאַקטאָר|רעדאַקטאָרין}}",
 	"group-reviewer": "רעצענזענטן",
