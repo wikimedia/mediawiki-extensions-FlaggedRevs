@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"פוילישער"
+			"פוילישער",
+			"Pacha Tchernof"
 		]
 	},
-	"unreviewedpages-category": "קאטעגאריע:",
+	"unreviewedpages-category": "קאַטעגאָריע:",
 	"unreviewedpages-hours": "$1 {{PLURAL:$1|שעה|שעה'ן}}",
 	"unreviewedpages-days": "$1 {{PLURAL:$1|טאג|טעג}}"
 }
