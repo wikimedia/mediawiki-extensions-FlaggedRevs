@@ -36,7 +36,10 @@
 			"DiegoAmbrocio"
 		]
 	},
+	"action-autoreviewrestore": "revisar automáticamente al revertir",
+	"action-movestable": "trasladar páginas con versiones estables",
 	"action-review": "verificar ediciones",
+	"action-stablesettings": "configurar como se selecciona y se muestra la versión estable",
 	"action-validate": "marcar revisiones como «de calidad»",
 	"action-unreviewedpages": "ver la lista de páginas no revisadas",
 	"editor": "Editor",
@@ -116,7 +119,7 @@
 	"revreview-accuracy-4": "Destacada",
 	"revreview-basic": "Esta es la [[{{MediaWiki:Validationpage}}|versión publicada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} revisada] el <i>$2</i>.\nAún hay [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|cambio pendiente|cambios pendientes}}] de revisión.",
 	"revreview-basic-i": "Esta es la [[{{MediaWiki:Validationpage}}|versión publicada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} revisada] el <i>$2</i>.\nHay [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} cambios de plantilla/archivo] esperando revisión.",
-	"revreview-basic-old": "Esta es una versión [[{{MediaWiki:Validationpage}}|revisada]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} ver todas]),[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] el <i>$2</i>.\nPuede que se hayan realizado [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} más cambios] desde entonces.",
+	"revreview-basic-old": "Esta es una versión [[{{MediaWiki:Validationpage}}|revisada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] el <i>$2</i>.\nPuede que se hayan realizado [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} más cambios] desde entonces.",
 	"revreview-basic-same": "Esta es la [[{{MediaWiki:Validationpage}}|versión publicada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} revisada] el <i>$2</i>.",
 	"revreview-basic-source": "Una [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} versión revisada] de esta página, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] en <i>$2</i>, estuvo basada en esta versión.",
 	"revreview-current": "Cambios pendientes",
@@ -193,6 +196,7 @@
 	"validationpage": "{{ns:help}}:Validación de página",
 	"log-action-filter-review": "Tipo de revisión:",
 	"log-action-filter-review-accept": "Aceptación manual",
+	"log-action-filter-review-unaccept": "Rechazo manual",
 	"log-action-filter-stable": "Tipo de cambio de configuración:",
 	"log-action-filter-stable-config": "Configuración nueva",
 	"log-action-filter-stable-modify": "Configuración modificada",
