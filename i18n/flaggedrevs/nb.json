@@ -49,6 +49,7 @@
 	"flaggedrevs-rcfilters-reviewed-desc": "Redigeringer som har blitt gjennomgått.",
 	"flaggedrevs-rcfilters-not-reviewable-label": "Trenger ikke å gjennomgås",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "Endringer av alle typer som ikke trenger gjennomgang.",
+	"flaggedrevs-contributions-filters-unreviewed-only": "Vis bare redigeringer som venter på gjennomgang",
 	"group-editor": "Brukere",
 	"group-editor-member": "{{GENDER:$1|skribent}}",
 	"group-reviewer": "Anmeldere",
