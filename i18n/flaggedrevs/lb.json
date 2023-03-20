@@ -31,7 +31,7 @@
 	"flaggedrevs-rcfilters-need-review-label": "Muss nogekuckt ginn",
 	"flaggedrevs-rcfilters-need-review-desc": "Ännerungen déi nogekuckt musse ginn",
 	"flaggedrevs-rcfilters-reviewed-label": "Nogekuckt",
-	"flaggedrevs-rcfilters-reviewed-desc": "Ännerungen déi nogekuckt goufen.",
+	"flaggedrevs-rcfilters-reviewed-desc": "Ännerungen, déi nogekuckt goufen.",
 	"flaggedrevs-rcfilters-not-reviewable-label": "Kee Sujet fir nozekucken",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "Ännerunge vun allen Typpen déi net mussen nogekuckt ginn.",
 	"group-editor": "Editeuren",
