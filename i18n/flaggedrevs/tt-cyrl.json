@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Derslek",
+			"Run Li",
 			"Ерней",
 			"Ильнар"
 		]
 	},
+	"flaggedrevs-hidereviewed": "тикшерелгән төзәтмәләрне $1",
 	"flaggedrevs-hidereviewed-hide": "Яшерү",
 	"flaggedrevs-hidereviewed-show": "Күрсәтү",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Тикшерелмәгән]]'''",
