@@ -3,9 +3,11 @@
 		"authors": [
 			"Derslek",
 			"Ерней",
-			"Ильнар"
+			"Ильнар",
+			"Run Li"
 		]
 	},
+	"flaggedrevs-hidereviewed": "тикшерелгән төзәтмәләрне $1",
 	"flaggedrevs-hidereviewed-hide": "Яшерү",
 	"flaggedrevs-hidereviewed-show": "Күрсәтү",
 	"revreview-depth-1": "төп",
