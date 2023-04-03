@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Minh Nguyen",
+			"Tryvix1509",
 			"Trần Nguyễn Minh Huy",
 			"Vinhtantran"
 		]
@@ -45,7 +46,7 @@
 	"revreview-submit-reject": "Từ chối các thay đổi",
 	"revreview-submit-reviewed": "Chấp nhận xong.",
 	"revreview-submit-unreviewed": "Rút chấp nhận xong.",
-	"revreview-successful": "'''Phiên bản của [[:$1|$1]] đã được gắn cờ. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} xem các phiên bản có cờ])'''",
+	"revreview-successful": "'''Phiên bản của [[:$1|$1]] đã được gắn cờ.'''",
 	"revreview-successful2": "'''Phiên bản của [[:$1|$1]] đã được bỏ cờ thành công.'''",
 	"revreview-toolow": "'''Mỗi thuộc tính cần phải cao hơn “kém” để cho phiên bản có thể được xem là được duyệt.'''\n\nĐể rút cờ được duyệt của một phiên bản, hãy bấm “{{int:revreview-submit-unreview}}”.\n\nXin hãy bấm nút “Lùi” trong trình duyệt và thử lại.",
 	"revreview-update": "'''Xin hãy [[{{MediaWiki:Validationpage}}|duyệt]] những thay đổi đang chờ ''(dưới đây)'' đã được thực hiện từ khi phiên bản ổn định.'''",
