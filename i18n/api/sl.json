@@ -14,5 +14,6 @@
 	"apihelp-stabilize-param-reason": "Razlog.",
 	"apihelp-stabilize-param-title-protect": "Naslov strani za zaščito v pregledu.",
 	"apihelp-stabilize-param-review": "Pregled strani.",
-	"apierror-flaggedrevs-notreviewable": "Navedene strani ni mogoče pregledati."
+	"apierror-flaggedrevs-notreviewable": "Navedene strani ni mogoče pregledati.",
+	"apierror-flaggedrevs-pagedoesnotexist": "Predložena stran ne obstaja."
 }
