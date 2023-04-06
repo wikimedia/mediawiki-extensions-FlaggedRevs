@@ -5,12 +5,13 @@
 			"Max20091",
 			"Minh Nguyen",
 			"NguoiDungKhongDinhDanh",
-			"Trần Nguyễn Minh Huy"
+			"Trần Nguyễn Minh Huy",
+			"Tryvix1509"
 		]
 	},
-	"apihelp-flagconfig-description": "Nhận thông tin cơ bản về cấu hình cờ duyệt trang cho trang web này.\n\nCác tham số dưới đây được hoàn lại cho mỗi thẻ:\n;name:Tên chính của thẻ này.\n;levels:Số cấp mà thẻ có (về “không gắn thẻ”).\n;tier2:Cấp thẻ phải đạt được cho phiên bản ở cấp 2 (chất lượng).\n;tier3:Cấp thẻ phải đạt được cho phiên bản ở cấp 3 (sơ khảo).\nPhiên bản đánh dấu có cấp được chỉ định cho mỗi thẻ. Cấp cao nhất mà tất cả các thẻ đáp ứng là duyệt qua toàn bộ phiên bản.",
+	"apihelp-flagconfig-description": "Nhận thông tin cơ bản về cấu hình cờ duyệt trang cho trang web này.\n\nCác tham số dưới đây được hoàn lại cho mỗi thẻ:\n;name:Tên chính của thẻ này.\n;levels:Số cấp mà thẻ có (về “không gắn thẻ”).\nPhiên bản đánh dấu có cấp được chỉ định cho mỗi thẻ. Cấp cao nhất mà tất cả các thẻ đáp ứng là duyệt qua toàn bộ phiên bản.",
 	"apihelp-flagconfig-summary": "Nhận thông tin cơ bản về cấu hình cờ duyệt trang cho trang web này.",
-	"apihelp-flagconfig-extended-description": "Các tham số dưới đây được hoàn lại cho mỗi thẻ:\n;name:Tên chính của thẻ này.\n;levels:Số cấp mà thẻ có (về “không gắn thẻ”).\n;tier2:Cấp thẻ phải đạt được cho phiên bản ở cấp 2 (chất lượng).\n;tier3:Cấp thẻ phải đạt được cho phiên bản ở cấp 3 (sơ khảo).\nPhiên bản đánh dấu có cấp được chỉ định cho mỗi thẻ. Cấp cao nhất mà tất cả các thẻ đáp ứng là duyệt qua toàn bộ phiên bản.",
+	"apihelp-flagconfig-extended-description": "Các tham số dưới đây được hoàn lại cho mỗi thẻ:\n;name:Tên chính của thẻ này.\n;levels:Số cấp mà thẻ có (về “không gắn thẻ”).\nPhiên bản đánh dấu có cấp được chỉ định cho mỗi thẻ. Cấp cao nhất mà tất cả các thẻ đáp ứng là duyệt qua toàn bộ phiên bản.",
 	"apihelp-flagconfig-example-1": "Tìm cấu hình cờ",
 	"apihelp-query+configuredpages-description": "Liệt kê tất cả trang có cấu hình duyệt tùy chỉnh.",
 	"apihelp-query+configuredpages-summary": "Liệt kê tất cả trang có cấu hình duyệt tùy chỉnh.",
