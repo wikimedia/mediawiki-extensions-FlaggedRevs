@@ -421,30 +421,39 @@ class FlaggableWikiPage extends WikiPage {
 	 * @return stdClass|false
 	 */
 	protected function pageData( $dbr, $conditions, $options = [] ) {
-		$cache = MediaWikiServices::getInstance()->getLocalServerObjectCache();
 		$fname = __METHOD__;
-		return $cache->getWithSetCallback(
-			$cache->makeKey( 'flaggedrevs-pageData', $this->getNamespace(), $this->getDBkey() ),
-			$cache::TTL_MINUTE,
-			static function () use ( $dbr, $conditions, $options, $fname ) {
-				$pageQuery = WikiPage::getQueryInfo();
-				return $dbr->selectRow(
-					array_merge( $pageQuery['tables'], [ 'flaggedpages', 'flaggedpage_config' ] ),
-					array_merge(
-						$pageQuery['fields'],
-						[ 'fpc_override', 'fpc_level', 'fpc_expiry' ],
-						[ 'fp_pending_since', 'fp_stable', 'fp_reviewed' ]
-					),
-					$conditions,
-					$fname,
-					$options,
-					$pageQuery['joins'] + [
-						'flaggedpages' 		 => [ 'LEFT JOIN', 'fp_page_id = page_id' ],
-						'flaggedpage_config' => [ 'LEFT JOIN', 'fpc_page_id = page_id' ],
-					]
-				);
-			}
-		);
+		$selectCallback = static function () use ( $dbr, $conditions, $options, $fname ) {
+			$pageQuery = WikiPage::getQueryInfo();
+
+			return $dbr->selectRow(
+				array_merge( $pageQuery['tables'], [ 'flaggedpages', 'flaggedpage_config' ] ),
+				array_merge(
+					$pageQuery['fields'],
+					[ 'fpc_override', 'fpc_level', 'fpc_expiry' ],
+					[ 'fp_pending_since', 'fp_stable', 'fp_reviewed' ]
+				),
+				$conditions,
+				$fname,
+				$options,
+				$pageQuery['joins'] + [
+					'flaggedpages' => [ 'LEFT JOIN', 'fp_page_id = page_id' ],
+					'flaggedpage_config' => [ 'LEFT JOIN', 'fpc_page_id = page_id' ],
+				]
+			);
+		};
+
+		if ( !$dbr->isReadOnly() ) {
+			// load data directly without cache
+			return $selectCallback();
+		} else {
+			$cache = MediaWikiServices::getInstance()->getLocalServerObjectCache();
+
+			return $cache->getWithSetCallback(
+				$cache->makeKey( 'flaggedrevs-pageData', $this->getNamespace(), $this->getDBkey() ),
+				$cache::TTL_MINUTE,
+				$selectCallback
+			);
+		}
 	}
 
 	/**
