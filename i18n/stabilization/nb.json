@@ -14,9 +14,9 @@
 	"stabilization-perm": "Din brukerkonto har ikke tillatelse til å endre innstillinger for stabile versjoner.\nHer er de nåværende innstillingene for [[:$1|$1]]:",
 	"stabilization-page": "Sidenavn:",
 	"stabilization-leg": "Bekreft innstillinger for stabile versjoner",
-	"stabilization-def": "Revisjonen som skal brukes som standardvisning",
-	"stabilization-def1": "Den stabile versjonen; om den ikke finnes, den siste revisjon",
-	"stabilization-def2": "Den siste revisjonen",
+	"stabilization-def": "Sideversjonen som skal brukes som standardvisning",
+	"stabilization-def1": "Den stabile sideversjonen; om den ikke finnes, den siste sideversjonen",
+	"stabilization-def2": "Den siste sideversjonen",
 	"stabilization-restrict": "Begrensninger av revidering/auto-revidering",
 	"stabilization-restrict-none": "Ingen ekstra begrensinger",
 	"stabilization-submit": "Bekreft",
@@ -38,5 +38,5 @@
 	"stabilize_expiry_old": "Utløpstiden er allerede passert.",
 	"stabilize_denied": "Tilgang nektet.",
 	"stabilize-expiring": "utgår $1 (UTC)",
-	"stabilization-review": "Merk den nåværende revisjonen som kontrollert"
+	"stabilization-review": "Merk den nåværende sideversjonen som kontrollert"
 }

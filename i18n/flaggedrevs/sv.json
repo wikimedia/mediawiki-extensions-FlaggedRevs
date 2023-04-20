@@ -17,7 +17,8 @@
 			"Sabelöga",
 			"Technic2",
 			"Tobulos1",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Putnik"
 		]
 	},
 	"action-movestable": "flytta sidor med stabila versioner",
@@ -99,7 +100,7 @@
 	"revreview-submitedit-title": "Skicka dina ändringar för granskning",
 	"revreview-edited": "'''Dina ändringar kommer visas när en behörig användare accepterar dem.\n([[{{MediaWiki:Validationpage}}|hjälp]])'''\n \nDet finns [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|ändring|ändringar}}] ''(visas nedan)'' som väntar på granskning.",
 	"revreview-edited-section": "Återgå till sidavsnittet som heter \"[[#$1|$2]]\".",
-	"revreview-newest-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|ändring|ändringar}}] i denna version [[{{MediaWiki:Validationpage}}|väntar på att {{PLURAL:$3|bli granskad|granskas}}]].\n[Den stabila versionen av {{fullurl:{{FULLPAGENAMEE}}|stable=1}}] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrollerades] den <i>$2</i>.",
+	"revreview-newest-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|ändring|ändringar}}] i denna version [[{{MediaWiki:Validationpage}}|väntar på att {{PLURAL:$3|bli granskad|granskas}}]].\n[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Den stabila versionen av] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrollerades] den <i>$2</i>.",
 	"revreview-newest-basic-i": "Det finns [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Template/file ändringar] i denna version som [[{{MediaWiki:Validationpage}}|väntar på granskning]].\n\nDen [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabila versionen] blev [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrollerad] den <i>$2</i>.",
 	"revreview-pending-basic": "Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} accepterade versionen] blev [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} granskad] den <i>$2</i>. Det finnns [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|ändring|ändringar}}] som väntar på granskning.",
 	"revreview-pending-nosection": "Prova att titta på [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} senaste versionen], som innehåller\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 väntande {{PLURAL:$2|ändring|ändringar}}], för att se om avsnittet är flyttat eller raderat.",
