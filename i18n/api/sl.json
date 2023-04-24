@@ -5,6 +5,7 @@
 		]
 	},
 	"apihelp-query+flagged-example-1": "Pridobi informacije o strani in stanje oznak za [[Main Page|Glavno stran]]",
+	"apihelp-query+flagged-example-2": "Pridobitev stanja zastavic za strani, ki se začnejo s »K«",
 	"apihelp-query+oldreviewedpages-param-category": "Prikaži samo strani v dani kategoriji.",
 	"apihelp-query+unreviewedpages-param-start": "Začetek navajanja pri tem naslovu strani.",
 	"apihelp-query+unreviewedpages-param-end": "Konec navajanje pri tem naslovu strani.",

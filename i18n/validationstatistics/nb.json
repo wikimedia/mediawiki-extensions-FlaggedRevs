@@ -8,7 +8,7 @@
 		]
 	},
 	"validationstatistics": "Siderevideringsstatistikk",
-	"validationstatistics-users": "'''{{SITENAME}}''' har på nåværende tidspunkt '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|bruker|brukere}} med [[{{MediaWiki:Validationpage}}|skribentrettigheter]].\n\nSkribenter er etablerte brukere som kan punktsjekke siderevisjoner.",
+	"validationstatistics-users": "'''{{SITENAME}}''' har på nåværende tidspunkt '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|bruker|brukere}} med [[{{MediaWiki:Validationpage}}|skribentrettigheter]].\n\nSkribenter er etablerte brukere som kan punktsjekke sideversjoner.",
 	"validationstatistics-lastupdate": "''Følgende data ble sist oppdatert $1 kl. $2.''",
 	"validationstatistics-pndtime": "Redigeringer som har blitt kontrollert av etablerte brukere anses å være ''{{int:validationstatistics-stable}}''.\n\nGjennomsnittsforsinkelsen for [[Special:OldReviewedPages|sider med ureviderte ventende endringer]] er nå '''$1'''; forsinkelsen måler hvor lenge den eldste ventende endringen har vært urevidert.",
 	"validationstatistics-revtime": "Gjennomsnittsventetiden for endringer av ''brukere som ikke har logget inn'' å bli revidert er '''$1'''; medianen er '''$2'''.\n$3",
