@@ -4,6 +4,7 @@
  */
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\WikiMap\WikiMap;
 
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
