@@ -7,5 +7,16 @@
 	"pendingchanges": "Stranice s izmjenama na čekanju",
 	"pendingchanges-legend": "Spisak ocjenjenih stranica s izmjenama koje čekaju ocjenu",
 	"pendingchanges-list": "Ova stranica prikazuje [[{{MediaWiki:Validationpage}}|provjerene]] stranice koje imaju jednu ili više izmjena na čekanju.",
-	"pendingchanges-none": "Trenutno nema stranica koje zadovoljavaju ove kriterije"
+	"pendingchanges-none": "Trenutno nema stranica koje zadovoljavaju ove kriterije",
+	"pendingchanges-hours": "($1 {{PLURAL:$1|sat|sata|sati}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|dan|dana}})",
+	"pendingchanges-recent": "(manje od 1 sata)",
+	"pendingchanges-category": "Kategorija:",
+	"pendingchanges-onwatchlist": "Stranice na mom spisku praćenja",
+	"pendingchanges-stable": "Stabilna verzija je podrazumijevana",
+	"pendingchanges-diff": "pregled",
+	"pendingchanges-size": "Najv. promjena (bajta):",
+	"pendingchanges-unwatched": "(nepraćen)",
+	"pendingchanges-watched": "($1 {{PLURAL:$1|aktivni korisnik prati|aktivna korisnika prate|aktivnih korisnika prati}})",
+	"pendingchanges-viewing": "(pod provjerom)"
 }
