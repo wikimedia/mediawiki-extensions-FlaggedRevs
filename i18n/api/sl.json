@@ -5,7 +5,9 @@
 		]
 	},
 	"apihelp-flagconfig-description": "Pridobite osnovne informacije o konfiguraciji zastavic pregledovanja na tem spletnem mestu.\n\nZa vsako oznako so vrnjeni naslednji parametri:\n;name:Ime ključa te oznake.\n;levels:Število ravni oznake (zgoraj »not tagged«).\nRedakcije z zastavico imajo dodeljeneno raven za vsako oznako. Najvišja raven, ki ji ustrezajo vse oznake, je raven pregleda celotne redakcije.",
+	"apihelp-flagconfig-summary": "Pridobitev osnovnih informacij o konfiguraciji oznak pregledovanja za ta projekt.",
 	"apihelp-flagconfig-extended-description": "Za vsako oznako so vrnjeni naslednji parametri:\n;name:Ime ključa te oznake.\n;levels:Število ravni oznake (zgoraj »not tagged«).\nRedakcije z zastavico imajo dodeljeneno raven za vsako oznako. Najvišja raven, ki ji ustrezajo vse oznake, je raven pregleda celotne redakcije.",
+	"apihelp-flagconfig-example-1": "Pridobi konfiguracijo oznak",
 	"apihelp-query+flagged-example-1": "Pridobi informacije o strani in stanje oznak za [[Main Page|Glavno stran]]",
 	"apihelp-query+flagged-example-2": "Pridobitev stanja zastavic za strani, ki se začnejo s »K«",
 	"apihelp-query+oldreviewedpages-param-category": "Prikaži samo strani v dani kategoriji.",
