@@ -1,7 +1,7 @@
 <?php
 // phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
 
-namespace Mediawiki\Extension\FlaggedRevs\Backend;
+namespace MediaWiki\Extension\FlaggedRevs\Backend;
 
 use MediaWiki\Hook\ContribsPager__getQueryInfoHook;
 use MediaWiki\Hook\SpecialContributions__getForm__filtersHook;
