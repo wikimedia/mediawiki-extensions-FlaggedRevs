@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\EditPage\EditPage;
 use MediaWiki\Html\FormOptions;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
