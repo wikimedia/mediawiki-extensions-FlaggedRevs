@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Cache\CacheKeyHelper;
+use MediaWiki\EditPage\EditPage;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Revision\RevisionRecord;

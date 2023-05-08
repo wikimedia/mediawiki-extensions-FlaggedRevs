@@ -430,7 +430,7 @@ class FlaggedRevsHooks {
 		$title->resetArticleID( $revRecord->getPageId() ); // Avoid extra DB hit and lag issues
 		# Get what was just the current revision ID
 		$prevRevId = $revRecord->getParentId();
-		# Get edit timestamp. Existance already validated by EditPage.php.
+		# Get edit timestamp. Existance already validated by \MediaWiki\EditPage\EditPage
 		$editTimestamp = $wgRequest->getVal( 'wpEdittime' );
 		$pm = MediaWikiServices::getInstance()->getPermissionManager();
 		# Is the page manually checked off to be reviewed?
