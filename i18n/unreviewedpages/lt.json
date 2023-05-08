@@ -6,6 +6,11 @@
 			"Nokeoo"
 		]
 	},
+	"unreviewedpages": "Neperžiūrėti puslapiai",
 	"unreviewedpages-category": "Kategorija:",
-	"unreviewedpages-diff": "peržiūrėti"
+	"unreviewedpages-showhide-redirect": "$1 nukreipimus",
+	"unreviewedpages-diff": "peržiūrėti",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|valanda|valandos}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|diena|dienas}})",
+	"unreviewedpages-recent": "(mažiau nei 1 valanda)"
 }
