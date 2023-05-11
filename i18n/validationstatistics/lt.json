@@ -1,11 +1,19 @@
 {
 	"@metadata": {
 		"authors": [
-			"Eitvys200"
+			"Eitvys200",
+			"Nokeoo"
 		]
 	},
+	"validationstatistics": "Puslapių peržiūros statistika",
+	"validationstatistics-lastupdate": "''Šie duomenys paskutinį kartą buvo atnaujinti $1 $2.''",
+	"validationstatistics-ns": "Vardų sritis",
 	"validationstatistics-total": "Puslapiai",
+	"validationstatistics-stable": "Peržiūrėta",
+	"validationstatistics-latest": "Sinchronizuota",
+	"validationstatistics-synced": "Sinchronizuota / peržiūrėta",
 	"validationstatistics-old": "Pasenęs",
+	"validationstatistics-unreviewed": "Neperžiūrėta",
 	"validationstatistics-user": "Naudotojas",
 	"validationstatistics-reviews": "Peržiūros"
 }

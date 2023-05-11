@@ -2,15 +2,28 @@
 	"@metadata": {
 		"authors": [
 			"Eitvys200",
-			"Matasg"
+			"Matasg",
+			"Nokeoo"
 		]
 	},
 	"stabilization-page": "Puslapio pavadinimas:",
+	"stabilization-restrict-none": "Jokių papildomų ribojimų",
 	"stabilization-submit": "Patvirtinti",
+	"stabilization-notexists": "Nėra puslapio pavadinimu „[[:$1|$1]]“.\nJokia konfigūracija negalima.",
+	"stabilization-notcontent": "Puslapis „[[:$1|$1]]“ negali būti peržiūrėtas.\nJokia konfigūracija negalima.",
 	"stabilization-comment": "Priežastis:",
 	"stabilization-otherreason": "Kitos priežastys:",
 	"stabilization-expiry": "Baigiasi:",
 	"stabilization-othertime": "Kitas laikas:",
 	"stabilization-def-short": "Standartinis",
-	"stabilization-def-short-0": "Esamas"
+	"stabilization-def-short-0": "Esamas",
+	"stabilize_page_invalid": "Tikslo puslapio pavadinimas yra neteisingas.",
+	"stabilize_page_notexists": "Tikslo puslapis neegzistuoja.",
+	"stabilize_page_unreviewable": "Tikslo puslapis nėra peržiūrimoje vardų srityje.",
+	"stabilize_invalid_autoreview": "Negalimas automatinės peržiūros ribojimas.",
+	"stabilize_invalid_level": "Negalimas apsaugos lygis.",
+	"stabilize_expiry_invalid": "Negalima galiojimo data.",
+	"stabilize_expiry_old": "Šis galiojimo laikas jau praėjo.",
+	"stabilize_denied": "Teisė nesuteikta.",
+	"stabilize-expiring": "baigiasi $1 (UTC)"
 }
