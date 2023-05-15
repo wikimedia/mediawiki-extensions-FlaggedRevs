@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"BukhariSaeed",
+			"Muhammad Shuaib",
 			"පසිඳු කාවින්ද"
 		]
 	},
@@ -16,6 +17,7 @@
 	"flaggedrevs-prefs-watch": "صفحات میں میری زیرنظرفہرست کا جائزہ لیں شامل کریں",
 	"flaggedrevs-hidereviewed-hide": "چھپائیں",
 	"group-editor": "ایڈیٹرز",
+	"group-editor-member": "{{GENDER:$1|مدیر}}",
 	"group-reviewer": "مبصرین",
 	"revreview-hist-pending": "زیر التواء ترمیمی",
 	"revreview-hist-basic-auto": "خود کار طریقے سے جانچ پڑتال",
