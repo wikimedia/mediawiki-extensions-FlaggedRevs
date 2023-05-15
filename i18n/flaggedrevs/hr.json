@@ -103,7 +103,7 @@
 	"revreview-draft-title": "Na ovoj stranici su prikazane izmjene na čekanju",
 	"revreview-editnotice": "'''Vaše promjene ove stranice bit će prikazane čitateljima kad ih ovlašteni suradnik ocijeni. ([[{{MediaWiki:Validationpage}}|pomoć]])'''",
 	"revreview-submitedit": "Sačuvaj stranicu",
-	"revreview-submitedit-title": "Pošaljite Vaše izmjene na pregled",
+	"revreview-submitedit-title": "Pošaljite svoje izmjene na pregled",
 	"revreview-edited": "'''Vaše promjene bit će prikazane čitateljima kad ih ovlašteni suradnik ocijeni. ([[{{MediaWiki:Validationpage}}|pomoć]])'''\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|Postoji $2 promjena koja čeka|Postoje $2 promjene koje čekaju|Postoji $2 promjenâ koje čekaju}}] ocjenu.",
 	"revreview-edited-section": "Natrag na odlomak stranice pod imenom \"[[#$1|$2]]\".",
 	"revreview-newest-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|izmjena|izmjene|izmjena}}] u ovoj inačici članka {{PLURAL:$3|čeka|čekaju|čeka}} [[{{MediaWiki:Validationpage}}|ocjenu]].\n[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Vrijedeća inačica] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} provjerena je] dana <i>$2</i>.",
