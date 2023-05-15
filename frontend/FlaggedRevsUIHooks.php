@@ -962,10 +962,11 @@ class FlaggedRevsUIHooks {
 	 * @param array &$fields
 	 */
 	public static function onProtectionForm( Article $article, array &$fields ) {
-		global $wgRequest, $wgLang, $wgOut, $wgFlaggedRevsProtection;
+		global $wgFlaggedRevsProtection;
 
 		$wikiPage = $article->getPage();
 		$title = $wikiPage->getTitle();
+		$context = $article->getContext();
 
 		if (
 			!$wgFlaggedRevsProtection
@@ -975,19 +976,20 @@ class FlaggedRevsUIHooks {
 			return;
 		}
 
-		$user = $article->getContext()->getUser();
-		$mode = $wgRequest->wasPosted() ? FR_PRIMARY : 0;
+		$user = $context->getUser();
+		$request = $context->getRequest();
+		$mode = $request->wasPosted() ? FR_PRIMARY : 0;
 		$form = new PageStabilityProtectForm( $user );
 		$form->setPage( $title );
 
 		$config = FRPageConfig::getStabilitySettings( $title, $mode );
-		$expirySelect = $wgRequest->getVal(
+		$expirySelect = $request->getVal(
 			'mwStabilizeExpirySelection',
 			$config['expiry'] == 'infinity' ? 'infinite' : 'existing'
 		);
 		$isAllowed = $form->isAllowed();
 
-		$expiryOther = $wgRequest->getVal( 'mwStabilizeExpiryOther' );
+		$expiryOther = $request->getVal( 'mwStabilizeExpiryOther' );
 		if ( $expiryOther ) {
 			$expirySelect = 'othertime'; // mutual exclusion
 		}
@@ -998,7 +1000,7 @@ class FlaggedRevsUIHooks {
 
 		array_unshift( $effectiveLevels, 'none' );
 		foreach ( $effectiveLevels as $limit ) {
-			$msg = wfMessage( 'flaggedrevs-protect-' . $limit );
+			$msg = $context->msg( 'flaggedrevs-protect-' . $limit );
 			// Default to the key itself if no UI message
 			$options[$msg->isDisabled() ? 'flaggedrevs-protect-' . $limit : $msg->text()] = $limit;
 		}
@@ -1008,14 +1010,15 @@ class FlaggedRevsUIHooks {
 		$expiryOptions = [];
 
 		if ( $config['expiry'] != 'infinity' ) {
-			$timestamp = $wgLang->userTimeAndDate( $config['expiry'], $user );
-			$date = $wgLang->userDate( $config['expiry'], $user );
-			$time = $wgLang->userTime( $config['expiry'], $user );
-			$existingExpiryMessage = wfMessage( 'protect-existing-expiry', $timestamp, $date, $time );
+			$lang = $context->getLanguage();
+			$timestamp = $lang->userTimeAndDate( $config['expiry'], $user );
+			$date = $lang->userDate( $config['expiry'], $user );
+			$time = $lang->userTime( $config['expiry'], $user );
+			$existingExpiryMessage = $context->msg( 'protect-existing-expiry', $timestamp, $date, $time );
 			$expiryOptions[$existingExpiryMessage->text()] = 'existing';
 		}
 
-		$expiryOptions[wfMessage( 'protect-othertime-op' )->text()] = 'othertime';
+		$expiryOptions[$context->msg( 'protect-othertime-op' )->text()] = 'othertime';
 
 		foreach ( explode( ',', $scExpiryOptions ) as $option ) {
 			$pair = explode( ':', $option, 2 );
@@ -1029,7 +1032,7 @@ class FlaggedRevsUIHooks {
 			'id' => 'mwStabilityLevel',
 			'disabled' => !$isAllowed ,
 			'options' => $options,
-			'default' => $wgRequest->getVal( 'mwStabilityLevel', FRPageConfig::getProtectionLevel( $config ) ),
+			'default' => $request->getVal( 'mwStabilityLevel', FRPageConfig::getProtectionLevel( $config ) ),
 			'section' => 'flaggedrevs-protect-legend',
 		];
 
@@ -1040,7 +1043,7 @@ class FlaggedRevsUIHooks {
 				'name' => 'mwStabilizeExpirySelection',
 				'id' => 'mwStabilizeExpirySelection',
 				'disabled' => !$isAllowed,
-				'label' => wfMessage( 'stabilization-expiry' )->text(),
+				'label' => $context->msg( 'stabilization-expiry' )->text(),
 				'options' => $expiryOptions,
 				'default' => $expirySelect,
 				'section' => 'flaggedrevs-protect-legend',
@@ -1053,14 +1056,14 @@ class FlaggedRevsUIHooks {
 				'type' => 'text',
 				'name' => 'mwStabilizeExpiryOther',
 				'id' => 'mwStabilizeExpiryOther',
-				'label' => wfMessage( 'stabilization-othertime' )->text(),
+				'label' => $context->msg( 'stabilization-othertime' )->text(),
 				'default' => $expiryOther,
 				'section' => 'flaggedrevs-protect-legend'
 			];
 		}
 
 		# Add some javascript for expiry dropdowns
-		$wgOut->addInlineScript( ResourceLoader::makeInlineCodeWithModule( 'oojs-ui-core', "
+		$context->getOutput()->addInlineScript( ResourceLoader::makeInlineCodeWithModule( 'oojs-ui-core', "
 			var changeExpiryDropdown = OO.ui.infuse( $( '#mwStabilizeExpirySelection' ) ),
 				changeExpiryInput = OO.ui.infuse( $( '#mwStabilizeExpiryOther' ) );
 
