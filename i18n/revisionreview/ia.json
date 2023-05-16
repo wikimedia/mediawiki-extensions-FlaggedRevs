@@ -18,7 +18,7 @@
 	"review_bad_key": "Clave de parametro de inclusion invalide.",
 	"review_bad_tags": "Alcunes del valores de etiquetta specificate es invalide.",
 	"review_denied": "Permission refusate.",
-	"review_param_missing": "Un parametro es mancante o invalide.",
+	"review_param_missing": "Un parametro manca o non es valide.",
 	"review_cannot_undo": "Non pote disfacer iste modificationes proque altere modificationes pendente cambiava le mesme areas.",
 	"review_cannot_reject": "Non pote rejectar iste modificationes proque alcuno jam acceptava alcunes (o totes) de iste modificationes.",
 	"review_reject_excessive": "Non pote rejectar iste numero de modificationes a un vice.",
