@@ -147,7 +147,10 @@ class FRDependencyUpdate {
 		$del = [];
 		foreach ( $existing as $ns => $dbkeys ) {
 			if ( isset( $new[$ns] ) ) {
-				$del[$ns] = array_diff_key( $dbkeys, $new[$ns] );
+				$delKeys = array_diff_key( $dbkeys, $new[$ns] );
+				if ( $delKeys ) {
+					$del[$ns] = $delKeys;
+				}
 			} else {
 				$del[$ns] = $dbkeys;
 			}
