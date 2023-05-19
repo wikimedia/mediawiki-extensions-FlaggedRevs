@@ -1,7 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
-use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\Platform\ISQLPlatform;
 
 /**
  * Class containing update methods for tracking links that
@@ -167,10 +167,10 @@ class FRDependencyUpdate {
 	/**
 	 * Make WHERE clause to match $arr titles
 	 * @param array[] $arr
-	 * @param IDatabase $db
+	 * @param ISQLPlatform $db
 	 * @return string|bool
 	 */
-	private function makeWhereFrom2d( $arr, $db ) {
+	private function makeWhereFrom2d( $arr, ISQLPlatform $db ) {
 		$lb = MediaWikiServices::getInstance()->getLinkBatchFactory()->newLinkBatch();
 		$lb->setArray( $arr );
 		return $lb->constructSet( 'ftr', $db );

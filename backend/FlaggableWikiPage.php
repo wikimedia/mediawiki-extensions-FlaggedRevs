@@ -7,7 +7,7 @@ use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Storage\PreparedUpdate;
 use Wikimedia\Assert\PreconditionException;
 use Wikimedia\Rdbms\Database;
-use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IReadableDatabase;
 
 /**
  * Class representing a MediaWiki article and history
@@ -405,7 +405,7 @@ class FlaggableWikiPage extends WikiPage {
 
 	/**
 	 * Fetch a page record with the given conditions
-	 * @param IDatabase $dbr Database object
+	 * @param IReadableDatabase $dbr
 	 * @param array $conditions
 	 * @param array $options
 	 * @return stdClass|false
@@ -432,7 +432,7 @@ class FlaggableWikiPage extends WikiPage {
 			);
 		};
 
-		if ( !$dbr->isReadOnly() ) {
+		if ( $dbr instanceof IDatabase && !$dbr->isReadOnly() ) {
 			// load data directly without cache
 			return $selectCallback();
 		} else {

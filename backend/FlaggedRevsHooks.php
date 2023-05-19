@@ -9,7 +9,7 @@ use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Storage\EditResult;
 use MediaWiki\User\UserIdentity;
 use Wikimedia\Rdbms\Database;
-use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IReadableDatabase;
 
 /**
  * Class containing hooked functions for a FlaggedRevs environment
@@ -830,11 +830,11 @@ class FlaggedRevsHooks {
 	/**
 	 * Get query data for making efficient queries based on rev_user and
 	 * rev_timestamp in an actor table world.
-	 * @param IDatabase $dbr
+	 * @param IReadableDatabase $dbr
 	 * @param User $user
 	 * @return array[]
 	 */
-	private static function getQueryData( $dbr, $user ) {
+	private static function getQueryData( IReadableDatabase $dbr, $user ) {
 		$revWhere = ActorMigration::newMigration()->getWhere( $dbr, 'rev_user', $user );
 		$queryData = [];
 		foreach ( $revWhere['orconds'] as $key => $cond ) {
@@ -987,13 +987,13 @@ class FlaggedRevsHooks {
 	/**
 	 * Checks if $user was previously blocked since $cutoff_unixtime
 	 * @param User $user
-	 * @param IDatabase $db
+	 * @param IReadableDatabase $db
 	 * @param int $cutoff_unixtime = 0
 	 * @return bool
 	 */
 	private static function wasPreviouslyBlocked(
 		User $user,
-		IDatabase $db,
+		IReadableDatabase $db,
 		$cutoff_unixtime = 0
 	) {
 		$conds = [
