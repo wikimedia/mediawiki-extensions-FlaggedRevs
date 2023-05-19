@@ -45,10 +45,10 @@ class FlaggableWikiPage extends WikiPage {
 	/**
 	 * Get a FlaggableWikiPage for a given title
 	 *
-	 * @param Title|PageIdentity $title
+	 * @param PageIdentity $title
 	 * @return self
 	 */
-	public static function getTitleInstance( $title ) {
+	public static function getTitleInstance( PageIdentity $title ) {
 		$cache = self::getInstanceCache();
 		$key = CacheKeyHelper::getKeyForPage( $title );
 		$fwp = $cache->get( $key );

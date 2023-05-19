@@ -1,7 +1,5 @@
 <?php
 
-use MediaWiki\MediaWikiServices;
-
 /**
  * @group Database
  * @covers \FRUserCounters
@@ -45,18 +43,17 @@ class FRUserCountersTest extends PHPUnit\Framework\TestCase {
 		$p = FRUserCounters::getUserParams( -1 );
 		# Assumes (main) IN content namespace
 		$title = Title::makeTitleSafe( 0, 'helloworld' );
-		$wikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
 
 		$copyP = $p;
-		FRUserCounters::updateUserParams( $copyP, $wikiPage, "Manual edit comment" );
+		FRUserCounters::updateUserParams( $copyP, $title, "Manual edit comment" );
 		$this->assertEquals( $p['editComments'] + 1, $copyP['editComments'], "Manual summary" );
 
 		$copyP = $p;
-		FRUserCounters::updateUserParams( $copyP, $wikiPage, "/* section */" );
+		FRUserCounters::updateUserParams( $copyP, $title, "/* section */" );
 		$this->assertEquals( $p['editComments'], $copyP['editComments'], "Auto summary" );
 
 		$copyP = $p;
-		FRUserCounters::updateUserParams( $copyP, $wikiPage, "edit summary" );
+		FRUserCounters::updateUserParams( $copyP, $title, "edit summary" );
 		$this->assertEquals( $p['totalContentEdits'] + 1, $copyP['totalContentEdits'],
 			"Content edit count on content edit" );
 
@@ -66,21 +63,19 @@ class FRUserCountersTest extends PHPUnit\Framework\TestCase {
 
 		# Assumes (user) NOT IN content namespace
 		$title = Title::makeTitleSafe( NS_USER, 'helloworld' );
-		$wikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
 
 		$copyP = $p;
-		FRUserCounters::updateUserParams( $copyP, $wikiPage, "Manual edit comment" );
+		FRUserCounters::updateUserParams( $copyP, $title, "Manual edit comment" );
 		$this->assertEquals( $p['editComments'] + 1, $copyP['editComments'], "Manual summary" );
 
 		$copyP = $p;
-		FRUserCounters::updateUserParams( $copyP, $wikiPage, "/* section */" );
+		FRUserCounters::updateUserParams( $copyP, $title, "/* section */" );
 		$this->assertEquals( $p['editComments'], $copyP['editComments'], "Auto summary" );
 
 		$title = Title::makeTitleSafe( NS_USER, 'helloworld' );
-		$wikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
 
 		$copyP = $p;
-		FRUserCounters::updateUserParams( $copyP, $wikiPage, "edit summary" );
+		FRUserCounters::updateUserParams( $copyP, $title, "edit summary" );
 		$this->assertEquals( $p['totalContentEdits'], $copyP['totalContentEdits'],
 			"Content edit count on non-content edit" );
 		$this->assertEquals( $p['uniqueContentPages'], $copyP['uniqueContentPages'],

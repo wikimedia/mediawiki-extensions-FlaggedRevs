@@ -1019,7 +1019,7 @@ class FlaggablePageView extends ContextSource {
 		if ( $showToggle ) {
 			$s .= ' ' . FlaggedRevsXML::logDetailsToggle();
 		}
-		return $s . FlaggedRevsXML::stabilityLogExcerpt( $this->article );
+		return $s . FlaggedRevsXML::stabilityLogExcerpt( $this->article->getTitle() );
 	}
 
 	/**
