@@ -7,7 +7,7 @@ use Wikimedia\TestingAccessWrapper;
  */
 class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 
-	public function provideGetLevels() {
+	public static function provideGetLevels() {
 		return [
 			'three levels' => [
 				'revsTags' => [ 'accuracy' => [ 'levels' => 3 ] ],

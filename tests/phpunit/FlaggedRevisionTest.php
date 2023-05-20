@@ -41,7 +41,7 @@ class FlaggedRevisionTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame( [ 'example' => 0, 'a' => 2 ], $frev->getTags() );
 	}
 
-	public function provideNonDefaultTags() {
+	public static function provideNonDefaultTags() {
 		return [
 			[ '', [ 'example' => 0 ] ],
 			[ [], [ 'example' => 0 ] ],
@@ -63,7 +63,7 @@ class FlaggedRevisionTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame( $expected, $frev->getTags() );
 	}
 
-	public function provideRevisionTagArrays() {
+	public static function provideRevisionTagArrays() {
 		return [
 			[ [], '' ],
 			[ [ 'a' => 2, 'b' => 3 ], "a:2\nb:3" ],
@@ -81,7 +81,7 @@ class FlaggedRevisionTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame( $expected, $string );
 	}
 
-	public function provideFlattenedRevisionTags() {
+	public static function provideFlattenedRevisionTags() {
 		return [
 			[ '', [] ],
 			[ "a\nb=3", [] ],
