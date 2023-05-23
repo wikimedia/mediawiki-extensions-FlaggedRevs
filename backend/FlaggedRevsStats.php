@@ -1,6 +1,6 @@
 <?php
 
-use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IReadableDatabase;
 
 /**
  * FlaggedRevs stats functions
@@ -207,12 +207,12 @@ class FlaggedRevsStats {
 	}
 
 	/**
-	 * @param IDatabase $db
+	 * @param IReadableDatabase $db
 	 * @param string $column
 	 *
 	 * @return string
 	 */
-	private static function dbUnixTime( IDatabase $db, $column ) {
+	private static function dbUnixTime( IReadableDatabase $db, $column ) {
 		return $db->getType() === 'sqlite' ? "strftime('%s',$column)" : "UNIX_TIMESTAMP($column)";
 	}
 
