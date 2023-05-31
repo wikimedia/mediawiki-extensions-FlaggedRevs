@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\HookContainer\HookContainer;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\Hook\RevisionFromEditCompleteHook;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\User\UserIdentity;
@@ -23,19 +22,6 @@ class FlaggedRevsHookRunner implements
 	 */
 	public function __construct( HookContainer $hookContainer ) {
 		$this->hookContainer = $hookContainer;
-	}
-
-	/**
-	 * Convenience getter for static contexts
-	 *
-	 * See also core's Hooks::runner
-	 *
-	 * @return self
-	 */
-	public static function getRunner() {
-		return new self(
-			MediaWikiServices::getInstance()->getHookContainer()
-		);
 	}
 
 	/**

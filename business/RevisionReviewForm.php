@@ -453,7 +453,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			}
 		}
 
-		FlaggedRevsHookRunner::getRunner()->onFlaggedRevsRevisionReviewFormAfterDoSubmit(
+		( new FlaggedRevsHookRunner( $services->getHookContainer() ) )->onFlaggedRevsRevisionReviewFormAfterDoSubmit(
 			$this,
 			$status
 		);
