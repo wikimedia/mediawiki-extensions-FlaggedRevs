@@ -36,6 +36,7 @@
 	"flaggedrevs-rcfilters-reviewed-desc": "Izmjene koje su pregledane.",
 	"flaggedrevs-rcfilters-not-reviewable-label": "Ne podliježe pregledu",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "Izmjene svih vrsta koje nije potrebno pregledati.",
+	"flaggedrevs-contributions-filters-unreviewed-only": "Prikaži samo izmjene koje čekaju pregled",
 	"group-editor": "Urednici",
 	"group-editor-member": "{{GENDER:$1|urednik|urednica}}",
 	"group-reviewer": "Pregledavači",
