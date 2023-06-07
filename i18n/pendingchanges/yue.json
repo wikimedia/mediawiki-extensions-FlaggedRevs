@@ -1,14 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Shinjiman"
+			"Shinjiman",
+			"捍粵者"
 		]
 	},
 	"pendingchanges": "已過時複審過嘅版",
 	"pendingchanges-legend": "列示有未複審修訂之複審過嘅版",
 	"pendingchanges-list": "呢一版列示咗有等緊編輯嘅評論版。",
 	"pendingchanges-none": "呢度現時無版係合乎呢啲條件",
-	"pendingchanges-hours": "($1個鐘頭)",
+	"pendingchanges-hours": "（$1粒鐘）",
 	"pendingchanges-days": "($1日)",
 	"pendingchanges-recent": "(少過1個鐘頭)",
 	"pendingchanges-category": "類:",
