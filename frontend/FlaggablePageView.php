@@ -1261,7 +1261,7 @@ class FlaggablePageView extends ContextSource {
 			}
 			// Instruct alternative editors like VisualEditor to load the latest ("current")
 			// revision for editing, rather than the one from 'wgRevisionId'
-			$skin->getOutput()->addJsConfigVars( 'wgFlaggedRevsEditLatestRevision', true );
+			$skin->getOutput()->addJsConfigVars( 'wgEditLatestRevision', true );
 		}
 		# Add "pending changes" tab if the page is not synced
 		if ( !$synced ) {
