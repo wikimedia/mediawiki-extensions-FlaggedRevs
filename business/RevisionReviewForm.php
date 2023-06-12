@@ -490,13 +490,8 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			'revrecord'         => $revRecord,
 			'user_id'           => $this->user->getId(),
 			'timestamp'         => wfTimestampNow(),
-			'quality'           => FR_CHECKED,
 			'tags'              => $flags,
-			'img_name'          => null,
-			'img_timestamp'     => null,
-			'img_sha1'          => null,
 			'templateVersions'  => $tmpVersions,
-			'fileVersions'      => [],
 			'flags'             => ''
 		] );
 		# Delete the old review entry if it exists...

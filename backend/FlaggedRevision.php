@@ -119,10 +119,7 @@ class FlaggedRevision {
 			$frQuery['joins']
 		);
 		# Sorted from highest to lowest, so just take the first one if any
-		if ( $row ) {
-			return self::newFromRow( $row, $title, $flags );
-		}
-		return null;
+		return $row ? self::newFromRow( $row, $title, $flags ) : null;
 	}
 
 	/**
@@ -238,11 +235,7 @@ class FlaggedRevision {
 			$options,
 			$frQuery['joins']
 		);
-		if ( !$row ) {
-			return null;
-		}
-
-		return self::newFromRow( $row, $title, FR_PRIMARY );
+		return $row ? self::newFromRow( $row, $title, FR_PRIMARY ) : null;
 	}
 
 	/**
