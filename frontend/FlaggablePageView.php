@@ -1170,22 +1170,15 @@ class FlaggablePageView extends ContextSource {
 			$title = SpecialPage::getTitleFor( 'Stabilization' );
 			# Give a link to the page to configure the stable version
 			$frev = $this->article->getStableRev();
-			if ( $frev && $frev->getRevId() == $this->article->getLatest() ) {
-				$this->out->prependHTML(
-					"<span class='revreview-visibility revreview-visibility-synced plainlinks'>" .
-					$this->msg( 'revreview-visibility-synced',
-						$title->getPrefixedText() )->parse() . "</span>" );
-			} elseif ( $frev ) {
-				$this->out->prependHTML(
-					"<span class='revreview-visibility revreview-visibility-outdated plainlinks'>" .
-					$this->msg( 'revreview-visibility-outdated',
-						$title->getPrefixedText() )->parse() . "</span>" );
+			if ( !$frev ) {
+				$msg = 'revreview-visibility-nostable';
+			} elseif ( $frev->getRevId() == $this->article->getLatest() ) {
+				$msg = 'revreview-visibility-synced';
 			} else {
-				$this->out->prependHTML(
-					"<span class='revreview-visibility revreview-visibility-nostable plainlinks'>" .
-					$this->msg( 'revreview-visibility-nostable',
-						$title->getPrefixedText() )->parse() . "</span>" );
+				$msg = 'revreview-visibility-outdated';
 			}
+			$this->out->prependHTML( "<span class='revreview-visibility $msg plainlinks'>" .
+				$this->msg( $msg, $title->getPrefixedText() )->parse() . '</span>' );
 		}
 	}
 
