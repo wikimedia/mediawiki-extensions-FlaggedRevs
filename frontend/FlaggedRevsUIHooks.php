@@ -26,6 +26,7 @@ class FlaggedRevsUIHooks {
 		}
 		// Add main CSS & JS files
 		$out->addModuleStyles( 'ext.flaggedRevs.basic' );
+		$out->addModuleStyles( 'codex-styles' );
 		$out->addModules( 'ext.flaggedRevs.advanced' );
 		// Add review form JS for reviewers
 		if ( MediaWikiServices::getInstance()->getPermissionManager()
@@ -74,6 +75,7 @@ class FlaggedRevsUIHooks {
 		foreach ( $spPages as $key ) {
 			if ( $title->isSpecial( $key ) ) {
 				$out->addModuleStyles( 'ext.flaggedRevs.basic' ); // CSS only
+				$out->addModuleStyles( 'codex-styles' );
 				break;
 			}
 		}

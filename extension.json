@@ -10,7 +10,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "specialpage",
 	"requires": {
-		"MediaWiki": ">= 1.40.0"
+		"MediaWiki": ">= 1.41.0"
 	},
 	"callback": "FlaggedRevsHooks::onRegistration",
 	"ActionFilteredLogs": {
@@ -257,8 +257,7 @@
 			"localBasePath": "modules/ext.flaggedRevs.basic",
 			"remoteExtPath": "FlaggedRevs/modules/ext.flaggedRevs.basic",
 			"styles": [
-				"shared.css",
-				"RevisionReviewFormUI.css"
+				"shared.css"
 			],
 			"skinStyles": {
 				"default": "default.css",

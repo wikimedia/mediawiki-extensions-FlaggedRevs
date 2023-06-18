@@ -136,18 +136,13 @@ class RevisionReviewFormUI {
 		$params = [ 'method' => 'post', 'action' => $action, 'id' => 'mw-fr-reviewform' ];
 		$form = Xml::openElement( 'form', $params ) . "\n";
 		$form .= Xml::openElement( 'fieldset',
-			[ 'class' => 'flaggedrevs_reviewform noprint' ] ) . "\n";
+			[ 'class' => 'flaggedrevs_reviewform noprint cdx-card' ] ) . "\n";
 		# Add appropriate legend text
 		$legendMsg = $frev ? 'revreview-reflag' : 'revreview-flag';
-		$form .= Xml::openElement( 'legend', [ 'id' => 'mw-fr-reviewformlegend' ] );
-		$form .= "<strong>" . wfMessage( $legendMsg )->escaped() . "</strong>";
-		$form .= Xml::closeElement( 'legend' ) . "\n";
+		$form .= Xml::openElement( 'span', [ 'id' => 'mw-fr-reviewformlegend cdx-card__text' ] );
+		$form .= '<span class="cdx-card__text__title">' . wfMessage( $legendMsg )->escaped() . '</span>';
 		# Show explanatory text
 		$form .= $this->topNotice;
-
-		$form .= Xml::openElement( 'p' );
-		$form .= '<span id="mw-fr-reviewing-status" style="display:none;"></span>'; // JS widget
-		$form .= Xml::closeElement( 'p' ) . "\n";
 
 		# Start rating controls
 		$css = $disabled ? 'fr-rating-controls-disabled' : 'fr-rating-controls';
@@ -159,20 +154,18 @@ class RevisionReviewFormUI {
 		$form .= $this->ratingInputs( $this->user, $flags, (bool)$disabled ) . "\n";
 		$form .= Xml::closeElement( 'span' ) . "\n";
 
-		# Don't put buttons & comment field on the same line as tag inputs.
-		if ( !$disabled && !FlaggedRevs::binaryFlagging() ) { // $disabled => no comment/buttons
-			$form .= "<br />";
-		}
-
-		# Start comment & buttons
-		$form .= Xml::openElement( 'span', [ 'id' => 'mw-fr-confirmreview' ] ) . "\n";
-
 		# Hide comment input if needed
 		if ( !$disabled ) {
-			$form .= Xml::inputLabel(
-				wfMessage( 'revreview-log' )->text(), 'wpReason', 'mw-fr-commentbox', 40, '',
-				[ 'maxlength' => CommentStore::COMMENT_CHARACTER_LIMIT, 'class' => 'fr-comment-box' ]
+			$form .= '<div class="cdx-text-input" style="padding-bottom: 5px;">';
+			$form .= Xml::label( wfMessage( 'revreview-log' )->text(), 'mw-fr-commentbox' );
+			$form .= Xml::input(
+				'wpReason', 40, '',
+				[
+					'maxlength' => CommentStore::COMMENT_CHARACTER_LIMIT,
+					'class' => 'fr-comment-box cdx-text-input__input',
+				]
 			);
+			$form .= '</div>';
 		}
 
 		# Add the submit buttons...
@@ -183,9 +176,6 @@ class RevisionReviewFormUI {
 		if ( $article->isPageLocked() ) {
 			$form .= ' ' . FlaggedRevsXML::logToggle();
 		}
-
-		# End comment & buttons
-		$form .= Xml::closeElement( 'span' ) . "\n";
 
 		# ..add the actual stability log body here
 		if ( $article->isPageLocked() ) {
@@ -220,7 +210,7 @@ class RevisionReviewFormUI {
 
 		$form .= Xml::closeElement( 'fieldset' ) . "\n";
 		$form .= Xml::closeElement( 'form' ) . "\n";
-
+		$form .= Xml::closeElement( 'span' ) . "\n";
 		return [ $form, true /* ok */ ];
 	}
 
@@ -271,31 +261,40 @@ class RevisionReviewFormUI {
 		# Show label as needed
 		$item = Xml::tags( 'label', [ 'for' => "wp$quality" ],
 			$this->getTagMsg( $quality )->escaped() ) . ":\n";
-		# If the sum of qualities of all flags is above 6, use drop down boxes.
-		# 6 is an arbitrary value choosen according to screen space and usability.
-		if ( count( $levels ) > 6 ) {
-			$attribs = [ 'name' => "wp$quality", 'id' => "wp$quality" ];
-			$item .= Xml::openElement( 'select', $attribs ) . "\n";
-			foreach ( $levels as $i => $name ) {
-				$optionClass = [ 'class' => "fr-rating-option-$i" ];
-				$item .= Xml::option( $this->getTagMsg( $name )->text(), $i,
-					( $i == $selected ), $optionClass ) . "\n";
-			}
-			$item .= Xml::closeElement( 'select' ) . "\n";
 		# If there are more than two levels, current user gets radio buttons
-		} elseif ( count( $levels ) > 2 ) {
+		if ( count( $levels ) > 2 ) {
 			foreach ( $levels as $i => $name ) {
-				$attribs = [ 'class' => "fr-rating-option-$i" ];
-				$item .= Xml::radioLabel( $this->getTagMsg( $name )->text(), "wp$quality",
-					$i, "wp$quality" . $i, ( $i == $selected ), $attribs ) . "\n";
+				$item .= Xml::openElement( 'span', [ 'class' => 'cdx-radio cdx-radio--inline' ] );
+				$item .= Xml::radio(
+					"wp$quality",
+					$i,
+					( $i == $selected ),
+					[ 'id' => "wp$quality" . $i, 'class' => "fr-rating-option-$i cdx-radio__input" ] ) .
+					"\u{00A0}";
+				$item .= '<span class="cdx-radio__icon"></span>';
+				$item .= Xml::label(
+					$this->getTagMsg( $name )->text(),
+					"wp$quality" . $i,
+					[ 'class' => "fr-rating-option-$i cdx-radio__label" ]
+				);
+				$item .= Xml::closeElement( 'span' );
 			}
 		# Otherwise make checkboxes (two levels available for current user)
 		} elseif ( count( $levels ) == 2 ) {
 			$i = $minLevel;
-			$attribs = [ 'class' => "fr-rating-option-$i" ];
-			$attribs += [ 'value' => $i ];
-			$item .= Xml::checkLabel( wfMessage( 'revreview-' . $levels[$i] )->text(),
-				"wp$quality", "wp$quality", ( $selected == $i ), $attribs ) . "\n";
+			$item .= Xml::openElement( 'span', [ 'class' => 'cdx-checkbox' ] );
+			$item .= Xml::check(
+					"wp$quality",
+					( $i == $selected ),
+					[ 'id' => "wp$quality", 'class' => "fr-rating-option-$i cdx-checkbox__input", 'value' => $i ] ) .
+				"\u{00A0}";
+			$item .= '<span class="cdx-checkbox__icon"></span>';
+			$item .= Xml::label(
+				wfMessage( 'revreview-' . $levels[$i] )->text(),
+				"wp$quality" . $i,
+				[ 'class' => "fr-rating-option-$i cdx-radio__label" ]
+			);
+			$item .= Xml::closeElement( 'span' );
 		}
 		return $item;
 	}
@@ -376,6 +375,7 @@ class RevisionReviewFormUI {
 			[
 				'name'      => 'wpApprove',
 				'id'        => 'mw-fr-submit-accept',
+				'class' => 'cdx-button cdx-button--action-progressive',
 				'accesskey' => wfMessage( 'revreview-ak-review' )->text(),
 				'title'     => wfMessage( 'revreview-tt-flag' )->text() . ' [' .
 					wfMessage( 'revreview-ak-review' )->text() . ']'
@@ -388,6 +388,7 @@ class RevisionReviewFormUI {
 				[
 					'name'  => 'wpReject',
 					'id'    => 'mw-fr-submit-reject',
+					'class' => 'cdx-button cdx-button--action-destructive',
 					'title' => wfMessage( 'revreview-tt-reject' )->text(),
 				] + ( $disabled ? $disAttrib : [] )
 			);
@@ -399,6 +400,7 @@ class RevisionReviewFormUI {
 			[
 				'name'  => 'wpUnapprove',
 				'id'    => 'mw-fr-submit-unaccept',
+				'class' => 'cdx-button cdx-button--action-destructive',
 				'title' => wfMessage( 'revreview-tt-unflag' )->text(),
 				'style' => $frev ? '' : 'display:none'
 			] + ( $disabled ? $disAttrib : [] )
