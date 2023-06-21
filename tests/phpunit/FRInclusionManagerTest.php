@@ -71,7 +71,7 @@ class FRInclusionManagerTest extends PHPUnit\Framework\TestCase {
 	public function testStableTemplateVersions() {
 		/** @var FRInclusionManager $im */
 		$im = TestingAccessWrapper::newFromObject( FRInclusionManager::singleton() );
-		$im->setReviewedVersions( [], [] );
+		$im->setReviewedVersions( [] );
 		$im->setStableVersionCache( self::INPUT_TEMPLATES );
 		foreach ( self::STABLE_OUTPUT_TEMPLATES as $triple ) {
 			list( $test,$ns,$dbKey,$expId ) = $triple;

@@ -99,8 +99,7 @@ class FlaggedRevsXML {
 	 * Generates a review box/tag
 	 */
 	public static function addTagRatings( $flags ) {
-		$tag = '';
-		$tag .= Html::openElement(
+		$tag = Html::openElement(
 			'table',
 			[
 				'id' => 'mw-fr-revisionratings-box',

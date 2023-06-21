@@ -533,11 +533,9 @@ class FlaggedRevision {
 	private function templateIdUsed( $revIdStable, $revIdReviewed ) {
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
 			# Select newest of (stable rev, rev when reviewed) as "version used"
-			$revIdUsed = max( $revIdStable, $revIdReviewed );
-		} else {
-			$revIdUsed = $revIdReviewed; // may be NULL
+			return max( $revIdStable, $revIdReviewed );
 		}
-		return (int)$revIdUsed;
+		return $revIdReviewed;
 	}
 
 	/**

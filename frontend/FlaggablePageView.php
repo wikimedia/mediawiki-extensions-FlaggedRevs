@@ -1008,23 +1008,18 @@ class FlaggablePageView extends ContextSource {
 	 * @return string
 	 */
 	private function stabilityLogNotice( $showToggle = true ) {
-		$s = '';
-		# Only for pages manually made to be stable...
 		if ( $this->article->isPageLocked() ) {
-			$s = $this->msg( 'revreview-locked' )->parse();
-			if ( $showToggle ) {
-				$s .= ' ' . FlaggedRevsXML::logDetailsToggle();
-			}
-			$s .= FlaggedRevsXML::stabilityLogExcerpt( $this->article );
-		# ...or unstable
+			$msg = 'revreview-locked';
 		} elseif ( $this->article->isPageUnlocked() ) {
-			$s = $this->msg( 'revreview-unlocked' )->parse();
-			if ( $showToggle ) {
-				$s .= ' ' . FlaggedRevsXML::logDetailsToggle();
-			}
-			$s .= FlaggedRevsXML::stabilityLogExcerpt( $this->article );
+			$msg = 'revreview-unlocked';
+		} else {
+			return '';
 		}
-		return $s;
+		$s = $this->msg( $msg )->parse();
+		if ( $showToggle ) {
+			$s .= ' ' . FlaggedRevsXML::logDetailsToggle();
+		}
+		return $s . FlaggedRevsXML::stabilityLogExcerpt( $this->article );
 	}
 
 	/**
@@ -1841,12 +1836,7 @@ class FlaggablePageView extends ContextSource {
 	 * @return bool
 	 */
 	private function editRequiresReview( EditPage $editPage ) {
-		if ( !$this->article->editsRequireReview() ) {
-			return false; // edits go live immediatly
-		} elseif ( $this->editWillBeAutoreviewed( $editPage ) ) {
-			return false; // edit will be autoreviewed anyway
-		}
-		return true; // edit needs review
+		return $this->article->editsRequireReview() && !$this->editWillBeAutoreviewed( $editPage );
 	}
 
 	/**

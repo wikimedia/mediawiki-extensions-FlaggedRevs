@@ -222,11 +222,8 @@ class FlaggedRevs {
 		}
 		$restrictions = $wgFlaggedRevsTagsRestrictions[self::getTagName()] ?? [];
 		# No restrictions -> full access
-		if ( !$restrictions ) {
-			return true;
-		}
 		# Validators always have full access
-		if ( $pm->userHasRight( $user, 'validate' ) ) {
+		if ( !$restrictions || $pm->userHasRight( $user, 'validate' ) ) {
 			return true;
 		}
 		# Check if this user has any right that lets him/her set
