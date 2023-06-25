@@ -194,15 +194,15 @@ class FRUserCounters {
 	/**
 	 * Update users params array for a user on edit
 	 * @param array &$p user params
-	 * @param WikiPage $wikiPage the article just edited
+	 * @param Title $title the article just edited
 	 * @param string $summary edit summary
 	 * @return bool anything changed
 	 */
-	public static function updateUserParams( array &$p, WikiPage $wikiPage, $summary ) {
+	public static function updateUserParams( array &$p, Title $title, $summary ) {
 		global $wgFlaggedRevsAutoconfirm, $wgFlaggedRevsAutopromote;
 		# Update any special counters for non-null revisions
 		$changed = false;
-		if ( $wikiPage->getTitle()->isContentPage() ) {
+		if ( $title->isContentPage() ) {
 			$pages = $p['uniqueContentPages']; // page IDs
 			# Don't let this get bloated for no reason
 			$maxUniquePages = 50; // some flexibility
@@ -217,10 +217,10 @@ class FRUserCounters {
 				$maxUniquePages = $wgFlaggedRevsAutopromote['uniqueContentPages'];
 			}
 			if ( count( $pages ) < $maxUniquePages // limit the size of this
-				&& $wikiPage->getId()
-				&& !in_array( $wikiPage->getId(), $pages )
+				&& $title->getId()
+				&& !in_array( $title->getId(), $pages )
 			) {
-				$pages[] = $wikiPage->getId();
+				$pages[] = $title->getId();
 				$p['uniqueContentPages'] = $pages;
 			}
 			$p['totalContentEdits'] += 1;

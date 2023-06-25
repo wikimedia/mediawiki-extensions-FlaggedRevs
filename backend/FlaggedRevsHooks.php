@@ -1128,7 +1128,7 @@ class FlaggedRevsHooks {
 		$userId = $userIdentity->getId();
 		DeferredUpdates::addCallableUpdate( static function () use ( $userId, $wikiPage, $summary ) {
 			$p = FRUserCounters::getUserParams( $userId, FR_FOR_UPDATE );
-			$changed = FRUserCounters::updateUserParams( $p, $wikiPage, $summary );
+			$changed = FRUserCounters::updateUserParams( $p, $wikiPage->getTitle(), $summary );
 			if ( $changed ) {
 				FRUserCounters::saveUserParams( $userId, $p ); // save any updates
 			}

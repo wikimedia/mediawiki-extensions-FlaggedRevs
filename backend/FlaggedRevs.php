@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Page\PageIdentity;
 use MediaWiki\Revision\RenderedRevision;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
@@ -425,7 +426,7 @@ class FlaggedRevs {
 
 	/**
 	 * Update the page tables with a new stable version.
-	 * @param WikiPage|Title $page
+	 * @param FlaggableWikiPage|PageIdentity $page
 	 * @param FlaggedRevision|null $sv the new stable version (optional)
 	 * @param FlaggedRevision|null $oldSv the old stable version (optional)
 	 * @param RenderedRevision|null $renderedRevision (optional)
@@ -434,15 +435,12 @@ class FlaggedRevs {
 	public static function stableVersionUpdates(
 		object $page, $sv = null, $oldSv = null, $renderedRevision = null
 	) {
-		/** @var FlaggableWikiPage $article */
 		if ( $page instanceof FlaggableWikiPage ) {
 			$article = $page;
-		} elseif ( $page instanceof WikiPage ) {
-			$article = FlaggableWikiPage::getTitleInstance( $page->getTitle() );
-		} elseif ( $page instanceof Title ) {
+		} elseif ( $page instanceof PageIdentity ) {
 			$article = FlaggableWikiPage::getTitleInstance( $page );
 		} else {
-			throw new InvalidArgumentException( "First argument must be a Title or WikiPage." );
+			throw new InvalidArgumentException( "First argument should be a PageIdentity." );
 		}
 		if ( !$article->isReviewable() ) {
 			return false;

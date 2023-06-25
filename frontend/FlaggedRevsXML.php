@@ -341,18 +341,18 @@ class FlaggedRevsXML {
 	}
 
 	/**
-	 * @param WikiPage|Article $article
+	 * @param Title $title
 	 * @return string
 	 * Creates a stability log excerpt
 	 */
-	public static function stabilityLogExcerpt( $article ) {
+	public static function stabilityLogExcerpt( Title $title ) {
 		$logHtml = '';
 		$params = [
 			'lim'   => 1,
 			'flags' => LogEventsList::NO_EXTRA_USER_LINKS
 		];
 		LogEventsList::showLogExtract( $logHtml, 'stable',
-			$article->getTitle()->getPrefixedText(), '', $params );
+			$title->getPrefixedText(), '', $params );
 		return Html::rawElement(
 			'div',
 			[ 'id' => 'mw-fr-logexcerpt' ],
