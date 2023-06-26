@@ -1,9 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Growingup"
+			"Growingup",
+			"Bosogo"
 		]
 	},
+	"editor": "Түзөтүүчү",
+	"group-editor": "Түзөтүүчүлөр",
+	"group-editor-member": "{{GENDER:$1|түзөтүүчү}}",
 	"revreview-style-2": "Жакшы",
 	"revreview-toggle-show": "(+)",
 	"revreview-toggle-hide": "(-)",
