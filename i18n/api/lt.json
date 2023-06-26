@@ -9,7 +9,6 @@
 	"apihelp-query+configuredpages-param-limit": "Kiek puslapių iš viso gražinti.",
 	"apihelp-query+oldreviewedpages-param-limit": "Kiek puslapių iš viso gražinti.",
 	"apihelp-query+unreviewedpages-param-dir": "Rūšiavimo kryptis.",
-	"apihelp-stabilize-description-general": "Keisti puslapio stabilumo nustatymus.",
 	"apihelp-stabilize-param-reason": "Priežastis.",
 	"apihelp-stabilize-param-expiry-general": "Šių nustatymų pabaiga.",
 	"apihelp-stabilize-param-title-general": "Stabilizuojamo puslapio pavadinimas.",

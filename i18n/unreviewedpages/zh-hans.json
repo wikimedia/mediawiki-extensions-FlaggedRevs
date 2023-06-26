@@ -8,6 +8,7 @@
 			"Impersonator 1",
 			"Mywood",
 			"PhiLiP",
+			"U.T.",
 			"Xiaomingyan",
 			"阿pp"
 		]
@@ -15,6 +16,7 @@
 	"unreviewedpages": "未复核页面",
 	"unreviewedpages-legend": "未复核内容页面列表",
 	"unreviewedpages-category": "分类：",
+	"unreviewedpages-showhide-redirect": "$1重定向",
 	"unreviewedpages-diff": "复核",
 	"unreviewedpages-unwatched": "（未被监视）",
 	"unreviewedpages-watched": "（$1位活跃{{PLURAL:$1|用户|用户}}正在监视）",

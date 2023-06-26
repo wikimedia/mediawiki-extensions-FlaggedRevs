@@ -7,7 +7,6 @@
 	},
 	"apihelp-query+configuredpages-param-autoreview": "査読/自動査読の制限レベル。",
 	"apihelp-query+unreviewedpages-example-1": "未査読ページの一覧の閲覧",
-	"apihelp-stabilize-description-protect": "ページ対象の査読保護の設定を設定する。",
 	"apihelp-stabilize-param-expiry-protect": "設定保護が解除されました。",
 	"apihelp-stabilize-param-review": "このページを査読する。",
 	"apihelp-stabilize-param-protectlevel": "査読保護のレベル。",

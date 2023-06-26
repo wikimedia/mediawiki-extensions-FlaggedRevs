@@ -10,7 +10,6 @@
 	"apihelp-query+unreviewedpages-param-dir": "Smer sortiranja.",
 	"apihelp-query+unreviewedpages-param-filterredir": "Kako da filtrirate preusmerenja.",
 	"apihelp-query+unreviewedpages-example-1": "Prikaži spisak neproverenih stranica",
-	"apihelp-review-description": "Proverite izmenu odobravanjem ili odbijanjem iste.",
 	"apihelp-review-summary": "Proverite izmenu odobravanjem ili odbijanjem iste.",
 	"apihelp-review-param-comment": "Komentar za proveru",
 	"apihelp-review-example-1": "Odobri izmenu 12345 sa komentarom „U redu”",
