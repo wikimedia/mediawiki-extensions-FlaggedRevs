@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Growingup"
+			"Growingup",
+			"Bosogo"
 		]
 	},
 	"validationstatistics-ns": "Ат мейкиндиги",
 	"validationstatistics-total": "Барак",
-	"validationstatistics-user": "Катышуучу",
+	"validationstatistics-user": "Колдонуучу",
 	"validationstatistics-reviews": "Текшерүүлөр"
 }
