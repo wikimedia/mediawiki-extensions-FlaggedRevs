@@ -11,7 +11,9 @@ class FlaggedRevsParserCache {
 	private $stableParserCache;
 
 	/**
-	 * Instantiate this class using $services->getService( 'FlaggedRevsParserCache' )
+	 * Instantiate this class using one of:
+	 * * $services->getService( 'FlaggedRevsParserCache' )
+	 * * $services->getService( 'FlaggedRevsParsoidParserCache' )
 	 *
 	 * @param ParserCache $stableParserCache
 	 */

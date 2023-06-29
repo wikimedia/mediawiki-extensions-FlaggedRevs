@@ -528,6 +528,30 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
+	 * @param User $reqUser
+	 * @return ParserOptions
+	 */
+	private function makeParserOptions( User $reqUser ): ParserOptions {
+		$parserOptions = $this->article->makeParserOptions( $reqUser );
+
+		// This is a temporary (for a year or two) option needed for testing Parsoid
+		// and will go away once Parsoid read views are rolled out.
+		//
+		// T335157: Enable Parsoid Read Views for articles as an experimental
+		// feature; this is primarily used for internal testing at this time.
+		$queryEnable = $this->getRequest()->getRawVal( 'useparsoid' );
+		if (
+			$queryEnable &&
+			// Allow disabling via config change to manage parser cache usage
+			RequestContext::getMain()->getConfig()->get( 'ParsoidEnableQueryString' )
+		) {
+			$parserOptions->setUseParsoid();
+		}
+
+		return $parserOptions;
+	}
+
+	/**
 	 * Tag output function must be called by caller
 	 * Parser cache control deferred to caller
 	 * @param FlaggedRevision $frev selected flagged revision
@@ -571,7 +595,7 @@ class FlaggablePageView extends ContextSource {
 		}
 
 		# Generate the uncached parser output for this old reviewed version
-		$parserOptions = $this->article->makeParserOptions( $reqUser );
+		$parserOptions = $this->makeParserOptions( $reqUser );
 		$parserOut = FlaggedRevs::parseStableRevision( $frev, $parserOptions );
 		if ( !$parserOut ) {
 			return null;
@@ -640,10 +664,9 @@ class FlaggablePageView extends ContextSource {
 		}
 
 		// TODO: Rewrite to use ParserOutputAccess
-		# Check the stable version cache for the parser output
-		/** @var FlaggedRevsParserCache $stableParserCache */
-		$stableParserCache = MediaWikiServices::getInstance()->getService( 'FlaggedRevsParserCache' );
-		$parserOptions = $this->article->makeParserOptions( $reqUser );
+		$parserOptions = $this->makeParserOptions( $reqUser );
+		$stableParserCache = FlaggedRevs::getParserCacheInstance( $parserOptions );
+		// Check the stable version cache for the parser output
 		$parserOut = $stableParserCache->get( $this->article, $parserOptions );
 
 		if ( !$parserOut ) {

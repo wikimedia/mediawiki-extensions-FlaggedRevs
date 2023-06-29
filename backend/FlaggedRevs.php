@@ -24,6 +24,7 @@ class FlaggedRevs {
 	 * @deprecated 1.39
 	 */
 	public const PARSER_CACHE_NAME = 'stable-pcache';
+	public const PARSOID_PARSER_CACHE_NAME = 'stable-parsoid-pcache';
 
 	/** @var array<int,string>|null */
 	private static $dimensions = null;
@@ -302,6 +303,17 @@ class FlaggedRevs {
 	# ################ Parsing functions #################
 
 	/**
+	 * @param ParserOptions $pOpts
+	 * @return FlaggedRevsParserCache
+	 */
+	public static function getParserCacheInstance( ParserOptions $pOpts ): FlaggedRevsParserCache {
+		$cacheName = $pOpts->getUseParsoid() ? 'FlaggedRevsParsoidParserCache' : 'FlaggedRevsParserCache';
+		/** @var FlaggedRevsParserCache $cache */
+		$cache = MediaWikiServices::getInstance()->getService( $cacheName );
+		return $cache;
+	}
+
+	/**
 	 * Get the HTML output of a revision, using PoolCounter in the process
 	 *
 	 * @param FlaggedRevision $frev
@@ -314,8 +326,7 @@ class FlaggedRevs {
 	) {
 		$services = MediaWikiServices::getInstance();
 		$page = $services->getWikiPageFactory()->newFromTitle( $frev->getTitle() );
-		/** @var FlaggedRevsParserCache $stableParserCache */
-		$stableParserCache = $services->getService( 'FlaggedRevsParserCache' );
+		$stableParserCache = self::getParserCacheInstance( $pOpts );
 		$keyPrefix = $stableParserCache->makeKey( $page, $pOpts );
 
 		$work = new PoolCounterWorkViaCallback(
