@@ -5,12 +5,13 @@
 			"Jiang123aa",
 			"Liuxinyu970226",
 			"Xiplus",
-			"Yfdyh000"
+			"Yfdyh000",
+			"U.T."
 		]
 	},
 	"apihelp-flagconfig-description": "获取有关此网站复核标记配置的信息。\n\n为每个标记返回以下参数：\n;name：此标签的键名。\n;levels：标签拥有的级别数（“未标记”以上）。\n为每个标签标记有分配级别的修订。所有标签都满足的最高等级是实体修订的复核等级。",
 	"apihelp-flagconfig-summary": "获取有关此网站复核标记配置的信息。",
-	"apihelp-flagconfig-extended-description": "为每个标记返回以下参数：\n;name:此标签的键名。\n;levels:标签拥有的级别数（“未标记”以上）。\n;tier2:标签必须触及等级2（优良）修订的级别。\n;tier3:标签必须触及等级3（原始）修订的级别。\n为每个标签标记有分配级别的修订。所有标签都满足的最高等级是实体修订的复核等级。",
+	"apihelp-flagconfig-extended-description": "为每个标记返回以下参数：\n;name:此标签的键名。\n;levels:标签拥有的级别数（“未标记”以上）。\n为每个标签标记有分配级别的修订。所有标签都满足的最高等级是实体修订的复核等级。",
 	"apihelp-flagconfig-example-1": "取得标记配置",
 	"apihelp-query+configuredpages-description": "列举所有拥有自定义复核配置的页面。",
 	"apihelp-query+configuredpages-summary": "列举所有拥有自定义复核配置的页面。",
