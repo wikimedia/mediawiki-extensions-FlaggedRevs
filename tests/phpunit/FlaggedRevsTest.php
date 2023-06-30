@@ -1,7 +1,5 @@
 <?php
 
-use Wikimedia\TestingAccessWrapper;
-
 /**
  * @covers \FlaggedRevs
  */
@@ -25,14 +23,8 @@ class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testGetLevels( array $revsTags, array $expected ) {
 		$this->setMwGlobals( [
-			'wgExtensionFunctions' => [],
-			'wgFlaggedRevsProtection' => false,
 			'wgFlaggedRevsTags' => $revsTags,
 		] );
-
-		/** @var FlaggedRevs $staticAccess */
-		$staticAccess = TestingAccessWrapper::newFromClass( FlaggedRevs::class );
-		$staticAccess->dimensions = null;
 
 		$this->assertSame( $expected, FlaggedRevs::getLevels() );
 		$this->assertSame( count( $expected ) - 1, FlaggedRevs::getMaxLevel() );

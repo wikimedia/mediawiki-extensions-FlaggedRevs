@@ -27,13 +27,6 @@ class FlaggedRevs {
 	public const PARSER_CACHE_NAME = 'stable-pcache';
 	public const PARSOID_PARSER_CACHE_NAME = 'stable-parsoid-pcache';
 
-	/** @var array<int,string>|null */
-	private static $dimensions = null;
-	/** @var int[]|null Namespace config, copy of $wgFlaggedRevsNamespaces */
-	private static $reviewNamespaces = null;
-	/** @var string[]|null */
-	private static $restrictionLevels = null;
-
 	# ################ Basic config accessors #################
 
 	/**
@@ -130,22 +123,20 @@ class FlaggedRevs {
 	 * Are there site defined protection levels for review
 	 * @return bool
 	 */
-	public static function useProtectionLevels() {
-		global $wgFlaggedRevsProtection;
-		return $wgFlaggedRevsProtection && self::getRestrictionLevels();
+	public static function useProtectionLevels(): bool {
+		return self::useOnlyIfProtected() && self::getRestrictionLevels();
 	}
 
 	/**
 	 * Get the autoreview restriction levels available
 	 * @return string[] Value from $wgFlaggedRevsRestrictionLevels
 	 */
-	public static function getRestrictionLevels() {
+	public static function getRestrictionLevels(): array {
 		global $wgFlaggedRevsRestrictionLevels;
-		if ( self::$restrictionLevels === null ) {
-			# Make sure that the restriction levels are unique
-			self::$restrictionLevels = array_filter( array_unique( $wgFlaggedRevsRestrictionLevels ) );
+		if ( in_array( '', $wgFlaggedRevsRestrictionLevels ) ) {
+			throw new ConfigException( 'Invalid empty value in $wgFlaggedRevsRestrictionLevels' );
 		}
-		return self::$restrictionLevels;
+		return $wgFlaggedRevsRestrictionLevels;
 	}
 
 	/**
@@ -160,16 +151,14 @@ class FlaggedRevs {
 	 * Get the array of levels messages
 	 * @return array<int,string>
 	 */
-	public static function getLevels() {
-		if ( self::$dimensions === null ) {
-			self::$dimensions = [];
-			$tag = self::getTagName();
-			$ratingLevels = self::getMaxLevel();
-			for ( $i = 0; $i <= $ratingLevels; $i++ ) {
-				self::$dimensions[$i] = "$tag-$i";
-			}
+	public static function getLevels(): array {
+		$dimensions = [];
+		$tag = self::getTagName();
+		$ratingLevels = self::getMaxLevel();
+		for ( $i = 0; $i <= $ratingLevels; $i++ ) {
+			$dimensions[] = "$tag-$i";
 		}
-		return self::$dimensions;
+		return $dimensions;
 	}
 
 	# ################ Permission functions #################
@@ -632,9 +621,10 @@ class FlaggedRevs {
 	 * Get the list of reviewable namespaces
 	 * @return int[] Value from $wgFlaggedRevsNamespaces
 	 */
-	public static function getReviewNamespaces() {
+	public static function getReviewNamespaces(): array {
 		global $wgFlaggedRevsNamespaces;
-		if ( self::$reviewNamespaces === null ) {
+		static $validated = false;
+		if ( !$validated ) {
 			$namespaceInfo = MediaWikiServices::getInstance()->getNamespaceInfo();
 			foreach ( $wgFlaggedRevsNamespaces as $ns ) {
 				if ( $namespaceInfo->isTalk( $ns ) ) {
@@ -643,9 +633,9 @@ class FlaggedRevs {
 					throw new ConfigException( 'FlaggedRevs given NS_MEDIAWIKI in $wgFlaggedRevsNamespaces!' );
 				}
 			}
-			self::$reviewNamespaces = $wgFlaggedRevsNamespaces;
+			$validated = true;
 		}
-		return self::$reviewNamespaces;
+		return $wgFlaggedRevsNamespaces;
 	}
 
 	/**
