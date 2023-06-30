@@ -15,8 +15,8 @@ class FRInclusionCache {
 	 * @param RevisionRecord $revRecord
 	 * @param User $user
 	 * @param string $regen use 'regen' to force regeneration
-	 * @return array[] [ templateIds ], where
-	 *  - templateIds is an int[][] array, {@see ParserOutput::$mTemplateIds} or
+	 * @return array<int,array<string,int>>[] [ templateIds ], where
+	 *  - templateIds is an array<int,array<string,int>> array, {@see ParserOutput::$mTemplateIds} or
 	 *    {@see OutputPage::$mTemplateIds}
 	 */
 	public static function getRevIncludes(

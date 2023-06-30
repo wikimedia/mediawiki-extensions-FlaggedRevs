@@ -638,7 +638,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 	/**
 	 * Get template parameters from parser output to use on forms.
-	 * @param int[][] $templateIds {@see ParserOutput::$mTemplateIds} or
+	 * @param array<int,array<string,int>> $templateIds {@see ParserOutput::$mTemplateIds} or
 	 *  {@see OutputPage::$mTemplateIds}
 	 * @return string templateParams
 	 */

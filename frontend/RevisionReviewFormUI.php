@@ -17,7 +17,7 @@ class RevisionReviewFormUI {
 	private $topNotice = '';
 	/** @var string */
 	private $bottomNotice = '';
-	/** @var int[][]|null */
+	/** @var array<int,array<string,int>>|null */
 	private $templateIds = null;
 	/** @var WebRequest */
 	private $request;
@@ -74,7 +74,7 @@ class RevisionReviewFormUI {
 
 	/**
 	 * Set the template version parameters of what the user is viewing
-	 * @param int[][] $templateIds
+	 * @param array<int,array<string,int>> $templateIds
 	 */
 	public function setIncludeVersions( array $templateIds ) {
 		$this->templateIds = $templateIds;
@@ -415,7 +415,7 @@ class RevisionReviewFormUI {
 	}
 
 	/**
-	 * @return array[]
+	 * @return array<int,array<string,int>>
 	 */
 	private function getIncludeVersions() {
 		if ( $this->templateIds === null ) {
