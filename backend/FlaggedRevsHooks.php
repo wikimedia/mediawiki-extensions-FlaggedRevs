@@ -60,9 +60,11 @@ class FlaggedRevsHooks {
 
 	/**
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/MediaWikiServices
+	 *
+	 * @param MediaWikiServices $services
 	 */
-	public static function onMediaWikiServices() {
-		( new FlaggedRevsSetup() )->doSetup();
+	public static function onMediaWikiServices( $services ) {
+		( new FlaggedRevsSetup( $services->getMainConfig() ) )->doSetup();
 	}
 
 	/**
