@@ -303,8 +303,8 @@ class Stabilization extends UnlistedSpecialPage {
 	 */
 	private function buildSelector( $selected ) {
 		$allowedLevels = [];
-		$levels = FlaggedRevs::getRestrictionLevels();
-		array_unshift( $levels, '' ); // Add a "none" level
+		// Add a "none" level
+		$levels = [ '', ...FlaggedRevs::getRestrictionLevels() ];
 		foreach ( $levels as $key ) {
 			# Don't let them choose levels they can't set,
 			# but *show* them all when the form is disabled.

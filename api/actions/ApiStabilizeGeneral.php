@@ -88,8 +88,7 @@ class ApiStabilizeGeneral extends ApiStabilize {
 	 */
 	protected function getAllowedParams() {
 		// Replace '' with more readable 'none' in autoreview restiction levels
-		$autoreviewLevels = FlaggedRevs::getRestrictionLevels();
-		$autoreviewLevels[] = 'none';
+		$autoreviewLevels = [ ...FlaggedRevs::getRestrictionLevels(), 'none' ];
 		$pars = [
 			'default' => [
 				ParamValidator::PARAM_REQUIRED => true,

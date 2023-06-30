@@ -996,10 +996,8 @@ class FlaggedRevsUIHooks {
 		}
 
 		# Get and add restriction levels to an array
-		$effectiveLevels = FlaggedRevs::getRestrictionLevels();
+		$effectiveLevels = [ 'none', ...FlaggedRevs::getRestrictionLevels() ];
 		$options = [];
-
-		array_unshift( $effectiveLevels, 'none' );
 		foreach ( $effectiveLevels as $limit ) {
 			$msg = $context->msg( 'flaggedrevs-protect-' . $limit );
 			// Default to the key itself if no UI message

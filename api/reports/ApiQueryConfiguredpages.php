@@ -155,8 +155,7 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 	 */
 	protected function getAllowedParams() {
 		// Replace '' with more readable 'none' in autoreview restiction levels
-		$autoreviewLevels = FlaggedRevs::getRestrictionLevels();
-		$autoreviewLevels[] = 'none';
+		$autoreviewLevels = [ ...FlaggedRevs::getRestrictionLevels(), 'none' ];
 		return [
 			'start' => [
 				ParamValidator::PARAM_TYPE => 'integer'
