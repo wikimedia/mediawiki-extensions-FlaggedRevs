@@ -275,7 +275,7 @@ class RevisionReview extends UnlistedSpecialPage {
 					}
 					break;
 				case "wpReason":
-					$form->setComment( $val );
+					$form->setComment( $val ?? '' );
 					break;
 				case "changetime":
 					$form->setLastChangeTime( $val );
