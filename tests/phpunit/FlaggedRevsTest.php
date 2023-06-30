@@ -23,7 +23,7 @@ class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * @dataProvider provideGetLevels
 	 */
-	public function testGetLevels( $revsTags, $expected ) {
+	public function testGetLevels( array $revsTags, array $expected ) {
 		$this->setMwGlobals( [
 			'wgExtensionFunctions' => [],
 			'wgFlaggedRevsProtection' => false,
