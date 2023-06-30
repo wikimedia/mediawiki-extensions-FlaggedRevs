@@ -241,7 +241,7 @@ class FlaggedRevision {
 	/**
 	 * Insert a FlaggedRevision object into the database
 	 *
-	 * @return bool success
+	 * @return true|string true on success, error string on failure
 	 */
 	public function insert() {
 		$dbw = wfGetDB( DB_PRIMARY );
@@ -264,8 +264,10 @@ class FlaggedRevision {
 			}
 		}
 		# Sanity check for partial revisions
-		if ( !$this->getPage() || !$this->getRevId() ) {
-			return false; // bogus entry
+		if ( !$this->getPage() ) {
+			return 'no page id';
+		} elseif ( !$this->getRevId() ) {
+			return 'no revision id';
 		}
 		# Our new review entry
 		$revRow = [
@@ -281,7 +283,7 @@ class FlaggedRevision {
 		# Update the main flagged revisions table...
 		$dbw->insert( 'flaggedrevs', $revRow, __METHOD__, [ 'IGNORE' ] );
 		if ( !$dbw->affectedRows() ) {
-			return false; // duplicate review
+			return 'duplicate review';
 		}
 		# ...and insert template version data
 		if ( $tmpInsertRows ) {

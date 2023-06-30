@@ -499,11 +499,12 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			$oldFrev->delete();
 		}
 		# Insert the new review entry...
-		if ( !$flaggedRevision->insert() ) {
+		$status = $flaggedRevision->insert();
+		if ( $status !== true ) {
 			throw new UnexpectedValueException(
 				'Flagged revision with ID ' .
 				(string)$revRecord->getId() .
-				' exists with unexpected fr_page_id'
+				' exists with unexpected fr_page_id, error: ' . $status
 			);
 		}
 
