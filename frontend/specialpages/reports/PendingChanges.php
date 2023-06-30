@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Feed\FeedItem;
+use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 
 class PendingChanges extends SpecialPage {
@@ -92,7 +93,7 @@ class PendingChanges extends SpecialPage {
 
 		$form = Html::openElement( 'form', [
 			'name' => 'pendingchanges',
-			'action' => $this->getConfig()->get( 'Script' ),
+			'action' => $this->getConfig()->get( MainConfigNames::Script ),
 			'method' => 'get',
 		] ) . "\n";
 		$form .= "<fieldset><legend>" . $this->msg( 'pendingchanges-legend' )->escaped() . "</legend>\n";
@@ -189,12 +190,12 @@ class PendingChanges extends SpecialPage {
 	 * @param string $type
 	 */
 	private function feed( $type ) {
-		if ( !$this->getConfig()->get( 'Feed' ) ) {
+		if ( !$this->getConfig()->get( MainConfigNames::Feed ) ) {
 			$this->getOutput()->addWikiMsg( 'feed-unavailable' );
 			return;
 		}
 
-		$feedClasses = $this->getConfig()->get( 'FeedClasses' );
+		$feedClasses = $this->getConfig()->get( MainConfigNames::FeedClasses );
 		if ( !isset( $feedClasses[$type] ) ) {
 			$this->getOutput()->addWikiMsg( 'feed-invalid' );
 			return;
@@ -205,7 +206,7 @@ class PendingChanges extends SpecialPage {
 			$this->msg( 'tagline' )->text(),
 			$this->getPageTitle()->getFullURL()
 		);
-		$this->pager->mLimit = min( $this->getConfig()->get( 'FeedLimit' ), $this->pager->mLimit );
+		$this->pager->mLimit = min( $this->getConfig()->get( MainConfigNames::FeedLimit ), $this->pager->mLimit );
 
 		$feed->outHeader();
 		if ( $this->pager->getNumRows() > 0 ) {
@@ -217,8 +218,8 @@ class PendingChanges extends SpecialPage {
 	}
 
 	private function feedTitle() {
-		$languageCode = $this->getConfig()->get( 'LanguageCode' );
-		$sitename = $this->getConfig()->get( 'Sitename' );
+		$languageCode = $this->getConfig()->get( MainConfigNames::LanguageCode );
+		$sitename = $this->getConfig()->get( MainConfigNames::Sitename );
 
 		$page = MediaWikiServices::getInstance()->getSpecialPageFactory()
 			->getPage( 'PendingChanges' );

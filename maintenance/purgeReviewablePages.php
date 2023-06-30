@@ -3,6 +3,7 @@
  * @ingroup Maintenance
  */
 
+use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
@@ -56,13 +57,13 @@ class PurgeReviewablePages extends Maintenance {
 	 * @param resource $fileHandle
 	 */
 	private function listReviewablePages( $fileHandle ) {
-		global $wgFlaggedRevsNamespaces, $wgUseCdn, $wgUseFileCache;
-
 		$this->output( "Building list of all reviewable pages to purge ...\n" );
-		if ( !$wgUseCdn && !$wgUseFileCache ) {
+		$config = $this->getConfig();
+		$reviewNamespaces = $config->get( 'FlaggedRevsNamespaces' );
+		if ( !$config->get( MainConfigNames::UseCdn ) && !$config->get( MainConfigNames::UseFileCache ) ) {
 			$this->output( "CDN/file cache not enabled ... nothing to purge.\n" );
 			return;
-		} elseif ( !$wgFlaggedRevsNamespaces ) {
+		} elseif ( !$reviewNamespaces ) {
 			$this->output( "There are no reviewable namespaces ... nothing to purge.\n" );
 			return;
 		}
@@ -88,7 +89,8 @@ class PurgeReviewablePages extends Maintenance {
 			$res = $db->select( 'page', '*',
 				[
 					"page_id BETWEEN $blockStart AND $blockEnd",
-					'page_namespace' => $wgFlaggedRevsNamespaces ],
+					'page_namespace' => $reviewNamespaces,
+				],
 				__METHOD__
 			);
 			# Go through and append each purgeable page...
@@ -112,9 +114,9 @@ class PurgeReviewablePages extends Maintenance {
 	 * @param resource $fileHandle
 	 */
 	private function purgeReviewablePages( $fileHandle ) {
-		global $wgUseCdn, $wgUseFileCache;
 		$this->output( "Purging CDN cache for list of pages to purge ...\n" );
-		if ( !$wgUseCdn && !$wgUseFileCache ) {
+		$config = $this->getConfig();
+		if ( !$config->get( MainConfigNames::UseCdn ) && !$config->get( MainConfigNames::UseFileCache ) ) {
 			$this->output( "CDN/file cache not enabled ... nothing to purge.\n" );
 			return;
 		}
