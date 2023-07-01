@@ -2,6 +2,7 @@
 
 use MediaWiki\Cache\CacheKeyHelper;
 use MediaWiki\EditPage\EditPage;
+use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Revision\RevisionRecord;
@@ -1419,7 +1420,7 @@ class FlaggablePageView extends ContextSource {
 					$cache->set(
 						$cache->makeKey( 'flaggedrevs-includes-synced', $this->article->getId() ),
 						1,
-						$this->getConfig()->get( 'ParserCacheExpireTime' )
+						$this->getConfig()->get( MainConfigNames::ParserCacheExpireTime )
 					);
 				}
 			# Otherwise, check for includes pending on top of edits pending...

@@ -28,9 +28,7 @@ class FlagProtectToSemiProtect extends Maintenance {
 	 * @inheritDoc
 	 */
 	public function execute() {
-		global $wgFlaggedRevsProtection;
-
-		if ( !$wgFlaggedRevsProtection ) {
+		if ( !$this->getConfig()->get( 'FlaggedRevsProtection' ) ) {
 			$this->output( "\$wgFlaggedRevsProtection not enabled.\n" );
 			return;
 		}
@@ -54,10 +52,9 @@ class FlagProtectToSemiProtect extends Maintenance {
 	 * @param string $reason
 	 */
 	private function flagToSemiProtect( User $user, $reason ) {
-		global $wgFlaggedRevsNamespaces;
-
 		$this->output( "Semi-protecting all flag-protected pages...\n" );
-		if ( !$wgFlaggedRevsNamespaces ) {
+		$reviewNamespaces = $this->getConfig()->get( 'FlaggedRevsNamespaces' );
+		if ( !$reviewNamespaces ) {
 			$this->output( "\$wgFlaggedRevsNamespaces is empty.\n" );
 			return;
 		}
@@ -86,7 +83,7 @@ class FlagProtectToSemiProtect extends Maintenance {
 				[ 'flaggedpage_config', 'page' ],
 				[ 'fpc_page_id', 'fpc_level', 'fpc_expiry' ],
 				[ "fpc_page_id BETWEEN $blockStart AND $blockEnd",
-					'page_namespace' => $wgFlaggedRevsNamespaces,
+					'page_namespace' => $reviewNamespaces,
 					'page_id = fpc_page_id',
 					'fpc_level != ' . $db->addQuotes( '' ) ],
 				__METHOD__

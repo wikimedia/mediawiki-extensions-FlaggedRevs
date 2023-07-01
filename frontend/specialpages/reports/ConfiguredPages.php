@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MainConfigNames;
+
 // Assumes $wgFlaggedRevsProtection is off
 class ConfiguredPages extends SpecialPage {
 	/** @var ConfiguredPagesPager|null */
@@ -57,7 +59,7 @@ class ConfiguredPages extends SpecialPage {
 
 		$form = Html::openElement( 'form', [
 			'name' => 'configuredpages',
-			'action' => $this->getConfig()->get( 'Script' ),
+			'action' => $this->getConfig()->get( MainConfigNames::Script ),
 			'method' => 'get',
 		] );
 		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBkey() );

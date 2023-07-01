@@ -25,7 +25,6 @@ class UpdateFRAutoPromote extends Maintenance {
 	 * @inheritDoc
 	 */
 	public function execute() {
-		global $wgFlaggedRevsAutopromote;
 		$this->output( "Populating and updating flaggedrevs_promote table\n" );
 
 		$services = MediaWikiServices::getInstance();
@@ -46,6 +45,7 @@ class UpdateFRAutoPromote extends Maintenance {
 
 		$lbFactory = $services->getDBLoadBalancerFactory();
 		$contentNamespaces = $services->getNamespaceInfo()->getContentNamespaces();
+		$autopromote = $this->getConfig()->get( 'FlaggedRevsAutopromote' );
 
 		for ( $blockStart = (int)$start; $blockStart <= $end; $blockStart += (int)$this->mBatchSize ) {
 			$blockEnd = (int)min( $end, $blockStart + $this->mBatchSize - 1 );
@@ -69,7 +69,7 @@ class UpdateFRAutoPromote extends Maintenance {
 						$commentQuery['fields']['rev_comment_text'] . " NOT LIKE '/*%*/'", // manual comments only
 					],
 					__METHOD__,
-					[ 'LIMIT' => max( $wgFlaggedRevsAutopromote['editComments'], 500 ) ],
+					[ 'LIMIT' => max( $autopromote['editComments'], 500 ) ],
 					$commentQuery['joins']
 				);
 				$p['editComments'] = $sres->numRows();
@@ -81,7 +81,7 @@ class UpdateFRAutoPromote extends Maintenance {
 						$revWhere['conds'],
 						'page_namespace' => $contentNamespaces ],
 					__METHOD__,
-					[ 'LIMIT' => max( $wgFlaggedRevsAutopromote['totalContentEdits'], 500 ) ],
+					[ 'LIMIT' => max( $autopromote['totalContentEdits'], 500 ) ],
 					$revPageQuery['joins']
 				);
 				$p['totalContentEdits'] = $sres->numRows();
@@ -93,7 +93,7 @@ class UpdateFRAutoPromote extends Maintenance {
 						$revWhere['conds'],
 						'page_namespace' => $contentNamespaces ],
 					__METHOD__,
-					[ 'LIMIT' => max( $wgFlaggedRevsAutopromote['uniqueContentPages'], 50 ) ],
+					[ 'LIMIT' => max( $autopromote['uniqueContentPages'], 50 ) ],
 					$revPageQuery['joins']
 				);
 				$p['uniqueContentPages'] = [];

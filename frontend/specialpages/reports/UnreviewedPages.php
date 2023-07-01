@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 
 class UnreviewedPages extends SpecialPage {
@@ -31,7 +32,7 @@ class UnreviewedPages extends SpecialPage {
 	public function execute( $par ) {
 		$request = $this->getRequest();
 
-		$this->isMiser = $this->getConfig()->get( 'MiserMode' );
+		$this->isMiser = $this->getConfig()->get( MainConfigNames::MiserMode );
 
 		$this->setHeaders();
 		$this->addHelpLink( 'Help:Extension:FlaggedRevs' );
@@ -80,7 +81,7 @@ class UnreviewedPages extends SpecialPage {
 		# Add form...
 		$form = Html::openElement( 'form', [
 			'name' => 'unreviewedpages',
-			'action' => $this->getConfig()->get( 'Script' ),
+			'action' => $this->getConfig()->get( MainConfigNames::Script ),
 			'method' => 'get',
 		] ) . "\n";
 		$form .= "<fieldset><legend>" . $this->msg( 'unreviewedpages-legend' )->escaped() . "</legend>\n";
