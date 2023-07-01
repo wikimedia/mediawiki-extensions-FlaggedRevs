@@ -13,26 +13,22 @@ use MediaWiki\Tests\Rest\Handler\HandlerTestTrait;
 class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 	use HandlerTestTrait;
 
-	private function newHandler() {
-		return new ReviewHandler();
-	}
-
 	protected function setUp(): void {
 		parent::setUp();
 		$this->setUserLang( 'qqx' );
 	}
 
-	private function createContext() {
+	private function createWebRequest(): WebRequest {
 		$user = $this->getTestUser( [ 'sysop', 'reviewer' ] )->getUser();
 
 		$context = RequestContext::getMain();
 		$context->setUser( $user );
 
-		return $context;
+		return $context->getRequest();
 	}
 
 	public function testWithAllParams() {
-		$context = $this->createContext();
+		$webRequest = $this->createWebRequest();
 		$page = $this->getExistingTestPage();
 
 		$oldid = $page->getLatest();
@@ -43,11 +39,11 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 		$wpApprove = 1;
 		$wpReason = 'wpReasonValue';
 		$changetime = null;
-		$csrf = new CsrfTokenSet( $context->getRequest() );
+		$csrf = new CsrfTokenSet( $webRequest );
 		$wpEditToken = $csrf->getToken( 'edit' )->toString();
 		$wpDimName = 'wp' . FlaggedRevs::getTagName();
 		$validatedParams = RevisionReviewForm::validationKey(
-			$templateParams, $oldid, $context->getRequest()->getSessionData( 'wsFlaggedRevsKey' )
+			$templateParams, $oldid, $webRequest->getSessionData( 'wsFlaggedRevsKey' )
 		);
 
 		$request = new RequestData( [
@@ -68,7 +64,7 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 				'Content-Type' => 'application/json',
 			],
 		] );
-		$handler = $this->newHandler();
+		$handler = new ReviewHandler();
 		$response = $this->executeHandler( $handler, $request );
 
 		$this->assertGreaterThanOrEqual( 200, $response->getStatusCode() );
@@ -80,18 +76,18 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testWithMinParams() {
-		$context = $this->createContext();
+		$webRequest = $this->createWebRequest();
 		$page = $this->getExistingTestPage();
 
 		$oldid = $page->getLatest();
 		$target = $page->getTitle()->getPrefixedDBkey();
 		$templateParams = 'templateParamsValue';
 		$wpApprove = 1;
-		$csrf = new CsrfTokenSet( $context->getRequest() );
+		$csrf = new CsrfTokenSet( $webRequest );
 		$wpEditToken = $csrf->getToken( 'edit' )->toString();
 		$wpDimName = 'wp' . FlaggedRevs::getTagName();
 		$validatedParams = RevisionReviewForm::validationKey(
-			$templateParams, $oldid, $context->getRequest()->getSessionData( 'wsFlaggedRevsKey' )
+			$templateParams, $oldid, $webRequest->getSessionData( 'wsFlaggedRevsKey' )
 		);
 
 		$request = new RequestData( [
@@ -109,7 +105,7 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 				'Content-Type' => 'application/json',
 			],
 		] );
-		$handler = $this->newHandler();
+		$handler = new ReviewHandler();
 		$response = $this->executeHandler( $handler, $request );
 
 		$this->assertGreaterThanOrEqual( 200, $response->getStatusCode() );
@@ -122,9 +118,9 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 
 	public function testWithNonexistingPage() {
 		$page = $this->getNonexistingTestPage();
-		$context = $this->createContext();
+		$webRequest = $this->createWebRequest();
 		$target = $page->getTitle()->getPrefixedDBkey();
-		$csrf = new CsrfTokenSet( $context->getRequest() );
+		$csrf = new CsrfTokenSet( $webRequest );
 		$wpEditToken = $csrf->getToken( 'edit' )->toString();
 		$wpDimName = 'wp' . FlaggedRevs::getTagName();
 
@@ -139,7 +135,7 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 				'Content-Type' => 'application/json',
 			],
 		] );
-		$handler = $this->newHandler();
+		$handler = new ReviewHandler();
 		$response = $this->executeHandler( $handler, $request );
 
 		$this->assertTrue(
@@ -152,7 +148,7 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testWithConfiguredAccuracyParams() {
-		$context = $this->createContext();
+		$webRequest = $this->createWebRequest();
 		$page = $this->getExistingTestPage();
 
 		$this->setMwGlobals( [
@@ -167,11 +163,11 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 		$wpApprove = 1;
 		$wpReason = 'wpReasonValue';
 		$changetime = null;
-		$csrf = new CsrfTokenSet( $context->getRequest() );
+		$csrf = new CsrfTokenSet( $webRequest );
 		$wpEditToken = $csrf->getToken( 'edit' )->toString();
 		$wpDimName = 'wp' . FlaggedRevs::getTagName();
 		$validatedParams = RevisionReviewForm::validationKey(
-			$templateParams, $oldid, $context->getRequest()->getSessionData( 'wsFlaggedRevsKey' )
+			$templateParams, $oldid, $webRequest->getSessionData( 'wsFlaggedRevsKey' )
 		);
 
 		$request = new RequestData( [
@@ -192,7 +188,7 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 				'Content-Type' => 'application/json',
 			],
 		] );
-		$handler = $this->newHandler();
+		$handler = new ReviewHandler();
 		$response = $this->executeHandler( $handler, $request );
 
 		$this->assertGreaterThanOrEqual( 200, $response->getStatusCode() );
