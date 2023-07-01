@@ -71,11 +71,8 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 		$handler = $this->newHandler();
 		$response = $this->executeHandler( $handler, $request );
 
-		$this->assertTrue(
-			$response->getStatusCode() >= 200 && $response->getStatusCode() < 300,
-			'Status should be in 2xx range.'
-		);
-
+		$this->assertGreaterThanOrEqual( 200, $response->getStatusCode() );
+		$this->assertLessThan( 300, $response->getStatusCode() );
 		$this->assertSame( 'application/json', $response->getHeaderLine( 'Content-Type' ) );
 
 		$assocFromResp = json_decode( $response->getBody()->getContents(), true );
@@ -115,11 +112,8 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 		$handler = $this->newHandler();
 		$response = $this->executeHandler( $handler, $request );
 
-		$this->assertTrue(
-			$response->getStatusCode() >= 200 && $response->getStatusCode() < 300,
-			'Status should be in 2xx range.'
-		);
-
+		$this->assertGreaterThanOrEqual( 200, $response->getStatusCode() );
+		$this->assertLessThan( 300, $response->getStatusCode() );
 		$this->assertSame( 'application/json', $response->getHeaderLine( 'Content-Type' ) );
 
 		$assocFromResp = json_decode( $response->getBody()->getContents(), true );
@@ -200,11 +194,9 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 		] );
 		$handler = $this->newHandler();
 		$response = $this->executeHandler( $handler, $request );
-		$this->assertTrue(
-			$response->getStatusCode() >= 200 && $response->getStatusCode() < 300,
-			'Status should be in 2xx range.'
-		);
 
+		$this->assertGreaterThanOrEqual( 200, $response->getStatusCode() );
+		$this->assertLessThan( 300, $response->getStatusCode() );
 		$this->assertSame( 'application/json', $response->getHeaderLine( 'Content-Type' ) );
 
 		$assocFromResp = json_decode( $response->getBody()->getContents(), true );
