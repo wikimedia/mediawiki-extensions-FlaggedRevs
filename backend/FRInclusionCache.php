@@ -23,7 +23,7 @@ class FRInclusionCache {
 		WikiPage $wikiPage,
 		RevisionRecord $revRecord,
 		User $user,
-		$regen = ''
+		string $regen = ''
 	) {
 		global $wgParserCacheExpireTime;
 		$services = MediaWikiServices::getInstance();
@@ -66,36 +66,33 @@ class FRInclusionCache {
 		};
 
 		if ( $regen === 'regen' ) {
-			$versions = $callback(); // skip cache
-		} else {
-			if ( $revRecord->isCurrent() ) {
-				// Check cache entry against page_touched
-				$touchedCallback = static function () use ( $wikiPage ) {
-					return wfTimestampOrNull( TS_UNIX, $wikiPage->getTouched() );
-				};
-			} else {
-				// Old revs won't always be invalidated with template/file changes.
-				// Also, we don't care if page_touched changed due to a direct edit.
-				$touchedCallback = function ( $oldValue ) {
-					// Sanity check that the cache is reasonably up to date
-					$templates = $oldValue[0];
-					if ( self::templatesStale( $templates ) ) {
-						// Treat value as if it just expired
-						return time();
-					}
-
-					return null;
-				};
-			}
-			$versions = $cache->getWithSetCallback(
-				$key,
-				$wgParserCacheExpireTime,
-				$callback,
-				[ 'touchedCallback' => $touchedCallback ]
-			);
+			return $callback(); // skip cache
 		}
 
-		return $versions;
+		if ( $revRecord->isCurrent() ) {
+			// Check cache entry against page_touched
+			$touchedCallback = static function () use ( $wikiPage ) {
+				return wfTimestampOrNull( TS_UNIX, $wikiPage->getTouched() );
+			};
+		} else {
+			// Old revs won't always be invalidated with template/file changes.
+			// Also, we don't care if page_touched changed due to a direct edit.
+			$touchedCallback = function ( $oldValue ) {
+				// Sanity check that the cache is reasonably up to date
+				$templates = $oldValue[0];
+				if ( self::templatesStale( $templates ) ) {
+					// Treat value as if it just expired
+					return time();
+				}
+				return null;
+			};
+		}
+		return $cache->getWithSetCallback(
+			$key,
+			$wgParserCacheExpireTime,
+			$callback,
+			[ 'touchedCallback' => $touchedCallback ]
+		);
 	}
 
 	/**
