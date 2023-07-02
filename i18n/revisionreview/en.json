@@ -48,7 +48,7 @@
 	"revreview-successful": "'''Revision of [[:$1|$1]] flagged.'''",
 	"revreview-successful2": "'''Revision of [[:$1|$1]] unflagged.'''",
 	"revreview-toolow": "'''You must rate each of the attributes higher than \"inadequate\" in order for a revision to be considered reviewed.'''\n\nTo remove the review status of a revision, click \"{{int:revreview-submit-unreview}}\".\n\nPlease hit the \"back\" button in your browser and try again.",
-	"revreview-update": "'''Please [[{{MediaWiki:Validationpage}}|review]] any pending changes ''(shown below)'' made since the stable version.'''",
+	"revreview-update": "Please [[{{MediaWiki:Validationpage}}|review]] any pending changes ''(shown below)'' made since the stable version.",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Your changes are not yet in the stable version.</span>\n\nPlease review all the changes shown below to make your edits appear in the stable version.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Your changes are not yet in the stable version. There are previous changes pending review.</span>\n\nPlease review all the changes shown below to make your edits appear in the stable version.",
 	"revreview-update-includes": "Templates/files updated (unreviewed pages in bold):",
