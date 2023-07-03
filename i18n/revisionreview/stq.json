@@ -10,5 +10,5 @@
 	"revreview-main": "Du moast ne Artikkelversion tou Wröigenge uutwääle.\n\nSjuch [[Special:Unreviewedpages]] foar ne Lieste fon nit pröiwede Versione.",
 	"revreview-submit": "Wröigenge spiekerje",
 	"revreview-toolow": "Du moast foar älk fon do unnerstoundende Attribute n Wäid haager as „{{int:revreview-accuracy-0}}“ ienstaale, \ndeermäd ne Version as wröiged jält. Uum ne Version tou fersmieten, mouten aal Attribute ap „{{int:revreview-accuracy-0}}“ stounde.",
-	"revreview-update": "[[{{MediaWiki:Validationpage}}|Wröig]] älke Annerenge ''(sjuch hierunner)'' siet ju lääste stoabile Version [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiroat] wuude.\n\n'''Do foulgjende Foarloagen un Bielden wuuden ferannerd:'''"
+	"revreview-update": "[[{{MediaWiki:Validationpage}}|Wröig]] älke Annerenge ''(sjuch hierunner)'' siet ju lääste stoabile Version [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiroat] wuude.\n\nDo foulgjende Foarloagen un Bielden wuuden ferannerd:"
 }

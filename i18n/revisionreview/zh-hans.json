@@ -59,7 +59,7 @@
 	"revreview-successful": "'''已标记[[:$1|$1]]的版本。'''",
 	"revreview-successful2": "'''已去掉[[:$1|$1]]的版本标记。'''",
 	"revreview-toolow": "'''您必须将所有字段标记为“不足”以上才能将版本标记为已复核。'''\n\n要去掉版本的复核状态，请点击“{{int:revreview-submit-unreview}}”。\n\n请点击您浏览器中的“后退”按钮后重试。",
-	"revreview-update": "'''请[[{{MediaWiki:Validationpage}}|复审]]自稳定版本后的所有待复审更改（如下所示）。'''",
+	"revreview-update": "请[[{{MediaWiki:Validationpage}}|复审]]自稳定版本后的所有待复审更改（如下所示）。",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">您的更改尚未成为稳定版本。</span>\n\n请审阅如下所有更改，以使您的编辑出现在稳定版本中。",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">您的更改尚未成为稳定版本。还有更早的更改正在等待复审。</span>\n\n请审阅如下所有更改，以使您的编辑出现在稳定版本中。",
 	"revreview-update-includes": "模板或文件已更新（未复审页面以粗体显示）：",

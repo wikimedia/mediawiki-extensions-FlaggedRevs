@@ -50,7 +50,7 @@
 	"revreview-successful": "'''Revisión de [[:$1|$1]] marcada. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} ver as versións revisadas])'''",
 	"revreview-successful2": "'''Revisión de \"[[:$1|$1]] desmarcada.'''",
 	"revreview-toolow": "'''Debe valorar cada un dos atributos cunha puntuación maior que \"inadecuado\" para que unha revisión sexa considerada como revisada.'''\n\nPara retirar o estado de aprobación dunha revisión, prema en \"{{int:revreview-submit-unreview}}\".\n\nPor favor, prema sobre o botón \"Volver\" do seu navegador e inténteo de novo.",
-	"revreview-update": "'''[[{{MediaWiki:Validationpage}}|Revise]] os cambios pendentes ''(móstranse a continuación)'' feitos á versión aceptada.'''",
+	"revreview-update": "[[{{MediaWiki:Validationpage}}|Revise]] os cambios pendentes ''(móstranse a continuación)'' feitos á versión aceptada.",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Os seus cambios aínda non se atopan na versión estable.</span>\n\nRevise todos os cambios listados a continuación para que as súas edicións aparezan na versión estable.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Os seus cambios aínda non se atopan na versión estable. Hai edicións previas pendentes de revisión.</span>\n\nRevise todos os cambios listados a continuación para que as súas edicións aparezan na versión estable.",
 	"revreview-update-includes": "Actualizáronse algúns modelos ou ficheiros (as páxinas non revisadas van en negra):",

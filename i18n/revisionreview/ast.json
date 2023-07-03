@@ -48,7 +48,7 @@
 	"revreview-successful": "'''Marcada la revisión de [[:$1|$1]].'''",
 	"revreview-successful2": "'''Desmarcada la revisión de [[:$1|$1]].'''",
 	"revreview-toolow": "'''Tienes de calificar caún de los atributos más alto que \"non afayadizu\" pa qu'una revisión se considere revisada.'''\n\nPa desaniciar l'estáu d'una revisión, calca \"{{int:revreview-submit-unreview}}\".\n\nCalca nel botón \"atrás\" del restolador ya intentalo otra vuelta.",
-	"revreview-update": "'''Por favor [[{{MediaWiki:Validationpage}}|revisa]] tolos cambios pendientes que ''(s'amuesen abaxo)'' fechos dende la versión estable.'''",
+	"revreview-update": "Por favor [[{{MediaWiki:Validationpage}}|revisa]] tolos cambios pendientes que ''(s'amuesen abaxo)'' fechos dende la versión estable.",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Los tos cambios inda nun tan na versión estable.</span>\n\nRevisa tolos cambios que s'amuesen más abaxo pa facer que les tos ediciones apaezan na versión estable.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Los sos cambios inda nun tan na versión estable. Hai cambios anteriores pendientes de revisión.</span>\n\nRevise tolos cambios que s'amuesen más abaxo pa facer que les sos ediciones apaezan na versión estable.",
 	"revreview-update-includes": "S'anovaron delles plantíes/ficheros (páxines ensin revisar en negrina):",

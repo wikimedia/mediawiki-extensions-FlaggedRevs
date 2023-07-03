@@ -50,7 +50,7 @@
 	"revreview-successful": "'''Označena je izmjena stranice [[:$1|$1]]. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vidi pregledane verzije])'''",
 	"revreview-successful2": "'''Uklonjena je oznaka s izmjene stranice [[:$1|$1]].'''",
 	"revreview-toolow": "'''Morate ocijeniti svaku od ispod navedenih ocjena više od \"neadekvatno\" da bi se izmjena smatrala pregledanom.'''\n\nDa biste s verzije uklonili status \"pregledano\", kliknite na \"{{int:revreview-submit-unreview}}\".\n\nPritisnite dugme \"nazad\" u svom pregledniku i pokušajte ponovo.",
-	"revreview-update": "'''[[{{MediaWiki:Validationpage}}|Pregledajte]] sve izmjene na čekanju ''(prikazane ispod)'' načinjene nakon stabilne verzije.'''",
+	"revreview-update": "[[{{MediaWiki:Validationpage}}|Pregledajte]] sve izmjene na čekanju ''(prikazane ispod)'' načinjene nakon stabilne verzije.",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Vaše izmjene još uvijek nisu u stabilnoj verziji.</span>\n\nPregledajte sve izmjene prikazane ispod da bi se Vaše izmjene prikazale u stabilnoj verziji.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Vaše izmjene još uvijek nisu u stabilnoj verziji. Postoje ranije izmjene koje čekaju pregled.</span>\n\nPregledajte sve izmjene prikazane ispod da bi se Vaše izmjene prikazale u stabilnoj verziji.",
 	"revreview-update-includes": "Ažurirani šabloni/datoteke (nepregledane stranice su podebljane):",

@@ -27,7 +27,7 @@
 	"revreview-submit-review": "Samþykkja útgáfu",
 	"revreview-submit-reject": "Hafna breytingu",
 	"revreview-submit-reviewed": "Búið. Samþykkt!",
-	"revreview-update": "'''Vinsamlegast [[{{MediaWiki:Validationpage}}|farðu yfir]] allar óskoðaðar breytingar ''(sýndar hér fyrir neðan)'' síðan að síðasta breytingin var gerð.'''",
+	"revreview-update": "Vinsamlegast [[{{MediaWiki:Validationpage}}|farðu yfir]] allar óskoðaðar breytingar ''(sýndar hér fyrir neðan)'' síðan að síðasta breytingin var gerð.",
 	"revreview-update-includes": "Snið/skrár uppfærð (óskoðaðar síður eru feitletraðar):",
 	"revreview-reject-text-list": "Með þessari aðgerð munt þú '''hafna''' frumtexta eftirfarandi {{PLURAL:$1|útgáfu|útgáfna}} [[:$2|$2]]:",
 	"revreview-reject-text-revto": "Þessi aðgerð mun breyta síðunni aftur til [{{fullurl:$1|oldid=$2}} útgáfu síðunnar $3]",

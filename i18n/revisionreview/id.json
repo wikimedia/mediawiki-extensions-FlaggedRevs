@@ -55,7 +55,7 @@
 	"revreview-successful": "'''Revisi [[:$1|$1]] telah ditandai.'''",
 	"revreview-successful2": "'''Penandaan revisi [[:$1|$1]] dibatalkan.'''",
 	"revreview-toolow": "'''Anda harus menilai setiap atribut lebih tinggi daripada \"tidak memadai\" agar revisi dianggap telah ditinjau.''' \n\nUntuk menghapus status tinjauan revisi, klik \"{{int:revreview-submit-unreview}}\". \n\nSilakan tekan tombol \"back\" pada peramban Anda dan coba lagi.",
-	"revreview-update": "'''Mohon [[{{MediaWiki:Validationpage}}|tinjau]] semua perubahan tertunda ''(ditampilkan di bawah)'' yang dibuat sejak versi stabil dimuat.'''",
+	"revreview-update": "Mohon [[{{MediaWiki:Validationpage}}|tinjau]] semua perubahan tertunda ''(ditampilkan di bawah)'' yang dibuat sejak versi stabil dimuat.",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Perubahan Anda belum masuk versi stabil.</span> \n\nHarap tinjau semua perubahan yang ditunjukkan di bawah ini untuk membuat suntingan Anda muncul dalam versi stabil.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Perubahan Anda belum masuk versi stabil. Ada perubahan terdahulu yang menunggu tinjauan.</span> \n\nHarap tinjau semua perubahan yang ditunjukkan di bawah ini untuk membuat suntingan Anda muncul dalam versi stabil.",
 	"revreview-update-includes": "Templat/berkas diperbarui (halaman belum tertinjau bercetak tebal):",

@@ -49,7 +49,7 @@
 	"revreview-successful": "'''Phiên bản của [[:$1|$1]] đã được gắn cờ.'''",
 	"revreview-successful2": "'''Phiên bản của [[:$1|$1]] đã được bỏ cờ thành công.'''",
 	"revreview-toolow": "'''Mỗi thuộc tính cần phải cao hơn “kém” để cho phiên bản có thể được xem là được duyệt.'''\n\nĐể rút cờ được duyệt của một phiên bản, hãy bấm “{{int:revreview-submit-unreview}}”.\n\nXin hãy bấm nút “Lùi” trong trình duyệt và thử lại.",
-	"revreview-update": "'''Xin hãy [[{{MediaWiki:Validationpage}}|duyệt]] những thay đổi đang chờ ''(dưới đây)'' đã được thực hiện từ khi phiên bản ổn định.'''",
+	"revreview-update": "Xin hãy [[{{MediaWiki:Validationpage}}|duyệt]] những thay đổi đang chờ ''(dưới đây)'' đã được thực hiện từ khi phiên bản ổn định.",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Các thay đổi của bạn chưa được đưa vào phiên bản ổn định.</span>\n\nXin hãy duyệt các thay đổi ở dưới để đưa các sửa đổi của bạn vào phiên bản ổn định.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Các thay đổi của bạn chưa được đưa vào phiên bản ổn định. Hiện có những thay đổi từ trước đang chờ được duyệt.</span>\n\nXin hãy duyệt các thay đổi ở dưới để đưa các sửa đổi của bạn vào phiên bản ổn định.",
 	"revreview-update-includes": "Bản mẫu hay tập tin được cập nhật (các trang chưa duyệt được in đậm):",

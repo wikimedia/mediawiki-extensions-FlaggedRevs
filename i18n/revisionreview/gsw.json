@@ -48,7 +48,7 @@
 	"revreview-successful": "'''Di usgwehlt Version vum Artikel ''[[:$1|$1]]'' isch as \"vum Fäldhieter gsäh\" markiert wore ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} alli aagluegte Versione vu däm Artikel])'''.",
 	"revreview-successful2": "'''D Markierig vu dr Version vu [[:$1|$1]] isch ufghobe wore.'''",
 	"revreview-toolow": "'''Du muesch fir e jedes vu däne Attribut e Wärt yystelle, wu hecher isch wie „längt nit“, ass e Version as \"prieft\" giltet.''' \n\nZum dr Priefigsstatus vun ere Version z ändere, druck uf „{{int:revreview-submit-unreview}}“.\n\nBitte druck uf dr „Zruck“-Chnopf un versuech s nonemol.",
-	"revreview-update": "'''Bitte [[{{MediaWiki:Validationpage}}|prief]] di hängige Änderige ''(lueg unte)'', wu syt dr letschte vereffetligte Version gmacht wore sin.'''",
+	"revreview-update": "Bitte [[{{MediaWiki:Validationpage}}|prief]] di hängige Änderige ''(lueg unte)'', wu syt dr letschte vereffetligte Version gmacht wore sin.",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Dyyni Änderige sin nonig in di stabil Version ibernuu wore.</span>\n\nBitte iberprief alli unte aazeigte Änderige, ass Dyyni Bearbeite chenne ibernuu wäre.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Dyy Änderige sin nonig in di stabil Version ibernuu wore. S het no vorigi Änderige, wu hängig sin. </span>\n\nBitte iberprief alli unte aazeigte Änderige, ass Dyyni Bearbeite chenne ibernuu wäre.",
 	"revreview-update-includes": "Vorlage/Dateie sin aktualisiert worde (nit markierti Syte sin fett gkennzeichnet):",

@@ -48,7 +48,7 @@
 	"revreview-successful": "'''Wersija [[:$1|$1]] je so wuspěšnje woznamjeniła. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} stabilne wersije wobhladać])'''",
 	"revreview-successful2": "'''Woznamjenjenje wersije [[:$1|$1]] je so wuspěšnje wotstroniło.'''",
 	"revreview-toolow": "'''Dyrbiš kóždy z atributow wyše hač \"njepřiměrjeny\" pohódnoćić, zo by so wersija jako přepruwowana wobkedźbowała.'''\n\nZo by přepruwowanski status wersije wotstronił, klikń na\"{{int:revreview-submit-unreview}}\".\n\nProšu klikń na tłóčatko \"Wróćo\" w swojim wobhladowaku a spytaj hišće raz.",
-	"revreview-update": "'''Prošu [[{{MediaWiki:Validationpage}}|přepruwuj]] njepřepruwowane změny ''(hlej deleka)'', kotrež buchu na akceptowanej wersiji přewjedźene.'''",
+	"revreview-update": "Prošu [[{{MediaWiki:Validationpage}}|přepruwuj]] njepřepruwowane změny ''(hlej deleka)'', kotrež buchu na akceptowanej wersiji přewjedźene.",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Twoje změny hišće w stabilnej wersiji njeje.</span>\n\nProšu přepruwuj wšě slědowace změny, zo bychu so twoje změny w stabilnej wersiji jewili.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Twoje změny hišće w stabilnej wersiji njeje. Su hišće njepřepruwowane změny.</span>\n\nPřepruwuj prošu wšě změny, kotrež so deleka pokazuja, zo bychu so twoje změny w stabilnej wersiji jewili.",
 	"revreview-update-includes": "Předłohi/dataje su so zaktualizowali (njepřepruwowane strony su tučnje woznamjenjene):",

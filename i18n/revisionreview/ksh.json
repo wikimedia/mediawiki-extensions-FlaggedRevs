@@ -46,7 +46,7 @@
 	"revreview-successful": "'''Di Version vun dä Sigg „[[:$1|$1]]“ es jäz {{lcfirst:{{int:revreview-approved}}}}. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} De {{int:stablepages-stable}} aanloore])'''",
 	"revreview-successful2": "'''Di Version vun dä Sigg „[[:$1|$1]]“ es jäz wider zeröck jeshtoof.'''",
 	"revreview-toolow": "Do moß för jeede vun dä Eijeschaffte unge en Not udder Präddikaat jävve, wat bäßer wi „{{lcfirst:{{int:revreview-style-0}}}}“ es, domet di Version als nohjekik jeldt. Öm en Version widder zeröckzeshtoofe, donn alle Präddikaate op „{{lcfirst:{{int:revreview-style-0}}}}“ säze.",
-	"revreview-update": "Bes esu joot, un donn all de Änderunge ''(unge sin se opjeliß)'' [[{{MediaWiki:Validationpage}}|nohkike]], di jemaat woodte, zick däm de {{int:stablepages-stable}} et letz [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] woode es.<br />\n'''E paa Schablohne, Datteije, udder beeds, sin jeändert woode:'''",
+	"revreview-update": "Bes esu joot, un donn all de Änderunge ''(unge sin se opjeliß)'' [[{{MediaWiki:Validationpage}}|nohkike]], di jemaat woodte, zick däm de {{int:stablepages-stable}} et letz [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] woode es.<br />\nE paa Schablohne, Datteije, udder beeds, sin jeändert woode:",
 	"revreview-update-includes": "E paa Schabloone udder Dateije udder beeds sin jeändert woode. Nit nohjekik Sigge schtonn en <b>Fättschreff</b>",
 	"revreview-reject-summary": "Koot Zosammejefass, Quell:",
 	"revreview-reject-confirm": "Donn heh di Änderonge aflehne",

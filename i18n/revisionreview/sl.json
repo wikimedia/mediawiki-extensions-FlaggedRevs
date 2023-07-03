@@ -47,7 +47,7 @@
 	"revreview-successful": "'''Redakcija [[:$1|$1]] je označena.'''",
 	"revreview-successful2": "'''Redakcija [[:$1|$1]] je odoznačena.'''",
 	"revreview-toolow": "'''Da redakcijo označite kot pregledano, morate vse atribute oceniti bolje kot »nezadostno«.'''\n\nZa odstranitev stanja pregleda redakcije kliknite »{{int:revreview-submit-unreview}}«.\n\nProsimo, kliknite gumb »nazaj« v brskalniku in poskusite znova.",
-	"revreview-update": "'''Prosimo, [[{{MediaWiki:Validationpage}}|preglejte]] vse čakajoče spremembe ''(prikazane spodaj)'', ki so bile opravljene po stabilni redakciji.'''",
+	"revreview-update": "Prosimo, [[{{MediaWiki:Validationpage}}|preglejte]] vse čakajoče spremembe ''(prikazane spodaj)'', ki so bile opravljene po stabilni redakciji.",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Vaše spremembe še niso v stabilni redakciji.</span>\n\nDa se bodo vaša urejanja prikazala v stabilni redakciji, preglejte vse spodaj prikazane spremembe.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Vaše spremembe še niso v stabilni redakciji. Na pregled čakajo nekatere starejše spremembe.</span>\n\nDa svoja urejanja prikažete v stabilni redakciji, preglejte vse spodaj prikazane spremembe.",
 	"revreview-update-includes": "Predloge/datoteke so posodobljene (nepregledane strani so zapisane krepko):",

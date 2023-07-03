@@ -22,7 +22,7 @@
 	"revreview-successful": "'''La version seleccionada de [[:$1|$1]], es estada marcada d'una bandièra amb succès ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} Vejatz totas las versions establas])'''",
 	"revreview-successful2": "'''Revision de [[:$1|$1]] pas mai marcada.'''",
 	"revreview-toolow": "Pels atributs çaijós, vos cal donar un puntatge mai elevat que « non aprobat » per que la version siá considerada coma revista. Per depreciar una version, metètz totes los camps a « non aprobat ».",
-	"revreview-update": "[[{{MediaWiki:Validationpage}}|Relegissètz]] totas las modificacions ''(vejatz çaijós)'' efectuadas dempuèi l’[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovacion] de la version establa.\n'''Qualques fichièrs o modèls son estats meses a jorn :'''",
+	"revreview-update": "[[{{MediaWiki:Validationpage}}|Relegissètz]] totas las modificacions ''(vejatz çaijós)'' efectuadas dempuèi l’[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovacion] de la version establa.\nQualques fichièrs o modèls son estats meses a jorn :",
 	"revreview-update-includes": "Modèls/fichièrs meses a jorn (paginas pas relegidas en gras) :",
 	"revreview-reject-summary": "Resumit :",
 	"revreview-reject-confirm": "Regetar aquestes cambiaments",

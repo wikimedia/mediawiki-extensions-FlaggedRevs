@@ -9,6 +9,6 @@
 	"revreview-flag": "Arvioi tämä versuuni",
 	"revreview-reflag": "Arvioi uuesti tämä versuuni",
 	"revreview-submit-review": "Hyväksy versuuni",
-	"revreview-update": "'''[[{{MediaWiki:Validationpage}}|Arvioi]] kaikki venttaavat muutokset ''(näytethään alla)'', jokka oon tehty vakaan versuunin jälkheen.'''",
+	"revreview-update": "[[{{MediaWiki:Validationpage}}|Arvioi]] kaikki venttaavat muutokset ''(näytethään alla)'', jokka oon tehty vakaan versuunin jälkheen.",
 	"revreview-reject-cancel": "Lopeta"
 }

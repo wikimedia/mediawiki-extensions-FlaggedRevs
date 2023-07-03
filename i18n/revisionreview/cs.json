@@ -54,7 +54,7 @@
 	"revreview-successful": "'''Vybraná revize stránky [[:$1|$1]] byla úspěšně označena. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} zobrazit stabilní verze])'''",
 	"revreview-successful2": "'''Označení revize stránky [[:$1|$1]] bylo úspěšně zrušeno.'''",
 	"revreview-toolow": "Aby byla verze označena jako posouzená, musíte označit každou vlastnost lepším hodnocením než \"neschváleno\". Pokud chcete verzi odmítnout nechte ve všech polích hodnocení \"neschváleno\".",
-	"revreview-update": "[[{{MediaWiki:Validationpage}}|Posuďte]] prosím všechny změny ''(zobrazené níže)'' provedené od posledního [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválení] stabilní verze.<br />\n'''Některé šablony nebo soubory byly změněny:'''",
+	"revreview-update": "[[{{MediaWiki:Validationpage}}|Posuďte]] prosím všechny změny ''(zobrazené níže)'' provedené od posledního [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválení] stabilní verze.<br />\nNěkteré šablony nebo soubory byly změněny:",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Vaše změny zatím nejsou ve stabilní verzi.</span>\n\nAby se tam mohly dostat, posuďte prosím nejdříve všechny změny zobrazené níže.\nBude nutné tyto editace začlenit nebo zamítnout.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Vaše změny zatím nejsou ve stabilní verzi. Některé starší změny ještě čekají na posouzení.</span>\n\nAby se tam mohly dostat, posuďte prosím nejdříve všechny změny zobrazené níže.\nBude nutné tyto editace začlenit nebo zamítnout.",
 	"revreview-update-includes": "Šablony/soubory byly aktualizovány (nezkontrolované stránky jsou tučně):",

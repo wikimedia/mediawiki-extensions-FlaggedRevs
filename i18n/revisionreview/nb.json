@@ -52,7 +52,7 @@
 	"revreview-successful": "'''Sideversjonen av [[:$1|$1]] har blitt merket.'''",
 	"revreview-successful2": "'''Valgt sideversjon av [[:$1|$1]] ble avmerket.'''",
 	"revreview-toolow": "'''Du må vurdere hver av egenskapene til høyere enn «utilstrekkelig» for at sideversjonen skal bli vurdert som revidert.'''\n\nFor å fjerne revideringsstatusen til en sideversjon, klikk på «{{int:revreview-submit-unreview}}».\n\nKlikk på «tilbake»-knappen i nettleseren din og prøv igjen.",
-	"revreview-update": "'''Vennligst [[{{MediaWiki:Validationpage}}|revider]] ventende endringer ''(vist nedenfor)'' som har blitt gjort siden den stabile versjonen.'''",
+	"revreview-update": "Vennligst [[{{MediaWiki:Validationpage}}|revider]] ventende endringer ''(vist nedenfor)'' som har blitt gjort siden den stabile versjonen.",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Endringene dine er ikke i den stabile versjonen ennå.</span>\n\nRevider alle endringene vist nedenfor for å gjøre redigeringene dine synlige i den stabile versjonen.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Endringene dine er ikke i den stabile versjonen ennå. Det finnes tidligere endringer som venter på revidering.</span>\n\nRevider alle endringene vist nedenfor for å gjøre redigeringene dine synlige i den stabile versjonen.",
 	"revreview-update-includes": "Maler/filer oppdatert (ureviderte sider i fet tekst):",

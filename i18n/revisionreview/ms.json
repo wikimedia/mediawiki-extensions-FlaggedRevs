@@ -48,7 +48,7 @@
 	"revreview-successful": "'''Semakan bagi [[:$1|$1]] berjaya ditanda. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} lihat semua versi stabil])'''",
 	"revreview-successful2": "'''Tanda semakan bagi [[:$1|$1]] berjaya dibuang.'''",
 	"revreview-toolow": "'''Anda mesti menilai setiap satu atribut itu sebagai lebih tinggi daripada \"tidak memadai\" supaya semakan itu dianggap sudah dikaji semula.'''\n\nUntuk membatalkan status kaji semula semakan itu, klik \"{{int:revreview-submit-unreview}}\".\n\nSila tekan butang \"←\" pada pelayar anda dan cuba lagi.",
-	"revreview-update": "'''Sila [[{{MediaWiki:Validationpage}}|kaji semula]] sebarang perubahan tergantung ''(ditunjukkan di bawah)'' yang dilakukan sejak versi stabil.'''",
+	"revreview-update": "Sila [[{{MediaWiki:Validationpage}}|kaji semula]] sebarang perubahan tergantung ''(ditunjukkan di bawah)'' yang dilakukan sejak versi stabil.",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Perubahan anda belum lagi dalam versi stabil.</span>\n\nSila kaji semula segala perubahan yang ditunjukkan di bawah untuk memastikan agar suntingan anda muncul dalam versi stabil.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Perubahan anda belum lagi dalam versi stabil. Terdapat perubahan terdahulu yang masih menunggu untuk dikaji semula.</span>\n\nSila kaji semula segala perubahan yang ditunjukkan di bawah untuk memastikan agar suntingan anda muncul dalam versi stabil.",
 	"revreview-update-includes": "Templat/fail dikemaskini (laman yang belum dikaji semula berhuruf tebal):",

@@ -46,7 +46,7 @@
 	"revreview-successful": "'''La vèrsion chouèsia de [[:$1|$1]] est étâye signalâye avouéc reusséta ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vêde totes les vèrsions stâbles]).'''",
 	"revreview-successful2": "'''La vèrsion chouèsia de [[:$1|$1]] at étâ envalidâ avouéc reusséta.'''",
 	"revreview-toolow": "'''Vos dête afèctar una èstimacion ples hôta que « ensufisent » por que la vèrsion seye considèrâ coment revua.'''\n\nPor enlevar lo statut de rèvision d’una vèrsion, clicâd dessus « dèsaprovar ».\n\nVolyéd utilisar lo boton « Devant » de voutron navigator et pués tornâd èprovar.",
-	"revreview-update": "'''Volyéd [[{{MediaWiki:Validationpage}}|revêre]] tôs los changements en atenta ''(vêde ce-desot)'' fêts a la vèrsion stâbla.'''",
+	"revreview-update": "Volyéd [[{{MediaWiki:Validationpage}}|revêre]] tôs los changements en atenta ''(vêde ce-desot)'' fêts a la vèrsion stâbla.",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Voutros changements sont p’oncor dens la vèrsion stâbla.</span>\n\nVolyéd controlar tôs los changements montrâs ce-desot por que los voutros aparéssont dens la vèrsion stâbla.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Voutros changements sont p’oncor dens la vèrsion stâbla. Y at de vielys changements en atenta de rèvision.</span>\n\nVolyéd controlar tôs los changements montrâs ce-desot por que los voutros aparéssont dens la vèrsion stâbla.",
 	"revreview-update-includes": "Modèlos/fichiérs betâs a jorn (pâges pas revues en grâs) :",

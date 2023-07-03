@@ -37,5 +37,5 @@
 	"revreview-submit-unreviewed": "Gedaon. Neet gecontroleerd!",
 	"revreview-successful2": "'''De versie van [[:$1|$1]] is es neet gepubliceerd aangemerk.'''",
 	"revreview-toolow": "'''Doe mós tenminste alle ongerstaonde eigesjappe hoeger instelle es \"{{int:Revreview-accuracy-0}}\" om veur 'n versie aan te gaeve det dees is gecontroleerd.'''\nStel alle velje in op \"{{int:Revreview-accuracy-0}}\" om de waardering van 'n versie te verwiedere.\n\nKlik op de knoep \"Trök\" in diene browser en probeer  t opnúuj.",
-	"revreview-update": "'''[[{{MediaWiki:Validationpage}}|Controleer]] e.t.b. de ''ongerstaonde'' wieziginge ten opzichte van de gepubliceerde versie.'''"
+	"revreview-update": "[[{{MediaWiki:Validationpage}}|Controleer]] e.t.b. de ''ongerstaonde'' wieziginge ten opzichte van de gepubliceerde versie."
 }

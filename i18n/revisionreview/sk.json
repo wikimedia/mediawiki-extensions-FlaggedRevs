@@ -41,7 +41,7 @@
 	"revreview-successful": "'''Vybraná revízia [[:$1|$1]] bola označená. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} zobraziť skontrolované verzie])'''",
 	"revreview-successful2": "'''Označenie vybranej revízie [[:$1|$1]] bolo zrušené.'''",
 	"revreview-toolow": "'''Musíte ohodnotiť každý z nasledujúcich atribútov vyššie ako „neschválené“, aby bolo možné revíziu považovať za skontrolovanú.'''\n\nPre odstránenie skontrolovaného stavu kliknite \"{{int:revreview-submit-unreview}}\".\n\nProsím, stlačte tlačidlo „Späť“ vo svojom prehliadači a skúste to znova.",
-	"revreview-update": "'''Prosím, [[{{MediaWiki:Validationpage}}|skontrolujte]] všetky čakajúce zmeny ''(zobrazené nižšie)'' vykonané od stabilnej verzie.'''",
+	"revreview-update": "Prosím, [[{{MediaWiki:Validationpage}}|skontrolujte]] všetky čakajúce zmeny ''(zobrazené nižšie)'' vykonané od stabilnej verzie.",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Vaše zmeny zatiaľ nie sú v stabilnej verzii.</span> \n\nProsím, skontrolujte všetky nižšie uvedené zmeny, aby sa vaše úpravy objavili v stabilnej verzii.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Vaše zmeny zatiaľ nie sú v stabilnej verzii. Existujú predchádzajúce zmeny čakajúce na kontrolu.</span> \n\nProsím, skontrolujte všetky nižšie uvedené zmeny, aby sa vaše úpravy objavili v stabilnej verzii.",
 	"revreview-update-includes": "Šablóny/súbory boli aktualizované (neskontrolované stránky sú vyznačené tučne):",

@@ -50,7 +50,7 @@
 	"revreview-successful": "'''La revision de [[:$1|$1]] la xe stà verificà. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} varda tute le version stabili])'''",
 	"revreview-successful2": "'''Cavà el contrassegno a la version selessionà de [[:$1|$1]].'''",
 	"revreview-toolow": "'''Ti ga da segnar ognuno dei atributi cuà soto piesè alto de \"No aprovà\" parché la revixion la sia considerà verifegà.'''\n\nPar anular el stato de na revision, struca \"{{int:revreview-submit-unreview}}\".\n\nPar piaser struca el boton \"indrìo\" del to browser e pròa da novo.",
-	"revreview-update": "'''Par piaser [[{{MediaWiki:Validationpage}}|verifica]] tuti i canbiamenti ''(mostrà qua soto)'' fati rispeto a la version stabile.'''",
+	"revreview-update": "Par piaser [[{{MediaWiki:Validationpage}}|verifica]] tuti i canbiamenti ''(mostrà qua soto)'' fati rispeto a la version stabile.",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Le to modifiche no le xe gnancora ne la version stabile.</span> \n\nPar piaser rivarda tute le modifiche qua soto parché le to modifiche le vegna mostrà inte la version stabile.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Le to modifiche no le xe gnancora inte la version stabile. Ghe xe canbiamenti precedenti pendenti.</span> \n\nPar piaser rivarda tute le modifiche qua soto parché le to modifiche le vegna mostrà ne la version stabile.",
 	"revreview-update-includes": "Serti modèƚi o file i xe stà axornà (pàgine no revixionà in graseto):",

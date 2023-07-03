@@ -53,7 +53,7 @@
 	"revreview-successful": "'''qey [[:$1|$1]] revizyon bı serkewte işaret bı. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} revizyonê istiqarınan bıvin])'''",
 	"revreview-successful2": "'''Revizyona  [[:$1|$1]] nênışanya ya\"",
 	"revreview-toolow": "'''Ti gani her nitelikan \"tam niya\" zafyer rate bike ke seba revizyon gani qontrol bibo.'''\n\nSeba weziyetê qontroli wedarnayişi, sazanê \"{{int:revreview-submit-unreview}}\" her ca de \"tam niya\" bike.\n\nMa rica keni \"peyser\" şı ra rayna cerbnayışi pıploxnê.",
-	"revreview-update": "'''Kerem ke, vurnayışanê teberi pêro ''(cêr mocniyenê)'' [[{{MediaWiki:Validationpage}}|ancina bıvêne]] heta ke verziyono qayım vıraciya.'''",
+	"revreview-update": "Kerem ke, vurnayışanê teberi pêro ''(cêr mocniyenê)'' [[{{MediaWiki:Validationpage}}|ancina bıvêne]] heta ke verziyono qayım vıraciya.",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Vurnayişê şıma zerrê versiyonê sebiti de niya.</span>\n\nMa rica keni vurnayişanê xo peran versiyonê sebit biki bade kontrolê vurnayişi.\nTi belki tewr verni de vurnayişan teqib biki ya na \"peyser bêri\".",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Vurnayişê şıma zerrê versiyonê sebiti de niya.</span>\n\nMa rica keni vurnayişanê xo peran versiyonê sebit biki bade kontrolê vurnayişi.\nTi belki tewr verni de vurnayişan teqib biki ya na \"peyser bêri\".",
 	"revreview-update-includes": "Şabloni/dosyey biy rocaney (pelê etudkerdey qalındê):",

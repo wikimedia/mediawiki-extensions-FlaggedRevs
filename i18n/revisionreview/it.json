@@ -55,7 +55,7 @@
 	"revreview-successful": "'''Versione di [[:$1|$1]] verificata.'''",
 	"revreview-successful2": "'''Versione di [[:$1|$1]] marcata come non verificata.'''",
 	"revreview-toolow": "'''È necessario valutare ognuno degli attributi superiori ad \"inadeguato\" al fine di rendere definitiva una versione.'''\n\nPer rimuovere lo stato di verifica di una versione, fare clic su \"{{int:revreview-submit-unreview}}\".\n\nSi prega di premere il pulsante \"indietro\" del tuo browser e riprovare.",
-	"revreview-update": "'''[[{{MediaWiki:Validationpage}}|Revisiona]] le modifiche in sospeso ''(mostrate di seguito)'' apportate dalla versione stabile.'''",
+	"revreview-update": "[[{{MediaWiki:Validationpage}}|Revisiona]] le modifiche in sospeso ''(mostrate di seguito)'' apportate dalla versione stabile.",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Le tue modifiche non sono ancora nella versione stabile.</span> \n\nSi prega di rivedere tutte le modifiche riportate di seguito perché le tue modifiche vengano visualizzate nella versione stabile.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Le tue modifiche non sono ancora nella versione stabile. Ci sono precedenti modifiche che aspettano una versione.</span> \n\nSi prega di rivedere tutte le modifiche riportate di seguito perché le tue modifiche vengano visualizzate nella versione stabile.",
 	"revreview-update-includes": "Alcuni Template/file sono stati aggiornati (pagine non revisionate in grassetto):",

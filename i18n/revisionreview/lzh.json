@@ -20,7 +20,7 @@
 	"revreview-submit-unreview": "撤銷",
 	"revreview-submit-reject": "撤銷",
 	"revreview-submit-reviewed": "事成！",
-	"revreview-update": "'''有勞[[{{MediaWiki:Validationpage}}|校勘]]。'''",
+	"revreview-update": "有勞[[{{MediaWiki:Validationpage}}|校勘]]。",
 	"revreview-update-includes": "文章所用模檔，業已更新。粗體所示，未有校勘者也︰",
 	"revreview-reject-summary": "概要：",
 	"revreview-reject-confirm": "撤銷",

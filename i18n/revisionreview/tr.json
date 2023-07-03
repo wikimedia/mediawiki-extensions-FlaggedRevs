@@ -56,7 +56,7 @@
 	"revreview-successful": "'''[[:$1|$1]] revizyonu işaretlendi.'''",
 	"revreview-successful2": "'''[[:$1|$1]] ürününün revizyonu kaldırıldı.'''",
 	"revreview-toolow": "'''Bir sürümün incelenmiş sayılabilmesi için özniteliklerin hepsini \"yetersiz\" düzeyden yüksek derecelendirmelisiniz.'''\n\nBir sürümün inceleme durumunu kaldırmak için \"{{int:revreview-submit-unreview}}\" seçeneğine tıklayın.\n\nLütfen tarayıcınızdaki \"geri\" tuşuna basın ve tekrar deneyin.",
-	"revreview-update": "'''Lütfen kararlı sürümden sonra yapılmış olan ve aşağıda yer alan tüm bekleyen değişiklikleri [[{{MediaWiki:Validationpage}}|inceleyin]].'''",
+	"revreview-update": "Lütfen kararlı sürümden sonra yapılmış olan ve aşağıda yer alan tüm bekleyen değişiklikleri [[{{MediaWiki:Validationpage}}|inceleyin]].",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Değişiklikleriniz henüz kararlı sürüm içinde değildir.</span>\n\nDeğişikliklerinizin kararlı sürümde yer alması için lütfen aşağıda gösterilen tüm değişiklikleri inceleyin.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Değişiklikleriniz henüz kararlı sürüm için değildir. İnceleme bekleyen eski değişiklikler bulunmaktadır.</span>\n\nDeğişikliklerinizin kararlı sürümde yer alması için, lütfen aşağıda gösterilen tüm değişiklikleri inceleyin.",
 	"revreview-update-includes": "Şablonlar/dosyalar güncellenmiş (gözden geçirilmemiş sayfalar koyu renkli):",

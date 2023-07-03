@@ -48,7 +48,7 @@
 	"revreview-successful": "'''Revision ëd [[:$1|$1]] signalà da bin. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vardé le version revisionà])'''",
 	"revreview-successful2": "'''Gavà për da bin la marca a la revision ëd [[:$1|$1]].'''",
 	"revreview-toolow": "'''A venta ch'a stima mincadun ëd j'atribù pi àut che \"pa adeguà\" përchè na revision a sia considerà revisionà.'''\n\nPër gavé lë stat ëd revision ëd na revision, ch'a sgnaca \"{{int:revreview-submit-unreview}}\".\n\nPër piasì, ch'a sgnaca ël boton \"andré\" an sò navigador e ch'a preuva torna.",
-	"revreview-update": "'''Për piasì [[{{MediaWiki:Validationpage}}|ch'a revision-a]] tuti ij cangiament an cors ''(smonù ambelessì-sota)'' fàit a la version publicà.'''",
+	"revreview-update": "Për piasì [[{{MediaWiki:Validationpage}}|ch'a revision-a]] tuti ij cangiament an cors ''(smonù ambelessì-sota)'' fàit a la version publicà.",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Soe modìfiche a son pa anco' ant la version stàbil.</span>\n\nPër piasì ch'a revision-a tùit ij cambi smonù sì-sota përchè soe modìfiche a intro ant la version stàbil.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Soe modìfiche a son anco' pa ant la version stàbil. A-i é dle modìfiche precedente ch'a speto na revision.</span>\n\nPër piasì ch'a revision-a tùit ij cambiament mostrà sì-sota përchè soe modìfiche a intro ant la version stàbil.",
 	"revreview-update-includes": "Stamp/archivi agiornà (pàgine nen revisionà an grassèt):",

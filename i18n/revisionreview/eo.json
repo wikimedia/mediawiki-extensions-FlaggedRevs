@@ -52,7 +52,7 @@
 	"revreview-successful": "'''Tiu ĉi versio de [[:$1|$1]] estas markita kiel patrolita. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vidi ĉiujn patrolitajn versiojn])'''",
 	"revreview-successful2": "'''Versio de [[:$1|$1]] sukcese malmarkita.'''",
 	"revreview-toolow": "''Vi devas taksi ĉiun el la jenaj atribuoj almenaŭ pli alta ol \"adekvata\" por revizio esti konsiderata kiel kontrolita.'''\n\nForigi reviziatan statuson de revizio, klaku \"{{int:revreview-submit-unreview}}\".\n\nBonvolu klaki la \"reiri\" butonon en via retumilo kaj reprovu.",
-	"revreview-update": "Bonvolu [[{{MediaWiki:Validationpage}}|kontroli]] iujn kontrolendajn ŝanĝojn ''(montritajn suben)'' faritajn ekde la aprobita versio:'''",
+	"revreview-update": "Bonvolu [[{{MediaWiki:Validationpage}}|kontroli]] iujn kontrolendajn ŝanĝojn ''(montritajn suben)'' faritajn ekde la aprobita versio:",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Viaj ŝanĝoj ankoraŭ ne estas en la stabila versio.</span>\n\nBonvolu kontroli ĉiujn jenajn ŝanĝojn por aperigi viajn redaktojn en la stabila versio.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Viaj ŝanĝoj ankoraŭ ne estas en la stabila versio. Ekzistas antaŭaj kontrolendaj ŝanĝoj.</span>\n\nBonvolu kontroli ĉiujn jenajn ŝanĝojn por aperigi viajn redaktojn en la stabila versio.",
 	"revreview-update-includes": "Ŝablonoj/dosieroj estis ĝisdatigitaj (nekontrolitaj paĝoj estas dikigitaj):",

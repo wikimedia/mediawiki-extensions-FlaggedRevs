@@ -36,7 +36,7 @@
 	"revreview-successful": "'''[[:$1|$1]] wersiýasy şowly baýdaklandy. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} durnukly wersiýalary gör])'''",
 	"revreview-successful2": "'''[[:$1|$1]] wersiýasynyň baýdagy şowly aýryldy.'''",
 	"revreview-toolow": "'''Bir wersiýanyň gözden geçirilen diýlip hasap edilmegi üçin aşakdaky aýratynlyklardan iň bolmanda birine \"tassyklanmadyk\"dan ýokary ses bermeli'''. \nBir wersiýany köneltmek üçin ähli meýdançalary \"tassyklanmadyk\" diýip belläň.\n\nBrauzeriňizde \"yza\" düwmesine basyň we gaýtadan synanyşyň.",
-	"revreview-update": "Durnukly wersiýa [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tassyklanandan] bäri edilen islendik üýtgeşmäni ''(aşakda görkezilen)'' [[{{MediaWiki:Validationpage}}|gözden geçiriň]].<br />\n'''Käbir şablonlar/faýllar täzelenilipdir:'''",
+	"revreview-update": "Durnukly wersiýa [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tassyklanandan] bäri edilen islendik üýtgeşmäni ''(aşakda görkezilen)'' [[{{MediaWiki:Validationpage}}|gözden geçiriň]].<br />\nKäbir şablonlar/faýllar täzelenilipdir:",
 	"revreview-update-includes": "Käbir şablonlar/faýllar täzelendi:",
 	"revreview-tt-flag": "Bu wersiýany gözden geçirilen diýip belle",
 	"revreview-tt-unflag": "Bu wersiýany gözden geçirilmedik diýip belle"

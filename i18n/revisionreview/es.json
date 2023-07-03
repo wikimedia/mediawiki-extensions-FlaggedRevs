@@ -64,7 +64,7 @@
 	"revreview-successful": "'''La versión de [[:$1|$1]] ha sido marcada.'''",
 	"revreview-successful2": "'''Se ha desmarcado la revisión de [[:$1|$1]].'''",
 	"revreview-toolow": "'''Debes valorar cada uno de los atributos más alto que \"inadecuado\" para que la revisión sea considerada verificada.'''\n\nPara quitar el estado de verificación de una revisión, haz clic en \"{{int:revreview-submit-unreview}}\".\n\nPor favor presiona el botón ''Atrás'' en tu navegador e inténtalo de nuevo.",
-	"revreview-update": "'''[[{{MediaWiki:Validationpage}}|Revisa]] los cambios pendientes ''(que se muestran a continuación)'' hechos a la versión estable.'''",
+	"revreview-update": "[[{{MediaWiki:Validationpage}}|Revisa]] los cambios pendientes ''(que se muestran a continuación)'' hechos a la versión estable.",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Tus cambios aún no están en la versión estable.</span>\n\nRevisa todos los cambios mostrados debajo para hacer que tus ediciones aparezcan en la versión estable.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Tus cambios aún no están en la versión estable. Hay cambios previos pendientes de revisión.</span>\n\nRevisa todos los cambios mostrados a continuación para que tus ediciones aparezcan en la versión estable.",
 	"revreview-update-includes": "Plantilla/archivos actualizados (páginas sin revisar en negrita):",

@@ -55,7 +55,7 @@
 	"revreview-successful": "'''Sivun [[:$1|$1]] versio on arvioitu.'''",
 	"revreview-successful2": "'''Sivun [[:$1|$1]] version arviointimerkintä on poistettu.'''",
 	"revreview-toolow": "'''Sinun täytyy arvioida kaikki alla olevat kohdat paremmalla arvolla kuin ”puutteellinen”, jotta versio katsottaisiin arvioiduksi.'''\n\nPoistaaksesi version arviointitilan napsauta ”{{int:revreview-submit-unreview}}”.\n\nPalaa selaimen takaisin-painikkeella ja yritä uudelleen.",
-	"revreview-update": "'''[[{{MediaWiki:Validationpage}}|Arvioi]] kaikki odottavat muutokset ''(näytetään alla)'', jotka on tehty vakaan version jälkeen.'''",
+	"revreview-update": "[[{{MediaWiki:Validationpage}}|Arvioi]] kaikki odottavat muutokset ''(näytetään alla)'', jotka on tehty vakaan version jälkeen.",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Muutoksesi eivät ole vielä näkyvissä vakaassa versiossa.</span>\n\nArvioi kaikki alla olevat muutokset, jotta muutoksesi näkyisivät vakaassa versiossa.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Muutoksesi eivät ole vielä näkyvissä vakaassa versiossa. Edelliset muutokset odottavat arviointia.</span>\n\nArvioi kaikki alla olevat muutokset, jotta muokkauksesi näkyisivät vakaassa versiossa.",
 	"revreview-update-includes": "Mallineita tai tiedostoja on päivitetty (arvioimattomat sivut on lihavoitu):",

@@ -10,5 +10,5 @@
 	"revreview-log": "Küpet:",
 	"revreview-main": "Mutol välön fomami semik pada ninädilabik ad krütön oni.\n\nLogolös padi: [[Special:Unreviewedpages]], su kel dabinon lised padas no nog pekrütölas.",
 	"revreview-submit": "Sedön",
-	"revreview-update": "[[{{MediaWiki:Validationpage}}|Reidolös e krütolös]] votükamis valik ''(dono pejonölis)'', kels pedunons sis fomam fümöfik [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} päzepon].\n\n'''Samafomots e/u magods aniks pekoräkons:'''"
+	"revreview-update": "[[{{MediaWiki:Validationpage}}|Reidolös e krütolös]] votükamis valik ''(dono pejonölis)'', kels pedunons sis fomam fümöfik [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} päzepon].\n\nSamafomots e/u magods aniks pekoräkons:"
 }

@@ -46,7 +46,7 @@
 	"revreview-successful": "'''Wersija nastawka [[:$1|$1]] jo se wuspěšnje markěrowała. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} stabilne wersije se woglědaś])'''",
 	"revreview-successful2": "'''Markěrowanje [[:$1|$1]] jo se wuspěšnje wótpórało.'''",
 	"revreview-toolow": "'''Musyš nanejmjenjej kuždy z atributow wušej ako \"njepśiměrjony\" pógódnośiś, aby wersija płaśeła ako pśeglědana.'''\n\nAby pśeglědowański status wersije wótpórał, klikni na  \"{{int:revreview-submit-unreview}}\".\nPšosym klikni na tłocašk \"Slědk\" w swójom wobglědowaku a wopytaj hyšći raz.",
-	"revreview-update": "'''Pšosym [[{{MediaWiki:Validationpage}}|pśeglědaj]] ''(slědujuce)'' njepśeglědane změny, kótarež su se na akceptěrowanej wersiji pśewjedli.'''",
+	"revreview-update": "Pšosym [[{{MediaWiki:Validationpage}}|pśeglědaj]] ''(slědujuce)'' njepśeglědane změny, kótarež su se na akceptěrowanej wersiji pśewjedli.",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Twóje změny hyšći njejsu w stabilnej wersiji.</span>\n\nPšosym pśeglědaj wšykne slědujuce změny, aby se twóje změny w stabilnej wersiji pokazowali.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Twóje změny hyšći njejsu w stabilnej wersiji. Su hyšći njepśeglědane změny.</span>\n\nPšosym pśeglědaj wšykne slědujuce změny, aby je w stabilnej wersiji pokazali.",
 	"revreview-update-includes": "Pśedłogi/dataje su se zaktualizěrowali (njepśeglědane boki su tucnje wóznamjenjone):",
