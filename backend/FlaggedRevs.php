@@ -762,7 +762,7 @@ class FlaggedRevs {
 
 		// Insert the flagged revision
 		$success = $flaggedRevision->insert();
-		if ( !$success ) {
+		if ( $success !== true ) {
 			return false;
 		}
 
