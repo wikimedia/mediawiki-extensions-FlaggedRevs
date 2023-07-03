@@ -278,11 +278,15 @@ class RevisionReviewFormUI {
 	 * Get the UI name for a value of a tag
 	 */
 	private function getTagValueMsg( int $value ): string {
-		$levels = FlaggedRevs::getLevels();
-		if ( isset( $levels[$value] ) ) {
-			return wfMessage( 'revreview-' . $levels[$value] )->escaped();
-		}
-		return '';
+		$quality = FlaggedRevs::getTagName();
+		// Possible message keys that come pre-defined with the extension:
+		// * revreview-accuracy-0
+		// * revreview-accuracy-1
+		// * revreview-accuracy-2
+		// * revreview-accuracy-3
+		// * revreview-accuracy-4
+		$msg = wfMessage( "revreview-$quality-$value" );
+		return $msg->isDisabled() ? (string)$value : $msg->escaped();
 	}
 
 	/**
@@ -290,13 +294,13 @@ class RevisionReviewFormUI {
 	 * @return array<int,string>
 	 */
 	private function getRatingFormLevels( User $user ): array {
+		$quality = FlaggedRevs::getTagName();
 		$labels = []; // applicable tag levels
-		foreach ( FlaggedRevs::getLevels() as $i => $msg ) {
+		for ( $i = 1; $i <= FlaggedRevs::getMaxLevel(); $i++ ) {
 			# Some levels may be restricted or not applicable...
-			if ( $i === 0 || !FlaggedRevs::userCanSetValue( $user, $i ) ) {
-				continue; // skip this level
+			if ( FlaggedRevs::userCanSetValue( $user, $i ) ) {
+				$labels[$i] = "$quality-$i";
 			}
-			$labels[$i] = $msg; // set label
 		}
 		return $labels;
 	}

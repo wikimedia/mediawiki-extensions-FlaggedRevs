@@ -150,7 +150,7 @@ class ApiReview extends ApiBase {
 			'unapprove' => false
 		];
 		if ( !FlaggedRevs::binaryFlagging() && !FlaggedRevs::useOnlyIfProtected() ) {
-			$strLevels = array_map( 'strval', array_keys( FlaggedRevs::getLevels() ) );
+			$strLevels = array_map( 'strval', range( 0, FlaggedRevs::getMaxLevel() ) );
 			$pars['flag_' . FlaggedRevs::getTagName()] = [
 				ParamValidator::PARAM_DEFAULT => '1', // default
 				ParamValidator::PARAM_TYPE => $strLevels, // array of allowed values

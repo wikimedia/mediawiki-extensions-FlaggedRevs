@@ -148,20 +148,6 @@ class FlaggedRevs {
 		return reset( $wgFlaggedRevsTags )['levels'];
 	}
 
-	/**
-	 * Get the array of levels messages
-	 * @return array<int,string>
-	 */
-	public static function getLevels(): array {
-		$dimensions = [];
-		$tag = self::getTagName();
-		$ratingLevels = self::getMaxLevel();
-		for ( $i = 0; $i <= $ratingLevels; $i++ ) {
-			$dimensions[] = "$tag-$i";
-		}
-		return $dimensions;
-	}
-
 	# ################ Permission functions #################
 
 	/** Check if the tag has a valid value */
@@ -604,10 +590,8 @@ class FlaggedRevs {
 		if ( !$validated ) {
 			$namespaceInfo = MediaWikiServices::getInstance()->getNamespaceInfo();
 			foreach ( $wgFlaggedRevsNamespaces as $ns ) {
-				if ( $namespaceInfo->isTalk( $ns ) ) {
-					throw new ConfigException( 'FlaggedRevs given talk namespace in $wgFlaggedRevsNamespaces!' );
-				} elseif ( $ns === NS_MEDIAWIKI ) {
-					throw new ConfigException( 'FlaggedRevs given NS_MEDIAWIKI in $wgFlaggedRevsNamespaces!' );
+				if ( $ns === NS_MEDIAWIKI || $namespaceInfo->isTalk( $ns ) ) {
+					throw new ConfigException( 'Invalid talk or project namespace in $wgFlaggedRevsNamespaces' );
 				}
 			}
 			$validated = true;

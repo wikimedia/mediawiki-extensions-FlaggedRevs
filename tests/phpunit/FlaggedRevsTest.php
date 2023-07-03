@@ -34,7 +34,6 @@ class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 				],
 				'expected' => [
 					'binaryFlagging' => true,
-					'getLevels' => [ 'default-0', 'default-1' ],
 					'getMaxLevel' => 1,
 				]
 			],
@@ -44,7 +43,6 @@ class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 				],
 				'expected' => [
 					'binaryFlagging' => false,
-					'getLevels' => [ 'default-0', 'default-1', 'default-2' ],
 					'getMaxLevel' => 2,
 				]
 			],
@@ -144,7 +142,6 @@ class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 				],
 				'expected' => [
 					'binaryFlagging' => true,
-					'getLevels' => [ 'default-0', 'default-1', 'default-2' ],
 					'getMaxLevel' => 2,
 					'quickTag' => null,
 					'quickTags' => [],
@@ -175,7 +172,6 @@ class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 			'autoReviewEnabled' => false,
 			'autoReviewNewPages' => false,
 			'binaryFlagging' => true,
-			'getLevels' => [ 'default-0' ],
 			'getMaxLevel' => 0,
 			'getRestrictionLevels' => [],
 			'inclusionSetting' => FR_INCLUDES_CURRENT,
@@ -196,31 +192,6 @@ class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 		// Some more that are currently identical for all test cases
 		$this->assertSame( 'default', FlaggedRevs::getTagName() );
 		$this->assertTrue( FlaggedRevs::tagIsValid( 0 ) );
-	}
-
-	public static function provideGetLevels() {
-		return [
-			'three levels' => [
-				'revsTags' => [ 'accuracy' => [ 'levels' => 3 ] ],
-				'expected' => [ 'accuracy-0', 'accuracy-1', 'accuracy-2', 'accuracy-3' ],
-			],
-			'two named levels' => [
-				'revsTags' => [ 'accuracy' => [ 'levels' => 2 ] ],
-				'expected' => [ 'accuracy-0', 'accuracy-1', 'accuracy-2' ],
-			],
-		];
-	}
-
-	/**
-	 * @dataProvider provideGetLevels
-	 */
-	public function testGetLevels( array $revsTags, array $expected ) {
-		$this->setMwGlobals( [
-			'wgFlaggedRevsTags' => $revsTags,
-		] );
-
-		$this->assertSame( $expected, FlaggedRevs::getLevels() );
-		$this->assertSame( count( $expected ) - 1, FlaggedRevs::getMaxLevel() );
 	}
 
 }
