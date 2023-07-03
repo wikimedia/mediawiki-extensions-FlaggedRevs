@@ -893,7 +893,7 @@ class FlaggablePageView extends ContextSource {
 				$frev, $revsSince
 			);
 			$notices[$pendingMsg->getKey()] = '<div class="plainlinks">'
-				. $pendingMsg->parseAsBlock() . '</div>';
+				. $pendingMsg->setContext( $this->getContext() )->parseAsBlock() . '</div>';
 		}
 		$latestId = $this->article->getLatest();
 		$revId  = $oldid ?: $latestId;
