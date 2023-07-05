@@ -29,10 +29,12 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 
 	public function testWithAllParams() {
 		$webRequest = $this->createWebRequest();
-		$page = $this->getExistingTestPage();
+		// T340004: To make sure the page really, really doesn't exist
+		$page = $this->getNonexistingTestPage( __METHOD__ );
+		$page = $this->getExistingTestPage( $page->getTitle() );
 
 		$oldid = $page->getLatest();
-		$this->editPage( $page, 'SecondEdit' );
+		$this->editPage( $page, __METHOD__ );
 		$refid = $page->getLatest();
 		$target = $page->getTitle()->getPrefixedDBkey();
 		$templateParams = 'templateParamsValue';
@@ -67,17 +69,14 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 		$handler = new ReviewHandler();
 		$response = $this->executeHandler( $handler, $request );
 
-		$this->assertGreaterThanOrEqual( 200, $response->getStatusCode() );
+		$this->assertStringStartsWith( '{"change-time":"', $response->getBody()->getContents() );
 		$this->assertLessThan( 300, $response->getStatusCode() );
 		$this->assertSame( 'application/json', $response->getHeaderLine( 'Content-Type' ) );
-
-		$assocFromResp = json_decode( $response->getBody()->getContents(), true );
-		$this->assertTrue( $assocFromResp['change-time'] || $assocFromResp['change-time'] === '' );
 	}
 
 	public function testWithMinParams() {
 		$webRequest = $this->createWebRequest();
-		$page = $this->getExistingTestPage();
+		$page = $this->getExistingTestPage( __METHOD__ );
 
 		$oldid = $page->getLatest();
 		$target = $page->getTitle()->getPrefixedDBkey();
@@ -108,12 +107,9 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 		$handler = new ReviewHandler();
 		$response = $this->executeHandler( $handler, $request );
 
-		$this->assertGreaterThanOrEqual( 200, $response->getStatusCode() );
+		$this->assertStringStartsWith( '{"change-time":"', $response->getBody()->getContents() );
 		$this->assertLessThan( 300, $response->getStatusCode() );
 		$this->assertSame( 'application/json', $response->getHeaderLine( 'Content-Type' ) );
-
-		$assocFromResp = json_decode( $response->getBody()->getContents(), true );
-		$this->assertTrue( $assocFromResp[ 'change-time' ] || $assocFromResp[ 'change-time' ] === '' );
 	}
 
 	public function testWithNonexistingPage() {
@@ -138,25 +134,20 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 		$handler = new ReviewHandler();
 		$response = $this->executeHandler( $handler, $request );
 
-		$this->assertTrue(
-			$response->getStatusCode() >= 400 && $response->getStatusCode() < 500,
-			'Status should be in 4xx range.'
-		);
-
-		$assocFromResp = json_decode( $response->getBody()->getContents(), true );
-		$this->assertStringContainsString( 'The target page does not exist.', $assocFromResp[ 'error-html' ] );
+		$this->assertStringContainsString( 'The target page does not exist.', $response->getBody()->getContents() );
+		$this->assertGreaterThanOrEqual( 400, $response->getStatusCode() );
 	}
 
 	public function testWithConfiguredAccuracyParams() {
 		$webRequest = $this->createWebRequest();
-		$page = $this->getExistingTestPage();
+		$page = $this->getExistingTestPage( __METHOD__ );
 
 		$this->setMwGlobals( [
 			'wgFlaggedRevsTags' => [ 'accuracy' => [ 'levels' => 3 ] ],
 		] );
 
 		$oldid = $page->getLatest();
-		$this->editPage( $page, 'SecondEdit' );
+		$this->editPage( $page, __METHOD__ );
 		$refid = $page->getLatest();
 		$target = $page->getTitle()->getPrefixedDBkey();
 		$templateParams = 'templateParamsValue';
@@ -191,11 +182,8 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 		$handler = new ReviewHandler();
 		$response = $this->executeHandler( $handler, $request );
 
-		$this->assertGreaterThanOrEqual( 200, $response->getStatusCode() );
+		$this->assertStringStartsWith( '{"change-time":"', $response->getBody()->getContents() );
 		$this->assertLessThan( 300, $response->getStatusCode() );
 		$this->assertSame( 'application/json', $response->getHeaderLine( 'Content-Type' ) );
-
-		$assocFromResp = json_decode( $response->getBody()->getContents(), true );
-		$this->assertNull( $assocFromResp['change-time'] );
 	}
 }
