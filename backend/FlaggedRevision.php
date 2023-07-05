@@ -224,7 +224,7 @@ class FlaggedRevision {
 			'rev_page = fr_page_id', // sanity
 			$db->bitAnd( 'rev_deleted', RevisionRecord::DELETED_TEXT ) . ' = 0'
 		];
-		$options['ORDER BY'] = 'fr_rev_timestamp DESC';
+		$options['ORDER BY'] = [ 'fr_rev_timestamp DESC', 'fr_rev_id DESC' ];
 
 		$frQuery = self::getQueryInfo();
 		$row = $db->selectRow(
