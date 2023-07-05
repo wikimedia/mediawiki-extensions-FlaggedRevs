@@ -136,10 +136,10 @@ class RevisionReviewFormUI {
 		$params = [ 'method' => 'post', 'action' => $action, 'id' => 'mw-fr-reviewform' ];
 		$form = Xml::openElement( 'form', $params ) . "\n";
 		$form .= Xml::openElement( 'fieldset',
-			[ 'class' => 'flaggedrevs_reviewform noprint cdx-card' ] ) . "\n";
+			[ 'class' => 'flaggedrevs_reviewform noprint cdx-card', 'style' => 'font-size: 90%;' ] ) . "\n";
 		# Add appropriate legend text
 		$legendMsg = $frev ? 'revreview-reflag' : 'revreview-flag';
-		$form .= Xml::openElement( 'span', [ 'id' => 'mw-fr-reviewformlegend cdx-card__text' ] );
+		$form .= Xml::openElement( 'span', [ 'id' => 'mw-fr-reviewformlegend' ] );
 		$form .= '<span class="cdx-card__text__title">' . wfMessage( $legendMsg )->escaped() . '</span>';
 		# Show explanatory text
 		$form .= $this->topNotice;
@@ -163,6 +163,7 @@ class RevisionReviewFormUI {
 				[
 					'maxlength' => CommentStore::COMMENT_CHARACTER_LIMIT,
 					'class' => 'fr-comment-box cdx-text-input__input',
+					'id' => 'mw-fr-commentbox'
 				]
 			);
 			$form .= '</div>';
