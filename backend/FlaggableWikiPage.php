@@ -184,9 +184,11 @@ class FlaggableWikiPage extends WikiPage {
 		$fname = __METHOD__;
 		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		$this->pendingRevCount = (int)$cache->getWithSetCallback(
-			# Confirm that cache value was made against the same stable rev Id.
-			# This avoids lengthy cache pollution if $sRevId is outdated.
-			$cache->makeKey( 'flaggedrevs-countPending', $this->getId(), $sRevId ),
+			# Confirm that cache value was made against the same current and
+			# stable revision. This avoids lengthy cache pollution if either
+			# of them is outdated, or if the page is edited twice within the
+			# cache expiry time (which is three weeks in Wikimedia production!).
+			$cache->makeKey( 'flaggedrevs-pending-count', $this->getLatest(), $sRevId ),
 			$wgParserCacheExpireTime,
 			function (
 				$oldValue = null, &$ttl = null, array &$setOpts = []
