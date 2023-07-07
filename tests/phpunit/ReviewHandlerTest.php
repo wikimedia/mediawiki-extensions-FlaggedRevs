@@ -13,6 +13,9 @@ use MediaWiki\Tests\Rest\Handler\HandlerTestTrait;
 class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 	use HandlerTestTrait;
 
+	/** @inheritdoc */
+	protected $tablesUsed = [ 'flaggedrevs' ];
+
 	protected function setUp(): void {
 		parent::setUp();
 		$this->setUserLang( 'qqx' );
@@ -29,9 +32,7 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 
 	public function testWithAllParams() {
 		$webRequest = $this->createWebRequest();
-		// T340004: To make sure the page really, really doesn't exist
-		$page = $this->getNonexistingTestPage( __METHOD__ );
-		$page = $this->getExistingTestPage( $page->getTitle() );
+		$page = $this->getExistingTestPage( __METHOD__ );
 
 		$oldid = $page->getLatest();
 		$this->editPage( $page, __METHOD__ );
