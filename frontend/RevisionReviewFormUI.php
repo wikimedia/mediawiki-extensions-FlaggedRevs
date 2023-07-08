@@ -9,30 +9,21 @@ use MediaWiki\Revision\RevisionRecord;
  * NOTE: use ONLY for diff-to-stable views and page version views
  */
 class RevisionReviewFormUI {
-	/** @var User */
-	private $user;
-	/** @var FlaggableWikiPage */
-	private $article;
-	/** @var string */
-	private $topNotice = '';
-	/** @var string */
-	private $bottomNotice = '';
+	private User $user;
+	private FlaggableWikiPage $article;
+	/** A notice inside the review box at the top (HTML) */
+	private string $topNotice = '';
+	/** A notice inside the review box at the bottom (HTML) */
+	private string $bottomNotice = '';
 	/** @var array<int,array<string,int>>|null */
-	private $templateIds = null;
-	/** @var WebRequest */
-	private $request;
-	/** @var OutputPage */
-	private $out;
-	/** @var RevisionRecord */
-	private $revRecord;
-	/** @var RevisionRecord|null */
-	private $refRevRecord = null;
+	private ?array $templateIds = null;
+	private WebRequest $request;
+	private OutputPage $out;
+	private RevisionRecord $revRecord;
+	private ?RevisionRecord $refRevRecord = null;
 
 	/**
 	 * Generates a brief review form for a page
-	 * @param IContextSource $context
-	 * @param FlaggableWikiPage $article
-	 * @param RevisionRecord $revRecord
 	 */
 	public function __construct(
 		IContextSource $context,
@@ -52,7 +43,7 @@ class RevisionReviewFormUI {
 	 * (b) Default the rating tags to those of $this->revRecord (if flagged)
 	 * @param RevisionRecord $refRevRecord Old revision for diffs ($this->revRecord is the new rev)
 	 */
-	public function setDiffPriorRevRecord( RevisionRecord $refRevRecord ) {
+	public function setDiffPriorRevRecord( RevisionRecord $refRevRecord ): void {
 		$this->refRevRecord = $refRevRecord;
 	}
 
@@ -60,23 +51,23 @@ class RevisionReviewFormUI {
 	 * Add on a notice inside the review box at the top
 	 * @param string $notice HTML to show
 	 */
-	public function setTopNotice( $notice ) {
-		$this->topNotice = (string)$notice;
+	public function setTopNotice( string $notice ): void {
+		$this->topNotice = $notice;
 	}
 
 	/**
-	 * Add on a notice inside the review box at the top
+	 * Add on a notice inside the review box at the bottom
 	 * @param string $notice HTML to show
 	 */
-	public function setBottomNotice( $notice ) {
-		$this->bottomNotice = (string)$notice;
+	public function setBottomNotice( string $notice ): void {
+		$this->bottomNotice = $notice;
 	}
 
 	/**
 	 * Set the template version parameters of what the user is viewing
 	 * @param array<int,array<string,int>> $templateIds
 	 */
-	public function setIncludeVersions( array $templateIds ) {
+	public function setIncludeVersions( array $templateIds ): void {
 		$this->templateIds = $templateIds;
 	}
 
@@ -84,7 +75,7 @@ class RevisionReviewFormUI {
 	 * Generates a brief review form for a page
 	 * @return array (html string, error string or true)
 	 */
-	public function getHtml() {
+	public function getHtml(): array {
 		$revId = $this->revRecord->getId();
 		if ( $this->revRecord->isDeleted( RevisionRecord::DELETED_TEXT ) ) {
 			return [ '', 'review_bad_oldid' ]; # The revision must be valid and public
@@ -217,9 +208,8 @@ class RevisionReviewFormUI {
 
 	/**
 	 * If the REJECT button should show then get the ID of the last good rev
-	 * @return int
 	 */
-	private function rejectRefRevId() {
+	private function rejectRefRevId(): int {
 		if ( $this->refRevRecord ) {
 			$priorId = $this->refRevRecord->getId();
 			if ( $priorId == $this->article->getStable() &&
@@ -233,13 +223,12 @@ class RevisionReviewFormUI {
 	}
 
 	/**
+	 * Generates a main tag inputs (checkboxes/radios/selects) for review form
 	 * @param User $user
 	 * @param array<string,int> $flags selected flags
 	 * @param bool $disabled form disabled
-	 * @return string
-	 * Generates a main tag inputs (checkboxes/radios/selects) for review form
 	 */
-	private function ratingInputs( $user, $flags, $disabled ) {
+	private function ratingInputs( User $user, array $flags, bool $disabled ): string {
 		if ( FlaggedRevs::binaryFlagging() ) {
 			return '';
 		}
@@ -301,18 +290,16 @@ class RevisionReviewFormUI {
 	}
 
 	/**
-	 * @param string $tag
-	 * @return Message the UI name for a tag
+	 * Get the UI name for a tag
 	 */
-	private function getTagMsg( $tag ) {
+	private function getTagMsg( string $tag ): Message {
 		return wfMessage( "revreview-$tag" );
 	}
 
 	/**
-	 * @param int $value
-	 * @return string the UI name for a value of a tag
+	 * Get the UI name for a value of a tag
 	 */
-	private function getTagValueMsg( $value ) {
+	private function getTagValueMsg( int $value ): string {
 		$levels = FlaggedRevs::getLevels();
 		if ( isset( $levels[$value] ) ) {
 			return wfMessage( 'revreview-' . $levels[$value] )->escaped();
@@ -325,7 +312,7 @@ class RevisionReviewFormUI {
 	 * @param array<string,int> $selected
 	 * @return array [ array<int,string>|false $labels, int|false $minLevels ]
 	 */
-	private function ratingFormTags( $user, $selected ) {
+	private function ratingFormTags( User $user, array $selected ): array {
 		$tag = FlaggedRevs::getTagName();
 		if ( isset( $selected[$tag] ) &&
 			!FlaggedRevs::userCanSetValue( $user, $selected[$tag] )
@@ -356,11 +343,10 @@ class RevisionReviewFormUI {
 	 * @param bool $disabled is the form disabled?
 	 * @param bool $reviewIncludes force the review button to be usable?
 	 * @param OutputPage $out
-	 * @return string
 	 */
 	private function submitButtons(
-		$rejectId, $frev, $disabled, $reviewIncludes, OutputPage $out
-	) {
+		int $rejectId, ?FlaggedRevision $frev, bool $disabled, bool $reviewIncludes, OutputPage $out
+	): string {
 		$disAttrib = [ 'disabled' => 'disabled' ];
 		# ACCEPT BUTTON: accept a revision
 		# We may want to re-review to change:
@@ -417,7 +403,7 @@ class RevisionReviewFormUI {
 	/**
 	 * @return array<int,array<string,int>>
 	 */
-	private function getIncludeVersions() {
+	private function getIncludeVersions(): array {
 		if ( $this->templateIds === null ) {
 			throw new LogicException(
 				"Template versions not provided to review form; call setIncludeVersions()."

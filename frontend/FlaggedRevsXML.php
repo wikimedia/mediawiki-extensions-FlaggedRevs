@@ -11,18 +11,13 @@ class FlaggedRevsXML {
 	/**
 	 * Get a selector of reviewable namespaces
 	 * @param int|null $selected namespace selected
-	 * @param mixed|null $all Value of an item denoting all namespaces, or null to omit
-	 * @return string
+	 * @param string|null $all Value of an item denoting all namespaces, or null to omit
 	 */
-	public static function getNamespaceMenu( $selected = null, $all = null ) {
+	public static function getNamespaceMenu( ?int $selected = null, ?string $all = null ): string {
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		$s = "<label for='namespace'>" . wfMessage( 'namespace' )->escaped() . "</label>";
 		# No namespace selected; let exact match work without hitting Main
 		$selected ??= '';
-		if ( $selected !== '' ) {
-			# Let input be numeric strings without breaking the empty match.
-			$selected = (int)$selected;
-		}
 		$s .= "\n<select id='namespace' name='namespace' class='namespaceselector'>\n";
 		$arr = MediaWikiServices::getInstance()->getContentLanguage()->getFormattedNamespaces();
 		if ( $all !== null ) {
@@ -48,9 +43,8 @@ class FlaggedRevsXML {
 	/**
 	 * Get a <select> of default page version (stable or draft). Used for filters.
 	 * @param int|null $selected (0=draft, 1=stable, null=either )
-	 * @return string
 	 */
-	public static function getDefaultFilterMenu( $selected = null ) {
+	public static function getDefaultFilterMenu( ?int $selected = null ): string {
 		if ( $selected === null ) {
 			$selected = ''; // "all"
 		}
@@ -66,10 +60,9 @@ class FlaggedRevsXML {
 
 	/**
 	 * Get a <select> of options of 'autoreview' restriction levels. Used for filters.
-	 * @param string $selected ('' for "any", 'none' for none)
-	 * @return string
+	 * @param string|null $selected (null or empty string for "any", 'none' for none)
 	 */
-	public static function getRestrictionFilterMenu( $selected = '' ) {
+	public static function getRestrictionFilterMenu( ?string $selected = '' ): string {
 		if ( $selected === null ) {
 			$selected = ''; // "all"
 		}
@@ -94,11 +87,10 @@ class FlaggedRevsXML {
 	}
 
 	/**
-	 * @param array<string,int> $flags
-	 * @return string
 	 * Generates a review box/tag
+	 * @param array<string,int> $flags
 	 */
-	public static function addTagRatings( $flags ) {
+	public static function addTagRatings( array $flags ): string {
 		$tag = Html::openElement(
 			'table',
 			[
@@ -130,17 +122,20 @@ class FlaggedRevsXML {
 	}
 
 	/**
+	 * Generates a review box using a table using FlaggedRevsXML::addTagRatings()
 	 * @param FlaggedRevision $frev the reviewed version
 	 * @param string $shtml Short message HTML
 	 * @param int $revsSince revisions since review
 	 * @param string $type (stable/draft/oldstable)
 	 * @param bool $synced does stable=current and this is one of them?
-	 * @return string
-	 * Generates a review box using a table using FlaggedRevsXML::addTagRatings()
 	 */
 	public static function prettyRatingBox(
-		$frev, $shtml, $revsSince, $type = 'oldstable', $synced = false
-	) {
+		FlaggedRevision $frev,
+		string $shtml,
+		int $revsSince,
+		string $type = 'oldstable',
+		bool $synced = false
+	): string {
 		global $wgLang;
 		$flags = $frev->getTags();
 		$time = $wgLang->date( $frev->getTimestamp(), true );
@@ -186,9 +181,8 @@ class FlaggedRevsXML {
 
 	/**
 	 * Generates JS toggle arrow icon
-	 * @return string
 	 */
-	private static function ratingArrow() {
+	private static function ratingArrow(): string {
 		return ( new OOUI\IndicatorWidget(
 			[
 				'indicator' => 'down',
@@ -202,9 +196,8 @@ class FlaggedRevsXML {
 	/**
 	 * Generates (show/hide) JS toggle HTML
 	 * @param string|null $href If set, make the toggle link link to this URL and don't hide it
-	 * @return string
 	 */
-	public static function diffToggle( $href = null ) {
+	public static function diffToggle( ?string $href = null ): string {
 		$toggle = '<a class="fr-toggle-text" ' .
 			'title="' . wfMessage( 'revreview-diff-toggle-title' )->escaped() .
 			( $href === null ? '' : '" href="' . htmlspecialchars( $href ) ) .
@@ -216,9 +209,8 @@ class FlaggedRevsXML {
 
 	/**
 	 * Generates (show/hide) JS toggle HTML
-	 * @return string
 	 */
-	public static function logToggle() {
+	public static function logToggle(): string {
 		$toggle = Html::rawElement(
 			'a',
 			[
@@ -240,9 +232,8 @@ class FlaggedRevsXML {
 
 	/**
 	 * Generates (show/hide) JS toggle HTML
-	 * @return string
 	 */
-	public static function logDetailsToggle() {
+	public static function logDetailsToggle(): string {
 		$toggle = Html::rawElement(
 			'a',
 			[
@@ -264,9 +255,8 @@ class FlaggedRevsXML {
 
 	/**
 	 * Creates CSS draft page icon
-	 * @return string
 	 */
-	public static function draftStatusIcon() {
+	public static function draftStatusIcon(): string {
 		$encTitle = wfMessage( 'revreview-draft-title' )->text();
 		return ( new OOUI\IconWidget(
 			[
@@ -279,9 +269,8 @@ class FlaggedRevsXML {
 
 	/**
 	 * Creates CSS stable page icon
-	 * @return string
 	 */
-	public static function stableStatusIcon() {
+	public static function stableStatusIcon(): string {
 		$encTitle = wfMessage( 'revreview-basic-title' )->text();
 		return ( new OOUI\IconWidget(
 			[
@@ -294,10 +283,8 @@ class FlaggedRevsXML {
 
 	/**
 	 * Creates CSS lock icon if page is locked/unlocked
-	 * @param FlaggableWikiPage $flaggedArticle
-	 * @return string
 	 */
-	public static function lockStatusIcon( $flaggedArticle ) {
+	public static function lockStatusIcon( FlaggableWikiPage $flaggedArticle ): string {
 		if ( $flaggedArticle->isPageLocked() ) {
 			$encTitle = wfMessage( 'revreview-locked-title' )->text();
 			$icon = 'articleSearch';
@@ -317,23 +304,17 @@ class FlaggedRevsXML {
 	}
 
 	/**
-	 * @param FlaggedRevision $frev
-	 * @param int $revsSince
-	 * @return string
 	 * Creates "stable rev reviewed on"/"x pending edits" message
 	 */
-	public static function pendingEditNotice( $frev, $revsSince ) {
+	public static function pendingEditNotice( FlaggedRevision $frev, int $revsSince ): string {
 		$msg = self::pendingEditNoticeMessage( $frev, $revsSince );
 		return $msg->parse();
 	}
 
 	/**
 	 * Same as pendingEditNotice(), but returns a Message object.
-	 * @param FlaggedRevision $frev
-	 * @param int $revsSince
-	 * @return Message
 	 */
-	public static function pendingEditNoticeMessage( $frev, $revsSince ) {
+	public static function pendingEditNoticeMessage( FlaggedRevision $frev, int $revsSince ): Message {
 		global $wgLang;
 		$time = $wgLang->date( $frev->getTimestamp(), true );
 		# Add message text for pending edits
@@ -341,11 +322,9 @@ class FlaggedRevsXML {
 	}
 
 	/**
-	 * @param Title $title
-	 * @return string
 	 * Creates a stability log excerpt
 	 */
-	public static function stabilityLogExcerpt( Title $title ) {
+	public static function stabilityLogExcerpt( Title $title ): string {
 		$logHtml = '';
 		$params = [
 			'lim'   => 1,

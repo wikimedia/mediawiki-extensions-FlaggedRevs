@@ -10,21 +10,11 @@ use MediaWiki\Revision\RevisionStore;
  * TODO inject dependencies
  */
 class RejectConfirmationFormUI {
-	/** @var RevisionReviewForm */
-	private $form;
+	private RevisionReviewForm $form;
+	private ?RevisionRecord $oldRevRecord;
+	private ?RevisionRecord $newRevRecord;
+	private RevisionStore $revisionStore;
 
-	/** @var RevisionRecord */
-	private $oldRevRecord;
-
-	/** @var RevisionRecord */
-	private $newRevRecord;
-
-	/** @var RevisionStore */
-	private $revisionStore;
-
-	/**
-	 * @param RevisionReviewForm $form
-	 */
 	public function __construct( RevisionReviewForm $form ) {
 		$this->form = $form;
 
@@ -39,7 +29,7 @@ class RejectConfirmationFormUI {
 	 * Get the "are you sure you want to reject these changes?" form
 	 * @return array (html string, error string or true)
 	 */
-	public function getHtml() {
+	public function getHtml(): array {
 		global $wgLang;
 
 		$status = $this->form->checkTarget();
