@@ -39,6 +39,7 @@ class FlaggedRevisionTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame( $revRecord, $frev->getRevisionRecord() );
 		$this->assertSame( __FUNCTION__, $frev->getRevText() );
 		$this->assertSame( [ 'example' => 0, 'a' => 2 ], $frev->getTags() );
+		$this->assertSame( 0, $frev->getTag() );
 	}
 
 	public static function provideNonDefaultTags() {

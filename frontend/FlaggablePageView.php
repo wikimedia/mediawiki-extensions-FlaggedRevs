@@ -1695,7 +1695,7 @@ class FlaggablePageView extends ContextSource {
 		$pm = MediaWikiServices::getInstance()->getPermissionManager();
 		// If the edit was not autoreviewed, and the user can actually make a
 		// new stable version, then go to the diff...
-		if ( $this->article->revsArePending() && $frev->userCanSetFlags( $reqUser ) ) {
+		if ( $this->article->revsArePending() && $frev->userCanSetTag( $reqUser ) ) {
 			$params += [ 'oldid' => $frev->getRevId(), 'diff' => 'cur', 'shownotice' => 1 ];
 			$params += FlaggedRevs::diffOnlyCGI();
 		// ...otherwise, go to the draft revision after completing an edit.

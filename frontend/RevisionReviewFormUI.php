@@ -89,37 +89,31 @@ class RevisionReviewFormUI {
 		} else {
 			$frev = FlaggedRevision::newFromTitle( $article->getTitle(), $revId );
 		}
-		$oldFlags = $frev
-			? $frev->getTags() // existing tags
-			: FlaggedRevs::quickTags();
+		$oldTag = $frev ? $frev->getTag() : FlaggedRevs::quickTag();
 		$reviewTime = $frev ? $frev->getTimestamp() : ''; // last review of rev
 
 		$priorRevId = $this->refRevRecord ? $this->refRevRecord->getId() : 0;
 		# If we are reviewing updates to a page, start off with the stable revision's
-		# flags. Otherwise, we just fill them in with the selected revision's flags.
+		# tag. Otherwise, we just fill them in with the selected revision's tag.
 		# @TODO: do we want to carry over info for other diffs?
 		if ( $srev && $srev->getRevId() == $priorRevId ) { // diff-to-stable
-			$flags = $srev->getTags();
+			$tag = $srev->getTag();
 			# Check if user is allowed to renew the stable version.
-			# If not, then get the flags for the new revision itself.
-			if ( !FlaggedRevs::userCanSetFlags( $this->user, $oldFlags ) ) {
-				$flags = $oldFlags;
+			# If not, then get the tag for the new revision itself.
+			if ( !FlaggedRevs::userCanSetTag( $this->user, $oldTag ) ) {
+				$tag = $oldTag;
 			}
 			# Re-review button is need for template only review case
 			$reviewIncludes = ( $srev->getRevId() == $revId && !$article->stableVersionIsSynced() );
 		} else { // views
-			$flags = $oldFlags;
+			$tag = $oldTag;
 			$reviewIncludes = false; // re-review button not needed
 		}
 
 		# Disable form for unprivileged users
-		$disabled = [];
-		if ( !MediaWikiServices::getInstance()->getPermissionManager()
+		$disabled = !MediaWikiServices::getInstance()->getPermissionManager()
 				->quickUserCan( 'review', $this->user, $article->getTitle() ) ||
-			!FlaggedRevs::userCanSetFlags( $this->user, $flags )
-		) {
-			$disabled = [ 'disabled' => 'disabled' ];
-		}
+			!FlaggedRevs::userCanSetTag( $this->user, $tag );
 
 		# Begin form...
 		$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
@@ -142,7 +136,7 @@ class RevisionReviewFormUI {
 		# Add main checkboxes/selects
 		$form .= Xml::openElement( 'span',
 			[ 'id' => 'mw-fr-ratingselects', 'class' => 'fr-rating-options' ] ) . "\n";
-		$form .= $this->ratingInputs( $this->user, $flags, (bool)$disabled ) . "\n";
+		$form .= $this->ratingInputs( $this->user, $tag, $disabled ) . "\n";
 		$form .= Xml::closeElement( 'span' ) . "\n";
 
 		# Hide comment input if needed
@@ -162,7 +156,7 @@ class RevisionReviewFormUI {
 
 		# Add the submit buttons...
 		$rejectId = $this->rejectRefRevId(); // determine if there will be reject button
-		$form .= $this->submitButtons( $rejectId, $frev, (bool)$disabled, $reviewIncludes, $this->out );
+		$form .= $this->submitButtons( $rejectId, $frev, $disabled, $reviewIncludes, $this->out );
 
 		# Show stability log if there is anything interesting...
 		if ( $article->isPageLocked() ) {
@@ -225,26 +219,24 @@ class RevisionReviewFormUI {
 	/**
 	 * Generates a main tag inputs (checkboxes/radios/selects) for review form
 	 * @param User $user
-	 * @param array<string,int> $flags selected flags
+	 * @param int|null $selected selected tag
 	 * @param bool $disabled form disabled
 	 */
-	private function ratingInputs( User $user, array $flags, bool $disabled ): string {
+	private function ratingInputs( User $user, ?int $selected, bool $disabled ): string {
 		if ( FlaggedRevs::binaryFlagging() ) {
 			return '';
 		}
 
 		$quality = FlaggedRevs::getTagName();
 		# Get all available tags for this page/user
-		list( $levels, $minLevel ) = $this->ratingFormTags( $user, $flags );
-		if ( $disabled || $levels === false ) {
-			// Display the value for each tag as text
-			$selected = $flags[$quality] ?? 0;
+		list( $levels, $minLevel ) = $this->getRatingFormLevels( $user, $selected );
+		if ( $disabled || $minLevel === null ) {
+			// Display the value for the tag as text
 			return $this->getTagMsg( $quality )->escaped() . ": " .
-				$this->getTagValueMsg( $selected );
+				$this->getTagValueMsg( $selected ?? 0 );
 		}
 
 		# Determine the level selected by default
-		$selected = $flags[$quality] ?? 0;
 		if ( !$selected || !isset( $levels[$selected] ) ) {
 			$selected = $minLevel;
 		}
@@ -308,32 +300,25 @@ class RevisionReviewFormUI {
 	}
 
 	/**
-	 * @param User $user
-	 * @param array<string,int> $selected
-	 * @return array [ array<int,string>|false $labels, int|false $minLevels ]
+	 * @return array [ array<int,string>|null $labels, int|null $minLevel ]
+	 *  If `$minLevel` is null, the user cannot set the rating
 	 */
-	private function ratingFormTags( User $user, array $selected ): array {
-		$tag = FlaggedRevs::getTagName();
-		if ( isset( $selected[$tag] ) &&
-			!FlaggedRevs::userCanSetValue( $user, $selected[$tag] )
-		) {
-			return [ false, false ]; // form will have to be disabled
+	private function getRatingFormLevels( User $user, ?int $selected ): array {
+		if ( $selected !== null && !FlaggedRevs::userCanSetValue( $user, $selected ) ) {
+			return [ null, null ]; // form will have to be disabled
 		}
 		$labels = []; // applicable tag levels
-		$minLevels = false; // first non-zero level number
+		$minLevel = null; // first non-zero level number, if any
 		foreach ( FlaggedRevs::getLevels() as $i => $msg ) {
 			# Some levels may be restricted or not applicable...
 			if ( !FlaggedRevs::userCanSetValue( $user, $i ) ) {
 				continue; // skip this level
-			} elseif ( $i > 0 && !$minLevels ) {
-				$minLevels = $i; // first non-zero level number
+			} elseif ( $i > 0 && !$minLevel ) {
+				$minLevel = $i; // first non-zero level number
 			}
 			$labels[$i] = $msg; // set label
 		}
-		if ( !$minLevels ) {
-			return [ false, false ]; // form will have to be disabled
-		}
-		return [ $labels, $minLevels ];
+		return [ $labels, $minLevel ];
 	}
 
 	/**

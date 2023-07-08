@@ -5,6 +5,7 @@ use MediaWiki\Page\PageIdentity;
 use MediaWiki\Revision\RenderedRevision;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
+use MediaWiki\User\UserIdentity;
 use Wikimedia\Assert\PreconditionException;
 
 /**
@@ -209,11 +210,8 @@ class FlaggedRevs {
 
 	/**
 	 * Returns true if a user can set $value
-	 * @param User $user
-	 * @param int $value
-	 * @return bool
 	 */
-	public static function userCanSetValue( $user, $value ) {
+	public static function userCanSetValue( UserIdentity $user, int $value ): bool {
 		global $wgFlaggedRevsTagsRestrictions;
 
 		$pm = MediaWikiServices::getInstance()->getPermissionManager();
@@ -240,12 +238,26 @@ class FlaggedRevs {
 	/**
 	 * Returns true if a user can set $flags for a revision via review.
 	 * Requires the same for $oldflags if given.
+	 *
+	 * @deprecated Use userCanSetTag() instead.
 	 * @param User $user
 	 * @param array<string,int> $flags suggested flags
 	 * @param array<string,int> $oldflags pre-existing flags
 	 * @return bool
 	 */
 	public static function userCanSetFlags( $user, array $flags, $oldflags = [] ) {
+		$qal = self::getTagName();
+		return self::userCanSetTag( $user, $flags[$qal] ?? null, $oldflags[$qal] ?? null );
+	}
+
+	/**
+	 * Returns true if a user can set $tag for a revision via review.
+	 * Requires the same for $oldTag if given.
+	 * @param UserIdentity $user
+	 * @param int|null $tag suggested tag
+	 * @param int|null $oldTag pre-existing tag
+	 */
+	public static function userCanSetTag( UserIdentity $user, ?int $tag, ?int $oldTag = null ): bool {
 		if ( !MediaWikiServices::getInstance()->getPermissionManager()
 			->userHasRight( $user, 'review' )
 		) {
@@ -255,14 +267,11 @@ class FlaggedRevs {
 			return true;
 		}
 
-		$qal = self::getTagName();
-		if ( !isset( $flags[$qal] ) ) {
+		if ( $tag === null ) {
 			return false; // unspecified
-		} elseif ( !self::userCanSetValue( $user, $flags[$qal] ) ) {
+		} elseif ( !self::userCanSetValue( $user, $tag ) ) {
 			return false; // user cannot set proposed flag
-		} elseif ( isset( $oldflags[$qal] )
-			&& !self::userCanSetValue( $user, $oldflags[$qal] )
-		) {
+		} elseif ( $oldTag !== null && !self::userCanSetValue( $user, $oldTag ) ) {
 			return false; // user cannot change old flag
 		}
 		return true;
@@ -577,12 +586,21 @@ class FlaggedRevs {
 
 	/**
 	 * Get minimum level tags for a tier
+	 * @deprecated Use quickTag() instead.
 	 * @return array<string,int>
 	 */
 	public static function quickTags() {
 		return self::useOnlyIfProtected() ?
 			[] :
 			[ self::getTagName() => 1 ];
+	}
+
+	/**
+	 * Get minimum level tag for the default tier,
+	 * or `null` if FlaggedRevs is used in protection mode
+	 */
+	public static function quickTag(): ?int {
+		return self::useOnlyIfProtected() ? null : 1;
 	}
 
 	/**
