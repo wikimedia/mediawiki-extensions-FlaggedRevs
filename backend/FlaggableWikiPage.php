@@ -382,7 +382,7 @@ class FlaggableWikiPage extends WikiPage {
 			],
 			__METHOD__,
 			[
-				'ORDER BY' 	=> 'fr_rev_timestamp DESC'
+				'ORDER BY' 	=> [ 'fr_rev_timestamp DESC', 'fr_rev_id DESC' ]
 			]
 		);
 		return (int)$oldid;
@@ -578,7 +578,7 @@ class FlaggableWikiPage extends WikiPage {
 				$dbw->bitAnd( 'rev_deleted', RevisionRecord::DELETED_TEXT ) . ' = 0'
 			],
 			__METHOD__,
-			[ 'ORDER BY' => 'fr_rev_timestamp DESC', 'LIMIT' => 1 ]
+			[ 'ORDER BY' => [ 'fr_rev_timestamp DESC', 'fr_rev_id DESC' ], 'LIMIT' => 1 ]
 		);
 		# If there is a revision of this level, track it...
 		# Revisions accepted to one tier count as accepted
