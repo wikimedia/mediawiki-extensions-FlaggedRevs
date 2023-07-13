@@ -7,14 +7,14 @@ class FlaggedRevsStableLogFormatter extends LogFormatter {
 	/**
 	 * @inheritDoc
 	 */
-	protected function getMessageKey() {
+	protected function getMessageKey(): string {
 		return 'logentry-stable-' . $this->entry->getSubtype();
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	protected function getMessageParameters() {
+	protected function getMessageParameters(): array {
 		$params = parent::getMessageParameters();
 		$action = $this->entry->getSubtype();
 		if ( $action !== 'move_stable' ) {
@@ -32,7 +32,7 @@ class FlaggedRevsStableLogFormatter extends LogFormatter {
 	/**
 	 * @inheritDoc
 	 */
-	public function getActionLinks() {
+	public function getActionLinks(): string {
 		# Add history link showing edits right before the config change
 		$hist = $this->getLinkRenderer()->makeLink(
 			$this->entry->getTarget(),
@@ -49,9 +49,8 @@ class FlaggedRevsStableLogFormatter extends LogFormatter {
 	 *
 	 * @param array $pars assoc array
 	 * @param bool $forContent
-	 * @return string
 	 */
-	public static function stabilitySettings( array $pars, $forContent ) {
+	public static function stabilitySettings( array $pars, bool $forContent ): string {
 		global $wgLang;
 		$set = [];
 		$settings = '';

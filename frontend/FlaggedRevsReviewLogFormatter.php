@@ -3,13 +3,12 @@
 use MediaWiki\MediaWikiServices;
 
 class FlaggedRevsReviewLogFormatter extends LogFormatter {
-	/** @var bool */
-	private $isDeapproval = false;
+	private bool $isDeapproval = false;
 
 	/**
 	 * @inheritDoc
 	 */
-	protected function getMessageKey() {
+	protected function getMessageKey(): string {
 		$rawAction = $this->entry->getSubtype();
 		if ( $rawAction[0] !== 'a' ) {
 			// unapprove, unapprove2
@@ -27,7 +26,7 @@ class FlaggedRevsReviewLogFormatter extends LogFormatter {
 	/**
 	 * @inheritDoc
 	 */
-	public function getActionLinks() {
+	public function getActionLinks(): string {
 		$title = $this->entry->getTarget();
 		$params = $this->entry->getParameters();
 		$links = '';
