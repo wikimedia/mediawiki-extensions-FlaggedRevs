@@ -19,6 +19,12 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 		$this->setUserLang( 'qqx' );
+		$this->setMwGlobals( [
+			'wgFlaggedRevsAutoReview' => 0,
+			'wgFlaggedRevsNamespaces' => [ NS_MAIN ],
+			'wgFlaggedRevsProtection' => false,
+			'wgFlaggedRevsTags' => [ 'accuracy' => [ 'levels' => 3 ] ],
+		] );
 	}
 
 	private function createWebRequest(): WebRequest {
@@ -142,10 +148,6 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 	public function testWithConfiguredAccuracyParams() {
 		$webRequest = $this->createWebRequest();
 		$page = $this->getExistingTestPage( __METHOD__ );
-
-		$this->setMwGlobals( [
-			'wgFlaggedRevsTags' => [ 'accuracy' => [ 'levels' => 3 ] ],
-		] );
 
 		$oldid = $page->getLatest();
 		$this->editPage( $page, __METHOD__ );
