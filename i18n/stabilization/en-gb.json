@@ -5,6 +5,5 @@
 			"Reedy"
 		]
 	},
-	"stabilization": "Page stabilisation",
-	"stabilization-notexists": "There is no page called '[[:$1|$1]]'.\nNo configuration is possible."
+	"stabilization": "Page stabilisation"
 }
