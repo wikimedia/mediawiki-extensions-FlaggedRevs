@@ -3,10 +3,20 @@
 		"authors": [
 			"Felicilijonas",
 			"Reedy",
-			"Shirayuki"
+			"Shirayuki",
+			"Piano1forte2"
 		]
 	},
+	"action-autoreview": "have one's own edits automatically marked as 'checked'",
+	"action-validate": "mark revisions as being 'quality'",
 	"flaggedrevs-desc": "Gives Editors the ability to review revisions and stabilise pages",
 	"revreview-editnotice": "'''Your changes will be displayed to readers once an authorised user accepts them. ([[{{MediaWiki:Validationpage}}|help]])'''",
-	"revreview-edited": "'''Your changes will be displayed to readers once an authorised user accepts them. ([[{{MediaWiki:Validationpage}}|help]])'''\n\nThere {{PLURAL:$2|is|are}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 pending {{PLURAL:$2|change|changes}}] ''(shown below)'' awaiting review."
+	"revreview-edited": "'''Your changes will be displayed to readers once an authorised user accepts them. ([[{{MediaWiki:Validationpage}}|help]])'''\n\nThere {{PLURAL:$2|is|are}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 pending {{PLURAL:$2|change|changes}}] ''(shown below)'' awaiting review.",
+	"revreview-edited-section": "Return to page section named '[[#$1|$2]]'.",
+	"right-autoreview": "Have one's own edits automatically marked as 'checked'",
+	"right-review": "Mark revisions as being 'checked'",
+	"right-validate": "Mark revisions as being 'quality'",
+	"stable-logentry-config": "set stable version settings for '$1'",
+	"stable-logentry-modify": "changed stable version settings for '$1'",
+	"stable-logentry-reset": "reset stable version settings for '$1'"
 }

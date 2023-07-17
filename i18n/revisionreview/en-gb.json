@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Piano1forte2"
+		]
+	},
+	"review_too_low": "Revision cannot be reviewed with some fields left 'inadequate'.",
+	"revreview-toolow": "'''You must rate each of the attributes higher than 'inadequate' in order for a revision to be considered reviewed.'''\n\nTo remove the review status of a revision, click '{{int:revreview-submit-unreview}}'.\n\nPlease hit the 'back' button in your browser and try again.",
+	"revreview-tt-flag": "Accept this revision by marking it as 'checked'",
+	"revreview-tt-unflag": "Unaccept this revision by marking it as 'unchecked'"
+}

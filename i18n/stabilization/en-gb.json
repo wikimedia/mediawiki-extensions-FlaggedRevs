@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Reedy"
+			"Reedy",
+			"Piano1forte2"
 		]
 	},
-	"stabilization": "Page stabilisation"
+	"stabilization": "Page stabilisation",
+	"stabilization-notexists": "There is no page called '[[:$1|$1]]'.\nNo configuration is possible."
 }

@@ -44,7 +44,7 @@
 	"review_reject_nulledits": "{{Flagged Revs}}\nUsed when using the \"reject\" feature.",
 	"revreview-check-flag-p": "{{Flagged Revs}}\nLabel of a checkbox shown on the edit form of a page that already has pending changes.\n\nParameters:\n* $1 - the number of pending changes",
 	"revreview-check-flag-p-title": "{{Flagged Revs}}\nTitle of a checkbox shown on the edit form of a page that already has pending changes.",
-	"revreview-check-flag-u": "{{Flagged Revs}}\nThis is a label for the  checkbox that appears under the edit box next to \"This is a minor edit\" and \"Watch this page\". This shown on pages with no stable version.",
+	"revreview-check-flag-u": "{{Flagged Revs}}\nThis is a label for the checkbox that appears under the edit box next to \"This is a minor edit\" and \"Watch this page\". This shown on pages with no stable version.",
 	"revreview-check-flag-u-title": "{{Flagged Revs}}\nTitle of a checkbox on the edit form that shows on pages with no stable version.",
 	"revreview-check-flag-y": "{{Flagged Revs}}\nLabel of a checkbox that shows on the edit form of pages with no stable version.",
 	"revreview-check-flag-y-title": "{{Flagged Revs}}\n{{Gender}}",
