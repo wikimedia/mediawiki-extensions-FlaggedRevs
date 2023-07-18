@@ -33,5 +33,6 @@
 	"revreview-def-stable": "stabila",
 	"revreview-restriction-any": "irga",
 	"revreview-restriction-none": "nula",
-	"tooltip-ca-current": "Vidar ica pagino kun la chanji qui bezonas aprobo"
+	"tooltip-ca-current": "Vidar ica pagino kun la chanji qui bezonas aprobo",
+	"revreview-locked": "'''Noto:''' Redakturi mustos [[{{MediaWiki:Validationpage}}|revizesar]] ante esar montrata a lekteri en ca pagino."
 }
