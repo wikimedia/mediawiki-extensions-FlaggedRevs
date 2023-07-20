@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Piano1forte2"
+		]
+	},
+	"apihelp-flagconfig-extended-description": "The following parameters are returned for each tag:\n;name:The key name of this tag.\n;levels:Number of levels the tag has (above 'not tagged').\nFlagged revisions have an assigned level for each tag. The highest tier that all the tags meet is the review tier of the entire revision.",
+	"apihelp-query+flagged-example-2": "Get flag statuses for pages starting with 'K'",
+	"apihelp-review-example-1": "Approve revision 12345 with comment 'Ok'"
+}
