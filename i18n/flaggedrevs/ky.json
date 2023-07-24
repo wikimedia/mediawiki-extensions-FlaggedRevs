@@ -6,6 +6,8 @@
 		]
 	},
 	"editor": "Түзөтүүчү",
+	"flaggedrevs-hidereviewed-hide": "Жашыруу",
+	"flaggedrevs-hidereviewed-show": "Көрсөтүү",
 	"group-editor": "Түзөтүүчүлөр",
 	"group-editor-member": "{{GENDER:$1|түзөтүүчү}}",
 	"revreview-style-2": "Жакшы",
