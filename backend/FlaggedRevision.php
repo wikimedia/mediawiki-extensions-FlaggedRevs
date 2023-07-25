@@ -6,6 +6,7 @@ use MediaWiki\Revision\RevisionAccessException;
 use MediaWiki\Revision\RevisionFactory;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
+use MediaWiki\User\UserIdentity;
 
 /**
  * Class representing a stable version of a MediaWiki revision
@@ -22,8 +23,8 @@ class FlaggedRevision {
 	/* Flagging metadata */
 	/** @var mixed review timestamp */
 	private $mTimestamp;
-	/** @var int[] review tags */
-	private $mTags;
+	/** @var array<string,int> Review tags */
+	private array $mTags;
 	/** @var string[] flags (for auto-review ect...) */
 	private $mFlags;
 	/** @var int reviewing user */
@@ -391,18 +392,30 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * @return int[] tag metadata
+	 * Get tags (levels) of all tiers this revision has.
+	 * Use getTag() instead unless you really need other tiers set on
+	 * historical revisions (these tiers are no longer supported, cannot
+	 * be set by users anymore).
+	 * @return array<string,int> tag metadata
 	 */
-	public function getTags() {
+	public function getTags(): array {
 		return $this->mTags;
 	}
 
 	/**
-	 * @param User $user
-	 * @return bool
+	 * Get the tag (level) of the page in the default tier.
+	 * This is always defined (possibly zero) unless in protection mode.
 	 */
-	public function userCanSetFlags( $user ) {
-		return FlaggedRevs::userCanSetFlags( $user, $this->mTags );
+	public function getTag(): ?int {
+		return $this->mTags[FlaggedRevs::getTagName()] ?? null;
+	}
+
+	/**
+	 * Whether the given user can set the tag in the default tier.
+	 * Always returns true in protection mode if the user has review right.
+	 */
+	public function userCanSetTag( UserIdentity $user ): bool {
+		return FlaggedRevs::userCanSetTag( $user, $this->getTag() );
 	}
 
 	/**
