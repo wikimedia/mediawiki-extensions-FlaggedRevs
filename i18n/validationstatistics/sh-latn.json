@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Winston Sung"
+		]
+	},
+	"validationstatistics": "Statistike za ocjene",
+	"validationstatistics-users": "'''{{SITENAME}}''' trenutno ima '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|korisnika}} s pravima „[[{{MediaWiki:Validationpage}}|Urednika]]“.\n\nUrednici su dokazani korisnici koji mogu praviti momentalne provjere izmjena stranica.",
+	"validationstatistics-lastupdate": "''Sljedeći podaci su posljednji put osvježeni $1 u $2.''",
+	"validationstatistics-pndtime": "Izmjene pregledane od dokazanih korisnika dobijaju status ''{{int:validationstatistics-stable}}''.\n\nProsječno čekanje za [[Special:OldReviewedPages|stranice sa nepregledanim izmjenama na čekanju]] iznosi '''$1'''. Čekanje mjeri koliko dugo stoji neprovjerena najstarija izmjena na čekanju .",
+	"validationstatistics-revtime": "Prosječno čekanje za neprovjerene izmjene od strane ''neprijavljenih korisnika'' je '''$1'''; srednja vrijednost iznosi '''$2'''. \n$3",
+	"validationstatistics-table": "Ispod su prikazane statistike pregledavanja na svaki imenski prostor, ''osim'' preusmjerenja. Stranice se smatraju ''{{int:validationstatistics-old}}'' ako imaju izmjene što čekaju provjere. Za ''{{int:validationstatistics-latest}}''  se smatraju one što nemaju izmjena na čekanju.",
+	"validationstatistics-ns": "Imenski prostor",
+	"validationstatistics-total": "Stranice",
+	"validationstatistics-stable": "Ocijenjeno",
+	"validationstatistics-latest": "Sinhronizirano",
+	"validationstatistics-synced": "Sinhronizirani/Ocijenjeni",
+	"validationstatistics-old": "Zastarjeli",
+	"validationstatistics-unreviewed": "Neprovjereni",
+	"validationstatistics-utable": "Ispod je spisak {{PLURAL:$1|najaktivnijeg pregledavača|$1 najaktivnija pregledavača|$1 najaktivnijih pregledavača}} {{PLURAL:$2|u posljednji sat|u posljednja $2 sata|u posljednjih $2 sati}}.",
+	"validationstatistics-user": "Korisnik",
+	"validationstatistics-reviews": "Ocjene"
+}

@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Winston Sung"
+		]
+	},
+	"unreviewedpages": "Neprovjerene stranice",
+	"unreviewedpages-legend": "Spisak neprovjerenih stranica sa sadržajem",
+	"unreviewedpages-category": "Kategorija:",
+	"unreviewedpages-showhide-redirect": "$1 preusmjerenja",
+	"unreviewedpages-diff": "pregled",
+	"unreviewedpages-unwatched": "(nepraćen)",
+	"unreviewedpages-watched": "($1 {{PLURAL:$1|aktivni korisnik prati|aktivna korisnika prate|aktivnih korisnika prati}})",
+	"unreviewedpages-list": "Na ovoj stranici su navedene stranice sa sadržajem koje još ''nisu'' [[{{MediaWiki:Validationpage}}|provjerene]] do određenog nivoa.",
+	"unreviewedpages-none": "Trenutno nema stranica koje zadovoljavaju ove kriterije",
+	"unreviewedpages-viewing": "(u fazi provjeravanja)",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|sat|sata|sati}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|dan|dana}})",
+	"unreviewedpages-recent": "(manje od 1 sata)"
+}

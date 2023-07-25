@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"Winston Sung"
+		]
+	},
+	"stabilization-tab": "检查",
+	"stabilization": "穩定頁",
+	"stabilization-text": "'''改下面嘅設定去調節所揀嘅[[:$1|$1]]之穩定版如何顯示。'''",
+	"stabilization-perm": "你嘅戶口無權限去改穩定版設定。\n呢度有現時[[:$1|$1]]嘅設定:",
+	"stabilization-page": "版名:",
+	"stabilization-leg": "確認穩定版嘅設定",
+	"stabilization-def": "響預設版視嘅修訂顯示",
+	"stabilization-def1": "穩定修訂；如果未有，就係現時嘅",
+	"stabilization-def2": "現時嘅修訂",
+	"stabilization-submit": "確認",
+	"stabilization-notexists": "呢度係無一版係叫\"[[:$1|$1]]\"。\n無設定可以改到。",
+	"stabilization-notcontent": "嗰版\"[[:$1|$1]]\"唔可以複審。\n無設定可以改到。",
+	"stabilization-comment": "原因:",
+	"stabilization-expiry": "到期:",
+	"stabilization-def-short": "預設",
+	"stabilization-def-short-0": "現時",
+	"stabilization-def-short-1": "穩定",
+	"stabilize_expiry_invalid": "無效嘅到期日。",
+	"stabilize_expiry_old": "到期日已經過咗。",
+	"stabilize-expiring": "於 $1 (UTC) 到期"
+}
