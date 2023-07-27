@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Winston Sung"
+		]
+	},
+	"stablepages": "Stranice što koriste oodobravanje izmjena",
+	"stablepages-list": "Dolje je naveden spisak stranica što samo određeni uređivači mogu mijenjati a te izmjene ne zahtjevaju provjeru.\nIzmjene drugih korisnika po podrazumijevanom nisu prikazane čitaocima dok ih ne provjeri ovlašteni korisnik.",
+	"stablepages-none": "Nema stranica na ovom spisku.",
+	"stablepages-config": "Podešavanje",
+	"stablepages-indef": "Samo beskonačan rok isteka"
+}

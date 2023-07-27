@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Winston Sung"
+		]
+	},
+	"configuredpages": "Stranice s prilagođivanjima za pregled",
+	"configuredpages-list": "Ovaj spisak sadrži stranice što su podešene da imaju različite postavke odobrenja u odnosu na podrazumijevane postavke sajta.\nNeke postavke mogu promijeniti verziju što će se prikazati čitaocima, ili dalje ograničiti tko može vršiti izmjene koje ne treba proveravati.",
+	"configuredpages-none": "Nema stranica na ovom spisku.",
+	"configuredpages-config": "Konfiguracija",
+	"configuredpages-def-draft": "najnovija verzija",
+	"configuredpages-def-stable": "objavljena verzija"
+}

@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Winston Sung"
+		]
+	},
+	"apihelp-flagconfig-summary": "Daj osnovne informacije o konfiguraciji zastavice provjere za ovaj sajt.",
+	"apihelp-flagconfig-extended-description": "Za svaku oznaku vraćaju se sljedeći parametri:\n;name: Naziv ključa ove oznake.\n;levels: Broj razina koje oznaka ima (iznad \"nije označeno\").\nOznačene izmjene imaju dodijeljenu razinu za svaku oznaku. Najviša razina koju ispunjavaju sve oznake je razina pregleda cijele revizije."
+}

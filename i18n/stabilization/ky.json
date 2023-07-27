@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Growingup"
+			"Growingup",
+			"Bosogo"
 		]
 	},
 	"stabilization-page": "Барак аты:",
+	"stabilization-submit": "Ырастоо",
 	"stabilization-comment": "Себеп:",
 	"stabilization-otherreason": "Башка себеп:",
 	"stabilization-othertime": "Башка убакыт:",

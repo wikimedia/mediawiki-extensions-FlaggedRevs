@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"Winston Sung"
+		]
+	},
+	"stabilization-tab": "konfig.",
+	"stabilization": "Stabilizacija stranice",
+	"stabilization-text": "'''Promijenite postavke kako biste prilagodili kako će biti odabrana i prikazana objavljena inačica članka [[:$1|$1]].'''",
+	"stabilization-perm": "Vaš račun nema dopuštenje da mijenja postavku objavljene verzije.\nOvdje su trenutne postavke za [[:$1|$1]]:",
+	"stabilization-page": "Naslov stranice:",
+	"stabilization-leg": "Potvrdi podešavanja za objavljenu verziju",
+	"stabilization-def": "Inačica prikazana podrazumevano pri prikazu stranice",
+	"stabilization-def1": "Stabilna inačica; ako ne postoji, onda najnovija inačica",
+	"stabilization-def2": "Najnovija inačica",
+	"stabilization-restrict": "Ograničenja pregledavanja/autopregledavanja",
+	"stabilization-restrict-none": "Bez dodatnih ograničenja",
+	"stabilization-submit": "Potvrdi",
+	"stabilization-notexists": "Nema stranice pod nazivom \"[[:$1|$1]]\".\nNije moguće podešavanje.",
+	"stabilization-notcontent": "Stranica \"[[:$1|$1]]\" ne može se provjerevati.\nNije moguće podešavanje.",
+	"stabilization-comment": "Razlog:",
+	"stabilization-otherreason": "Ostali razlog:",
+	"stabilization-expiry": "Ističe:",
+	"stabilization-othertime": "Ostali period:",
+	"stabilization-def-short": "Zadano",
+	"stabilization-def-short-0": "Trenutno",
+	"stabilization-def-short-1": "Objavljena",
+	"stabilize_page_invalid": "Odredišna stranica nije ispravna.",
+	"stabilize_page_notexists": "Odredišna stranica ne postoji.",
+	"stabilize_page_unreviewable": "Odredišna stranica nije u provjerljivom imenskom prostoru.",
+	"stabilize_invalid_autoreview": "Neispravno ograničenje automatskog pregleda.",
+	"stabilize_invalid_level": "Neispravan nivo zaštite.",
+	"stabilize_expiry_invalid": "Neispravan datum isticanja.",
+	"stabilize_expiry_old": "Ovo vrijeme isticanja je već prošlo.",
+	"stabilize_denied": "Pristup je zabranjen.",
+	"stabilize-expiring": "ističe $1 (UTC)",
+	"stabilization-review": "Označi trenutnu verziju provjerenom"
+}
