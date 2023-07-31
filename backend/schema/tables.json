@@ -17,7 +17,7 @@
 			},
 			{
 				"name": "fp_pending_since",
-				"comment": "When (or NULL) the first edit after the stable version was made, ie. how long this page has been waiting for review",
+				"comment": "When the first edit after the stable version was made, ie. how long this page has been waiting for review. NULL when there are no unreviewed edits.",
 				"type": "mwtimestamp",
 				"options": { "notnull": false }
 			},
@@ -29,7 +29,7 @@
 			},
 			{
 				"name": "fp_quality",
-				"comment": "The highest quality of the page's reviewed revisions. Not useful anymore as levels other than checked (0) have been removed. (Historical values are 1=quality, 2=pristine.)",
+				"comment": "The quality tier of the page's highest-quality reviewed revision. Not useful anymore as tiers other than checked (0) have been removed, so now this is always 0. (Historical values are 1=quality, 2=pristine.)",
 				"type": "mwtinyint",
 				"options": { "notnull": false, "length": 1 }
 			}
@@ -55,7 +55,7 @@
 	},
 	{
 		"name": "flaggedpage_pending",
-		"comment": "Derived table for tracking edits needing review. Contains a row for each page which has a stable version and pending edits. Basically the same as flaggedpages, without the rows where fp_pending_since is NULL. Was more useful in the past when there were multiple quality levels.",
+		"comment": "Derived table for tracking edits needing review. Contains a row for each page which has a stable version and pending edits. Basically the same as flaggedpages, without the rows where fp_pending_since is NULL. Was more useful in the past when there were multiple quality tiers.",
 		"columns": [
 			{
 				"name": "fpp_page_id",
@@ -65,7 +65,7 @@
 			},
 			{
 				"name": "fpp_quality",
-				"comment": "The quality tier. Not useful anymore as levels other than checked (0) have been removed. (Historical values are 1=quality, 2=pristine.)",
+				"comment": "The quality tier. Not useful anymore as levels other than checked (0) have been removed, so now this is always 0. (Historical values are 1=quality, 2=pristine.)",
 				"type": "mwtinyint",
 				"options": { "notnull": true, "length": 1 }
 			},
@@ -127,13 +127,13 @@
 			},
 			{
 				"name": "fr_quality",
-				"comment": "Quality level of the review. Not useful anymore as levels other than checked (0) have been removed. (Historical values are 1=quality, 2=pristine.)",
+				"comment": "Quality tier of the review. Not useful anymore as levels other than checked (0) have been removed, so now this is always 0. (Historical values are 1=quality, 2=pristine.)",
 				"type": "mwtinyint",
 				"options": { "notnull": true, "length": 1, "default": 0 }
 			},
 			{
 				"name": "fr_tags",
-				"comment": "Store tag metadata as newline separated, colon separated tag:value pairs. Tags used to represent different dimensions of the review, e.g. 'accuracy:1, coverage:1, style:2', with certain levels for certain tags required for each quality level. Since then, multiple quality levels and multiple dimensions have been discarded, so this field doesn't really have a point anymore.",
+				"comment": "Store tag metadata as newline separated, colon separated tag:value pairs. Tags used to represent different dimensions of the review, e.g. 'accuracy:1, coverage:1, style:2', with certain levels for certain tags required for each quality tier. Since then, multiple quality tiers and multiple dimensions have been discarded, so this field doesn't really have a point anymore. The name of the one remaining tag is still configurable (but usually it is 'accuracy').",
 				"type": "blob",
 				"options": { "notnull": true, "length": 16777215 }
 			},
