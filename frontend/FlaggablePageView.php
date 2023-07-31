@@ -1539,7 +1539,7 @@ class FlaggablePageView extends ContextSource {
 				$article->getTitle(),
 				wfMessage( 'review-diff2stable' )->text(),
 				[],
-				[ 'oldid' => $srev->getRevId(), 'diff' => 'cur' ] + FlaggedRevs::diffOnlyCGI()
+				[ 'oldid' => $srev->getRevId(), 'diff' => 'cur' ]
 			);
 			$reviewWrapped = wfMessage( 'parentheses' )->rawParams( $reviewLink )->escaped();
 			$review = "<div class='fr-diff-to-stable' style='text-align: center;'>$reviewWrapped</div>";
@@ -1719,7 +1719,6 @@ class FlaggablePageView extends ContextSource {
 		// new stable version, then go to the diff...
 		if ( $this->article->revsArePending() && $frev->userCanSetTag( $reqUser ) ) {
 			$params += [ 'oldid' => $frev->getRevId(), 'diff' => 'cur', 'shownotice' => 1 ];
-			$params += FlaggedRevs::diffOnlyCGI();
 		// ...otherwise, go to the draft revision after completing an edit.
 		// This allows for users to immediately see their changes. Even if the stable
 		// and draft page match, we can avoid a parse due to FR_INCLUDES_STABLE.

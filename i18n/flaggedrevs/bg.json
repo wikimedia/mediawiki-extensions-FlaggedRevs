@@ -71,7 +71,7 @@
 	"revreview-oldrating": "Досегашна оценка:",
 	"revreview-quick-invalid": "'''Невалиден номер на версия'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Непроверена]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} преглед на чакащите за одобрение промени]]",
+	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} преглед на чакащите за одобрение промени]]",
 	"revreview-basic-title": "Това е проверена версия на тази страница",
 	"revreview-toggle-title": "показване/скриване на детайли",
 	"revreview-revnotfound": "Желаната стара версия на страницата не беше открита.\nПроверете адреса, който използвахте за достъп до страницата.",

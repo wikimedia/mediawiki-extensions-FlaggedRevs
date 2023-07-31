@@ -39,7 +39,7 @@
 	"revreview-hist-basic": "révisi kapriksa",
 	"revreview-hist-basic-user": "dipriksa déning [[User:$3|$3]]",
 	"revreview-hist-basic-auto": "otomatis dipriksa",
-	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} ulasan katunda]]'''",
+	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3}} ulasan katunda]]'''",
 	"review-edit-diff": "'''GATÈKAKÉ: ''Sapèrangan'' owahan katundha ngaruhi arèa kaca sing lagi panjenengan besut.'''",
 	"revreview-diff-toggle-show": "tuduhaké owah-owahan kuwi",
 	"revreview-diff-toggle-hide": "dhelikaké owah-owahan kuwi",

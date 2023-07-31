@@ -286,7 +286,7 @@ class PendingChanges extends SpecialPage {
 			$title,
 			$this->msg( 'pendingchanges-diff' )->text(),
 			[],
-			[ 'diff' => 'cur', 'oldid' => $row->stable ] + FlaggedRevs::diffOnlyCGI()
+			[ 'diff' => 'cur', 'oldid' => $row->stable ]
 		);
 		# Is anybody watching?
 		// Only show information to users with the `unwatchedpages` who could find this

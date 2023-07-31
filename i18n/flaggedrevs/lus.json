@@ -22,7 +22,7 @@
 	"group-autoreview-member": "{{GENDER:$1|infinfiahsa hmangtu}}",
 	"grouppage-autoreview": "{{ns:project}}:Infiahsa hmangtute",
 	"revreview-hist-pending": "ennawn ngái",
-	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} ennawn ngái]]'''",
+	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3}} ennawn ngái]]'''",
 	"revreview-current": "Tihdanglam nghâkte",
 	"revreview-draft-title": "Hë phêkah hian tihdanglam nghâkte pholan a ni"
 }

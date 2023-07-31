@@ -36,7 +36,7 @@
 	"revreview-current": "پیش نویس",
 	"revreview-draft-title": "مقاله پیش نویس",
 	"revreview-oldrating": "شی درجه بندی بوتت:",
-	"revreview-quick-basic": "'''[[{{MediaWiki:Validationpage}}|رویت بیتگ مقاله]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}}به گند پیش نویس]]",
+	"revreview-quick-basic": "'''[[{{MediaWiki:Validationpage}}|رویت بیتگ مقاله]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}}به گند پیش نویس]]",
 	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|رویت بیتگرویت بیتگ مقاله]]''' [ به گند پیش نویس]]",
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|رویت بیتگ مقاله]]'''",
 	"revreview-quick-invalid": "'''نامعتبر شناسه بازبینی'''",

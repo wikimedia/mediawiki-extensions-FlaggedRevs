@@ -172,20 +172,6 @@ class FlaggedRevs {
 		return self::$dimensions;
 	}
 
-	/**
-	 * Get the 'diffonly=' value for diff URLs. Either ('1','0','')
-	 * @return int[]
-	 */
-	public static function diffOnlyCGI() {
-		$val = trim( wfMessage( 'flaggedrevs-diffonly' )->inContentLanguage()->text() );
-		if ( strpos( $val, '&diffonly=1' ) !== false ) {
-			return [ 'diffonly' => 1 ];
-		} elseif ( strpos( $val, '&diffonly=0' ) !== false ) {
-			return [ 'diffonly' => 0 ];
-		}
-		return [];
-	}
-
 	# ################ Permission functions #################
 
 	/**

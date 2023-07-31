@@ -60,7 +60,7 @@ class FlaggedRevsReviewLogFormatter extends LogFormatter {
 				$title,
 				$this->msg( 'review-logentry-id', $revId, $time )->text(),
 				[],
-				[ 'oldid' => $revId, 'diff' => 'prev' ] + FlaggedRevs::diffOnlyCGI()
+				[ 'oldid' => $revId, 'diff' => 'prev' ]
 			);
 			$links .= ')';
 		}

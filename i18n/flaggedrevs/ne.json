@@ -40,7 +40,7 @@
 	"revreview-hist-basic": "नियन्त्रित संशोधन",
 	"revreview-hist-basic-user": "[[User:$3|$3]] द्वारा परीक्षित",
 	"revreview-hist-basic-auto": "स्वतः परीक्षित",
-	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} लंबित समीक्षा]]'''",
+	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3}} लंबित समीक्षा]]'''",
 	"review-edit-diff": "'''सूचना: ''केहि'' लंबित परिवर्तनले तपाईंले परिवर्तन गरेको भागलाई असर गर्नेछ ।'''",
 	"revreview-diff-toggle-show": "ती परिवर्तनहरू हेर्ने",
 	"revreview-diff-toggle-hide": "ती परिवर्तनहरू लुकाउने",

@@ -6,6 +6,6 @@
 	},
 	"flaggedrevs-watched-pending": "Er zijn op het moment [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ongecontroleerde bewerkingen op je volglijst].\n'''Je aandacht is gewenst!'''",
 	"revreview-editnotice": "'''Je wijzigingen worden aan lezers weergegeven als ze zijn gecontroleerd ([[{{MediaWiki:Validationpage}}|hulp]]).'''",
-	"revreview-edited": "'''Je wijzigingen worden aan lezers worden weergegeven zodra die zijn gecontroleerd. ([[{{MediaWiki:Validationpage}}|?]])'''\n\nEr {{PLURAL:$2|is|zijn}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 ongecontroleerde {{PLURAL:$2|wijziging|wijzigingen}}] (zie hieronder) die nog gecontroleerd moeten worden.",
+	"revreview-edited": "'''Je wijzigingen worden aan lezers worden weergegeven zodra die zijn gecontroleerd. ([[{{MediaWiki:Validationpage}}|?]])'''\n\nEr {{PLURAL:$2|is|zijn}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 ongecontroleerde {{PLURAL:$2|wijziging|wijzigingen}}] (zie hieronder) die nog gecontroleerd moeten worden.",
 	"revreview-revnotfound": "De opgegeven oude versie van deze pagina is onvindbaar.\nControleer de URL die je hebt gebruikt om naar deze pagina te gaan."
 }

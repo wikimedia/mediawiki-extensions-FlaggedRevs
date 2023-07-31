@@ -832,8 +832,7 @@ class FlaggedRevsUIHooks {
 				$title,
 				$list->msg( 'revreview-reviewlink' )->text(),
 				[ 'title' => $list->msg( 'revreview-reviewlink-title' )->text() ],
-				[ 'oldid' => $rc->getAttribute( 'fp_stable' ), 'diff' => 'cur' ] +
-					FlaggedRevs::diffOnlyCGI()
+				[ 'oldid' => $rc->getAttribute( 'fp_stable' ), 'diff' => 'cur' ]
 			);
 			$css = 'flaggedrevs-pending';
 		}
