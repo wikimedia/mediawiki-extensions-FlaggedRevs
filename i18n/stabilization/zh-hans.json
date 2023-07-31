@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Bencmq",
+			"Diskdance",
 			"Gaoxuewei",
 			"Impersonator 1",
 			"Liangent",
@@ -14,7 +15,7 @@
 	"stabilization-tab": "检查",
 	"stabilization": "稳定页面",
 	"stabilization-text": "'''修改以下设置以调整选择和显示[[:$1|$1]]稳定版本的方式。'''",
-	"stabilization-perm": "您的帐户无权更改稳定版本配置。这是[[:$1|$1]]的当前设置：",
+	"stabilization-perm": "您的账号无权更改稳定版本配置。这是[[:$1|$1]]的当前设置：",
 	"stabilization-page": "页面名称：",
 	"stabilization-leg": "确认稳定版本设置",
 	"stabilization-def": "在默认页面视图中显示版本",
