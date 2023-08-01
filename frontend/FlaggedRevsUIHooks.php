@@ -979,7 +979,7 @@ class FlaggedRevsUIHooks {
 
 		$user = $context->getUser();
 		$request = $context->getRequest();
-		$mode = $request->wasPosted() ? FR_PRIMARY : 0;
+		$mode = $request->wasPosted() ? IDBAccessObject::READ_LATEST : 0;
 		$form = new PageStabilityProtectForm( $user );
 		$form->setPage( $title );
 

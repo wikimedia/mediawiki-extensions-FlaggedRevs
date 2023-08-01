@@ -78,7 +78,7 @@ class FRDependencyUpdate {
 				return;
 			}
 			# Determine any dependency tracking changes
-			$existing = $this->getExistingDeps( FR_PRIMARY );
+			$existing = $this->getExistingDeps( IDBAccessObject::READ_LATEST );
 			$insertions = $this->getDepInsertions( $existing, $deps );
 			$deletions = $this->getDepDeletions( $existing, $deps );
 			$dbw = wfGetDB( DB_PRIMARY );
@@ -95,11 +95,11 @@ class FRDependencyUpdate {
 
 	/**
 	 * Get existing cache dependencies
-	 * @param int $flags FR_PRIMARY
+	 * @param int $flags One of the IDBAccessObject::READ_… constants
 	 * @return int[][] (ns => dbKey => 1)
 	 */
 	private function getExistingDeps( $flags = 0 ) {
-		$db = wfGetDB( ( $flags & FR_PRIMARY ) ? DB_PRIMARY : DB_REPLICA );
+		$db = wfGetDB( ( $flags & IDBAccessObject::READ_LATEST ) ? DB_PRIMARY : DB_REPLICA );
 		$res = $db->select( 'flaggedrevs_tracking',
 			[ 'ftr_namespace', 'ftr_title' ],
 			[ 'ftr_from' => $this->title->getArticleID() ],

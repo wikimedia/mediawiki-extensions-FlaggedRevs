@@ -3,7 +3,6 @@
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionAccessException;
-use MediaWiki\Revision\RevisionFactory;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\User\UserIdentity;
@@ -39,14 +38,13 @@ class FlaggedRevision {
 	/**
 	 * @param stdClass $row DB row
 	 * @param Title $title
-	 * @param int $flags (FR_PRIMARY)
+	 * @param int $flags One of the IDBAccessObject::READ_… constants
 	 * @return self
 	 */
 	private static function newFromRow( stdClass $row, Title $title, $flags ) {
 		# Base Revision object
 		$revFactory = MediaWikiServices::getInstance()->getRevisionFactory();
-		$revFlags = $flags ? RevisionFactory::READ_LATEST : RevisionFactory::READ_NORMAL;
-		$revRecord = $revFactory->newRevisionFromRow( $row, $revFlags, $title );
+		$revRecord = $revFactory->newRevisionFromRow( $row, $flags, $title );
 		$frev = new self( [
 			'timestamp' => $row->fr_timestamp,
 			'tags' => $row->fr_tags,
@@ -86,7 +84,7 @@ class FlaggedRevision {
 	 * Note: will return NULL if the revision is deleted.
 	 * @param Title $title
 	 * @param int $revId
-	 * @param int $flags (FR_PRIMARY)
+	 * @param int $flags One of the IDBAccessObject::READ_… constants
 	 * @return self|null (null on failure)
 	 */
 	public static function newFromTitle( Title $title, $revId, $flags = 0 ) {
@@ -95,16 +93,11 @@ class FlaggedRevision {
 		}
 		$options = [];
 		# User primary/replica as appropriate...
-		if ( $flags & FR_PRIMARY ) {
-			$db = wfGetDB( DB_PRIMARY );
-			$pageId = $title->getArticleID( Title::READ_LATEST );
-		} else {
-			$db = wfGetDB( DB_REPLICA );
-			$pageId = $title->getArticleID();
-		}
+		$pageId = $title->getArticleID( $flags );
 		if ( !$pageId || !$revId ) {
 			return null; // short-circuit query
 		}
+		$db = wfGetDB( ( $flags & IDBAccessObject::READ_LATEST ) ? DB_PRIMARY : DB_REPLICA );
 		# Skip deleted revisions
 		$frQuery = self::getQueryInfo();
 		$row = $db->selectRow(
@@ -128,7 +121,7 @@ class FlaggedRevision {
 	 * Note: will return NULL if the revision is deleted, though this
 	 * should never happen as fp_stable is updated as revs are deleted.
 	 * @param Title $title page title
-	 * @param int $flags (FR_PRIMARY)
+	 * @param int $flags One of the IDBAccessObject::READ_… constants
 	 * @return self|null (null on failure)
 	 */
 	public static function newFromStable( Title $title, $flags = 0 ) {
@@ -137,16 +130,11 @@ class FlaggedRevision {
 		}
 		$options = [];
 		# User primary/replica as appropriate...
-		if ( $flags & FR_PRIMARY ) {
-			$db = wfGetDB( DB_PRIMARY );
-			$pageId = $title->getArticleID( Title::READ_LATEST );
-		} else {
-			$db = wfGetDB( DB_REPLICA );
-			$pageId = $title->getArticleID();
-		}
+		$pageId = $title->getArticleID( $flags );
 		if ( !$pageId ) {
 			return null; // short-circuit query
 		}
+		$db = wfGetDB( ( $flags & IDBAccessObject::READ_LATEST ) ? DB_PRIMARY : DB_REPLICA );
 		# Check tracking tables
 		$frQuery = self::getQueryInfo();
 		$row = $db->selectRow(
@@ -214,7 +202,7 @@ class FlaggedRevision {
 		}
 		# Get visibility settings to see if page is reviewable...
 		if ( FlaggedRevs::useOnlyIfProtected() ) {
-			$config = FRPageConfig::getStabilitySettings( $title, FR_PRIMARY );
+			$config = FRPageConfig::getStabilitySettings( $title, IDBAccessObject::READ_LATEST );
 			if ( !$config['override'] ) {
 				return null; // page is not reviewable; no stable version
 			}
@@ -236,7 +224,7 @@ class FlaggedRevision {
 			$options,
 			$frQuery['joins']
 		);
-		return $row ? self::newFromRow( $row, $title, FR_PRIMARY ) : null;
+		return $row ? self::newFromRow( $row, $title, IDBAccessObject::READ_LATEST ) : null;
 	}
 
 	/**
@@ -420,14 +408,14 @@ class FlaggedRevision {
 
 	/**
 	 * Get original template versions at time of review
-	 * @param int $flags FR_PRIMARY
+	 * @param int $flags One of the IDBAccessObject::READ_… constants
 	 * @return int[][] template versions (ns -> dbKey -> rev Id)
 	 * Note: 0 used for template rev Id if it didn't exist
 	 */
 	public function getTemplateVersions( $flags = 0 ) {
 		if ( $this->mTemplates == null ) {
 			$this->mTemplates = [];
-			$db = wfGetDB( ( $flags & FR_PRIMARY ) ? DB_PRIMARY : DB_REPLICA );
+			$db = wfGetDB( ( $flags & IDBAccessObject::READ_LATEST ) ? DB_PRIMARY : DB_REPLICA );
 			$res = $db->select(
 				[ 'flaggedtemplates', 'revision', 'page' ],
 				[ 'page_namespace', 'page_title', 'ft_tmp_rev_id' ],
@@ -622,11 +610,11 @@ class FlaggedRevision {
 
 	/**
 	 * @param int $rev_id
-	 * @param int $flags FR_PRIMARY
+	 * @param int $flags One of the IDBAccessObject::READ_… constants
 	 * @return bool
 	 */
 	public static function revIsFlagged( int $rev_id, int $flags = 0 ): bool {
-		$db = wfGetDB( ( $flags & FR_PRIMARY ) ? DB_PRIMARY : DB_REPLICA );
+		$db = wfGetDB( ( $flags & IDBAccessObject::READ_LATEST ) ? DB_PRIMARY : DB_REPLICA );
 		return (bool)$db->selectField( 'flaggedrevs', '1',
 			[ 'fr_rev_id' => $rev_id ],
 			__METHOD__

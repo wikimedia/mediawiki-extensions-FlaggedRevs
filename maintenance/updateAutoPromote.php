@@ -56,7 +56,7 @@ class UpdateFRAutoPromote extends Maintenance {
 			foreach ( $res as $row ) {
 				$this->beginTransaction( $dbw, __METHOD__ );
 				$user = User::newFromRow( $row );
-				$p = FRUserCounters::getUserParams( $user->getId(), FR_FOR_UPDATE );
+				$p = FRUserCounters::getUserParams( $user->getId(), IDBAccessObject::READ_EXCLUSIVE );
 				$oldp = $p;
 				# Get edit comments used
 				$revWhere = ActorMigration::newMigration()->getWhere( $dbr, 'rev_user', $user );
