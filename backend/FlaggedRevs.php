@@ -163,25 +163,16 @@ class FlaggedRevs {
 
 	# ################ Permission functions #################
 
-	/**
-	 * @param int $value
-	 * @return bool
-	 */
-	private static function valueIsValid( $value ) {
+	/** Check if the tag has a valid value */
+	private static function valueIsValid( int $value ): bool {
 		return $value >= 0 && $value <= self::getMaxLevel();
 	}
 
 	/**
-	 * Check if all of the required site flags have a valid value
-	 * @param array<string,int> $flags
-	 * @return bool
+	 * Check if we’re in protection mode or the tag has a valid value
 	 */
-	public static function flagsAreValid( array $flags ) {
-		if ( self::useOnlyIfProtected() ) {
-			return true;
-		}
-		$tag = self::getTagName();
-		return isset( $flags[$tag] ) && self::valueIsValid( $flags[$tag] );
+	public static function tagIsValid( ?int $tag ): bool {
+		return self::useOnlyIfProtected() || ( $tag !== null && self::valueIsValid( $tag ) );
 	}
 
 	/**
@@ -209,21 +200,6 @@ class FlaggedRevs {
 			}
 		}
 		return false;
-	}
-
-	/**
-	 * Returns true if a user can set $flags for a revision via review.
-	 * Requires the same for $oldflags if given.
-	 *
-	 * @deprecated Use userCanSetTag() instead.
-	 * @param User $user
-	 * @param array<string,int> $flags suggested flags
-	 * @param array<string,int> $oldflags pre-existing flags
-	 * @return bool
-	 */
-	public static function userCanSetFlags( $user, array $flags, $oldflags = [] ) {
-		$qal = self::getTagName();
-		return self::userCanSetTag( $user, $flags[$qal] ?? null, $oldflags[$qal] ?? null );
 	}
 
 	/**
