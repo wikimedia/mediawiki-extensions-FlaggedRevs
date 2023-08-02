@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"C.R."
+			"C.R.",
+			"Ruthven"
 		]
 	},
 	"action-review": "rivedé verziune",
@@ -100,5 +101,5 @@
 	"revreview-restriction-any": "qualunque",
 	"revreview-restriction-none": "nisciuna",
 	"revreview-reviewlink": "cagnamiente pendenti",
-	"tooltip-ca-current": "Vedite sta paggena ch' 'e cagnamiente appise"
+	"tooltip-ca-current": "Vedite sta paggena cu cagnamiente 'a fà"
 }
