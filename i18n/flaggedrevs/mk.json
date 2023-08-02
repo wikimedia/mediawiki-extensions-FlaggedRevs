@@ -66,7 +66,7 @@
 	"revreview-hist-basic": "проверена преработка",
 	"revreview-hist-basic-user": "проверена од [[User:$3|$3]]",
 	"revreview-hist-basic-auto": "автоматски проверена",
-	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3}} чека проверка]]'''",
+	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3}} чека на проверка]]'''",
 	"review-edit-diff": "'''Напомена: ''Некои'' од промените во исчекување се однесуваат на делот од страницата што го уредувате.'''",
 	"revreview-diff-toggle-show": "прикажи промени",
 	"revreview-diff-toggle-hide": "скриј промени",
