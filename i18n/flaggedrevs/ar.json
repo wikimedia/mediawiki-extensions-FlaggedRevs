@@ -94,7 +94,7 @@
 	"revreview-log-details-title": "بدّل عرض سجل إعدادات الاستقرار",
 	"review-diff2stable": "عرض التغييرات قيد الانتظار للنسخة المنشورة",
 	"review-logentry-id": "مراجعة: $2",
-	"review-logentry-diff": "التغييرات تمت مراجعتها",
+	"review-logentry-diff": "التغييرات المراجعة",
 	"review-logentry-diff2": "التغييرات تم التجاوز عنها",
 	"review-logpage": "سجل المراجعة",
 	"review-logpagetext": "هذا سجل يظهر صفحات المحتوى [[{{MediaWiki:Validationpage}}|المفحوصة]].",
