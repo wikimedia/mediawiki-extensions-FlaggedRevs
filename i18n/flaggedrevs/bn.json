@@ -82,7 +82,7 @@
 	"revreview-accuracy-2": "হুবুহু",
 	"revreview-accuracy-3": "ভালো তথ্যসূত্র যোগ করা হয়েছে",
 	"revreview-accuracy-4": "নির্বাচিত",
-	"revreview-basic": "এই সংস্করণটি একটি [[{{MediaWiki:Validationpage}}|পর্যবেক্ষণকৃত সংস্করণ]], যা <i>$2</i> তারিখে [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} পরিক্ষীত হয়েছে]।\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3টি অমিমাংসীত {{PLURAL:$3|পরিবর্তন|পরিবর্তন}}] পর্যবেক্ষণের জন্য {{PLURAL:$3|অপেক্ষমান|অপেক্ষমান}}।",
+	"revreview-basic": "এই সংস্করণটি একটি [[{{MediaWiki:Validationpage}}|স্থিতিশীল সংস্করণ]], যা <i>$2</i> তারিখে [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} পরিক্ষীত হয়েছে]।\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3টি অমিমাংসীত {{PLURAL:$3|পরিবর্তন}}] পর্যালোচনার জন্য {{PLURAL:$3|অপেক্ষমান}}।",
 	"revreview-basic-i": "এই সংস্করণটি একটি [[{{MediaWiki:Validationpage}}|পর্যবেক্ষণকৃত সংস্করণ]], যা <i>$2</i> তারিখে [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} পরিক্ষীত হয়েছে]।\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} টেমপ্লেট/চিত্র পরিবর্তন] পর্যবেক্ষণের জন্য অপেক্ষমান।",
 	"revreview-basic-old": "এটি একটি [[{{MediaWiki:Validationpage}}|পরীক্ষিত]] সংস্করণ, যা <i>$2</i> তারিখে [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} অনুমোদিত] হয়েছিল।\nএতে নতুন [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} সম্পাদনা] সম্ভবত করা হয়েছে।",
 	"revreview-basic-same": "এটি একটি [[{{MediaWiki:Validationpage}}|পরীক্ষিত সংস্করণ]], যা <i>$2</i> তারিখে [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} পরীক্ষিত] হয়েছিল।",
