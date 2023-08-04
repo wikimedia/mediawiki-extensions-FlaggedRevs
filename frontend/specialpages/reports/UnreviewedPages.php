@@ -22,6 +22,9 @@ class UnreviewedPages extends SpecialPage {
 	/** @var bool */
 	private $isMiser;
 
+	/** How many entries are at most stored in the cache */
+	private const CACHE_SIZE = 5000;
+
 	public function __construct() {
 		parent::__construct( 'UnreviewedPages', 'unreviewedpages' );
 	}
@@ -110,9 +113,9 @@ class UnreviewedPages extends SpecialPage {
 				$td = $this->getLanguage()->timeanddate( $ts );
 				$d = $this->getLanguage()->date( $ts );
 				$t = $this->getLanguage()->time( $ts );
-				$form .= $this->msg( 'perfcachedts', $td, $d, $t )->parseAsBlock();
+				$form .= $this->msg( 'perfcachedts', $td, $d, $t, self::CACHE_SIZE )->parseAsBlock();
 			} else {
-				$form .= $this->msg( 'perfcached' )->parseAsBlock();
+				$form .= $this->msg( 'perfcached', self::CACHE_SIZE )->parseAsBlock();
 			}
 		}
 
@@ -222,7 +225,7 @@ class UnreviewedPages extends SpecialPage {
 				'page_is_redirect' => 0, // no redirects
 				'fp_page_id IS NULL' ],
 			__METHOD__,
-			[ 'LIMIT' => 5000 ],
+			[ 'LIMIT' => self::CACHE_SIZE ],
 			[ 'flaggedpages' => [ 'LEFT JOIN', 'fp_page_id = page_id' ] ]
 		);
 		foreach ( $res as $row ) {
@@ -262,7 +265,7 @@ class UnreviewedPages extends SpecialPage {
 				'page_is_redirect' => 0, // no redirects
 				'fp_page_id IS NULL OR fp_quality = 0' ],
 			__METHOD__,
-			[ 'LIMIT' => 5000 ],
+			[ 'LIMIT' => self::CACHE_SIZE ],
 			[ 'flaggedpages' => [ 'LEFT JOIN','fp_page_id = page_id' ] ]
 		);
 		foreach ( $res as $row ) {
