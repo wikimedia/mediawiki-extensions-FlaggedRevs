@@ -5,6 +5,7 @@
 			"Kaganer",
 			"Zpizza",
 			"Вильданова Гюзель",
+			"З. ӘЙЛЕ",
 			"Ләйсән",
 			"Рустам Нурыев"
 		]
@@ -42,7 +43,7 @@
 	"revreview-accuracy-4": "Һайланған",
 	"revreview-editnotice": "'''Тулы хоҡуҡлы ҡатнашыусы раҫлағас, һеҙҙең үҙгәртеүҙәр уҡыусыларға күренәсәк''' ([[{{MediaWiki:Validationpage}}|тулыраҡ]]).",
 	"revreview-submitedit": "Яҙҙырып ҡуйырға",
-	"revreview-edited": "'''Тулы хоҡуҡлы ҡатнашыусы раҫлағас, һеҙҙең үҙгәртеүҙәр уҡыусыларға күренәсәк ([[{{MediaWiki:Validationpage}}|тулыраҡ]]).'''\n\nТикшереүҙе [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{PLURAL:$2|үҙгәртеү көтә}}] ''(түбәндә күрһәтелгән)''.",
+	"revreview-edited": "'''Танылған ҡатнашыусы раҫлағас, һеҙҙең үҙгәртеүҙәр уҡыусыларға күренәсәк ([[{{MediaWiki:Validationpage}}|белешмә]]).'''\n\nТикшереүҙе [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{PLURAL:$2|үҙгәртеү көтә}}] ''(түбәндә күрһәтелгән)''.",
 	"revreview-defaultfilter": "Ғәҙәттәге өлгө:",
 	"revreview-def-all": "берәйһе",
 	"revreview-def-draft": "һуңғы",
