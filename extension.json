@@ -417,6 +417,11 @@
 			"services": []
 		}
 	},
+	"DeprecatedHooks": {
+		"FlaggedRevsRevisionReviewFormAfterDoSubmit": {
+			"deprecatedVersion": "1.41"
+		}
+	},
 	"config": {
 		"SimpleFlaggedRevsUI": {
 			"description": "This will only distinguish \"checked\", \"quality\", and unreviewed. A small icon will show in the upper right hand corner",
