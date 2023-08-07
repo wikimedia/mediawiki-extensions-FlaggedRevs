@@ -1,6 +1,8 @@
 <?php
 
-abstract class FlaggedRevsApiHooks extends ApiQueryBase {
+use MediaWiki\MediaWikiServices;
+
+class FlaggedRevsApiHooks {
 
 	/**
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/APIGetAllowedParams
@@ -62,17 +64,20 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 		}
 
 		// Construct SQL Query
-		$db = $module->getDB();
-		$module->resetQueryParams();
-		$module->addTables( [ 'flaggedrevs', 'user' ] );
-		$module->addFields( [
-			'fr_page_id',
-			'fr_rev_id',
-			'fr_timestamp',
-			'fr_tags',
-			'user_name'
-		] );
-		$module->addWhere( 'fr_user=user_id' );
+		$db = MediaWikiServices::getInstance()
+			->getDBLoadBalancerFactory()
+			->getReplicaDatabase( false, 'api' );
+
+		$qb = $db->newSelectQueryBuilder()
+			->select( [
+				'fr_page_id',
+				'fr_rev_id',
+				'fr_timestamp',
+				'fr_tags',
+				'user_name'
+			] )
+			->from( 'flaggedrevs' )
+			->join( 'user', null, 'fr_user=user_id' );
 
 		$where = [];
 		// Construct WHERE-clause to avoid multiplying the number of scanned rows
@@ -81,9 +86,9 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 			$where[] = $db->makeList( [ 'fr_page_id' => $pageid,
 				'fr_rev_id' => array_keys( $revids ) ], LIST_AND );
 		}
-		$module->addWhere( $db->makeList( $where, LIST_OR ) );
+		$qb->where( $db->makeList( $where, LIST_OR ) );
 
-		$res = $module->select( __METHOD__ );
+		$res = $qb->caller( __METHOD__ )->fetchResultSet();
 
 		// Add flagging data to result array
 		foreach ( $res as $row ) {
