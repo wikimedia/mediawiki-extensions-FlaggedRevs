@@ -39,16 +39,7 @@ class FlaggedRevsApiHooks {
 		// pageid => revid => array_index of the revision
 		// we will need this later to add data to the result array
 		$result = $module->getResult();
-		if ( defined( 'ApiResult::META_CONTENT' ) ) {
-			$data = (array)$result->getResultData( [ 'query', 'pages' ], [ 'Strip' => 'all' ] );
-		} else {
-			// @phan-suppress-next-line PhanUndeclaredMethod
-			$data = $result->getData();
-			if ( !isset( $data['query']['pages'] ) ) {
-				return;
-			}
-			$data = $data['query']['pages'];
-		}
+		$data = (array)$result->getResultData( [ 'query', 'pages' ], [ 'Strip' => 'all' ] );
 		$pageids = [];
 		foreach ( $data as $pageid => $page ) {
 			if ( is_array( $page ) && array_key_exists( 'revisions', $page ) ) {
