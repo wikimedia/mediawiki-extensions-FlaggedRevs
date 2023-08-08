@@ -1,5 +1,6 @@
 <?php
 // phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+// phpcs:disable MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic
 
 namespace MediaWiki\Extension\FlaggedRevs\Backend;
 

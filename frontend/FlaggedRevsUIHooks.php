@@ -1,15 +1,78 @@
 <?php
+// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+// phpcs:disable MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic
 
-use MediaWiki\EditPage\EditPage;
-use MediaWiki\Html\FormOptions;
+use MediaWiki\Diff\Hook\DifferenceEngineViewHeaderHook;
+use MediaWiki\Diff\Hook\NewDifferenceEngineHook;
+use MediaWiki\Hook\ArticleUpdateBeforeRedirectHook;
+use MediaWiki\Hook\BeforePageDisplayHook;
+use MediaWiki\Hook\ChangesListInsertArticleLinkHook;
+use MediaWiki\Hook\ContribsPager__getQueryInfoHook;
+use MediaWiki\Hook\ContributionsLineEndingHook;
+use MediaWiki\Hook\EditPage__showEditForm_fieldsHook;
+use MediaWiki\Hook\EditPage__showEditForm_initialHook;
+use MediaWiki\Hook\EditPageBeforeEditButtonsHook;
+use MediaWiki\Hook\EditPageGetCheckboxesDefinitionHook;
+use MediaWiki\Hook\EditPageNoSuchSectionHook;
+use MediaWiki\Hook\InitializeArticleMaybeRedirectHook;
+use MediaWiki\Hook\MakeGlobalVariablesScriptHook;
+use MediaWiki\Hook\PageHistoryBeforeListHook;
+use MediaWiki\Hook\PageHistoryLineEndingHook;
+use MediaWiki\Hook\PageHistoryPager__getQueryInfoHook;
+use MediaWiki\Hook\ProtectionForm__saveHook;
+use MediaWiki\Hook\ProtectionForm__showLogExtractHook;
+use MediaWiki\Hook\ProtectionFormAddFormFieldsHook;
+use MediaWiki\Hook\SkinAfterContentHook;
+use MediaWiki\Hook\SkinTemplateNavigation__UniversalHook;
+use MediaWiki\Hook\SpecialNewpagesConditionsHook;
+use MediaWiki\Hook\SpecialNewPagesFiltersHook;
+use MediaWiki\Hook\TitleGetEditNoticesHook;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Page\Hook\ArticleViewHeaderHook;
+use MediaWiki\Page\Hook\CategoryPageViewHook;
+use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
+use MediaWiki\SpecialPage\Hook\ChangesListSpecialPageQueryHook;
+use MediaWiki\SpecialPage\Hook\ChangesListSpecialPageStructuredFiltersHook;
+use MediaWiki\SpecialPage\Hook\SpecialPage_initListHook;
 
 /**
  * Class containing hooked functions for a FlaggedRevs environment
  */
-class FlaggedRevsUIHooks {
+class FlaggedRevsUIHooks implements
+	ArticleUpdateBeforeRedirectHook,
+	ArticleViewHeaderHook,
+	BeforePageDisplayHook,
+	CategoryPageViewHook,
+	ChangesListInsertArticleLinkHook,
+	ChangesListSpecialPageQueryHook,
+	ChangesListSpecialPageStructuredFiltersHook,
+	ContribsPager__getQueryInfoHook,
+	ContributionsLineEndingHook,
+	DifferenceEngineViewHeaderHook,
+	EditPage__showEditForm_fieldsHook,
+	EditPage__showEditForm_initialHook,
+	EditPageBeforeEditButtonsHook,
+	EditPageGetCheckboxesDefinitionHook,
+	EditPageNoSuchSectionHook,
+	GetPreferencesHook,
+	InitializeArticleMaybeRedirectHook,
+	MakeGlobalVariablesScriptHook,
+	NewDifferenceEngineHook,
+	PageHistoryBeforeListHook,
+	PageHistoryLineEndingHook,
+	PageHistoryPager__getQueryInfoHook,
+	ProtectionFormAddFormFieldsHook,
+	ProtectionForm__saveHook,
+	ProtectionForm__showLogExtractHook,
+	SkinAfterContentHook,
+	SkinTemplateNavigation__UniversalHook,
+	SpecialNewpagesConditionsHook,
+	SpecialNewPagesFiltersHook,
+	SpecialPage_initListHook,
+	TitleGetEditNoticesHook
+{
 	/**
 	 * Add FlaggedRevs css/js.
 	 *
@@ -37,12 +100,9 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/MakeGlobalVariablesScript
-	 *
-	 * @param array &$vars
-	 * @param OutputPage $out
+	 * @inheritDoc
 	 */
-	public static function onMakeGlobalVariablesScript( array &$vars, OutputPage $out ) {
+	public function onMakeGlobalVariablesScript( &$vars, $out ): void {
 		// Get the review tags on this wiki
 		$levels = FlaggedRevs::getMaxLevel();
 		if ( $levels > 0 ) {
@@ -82,14 +142,10 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforePageDisplay
-	 *
+	 * @inheritDoc
 	 * Add tag notice, CSS/JS, protect form link, and set robots policy.
-	 *
-	 * @param OutputPage $out
-	 * @param Skin $skin
 	 */
-	public static function onBeforePageDisplay( $out, $skin ) {
+	public function onBeforePageDisplay( $out, $skin ): void {
 		if ( $out->getTitle()->getNamespace() === NS_SPECIAL ) {
 			self::maybeAddBacklogNotice( $out ); // RC/Watchlist notice
 			self::injectStyleForSpecial( $out ); // try special page CSS
@@ -110,13 +166,10 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/GetPreferences
-	 *
+	 * @inheritDoc
 	 * Add user preferences (uses prefs-flaggedrevs, prefs-flaggedrevs-ui msgs)
-	 * @param User $user
-	 * @param array[] &$preferences
 	 */
-	public static function onGetPreferences( $user, array &$preferences ) {
+	public function onGetPreferences( $user, &$preferences ) {
 		// Box or bar UI
 		$preferences['flaggedrevssimpleui'] =
 			[
@@ -169,13 +222,10 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SkinTemplateNavigation
-	 *
+	 * @inheritDoc
 	 * Vector et al: $links is all the tabs (2 levels)
-	 * @param Skin $skin
-	 * @param array[] &$links
 	 */
-	public static function onSkinTemplateNavigationUniversal( Skin $skin, array &$links ) {
+	public function onSkinTemplateNavigation__Universal( $skin, &$links ): void {
 		if ( $skin->getTitle()->canExist() ) {
 			$view = FlaggablePageView::newFromTitle( $skin->getTitle() );
 			$view->setActionTabs( $links['actions'] );
@@ -184,13 +234,9 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ArticleViewHeader
-	 *
-	 * @param Article $article
-	 * @param bool|ParserOutput|null &$outputDone
-	 * @param bool &$useParserCache
+	 * @inheritDoc
 	 */
-	public static function onArticleViewHeader( $article, &$outputDone, &$useParserCache ) {
+	public function onArticleViewHeader( $article, &$outputDone, &$useParserCache ) {
 		if ( $article->getTitle()->canExist() ) {
 			$view = FlaggablePageView::newFromTitle( $article->getTitle() );
 			$view->addStableLink();
@@ -199,20 +245,14 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/InitializeArticleMaybeRedirect
-	 *
-	 * @param Title $title
-	 * @param WebRequest $request
-	 * @param bool &$ignoreRedirect
-	 * @param string &$target
-	 * @param Article $article
+	 * @inheritDoc
 	 */
-	public static function overrideRedirect(
-		Title $title,
-		WebRequest $request,
+	public function onInitializeArticleMaybeRedirect(
+		$title,
+		$request,
 		&$ignoreRedirect,
 		&$target,
-		Article $article
+		&$article
 	) {
 		global $wgParserCacheExpireTime;
 		$wikiPage = $article->getPage();
@@ -266,11 +306,9 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/EditPage::showEditForm:initial
-	 *
-	 * @param EditPage $editPage
+	 * @inheritDoc
 	 */
-	public static function addToEditView( $editPage ) {
+	public function onEditPage__showEditForm_initial( $editPage, $out ) {
 		if ( $editPage->getTitle()->canExist() ) {
 			$view = FlaggablePageView::newFromTitle( $editPage->getTitle() );
 			$view->addToEditView( $editPage );
@@ -278,13 +316,9 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/TitleGetEditNotices
-	 *
-	 * @param Title $title
-	 * @param int $oldid
-	 * @param string[] &$notices
+	 * @inheritDoc
 	 */
-	public static function getEditNotices( $title, $oldid, &$notices ) {
+	public function onTitleGetEditNotices( $title, $oldid, &$notices ) {
 		if ( $title->canExist() ) {
 			$view = FlaggablePageView::newFromTitle( $title );
 			$view->getEditNotices( $title, $oldid, $notices );
@@ -292,12 +326,9 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/EditPageBeforeEditButtons
-	 *
-	 * @param EditPage $editPage
-	 * @param \OOUI\ButtonInputWidget[] &$buttons
+	 * @inheritDoc
 	 */
-	public static function onBeforeEditButtons( $editPage, &$buttons ) {
+	public function onEditPageBeforeEditButtons( $editPage, &$buttons, &$tabindex ) {
 		if ( $editPage->getTitle()->canExist() ) {
 			$view = FlaggablePageView::newFromTitle( $editPage->getTitle() );
 			$view->changeSaveButton( $editPage, $buttons );
@@ -305,12 +336,9 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/EditPageNoSuchSection
-	 *
-	 * @param EditPage $editPage
-	 * @param string &$s
+	 * @inheritDoc
 	 */
-	public static function onNoSuchSection( $editPage, &$s ) {
+	public function onEditPageNoSuchSection( $editPage, &$s ) {
 		if ( $editPage->getTitle()->canExist() ) {
 			$view = FlaggablePageView::newFromTitle( $editPage->getTitle() );
 			$view->addToNoSuchSection( $s );
@@ -318,11 +346,9 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PageHistoryBeforeList
-	 *
-	 * @param Article $article
+	 * @inheritDoc
 	 */
-	public static function addToHistView( $article ) {
+	public function onPageHistoryBeforeList( $article, $context ) {
 		if ( $article->getTitle()->canExist() ) {
 			$view = FlaggablePageView::newFromTitle( $article->getTitle() );
 			$view->addToHistView();
@@ -330,11 +356,9 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/CategoryPageView
-	 *
-	 * @param CategoryPage|Article $category
+	 * @inheritDoc
 	 */
-	public static function onCategoryPageView( Article $category ) {
+	public function onCategoryPageView( $category ) {
 		if ( $category->getTitle()->canExist() ) {
 			$view = FlaggablePageView::newFromTitle( $category->getTitle() );
 			$view->addToCategoryView();
@@ -342,12 +366,9 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SkinAfterContent
-	 *
-	 * @param string &$data
-	 * @param Skin $skin
+	 * @inheritDoc
 	 */
-	public static function onSkinAfterContent( &$data, $skin ) {
+	public function onSkinAfterContent( &$data, $skin ) {
 		if ( $skin->getOutput()->isArticleRelated()
 			&& $skin->getTitle()->canExist()
 		) {
@@ -361,15 +382,11 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SpecialNewPagesFilters
-	 *
+	 * @inheritDoc
 	 * Registers a filter on Special:NewPages to hide edits that have been reviewed
 	 * through FlaggedRevs.
-	 *
-	 * @param SpecialPage $specialPage
-	 * @param array[] &$filters
 	 */
-	public static function addHideReviewedUnstructuredFilter( $specialPage, &$filters ) {
+	public function onSpecialNewPagesFilters( $specialPage, &$filters ) {
 		if ( !FlaggedRevs::useOnlyIfProtected() ) {
 			$filters['hideReviewed'] = [
 				'msg' => 'flaggedrevs-hidereviewed', 'default' => false
@@ -378,15 +395,11 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ChangesListSpecialPageStructuredFilters
-	 *
+	 * @inheritDoc
 	 * Registers a filter to hide edits that have been reviewed through
 	 * FlaggedRevs.
-	 *
-	 * @param ChangesListSpecialPage $specialPage Special page, such as
-	 *   Special:RecentChanges or Special:Watchlist
 	 */
-	public static function addHideReviewedFilter( ChangesListSpecialPage $specialPage ) {
+	public function onChangesListSpecialPageStructuredFilters( $specialPage ) {
 		if ( FlaggedRevs::useOnlyIfProtected() ) {
 			return;
 		}
@@ -517,12 +530,9 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PageHistoryPager::getQueryInfo
-	 *
-	 * @param HistoryPager $pager
-	 * @param array &$queryInfo
+	 * @inheritDoc
 	 */
-	public static function addToHistQuery( HistoryPager $pager, array &$queryInfo ) {
+	public function onPageHistoryPager__getQueryInfo( $pager, &$queryInfo ) {
 		$flaggedArticle = FlaggableWikiPage::getTitleInstance( $pager->getTitle() );
 		# Non-content pages cannot be validated. Stable version must exist.
 		if ( $flaggedArticle->isReviewable() && $flaggedArticle->getStableRev() ) {
@@ -542,12 +552,9 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ContribsPager::getQueryInfo
-	 *
-	 * @param ContribsPager $pager
-	 * @param array &$queryInfo
+	 * @inheritDoc
 	 */
-	public static function addToContribsQuery( $pager, array &$queryInfo ) {
+	public function onContribsPager__getQueryInfo( $pager, &$queryInfo ) {
 		global $wgFlaggedRevsProtection;
 
 		if ( $wgFlaggedRevsProtection ) {
@@ -566,33 +573,18 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SpecialNewpagesConditions
-	 *
-	 * @param NewPagesPager $specialPage
-	 * @param FormOptions $opts
-	 * @param array &$conds
-	 * @param array &$tables
-	 * @param string[] &$fields
-	 * @param array &$join_conds
+	 * @inheritDoc
 	 */
-	public static function modifyNewPagesQuery(
+	public function onSpecialNewpagesConditions(
 		$specialPage, $opts, &$conds, &$tables, &$fields, &$join_conds
 	) {
 		self::makeAllQueryChanges( $conds, $tables, $join_conds, $fields );
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ChangesListSpecialPageQuery
-	 *
-	 * @param string $name
-	 * @param array &$tables
-	 * @param array &$fields
-	 * @param array &$conds
-	 * @param array &$query_options
-	 * @param array &$join_conds
-	 * @param FormOptions $opts
+	 * @inheritDoc
 	 */
-	public static function modifyChangesListSpecialPageQuery(
+	public function onChangesListSpecialPageQuery(
 		$name, &$tables, &$fields, &$conds, &$query_options, &$join_conds, $opts
 	) {
 		self::addMetadataQueryJoins( $tables, $join_conds, $fields );
@@ -663,15 +655,10 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PageHistoryLineEnding
-	 *
-	 * @param HistoryPager $history
-	 * @param stdClass $row
-	 * @param string &$s
-	 * @param string[] &$liClasses
+	 * @inheritDoc
 	 * @suppress PhanUndeclaredProperty For HistoryPager->fr_*
 	 */
-	public static function addToHistLine( HistoryPager $history, $row, &$s, &$liClasses ) {
+	public function onPageHistoryLineEnding( $history, &$row, &$s, &$liClasses, &$attribs ) {
 		$fa = FlaggableWikiPage::getTitleInstance( $history->getTitle() );
 		if ( !$fa->isReviewable() ) {
 			return;
@@ -755,16 +742,10 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ContributionsLineEnding
-	 *
+	 * @inheritDoc
 	 * Intercept contribution entries and format them to FlaggedRevs standards
-	 *
-	 * @param SpecialPage $contribs SpecialPage object for contributions
-	 * @param string &$ret the HTML line
-	 * @param stdClass $row Row the DB row for this line
-	 * @param string[] &$classes the classes to add to the surrounding <li>
 	 */
-	public static function addToContribsLine( $contribs, &$ret, $row, &$classes ) {
+	public function onContributionsLineEnding( $contribs, &$ret, $row, &$classes, &$attribs ) {
 		global $wgFlaggedRevsProtection;
 
 		// make sure that we're parsing revisions data
@@ -785,20 +766,13 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ChangesListInsertArticleLink
-	 *
-	 * @param ChangesList $list
-	 * @param string &$articlelink
-	 * @param string &$s
-	 * @param RecentChange $rc
-	 * @param bool $unpatrolled
-	 * @param bool $watched
+	 * @inheritDoc
 	 */
-	public static function addToChangeListLine(
+	public function onChangesListInsertArticleLink(
 		$list,
 		&$articlelink,
 		&$s,
-		RecentChange $rc,
+		$rc,
 		$unpatrolled,
 		$watched
 	) {
@@ -842,13 +816,9 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ArticleUpdateBeforeRedirect
-	 *
-	 * @param Article $article
-	 * @param string &$sectionAnchor
-	 * @param string &$extraQuery
+	 * @inheritDoc
 	 */
-	public static function injectPostEditURLParams( $article, &$sectionAnchor, &$extraQuery ) {
+	public function onArticleUpdateBeforeRedirect( $article, &$sectionAnchor, &$extraQuery ) {
 		if ( $article->getTitle()->canExist() ) {
 			$view = FlaggablePageView::newFromTitle( $article->getTitle() );
 			$view->injectPostEditURLParams( $sectionAnchor, $extraQuery );
@@ -856,16 +826,10 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/NewDifferenceEngine
-	 *
+	 * @inheritDoc
 	 * diff=review param (bug 16923)
-	 * @param Title|null $titleObj
-	 * @param int &$mOldid
-	 * @param int &$mNewid
-	 * @param string $old
-	 * @param string $new
 	 */
-	public static function checkDiffUrl( $titleObj, &$mOldid, &$mNewid, $old, $new ) {
+	public function onNewDifferenceEngine( $titleObj, &$mOldid, &$mNewid, $old, $new ) {
 		if ( $new === 'review' && $titleObj ) {
 			$sRevId = FlaggedRevision::getStableRevId( $titleObj );
 			if ( $sRevId ) {
@@ -876,11 +840,9 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/DifferenceEngineViewHeader
-	 *
-	 * @param DifferenceEngine $diff
+	 * @inheritDoc
 	 */
-	public static function onDifferenceEngineViewHeader( DifferenceEngine $diff ) {
+	public function onDifferenceEngineViewHeader( $diff ) {
 		self::injectStyleAndJS( $diff->getOutput() );
 
 		if ( $diff->getTitle()->canExist() ) {
@@ -894,12 +856,9 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/EditPage::showEditForm:fields
-	 *
-	 * @param EditPage $editPage
-	 * @param OutputPage $out
+	 * @inheritDoc
 	 */
-	public static function addRevisionIDField( $editPage, $out ) {
+	public function onEditPage__showEditForm_fields( $editPage, $out ) {
 		if ( $editPage->getTitle()->canExist() ) {
 			$view = FlaggablePageView::newFromTitle( $editPage->getTitle() );
 			$view->addRevisionIDField( $editPage, $out );
@@ -907,12 +866,9 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/EditPageGetCheckboxesDefinition
-	 *
-	 * @param EditPage $editPage
-	 * @param array &$checkboxes
+	 * @inheritDoc
 	 */
-	public static function onEditPageGetCheckboxesDefinition( $editPage, &$checkboxes ) {
+	public function onEditPageGetCheckboxesDefinition( $editPage, &$checkboxes ) {
 		if ( $editPage->getTitle()->canExist() ) {
 			$view = FlaggablePageView::newFromTitle( $editPage->getTitle() );
 			$view->addReviewCheck( $editPage, $checkboxes );
@@ -956,13 +912,10 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ProtectionFormAddFormFields
-	 *
+	 * @inheritDoc
 	 * Add selector of review "protection" options
-	 * @param Article $article
-	 * @param array &$fields
 	 */
-	public static function onProtectionForm( Article $article, array &$fields ) {
+	public function onProtectionFormAddFormFields( $article, &$fields ) {
 		global $wgFlaggedRevsProtection;
 
 		$wikiPage = $article->getPage();
@@ -1081,15 +1034,12 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ProtectionForm::showLogExtract
-	 *
+	 * @inheritDoc
 	 * Add stability log extract to protection form
-	 * @param Article $article
-	 * @param OutputPage $out
 	 */
-	public static function insertStabilityLog(
-		Article $article,
-		OutputPage $out
+	public function onProtectionForm__showLogExtract(
+		$article,
+		$out
 	) {
 		global $wgFlaggedRevsProtection;
 		$wikiPage = $article->getPage();
@@ -1110,13 +1060,10 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ProtectionForm::save
-	 *
+	 * @inheritDoc
 	 * Update stability config from request
-	 * @param Article $article
-	 * @param string &$errorMsg
 	 */
-	public static function onProtectionSave( Article $article, &$errorMsg ) {
+	public function onProtectionForm__save( $article, &$errorMsg, $reasonstr ) {
 		global $wgRequest, $wgFlaggedRevsProtection;
 		$wikiPage = $article->getPage();
 		$title = $wikiPage->getTitle();
@@ -1159,11 +1106,9 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SpecialPage_initList
-	 *
-	 * @param array &$list
+	 * @inheritDoc
 	 */
-	public static function onSpecialPageInitList( array &$list ) {
+	public function onSpecialPage_initList( &$list ) {
 		global $wgFlaggedRevsProtection, $wgFlaggedRevsNamespaces;
 
 		// Show special pages only if FlaggedRevs is enabled on some namespaces

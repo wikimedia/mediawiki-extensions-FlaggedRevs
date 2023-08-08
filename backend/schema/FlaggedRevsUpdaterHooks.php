@@ -1,15 +1,20 @@
 <?php
+// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+// phpcs:disable MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic
+
+use MediaWiki\Installer\Hook\LoadExtensionSchemaUpdatesHook;
 
 /**
  * Class containing updater functions for a FlaggedRevs environment
  */
-class FlaggedRevsUpdaterHooks {
+class FlaggedRevsUpdaterHooks implements
+	LoadExtensionSchemaUpdatesHook
+{
+
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/LoadExtensionSchemaUpdates
-	 *
-	 * @param DatabaseUpdater $du
+	 * @inheritDoc
 	 */
-	public static function addSchemaUpdates( DatabaseUpdater $du ) {
+	public function onLoadExtensionSchemaUpdates( $du ) {
 		$dbType = $du->getDB()->getType();
 		$du->dropExtensionTable( 'flaggedimages' );
 

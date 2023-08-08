@@ -1,16 +1,20 @@
 <?php
+// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+// phpcs:disable MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic
 
+use MediaWiki\Api\Hook\APIGetAllowedParamsHook;
+use MediaWiki\Api\Hook\APIQueryAfterExecuteHook;
 use MediaWiki\MediaWikiServices;
 
-class FlaggedRevsApiHooks {
+class FlaggedRevsApiHooks implements
+	APIGetAllowedParamsHook,
+	APIQueryAfterExecuteHook
+{
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/APIGetAllowedParams
-	 *
-	 * @param ApiBase $module
-	 * @param array[] &$params
+	 * @inheritDoc
 	 */
-	public static function addApiRevisionParams( $module, &$params ) {
+	public function onAPIGetAllowedParams( $module, &$params, $flags ) {
 		if ( !$module instanceof ApiQueryRevisions ) {
 			return;
 		}
@@ -18,11 +22,9 @@ class FlaggedRevsApiHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/APIQueryAfterExecute
-	 *
-	 * @param ApiBase $module
+	 * @inheritDoc
 	 */
-	public static function addApiRevisionData( $module ) {
+	public function onAPIQueryAfterExecute( $module ) {
 		if ( !$module instanceof ApiQueryRevisions ) {
 			return;
 		}
