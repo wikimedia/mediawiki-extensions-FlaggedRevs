@@ -1,12 +1,33 @@
 <?php
+// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+// phpcs:disable MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic
 
 use MediaWiki\Extension\GoogleNewsSitemap\Specials\GoogleNewsSitemap;
-use MediaWiki\Linker\LinkTarget;
+use MediaWiki\Hook\ArticleMergeCompleteHook;
+use MediaWiki\Hook\ArticleRevisionVisibilitySetHook;
+use MediaWiki\Hook\MagicWordwgVariableIDsHook;
+use MediaWiki\Hook\MediaWikiServicesHook;
+use MediaWiki\Hook\PageMoveCompleteHook;
+use MediaWiki\Hook\ParserFirstCallInitHook;
+use MediaWiki\Hook\ParserGetVariableValueSwitchHook;
+use MediaWiki\Hook\RecentChange_saveHook;
+use MediaWiki\Hook\WikiExporter__dumpStableQueryHook;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Revision\RenderedRevision;
+use MediaWiki\Page\Hook\ArticleDeleteCompleteHook;
+use MediaWiki\Page\Hook\ArticleUndeleteHook;
+use MediaWiki\Page\Hook\RevisionFromEditCompleteHook;
+use MediaWiki\Page\Hook\RevisionUndeletedHook;
+use MediaWiki\Page\Hook\RollbackCompleteHook;
+use MediaWiki\Permissions\Hook\GetUserPermissionsErrorsHook;
+use MediaWiki\Permissions\Hook\UserGetRightsHook;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Storage\EditResult;
+use MediaWiki\Storage\Hook\BeforeRevertedTagUpdateHook;
+use MediaWiki\Storage\Hook\PageSaveCompleteHook;
+use MediaWiki\Storage\Hook\RevisionDataUpdatesHook;
+use MediaWiki\User\Hook\AutopromoteConditionHook;
+use MediaWiki\User\Hook\UserLoadAfterLoadFromSessionHook;
 use MediaWiki\User\UserIdentity;
 use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\IReadableDatabase;
@@ -14,7 +35,29 @@ use Wikimedia\Rdbms\IReadableDatabase;
 /**
  * Class containing hooked functions for a FlaggedRevs environment
  */
-class FlaggedRevsHooks {
+class FlaggedRevsHooks implements
+	ArticleDeleteCompleteHook,
+	ArticleMergeCompleteHook,
+	ArticleRevisionVisibilitySetHook,
+	ArticleUndeleteHook,
+	AutopromoteConditionHook,
+	BeforeRevertedTagUpdateHook,
+	getUserPermissionsErrorsHook,
+	MagicWordwgVariableIDsHook,
+	MediaWikiServicesHook,
+	RevisionFromEditCompleteHook,
+	PageSaveCompleteHook,
+	PageMoveCompleteHook,
+	ParserFirstCallInitHook,
+	ParserGetVariableValueSwitchHook,
+	RecentChange_saveHook,
+	RevisionDataUpdatesHook,
+	RevisionUndeletedHook,
+	RollbackCompleteHook,
+	UserGetRightsHook,
+	UserLoadAfterLoadFromSessionHook,
+	WikiExporter__dumpStableQueryHook
+{
 
 	/**
 	 * @see https://www.mediawiki.org/wiki/Manual:Extension_registration#Customizing_registration
@@ -55,22 +98,18 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/MediaWikiServices
-	 *
-	 * @param MediaWikiServices $services
+	 * @inheritDoc
 	 */
-	public static function onMediaWikiServices( $services ) {
+	public function onMediaWikiServices( $services ) {
 		( new FlaggedRevsSetup( $services->getMainConfig() ) )->doSetup();
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/RevisionUndeleted
+	 * @inheritDoc
 	 *
 	 * Update flaggedrevs table on revision restore
-	 * @param RevisionRecord $revision
-	 * @param int $oldPageID
 	 */
-	public static function onRevisionRestore( RevisionRecord $revision, $oldPageID ) {
+	public function onRevisionUndeleted( $revision, $oldPageID ) {
 		$dbw = wfGetDB( DB_PRIMARY );
 		# Some revisions may have had null rev_id values stored when deleted.
 		# This hook is called after insertOn() however, in which case it is set
@@ -83,13 +122,9 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ArticleMergeComplete
-	 *
-	 * Update flaggedrevs page/tracking tables (revision moving)
-	 * @param Title $sourceTitle
-	 * @param Title $destTitle
+	 * @inheritDoc
 	 */
-	public static function onArticleMergeComplete( Title $sourceTitle, Title $destTitle ) {
+	public function onArticleMergeComplete( $sourceTitle, $destTitle ) {
 		$oldPageID = $sourceTitle->getArticleID();
 		$newPageID = $destTitle->getArticleID();
 		# Get flagged revisions from old page id that point to destination page
@@ -118,26 +153,18 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PageMoveComplete
-	 *
+	 * @inheritDoc
 	 * (a) Update flaggedrevs page/tracking tables
 	 * (b) Autoreview pages moved into reviewable namespaces (bug 19379)
-	 * @param LinkTarget $oLinkTarget
-	 * @param LinkTarget $nLinkTarget
-	 * @param UserIdentity $userIdentity
-	 * @param int $pageId
-	 * @param int $redirid
-	 * @param string $reason
-	 * @param RevisionRecord $revisionRecord
 	 */
-	public static function onPageMoveComplete(
-		LinkTarget $oLinkTarget,
-		LinkTarget $nLinkTarget,
+	public function onPageMoveComplete(
+		$oLinkTarget,
+		$nLinkTarget,
 		$userIdentity,
 		$pageId,
 		$redirid,
 		$reason,
-		RevisionRecord $revisionRecord
+		$revision
 	) {
 		$services = MediaWikiServices::getInstance();
 
@@ -186,59 +213,45 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/RevisionDataUpdates
-	 *
+	 * @inheritDoc
 	 * (a) Update flaggedrevs page/tracking tables
 	 * (b) Pages with stable versions that use this page will be purged
 	 * Note: pages with current versions that use this page should already be purged
-	 *
-	 * @param Title $title
-	 * @param RenderedRevision $renderedRevision
-	 * @param DeferrableUpdate[] &$updates
 	 */
-	public static function onRevisionDataUpdates(
-		Title $title, RenderedRevision $renderedRevision, array &$updates
+	public function onRevisionDataUpdates(
+		$title, $renderedRevision, &$updates
 	) {
 		$updates[] = new FRStableVersionUpdate( $title, $renderedRevision );
 		$updates[] = new FRExtraCacheUpdate( $title );
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ArticleDeleteComplete
-	 *
+	 * @inheritDoc
 	 * (a) Update flaggedrevs page/tracking tables
 	 * (b) Pages with stable versions that use this page will be purged
 	 * Note: pages with current versions that use this page should already be purged
-	 * @param WikiPage $wikiPage
-	 * @param User $user
-	 * @param string $reason
-	 * @param int $id
 	 */
-	public static function onArticleDelete( WikiPage $wikiPage, $user, $reason, $id ) {
+	public function onArticleDeleteComplete( $wikiPage, $user, $reason, $id, $content, $logEntry, $count ) {
 		FlaggedRevs::clearTrackingRows( $id );
 		FlaggedRevs::extraHTMLCacheUpdate( $wikiPage->getTitle() );
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ArticleUndelete
-	 *
+	 * @inheritDoc
 	 * (a) Update flaggedrevs page/tracking tables
 	 * (b) Pages with stable versions that use this page will be purged
 	 * Note: pages with current versions that use this page should already be purged
-	 * @param Title $title
 	 */
-	public static function onArticleUndelete( Title $title ) {
+	public function onArticleUndelete( $title, $create, $comment, $oldPageId, $restoredPages ) {
 		FlaggedRevs::stableVersionUpdates( $title );
 		FlaggedRevs::updateHtmlCaches( $title );
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ArticleRevisionVisibilitySet
-	 *
+	 * @inheritDoc
 	 * Update flaggedrevs page/tracking tables
-	 * @param Title $title
 	 */
-	public static function onRevisionDelete( Title $title ) {
+	public function onArticleRevisionVisibilitySet( $title, $ids, $visibilityChangeMap ) {
 		$changed = FlaggedRevs::stableVersionUpdates( $title );
 		if ( $changed ) {
 			FlaggedRevs::updateHtmlCaches( $title );
@@ -246,11 +259,9 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ParserFirstCallInit
-	 *
-	 * @param Parser $parser
+	 * @inheritDoc
 	 */
-	public static function onParserFirstCallInit( Parser $parser ) {
+	public function onParserFirstCallInit( $parser ) {
 		global $wgFlaggedRevsProtection;
 
 		if ( !$wgFlaggedRevsProtection ) {
@@ -262,14 +273,9 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ParserGetVariableValueSwitch
-	 *
-	 * @param Parser $parser
-	 * @param array &$cache
-	 * @param string $word
-	 * @param string &$ret
+	 * @inheritDoc
 	 */
-	public static function onParserGetVariableValueSwitch( Parser $parser, &$cache, $word, &$ret ) {
+	public function onParserGetVariableValueSwitch( $parser, &$cache, $word, &$ret, $frame ) {
 		global $wgFlaggedRevsProtection;
 		if ( $wgFlaggedRevsProtection && $word === 'pendingchangelevel' ) {
 			$ret = self::parserPendingChangeLevel( $parser );
@@ -278,11 +284,9 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/MagicWordwgVariableIDs
-	 *
-	 * @param string[] &$words
+	 * @inheritDoc
 	 */
-	public static function onMagicWordwgVariableIDs( &$words ) {
+	public function onMagicWordwgVariableIDs( &$words ) {
 		global $wgFlaggedRevsProtection;
 
 		if ( !$wgFlaggedRevsProtection ) {
@@ -316,16 +320,10 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/getUserPermissionsErrors
-	 *
+	 * @inheritDoc
 	 * Check page move and patrol permissions for FlaggedRevs
-	 * @param Title $title
-	 * @param User $user
-	 * @param string $action
-	 * @param bool &$result
-	 * @return bool false when $result is false as well
 	 */
-	public static function onGetUserPermissionsErrors( Title $title, $user, $action, &$result ) {
+	public function onGetUserPermissionsErrors( $title, $user, $action, &$result ) {
 		if ( $result === false ) {
 			return true; // nothing to do
 		}
@@ -727,12 +725,10 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/RecentChange_save
-	 *
+	 * @inheritDoc
 	 * Mark auto-reviewed edits as patrolled
-	 * @param RecentChange $rc
 	 */
-	public static function autoMarkPatrolled( RecentChange $rc ) {
+	public function onRecentChange_save( $rc ) {
 		if ( !$rc->getAttribute( 'rc_this_oldid' ) ) {
 			return;
 		}
@@ -762,15 +758,11 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/RollbackComplete
-	 *
-	 * @param WikiPage $article
-	 * @param UserIdentity $user
-	 * @param RevisionRecord $goodRev
-	 * @param RevisionRecord $badRev
+	 * @inheritDoc
+	 * Increment rollbacks.
 	 */
-	public static function incrementRollbacks(
-		WikiPage $article, UserIdentity $user, $goodRev, RevisionRecord $badRev
+	public function onRollbackComplete(
+		$article, $user, $goodRev, $badRev
 	) {
 		# Mark when a user reverts another user, but not self-reverts
 		$badUser = $badRev->getUser( RevisionRecord::RAW );
@@ -788,15 +780,11 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/RevisionFromEditComplete
-	 *
-	 * @param WikiPage $wikiPage
-	 * @param RevisionRecord $revRecord
-	 * @param int|false $baseRevId
-	 * @param UserIdentity $user
+	 * @inheritDoc
+	 * Increment reverts.
 	 */
-	public static function incrementReverts(
-		WikiPage $wikiPage, $revRecord, $baseRevId, UserIdentity $user
+	public function onRevisionFromEditComplete(
+		$wikiPage, $revRecord, $baseRevId, $user, &$tags
 	) {
 		# TODO hook needs to be replaced with one that provides a RevisionRecord
 		global $wgRequest;
@@ -1076,13 +1064,10 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UserGetRights
-	 *
+	 * @inheritDoc
 	 * Grant 'autoreview' rights to users with the 'bot' right
-	 * @param User $user
-	 * @param string[] &$rights
 	 */
-	public static function onUserGetRights( $user, array &$rights ) {
+	public function onUserGetRights( $user, &$rights ) {
 		# Make sure bots always have the 'autoreview' right
 		if ( in_array( 'bot', $rights ) && !in_array( 'autoreview', $rights ) ) {
 			$rights[] = 'autoreview';
@@ -1090,25 +1075,17 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PageSaveComplete
-	 *
+	 * @inheritDoc
 	 * Callback that autopromotes user according to the setting in
 	 * $wgFlaggedRevsAutopromote. This also handles user stats tallies.
-	 *
-	 * @param WikiPage $wikiPage
-	 * @param UserIdentity $userIdentity
-	 * @param string $summary
-	 * @param int $flags
-	 * @param RevisionRecord $revisionRecord
-	 * @param EditResult $editResult
 	 */
-	public static function onPageSaveComplete(
-		WikiPage $wikiPage,
-		UserIdentity $userIdentity,
-		string $summary,
-		int $flags,
-		RevisionRecord $revisionRecord,
-		EditResult $editResult
+	public function onPageSaveComplete(
+		$wikiPage,
+		$userIdentity,
+		$summary,
+		$flags,
+		$revisionRecord,
+		$editResult
 	) {
 		global $wgFlaggedRevsAutopromote, $wgFlaggedRevsAutoconfirm;
 		$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
@@ -1134,17 +1111,12 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/AutopromoteCondition
-	 *
+	 * @inheritDoc
 	 * Check an autopromote condition that is defined by FlaggedRevs
 	 *
 	 * Note: some unobtrusive caching is used to avoid DB hits.
-	 * @param int $cond
-	 * @param array $params
-	 * @param User $user
-	 * @param bool &$result
 	 */
-	public static function checkAutoPromoteCond( $cond, array $params, User $user, &$result ) {
+	public function onAutopromoteCondition( $cond, $params, $user, &$result ) {
 		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		switch ( $cond ) {
 			case APCOND_FR_EDITSUMMARYCOUNT:
@@ -1298,11 +1270,10 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UserLoadAfterLoadFromSession
-	 *
-	 * @param User $user
+	 * @inheritDoc
+	 * Set session key.
 	 */
-	public static function setSessionKey( User $user ) {
+	public function onUserLoadAfterLoadFromSession( $user ) {
 		global $wgRequest;
 		if ( $user->isRegistered() && MediaWikiServices::getInstance()->getPermissionManager()
 				->userHasRight( $user, 'review' )
@@ -1317,13 +1288,9 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/WikiExporter::dumpStableQuery
-	 *
-	 * @param array &$tables
-	 * @param array &$opts
-	 * @param array &$join
+	 * @inheritDoc
 	 */
-	public static function stableDumpQuery( array &$tables, array &$opts, array &$join ) {
+	public function onWikiExporter__dumpStableQuery( &$tables, &$opts, &$join ) {
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		if ( $namespaces ) {
 			$tables[] = 'flaggedpages';
@@ -1436,28 +1403,20 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforeRevertedTagUpdate
-	 *
+	 * @inheritDoc
 	 * As the hook is called after saving the edit (in a deferred update), we have already
 	 * figured out whether the edit should be autoreviewed or not (see: maybeMakeEditReviewed
 	 * method). This hook just checks whether the edit is marked as reviewed or not.
-	 * @param WikiPage $wikiPage
-	 * @param UserIdentity $user
-	 * @param CommentStoreComment $summary
-	 * @param int $flags
-	 * @param RevisionRecord $revisionRecord
-	 * @param EditResult $editResult
-	 * @param bool &$approved
 	 */
-	public static function onBeforeRevertedTagUpdate(
-		WikiPage $wikiPage,
-		UserIdentity $user,
-		CommentStoreComment $summary,
-		int $flags,
-		RevisionRecord $revisionRecord,
-		EditResult $editResult,
-		bool &$approved
-	) {
+	public function onBeforeRevertedTagUpdate(
+		$wikiPage,
+		$user,
+		$summary,
+		$flags,
+		$revisionRecord,
+		$editResult,
+		&$approved
+	): void {
 		$title = $wikiPage->getTitle();
 		$fPage = FlaggableWikiPage::getTitleInstance( $title );
 		$fPage->loadPageData( FlaggableWikiPage::READ_LATEST );
