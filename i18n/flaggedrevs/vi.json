@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Minh Nguyen",
+			"Phjtieudoc",
 			"Tryvix1509",
 			"Trần Nguyễn Minh Huy",
 			"Vinhtantran"
@@ -103,7 +104,7 @@
 	"revreview-edited-section": "Trở về phần “[[#$1|$2]]”.",
 	"revreview-newest-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 thay đổi] trong phiên bản này [[{{MediaWiki:Validationpage}}|đang chờ được duyệt]].\n[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Phiên bản ổn định] đã được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} xem qua] vào <i>$2</i>.",
 	"revreview-newest-basic-i": "Phiên bản này có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} thay đổi bản mẫu/tập tin] [[{{MediaWiki:Validationpage}}|đang chờ được duyệt]].\n[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Phiên bản ổn định] đã được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} xem qua] vào <i>$2</i>.",
-	"revreview-pending-basic": "[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Phiên bản ổn định] đã được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} xem qua] vào <i>$2</i>. Hiện có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 thay đổi] đang chờ được duyệt.",
+	"revreview-pending-basic": "[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Phiên bản ổn định] đã được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} xem qua] vào <i>$2</i>. Hiện có {{PLURAL:$3|is|are}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|thay đổi|thay đổi}} đang chờ] được duyệt.",
 	"revreview-pending-nosection": "Hãy thử xem [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} phiên bản gần đây nhất] gồm có \n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 thay đổi đang chờ] để biết phần này đã được di chuyển hoặc xóa hay không.",
 	"revreview-noflagged": "Không có [[{{MediaWiki:Validationpage}}|phiên bản đã được duyệt]] của trang này, do đó có thể '''chưa''' ai kiểm tra nó có đủ chuẩn hay không.",
 	"revreview-oldrating": "Được xếp hạng:",
