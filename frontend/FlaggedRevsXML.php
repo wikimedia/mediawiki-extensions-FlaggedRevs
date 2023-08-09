@@ -208,52 +208,6 @@ class FlaggedRevsXML {
 	}
 
 	/**
-	 * Generates (show/hide) JS toggle HTML
-	 */
-	public static function logToggle(): string {
-		$toggle = Html::rawElement(
-			'a',
-			[
-				'class' => 'fr-toggle-text',
-				'title' => wfMessage( 'revreview-log-toggle-title' )->text(),
-			],
-			wfMessage( 'revreview-log-toggle-hide' )->escaped()
-		);
-		return Html::rawElement(
-			'span',
-			[
-				'id' => 'mw-fr-logtoggle',
-				'class' => 'fr-logtoggle-excerpt',
-				'style' => 'display:none;',
-			],
-			wfMessage( 'parentheses' )->rawParams( $toggle )->escaped()
-		);
-	}
-
-	/**
-	 * Generates (show/hide) JS toggle HTML
-	 */
-	public static function logDetailsToggle(): string {
-		$toggle = Html::rawElement(
-			'a',
-			[
-				'class' => 'fr-toggle-text',
-				'title' => wfMessage( 'revreview-log-details-title' )->text(),
-			],
-			wfMessage( 'revreview-log-details-show' )->escaped()
-		);
-		return Html::rawElement(
-			'span',
-			[
-				'id' => 'mw-fr-logtoggle',
-				'class' => 'fr-logtoggle-details',
-				'style' => 'display:none;',
-			],
-			wfMessage( 'parentheses' )->rawParams( $toggle )->escaped()
-		);
-	}
-
-	/**
 	 * Creates CSS draft page icon
 	 */
 	public static function draftStatusIcon(): string {

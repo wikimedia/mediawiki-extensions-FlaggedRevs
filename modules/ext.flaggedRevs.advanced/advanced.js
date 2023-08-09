@@ -93,37 +93,6 @@
 	}
 
 	/**
-	 * Toggles log excerpts
-	 *
-	 * this {jQuery}
-	 */
-	function toggleLog() {
-		var hideMsg, showMsg,
-			$log = $( '#mw-fr-logexcerpt' ),
-			$toggle = $( '#mw-fr-logtoggle' );
-
-		if ( $log.length && $toggle.length ) {
-			// Two different message sets used here...
-			// eslint-disable-next-line no-jquery/no-class-state
-			if ( $toggle.hasClass( 'fr-logtoggle-details' ) ) {
-				hideMsg = mw.msg( 'revreview-log-details-hide' );
-				showMsg = mw.msg( 'revreview-log-details-show' );
-			} else {
-				hideMsg = mw.msg( 'revreview-log-toggle-hide' );
-				showMsg = mw.msg( 'revreview-log-toggle-show' );
-			}
-
-			if ( $log.css( 'display' ) === 'none' ) {
-				$log.show();
-				$toggle.children( 'a' ).text( hideMsg );
-			} else {
-				$log.hide();
-				$toggle.children( 'a' ).text( showMsg );
-			}
-		}
-	}
-
-	/**
 	 * Startup function
 	 */
 	function init() {
@@ -145,18 +114,6 @@
 			$( '#mw-fr-stablediff' ).hide();
 		}
 		$toggle.children( 'a' ).on( 'click', toggleDiff );
-
-		// Enables log detail box and toggle
-		$toggle = $( '#mw-fr-logtoggle' );
-		if ( $toggle.length ) {
-			$toggle.css( 'display', 'inline' ); // show toggle control
-			// eslint-disable-next-line no-jquery/no-class-state
-			if ( $toggle.hasClass( 'fr-logtoggle-details' ) ) {
-				// hide in edit mode
-				$( '#mw-fr-logexcerpt' ).hide();
-			}
-		}
-		$toggle.children( 'a' ).on( 'click', toggleLog );
 	}
 
 	// Perform some onload events:

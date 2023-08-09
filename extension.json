@@ -276,11 +276,7 @@
 			],
 			"messages": [
 				"revreview-diff-toggle-show",
-				"revreview-diff-toggle-hide",
-				"revreview-log-toggle-show",
-				"revreview-log-toggle-hide",
-				"revreview-log-details-show",
-				"revreview-log-details-hide"
+				"revreview-diff-toggle-hide"
 			],
 			"dependencies": [
 				"mediawiki.util"

@@ -160,11 +160,6 @@ class RevisionReviewFormUI {
 
 		# Show stability log if there is anything interesting...
 		if ( $article->isPageLocked() ) {
-			$form .= ' ' . FlaggedRevsXML::logToggle();
-		}
-
-		# ..add the actual stability log body here
-		if ( $article->isPageLocked() ) {
 			$form .= FlaggedRevsXML::stabilityLogExcerpt( $article->getTitle() );
 		}
 
