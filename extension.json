@@ -275,10 +275,17 @@
 				"advanced.js"
 			],
 			"messages": [
+				"brackets",
+				"revreview-hist-basic",
+				"revreview-hist-pending",
 				"revreview-diff-toggle-show",
 				"revreview-diff-toggle-hide"
 			],
 			"dependencies": [
+				"mediawiki.diff",
+				"mediawiki.interface.helpers.styles",
+				"mediawiki.diff.styles",
+				"jquery.spinner",
 				"mediawiki.util"
 			],
 			"targets": [

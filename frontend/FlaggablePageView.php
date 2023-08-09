@@ -732,9 +732,9 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	 * Get collapsible diff-to-stable html to add to the review notice as needed
+	 * Get a toggle for a collapsible diff-to-stable to add to the review notice as needed
 	 * @param FlaggedRevision $srev stable version
-	 * @return string|false the html line (either "" or "<diff toggle><diff div>")
+	 * @return string|false the html line (either "" or "<diff toggle>")
 	 */
 	private function getTopDiffToggle( FlaggedRevision $srev ) {
 		$reqUser = $this->getUser();
@@ -755,23 +755,12 @@ class FlaggablePageView extends ContextSource {
 		}
 
 		$title = $this->article->getTitle(); // convenience
-		# Review status of left diff revision...
-		$leftNote = 'revreview-hist-basic';
-		// @todo FIXME: i18n Hard coded brackets.
-		$leftNote = "<span class='flaggedrevs-color-1'>[" . $this->msg( $leftNote )->escaped() . "]</span>";
-		# Review status of right diff revision...
-		// @todo FIXME: i18n Hard coded brackets.
-		$rightNote = "<span class='flaggedrevs-color-0'>[" .
-			$this->msg( 'revreview-hist-pending' )->escaped() . "]</span>";
-		# Get the actual body of the diff...
-		$diffEngine = new DifferenceEngine( $this, $srev->getRevId(), $latest );
-		$diffBody = $diffEngine->getDiffBody();
-		if ( strlen( $diffBody ) > 0 ) {
+		if ( $srev->getRevId() !== $latest ) {
 			$nEdits = $revsSince - 1; // full diff-to-stable, no need for query
 			if ( $nEdits ) {
 				$limit = 100;
 				try {
-					$latest = MediaWikiServices::getInstance()
+					$latestRevObj = MediaWikiServices::getInstance()
 						->getRevisionLookup()
 						->getRevisionById( $latest );
 					$users = MediaWikiServices::getInstance()
@@ -779,7 +768,7 @@ class FlaggablePageView extends ContextSource {
 						->getAuthorsBetween(
 							$title->getArticleID(),
 							$srev->getRevisionRecord(),
-							$latest,
+							$latestRevObj,
 							null,
 							$limit
 						);
@@ -791,12 +780,8 @@ class FlaggablePageView extends ContextSource {
 			} else {
 				$multiNotice = '';
 			}
-			$diffEngine->showDiffStyle(); // add CSS
 			$this->isDiffFromStable = true; // alter default review form tags
-			return FlaggedRevsXML::diffToggle() .
-				"<div id='mw-fr-stablediff'>\n" .
-				$diffEngine->addHeader( $diffBody, "<b>$leftNote</b>", "<b>$rightNote</b>", $multiNotice ) .
-				"</div>\n";
+			return FlaggedRevsXML::diffToggle( $title, $srev->getRevId(), $latest, $multiNotice );
 		}
 
 		return '';
@@ -860,12 +845,8 @@ class FlaggablePageView extends ContextSource {
 				->getBoolOption( $reqUser, 'flaggedrevseditdiffs' ) // not disabled via prefs
 			&& $revId === $latestId // only for current rev
 		) {
-			// Construct a link to the diff
-			$diffUrl = $this->article->getTitle()->getFullURL( [
-				'diff' => $revId, 'oldid' => $frev->getRevId() ]
-			);
 			$notices['review-edit-diff'] = $this->msg( 'review-edit-diff' )->parse() . ' ' .
-				FlaggedRevsXML::diffToggle( $diffUrl );
+				FlaggedRevsXML::diffToggle( $this->article->getTitle(), $frev->getRevId(), $revId );
 		}
 
 		if ( $frev && $this->article->onlyTemplatesPending() &&
@@ -917,34 +898,10 @@ class FlaggablePageView extends ContextSource {
 				&& $editPage->section != 'new' // not for new sections
 				&& $editPage->formtype != 'diff' // not "show changes"
 			) {
-				# Left diff side...
-				$leftNote = 'revreview-hist-basic';
-				// @todo i18n FIXME: Hard coded brackets
-				$leftNote = "<span class='flaggedrevs-color-1'>[" .
-					$this->msg( $leftNote )->escaped() . "]</span>";
-				# Right diff side...
-				// @todo i18n FIXME: Hard coded brackets
-				$rightNote = "<span class='flaggedrevs-color-0'>[" .
-					$this->msg( 'revreview-hist-pending' )->escaped() . "]</span>";
-				# Get the stable version source
-				$text = $frev->getRevText();
-				# Are we editing a section?
-				$section = ( $editPage->section == "" ) ?
-					false : intval( $editPage->section );
-				if ( $section !== false ) {
-					$text = MediaWikiServices::getInstance()->getParser()->getSection( $text, $section );
-				}
-				if ( $text !== null && strcmp( $text, $editPage->textbox1 ) !== 0 ) {
-					$diffEngine = new DifferenceEngine( $this );
-					$diffBody = $diffEngine->generateTextDiffBody( $text, $editPage->textbox1 );
-					$diffHtml =
-						$this->msg( 'review-edit-diff' )->parse() . ' ' .
-						FlaggedRevsXML::diffToggle() .
-						"<div id='mw-fr-stablediff'>" .
-						$diffEngine->addHeader( $diffBody, "<b>$leftNote</b>", "<b>$rightNote</b>" ) .
-						"</div>\n";
+				if ( $frev->getRevId() !== $revId ) {
+					$diffHtml = $this->msg( 'review-edit-diff' )->parse() . ' ' .
+						FlaggedRevsXML::diffToggle( $this->article->getTitle(), $frev->getRevId(), $revId );
 					$items[] = $diffHtml;
-					$diffEngine->showDiffStyle(); // add CSS
 				}
 			}
 			# Output items

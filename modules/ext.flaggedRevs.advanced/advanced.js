@@ -72,10 +72,113 @@
 	 * Toggles diffs
 	 *
 	 * @this {jQuery}
+	 * @return {boolean}
 	 */
 	function toggleDiff() {
 		var $diff = $( '#mw-fr-stablediff' ),
 			$toggle = $( '#mw-fr-difftoggle' );
+
+		if ( !$diff.length ) {
+			var alignStart, rtlDir;
+			rtlDir = $( '#mw-content-text' ).attr( 'dir' ) === 'rtl';
+			alignStart = rtlDir ? 'right' : 'left';
+			$diff = $( '<div>' )
+				.hide()
+				.attr( 'id', 'mw-fr-stablediff' )
+				// The following classes are used here:
+				// * diff-editfont-monospace
+				// * diff-editfont-sans-serif
+				// * diff-editfont-serif
+				.addClass( 'diff-editfont-' + mw.user.options.get( 'editfont' ) )
+				// The following classes are used here:
+				// * diff-contentalign-left
+				// * diff-contentalign-right
+				.addClass( 'diff-contentalign-' + alignStart )
+				.append(
+					$( '<table>' ).addClass( 'diff' ).append(
+						$( '<col>' ).addClass( 'diff-marker' ),
+						$( '<col>' ).addClass( 'diff-content' ),
+						$( '<col>' ).addClass( 'diff-marker' ),
+						$( '<col>' ).addClass( 'diff-content' ),
+						$( '<thead>' ).append(
+							$( '<tr>' ).addClass( 'diff-title' ).append(
+								$( '<td>' )
+									.attr( 'colspan', 2 )
+									.addClass( 'diff-otitle diff-side-deleted' )
+									.text( mw.msg( 'brackets', mw.msg( 'revreview-hist-basic' ) ) )
+									.wrapInner( '<span class="flaggedrevs-color-1">' )
+									.wrapInner( '<b>' ),
+								$( '<td>' )
+									.attr( 'colspan', 2 )
+									.addClass( 'diff-ntitle diff-side-added' )
+									.text( mw.msg( 'brackets', mw.msg( 'revreview-hist-pending' ) ) )
+									.wrapInner( '<span class="flaggedrevs-color-0">' )
+									.wrapInner( '<b>' )
+							)
+						),
+						$( '<tbody>' ).append(
+							$( '<tr>' ).append(
+								$( '<td>' )
+									.attr( 'colspan', 4 )
+									.addClass( 'diff-notice' )
+									.append( $.createSpinner( { size: 'large', type: 'block' } ) )
+							)
+						)
+					)
+				);
+
+			var multiNotice = $toggle.find( 'a' ).data( 'mw-multinotice' );
+			if ( multiNotice ) {
+				$diff.find( 'thead' ).append(
+					$( '<tr>' ).append(
+						$( '<td>' )
+							.attr( 'colspan', 4 )
+							.addClass( 'diff-multi' )
+							.html( multiNotice )
+					)
+				);
+			}
+
+			$toggle.after( $diff );
+
+			var diffPar = {
+				action: 'compare',
+				fromrev: $toggle.find( 'a' ).data( 'mw-fromrev' ),
+				torev: $toggle.find( 'a' ).data( 'mw-torev' ),
+				slots: 'main',
+				uselang: mw.config.get( 'wgUserLanguage' )
+			};
+			if ( mw.config.get( 'wgUserVariant' ) ) {
+				diffPar.variant = mw.config.get( 'wgUserVariant' );
+			}
+
+			new mw.Api().post( diffPar ).then( function handleDiffResponse( response ) {
+				var $table = $diff.find( 'table.diff' );
+
+				if ( response.compare.bodies.main ) {
+					var diff = response.compare.bodies;
+
+					$table.find( 'tbody' ).html( diff.main );
+					mw.hook( 'wikipage.diff' ).fire( $table );
+				} else {
+					// The diff is empty.
+					var $tableCell = $( '<td>' )
+						.attr( 'colspan', 4 )
+						.addClass( 'diff-notice' )
+						.append(
+							$( '<div>' )
+								.addClass( 'mw-diff-empty' )
+								.text( mw.msg( 'diff-empty' ) )
+						);
+					$table.find( 'tbody' )
+						.empty()
+						.append(
+							$( '<tr>' ).append( $tableCell )
+						);
+				}
+				$diff.show();
+			} );
+		}
 
 		if ( $diff.length && $toggle.length ) {
 			if ( $diff.css( 'display' ) === 'none' ) {
@@ -90,6 +193,8 @@
 				$toggle.children( 'a' ).text( mw.msg( 'revreview-diff-toggle-show' ) );
 			}
 		}
+
+		return false;
 	}
 
 	/**
@@ -109,10 +214,6 @@
 
 		// Enables diff detail box and toggle
 		$toggle = $( '#mw-fr-difftoggle' );
-		if ( $toggle.length ) {
-			$toggle.css( 'display', 'inline' ); // show toggle control
-			$( '#mw-fr-stablediff' ).hide();
-		}
 		$toggle.children( 'a' ).on( 'click', toggleDiff );
 	}
 

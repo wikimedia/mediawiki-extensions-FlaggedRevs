@@ -194,16 +194,26 @@ class FlaggedRevsXML {
 	}
 
 	/**
-	 * Generates (show/hide) JS toggle HTML
-	 * @param string|null $href If set, make the toggle link link to this URL and don't hide it
+	 * Generates the "(show/hide)" diff toggle. With JS disabled, it functions as a link to the diff.
+	 * @param Title $title
+	 * @param int $fromrev
+	 * @param int $torev
+	 * @param string|null $multiNotice Message about intermediate revisions
 	 */
-	public static function diffToggle( ?string $href = null ): string {
-		$toggle = '<a class="fr-toggle-text" ' .
-			'title="' . wfMessage( 'revreview-diff-toggle-title' )->escaped() .
-			( $href === null ? '' : '" href="' . htmlspecialchars( $href ) ) .
-			'" >' .
-			wfMessage( 'revreview-diff-toggle-show' )->escaped() . '</a>';
-		return '<span id="mw-fr-difftoggle"' . ( $href === null ? ' style="display:none;"' : '' ) . '>' .
+	public static function diffToggle( Title $title, int $fromrev, int $torev, string $multiNotice = null ): string {
+		// Construct a link to the diff
+		$href = $title->getFullURL( [ 'diff' => $torev, 'oldid' => $fromrev ] );
+
+		$toggle = Html::element( 'a', [
+			'class' => 'fr-toggle-text',
+			'title' => wfMessage( 'revreview-diff-toggle-title' )->text(),
+			'href' => $href,
+			'data-mw-fromrev' => $fromrev,
+			'data-mw-torev' => $torev,
+			'data-mw-multinotice' => $multiNotice,
+		], wfMessage( 'revreview-diff-toggle-show' )->text() );
+
+		return '<span id="mw-fr-difftoggle">' .
 			wfMessage( 'parentheses' )->rawParams( $toggle )->escaped() . '</span>';
 	}
 
