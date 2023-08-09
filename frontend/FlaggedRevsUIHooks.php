@@ -10,7 +10,6 @@ use MediaWiki\Hook\ChangesListInsertArticleLinkHook;
 use MediaWiki\Hook\ContribsPager__getQueryInfoHook;
 use MediaWiki\Hook\ContributionsLineEndingHook;
 use MediaWiki\Hook\EditPage__showEditForm_fieldsHook;
-use MediaWiki\Hook\EditPage__showEditForm_initialHook;
 use MediaWiki\Hook\EditPageBeforeEditButtonsHook;
 use MediaWiki\Hook\EditPageGetCheckboxesDefinitionHook;
 use MediaWiki\Hook\EditPageNoSuchSectionHook;
@@ -52,7 +51,6 @@ class FlaggedRevsUIHooks implements
 	ContributionsLineEndingHook,
 	DifferenceEngineViewHeaderHook,
 	EditPage__showEditForm_fieldsHook,
-	EditPage__showEditForm_initialHook,
 	EditPageBeforeEditButtonsHook,
 	EditPageGetCheckboxesDefinitionHook,
 	EditPageNoSuchSectionHook,
@@ -303,16 +301,6 @@ class FlaggedRevsUIHooks implements
 		# Environment will change in MediaWiki::initializeArticle
 		if ( $clearEnvironment ) {
 			$view->clear();
-		}
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function onEditPage__showEditForm_initial( $editPage, $out ) {
-		if ( $editPage->getTitle()->canExist() ) {
-			$view = FlaggablePageView::newFromTitle( $editPage->getTitle() );
-			$view->addToEditView( $editPage );
 		}
 	}
 

@@ -27,9 +27,10 @@ div.flaggedrevs_notice {
 	background-color: #f8f9fa;
 }
 
-table.flaggedrevs_editnotice,
-table.flaggedrevs_viewnotice {
-	padding: 3px;
+/* Add a frame to our edit notice in wikitext editor, but not in visual editor */
+/* stylelint-disable-next-line selector-max-id */
+#mw-content-text .flaggedrevs_editnotice {
+	padding: 0 0.5em;
 	border: 2px solid #a2a9b1;
 	background-color: #f8f9fa;
 	text-align: left;

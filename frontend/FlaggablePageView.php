@@ -26,7 +26,6 @@ class FlaggablePageView extends ContextSource {
 	private string $diffNoticeBox = '';
 	private string $diffIncChangeBox = '';
 	private ?RevisionRecord $reviewFormRevRecord = null;
-	private bool $noticesDone = false;
 
 	/**
 	 * @return MapCacheLRU
@@ -809,10 +808,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param string[] &$notices
 	 */
 	public function getEditNotices( Title $title, int $oldid, array &$notices ): void {
-		// HACK: EditPage invokes addToEditView() before this function, so $this->noticesDone
-		// will only be true if we're being called by EditPage, in which case we need to do nothing
-		// to avoid duplicating the notices.
-		if ( $this->noticesDone || !$this->article->isReviewable() ) {
+		if ( !$this->article->isReviewable() ) {
 			return;
 		}
 		// HACK fake EditPage
@@ -820,14 +816,13 @@ class FlaggablePageView extends ContextSource {
 		$editPage->oldid = $oldid;
 		$reqUser = $this->getUser();
 
-		// HACK this duplicates logic from addToEditView()
+		$lines = [];
+
 		$log = $this->stabilityLogNotice();
 		if ( $log ) {
-			$notices[$this->article->isPageLocked()
-				? 'revreview-locked'
-				: 'revreview-unlocked'] = $log;
+			$lines[] = $log;
 		} elseif ( $this->editWillRequireReview( $editPage ) ) {
-			$notices['revreview-editnotice'] = $this->msg( 'revreview-editnotice' )->parseAsBlock();
+			$lines[] = $this->msg( 'revreview-editnotice' )->parseAsBlock();
 		}
 		$frev = $this->article->getStableRev();
 		if ( $frev && $this->article->revsArePending() ) {
@@ -835,7 +830,7 @@ class FlaggablePageView extends ContextSource {
 			$pendingMsg = FlaggedRevsXML::pendingEditNoticeMessage(
 				$frev, $revsSince
 			);
-			$notices[$pendingMsg->getKey()] = '<div class="plainlinks">'
+			$lines[] = '<div class="plainlinks">'
 				. $pendingMsg->setContext( $this->getContext() )->parseAsBlock() . '</div>';
 		}
 		$latestId = $this->article->getLatest();
@@ -845,76 +840,21 @@ class FlaggablePageView extends ContextSource {
 				->getBoolOption( $reqUser, 'flaggedrevseditdiffs' ) // not disabled via prefs
 			&& $revId === $latestId // only for current rev
 		) {
-			$notices['review-edit-diff'] = $this->msg( 'review-edit-diff' )->parse() . ' ' .
-				FlaggedRevsXML::diffToggle( $this->article->getTitle(), $frev->getRevId(), $revId );
+			$lines[] = '<p>' . $this->msg( 'review-edit-diff' )->parse() . ' ' .
+				FlaggedRevsXML::diffToggle( $this->article->getTitle(), $frev->getRevId(), $revId ) . '</p>';
 		}
 
 		if ( $frev && $this->article->onlyTemplatesPending() &&
 			$this->article->getPendingRevCount() == 0
 		) {
 			$this->setPendingNotice( $frev, '', false );
-			$notices['review-transclusions'] = $this->reviewNotice;
+			$lines[] = $this->reviewNotice;
 		}
-	}
 
-	/**
-	 * Adds stable version tags to page when editing
-	 */
-	public function addToEditView( EditPage $editPage ): void {
-		$reqUser = $this->getUser();
-
-		# Must be reviewable. UI may be limited to unobtrusive patrolling system.
-		if ( !$this->article->isReviewable() ) {
-			return;
+		if ( $lines ) {
+			$notices['flaggedrevs_editnotice'] =
+				Html::rawElement( 'div', [ 'class' => 'flaggedrevs_editnotice' ], implode( '', $lines ) );
 		}
-		$items = [];
-		# Show stabilization log
-		$log = $this->stabilityLogNotice();
-		if ( $log ) {
-			$items[] = $log;
-		}
-		# Check the newest stable version
-		$frev = $this->article->getStableRev();
-		if ( $frev ) {
-			# Find out revision id of base version
-			$latestId = $this->article->getLatest();
-			$revId = $editPage->oldid ?: $latestId;
-			# Let users know if their edit will have to be reviewed.
-			# Note: if the log excerpt was shown then this is redundant.
-			if ( !$log && $this->editWillRequireReview( $editPage ) ) {
-				$items[] = $this->msg( 'revreview-editnotice' )->parse();
-			}
-			# Add a notice if there are pending edits...
-			if ( $this->article->revsArePending() ) {
-				$revsSince = $this->article->getPendingRevCount();
-				$items[] = FlaggedRevsXML::pendingEditNotice( $frev, $revsSince );
-			}
-			# Show diff to stable, to make things less confusing.
-			# This can be disabled via user preferences and other conditions...
-			if ( $frev->getRevId() < $latestId // changes were made
-				&& MediaWikiServices::getInstance()->getUserOptionsLookup()
-					->getBoolOption( $reqUser, 'flaggedrevseditdiffs' ) // not disable via prefs
-				&& $revId == $latestId // only for current rev
-				&& $editPage->section != 'new' // not for new sections
-				&& $editPage->formtype != 'diff' // not "show changes"
-			) {
-				if ( $frev->getRevId() !== $revId ) {
-					$diffHtml = $this->msg( 'review-edit-diff' )->parse() . ' ' .
-						FlaggedRevsXML::diffToggle( $this->article->getTitle(), $frev->getRevId(), $revId );
-					$items[] = $diffHtml;
-				}
-			}
-			# Output items
-			if ( count( $items ) ) {
-				$html = "<table class='flaggedrevs_editnotice plainlinks'>";
-				foreach ( $items as $item ) {
-					$html .= '<tr><td>' . $item . '</td></tr>';
-				}
-				$html .= '</table>';
-				$this->out->addHTML( $html );
-			}
-		}
-		$this->noticesDone = true;
 	}
 
 	private function stabilityLogNotice(): string {
@@ -925,7 +865,7 @@ class FlaggablePageView extends ContextSource {
 		} else {
 			return '';
 		}
-		$s = $this->msg( $msg )->parse();
+		$s = $this->msg( $msg )->parseAsBlock();
 		return $s . FlaggedRevsXML::stabilityLogExcerpt( $this->article->getTitle() );
 	}
 
