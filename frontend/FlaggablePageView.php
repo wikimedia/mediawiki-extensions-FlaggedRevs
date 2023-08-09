@@ -113,18 +113,22 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	 * Whether this web response is for a request to view a page where both:
-	 * (a) no explicit page version was requested via URL params (e.g. for the default version)
-	 * (b) a stable version exists and is to be displayed per configuration (e.g. the default)
-	 * This factors in site/page config, user preferences, and web request params.
+	 * Is this web response for a request to view a page
+	 * where a stable version exists and is to be displayed
 	 */
-	private function showingStableAsDefault(): bool {
+	public function showingStable(): bool {
+		$request = $this->getRequest();
 		$reqUser = $this->getUser();
 		$defaultForUser = $this->getPageViewStabilityModeForUser( $reqUser );
 
-		return (
+		# Whether this web response is for a request to view a page where both:
+		# (a) no explicit page version was requested via URL params (e.g. for the default version)
+		# (b) a stable version exists and is to be displayed per configuration (e.g. the default)
+		# This factors in site/page config, user preferences, and web request params.
+		$showingStableAsDefault = (
 			# Request is for the default page version
-			$this->isDefaultPageView() &&
+			$this->isPageView() && $request->getVal( 'oldid' ) === null && $request->getVal( 'stable' ) === null &&
+				$request->getVal( 'stableid' ) === null &&
 			# Page is reviewable and has a stable version
 			$this->article->getStableRev() &&
 			# User is not configured to prefer current versions
@@ -136,38 +140,22 @@ class FlaggablePageView extends ContextSource {
 				$this->article->getStabilitySettings()['override']
 			)
 		);
-	}
 
-	/**
-	 * Is this web response for a request to view a page where both:
-	 * (a) the stable version of a page was requested (?stable=1)
-	 * (b) the stable version exists and is to be displayed
-	 */
-	private function showingStableByRequest(): bool {
-		$request = $this->getRequest();
-		# Are we explicity requesting the stable version?
-		if ( $request->getIntOrNull( 'stable' ) === 1 ) {
+		# Is this web response for a request to view a page where both:
+		# (a) the stable version of a page was requested (?stable=1)
+		# (b) the stable version exists and is to be displayed
+		$showingStableByRequest = (
+			# Are we explicity requesting the stable version?
+			$request->getIntOrNull( 'stable' ) === 1 &&
 			# This only applies to viewing a version of the page...
-			if ( !$this->isPageView() ) {
-				return false;
+			$this->isPageView() &&
 			# ...with no version parameters other than ?stable=1...
-			} elseif ( $request->getVal( 'oldid' ) || $request->getVal( 'stableid' ) ) {
-				return false; // over-determined
+			!$request->getVal( 'oldid' ) && !$request->getVal( 'stableid' ) &&
 			# ...and the page must be reviewable and have a stable version
-			} elseif ( !$this->article->getStableRev() ) {
-				return false;
-			}
-			return true; // show stable version
-		}
-		return false;
-	}
+			$this->article->getStableRev()
+		);
 
-	/**
-	 * Is this web response for a request to view a page
-	 * where a stable version exists and is to be displayed
-	 */
-	public function showingStable(): bool {
-		return $this->showingStableByRequest() || $this->showingStableAsDefault();
+		return $showingStableByRequest || $showingStableAsDefault;
 	}
 
 	/**
@@ -213,17 +201,6 @@ class FlaggablePageView extends ContextSource {
 		$request = $this->getRequest();
 		return $this->isPageViewOrDiff()
 			&& $request->getVal( 'diff' ) === null;
-	}
-
-	/**
-	 * Is this a web request to just *view* the *default* version of a page?
-	 */
-	private function isDefaultPageView(): bool {
-		$request = $this->getRequest();
-		return $this->isPageView()
-			&& $request->getVal( 'oldid' ) === null
-			&& $request->getVal( 'stable' ) === null
-			&& $request->getVal( 'stableid' ) === null;
 	}
 
 	/**
