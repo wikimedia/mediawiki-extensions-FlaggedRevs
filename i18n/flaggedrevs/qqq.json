@@ -149,8 +149,6 @@
 	"revreview-quick-none": "{{Flagged Revs-small}}\nShown in the \"flagged revs box\" on the content page when there isn't any checked or quality revision yet.\n\nRefers to {{msg-mw|Validationpage}}.\n{{Identical|Unchecked}}",
 	"revreview-quick-see-basic": "{{Flagged Revs}}\nUsed in \"flagged revs box\" when viewing the latest version of a \"checked\" page with pending changes.\n\nParameters:\n* $1 - stable revision ID\n* $2 - (Unused) number of pending revisions\n{{Related|Revreview-quick}}\n{{Identical|Draft view article compare}}",
 	"revreview-basic-title": "{{Flagged Revs}}\nShown as the attribute title to the checkmark icon on the flag box shown on \"checked\" pages.",
-	"revreview-toggle-show": "{{FlaggedRevs}}\n{{Optional}}",
-	"revreview-toggle-hide": "{{FlaggedRevs}}\n{{Optional}}",
 	"revreview-toggle-title": "{{Flagged Revs-small}}\nTooltip shown when hovering over <span style=\"color:blue;\">(-/+)</span>.",
 	"revreview-visibility-synced": "{{Flagged Revs-small}}\nAppears above the protection form when the current version of the page is the stable version.\n\nRefers to {{msg-mw|Validationpage}}.\n{{Related|Revreview-visibility}}",
 	"revreview-visibility-outdated": "{{Flagged Revs-small}}\nAppears on top of the protection form when the current version is not the stable version.\n\nRefers to {{msg-mw|Validationpage}}.\n{{Related|Revreview-visibility}}",

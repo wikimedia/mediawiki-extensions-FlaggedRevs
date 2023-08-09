@@ -115,8 +115,6 @@
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Unchecked]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} review pending changes]]",
 	"revreview-basic-title": "This is a checked version of this page",
-	"revreview-toggle-show": "(+)",
-	"revreview-toggle-hide": "(-)",
 	"revreview-toggle-title": "show/hide details",
 	"revreview-visibility-synced": "'''This page has an updated [[{{MediaWiki:Validationpage}}|stable version]]; page stability settings can be [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configured].'''",
 	"revreview-visibility-outdated": "'''This page has an outdated [[{{MediaWiki:Validationpage}}|stable version]]; page stability settings can be [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configured].'''",
