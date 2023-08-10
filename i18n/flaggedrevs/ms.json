@@ -89,8 +89,6 @@
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Belum diperiksa]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} kaji semula perubahan baru]]",
 	"revreview-basic-title": "Inilah versi yang diperiksa untuk laman ini",
-	"revreview-toggle-show": "(+)",
-	"revreview-toggle-hide": "(-)",
 	"revreview-toggle-title": "paparkan/sorokkan butiran",
 	"revreview-visibility-synced": "'''Laman ini ada [[{{MediaWiki:Validationpage}}|versi stabil]] yang dikemas kini; tetapan kestabilan laman boleh [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} dikonfigurasi].'''",
 	"revreview-visibility-outdated": "'''Laman ini ada [[{{MediaWiki:Validationpage}}|versi stabil]] yang lapuk; tetapan kestabilan laman boleh [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} dikonfigurasi].'''",

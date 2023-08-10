@@ -130,8 +130,6 @@
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Página não verificada]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} revisar alterações pendentes]]",
 	"revreview-basic-title": "Esta é uma versão verificada desta página",
-	"revreview-toggle-show": "(+)",
-	"revreview-toggle-hide": "(-)",
 	"revreview-toggle-title": "exibir/ocultar detalhes",
 	"revreview-visibility-synced": "'''Esta página tem uma [[{{MediaWiki:Validationpage}}|versão publicada]] atualizada; os parâmetros de estabilidade da página podem ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurados].'''",
 	"revreview-visibility-outdated": "'''Esta página tem uma [[{{MediaWiki:Validationpage}}|versão publicada]] desatualizada; os parâmetros de estabilidade da página podem ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurados].'''",

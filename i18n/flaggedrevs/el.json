@@ -104,8 +104,6 @@
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Δεν ελέγχθηκε]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} επιθεώρηση εκκρεμών αλλαγών]]",
 	"revreview-basic-title": "Αυτή είναι μια ελεγμένη έκδοση αυτής της σελίδας",
-	"revreview-toggle-show": "(+)",
-	"revreview-toggle-hide": "(-)",
 	"revreview-toggle-title": "εμφάνιση/απόκρυψη λεπτομερειών",
 	"revreview-visibility-synced": "Η σελίδα αυτή έχει μια ενημερωμένη [[{{MediaWiki:Validationpage}}|σταθερή έκδοση]]; η σταθερότητα των ρυθμίσεων της σελίδας μπορεί να [{{fullurl: {{#Special:Stabilization}} |page = {{FULLPAGENAMEE}}}} διαμορφωθεί].'' '",
 	"revreview-visibility-outdated": "'''Η σελίδα αυτή διαθέτει μια απαρχαιωμένη [[{{MediaWiki:Validationpage}}|σταθερή έκδοση]]; οι ρυθμίσεις σταθερότητας της σελίδας μπορούν [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} να διαμορφωθούν].'''",

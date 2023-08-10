@@ -131,8 +131,6 @@
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Неперевірена версія]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} перевірити нові зміни]]",
 	"revreview-basic-title": "Це перевірена версія сторінки",
-	"revreview-toggle-show": "(+)",
-	"revreview-toggle-hide": "(-)",
 	"revreview-toggle-title": "показати/приховати подробиці",
 	"revreview-visibility-synced": "'''Ця сторінка має оновлену [[{{MediaWiki:Validationpage}}|стабільну версію]]; налаштування стабілізації сторінки можуть бути [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} змінені].'''",
 	"revreview-visibility-outdated": "'''Ця сторінка має застарілу [[{{MediaWiki:Validationpage}}|стабільну версію]]; налаштування стабілізації сторінки можуть бути [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} змінені].'''",

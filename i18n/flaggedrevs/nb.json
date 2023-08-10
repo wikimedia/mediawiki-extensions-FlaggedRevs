@@ -126,7 +126,6 @@
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Ukontrollert]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} gjennomgå ventende endringer]]",
 	"revreview-basic-title": "Dette er en kontrollert versjon av denne siden",
-	"revreview-toggle-hide": "(−)",
 	"revreview-toggle-title": "vis/skjul detaljer",
 	"revreview-visibility-synced": "'''Denne siden har en oppdatert [[{{MediaWiki:Validationpage}}|stabil versjon]]; innstillinger for stabile sider kan [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} endres].'''",
 	"revreview-visibility-outdated": "'''Denne siden har en utdatert [[{{MediaWiki:Validationpage}}|stabil versjon]]; innstillinger for sidestabilitet kan [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} endres].'''",

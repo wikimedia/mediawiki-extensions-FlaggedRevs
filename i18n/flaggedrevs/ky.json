@@ -10,8 +10,6 @@
 	"flaggedrevs-hidereviewed-show": "Көрсөтүү",
 	"group-editor": "Түзөтүүчүлөр",
 	"group-editor-member": "{{GENDER:$1|түзөтүүчү}}",
-	"revreview-toggle-show": "(+)",
-	"revreview-toggle-hide": "(-)",
 	"revreview-restriction-any": "каалаган",
 	"revreview-restriction-none": "жок"
 }

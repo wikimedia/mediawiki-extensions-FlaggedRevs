@@ -106,8 +106,6 @@
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|None verificate]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} revide le cangiaminde pendende]]",
 	"revreview-basic-title": "Queste jè 'na versiona verificate de sta pàgene",
-	"revreview-toggle-show": "(+)",
-	"revreview-toggle-hide": "(-)",
 	"revreview-toggle-title": "fa vedè/scunne le dettaglie",
 	"revreview-visibility-synced": "'''Sta pàgene tène 'na [[{{MediaWiki:Validationpage}}|versiona pubblecate]] aggiornate; le 'mbostaziune de'a stabbilità d'a pàgene ponne essere [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurate].'''",
 	"revreview-visibility-outdated": "'''Sta pàgene non ge tène 'na [[{{MediaWiki:Validationpage}}|versiona pubblecate]] aggiornate; le 'mbostaziune de'a stabbiletà d'a pàgene ponne essere [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurate].'''",

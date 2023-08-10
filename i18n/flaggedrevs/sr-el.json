@@ -108,8 +108,6 @@
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Neprovereno]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} proveri promene na čekanju]]",
 	"revreview-basic-title": "Ovo je proverena verzija ove stranice",
-	"revreview-toggle-show": "(+)",
-	"revreview-toggle-hide": "(-)",
 	"revreview-toggle-title": "prikaži/sakrij detalje",
 	"revreview-visibility-synced": "'''Ova stranica ima ažuriranu [[{{MediaWiki:Validationpage}}|stabilnu izmenu]]; možete [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} promeniti] podešavanja stabilnosti stranica.'''",
 	"revreview-visibility-outdated": "'''Ova stranica ima zastarelu [[{{MediaWiki:Validationpage}}|stabilnu izmenu]]; možete [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} promeniti] podešavanja stabilnosti stranica.'''",

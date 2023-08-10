@@ -113,8 +113,6 @@
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Ensin comprobar]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} revisar los cambeos pendientes]]",
 	"revreview-basic-title": "Esta ye una versión comprobada d'esta páxina",
-	"revreview-toggle-show": "(+)",
-	"revreview-toggle-hide": "(-)",
 	"revreview-toggle-title": "amosar/anubrir detalles",
 	"revreview-visibility-synced": "'''Esta páxina tien una [[{{MediaWiki:Validationpage}}|versión estable]] nueva; les preferencies d'estabilidá de la páxina puen [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurase].'''",
 	"revreview-visibility-outdated": "'''Esta páxina tien una [[{{MediaWiki:Validationpage}}|versión estable]] antigua; les preferencies d'estabilidá de la páxina pueden [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurase].'''",
