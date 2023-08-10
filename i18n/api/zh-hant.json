@@ -8,7 +8,7 @@
 	},
 	"apihelp-flagconfig-description": "取得此站台有關審查標記設置的基本資訊。\n\n替各標記回傳以下參數：\n;name：此標記的鍵值名稱。\n;levels：標記的級別號碼（「未標記」以上）。\n;tier2：標記必須達到 2（優質）的修訂之級別。\n;tier3：標記必須達到 3（原始）的修訂之級別。\n各標籤的已標記修訂需分配到級別修訂。所有標籤都符合的最高等級，是整體修訂的修訂等級。",
 	"apihelp-flagconfig-summary": "取得有關此站台的審查標記設置基本資訊。",
-	"apihelp-flagconfig-extended-description": "替各標記回傳以下參數：\n;name：此標記的鍵值名稱。\n;levels：標記的級別號碼（「未標記」以上）。\n;tier2：標記必須達到 2（優質）的修訂之級別。\n;tier3：標記必須達到 3（原始）的修訂之級別。\n各標籤的已標記修訂需分配到級別修訂。所有標籤都符合的最高等級，是整體修訂的修訂等級。",
+	"apihelp-flagconfig-extended-description": "替各標記回傳以下參數：\n;name：此標記的鍵值名稱。\n;levels：標記的級別號碼（「未標記」以上）。\n各標籤的已標記修訂需分配到級別修訂。所有標籤都符合的最高等級，是整體修訂的修訂等級。",
 	"apihelp-flagconfig-example-1": "索取標記設置",
 	"apihelp-query+configuredpages-description": "列舉所有可自定義審查設置的頁面。",
 	"apihelp-query+configuredpages-summary": "列舉所有可自定義審查設置的頁面。",
