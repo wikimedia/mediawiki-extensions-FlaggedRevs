@@ -269,6 +269,7 @@ class FlaggedRevsUIHooks implements
 		$srev = $fa->getStableRev();
 		$view = FlaggablePageView::newFromTitle( $title );
 		# Check if we are viewing an unsynced stable version...
+		# (Make sure that nothing in this code calls WebRequest::getActionName(): T323254)
 		if ( $srev && $view->showingStable() && $srev->getRevId() != $wikiPage->getLatest() ) {
 			# Check the stable redirect properties from the cache...
 			$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();

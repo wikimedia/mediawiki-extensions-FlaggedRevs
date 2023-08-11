@@ -113,8 +113,8 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	 * Is this web response for a request to view a page
-	 * where a stable version exists and is to be displayed
+	 * Assuming that the current request is a page view (see isPageView()),
+	 * check if a stable version exists and should be displayed.
 	 */
 	public function showingStable(): bool {
 		$request = $this->getRequest();
@@ -122,8 +122,6 @@ class FlaggablePageView extends ContextSource {
 		$canShowStable = (
 			// Page is reviewable and has a stable version
 			$this->article->getStableRev() &&
-			// This is a page view
-			$this->isPageView() &&
 			// No parameters requesting a different version of the page
 			!$request->getCheck( 'oldid' ) && !$request->getCheck( 'stableid' )
 		);
@@ -320,7 +318,7 @@ class FlaggablePageView extends ContextSource {
 				$tagTypeClass = 'flaggedrevs_oldstable';
 			// Stable version requested by ID or relevant conditions met to
 			// to override page view with the stable version.
-			} elseif ( $stable || $this->showingStable() ) {
+			} elseif ( $stable || ( $this->isPageView() && $this->showingStable() ) ) {
 				# Tell MW that parser output is done by setting $outputDone
 				// @phan-suppress-next-line PhanTypeMismatchArgumentNullable FIXME, this should be unreachable with null
 				$outputDone = $this->showStableVersion( $srev, $tag, $prot );
@@ -372,7 +370,7 @@ class FlaggablePageView extends ContextSource {
 	public function setRobotPolicy(): void {
 		$request = $this->getRequest();
 		if ( $this->article->getStableRev() && $this->article->isStableShownByDefault() ) {
-			if ( $this->showingStable() ) {
+			if ( $this->isPageView() && $this->showingStable() ) {
 				return; // stable version - index this
 			} elseif ( !$request->getVal( 'stableid' )
 				&& $this->out->getRevisionId() == $this->article->getStable()
@@ -1190,7 +1188,7 @@ class FlaggablePageView extends ContextSource {
 		$synced = $this->article->stableVersionIsSynced();
 		$pendingEdits = !$synced && $this->article->isStableShownByDefault();
 		// Set the edit tab names as needed...
-		if ( $pendingEdits && $this->showingStable() ) {
+		if ( $pendingEdits && $this->isPageView() && $this->showingStable() ) {
 			// bug 31489; direct user to current
 			if ( isset( $views['edit'] ) ) {
 				$views['edit']['href'] = $skin->getTitle()->getFullURL( 'action=edit' );
@@ -1229,7 +1227,7 @@ class FlaggablePageView extends ContextSource {
 			],
 		];
 		// Set tab selection CSS
-		if ( $this->showingStable() || $request->getVal( 'stableid' ) ) {
+		if ( ( $this->isPageView() && $this->showingStable() ) || $request->getVal( 'stableid' ) ) {
 			// We are looking a the stable version or an old reviewed one
 			$tabs['read']['class'] = 'selected';
 		} elseif ( $this->isPageViewOrDiff() ) {
