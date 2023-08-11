@@ -118,44 +118,39 @@ class FlaggablePageView extends ContextSource {
 	 */
 	public function showingStable(): bool {
 		$request = $this->getRequest();
+
+		$canShowStable = (
+			// Page is reviewable and has a stable version
+			$this->article->getStableRev() &&
+			// This is a page view
+			$this->isPageView() &&
+			// No parameters requesting a different version of the page
+			!$request->getCheck( 'oldid' ) && !$request->getCheck( 'stableid' )
+		);
+		if ( !$canShowStable ) {
+			return false;
+		}
+
+		// Check if a stable or unstable version is explicitly requested (?stable=1 or ?stable=0).
+		$stableQuery = $request->getIntOrNull( 'stable' );
+		if ( $stableQuery !== null ) {
+			return $stableQuery === 1;
+		}
+
+		// Otherwise follow site/page config and user preferences.
 		$reqUser = $this->getUser();
 		$defaultForUser = $this->getPageViewStabilityModeForUser( $reqUser );
-
-		# Whether this web response is for a request to view a page where both:
-		# (a) no explicit page version was requested via URL params (e.g. for the default version)
-		# (b) a stable version exists and is to be displayed per configuration (e.g. the default)
-		# This factors in site/page config, user preferences, and web request params.
-		$showingStableAsDefault = (
-			# Request is for the default page version
-			$this->isPageView() && $request->getVal( 'oldid' ) === null && $request->getVal( 'stable' ) === null &&
-				$request->getVal( 'stableid' ) === null &&
-			# Page is reviewable and has a stable version
-			$this->article->getStableRev() &&
-			# User is not configured to prefer current versions
+		$stableDefault = (
+			// User is not configured to prefer current versions
 			$defaultForUser !== FR_SHOW_STABLE_NEVER &&
-			# User explicitly prefers stable versions of pages
+			// User explicitly prefers stable versions of pages
 			(
 				$defaultForUser === FR_SHOW_STABLE_ALWAYS ||
-				# Check if the stable version overrides the draft
+				// Check if the stable version overrides the draft
 				$this->article->getStabilitySettings()['override']
 			)
 		);
-
-		# Is this web response for a request to view a page where both:
-		# (a) the stable version of a page was requested (?stable=1)
-		# (b) the stable version exists and is to be displayed
-		$showingStableByRequest = (
-			# Are we explicity requesting the stable version?
-			$request->getIntOrNull( 'stable' ) === 1 &&
-			# This only applies to viewing a version of the page...
-			$this->isPageView() &&
-			# ...with no version parameters other than ?stable=1...
-			!$request->getVal( 'oldid' ) && !$request->getVal( 'stableid' ) &&
-			# ...and the page must be reviewable and have a stable version
-			$this->article->getStableRev()
-		);
-
-		return $showingStableByRequest || $showingStableAsDefault;
+		return $stableDefault;
 	}
 
 	/**
