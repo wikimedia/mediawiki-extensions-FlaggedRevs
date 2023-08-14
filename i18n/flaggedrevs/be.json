@@ -11,7 +11,8 @@
 			"Tomato Cream",
 			"No Sleep till Krupki",
 			"Plaga med",
-			"Amire80"
+			"Amire80",
+			"ZlyiLev"
 		]
 	},
 	"action-autoreview": "аўтаматычна пазначаць уласныя праўкі як дагледжаныя",
@@ -97,7 +98,7 @@
 	"revreview-basic-i": "[[{{MediaWiki:Validationpage}}|Стабільная версія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} праверана] <i>$2</i>.\nЁсць неправераныя [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} змены ў шаблонах або файлах].",
 	"revreview-basic-old": "Гэта [[{{MediaWiki:Validationpage}}|дагледжаная]] версія ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} пералік усех]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} пацвержана] <i>$2</i>.\nМаглі быць зроблены новыя [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} змены].",
 	"revreview-basic-same": "Гэта [[{{MediaWiki:Validationpage}}|апублікаваная версія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} дагледжаная] <i>$2</i>.",
-	"revreview-basic-source": "[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Дагледжаная версія] гэтай старонкі, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} дагледжаная] <i>$2</i>, была заснавана на гэтай версіі.",
+	"revreview-basic-source": "[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Дагледжаная версія] гэтай старонкі, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} зацверджаная] <i>$2</i>, была заснавана на гэтай версіі.",
 	"revreview-current": "Недагледжаныя змены",
 	"revreview-depth": "Паўната",
 	"revreview-depth-0": "Не паказана",
