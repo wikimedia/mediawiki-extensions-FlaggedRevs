@@ -836,7 +836,7 @@ class FlaggablePageView extends ContextSource {
 		$reqUser = $this->getUser();
 
 		// HACK this duplicates logic from addToEditView()
-		$log = $this->stabilityLogNotice( false );
+		$log = $this->stabilityLogNotice();
 		if ( $log ) {
 			$notices[$this->article->isPageLocked()
 				? 'revreview-locked'
@@ -960,7 +960,7 @@ class FlaggablePageView extends ContextSource {
 		$this->noticesDone = true;
 	}
 
-	private function stabilityLogNotice( bool $showToggle = true ): string {
+	private function stabilityLogNotice(): string {
 		if ( $this->article->isPageLocked() ) {
 			$msg = 'revreview-locked';
 		} elseif ( $this->article->isPageUnlocked() ) {
@@ -969,9 +969,6 @@ class FlaggablePageView extends ContextSource {
 			return '';
 		}
 		$s = $this->msg( $msg )->parse();
-		if ( $showToggle ) {
-			$s .= ' ' . FlaggedRevsXML::logDetailsToggle();
-		}
 		return $s . FlaggedRevsXML::stabilityLogExcerpt( $this->article->getTitle() );
 	}
 
