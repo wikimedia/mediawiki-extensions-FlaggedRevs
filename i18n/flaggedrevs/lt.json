@@ -56,8 +56,6 @@
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3}} laukia peržiūros]]'''",
 	"revreview-diff-toggle-show": "rodyti tuos pakeitimus",
 	"revreview-diff-toggle-hide": "slėpti tuos pakeitimus",
-	"revreview-log-details-show": "rodyti detales",
-	"revreview-log-details-hide": "slėpti detales",
 	"review-diff2stable": "Peržiūrėti visus laukiančius patvirtinimo pakeitimus",
 	"review-logentry-id": "versija: $2",
 	"review-logentry-diff": "pakeitimai patvirtinti",

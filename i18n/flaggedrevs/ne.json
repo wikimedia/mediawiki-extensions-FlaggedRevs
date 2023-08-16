@@ -44,8 +44,6 @@
 	"review-edit-diff": "'''सूचना: ''केहि'' लंबित परिवर्तनले तपाईंले परिवर्तन गरेको भागलाई असर गर्नेछ ।'''",
 	"revreview-diff-toggle-show": "ती परिवर्तनहरू हेर्ने",
 	"revreview-diff-toggle-hide": "ती परिवर्तनहरू लुकाउने",
-	"revreview-log-details-show": "विस्तृत जानकारी हेर्ने",
-	"revreview-log-details-hide": "विस्तृत जानकारी लुकाउनुहोस्",
 	"reviewer": "समीक्षकहरू",
 	"revreview-def-all": "कोहि",
 	"revreview-def-stable": "स्थिर",

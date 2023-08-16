@@ -25,8 +25,6 @@
 	"grouppage-editor": "{{ns:project}}:Editorea",
 	"revreview-diff-toggle-show": "erakutsi aldaketa horiek",
 	"revreview-diff-toggle-hide": "ezkutatu aldaketa horiek",
-	"revreview-log-details-show": "erakutsi xehetasunak",
-	"revreview-log-details-hide": "ezkutatu xehetasunak",
 	"review-logentry-id": "berrikuspena: $2",
 	"revreview-accuracy": "Zehaztasuna",
 	"revreview-current": "Ikusteke dauden aldaketak",

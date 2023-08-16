@@ -43,8 +43,6 @@
 	"revreview-hist-basic": "kontrolleret revision",
 	"revreview-diff-toggle-show": "vis disse ændringer",
 	"revreview-diff-toggle-hide": "skjul disse ændringer",
-	"revreview-log-details-show": "vis detaljer",
-	"revreview-log-details-hide": "skjul detaljer",
 	"review-logentry-id": "revision: $2",
 	"reviewer": "Korrekturlæser",
 	"revreview-accuracy-4": "Fremhævet",

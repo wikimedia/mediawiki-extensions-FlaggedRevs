@@ -39,8 +39,6 @@
 	"review-edit-diff": "'''Athugið: ''Sumar'' af óyfirförnu breytingunum gætu haft áhrif á þann hluta síðunnar sem þú ert að breyta.'''",
 	"revreview-diff-toggle-show": "sýna þessar breytingar",
 	"revreview-diff-toggle-hide": "fela þessar breytingar",
-	"revreview-log-details-show": "sýna ítarefni",
-	"revreview-log-details-hide": "fela ítarefni",
 	"review-diff2stable": "Skoða allar óyfirfarnar breytingar",
 	"review-logentry-id": "útgáfa: $2",
 	"review-logentry-diff": "breytingar yfirfarnar",

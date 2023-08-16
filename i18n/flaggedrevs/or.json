@@ -11,7 +11,6 @@
 	"group-editor": "ସମ୍ପାଦକ",
 	"group-editor-member": "{{GENDER:$1|ସମ୍ପାଦକ}}",
 	"grouppage-editor": "{{ns:project}}:ସମ୍ପାଦକ",
-	"revreview-log-details-show": "ବିସ୍ତୃତରେ ଦେଖାଇବେ",
 	"revreview-basic": "ଏହା [[{{MediaWiki:Validationpage}}|ସ୍ଥିର ରୂପାନ୍ତର]], [{{fullurl:{{#Special:Log}}|ପ୍ରକାର=review&ପୃଷ୍ଠା={{FULLPAGENAMEE}}}} checked] on <i>$2</i>.\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 pending {{PLURAL:$3|ବଦଳ|ବଦଳ}}] {{PLURAL:$3|ଅପେକ୍ଷାରେ|ଅପେକ୍ଷାରେ}} ସମୀକ୍ଷା ।",
 	"revreview-submitedit": "ବଦଳ ଦାଖଲ କରନ୍ତୁ",
 	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|ପରଖିଲେ]]'''",

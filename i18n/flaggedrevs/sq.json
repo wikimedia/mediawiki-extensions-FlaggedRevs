@@ -26,8 +26,6 @@
 	"revreview-hist-basic-auto": "kontrolluar automatikisht",
 	"revreview-diff-toggle-show": "trego ndryshimet",
 	"revreview-diff-toggle-hide": "fshih ndryshimet",
-	"revreview-log-details-show": "shfaq detajet",
-	"revreview-log-details-hide": "fshih detajet",
 	"review-logpage": "Regjistri i rishikimeve",
 	"revreview-current": "Ndryshimet në pritje",
 	"revreview-editnotice": "'''Ndryshimet e tua do të shfaqen sapo një përdorues i autorizuar t'i pranojë ato.\n([[{{MediaWiki:Validationpage}}|ndihmë]])'''",

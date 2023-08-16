@@ -13,8 +13,6 @@
 	"group-reviewer-member": "{{GENDER:$1|ܡܬܢܝܢܐ|ܡܬܢܝܢܬܐ}}",
 	"grouppage-editor": "{{ns:project}}:ܫܚܠܦܢܐ",
 	"grouppage-reviewer": "{{ns:project}}:ܡܬܢܝܢܐ",
-	"revreview-log-details-show": "ܚܘܝ ܐܪ̈ܝܟܬܐ",
-	"revreview-log-details-hide": "ܛܫܝ ܐܪ̈ܝܟܬܐ",
 	"review-logentry-id": "ܬܢܝܬܐ: $2",
 	"revreview-def-draft": "ܐܚܪܝ ܟܠ",
 	"revreview-restriction-none": "ܠܐ ܡܕܡ"

@@ -29,7 +29,6 @@
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3}} тикшереү көтә]]'''",
 	"revreview-diff-toggle-show": "был үҙгәртеүҙәрҙе күрһәтергә",
 	"revreview-diff-toggle-hide": "был үҙгәртеүҙәрҙе йәшерергә",
-	"revreview-log-details-show": "тулыраҡ күрһәтергә",
 	"review-logentry-id": "өлгө: $2",
 	"review-logentry-diff": "тикшерелгән үҙгәртеүҙәр",
 	"review-logentry-diff2": "үҙгәртеүҙәр иҫкергән",

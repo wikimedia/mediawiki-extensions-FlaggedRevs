@@ -41,8 +41,6 @@
 	"revreview-hist-basic": "รุ่นแก้ไขที่ถูกตรวจสอบแล้ว",
 	"revreview-diff-toggle-show": "แสดงการเปลี่ยนแปลงเหล่านั้น",
 	"revreview-diff-toggle-hide": "ซ่อนการเปลี่ยนแปลงเหล่านั้น",
-	"revreview-log-details-show": "แสดงรายละเอียด",
-	"revreview-log-details-hide": "ซ่อนรายละเอียด",
 	"review-logentry-id": "รุ่นแก้ไข: $2",
 	"reviewer": "ผู้ตรวจทาน",
 	"revreview-accuracy": "ความถูกต้อง",
