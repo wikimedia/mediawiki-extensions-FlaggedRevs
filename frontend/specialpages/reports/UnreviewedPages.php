@@ -266,7 +266,7 @@ class UnreviewedPages extends SpecialPage {
 				'fp_page_id IS NULL OR fp_quality = 0' ],
 			__METHOD__,
 			[ 'LIMIT' => self::CACHE_SIZE ],
-			[ 'flaggedpages' => [ 'LEFT JOIN','fp_page_id = page_id' ] ]
+			[ 'flaggedpages' => [ 'LEFT JOIN', 'fp_page_id = page_id' ] ]
 		);
 		foreach ( $res as $row ) {
 			$insertRows[] = [

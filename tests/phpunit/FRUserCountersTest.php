@@ -29,7 +29,7 @@ class FRUserCountersTest extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( $expected, $ps, "Param save and fetch from DB 1" );
 
 		$expected = [
-			'uniqueContentPages'	=> [ 23,55 ],
+			'uniqueContentPages'	=> [ 23, 55 ],
 			'totalContentEdits' 	=> 666,
 			'editComments' 			=> 666,
 			'revertedEdits' 		=> 13
