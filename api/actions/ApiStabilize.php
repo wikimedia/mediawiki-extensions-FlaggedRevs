@@ -20,6 +20,8 @@
  * http://www.gnu.org/copyleft/gpl.html
  */
 
+use MediaWiki\Title\Title;
+
 /**
  * API module to stabilize pages
  *

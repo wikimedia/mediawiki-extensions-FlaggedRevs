@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Title\Title;
+
 /**
  * Job class for handling deferred FRExtraCacheUpdates
  * @ingroup JobQueue
