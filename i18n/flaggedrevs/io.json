@@ -23,6 +23,8 @@
 	"review-logentry-id": "revizuro: $2",
 	"revreview-accuracy": "Exakteso",
 	"revreview-accuracy-2": "Exakta",
+	"revreview-newest-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|modifikuro|modifikuri}}] en ca versiono {{PLURAL:$3|dependas}} de [[{{MediaWiki:Validationpage}}|revizo]].\nLa [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versiono stabila] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verifikesis] ye <i>$2</i>.",
+	"revreview-newest-basic-i": "Altra modifikuri di versiono di [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} ca shablono od arkivo] dependas de [[{{MediaWiki:Validationpage}}|revizo]].\nLa [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} lasta versiono stabila] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verifikesis ed aprobesis] ye <i>$2</i>.",
 	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|Verifikita]]'''",
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Verifikita]]'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Ne verifikita]]'''",
