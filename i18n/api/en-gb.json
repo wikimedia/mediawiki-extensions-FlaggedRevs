@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Piano1forte2"
+			"Piano1forte2",
+			"Reedy"
 		]
 	},
 	"apihelp-query+flagged-example-2": "Get flag statuses for pages starting with 'K'",
-	"apihelp-review-example-1": "Approve revision 12345 with comment 'Ok'"
+	"apihelp-review-example-1": "Approve revision 12345 with comment 'Ok'",
+	"apihelp-stabilize-param-title-general": "Title of the page to be stabilised."
 }
