@@ -626,6 +626,10 @@ class FlaggedRevision {
 		return FlaggedRevs::useOnlyIfProtected() ? [] : [ FlaggedRevs::getTagName() => 0 ];
 	}
 
+	public static function getDefaultTag(): ?int {
+		return FlaggedRevs::useOnlyIfProtected() ? null : 0;
+	}
+
 	/**
 	 * @param string $tags
 	 * @return array<string,int>

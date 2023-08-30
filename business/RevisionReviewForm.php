@@ -29,8 +29,8 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	private $validatedParams = '';
 	/** @var string Review comments */
 	private $comment = '';
-	/** @var int[] Review flags (for approval) */
-	private $dims = [];
+	/** Review tag (for approval) */
+	private ?int $tag = null;
 	/** @var string|null Conflict handling */
 	private $lastChangeTime = null;
 	/** @var string|null Conflict handling */
@@ -46,7 +46,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 	protected function initialize() {
 		if ( FlaggedRevs::useOnlyIfProtected() ) {
-			$this->dims[FlaggedRevs::getTagName()] = 0; // default to "inadequate"
+			$this->tag = 0; // default to "inadequate"
 		}
 	}
 
@@ -143,12 +143,25 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 	/**
 	 * @param int $value
+	 * @deprecated Use setTag() instead.
 	 */
 	public function setDim( $value ) {
+		$this->setTag( (int)$value );
+	}
+
+	public function setTag( int $value ): void {
 		if ( !FlaggedRevs::useOnlyIfProtected() ) {
-			$tag = FlaggedRevs::getTagName();
-			$this->trySet( $this->dims[$tag], (int)$value );
+			$this->trySet( $this->tag, $value );
 		}
+	}
+
+	/**
+	 * Get tags array, for usage with code that expects an array of tags
+	 * rather than a single tag.
+	 * @return array<string,int>
+	 */
+	private function getTags(): array {
+		return $this->tag !== null ? [ FlaggedRevs::getTagName() => $this->tag ] : [];
 	}
 
 	/**
@@ -209,19 +222,20 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		}
 		# Get the revision's current flags (if any)
 		$this->oldFrev = FlaggedRevision::newFromTitle( $this->page, $this->oldid, IDBAccessObject::READ_LATEST );
-		$oldFlags = $this->oldFrev
-			? $this->oldFrev->getTags()
-			: FlaggedRevision::getDefaultTags();
+		$oldTag = $this->oldFrev ? $this->oldFrev->getTag() : FlaggedRevision::getDefaultTag();
 		# Set initial value for newLastChangeTime (if unchanged on submit)
 		$this->newLastChangeTime = $this->lastChangeTime;
-		# Fill in implicit tag data for binary flag case
-		$iDims = $this->implicitDims();
-		if ( $iDims ) {
-			$this->dims = $iDims; // binary flag case
+		# Fill in implicit tag for binary flag case
+		if ( FlaggedRevs::binaryFlagging() ) {
+			if ( $this->action === self::ACTION_APPROVE ) {
+				$this->tag = 1;
+			} elseif ( $this->action === self::ACTION_UNAPPROVE ) {
+				$this->tag = 0;
+			}
 		}
 		if ( $action === self::ACTION_APPROVE ) {
-			# We must at least rate each category as 1, the minimum
-			if ( in_array( 0, $this->dims, true ) ) {
+			# The tag should not be zero
+			if ( $this->tag === 0 ) {
 				return 'review_too_low';
 			}
 			# Special token to discourage fiddling with templates...
@@ -231,17 +245,17 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 					return 'review_bad_key';
 				}
 			}
-			# Sanity check tags
-			if ( !FlaggedRevs::flagsAreValid( $this->dims ) ) {
+			# Sanity check tag
+			if ( !FlaggedRevs::tagIsValid( $this->tag ) ) {
 				return 'review_bad_tags';
 			}
-			# Check permissions with tags
-			if ( !FlaggedRevs::userCanSetFlags( $this->user, $this->dims, $oldFlags ) ) {
+			# Check permissions with tag
+			if ( !FlaggedRevs::userCanSetTag( $this->user, $this->tag, $oldTag ) ) {
 				return 'review_denied';
 			}
 		} elseif ( $action === self::ACTION_UNAPPROVE ) {
-			# Check permissions with old tags
-			if ( !FlaggedRevs::userCanSetFlags( $this->user, $oldFlags ) ) {
+			# Check permissions with old tag
+			if ( !FlaggedRevs::userCanSetTag( $this->user, $oldTag ) ) {
 				return 'review_denied';
 			}
 		}
@@ -252,22 +266,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		// Basic permission check
 		return ( $this->page && MediaWikiServices::getInstance()->getPermissionManager()
 			->userCan( 'review', $this->user, $this->page ) );
-	}
-
-	/**
-	 * implicit dims for binary flag case
-	 * @return int[]|null
-	 */
-	private function implicitDims() {
-		if ( FlaggedRevs::binaryFlagging() ) {
-			$tag = FlaggedRevs::getTagName();
-			if ( $this->action === self::ACTION_APPROVE ) {
-				return [ $tag => 1 ];
-			} elseif ( $this->action === self::ACTION_UNAPPROVE ) {
-				return [ $tag => 0 ];
-			}
-		}
-		return null;
 	}
 
 	/**
@@ -471,7 +469,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		FlaggedRevision $oldFrev = null
 	) {
 		# Revision rating flags
-		$flags = $this->dims;
+		$flags = $this->getTags();
 		# Our template version pointers
 		$tmpVersions = $this->getIncludeVersions( $this->templateParams );
 		# Get current stable version ID (for logging)
@@ -512,7 +510,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 		# Update the article review log...
 		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
-		FlaggedRevsLog::updateReviewLog( $this->page, $this->dims,
+		FlaggedRevsLog::updateReviewLog( $this->page, $this->getTags(),
 			$this->comment, $this->oldid, $oldSvId, true, $this->user );
 
 		# Get the new stable version as of now
@@ -545,7 +543,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 		# Update the article review log
 		$svId = $sv ? $sv->getRevId() : 0;
-		FlaggedRevsLog::updateReviewLog( $this->page, $this->dims,
+		FlaggedRevsLog::updateReviewLog( $this->page, $this->getTags(),
 			$this->comment, $this->oldid, $svId, false, $this->user );
 
 		# Update recent changes

@@ -70,9 +70,9 @@ class ApiReview extends ApiBase {
 		if ( isset( $params['comment'] ) ) {
 			$form->setComment( $params['comment'] );
 		}
-		// The flagging parameters have the form 'flag_$name'.
-		// Extract them and put the values into $form->dims
-		$form->setDim( FlaggedRevs::binaryFlagging() ?
+		// The flagging parameter has the form 'flag_$name' ($name varies
+		// by wiki). Extract it and put the value into $form->tag.
+		$form->setTag( FlaggedRevs::binaryFlagging() ?
 			1 :
 			(int)$params['flag_' . FlaggedRevs::getTagName() ]
 		);

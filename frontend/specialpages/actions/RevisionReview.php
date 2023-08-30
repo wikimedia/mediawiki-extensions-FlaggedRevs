@@ -92,7 +92,7 @@ class RevisionReview extends UnlistedSpecialPage {
 		$form->setSessionKey( $request->getSessionData( 'wsFlaggedRevsKey' ) );
 		# Tag values
 		# This can be NULL if we uncheck a checkbox
-		$form->setDim( $request->getInt( 'wp' . FlaggedRevs::getTagName() ) );
+		$form->setTag( $request->getInt( 'wp' . FlaggedRevs::getTagName() ) );
 		# Log comment
 		$form->setComment( $request->getText( 'wpReason' ) );
 		$form->ready();
@@ -284,7 +284,7 @@ class RevisionReview extends UnlistedSpecialPage {
 					$editToken = $val;
 					break;
 				case 'wp' . FlaggedRevs::getTagName():
-					$form->setDim( $val );
+					$form->setTag( $val );
 					break;
 			}
 		}
