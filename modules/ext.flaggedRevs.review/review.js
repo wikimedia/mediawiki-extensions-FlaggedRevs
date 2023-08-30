@@ -148,6 +148,7 @@ function submitRevisionReview( button, form ) {
 		var input = inputs[ i ];
 		if ( input.name === 'target' ) {
 			target = input.value;
+			continue;
 		}
 		// Different input types may occur depending on tags...
 		if ( input.name === 'title' || input.name === 'action' ) {
