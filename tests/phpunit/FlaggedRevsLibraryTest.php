@@ -4,6 +4,9 @@ if ( !class_exists( 'Scribunto_LuaEngineTestBase' ) ) {
 	class_alias( MediaWikiIntegrationTestCase::class, Scribunto_LuaEngineTestBase::class );
 }
 
+/**
+ * @group Database
+ */
 class FlaggedRevsLibraryTest extends Scribunto_LuaEngineTestBase {
 
 	/** @inheritDoc */
