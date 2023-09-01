@@ -92,7 +92,7 @@
 	"revreview-hist-pending": "ожидает проверки",
 	"revreview-hist-basic": "досмотренная версия",
 	"revreview-hist-basic-user": "проверена {{GENDER:$3|участником|участницей}} [[User:$3|$3]]",
-	"revreview-hist-basic-auto": "асэрказ эскеремын-чакламын",
+	"revreview-hist-basic-auto": "отпатрулирована автоматически",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3}} ожидает проверки]]'''",
 	"review-edit-diff": "'''Внимание: ''некоторые'' из ожидающих проверки изменений относятся к редактируемой вами части страницы.'''",
 	"revreview-diff-toggle-show": "показать эти изменения",
