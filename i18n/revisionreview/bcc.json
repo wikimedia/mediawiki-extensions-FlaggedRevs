@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Moshtank",
 			"Mostafadaneshvar"
 		]
 	},
-	"revisionreview": "بازبینی اصلاحات",
+	"revisionreview": "ٹگلانءِ پدچاری",
 	"revreview-flag": "ای بازبینی اصلاح کن",
 	"revreview-invalid": "'''نامعتبراین هدف:''' هچ [[{{MediaWiki:Validationpage}}|بازبینی بوتگین]] نسخه مطابق انت گون داتگین شناسگ.",
 	"revreview-log": "نظر:",
