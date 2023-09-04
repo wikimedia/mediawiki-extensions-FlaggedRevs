@@ -364,7 +364,6 @@
 		"DifferenceEngineViewHeader": "ui",
 		"EchoGetDefaultNotifiedUsers": "FlaggedRevsHooks::onEchoGetDefaultNotifiedUsers",
 		"EditPage::showEditForm:fields": "ui",
-		"EditPage::showEditForm:initial": "ui",
 		"EditPageBeforeEditButtons": "ui",
 		"EditPageGetCheckboxesDefinition": "ui",
 		"EditPageNoSuchSection": "ui",
