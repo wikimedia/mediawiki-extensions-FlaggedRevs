@@ -238,17 +238,6 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	 * @return string|int|null
-	 */
-	private function getRequestedStableId() {
-		$reqId = $this->getRequest()->getVal( 'stableid' );
-		if ( $reqId === "best" ) {
-			return $this->article->getBestFlaggedRevId();
-		}
-		return $reqId;
-	}
-
-	/**
 	 * Replaces a page with the last stable version if possible
 	 * Adds stable version status/info tags and notes
 	 * Adds a quick review form on the bottom if needed
@@ -272,7 +261,10 @@ class FlaggablePageView extends ContextSource {
 		$stableId = $srev ? $srev->getRevId() : 0;
 		$frev = $srev; // $frev is the revision we are looking at
 		# Check for any explicitly requested reviewed version (stableid=X)...
-		$reqId = $this->getRequestedStableId();
+		$reqId = $this->getRequest()->getVal( 'stableid' );
+		if ( $reqId === "best" ) {
+			$reqId = $this->article->getBestFlaggedRevId();
+		}
 		if ( $reqId ) {
 			if ( !$stableId ) {
 				$reqId = false; // must be invalid
@@ -334,7 +326,11 @@ class FlaggablePageView extends ContextSource {
 			}
 		} else {
 			// Looking at a page with no stable version; add "no reviewed version" tag.
-			$this->showUnreviewedPage( $tag, $prot );
+			if ( !$this->out->isPrintable() && !$this->isOnMobile() ) {
+				$this->enableOOUI();
+				$msg = $this->useSimpleUI() ? 'revreview-quick-none' : 'revreview-noflagged';
+				$tag .= $prot . FlaggedRevsXML::draftStatusIcon() . $this->msg( $msg )->parse();
+			}
 			$tagTypeClass = 'flaggedrevs_unreviewed';
 		}
 		# Some checks for which tag CSS to use
@@ -379,20 +375,6 @@ class FlaggablePageView extends ContextSource {
 			}
 			$this->out->setRobotPolicy( 'noindex,nofollow' ); // don't index this version
 		}
-	}
-
-	/**
-	 * @param string &$tag review box/bar info
-	 * @param string $prot protection notice
-	 * Tag output function must be called by caller
-	 */
-	private function showUnreviewedPage( string &$tag, string $prot ): void {
-		if ( $this->out->isPrintable() || $this->isOnMobile() ) {
-			return; // all this function does is add notices; don't show them
-		}
-		$this->enableOOUI();
-		$msg = $this->useSimpleUI() ? 'revreview-quick-none' : 'revreview-noflagged';
-		$tag .= $prot . FlaggedRevsXML::draftStatusIcon() . $this->msg( $msg )->parse();
 	}
 
 	/**
@@ -649,7 +631,13 @@ class FlaggablePageView extends ContextSource {
 				# Regenerate the parser output, debouncing parse requests via PoolCounter
 				$status = FlaggedRevs::parseStableRevisionPooled( $srev, $parserOptions );
 				if ( !$status->isGood() ) {
-					$this->showPoolError( $status );
+					$this->out->disableClientCache();
+					$this->out->setRobotPolicy( 'noindex,nofollow' );
+
+					$errortext = $status->getWikiText( false, 'view-pool-error' );
+					$this->out->addHTML(
+						Html::errorBox( $this->out->parseAsContent( $errortext ) )
+					);
 					return null;
 				}
 				$parserOut = $status->getValue();
@@ -668,7 +656,14 @@ class FlaggablePageView extends ContextSource {
 		}
 
 		if ( !$parserOut ) {
-			$this->showMissingRevError( $srev->getRevId() );
+			$this->out->disableClientCache();
+			$this->out->setRobotPolicy( 'noindex,nofollow' );
+
+			$this->out->addWikiMsg(
+				'missing-article',
+				$this->article->getTitle()->getPrefixedText(),
+				$this->msg( 'missingarticle-rev', $srev->getRevId() )->plain()
+			);
 			return null;
 		}
 
@@ -699,26 +694,6 @@ class FlaggablePageView extends ContextSource {
 
 		$this->out->addModuleStyles( 'ext.flaggedRevs.icons' );
 		$this->out->enableOOUI();
-	}
-
-	private function showPoolError( Status $status ): void {
-		$this->out->disableClientCache();
-		$this->out->setRobotPolicy( 'noindex,nofollow' );
-
-		$errortext = $status->getWikiText( false, 'view-pool-error' );
-		$this->out->addHTML(
-			Html::errorBox( $this->out->parseAsContent( $errortext ) )
-		);
-	}
-
-	private function showMissingRevError( int $revId ): void {
-		$this->out->disableClientCache();
-		$this->out->setRobotPolicy( 'noindex,nofollow' );
-
-		$this->out->addWikiMsg( 'missing-article',
-			$this->article->getTitle()->getPrefixedText(),
-			$this->msg( 'missingarticle-rev', $revId )->plain()
-		);
 	}
 
 	/**
@@ -1633,7 +1608,7 @@ class FlaggablePageView extends ContextSource {
 	private function editWillRequireReview( EditPage $editPage ): bool {
 		$request = $this->getRequest(); // convenience
 		$title = $this->article->getTitle(); // convenience
-		if ( !$this->editRequiresReview( $editPage ) ) {
+		if ( !$this->article->editsRequireReview() || $this->editWillBeAutoreviewed( $editPage ) ) {
 			return false; // edit will go live immediately
 		} elseif ( $request->getCheck( 'wpReviewEdit' ) &&
 			MediaWikiServices::getInstance()->getPermissionManager()
@@ -1642,13 +1617,6 @@ class FlaggablePageView extends ContextSource {
 			return false; // edit checked off to be reviewed on save
 		}
 		return true; // edit needs review
-	}
-
-	/**
-	 * If this edit will not go live on submit unless wpReviewEdit is checked
-	 */
-	private function editRequiresReview( EditPage $editPage ): bool {
-		return $this->article->editsRequireReview() && !$this->editWillBeAutoreviewed( $editPage );
 	}
 
 	/**

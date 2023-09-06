@@ -275,7 +275,6 @@ class Stabilization extends UnlistedSpecialPage {
 		}
 		$s .= Xml::closeElement( 'fieldset' ) . Xml::closeElement( 'form' );
 
-		// @phan-suppress-next-line SecurityCheck-XSS By Xml::expandAttributes
 		$out->addHTML( $s );
 
 		$log = new LogPage( 'stable' );
