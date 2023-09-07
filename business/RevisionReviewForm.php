@@ -149,7 +149,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		$this->setTag( (int)$value );
 	}
 
-	public function setTag( int $value ): void {
+	public function setTag( ?int $value ): void {
 		if ( !FlaggedRevs::useOnlyIfProtected() ) {
 			$this->trySet( $this->tag, $value );
 		}
