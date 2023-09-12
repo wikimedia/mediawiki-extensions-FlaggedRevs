@@ -46,7 +46,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		}
 		# Must be a single NS for performance reasons
 		if ( $namespace === null || !FlaggedRevs::isReviewNamespace( $namespace ) ) {
-			$namespace = FlaggedRevs::getReviewNamespaces()[0] ?? -1;
+			$namespace = FlaggedRevs::getFirstReviewNamespace();
 		}
 		$this->namespace = $namespace;
 		$this->category = $category ? str_replace( ' ', '_', $category ) : null;
