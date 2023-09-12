@@ -299,7 +299,7 @@ class FlaggableWikiPage extends WikiPage {
 	 * @return bool
 	 */
 	public function isReviewable() {
-		if ( !FlaggedRevs::inReviewNamespace( $this->mTitle ) ) {
+		if ( !FlaggedRevs::inReviewNamespace( $this ) ) {
 			return false;
 		}
 		# Check if flagging is disabled for this page via config
@@ -315,7 +315,7 @@ class FlaggableWikiPage extends WikiPage {
 	 * @return int
 	 */
 	public function getStable() {
-		if ( !FlaggedRevs::inReviewNamespace( $this->mTitle ) ) {
+		if ( !FlaggedRevs::inReviewNamespace( $this ) ) {
 			return 0; // short-circuit
 		}
 		if ( !$this->mDataLoaded ) {
@@ -329,7 +329,7 @@ class FlaggableWikiPage extends WikiPage {
 	 * @return FlaggedRevision|null
 	 */
 	public function getStableRev() {
-		if ( !FlaggedRevs::inReviewNamespace( $this->mTitle ) ) {
+		if ( !FlaggedRevs::inReviewNamespace( $this ) ) {
 			return null; // short-circuit
 		}
 		if ( !$this->mDataLoaded ) {
@@ -474,7 +474,7 @@ class FlaggableWikiPage extends WikiPage {
 		# Load in primary page data...
 		parent::loadPageData( $data /* Row obj */ );
 		# Load in flaggedrevs Row data if the page exists...(sanity check NS)
-		if ( $data && FlaggedRevs::inReviewNamespace( $this->mTitle ) ) {
+		if ( $data && FlaggedRevs::inReviewNamespace( $this ) ) {
 			if ( $data->fpc_override !== null ) { // page config row found
 				$this->pageConfig = FRPageConfig::getVisibilitySettingsFromRow( $data );
 			}
