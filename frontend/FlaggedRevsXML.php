@@ -14,7 +14,6 @@ class FlaggedRevsXML {
 	 * @param string|null $all Value of an item denoting all namespaces, or null to omit
 	 */
 	public static function getNamespaceMenu( ?int $selected = null, ?string $all = null ): string {
-		$namespaces = FlaggedRevs::getReviewNamespaces();
 		$s = "<label for='namespace'>" . wfMessage( 'namespace' )->escaped() . "</label>";
 		# No namespace selected; let exact match work without hitting Main
 		$selected ??= '';
@@ -25,7 +24,7 @@ class FlaggedRevsXML {
 		}
 		foreach ( $arr as $index => $name ) {
 			# Content pages only (except 'all')
-			if ( $index !== $all && !in_array( $index, $namespaces ) ) {
+			if ( $index !== $all && !FlaggedRevs::isReviewNamespace( $index ) ) {
 				continue;
 			}
 			$name = $index !== 0 ? $name : wfMessage( 'blanknamespace' )->text();

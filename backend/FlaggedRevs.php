@@ -615,17 +615,15 @@ class FlaggedRevs {
 		return $wgFlaggedRevsNamespaces;
 	}
 
-	/**
-	 * Is this page in reviewable namespace?
-	 * @param PageReference $page
-	 * @return bool
-	 */
-	public static function inReviewNamespace( PageReference $page ) {
-		$ns = $page->getNamespace();
+	public static function isReviewNamespace( int $ns ): bool {
 		if ( $ns === NS_MEDIA ) {
 			$ns = NS_FILE;
 		}
 		return in_array( $ns, self::getReviewNamespaces() );
+	}
+
+	public static function inReviewNamespace( PageReference $page ): bool {
+		return self::isReviewNamespace( $page->getNamespace() );
 	}
 
 	# ################ Auto-review function #################

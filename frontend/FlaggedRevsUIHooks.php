@@ -432,8 +432,7 @@ class FlaggedRevsUIHooks implements
 						'description' => 'flaggedrevs-rcfilters-need-review-desc',
 						'cssClassSuffix' => 'need-review',
 						'isRowApplicableCallable' => static function ( $ctx, $rc ) {
-							$namespaces = FlaggedRevs::getReviewNamespaces();
-							return ( in_array( $rc->getAttribute( 'rc_namespace' ), $namespaces ) &&
+							return ( FlaggedRevs::isReviewNamespace( $rc->getAttribute( 'rc_namespace' ) ) &&
 								$rc->getAttribute( 'rc_type' ) !== RC_EXTERNAL ) &&
 								(
 									!$rc->getAttribute( 'fp_stable' ) ||
@@ -454,8 +453,7 @@ class FlaggedRevsUIHooks implements
 						'description' => 'flaggedrevs-rcfilters-reviewed-desc',
 						'cssClassSuffix' => 'reviewed',
 						'isRowApplicableCallable' => static function ( $ctx, $rc ) {
-							$namespaces = FlaggedRevs::getReviewNamespaces();
-							return ( in_array( $rc->getAttribute( 'rc_namespace' ), $namespaces ) &&
+							return ( FlaggedRevs::isReviewNamespace( $rc->getAttribute( 'rc_namespace' ) ) &&
 								$rc->getAttribute( 'rc_type' ) !== RC_EXTERNAL ) &&
 								$rc->getAttribute( 'fp_stable' ) &&
 								(
@@ -470,8 +468,7 @@ class FlaggedRevsUIHooks implements
 						'description' => 'flaggedrevs-rcfilters-not-reviewable-desc',
 						'cssClassSuffix' => 'not-reviewable',
 						'isRowApplicableCallable' => static function ( $ctx, $rc ) {
-							$namespaces = FlaggedRevs::getReviewNamespaces();
-							return !in_array( $rc->getAttribute( 'rc_namespace' ), $namespaces );
+							return !FlaggedRevs::isReviewNamespace( $rc->getAttribute( 'rc_namespace' ) );
 						}
 					],
 				],
@@ -739,8 +736,7 @@ class FlaggedRevsUIHooks implements
 
 		// make sure that we're parsing revisions data
 		if ( !$wgFlaggedRevsProtection && isset( $row->rev_id ) ) {
-			$namespaces = FlaggedRevs::getReviewNamespaces();
-			if ( !in_array( $row->page_namespace, $namespaces ) ) {
+			if ( !FlaggedRevs::isReviewNamespace( $row->page_namespace ) ) {
 				// do nothing
 			} elseif ( isset( $row->fr_rev_id ) ) {
 				$classes[] = 'flaggedrevs-color-1';

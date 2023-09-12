@@ -33,10 +33,9 @@ class StablePagesPager extends AlphabeticPager {
 		$this->mConds = $conds;
 		$this->indef = $indef;
 		// Must be content pages...
-		$validNS = FlaggedRevs::getReviewNamespaces();
-		if ( !is_int( $namespace ) || !in_array( $namespace, $validNS ) ) {
+		if ( !is_int( $namespace ) || !FlaggedRevs::isReviewNamespace( $namespace ) ) {
 			// Fallback to "all"
-			$namespace = $validNS;
+			$namespace = FlaggedRevs::getReviewNamespaces();
 		}
 		$this->namespace = $namespace;
 		if ( $autoreview === 'none' ) {
