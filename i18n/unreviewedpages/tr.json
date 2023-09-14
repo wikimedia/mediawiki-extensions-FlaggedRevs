@@ -5,7 +5,8 @@
 			"Karduelis",
 			"MuratTheTurkish",
 			"Runningfridgesrule",
-			"Sadrettin"
+			"Sadrettin",
+			"Amire80"
 		]
 	},
 	"unreviewedpages": "İncelenmemiş sayfalar",
@@ -18,7 +19,7 @@
 	"unreviewedpages-list": "Bu sayfa, belirlenen seviyeye göre [[{{MediaWiki:Validationpage}}|incelenmemiş]] içerik sayfalarını listeler.",
 	"unreviewedpages-none": "Şu anda bu kriterleri karşılayan bir sayfa bulunmamaktadır",
 	"unreviewedpages-viewing": "(inceleme aşamasında)",
-	"unreviewedpages-hours": "($1 saat)",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|saat}})",
 	"unreviewedpages-days": "($1 gün)",
 	"unreviewedpages-recent": "(1 saatten az)"
 }

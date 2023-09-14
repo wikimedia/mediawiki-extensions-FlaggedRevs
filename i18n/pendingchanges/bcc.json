@@ -3,16 +3,17 @@
 		"authors": [
 			"Baloch Afghanistan",
 			"Mostafadaneshvar",
-			"Sultanselim baloch"
+			"Sultanselim baloch",
+			"Moshtank"
 		]
 	},
 	"pendingchanges": "صفحات بازبینی تاریح گوستگین",
 	"pendingchanges-legend": "لیست کن صفحاتء بازبینی بوتگین گون باز بینی نه بوتگین نسخ",
 	"pendingchanges-list": "ای صفحه لسیت کنت بازبینی صفحاتی که که اصلاحات معلقی هسن",
 	"pendingchanges-none": "هنو هچ صفحه ای گون ای معیاران نیست",
-	"pendingchanges-hours": "($1 {{PLURAL:$1|ساعت|ساعت}})",
+	"pendingchanges-hours": "($1 {{PLURAL:$1|ھدارے|ھدار}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|روچ|روچان}})",
-	"pendingchanges-recent": "(کمتر چه یک ساعت)",
+	"pendingchanges-recent": "(کمتر چہ یک ھدارے)",
 	"pendingchanges-category": "تهر:",
 	"pendingchanges-stable": "رویت بیتگ",
 	"pendingchanges-diff": "بازبینی",
