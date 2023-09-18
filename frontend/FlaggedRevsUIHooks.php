@@ -765,8 +765,8 @@ class FlaggedRevsUIHooks implements
 		$unpatrolled,
 		$watched
 	) {
-		$title = $rc->getTitle(); // convenience
-		if ( !FlaggedRevs::inReviewNamespace( $title )
+		$page = $rc->getPage();
+		if ( !$page || !FlaggedRevs::inReviewNamespace( $page )
 			|| !$rc->getAttribute( 'rc_this_oldid' ) // rev, not log
 			|| !array_key_exists( 'fp_stable', $rc->getAttributes() )
 		) {
@@ -792,7 +792,7 @@ class FlaggedRevsUIHooks implements
 		) {
 			$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 			$rlink = $linkRenderer->makeLink(
-				$title,
+				$page,
 				$list->msg( 'revreview-reviewlink' )->text(),
 				[ 'title' => $list->msg( 'revreview-reviewlink-title' )->text() ],
 				[ 'oldid' => $rc->getAttribute( 'fp_stable' ), 'diff' => 'cur' ]
@@ -914,7 +914,7 @@ class FlaggedRevsUIHooks implements
 		if (
 			!$wgFlaggedRevsProtection
 			|| !$wikiPage->exists()
-			|| !FlaggedRevs::inReviewNamespace( $title ) // not a reviewable page
+			|| !FlaggedRevs::inReviewNamespace( $wikiPage )
 		) {
 			return;
 		}
@@ -1037,7 +1037,7 @@ class FlaggedRevsUIHooks implements
 		if (
 			!$wgFlaggedRevsProtection
 			|| !$wikiPage->exists()
-			|| !FlaggedRevs::inReviewNamespace( $title ) // not a reviewable page
+			|| !FlaggedRevs::inReviewNamespace( $wikiPage )
 		) {
 			return;
 		}
@@ -1061,7 +1061,7 @@ class FlaggedRevsUIHooks implements
 		if (
 			!$wgFlaggedRevsProtection
 			|| !$wikiPage->exists() // simple custom levels set for action=protect
-			|| !FlaggedRevs::inReviewNamespace( $title ) // not a reviewable page
+			|| !FlaggedRevs::inReviewNamespace( $wikiPage )
 		) {
 			return;
 		}

@@ -2,6 +2,7 @@
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageIdentity;
+use MediaWiki\Page\PageReference;
 use MediaWiki\Revision\RenderedRevision;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
@@ -616,12 +617,14 @@ class FlaggedRevs {
 
 	/**
 	 * Is this page in reviewable namespace?
-	 * @param Title $title
+	 * @param PageReference $page
 	 * @return bool
 	 */
-	public static function inReviewNamespace( Title $title ) {
-		$ns = ( $title->getNamespace() === NS_MEDIA ) ?
-			NS_FILE : $title->getNamespace(); // treat NS_MEDIA as NS_FILE
+	public static function inReviewNamespace( PageReference $page ) {
+		$ns = $page->getNamespace();
+		if ( $ns === NS_MEDIA ) {
+			$ns = NS_FILE;
+		}
 		return in_array( $ns, self::getReviewNamespaces() );
 	}
 

@@ -976,7 +976,7 @@ class FlaggablePageView extends ContextSource {
 			return;
 		}
 		# Check only if the title is reviewable
-		if ( !FlaggedRevs::inReviewNamespace( $this->article->getTitle() ) ) {
+		if ( !FlaggedRevs::inReviewNamespace( $this->article ) ) {
 			return;
 		}
 		$action = $request->getVal( 'action', 'view' );
@@ -1037,7 +1037,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param array[] &$views
 	 */
 	public function setViewTabs( Skin $skin, array &$views ): void {
-		if ( !FlaggedRevs::inReviewNamespace( $this->article->getTitle() ) ) {
+		if ( !FlaggedRevs::inReviewNamespace( $this->article ) ) {
 			// Short-circuit for non-reviewable pages
 			return;
 		}
