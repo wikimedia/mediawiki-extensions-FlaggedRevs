@@ -145,7 +145,6 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 	 * @inheritDoc
 	 */
 	protected function getAllowedParams() {
-		$namespaces = FlaggedRevs::getReviewNamespaces();
 		return [
 			'start' => [
 				ParamValidator::PARAM_TYPE => 'string'
@@ -158,7 +157,7 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 				ParamValidator::PARAM_TYPE => [ 'ascending', 'descending' ],
 			],
 			'namespace' => [
-				ParamValidator::PARAM_DEFAULT => $namespaces[0] ?? NS_MAIN,
+				ParamValidator::PARAM_DEFAULT => FlaggedRevs::getFirstReviewNamespace(),
 				ParamValidator::PARAM_TYPE => 'namespace',
 				ParamValidator::PARAM_ISMULTI => true,
 			],

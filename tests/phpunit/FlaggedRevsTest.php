@@ -15,6 +15,7 @@ class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 		$file->method( 'getNamespace' )->willReturn( NS_FILE );
 
 		$this->assertSame( [ NS_FILE ], FlaggedRevs::getReviewNamespaces() );
+		$this->assertSame( NS_FILE, FlaggedRevs::getFirstReviewNamespace() );
 		$this->assertFalse( FlaggedRevs::isReviewNamespace( NS_MAIN ) );
 		$this->assertTrue( FlaggedRevs::isReviewNamespace( NS_FILE ) );
 		$this->assertTrue( FlaggedRevs::isReviewNamespace( NS_MEDIA ) );
@@ -190,6 +191,8 @@ class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 		}
 
 		// Some more that are currently identical for all test cases
+		$this->assertSame( NS_MAIN, FlaggedRevs::getFirstReviewNamespace() );
+		$this->assertSame( [], FlaggedRevs::getReviewNamespaces() );
 		$this->assertSame( 'default', FlaggedRevs::getTagName() );
 		$this->assertTrue( FlaggedRevs::tagIsValid( 0 ) );
 	}

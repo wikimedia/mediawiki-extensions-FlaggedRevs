@@ -173,7 +173,6 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 	 * @inheritDoc
 	 */
 	protected function getAllowedParams() {
-		$namespaces = FlaggedRevs::getReviewNamespaces();
 		return [
 			'start' => [
 				ParamValidator::PARAM_TYPE => 'timestamp'
@@ -196,7 +195,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 				ParamValidator::PARAM_TYPE => [ 'watched', 'all' ]
 			],
 			'namespace' => [
-				ParamValidator::PARAM_DEFAULT => $namespaces[0] ?? NS_MAIN,
+				ParamValidator::PARAM_DEFAULT => FlaggedRevs::getFirstReviewNamespace(),
 				ParamValidator::PARAM_TYPE => 'namespace',
 				ParamValidator::PARAM_ISMULTI => true,
 			],

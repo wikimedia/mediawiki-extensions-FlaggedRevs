@@ -599,6 +599,10 @@ class FlaggedRevs {
 		return $wgFlaggedRevsNamespaces;
 	}
 
+	public static function getFirstReviewNamespace(): int {
+		return self::getReviewNamespaces()[0] ?? NS_MAIN;
+	}
+
 	public static function isReviewNamespace( int $ns ): bool {
 		if ( $ns === NS_MEDIA ) {
 			$ns = NS_FILE;
