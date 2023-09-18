@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"1917 Ekim Devrimi",
+			"Amire80",
 			"Gırd",
 			"Kumkumuk",
 			"Mirzali",
@@ -24,7 +25,7 @@
 	"apihelp-query+flagged-extended-description": "Belı bıtaye heqa pelande weziyetê parametreyan melumati bıgêrê. \n\nEna pela nışan bo se, parametrey cêrêni tadeyêno:\n;stable_revid:Kamiya revizyonê stabili\n;level\n;level_text: Tewr serên nıian bıyayışê sewiyey pela\n;pending_since:seba ena pela çımraviyarnayıyaye revizyoni estê se, verorê êdê sıfteyêni tepêşiyeno.\nEger ke idarey şeveknayışê pela esto se, parametrey cêrêni tadeyênê:\n;protection_level:Seba heqi karberiya ke pela sero çımraviyarnayış kerdış. \n;protection_expiry:Pır bıyayışê demê şeveknayışi",
 	"apihelp-query+flagged-example-1": "Melumatê u weziyetê nışan kerdışê [[Main Page]] bıgêrê",
 	"apihelp-query+flagged-example-2": "Peli be herfa \"K\" başle kerdê weziyetê desmale wa hıbo",
-	"apihelp-query+oldreviewedpages-summary": "Terkit waşte  vurnayışa ihtiwa kerden pela  keno rêze",
+	"apihelp-query+oldreviewedpages-summary": "Terkit waşte vurnayışa ihtiwa kerden pela keno rêze",
 	"apihelp-query+oldreviewedpages-param-start": "Nê terrixan dê lista bıkerê",
 	"apihelp-query+oldreviewedpages-param-end": "Nê terixan dê listay vındarne",
 	"apihelp-query+oldreviewedpages-param-maxsize": "Amora ebata karakterer bıvurnë",
@@ -63,8 +64,8 @@
 	"apihelp-stabilize-param-autoreview": "Sinirê oto-qontrol.",
 	"apihelp-stabilize-param-review": "Ena perre çım ra viyarnê.",
 	"apihelp-stabilize-param-protectlevel": "Sewiyay kontrol - staryaye.",
-	"apihelp-stabilize-example-general": "Hesabyaye revizyonê stabili mocnayışi rê  [[Test]]'i eyar kerê",
-	"apihelp-stabilize-example-protect": "[[Test]]  ra kontrol-star kerıdşi wedarnê",
+	"apihelp-stabilize-example-general": "Hesabyaye revizyonê stabili mocnayışi rê [[Test]]'i eyar kerê",
+	"apihelp-stabilize-example-protect": "[[Test]] ra kontrol-star kerıdşi wedarnê",
 	"apierror-flaggedrevs-notreviewable": "Tedariq bıyaye pela rê çım nêerzeno",
 	"apierror-flaggedrevs-notsamepage": "Vurnayışi aidê yew pela niyê",
 	"apierror-flaggedrevs-pagedoesnotexist": "Pera ardera da wunayên çıni ya.",
