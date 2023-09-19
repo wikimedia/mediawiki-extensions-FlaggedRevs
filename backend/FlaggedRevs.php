@@ -604,14 +604,15 @@ class FlaggedRevs {
 	}
 
 	public static function isReviewNamespace( int $ns ): bool {
-		if ( $ns === NS_MEDIA ) {
-			$ns = NS_FILE;
-		}
 		return in_array( $ns, self::getReviewNamespaces() );
 	}
 
 	public static function inReviewNamespace( PageReference $page ): bool {
-		return self::isReviewNamespace( $page->getNamespace() );
+		$ns = $page->getNamespace();
+		if ( $ns === NS_MEDIA ) {
+			$ns = NS_FILE;
+		}
+		return self::isReviewNamespace( $ns );
 	}
 
 	# ################ Auto-review function #################

@@ -11,16 +11,15 @@ class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 		$this->setMwGlobals( 'wgFlaggedRevsNamespaces', [ NS_FILE ] );
 
 		$article = $this->createMock( PageReference::class );
-		$file = $this->createMock( PageReference::class );
-		$file->method( 'getNamespace' )->willReturn( NS_FILE );
+		$media = $this->createMock( PageReference::class );
+		$media->method( 'getNamespace' )->willReturn( NS_MEDIA );
 
 		$this->assertSame( [ NS_FILE ], FlaggedRevs::getReviewNamespaces() );
 		$this->assertSame( NS_FILE, FlaggedRevs::getFirstReviewNamespace() );
 		$this->assertFalse( FlaggedRevs::isReviewNamespace( NS_MAIN ) );
 		$this->assertTrue( FlaggedRevs::isReviewNamespace( NS_FILE ) );
-		$this->assertTrue( FlaggedRevs::isReviewNamespace( NS_MEDIA ) );
 		$this->assertFalse( FlaggedRevs::inReviewNamespace( $article ) );
-		$this->assertTrue( FlaggedRevs::inReviewNamespace( $file ) );
+		$this->assertTrue( FlaggedRevs::inReviewNamespace( $media ) );
 	}
 
 	public function provideConfiguration() {
@@ -169,25 +168,26 @@ class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 
 		// Methods to test with the most trivial return value that's true for most test cases
 		$methodsToTest = [
-			'autoReviewEdits' => false,
-			'autoReviewEnabled' => false,
-			'autoReviewNewPages' => false,
-			'binaryFlagging' => true,
-			'getMaxLevel' => 0,
-			'getRestrictionLevels' => [],
-			'inclusionSetting' => FR_INCLUDES_CURRENT,
-			'isStableShownByDefault' => false,
-			'quickTag' => 1,
-			'quickTags' => [ 'default' => 1 ],
-			'useOnlyIfProtected' => false,
-			'useProtectionLevels' => false,
+			[ [ FlaggedRevs::class, 'autoReviewEdits' ], false ],
+			[ [ FlaggedRevs::class, 'autoReviewEnabled' ], false ],
+			[ [ FlaggedRevs::class, 'autoReviewNewPages' ], false ],
+			[ [ FlaggedRevs::class, 'binaryFlagging' ], true ],
+			[ [ FlaggedRevs::class, 'getMaxLevel' ], 0 ],
+			[ [ FlaggedRevs::class, 'getRestrictionLevels' ], [] ],
+			[ [ FlaggedRevs::class, 'inclusionSetting' ], FR_INCLUDES_CURRENT ],
+			[ [ FlaggedRevs::class, 'isStableShownByDefault' ], false ],
+			[ [ FlaggedRevs::class, 'quickTag' ], 1 ],
+			[ [ FlaggedRevs::class, 'quickTags' ], [ 'default' => 1 ] ],
+			[ [ FlaggedRevs::class, 'useOnlyIfProtected' ], false ],
+			[ [ FlaggedRevs::class, 'useProtectionLevels' ], false ],
 		];
-		foreach ( $methodsToTest as $method => $expectedValue ) {
+		foreach ( $methodsToTest as [ $callable, $expectedValue ] ) {
+			$method = $callable[1];
 			// To keep the data provider minimal it contains only exceptional expected values
 			if ( array_key_exists( $method, $expected ) ) {
 				$expectedValue = $expected[$method];
 			}
-			$this->assertSame( $expectedValue, [ FlaggedRevs::class, $method ](), $method );
+			$this->assertSame( $expectedValue, $callable(), $method );
 		}
 
 		// Some more that are currently identical for all test cases
