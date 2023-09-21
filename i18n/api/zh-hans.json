@@ -6,7 +6,8 @@
 			"Liuxinyu970226",
 			"Xiplus",
 			"Yfdyh000",
-			"U.T."
+			"U.T.",
+			"LittlePaw365"
 		]
 	},
 	"apihelp-flagconfig-description": "获取有关此网站复核标记配置的信息。\n\n为每个标记返回以下参数：\n;name：此标签的键名。\n;levels：标签拥有的级别数（“未标记”以上）。\n为每个标签标记有分配级别的修订。所有标签都满足的最高等级是实体修订的复核等级。",
@@ -56,7 +57,7 @@
 	"apihelp-review-summary": "批准或解除批准一个修订版本。",
 	"apihelp-review-param-revid": "要设置标志的版本ID。",
 	"apihelp-review-param-comment": "要复核的评论。",
-	"apihelp-review-param-unapprove": "如果设置，版本将被取消批准而不是批准。",
+	"apihelp-review-param-unapprove": "若设置，修订会被取消核准而不是核准。",
 	"apihelp-review-param-flag": "设置标志''$1''为指定值。",
 	"apihelp-review-example-1": "用评论“Ok”批准版本12345",
 	"apihelp-stabilize-description-general": "更改页面稳定性设置。",

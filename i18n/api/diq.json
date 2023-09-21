@@ -5,7 +5,8 @@
 			"Gırd",
 			"Kumkumuk",
 			"Mirzali",
-			"Orbot707"
+			"Orbot707",
+			"Amire80"
 		]
 	},
 	"apihelp-flagconfig-description": "Bu sayt üçün bildiriş konfiqurasiyasına yenidən baxmaq haqqında sadə məlumatları əldə edin. \n\nHər bir işarələmə üçün aşağıdakı parametrlər təyin edilir. \n;ad:Bu işarələmənin əsas adı\n;səviyyələr:İşarələmə səviyyələrinin sayı (yuxarıda \"işarələnməmiş\") \n;2-ci dərəcə:yenidən baxılma üçün səviyyənin işarələnməsi 2-ci səviyyəyə (keyfiyyət) çatdırılmalıdır.\n;3-cü dərəcə:yenidən baxılma üçün səviyyənin işarələnməsi 3-cü səviyyəyə (yeni) çatdırılmalıdır.\nBildirişli versiyada hər bir bildiriş üçün müəyyən səviyyə təyin edilmişdir. Bütün işarələnmələrin toplandığı ən yüksək səviyyə ümumi təkrar baxış üçün təkrar səviyyə hesab olunur.",
@@ -28,7 +29,7 @@
 	"apihelp-query+flagged-example-1": "Melumatê u weziyetê nışan kerdışê [[Main Page]] bıgêrê",
 	"apihelp-query+flagged-example-2": "Peli be herfa \"K\" başle kerdê weziyetê desmale wa hıbo",
 	"apihelp-query+oldreviewedpages-description": "Terkit waşte  vurnayışa ihtiwa kerden pela  keno rêze",
-	"apihelp-query+oldreviewedpages-summary": "Terkit waşte  vurnayışa ihtiwa kerden pela  keno rêze",
+	"apihelp-query+oldreviewedpages-summary": "Terkit waşte vurnayışa ihtiwa kerden pela keno rêze",
 	"apihelp-query+oldreviewedpages-param-start": "Nê terrixan dê lista bıkerê",
 	"apihelp-query+oldreviewedpages-param-end": "Nê terixan dê listay vındarne",
 	"apihelp-query+oldreviewedpages-param-maxsize": "Amora ebata karakterer bıvurnë",
@@ -71,8 +72,8 @@
 	"apihelp-stabilize-param-autoreview": "Sinirê oto-qontrol.",
 	"apihelp-stabilize-param-review": "Ena perre çım ra viyarnê.",
 	"apihelp-stabilize-param-protectlevel": "Sewiyay kontrol - staryaye.",
-	"apihelp-stabilize-example-general": "Hesabyaye revizyonê stabili mocnayışi rê  [[Test]]'i eyar kerê",
-	"apihelp-stabilize-example-protect": "[[Test]]  ra kontrol-star kerıdşi wedarnê",
+	"apihelp-stabilize-example-general": "Hesabyaye revizyonê stabili mocnayışi rê [[Test]]'i eyar kerê",
+	"apihelp-stabilize-example-protect": "[[Test]] ra kontrol-star kerıdşi wedarnê",
 	"apierror-flaggedrevs-notreviewable": "Tedariq bıyaye pela rê çım nêerzeno",
 	"apierror-flaggedrevs-notsamepage": "Vurnayışi aidê yew pela niyê",
 	"apierror-flaggedrevs-pagedoesnotexist": "Pera ardera da wunayên çıni ya.",
