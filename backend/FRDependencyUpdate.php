@@ -16,7 +16,7 @@ class FRDependencyUpdate {
 	/** @var int[][] */
 	private $sTemplates;
 	/** @var string[] */
-	private $sCategories;
+	private $sCategoryNames;
 
 	// run updates now
 	public const IMMEDIATE = 0;
@@ -32,7 +32,7 @@ class FRDependencyUpdate {
 		# Stable version links
 		$this->sLinks = $stableOutput->getLinks();
 		$this->sTemplates = $stableOutput->getTemplates();
-		$this->sCategories = $stableOutput->getCategories();
+		$this->sCategoryNames = $stableOutput->getCategoryNames();
 	}
 
 	/**
@@ -60,7 +60,7 @@ class FRDependencyUpdate {
 		}
 		# Get any categories that are only in the stable version...
 		$cCategories = $this->getCurrentVersionCategories();
-		foreach ( $this->sCategories as $category => $sort ) {
+		foreach ( $this->sCategoryNames as $category ) {
 			if ( !isset( $cCategories[$category] ) ) {
 				$this->addDependency( $deps, NS_CATEGORY, $category );
 			}
