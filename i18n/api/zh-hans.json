@@ -48,7 +48,7 @@
 	"apihelp-query+unreviewedpages-param-limit": "返回的总计页面数。",
 	"apihelp-query+unreviewedpages-example-1": "显示未复核页面的列表",
 	"apihelp-query+unreviewedpages-example-2": "显示一些未复核页面的信息",
-	"apihelp-review-summary": "批准或解除批准一个修订版本。",
+	"apihelp-review-summary": "通过核准或取消核准来复核修订。",
 	"apihelp-review-param-revid": "要设置标志的版本ID。",
 	"apihelp-review-param-comment": "要复核的评论。",
 	"apihelp-review-param-unapprove": "若设置，修订会被取消核准而不是核准。",
