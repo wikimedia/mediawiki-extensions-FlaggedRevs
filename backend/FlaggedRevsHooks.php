@@ -788,6 +788,9 @@ class FlaggedRevsHooks implements
 	) {
 		# TODO hook needs to be replaced with one that provides a RevisionRecord
 		global $wgRequest;
+
+		self::maybeMakeEditReviewed( $wikiPage, $revRecord, $baseRevId, $user );
+
 		# Was this an edit by an auto-sighter that undid another edit?
 		$undid = $wgRequest->getInt( 'undidRev' );
 		if ( !( $undid && MediaWikiServices::getInstance()
@@ -1088,6 +1091,9 @@ class FlaggedRevsHooks implements
 		$editResult
 	) {
 		global $wgFlaggedRevsAutopromote, $wgFlaggedRevsAutoconfirm;
+
+		self::maybeNullEditReview( $wikiPage, $userIdentity, $summary, $flags, $revisionRecord, $editResult );
+
 		$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
 		# Ignore null edits edits by anon users, and MW role account edits
 		if ( $editResult->isNullEdit() ||

@@ -377,14 +377,8 @@
 		"MediaWikiServices": "main",
 		"MergeAccountFromTo": "FlaggedRevsHooks::onMergeAccountFromTo",
 		"NewDifferenceEngine": "ui",
-		"RevisionFromEditComplete": [
-			"main",
-			"FlaggedRevsHooks::maybeMakeEditReviewed"
-		],
-		"PageSaveComplete": [
-			"FlaggedRevsHooks::maybeNullEditReview",
-			"main"
-		],
+		"RevisionFromEditComplete": "main",
+		"PageSaveComplete": "main",
 		"PageHistoryBeforeList": "ui",
 		"PageHistoryLineEnding": "ui",
 		"PageHistoryPager::getQueryInfo": "ui",
