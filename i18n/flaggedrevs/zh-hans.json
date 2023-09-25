@@ -26,7 +26,8 @@
 			"飞舞回堂前",
 			"GuoPC",
 			"Lakejason0",
-			"SunAfterRain"
+			"SunAfterRain",
+			"LittlePaw365"
 		]
 	},
 	"action-autoreview": "自动标记自己的编辑为“已复核”",
@@ -118,7 +119,7 @@
 	"revreview-basic-i": "这是[[{{MediaWiki:Validationpage}}|稳定版本]]，[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 复核]于$2。有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 模板/文件更改]等待复核。",
 	"revreview-basic-old": "这是[[{{MediaWiki:Validationpage}}|已复核]]版本（[{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} 列出所有]），[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 认可]于$2。新[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 更改]可能已经出现。",
 	"revreview-basic-same": "这是[[{{MediaWiki:Validationpage}}|稳定版本]]，[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 复核]于$2。",
-	"revreview-basic-source": "该页面[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 认可]于$2的[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} 已复核版本]不基于本版本。",
+	"revreview-basic-source": "该页面[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 核准]于$2的[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} 已复核版本]不基于此修订。",
 	"revreview-current": "待定更改",
 	"revreview-depth": "深度",
 	"revreview-depth-0": "不充分",
