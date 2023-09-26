@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Elisardojm"
+			"Elisardojm",
+			"Toliño"
 		]
 	},
 	"apihelp-flagconfig-summary": "Obter información básica sobre o marcador de relectura deste sitio.",
-	"apihelp-flagconfig-extended-description": "Os seguintes parámetros devólvense para cada marcador:\n;name:O nome chave do marcador.\n;levels:Número de niveis que o marcador ten (máis arriba de \"non marcado\").\n;tier2:Nivel que o marcador ten de acadar para que unha revisión pase a ser de grupo 2 (cualidade).\n;tier3:Nivel que o marcador ten de acadar para que unha revisión pase a ser de grupo 3 (prístino).\nAs revisións marcadas teñen un nivel asignado para cada marcador. O grupo máis alto acadado por tódolos marcadores é o grupo de revisión xeral.",
+	"apihelp-flagconfig-extended-description": "Os seguintes parámetros devólvense para cada marcador:\n;name:O nome chave do marcador.\n;levels:Número de niveis que ten o marcador (enriba de \"non marcado\").\nAs revisións marcadas teñen un nivel asignado para cada marcador. O grupo máis alto acadado por tódolos marcadores é o grupo de revisión xeral.",
 	"apihelp-flagconfig-example-1": "Recuperar a configuración da marca",
 	"apihelp-query+configuredpages-summary": "Enumerar todas as páxinas que teñen configuracións de revisión personalizada.",
 	"apihelp-query+configuredpages-param-start": "Comezar a lista neste identificador de páxina.",
@@ -17,6 +18,7 @@
 	"apihelp-query+configuredpages-example-1": "Amosar unha lista de páxinas con configuración de revisión personalizada",
 	"apihelp-query+configuredpages-example-2": "Obter información sobre páxinas con configuración de revisión personalizada",
 	"apihelp-query+flagged-summary": "Obter información sobre o estado de marcado das páxinas indicadas.",
+	"apihelp-query+flagged-extended-description": "Se a páxina está marcada, devólvense os seguintes parámetros:\n;stable_revid:O identificador de revisión da última revisión estable.\n;level\n;level_text:O nivel máis alto de marcado da páxina.\n;pending_since:Se actualmente hai cambios sen revisar desa páxina, devolve o selo de tempo do primeiro deles.\nSe a páxina ten unha configuración de protección, devólvense os seguintes parámetros:\n;protection_level:O dereito que debe ter o usuario para non requirir revisión da páxina.\n;protection_expiry:Cando remata a protección.",
 	"apihelp-query+flagged-example-1": "Obter a información da páxina e o estado da bandeira da [[Main Page]]",
 	"apihelp-query+flagged-example-2": "Obter os estados da marca para as páxinas que comezan con \"K\"",
 	"apihelp-query+oldreviewedpages-summary": "Enumera as páxinas que teñen cambios pendentes de revisar.",

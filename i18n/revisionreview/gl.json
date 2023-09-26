@@ -47,7 +47,7 @@
 	"revreview-submit-reject": "Rexeitar os cambios",
 	"revreview-submit-reviewed": "Feito. Aprobada!",
 	"revreview-submit-unreviewed": "Feito. Retiróuselle a aprobación!",
-	"revreview-successful": "'''Revisión de [[:$1|$1]] marcada. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} ver as versións revisadas])'''",
+	"revreview-successful": "'''Revisión de [[:$1|$1]] marcada.'''",
 	"revreview-successful2": "'''Revisión de \"[[:$1|$1]] desmarcada.'''",
 	"revreview-toolow": "'''Debe valorar cada un dos atributos cunha puntuación maior que \"inadecuado\" para que unha revisión sexa considerada como revisada.'''\n\nPara retirar o estado de aprobación dunha revisión, prema en \"{{int:revreview-submit-unreview}}\".\n\nPor favor, prema sobre o botón \"Volver\" do seu navegador e inténteo de novo.",
 	"revreview-update": "[[{{MediaWiki:Validationpage}}|Revise]] os cambios pendentes ''(móstranse a continuación)'' feitos á versión aceptada.",
