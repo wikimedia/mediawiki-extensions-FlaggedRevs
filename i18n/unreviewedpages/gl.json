@@ -8,6 +8,7 @@
 	"unreviewedpages": "Páxinas sen revisar",
 	"unreviewedpages-legend": "Listar as páxinas con contido sen revisar",
 	"unreviewedpages-category": "Categoría:",
+	"unreviewedpages-showhide-redirect": "$1 as redireccións",
 	"unreviewedpages-diff": "revisión",
 	"unreviewedpages-unwatched": "(sen vixiar)",
 	"unreviewedpages-watched": "($1 {{PLURAL:$1|usuario activo|usuarios activos}} vixiando)",
