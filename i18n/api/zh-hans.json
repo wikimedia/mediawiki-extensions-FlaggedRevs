@@ -53,7 +53,7 @@
 	"apihelp-review-param-comment": "要复核的评论。",
 	"apihelp-review-param-unapprove": "若设置，修订会被取消核准而不是核准。",
 	"apihelp-review-param-flag": "设置标志''$1''为指定值。",
-	"apihelp-review-example-1": "用评论“Ok”批准版本12345",
+	"apihelp-review-example-1": "用评论“Ok”核准修订12345",
 	"apihelp-stabilize-summary-general": "更改页面稳定性设置。",
 	"apihelp-stabilize-summary-protect": "为一个页面配置复核保护设置。",
 	"apihelp-stabilize-param-reason": "原因。",
