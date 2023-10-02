@@ -9,7 +9,7 @@
 	"validationstatistics-users": "{{SITENAME}} проектехь хӀинца '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|декъашхочун}} йу [[{{MediaWiki:Validationpage}}|редактор]] бакъо.\n\nРедакторш бу агӀонийн версеш хоржуш талламбан бакъо йерш.",
 	"validationstatistics-lastupdate": "''Лахара хаамаш тӀаьхьара карлабаьхна бу $1 $2.''",
 	"validationstatistics-pndtime": "Бакъонаш йолу декъашхоша билгало йина агӀонаш хуьйла ''{{int:validationstatistics-stable}}''.\n\n[[Special:OldReviewedPages| ХӀинца талланза нисдарш долу агӀонийн]] йуккъера хьедалар — '''$1'''. ХӀокху параметро гойту тӀаьхьара талланза нисдаран верси таллархоша терго цайеш йуьту мел хан йу.",
-	"validationstatistics-revtime": "ЦӀе хьулйина декъашхоша дина нисдар таллар цадеш йолу хан '''$1'''; медиан — '''$2'''.\n$3",
+	"validationstatistics-revtime": "Аноним декъашхоша дина нисдар таллар цадеш йолу хан '''$1'''; медиан — '''$2'''.\n$3",
 	"validationstatistics-table": "Лахахьа гойту цӀерийн меттигашца агӀонаш талларан статистика дӀасахьажорш ''йукъахь йац''\nТалланза нисдарш долу агӀонаш  ''{{int:validationstatistics-old}}'' йу; талла дезаш нисдарш доцу агӀонаш ''{{int:validationstatistics-latest}}'' йу.",
 	"validationstatistics-ns": "ЦӀерийн меттиг",
 	"validationstatistics-total": "АгӀонаш",

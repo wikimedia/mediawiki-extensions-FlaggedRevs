@@ -12,7 +12,12 @@
 			"Xosé"
 		]
 	},
+	"action-autoreview": "marcar automaticamente revisións como comprobadas",
+	"action-autoreviewrestore": "revisión automática na reversión",
+	"action-movestable": "mover páxinas publicadas",
 	"action-review": "revisar revisións",
+	"action-stablesettings": "configurar a forma de seleccionar e amosar a versión publicada",
+	"action-validate": "marcar revisións como \"de calidade\"",
 	"action-unreviewedpages": "ver a lista das páxinas non revisadas",
 	"editor": "Editor",
 	"flaggedrevs": "Revisións comprobadas",
@@ -191,7 +196,7 @@
 	"tooltip-ca-default": "Configuración da garantía de calidade",
 	"flaggedrevs-protect-legend": "Revisión automática das edicións ([[{{MediaWiki:Validationpage}}|axuda]])",
 	"flaggedrevs-protect-none": "Autorizar a todos os usuarios",
-	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Páxinas non revisadas]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Cambios pendentes]",
+	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Páxinas non revisadas]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Cambios pendentes]",
 	"revreview-locked-title": "As edicións feitas nesta páxina necesitan revisión.",
 	"revreview-unlocked-title": "As edicións feitas nesta páxina non necesitan revisión.",
 	"revreview-locked": "'''Nota:''' As edicións deben ser [[{{MediaWiki:Validationpage}}|revisadas]] antes de se amosaren aos lectores nesta páxina.",
