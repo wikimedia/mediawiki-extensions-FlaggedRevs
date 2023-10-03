@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Chuvash2014"
+			"Chuvash2014",
+			"Astahar"
 		]
 	},
 	"validationstatistics-stable": "Тĕрĕсленисем",
 	"validationstatistics-old": "Кивелнĕ",
-	"validationstatistics-unreviewed": "Тĕрĕслеменисем",
+	"validationstatistics-unreviewed": "Тӗрӗслеменнисем",
 	"validationstatistics-user": "Усăкуракан"
 }

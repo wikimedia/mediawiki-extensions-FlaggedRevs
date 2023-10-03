@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Elisardojm"
+			"Elisardojm",
+			"Toliño"
 		]
 	},
 	"apihelp-flagconfig-description": "Obter información básica sobre a configuración da marca de relectura do sitio.\n\nPara cada etiqueta devólvense os seguintes parámetros:\n;name:O nome de clave da etiqueta.\n;levels:O número de niveis que ten a etiqueta (por riba de \"non etiquetado\").\n;tier2:Nivel que debe alcanzar a etiqueta para que unha revisión sexa nivel 2 (cualidade).\n;tier3:Nivel que debe alcanzar a etiqueta para que unha revisión sexa nivel 2 (prístina). \nAs revións marcadas teñen un nivel marcado para cada etiqueta. O nivel máis alto que cumpren todas as etiquetas é o nivel de revisión de toda a revisión.",
@@ -20,6 +21,7 @@
 	"apihelp-query+configuredpages-example-2": "Obter información sobre páxinas con configuración de revisión personalizada",
 	"apihelp-query+flagged-description": "Obter información sobre o estado de marcado das páxinas indicadas.\n\nSe a páxina está marcada, devólvense os seguintes parámetros:\n;stable_revid:O identificador de revisión da última revisión estable.\n;level\n;level_text:O nivel máis alto de marcado da páxina.\n;pending_since:Se actualmente hai cambios sen revisar desa páxina, devolve o selo de tempo do primeiro deles.\nSe a páxina ten unha configuración de protección, devólvense os seguintes parámetros:\n;protection_level:O dereito que debe ter o usuario para non requirir revisión da páxina.\n;protection_expiry:Cando remata a protección.",
 	"apihelp-query+flagged-summary": "Obter información sobre o estado de marcado das páxinas indicadas.",
+	"apihelp-query+flagged-extended-description": "Se a páxina está marcada, devólvense os seguintes parámetros:\n;stable_revid:O identificador de revisión da última revisión estable.\n;level\n;level_text:O nivel máis alto de marcado da páxina.\n;pending_since:Se actualmente hai cambios sen revisar desa páxina, devolve o selo de tempo do primeiro deles.\nSe a páxina ten unha configuración de protección, devólvense os seguintes parámetros:\n;protection_level:O dereito que debe ter o usuario para non requirir revisión da páxina.\n;protection_expiry:Cando remata a protección.",
 	"apihelp-query+flagged-example-1": "Obter a información da páxina e o estado da bandeira da [[Main Page]]",
 	"apihelp-query+flagged-example-2": "Obter os estados da marca para as páxinas que comezan con \"K\"",
 	"apihelp-query+oldreviewedpages-description": "Enumera as páxinas que teñen cambios pendentes de revisar.",
