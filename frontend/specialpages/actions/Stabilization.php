@@ -58,7 +58,7 @@ class Stabilization extends UnlistedSpecialPage {
 
 		$form->setPage( $title );
 		# Watch checkbox
-		$form->setWatchThis( (bool)$request->getCheck( 'wpWatchthis' ) );
+		$form->setWatchThis( $request->getCheck( 'wpWatchthis' ) );
 		# Get auto-review option...
 		$form->setReviewThis( $request->getCheck( 'wpReviewthis' ) );
 		# Reason
@@ -217,7 +217,6 @@ class Stabilization extends UnlistedSpecialPage {
 			</tr>';
 		# Add comment input and submit button
 		if ( $form->isAllowed() ) {
-			$watchLabel = $this->msg( 'watchthis' )->parse();
 			$watchAttribs = [ 'accesskey' => $this->msg( 'accesskey-watch' )->text(),
 				'id' => 'wpWatchthis' ];
 			$services = MediaWikiServices::getInstance();
@@ -225,7 +224,6 @@ class Stabilization extends UnlistedSpecialPage {
 			$watchlistManager = $services->getWatchlistManager();
 			$watchChecked = ( $userOptionsLookup->getOption( $user, 'watchdefault' )
 				|| $watchlistManager->isWatched( $user, $title ) );
-			$reviewLabel = $this->msg( 'stabilization-review' )->parse();
 
 			$s .= ' <tr>
 					<td class="mw-label">' .
@@ -252,13 +250,12 @@ class Stabilization extends UnlistedSpecialPage {
 					<td class="mw-input">' .
 						Xml::check( 'wpReviewthis', $form->getReviewThis(),
 							[ 'id' => 'wpReviewthis' ] ) .
-						"<label for='wpReviewthis'>{$reviewLabel}</label>" .
+						Xml::label( $this->msg( 'stabilization-review' )->text(), 'wpReviewthis' ) .
 						'&#160;&#160;&#160;&#160;&#160;' .
 						Xml::check( 'wpWatchthis', $watchChecked, $watchAttribs ) .
-						"&#160;<label for='wpWatchthis' " .
-						Xml::expandAttributes(
+						"&#160;" .
+						Xml::label( $this->msg( 'watchthis' )->text(), 'wpWatchthis',
 							[ 'title' => Linker::titleAttrib( 'watch', 'withaccess' ) ] ) .
-						">{$watchLabel}</label>" .
 					'</td>
 				</tr>
 				<tr>

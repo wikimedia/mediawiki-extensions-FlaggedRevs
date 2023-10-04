@@ -755,6 +755,7 @@ class FlaggablePageView extends ContextSource {
 				$multiNotice = '';
 			}
 			$this->isDiffFromStable = true; // alter default review form tags
+			// @phan-suppress-next-line SecurityCheck-DoubleEscaped multiNotice is used in a-tag
 			return FlaggedRevsXML::diffToggle( $title, $srev->getRevId(), $latest, $multiNotice );
 		}
 
