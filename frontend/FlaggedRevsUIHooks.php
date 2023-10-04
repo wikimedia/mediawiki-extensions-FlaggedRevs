@@ -919,7 +919,7 @@ class FlaggedRevsUIHooks implements
 		$request = $context->getRequest();
 		$mode = $request->wasPosted() ? IDBAccessObject::READ_LATEST : 0;
 		$form = new PageStabilityProtectForm( $user );
-		$form->setPage( $title );
+		$form->setTitle( $title );
 
 		$config = FRPageConfig::getStabilitySettings( $title, $mode );
 		$expirySelect = $request->getVal(
@@ -1070,7 +1070,7 @@ class FlaggedRevsUIHooks implements
 			return;
 		}
 		$form = new PageStabilityProtectForm( $user );
-		$form->setPage( $title ); // target page
+		$form->setTitle( $title ); // target page
 		$permission = (string)$wgRequest->getVal( 'mwStabilityLevel', '' );
 		if ( $permission == "none" ) {
 			$permission = ''; // 'none' => ''

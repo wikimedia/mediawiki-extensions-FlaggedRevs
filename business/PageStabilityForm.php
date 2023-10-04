@@ -9,7 +9,7 @@ use MediaWiki\Revision\RevisionRecord;
 abstract class PageStabilityForm extends FRGenericSubmitForm {
 
 	/** @var Title|false Target page obj */
-	protected $page = false;
+	protected $title = false;
 
 	/** @var bool|null Watch checkbox */
 	protected $watchThis = null;
@@ -41,15 +41,15 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	/**
 	 * @return Title|false
 	 */
-	public function getPage() {
-		return $this->page;
+	public function getTitle() {
+		return $this->title;
 	}
 
 	/**
 	 * @param Title $value
 	 */
-	public function setPage( Title $value ) {
-		$this->trySet( $this->page, $value );
+	public function setTitle( Title $value ) {
+		$this->trySet( $this->title, $value );
 	}
 
 	/**
@@ -182,7 +182,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	 * @return true|string true on success, error string on failure
 	 */
 	protected function doCheckTargetGiven() {
-		if ( $this->page === null ) {
+		if ( $this->title === null ) {
 			return 'stabilize_page_invalid';
 		}
 		return true;
@@ -195,9 +195,9 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	 */
 	protected function doCheckTarget( $flags = 0 ) {
 		$flgs = ( $flags & self::FOR_SUBMISSION ) ? Title::READ_LATEST : 0;
-		if ( !$this->page->getArticleID( $flgs ) ) {
+		if ( !$this->title->getArticleID( $flgs ) ) {
 			return 'stabilize_page_notexists';
-		} elseif ( !FlaggedRevs::inReviewNamespace( $this->page ) ) {
+		} elseif ( !FlaggedRevs::inReviewNamespace( $this->title ) ) {
 			return 'stabilize_page_unreviewable';
 		}
 		return true;
@@ -209,7 +209,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	 */
 	protected function doCheckParameters() {
 		# Load old config settings from the primary DB
-		$this->oldConfig = FRPageConfig::getStabilitySettings( $this->page, IDBAccessObject::READ_LATEST );
+		$this->oldConfig = FRPageConfig::getStabilitySettings( $this->title, IDBAccessObject::READ_LATEST );
 		if ( $this->expiryCustom != '' ) {
 			// Custom expiry takes precedence
 			$this->expirySelection = 'othertime';
@@ -234,9 +234,9 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	public function isAllowed() {
 		# Users who cannot edit or review the page cannot set this
 		$pm = MediaWikiServices::getInstance()->getPermissionManager();
-		return ( $this->getPage()
-			&& $pm->userCan( 'stablesettings', $this->getUser(), $this->getPage() )
-			&& $pm->userCan( 'review', $this->getUser(), $this->getPage() )
+		return ( $this->getTitle()
+			&& $pm->userCan( 'stablesettings', $this->getUser(), $this->getTitle() )
+			&& $pm->userCan( 'review', $this->getUser(), $this->getTitle() )
 		);
 	}
 
@@ -276,14 +276,14 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 			return 'stabilize_expiry_old';
 		}
 		# Update the DB row with the new config...
-		$changed = FRPageConfig::setStabilitySettings( $this->page, $this->getNewConfig() );
+		$changed = FRPageConfig::setStabilitySettings( $this->title, $this->getNewConfig() );
 		# Log if this actually changed anything...
 		if ( $changed ) {
-			$article = FlaggableWikiPage::newInstance( $this->page );
+			$article = FlaggableWikiPage::newInstance( $this->title );
 			if ( FlaggedRevs::useOnlyIfProtected() ) {
 				# Config may have changed to allow stable versions, so refresh
 				# the tracking table to account for any hidden reviewed versions...
-				$frev = FlaggedRevision::determineStable( $this->page );
+				$frev = FlaggedRevision::determineStable( $this->title );
 				if ( $frev ) {
 					$article->updateStableVersion( $frev );
 				} else {
@@ -294,7 +294,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 			$nullRevRecord = $this->updateLogsAndHistory( $article );
 			# Null edit may have been auto-reviewed already
 			$frev = FlaggedRevision::newFromTitle(
-				$this->page,
+				$this->title,
 				$nullRevRecord->getId(),
 				IDBAccessObject::READ_LATEST
 			);
@@ -316,7 +316,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 			}
 			# Update page and tracking tables and clear cache.
 			if ( !$updatesDone ) {
-				FlaggedRevs::stableVersionUpdates( $this->page );
+				FlaggedRevs::stableVersionUpdates( $this->title );
 			}
 		}
 		# Apply watchlist checkbox value (may be NULL)
@@ -337,7 +337,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		$reason = $this->getReason();
 
 		# Insert stability log entry...
-		FlaggedRevsLog::updateStabilityLog( $this->page, $newConfig, $oldConfig, $reason, $this->user );
+		FlaggedRevsLog::updateStabilityLog( $this->title, $newConfig, $oldConfig, $reason, $this->user );
 
 		# Build null-edit comment...<action: reason [settings] (expiry)>
 		if ( FRPageConfig::configIsReset( $newConfig ) ) {
@@ -351,7 +351,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		}
 		// action
 		$comment = MediaWikiServices::getInstance()->getContentLanguage()->ucfirst(
-			wfMessage( $type, $this->page->getPrefixedText() )->inContentLanguage()->text()
+			wfMessage( $type, $this->title->getPrefixedText() )->inContentLanguage()->text()
 		);
 		if ( $reason != '' ) {
 			$comment .= wfMessage( 'colon-separator' )->inContentLanguage()->text() . $reason; // add reason
@@ -396,8 +396,8 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		if ( $this->getState() == self::FORM_UNREADY ) {
 			throw new LogicException( __CLASS__ . " input fields not set yet.\n" );
 		}
-		if ( $this->oldConfig === [] && $this->page ) {
-			$this->oldConfig = FRPageConfig::getStabilitySettings( $this->page );
+		if ( $this->oldConfig === [] && $this->title ) {
+			$this->oldConfig = FRPageConfig::getStabilitySettings( $this->title );
 		}
 		return $this->oldConfig;
 	}
@@ -422,9 +422,9 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		# Apply watchlist checkbox value (may be NULL)
 		$watchlistManager = MediaWikiServices::getInstance()->getWatchlistManager();
 		if ( $this->watchThis === true ) {
-			$watchlistManager->addWatch( $this->user, $this->page );
+			$watchlistManager->addWatch( $this->user, $this->title );
 		} elseif ( $this->watchThis === false ) {
-			$watchlistManager->removeWatch( $this->user, $this->page );
+			$watchlistManager->removeWatch( $this->user, $this->title );
 		}
 	}
 }

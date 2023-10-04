@@ -38,7 +38,7 @@ class PageStabilityGeneralForm extends PageStabilityForm {
 		$this->override = $oldConfig['override'];
 		$this->autoreview = $oldConfig['autoreview'];
 		$this->watchThis = MediaWikiServices::getInstance()->getWatchlistManager()
-			->isWatched( $this->getUser(), $this->page );
+			->isWatched( $this->getUser(), $this->title );
 	}
 
 	protected function reallyDoCheckParameters() {

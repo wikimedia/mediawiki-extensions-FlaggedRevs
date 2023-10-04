@@ -35,7 +35,7 @@ class ApiStabilizeGeneral extends ApiStabilize {
 		$user = $this->getUser();
 
 		$form = new PageStabilityGeneralForm( $user );
-		$form->setPage( $this->title ); # Our target page
+		$form->setTitle( $this->title ); # Our target page
 		$form->setReasonExtra( $params['reason'] ); # Reason
 		$form->setReasonSelection( 'other' ); # Reason dropdown
 		$form->setExpiryCustom( $params['expiry'] ); # Expiry

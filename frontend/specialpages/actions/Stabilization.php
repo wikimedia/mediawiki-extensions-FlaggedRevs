@@ -56,7 +56,7 @@ class Stabilization extends UnlistedSpecialPage {
 		$this->form = new PageStabilityGeneralForm( $user );
 		$form = $this->form; // convenience
 
-		$form->setPage( $title );
+		$form->setTitle( $title );
 		# Watch checkbox
 		$form->setWatchThis( $request->getCheck( 'wpWatchthis' ) );
 		# Get auto-review option...
@@ -105,7 +105,7 @@ class Stabilization extends UnlistedSpecialPage {
 		$user = $this->getUser();
 
 		$form = $this->form; // convenience
-		$title = $this->form->getPage();
+		$title = $this->form->getTitle();
 		$oldConfig = $form->getOldConfig();
 
 		$s = ''; // form HTML string

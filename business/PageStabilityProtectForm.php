@@ -8,7 +8,7 @@ class PageStabilityProtectForm extends PageStabilityForm {
 		$oldConfig = $this->getOldConfig();
 		$this->autoreview = $oldConfig['autoreview']; // protect level
 		$this->watchThis = MediaWikiServices::getInstance()->getWatchlistManager()
-			->isWatched( $this->getUser(), $this->page );
+			->isWatched( $this->getUser(), $this->title );
 	}
 
 	protected function reallyDoCheckParameters() {
