@@ -70,7 +70,7 @@ class RevisionReview extends UnlistedSpecialPage {
 		$form = new RevisionReviewForm( $user );
 		$this->form = $form;
 
-		$form->setPage( $this->page );
+		$form->setTitle( $this->page );
 		# Param for sites with binary flagging
 		if ( $request->getCheck( 'wpApprove' ) ) {
 			$form->setAction( RevisionReviewForm::ACTION_APPROVE );
@@ -176,7 +176,7 @@ class RevisionReview extends UnlistedSpecialPage {
 	 * @return string HTML
 	 */
 	private function approvalSuccessHTML() {
-		$title = $this->form->getPage();
+		$title = $this->form->getTitle();
 		# Show success message
 		$s = "<div class='plainlinks'>";
 		$s .= $this->msg( 'revreview-successful',
@@ -195,7 +195,7 @@ class RevisionReview extends UnlistedSpecialPage {
 	 * @return string HTML
 	 */
 	private function deapprovalSuccessHTML() {
-		$title = $this->form->getPage();
+		$title = $this->form->getTitle();
 		# Show success message
 		$s = "<div class='plainlinks'>";
 		$s .= $this->msg( 'revreview-successful2',
@@ -294,7 +294,7 @@ class RevisionReview extends UnlistedSpecialPage {
 			return [ 'error-html' => wfMessage( 'notargettext' )->parse() ];
 		}
 
-		$form->setPage( $title );
+		$form->setTitle( $title );
 		$form->setSessionKey( $request->getSessionData( 'wsFlaggedRevsKey' ) );
 
 		$form->ready(); // all params loaded

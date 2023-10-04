@@ -19,7 +19,7 @@ class RejectConfirmationFormUI {
 		$this->form = $form;
 
 		$revisionStore = MediaWikiServices::getInstance()->getRevisionStore();
-		$page = $form->getPage();
+		$page = $form->getTitle();
 		$this->newRevRecord = $revisionStore->getRevisionByTitle( $page, $form->getOldId() );
 		$this->oldRevRecord = $revisionStore->getRevisionByTitle( $page, $form->getRefId() );
 		$this->revisionStore = $revisionStore;
@@ -204,7 +204,7 @@ class RejectConfirmationFormUI {
 		$formHTML .= Html::input( 'wpSubmit', wfMessage( 'revreview-reject-confirm' )->text(), 'submit' );
 		$formHTML .= ' ';
 		$formHTML .= $linkRenderer->makeLink(
-			$this->form->getPage(),
+			$this->form->getTitle(),
 			wfMessage( 'revreview-reject-cancel' )->text(),
 			[ 'onClick' => 'history.back(); return history.length <= 1;' ],
 			[ 'oldid' => $this->form->getRefId(), 'diff' => $this->form->getOldId() ]

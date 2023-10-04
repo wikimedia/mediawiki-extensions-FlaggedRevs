@@ -62,7 +62,7 @@ class ApiReview extends ApiBase {
 
 		// Construct submit form...
 		$form = new RevisionReviewForm( $this->getUser() );
-		$form->setPage( $title );
+		$form->setTitle( $title );
 		$form->setOldId( $revid );
 		$form->setAction( $params['unapprove'] ?
 			RevisionReviewForm::ACTION_UNAPPROVE :

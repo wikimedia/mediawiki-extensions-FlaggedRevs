@@ -14,9 +14,9 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	public const ACTION_REJECT = 'reject';
 
 	/** @var Title|null Target title object */
-	private $page = null;
+	private $title = null;
 	/** @var FlaggableWikiPage|null Target page object */
-	private $article = null;
+	private $page = null;
 	/** @var string|null One of the self::ACTION_… constants */
 	private $action = null;
 	/** @var int ID being reviewed (last "bad" ID for rejection) */
@@ -53,15 +53,15 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	/**
 	 * @return Title|null
 	 */
-	public function getPage() {
-		return $this->page;
+	public function getTitle() {
+		return $this->title;
 	}
 
 	/**
 	 * @param Title $value
 	 */
-	public function setPage( Title $value ) {
-		$this->trySet( $this->page, $value );
+	public function setTitle( Title $value ) {
+		$this->trySet( $this->title, $value );
 	}
 
 	/**
@@ -180,7 +180,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * @return true|string true on success, error string on failure
 	 */
 	protected function doCheckTargetGiven() {
-		if ( $this->page === null ) {
+		if ( $this->title === null ) {
 			return 'review_page_invalid';
 		}
 		return true;
@@ -190,7 +190,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * Load any objects after ready() called
 	 */
 	protected function doBuildOnReady() {
-		$this->article = FlaggableWikiPage::getTitleInstance( $this->page );
+		$this->page = FlaggableWikiPage::getTitleInstance( $this->title );
 	}
 
 	/**
@@ -200,10 +200,10 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 */
 	protected function doCheckTarget( $flags = 0 ) {
 		$flgs = ( $flags & self::FOR_SUBMISSION ) ? Title::READ_LATEST : 0;
-		if ( !$this->page->getArticleID( $flgs ) ) {
+		if ( !$this->title->getArticleID( $flgs ) ) {
 			return 'review_page_notexists';
 		}
-		if ( !$this->article->isReviewable() ) {
+		if ( !$this->page->isReviewable() ) {
 			return 'review_page_unreviewable';
 		}
 		return true;
@@ -221,7 +221,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			return 'review_no_oldid'; // no revision target
 		}
 		# Get the revision's current flags (if any)
-		$this->oldFrev = FlaggedRevision::newFromTitle( $this->page, $this->oldid, IDBAccessObject::READ_LATEST );
+		$this->oldFrev = FlaggedRevision::newFromTitle( $this->title, $this->oldid, IDBAccessObject::READ_LATEST );
 		$oldTag = $this->oldFrev ? $this->oldFrev->getTag() : FlaggedRevision::getDefaultTag();
 		# Set initial value for newLastChangeTime (if unchanged on submit)
 		$this->newLastChangeTime = $this->lastChangeTime;
@@ -264,8 +264,8 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 	private function isAllowed() {
 		// Basic permission check
-		return ( $this->page && MediaWikiServices::getInstance()->getPermissionManager()
-			->userCan( 'review', $this->user, $this->page ) );
+		return ( $this->title && MediaWikiServices::getInstance()->getPermissionManager()
+			->userCan( 'review', $this->user, $this->title ) );
 	}
 
 	/**
@@ -291,7 +291,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		$services = MediaWikiServices::getInstance();
 		$revStore = $services->getRevisionStore();
 		if ( $this->getAction() === self::ACTION_APPROVE ) {
-			$revRecord = $revStore->getRevisionByTitle( $this->page, $this->oldid );
+			$revRecord = $revStore->getRevisionByTitle( $this->title, $this->oldid );
 			# Check for archived/deleted revisions...
 			if ( !$revRecord || $revRecord->isDeleted( RevisionRecord::DELETED_TEXT ) ) {
 				return 'review_bad_oldid';
@@ -321,8 +321,8 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			$this->unapproveRevision( $this->oldFrev );
 			$status = true;
 		} elseif ( $this->getAction() === self::ACTION_REJECT ) {
-			$newRevRecord = $revStore->getRevisionByTitle( $this->page, $this->oldid );
-			$oldRevRecord = $revStore->getRevisionByTitle( $this->page, $this->refid );
+			$newRevRecord = $revStore->getRevisionByTitle( $this->title, $this->oldid );
+			$oldRevRecord = $revStore->getRevisionByTitle( $this->title, $this->refid );
 			# Do not mess with archived/deleted revisions
 			if ( !$oldRevRecord ||
 				$oldRevRecord->isDeleted( RevisionRecord::DELETED_TEXT ) ||
@@ -336,11 +336,11 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 				return 'review_cannot_undo';
 			}
 			# Make sure we are only rejecting pending changes
-			$srev = FlaggedRevision::newFromStable( $this->page, IDBAccessObject::READ_LATEST );
+			$srev = FlaggedRevision::newFromStable( $this->title, IDBAccessObject::READ_LATEST );
 			if ( $srev && $oldRevRecord->getTimestamp() < $srev->getRevTimestamp() ) {
 				return 'review_cannot_reject'; // not really a use case
 			}
-			$article = $services->getWikiPageFactory()->newFromTitle( $this->page );
+			$article = $services->getWikiPageFactory()->newFromTitle( $this->title );
 			# Get text with changes after $oldRev up to and including $newRev removed
 			if ( WikiPage::hasDifferencesOutsideMainSlot( $newRevRecord, $oldRevRecord ) ) {
 				return 'review_cannot_undo';
@@ -414,7 +414,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 				EchoEvent::create( [
 					'type' => 'reverted',
-					'title' => $this->page,
+					'title' => $this->title,
 					'extra' => [
 						// @phan-suppress-next-line PhanTypeArraySuspiciousNullable
 						'revid' => $editStatus->value['revision-record']->getId(),
@@ -446,8 +446,8 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			$userOptionsLookup = $services->getUserOptionsLookup();
 			$watchlistManager = $services->getWatchlistManager();
 			if ( $userOptionsLookup->getOption( $user, 'flaggedrevswatch' ) &&
-				!$watchlistManager->isWatched( $user, $this->page ) ) {
-				$watchlistManager->addWatch( $user, $this->page );
+				!$watchlistManager->isWatched( $user, $this->title ) ) {
+				$watchlistManager->addWatch( $user, $this->title );
 			}
 		}
 
@@ -473,7 +473,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		# Our template version pointers
 		$tmpVersions = $this->getIncludeVersions( $this->templateParams );
 		# Get current stable version ID (for logging)
-		$oldSv = FlaggedRevision::newFromStable( $this->page, IDBAccessObject::READ_LATEST );
+		$oldSv = FlaggedRevision::newFromStable( $this->title, IDBAccessObject::READ_LATEST );
 
 		# Is this a duplicate review?
 		if ( $oldFrev &&
@@ -510,17 +510,17 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 		# Update the article review log...
 		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
-		FlaggedRevsLog::updateReviewLog( $this->page, $this->getTags(),
+		FlaggedRevsLog::updateReviewLog( $this->title, $this->getTags(),
 			$this->comment, $this->oldid, $oldSvId, true, $this->user );
 
 		# Get the new stable version as of now
-		$sv = FlaggedRevision::determineStable( $this->page );
+		$sv = FlaggedRevision::determineStable( $this->title );
 		# Update recent changes...
 		self::updateRecentChanges( $revRecord, 'patrol', $sv );
 		# Update page and tracking tables and clear cache
-		$changed = FlaggedRevs::stableVersionUpdates( $this->page, $sv, $oldSv );
+		$changed = FlaggedRevs::stableVersionUpdates( $this->title, $sv, $oldSv );
 		if ( $changed ) {
-			FlaggedRevs::updateHtmlCaches( $this->page ); // purge pages that use this page
+			FlaggedRevs::updateHtmlCaches( $this->title ); // purge pages that use this page
 		}
 
 		# Caller may want to get the change time
@@ -533,25 +533,25 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 */
 	private function unapproveRevision( FlaggedRevision $frev ) {
 		# Get current stable version ID (for logging)
-		$oldSv = FlaggedRevision::newFromStable( $this->page, IDBAccessObject::READ_LATEST );
+		$oldSv = FlaggedRevision::newFromStable( $this->title, IDBAccessObject::READ_LATEST );
 
 		# Delete from flaggedrevs table
 		$frev->delete();
 
 		# Get the new stable version as of now
-		$sv = FlaggedRevision::determineStable( $this->page );
+		$sv = FlaggedRevision::determineStable( $this->title );
 
 		# Update the article review log
 		$svId = $sv ? $sv->getRevId() : 0;
-		FlaggedRevsLog::updateReviewLog( $this->page, $this->getTags(),
+		FlaggedRevsLog::updateReviewLog( $this->title, $this->getTags(),
 			$this->comment, $this->oldid, $svId, false, $this->user );
 
 		# Update recent changes
 		self::updateRecentChanges( $frev->getRevisionRecord(), 'unpatrol', $sv );
 		# Update page and tracking tables and clear cache
-		$changed = FlaggedRevs::stableVersionUpdates( $this->page, $sv, $oldSv );
+		$changed = FlaggedRevs::stableVersionUpdates( $this->title, $sv, $oldSv );
 		if ( $changed ) {
-			FlaggedRevs::updateHtmlCaches( $this->page ); // purge pages that use this page
+			FlaggedRevs::updateHtmlCaches( $this->title ); // purge pages that use this page
 		}
 
 		# Caller may want to get the change time
