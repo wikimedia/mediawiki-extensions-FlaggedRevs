@@ -61,6 +61,7 @@
 	"flaggedrevs-rcfilters-reviewed-desc": "已经复核的编辑。",
 	"flaggedrevs-rcfilters-not-reviewable-label": "没有需要复核的主题",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "所有不需要复核的类型的更改。",
+	"flaggedrevs-contributions-filters-unreviewed-only": "只显示待复核的编辑",
 	"group-editor": "编者",
 	"group-editor-member": "{{GENDER:$1|编者}}",
 	"group-reviewer": "复核员",
