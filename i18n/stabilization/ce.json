@@ -32,7 +32,7 @@
 	"stabilize_page_unreviewable": "Хьожуш йолу цӀерийн меттигехь Ӏалашонан агӀо йац.",
 	"stabilize_invalid_autoreview": "Авто талларан гӀалате дехкар",
 	"stabilize_invalid_level": "ГӀароллин гӀалате тӀегӀа.",
-	"stabilize_expiry_invalid": "Чекхъяларан гӀалате терахь.",
+	"stabilize_expiry_invalid": "Чекхйаларан гӀалате терахь.",
 	"stabilize_expiry_old": "Дешдерг чекхдала хӀоттина хан тӀех йаьлла.",
 	"stabilize_denied": "ТӀекхача ца магийна.",
 	"stabilize-expiring": "чакхйолу $1 (UTC)",
