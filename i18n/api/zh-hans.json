@@ -69,7 +69,7 @@
 	"apihelp-review-param-comment": "要复核的评论。",
 	"apihelp-review-param-unapprove": "若设置，修订会被取消核准而不是核准。",
 	"apihelp-review-param-flag": "设置标志''$1''为指定值。",
-	"apihelp-review-example-1": "用评论“Ok”批准版本12345",
+	"apihelp-review-example-1": "用评论“Ok”核准修订12345",
 	"apihelp-reviewactivity-description": "为您自己宣传或取消宣传作为未复核页面或未复核更改。",
 	"apihelp-reviewactivity-summary": "为您自己宣传或取消宣传作为未复核页面或未复核更改。",
 	"apihelp-reviewactivity-param-previd": "先前的修订ID（仅用于复核更改）。",
