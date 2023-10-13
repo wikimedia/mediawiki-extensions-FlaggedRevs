@@ -174,9 +174,9 @@ class FlaggedRevsUIHooks implements
 				'type' => 'radio',
 				'section' => 'rc/flaggedrevs-ui',
 				'label-message' => 'flaggedrevs-pref-UI',
-				'options' => [
-					wfMessage( 'flaggedrevs-pref-UI-0' )->escaped() => 0,
-					wfMessage( 'flaggedrevs-pref-UI-1' )->escaped() => 1,
+				'options-messages' => [
+					'flaggedrevs-pref-UI-0' => 0,
+					'flaggedrevs-pref-UI-1' => 1,
 				],
 			];
 		// Default versions...
@@ -185,10 +185,10 @@ class FlaggedRevsUIHooks implements
 				'type' => 'radio',
 				'section' => 'rc/flaggedrevs-ui',
 				'label-message' => 'flaggedrevs-prefs-stable',
-				'options' => [
-					wfMessage( 'flaggedrevs-pref-stable-0' )->escaped() => FR_SHOW_STABLE_DEFAULT,
-					wfMessage( 'flaggedrevs-pref-stable-1' )->escaped() => FR_SHOW_STABLE_ALWAYS,
-					wfMessage( 'flaggedrevs-pref-stable-2' )->escaped() => FR_SHOW_STABLE_NEVER,
+				'options-messages' => [
+					'flaggedrevs-pref-stable-0' => FR_SHOW_STABLE_DEFAULT,
+					'flaggedrevs-pref-stable-1' => FR_SHOW_STABLE_ALWAYS,
+					'flaggedrevs-pref-stable-2' => FR_SHOW_STABLE_NEVER,
 				],
 			];
 		// Review-related rights...
