@@ -2,6 +2,7 @@
 
 use MediaWiki\Cache\CacheKeyHelper;
 use MediaWiki\EditPage\EditPage;
+use MediaWiki\HookContainer\HookRunner;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageIdentity;
@@ -484,20 +485,14 @@ class FlaggablePageView extends ContextSource {
 	 */
 	private function makeParserOptions( User $reqUser ): ParserOptions {
 		$parserOptions = $this->article->makeParserOptions( $reqUser );
-
-		// This is a temporary (for a year or two) option needed for testing Parsoid
-		// and will go away once Parsoid read views are rolled out.
-		//
-		// T335157: Enable Parsoid Read Views for articles as an experimental
-		// feature; this is primarily used for internal testing at this time.
-		$queryEnable = $this->getRequest()->getRawVal( 'useparsoid' );
-		if (
-			$queryEnable &&
-			// Allow disabling via config change to manage parser cache usage
-			RequestContext::getMain()->getConfig()->get( 'ParsoidEnableQueryString' )
-		) {
-			$parserOptions->setUseParsoid();
-		}
+		# T349037: The ArticleParserOptions hook should be broadened to take
+		# a WikiPage (aka $this->article) instead of an Article.  But for now
+		# fake the Article.
+		$article = Article::newFromWikiPage( $this->article, RequestContext::getMain() );
+		# Allow extensions to vary parser options used for article rendering,
+		# in the same way Article does
+		( new HookRunner( MediaWikiServices::getInstance()->getHookContainer() ) )
+			->onArticleParserOptions( $article, $parserOptions );
 
 		return $parserOptions;
 	}
