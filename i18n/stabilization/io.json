@@ -16,6 +16,7 @@
 	"stabilization-def-short": "Predeterminita",
 	"stabilization-def-short-0": "Aktuala",
 	"stabilization-def-short-1": "Stabila",
+	"stabilize_page_notexists": "Destino-pagino ne existas.",
 	"stabilize_expiry_invalid": "Nevalida fino-dato.",
 	"stabilize_denied": "Nepermisata."
 }
