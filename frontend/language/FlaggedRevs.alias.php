@@ -575,12 +575,13 @@ $specialPageAliases['sq'] = [
 
 /** Serbian (Cyrillic script) (српски (ћирилица)) */
 $specialPageAliases['sr-ec'] = [
-	'PendingChanges' => [ 'СтареПрегледанеСтране' ],
+	'PendingChanges' => [ 'СтареПрегледанеСтране', 'Старе_прегледане_стране' ],
 	'RevisionReview' => [ 'ПрегледИзмене', 'Преглед_измене' ],
 	'Stabilization' => [ 'Стабилизација' ],
 	'StablePages' => [ 'СтабилнеСтране', 'Стабилне_странице' ],
 	'ConfiguredPages' => [ 'ПодешенеСтранице', 'Подешене_странице' ],
 	'UnreviewedPages' => [ 'НепрегледанеСтране', 'Непрегледане_странице' ],
+	'ValidationStatistics' => [ 'СтатистикаПровере', 'Статистика_провере' ],
 ];
 
 /** Swedish (svenska) */
