@@ -584,6 +584,17 @@ $specialPageAliases['sr-ec'] = [
 	'ValidationStatistics' => [ 'СтатистикаПровере', 'Статистика_провере' ],
 ];
 
+/** Serbian (Latin script) (srpski (latinica)) */
+$specialPageAliases['sr-el'] = [
+	'PendingChanges' => [ 'StarePregledaneStrane', 'Stare_pregledane_strane' ],
+	'RevisionReview' => [ 'PregledIzmene', 'Pregled_izmene' ],
+	'Stabilization' => [ 'Stabilizacija' ],
+	'StablePages' => [ 'StabilneStrane', 'Stabilne_stranice' ],
+	'ConfiguredPages' => [ 'PodešeneStranice', 'Podešene_stranice' ],
+	'UnreviewedPages' => [ 'NepregledaneStrane', 'Nepregledane_stranice' ],
+	'ValidationStatistics' => [ 'StatistikaProvere', 'Statistika_provere' ],
+];
+
 /** Swedish (svenska) */
 $specialPageAliases['sv'] = [
 	'PendingChanges' => [ 'Gamla_granskade_sidor' ],
