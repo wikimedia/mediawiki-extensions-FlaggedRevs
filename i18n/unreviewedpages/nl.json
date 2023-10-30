@@ -1,12 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"McDutchie",
 			"Siebrand"
 		]
 	},
 	"unreviewedpages": "Ongecontroleerde pagina's",
 	"unreviewedpages-legend": "Lijst met ongecontroleerde pagina's",
 	"unreviewedpages-category": "Categorie:",
+	"unreviewedpages-showhide-redirect": "Doorverwijzingen $1",
 	"unreviewedpages-diff": "controle",
 	"unreviewedpages-unwatched": "(niet op een volglijst)",
 	"unreviewedpages-watched": "($1 actieve {{PLURAL:$1|gebruiker heeft|gebruikers hebben}} deze pagina op {{PLURAL:$1|zijn|hun}} volglijst)",
