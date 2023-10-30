@@ -2,7 +2,9 @@
 	"@metadata": {
 		"authors": [
 			"Esbardu",
-			"Xuacu"
+			"Xuacu",
+			"Tokvo",
+			"YoaR"
 		]
 	},
 	"revisionreview": "Revisar revisiones",
@@ -63,7 +65,7 @@
 	"revreview-reject-text-revto": "Esto devolverá la páxina a la [{{fullurl:$1|oldid=$2}} versión del $3].",
 	"revreview-reject-summary": "Resume:",
 	"revreview-reject-confirm": "Refugar estos cambios",
-	"revreview-reject-cancel": "Encaboxar",
+	"revreview-reject-cancel": "Zarrar",
 	"revreview-reject-summary-cur": "{{PLURAL:$1|Refugáu l'últimu cambiu|Refugaos los últimos $1 cambios}} ({{PLURAL:$7|{{GENDER:$5|de}}}} $2) nel testu y restauróse la revisión $3 {{GENDER:$6|de}} $4",
 	"revreview-reject-summary-old": "{{PLURAL:$1|Refugáu el primer cambiu|Refugaos los primeros $1 cambios}} nel testu ({{PLURAL:$7|{{GENDER:$5|by}}}} $2) que siguieron a la revisión $3 {{GENDER:$6|by}} $4",
 	"revreview-reject-summary-cur-short": "{{PLURAL:$1|Refugáu l'últimu cambiu|Refugaos los últimos $1 cambios}} nel testu y restaurada la revisión $2 {{GENDER:$4|de}} $3",
