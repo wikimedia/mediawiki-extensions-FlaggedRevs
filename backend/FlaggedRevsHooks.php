@@ -1397,18 +1397,6 @@ class FlaggedRevsHooks implements
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ScribuntoExternalLibraries
-	 *
-	 * @param string $engine
-	 * @param array &$extraLibraries
-	 */
-	public static function onScribuntoExternalLibraries( $engine, array &$extraLibraries ) {
-		if ( $engine == 'lua' ) {
-			$extraLibraries['mw.ext.FlaggedRevs'] = 'FlaggedRevsScribuntoLuaLibrary';
-		}
-	}
-
-	/**
 	 * @inheritDoc
 	 * As the hook is called after saving the edit (in a deferred update), we have already
 	 * figured out whether the edit should be autoreviewed or not (see: maybeMakeEditReviewed
