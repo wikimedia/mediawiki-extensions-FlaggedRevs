@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Patriot Kur",
-			"Patriot Kor"
+			"Patriot Kor",
+			"Гусейн"
 		]
 	},
 	"revreview-submit": "Təğdim",
-	"revreview-reject-summary": "Xılosə:",
+	"revreview-reject-summary": "Xylosə:",
 	"revreview-reject-cancel": "Ləğv karde"
 }
