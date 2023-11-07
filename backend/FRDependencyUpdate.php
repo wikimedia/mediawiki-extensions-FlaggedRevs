@@ -192,14 +192,20 @@ class FRDependencyUpdate {
 	 */
 	private function getCurrentVersionLinks() {
 		$dbr = wfGetDB( DB_REPLICA );
-		$res = $dbr->select( 'pagelinks',
-			[ 'pl_namespace', 'pl_title' ],
+		$linksMigration = MediaWikiServices::getInstance()->getLinksMigration();
+		$queryInfo = $linksMigration->getQueryInfo( 'pagelinks' );
+		[ $nsField, $titleField ] = $linksMigration->getTitleFields( 'pagelinks' );
+		$res = $dbr->select(
+			$queryInfo['tables'],
+			$queryInfo['fields'],
 			[ 'pl_from' => $this->title->getArticleID() ],
-			__METHOD__
+			__METHOD__,
+			[],
+			$queryInfo['joins']
 		);
 		$arr = [];
 		foreach ( $res as $row ) {
-			$arr[$row->pl_namespace][$row->pl_title] = 1;
+			$arr[$row->$nsField][$row->$titleField] = 1;
 		}
 		return $arr;
 	}
