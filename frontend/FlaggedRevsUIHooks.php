@@ -87,12 +87,12 @@ class FlaggedRevsUIHooks implements
 		}
 		// Add main CSS & JS files
 		$out->addModuleStyles( 'ext.flaggedRevs.basic' );
-		$out->addModuleStyles( 'codex-styles' );
 		$out->addModules( 'ext.flaggedRevs.advanced' );
-		// Add review form JS for reviewers
+		// Add review form and edit page CSS and JS for reviewers
 		if ( MediaWikiServices::getInstance()->getPermissionManager()
 			->userHasRight( $out->getUser(), 'review' )
 		) {
+			$out->addModuleStyles( 'codex-styles' );
 			$out->addModules( 'ext.flaggedRevs.review' );
 		}
 	}
