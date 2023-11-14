@@ -19,9 +19,9 @@ class RejectConfirmationFormUI {
 		$this->form = $form;
 
 		$revisionStore = MediaWikiServices::getInstance()->getRevisionStore();
-		$page = $form->getTitle();
-		$this->newRevRecord = $revisionStore->getRevisionByTitle( $page, $form->getOldId() );
-		$this->oldRevRecord = $revisionStore->getRevisionByTitle( $page, $form->getRefId() );
+		$title = $form->getTitle();
+		$this->newRevRecord = $revisionStore->getRevisionByTitle( $title, $form->getOldId() );
+		$this->oldRevRecord = $revisionStore->getRevisionByTitle( $title, $form->getRefId() );
 		$this->revisionStore = $revisionStore;
 	}
 
