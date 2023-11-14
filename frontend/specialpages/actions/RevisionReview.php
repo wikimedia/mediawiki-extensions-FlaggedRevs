@@ -8,7 +8,7 @@ class RevisionReview extends UnlistedSpecialPage {
 	/** @var RevisionReviewForm|null */
 	private $form;
 	/** @var Title|null */
-	private $page;
+	private $title;
 
 	/** @var PermissionManager */
 	private $permissionManager;
@@ -36,8 +36,8 @@ class RevisionReview extends UnlistedSpecialPage {
 		$request = $this->getRequest();
 
 		# Our target page
-		$this->page = Title::newFromText( $request->getVal( 'target' ) );
-		if ( !$this->page ) {
+		$this->title = Title::newFromText( $request->getVal( 'target' ) );
+		if ( !$this->title ) {
 			$out->showErrorPage( 'notargettitle', 'notargettext' );
 			return;
 		}
@@ -47,7 +47,7 @@ class RevisionReview extends UnlistedSpecialPage {
 		}
 
 		$confirmed = $user->matchEditToken( $request->getVal( 'wpEditToken' ) );
-		if ( $this->permissionManager->isBlockedFrom( $user, $this->page, !$confirmed ) ) {
+		if ( $this->permissionManager->isBlockedFrom( $user, $this->title, !$confirmed ) ) {
 			// @phan-suppress-next-line PhanTypeMismatchArgumentNullable Guaranteed via isBlockedFrom() above
 			throw new UserBlockedError( $user->getBlock( !$confirmed ) );
 		}
@@ -59,7 +59,7 @@ class RevisionReview extends UnlistedSpecialPage {
 		$permErrors = $this->permissionManager->getPermissionErrors(
 			'review',
 			$user,
-			$this->page,
+			$this->title,
 			PermissionManager::RIGOR_QUICK
 		);
 		if ( $permErrors ) {
@@ -70,7 +70,7 @@ class RevisionReview extends UnlistedSpecialPage {
 		$form = new RevisionReviewForm( $user );
 		$this->form = $form;
 
-		$form->setTitle( $this->page );
+		$form->setTitle( $this->title );
 		# Param for sites with binary flagging
 		if ( $request->getCheck( 'wpApprove' ) ) {
 			$form->setAction( RevisionReviewForm::ACTION_APPROVE );
@@ -99,7 +99,7 @@ class RevisionReview extends UnlistedSpecialPage {
 
 		if ( !$request->wasPosted() ) {
 			// No form to view (GET)
-			$out->returnToMain( false, $this->page );
+			$out->returnToMain( false, $this->title );
 			return;
 		}
 		// Review the edit if requested (POST)...
@@ -107,7 +107,7 @@ class RevisionReview extends UnlistedSpecialPage {
 		// Check the edit token...
 		if ( !$confirmed ) {
 			$out->addWikiMsg( 'sessionfailure' );
-			$out->returnToMain( false, $this->page );
+			$out->returnToMain( false, $this->title );
 			return;
 		}
 
@@ -131,7 +131,7 @@ class RevisionReview extends UnlistedSpecialPage {
 				} else {
 					$out->showErrorPage( 'internalerror', $status );
 				}
-				$out->returnToMain( false, $this->page );
+				$out->returnToMain( false, $this->title );
 			}
 			return;
 		}
@@ -146,8 +146,8 @@ class RevisionReview extends UnlistedSpecialPage {
 			} elseif ( $form->getAction() === RevisionReviewForm::ACTION_UNAPPROVE ) {
 				$out->addHTML( $this->deapprovalSuccessHTML() );
 			} elseif ( $form->getAction() === RevisionReviewForm::ACTION_REJECT ) {
-				$query = $this->page->isRedirect() ? [ 'redirect' => 'no' ] : [];
-				$out->redirect( $this->page->getFullURL( $query ) );
+				$query = $this->title->isRedirect() ? [ 'redirect' => 'no' ] : [];
+				$out->redirect( $this->title->getFullURL( $query ) );
 			}
 		} else {
 			// Failure...
@@ -162,13 +162,13 @@ class RevisionReview extends UnlistedSpecialPage {
 			} elseif ( $status === 'review_bad_oldid' ) {
 				$out->showErrorPage( 'internalerror', 'revreview-revnotfound' );
 			} elseif ( $status === 'review_not_flagged' ) {
-				$out->redirect( $this->page->getFullURL() ); // already unflagged
+				$out->redirect( $this->title->getFullURL() ); // already unflagged
 			} elseif ( $status === 'review_too_low' ) {
 				$out->addWikiMsg( 'revreview-toolow' );
 			} else {
 				$out->showErrorPage( 'internalerror', $status );
 			}
-			$out->returnToMain( false, $this->page );
+			$out->returnToMain( false, $this->title );
 		}
 	}
 
