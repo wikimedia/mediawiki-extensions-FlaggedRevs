@@ -46,7 +46,7 @@
 	"revreview-submit-unreviewed": "Gotovo. Odbijeno!",
 	"revreview-successful": "'''Označena je izmena stranice [[:$1|$1]].'''",
 	"revreview-successful2": "'''Sa izmene stranice [[:$1|$1]] je uklonjena oznaka.'''",
-	"revreview-update": "[[{{MediaWiki:Validationpage}}|Pogledajte]] sve promene na čekanju ''(prikazane ispod)'' napravljene nakon stabilne verzije.",
+	"revreview-update": "'''[[{{MediaWiki:Validationpage}}|Pogledajte]] sve promene na čekanju ''(prikazane ispod)'' napravljene nakon stabilne verzije.'''",
 	"revreview-update-includes": "Ažurirani šabloni/datoteke (neproverene stranice su podebljane):",
 	"revreview-reject-text-revto": "Ovim ćete vratiti stranicu na [{{fullurl:$1|oldid=$2}} izmenu od $3].",
 	"revreview-reject-summary": "Opis:",
