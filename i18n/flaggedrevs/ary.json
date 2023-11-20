@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Abdeaitali",
-			"Reda Benkhadra"
+			"Reda Benkhadra",
+			"Ideophagous"
 		]
 	},
+	"flaggedrevs-hidereviewed-hide": "خبّي",
 	"revreview-filter-all": "كلشي",
 	"tooltip-ca-current": "بين هذه الصفحة مع التغييرات لي معلقة"
 }
