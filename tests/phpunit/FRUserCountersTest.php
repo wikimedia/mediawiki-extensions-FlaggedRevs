@@ -4,10 +4,9 @@
  * @group Database
  * @covers \FRUserCounters
  */
-class FRUserCountersTest extends PHPUnit\Framework\TestCase {
+class FRUserCountersTest extends MediaWikiIntegrationTestCase {
 
 	public function testGetAndSaveUserParams() {
-		// FIXME: This is not a subclass of MediaWikiIntegrationTestCase!
 		$this->tablesUsed[] = 'flaggedrevs_autopromote';
 		$p = FRUserCounters::getUserParams( -1 );
 		$expected = [
