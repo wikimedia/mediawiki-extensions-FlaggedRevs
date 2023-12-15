@@ -63,7 +63,7 @@
 	"revreview-hist-draft": "nepreverjena redakcija",
 	"revreview-hist-pending": "redakcija v teku",
 	"revreview-hist-basic": "preverjena redakcija",
-	"revreview-hist-basic-user": "preveril/a [[User:$3|$3]]",
+	"revreview-hist-basic-user": "preveril_a [[User:$3|$3]]",
 	"revreview-hist-basic-auto": "samodejno preverjena",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3}} čaka na pregled]]'''",
 	"review-edit-diff": "'''Opomba: ''Nekatere'' čakajoče spremembe vplivajo na območje strani, ki ga urejate.'''",
