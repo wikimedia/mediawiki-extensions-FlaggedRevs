@@ -4,6 +4,7 @@
 			"LaMagiaaa",
 			"Meno25",
 			"ديفيد",
+			"علاء",
 			"محمد أحمد عبد الفتاح"
 		]
 	},
@@ -67,9 +68,9 @@
 	"apierror-flaggedrevs-notreviewable": "الصفحة المقدمة ليست قابلة للمراجعة.",
 	"apierror-flaggedrevs-notsamepage": "لا تنتمي المراجعات إلى نفس الصفحة.",
 	"apierror-flaggedrevs-pagedoesnotexist": "الصفحة المقدمة غير موجودة.",
-	"apierror-flaggedrevs-cantreview": "ليست لديك الصلاحيات اللازمة لتعيين الأعلام المحددة.",
+	"apierror-flaggedrevs-cantreview": "ليس لديك الصلاحيات اللازمة لتعيين الأعلام المحددة.",
 	"apierror-flaggedrevs-toolow": "يجب تعيين كل أو لا شيء من الأعلام إلى صفر.",
 	"apierror-flaggedrevs-badflags": "الأعلام المحددة غير صالحة.",
-	"apierror-flaggedrevs-cantunreview": "ليست لديك الصلاحيات اللازمة لإزالة الأعلام.",
+	"apierror-flaggedrevs-cantunreview": "ليس لديك الصلاحيات اللازمة لإزالة الأعلام.",
 	"apierror-flaggedrevs-noflaggedrev": "لا توجد مراجعة معلمة بالمعرف المحدد."
 }

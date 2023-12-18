@@ -59,7 +59,7 @@
 	"logentry-stable-config": "$1 je {{GENDER:$2|določil|določila|določil_a}} nastavitve stabilne redakcije za $3 $4",
 	"logentry-stable-modify": "$1 je {{GENDER:$2|spremenil|spremenila|spremenil/a}} nastavitve stabilne redakcije za $3 $4",
 	"logentry-stable-reset": "$1 je {{GENDER:$2| ponastavil|ponastavila|ponastavil_a}} nastavitve stabilne redakcije za $3 $4",
-	"logentry-stable-move_stable": "$1 je {{GENDER:$2|prestavil|prestavila|prestavil/a}} nastavitve stabilne redakcije s strani $4 na stran $3",
+	"logentry-stable-move_stable": "$1 je {{GENDER:$2|prestavil|prestavila|prestavil_a}} nastavitve stabilne redakcije s strani $4 na stran $3",
 	"revreview-hist-draft": "nepreverjena redakcija",
 	"revreview-hist-pending": "redakcija v teku",
 	"revreview-hist-basic": "preverjena redakcija",
