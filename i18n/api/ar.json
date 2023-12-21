@@ -3,7 +3,9 @@
 		"authors": [
 			"Meno25",
 			"ديفيد",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"LaMagiaaa",
+			"علاء"
 		]
 	},
 	"apihelp-flagconfig-description": "احصل على معلومات أساسية حول تكوين علامة المراجعة لهذا الموقع.\n\nيتم إرجاع المعلمات التالية لكل علامة:\nالاسم: الاسم الرئيسي لهذه العلامة.\nالمستويات: عدد المستويات للعلامة لديها (أعلاه \"لم يتم وضع علامة\").\nالمراجعات المعلمة لها مستوى معين لكل علامة. أعلى مستوى تلتقي به جميع العلامات هو مستوى المراجعة للمراجعة بأكملها.",
@@ -74,9 +76,9 @@
 	"apierror-flaggedrevs-notreviewable": "الصفحة المقدمة ليست قابلة للمراجعة.",
 	"apierror-flaggedrevs-notsamepage": "لا تنتمي المراجعات إلى نفس الصفحة.",
 	"apierror-flaggedrevs-pagedoesnotexist": "الصفحة المقدمة غير موجودة.",
-	"apierror-flaggedrevs-cantreview": "ليست لديك الصلاحيات اللازمة لتعيين الأعلام المحددة.",
+	"apierror-flaggedrevs-cantreview": "ليس لديك الصلاحيات اللازمة لتعيين الأعلام المحددة.",
 	"apierror-flaggedrevs-toolow": "يجب تعيين كل أو لا شيء من الأعلام إلى صفر.",
 	"apierror-flaggedrevs-badflags": "الأعلام المحددة غير صالحة.",
-	"apierror-flaggedrevs-cantunreview": "ليست لديك الصلاحيات اللازمة لإزالة الأعلام.",
+	"apierror-flaggedrevs-cantunreview": "ليس لديك الصلاحيات اللازمة لإزالة الأعلام.",
 	"apierror-flaggedrevs-noflaggedrev": "لا توجد مراجعة معلمة بالمعرف المحدد."
 }
