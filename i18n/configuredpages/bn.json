@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Aishik Rehman",
 			"Bellayet",
 			"Wikitanvir"
 		]
 	},
-	"configuredpages-none": "তালিকায় কোন পাতা নাই।",
+	"configuredpages-none": "তালিকায় কোনো পাতা নাই।",
 	"configuredpages-config": "কনফিগারেশন",
 	"configuredpages-def-draft": "সাম্প্রতিকতম সংস্করণ",
 	"configuredpages-def-stable": "স্থিতিশীল সংস্করণ"

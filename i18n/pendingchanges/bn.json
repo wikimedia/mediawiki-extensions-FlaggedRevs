@@ -3,6 +3,7 @@
 		"authors": [
 			"Aftab1995",
 			"Aftabuzzaman",
+			"Aishik Rehman",
 			"Bellayet",
 			"আফতাবুজ্জামান"
 		]
@@ -10,7 +11,7 @@
 	"pendingchanges": "অমীমাংসিত পরিবর্তনসহ পাতাসমূহ",
 	"pendingchanges-legend": "অমীমাংসিত পরিবর্তনসহ পর্যালোচিত পাতার তালিকা",
 	"pendingchanges-list": "এটি [[{{MediaWiki:Validationpage}}|পর্যালোচনাকৃত]] পাতায় এক বা একাধিক সম্পাদনা পর্যালোচনার জন্য অপেক্ষা করছে এমন পাতার তালিকা।",
-	"pendingchanges-none": "এই মানদণ্ড পূরণের মত কোন পাতা বর্তমানে নেই",
+	"pendingchanges-none": "এই মানদণ্ড পূরণের মত কোনো পাতা বর্তমানে নেই",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|ঘণ্টা}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|দিন|দিন}})",
 	"pendingchanges-recent": "(১ ঘণ্টারও কম)",

@@ -45,7 +45,7 @@
 	"grouppage-editor": "{{ns:project}}:Urejevalec",
 	"grouppage-reviewer": "{{ns:project}}:Pregledovalec",
 	"group-autoreview": "Samodejno potrjeni uporabniki",
-	"group-autoreview-member": "{{GENDER:$1|samodejno potrjeni uporabnik|samodejno potrjena uporabnica|samodejno potrjeni/a uporabnik/ca}}",
+	"group-autoreview-member": "{{GENDER:$1|samodejno potrjeni uporabnik|samodejno potrjena uporabnica|samodejno potrjeni_a uporabnik_ca}}",
 	"grouppage-autoreview": "{{ns:project}}:Samodejno preverjeni uporabniki",
 	"group-editor.css": "/* Tu postavljeni CSS bo vplival samo na urejevalce */",
 	"group-editor.js": "/* Tu postavljeni JS bo vplival samo na urejevalce */",
