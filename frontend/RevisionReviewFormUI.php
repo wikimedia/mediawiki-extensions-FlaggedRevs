@@ -122,8 +122,8 @@ class RevisionReviewFormUI {
 			[ 'class' => 'flaggedrevs_reviewform noprint cdx-card', 'style' => 'font-size: 90%;' ] ) . "\n";
 		# Add appropriate legend text
 		$legendMsg = $frev ? 'revreview-reflag' : 'revreview-flag';
-		$form .= Xml::openElement( 'span', [ 'id' => 'mw-fr-reviewformlegend' ] );
-		$form .= '<span class="cdx-card__text__title">' . wfMessage( $legendMsg )->escaped() . '</span>';
+		$form .= Xml::openElement( 'div', [ 'id' => 'mw-fr-reviewformlegend' ] );
+		$form .= '<div class="cdx-card__text__title">' . wfMessage( $legendMsg )->escaped() . '</div>';
 		# Show explanatory text
 		$form .= $this->topNotice;
 

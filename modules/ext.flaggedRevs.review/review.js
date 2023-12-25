@@ -235,6 +235,11 @@ function init() {
 			return false; // don't do normal non-AJAX submit
 		} );
 
+		// Hide review form in VE (T344091)
+		mw.hook( 've.activationComplete' ).add( function () {
+			form.style.display = 'none';
+		} );
+
 		// Disable 'accept' button if the revision was already reviewed.
 		// This is used so that they can be re-enabled if a rating changes.
 		// FIXME the button should be re-disabled if the user re-selects the status quo option
