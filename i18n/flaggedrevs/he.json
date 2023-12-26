@@ -162,7 +162,7 @@
 	"revreview-locked": "'''הערה:''' עריכות דורשות [[{{MediaWiki:Validationpage}}|סקירה]] לפני הצגתן לקוראים בדף הזה.",
 	"revreview-unlocked": "'''הערה:''' עריכות אינן דורשות [[{{MediaWiki:Validationpage}}|סקירה]] לפני הצגתן לקוראים בדף הזה.",
 	"logeventslist-review-log": "יומן סקירות",
-	"validationpage": "{{ns:help}}:אישור דפים",
+	"validationpage": "{{ns:help}}:בדיקת תקינות דפים",
 	"log-action-filter-review": "סוג הסקירה:",
 	"log-action-filter-review-accept": "קבלה ידנית",
 	"log-action-filter-review-unaccept": "ביטול קבלה אוטומטי",
