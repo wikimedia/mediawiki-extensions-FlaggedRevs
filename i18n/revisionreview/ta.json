@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Fahimrazick",
 			"Karthi.dr",
 			"Mahir78",
 			"TRYPPN",
@@ -35,7 +36,7 @@
 	"revreview-submit-unreviewed": "முடிந்தது. ஏற்றுக்கொள்ளப்படவில்லை!",
 	"revreview-reject-summary": "சுருக்கம்:",
 	"revreview-reject-confirm": "இந்த மாற்றங்களைப் புறக்கணி",
-	"revreview-reject-cancel": "இரத்து செய்",
+	"revreview-reject-cancel": "கைவிடு",
 	"revreview-tt-flag": "''சரிபார்க்கப்பட்டது'' என்று குறிப்பிட்டுவிட்டு, இந்த மாற்றத்தை ஒத்துக்கொள்ளவும்.",
 	"revreview-tt-unflag": "''சரிபார்க்கப்படவில்லை'' என்று குறிப்பிட்டுவிட்டு பின் இந்த மாற்றத்தை ஒத்துக்கொள்ளவேண்டாம்"
 }
