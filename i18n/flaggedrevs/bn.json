@@ -9,7 +9,8 @@
 			"Wikitanvir",
 			"Yahya",
 			"Zaheen",
-			"আফতাবুজ্জামান"
+			"আফতাবুজ্জামান",
+			"Aishik Rehman"
 		]
 	},
 	"action-autoreview": "নিজের সম্পাদনাগুলি স্বয়ংক্রিয়ভাবে \"নিরীক্ষিত\" হিসেবে চিহ্নিত করার",
@@ -71,7 +72,7 @@
 	"review-logentry-id": "সংস্করণ: $2",
 	"review-logentry-diff": "পরিবর্তন পর্যালোচিত",
 	"review-logpage": "নিরীক্ষা লগ",
-	"review-logpagetext": "এটি একটি লগ যেখানে পাতাগুলোর কোন সংস্করণগুলো [[{{MediaWiki:Validationpage}}|পর্যবেক্ষণকৃত]] তা দেখানো হয়েছে।",
+	"review-logpagetext": "এটি একটি লগ যেখানে পাতাগুলোর কোনো সংস্করণগুলো [[{{MediaWiki:Validationpage}}|পর্যবেক্ষণকৃত]] তা দেখানো হয়েছে।",
 	"reviewer": "নিরীক্ষক",
 	"revreview-accuracy": "প্রাসঙ্গিকতা",
 	"revreview-accuracy-0": "অনুপযুক্ত",
@@ -117,11 +118,11 @@
 	"stable-logpage": "স্থিতিশীলতা লগ",
 	"stable-logpagetext": "এটি বিষয়বস্তুর পাতার [[{{MediaWiki:Validationpage}}|স্থিতিশীল সংস্করণের]] কনফিগারেশন পরিবর্তনের একটি লগ।",
 	"revreview-defaultfilter": "প্রাথমিক সংস্করণ:",
-	"revreview-def-all": "যেকোন",
+	"revreview-def-all": "যেকোনো",
 	"revreview-def-draft": "সাম্প্রতিক",
 	"revreview-def-stable": "স্থিতিশীল",
 	"revreview-restrictfilter": "স্বয়ংক্রিয় পর্যবেক্ষণের সীমাবদ্ধতা:",
-	"revreview-restriction-any": "যেকোন",
+	"revreview-restriction-any": "যেকোনো",
 	"revreview-restriction-none": "কিছু না",
 	"revreview-reviewlink": "অমীমাংসিত সম্পাদনা",
 	"revreview-reviewlink-title": "সকল অমীমাংসীত পরিবর্তনের পার্থক্য দেখান",
