@@ -7,7 +7,6 @@
 class FRUserCountersTest extends MediaWikiIntegrationTestCase {
 
 	public function testGetAndSaveUserParams() {
-		$this->tablesUsed[] = 'flaggedrevs_autopromote';
 		$p = FRUserCounters::getUserParams( -1 );
 		$expected = [
 			'uniqueContentPages' 	=> [],
