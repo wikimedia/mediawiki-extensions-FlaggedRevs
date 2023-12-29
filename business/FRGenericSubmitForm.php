@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\User\User;
+
 /**
  * Class containing generic form business logic
  * Note: edit tokens are the responsibility of the caller

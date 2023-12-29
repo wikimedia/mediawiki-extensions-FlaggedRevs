@@ -1,8 +1,12 @@
 <?php
 
 use MediaWiki\Feed\FeedItem;
+use MediaWiki\Feed\FeedUtils;
+use MediaWiki\Html\Html;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\Title\Title;
 
 class PendingChanges extends SpecialPage {
 	/** @var PendingChangesPager|null */
