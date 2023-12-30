@@ -1,9 +1,13 @@
 <?php
 
+use MediaWiki\Title\Title;
+use MediaWiki\User\User;
+
 /**
+ * @group Database
  * @covers \FlaggableWikiPage
  */
-class FlaggablePageTest extends PHPUnit\Framework\TestCase {
+class FlaggablePageTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @var User|null

@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Title\Title;
+
 if ( !class_exists( 'Scribunto_LuaEngineTestBase' ) ) {
 	class_alias( MediaWikiIntegrationTestCase::class, Scribunto_LuaEngineTestBase::class );
 }

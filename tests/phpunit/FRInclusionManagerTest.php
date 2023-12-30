@@ -1,11 +1,13 @@
 <?php
 
+use MediaWiki\Title\Title;
 use Wikimedia\TestingAccessWrapper;
 
 /**
+ * @group Database
  * @covers \FRInclusionManager
  */
-class FRInclusionManagerTest extends PHPUnit\Framework\TestCase {
+class FRInclusionManagerTest extends MediaWikiIntegrationTestCase {
 
 	/* starting input */
 	private const INPUT_TEMPLATES = [
