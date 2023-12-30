@@ -1,8 +1,10 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
+use MediaWiki\Title\Title;
 
 /**
  * Class containing revision review form business logic
@@ -412,7 +414,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 					$affectedRevisions[$row->rev_id] = $row->rev_user;
 				}
 
-				EchoEvent::create( [
+				Event::create( [
 					'type' => 'reverted',
 					'title' => $this->title,
 					'extra' => [
