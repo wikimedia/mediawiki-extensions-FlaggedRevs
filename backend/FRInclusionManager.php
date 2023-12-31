@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Title\Title;
+
 /**
  * Class containing template version usage requirements for
  * Parser based on the source text (being parsed) revision ID.

@@ -27,14 +27,18 @@ use MediaWiki\Hook\SpecialNewpagesConditionsHook;
 use MediaWiki\Hook\SpecialNewPagesFiltersHook;
 use MediaWiki\Hook\TitleGetEditNoticesHook;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Output\OutputPage;
 use MediaWiki\Page\Hook\ArticleViewHeaderHook;
 use MediaWiki\Page\Hook\CategoryPageViewHook;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
+use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\SpecialPage\Hook\ChangesListSpecialPageQueryHook;
 use MediaWiki\SpecialPage\Hook\ChangesListSpecialPageStructuredFiltersHook;
 use MediaWiki\SpecialPage\Hook\SpecialPage_initListHook;
+use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\Title\Title;
 
 /**
  * Class containing hooked functions for a FlaggedRevs environment

@@ -1,6 +1,8 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\SpecialPage\IncludableSpecialPage;
+use MediaWiki\SpecialPage\SpecialPage;
 
 class ValidationStatistics extends IncludableSpecialPage {
 	/** @var array|null */

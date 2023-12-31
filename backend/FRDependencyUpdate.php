@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Title\Title;
 use Wikimedia\Rdbms\Platform\ISQLPlatform;
 

@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Deferred\DeferrableUpdate;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 

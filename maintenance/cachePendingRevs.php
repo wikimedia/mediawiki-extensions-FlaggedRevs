@@ -5,14 +5,16 @@
  * @ingroup Maintenance
  */
 
+use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionFactory;
+use MediaWiki\Title\Title;
+use MediaWiki\User\User;
+
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
 	$IP = __DIR__ . '/../../..';
 }
-
-use MediaWiki\MediaWikiServices;
-use MediaWiki\Revision\RevisionFactory;
 
 require_once "$IP/maintenance/Maintenance.php";
 

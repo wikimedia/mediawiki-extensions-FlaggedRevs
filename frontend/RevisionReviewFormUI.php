@@ -1,7 +1,12 @@
 <?php
 
+use MediaWiki\CommentStore\CommentStore;
+use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Request\WebRequest;
 use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\User\User;
 
 /**
  * Main review form UI

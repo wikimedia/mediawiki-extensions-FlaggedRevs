@@ -5,6 +5,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Storage\PreparedUpdate;
+use MediaWiki\Title\Title;
 use Wikimedia\Assert\PreconditionException;
 use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\IDatabase;

@@ -18,7 +18,9 @@
  * @file
  */
 
+use MediaWiki\Deferred\DeferrableUpdate;
 use MediaWiki\Revision\RenderedRevision;
+use MediaWiki\Title\Title;
 
 class FRStableVersionUpdate implements DeferrableUpdate {
 	/** @var Title */
