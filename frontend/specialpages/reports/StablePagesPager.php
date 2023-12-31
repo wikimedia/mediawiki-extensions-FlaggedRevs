@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Pager\AlphabeticPager;
 
 /**
  * Query to list out stable versions for a page

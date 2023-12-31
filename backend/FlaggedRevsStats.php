@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\User\ActorMigration;
 use Wikimedia\Rdbms\IReadableDatabase;
 
 /**

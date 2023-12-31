@@ -1,8 +1,13 @@
 <?php
 
-// Assumes $wgFlaggedRevsProtection is off
+use MediaWiki\CommentStore\CommentStore;
+use MediaWiki\Html\Html;
+use MediaWiki\Linker\Linker;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\SpecialPage\UnlistedSpecialPage;
+use MediaWiki\Title\Title;
 
+/** Assumes $wgFlaggedRevsProtection is off */
 class Stabilization extends UnlistedSpecialPage {
 	/** @var PageStabilityGeneralForm|null */
 	private $form = null;

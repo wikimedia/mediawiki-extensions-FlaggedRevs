@@ -1,7 +1,10 @@
 <?php
 
+use MediaWiki\Html\Html;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\Title\Title;
 
 class UnreviewedPages extends SpecialPage {
 	/** @var UnreviewedPagesPager */

@@ -3,6 +3,9 @@
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Session\CsrfTokenSet;
+use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\SpecialPage\UnlistedSpecialPage;
+use MediaWiki\Title\Title;
 
 class RevisionReview extends UnlistedSpecialPage {
 	/** @var RevisionReviewForm|null */

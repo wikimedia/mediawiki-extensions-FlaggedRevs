@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Page\PageRecord;
+use MediaWiki\Parser\ParserOutput;
 
 /**
  * Encapsulate FlaggedRevs's ParserCache

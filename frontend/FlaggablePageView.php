@@ -3,10 +3,17 @@
 use MediaWiki\Cache\CacheKeyHelper;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\HookContainer\HookRunner;
+use MediaWiki\Html\Html;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Output\OutputPage;
 use MediaWiki\Page\PageIdentity;
+use MediaWiki\Parser\ParserOutput;
+use MediaWiki\Request\WebRequest;
 use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 
 /**
  * Class representing a web view of a MediaWiki page
