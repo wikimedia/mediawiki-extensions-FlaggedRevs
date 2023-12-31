@@ -165,6 +165,13 @@ class PendingChangesPager extends AlphabeticPager {
 			$conds[] = 'GREATEST(page_len,rev_len)-LEAST(page_len,rev_len) <= ' .
 				intval( $this->size );
 		}
+		# Don't display pages with expired protection (T350527)
+		if ( FlaggedRevs::useOnlyIfProtected() ) {
+			$tables[] = 'flaggedpage_config';
+			$conds[] = 'fpc_page_id = fp_page_id';
+			$conds[] = $this->mDb->expr( 'fpc_expiry', '=', 'infinity' )
+				->or( 'fpc_expiry', '>', $this->mDb->timestamp() );
+		}
 		return [
 			'tables'  => $tables,
 			'fields'  => $fields,
