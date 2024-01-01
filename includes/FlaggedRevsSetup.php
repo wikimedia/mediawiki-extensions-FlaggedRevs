@@ -5,7 +5,7 @@ use MediaWiki\Config\Config;
 /**
  * Class containing basic setup functions.
  * This class depends on config variables in LocalSettings.php.
- * Note: avoid  FlaggedRevs class calls here for performance (like load.php).
+ * Note: avoid FlaggedRevs class calls here for performance (like load.php).
  */
 class FlaggedRevsSetup {
 
