@@ -6,6 +6,9 @@ if ( !class_exists( 'Scribunto_LuaEngineTestBase' ) ) {
 	class_alias( MediaWikiIntegrationTestCase::class, Scribunto_LuaEngineTestBase::class );
 }
 
+/**
+ * @covers FlaggedRevsScribuntoLuaLibrary
+ */
 class FlaggedRevsLibraryTest extends Scribunto_LuaEngineTestBase {
 
 	/** @inheritDoc */
