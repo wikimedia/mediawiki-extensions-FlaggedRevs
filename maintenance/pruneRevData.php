@@ -1,5 +1,9 @@
 <?php
 /**
+ * This file is run every 3 months by the following cron job:
+ * https://gerrit.wikimedia.org/g/operations/puppet/+/production/modules/profile/manifests/mediawiki/maintenance/purge_flaggedrevs.pp
+ * Do not rename this file without also fixing the file path in Puppet.
+ *
  * @ingroup Maintenance
  */
 
