@@ -158,7 +158,7 @@ class FlaggedRevsLog {
 		$res = [];
 		$pars = array_filter( $pars );
 		foreach ( $pars as $paramAndValue ) {
-			list( $param, $value ) = explode( '=', $paramAndValue, 2 );
+			[ $param, $value ] = explode( '=', $paramAndValue, 2 );
 			$res[$param] = $value;
 		}
 		return $res;

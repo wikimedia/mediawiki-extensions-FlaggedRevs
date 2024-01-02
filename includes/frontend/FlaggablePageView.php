@@ -1401,14 +1401,14 @@ class FlaggablePageView extends ContextSource {
 		$srev = $article->getStableRev();
 		# Diff between two revisions
 		if ( $oldRevRecord && $newRevRecord ) {
-			list( $msg, $class ) = self::getDiffRevMsgAndClass( $oldRevRecord, $srev );
+			[ $msg, $class ] = self::getDiffRevMsgAndClass( $oldRevRecord, $srev );
 			$table .= "<table class='fr-diff-ratings'><tr>";
 			$table .= "<td style='text-align: center; width: 50%;'>";
 			// @todo i18n FIXME: Hard coded brackets
 			$table .= "<span class='$class'>[" .
 				wfMessage( $msg )->escaped() . "]</span>";
 
-			list( $msg, $class ) = self::getDiffRevMsgAndClass( $newRevRecord, $srev );
+			[ $msg, $class ] = self::getDiffRevMsgAndClass( $newRevRecord, $srev );
 			$table .= "</td><td style='text-align: center; width: 50%;'>";
 			// @todo i18n FIXME: Hard coded brackets
 			$table .= "<span class='$class'>[" .
@@ -1417,7 +1417,7 @@ class FlaggablePageView extends ContextSource {
 			$table .= "</td></tr></table>\n";
 		# New page "diffs" - just one rev
 		} elseif ( $newRevRecord ) {
-			list( $msg, $class ) = self::getDiffRevMsgAndClass( $newRevRecord, $srev );
+			[ $msg, $class ] = self::getDiffRevMsgAndClass( $newRevRecord, $srev );
 			$table .= "<table class='fr-diff-ratings'>";
 			$table .= "<tr><td style='text-align: center;'><span class='$class'>";
 			// @todo i18n FIXME: Hard coded brackets
@@ -1459,7 +1459,7 @@ class FlaggablePageView extends ContextSource {
 		}
 		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 		foreach ( $changes as $tuple ) {
-			list( $title, $revIdStable, $hasStable ) = $tuple;
+			[ $title, $revIdStable, $hasStable ] = $tuple;
 			$link = $linkRenderer->makeKnownLink(
 				$title,
 				$title->getPrefixedText(),

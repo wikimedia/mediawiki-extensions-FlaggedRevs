@@ -63,7 +63,7 @@ class FRInclusionManagerTest extends MediaWikiIntegrationTestCase {
 		$im = TestingAccessWrapper::newFromObject( FRInclusionManager::singleton() );
 		$im->setReviewedVersions( self::INPUT_TEMPLATES );
 		foreach ( self::REVIEWED_OUTPUT_TEMPLATES as $triple ) {
-			list( $test,$ns,$dbKey,$expId ) = $triple;
+			[ $test, $ns, $dbKey, $expId ] = $triple;
 			$title = Title::makeTitleSafe( $ns, $dbKey );
 			$actual = $im->getReviewedTemplateVersion( $title );
 			$this->assertEquals( $expId, $actual, "Rev ID test: $test" );
@@ -76,7 +76,7 @@ class FRInclusionManagerTest extends MediaWikiIntegrationTestCase {
 		$im->setReviewedVersions( [] );
 		$im->setStableVersionCache( self::INPUT_TEMPLATES );
 		foreach ( self::STABLE_OUTPUT_TEMPLATES as $triple ) {
-			list( $test,$ns,$dbKey,$expId ) = $triple;
+			[ $test, $ns, $dbKey, $expId ] = $triple;
 			$title = Title::makeTitleSafe( $ns, $dbKey );
 			$actual = $im->getStableTemplateVersion( $title );
 			$this->assertEquals( $expId, $actual, "Rev ID test: $test" );

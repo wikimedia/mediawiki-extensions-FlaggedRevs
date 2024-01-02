@@ -671,7 +671,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			if ( !isset( $m[1] ) || !$m[0] ) {
 				continue;
 			}
-			list( $prefixed_text, $rev_id ) = $m;
+			[ $prefixed_text, $rev_id ] = $m;
 			# Get the template title
 			$tmp_title = Title::newFromText( $prefixed_text ); // Normalize this to be sure...
 			if ( $tmp_title === null ) {

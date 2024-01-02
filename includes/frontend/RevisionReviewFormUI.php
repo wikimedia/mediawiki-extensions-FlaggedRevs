@@ -137,7 +137,7 @@ class RevisionReviewFormUI {
 		$form .= Xml::openElement( 'p', [ 'class' => $css, 'id' => 'fr-rating-controls' ] ) . "\n";
 
 		# Add main checkboxes/selects
-		list( $radios, $radiosShown ) = $this->ratingInputs( $this->user, $tag, $disabled );
+		[ $radios, $radiosShown ] = $this->ratingInputs( $this->user, $tag, $disabled );
 		$form .= Html::rawElement(
 			'span',
 			[ 'id' => 'mw-fr-ratingselects', 'class' => 'fr-rating-options' ],

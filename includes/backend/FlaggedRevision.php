@@ -481,7 +481,7 @@ class FlaggedRevision {
 		}
 		$dbr = wfGetDB( DB_REPLICA );
 		$linksMigration = MediaWikiServices::getInstance()->getLinksMigration();
-		list( $nsField, $titleField ) = $linksMigration->getTitleFields( 'templatelinks' );
+		[ $nsField, $titleField ] = $linksMigration->getTitleFields( 'templatelinks' );
 		$queryInfo = $linksMigration->getQueryInfo( 'templatelinks' );
 		$ret = $dbr->select(
 			array_merge( $queryInfo['tables'], [ 'page', 'revision', 'flaggedtemplates', 'flaggedpages', ] ),
@@ -497,17 +497,12 @@ class FlaggedRevision {
 			array_merge(
 				$queryInfo['joins'],
 				[
-				'page' => [ 'LEFT JOIN',
-					"page_namespace = $nsField AND page_title = $titleField"
-				],
-				'revision' => [ 'LEFT JOIN',
-					[ 'rev_page = page_id' ],
-				],
-				'flaggedtemplates'  => [ 'LEFT JOIN',
-					[ 'ft_tmp_rev_id = rev_id' ]
-				],
-				'flaggedpages'      => [ 'LEFT JOIN', 'fp_page_id = page_id' ]
-			] )
+					'page' => [ 'LEFT JOIN', "page_namespace = $nsField AND page_title = $titleField" ],
+					'revision' => [ 'LEFT JOIN', [ 'rev_page = page_id' ], ],
+					'flaggedtemplates' => [ 'LEFT JOIN', [ 'ft_tmp_rev_id = rev_id' ] ],
+					'flaggedpages' => [ 'LEFT JOIN', 'fp_page_id = page_id' ]
+				]
+			)
 		);
 		$tmpChanges = [];
 		foreach ( $ret as $row ) { // each template
@@ -645,7 +640,7 @@ class FlaggedRevision {
 			$set = explode( ':', $tuple, 2 );
 			// Skip broken and old serializations that end with \n, which shows up as [ "" ] here
 			if ( count( $set ) == 2 ) {
-				list( $tag, $value ) = $set;
+				[ $tag, $value ] = $set;
 				$flags[$tag] = min( max( 0, (int)$value ), $max );
 			}
 		}

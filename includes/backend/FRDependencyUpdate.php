@@ -219,7 +219,7 @@ class FRDependencyUpdate {
 		$dbr = wfGetDB( DB_REPLICA );
 		$linksMigration = MediaWikiServices::getInstance()->getLinksMigration();
 		$queryInfo = $linksMigration->getQueryInfo( 'templatelinks' );
-		list( $nsField, $titleField ) = $linksMigration->getTitleFields( 'templatelinks' );
+		[ $nsField, $titleField ] = $linksMigration->getTitleFields( 'templatelinks' );
 		$res = $dbr->select( $queryInfo['tables'],
 			$queryInfo['fields'],
 			[ 'tl_from' => $this->title->getArticleID() ],

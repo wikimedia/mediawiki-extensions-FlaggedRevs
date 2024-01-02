@@ -81,7 +81,7 @@ class FlaggedRevsStats {
 		}
 
 		// Get total, reviewed, and synced page count for each namespace
-		list( $ns_total, $ns_reviewed, $ns_synced ) = self::getPerNamespaceTotals();
+		[ $ns_total, $ns_reviewed, $ns_synced ] = self::getPerNamespaceTotals();
 
 		// Getting mean pending edit time
 		// @TODO: percentiles?
