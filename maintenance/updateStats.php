@@ -1,5 +1,9 @@
 <?php
 /**
+ * This file is run hourly by the following cron job:
+ * https://gerrit.wikimedia.org/g/operations/puppet/+/production/modules/profile/manifests/mediawiki/maintenance/update_flaggedrev_stats.pp
+ * Do not rename this file without also fixing the file path in Puppet.
+ *
  * @ingroup Maintenance
  */
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
