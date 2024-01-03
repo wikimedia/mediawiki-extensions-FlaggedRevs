@@ -1,15 +1,16 @@
 <?php
 
+use MediaWiki\Extension\Scribunto\Tests\Engines\LuaCommon\LuaEngineTestBase;
 use MediaWiki\Title\Title;
 
 if ( !class_exists( 'Scribunto_LuaEngineTestBase' ) ) {
-	class_alias( MediaWikiIntegrationTestCase::class, Scribunto_LuaEngineTestBase::class );
+	class_alias( MediaWikiIntegrationTestCase::class, LuaEngineTestBase::class );
 }
 
 /**
  * @covers FlaggedRevsScribuntoLuaLibrary
  */
-class FlaggedRevsLibraryTest extends Scribunto_LuaEngineTestBase {
+class FlaggedRevsLibraryTest extends LuaEngineTestBase {
 
 	/** @inheritDoc */
 	protected static $moduleName = 'FlaggedRevsLibraryTest';

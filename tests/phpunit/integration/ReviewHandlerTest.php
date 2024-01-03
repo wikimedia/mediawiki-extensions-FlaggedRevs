@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Extension\FlaggedRevs\Rest\ReviewHandler;
+use MediaWiki\Request\WebRequest;
 use MediaWiki\Rest\RequestData;
 use MediaWiki\Session\CsrfTokenSet;
 use MediaWiki\Tests\Rest\Handler\HandlerTestTrait;
