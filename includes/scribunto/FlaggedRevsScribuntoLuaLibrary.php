@@ -1,6 +1,9 @@
 <?php
 
-class FlaggedRevsScribuntoLuaLibrary extends Scribunto_LuaLibraryBase {
+use MediaWiki\Extension\Scribunto\Engines\LuaCommon\LibraryBase;
+use MediaWiki\Title\Title;
+
+class FlaggedRevsScribuntoLuaLibrary extends LibraryBase {
 	public function register() {
 		$lib = [
 			'getStabilitySettings' => [ $this, 'getStabilitySettings' ],

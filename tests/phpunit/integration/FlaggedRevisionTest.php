@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Title\TitleValue;
 
 /**
  * @covers \FlaggedRevision
