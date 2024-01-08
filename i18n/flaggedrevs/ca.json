@@ -20,8 +20,9 @@
 			"Vriullop"
 		]
 	},
-	"action-review": "supervisa les revisions",
-	"action-unreviewedpages": "mostra la llista de pàgines sense revisar",
+	"action-autoreviewrestore": "auto-revisar les reversions",
+	"action-review": "supervisar les revisions",
+	"action-unreviewedpages": "veure la llista de pàgines sense revisar",
 	"editor": "Editor",
 	"flaggedrevs": "Revisions senyalades",
 	"flaggedrevs-watched-pending": "Hi ha actualment [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} canvis en curs] es trobant a la seva llista de seguiment que ha de revisar. '''Necessita la seva atenció!'''",
@@ -110,7 +111,7 @@
 	"revreview-visibility-nostable": "'''Aquesta pầgina no té cap [[{{MediaWiki:Validationpage}}|versió estable]] caducada; els paràmetres d'estabilitat de la pàgina poden ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurats].'''",
 	"revreview-revnotfound": "No s'ha pogut trobar la revisió antiga de la pàgina que demanàveu.\nReviseu l'URL que heu emprat per a accedir-hi.",
 	"right-autoreview": "Que les edicions pròpies es marquin automàticament com a «comprovades»",
-	"right-autoreviewrestore": "Revisió automàtica després d'una anulació",
+	"right-autoreviewrestore": "Revisar automàticament en les reversions",
 	"right-movestable": "Moure pàgines amb versions estables",
 	"right-review": "Marcar revisions com a «comprovades»",
 	"right-stablesettings": "Configurar com es selecciona i es mostra la versió estable",
