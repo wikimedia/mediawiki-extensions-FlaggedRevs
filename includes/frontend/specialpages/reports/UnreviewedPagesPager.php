@@ -81,7 +81,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 			return $this->getQueryCacheInfo();
 		}
 		$fields = [ 'page_namespace', 'page_title', 'page_len', 'page_id',
-			'MIN(rev_timestamp) AS creation' ];
+			'creation' => 'MIN(rev_timestamp)' ];
 		$groupBy = [ 'page_namespace', 'page_title', 'page_len', 'page_id' ];
 		# Filter by level
 		$conds = [];
@@ -137,7 +137,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 	private function getQueryCacheInfo() {
 		$conds = [];
 		$fields = [ 'page_namespace', 'page_title', 'page_len', 'page_id',
-			'qc_value', 'MIN(rev_timestamp) AS creation' ];
+			'qc_value', 'creation' => 'MIN(rev_timestamp)' ];
 		# Re-join on flaggedpages to double-check since things
 		# could have changed since the cache date. Also, use
 		# the proper cache for this level.
