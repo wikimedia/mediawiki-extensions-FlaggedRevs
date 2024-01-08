@@ -190,9 +190,9 @@ class FlaggedRevsStats {
 		$dbr = wfGetDB( DB_REPLICA, 'vslow' );
 		$res = $dbr->select( [ 'page', 'flaggedpages' ],
 			[ 'page_namespace',
-				'COUNT(*) AS total',
-				'COUNT(fp_page_id) AS reviewed',
-				'COUNT(fp_pending_since) AS pending' ],
+				'total' => 'COUNT(*)',
+				'reviewed' => 'COUNT(fp_page_id)',
+				'pending' => 'COUNT(fp_pending_since)' ],
 			[ 'page_is_redirect' => 0,
 				'page_namespace' => FlaggedRevs::getReviewNamespaces() ],
 			__METHOD__,
@@ -385,14 +385,14 @@ class FlaggedRevsStats {
 		$res = $dbr->select(
 			[ 'revision' ] + $actorQuery['tables'],
 			[
-				'rev_timestamp AS rt', // time revision was made
-				'(' . $dbr->selectSQLText( 'flaggedrevs',
+				'rt' => 'rev_timestamp', // time revision was made
+				'nft' => '(' . $dbr->selectSQLText( 'flaggedrevs',
 					'MIN(fr_timestamp)',
 					[
 						'fr_page_id = rev_page',
 						'fr_rev_timestamp >= rev_timestamp' ],
 					__METHOD__
-				) . ') AS nft' // time when revision was first reviewed
+				) . ')' // time when revision was first reviewed
 			],
 			[
 				$userCondition,

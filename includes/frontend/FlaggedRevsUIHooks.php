@@ -535,7 +535,7 @@ class FlaggedRevsUIHooks implements
 			# Find reviewer name. Sanity check that no extensions added a `user` query.
 			if ( !in_array( 'user', $queryInfo['tables'] ) ) {
 				$queryInfo['tables'][] = 'user';
-				$queryInfo['fields'][] = 'user_name AS reviewer';
+				$queryInfo['fields']['reviewer'] = 'user_name';
 				$queryInfo['join_conds']['user'] = [ 'LEFT JOIN', "user_id = fr_user" ];
 			}
 		}

@@ -100,9 +100,9 @@ class PendingChangesPager extends AlphabeticPager {
 		# Show outdated "stable" versions
 		if ( $this->level < 0 ) {
 			$tables[] = 'flaggedpages';
-			$fields[] = 'fp_stable AS stable';
-			$fields[] = 'fp_quality AS quality';
-			$fields[] = 'fp_pending_since AS pending_since';
+			$fields['stable'] = 'fp_stable';
+			$fields['quality'] = 'fp_quality';
+			$fields['pending_since'] = 'fp_pending_since';
 			$conds[] = 'page_id = fp_page_id';
 			$conds[] = 'rev_id = fp_stable'; // PK
 			$conds[] = 'fp_pending_since IS NOT NULL';
@@ -122,9 +122,9 @@ class PendingChangesPager extends AlphabeticPager {
 		# Show outdated version for a specific review level
 		} else {
 			$tables[] = 'flaggedpage_pending';
-			$fields[] = 'fpp_rev_id AS stable';
-			$fields[] = 'fpp_quality AS quality';
-			$fields[] = 'fpp_pending_since AS pending_since';
+			$fields['stable'] = 'fpp_rev_id';
+			$fields['quality'] = 'fpp_quality';
+			$fields['pending_since'] = 'fpp_pending_since';
 			$conds[] = 'page_id = fpp_page_id';
 			$conds[] = 'rev_id = fpp_rev_id'; // PK
 			$conds[] = 'fpp_pending_since IS NOT NULL';
