@@ -262,11 +262,7 @@
 			"skinStyles": {
 				"default": "default.css",
 				"minerva": "minerva.css"
-			},
-			"targets": [
-				"desktop",
-				"mobile"
-			]
+			}
 		},
 		"ext.flaggedRevs.advanced": {
 			"localBasePath": "modules/ext.flaggedRevs.advanced",
@@ -287,10 +283,6 @@
 				"mediawiki.diff.styles",
 				"jquery.spinner",
 				"mediawiki.util"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"ext.flaggedRevs.review": {
@@ -318,10 +310,6 @@
 				"mediawiki.util",
 				"mediawiki.user",
 				"mediawiki.jqueryMsg"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"ext.flaggedRevs.icons": {
