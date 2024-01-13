@@ -313,7 +313,7 @@
 			]
 		},
 		"ext.flaggedRevs.icons": {
-			"class": "ResourceLoaderOOUIIconPackModule",
+			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
 			"variants": {},
 			"icons": [
 				"block",
