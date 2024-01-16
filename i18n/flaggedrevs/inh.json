@@ -4,7 +4,13 @@
 			"Adam-Yourist"
 		]
 	},
+	"revreview-hist-draft": "ха даь доаца эрш",
+	"revreview-hist-pending": "дӀахьажа везаш да",
+	"revreview-hist-basic": "хьажá дола эрш",
+	"review-edit-diff": "'''Теркам: ''цхьадола'' дӀатахка дезаш дола хувцамаш хӀанз хьо тоае гӀертача оагӀон даькъах да.'''",
+	"revreview-diff-toggle-hide": "дӀакъайладаха уж хувцамаш",
 	"revreview-submitedit": "ДIаязъе оагӀув",
+	"revreview-unreviewedpage": "ха даь йоаца оагӀув",
 	"tooltip-ca-current": "Тахканза хувцамашца бIаргтоха укх оагIон",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Таллар даь доаца оагIонаш]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Талларга хьежаш дола хувцамаш]"
 }
