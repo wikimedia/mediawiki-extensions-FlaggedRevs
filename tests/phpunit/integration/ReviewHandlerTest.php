@@ -14,9 +14,6 @@ use MediaWiki\Tests\Rest\Handler\HandlerTestTrait;
 class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 	use HandlerTestTrait;
 
-	/** @inheritdoc */
-	protected $tablesUsed = [ 'flaggedrevs' ];
-
 	protected function setUp(): void {
 		parent::setUp();
 		$this->setUserLang( 'qqx' );
