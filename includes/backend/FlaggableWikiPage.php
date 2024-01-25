@@ -5,7 +5,6 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Storage\PreparedUpdate;
-use MediaWiki\Title\Title;
 use Wikimedia\Assert\PreconditionException;
 use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\IDatabase;
@@ -455,7 +454,7 @@ class FlaggableWikiPage extends WikiPage {
 	 * @param stdClass|string|int $data Database row object or "fromdb" or "fromdbmaster"
 	 * @return void
 	 */
-	public function loadPageData( $data = self::READ_NORMAL ) {
+	public function loadPageData( $data = IDBAccessObject::READ_NORMAL ) {
 		$this->mDataLoaded = true; // sanity
 
 		// Initialize defaults before trying to access the database
@@ -468,8 +467,8 @@ class FlaggableWikiPage extends WikiPage {
 
 		# Fetch data from DB as needed...
 		$from = WikiPage::convertSelectType( $data );
-		if ( $from === self::READ_NORMAL || $from === self::READ_LATEST ) {
-			$db = wfGetDB( $from === self::READ_LATEST ? DB_PRIMARY : DB_REPLICA );
+		if ( $from === IDBAccessObject::READ_NORMAL || $from === IDBAccessObject::READ_LATEST ) {
+			$db = wfGetDB( $from === IDBAccessObject::READ_LATEST ? DB_PRIMARY : DB_REPLICA );
 			$data = $this->pageDataFromTitle( $db, $this->mTitle );
 		}
 		# Load in primary page data...
@@ -506,7 +505,7 @@ class FlaggableWikiPage extends WikiPage {
 
 		# Get the latest revision ID if not set
 		if ( !$latest ) {
-			$latest = $this->mTitle->getLatestRevID( Title::READ_LATEST );
+			$latest = $this->mTitle->getLatestRevID( IDBAccessObject::READ_LATEST );
 		}
 		$dbw = wfGetDB( DB_PRIMARY );
 		# Get the timestamp of the first edit after the stable version (if any)...

@@ -4,7 +4,6 @@
  */
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Revision\RevisionStore;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 
@@ -84,7 +83,7 @@ class ReviewAllPages extends Maintenance {
 			# Go through and autoreview the current version of every page...
 			foreach ( $res as $row ) {
 				$title = Title::newFromRow( $row );
-				$rev = $revisionStore->newRevisionFromRow( $row, RevisionStore::READ_LATEST );
+				$rev = $revisionStore->newRevisionFromRow( $row, IDBAccessObject::READ_LATEST );
 				# Is it already reviewed?
 				$frev = FlaggedRevision::newFromTitle( $title, $row->page_latest, IDBAccessObject::READ_LATEST );
 				# Rev should exist, but to be safe...

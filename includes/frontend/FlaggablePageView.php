@@ -1050,7 +1050,7 @@ class FlaggablePageView extends ContextSource {
 		) {
 			# Tabs need to reflect the new stable version so users actually
 			# see the results of their action (i.e. "delete"/"rollback")
-			$this->article->loadPageData( FlaggableWikiPage::READ_LATEST );
+			$this->article->loadPageData( IDBAccessObject::READ_LATEST );
 		}
 		$srev = $this->article->getStableRev();
 		if ( !$srev ) {
@@ -1547,7 +1547,7 @@ class FlaggablePageView extends ContextSource {
 	 */
 	public function injectPostEditURLParams( string &$sectionAnchor, string &$extraQuery ): void {
 		$reqUser = $this->getUser();
-		$this->article->loadPageData( FlaggableWikiPage::READ_LATEST );
+		$this->article->loadPageData( IDBAccessObject::READ_LATEST );
 		# Get the stable version from the primary DB
 		$frev = $this->article->getStableRev();
 		if ( !$frev ) {

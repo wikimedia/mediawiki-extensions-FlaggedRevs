@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 
@@ -54,7 +53,7 @@ class FlaggedRevsLog {
 		}
 		$ts = MediaWikiServices::getInstance()
 			->getRevisionLookup()
-			->getTimestampFromId( $revId, RevisionLookup::READ_LATEST );
+			->getTimestampFromId( $revId, IDBAccessObject::READ_LATEST );
 
 		$logEntry = new ManualLogEntry( 'review', $action );
 		$logEntry->setPerformer( $user );

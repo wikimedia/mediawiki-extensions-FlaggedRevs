@@ -21,7 +21,6 @@ use MediaWiki\Page\Hook\RevisionUndeletedHook;
 use MediaWiki\Page\Hook\RollbackCompleteHook;
 use MediaWiki\Permissions\Hook\GetUserPermissionsErrorsHook;
 use MediaWiki\Permissions\Hook\UserGetRightsHook;
-use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Storage\EditResult;
 use MediaWiki\Storage\Hook\BeforeRevertedTagUpdateHook;
@@ -179,7 +178,7 @@ class FlaggedRevsHooks implements
 
 			if ( FlaggedRevs::inReviewNamespace( $otitle ) ) {
 				$fa = FlaggableWikiPage::getTitleInstance( $ntitle );
-				$fa->loadPageData( FlaggableWikiPage::READ_LATEST );
+				$fa->loadPageData( IDBAccessObject::READ_LATEST );
 				$config = $fa->getStabilitySettings();
 				// Insert a stable log entry if page doesn't have default wiki settings
 				if ( !FRPageConfig::configIsReset( $config ) ) {
@@ -187,14 +186,14 @@ class FlaggedRevsHooks implements
 				}
 			} elseif ( FlaggedRevs::autoReviewNewPages() ) {
 				$fa = FlaggableWikiPage::getTitleInstance( $ntitle );
-				$fa->loadPageData( FlaggableWikiPage::READ_LATEST );
+				$fa->loadPageData( IDBAccessObject::READ_LATEST );
 				// Re-validate NS/config (new title may not be reviewable)
 				if ( $fa->isReviewable() &&
 					$services->getPermissionManager()->userCan( 'autoreview', $user, $ntitle )
 				) {
 					// Auto-review such edits like new pages...
 					$revRecord = $services->getRevisionLookup()
-						->getRevisionByTitle( $ntitle, 0, RevisionLookup::READ_LATEST );
+						->getRevisionByTitle( $ntitle, 0, IDBAccessObject::READ_LATEST );
 					if ( $revRecord ) { // sanity
 						FlaggedRevs::autoReviewEdit(
 							$fa,
@@ -419,7 +418,7 @@ class FlaggedRevsHooks implements
 		$title = $wikiPage->getTitle(); // convenience
 		# Edit must be non-null, to a reviewable page, with $user set
 		$fa = FlaggableWikiPage::getTitleInstance( $title );
-		$fa->loadPageData( FlaggableWikiPage::READ_LATEST );
+		$fa->loadPageData( IDBAccessObject::READ_LATEST );
 		if ( !$fa->isReviewable() ) {
 			return;
 		}
@@ -452,8 +451,10 @@ class FlaggedRevsHooks implements
 		# Get the revision ID the incoming one was based off...
 		$revisionLookup = MediaWikiServices::getInstance()->getRevisionLookup();
 		if ( !$baseRevId && $prevRevId ) {
-			$prevTimestamp = $revisionLookup->getTimestampFromId( $prevRevId,
-				RevisionLookup::READ_LATEST );
+			$prevTimestamp = $revisionLookup->getTimestampFromId(
+				$prevRevId,
+				IDBAccessObject::READ_LATEST
+			);
 			# The user just made an edit. The one before that should have
 			# been the current version. If not reflected in wpEdittime, an
 			# edit may have been auto-merged in between, in that case, discard
@@ -484,8 +485,10 @@ class FlaggedRevsHooks implements
 				$reviewableNewPage = false; // had previous rev
 				# If a edit was automatically merged, do not trust 'baseRevId' (bug 33481).
 				# Do this by verifying the user-provided edittime against the prior revision.
-				$prevRevTimestamp = $revisionLookup->getTimestampFromId( $prevRevId,
-					RevisionLookup::READ_LATEST );
+				$prevRevTimestamp = $revisionLookup->getTimestampFromId(
+					$prevRevId,
+					IDBAccessObject::READ_LATEST
+				);
 				if ( $editTimestamp && $editTimestamp !== $prevRevTimestamp ) {
 					$baseRevId = $prevRevId;
 					$altBaseRevId = 0;
@@ -553,7 +556,7 @@ class FlaggedRevsHooks implements
 		if ( $prevRevId ) {
 			$prevTimestamp = MediaWikiServices::getInstance()
 				->getRevisionLookup()
-				->getTimestampFromId( $prevRevId, RevisionLookup::READ_LATEST );
+				->getTimestampFromId( $prevRevId, IDBAccessObject::READ_LATEST );
 		}
 		# Was $revRecord an edit to an existing page?
 		if ( $prevTimestamp && $prevRevId ) {
@@ -668,14 +671,14 @@ class FlaggedRevsHooks implements
 
 		$title = $wikiPage->getTitle(); // convenience
 		$fa = FlaggableWikiPage::getTitleInstance( $title );
-		$fa->loadPageData( FlaggableWikiPage::READ_LATEST );
+		$fa->loadPageData( IDBAccessObject::READ_LATEST );
 		if ( !$fa->isReviewable() ) {
 			// Page is not reviewable
 			return;
 		}
 		# Get the current revision ID
 		$revLookup = MediaWikiServices::getInstance()->getRevisionLookup();
-		$revRecord = $revLookup->getRevisionByTitle( $title, 0, RevisionLookup::READ_LATEST );
+		$revRecord = $revLookup->getRevisionByTitle( $title, 0, IDBAccessObject::READ_LATEST );
 		if ( !$revRecord ) {
 			return;
 		}
@@ -712,7 +715,7 @@ class FlaggedRevsHooks implements
 				$revRecord = $revLookup->getRevisionByTimestamp(
 					$title,
 					$editTimestamp,
-					RevisionLookup::READ_LATEST
+					IDBAccessObject::READ_LATEST
 				);
 				if ( !$revRecord ) {
 					// Deleted?
@@ -743,7 +746,7 @@ class FlaggedRevsHooks implements
 			return;
 		}
 		$fa = FlaggableWikiPage::getTitleInstance( $rc->getTitle() );
-		$fa->loadPageData( FlaggableWikiPage::READ_LATEST );
+		$fa->loadPageData( IDBAccessObject::READ_LATEST );
 		// Is the page reviewable?
 		if ( $fa->isReviewable() ) {
 			$revId = $rc->getAttribute( 'rc_this_oldid' );
@@ -1417,7 +1420,7 @@ class FlaggedRevsHooks implements
 	): void {
 		$title = $wikiPage->getTitle();
 		$fPage = FlaggableWikiPage::getTitleInstance( $title );
-		$fPage->loadPageData( FlaggableWikiPage::READ_LATEST );
+		$fPage->loadPageData( IDBAccessObject::READ_LATEST );
 		if ( !$fPage->isReviewable() ) {
 			// The page is not reviewable
 			return;

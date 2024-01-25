@@ -4,7 +4,6 @@
  */
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Revision\RevisionStore;
 use MediaWiki\Title\Title;
 
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
@@ -100,7 +99,7 @@ class UpdateFRTracking extends Maintenance {
 						// even though it should always be found
 						$latestTimestamp = (int)$revisionStore->getTimestampFromId(
 							$latestRevId,
-							RevisionStore::READ_LATEST
+							IDBAccessObject::READ_LATEST
 						);
 					} else {
 						$latestTimestamp = 0;
@@ -111,7 +110,7 @@ class UpdateFRTracking extends Maintenance {
 						// update page_latest accordingly
 						$revRecord = $revisionStore->newRevisionFromRow(
 							$revRow,
-							RevisionStore::READ_LATEST,
+							IDBAccessObject::READ_LATEST,
 							$title
 						);
 						if ( $article->updateRevisionOn(

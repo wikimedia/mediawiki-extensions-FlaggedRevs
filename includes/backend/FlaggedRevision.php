@@ -195,7 +195,7 @@ class FlaggedRevision {
 		}
 		$options = [];
 		$db = wfGetDB( DB_PRIMARY );
-		$pageId = $title->getArticleID( Title::READ_LATEST );
+		$pageId = $title->getArticleID( IDBAccessObject::READ_LATEST );
 		if ( !$pageId ) {
 			return null; // short-circuit query
 		}

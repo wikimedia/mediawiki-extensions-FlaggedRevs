@@ -6,7 +6,6 @@
  */
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Revision\RevisionFactory;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 
@@ -62,7 +61,7 @@ class CachePendingRevs extends Maintenance {
 			$wikiPage = $wikiPageFactory->newFromTitle( $title );
 			$revRecord = $revFactory->newRevisionFromRow(
 				$row,
-				RevisionFactory::READ_NORMAL,
+				IDBAccessObject::READ_NORMAL,
 				$title
 			);
 			// Trigger cache regeneration
