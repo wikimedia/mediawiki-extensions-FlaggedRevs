@@ -460,7 +460,7 @@ class FlaggedRevs {
 		# which case these updates will happen already with tuned timestamps
 		if ( !$renderedRevision ) {
 			$title->invalidateCache();
-			self::purgeSquid( $title );
+			self::purgeMediaWikiHtmlCdn( $title );
 		}
 
 		return $changed;
@@ -487,12 +487,14 @@ class FlaggedRevs {
 	}
 
 	/**
+	 * Updates MediaWiki's HTML cache for a Title. Defers till after main commit().
+	 *
 	 * @param Title $title
-	 * Updates squid cache for a title. Defers till after main commit().
 	 */
-	public static function purgeSquid( Title $title ) {
+	public static function purgeMediaWikiHtmlCdn( Title $title ) {
 		DeferredUpdates::addCallableUpdate( static function () use ( $title ) {
-			$title->purgeSquid();
+			$htmlCache = MediaWikiServices::getInstance()->getHtmlCacheUpdater();
+			$htmlCache->purgeTitleUrls( $title, $htmlCache::PURGE_INTENT_TXROUND_REFLECTED );
 		} );
 	}
 

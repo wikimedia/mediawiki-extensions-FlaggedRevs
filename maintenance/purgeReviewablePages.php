@@ -122,7 +122,9 @@ class PurgeReviewablePages extends Maintenance {
 			return;
 		}
 
-		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+		$services = MediaWikiServices::getInstance();
+		$lbFactory = $services->getDBLoadBalancerFactory();
+		$htmlCache = $services->getHtmlCacheUpdater();
 
 		$count = 0;
 		while ( !feof( $fileHandle ) ) {
@@ -132,8 +134,10 @@ class PurgeReviewablePages extends Maintenance {
 			}
 			$title = Title::newFromDBkey( $dbKey );
 			if ( $title ) {
-				$title->purgeSquid(); // send PURGE
-				HTMLFileCache::clearFileCache( $title ); // purge poor-mans's CDN
+				// send PURGE
+				$htmlCache->purgeTitleUrls( $title, $htmlCache::PURGE_INTENT_TXROUND_REFLECTED );
+				// purge poor-mans's CDN
+				HTMLFileCache::clearFileCache( $title );
 				$this->output( "... $dbKey\n" );
 
 				$count++;

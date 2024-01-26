@@ -230,7 +230,7 @@ class FRPageConfig {
 		# Also, clear their squid caches and purge other pages that use this page.
 		# NOTE: all of these updates are deferred via DeferredUpdates
 		foreach ( $titlesClearTracking as $title ) {
-			FlaggedRevs::purgeSquid( $title );
+			FlaggedRevs::purgeMediaWikiHtmlCdn( $title );
 			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
 				FlaggedRevs::updateHtmlCaches( $title ); // purge pages that use this page
 			}
