@@ -46,7 +46,7 @@
 	"revreview-successful": "'''Revisione de [[:$1|$1]] ha state mise 'u flag.'''",
 	"revreview-successful2": "'''Revisione de [[:$1|$1]] ha state luete 'u flag.'''",
 	"revreview-toolow": "'''Tu ninde ninde a valutà ognedune de le attrebbute cchiù ierte de ''inadeguate'' purcé 'na revisione pò essere considerate reviste.'''\n\nPe luà 'u state de reviste de 'na revisione, cazze sus a \"{{int:revreview-submit-unreview}}\".\n\nPe piacere cazze 'u buttone \"back\" d'u browser tune e pruève arrete.",
-	"revreview-update": "Pe piacere [[{{MediaWiki:Validationpage}}|revide]] ogne cangiamende pendende ''(le vide aqquà sotte)'' fatte da 'a versiona secure.",
+	"revreview-update": "Pe piacere [[{{MediaWiki:Validationpage}}|revide]] ogne cangiamende pendende ''(le 'ndruche aqquà sotte)'' fatte da 'a versiona secure.",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Le cangiaminde tune non ge stonne angore jndr'à 'na versione stabbile.</span>\n\nPe piacere revisite tutte le pàggene aqquà sotte pe fà assè le cangiaminde tune jndr'à 'na versione stabbile.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Le cangiaminde tune non ge stonne angore jndr'à 'na versiona stabbele. Stonne cangiaminde de apprime ca aspettane 'na revisione appese.</span>\n\nPe piacere revisione tutte le cangiaminde ca iessene aqquà sotte pe fà ca le cangiaminde iessene jndr'à 'na versiona stabbele.",
 	"revreview-update-includes": "''Certe template/file onne state aggiornate (pàggene none reviste in grascette):",
