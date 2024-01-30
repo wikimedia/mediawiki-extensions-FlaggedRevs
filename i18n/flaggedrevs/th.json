@@ -8,7 +8,8 @@
 			"Octahedron80",
 			"Passawuth",
 			"Pon44695",
-			"Woraponboonkerd"
+			"Woraponboonkerd",
+			"Ekminarin"
 		]
 	},
 	"action-review": "ตรวจทานรุ่นแก้ไข",
@@ -25,6 +26,7 @@
 	"flaggedrevs-pref-stable-1": "แสดงรุ่นเสถียรเสมอ (หากมี)",
 	"flaggedrevs-pref-stable-2": "แสดงรุ่นล่าสุดเสมอ",
 	"flaggedrevs-prefs-watch": "เพิ่มหน้าที่ฉันตรวจทานลงในรายการเฝ้าดูของฉัน",
+	"flaggedrevs-contributions-filters-unreviewed-only": "แสดงเฉพาะการแก้ไขที่รอการตรวจสอบ",
 	"group-editor": "ผู้แก้ไข",
 	"group-editor-member": "ผู้แก้ไข",
 	"group-reviewer": "ผู้ตรวจทาน",
