@@ -3,7 +3,8 @@
 		"authors": [
 			"Esbardu",
 			"Fitoschido",
-			"Xuacu"
+			"Xuacu",
+			"YoaR"
 		]
 	},
 	"action-autoreview": "marcar automáticamente les ediciones propies como «revisaes»",
@@ -69,7 +70,7 @@
 	"revreview-diff-toggle-show": "amosar esos cambios",
 	"revreview-diff-toggle-hide": "anubrir esos cambeos",
 	"revreview-diff-toggle-title": "Conmutar la vista de los cambios pendientes a la versión estable",
-	"review-diff2stable": "Ver tolos cambios pendientes",
+	"review-diff2stable": "Ver tolos cambeos pendientes",
 	"review-logentry-id": "identificador de revisión: $2",
 	"review-logentry-diff": "cambios revisaos",
 	"review-logentry-diff2": "cambios refugaos",
@@ -137,7 +138,7 @@
 	"revreview-reviewlink": "ediciones pendientes",
 	"revreview-reviewlink-title": "Ver les diferencies de tolos cambios pendientes",
 	"revreview-unreviewedpage": "páxina non revisada",
-	"tooltip-ca-current": "Ver esta páxina colos cambios pendientes",
+	"tooltip-ca-current": "Ver esta páxina colos cambeos pendientes",
 	"tooltip-ca-stable": "Ver la versión estable d'esta páxina",
 	"tooltip-ca-default": "Parámetros del aseguramientu de calidá",
 	"flaggedrevs-protect-legend": "Revisión automática d'ediciones ([[{{MediaWiki:Validationpage}}|ayuda]])",
