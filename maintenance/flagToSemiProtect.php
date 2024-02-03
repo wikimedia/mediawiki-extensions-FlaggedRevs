@@ -75,7 +75,6 @@ class FlagProtectToSemiProtect extends Maintenance {
 		$count = 0;
 
 		$services = MediaWikiServices::getInstance();
-		$lbFactory = $services->getDBLoadBalancerFactory();
 		$restrictionStore = $services->getRestrictionStore();
 		$wikiPageFactory = $services->getWikiPageFactory();
 
@@ -143,7 +142,7 @@ class FlagProtectToSemiProtect extends Maintenance {
 			}
 			$blockStart += $this->mBatchSize - 1;
 			$blockEnd += $this->mBatchSize - 1;
-			$lbFactory->waitForReplication( [ 'ifWritesSince' => 5 ] );
+			$this->waitForReplication();
 		}
 		$this->output( "Protection of all flag-protected pages complete ... {$count} pages\n" );
 	}

@@ -46,7 +46,6 @@ class UpdateFRAutoPromote extends Maintenance {
 		$count = 0;
 		$changed = 0;
 
-		$lbFactory = $services->getDBLoadBalancerFactory();
 		$contentNamespaces = $services->getNamespaceInfo()->getContentNamespaces();
 		$autopromote = $this->getConfig()->get( 'FlaggedRevsAutopromote' );
 
@@ -112,7 +111,7 @@ class UpdateFRAutoPromote extends Maintenance {
 				$count++;
 				$this->commitTransaction( $dbw, __METHOD__ );
 			}
-			$lbFactory->waitForReplication( [ 'ifWritesSince' => 5 ] );
+			$this->waitForReplication();
 		}
 		$this->output( "flaggedrevs_promote table update complete ..." .
 			" {$count} rows [{$changed} changed or added]\n" );

@@ -82,8 +82,6 @@ class PurgeReviewablePages extends Maintenance {
 		$blockStart = (int)$start;
 		$blockEnd = (int)( $start + $this->mBatchSize - 1 );
 
-		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
-
 		$count = 0;
 		while ( $blockEnd <= $end ) {
 			$this->output( "... doing page_id from $blockStart to $blockEnd\n" );
@@ -106,7 +104,7 @@ class PurgeReviewablePages extends Maintenance {
 			}
 			$blockStart += $this->mBatchSize - 1;
 			$blockEnd += $this->mBatchSize - 1;
-			$lbFactory->waitForReplication( [ 'ifWritesSince' => 5 ] );
+			$this->waitForReplication();
 		}
 		$this->output( "List of reviewable pages to purge complete ... {$count} pages\n" );
 	}
@@ -123,7 +121,6 @@ class PurgeReviewablePages extends Maintenance {
 		}
 
 		$services = MediaWikiServices::getInstance();
-		$lbFactory = $services->getDBLoadBalancerFactory();
 		$htmlCache = $services->getHtmlCacheUpdater();
 
 		$count = 0;
@@ -142,7 +139,7 @@ class PurgeReviewablePages extends Maintenance {
 
 				$count++;
 				if ( ( $count % $this->mBatchSize ) == 0 ) {
-					$lbFactory->waitForReplication( [ 'ifWritesSince' => 5 ] );
+					$this->waitForReplication();
 				}
 			} else {
 				$this->output( "Invalid title - cannot purge: $dbKey\n" );

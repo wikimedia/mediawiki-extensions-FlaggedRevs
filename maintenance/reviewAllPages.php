@@ -67,7 +67,6 @@ class ReviewAllPages extends Maintenance {
 		$changed = 0;
 		$flags = FlaggedRevs::quickTags(); // Assume basic level
 
-		$lbFactory = $services->getDBLoadBalancerFactory();
 		$wikiPageFactory = $services->getWikiPageFactory();
 		$revisionStore = $services->getRevisionStore();
 
@@ -107,7 +106,7 @@ class ReviewAllPages extends Maintenance {
 			$blockStart += $this->mBatchSize - 1;
 			$blockEnd += $this->mBatchSize - 1;
 
-			$lbFactory->waitForReplication( [ 'ifWritesSince' => 5 ] );
+			$this->waitForReplication();
 		}
 
 		$this->output( "Auto-reviewing of all pages complete ..." .
