@@ -168,8 +168,8 @@
 	"log-action-filter-review-accept": "手動接受",
 	"log-action-filter-review-unaccept": "手動不接受",
 	"log-action-filter-stable": "設定變更的類型：",
-	"log-action-filter-stable-config": "新配置",
-	"log-action-filter-stable-modify": "已修改的配置",
-	"log-action-filter-stable-reset": "配置重置",
-	"log-action-filter-stable-move_stable": "已移動的配置"
+	"log-action-filter-stable-config": "新增組態設定",
+	"log-action-filter-stable-modify": "修改組態設定",
+	"log-action-filter-stable-reset": "重設組態設定",
+	"log-action-filter-stable-move_stable": "移動組態設定"
 }
