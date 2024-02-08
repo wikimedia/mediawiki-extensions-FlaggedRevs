@@ -378,7 +378,8 @@ class FlaggedRevs {
 			}
 		);
 		$contentRenderer = MediaWikiServices::getInstance()->getContentRenderer();
-		$parserOut = $contentRenderer->getParserOutput( $content, $frev->getTitle(), $frev->getRevId(), $pOpts );
+		$parserOut = $contentRenderer->getParserOutput(
+			$content, $frev->getTitle(), $frev->getRevisionRecord(), $pOpts );
 		# Stable parse done!
 		if ( $resetManager ) {
 			$incManager->clear(); // reset the FRInclusionManager as needed
