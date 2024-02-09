@@ -731,7 +731,6 @@ class FlaggedRevs {
 		}
 
 		# Our review entry
-		// @phan-suppress-next-line SecurityCheck-SQLInjection
 		$flaggedRevision = new FlaggedRevision( [
 			'revrecord'    		=> $revRecord,
 			'user_id'	       	=> $user->getId(),
