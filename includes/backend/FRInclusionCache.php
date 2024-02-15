@@ -58,7 +58,7 @@ class FRInclusionCache {
 					$pOut = $contentRenderer->getParserOutput(
 						$content,
 						$wikiPage->getTitle(),
-						$revRecord->getId(),
+						$revRecord,
 						ParserOptions::newFromUser( $user )
 					);
 				}
