@@ -143,7 +143,7 @@ class RevisionReview extends UnlistedSpecialPage {
 		$status = $form->submit();
 		if ( $status === true ) {
 			// Success...
-			$out->setPageTitle( $this->msg( 'actioncomplete' ) );
+			$out->setPageTitleMsg( $this->msg( 'actioncomplete' ) );
 			if ( $form->getAction() === RevisionReviewForm::ACTION_APPROVE ) {
 				$out->addHTML( $this->approvalSuccessHTML() );
 			} elseif ( $form->getAction() === RevisionReviewForm::ACTION_UNAPPROVE ) {
