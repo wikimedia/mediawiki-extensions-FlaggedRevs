@@ -2,12 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Snævar",
-			"Spacebirdy"
+			"Spacebirdy",
+			"Stefán Örvar Sigmundsson"
 		]
 	},
-	"pendingchanges": "Síður með óskoðaðar breytingar",
-	"pendingchanges-legend": "Sýnir lista yfir síður með óskoðaðar breytingar",
-	"pendingchanges-list": "Þessi síða er listi yfir [[{{MediaWiki:Validationpage}}|yfirfarnar]] síður með einni eða fleiri breytingu sem bíða eftir skoðun.",
+	"pendingchanges": "Síður með fyrirhugaðar breytingar",
+	"pendingchanges-legend": "Lista óyfirfarnar síður með fyrirhugaðar breytingar",
+	"pendingchanges-list": "Þessi síða listar [[{{MediaWiki:Validationpage}}|yfirfarnar]] síður með eina eða fleiri breytingar sem bíða yfirferðar.",
 	"pendingchanges-none": "Eins og er upfyllir engin síða þessi leitarskilyrði.",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|klukkustund|klukkustundir}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|dagur|dagar}})",

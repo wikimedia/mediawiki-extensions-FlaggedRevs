@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Narazeni"
+		]
+	},
+	"unreviewedpages": "უგნუჯინუ ხასჷლეფი",
+	"unreviewedpages-legend": "უგნუჯინუ სტატიეფიშ ერკებული",
+	"unreviewedpages-category": "კატეგორია:",
+	"unreviewedpages-showhide-redirect": "$1 გინოწურაფეფი",
+	"unreviewedpages-diff": "გინოჯინა",
+	"unreviewedpages-unwatched": "(მითინიშ კონტროლიშ ერკებულს ვა რე)",
+	"unreviewedpages-watched": "({{PLURAL:$1|აკონტროლენს $1 აქტიური მახვარებუ}})",
+	"unreviewedpages-list": "თე ხასჷლაშა მიშაჸონაფილი რე სტატიეფიშ ერკებული, ნამუეფჷთ დიო ვა რე [[{{MediaWiki:Validationpage}}|ფასებული]] მეწურაფილ დონეშა.",
+	"unreviewedpages-none": "ასე ვა რე ხასჷლა, ნამუთ უხუჯანს თე კრიტერიუმეფსჷნ",
+	"unreviewedpages-viewing": "(გინმიჯინუაფუ)",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|სათი}})",
+	"unreviewedpages-days": "{{PLURAL: $1|დღა}}",
+	"unreviewedpages-recent": "(1 სათშე მერკე)"
+}
