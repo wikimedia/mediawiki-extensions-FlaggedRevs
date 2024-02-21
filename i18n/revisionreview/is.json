@@ -3,7 +3,8 @@
 		"authors": [
 			"Snævar",
 			"Spacebirdy",
-			"Sveinn í Felli"
+			"Sveinn í Felli",
+			"Stefán Örvar Sigmundsson"
 		]
 	},
 	"revisionreview": "Skoða yfirfarnar breytingar",
@@ -22,10 +23,10 @@
 	"revreview-log": "Athugasemd:",
 	"revreview-main": "Skoðun mistókst því engin útgáfa var valin.\n\nSjá nánar á [[Special:Unreviewedpages|lista yfir óskoðaðar síður]].",
 	"revreview-stable2": "Þú gætir viljað sjá [{{fullurl:$1|stable=1}} stöðuga útgáfu] síðunnar.",
-	"revreview-submit": "Staðfesta",
-	"revreview-submitting": "Staðfesta …",
+	"revreview-submit": "Senda",
+	"revreview-submitting": "Sendir...",
 	"revreview-submit-review": "Samþykkja útgáfu",
-	"revreview-submit-reject": "Hafna breytingu",
+	"revreview-submit-reject": "Hafna breytingum",
 	"revreview-submit-reviewed": "Búið. Samþykkt!",
 	"revreview-update": "Vinsamlegast [[{{MediaWiki:Validationpage}}|farðu yfir]] allar óskoðaðar breytingar ''(sýndar hér fyrir neðan)'' síðan að síðasta breytingin var gerð.",
 	"revreview-update-includes": "Snið/skrár uppfærð (óskoðaðar síður eru feitletraðar):",
