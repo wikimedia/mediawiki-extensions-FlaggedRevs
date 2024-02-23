@@ -3,14 +3,15 @@
 		"authors": [
 			"Snævar",
 			"Spacebirdy",
+			"Stefán Örvar Sigmundsson",
 			"Sveinn í Felli"
 		]
 	},
 	"validationstatistics": "Tölfræði yfirfarinna síðna",
-	"validationstatistics-users": "'''{{SITENAME}}''' hefur í augnablikinu '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|notanda|notendur}} með [[{{MediaWiki:Validationpage}}|ritstjóra]] réttindi.\n\nRitstjórar eru traustir notendur sem yfirfara breytingar á síðum.",
+	"validationstatistics-users": "'''{{SITENAME}}''' er með '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1| notanda|notendur}} með [[{{MediaWiki:Validationpage}}|ritstjóra]]réttindi.\n\nRitstjórar eru rótgrónir notendur sem geta athugað breytingar á síðum.",
 	"validationstatistics-lastupdate": "''Eftirfarandi tölfræði var síðast uppfærð $1 kl. $2.''",
-	"validationstatistics-pndtime": "Breytingar sem hafa verið skoðaðar af traustum notendum eru taldar vera ''{{int:validationstatistics-stable}}''.\n\nMeðalbiðtími fyrir [[Special:OldReviewedPages|óyfirfarnar síður]] er '''$1'''; biðtíminn segir til um hversu lengi elsta breytingin var óyfirfarin.",
-	"validationstatistics-revtime": "Mesti biðtími á óskoðuðum breytingum eftir ''notendur sem hafa ekki skráð sig innn'' er '''$1'''; meðaltalið er '''$2'''.\n$3",
+	"validationstatistics-pndtime": "Breytingar sem hafa verið athugaðar af rótgrónum notendum eru taldar ''{{int:validationstatistics-stable}}''.\n\nMeðalbiðtími skoðana fyrir [[Special:OldReviewedPages|síður með breytingum sem bíða skoðunar]] er '''$1'''; biðin mælir hversu lengi elsta breytingin sem er í bið hefur verið óskoðuð.",
+	"validationstatistics-revtime": "Meðalbiðtími fyrir breytingar eftir ''notendur sem hafa ekki skráð sig inn'' er '''$1'''; miðgildið er '''$2'''.\n$3",
 	"validationstatistics-table": "Tölfræði fyrir yfirfarnar síður eftir nafnrýmum eru sýndar hér fyrir neðan, ''að frátöldum'' tílvísunar síðum. Síður teljast vera ''{{int:validationstatistics-old}}'' ef þær eru með breytingar sem bíða eftir skoðun. Síður teljast ''{{int:validationstatistics-latest}}'' ef engar breytingar bíða eftir skoðun.",
 	"validationstatistics-ns": "Nafnrými",
 	"validationstatistics-total": "Síður",

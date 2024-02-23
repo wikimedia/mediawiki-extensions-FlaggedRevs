@@ -12,7 +12,7 @@
 	"unreviewedpages-category": "Flokkur:",
 	"unreviewedpages-diff": "endurskoða",
 	"unreviewedpages-unwatched": "(án eftirlits)",
-	"unreviewedpages-watched": "($1 {{PLURAL:$1|virkur notandi|virkir notendur}} vakta síðuna)",
+	"unreviewedpages-watched": "($1 {{PLURAL:$1|virkur notandi vaktar|virkir notendur vakta}})",
 	"unreviewedpages-none": "Eins og er upfyllir engin síða þessi leitarskilyrði.",
 	"unreviewedpages-viewing": "(í skoðun)",
 	"unreviewedpages-hours": "($1 {{PLURAL:$1|klukkustund|klukkustundir}})",
