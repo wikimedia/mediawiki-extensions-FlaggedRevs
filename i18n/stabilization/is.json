@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"S.Örvarr.S",
-			"Sveinn í Felli"
+			"Sveinn í Felli",
+			"Stefán Örvar Sigmundsson"
 		]
 	},
-	"stabilization-page": "Titill síðu:",
+	"stabilization-page": "Síðunafn:",
 	"stabilization-submit": "Staðfesta",
 	"stabilization-comment": "Ástæða:",
 	"stabilization-otherreason": "Önnur ástæða:",
