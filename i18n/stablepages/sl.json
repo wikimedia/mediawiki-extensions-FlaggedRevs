@@ -6,7 +6,7 @@
 		]
 	},
 	"stablepages": "Strani, ki uporabljajo odobritev urejanj",
-	"stablepages-list": "Tu je prikazan seznam strani, ki jih lahko urejajjosamo nekateri uporabniki, pri katerih ni potreben pregled.\nUrejanja drugih uporabnikov privzeto niso prikazana bralcem, dokler jih ne pregleda pooblaščeni uporabnik.",
+	"stablepages-list": "Tu je naveden seznam strani, ki jih lahko urejajo samo nekateri uporabniki, pri katerih ni potreben pregled.\nUrejanja drugih uporabnikov privzeto niso prikazana bralcem, dokler jih ne pregleda pooblaščeni uporabnik.",
 	"stablepages-none": "Na tem seznamu ni strani.",
 	"stablepages-config": "Konfiguracija",
 	"stablepages-indef": "Samo neomejen potek"
