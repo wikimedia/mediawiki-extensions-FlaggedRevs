@@ -4,7 +4,8 @@
 			"S.Örvarr.S",
 			"Snævar",
 			"Spacebirdy",
-			"Sveinn í Felli"
+			"Sveinn í Felli",
+			"Stefán Örvar Sigmundsson"
 		]
 	},
 	"action-review": "merkja breytingar sem yfirfarnar",
@@ -51,7 +52,7 @@
 	"revreview-accuracy-0": "ótækt",
 	"revreview-accuracy-1": "Stikkprófuð",
 	"revreview-accuracy-2": "rétt",
-	"revreview-accuracy-4": "gæða",
+	"revreview-accuracy-4": "Gæða",
 	"revreview-basic": "Þetta er [[{{MediaWiki:Validationpage}}|stöðug útgáfa]] síðunnar, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} skoðuð] <i>$2</i>.\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|breyting|breytingar}}] {{PLURAL:$3|bíður|bíða}} eftir skoðun.",
 	"revreview-basic-i": "Þetta er [[{{MediaWiki:Validationpage}}|stöðug útgáfa]] síðunnar, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} skoðuð] <i>$2</i>.\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Sniða/skráar breytingar] bíða eftir skoðun.",
 	"revreview-basic-same": "Þetta er [[{{MediaWiki:Validationpage}}|stöðug útgáfa]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} skoðuð] <i>$2</i>.",

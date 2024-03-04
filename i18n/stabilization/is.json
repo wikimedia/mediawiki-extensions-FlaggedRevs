@@ -10,11 +10,11 @@
 	"stabilization-submit": "Staðfesta",
 	"stabilization-comment": "Ástæða:",
 	"stabilization-otherreason": "Önnur ástæða:",
-	"stabilization-expiry": "Rennur út:",
+	"stabilization-expiry": "Fyrnist:",
 	"stabilization-othertime": "Annar tími:",
 	"stabilization-def-short": "Sjálfgefið",
 	"stabilization-def-short-0": "Núverandi",
 	"stabilization-def-short-1": "Stöðugt",
 	"stabilize_denied": "Heimild hafnað.",
-	"stabilize-expiring": "rennur út $1 (UTC)"
+	"stabilize-expiring": "fyrnist $1 (UTC)"
 }
