@@ -129,7 +129,7 @@ class Stabilization extends UnlistedSpecialPage {
 		if ( $defaultReasons->isDisabled() ) {
 			$defaultReasons = $this->msg( 'protect-dropdown' );
 		}
-		$reasonDropDown = Xml::listDropDown(
+		$reasonDropdown = Xml::listDropdown(
 			'wpReasonSelection',
 			$defaultReasons->inContentLanguage()->text(),
 			$this->msg( 'protect-otherreason-op' )->inContentLanguage()->escaped(),
@@ -236,7 +236,7 @@ class Stabilization extends UnlistedSpecialPage {
 							'wpReasonSelection' ) .
 					'</td>
 					<td class="mw-input">' .
-						$reasonDropDown .
+						$reasonDropdown .
 					'</td>
 				</tr>
 				<tr>
