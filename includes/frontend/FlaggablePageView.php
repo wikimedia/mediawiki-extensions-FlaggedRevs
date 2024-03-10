@@ -434,7 +434,7 @@ class FlaggablePageView extends ContextSource {
 			if ( $anchor != null ) {
 				// Hack: reverse some of the Sanitizer::escapeId() encoding
 				$section = urldecode( str_replace( // bug 35661
-					[ ':' , '.' ], [ '%3A', '%' ], $anchor
+					[ ':', '.' ], [ '%3A', '%' ], $anchor
 				) );
 				$section = str_replace( '_', ' ', $section ); // prettify
 				$pending .= $this->msg( 'revreview-edited-section', $anchor, $section )

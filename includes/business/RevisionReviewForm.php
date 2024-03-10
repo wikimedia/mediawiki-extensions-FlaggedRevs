@@ -264,6 +264,9 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		return true;
 	}
 
+	/**
+	 * @return bool
+	 */
 	private function isAllowed() {
 		// Basic permission check
 		return ( $this->title && MediaWikiServices::getInstance()->getPermissionManager()

@@ -971,7 +971,7 @@ class FlaggedRevsUIHooks implements
 			'type' => 'select',
 			'name' => 'mwStabilityLevel',
 			'id' => 'mwStabilityLevel',
-			'disabled' => !$isAllowed ,
+			'disabled' => !$isAllowed,
 			'options' => $options,
 			'default' => $request->getVal( 'mwStabilityLevel', FRPageConfig::getProtectionLevel( $config ) ),
 			'section' => 'flaggedrevs-protect-legend',
