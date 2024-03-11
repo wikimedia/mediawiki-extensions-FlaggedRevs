@@ -3,7 +3,6 @@
  * @ingroup Maintenance
  */
 
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 
@@ -39,7 +38,7 @@ class ReviewAllPages extends Maintenance {
 	 * @param User $user
 	 */
 	private function autoReviewCurrent( User $user ) {
-		$services = MediaWikiServices::getInstance();
+		$services = $this->getServiceContainer();
 		$this->output( "Auto-reviewing all current page versions...\n" );
 		if ( !$user->isRegistered() ) {
 			$this->output( "Invalid user specified.\n" );

@@ -5,7 +5,6 @@
  * @ingroup Maintenance
  */
 
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 
@@ -35,7 +34,7 @@ class CachePendingRevs extends Maintenance {
 		}
 
 		$dbr = wfGetDB( DB_REPLICA );
-		$services = MediaWikiServices::getInstance();
+		$services = $this->getServiceContainer();
 		$revFactory = $services->getRevisionFactory();
 		$revQuery = $revFactory->getQueryInfo();
 		$pageQuery = WikiPage::getQueryInfo();

@@ -4,7 +4,6 @@
  */
 
 use MediaWiki\MainConfigNames;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
@@ -120,7 +119,7 @@ class PurgeReviewablePages extends Maintenance {
 			return;
 		}
 
-		$services = MediaWikiServices::getInstance();
+		$services = $this->getServiceContainer();
 		$htmlCache = $services->getHtmlCacheUpdater();
 
 		$count = 0;

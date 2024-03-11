@@ -3,7 +3,6 @@
  * @ingroup Maintenance
  */
 
-use MediaWiki\MediaWikiServices;
 use MediaWiki\User\ActorMigration;
 use MediaWiki\User\User;
 
@@ -30,7 +29,7 @@ class UpdateFRAutoPromote extends Maintenance {
 	public function execute() {
 		$this->output( "Populating and updating flaggedrevs_promote table\n" );
 
-		$services = MediaWikiServices::getInstance();
+		$services = $this->getServiceContainer();
 		$commentQuery = $services->getCommentStore()->getJoin( 'rev_comment' );
 		$revisionStore = $services->getRevisionStore();
 		$revQuery = $revisionStore->getQueryInfo();

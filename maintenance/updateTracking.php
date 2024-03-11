@@ -3,7 +3,6 @@
  * @ingroup Maintenance
  */
 
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
@@ -40,7 +39,7 @@ class UpdateFRTracking extends Maintenance {
 		$BATCH_SIZE = 300;
 
 		$db = $this->getDB( DB_PRIMARY );
-		$revisionStore = MediaWikiServices::getInstance()->getRevisionStore();
+		$revisionStore = $this->getServiceContainer()->getRevisionStore();
 
 		if ( $start === null ) {
 			$start = $db->selectField( 'page', 'MIN(page_id)', '', __METHOD__ );

@@ -3,7 +3,6 @@
  * @ingroup Maintenance
  */
 
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 
@@ -74,7 +73,7 @@ class FlagProtectToSemiProtect extends Maintenance {
 		$blockEnd = (int)( $start + $this->mBatchSize - 1 );
 		$count = 0;
 
-		$services = MediaWikiServices::getInstance();
+		$services = $this->getServiceContainer();
 		$restrictionStore = $services->getRestrictionStore();
 		$wikiPageFactory = $services->getWikiPageFactory();
 
