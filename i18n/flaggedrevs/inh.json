@@ -12,5 +12,5 @@
 	"revreview-submitedit": "ДIаязъе оагӀув",
 	"revreview-unreviewedpage": "ха даь йоаца оагӀув",
 	"tooltip-ca-current": "Тахканза хувцамашца бIаргтоха укх оагIон",
-	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Таллар даь доаца оагIонаш]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Талларга хьежаш дола хувцамаш]"
+	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Техкá йоаца оагӀонаш]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Тахкарага хьежаш дола хувцамаш]"
 }
