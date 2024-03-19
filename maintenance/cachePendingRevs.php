@@ -33,7 +33,7 @@ class CachePendingRevs extends Maintenance {
 			return;
 		}
 
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = $this->getReplicaDB();
 		$services = $this->getServiceContainer();
 		$revFactory = $services->getRevisionFactory();
 		$revQuery = $revFactory->getQueryInfo();

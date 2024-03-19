@@ -34,10 +34,10 @@ class UpdateFRAutoPromote extends Maintenance {
 		$revisionStore = $services->getRevisionStore();
 		$revQuery = $revisionStore->getQueryInfo();
 		$revPageQuery = $revisionStore->getQueryInfo( [ 'page' ] );
-		$dbr = wfGetDB( DB_REPLICA );
-		$dbw = wfGetDB( DB_PRIMARY );
-		$start = $dbr->selectField( 'user', 'MIN(user_id)', false, __METHOD__ );
-		$end = $dbr->selectField( 'user', 'MAX(user_id)', false, __METHOD__ );
+		$dbr = $this->getReplicaDB();
+		$dbw = $this->getPrimaryDB();
+		$start = $dbr->selectField( 'user', 'MIN(user_id)', '', __METHOD__ );
+		$end = $dbr->selectField( 'user', 'MAX(user_id)', '', __METHOD__ );
 		if ( $start === null || $end === null ) {
 			$this->output( "...user table seems to be empty.\n" );
 			return;

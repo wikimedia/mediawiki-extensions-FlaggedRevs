@@ -48,12 +48,12 @@ class ReviewAllPages extends Maintenance {
 			return;
 		}
 
-		$db = wfGetDB( DB_PRIMARY );
+		$db = $this->getPrimaryDB();
 
 		$this->output( "Reviewer username: " . $user->getName() . "\n" );
 
-		$start = $db->selectField( 'page', 'MIN(page_id)', false, __METHOD__ );
-		$end = $db->selectField( 'page', 'MAX(page_id)', false, __METHOD__ );
+		$start = $db->selectField( 'page', 'MIN(page_id)', '', __METHOD__ );
+		$end = $db->selectField( 'page', 'MAX(page_id)', '', __METHOD__ );
 		if ( $start === null || $end === null ) {
 			$this->output( "...page table seems to be empty.\n" );
 			return;

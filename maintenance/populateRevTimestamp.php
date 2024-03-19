@@ -43,12 +43,12 @@ class PopulateFRRevTimestamp extends Maintenance {
 	private function populateFRRevTimestamp( $start = null ) {
 		$this->output( "Populating and correcting flaggedrevs columns from $start\n" );
 
-		$db = wfGetDB( DB_PRIMARY );
+		$db = $this->getPrimaryDB();
 
 		if ( $start === null ) {
-			$start = $db->selectField( 'flaggedrevs', 'MIN(fr_rev_id)', false, __METHOD__ );
+			$start = $db->selectField( 'flaggedrevs', 'MIN(fr_rev_id)', '', __METHOD__ );
 		}
-		$end = $db->selectField( 'flaggedrevs', 'MAX(fr_rev_id)', false, __METHOD__ );
+		$end = $db->selectField( 'flaggedrevs', 'MAX(fr_rev_id)', '', __METHOD__ );
 		if ( $start === null || $end === null ) {
 			$this->output( "...flaggedrevs table seems to be empty.\n" );
 			return;
