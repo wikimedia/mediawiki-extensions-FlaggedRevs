@@ -34,7 +34,7 @@ class FlaggablePageTest extends MediaWikiIntegrationTestCase {
 			EDIT_NEW
 		);
 
-		$data = (array)$article->pageDataFromTitle( wfGetDB( DB_REPLICA ), $title );
+		$data = (array)$article->pageDataFromTitle( $this->getDb(), $title );
 
 		$this->assertArrayHasKey( 'fpc_override', $data,
 			"data->fpc_override field exists" );

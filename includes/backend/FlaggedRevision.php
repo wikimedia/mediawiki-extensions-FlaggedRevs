@@ -11,14 +11,12 @@ use MediaWiki\User\UserIdentity;
 /**
  * Class representing a stable version of a MediaWiki revision
  *
- * This contains a page revision, and versions of templates (to determine template inclusion)
+ * This contains a page revision
  */
 class FlaggedRevision {
 
 	/** @var RevisionRecord base revision */
 	private $mRevRecord;
-	/** @var int[][]|null included template versions */
-	private $mTemplates;
 
 	/* Flagging metadata */
 	/** @var mixed review timestamp */
@@ -71,8 +69,6 @@ class FlaggedRevision {
 		$this->mUser = intval( $row['user_id'] );
 		# Base Revision object
 		$this->mRevRecord = $row['revrecord'];
-		# Optional fields
-		$this->mTemplates = $row['templateVersions'] ?? null;
 		if ( !( $this->mRevRecord instanceof RevisionRecord ) ) {
 			throw new InvalidArgumentException(
 				'FlaggedRevision constructor passed invalid RevisionRecord object.'
@@ -235,22 +231,6 @@ class FlaggedRevision {
 		$dbw = wfGetDB( DB_PRIMARY );
 		# Set any flagged revision flags
 		$this->mFlags = array_merge( $this->mFlags, [ 'dynamic' ] ); // legacy
-		# Build the template inclusion data chunks
-		$tmpInsertRows = [];
-		# Avoid saving this data if we don't use it to stabilize pages
-		if ( FlaggedRevs::inclusionSetting() !== FR_INCLUDES_CURRENT ) {
-			foreach ( (array)$this->mTemplates as $titleAndID ) {
-				foreach ( $titleAndID as $id ) {
-					if ( !$id ) {
-						continue;
-					}
-					$tmpInsertRows[] = [
-						'ft_rev_id' => $this->getRevId(),
-						'ft_tmp_rev_id' => $id
-					];
-				}
-			}
-		}
 		# Sanity check for partial revisions
 		if ( !$this->getPage() ) {
 			return 'no page id';
@@ -273,10 +253,6 @@ class FlaggedRevision {
 		if ( !$dbw->affectedRows() ) {
 			return 'duplicate review';
 		}
-		# ...and insert template version data
-		if ( $tmpInsertRows ) {
-			$dbw->insert( 'flaggedtemplates', $tmpInsertRows, __METHOD__, [ 'IGNORE' ] );
-		}
 		return true;
 	}
 
@@ -288,9 +264,6 @@ class FlaggedRevision {
 		# Delete from flaggedrevs table
 		$dbw->delete( 'flaggedrevs',
 			[ 'fr_rev_id' => $this->getRevId() ], __METHOD__ );
-		# Wipe versioning params...
-		$dbw->delete( 'flaggedtemplates',
-			[ 'ft_rev_id' => $this->getRevId() ], __METHOD__ );
 	}
 
 	/**
@@ -406,53 +379,34 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * Get original template versions at time of review
-	 * @param int $flags One of the IDBAccessObject::READ_… constants
-	 * @return int[][] template versions (ns -> dbKey -> rev Id)
-	 * Note: 0 used for template rev Id if it didn't exist
-	 */
-	public function getTemplateVersions( $flags = 0 ) {
-		if ( $this->mTemplates == null ) {
-			$this->mTemplates = [];
-			$db = wfGetDB( ( $flags & IDBAccessObject::READ_LATEST ) ? DB_PRIMARY : DB_REPLICA );
-			$res = $db->select(
-				[ 'flaggedtemplates', 'revision', 'page' ],
-				[ 'page_namespace', 'page_title', 'ft_tmp_rev_id' ],
-				[ 'ft_rev_id' => $this->getRevId() ],
-				__METHOD__,
-				[],
-				[
-					'revision' => [ 'LEFT JOIN', [ 'ft_tmp_rev_id = rev_id' ] ],
-					'page' => [ 'LEFT JOIN', [ 'page_id = rev_page' ] ],
-				]
-			);
-			foreach ( $res as $row ) {
-				$this->mTemplates[$row->page_namespace][$row->page_title] = (int)$row->ft_tmp_rev_id;
-			}
-		}
-		return $this->mTemplates;
-	}
-
-	/**
-	 * Get the current stable version of the templates used at time of review
+	 * Get the current stable version of the templates
 	 * @return int[][] template versions (ns -> dbKey -> rev Id)
 	 * Note: 0 used for template rev Id if it doesn't exist
 	 */
 	public function getStableTemplateVersions() {
 		if ( $this->mStableTemplates == null ) {
 			$this->mStableTemplates = [];
-			$db = wfGetDB( DB_REPLICA );
-			$res = $db->select(
-				[ 'flaggedtemplates', 'revision', 'page', 'flaggedpages' ],
+			$dbr = wfGetDB( DB_REPLICA );
+			$linksMigration = MediaWikiServices::getInstance()->getLinksMigration();
+			[ $nsField, $titleField ] = $linksMigration->getTitleFields( 'templatelinks' );
+			$queryInfo = $linksMigration->getQueryInfo( 'templatelinks' );
+			$res = $dbr->select(
+				array_merge( $queryInfo['tables'], [ 'page', 'flaggedpages' ] ),
 				[ 'page_namespace', 'page_title', 'fp_stable' ],
-				[ 'ft_rev_id' => $this->getRevId() ],
-				__METHOD__,
-				[],
 				[
-					'revision' => [ 'LEFT JOIN', [ 'ft_tmp_rev_id = rev_id' ] ],
-					'page' => [ 'LEFT JOIN', [ 'page_id = rev_page' ] ],
-					'flaggedpages' => [ 'LEFT JOIN', 'fp_page_id = page_id' ]
-				]
+					'tl_from' => $this->getPage(),
+					# Only get templates with stable or "review time" versions.
+					"fp_stable IS NOT NULL"
+				], // current version templates
+				__METHOD__,
+				[], /* OPTIONS */
+				array_merge(
+					$queryInfo['joins'],
+					[
+						'page' => [ 'LEFT JOIN', "page_namespace = $nsField AND page_title = $titleField" ],
+						'flaggedpages' => [ 'LEFT JOIN', 'fp_page_id = page_id' ]
+					]
+				)
 			);
 			foreach ( $res as $row ) {
 				$revId = (int)$row->fp_stable; // 0 => none
@@ -467,30 +421,24 @@ class FlaggedRevision {
 	 * For each template, the "version used" (for stable parsing) is:
 	 *    (a) (the latest rev) if FR_INCLUDES_CURRENT. Might be non-existing.
 	 *    (b) newest( stable rev, rev at time of review ) if FR_INCLUDES_STABLE
-	 * Pending changes exist for a template if the template is used in
-	 * the current rev of this page and one of the following holds:
-	 *    (a) Current template is newer than the "version used" above (updated)
-	 *    (b) Current template exists and the "version used" was non-existing (created)
-	 *    (c) Current template doesn't exist and the "version used" existed (deleted)
 	 *
-	 * @return array[] of (title, rev ID in reviewed version, has stable rev) tuples
+	 * @return bool
 	 */
 	public function findPendingTemplateChanges() {
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
-			return []; // short-circuit
+			return false; // short-circuit
 		}
 		$dbr = wfGetDB( DB_REPLICA );
 		$linksMigration = MediaWikiServices::getInstance()->getLinksMigration();
 		[ $nsField, $titleField ] = $linksMigration->getTitleFields( 'templatelinks' );
 		$queryInfo = $linksMigration->getQueryInfo( 'templatelinks' );
 		$ret = $dbr->select(
-			array_merge( $queryInfo['tables'], [ 'page', 'revision', 'flaggedtemplates', 'flaggedpages', ] ),
-			[ $nsField, $titleField, 'fp_stable', 'ft_tmp_rev_id', 'page_latest' ],
+			array_merge( $queryInfo['tables'], [ 'page', 'flaggedpages' ] ),
+			[ $nsField, $titleField ],
 			[
 				'tl_from' => $this->getPage(),
-				'ft_rev_id' => $this->getRevId(),
 				# Only get templates with stable or "review time" versions.
-				"ft_tmp_rev_id IS NOT NULL OR fp_stable IS NOT NULL"
+				"fp_pending_since IS NOT NULL OR fp_stable IS NULL"
 			], // current version templates
 			__METHOD__,
 			[], /* OPTIONS */
@@ -498,100 +446,11 @@ class FlaggedRevision {
 				$queryInfo['joins'],
 				[
 					'page' => [ 'LEFT JOIN', "page_namespace = $nsField AND page_title = $titleField" ],
-					'revision' => [ 'LEFT JOIN', [ 'rev_page = page_id' ], ],
-					'flaggedtemplates' => [ 'LEFT JOIN', [ 'ft_tmp_rev_id = rev_id' ] ],
 					'flaggedpages' => [ 'LEFT JOIN', 'fp_page_id = page_id' ]
 				]
 			)
 		);
-		$tmpChanges = [];
-		foreach ( $ret as $row ) { // each template
-			$revIdDraft = (int)$row->page_latest; // may be NULL
-			$revIdStable = (int)$row->fp_stable; // may be NULL
-			$revIdReviewed = (int)$row->ft_tmp_rev_id; // review-time version
-			# Get template ID used in this FlaggedRevision when parsed
-			$revIdUsed = self::templateIdUsed( $revIdStable, $revIdReviewed );
-			# Check for edits/creations/deletions...
-			if ( self::templateChanged( $revIdDraft, $revIdUsed ) ) {
-				$title = Title::makeTitleSafe( $row->$nsField, $row->$titleField );
-				if ( !$title->equals( $this->getTitle() ) ) { // bug 42297
-					$tmpChanges[] = [ $title, $revIdUsed, (bool)$revIdStable ];
-				}
-			}
-		}
-		return $tmpChanges;
-	}
-
-	/**
-	 * @param int $revIdStable
-	 * @param int $revIdReviewed
-	 * @return int
-	 */
-	private function templateIdUsed( $revIdStable, $revIdReviewed ) {
-		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
-			# Select newest of (stable rev, rev when reviewed) as "version used"
-			return max( $revIdStable, $revIdReviewed );
-		}
-		return $revIdReviewed;
-	}
-
-	/**
-	 * @param int $revIdDraft Can be 0
-	 * @param int $revIdUsed Can be 0
-	 * @return bool
-	 */
-	private function templateChanged( $revIdDraft, $revIdUsed ) {
-		if ( $revIdDraft && !$revIdUsed ) {
-			return true; // later created
-		}
-		if ( !$revIdDraft && $revIdUsed ) {
-			return true; // later deleted
-		}
-		if ( $revIdDraft && $revIdUsed && $revIdDraft != $revIdUsed ) {
-			$revLookup = MediaWikiServices::getInstance()->getRevisionLookup();
-			$sRevRecord = $revLookup->getRevisionById( $revIdUsed );
-			if ( !$sRevRecord || $sRevRecord->isDeleted( RevisionRecord::DELETED_TEXT ) ) {
-				return true; // rev deleted
-			}
-			$dRevRecord = $revLookup->getRevisionById( $revIdDraft );
-			# Don't do this for null edits (like protection) (bug 25919)
-			if ( $dRevRecord && !$dRevRecord->hasSameContent( $sRevRecord ) ) {
-				return true; // updated
-			}
-		}
-		return false;
-	}
-
-	/**
-	 * Fetch pending template changes for this reviewed page
-	 * version against a list of current versions of templates.
-	 * See findPendingTemplateChanges() for details.
-	 *
-	 * @param int[][] $newTemplates
-	 * @return array[] of (title, rev ID in reviewed version, has stable rev) tuples
-	 */
-	public function findTemplateChanges( array $newTemplates ) {
-		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
-			return []; // short-circuit
-		}
-		$tmpChanges = [];
-		$rTemplates = $this->getTemplateVersions();
-		$sTemplates = $this->getStableTemplateVersions();
-		foreach ( $newTemplates as $ns => $tmps ) {
-			foreach ( $tmps as $dbKey => $revIdDraft ) {
-				$title = Title::makeTitle( $ns, $dbKey );
-				$revIdDraft = (int)$revIdDraft;
-				$revIdStable = (int)( $sTemplates[$ns][$dbKey] ?? self::getStableRevId( $title ) );
-				$revIdReviewed = (int)( $rTemplates[$ns][$dbKey] ?? 0 );
-				# Get template used in this FlaggedRevision when parsed
-				$revIdUsed = self::templateIdUsed( $revIdStable, $revIdReviewed );
-				# Check for edits/creations/deletions...
-				if ( self::templateChanged( $revIdDraft, $revIdUsed ) ) {
-					$tmpChanges[] = [ $title, $revIdUsed, (bool)$revIdStable ];
-				}
-			}
-		}
-		return $tmpChanges;
+		return (bool)$ret->count();
 	}
 
 	/**

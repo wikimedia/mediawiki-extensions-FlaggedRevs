@@ -174,11 +174,6 @@ class RevisionReviewFormUI {
 		# Show explanatory text
 		$form .= $this->bottomNotice;
 
-		# Get template version info as needed
-		$templateIds = $this->getIncludeVersions();
-		# Convert these into flat string params
-		$templateParams = RevisionReviewForm::getIncludeParams( $templateIds );
-
 		# Hidden params
 		$form .= Html::hidden( 'title', $reviewTitle->getPrefixedText() ) . "\n";
 		$form .= Html::hidden( 'target', $article->getTitle()->getPrefixedDBkey() ) . "\n";
@@ -187,13 +182,10 @@ class RevisionReviewFormUI {
 		$form .= Html::hidden( 'wpEditToken', $this->user->getEditToken() ) . "\n";
 		$form .= Html::hidden( 'changetime', $reviewTime,
 			[ 'id' => 'mw-fr-input-changetime' ] ) . "\n"; // id for JS
-		# Add review parameters
-		$form .= Html::hidden( 'templateParams', $templateParams ) . "\n";
 		# Special token to discourage fiddling...
 		$key = $this->request->getSessionData( 'wsFlaggedRevsKey' );
-		$checkCode = RevisionReviewForm::validationKey( $templateParams, $revId, $key );
+		$checkCode = RevisionReviewForm::validationKey( $revId, $key );
 		$form .= Html::hidden( 'validatedParams', $checkCode ) . "\n";
-
 		$form .= Xml::closeElement( 'fieldset' ) . "\n";
 		$form .= Xml::closeElement( 'form' ) . "\n";
 		return [ $form, true /* ok */ ];
@@ -371,17 +363,5 @@ class RevisionReviewFormUI {
 			] + ( $disabled ? $disAttrib : [] )
 		) . "\n";
 		return $s;
-	}
-
-	/**
-	 * @return array<int,array<string,int>>
-	 */
-	private function getIncludeVersions(): array {
-		if ( $this->templateIds === null ) {
-			throw new LogicException(
-				"Template versions not provided to review form; call setIncludeVersions()."
-			);
-		}
-		return $this->templateIds;
 	}
 }

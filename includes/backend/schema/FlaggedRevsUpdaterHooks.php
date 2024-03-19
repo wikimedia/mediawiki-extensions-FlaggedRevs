@@ -26,11 +26,6 @@ class FlaggedRevsUpdaterHooks implements
 
 			// 1.38
 			$du->dropExtensionField(
-				'flaggedtemplates',
-				'ft_title',
-				"$base/patch-flaggedtemplates-fr_title.sql"
-			);
-			$du->dropExtensionField(
 				'flaggedrevs',
 				'fr_img_name',
 				"$base/patch-drop-fr_img.sql"
@@ -41,11 +36,6 @@ class FlaggedRevsUpdaterHooks implements
 				'flaggedpage_config',
 				'fpc_select',
 				"$base/patch-drop-fpc_select.sql"
-			);
-			$du->modifyExtensionField(
-				'flaggedtemplates',
-				'ft_tmp_rev_id',
-				"$base/patch-flaggedtemplates-ft_tmp_rev_id.sql"
 			);
 			$du->modifyExtensionField(
 				'flaggedpages',
@@ -76,15 +66,6 @@ class FlaggedRevsUpdaterHooks implements
 			$base = __DIR__ . '/postgres';
 
 			// 1.38
-			$du->addExtensionUpdate(
-				[ 'changePrimaryKey', 'flaggedtemplates', [ 'ft_rev_id', 'ft_tmp_rev_id' ], 'flaggedtemplates_pk' ]
-			);
-			$du->addExtensionUpdate(
-				[ 'dropPgField', 'flaggedtemplates', 'ft_title' ]
-			);
-			$du->addExtensionUpdate(
-				[ 'dropPgField', 'flaggedtemplates', 'ft_namespace' ]
-			);
 			$du->addExtensionUpdate(
 				[ 'dropPgIndex', 'flaggedrevs', 'fr_img_sha1' ]
 			);
@@ -172,18 +153,6 @@ class FlaggedRevsUpdaterHooks implements
 				'changeField', 'flaggedrevs', 'fr_quality', 'SMALLINT', 'fr_quality::SMALLINT DEFAULT 0'
 			] );
 			$du->addExtensionUpdate( [
-				'dropDefault', 'flaggedtemplates', 'ft_rev_id'
-			] );
-			$du->addExtensionUpdate( [
-				'dropDefault', 'flaggedtemplates', 'ft_tmp_rev_id'
-			] );
-			$du->addExtensionUpdate( [
-				'changeField', 'flaggedtemplates', 'ft_rev_id', 'INT', ''
-			] );
-			$du->addExtensionUpdate( [
-				'changeField', 'flaggedtemplates', 'ft_tmp_rev_id', 'INT', ''
-			] );
-			$du->addExtensionUpdate( [
 				'dropDefault', 'flaggedpage_config', 'fpc_page_id'
 			] );
 			$du->addExtensionUpdate( [
@@ -221,11 +190,6 @@ class FlaggedRevsUpdaterHooks implements
 
 			// 1.38
 			$du->dropExtensionField(
-				'flaggedtemplates',
-				'ft_title',
-				"$base/patch-flaggedtemplates-fr_title.sql"
-			);
-			$du->dropExtensionField(
 				'flaggedrevs',
 				'fr_img_name',
 				"$base/patch-drop-fr_img.sql"
@@ -245,5 +209,7 @@ class FlaggedRevsUpdaterHooks implements
 			'frt_from_namespace_title',
 			__DIR__ . "/$dbType/patch-flaggedrevs_tracking-unique-to-pk.sql"
 		);
+		// 1.42
+		$du->dropExtensionTable( 'flaggedtemplates' );
 	}
 }

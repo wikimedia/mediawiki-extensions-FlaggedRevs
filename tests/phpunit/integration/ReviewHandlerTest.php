@@ -42,7 +42,6 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 		$this->editPage( $page, __METHOD__ );
 		$refid = $page->getLatest();
 		$target = $page->getTitle()->getPrefixedDBkey();
-		$templateParams = 'templateParamsValue';
 		$wpApprove = 1;
 		$wpReason = 'wpReasonValue';
 		$changetime = null;
@@ -50,7 +49,7 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 		$wpEditToken = $csrf->getToken( 'edit' )->toString();
 		$wpDimName = 'wp' . FlaggedRevs::getTagName();
 		$validatedParams = RevisionReviewForm::validationKey(
-			$templateParams, $oldid, $webRequest->getSessionData( 'wsFlaggedRevsKey' )
+			 $oldid, $webRequest->getSessionData( 'wsFlaggedRevsKey' )
 		);
 
 		$request = new RequestData( [
@@ -61,7 +60,6 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 				'wpEditToken' => $wpEditToken,
 				'refid' => $refid,
 				'validatedParams' => $validatedParams,
-				'templateParams' => $templateParams,
 				'wpApprove' => $wpApprove,
 				'wpReason' => $wpReason,
 				'changetime' => $changetime,
@@ -85,13 +83,12 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 
 		$oldid = $page->getLatest();
 		$target = $page->getTitle()->getPrefixedDBkey();
-		$templateParams = 'templateParamsValue';
 		$wpApprove = 1;
 		$csrf = new CsrfTokenSet( $webRequest );
 		$wpEditToken = $csrf->getToken( 'edit' )->toString();
 		$wpDimName = 'wp' . FlaggedRevs::getTagName();
 		$validatedParams = RevisionReviewForm::validationKey(
-			$templateParams, $oldid, $webRequest->getSessionData( 'wsFlaggedRevsKey' )
+			 $oldid, $webRequest->getSessionData( 'wsFlaggedRevsKey' )
 		);
 
 		$request = new RequestData( [
@@ -101,7 +98,6 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 				'oldid' => $oldid,
 				'wpEditToken' => $wpEditToken,
 				'validatedParams' => $validatedParams,
-				'templateParams' => $templateParams,
 				'wpApprove' => $wpApprove,
 				$wpDimName => FlaggedRevs::getMaxLevel(),
 			] ),
@@ -151,7 +147,6 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 		$this->editPage( $page, __METHOD__ );
 		$refid = $page->getLatest();
 		$target = $page->getTitle()->getPrefixedDBkey();
-		$templateParams = 'templateParamsValue';
 		$wpApprove = 1;
 		$wpReason = 'wpReasonValue';
 		$changetime = null;
@@ -159,7 +154,7 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 		$wpEditToken = $csrf->getToken( 'edit' )->toString();
 		$wpDimName = 'wp' . FlaggedRevs::getTagName();
 		$validatedParams = RevisionReviewForm::validationKey(
-			$templateParams, $oldid, $webRequest->getSessionData( 'wsFlaggedRevsKey' )
+			$oldid, $webRequest->getSessionData( 'wsFlaggedRevsKey' )
 		);
 
 		$request = new RequestData( [
@@ -170,7 +165,6 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 				'wpEditToken' => $wpEditToken,
 				'refid' => $refid,
 				'validatedParams' => $validatedParams,
-				'templateParams' => $templateParams,
 				'wpApprove' => $wpApprove,
 				'wpReason' => $wpReason,
 				'changetime' => $changetime,

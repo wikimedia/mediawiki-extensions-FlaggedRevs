@@ -199,7 +199,6 @@
 		"FRUserActivity": "includes/backend/FRUserActivity.php",
 		"FRPageConfig": "includes/backend/FRPageConfig.php",
 		"FlaggedRevsLog": "includes/backend/FlaggedRevsLog.php",
-		"FRInclusionCache": "includes/backend/FRInclusionCache.php",
 		"FlaggedRevsStats": "includes/backend/FlaggedRevsStats.php",
 		"FRExtraCacheUpdate": "includes/backend/FRExtraCacheUpdate.php",
 		"FRExtraCacheUpdateJob": "includes/backend/FRExtraCacheUpdateJob.php",

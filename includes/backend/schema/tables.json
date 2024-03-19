@@ -93,7 +93,7 @@
 	},
 	{
 		"name": "flaggedrevs",
-		"comment": "Data about reviews of revisions. This is the primary data, most other tables are derived from this. The template version data is stored in flaggedtemplates.",
+		"comment": "Data about reviews of revisions. This is the primary data, most other tables are derived from this.",
 		"columns": [
 			{
 				"name": "fr_rev_id",
@@ -172,26 +172,6 @@
 			}
 		],
 		"pk": [ "fr_rev_id" ]
-	},
-	{
-		"name": "flaggedtemplates",
-		"comment": "Per-article template reviews. Only used in FR_INCLUDES_STABLE mode. Stores which were the current revisions of each template used in the revision ft_rev_id when it last got reviewed. To hide template vandalism, when the stable version of the article is shown, each template will be shown using the newer of 1) the stable version of the template or 2) the template version which was shown when the article was last reviewed. Unreviewed template changes will make the article show up in the review queue even if the article itself has been fully reviewed. By default, there are template flaggedtemplates rows corresponding to every flaggedrevs row; pruneRevData.php can be used to remove template data for old revisions.",
-		"columns": [
-			{
-				"name": "ft_rev_id",
-				"comment": "Article revision ID. Foreign key to flaggedrevs.fr_rev_id.",
-				"type": "integer",
-				"options": { "notnull": true, "unsigned": true }
-			},
-			{
-				"name": "ft_tmp_rev_id",
-				"comment": "Template revision ID (the last revision of the template at the moment the article corresponding to ft_rev_id was reviewed).",
-				"type": "integer",
-				"options": { "notnull": true, "unsigned": true }
-			}
-		],
-		"indexes": [],
-		"pk": [ "ft_rev_id", "ft_tmp_rev_id" ]
 	},
 	{
 		"name": "flaggedpage_config",

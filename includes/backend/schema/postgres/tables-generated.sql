@@ -56,13 +56,6 @@ CREATE INDEX fr_page_qal_time ON flaggedrevs (
 CREATE INDEX fr_user ON flaggedrevs (fr_user);
 
 
-CREATE TABLE flaggedtemplates (
-  ft_rev_id INT NOT NULL,
-  ft_tmp_rev_id INT NOT NULL,
-  PRIMARY KEY(ft_rev_id, ft_tmp_rev_id)
-);
-
-
 CREATE TABLE flaggedpage_config (
   fpc_page_id INT NOT NULL,
   fpc_override SMALLINT NOT NULL,

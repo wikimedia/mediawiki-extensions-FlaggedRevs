@@ -430,10 +430,8 @@ class FlaggedRevs {
 			}
 		} else {
 			if ( $renderedRevision ) {
-				$renderedOutput = $renderedRevision->getRevisionParserOutput();
 				$renderedId = $renderedRevision->getRevision()->getId();
 			} else {
-				$renderedOutput = null;
 				$renderedId = null;
 			}
 
@@ -445,14 +443,6 @@ class FlaggedRevs {
 					!$oldSv ||
 					$sv->getRevId() != $oldSv->getRevId()
 				);
-			}
-			# Update template version cache...
-			if (
-				$renderedRevision && $renderedId && $renderedOutput &&
-				$sv->getRevId() != $renderedId &&
-				self::inclusionSetting() !== FR_INCLUDES_CURRENT
-			) {
-				FRInclusionCache::setRevIncludes( $title, $renderedId, $renderedOutput );
 			}
 		}
 		# Lazily rebuild dependencies on next parse (we invalidate below)
@@ -710,33 +700,12 @@ class FlaggedRevs {
 			return false;
 		}
 
-		# Get the "review time" versions of templates.
-		# This tries to make sure each template version either came from the stable
-		# version of that template or was a "review time" version used in the stable
-		# version of this page. If a pending version of a template is currently vandalism,
-		# we try to avoid storing its ID as the "review time" version so it won't show up when
-		# someone views the page. If not possible, this stores the current template.
-		if ( self::inclusionSetting() === FR_INCLUDES_CURRENT ) {
-			$tVersions = $poutput->getTemplateIds();
-		} else {
-			$tVersions = $oldSv ? $oldSv->getTemplateVersions() : [];
-			foreach ( $poutput->getTemplateIds() as $ns => $pages ) {
-				foreach ( $pages as $dbKey => $revId ) {
-					if ( !isset( $tVersions[$ns][$dbKey] ) ) {
-						$srev = FlaggedRevision::newFromStable( Title::makeTitle( $ns, $dbKey ) );
-						$tVersions[$ns][$dbKey] = $srev ? $srev->getRevId() : $revId;
-					}
-				}
-			}
-		}
-
 		# Our review entry
 		$flaggedRevision = new FlaggedRevision( [
 			'revrecord'    		=> $revRecord,
 			'user_id'	       	=> $user->getId(),
 			'timestamp'     	=> $revRecord->getTimestamp(), // same as edit time
 			'tags'	       		=> $flags,
-			'templateVersions' 	=> $tVersions,
 			'flags'             => $auto ? 'auto' : '',
 		] );
 

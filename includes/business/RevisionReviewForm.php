@@ -242,7 +242,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			}
 			# Special token to discourage fiddling with templates...
 			if ( !$this->skipValidationKey ) {
-				$k = self::validationKey( $this->templateParams, $this->oldid, $this->sessionKey );
+				$k = self::validationKey( $this->oldid, $this->sessionKey );
 				if ( $this->validatedParams !== $k ) {
 					return 'review_bad_key';
 				}
@@ -475,16 +475,11 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	) {
 		# Revision rating flags
 		$flags = $this->getTags();
-		# Our template version pointers
-		$tmpVersions = $this->getIncludeVersions( $this->templateParams );
 		# Get current stable version ID (for logging)
 		$oldSv = FlaggedRevision::newFromStable( $this->title, IDBAccessObject::READ_LATEST );
 
 		# Is this a duplicate review?
-		if ( $oldFrev &&
-			$oldFrev->getTags() == $flags && // tags => quality
-			$oldFrev->getTemplateVersions( IDBAccessObject::READ_LATEST ) == $tmpVersions
-		) {
+		if ( $oldFrev && $oldFrev->getTags() == $flags ) {
 			return; // don't record if the same
 		}
 
@@ -494,7 +489,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			'user_id'           => $this->user->getId(),
 			'timestamp'         => wfTimestampNow(),
 			'tags'              => $flags,
-			'templateVersions'  => $tmpVersions,
 			'flags'             => ''
 		] );
 		# Delete the old review entry if it exists...
@@ -565,16 +559,15 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 	/**
 	 * Get a validation key from template versioning metadata
-	 * @param string $tmpP
 	 * @param int $revisionId
 	 * @param string $sessKey Session key
 	 * @return string
 	 */
-	public static function validationKey( $tmpP, $revisionId, $sessKey ) {
+	public static function validationKey( $revisionId, $sessKey ) {
 		global $wgSecretKey;
 		$key = md5( $wgSecretKey );
 		$keyBits = $key[3] . $key[9] . $key[13] . $key[19] . $key[26];
-		return md5( $tmpP . $revisionId . $sessKey . $keyBits );
+		return md5( $revisionId . $sessKey . $keyBits );
 	}
 
 	/**
@@ -637,52 +630,5 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 				__METHOD__
 			);
 		}
-	}
-
-	/**
-	 * Get template parameters from parser output to use on forms.
-	 * @param array<int,array<string,int>> $templateIds {@see ParserOutput::$mTemplateIds} or
-	 *  {@see OutputPage::$mTemplateIds}
-	 * @return string templateParams
-	 */
-	public static function getIncludeParams( array $templateIds ) {
-		$templateParams = '';
-		# NS -> title -> rev ID mapping
-		foreach ( $templateIds as $namespace => $t ) {
-			foreach ( $t as $dbKey => $revId ) {
-				$temptitle = Title::makeTitle( $namespace, $dbKey );
-				$templateParams .= $temptitle->getPrefixedDBkey() . "|" . $revId . "#";
-			}
-		}
-		return $templateParams;
-	}
-
-	/**
-	 * Get template versions from form value for parser output.
-	 * @param string $templateParams
-	 * @return int[][] {@see ParserOutput::$mTemplateIds} or
-	 *    {@see OutputPage::$mTemplateIds}
-	 */
-	private function getIncludeVersions( $templateParams ) {
-		$templateIds = [];
-		$templateMap = explode( '#', trim( $templateParams ) );
-		foreach ( $templateMap as $template ) {
-			if ( !$template ) {
-				continue;
-			}
-			$m = explode( '|', $template, 2 );
-			if ( !isset( $m[1] ) || !$m[0] ) {
-				continue;
-			}
-			[ $prefixed_text, $rev_id ] = $m;
-			# Get the template title
-			$tmp_title = Title::newFromText( $prefixed_text ); // Normalize this to be sure...
-			if ( $tmp_title === null ) {
-				continue; // Page must be valid!
-			}
-			$templateIds[$tmp_title->getNamespace()][$tmp_title->getDBkey()] = $rev_id;
-		}
-
-		return $templateIds;
 	}
 }

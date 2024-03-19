@@ -77,17 +77,6 @@ class ApiReview extends ApiBase {
 			(int)$params['flag_' . FlaggedRevs::getTagName() ]
 		);
 		if ( $form->getAction() === RevisionReviewForm::ACTION_APPROVE ) {
-			$article = FlaggableWikiPage::newInstance( $title );
-			// Now get the template parameters needed
-			if ( FlaggedRevs::inclusionSetting() === FR_INCLUDES_CURRENT ) {
-				$templateIds = []; // unused
-			} else {
-				$templateIds = FRInclusionCache::getRevIncludes( $article, $revRecord, $this->getUser() )[0];
-			}
-			// Get version parameters for review submission (flat strings)
-			$templateParams = RevisionReviewForm::getIncludeParams( $templateIds );
-			// Set the version parameters...
-			$form->setTemplateParams( $templateParams );
 			$form->bypassValidationKey(); // always OK; uses current templates
 		}
 

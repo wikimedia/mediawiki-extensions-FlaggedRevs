@@ -89,12 +89,12 @@ class FRInclusionManager {
 	public function stabilizeParserOutput( FlaggedRevision $frev ) {
 		// Stable versions
 		$tStbVersions = [];
-		$tRevVersions = $frev->getTemplateVersions();
 		# We can preload *most* of the stable version IDs the parser will need...
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
 			$tStbVersions = $frev->getStableTemplateVersions();
 		}
-		$this->setReviewedVersions( $tRevVersions );
+		$this->reviewedVersions = [];
+		$this->reviewedVersions['templates'] = [];
 		$this->setStableVersionCache( $tStbVersions );
 	}
 

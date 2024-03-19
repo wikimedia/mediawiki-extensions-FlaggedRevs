@@ -4,7 +4,6 @@ use MediaWiki\Cache\CacheKeyHelper;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\HookContainer\HookRunner;
 use MediaWiki\Html\Html;
-use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Page\PageIdentity;
@@ -25,8 +24,6 @@ class FlaggablePageView extends ContextSource {
 	private FlaggableWikiPage $article;
 	/** @var RevisionRecord[]|null Array of `old` and `new` RevisionsRecords for diffs */
 	private ?array $diffRevRecords = null;
-	/** @var array<int,array<string,int>>[] [ templateIds ] */
-	private ?array $oldRevIncludes = null;
 	private bool $isReviewableDiff = false;
 	private bool $isDiffFromStable = false;
 	private bool $isMultiPageDiff = false;
@@ -936,28 +933,6 @@ class FlaggablePageView extends ContextSource {
 			$form->setTopNotice( $this->diffNoticeBox );
 			$form->setBottomNotice( $this->diffIncChangeBox );
 
-			# $wgOut might not have the inclusion IDs, such as for diffs with diffonly=1.
-			# If they're lacking, then we use getRevIncludes() to get the draft inclusion versions.
-			# Note: showStableVersion() already makes sure that $wgOut
-			# has the stable inclusion versions.
-			if ( FlaggedRevs::inclusionSetting() === FR_INCLUDES_CURRENT ) {
-				$tmpVers = []; // unused
-			} elseif ( $this->out->getRevisionId() == $revRecord->getId() ) {
-				$tmpVers = $this->out->getTemplateIds();
-			} elseif ( $this->oldRevIncludes ) { // e.g. diffonly=1, stable diff
-				# We may have already fetched the inclusion IDs to get the template changes.
-				$tmpVers = $this->oldRevIncludes[0]; // reuse
-			} else { // e.g. diffonly=1, other diffs
-				# $wgOut may not already have the inclusion IDs, such as for diffonly=1.
-				# RevisionReviewForm will fetch them as needed however.
-				$tmpVers = FRInclusionCache::getRevIncludes(
-					$this->article,
-					$revRecord,
-					$reqUser
-				)[0];
-			}
-			$form->setIncludeVersions( $tmpVers );
-
 			[ $html, ] = $form->getHtml();
 			# Diff action: place the form at the top of the page
 			if ( $output instanceof OutputPage ) {
@@ -1194,7 +1169,6 @@ class FlaggablePageView extends ContextSource {
 	 * (b) Mark off which versions are checked or not
 	 * (c) When comparing the stable revision to the current:
 	 *   (i)  Show a tag with some explanation for the diff
-	 *   (ii) List any template changes pending review
 	 */
 	public function addToDiffView( ?RevisionRecord $oldRevRecord, ?RevisionRecord $newRevRecord ): void {
 		$pm = MediaWikiServices::getInstance()->getPermissionManager();
@@ -1216,40 +1190,12 @@ class FlaggablePageView extends ContextSource {
 		}
 		# Check if this is a diff-to-stable. If so:
 		# (a) prompt reviewers to review the changes
-		# (b) list template changes if only includes are pending
 		if ( $srev
 			&& $this->isDiffFromStable
 			&& !$this->article->stableVersionIsSynced() // pending changes
 		) {
-			$changeText = '';
-			# Page not synced only due to includes?
-			if ( !$this->article->revsArePending() ) {
-				# Add a list of links to each changed template...
-				$changeList = self::fetchTemplateChanges( $srev );
-				# Correct bad cache which said they were not synced...
-				if ( !count( $changeList ) ) {
-					$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
-					$cache->set(
-						$cache->makeKey( 'flaggedrevs-includes-synced', $this->article->getId() ),
-						1,
-						$this->getConfig()->get( MainConfigNames::ParserCacheExpireTime )
-					);
-				}
-			# Otherwise, check for includes pending on top of edits pending...
-			} elseif ( FlaggedRevs::inclusionSetting() !== FR_INCLUDES_CURRENT ) {
-				$incs = FRInclusionCache::getRevIncludes(
-					$this->article,
-					$newRevRecord,
-					$reqUser
-				);
-				$this->oldRevIncludes = $incs; // process cache
-				# Add a list of links to each changed template...
-				$changeList = self::fetchTemplateChanges( $srev, $incs[0] );
-			} else {
-				$changeList = []; // unused
-			}
-			# If there are pending revs or templates changes, notify the user...
-			if ( $this->article->revsArePending() || count( $changeList ) ) {
+			# If there are pending revs, notify the user...
+			if ( $this->article->revsArePending() ) {
 				# If the user can review then prompt them to review them...
 				if ( $pm->userHasRight( $reqUser, 'review' ) ) {
 					// Reviewer just edited...
@@ -1278,23 +1224,6 @@ class FlaggablePageView extends ContextSource {
 					}
 					// add as part of form
 					$this->diffNoticeBox = $this->msg( $msg )->parseAsBlock();
-				}
-				# Add include change list...
-				if ( count( $changeList ) ) { // just inclusion changes
-					$changeText .= "<p>" .
-						$this->msg( 'revreview-update-includes' )->parse() .
-						'&#160;' . implode( ', ', $changeList ) . "</p>\n";
-				}
-			}
-			# template change list
-			if ( $changeText != '' ) {
-				if ( $pm->userHasRight( $reqUser, 'review' ) ) {
-					$this->diffIncChangeBox = "<p>$changeText</p>";
-				} else {
-					$css = 'flaggedrevs_diffnotice plainlinks';
-					$this->out->addHTML(
-						"<div id='mw-fr-difftostable' class='$css'>$changeText</div>\n"
-					);
 				}
 			}
 		}
@@ -1442,35 +1371,6 @@ class FlaggablePageView extends ContextSource {
 				'revreview-hist-draft';
 		}
 		return [ $msg, $checked ? 'flaggedrevs-color-1' : 'flaggedrevs-color-0' ];
-	}
-
-	/**
-	 * Fetch template changes for a reviewed revision since review
-	 * @param FlaggedRevision $frev
-	 * @param int[][]|null $newTemplates
-	 * @return string[]
-	 */
-	private static function fetchTemplateChanges( FlaggedRevision $frev, ?array $newTemplates = null ): array {
-		$diffLinks = [];
-		if ( $newTemplates === null ) {
-			$changes = $frev->findPendingTemplateChanges();
-		} else {
-			$changes = $frev->findTemplateChanges( $newTemplates );
-		}
-		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
-		foreach ( $changes as $tuple ) {
-			[ $title, $revIdStable, $hasStable ] = $tuple;
-			$link = $linkRenderer->makeKnownLink(
-				$title,
-				$title->getPrefixedText(),
-				[],
-				[ 'diff' => 'cur', 'oldid' => $revIdStable ] );
-			if ( !$hasStable ) {
-				$link = "<strong>$link</strong>";
-			}
-			$diffLinks[] = $link;
-		}
-		return $diffLinks;
 	}
 
 	/**

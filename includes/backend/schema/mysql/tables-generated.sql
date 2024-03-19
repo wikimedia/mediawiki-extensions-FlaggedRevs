@@ -47,13 +47,6 @@ CREATE TABLE /*_*/flaggedrevs (
 ) /*$wgDBTableOptions*/;
 
 
-CREATE TABLE /*_*/flaggedtemplates (
-  ft_rev_id INT UNSIGNED NOT NULL,
-  ft_tmp_rev_id INT UNSIGNED NOT NULL,
-  PRIMARY KEY(ft_rev_id, ft_tmp_rev_id)
-) /*$wgDBTableOptions*/;
-
-
 CREATE TABLE /*_*/flaggedpage_config (
   fpc_page_id INT UNSIGNED NOT NULL,
   fpc_override TINYINT(1) NOT NULL,
