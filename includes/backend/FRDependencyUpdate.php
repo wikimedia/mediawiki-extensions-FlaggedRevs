@@ -83,7 +83,7 @@ class FRDependencyUpdate {
 			$existing = $this->getExistingDeps( IDBAccessObject::READ_LATEST );
 			$insertions = $this->getDepInsertions( $existing, $deps );
 			$deletions = $this->getDepDeletions( $existing, $deps );
-			$dbw = wfGetDB( DB_PRIMARY );
+			$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 			# Delete removed links
 			if ( $deletions ) {
 				$dbw->delete( 'flaggedrevs_tracking', $deletions, __METHOD__ );
@@ -101,7 +101,11 @@ class FRDependencyUpdate {
 	 * @return int[][] (ns => dbKey => 1)
 	 */
 	private function getExistingDeps( $flags = 0 ) {
-		$db = wfGetDB( ( $flags & IDBAccessObject::READ_LATEST ) ? DB_PRIMARY : DB_REPLICA );
+		if ( $flags & IDBAccessObject::READ_LATEST ) {
+			$db = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+		} else {
+			$db = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+		}
 		$res = $db->select( 'flaggedrevs_tracking',
 			[ 'ftr_namespace', 'ftr_title' ],
 			[ 'ftr_from' => $this->title->getArticleID() ],
@@ -158,7 +162,8 @@ class FRDependencyUpdate {
 			}
 		}
 		if ( $del ) {
-			$clause = $this->makeWhereFrom2d( $del, wfGetDB( DB_PRIMARY ) );
+			$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+			$clause = $this->makeWhereFrom2d( $del, $dbw );
 			if ( $clause ) {
 				return [ $clause, 'ftr_from' => $this->title->getArticleID() ];
 			}
@@ -192,7 +197,7 @@ class FRDependencyUpdate {
 	 * @return int[][] (ns => dbKey => 1)
 	 */
 	private function getCurrentVersionLinks() {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		$linksMigration = MediaWikiServices::getInstance()->getLinksMigration();
 		$queryInfo = $linksMigration->getQueryInfo( 'pagelinks' );
 		[ $nsField, $titleField ] = $linksMigration->getTitleFields( 'pagelinks' );
@@ -216,7 +221,7 @@ class FRDependencyUpdate {
 	 * @return int[][] (ns => dbKey => 1)
 	 */
 	private function getCurrentVersionTemplates() {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		$linksMigration = MediaWikiServices::getInstance()->getLinksMigration();
 		$queryInfo = $linksMigration->getQueryInfo( 'templatelinks' );
 		[ $nsField, $titleField ] = $linksMigration->getTitleFields( 'templatelinks' );
@@ -239,7 +244,7 @@ class FRDependencyUpdate {
 	 * @return string[] (category => sortkey)
 	 */
 	private function getCurrentVersionCategories() {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		$res = $dbr->select( 'categorylinks',
 			[ 'cl_to', 'cl_sortkey' ],
 			[ 'cl_from' => $this->title->getArticleID() ],

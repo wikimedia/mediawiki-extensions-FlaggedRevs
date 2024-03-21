@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
 use MediaWiki\User\ActorMigration;
 use Wikimedia\Rdbms\IReadableDatabase;
 
@@ -27,7 +28,7 @@ class FlaggedRevsStats {
 			'statTimestamp' => '-',
 		];
 
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		// Latest timestamp recorded
 		$timestamp = $dbr->selectField( 'flaggedrevs_statistics', 'MAX(frs_timestamp)', [], __METHOD__ );
 
@@ -92,7 +93,7 @@ class FlaggedRevsStats {
 		# Get wait (till review) time samples for logged-in user edits...
 		$reviewDataUser = self::getEditReviewTimes( $cache, 'users' );
 
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 		// The timestamp to identify this whole batch of data
 		$encDataTimestamp = $dbw->timestamp();
 
@@ -187,7 +188,7 @@ class FlaggedRevsStats {
 		$ns_reviewed = [];
 		$ns_synced = [];
 		// Get total, reviewed, and synced page count for each namespace
-		$dbr = wfGetDB( DB_REPLICA, 'vslow' );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase( false, 'vslow' );
 		$res = $dbr->select( [ 'page', 'flaggedpages' ],
 			[ 'page_namespace',
 				'total' => 'COUNT(*)',
@@ -221,7 +222,7 @@ class FlaggedRevsStats {
 	 * @return int
 	 */
 	private static function getMeanPendingEditTime() {
-		$dbr = wfGetDB( DB_REPLICA, 'vslow' );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase( false, 'vslow' );
 		$nowUnix = wfTimestamp();
 		$unixTimeCall = self::dbUnixTime( $dbr, 'fp_pending_since' );
 		return (int)$dbr->selectField(
@@ -260,7 +261,7 @@ class FlaggedRevsStats {
 		$rPerTable = []; // review wait percentiles
 		# Only go so far back...otherwise we will get garbage values due to
 		# the fact that FlaggedRevs wasn't enabled until after a while.
-		$dbr = wfGetDB( DB_REPLICA, 'vslow' );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase( false, 'vslow' );
 		$installedUnix = $dbr->selectField( 'logging',
 			self::dbUnixTime( $dbr, 'MIN(log_timestamp)' ),
 			[ 'log_type' => 'review' ],
