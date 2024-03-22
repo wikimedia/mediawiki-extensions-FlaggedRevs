@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
 
@@ -70,7 +71,11 @@ class FRUserCounters {
 		if ( ( $flags & IDBAccessObject::READ_EXCLUSIVE ) === IDBAccessObject::READ_EXCLUSIVE ) {
 			$options[] = 'FOR UPDATE';
 		}
-		$db = wfGetDB( ( $flags & IDBAccessObject::READ_LATEST ) ? DB_PRIMARY : DB_REPLICA );
+		if ( $flags & IDBAccessObject::READ_LATEST ) {
+			$db = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+		} else {
+			$db = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+		}
 		return $db->selectRow( 'flaggedrevs_promote',
 			'frp_user_params',
 			[ 'frp_user_id' => $userId ],
@@ -85,7 +90,8 @@ class FRUserCounters {
 	 * @param array $params
 	 */
 	public static function saveUserParams( $userId, array $params ) {
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+
 		$dbw->replace(
 			'flaggedrevs_promote',
 			'frp_user_id',
@@ -101,7 +107,8 @@ class FRUserCounters {
 	 * @param UserIdentity $user
 	 */
 	public static function deleteUserParams( UserIdentity $user ) {
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+
 		$dbw->delete(
 			'flaggedrevs_promote',
 			[ 'frp_user_id' => $user->getId() ],

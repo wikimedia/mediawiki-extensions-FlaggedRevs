@@ -113,7 +113,8 @@ class FlaggedRevsHooks implements
 	 * Update flaggedrevs table on revision restore
 	 */
 	public function onRevisionUndeleted( $revision, $oldPageID ) {
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+
 		# Some revisions may have had null rev_id values stored when deleted.
 		# This hook is called after insertOn() however, in which case it is set
 		# as a new one.
@@ -131,7 +132,8 @@ class FlaggedRevsHooks implements
 		$oldPageID = $sourceTitle->getArticleID();
 		$newPageID = $destTitle->getArticleID();
 		# Get flagged revisions from old page id that point to destination page
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+
 		$revIDs = $dbw->selectFieldValues(
 			[ 'flaggedrevs', 'revision' ],
 			'fr_rev_id',
@@ -592,7 +594,8 @@ class FlaggedRevsHooks implements
 		if ( !$srev || $baseRevId != $srev->getRevId() ) {
 			return false; // user reports they are not the same
 		}
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+
 		# Such a revert requires 1+ revs between it and the stable
 		$revWhere = ActorMigration::newMigration()->getWhere( $dbw, 'rev_user', $user );
 		$revertedRevs = (bool)$dbw->selectField(
@@ -870,7 +873,8 @@ class FlaggedRevsHooks implements
 	 * @return true|int True if passed, int seconds on failure
 	 */
 	private static function editSpacingCheck( User $user, $spacingReq, $pointsReq ) {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+
 		$queryData = self::getQueryData( $dbr, $user );
 
 		$benchmarks = 0; // actual edit points
@@ -928,7 +932,8 @@ class FlaggedRevsHooks implements
 	 * @return bool
 	 */
 	private static function reviewedEditsCheck( User $user, $editsReq, $seconds = 0 ) {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+
 		$queryData = self::getQueryData( $dbr, $user );
 		// Get cutoff timestamp (excludes edits that are too recent)
 		foreach ( $queryData as $k => $data ) {
@@ -1013,7 +1018,8 @@ class FlaggedRevsHooks implements
 	 * @return int
 	 */
 	private static function recentEditCount( $userId, $seconds, $limit ) {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+
 		$queryData = self::getQueryData( $dbr, User::newFromId( $userId ) );
 		# Get cutoff timestamp (edits that are too recent)
 		$encCutoff = $dbr->addQuotes( $dbr->timestamp( time() - $seconds ) );
@@ -1043,7 +1049,8 @@ class FlaggedRevsHooks implements
 	 * @return int
 	 */
 	private static function recentContentEditCount( $userId, $seconds, $limit ) {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+
 		$queryData = self::getQueryData( $dbr, User::newFromId( $userId ) );
 		# Get cutoff timestamp (edits that are too recent)
 		$encCutoff = $dbr->addQuotes( $dbr->timestamp( time() - $seconds ) );
@@ -1164,7 +1171,8 @@ class FlaggedRevsHooks implements
 							// update the cached value to be the current timestamp
 							$newTimestamp = time();
 
-							$dbr = wfGetDB( DB_REPLICA );
+							$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+
 							$setOpts += Database::getCacheSetOptions( $dbr );
 
 							$hasPriorBlock = self::wasPreviouslyBlocked(

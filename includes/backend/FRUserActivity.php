@@ -23,7 +23,8 @@ class FRUserActivity {
 			static function ( $oldValue, &$ttl, array &$setOpts ) use ( $cache, $title, $fname ) {
 				global $wgActiveUserDays;
 
-				$dbr = wfGetDB( DB_REPLICA );
+				$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+
 				$setOpts += Database::getCacheSetOptions( $dbr );
 				// Get number of active editors watching this page...
 				$count = (int)$dbr->selectField(

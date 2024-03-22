@@ -205,7 +205,10 @@ class ValidationStatistics extends IncludableSpecialPage {
 	 * @return bool
 	 */
 	private function readyForQuery() {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()
+				->getDBLoadBalancer()
+				->getMaintenanceConnectionRef( DB_REPLICA, [], false );
+
 		return $dbr->tableExists( 'flaggedrevs_statistics', __METHOD__ ) &&
 			$dbr->selectField( 'flaggedrevs_statistics', '1', [], __METHOD__ );
 	}
@@ -214,7 +217,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 	 * @return int
 	 */
 	private function getEditorCount() {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 		return (int)$dbr->selectField( 'user_groups', 'COUNT(*)',
 			[
@@ -228,7 +231,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 	 * @return int
 	 */
 	private function getReviewerCount() {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 		return (int)$dbr->selectField( 'user_groups', 'COUNT(*)',
 			[
@@ -327,7 +330,9 @@ class ValidationStatistics extends IncludableSpecialPage {
 			$cache->makeKey( 'flaggedrevs', 'reviewTopUsers' ),
 			$cache::TTL_HOUR,
 			static function () use ( $fname ) {
-				$dbr = wfGetDB( DB_REPLICA, 'vslow' );
+				$dbr = MediaWikiServices::getInstance()
+					->getDBLoadBalancer()
+					->getMaintenanceConnectionRef( DB_REPLICA, 'vslow', false );
 
 				$limit = 5;
 				$seconds = 3600;

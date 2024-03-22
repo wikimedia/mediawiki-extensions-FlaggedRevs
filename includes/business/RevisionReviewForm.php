@@ -398,7 +398,8 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			) {
 				$affectedRevisions = []; // revid -> userid
 				$revQuery = $revStore->getQueryInfo();
-				$dbr = wfGetDB( DB_REPLICA );
+				$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+
 				$revisions = $dbr->select(
 					$revQuery['tables'],
 					[ 'rev_id', 'rev_user' => $revQuery['fields']['rev_user'] ],
@@ -589,7 +590,8 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		}
 		$sTimestamp = $srev ? $srev->getRevTimestamp() : null;
 
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+
 		$limit = 100; // sanity limit to avoid replica lag (most useful when FR is first enabled)
 		$conds = [ 'rc_cur_id' => $pageId ];
 

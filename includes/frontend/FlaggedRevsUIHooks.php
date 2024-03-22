@@ -877,7 +877,8 @@ class FlaggedRevsUIHooks implements
 		$watchlist = SpecialPage::getTitleFor( 'Watchlist' );
 		# Add notice to watchlist about pending changes...
 		if ( $out->getTitle()->equals( $watchlist ) && $namespaces ) {
-			$dbr = wfGetDB( DB_REPLICA, 'watchlist' ); // consistency with watchlist
+			$dbr = MediaWikiServices::getInstance()->getConnectionProvider()
+				->getReplicaDatabase( false, 'watchlist' ); // consistency with watchlist
 			$watchedOutdated = (bool)$dbr->selectField(
 				[ 'watchlist', 'page', 'flaggedpages' ],
 				'1', // existence

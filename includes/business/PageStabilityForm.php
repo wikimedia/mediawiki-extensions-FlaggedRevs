@@ -352,7 +352,8 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 			$settings = FlaggedRevsStableLogFormatter::stabilitySettings( $params, true /*content*/ );
 		}
 		// action
-		$comment = MediaWikiServices::getInstance()->getContentLanguage()->ucfirst(
+		$services = MediaWikiServices::getInstance();
+		$comment = $services->getContentLanguage()->ucfirst(
 			wfMessage( $type, $this->title->getPrefixedText() )->inContentLanguage()->text()
 		);
 		if ( $reason != '' ) {
@@ -363,8 +364,8 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		}
 
 		# Insert a null revision...
-		$revStore = MediaWikiServices::getInstance()->getRevisionStore();
-		$dbw = wfGetDB( DB_PRIMARY );
+		$revStore = $services->getRevisionStore();
+		$dbw = $services->getConnectionProvider()->getPrimaryDatabase();
 		$nullRevRecord = $revStore->newNullRevision(
 			$dbw,
 			$article->getTitle(),
@@ -379,7 +380,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		$article->updateRevisionOn( $dbw, $insertedRevRecord, $oldLatest );
 
 		$tags = []; // passed by reference
-		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
+		$hookContainer = $services->getHookContainer();
 
 		$hookRunner = new FlaggedRevsHookRunner( $hookContainer );
 		$hookRunner->onRevisionFromEditComplete(

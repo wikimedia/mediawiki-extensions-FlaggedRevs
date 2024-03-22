@@ -462,7 +462,8 @@ class FlaggedRevs {
 	 * @param int|int[] $pageId (int or array)
 	 */
 	public static function clearTrackingRows( $pageId ) {
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+
 		$dbw->delete( 'flaggedpages', [ 'fp_page_id' => $pageId ], __METHOD__ );
 		$dbw->delete( 'flaggedrevs_tracking', [ 'ftr_from' => $pageId ], __METHOD__ );
 		$dbw->delete( 'flaggedpage_pending', [ 'fpp_page_id' => $pageId ], __METHOD__ );
@@ -473,7 +474,8 @@ class FlaggedRevs {
 	 * @param int|int[] $pageId (int or array)
 	 */
 	public static function clearStableOnlyDeps( $pageId ) {
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+
 		$dbw->delete( 'flaggedrevs_tracking', [ 'ftr_from' => $pageId ], __METHOD__ );
 	}
 
@@ -522,7 +524,8 @@ class FlaggedRevs {
 			->getRcIdIfUnpatrolled( $revRecord );
 		# Make sure it is now marked patrolled...
 		if ( $rcid ) {
-			$dbw = wfGetDB( DB_PRIMARY );
+			$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+
 			$dbw->update( 'recentchanges',
 				[ 'rc_patrolled' => 1 ],
 				[ 'rc_id' => $rcid ],

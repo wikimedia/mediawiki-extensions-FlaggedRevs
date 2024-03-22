@@ -14,7 +14,11 @@ class FRPageConfig {
 	 * @return array [ 'override' => int, 'autoreview' => string, 'expiry' => string ]
 	 */
 	public static function getStabilitySettings( Title $title, $flags = 0 ) {
-		$db = wfGetDB( ( $flags & IDBAccessObject::READ_LATEST ) ? DB_PRIMARY : DB_REPLICA );
+		if ( $flags & IDBAccessObject::READ_LATEST ) {
+			$db = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+		} else {
+			$db = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+		}
 		$row = $db->selectRow( 'flaggedpage_config',
 			[ 'fpc_override', 'fpc_level', 'fpc_expiry' ],
 			[ 'fpc_page_id' => $title->getArticleID() ],
@@ -31,7 +35,8 @@ class FRPageConfig {
 	public static function getVisibilitySettingsFromRow( $row ) {
 		$expiry = false;
 		if ( $row ) {
-			$expiry = wfGetDB( DB_REPLICA )->decodeExpiry( $row->fpc_expiry );
+			$expiry = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase()
+				->decodeExpiry( $row->fpc_expiry );
 			# Only apply the settings if they haven't expired
 			if ( !$expiry || $expiry < wfTimestampNow() ) {
 				$row = null; // expired
@@ -80,7 +85,8 @@ class FRPageConfig {
 	 * @return bool Row changed
 	 */
 	public static function setStabilitySettings( Title $title, array $config ) {
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+
 		# Purge expired entries on one in every 10 queries
 		if ( !mt_rand( 0, 10 ) ) {
 			self::purgeExpiredConfigurations();
@@ -186,7 +192,8 @@ class FRPageConfig {
 		if ( MediaWikiServices::getInstance()->getReadOnlyMode()->isReadOnly() ) {
 			return;
 		}
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+
 		# Find pages with expired configs...
 		$config = self::getDefaultVisibilitySettings(); // config is to be reset
 		$encCutoff = $dbw->addQuotes( $dbw->timestamp() );

@@ -194,7 +194,7 @@ class FlaggableWikiPage extends WikiPage {
 			function (
 				$oldValue = null, &$ttl = null, array &$setOpts = []
 			) use ( $srev, $fname ) {
-				$db = wfGetDB( DB_REPLICA );
+				$db = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 				$setOpts += Database::getCacheSetOptions( $db );
 
 				return (int)$db->selectField(
@@ -371,7 +371,8 @@ class FlaggableWikiPage extends WikiPage {
 	 * @return int
 	 */
 	public function getBestFlaggedRevId() {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+
 		# Get the highest quality revision (not necessarily this one).
 		$oldid = $dbr->selectField( [ 'flaggedrevs', 'revision' ],
 			'fr_rev_id',
@@ -468,7 +469,11 @@ class FlaggableWikiPage extends WikiPage {
 		# Fetch data from DB as needed...
 		$from = WikiPage::convertSelectType( $data );
 		if ( $from === IDBAccessObject::READ_NORMAL || $from === IDBAccessObject::READ_LATEST ) {
-			$db = wfGetDB( $from === IDBAccessObject::READ_LATEST ? DB_PRIMARY : DB_REPLICA );
+			if ( $from === IDBAccessObject::READ_LATEST ) {
+				$db = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+			} else {
+				$db = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+			}
 			$data = $this->pageDataFromTitle( $db, $this->mTitle );
 		}
 		# Load in primary page data...
@@ -507,7 +512,8 @@ class FlaggableWikiPage extends WikiPage {
 		if ( !$latest ) {
 			$latest = $this->mTitle->getLatestRevID( IDBAccessObject::READ_LATEST );
 		}
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+
 		# Get the timestamp of the first edit after the stable version (if any)...
 		$nextTimestamp = null;
 		if ( $revRecord->getId() != $latest ) {
@@ -553,7 +559,8 @@ class FlaggableWikiPage extends WikiPage {
 		if ( !$this->exists() ) {
 			return; // nothing to do
 		}
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+
 		$dbw->delete( 'flaggedpages', [ 'fp_page_id' => $this->getId() ], __METHOD__ );
 		$dbw->delete( 'flaggedpage_pending', [ 'fpp_page_id' => $this->getId() ], __METHOD__ );
 	}
@@ -566,7 +573,7 @@ class FlaggableWikiPage extends WikiPage {
 	private function updatePendingList( $pageId, $latest ) {
 		$data = [];
 
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
 		# Get the latest revision of FR_CHECKED
 		$row = $dbw->selectRow(

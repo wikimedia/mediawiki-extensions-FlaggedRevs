@@ -93,7 +93,11 @@ class FlaggedRevision {
 		if ( !$pageId ) {
 			return null; // short-circuit query
 		}
-		$db = wfGetDB( ( $flags & IDBAccessObject::READ_LATEST ) ? DB_PRIMARY : DB_REPLICA );
+		if ( $flags & IDBAccessObject::READ_LATEST ) {
+			$db = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+		} else {
+			$db = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+		}
 		# Skip deleted revisions
 		$frQuery = self::getQueryInfo();
 		$row = $db->selectRow(
@@ -129,7 +133,11 @@ class FlaggedRevision {
 		if ( !$pageId ) {
 			return null; // short-circuit query
 		}
-		$db = wfGetDB( ( $flags & IDBAccessObject::READ_LATEST ) ? DB_PRIMARY : DB_REPLICA );
+		if ( $flags & IDBAccessObject::READ_LATEST ) {
+			$db = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+		} else {
+			$db = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+		}
 		# Check tracking tables
 		$frQuery = self::getQueryInfo();
 		$row = $db->selectRow(
@@ -190,7 +198,8 @@ class FlaggedRevision {
 			return null; // short-circuit
 		}
 		$options = [];
-		$db = wfGetDB( DB_PRIMARY );
+
+		$db = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 		$pageId = $title->getArticleID( IDBAccessObject::READ_LATEST );
 		if ( !$pageId ) {
 			return null; // short-circuit query
@@ -228,7 +237,8 @@ class FlaggedRevision {
 	 * @return true|string true on success, error string on failure
 	 */
 	public function insert() {
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+
 		# Set any flagged revision flags
 		$this->mFlags = array_merge( $this->mFlags, [ 'dynamic' ] ); // legacy
 		# Sanity check for partial revisions
@@ -260,7 +270,8 @@ class FlaggedRevision {
 	 * Remove a FlaggedRevision object from the database
 	 */
 	public function delete() {
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+
 		# Delete from flaggedrevs table
 		$dbw->delete( 'flaggedrevs',
 			[ 'fr_rev_id' => $this->getRevId() ], __METHOD__ );
@@ -386,7 +397,8 @@ class FlaggedRevision {
 	public function getStableTemplateVersions() {
 		if ( $this->mStableTemplates == null ) {
 			$this->mStableTemplates = [];
-			$dbr = wfGetDB( DB_REPLICA );
+			$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+
 			$linksMigration = MediaWikiServices::getInstance()->getLinksMigration();
 			[ $nsField, $titleField ] = $linksMigration->getTitleFields( 'templatelinks' );
 			$queryInfo = $linksMigration->getQueryInfo( 'templatelinks' );
@@ -428,7 +440,8 @@ class FlaggedRevision {
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
 			return false; // short-circuit
 		}
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+
 		$linksMigration = MediaWikiServices::getInstance()->getLinksMigration();
 		[ $nsField, $titleField ] = $linksMigration->getTitleFields( 'templatelinks' );
 		$queryInfo = $linksMigration->getQueryInfo( 'templatelinks' );
@@ -467,7 +480,11 @@ class FlaggedRevision {
 	 * @return bool
 	 */
 	public static function revIsFlagged( int $rev_id, int $flags = 0 ): bool {
-		$db = wfGetDB( ( $flags & IDBAccessObject::READ_LATEST ) ? DB_PRIMARY : DB_REPLICA );
+		if ( $flags & IDBAccessObject::READ_LATEST ) {
+			$db = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+		} else {
+			$db = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+		}
 		return (bool)$db->selectField( 'flaggedrevs', '1',
 			[ 'fr_rev_id' => $rev_id ],
 			__METHOD__

@@ -36,7 +36,8 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 	 */
 	public function doUpdate() {
 		# Fetch the IDs
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+
 		$pageIds = $dbr->selectFieldValues( 'flaggedrevs_tracking', 'ftr_from',
 			$this->getToCondition(), __METHOD__ );
 		# Check if there is anything to do...
@@ -95,7 +96,8 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 			return; // sanity check
 		}
 
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+
 		$timestamp = $dbw->timestamp();
 
 		$hcu = MediaWikiServices::getInstance()->getHtmlCacheUpdater();

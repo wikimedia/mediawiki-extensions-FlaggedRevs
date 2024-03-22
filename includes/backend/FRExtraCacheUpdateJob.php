@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 
 /**
@@ -40,7 +41,8 @@ class FRExtraCacheUpdateJob extends Job {
 	 * @return bool
 	 */
 	private function doBacklinkPurge() {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+
 		$update = new FRExtraCacheUpdate( $this->title );
 		# Get query conditions
 		$conds = $update->getToCondition();
@@ -86,7 +88,8 @@ class FRExtraCacheUpdateJob extends Job {
 
 		$synced = $fpage->stableVersionIsSynced();
 		if ( $fpage->syncedInTracking() != $synced ) {
-			$dbw = wfGetDB( DB_PRIMARY );
+			$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+
 			$dbw->update( 'flaggedpages',
 				[ 'fp_reviewed' => $synced ? 1 : 0 ],
 				[ 'fp_page_id' => $fpage->getId() ],

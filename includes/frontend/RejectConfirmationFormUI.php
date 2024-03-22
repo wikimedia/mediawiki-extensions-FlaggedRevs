@@ -51,7 +51,8 @@ class RejectConfirmationFormUI {
 			return [ '', 'review_bad_oldid' ];
 		}
 
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+
 		$revQuery = $this->revisionStore->getQueryInfo();
 		$res = $dbr->select(
 			$revQuery['tables'],

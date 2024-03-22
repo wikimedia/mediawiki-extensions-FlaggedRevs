@@ -107,7 +107,8 @@ class UnreviewedPages extends SpecialPage {
 
 		# Query may get too slow to be live...
 		if ( $this->isMiser ) {
-			$dbr = wfGetDB( DB_REPLICA );
+			$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+
 			$ts = $dbr->selectField( 'querycache_info', 'qci_timestamp',
 				[ 'qci_type' => 'fr_unreviewedpages' ], __METHOD__ );
 			if ( $ts ) {
@@ -216,7 +217,7 @@ class UnreviewedPages extends SpecialPage {
 		if ( !$rNamespaces ) {
 			return;
 		}
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 		$insertRows = [];
 		// Find pages that were never reviewed at all...
@@ -239,7 +240,8 @@ class UnreviewedPages extends SpecialPage {
 			];
 		}
 
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		$dbw->startAtomic( __METHOD__ );
 		# Clear out any old cached data
