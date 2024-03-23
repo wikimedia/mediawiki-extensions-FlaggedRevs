@@ -56,8 +56,13 @@ class StablePages extends SpecialPage {
 		if ( FlaggedRevs::getRestrictionLevels() ) {
 			$fields[] = FlaggedRevsXML::getRestrictionFilterMenu( $this->autoreview );
 		}
-		$fields[] = Xml::checkLabel( $this->msg( 'stablepages-indef' )->text(), 'indef',
-			'stablepages-indef', $this->indef );
+		$fields[] = Html::element( 'input', [
+			'type' => 'checkbox', 'name' => 'indef', 'value' => '1',
+			'checked' => $this->indef,
+			'id' => 'stablepages-indef',
+		] )
+			. '&nbsp;'
+			. Html::label( $this->msg( 'stablepages-indef' )->text(), 'stablepages-indef' );
 
 		$form = Html::openElement( 'form', [
 			'name' => 'stablepages',
