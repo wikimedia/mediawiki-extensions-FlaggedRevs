@@ -11,6 +11,7 @@
 	"flaggedrevs-hidereviewed-hide": "Celez",
 	"flaggedrevs-hidereviewed-show": "Montrez",
 	"flaggedrevs-rcfilters-reviewed-label": "Revizita",
+	"flaggedrevs-rcfilters-not-reviewable-label": "Neposibla revizar",
 	"group-editor": "Redakteri",
 	"group-editor-member": "{{GENDER:$1|redaktero}}",
 	"group-reviewer": "Revizeri",
