@@ -42,7 +42,7 @@
 	"flaggedrevs-pref-stable-1": "أظهر النسخة المستقرة دائما (إن وجدت)",
 	"flaggedrevs-pref-stable-2": "أظهر أحدث إصدار دائما",
 	"flaggedrevs-prefs-watch": "أضف الصفحات التي أراجعها إلى قائمة مراقبتي",
-	"flaggedrevs-prefs-editdiffs": "اعرض فرق التغييرات قيد الانتظار عند تعديل الصفحات",
+	"flaggedrevs-prefs-editdiffs": "إظهار فرق التغييرات المعلقة عند تعديل الصفحات",
 	"flaggedrevs-prefs-viewdiffs": "عرض مقارنة التغييرات بالانتظار عند عرض أحدث مراجعة بالانتظار",
 	"flaggedrevs-hidereviewed": "$1 التعديلات المراجعة",
 	"flaggedrevs-hidereviewed-hide": "أخف",
