@@ -46,6 +46,7 @@
 	"revreview-log-details-show": "แสดงรายละเอียด",
 	"revreview-log-details-hide": "ซ่อนรายละเอียด",
 	"review-logentry-id": "รุ่นแก้ไข: $2",
+	"review-logpage": "ปูมตรวจทาน",
 	"reviewer": "ผู้ตรวจทาน",
 	"revreview-accuracy": "ความถูกต้อง",
 	"revreview-accuracy-0": "ยังไม่ได้ตรวจสอบ",
@@ -59,5 +60,6 @@
 	"right-autoreviewrestore": "ทบทวนอัตโนมัติซึ่งการย้อนรวดเดียว",
 	"revreview-def-draft": "ล่าสุด",
 	"revreview-restriction-none": "ไม่มี",
-	"tooltip-ca-current": "ดูหน้านี้พร้อมขณะกำลังเปลี่ยนแปลง"
+	"tooltip-ca-current": "ดูหน้านี้พร้อมขณะกำลังเปลี่ยนแปลง",
+	"logeventslist-review-log": "ปูมตรวจทาน"
 }
