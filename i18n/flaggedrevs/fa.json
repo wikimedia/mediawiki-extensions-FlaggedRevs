@@ -158,7 +158,7 @@
 	"validationpage": "{{ns:help}}:اعتبار صفحه",
 	"log-action-filter-review": "نوع بازبینی:",
 	"log-action-filter-review-accept": "تائید دستی",
-	"log-action-filter-review-unaccept": "عدم تائید دستی",
+	"log-action-filter-review-unaccept": "عدم تأیید دستی",
 	"log-action-filter-stable": "نوع تغییر تنظیمات:",
 	"log-action-filter-stable-config": "تنظیمات جدید",
 	"log-action-filter-stable-modify": "تنظیمات تغییریافته",
