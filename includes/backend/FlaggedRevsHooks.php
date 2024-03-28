@@ -394,7 +394,7 @@ class FlaggedRevsHooks implements
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/RevisionFromEditComplete
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PageSaveComplete
 	 *
 	 * When an edit is made by a user, review it if either:
 	 * (a) The user can 'autoreview' and the edit's base revision was checked
@@ -409,11 +409,11 @@ class FlaggedRevsHooks implements
 	 * Note: RC items not inserted yet, RecentChange_save hook does rc_patrolled bit...
 	 * @param WikiPage $wikiPage
 	 * @param RevisionRecord $revRecord
-	 * @param int|false $baseRevId
+	 * @param EditResult $editResult
 	 * @param UserIdentity $user
 	 */
 	public static function maybeMakeEditReviewed(
-		WikiPage $wikiPage, RevisionRecord $revRecord, $baseRevId, UserIdentity $user
+		WikiPage $wikiPage, RevisionRecord $revRecord, EditResult $editResult, UserIdentity $user
 	) {
 		global $wgRequest;
 
@@ -449,6 +449,7 @@ class FlaggedRevsHooks implements
 			return;
 		}
 		# If a $baseRevId is passed in, the edit is using an old revision's text
+		$baseRevId = $editResult->getOriginalRevisionId();
 		$isOldRevCopy = (bool)$baseRevId; // null edit or rollback
 		# Get the revision ID the incoming one was based off...
 		$revisionLookup = MediaWikiServices::getInstance()->getRevisionLookup();
@@ -799,8 +800,6 @@ class FlaggedRevsHooks implements
 		# TODO hook needs to be replaced with one that provides a RevisionRecord
 		global $wgRequest;
 
-		self::maybeMakeEditReviewed( $wikiPage, $revRecord, $baseRevId, $user );
-
 		# Was this an edit by an auto-sighter that undid another edit?
 		$undid = $wgRequest->getInt( 'undidRev' );
 		if ( !( $undid && MediaWikiServices::getInstance()
@@ -1107,6 +1106,8 @@ class FlaggedRevsHooks implements
 		global $wgFlaggedRevsAutopromote, $wgFlaggedRevsAutoconfirm;
 
 		self::maybeNullEditReview( $wikiPage, $userIdentity, $summary, $flags, $revisionRecord, $editResult );
+
+		self::maybeMakeEditReviewed( $wikiPage, $revisionRecord, $editResult, $userIdentity );
 
 		$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
 		# Ignore null edits edits by anon users, and MW role account edits
