@@ -9,7 +9,6 @@ use MediaWiki\Hook\BeforePageDisplayHook;
 use MediaWiki\Hook\ChangesListInsertArticleLinkHook;
 use MediaWiki\Hook\ContribsPager__getQueryInfoHook;
 use MediaWiki\Hook\ContributionsLineEndingHook;
-use MediaWiki\Hook\EditPage__showEditForm_fieldsHook;
 use MediaWiki\Hook\EditPageBeforeEditButtonsHook;
 use MediaWiki\Hook\EditPageGetCheckboxesDefinitionHook;
 use MediaWiki\Hook\EditPageNoSuchSectionHook;
@@ -54,7 +53,6 @@ class FlaggedRevsUIHooks implements
 	ContribsPager__getQueryInfoHook,
 	ContributionsLineEndingHook,
 	DifferenceEngineViewHeaderHook,
-	EditPage__showEditForm_fieldsHook,
 	EditPageBeforeEditButtonsHook,
 	EditPageGetCheckboxesDefinitionHook,
 	EditPageNoSuchSectionHook,
@@ -841,16 +839,6 @@ class FlaggedRevsUIHooks implements
 			$newRevRecord = $diff->getNewRevision();
 			$view->setViewFlags( $diff, $oldRevRecord, $newRevRecord );
 			$view->addToDiffView( $oldRevRecord, $newRevRecord );
-		}
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function onEditPage__showEditForm_fields( $editPage, $out ) {
-		if ( $editPage->getTitle()->canExist() ) {
-			$view = FlaggablePageView::newFromTitle( $editPage->getTitle() );
-			$view->addRevisionIDField( $editPage, $out );
 		}
 	}
 

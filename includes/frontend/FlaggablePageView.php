@@ -1595,12 +1595,4 @@ class FlaggablePageView extends ContextSource {
 			$checkboxes[$name] = $options;
 		}
 	}
-
-	/**
-	 * If an edit was undone, add a hidden field that has the rev ID of that edit.
-	 * Needed for user stats (for autopromote).
-	 */
-	public function addRevisionIDField( EditPage $editPage, OutputPage $out ): void {
-		$out->addHTML( "\n" . Html::hidden( 'undidRev', $editPage->undidRev ) );
-	}
 }

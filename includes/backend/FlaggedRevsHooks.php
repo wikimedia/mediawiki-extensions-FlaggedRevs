@@ -16,9 +16,7 @@ use MediaWiki\Hook\WikiExporter__dumpStableQueryHook;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\Hook\ArticleDeleteCompleteHook;
 use MediaWiki\Page\Hook\ArticleUndeleteHook;
-use MediaWiki\Page\Hook\RevisionFromEditCompleteHook;
 use MediaWiki\Page\Hook\RevisionUndeletedHook;
-use MediaWiki\Page\Hook\RollbackCompleteHook;
 use MediaWiki\Permissions\Hook\GetUserPermissionsErrorsHook;
 use MediaWiki\Permissions\Hook\UserGetRightsHook;
 use MediaWiki\Revision\RevisionRecord;
@@ -48,7 +46,6 @@ class FlaggedRevsHooks implements
 	getUserPermissionsErrorsHook,
 	MagicWordwgVariableIDsHook,
 	MediaWikiServicesHook,
-	RevisionFromEditCompleteHook,
 	PageSaveCompleteHook,
 	PageMoveCompleteHook,
 	ParserFirstCallInitHook,
@@ -56,7 +53,6 @@ class FlaggedRevsHooks implements
 	RecentChange_saveHook,
 	RevisionDataUpdatesHook,
 	RevisionUndeletedHook,
-	RollbackCompleteHook,
 	UserGetRightsHook,
 	UserLoadAfterLoadFromSessionHook,
 	WikiExporter__dumpStableQueryHook
@@ -768,40 +764,12 @@ class FlaggedRevsHooks implements
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 * Increment rollbacks.
-	 */
-	public function onRollbackComplete(
-		$article, $user, $goodRev, $badRev
+	private function maybeIncrementReverts(
+		WikiPage $wikiPage, RevisionRecord $revRecord, EditResult $editResult, UserIdentity $user
 	) {
-		# Mark when a user reverts another user, but not self-reverts
-		$badUser = $badRev->getUser( RevisionRecord::RAW );
-		$badUserId = $badUser ? $badUser->getId() : 0;
-		if ( $badUserId && $user->getId() != $badUserId ) {
-			DeferredUpdates::addCallableUpdate( static function () use ( $badUserId ) {
-				$p = FRUserCounters::getUserParams( $badUserId, IDBAccessObject::READ_EXCLUSIVE );
-				if ( !isset( $p['revertedEdits'] ) ) {
-					$p['revertedEdits'] = 0;
-				}
-				$p['revertedEdits']++;
-				FRUserCounters::saveUserParams( $badUserId, $p );
-			} );
-		}
-	}
-
-	/**
-	 * @inheritDoc
-	 * Increment reverts.
-	 */
-	public function onRevisionFromEditComplete(
-		$wikiPage, $revRecord, $baseRevId, $user, &$tags
-	) {
-		# TODO hook needs to be replaced with one that provides a RevisionRecord
-		global $wgRequest;
+		$undid = $editResult->getOldestRevertedRevisionId();
 
 		# Was this an edit by an auto-sighter that undid another edit?
-		$undid = $wgRequest->getInt( 'undidRev' );
 		if ( !( $undid && MediaWikiServices::getInstance()
 			->getPermissionManager()
 			->userHasRight( $user, 'autoreview' ) ) ) {
@@ -1104,6 +1072,8 @@ class FlaggedRevsHooks implements
 		$editResult
 	) {
 		global $wgFlaggedRevsAutopromote, $wgFlaggedRevsAutoconfirm;
+
+		self::maybeIncrementReverts( $wikiPage, $revisionRecord, $editResult, $userIdentity );
 
 		self::maybeNullEditReview( $wikiPage, $userIdentity, $summary, $flags, $revisionRecord, $editResult );
 
