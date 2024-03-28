@@ -459,7 +459,7 @@ class FlaggedRevision {
 				$queryInfo['joins'],
 				[
 					'page' => [ 'LEFT JOIN', "page_namespace = $nsField AND page_title = $titleField" ],
-					'flaggedpages' => [ 'LEFT JOIN', 'fp_page_id = page_id' ]
+					'flaggedpages' => [ 'JOIN', 'fp_page_id = page_id' ]
 				]
 			)
 		);
