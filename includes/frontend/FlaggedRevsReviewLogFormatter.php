@@ -1,9 +1,18 @@
 <?php
 
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionLookup;
 
 class FlaggedRevsReviewLogFormatter extends LogFormatter {
 	private bool $isDeapproval = false;
+	private RevisionLookup $revisionLookup;
+
+	public function __construct(
+		LogEntry $entry,
+		RevisionLookup $revisionLookup
+	) {
+		parent::__construct( $entry );
+		$this->revisionLookup = $revisionLookup;
+	}
 
 	/**
 	 * @inheritDoc
@@ -51,8 +60,7 @@ class FlaggedRevsReviewLogFormatter extends LogFormatter {
 			}
 			# Show a diff link to this revision
 			$ts = empty( $params[2] )
-				? MediaWikiServices::getInstance()->getRevisionLookup()
-					->getTimestampFromId( $revId )
+				? $this->revisionLookup->getTimestampFromId( $revId )
 				: $params[2];
 			$time = $this->context->getLanguage()->timeanddate( $ts, true );
 			$links .= ' (';
