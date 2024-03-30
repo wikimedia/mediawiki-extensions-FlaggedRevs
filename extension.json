@@ -142,16 +142,12 @@
 		"rights/erevoke": "rights-editor-revoke"
 	},
 	"LogActionsHandlers": {
-		"review/approve": "FlaggedRevsReviewLogFormatter",
-		"review/approve2": "FlaggedRevsReviewLogFormatter",
-		"review/approve-i": "FlaggedRevsReviewLogFormatter",
-		"review/approve2-i": "FlaggedRevsReviewLogFormatter",
-		"review/approve-a": "FlaggedRevsReviewLogFormatter",
-		"review/approve2-a": "FlaggedRevsReviewLogFormatter",
-		"review/approve-ia": "FlaggedRevsReviewLogFormatter",
-		"review/approve2-ia": "FlaggedRevsReviewLogFormatter",
-		"review/unapprove": "FlaggedRevsReviewLogFormatter",
-		"review/unapprove2": "FlaggedRevsReviewLogFormatter",
+		"review/*": {
+			"class": "FlaggedRevsReviewLogFormatter",
+			"services": [
+				"RevisionLookup"
+			]
+		},
 		"stable/config": "FlaggedRevsStableLogFormatter",
 		"stable/modify": "FlaggedRevsStableLogFormatter",
 		"stable/reset": "FlaggedRevsStableLogFormatter",
