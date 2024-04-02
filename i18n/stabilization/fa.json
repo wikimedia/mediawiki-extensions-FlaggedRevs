@@ -40,7 +40,7 @@
 	"stabilize_invalid_autoreview": "بی‌اعتباری بازبینی‌های خودکار محدود",
 	"stabilize_invalid_level": "سطح محافظت نامعتبر",
 	"stabilize_expiry_invalid": "تاریخ انقضای نامعتبر",
-	"stabilize_expiry_old": "این تاریخ انقضا همینک سپری شده‌است.",
+	"stabilize_expiry_old": "این تاریخ انقضا همینک سپری شده است.",
 	"stabilize_denied": "اجازه داده نشد.",
 	"stabilize-expiring": "در $1 (UTC) منقضی می‌شود.",
 	"stabilization-review": "علامت زدن این نسخه به عنوان بازبینی‌شده"
