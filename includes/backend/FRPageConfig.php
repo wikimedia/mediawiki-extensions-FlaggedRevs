@@ -116,17 +116,17 @@ class FRPageConfig {
 			);
 			# If the new config is different, replace the old row...
 			if ( $changed ) {
-				$dbw->replace(
-					'flaggedpage_config',
-					'fpc_page_id',
-					[
+				$dbw->newReplaceQueryBuilder()
+					->replaceInto( 'flaggedpage_config' )
+					->uniqueIndexFields( 'fpc_page_id' )
+					->row( [
 						'fpc_page_id'  => $title->getArticleID(),
 						'fpc_override' => (int)$config['override'],
 						'fpc_level'    => $config['autoreview'],
 						'fpc_expiry'   => $dbExpiry
-					],
-					__METHOD__
-				);
+					] )
+					->caller( __METHOD__ )
+					->execute();
 			}
 		}
 		return $changed;

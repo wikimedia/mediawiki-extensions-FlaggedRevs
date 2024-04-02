@@ -92,15 +92,15 @@ class FRUserCounters {
 	public static function saveUserParams( $userId, array $params ) {
 		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
-		$dbw->replace(
-			'flaggedrevs_promote',
-			'frp_user_id',
-			[
+		$dbw->newReplaceQueryBuilder()
+			->replaceInto( 'flaggedrevs_promote' )
+			->uniqueIndexFields( 'frp_user_id' )
+			->row( [
 				'frp_user_id' => $userId,
 				'frp_user_params' => self::flattenParams( $params )
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	/**

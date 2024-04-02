@@ -536,18 +536,18 @@ class FlaggableWikiPage extends WikiPage {
 			$srev->findPendingTemplateChanges() // template changes pending
 		);
 		# Alter table metadata
-		$dbw->replace(
-			'flaggedpages',
-			'fp_page_id',
-			[
+		$dbw->newReplaceQueryBuilder()
+			->replaceInto( 'flaggedpages' )
+			->uniqueIndexFields( 'fp_page_id' )
+			->row( [
 				'fp_page_id'       => $revRecord->getPageId(), // Don't use $this->getId(), T246720
 				'fp_stable'        => $revRecord->getId(),
 				'fp_reviewed'      => $synced ? 1 : 0,
 				'fp_quality'       => FR_CHECKED,
 				'fp_pending_since' => $dbw->timestampOrNull( $nextTimestamp )
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->execute();
 		# Update pending edit tracking table
 		$this->updatePendingList( $this->getId(), $latest );
 	}
