@@ -359,6 +359,7 @@
 		"MediaWikiServices": "main",
 		"MergeAccountFromTo": "FlaggedRevsHooks::onMergeAccountFromTo",
 		"NewDifferenceEngine": "ui",
+		"RevisionFromEditComplete": "main",
 		"PageSaveComplete": "main",
 		"PageHistoryBeforeList": "ui",
 		"PageHistoryLineEnding": "ui",
