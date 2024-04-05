@@ -16,6 +16,7 @@ use MediaWiki\Hook\WikiExporter__dumpStableQueryHook;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\Hook\ArticleDeleteCompleteHook;
 use MediaWiki\Page\Hook\ArticleUndeleteHook;
+use MediaWiki\Page\Hook\RevisionFromEditCompleteHook;
 use MediaWiki\Page\Hook\RevisionUndeletedHook;
 use MediaWiki\Permissions\Hook\GetUserPermissionsErrorsHook;
 use MediaWiki\Permissions\Hook\UserGetRightsHook;
@@ -46,6 +47,7 @@ class FlaggedRevsHooks implements
 	getUserPermissionsErrorsHook,
 	MagicWordwgVariableIDsHook,
 	MediaWikiServicesHook,
+	RevisionFromEditCompleteHook,
 	PageSaveCompleteHook,
 	PageMoveCompleteHook,
 	ParserFirstCallInitHook,
@@ -390,8 +392,6 @@ class FlaggedRevsHooks implements
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PageSaveComplete
-	 *
 	 * When an edit is made by a user, review it if either:
 	 * (a) The user can 'autoreview' and the edit's base revision was checked
 	 * (b) The edit is a self-revert to the stable version (by anyone)
@@ -405,11 +405,11 @@ class FlaggedRevsHooks implements
 	 * Note: RC items not inserted yet, RecentChange_save hook does rc_patrolled bit...
 	 * @param WikiPage $wikiPage
 	 * @param RevisionRecord $revRecord
-	 * @param EditResult $editResult
+	 * @param int|false $baseRevId
 	 * @param UserIdentity $user
 	 */
 	public static function maybeMakeEditReviewed(
-		WikiPage $wikiPage, RevisionRecord $revRecord, EditResult $editResult, UserIdentity $user
+		WikiPage $wikiPage, RevisionRecord $revRecord, $baseRevId, UserIdentity $user
 	) {
 		global $wgRequest;
 
@@ -445,7 +445,6 @@ class FlaggedRevsHooks implements
 			return;
 		}
 		# If a $baseRevId is passed in, the edit is using an old revision's text
-		$baseRevId = $editResult->getOriginalRevisionId();
 		$isOldRevCopy = (bool)$baseRevId; // null edit or rollback
 		# Get the revision ID the incoming one was based off...
 		$revisionLookup = MediaWikiServices::getInstance()->getRevisionLookup();
@@ -1060,6 +1059,19 @@ class FlaggedRevsHooks implements
 
 	/**
 	 * @inheritDoc
+	 * Mark the edit as autoreviewed if needed.
+	 * This must happen in this hook, and not in onPageSaveComplete(), for two reasons:
+	 * - onBeforeRevertedTagUpdate() implementation relies on it happening first (T361918)
+	 * - It must also be done for null revisions created during some actions (T361940, T361960)
+	 */
+	public function onRevisionFromEditComplete(
+		$wikiPage, $revRecord, $baseRevId, $user, &$tags
+	) {
+		self::maybeMakeEditReviewed( $wikiPage, $revRecord, $baseRevId, $user );
+	}
+
+	/**
+	 * @inheritDoc
 	 * Callback that autopromotes user according to the setting in
 	 * $wgFlaggedRevsAutopromote. This also handles user stats tallies.
 	 */
@@ -1076,8 +1088,6 @@ class FlaggedRevsHooks implements
 		self::maybeIncrementReverts( $wikiPage, $revisionRecord, $editResult, $userIdentity );
 
 		self::maybeNullEditReview( $wikiPage, $userIdentity, $summary, $flags, $revisionRecord, $editResult );
-
-		self::maybeMakeEditReviewed( $wikiPage, $revisionRecord, $editResult, $userIdentity );
 
 		$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
 		# Ignore null edits edits by anon users, and MW role account edits
