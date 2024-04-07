@@ -187,7 +187,7 @@ class RejectConfirmationFormUI {
 		$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
 		$formHTML .= Xml::openElement(
 			'form',
-			[ 'method' => 'POST', 'action' => $reviewTitle->getFullURL() ]
+			[ 'method' => 'POST', 'action' => $reviewTitle->getLocalURL() ]
 		);
 		$formHTML .= Html::hidden( 'action', RevisionReviewForm::ACTION_REJECT );
 		$formHTML .= Html::hidden( 'wpReject', 1 );
