@@ -4,6 +4,7 @@
 			"Mehtab ahmed"
 		]
 	},
+	"pendingchanges-hours": "($1 {{PLURAL:$1|ڪلاڪ}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|ڏينھُن|ڏينھَن}})",
 	"pendingchanges-diff": "نظرثاني"
 }
