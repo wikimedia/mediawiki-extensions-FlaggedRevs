@@ -25,7 +25,8 @@
 			"Urhixidur",
 			"Verdy p",
 			"Wladek92",
-			"Zetud"
+			"Zetud",
+			"Dreamy Jazz"
 		]
 	},
 	"action-autoreview": "avoir ses propres modifications marquées automatiquement comme « vérifiées »",
@@ -102,7 +103,7 @@
 	"review-logentry-id": "révision : $2",
 	"review-logentry-diff": "modifications relues",
 	"review-logentry-diff2": "modifications désuètes",
-	"review-logpage": "Journal des relectures",
+	"review-logpage": "Journal des révisions de l'article",
 	"review-logpagetext": "Voici le journal montrant quelles versions de pages de contenu ont été [[{{MediaWiki:Validationpage}}|vérifiées]].",
 	"reviewer": "Relecteur",
 	"revreview-accuracy": "Justesse",
