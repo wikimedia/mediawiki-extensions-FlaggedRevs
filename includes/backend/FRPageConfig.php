@@ -93,10 +93,11 @@ class FRPageConfig {
 		}
 		# If setting to site default values and there is a row then erase it
 		if ( self::configIsReset( $config ) ) {
-			$dbw->delete( 'flaggedpage_config',
-				[ 'fpc_page_id' => $title->getArticleID() ],
-				__METHOD__
-			);
+			$dbw->newDeleteQueryBuilder()
+				->deleteFrom( 'flaggedpage_config' )
+				->where( [ 'fpc_page_id' => $title->getArticleID() ] )
+				->caller( __METHOD__ )
+				->execute();
 			$changed = ( $dbw->affectedRows() > 0 ); // did this do anything?
 		# Otherwise, add/replace row if we are not just setting it to the site default
 		} else {
@@ -219,10 +220,11 @@ class FRPageConfig {
 		}
 		# Clear the expired config for these pages...
 		if ( count( $pagesClearConfig ) ) {
-			$dbw->delete( 'flaggedpage_config',
-				[ 'fpc_page_id' => $pagesClearConfig, 'fpc_expiry < ' . $encCutoff ],
-				__METHOD__
-			);
+			$dbw->newDeleteQueryBuilder()
+				->deleteFrom( 'flaggedpage_config' )
+				->where( [ 'fpc_page_id' => $pagesClearConfig, 'fpc_expiry < ' . $encCutoff ] )
+				->caller( __METHOD__ )
+				->execute();
 		}
 		# Clear the tracking rows and update page_touched for the
 		# pages in $pagesClearConfig that do now have a stable version...

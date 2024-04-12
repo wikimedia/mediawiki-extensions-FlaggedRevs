@@ -86,7 +86,11 @@ class FRDependencyUpdate {
 			$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 			# Delete removed links
 			if ( $deletions ) {
-				$dbw->delete( 'flaggedrevs_tracking', $deletions, __METHOD__ );
+				$dbw->newDeleteQueryBuilder()
+					->deleteFrom( 'flaggedrevs_tracking' )
+					->where( $deletions )
+					->caller( __METHOD__ )
+					->execute();
 			}
 			# Add any new links
 			if ( $insertions ) {

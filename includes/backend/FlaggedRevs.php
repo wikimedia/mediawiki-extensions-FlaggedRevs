@@ -464,9 +464,21 @@ class FlaggedRevs {
 	public static function clearTrackingRows( $pageId ) {
 		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
-		$dbw->delete( 'flaggedpages', [ 'fp_page_id' => $pageId ], __METHOD__ );
-		$dbw->delete( 'flaggedrevs_tracking', [ 'ftr_from' => $pageId ], __METHOD__ );
-		$dbw->delete( 'flaggedpage_pending', [ 'fpp_page_id' => $pageId ], __METHOD__ );
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'flaggedpages' )
+			->where( [ 'fp_page_id' => $pageId ] )
+			->caller( __METHOD__ )
+			->execute();
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'flaggedrevs_tracking' )
+			->where( [ 'ftr_from' => $pageId ] )
+			->caller( __METHOD__ )
+			->execute();
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'flaggedpage_pending' )
+			->where( [ 'fpp_page_id' => $pageId ] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	/**
@@ -476,7 +488,11 @@ class FlaggedRevs {
 	public static function clearStableOnlyDeps( $pageId ) {
 		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
-		$dbw->delete( 'flaggedrevs_tracking', [ 'ftr_from' => $pageId ], __METHOD__ );
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'flaggedrevs_tracking' )
+			->where( [ 'ftr_from' => $pageId ] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	/**

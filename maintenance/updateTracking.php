@@ -129,13 +129,16 @@ class UpdateFRTracking extends Maintenance {
 				$count++;
 			}
 			# Remove manual config settings that simply restate the site defaults
-			$db->delete( 'flaggedpage_config',
-				[ "fpc_page_id BETWEEN $blockStart AND $blockEnd",
+			$db->newDeleteQueryBuilder()
+				->deleteFrom( 'flaggedpage_config' )
+				->where( [
+					$db->expr( 'fpc_page_id', '>=', $blockStart ),
+					$db->expr( 'fpc_page_id', '<=', $blockEnd ),
 					'fpc_override'  => intval( FlaggedRevs::isStableShownByDefault() ),
 					'fpc_level'     => ''
-				],
-				__METHOD__
-			);
+				] )
+				->caller( __METHOD__ )
+				->execute();
 			$deleted += $db->affectedRows();
 			$this->commitTransaction( $db, __METHOD__ );
 

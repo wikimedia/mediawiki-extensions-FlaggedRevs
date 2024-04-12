@@ -109,11 +109,11 @@ class FRUserCounters {
 	public static function deleteUserParams( UserIdentity $user ) {
 		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
-		$dbw->delete(
-			'flaggedrevs_promote',
-			[ 'frp_user_id' => $user->getId() ],
-			__METHOD__
-		);
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'flaggedrevs_promote' )
+			->where( [ 'frp_user_id' => $user->getId() ] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	/**

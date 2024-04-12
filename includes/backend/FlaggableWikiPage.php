@@ -561,8 +561,16 @@ class FlaggableWikiPage extends WikiPage {
 		}
 		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
-		$dbw->delete( 'flaggedpages', [ 'fp_page_id' => $this->getId() ], __METHOD__ );
-		$dbw->delete( 'flaggedpage_pending', [ 'fpp_page_id' => $this->getId() ], __METHOD__ );
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'flaggedpages' )
+			->where( [ 'fp_page_id' => $this->getId() ] )
+			->caller( __METHOD__ )
+			->execute();
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'flaggedpage_pending' )
+			->where( [ 'fpp_page_id' => $this->getId() ] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	/**
@@ -624,7 +632,11 @@ class FlaggableWikiPage extends WikiPage {
 			}
 		}
 		# Clear any old junk, and insert new rows
-		$dbw->delete( 'flaggedpage_pending', [ 'fpp_page_id' => $pageId ], __METHOD__ );
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'flaggedpage_pending' )
+			->where( [ 'fpp_page_id' => $pageId ] )
+			->caller( __METHOD__ )
+			->execute();
 		if ( $data !== [] ) {
 			$dbw->insert( 'flaggedpage_pending', $data, __METHOD__ );
 		}

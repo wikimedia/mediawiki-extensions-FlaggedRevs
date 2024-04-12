@@ -245,14 +245,21 @@ class UnreviewedPages extends SpecialPage {
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		$dbw->startAtomic( __METHOD__ );
 		# Clear out any old cached data
-		$dbw->delete( 'querycache', [ 'qc_type' => 'fr_unreviewedpages' ], __METHOD__ );
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'querycache' )
+			->where( [ 'qc_type' => 'fr_unreviewedpages' ] )
+			->caller( __METHOD__ )
+			->execute();
 		# Insert new data...
 		if ( $insertRows ) {
 			$dbw->insert( 'querycache', $insertRows, __METHOD__ );
 		}
 		# Update the querycache_info record for the page
-		$dbw->delete( 'querycache_info',
-			[ 'qci_type' => 'fr_unreviewedpages' ], __METHOD__ );
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'querycache_info' )
+			->where( [ 'qci_type' => 'fr_unreviewedpages' ] )
+			->caller( __METHOD__ )
+			->execute();
 		$dbw->insert( 'querycache_info',
 			[ 'qci_type' => 'fr_unreviewedpages', 'qci_timestamp' => $dbw->timestamp() ],
 			__METHOD__
@@ -283,14 +290,21 @@ class UnreviewedPages extends SpecialPage {
 
 		$dbw->startAtomic( __METHOD__ );
 		# Clear out any old cached data
-		$dbw->delete( 'querycache', [ 'qc_type' => 'fr_unreviewedpages_q' ], __METHOD__ );
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'querycache' )
+			->where( [ 'qc_type' => 'fr_unreviewedpages_q' ] )
+			->caller( __METHOD__ )
+			->execute();
 		# Insert new data...
 		if ( $insertRows ) {
 			$dbw->insert( 'querycache', $insertRows, __METHOD__ );
 		}
 		# Update the querycache_info record for the page
-		$dbw->delete( 'querycache_info',
-			[ 'qci_type' => 'fr_unreviewedpages_q' ], __METHOD__ );
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'querycache_info' )
+			->where( [ 'qci_type' => 'fr_unreviewedpages_q' ] )
+			->caller( __METHOD__ )
+			->execute();
 		$dbw->insert( 'querycache_info',
 			[ 'qci_type' => 'fr_unreviewedpages_q', 'qci_timestamp' => $dbw->timestamp() ],
 			__METHOD__ );

@@ -273,8 +273,11 @@ class FlaggedRevision {
 		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
 		# Delete from flaggedrevs table
-		$dbw->delete( 'flaggedrevs',
-			[ 'fr_rev_id' => $this->getRevId() ], __METHOD__ );
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'flaggedrevs' )
+			->where( [ 'fr_rev_id' => $this->getRevId() ] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	/**
