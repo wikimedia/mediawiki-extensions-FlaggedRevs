@@ -117,11 +117,12 @@ class FlaggedRevsHooks implements
 		# Some revisions may have had null rev_id values stored when deleted.
 		# This hook is called after insertOn() however, in which case it is set
 		# as a new one.
-		$dbw->update( 'flaggedrevs',
-			[ 'fr_page_id' => $revision->getPageId() ],
-			[ 'fr_page_id' => $oldPageID, 'fr_rev_id' => $revision->getId() ],
-			__METHOD__
-		);
+		$dbw->newUpdateQueryBuilder()
+			->update( 'flaggedrevs' )
+			->set( [ 'fr_page_id' => $revision->getPageId() ] )
+			->where( [ 'fr_page_id' => $oldPageID, 'fr_rev_id' => $revision->getId() ] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	/**
@@ -143,11 +144,12 @@ class FlaggedRevsHooks implements
 		);
 		# Update these rows
 		if ( $revIDs ) {
-			$dbw->update( 'flaggedrevs',
-				[ 'fr_page_id' => $newPageID ],
-				[ 'fr_page_id' => $oldPageID, 'fr_rev_id' => $revIDs ],
-				__METHOD__
-			);
+			$dbw->newUpdateQueryBuilder()
+				->update( 'flaggedrevs' )
+				->set( [ 'fr_page_id' => $newPageID ] )
+				->where( [ 'fr_page_id' => $oldPageID, 'fr_rev_id' => $revIDs ] )
+				->caller( __METHOD__ )
+				->execute();
 		}
 		# Update pages...stable versions possibly lost to another page
 		FlaggedRevs::stableVersionUpdates( $sourceTitle );

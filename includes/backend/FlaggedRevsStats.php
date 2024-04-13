@@ -177,7 +177,12 @@ class FlaggedRevsStats {
 		}
 
 		// Save the data...
-		$dbw->insert( 'flaggedrevs_statistics', $dataSet, __METHOD__, [ 'IGNORE' ] );
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'flaggedrevs_statistics' )
+			->ignore()
+			->rows( $dataSet )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	/**

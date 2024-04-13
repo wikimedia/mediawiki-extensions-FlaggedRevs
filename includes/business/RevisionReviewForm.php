@@ -625,12 +625,12 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			[ 'LIMIT' => $limit ]
 		);
 		if ( $rcIds ) {
-			$dbw->update(
-				'recentchanges',
-				[ 'rc_patrolled' => $newPatrolState ],
-				[ 'rc_id' => $rcIds ],
-				__METHOD__
-			);
+			$dbw->newUpdateQueryBuilder()
+				->update( 'recentchanges' )
+				->set( [ 'rc_patrolled' => $newPatrolState ] )
+				->where( [ 'rc_id' => $rcIds ] )
+				->caller( __METHOD__ )
+				->execute();
 		}
 	}
 }

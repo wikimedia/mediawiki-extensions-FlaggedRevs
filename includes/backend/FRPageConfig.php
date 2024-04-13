@@ -230,11 +230,12 @@ class FRPageConfig {
 		# pages in $pagesClearConfig that do now have a stable version...
 		if ( count( $pagesClearTracking ) ) {
 			FlaggedRevs::clearTrackingRows( $pagesClearTracking );
-			$dbw->update( 'page',
-				[ 'page_touched' => $dbw->timestamp() ],
-				[ 'page_id' => $pagesClearTracking ],
-				__METHOD__
-			);
+			$dbw->newUpdateQueryBuilder()
+				->update( 'page' )
+				->set( [ 'page_touched' => $dbw->timestamp() ] )
+				->where( [ 'page_id' => $pagesClearTracking ] )
+				->caller( __METHOD__ )
+				->execute();
 		}
 		# Also, clear their squid caches and purge other pages that use this page.
 		# NOTE: all of these updates are deferred via DeferredUpdates

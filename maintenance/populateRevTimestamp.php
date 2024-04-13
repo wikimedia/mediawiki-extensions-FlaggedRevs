@@ -83,11 +83,12 @@ class PopulateFRRevTimestamp extends Maintenance {
 				}
 				if ( $timestamp != '' ) {
 					# Update the row...
-					$db->update( 'flaggedrevs',
-						[ 'fr_rev_timestamp'   => $timestamp ],
-						[ 'fr_rev_id'          => $row->fr_rev_id ],
-						__METHOD__
-					);
+					$db->newUpdateQueryBuilder()
+						->update( 'flaggedrevs' )
+						->set( [ 'fr_rev_timestamp' => $timestamp ] )
+						->where( [ 'fr_rev_id' => $row->fr_rev_id ] )
+						->caller( __METHOD__ )
+						->execute();
 					$changed++;
 				}
 				$count++;

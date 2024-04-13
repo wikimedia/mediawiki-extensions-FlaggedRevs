@@ -638,7 +638,11 @@ class FlaggableWikiPage extends WikiPage {
 			->caller( __METHOD__ )
 			->execute();
 		if ( $data !== [] ) {
-			$dbw->insert( 'flaggedpage_pending', $data, __METHOD__ );
+			$dbw->newInsertQueryBuilder()
+				->insertInto( 'flaggedpage_pending' )
+				->rows( $data )
+				->caller( __METHOD__ )
+				->execute();
 		}
 	}
 }

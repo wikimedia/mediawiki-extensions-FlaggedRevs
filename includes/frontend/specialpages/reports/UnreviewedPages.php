@@ -252,7 +252,11 @@ class UnreviewedPages extends SpecialPage {
 			->execute();
 		# Insert new data...
 		if ( $insertRows ) {
-			$dbw->insert( 'querycache', $insertRows, __METHOD__ );
+			$dbw->newInsertQueryBuilder()
+				->insertInto( 'querycache' )
+				->rows( $insertRows )
+				->caller( __METHOD__ )
+				->execute();
 		}
 		# Update the querycache_info record for the page
 		$dbw->newDeleteQueryBuilder()
@@ -260,10 +264,11 @@ class UnreviewedPages extends SpecialPage {
 			->where( [ 'qci_type' => 'fr_unreviewedpages' ] )
 			->caller( __METHOD__ )
 			->execute();
-		$dbw->insert( 'querycache_info',
-			[ 'qci_type' => 'fr_unreviewedpages', 'qci_timestamp' => $dbw->timestamp() ],
-			__METHOD__
-		);
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'querycache_info' )
+			->row( [ 'qci_type' => 'fr_unreviewedpages', 'qci_timestamp' => $dbw->timestamp() ] )
+			->caller( __METHOD__ )
+			->execute();
 		$dbw->endAtomic( __METHOD__ );
 		$lbFactory->commitPrimaryChanges( __METHOD__ );
 
@@ -297,7 +302,11 @@ class UnreviewedPages extends SpecialPage {
 			->execute();
 		# Insert new data...
 		if ( $insertRows ) {
-			$dbw->insert( 'querycache', $insertRows, __METHOD__ );
+			$dbw->newInsertQueryBuilder()
+				->insertInto( 'querycache' )
+				->rows( $insertRows )
+				->caller( __METHOD__ )
+				->execute();
 		}
 		# Update the querycache_info record for the page
 		$dbw->newDeleteQueryBuilder()
@@ -305,9 +314,11 @@ class UnreviewedPages extends SpecialPage {
 			->where( [ 'qci_type' => 'fr_unreviewedpages_q' ] )
 			->caller( __METHOD__ )
 			->execute();
-		$dbw->insert( 'querycache_info',
-			[ 'qci_type' => 'fr_unreviewedpages_q', 'qci_timestamp' => $dbw->timestamp() ],
-			__METHOD__ );
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'querycache_info' )
+			->row( [ 'qci_type' => 'fr_unreviewedpages_q', 'qci_timestamp' => $dbw->timestamp() ] )
+			->caller( __METHOD__ )
+			->execute();
 		$dbw->endAtomic( __METHOD__ );
 		$lbFactory->commitPrimaryChanges( __METHOD__ );
 	}

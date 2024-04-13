@@ -94,7 +94,12 @@ class FRDependencyUpdate {
 			}
 			# Add any new links
 			if ( $insertions ) {
-				$dbw->insert( 'flaggedrevs_tracking', $insertions, __METHOD__, [ 'IGNORE' ] );
+				$dbw->newInsertQueryBuilder()
+					->insertInto( 'flaggedrevs_tracking' )
+					->ignore()
+					->rows( $insertions )
+					->caller( __METHOD__ )
+					->execute();
 			}
 		}
 	}

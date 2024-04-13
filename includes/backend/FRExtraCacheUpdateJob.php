@@ -90,11 +90,12 @@ class FRExtraCacheUpdateJob extends Job {
 		if ( $fpage->syncedInTracking() != $synced ) {
 			$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
-			$dbw->update( 'flaggedpages',
-				[ 'fp_reviewed' => $synced ? 1 : 0 ],
-				[ 'fp_page_id' => $fpage->getId() ],
-				__METHOD__
-			);
+			$dbw->newUpdateQueryBuilder()
+				->update( 'flaggedpages' )
+				->set( [ 'fp_reviewed' => $synced ? 1 : 0 ] )
+				->where( [ 'fp_page_id' => $fpage->getId() ] )
+				->caller( __METHOD__ )
+				->execute();
 		}
 		return true;
 	}

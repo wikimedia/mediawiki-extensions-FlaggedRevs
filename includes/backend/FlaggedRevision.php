@@ -259,7 +259,11 @@ class FlaggedRevision {
 			'fr_flags'         => implode( ',', $this->mFlags ),
 		];
 		# Update the main flagged revisions table...
-		$dbw->insert( 'flaggedrevs', $revRow, __METHOD__, [ 'IGNORE' ] );
+		$dbw->newInsertQueryBuilder()->insertInto( 'flaggedrevs' )
+			->ignore()
+			->row( $revRow )
+			->caller( __METHOD__ )
+			->execute();
 		if ( !$dbw->affectedRows() ) {
 			return 'duplicate review';
 		}

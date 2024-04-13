@@ -104,12 +104,12 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 
 		foreach ( array_chunk( $pageIds, $this->mRowsPerQuery ) as $ids ) {
 			# Update page_touched
-			$dbw->update(
-				'page',
-				[ 'page_touched' => $timestamp ],
-				[ 'page_id' => $ids ],
-				__METHOD__
-			);
+			$dbw->newUpdateQueryBuilder()
+				->update( 'page' )
+				->set( [ 'page_touched' => $timestamp ] )
+				->where( [ 'page_id' => $ids ] )
+				->caller( __METHOD__ )
+				->execute();
 
 			# Update CDN
 			$titles = MediaWikiServices::getInstance()

@@ -542,11 +542,12 @@ class FlaggedRevs {
 		if ( $rcid ) {
 			$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
-			$dbw->update( 'recentchanges',
-				[ 'rc_patrolled' => 1 ],
-				[ 'rc_id' => $rcid ],
-				__METHOD__
-			);
+			$dbw->newUpdateQueryBuilder()
+				->update( 'recentchanges' )
+				->set( [ 'rc_patrolled' => 1 ] )
+				->where( [ 'rc_id' => $rcid ] )
+				->caller( __METHOD__ )
+				->execute();
 		}
 	}
 
