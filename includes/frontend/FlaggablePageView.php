@@ -294,13 +294,8 @@ class FlaggablePageView extends ContextSource {
 			return;
 		}
 		// Is the page config altered?
-		$this->enableOOUI();
-		if ( $this->isOnMobile() ) {
-			// It's not going to get injected, don't try to make it
-			$prot = '';
-		} else {
-			$prot = FlaggedRevsXML::lockStatusIcon( $this->article );
-		}
+		$this->enableIcons();
+		$prot = FlaggedRevsXML::lockStatusIcon( $this->article );
 
 		if ( $frev ) { // has stable version?
 			// Looking at some specific old stable revision ("&stableid=x")
@@ -331,34 +326,27 @@ class FlaggablePageView extends ContextSource {
 			}
 		} else {
 			// Looking at a page with no stable version; add "no reviewed version" tag.
-			if ( !$this->out->isPrintable() && !$this->isOnMobile() ) {
-				$this->enableOOUI();
+			if ( !$this->out->isPrintable() ) {
+				$this->enableIcons();
 				$msg = $this->useSimpleUI() ? 'revreview-quick-none' : 'revreview-noflagged';
 				$tag .= $prot . FlaggedRevsXML::draftStatusIcon() . $this->msg( $msg )->parse();
 			}
 			$tagTypeClass = 'flaggedrevs_unreviewed';
 		}
 		# Some checks for which tag CSS to use
-		$inject = true;
 		if ( $this->useSimpleUI() ) {
 			$tagClass = 'flaggedrevs_short';
-			$inject = !$this->isOnMobile();
 		} else {
 			// As it is the only message for non-simple UI, it must be displayed
 			$tagClass = $frev ? 'flaggedrevs_basic' : 'flaggedrevs_notice';
 		}
 		# Wrap tag contents in a div, with class indicating sync status and
 		# whether stable version is shown (for customization of the notice)
-		if ( $tag != '' && $inject ) {
+		if ( $tag != '' ) {
 			$css = "{$tagClass} {$tagTypeClass} plainlinks noprint";
 			$notice = "<div id=\"mw-fr-revisiontag\" class=\"{$css}\">{$tag}</div>\n";
 			$this->reviewNotice .= $notice;
 		}
-	}
-
-	private function isOnMobile(): bool {
-		return ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) &&
-			MobileContext::singleton()->shouldDisplayMobileView();
 	}
 
 	/**
@@ -421,8 +409,8 @@ class FlaggablePageView extends ContextSource {
 		) {
 			$revsSince = $this->article->getPendingRevCount();
 			$pending = $prot;
-			if ( $this->showRatingIcon() && !$this->isOnMobile() ) {
-				$this->enableOOUI();
+			if ( $this->showRatingIcon() ) {
+				$this->enableIcons();
 				$pending .= FlaggedRevsXML::draftStatusIcon();
 			}
 			$pending .= $this->msg( 'revreview-edited', $srev->getRevId() )
@@ -443,7 +431,7 @@ class FlaggablePageView extends ContextSource {
 		# Otherwise, construct some tagging info for non-printable outputs.
 		# Also, if low profile UI is enabled and the page is synced, skip the tag.
 		# Note: the "your edit is pending" notice has all this info, so we never add both.
-		} elseif ( !( $this->article->lowProfileUI() && $synced ) && !$this->isOnMobile() ) {
+		} elseif ( !( $this->article->lowProfileUI() && $synced ) ) {
 			$revsSince = $this->article->getPendingRevCount();
 			// Simple icon-based UI
 			if ( $this->useSimpleUI() ) {
@@ -456,8 +444,8 @@ class FlaggablePageView extends ContextSource {
 				}
 				$icon = '';
 				# For protection based configs, show lock only if it's not redundant.
-				if ( $this->showRatingIcon() && !$this->isOnMobile() ) {
-					$this->enableOOUI();
+				if ( $this->showRatingIcon() ) {
+					$this->enableIcons();
 					$icon = $synced ?
 						FlaggedRevsXML::stableStatusIcon() :
 						FlaggedRevsXML::draftStatusIcon();
@@ -474,7 +462,7 @@ class FlaggablePageView extends ContextSource {
 				}
 				$msgHTML = $this->msg( $msg, $srev->getRevId(), $time )
 					->numParams( $revsSince )->parse();
-				$this->enableOOUI();
+				$this->enableIcons();
 				$icon = $synced ?
 					FlaggedRevsXML::stableStatusIcon() :
 					FlaggedRevsXML::draftStatusIcon();
@@ -516,8 +504,8 @@ class FlaggablePageView extends ContextSource {
 
 		# Construct some tagging for non-printable outputs. Note that the pending
 		# notice has all this info already, so don't do this if we added that already.
-		if ( !$this->out->isPrintable() && !$this->isOnMobile() ) {
-			$this->enableOOUI();
+		if ( !$this->out->isPrintable() ) {
+			$this->enableIcons();
 			// Simple icon-based UI
 			if ( $this->useSimpleUI() ) {
 				$icon = '';
@@ -576,8 +564,7 @@ class FlaggablePageView extends ContextSource {
 		# Construct some tagging
 		if (
 			!$this->out->isPrintable() &&
-			!( $this->article->lowProfileUI() && $synced ) &&
-			!$this->isOnMobile()
+			!( $this->article->lowProfileUI() && $synced )
 		) {
 			$revsSince = $this->article->getPendingRevCount();
 			// Simple icon-based UI
@@ -586,7 +573,7 @@ class FlaggablePageView extends ContextSource {
 				# For protection based configs, show lock only if it's not redundant.
 				if ( $this->showRatingIcon() ) {
 					$icon = FlaggedRevsXML::stableStatusIcon();
-					$this->enableOOUI();
+					$this->enableIcons();
 				}
 				if ( !$reqUser->isRegistered() ) {
 					$msgHTML = ''; // Anons just see simple icons
@@ -601,7 +588,7 @@ class FlaggablePageView extends ContextSource {
 			// Standard UI
 			} else {
 				$icon = FlaggedRevsXML::stableStatusIcon();
-				$this->enableOOUI();
+				$this->enableIcons();
 				if ( $synced ) {
 					$msg = 'revreview-basic-same';
 				} else {
@@ -685,14 +672,8 @@ class FlaggablePageView extends ContextSource {
 		return $parserOut;
 	}
 
-	private function enableOOUI(): void {
-		// Loading icons is pretty expensive, see T181108
-		if ( $this->isOnMobile() ) {
-			return;
-		}
-
+	private function enableIcons(): void {
 		$this->out->addModuleStyles( 'ext.flaggedRevs.icons' );
-		$this->out->enableOOUI();
 	}
 
 	/**
@@ -769,7 +750,7 @@ class FlaggablePageView extends ContextSource {
 		$srev = $this->article->getStableRev();
 		if ( $srev && $this->article->revsArePending() ) {
 			$revsSince = $this->article->getPendingRevCount();
-			$this->enableOOUI();
+			$this->enableIcons();
 			$tag = "<div id='mw-fr-revisiontag-edit' class='flaggedrevs_notice plainlinks'>" .
 				FlaggedRevsXML::lockStatusIcon( $this->article ) . # flag protection icon as needed
 				FlaggedRevsXML::pendingEditNotice( $srev, $revsSince ) . "</div>";

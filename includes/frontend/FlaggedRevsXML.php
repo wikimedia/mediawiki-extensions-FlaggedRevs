@@ -178,14 +178,14 @@ class FlaggedRevsXML {
 	 * Generates JS toggle arrow icon
 	 */
 	private static function ratingArrow(): string {
-		return ( new OOUI\IndicatorWidget(
+		return ( Html::element( 'span',
 			[
-				'indicator' => 'down',
-				'classes' => [ 'fr-toggle-arrow' ],
+				'class' => [ 'fr-toggle-arrow flaggedrevs-icon flaggedrevs-icon-expand' ],
 				'id' => 'mw-fr-revisiontoggle',
 				'title' => wfMessage( 'revreview-toggle-title' )->text(),
-			]
-		) )->toString();
+			],
+			''
+		) );
 	}
 
 	/**
@@ -217,13 +217,13 @@ class FlaggedRevsXML {
 	 */
 	public static function draftStatusIcon(): string {
 		$encTitle = wfMessage( 'revreview-draft-title' )->text();
-		return ( new OOUI\IconWidget(
+		return ( Html::element( 'span',
 			[
-				'icon' => 'block',
-				'classes' => [ 'flaggedrevs-icon' ],
+				'class' => [ 'flaggedrevs-icon', 'flaggedrevs-icon-block' ],
 				'title' => $encTitle,
-			]
-		) )->toString();
+			],
+			''
+		) );
 	}
 
 	/**
@@ -231,13 +231,13 @@ class FlaggedRevsXML {
 	 */
 	public static function stableStatusIcon(): string {
 		$encTitle = wfMessage( 'revreview-basic-title' )->text();
-		return ( new OOUI\IconWidget(
+		return ( Html::element( 'span',
 			[
-				'icon' => 'eye',
-				'classes' => [ 'flaggedrevs-icon' ],
+				'class' => [ 'flaggedrevs-icon', 'flaggedrevs-icon-eye' ],
 				'title' => $encTitle,
-			]
-		) )->toString();
+			],
+			''
+		) );
 	}
 
 	/**
@@ -253,13 +253,13 @@ class FlaggedRevsXML {
 		} else {
 			return '';
 		}
-		return ( new OOUI\IconWidget(
+		return ( Html::element( 'span',
 			[
-				'icon' => $icon,
-				'classes' => [ 'flaggedrevs-icon' ],
+				'class' => [ 'flaggedrevs-icon', 'flaggedrevs-icon-' . $icon ],
 				'title' => $encTitle,
-			]
-		) )->toString();
+			],
+			''
+		) );
 	}
 
 	/**

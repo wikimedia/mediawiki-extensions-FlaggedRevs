@@ -1,3 +1,5 @@
+@import 'mediawiki.skin.variables.less';
+
 /**
  * FlaggedRevs Basic Stylesheet
  * @author Aaron Schulz
@@ -96,6 +98,12 @@ div.flaggedrevs_short {
 	float: right;
 }
 
+div.flaggedrevs_short,
+div.flaggedrevs_short_basic {
+	display: flex;
+	align-items: center;
+}
+
 /* @noflip */
 .sitedir-ltr div.flaggedrevs_short {
 	float: right;
@@ -170,9 +178,12 @@ a.fr-toggle-text {
 	cursor: pointer;
 }
 
-span.fr-toggle-arrow {
+span.fr-toggle-arrow.flaggedrevs-icon {
 	cursor: pointer;
 	opacity: 0.87;
+	background-size: 12px auto;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 li.fr-hist-stable-margin {
@@ -183,6 +194,11 @@ span.flaggedrevs-icon {
 	margin-right: 0.2em;
 	margin-left: 0.2em;
 	opacity: 0.87;
+	min-width: 20px;
+	min-height: 20px;
+	width: 1.25rem;
+	height: 1.25rem;
+	display: inline-block;
 }
 
 .fr-diff-ratings {

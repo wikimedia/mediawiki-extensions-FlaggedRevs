@@ -255,8 +255,7 @@
 				"shared.css"
 			],
 			"skinStyles": {
-				"default": "default.css",
-				"minerva": "minerva.css"
+				"default": "default.less"
 			}
 		},
 		"ext.flaggedRevs.advanced": {
@@ -308,9 +307,12 @@
 			]
 		},
 		"ext.flaggedRevs.icons": {
+			"selectorWithoutVariant": ".flaggedrevs-icon-{name}",
 			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
 			"variants": {},
+			"useDataURI": false,
 			"icons": [
+				"expand",
 				"block",
 				"check",
 				"eye",
