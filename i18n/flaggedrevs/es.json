@@ -33,7 +33,8 @@
 			"Sanbec",
 			"Tiberius1701",
 			"Translationista",
-			"XalD"
+			"XalD",
+			"Dreamy Jazz"
 		]
 	},
 	"action-autoreviewrestore": "revisar automáticamente al revertir",
@@ -178,7 +179,7 @@
 	"revreview-unlocked-title": "La ediciones en esta página no requieren revisión.",
 	"revreview-locked": "'''Atención:''' Las ediciones deben ser [[{{MediaWiki:Validationpage}}|revisadas]] antes de ser mostradas en esta página.",
 	"revreview-unlocked": "'''Atención:''' Las ediciones no requieren [[{{MediaWiki:Validationpage}}|revisión]] antes de ser mostradas en esta página.",
-	"logeventslist-review-log": "Registro de revisiones",
+	"logeventslist-review-log": "Registro de revisión",
 	"validationpage": "{{ns:help}}:Validación de página",
 	"log-action-filter-review": "Tipo de revisión:",
 	"log-action-filter-review-accept": "Aceptación manual",

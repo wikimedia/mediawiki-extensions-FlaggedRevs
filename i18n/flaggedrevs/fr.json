@@ -172,7 +172,7 @@
 	"revreview-unlocked-title": "Les modifications de cette page ne nécessitent aucune relecture.",
 	"revreview-locked": "'''Note :''' les modifications doivent être [[{{MediaWiki:Validationpage}}|relues]] avant d’être affichées sur cette page.",
 	"revreview-unlocked": "'''Note :''' les modifications ne nécessitent aucune [[{{MediaWiki:Validationpage}}|relecture]] avant d’être affichées sur cette page.",
-	"logeventslist-review-log": "Journal des relectures",
+	"logeventslist-review-log": "Journal des révisions de l'article",
 	"validationpage": "{{ns:help}}:Extension:FlaggedRevs/fr",
 	"log-action-filter-review": "Type de révision :",
 	"log-action-filter-review-accept": "Acceptation manuelle",
