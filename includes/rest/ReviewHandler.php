@@ -3,10 +3,8 @@
 namespace MediaWiki\Extension\FlaggedRevs\Rest;
 
 use FlaggedRevs;
-use MediaWiki\Rest\HttpException;
 use MediaWiki\Rest\Response;
 use MediaWiki\Rest\SimpleHandler;
-use MediaWiki\Rest\Validator\JsonBodyValidator;
 use RevisionReview;
 use Wikimedia\ParamValidator\ParamValidator;
 
@@ -30,18 +28,18 @@ class ReviewHandler extends SimpleHandler {
 		return $response;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
-	public function getBodyValidator( $contentType ) {
-		if ( $contentType !== 'application/json' ) {
-			throw new HttpException( "Unsupported Content-Type",
-				415,
-				[ 'content_type' => $contentType ]
-			);
-		}
+	public function needsWriteAccess() {
+		return true;
+	}
 
-		return new JsonBodyValidator( [
+	/** @inheritDoc */
+	public function getParamSettings() {
+		return [
+			'target' => [
+				self::PARAM_SOURCE => 'path',
+				ParamValidator::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_REQUIRED => true,
+			],
 			'oldid' => [
 				self::PARAM_SOURCE => 'body',
 				ParamValidator::PARAM_TYPE => 'integer',
@@ -94,24 +92,9 @@ class ReviewHandler extends SimpleHandler {
 			],
 			'wp' . FlaggedRevs::getTagName() => [
 				self::PARAM_SOURCE => 'body',
-				ParamValidator::PARAM_TYPE => 'array',
+				ParamValidator::PARAM_TYPE => 'integer',
 				ParamValidator::PARAM_REQUIRED => false,
-			]
-		] );
-	}
-
-	public function needsWriteAccess() {
-		return true;
-	}
-
-	/** @inheritDoc */
-	public function getParamSettings() {
-		return [
-			'target' => [
-				self::PARAM_SOURCE => 'path',
-				ParamValidator::PARAM_TYPE => 'string',
-				ParamValidator::PARAM_REQUIRED => true,
-			]
+			],
 		];
 	}
 }
