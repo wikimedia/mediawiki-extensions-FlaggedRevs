@@ -18,9 +18,7 @@ class FlaggedRevsLibraryTest extends LuaEngineTestBase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		if ( !ExtensionRegistry::getInstance()->isLoaded( 'Scribunto' ) ) {
-			$this->markTestSkipped( 'Scribunto not loaded' );
-		}
+		$this->markTestSkippedIfExtensionNotLoaded( 'Scribunto' );
 
 		$class = new ReflectionClass( FlaggableWikiPage::class );
 		$pageConfig = $class->getProperty( 'pageConfig' );
