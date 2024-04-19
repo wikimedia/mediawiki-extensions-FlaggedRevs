@@ -170,7 +170,7 @@ class Stabilization extends UnlistedSpecialPage {
 		}
 
 		# Build up the form...
-		$s .= Xml::openElement( 'form', [ 'name' => 'stabilization',
+		$s .= Html::openElement( 'form', [ 'name' => 'stabilization',
 			'action' => $this->getPageTitle()->getLocalURL(), 'method' => 'post' ] );
 		# Add stable version override and selection options
 		$s .=
@@ -180,14 +180,14 @@ class Stabilization extends UnlistedSpecialPage {
 				'<br />' . "\n" .
 			Xml::radioLabel( $this->msg( 'stabilization-def2' )->text(), 'wpStableconfig-override', '0',
 				'default-current', $form->getOverride() == 0, $this->disabledAttr() ) . "\n" .
-			Xml::closeElement( 'fieldset' );
+			Html::closeElement( 'fieldset' );
 		# Add autoreview restriction select
 		$s .= Xml::fieldset( $this->msg( 'stabilization-restrict' )->text() ) .
 			$this->buildSelector( $form->getAutoreview() ) .
-			Xml::closeElement( 'fieldset' ) .
+			Html::closeElement( 'fieldset' ) .
 
 			Xml::fieldset( $this->msg( 'stabilization-leg' )->text() ) .
-			Xml::openElement( 'table' );
+			Html::openElement( 'table' );
 		# Add expiry dropdown to form...
 		if ( $showProtectOptions && $form->isAllowed() ) {
 			$s .= "
@@ -197,7 +197,7 @@ class Stabilization extends UnlistedSpecialPage {
 							'mwStabilizeExpirySelection' ) .
 					"</td>
 					<td class='mw-input'>" .
-						Xml::tags( 'select',
+						Html::rawElement( 'select',
 							[
 								'id'        => 'mwStabilizeExpirySelection',
 								'name'      => 'wpExpirySelection',
@@ -268,19 +268,19 @@ class Stabilization extends UnlistedSpecialPage {
 					<td class="mw-submit">' .
 						Xml::submitButton( $this->msg( 'stabilization-submit' )->text() ) .
 					'</td>
-				</tr>' . Xml::closeElement( 'table' ) .
+				</tr>' . Html::closeElement( 'table' ) .
 				Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBkey() ) .
 				Html::hidden( 'page', $title->getPrefixedText() ) .
 				Html::hidden( 'wpEditToken', $this->getUser()->getEditToken() );
 		} else {
-			$s .= Xml::closeElement( 'table' );
+			$s .= Html::closeElement( 'table' );
 		}
-		$s .= Xml::closeElement( 'fieldset' ) . Xml::closeElement( 'form' );
+		$s .= Html::closeElement( 'fieldset' ) . Html::closeElement( 'form' );
 
 		$out->addHTML( $s );
 
 		$log = new LogPage( 'stable' );
-		$out->addHTML( Xml::element( 'h2', null,
+		$out->addHTML( Html::element( 'h2', [],
 			$log->getName()->setContext( $this->getContext() )->text() ) );
 		LogEventsList::showLogExtract( $out, 'stable',
 			$title->getPrefixedText(), '', [ 'lim' => 25 ] );
@@ -323,12 +323,11 @@ class Stabilization extends UnlistedSpecialPage {
 			'size' => count( $allowedLevels ),
 		] + $this->disabledAttr();
 
-		$out = Xml::openElement( 'select', $attribs );
+		$out = '';
 		foreach ( $allowedLevels as $key ) {
 			$out .= Xml::option( $this->getOptionLabel( $key ), $key, $key == $selected );
 		}
-		$out .= Xml::closeElement( 'select' );
-		return $out;
+		return Html::rawElement( 'select', $attribs, $out );
 	}
 
 	/**

@@ -122,19 +122,19 @@ class RevisionReviewFormUI {
 		$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
 		$action = $reviewTitle->getLocalURL( 'action=submit' );
 		$params = [ 'method' => 'post', 'action' => $action, 'id' => 'mw-fr-reviewform' ];
-		$form = Xml::openElement( 'form', $params ) . "\n";
-		$form .= Xml::openElement( 'fieldset',
+		$form = Html::openElement( 'form', $params ) . "\n";
+		$form .= Html::openElement( 'fieldset',
 			[ 'class' => 'flaggedrevs_reviewform noprint cdx-card', 'style' => 'font-size: 90%;' ] ) . "\n";
 		# Add appropriate legend text
 		$legendMsg = $frev ? 'revreview-reflag' : 'revreview-flag';
-		$form .= Xml::openElement( 'div', [ 'id' => 'mw-fr-reviewformlegend' ] );
+		$form .= Html::openElement( 'div', [ 'id' => 'mw-fr-reviewformlegend' ] );
 		$form .= '<div class="cdx-card__text__title">' . wfMessage( $legendMsg )->escaped() . '</div>';
 		# Show explanatory text
 		$form .= $this->topNotice;
 
 		# Start rating controls
 		$css = $disabled ? 'fr-rating-controls-disabled' : 'fr-rating-controls';
-		$form .= Xml::openElement( 'p', [ 'class' => $css, 'id' => 'fr-rating-controls' ] ) . "\n";
+		$form .= Html::openElement( 'p', [ 'class' => $css, 'id' => 'fr-rating-controls' ] ) . "\n";
 
 		# Add main checkboxes/selects
 		[ $radios, $radiosShown ] = $this->ratingInputs( $this->user, $tag, $disabled );
@@ -169,7 +169,7 @@ class RevisionReviewFormUI {
 		}
 
 		# End rating controls
-		$form .= Xml::closeElement( 'p' ) . "\n";
+		$form .= Html::closeElement( 'p' ) . "\n";
 
 		# Show explanatory text
 		$form .= $this->bottomNotice;
@@ -186,8 +186,8 @@ class RevisionReviewFormUI {
 		$key = $this->request->getSessionData( 'wsFlaggedRevsKey' );
 		$checkCode = RevisionReviewForm::validationKey( $revId, $key );
 		$form .= Html::hidden( 'validatedParams', $checkCode ) . "\n";
-		$form .= Xml::closeElement( 'fieldset' ) . "\n";
-		$form .= Xml::closeElement( 'form' ) . "\n";
+		$form .= Html::closeElement( 'fieldset' ) . "\n";
+		$form .= Html::closeElement( 'form' ) . "\n";
 		return [ $form, true /* ok */ ];
 	}
 
