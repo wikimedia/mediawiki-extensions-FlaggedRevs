@@ -158,7 +158,7 @@ class FRUserCounters {
 	private static function flattenParams( array $params ) {
 		$flatRows = [];
 		foreach ( $params as $key => $value ) {
-			if ( strpos( $key, '=' ) !== false || strpos( $key, "\n" ) !== false ) {
+			if ( str_contains( $key, '=' ) || str_contains( $key, "\n" ) ) {
 				throw new InvalidArgumentException( "flattenParams() - key cannot use '=' or newline" );
 			}
 			if ( $key === 'uniqueContentPages' ) { // list
