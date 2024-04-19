@@ -31,10 +31,10 @@ class FlaggedRevsXML {
 			}
 			$name = $index !== 0 ? $name : wfMessage( 'blanknamespace' )->text();
 			if ( $index === $selected ) {
-				$s .= "\t" . Xml::element( "option", [ "value" => $index,
+				$s .= "\t" . Html::element( 'option', [ 'value' => $index,
 					"selected" => "selected" ], $name ) . "\n";
 			} else {
-				$s .= "\t" . Xml::element( "option", [ "value" => $index ], $name ) . "\n";
+				$s .= "\t" . Html::element( 'option', [ 'value' => $index ], $name ) . "\n";
 			}
 		}
 		$s .= "</select>\n";
@@ -46,17 +46,11 @@ class FlaggedRevsXML {
 	 * @param int|null $selected (0=draft, 1=stable, null=either )
 	 */
 	public static function getDefaultFilterMenu( ?int $selected = null ): string {
-		if ( $selected === null ) {
-			$selected = ''; // "all"
-		}
-		$s = Xml::label( wfMessage( 'revreview-defaultfilter' )->text(), 'wpStable' ) . "\n";
-		$s .= Xml::openElement( 'select',
-			[ 'name' => 'stable', 'id' => 'wpStable' ] );
-		$s .= Xml::option( wfMessage( 'revreview-def-all' )->text(), '', $selected == '' );
+		$s = Xml::option( wfMessage( 'revreview-def-all' )->text(), '', ( $selected ?? '' ) === '' );
 		$s .= Xml::option( wfMessage( 'revreview-def-stable' )->text(), '1', $selected === 1 );
 		$s .= Xml::option( wfMessage( 'revreview-def-draft' )->text(), '0', $selected === 0 );
-		$s .= Xml::closeElement( 'select' ) . "\n";
-		return $s;
+		return Xml::label( wfMessage( 'revreview-defaultfilter' )->text(), 'wpStable' ) . "\n" .
+			Html::rawElement( 'select', [ 'name' => 'stable', 'id' => 'wpStable' ], $s ) . "\n";
 	}
 
 	/**
@@ -68,7 +62,7 @@ class FlaggedRevsXML {
 			$selected = ''; // "all"
 		}
 		$s = Xml::label( wfMessage( 'revreview-restrictfilter' )->text(), 'wpRestriction' ) . "\n";
-		$s .= Xml::openElement( 'select',
+		$s .= Html::openElement( 'select',
 			[ 'name' => 'restriction', 'id' => 'wpRestriction' ] );
 		$s .= Xml::option( wfMessage( 'revreview-restriction-any' )->text(), '', $selected == '' );
 		if ( !FlaggedRevs::useProtectionLevels() ) {
@@ -83,7 +77,7 @@ class FlaggedRevsXML {
 			$msg = wfMessage( $key )->isDisabled() ? $perm : wfMessage( $key )->text();
 			$s .= Xml::option( $msg, $perm, $selected == $perm );
 		}
-		$s .= Xml::closeElement( 'select' ) . "\n";
+		$s .= Html::closeElement( 'select' ) . "\n";
 		return $s;
 	}
 
@@ -159,7 +153,7 @@ class FlaggedRevsXML {
 		$box .= "</div>\n";
 		// For rel-absolute child div (the fly-out)
 		$box .= '<div id="mw-fr-revisiondetails-wrapper" style="position:relative;">';
-		$box .= Xml::openElement(
+		$box .= Html::openElement(
 			'div',
 			[
 				'id'    => 'mw-fr-revisiondetails',
@@ -175,7 +169,7 @@ class FlaggedRevsXML {
 				$box .= '<p>' . self::addTagRatings( $flags ) . '</p>';
 			}
 		}
-		$box .= Xml::closeElement( 'div' ) . "\n";
+		$box .= Html::closeElement( 'div' ) . "\n";
 		$box .= "</div>\n";
 		return $box;
 	}

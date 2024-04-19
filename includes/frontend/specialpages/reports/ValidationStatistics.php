@@ -80,7 +80,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 		# Show per-namespace stats table...
 		$out->addWikiMsg( 'validationstatistics-table' );
 		$out->addHTML(
-			Xml::openElement( 'table', [ 'class' => 'wikitable flaggedrevs_stats_table' ] )
+			Html::openElement( 'table', [ 'class' => 'wikitable flaggedrevs_stats_table' ] )
 		);
 		$out->addHTML( "<tr>\n" );
 		// Headings (for a positive grep result):
@@ -180,7 +180,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 				</tr>"
 			);
 		}
-		$out->addHTML( Xml::closeElement( 'table' ) );
+		$out->addHTML( Html::closeElement( 'table' ) );
 		# Is there a top X user list? If so, then show it...
 		$data = $this->getTopReviewers();
 		if ( is_array( $data ) && count( $data ) ) {

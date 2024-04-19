@@ -1034,7 +1034,7 @@ class FlaggedRevsUIHooks implements
 
 		# Show relevant lines from the stability log:
 		$logPage = new LogPage( 'stable' );
-		$out->addHTML( Xml::element( 'h2', null, $logPage->getName()->text() ) );
+		$out->addHTML( Html::element( 'h2', [], $logPage->getName()->text() ) );
 		LogEventsList::showLogExtract( $out, 'stable', $title->getPrefixedText() );
 	}
 

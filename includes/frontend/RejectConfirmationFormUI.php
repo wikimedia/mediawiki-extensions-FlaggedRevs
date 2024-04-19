@@ -185,7 +185,7 @@ class RejectConfirmationFormUI {
 		$formHTML .= '</div>';
 
 		$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
-		$formHTML .= Xml::openElement(
+		$formHTML .= Html::openElement(
 			'form',
 			[ 'method' => 'POST', 'action' => $reviewTitle->getLocalURL() ]
 		);
@@ -214,7 +214,7 @@ class RejectConfirmationFormUI {
 			[ 'onClick' => 'history.back(); return history.length <= 1;' ],
 			[ 'oldid' => $this->form->getRefId(), 'diff' => $this->form->getOldId() ]
 		);
-		$formHTML .= Xml::closeElement( 'form' );
+		$formHTML .= Html::closeElement( 'form' );
 
 		return [ $formHTML, true ];
 	}
