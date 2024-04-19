@@ -147,10 +147,10 @@ class RevisionReviewFormUI {
 		# Hide comment input if needed
 		if ( !$disabled ) {
 			$form .= '<div class="cdx-text-input" style="padding-bottom: 5px;">';
-			$form .= Xml::label( wfMessage( 'revreview-log' )->text(), 'mw-fr-commentbox' );
-			$form .= Xml::input(
-				'wpReason', 40, '',
+			$form .= Html::label( wfMessage( 'revreview-log' )->text(), 'mw-fr-commentbox' );
+			$form .= Html::input( 'wpReason', '', 'text',
 				[
+					'size' => 40,
 					'maxlength' => CommentStore::COMMENT_CHARACTER_LIMIT,
 					'class' => 'fr-comment-box cdx-text-input__input',
 					'id' => 'mw-fr-commentbox'
@@ -328,7 +328,7 @@ class RevisionReviewFormUI {
 		}
 		// Disable buttons unless state changes in some cases (non-JS compatible)
 		$needsChangeAttrib = $needsChange ? [ 'data-mw-fr-review-needs-change' => '' ] : [];
-		$s = Xml::submitButton( wfMessage( 'revreview-submit-review' )->text(),
+		$s = Html::submitButton( wfMessage( 'revreview-submit-review' )->text(),
 			[
 				'name'      => 'wpApprove',
 				'id'        => 'mw-fr-submit-accept',
@@ -341,7 +341,7 @@ class RevisionReviewFormUI {
 		# REJECT BUTTON: revert from a pending revision to the stable
 		if ( $rejectId ) {
 			$s .= ' ';
-			$s .= Xml::submitButton( wfMessage( 'revreview-submit-reject' )->text(),
+			$s .= Html::submitButton( wfMessage( 'revreview-submit-reject' )->text(),
 				[
 					'name'  => 'wpReject',
 					'id'    => 'mw-fr-submit-reject',
@@ -353,7 +353,7 @@ class RevisionReviewFormUI {
 		# UNACCEPT BUTTON: revoke a revisions acceptance
 		# Hide if revision is not flagged
 		$s .= ' ';
-		$s .= Xml::submitButton( wfMessage( 'revreview-submit-unreview' )->text(),
+		$s .= Html::submitButton( wfMessage( 'revreview-submit-unreview' )->text(),
 			[
 				'name'  => 'wpUnapprove',
 				'id'    => 'mw-fr-submit-unaccept',

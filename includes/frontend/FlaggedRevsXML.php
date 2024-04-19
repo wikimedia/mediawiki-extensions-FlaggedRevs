@@ -46,10 +46,13 @@ class FlaggedRevsXML {
 	 * @param int|null $selected (0=draft, 1=stable, null=either )
 	 */
 	public static function getDefaultFilterMenu( ?int $selected = null ): string {
-		$s = Xml::option( wfMessage( 'revreview-def-all' )->text(), '', ( $selected ?? '' ) === '' );
-		$s .= Xml::option( wfMessage( 'revreview-def-stable' )->text(), '1', $selected === 1 );
-		$s .= Xml::option( wfMessage( 'revreview-def-draft' )->text(), '0', $selected === 0 );
-		return Xml::label( wfMessage( 'revreview-defaultfilter' )->text(), 'wpStable' ) . "\n" .
+		$s = Html::element( 'option', [ 'value' => '', 'selected' => $selected === null ],
+			wfMessage( 'revreview-def-all' )->text() );
+		$s .= Html::element( 'option', [ 'value' => '1', 'selected' => $selected === 1 ],
+			wfMessage( 'revreview-def-stable' )->text() );
+		$s .= Html::element( 'option', [ 'value' => '0', 'selected' => $selected === 0 ],
+			wfMessage( 'revreview-def-draft' )->text() );
+		return Html::label( wfMessage( 'revreview-defaultfilter' )->text(), 'wpStable' ) . "\n" .
 			Html::rawElement( 'select', [ 'name' => 'stable', 'id' => 'wpStable' ], $s ) . "\n";
 	}
 
@@ -58,24 +61,29 @@ class FlaggedRevsXML {
 	 * @param string|null $selected (null or empty string for "any", 'none' for none)
 	 */
 	public static function getRestrictionFilterMenu( ?string $selected = '' ): string {
-		if ( $selected === null ) {
-			$selected = ''; // "all"
-		}
-		$s = Xml::label( wfMessage( 'revreview-restrictfilter' )->text(), 'wpRestriction' ) . "\n";
+		$s = Html::label( wfMessage( 'revreview-restrictfilter' )->text(), 'wpRestriction' ) . "\n";
 		$s .= Html::openElement( 'select',
 			[ 'name' => 'restriction', 'id' => 'wpRestriction' ] );
-		$s .= Xml::option( wfMessage( 'revreview-restriction-any' )->text(), '', $selected == '' );
+		$s .= Html::element( 'option',
+			[ 'value' => '', 'selected' => ( $selected ?? '' ) === '' ],
+			wfMessage( 'revreview-restriction-any' )->text()
+		);
 		if ( !FlaggedRevs::useProtectionLevels() ) {
 			# All "protected" pages have a protection level, not "none"
-			$s .= Xml::option( wfMessage( 'revreview-restriction-none' )->text(),
-				'none', $selected == 'none' );
+			$s .= Html::element( 'option',
+				[ 'value' => 'none', 'selected' => $selected === 'none' ],
+				wfMessage( 'revreview-restriction-none' )->text()
+			);
 		}
 		foreach ( FlaggedRevs::getRestrictionLevels() as $perm ) {
 			// Give grep a chance to find the usages:
 			// revreview-restriction-any, revreview-restriction-none
 			$key = "revreview-restriction-$perm";
 			$msg = wfMessage( $key )->isDisabled() ? $perm : wfMessage( $key )->text();
-			$s .= Xml::option( $msg, $perm, $selected == $perm );
+			$s .= Html::element( 'option',
+				[ 'value' => $perm, 'selected' => $selected == $perm ],
+				$msg
+			);
 		}
 		$s .= Html::closeElement( 'select' ) . "\n";
 		return $s;

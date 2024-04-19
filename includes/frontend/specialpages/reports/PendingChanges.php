@@ -110,8 +110,8 @@ class PendingChanges extends SpecialPage {
 		}
 		if ( !FlaggedRevs::isStableShownByDefault() && !FlaggedRevs::useOnlyIfProtected() ) {
 			$items[] = "<span style='white-space: nowrap;'>" .
-				Xml::check( 'stable', $this->stable, [ 'id' => 'wpStable' ] ) .
-				Xml::label( $this->msg( 'pendingchanges-stable' )->text(), 'wpStable' ) . '</span>';
+				Html::check( 'stable', $this->stable, [ 'id' => 'wpStable' ] ) .
+				Html::label( $this->msg( 'pendingchanges-stable' )->text(), 'wpStable' ) . '</span>';
 		}
 		if ( $items ) {
 			$form .= implode( ' ', $items ) . '<br />';
@@ -119,17 +119,17 @@ class PendingChanges extends SpecialPage {
 
 		$items = [];
 		$items[] =
-			Xml::label( $this->msg( "pendingchanges-category" )->text(), 'wpCategory' ) . '&#160;' .
-			Xml::input( 'category', 30, $this->category, [ 'id' => 'wpCategory' ] );
+			Html::label( $this->msg( "pendingchanges-category" )->text(), 'wpCategory' ) . '&#160;' .
+			Html::input( 'category', $this->category, 'text', [ 'id' => 'wpCategory', 'size' => 30 ] );
 		if ( $this->getUser()->getId() ) {
-			$items[] = Xml::check( 'watched', $this->watched, [ 'id' => 'wpWatched' ] ) .
-				Xml::label( $this->msg( 'pendingchanges-onwatchlist' )->text(), 'wpWatched' );
+			$items[] = Html::check( 'watched', $this->watched, [ 'id' => 'wpWatched' ] ) .
+				Html::label( $this->msg( 'pendingchanges-onwatchlist' )->text(), 'wpWatched' );
 		}
 		$form .= implode( ' ', $items ) . '<br />';
 		$form .=
-			Xml::label( $this->msg( 'pendingchanges-size' )->text(), 'wpSize' ) .
-			Xml::input( 'size', 4, (string)$this->size, [ 'id' => 'wpSize' ] ) . ' ' .
-			Xml::submitButton( $this->msg( 'allpagessubmit' )->text() ) . "\n";
+			Html::label( $this->msg( 'pendingchanges-size' )->text(), 'wpSize' ) .
+			Html::input( 'size', (string)$this->size, 'text', [ 'id' => 'wpSize', 'size' => 4 ] ) . ' ' .
+			Html::submitButton( $this->msg( 'allpagessubmit' )->text() ) . "\n";
 		$form .= "</fieldset>";
 		$form .= Html::closeElement( 'form' ) . "\n";
 
