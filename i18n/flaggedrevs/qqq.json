@@ -38,7 +38,8 @@
 			"Xiplus",
 			"Yekrats",
 			"Тест",
-			"Dreamy Jazz"
+			"Dreamy Jazz",
+			"Matma Rex"
 		]
 	},
 	"action-autoreview": "{{Flagged Revs}}\n\n{{doc-action|autoreview}}",
@@ -74,9 +75,9 @@
 	"flaggedrevs-rcfilters-not-reviewable-label": "Label for the filter for showing edits of all types that don't require review.",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "Description for the filter for showing edits of all types that don't require review.",
 	"flaggedrevs-diffonly": "{{Flagged Revs}}\n{{notranslate}}",
-	"group-editor": "{{Flagged Revs}}\n{{doc-group|editor}}\n{{Identical|Editor}}",
+	"group-editor": "{{Flagged Revs}}\n{{doc-important|The translation of this message cannot be the same as {{msg-mw|group-reviewer}}}}\n{{doc-group|editor}}\n{{Identical|Editor}}",
 	"group-editor-member": "{{Flagged Revs}}\n{{doc-group|editor|member}}\n{{Identical|Editor}}",
-	"group-reviewer": "{{Flagged Revs}}\n{{doc-group|reviewer}}\n{{Identical|Reviewer}}",
+	"group-reviewer": "{{Flagged Revs}}\n{{doc-important|The translation of this message cannot be the same as {{msg-mw|group-editor}}}}\n{{doc-group|reviewer}}\n{{Identical|Reviewer}}",
 	"group-reviewer-member": "{{Flagged Revs}}\n{{doc-group|reviewer|member}}\n{{Identical|Reviewer}}",
 	"grouppage-editor": "{{Flagged Revs}}\n{{doc-group|editor|page}}\n{{Identical|Editor}}",
 	"grouppage-reviewer": "{{Flagged Revs}}\n{{doc-group|reviewer|page}}\n{{Identical|Reviewer}}",
@@ -196,7 +197,7 @@
 	"revreview-ak-review": "{{FlaggedRevs}}\n{{notranslate}}",
 	"accesskey-ca-current": "{{FlaggedRevs}}\n{{doc-accesskey}}\nSee also:\n* {{msg-mw|Revreview-current}}\n* {{msg-mw|Accesskey-ca-current}}\n* {{msg-mw|Tooltip-ca-current}}",
 	"accesskey-ca-stable": "{{FlaggedRevs}}\n{{doc-accesskey}}",
-	"logeventslist-review-log": "Review log option label on [[Special:Log]]",
+	"logeventslist-review-log": "{{doc-important|The translation of this message cannot be the same as {{msg-mw|logeventslist-patrol-log}}}}\nReview log option label on [[Special:Log]]",
 	"validationpage": "{{Flagged Revs-small}}\n{{doc-important|Do not translate the <code><nowiki>{{ns:help}}:</nowiki></code> part, including the colon.}}\nLink to the general help page.",
 	"log-action-filter-review": "{{doc-log-action-filter-type|review}}\n{{Related|Log-action-filter}}",
 	"log-action-filter-review-accept": "{{doc-log-action-filter-action|review|accept}}\n{{Related|Log-action-filter}}",

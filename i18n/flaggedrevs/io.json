@@ -24,6 +24,7 @@
 	"review-logentry-id": "revizuro: $2",
 	"revreview-accuracy": "Exakteso",
 	"revreview-accuracy-2": "Exakta",
+	"revreview-editnotice": "'''Vua redakturi esos videbla por lektanti kande ul administrero aceptos li. ([[{{MediaWiki:Validationpage}}|Helpo]])'''",
 	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|Verifikita]]'''",
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Verifikita]]'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Ne verifikita]]'''",

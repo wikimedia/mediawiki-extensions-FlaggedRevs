@@ -5,7 +5,8 @@
 			"Snævar",
 			"Spacebirdy",
 			"Sveinn í Felli",
-			"Stefán Örvar Sigmundsson"
+			"Stefán Örvar Sigmundsson",
+			"Matma Rex"
 		]
 	},
 	"action-review": "merkja breytingar sem yfirfarnar",
@@ -23,9 +24,9 @@
 	"flaggedrevs-hidereviewed-hide": "Fela",
 	"flaggedrevs-hidereviewed-show": "Birta",
 	"flaggedrevs-rcfilters-reviewed-label": "Yfirfarin",
-	"group-editor": "Ritstjórar",
+	"group-editor": "Editors",
 	"group-editor-member": "{{GENDER:$1|ritstjóri}}",
-	"group-reviewer": "Ritstjórar",
+	"group-reviewer": "Reviewers",
 	"group-reviewer-member": "{{GENDER:$1|ritstjóri}}",
 	"grouppage-editor": "{{ns:project}}:Ritstjóri",
 	"grouppage-reviewer": "{{ns:project}}:Ritstjóri",
