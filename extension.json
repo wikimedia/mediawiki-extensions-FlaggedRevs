@@ -352,6 +352,7 @@
 		"GetPreferences": "ui",
 		"getUserPermissionsErrors": "main",
 		"GoogleNewsSitemap::Query": "FlaggedRevsHooks::gnsmQueryModifier",
+		"InfoAction": "ui",
 		"InitializeArticleMaybeRedirect": "ui",
 		"LoadExtensionSchemaUpdates": "updater",
 		"MagicWordwgVariableIDs": "main",

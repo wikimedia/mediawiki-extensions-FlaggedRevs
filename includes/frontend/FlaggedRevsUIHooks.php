@@ -1106,4 +1106,58 @@ class FlaggedRevsUIHooks implements
 			}
 		}
 	}
+
+	/**
+	 * Adds list of translcuded pages waiting for review to action=info
+	 *
+	 * @param IContextSource $context
+	 * @param array[] &$pageInfo
+	 */
+	public function onInfoAction( $context, &$pageInfo ) {
+		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
+			return; // short-circuit
+		}
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+
+		$linksMigration = MediaWikiServices::getInstance()->getLinksMigration();
+		[ $nsField, $titleField ] = $linksMigration->getTitleFields( 'templatelinks' );
+		$queryInfo = $linksMigration->getQueryInfo( 'templatelinks' );
+		// Keep it in sync with FlaggedRevision::findPendingTemplateChanges()
+		$ret = $dbr->select(
+			array_merge( $queryInfo['tables'], [ 'page', 'flaggedpages' ] ),
+			[ $nsField, $titleField ],
+			[
+				'tl_from' => $context->getTitle()->getArticleID(),
+				"fp_pending_since IS NOT NULL OR fp_stable IS NULL"
+			],
+			__METHOD__,
+			[],
+			array_merge(
+				$queryInfo['joins'],
+				[
+					'page' => [ 'LEFT JOIN', "page_namespace = $nsField AND page_title = $titleField" ],
+					'flaggedpages' => [ 'JOIN', 'fp_page_id = page_id' ]
+				]
+			)
+		);
+		$titles = [];
+		foreach ( $ret as $row ) {
+			$titleValue = new TitleValue( (int)$row->$nsField, $row->$titleField );
+			$titles[] = MediaWikiServices::getInstance()->getLinkRenderer()->makeLink( $titleValue );
+		}
+		if ( $titles ) {
+			$valueHTML = Html::openElement( 'ul' );
+			foreach ( $titles as $title ) {
+				$valueHTML .= Html::rawElement( 'li', [], $title );
+			}
+			$valueHTML .= Html::closeElement( 'ul' );
+		} else {
+			$valueHTML = $context->msg( 'flaggedrevs-action-info-pages-waiting-for-review-none' )->parse();
+		}
+
+		$pageInfo['header-properties'][] = [
+			$context->msg( 'flaggedrevs-action-info-pages-waiting-for-review' )->parse(),
+			$valueHTML
+		];
+	}
 }
