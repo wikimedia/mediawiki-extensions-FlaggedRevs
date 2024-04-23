@@ -8,6 +8,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Parser\ParserOutput;
+use MediaWiki\Request\WebRequest;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
@@ -1534,10 +1535,18 @@ class FlaggablePageView extends ContextSource {
 			->quickUserCan( 'autoreview', $this->getUser(), $title )
 		) {
 			if ( FlaggedRevs::autoReviewNewPages() && !$this->article->exists() ) {
-				return true; // new page, edit will be autoreviewed
+				return true; // edit will be autoreviewed
 			}
-			if ( $this->article->getStable() && !$this->article->revsArePending() ) {
-				return true; // edit to a page with no pending changes, edit will be autoreviewed
+
+			$baseRevId = self::getBaseRevId( $editPage, $this->getRequest() );
+			$baseRevId2 = self::getAltBaseRevId( $editPage, $this->getRequest() );
+			$baseFRev = FlaggedRevision::newFromTitle( $title, $baseRevId );
+			if ( !$baseFRev && $baseRevId2 ) {
+				$baseFRev = FlaggedRevision::newFromTitle( $title, $baseRevId2 );
+			}
+
+			if ( $baseFRev ) {
+				return true; // edit will be autoreviewed
 			}
 		}
 		return false; // edit won't be autoreviewed
@@ -1561,7 +1570,7 @@ class FlaggablePageView extends ContextSource {
 			// Edit will be auto-reviewed
 			return;
 		}
-		if ( !$editPage->getArticle()->getOldID() ) {
+		if ( self::getBaseRevId( $editPage, $request ) == $this->article->getLatest() ) {
 			# For pages with either no stable version, or an outdated one, let
 			# the user decide if he/she wants it reviewed on the spot. One might
 			# do this if he/she just saw the diff-to-stable and *then* decided to edit.
@@ -1594,5 +1603,60 @@ class FlaggablePageView extends ContextSource {
 			}
 			$checkboxes[$name] = $options;
 		}
+	}
+
+	/**
+	 * Guess the rev ID the text of this form is based off
+	 */
+	private static function getBaseRevId( EditPage $editPage, WebRequest $request ): int {
+		if ( $editPage->isConflict ) {
+			return 0; // throw away these values (bug 33481)
+		}
+
+		$article = $editPage->getArticle(); // convenience
+		$latestId = $article->getPage()->getLatest(); // current rev
+		# Undoing edits...
+		if ( $request->getIntOrNull( 'wpUndidRevision' ) ?? $request->getIntOrNull( 'undo' ) ) {
+			$revId = $latestId; // current rev is the base rev
+		# Other edits...
+		} else {
+			# If we are editing via oldid=X, then use that rev ID.
+			$revId = $article->getOldID();
+		}
+		# Zero oldid => draft revision
+		$baseRevId = $revId ?: $latestId;
+
+		return $baseRevId;
+	}
+
+	/**
+	 * Guess the alternative rev ID the text of this form is based off.
+	 * When undoing the top X edits, the base can be though of as either
+	 * the current or the edit X edits prior to the latest.
+	 */
+	private static function getAltBaseRevId( EditPage $editPage, WebRequest $request ): int {
+		if ( $editPage->isConflict ) {
+			return 0; // throw away these values (bug 33481)
+		}
+
+		$article = $editPage->getArticle(); // convenience
+		$latestId = $article->getPage()->getLatest(); // current rev
+		$undo = $request->getIntOrNull( 'wpUndidRevision' ) ?? $request->getIntOrNull( 'undo' );
+		# Undoing consecutive top edits...
+		if ( $undo && $undo === $latestId ) {
+			# Treat this like a revert to a base revision.
+			# We are undoing all edits *after* some rev ID (undoafter).
+			# If undoafter is not given, then it is the previous rev ID.
+			$revisionLookup = MediaWikiServices::getInstance()->getRevisionLookup();
+			$revision = $revisionLookup->getRevisionById( $latestId );
+			$previousRevision = $revision ? $revisionLookup->getPreviousRevision( $revision ) : null;
+			$altBaseRevId = $request->getInt( 'wpUndoAfter', $request->getInt( 'undoafter',
+				$previousRevision ? $previousRevision->getId() : null
+			) );
+		} else {
+			$altBaseRevId = 0;
+		}
+
+		return $altBaseRevId;
 	}
 }
