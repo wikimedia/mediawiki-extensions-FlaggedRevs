@@ -70,7 +70,7 @@
 	"revreview-accuracy-3": "Geras",
 	"revreview-accuracy-4": "Puikus",
 	"revreview-basic": "Tai yra [[{{MediaWiki:Validationpage}}|stabili versija]], kuri [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} patikrinta] <i>$2</i>.\nDabar yra [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|laukiantis|laukiantys|laikiančių}}] peržiūros {{PLURAL:$3|pakeitimas|pakeitimai|pakeitimų}}.",
-	"revreview-basic-i": "Tai yra [[{{MediaWiki:Validationpage}}|stabili versija]], kuri [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} patikrinta] <i>$2</i>.\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Šablonas arba failas] laukia patikrinimo.",
+	"revreview-basic-i": "Tai yra [[{{MediaWiki:Validationpage}}|stabili versija]], kuri [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} patikrinta] <i>$2</i>.\n[{{fullurl:{{FULLPAGENAMEE}}|action=info}} Šablonas arba failas] laukia patikrinimo.",
 	"revreview-current": "Laukiantys patvirtinimo pakeitimai",
 	"revreview-draft-title": "Šiame puslapyje pateikiami laukiantys patvirtinimo pakeitimai",
 	"revreview-submitedit": "Siųsti pakeitimus",
