@@ -61,8 +61,16 @@ class FlagProtectToSemiProtect extends Maintenance {
 		}
 
 		$db = $this->getPrimaryDB();
-		$start = $db->selectField( 'flaggedpage_config', 'MIN(fpc_page_id)', '', __METHOD__ );
-		$end = $db->selectField( 'flaggedpage_config', 'MAX(fpc_page_id)', '', __METHOD__ );
+		$start = $db->newSelectQueryBuilder()
+			->select( 'MIN(fpc_page_id)' )
+			->from( 'flaggedpage_config' )
+			->caller( __METHOD__ )
+			->fetchField();
+		$end = $db->newSelectQueryBuilder()
+			->select( 'MAX(fpc_page_id)' )
+			->from( 'flaggedpage_config' )
+			->caller( __METHOD__ )
+			->fetchField();
 		if ( $start === null || $end === null ) {
 			$this->output( "...flaggedpage_config table seems to be empty.\n" );
 			return;
@@ -79,15 +87,18 @@ class FlagProtectToSemiProtect extends Maintenance {
 
 		while ( $blockEnd <= $end ) {
 			$this->output( "...doing fpc_page_id from $blockStart to $blockEnd\n" );
-			$res = $db->select(
-				[ 'flaggedpage_config', 'page' ],
-				[ 'fpc_page_id', 'fpc_level', 'fpc_expiry' ],
-				[ "fpc_page_id BETWEEN $blockStart AND $blockEnd",
+			$res = $db->newSelectQueryBuilder()
+				->select( [ 'fpc_page_id', 'fpc_level', 'fpc_expiry' ] )
+				->from( 'flaggedpage_config' )
+				->join( 'page', null, 'page_id = fpc_page_id' )
+				->where( [
+					$db->expr( 'fpc_page_id', '>=', $blockStart ),
+					$db->expr( 'fpc_page_id', '<=', $blockEnd ),
 					'page_namespace' => $reviewNamespaces,
-					'page_id = fpc_page_id',
-					'fpc_level != ' . $db->addQuotes( '' ) ],
-				__METHOD__
-			);
+					$db->expr( 'fpc_level', '!=', '' ),
+				] )
+				->caller( __METHOD__ )
+				->fetchResultSet();
 			# Go through and protect each page...
 			foreach ( $res as $row ) {
 				$title = Title::newFromID( $row->fpc_page_id );

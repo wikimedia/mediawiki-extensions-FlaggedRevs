@@ -70,8 +70,16 @@ class PurgeReviewablePages extends Maintenance {
 
 		$db = $this->getPrimaryDB();
 
-		$start = $db->selectField( 'page', 'MIN(page_id)', '', __METHOD__ );
-		$end = $db->selectField( 'page', 'MAX(page_id)', '', __METHOD__ );
+		$start = $db->newSelectQueryBuilder()
+			->select( 'MIN(page_id)' )
+			->from( 'page' )
+			->caller( __METHOD__ )
+			->fetchField();
+		$end = $db->newSelectQueryBuilder()
+			->select( 'MAX(page_id)' )
+			->from( 'page' )
+			->where( __METHOD__ )
+			->fetchField();
 		if ( $start === null || $end === null ) {
 			$this->output( "... page table seems to be empty.\n" );
 			return;
@@ -84,13 +92,16 @@ class PurgeReviewablePages extends Maintenance {
 		$count = 0;
 		while ( $blockEnd <= $end ) {
 			$this->output( "... doing page_id from $blockStart to $blockEnd\n" );
-			$res = $db->select( 'page', '*',
-				[
-					"page_id BETWEEN $blockStart AND $blockEnd",
+			$res = $db->newSelectQueryBuilder()
+				->select( '*' )
+				->from( 'page' )
+				->where( [
+					$db->expr( 'page_id', '>=', $blockEnd ),
+					$db->expr( 'page_id', '<=', $blockEnd ),
 					'page_namespace' => $reviewNamespaces,
-				],
-				__METHOD__
-			);
+				] )
+				->caller( __METHOD__ )
+				->fetchResultSet();
 			# Go through and append each purgeable page...
 			foreach ( $res as $row ) {
 				$title = Title::newFromRow( $row );

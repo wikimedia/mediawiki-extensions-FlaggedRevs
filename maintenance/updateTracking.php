@@ -4,6 +4,7 @@
  */
 
 use MediaWiki\Title\Title;
+use Wikimedia\Rdbms\SelectQueryBuilder;
 
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
@@ -42,9 +43,17 @@ class UpdateFRTracking extends Maintenance {
 		$revisionStore = $this->getServiceContainer()->getRevisionStore();
 
 		if ( $start === null ) {
-			$start = $db->selectField( 'page', 'MIN(page_id)', '', __METHOD__ );
+			$start = $db->newSelectQueryBuilder()
+				->select( 'MIN(page_id)' )
+				->from( 'page' )
+				->caller( __METHOD__ )
+				->fetchField();
 		}
-		$end = $db->selectField( 'page', 'MAX(page_id)', '', __METHOD__ );
+		$end = $db->newSelectQueryBuilder()
+			->select( 'MAX(page_id)' )
+			->from( 'page' )
+			->caller( __METHOD__ )
+			->fetchField();
 		if ( $start === null || $end === null ) {
 			$this->output( "...flaggedpages table seems to be empty.\n" );
 			return;
@@ -58,12 +67,14 @@ class UpdateFRTracking extends Maintenance {
 		$fixed = 0;
 		while ( $blockEnd <= $end ) {
 			$this->output( "...doing page_id from $blockStart to $blockEnd\n" );
-			$cond = "page_id BETWEEN $blockStart AND $blockEnd";
 
 			$this->beginTransaction( $db, __METHOD__ );
-			$res = $db->select( 'page',
-				[ 'page_id', 'page_namespace', 'page_title', 'page_latest' ],
-				$cond, __METHOD__ );
+			$res = $db->newSelectQueryBuilder()
+				->select( [ 'page_id', 'page_namespace', 'page_title', 'page_latest' ] )
+				->from( 'page' )
+				->where( $db->expr( 'page_id', '>=', $blockStart )->and( 'page_id', '<=', $blockEnd ) )
+				->caller( __METHOD__ )
+				->fetchResultSet();
 			# Go through and update the de-normalized references...
 			foreach ( $res as $row ) {
 				$title = Title::newFromRow( $row );
@@ -81,14 +92,12 @@ class UpdateFRTracking extends Maintenance {
 				}
 				# Get the latest revision
 				$queryInfo = $revisionStore->getQueryInfo();
-				$revRow = $db->selectRow(
-					$queryInfo['tables'],
-					$queryInfo['fields'],
-					[ 'rev_page' => $row->page_id ],
-					__METHOD__,
-					[ 'ORDER BY' => 'rev_timestamp DESC' ],
-					$queryInfo['joins']
-				);
+				$revRow = $db->newSelectQueryBuilder()
+					->queryInfo( $queryInfo )
+					->where( [ 'rev_page' => $row->page_id ] )
+					->orderBy( 'rev_timestamp', SelectQueryBuilder::SORT_DESC )
+					->caller( __METHOD__ )
+					->fetchRow();
 				# Correct page_latest if needed (import/files made plenty of bad rows)
 				if ( $revRow ) {
 					$latestRevId = $article->getLatest();

@@ -46,9 +46,17 @@ class PopulateFRRevTimestamp extends Maintenance {
 		$db = $this->getPrimaryDB();
 
 		if ( $start === null ) {
-			$start = $db->selectField( 'flaggedrevs', 'MIN(fr_rev_id)', '', __METHOD__ );
+			$start = $db->newSelectQueryBuilder()
+				->select( 'MIN(fr_rev_id)' )
+				->from( 'flaggedrevs' )
+				->caller( __METHOD__ )
+				->fetchField();
 		}
-		$end = $db->selectField( 'flaggedrevs', 'MAX(fr_rev_id)', '', __METHOD__ );
+		$end = $db->newSelectQueryBuilder()
+			->select( 'MAX(fr_rev_id)' )
+			->from( 'flaggedrevs' )
+			->caller( __METHOD__ )
+			->fetchField();
 		if ( $start === null || $end === null ) {
 			$this->output( "...flaggedrevs table seems to be empty.\n" );
 			return;
@@ -62,16 +70,18 @@ class PopulateFRRevTimestamp extends Maintenance {
 
 		while ( $blockEnd <= $end ) {
 			$this->output( "...doing fr_rev_id from $blockStart to $blockEnd\n" );
-			$cond = "fr_rev_id BETWEEN $blockStart AND $blockEnd AND fr_rev_timestamp = ''";
-			$res = $db->select(
-				[ 'flaggedrevs', 'revision', 'archive' ],
-				[ 'fr_rev_id', 'rev_timestamp', 'ar_timestamp' ],
-				$cond,
-				__METHOD__,
-				[],
-				[ 'revision' => [ 'LEFT JOIN', 'rev_id = fr_rev_id' ],
-					'archive' => [ 'LEFT JOIN', 'ar_rev_id = fr_rev_id' ] ] // non-unique but OK
-			);
+			$res = $db->newSelectQueryBuilder()
+				->select( [ 'fr_rev_id', 'rev_timestamp', 'ar_timestamp' ] )
+				->from( 'flaggedrevs' )
+				->leftJoin( 'revision', null, 'rev_id = fr_rev_id' )
+				->leftJoin( 'archive', null, 'ar_rev_id = fr_rev_id' ) // non-unique but OK
+				->where( [
+					$db->expr( 'fr_rev_id', '>=', $blockStart ),
+					$db->expr( 'fr_rev_id', '<=', $blockEnd ),
+					'fr_rev_timestamp' => '',
+				] )
+				->caller( __METHOD__ )
+				->fetchResultSet();
 			$db->begin( __METHOD__ );
 			# Go through and clean up missing items
 			foreach ( $res as $row ) {
