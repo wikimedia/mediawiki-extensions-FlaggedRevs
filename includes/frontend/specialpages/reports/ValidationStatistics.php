@@ -3,6 +3,7 @@
 use MediaWiki\MediaWikiServices;
 use MediaWiki\SpecialPage\IncludableSpecialPage;
 use MediaWiki\SpecialPage\SpecialPage;
+use Wikimedia\Rdbms\SelectQueryBuilder;
 
 class ValidationStatistics extends IncludableSpecialPage {
 	/** @var array|null */
@@ -210,7 +211,11 @@ class ValidationStatistics extends IncludableSpecialPage {
 				->getMaintenanceConnectionRef( DB_REPLICA, [], false );
 
 		return $dbr->tableExists( 'flaggedrevs_statistics', __METHOD__ ) &&
-			$dbr->selectField( 'flaggedrevs_statistics', '1', [], __METHOD__ );
+			$dbr->newSelectQueryBuilder()
+				->select( '1' )
+				->from( 'flaggedrevs_statistics' )
+				->caller( __METHOD__ )
+				->fetchField();
 	}
 
 	/**
@@ -219,12 +224,15 @@ class ValidationStatistics extends IncludableSpecialPage {
 	private function getEditorCount() {
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
-		return (int)$dbr->selectField( 'user_groups', 'COUNT(*)',
-			[
+		return (int)$dbr->newSelectQueryBuilder()
+			->select( 'COUNT(*)' )
+			->from( 'user_groups' )
+			->where( [
 				'ug_group' => 'editor',
-				'ug_expiry IS NULL OR ug_expiry >= ' . $dbr->addQuotes( $dbr->timestamp() )
-			],
-			__METHOD__ );
+				$dbr->expr( 'ug_expiry', '=', null )->or( 'ug_expiry', '>=', $dbr->timestamp() ),
+			] )
+			->caller( __METHOD__ )
+			->fetchField();
 	}
 
 	/**
@@ -233,12 +241,15 @@ class ValidationStatistics extends IncludableSpecialPage {
 	private function getReviewerCount() {
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
-		return (int)$dbr->selectField( 'user_groups', 'COUNT(*)',
-			[
+		return (int)$dbr->newSelectQueryBuilder()
+			->select( 'COUNT(*)' )
+			->from( 'user_groups' )
+			->where( [
 				'ug_group' => 'reviewer',
-				'ug_expiry IS NULL OR ug_expiry >= ' . $dbr->addQuotes( $dbr->timestamp() )
-			],
-			__METHOD__ );
+				$dbr->expr( 'ug_expiry', '=', null )->or( 'ug_expiry', '>=', $dbr->timestamp() ),
+			] )
+			->caller( __METHOD__ )
+			->fetchField();
 	}
 
 	/**
@@ -337,23 +348,21 @@ class ValidationStatistics extends IncludableSpecialPage {
 				$limit = 5;
 				$seconds = 3600;
 				$cutoff = $dbr->timestamp( time() - $seconds );
-				$res = $dbr->select(
-					[ 'logging', 'actor' ],
-					[ 'actor_id', 'actor_name', 'actor_user', 'COUNT(*) AS reviews' ],
-					[
+				$res = $dbr->newSelectQueryBuilder()
+					->select( [ 'actor_id', 'actor_name', 'actor_user', 'reviews' => 'COUNT(*)' ] )
+					->from( 'logging' )
+					->join( 'actor', null, 'actor_id=log_actor' )
+					->where( [
 						'log_type' => 'review', // page reviews
 						// manual approvals (filter on log_action)
 						'log_action' => [ 'approve', 'approve2', 'approve-i', 'approve2-i' ],
-						'log_timestamp >= ' . $dbr->addQuotes( $cutoff ) // last hour
-					],
-					$fname,
-					[
-						'GROUP BY' => 'actor_user',
-						'ORDER BY' => 'reviews DESC',
-						'LIMIT' => $limit
-					],
-					[ 'actor' => [ 'JOIN', 'actor_id=log_actor' ] ]
-				);
+						$dbr->expr( 'log_timestamp', '>=', $cutoff ) // last hour
+					] )
+					->groupBy( 'actor_user' )
+					->orderBy( 'reviews', SelectQueryBuilder::SORT_DESC )
+					->limit( $limit )
+					->caller( $fname )
+					->fetchResultSet();
 
 				$actorStore = MediaWikiServices::getInstance()->getActorStore();
 				$data = [];

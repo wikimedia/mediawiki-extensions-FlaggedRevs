@@ -47,13 +47,18 @@ class FRExtraCacheUpdateJob extends Job {
 		# Get query conditions
 		$conds = $update->getToCondition();
 		if ( $this->params['start'] ) {
-			$conds[] = 'ftr_from >= ' . $dbr->addQuotes( $this->params['start'] );
+			$conds[] = $dbr->expr( 'ftr_from', '>=', $this->params['start'] );
 		}
 		if ( $this->params['end'] ) {
-			$conds[] = 'ftr_from <= ' . $dbr->addQuotes( $this->params['end'] );
+			$conds[] = $dbr->expr( 'ftr_from', '<=', $this->params['end'] );
 		}
 		// Run query to get page Ids
-		$pageIds = $dbr->selectFieldValues( 'flaggedrevs_tracking', 'ftr_from', $conds, __METHOD__ );
+		$pageIds = $dbr->newSelectQueryBuilder()
+			->select( 'ftr_from' )
+			->from( 'flaggedrevs_tracking' )
+			->where( $conds )
+			->caller( __METHOD__ )
+			->fetchFieldValues();
 		// Invalidate the pages
 		$update->invalidateIDs( $pageIds );
 		return true;

@@ -9,6 +9,7 @@ use Wikimedia\Assert\PreconditionException;
 use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IReadableDatabase;
+use Wikimedia\Rdbms\SelectQueryBuilder;
 
 /**
  * Class representing a MediaWiki article and history
@@ -197,17 +198,17 @@ class FlaggableWikiPage extends WikiPage {
 				$db = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 				$setOpts += Database::getCacheSetOptions( $db );
 
-				return (int)$db->selectField(
-					'revision',
-					'COUNT(*)',
-					[
+				return (int)$db->newSelectQueryBuilder()
+					->select( 'COUNT(*)' )
+					->from( 'revision' )
+					->where( [
 						'rev_page' => $this->getId(),
 						// T17515
-						'rev_timestamp > ' .
-							$db->addQuotes( $db->timestamp( $srev->getRevTimestamp() ) )
-					],
-					$fname
-				);
+						$db->expr( 'rev_timestamp', '>',
+							$db->timestamp( $srev->getRevTimestamp() ) ),
+					] )
+					->caller( $fname )
+					->fetchField();
 			},
 			[
 				'touchedCallback' => function () {
@@ -374,19 +375,18 @@ class FlaggableWikiPage extends WikiPage {
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 		# Get the highest quality revision (not necessarily this one).
-		$oldid = $dbr->selectField( [ 'flaggedrevs', 'revision' ],
-			'fr_rev_id',
-			[
+		$oldid = $dbr->newSelectQueryBuilder()
+			->select( 'fr_rev_id' )
+			->from( 'flaggedrevs' )
+			->join( 'revision', null, 'rev_id = fr_rev_id' )
+			->where( [
 				'fr_page_id' => $this->getId(),
 				'rev_page = fr_page_id', // sanity
-				'rev_id = fr_rev_id',
 				$dbr->bitAnd( 'rev_deleted', RevisionRecord::DELETED_TEXT ) . ' = 0'
-			],
-			__METHOD__,
-			[
-				'ORDER BY' 	=> [ 'fr_rev_timestamp DESC', 'fr_rev_id DESC' ]
-			]
-		);
+			] )
+			->orderBy( [ 'fr_rev_timestamp', 'fr_rev_id' ], SelectQueryBuilder::SORT_DESC )
+			->caller( __METHOD__ )
+			->fetchField();
 		return (int)$oldid;
 	}
 
@@ -419,21 +419,18 @@ class FlaggableWikiPage extends WikiPage {
 		$selectCallback = static function () use ( $dbr, $conditions, $options, $fname ) {
 			$pageQuery = WikiPage::getQueryInfo();
 
-			return $dbr->selectRow(
-				array_merge( $pageQuery['tables'], [ 'flaggedpages', 'flaggedpage_config' ] ),
-				array_merge(
-					$pageQuery['fields'],
-					[ 'fpc_override', 'fpc_level', 'fpc_expiry' ],
-					[ 'fp_pending_since', 'fp_stable', 'fp_reviewed' ]
-				),
-				$conditions,
-				$fname,
-				$options,
-				$pageQuery['joins'] + [
-					'flaggedpages' => [ 'LEFT JOIN', 'fp_page_id = page_id' ],
-					'flaggedpage_config' => [ 'LEFT JOIN', 'fpc_page_id = page_id' ],
-				]
-			);
+			return $dbr->newSelectQueryBuilder()
+				->queryInfo( $pageQuery )
+				->select( [
+					'fpc_override', 'fpc_level', 'fpc_expiry',
+					'fp_pending_since', 'fp_stable', 'fp_reviewed',
+				] )
+				->leftJoin( 'flaggedpages', null, 'fp_page_id = page_id' )
+				->leftJoin( 'flaggedpage_config', null, 'fpc_page_id = page_id' )
+				->where( $conditions )
+				->options( $options )
+				->caller( $fname )
+				->fetchRow();
 		};
 
 		if ( $dbr instanceof IDatabase && !$dbr->isReadOnly() ) {
@@ -518,14 +515,16 @@ class FlaggableWikiPage extends WikiPage {
 		$nextTimestamp = null;
 		if ( $revRecord->getId() != $latest ) {
 			$timestamp = $dbw->timestamp( $revRecord->getTimestamp() );
-			$nextEditTS = $dbw->selectField( 'revision',
-				'rev_timestamp',
-				[
+			$nextEditTS = $dbw->newSelectQueryBuilder()
+				->select( 'rev_timestamp' )
+				->from( 'revision' )
+				->where( [
 					'rev_page' => $this->getId(),
-					"rev_timestamp > " . $dbw->addQuotes( $timestamp ) ],
-				__METHOD__,
-				[ 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 1 ]
-			);
+					$dbw->expr( 'rev_timestamp', '>', $timestamp ),
+				] )
+				->orderBy( 'rev_timestamp' )
+				->caller( __METHOD__ )
+				->fetchField();
 			if ( $nextEditTS ) { // sanity check
 				$nextTimestamp = $nextEditTS;
 			}
@@ -584,18 +583,18 @@ class FlaggableWikiPage extends WikiPage {
 		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
 		# Get the latest revision of FR_CHECKED
-		$row = $dbw->selectRow(
-			[ 'flaggedrevs', 'revision' ],
-			[ 'fr_rev_id', 'rev_timestamp' ],
-			[
+		$row = $dbw->newSelectQueryBuilder()
+			->select( [ 'fr_rev_id', 'rev_timestamp' ] )
+			->from( 'flaggedrevs' )
+			->join( 'revision', null, 'rev_id = fr_rev_id' ) // rev exists
+			->where( [
 				'fr_page_id' => $pageId,
-				'rev_id = fr_rev_id', // rev exists
 				'rev_page = fr_page_id', // sanity
 				$dbw->bitAnd( 'rev_deleted', RevisionRecord::DELETED_TEXT ) . ' = 0'
-			],
-			__METHOD__,
-			[ 'ORDER BY' => [ 'fr_rev_timestamp DESC', 'fr_rev_id DESC' ], 'LIMIT' => 1 ]
-		);
+			] )
+			->orderBy( [ 'fr_rev_timestamp', 'fr_rev_id' ], SelectQueryBuilder::SORT_DESC )
+			->caller( __METHOD__ )
+			->fetchRow();
 		# If there is a revision of this level, track it...
 		# Revisions accepted to one tier count as accepted
 		# at the lower tiers (i.e. quality -> checked).
@@ -609,18 +608,19 @@ class FlaggableWikiPage extends WikiPage {
 		# Get edits that actually are pending...
 		if ( $id && $latest > $id ) {
 			# Get the timestamp of the edit after this version (if any)
-			$nextTimestamp = $dbw->selectField( 'revision',
-				'rev_timestamp',
-				[
+			$nextTimestamp = $dbw->newSelectQueryBuilder()
+				->select( 'rev_timestamp' )
+				->from( 'revision' )
+				->where( [
 					'rev_page' => $pageId,
 					$dbw->buildComparison( '>', [
 						'rev_timestamp' => $ts,
 						'rev_id' => $id,
 					] ),
-				],
-				__METHOD__,
-				[ 'ORDER BY' => [ 'rev_timestamp ASC', 'rev_id ASC' ], 'LIMIT' => 1 ]
-			);
+				] )
+				->orderBy( [ 'rev_timestamp', 'rev_id' ] )
+				->caller( __METHOD__ )
+				->fetchField();
 			// No newer revision found
 			if ( $nextTimestamp !== false ) {
 				$data[] = [

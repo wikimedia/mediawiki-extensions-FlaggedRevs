@@ -400,20 +400,19 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 				$revQuery = $revStore->getQueryInfo();
 				$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
-				$revisions = $dbr->select(
-					$revQuery['tables'],
-					[ 'rev_id', 'rev_user' => $revQuery['fields']['rev_user'] ],
-					[
-						'rev_id <= ' . $newRevRecord->getId(),
-						'rev_timestamp <= ' . $dbr->addQuotes( $dbr->timestamp( $newRevRecord->getTimestamp() ) ),
-						'rev_id > ' . $oldRevRecord->getId(),
-						'rev_timestamp > ' . $dbr->addQuotes( $dbr->timestamp( $oldRevRecord->getTimestamp() ) ),
+				$revisions = $dbr->newSelectQueryBuilder()
+					->select( [ 'rev_id', 'rev_user' => $revQuery['fields']['rev_user'] ] )
+					->tables( $revQuery['tables'] )
+					->where( [
+						$dbr->expr( 'rev_id', '<=', $newRevRecord->getId() ),
+						$dbr->expr( 'rev_timestamp', '<=', $dbr->timestamp( $newRevRecord->getTimestamp() ) ),
+						$dbr->expr( 'rev_id', '>', $oldRevRecord->getId() ),
+						$dbr->expr( 'rev_timestamp', '>', $dbr->timestamp( $oldRevRecord->getTimestamp() ) ),
 						'rev_page' => $article->getId(),
-					],
-					__METHOD__,
-					[],
-					$revQuery['joins']
-				);
+					] )
+					->joinConds( $revQuery['joins'] )
+					->caller( __METHOD__ )
+					->fetchResultSet();
 				foreach ( $revisions as $row ) {
 					$affectedRevisions[$row->rev_id] = $row->rev_user;
 				}
@@ -599,13 +598,13 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		# If we accepted this rev, then mark prior revs as patrolled...
 		if ( $patrol === 'patrol' ) {
 			if ( $sTimestamp ) { // sanity check; should always be set
-				$conds[] = 'rc_timestamp <= ' . $dbw->addQuotes( $dbw->timestamp( $sTimestamp ) );
+				$conds[] = $dbw->expr( 'rc_timestamp', '<=', $dbw->timestamp( $sTimestamp ) );
 				$newPatrolState = 1;
 			}
 		# If we un-accepted this rev, then mark now-pending revs as unpatrolled...
 		} elseif ( $patrol === 'unpatrol' ) {
 			if ( $sTimestamp ) {
-				$conds[] = 'rc_timestamp > ' . $dbw->addQuotes( $dbw->timestamp( $sTimestamp ) );
+				$conds[] = $dbw->expr( 'rc_timestamp', '>', $dbw->timestamp( $sTimestamp ) );
 			}
 			$newPatrolState = 0;
 		}
@@ -617,13 +616,13 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		// Only update rows that need it
 		$conds['rc_patrolled'] = $newPatrolState ? 0 : 1;
 		// SELECT and update by PK to avoid lag
-		$rcIds = $dbw->selectFieldValues(
-			'recentchanges',
-			'rc_id',
-			$conds,
-			__METHOD__,
-			[ 'LIMIT' => $limit ]
-		);
+		$rcIds = $dbw->newSelectQueryBuilder()
+			->select( 'rc_id' )
+			->from( 'recentchanges' )
+			->where( $conds )
+			->limit( $limit )
+			->caller( __METHOD__ )
+			->fetchFieldValues();
 		if ( $rcIds ) {
 			$dbw->newUpdateQueryBuilder()
 				->update( 'recentchanges' )

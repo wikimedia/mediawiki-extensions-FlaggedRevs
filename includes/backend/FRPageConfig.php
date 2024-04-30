@@ -19,11 +19,12 @@ class FRPageConfig {
 		} else {
 			$db = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		}
-		$row = $db->selectRow( 'flaggedpage_config',
-			[ 'fpc_override', 'fpc_level', 'fpc_expiry' ],
-			[ 'fpc_page_id' => $title->getArticleID() ],
-			__METHOD__
-		);
+		$row = $db->newSelectQueryBuilder()
+			->select( [ 'fpc_override', 'fpc_level', 'fpc_expiry' ] )
+			->from( 'flaggedpage_config' )
+			->where( [ 'fpc_page_id' => $title->getArticleID() ] )
+			->caller( __METHOD__ )
+			->fetchRow();
 		return self::getVisibilitySettingsFromRow( $row );
 	}
 
@@ -103,12 +104,13 @@ class FRPageConfig {
 		} else {
 			$dbExpiry = $dbw->encodeExpiry( $config['expiry'] );
 			# Get current config...
-			$oldRow = $dbw->selectRow( 'flaggedpage_config',
-				[ 'fpc_override', 'fpc_level', 'fpc_expiry' ],
-				[ 'fpc_page_id' => $title->getArticleID() ],
-				__METHOD__,
-				'FOR UPDATE' // lock
-			);
+			$oldRow = $dbw->newSelectQueryBuilder()
+				->select( [ 'fpc_override', 'fpc_level', 'fpc_expiry' ] )
+				->from( 'flaggedpage_config' )
+				->where( [ 'fpc_page_id' => $title->getArticleID() ] )
+				->forUpdate() // lock
+				->caller( __METHOD__ )
+				->fetchRow();
 			# Check if this is not the same config as the existing (if any) row
 			$changed = ( !$oldRow // no previous config
 				|| $oldRow->fpc_override != $config['override'] // ...override changed, or...
@@ -197,14 +199,14 @@ class FRPageConfig {
 
 		# Find pages with expired configs...
 		$config = self::getDefaultVisibilitySettings(); // config is to be reset
-		$encCutoff = $dbw->addQuotes( $dbw->timestamp() );
-		$ret = $dbw->select(
-			[ 'flaggedpage_config', 'page' ],
-			[ 'fpc_page_id', 'page_namespace', 'page_title' ],
-			[ 'page_id = fpc_page_id', 'fpc_expiry < ' . $encCutoff ],
-			__METHOD__
-			// [ 'FOR UPDATE' ]
-		);
+		$cutoff = $dbw->timestamp();
+		$ret = $dbw->newSelectQueryBuilder()
+			->select( [ 'fpc_page_id', 'page_namespace', 'page_title' ] )
+			->from( 'flaggedpage_config' )
+			->join( 'page', null, 'page_id = fpc_page_id' )
+			->where( $dbw->expr( 'fpc_expiry', '<', $cutoff ) )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 		# Figured out to do with each page...
 		$pagesClearConfig = [];
 		$pagesClearTracking = [];
@@ -222,7 +224,7 @@ class FRPageConfig {
 		if ( count( $pagesClearConfig ) ) {
 			$dbw->newDeleteQueryBuilder()
 				->deleteFrom( 'flaggedpage_config' )
-				->where( [ 'fpc_page_id' => $pagesClearConfig, 'fpc_expiry < ' . $encCutoff ] )
+				->where( [ 'fpc_page_id' => $pagesClearConfig, $dbw->expr( 'fpc_expiry', '<', $cutoff ) ] )
 				->caller( __METHOD__ )
 				->execute();
 		}

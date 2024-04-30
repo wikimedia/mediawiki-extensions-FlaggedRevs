@@ -109,8 +109,12 @@ class UnreviewedPages extends SpecialPage {
 		if ( $this->isMiser ) {
 			$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
-			$ts = $dbr->selectField( 'querycache_info', 'qci_timestamp',
-				[ 'qci_type' => 'fr_unreviewedpages' ], __METHOD__ );
+			$ts = $dbr->newSelectQueryBuilder()
+				->select( 'qci_timestamp' )
+				->from( 'querycache_info' )
+				->where( [ 'qci_type' => 'fr_unreviewedpages' ] )
+				->caller( __METHOD__ )
+				->fetchField();
 			if ( $ts ) {
 				$ts = wfTimestamp( TS_MW, $ts );
 				$td = $this->getLanguage()->timeanddate( $ts );
@@ -221,16 +225,18 @@ class UnreviewedPages extends SpecialPage {
 
 		$insertRows = [];
 		// Find pages that were never reviewed at all...
-		$res = $dbr->select(
-			[ 'page', 'flaggedpages' ],
-			[ 'page_namespace', 'page_title', 'page_id' ],
-			[ 'page_namespace' => $rNamespaces,
+		$res = $dbr->newSelectQueryBuilder()
+			->select( [ 'page_namespace', 'page_title', 'page_id' ] )
+			->from( 'page' )
+			->leftJoin( 'flaggedpages', null, 'fp_page_id = page_id' )
+			->where( [
+				'page_namespace' => $rNamespaces,
 				'page_is_redirect' => 0, // no redirects
-				'fp_page_id IS NULL' ],
-			__METHOD__,
-			[ 'LIMIT' => self::CACHE_SIZE ],
-			[ 'flaggedpages' => [ 'LEFT JOIN', 'fp_page_id = page_id' ] ]
-		);
+				'fp_page_id' => null,
+			] )
+			->limit( self::CACHE_SIZE )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 		foreach ( $res as $row ) {
 			$insertRows[] = [
 				'qc_type'       => 'fr_unreviewedpages',
@@ -274,16 +280,18 @@ class UnreviewedPages extends SpecialPage {
 
 		$insertRows = [];
 		// Find pages that were never marked as "quality"...
-		$res = $dbr->select(
-			[ 'page', 'flaggedpages' ],
-			[ 'page_namespace', 'page_title', 'page_id' ],
-			[ 'page_namespace' => $rNamespaces,
+		$res = $dbr->newSelectQueryBuilder()
+			->select( [ 'page_namespace', 'page_title', 'page_id' ] )
+			->from( 'page' )
+			->leftJoin( 'flaggedpages', null, 'fp_page_id = page_id' )
+			->where( [
+				'page_namespace' => $rNamespaces,
 				'page_is_redirect' => 0, // no redirects
-				'fp_page_id IS NULL OR fp_quality = 0' ],
-			__METHOD__,
-			[ 'LIMIT' => self::CACHE_SIZE ],
-			[ 'flaggedpages' => [ 'LEFT JOIN', 'fp_page_id = page_id' ] ]
-		);
+				$dbr->expr( 'fp_page_id', '=', null )->or( 'fp_quality', '=', 0 ),
+			] )
+			->limit( self::CACHE_SIZE )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 		foreach ( $res as $row ) {
 			$insertRows[] = [
 				'qc_type'       => 'fr_unreviewedpages_q',

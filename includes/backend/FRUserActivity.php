@@ -27,28 +27,28 @@ class FRUserActivity {
 
 				$setOpts += Database::getCacheSetOptions( $dbr );
 				// Get number of active editors watching this page...
-				$count = (int)$dbr->selectField(
-					[ 'watchlist', 'user' ],
-					'COUNT(*)',
-					[
+				$count = (int)$dbr->newSelectQueryBuilder()
+					->select( 'COUNT(*)' )
+					->from( 'watchlist' )
+					->join( 'user', null, 'wl_user = user_id' )
+					->where( [
 						'wl_namespace' => $title->getNamespace(),
 						'wl_title' => $title->getDBkey(),
-						'wl_user = user_id',
-						'EXISTS(' . $dbr->selectSQLText(
-							[ 'recentchanges', 'actor' ],
-							'1',
-							[
+						'EXISTS(' . $dbr->newSelectQueryBuilder()
+							->select( '1' )
+							->from( 'recentchanges' )
+							->join( 'actor', null, 'actor_id=rc_actor' )
+							->where( [
 								'actor_name=user_name',
-								'rc_timestamp > ' .
-									$dbr->timestamp( time() - 86400 * $wgActiveUserDays )
-							],
-							$fname,
-							[],
-							[ 'actor' => [ 'JOIN', 'actor_id=rc_actor' ] ]
-						) . ')'
-					],
-					$fname
-				);
+								$dbr->expr( 'rc_timestamp', '>',
+									$dbr->timestamp( time() - 86400 * $wgActiveUserDays ) )
+							] )
+							->caller( $fname )
+							->getSQL() .
+						')'
+					] )
+					->caller( $fname )
+					->fetchField();
 
 				if ( $count > 100 ) {
 					// More aggresive caching for larger counts

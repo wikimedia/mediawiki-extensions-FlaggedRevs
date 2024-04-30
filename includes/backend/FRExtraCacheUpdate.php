@@ -38,8 +38,12 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 		# Fetch the IDs
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
-		$pageIds = $dbr->selectFieldValues( 'flaggedrevs_tracking', 'ftr_from',
-			$this->getToCondition(), __METHOD__ );
+		$pageIds = $dbr->newSelectQueryBuilder()
+			->select( 'ftr_from' )
+			->from( 'flaggedrevs_tracking' )
+			->where( $this->getToCondition() )
+			->caller( __METHOD__ )
+			->fetchFieldValues();
 		# Check if there is anything to do...
 		if ( $pageIds ) {
 			# Do it right now?

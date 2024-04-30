@@ -7,6 +7,7 @@ use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
+use Wikimedia\Rdbms\SelectQueryBuilder;
 
 /**
  * Class representing a stable version of a MediaWiki revision
@@ -100,18 +101,17 @@ class FlaggedRevision {
 		}
 		# Skip deleted revisions
 		$frQuery = self::getQueryInfo();
-		$row = $db->selectRow(
-			$frQuery['tables'],
-			$frQuery['fields'],
-			[
+		$row = $db->newSelectQueryBuilder()
+			->tables( $frQuery['tables'] )
+			->fields( $frQuery['fields'] )
+			->where( [
 				'fr_page_id' => $pageId,
 				'fr_rev_id'  => $revId,
 				$db->bitAnd( 'rev_deleted', RevisionRecord::DELETED_TEXT ) . ' = 0'
-			],
-			__METHOD__,
-			[],
-			$frQuery['joins']
-		);
+			] )
+			->joinConds( $frQuery['joins'] )
+			->caller( __METHOD__ )
+			->fetchRow();
 		# Sorted from highest to lowest, so just take the first one if any
 		return $row ? self::newFromRow( $row, $title, $flags ) : null;
 	}
@@ -140,19 +140,18 @@ class FlaggedRevision {
 		}
 		# Check tracking tables
 		$frQuery = self::getQueryInfo();
-		$row = $db->selectRow(
-			array_merge( [ 'flaggedpages' ], $frQuery['tables'] ),
-			array_merge( [ 'fr_page_id' ], $frQuery['fields'] ),
-			[
+		$row = $db->newSelectQueryBuilder()
+			->tables( $frQuery['tables'] )
+			->fields( $frQuery['fields'] )
+			->select( [ 'fr_page_id' ] )
+			->join( 'flaggedpages', null, 'fr_rev_id = fp_stable' )
+			->where( [
 				'fp_page_id' => $pageId,
 				$db->bitAnd( 'rev_deleted', RevisionRecord::DELETED_TEXT ) . ' = 0', // sanity
-			],
-			__METHOD__,
-			[],
-			[
-				'flaggedrevs' => [ 'JOIN', 'fr_rev_id = fp_stable' ],
-			] + $frQuery['joins']
-		);
+			] )
+			->joinConds( $frQuery['joins'] )
+			->caller( __METHOD__ )
+			->fetchRow();
 		if ( $row ) {
 			if ( (int)$row->rev_page !== $pageId || (int)$row->fr_page_id !== $pageId ) {
 				// Warn about inconsistent flaggedpages rows, see T246720
@@ -197,7 +196,6 @@ class FlaggedRevision {
 		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
 			return null; // short-circuit
 		}
-		$options = [];
 
 		$db = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 		$pageId = $title->getArticleID( IDBAccessObject::READ_LATEST );
@@ -217,17 +215,16 @@ class FlaggedRevision {
 			'rev_page = fr_page_id', // sanity
 			$db->bitAnd( 'rev_deleted', RevisionRecord::DELETED_TEXT ) . ' = 0'
 		];
-		$options['ORDER BY'] = [ 'fr_rev_timestamp DESC', 'fr_rev_id DESC' ];
 
 		$frQuery = self::getQueryInfo();
-		$row = $db->selectRow(
-			$frQuery['tables'],
-			$frQuery['fields'],
-			$baseConds,
-			__METHOD__,
-			$options,
-			$frQuery['joins']
-		);
+		$row = $db->newSelectQueryBuilder()
+			->tables( $frQuery['tables'] )
+			->fields( $frQuery['fields'] )
+			->where( $baseConds )
+			->orderBy( [ 'fr_rev_timestamp', 'fr_rev_id' ], SelectQueryBuilder::SORT_DESC )
+			->joinConds( $frQuery['joins'] )
+			->caller( __METHOD__ )
+			->fetchRow();
 		return $row ? self::newFromRow( $row, $title, IDBAccessObject::READ_LATEST ) : null;
 	}
 
@@ -409,24 +406,19 @@ class FlaggedRevision {
 			$linksMigration = MediaWikiServices::getInstance()->getLinksMigration();
 			[ $nsField, $titleField ] = $linksMigration->getTitleFields( 'templatelinks' );
 			$queryInfo = $linksMigration->getQueryInfo( 'templatelinks' );
-			$res = $dbr->select(
-				array_merge( $queryInfo['tables'], [ 'page', 'flaggedpages' ] ),
-				[ 'page_namespace', 'page_title', 'fp_stable' ],
-				[
+			$res = $dbr->newSelectQueryBuilder()
+				->select( [ 'page_namespace', 'page_title', 'fp_stable' ] )
+				->tables( $queryInfo['tables'] )
+				->leftJoin( 'page', null, [ "page_namespace = $nsField", "page_title = $titleField" ] )
+				->leftJoin( 'flaggedpages', null, 'fp_page_id = page_id' )
+				->where( [
 					'tl_from' => $this->getPage(),
 					# Only get templates with stable or "review time" versions.
-					"fp_stable IS NOT NULL"
-				], // current version templates
-				__METHOD__,
-				[], /* OPTIONS */
-				array_merge(
-					$queryInfo['joins'],
-					[
-						'page' => [ 'LEFT JOIN', "page_namespace = $nsField AND page_title = $titleField" ],
-						'flaggedpages' => [ 'LEFT JOIN', 'fp_page_id = page_id' ]
-					]
-				)
-			);
+					$dbr->expr( 'fp_stable', '!=', null ),
+				] ) // current version templates
+				->joinConds( $queryInfo['joins'] )
+				->caller( __METHOD__ )
+				->fetchResultSet();
 			foreach ( $res as $row ) {
 				$revId = (int)$row->fp_stable; // 0 => none
 				$this->mStableTemplates[$row->page_namespace][$row->page_title] = $revId;
@@ -452,24 +444,19 @@ class FlaggedRevision {
 		$linksMigration = MediaWikiServices::getInstance()->getLinksMigration();
 		[ $nsField, $titleField ] = $linksMigration->getTitleFields( 'templatelinks' );
 		$queryInfo = $linksMigration->getQueryInfo( 'templatelinks' );
-		$ret = $dbr->select(
-			array_merge( $queryInfo['tables'], [ 'page', 'flaggedpages' ] ),
-			[ $nsField, $titleField ],
-			[
+		$ret = $dbr->newSelectQueryBuilder()
+			->select( [ $nsField, $titleField ] )
+			->tables( $queryInfo['tables'] )
+			->leftJoin( 'page', null, [ "page_namespace = $nsField", "page_title = $titleField" ] )
+			->join( 'flaggedpages', null, 'fp_page_id = page_id' )
+			->where( [
 				'tl_from' => $this->getPage(),
 				# Only get templates with stable or "review time" versions.
-				"fp_pending_since IS NOT NULL OR fp_stable IS NULL"
-			], // current version templates
-			__METHOD__,
-			[], /* OPTIONS */
-			array_merge(
-				$queryInfo['joins'],
-				[
-					'page' => [ 'LEFT JOIN', "page_namespace = $nsField AND page_title = $titleField" ],
-					'flaggedpages' => [ 'JOIN', 'fp_page_id = page_id' ]
-				]
-			)
-		);
+				$dbr->expr( 'fp_pending_since', '!=', null )->or( 'fp_stable', '=', null ),
+			] ) // current version templates
+			->joinConds( $queryInfo['joins'] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 		return (bool)$ret->count();
 	}
 
@@ -492,10 +479,12 @@ class FlaggedRevision {
 		} else {
 			$db = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		}
-		return (bool)$db->selectField( 'flaggedrevs', '1',
-			[ 'fr_rev_id' => $rev_id ],
-			__METHOD__
-		);
+		return (bool)$db->newSelectQueryBuilder()
+			->select( '1' )
+			->from( 'flaggedrevs' )
+			->where( [ 'fr_rev_id' => $rev_id ] )
+			->caller( __METHOD__ )
+			->fetchField();
 	}
 
 	/**

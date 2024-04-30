@@ -54,20 +54,19 @@ class RejectConfirmationFormUI {
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 		$revQuery = $this->revisionStore->getQueryInfo();
-		$res = $dbr->select(
-			$revQuery['tables'],
-			$revQuery['fields'],
-			[
+		$res = $dbr->newSelectQueryBuilder()
+			->tables( $revQuery['tables'] )
+			->fields( $revQuery['fields'] )
+			->where( [
 				'rev_page' => $oldRevRecord->getPageId(),
-				'rev_timestamp > ' . $dbr->addQuotes(
-					$dbr->timestamp( $oldRevRecord->getTimestamp() ) ),
-				'rev_timestamp <= ' . $dbr->addQuotes(
-					$dbr->timestamp( $newRevRecord->getTimestamp() ) )
-			],
-			__METHOD__,
-			[ 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 251 ], // sanity check
-			$revQuery['joins']
-		);
+				$dbr->expr( 'rev_timestamp', '>', $dbr->timestamp( $oldRevRecord->getTimestamp() ) ),
+				$dbr->expr( 'rev_timestamp', '<=', $dbr->timestamp( $newRevRecord->getTimestamp() ) ),
+			] )
+			->orderBy( 'rev_timestamp' )
+			->limit( 251 ) // sanity check
+			->joinConds( $revQuery['joins'] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 		if ( !$res->numRows() ) {
 			return [ '', 'review_bad_oldid' ];
 		} elseif ( $res->numRows() > 250 ) {

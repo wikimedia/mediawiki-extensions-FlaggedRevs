@@ -868,17 +868,21 @@ class FlaggedRevsUIHooks implements
 		if ( $out->getTitle()->equals( $watchlist ) && $namespaces ) {
 			$dbr = MediaWikiServices::getInstance()->getConnectionProvider()
 				->getReplicaDatabase( false, 'watchlist' ); // consistency with watchlist
-			$watchedOutdated = (bool)$dbr->selectField(
-				[ 'watchlist', 'page', 'flaggedpages' ],
-				'1', // existence
-				[ 'wl_user' => $out->getUser()->getId(), // this user
-					'wl_namespace' => $namespaces, // reviewable
+			$watchedOutdated = (bool)$dbr->newSelectQueryBuilder()
+				->select( '1' ) // existence
+				->from( 'watchlist' )
+				->join( 'page', null, [
 					'wl_namespace = page_namespace',
 					'wl_title = page_title',
-					'fp_page_id = page_id',
-					'fp_pending_since IS NOT NULL', // edits pending
-				], __METHOD__
-			);
+				] )
+				->join( 'flaggedpages', null, 'fp_page_id = page_id' )
+				->where( [
+					'wl_user' => $out->getUser()->getId(), // this user
+					'wl_namespace' => $namespaces, // reviewable
+					$dbr->expr( 'fp_pending_since', '!=', null ), // edits pending
+				] )
+				->caller( __METHOD__ )
+				->fetchField();
 			# Give a notice if pages on the users's wachlist have pending edits
 			if ( $watchedOutdated ) {
 				$css = 'plainlinks fr-watchlist-pending-notice mw-message-box mw-message-box-warning';
@@ -1123,23 +1127,18 @@ class FlaggedRevsUIHooks implements
 		[ $nsField, $titleField ] = $linksMigration->getTitleFields( 'templatelinks' );
 		$queryInfo = $linksMigration->getQueryInfo( 'templatelinks' );
 		// Keep it in sync with FlaggedRevision::findPendingTemplateChanges()
-		$ret = $dbr->select(
-			array_merge( $queryInfo['tables'], [ 'page', 'flaggedpages' ] ),
-			[ $nsField, $titleField ],
-			[
+		$ret = $dbr->newSelectQueryBuilder()
+			->select( [ $nsField, $titleField ] )
+			->tables( $queryInfo['tables'] )
+			->leftJoin( 'page', null, [ "page_namespace = $nsField", "page_title = $titleField" ] )
+			->join( 'flaggedpages', null, 'fp_page_id = page_id' )
+			->where( [
 				'tl_from' => $context->getTitle()->getArticleID(),
-				"fp_pending_since IS NOT NULL OR fp_stable IS NULL"
-			],
-			__METHOD__,
-			[],
-			array_merge(
-				$queryInfo['joins'],
-				[
-					'page' => [ 'LEFT JOIN', "page_namespace = $nsField AND page_title = $titleField" ],
-					'flaggedpages' => [ 'JOIN', 'fp_page_id = page_id' ]
-				]
-			)
-		);
+				$dbr->expr( 'fp_pending_since', '!=', null )->or( 'fp_stable', '=', null ),
+			] )
+			->joinConds( $queryInfo['joins'] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 		$titles = [];
 		foreach ( $ret as $row ) {
 			$titleValue = new TitleValue( (int)$row->$nsField, $row->$titleField );

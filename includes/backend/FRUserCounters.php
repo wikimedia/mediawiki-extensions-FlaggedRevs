@@ -67,21 +67,18 @@ class FRUserCounters {
 	 * @return stdClass|false
 	 */
 	private static function fetchParamsRow( $userId, $flags = 0 ) {
-		$options = [];
-		if ( ( $flags & IDBAccessObject::READ_EXCLUSIVE ) === IDBAccessObject::READ_EXCLUSIVE ) {
-			$options[] = 'FOR UPDATE';
-		}
 		if ( $flags & IDBAccessObject::READ_LATEST ) {
 			$db = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 		} else {
 			$db = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		}
-		return $db->selectRow( 'flaggedrevs_promote',
-			'frp_user_params',
-			[ 'frp_user_id' => $userId ],
-			__METHOD__,
-			$options
-		);
+		return $db->newSelectQueryBuilder()
+			->select( 'frp_user_params' )
+			->from( 'flaggedrevs_promote' )
+			->where( [ 'frp_user_id' => $userId ] )
+			->recency( $flags )
+			->caller( __METHOD__ )
+			->fetchRow();
 	}
 
 	/**

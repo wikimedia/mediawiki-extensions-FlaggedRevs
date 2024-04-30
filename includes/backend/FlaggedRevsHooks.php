@@ -34,6 +34,7 @@ use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
 use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\IReadableDatabase;
+use Wikimedia\Rdbms\SelectQueryBuilder;
 
 /**
  * Class containing hooked functions for a FlaggedRevs environment
@@ -134,14 +135,16 @@ class FlaggedRevsHooks implements
 		# Get flagged revisions from old page id that point to destination page
 		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
-		$revIDs = $dbw->selectFieldValues(
-			[ 'flaggedrevs', 'revision' ],
-			'fr_rev_id',
-			[ 'fr_page_id' => $oldPageID,
-				'fr_rev_id = rev_id',
-				'rev_page' => $newPageID ],
-			__METHOD__
-		);
+		$revIDs = $dbw->newSelectQueryBuilder()
+			->select( 'fr_rev_id' )
+			->from( 'flaggedrevs' )
+			->join( 'revision', null, 'fr_rev_id = rev_id' )
+			->where( [
+				'fr_page_id' => $oldPageID,
+				'rev_page' => $newPageID
+			] )
+			->caller( __METHOD__ )
+			->fetchFieldValues();
 		# Update these rows
 		if ( $revIDs ) {
 			$dbw->newUpdateQueryBuilder()
@@ -596,35 +599,35 @@ class FlaggedRevsHooks implements
 
 		# Such a revert requires 1+ revs between it and the stable
 		$revWhere = ActorMigration::newMigration()->getWhere( $dbw, 'rev_user', $user );
-		$revertedRevs = (bool)$dbw->selectField(
-			[ 'revision' ] + $revWhere['tables'],
-			'1',
-			[
+		$revertedRevs = (bool)$dbw->newSelectQueryBuilder()
+			->select( '1' )
+			->from( 'revision' )
+			->tables( $revWhere['tables'] )
+			->where( [
 				'rev_page' => $revRecord->getPageId(),
-				'rev_id > ' . intval( $baseRevId ), // stable rev
-				'rev_id < ' . intval( $revRecord->getId() ), // this rev
+				$dbw->expr( 'rev_id', '>', intval( $baseRevId ) ), // stable rev
+				$dbw->expr( 'rev_id', '<', intval( $revRecord->getId() ) ), // this rev
 				$revWhere['conds']
-			],
-			__METHOD__,
-			[],
-			$revWhere['joins']
-		);
+			] )
+			->joinConds( $revWhere['joins'] )
+			->caller( __METHOD__ )
+			->fetchField();
 		if ( !$revertedRevs ) {
 			return false; // can't be a revert
 		}
 		# Check that this user is ONLY reverting his/herself.
-		$otherUsers = (bool)$dbw->selectField(
-			[ 'revision' ] + $revWhere['tables'],
-			'1',
-			[
+		$otherUsers = (bool)$dbw->newSelectQueryBuilder()
+			->select( '1' )
+			->from( 'revision' )
+			->tables( $revWhere['tables'] )
+			->where( [
 				'rev_page' => $revRecord->getPageId(),
-				'rev_id > ' . intval( $baseRevId ),
+				$dbw->expr( 'rev_id', '>', intval( $baseRevId ) ),
 				'NOT( ' . $revWhere['conds'] . ' )'
-			],
-			__METHOD__,
-			[],
-			$revWhere['joins']
-		);
+			] )
+			->joinConds( $revWhere['joins'] )
+			->caller( __METHOD__ )
+			->fetchField();
 		if ( $otherUsers ) {
 			return false; // only looking for self-reverts
 		}
@@ -851,14 +854,15 @@ class FlaggedRevsHooks implements
 		# Check the oldest edit
 		$lower = false;
 		foreach ( $queryData as $data ) {
-			$ts = $dbr->selectField(
-				$data['tables'],
-				$data['tsField'],
-				$data['cond'],
-				__METHOD__,
-				[ 'ORDER BY' => $data['tsField'] . ' ASC', 'USE INDEX' => $data['useIndex'] ],
-				$data['joins']
-			);
+			$ts = $dbr->newSelectQueryBuilder()
+				->tables( $data['tables'] )
+				->field( $data['tsField'] )
+				->where( $data['cond'] )
+				->orderby( $data['tsField'] )
+				->useIndex( $data['useIndex'] )
+				->joinConds( $data['joins'] )
+				->caller( __METHOD__ )
+				->fetchField();
 			$lower = $lower && $ts ? min( $lower, $ts ) : ( $lower ?: $ts );
 		}
 		# Recursively check for an edit $spacingReq seconds later, until we are done.
@@ -868,14 +872,16 @@ class FlaggedRevsHooks implements
 				$next = (int)wfTimestamp( TS_UNIX, $lower ) + $spacingReq;
 				$lower = false;
 				foreach ( $queryData as $data ) {
-					$ts = $dbr->selectField(
-						$data['tables'],
-						$data['tsField'],
-						[ $data['cond'], $data['tsField'] . ' > ' . $dbr->addQuotes( $dbr->timestamp( $next ) ) ],
-						__METHOD__,
-						[ 'ORDER BY' => $data['tsField'] . ' ASC', 'USE INDEX' => $data['useIndex'] ],
-						$data['joins']
-					);
+					$ts = $dbr->newSelectQueryBuilder()
+						->tables( $data['tables'] )
+						->field( $data['tsField'] )
+						->where( $data['cond'] )
+						->andWhere( $dbr->expr( $data['tsField'], '>', $dbr->timestamp( $next ) ) )
+						->orderBy( $data['tsField'] )
+						->useIndex( $data['useIndex'] )
+						->joinConds( $data['joins'] )
+						->caller( __METHOD__ )
+						->fetchField();
 					$lower = $lower && $ts ? min( $lower, $ts ) : ( $lower ?: $ts );
 				}
 				if ( $lower !== false ) {
@@ -915,14 +921,16 @@ class FlaggedRevsHooks implements
 		$lowCutoff = false;
 		if ( $user->getEditCount() > 10000 ) {
 			foreach ( $queryData as $data ) {
-				$lowCutoff = max( $lowCutoff, $dbr->selectField(
-					$data['tables'],
-					$data['tsField'],
-					$data['conds'],
-					__METHOD__,
-					[ 'ORDER BY' => $data['tsField'] . ' DESC', 'OFFSET' => 9999, 'LIMIT' => 1 ],
-					$data['joins']
-				) );
+				$lowCutoff = max( $lowCutoff, $dbr->newSelectQueryBuilder()
+					->tables( $data['tables'] )
+					->field( $data['tsField'] )
+					->where( $data['conds'] )
+					->orderBy( $data['tsField'], SelectQueryBuilder::SORT_DESC )
+					->offset( 9999 )
+					->joinConds( $data['joins'] )
+					->caller( __METHOD__ )
+					->fetchField()
+				);
 			}
 		}
 		$lowCutoff = $lowCutoff ?: 1; // default to UNIX 1970
@@ -932,22 +940,21 @@ class FlaggedRevsHooks implements
 			if ( $ct >= $editsReq ) {
 				break;
 			}
-			$res = $dbr->select(
-				array_merge( $data['tables'], [ 'flaggedpages' ] ),
-				'1',
-				array_merge(
-					$data['conds'],
-					[
+			$res = $dbr->newSelectQueryBuilder()
+				->select( '1' )
+				->tables( $data['tables'] )
+				->join( 'flaggedpages', null, 'fp_page_id = rev_page' )
+				->where( $data['conds'] )
+				->andWhere( [
 						// bug 15515
 						'fp_pending_since IS NULL OR fp_pending_since > ' . $data['tsField'],
 						// Avoid too much scanning
-						$data['tsField'] . ' > ' . $dbr->addQuotes( $dbr->timestamp( $lowCutoff ) )
-					]
-				),
-				__METHOD__,
-				[ 'LIMIT' => $editsReq - $ct ],
-				[ 'flaggedpages' => [ 'JOIN', 'fp_page_id = rev_page' ] ] + $data['joins']
-			);
+						$dbr->expr( $data['tsField'], '>', $dbr->timestamp( $lowCutoff ) )
+				] )
+				->limit( $editsReq - $ct )
+				->joinConds( $data['joins'] )
+				->caller( __METHOD__ )
+				->fetchResultSet();
 			$ct += $res->numRows();
 		}
 		return ( $ct >= $editsReq );
@@ -973,10 +980,14 @@ class FlaggedRevsHooks implements
 		];
 		if ( $cutoff_unixtime > 0 ) {
 			# Hint to improve NS,title,timestamp INDEX use
-			$encCutoff = $db->addQuotes( $db->timestamp( $cutoff_unixtime ) );
-			$conds[] = "log_timestamp >= $encCutoff";
+			$conds[] = $db->expr( 'log_timestamp', '>=', $db->timestamp( $cutoff_unixtime ) );
 		}
-		return (bool)$db->selectField( 'logging', '1', $conds, __METHOD__ );
+		return (bool)$db->newSelectQueryBuilder()
+			->select( '1' )
+			->from( 'logging' )
+			->where( $conds )
+			->caller( __METHOD__ )
+			->fetchField();
 	}
 
 	/**
@@ -990,21 +1001,22 @@ class FlaggedRevsHooks implements
 
 		$queryData = self::getQueryData( $dbr, User::newFromId( $userId ) );
 		# Get cutoff timestamp (edits that are too recent)
-		$encCutoff = $dbr->addQuotes( $dbr->timestamp( time() - $seconds ) );
+		$cutoff = $dbr->timestamp( time() - $seconds );
 		# Check all recent edits...
 		$ct = 0;
 		foreach ( $queryData as $data ) {
 			if ( $ct > $limit ) {
 				break;
 			}
-			$res = $dbr->select(
-				$data['tables'],
-				'1',
-				[ $data['cond'], $data['tsField'] . ' > ' . $encCutoff ],
-				__METHOD__,
-				[ 'LIMIT' => $limit + 1 - $ct ],
-				$data['joins']
-			);
+			$res = $dbr->newSelectQueryBuilder()
+				->select( '1' )
+				->tables( $data['tables'] )
+				->where( $data['cond'] )
+				->andWhere( $dbr->expr( $data['tsField'], '>', $cutoff ) )
+				->limit( $limit + 1 - $ct )
+				->joinConds( $data['joins'] )
+				->caller( __METHOD__ )
+				->fetchResultSet();
 			$ct += $res->numRows();
 		}
 		return $ct;
@@ -1021,7 +1033,7 @@ class FlaggedRevsHooks implements
 
 		$queryData = self::getQueryData( $dbr, User::newFromId( $userId ) );
 		# Get cutoff timestamp (edits that are too recent)
-		$encCutoff = $dbr->addQuotes( $dbr->timestamp( time() - $seconds ) );
+		$cutoff = $dbr->timestamp( time() - $seconds );
 		# Check all recent content edits...
 		$ct = 0;
 		$contentNamespaces = MediaWikiServices::getInstance()
@@ -1031,18 +1043,20 @@ class FlaggedRevsHooks implements
 			if ( $ct > $limit ) {
 				break;
 			}
-			$res = $dbr->select(
-				array_merge( $data['tables'], [ 'page' ] ),
-				'1',
-				[
+			$res = $dbr->newSelectQueryBuilder()
+				->select( '1' )
+				->tables( $data['tables'] )
+				->join( 'page', null, 'rev_page = page_id' )
+				->where( [
 					$data['cond'],
-					"{$data['tsField']} > $encCutoff",
+					$dbr->expr( $data['tsField'], '>', $cutoff ),
 					'page_namespace' => $contentNamespaces
-				],
-				__METHOD__,
-				[ 'LIMIT' => $limit + 1 - $ct, 'USE INDEX' => $data['useIndex'] ],
-				[ 'page' => [ 'JOIN', 'rev_page = page_id' ] ] + $data['joins']
-			);
+				] )
+				->limit( $limit + 1 - $ct )
+				->useIndex( $data['useIndex'] )
+				->joinConds( $data['joins'] )
+				->caller( __METHOD__ )
+				->fetchResultSet();
 			$ct += $res->numRows();
 		}
 		return $ct;

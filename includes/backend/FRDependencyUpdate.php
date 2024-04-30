@@ -115,11 +115,12 @@ class FRDependencyUpdate {
 		} else {
 			$db = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		}
-		$res = $db->select( 'flaggedrevs_tracking',
-			[ 'ftr_namespace', 'ftr_title' ],
-			[ 'ftr_from' => $this->title->getArticleID() ],
-			__METHOD__
-		);
+		$res = $db->newSelectQueryBuilder()
+			->select( [ 'ftr_namespace', 'ftr_title' ] )
+			->from( 'flaggedrevs_tracking' )
+			->where( [ 'ftr_from' => $this->title->getArticleID() ] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 		$arr = [];
 		foreach ( $res as $row ) {
 			$arr[$row->ftr_namespace][$row->ftr_title] = 1;
@@ -210,14 +211,13 @@ class FRDependencyUpdate {
 		$linksMigration = MediaWikiServices::getInstance()->getLinksMigration();
 		$queryInfo = $linksMigration->getQueryInfo( 'pagelinks' );
 		[ $nsField, $titleField ] = $linksMigration->getTitleFields( 'pagelinks' );
-		$res = $dbr->select(
-			$queryInfo['tables'],
-			$queryInfo['fields'],
-			[ 'pl_from' => $this->title->getArticleID() ],
-			__METHOD__,
-			[],
-			$queryInfo['joins']
-		);
+		$res = $dbr->newSelectQueryBuilder()
+			->tables( $queryInfo['tables'] )
+			->fields( $queryInfo['fields'] )
+			->where( [ 'pl_from' => $this->title->getArticleID() ] )
+			->joinConds( $queryInfo['joins'] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 		$arr = [];
 		foreach ( $res as $row ) {
 			$arr[$row->$nsField][$row->$titleField] = 1;
@@ -234,13 +234,13 @@ class FRDependencyUpdate {
 		$linksMigration = MediaWikiServices::getInstance()->getLinksMigration();
 		$queryInfo = $linksMigration->getQueryInfo( 'templatelinks' );
 		[ $nsField, $titleField ] = $linksMigration->getTitleFields( 'templatelinks' );
-		$res = $dbr->select( $queryInfo['tables'],
-			$queryInfo['fields'],
-			[ 'tl_from' => $this->title->getArticleID() ],
-			__METHOD__,
-			[],
-			$queryInfo['joins']
-		);
+		$res = $dbr->newSelectQueryBuilder()
+			->tables( $queryInfo['tables'] )
+			->fields( $queryInfo['fields'] )
+			->where( [ 'tl_from' => $this->title->getArticleID() ] )
+			->joinConds( $queryInfo['joins'] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 		$arr = [];
 		foreach ( $res as $row ) {
 			$arr[$row->$nsField][$row->$titleField] = 1;
@@ -254,11 +254,12 @@ class FRDependencyUpdate {
 	 */
 	private function getCurrentVersionCategories() {
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
-		$res = $dbr->select( 'categorylinks',
-			[ 'cl_to', 'cl_sortkey' ],
-			[ 'cl_from' => $this->title->getArticleID() ],
-			__METHOD__
-		);
+		$res = $dbr->newSelectQueryBuilder()
+			->select( [ 'cl_to', 'cl_sortkey' ] )
+			->from( 'categorylinks' )
+			->where( [ 'cl_from' => $this->title->getArticleID() ] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 		$arr = [];
 		foreach ( $res as $row ) {
 			$arr[$row->cl_to] = $row->cl_sortkey;

@@ -3,6 +3,8 @@
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\ActorMigration;
 use Wikimedia\Rdbms\IReadableDatabase;
+use Wikimedia\Rdbms\SelectQueryBuilder;
+use Wikimedia\Rdbms\SubQuery;
 
 /**
  * FlaggedRevs stats functions
@@ -30,16 +32,21 @@ class FlaggedRevsStats {
 
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		// Latest timestamp recorded
-		$timestamp = $dbr->selectField( 'flaggedrevs_statistics', 'MAX(frs_timestamp)', [], __METHOD__ );
+		$timestamp = $dbr->newSelectQueryBuilder()
+			->select( 'MAX(frs_timestamp)' )
+			->from( 'flaggedrevs_statistics' )
+			->caller( __METHOD__ )
+			->fetchField();
 
 		if ( $timestamp !== false ) {
 			$data['statTimestamp'] = wfTimestamp( TS_MW, $timestamp );
 
-			$res = $dbr->select( 'flaggedrevs_statistics',
-				[ 'frs_stat_key', 'frs_stat_val' ],
-				[ 'frs_timestamp' => $dbr->timestamp( $timestamp ) ],
-				__METHOD__
-			);
+			$res = $dbr->newSelectQueryBuilder()
+				->select( [ 'frs_stat_key', 'frs_stat_val' ] )
+				->from( 'flaggedrevs_statistics' )
+				->where( [ 'frs_timestamp' => $dbr->timestamp( $timestamp ) ] )
+				->caller( __METHOD__ )
+				->fetchResultSet();
 			foreach ( $res as $row ) {
 				$key = explode( ':', $row->frs_stat_key );
 				switch ( $key[0] ) {
@@ -194,17 +201,22 @@ class FlaggedRevsStats {
 		$ns_synced = [];
 		// Get total, reviewed, and synced page count for each namespace
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase( false, 'vslow' );
-		$res = $dbr->select( [ 'page', 'flaggedpages' ],
-			[ 'page_namespace',
+		$res = $dbr->newSelectQueryBuilder()
+			->select( [
+				'page_namespace',
 				'total' => 'COUNT(*)',
 				'reviewed' => 'COUNT(fp_page_id)',
-				'pending' => 'COUNT(fp_pending_since)' ],
-			[ 'page_is_redirect' => 0,
-				'page_namespace' => FlaggedRevs::getReviewNamespaces() ],
-			__METHOD__,
-			[ 'GROUP BY' => 'page_namespace' ],
-			[ 'flaggedpages' => [ 'LEFT JOIN', 'fp_page_id = page_id' ] ]
-		);
+				'pending' => 'COUNT(fp_pending_since)'
+			] )
+			->from( 'page' )
+			->leftJoin( 'flaggedpages', null, 'fp_page_id = page_id' )
+			->where( [
+				'page_is_redirect' => 0,
+				'page_namespace' => FlaggedRevs::getReviewNamespaces()
+			] )
+			->groupBy( 'page_namespace' )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 		foreach ( $res as $row ) {
 			$ns_total[$row->page_namespace] = (int)$row->total;
 			$ns_reviewed[$row->page_namespace] = (int)$row->reviewed;
@@ -230,15 +242,16 @@ class FlaggedRevsStats {
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase( false, 'vslow' );
 		$nowUnix = wfTimestamp();
 		$unixTimeCall = self::dbUnixTime( $dbr, 'fp_pending_since' );
-		return (int)$dbr->selectField(
-			[ 'flaggedpages', 'page' ],
-			"AVG( $nowUnix - $unixTimeCall )",
-			[ 'fp_pending_since IS NOT NULL',
-				'fp_page_id = page_id',
+		return (int)$dbr->newSelectQueryBuilder()
+			->select( "AVG( $nowUnix - $unixTimeCall )" )
+			->from( 'flaggedpages' )
+			->join( 'page', null, 'fp_page_id = page_id' )
+			->where( [
+				$dbr->expr( 'fp_pending_since', '!=', null ),
 				'page_namespace' => FlaggedRevs::getReviewNamespaces() // sanity
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchField();
 	}
 
 	/**
@@ -267,49 +280,54 @@ class FlaggedRevsStats {
 		# Only go so far back...otherwise we will get garbage values due to
 		# the fact that FlaggedRevs wasn't enabled until after a while.
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase( false, 'vslow' );
-		$installedUnix = $dbr->selectField( 'logging',
-			self::dbUnixTime( $dbr, 'MIN(log_timestamp)' ),
-			[ 'log_type' => 'review' ],
-			__METHOD__
-		);
-		$encInstalled = $dbr->addQuotes( $dbr->timestamp( $installedUnix ?: wfTimestamp() ) );
+		$installedUnix = $dbr->newSelectQueryBuilder()
+			->select( self::dbUnixTime( $dbr, 'MIN(log_timestamp)' ) )
+			->from( 'logging' )
+			->where( [ 'log_type' => 'review' ] )
+			->caller( __METHOD__ )
+			->fetchField();
+		$dbInstalled = $dbr->timestamp( $installedUnix ?: wfTimestamp() );
 		# Skip the most recent recent revs as they are likely to just
 		# be WHERE condition misses. This also gives us more data to use.
 		# Lastly, we want to avoid bias that would make the time too low
 		# since new revisions could not have "took a long time to sight".
 		$worstLagTS = $dbr->timestamp(); // now
-		$encLastTS = $encInstalled;
+		$lastTS = $dbInstalled;
 		while ( true ) { // should almost always be ~1 pass
 			# Get the page with the worst pending lag...
-			$row = $dbr->selectRow( [ 'flaggedpage_pending', 'flaggedrevs' ],
-				[ 'fpp_page_id', 'fpp_rev_id', 'fpp_pending_since', 'fr_timestamp' ],
-				[
+			$row = $dbr->newSelectQueryBuilder()
+				->select( [ 'fpp_page_id', 'fpp_rev_id', 'fpp_pending_since', 'fr_timestamp' ] )
+				->from( 'flaggedpage_pending' )
+				->join( 'flaggedrevs', null, [ 'fr_page_id = fpp_page_id', 'fr_rev_id = fpp_rev_id' ] )
+				->where( [
 					'fpp_quality' => 0, // "checked"
-					'fpp_pending_since > ' . $encInstalled, // needs actual display lag
-					'fr_page_id = fpp_page_id AND fr_rev_id = fpp_rev_id',
-					'fpp_pending_since > ' . $encLastTS, // skip failed rows
-				],
-				__METHOD__,
-				[ 'ORDER BY' => 'fpp_pending_since ASC' ]
-			);
+					$dbr->expr( 'fpp_pending_since', '>', $lastTS ), // skip failed rows
+				] )
+				->caller( __METHOD__ )
+				->orderBy( 'fpp_pending_since' )
+				->fetchRow();
 			if ( !$row ) {
 				break;
 			}
 			# Find the newest revision at the time the page was reviewed,
 			# this is the one that *should* have been reviewed.
-			$idealRev = (int)$dbr->selectField( 'revision', 'rev_id',
-				[ 'rev_page' => $row->fpp_page_id,
-					'rev_timestamp < ' . $dbr->addQuotes( $row->fr_timestamp ) ],
-				__METHOD__,
-				[ 'ORDER BY' => 'rev_timestamp DESC', 'LIMIT' => 1 ]
-			);
+			$idealRev = (int)$dbr->newSelectQueryBuilder()
+				->select( 'rev_id' )
+				->from( 'revision' )
+				->where( [
+					'rev_page' => $row->fpp_page_id,
+					$dbr->expr( 'rev_timestamp', '<', $row->fr_timestamp ),
+				] )
+				->caller( __METHOD__ )
+				->orderBy( 'rev_timestamp', SelectQueryBuilder::SORT_DESC )
+				->fetchField();
 			if ( $row->fpp_rev_id >= $idealRev ) {
 				$worstLagTS = $row->fpp_pending_since;
 				break; // sane $worstLagTS found
 			# Fudge factor to prevent deliberate reviewing of non-current revisions
 			# from squeezing the range. Shouldn't effect anything otherwise.
 			} else {
-				$encLastTS = $dbr->addQuotes( $row->fpp_pending_since ); // next iteration
+				$lastTS = $row->fpp_pending_since; // next iteration
 			}
 		}
 		# User condition (anons/users)
@@ -324,34 +342,42 @@ class FlaggedRevsStats {
 		# Note: if no edits pending, $worstLagTS is the cur time just before we checked
 		# for the worst lag. Thus, new edits *right* after the check are properly excluded.
 		$maxTSUnix = (int)wfTimestamp( TS_UNIX, $worstLagTS ) - 1; // all edits later reviewed
-		$encMaxTS = $dbr->addQuotes( $dbr->timestamp( $maxTSUnix ) );
+		$dbMaxTS = $dbr->timestamp( $maxTSUnix );
 		# Use a one week time range
 		$days = 7;
 		$minTSUnix = $maxTSUnix - $days * 86400;
-		$encMinTS = $dbr->addQuotes( $dbr->timestamp( $minTSUnix ) );
+		$dbMinTS = $dbr->timestamp( $minTSUnix );
 		# Approximate the number rows to scan
-		$rows = $dbr->estimateRowCount(
-			[ 'revision' ] + $actorQuery['tables'],
-			'1',
-			[ $userCondition, "rev_timestamp BETWEEN $encMinTS AND $encMaxTS" ],
-			__METHOD__,
-			[],
-			$actorQuery['joins']
-		);
+		$rows = $dbr->newSelectQueryBuilder()
+			->select( '1' )
+			->from( 'revision' )
+			->tables( $actorQuery['tables'] )
+			->where( $userCondition )
+			->andWhere( [
+				$dbr->expr( 'rev_timestamp', '>=', $dbMinTS ),
+				$dbr->expr( 'rev_timestamp', '<=', $dbMaxTS ),
+			] )
+			->joinConds( $actorQuery['joins'] )
+			->caller( __METHOD__ )
+			->estimateRowCount();
 		# If the range doesn't have many rows (like on small wikis), use 30 days
 		if ( $rows < 500 ) {
 			$days = 30;
 			$minTSUnix = $maxTSUnix - $days * 86400;
-			$encMinTS = $dbr->addQuotes( $dbr->timestamp( $minTSUnix ) );
+			$dbMinTS = $dbr->addQuotes( $dbr->timestamp( $minTSUnix ) );
 			# Approximate rows to scan
-			$rows = $dbr->estimateRowCount(
-				[ 'revision' ] + $actorQuery['tables'],
-				'1',
-				[ $userCondition, "rev_timestamp BETWEEN $encMinTS AND $encMaxTS" ],
-				__METHOD__,
-				[],
-				$actorQuery['joins']
-			);
+			$rows = $dbr->newSelectQueryBuilder()
+				->select( '1' )
+				->from( 'revision' )
+				->tables( $actorQuery['tables'] )
+				->where( $userCondition )
+				->andWhere( [
+					$dbr->expr( 'rev_timestamp', '>=', $dbMinTS ),
+					$dbr->expr( 'rev_timestamp', '<=', $dbMaxTS ),
+				] )
+				->joinConds( $actorQuery['joins'] )
+				->caller( __METHOD__ )
+				->estimateRowCount();
 			# If the range doesn't have many rows (like on really tiny wikis), use 90 days
 			if ( $rows < 500 ) {
 				$days = 90;
@@ -361,64 +387,74 @@ class FlaggedRevsStats {
 		$sampleSize = 1500; // sample size
 		# Sanity check the starting timestamp
 		$minTSUnix = max( $minTSUnix, $installedUnix );
-		$encMinTS = $dbr->addQuotes( $dbr->timestamp( $minTSUnix ) );
+		$dbMinTS = $dbr->timestamp( $minTSUnix );
 		# Get timestamp boundaries
-		$timeCondition = "rev_timestamp BETWEEN $encMinTS AND $encMaxTS";
+		$timeCondition = [
+			$dbr->expr( 'rev_timestamp', '>=', $dbMinTS ),
+			$dbr->expr( 'rev_timestamp', '<=', $dbMaxTS ),
+		];
 		# Get mod for edit spread
 		$fname = __METHOD__;
 		$edits = $cache->getWithSetCallback(
 			$cache->makeKey( 'flaggedrevs', 'rcEditCount', $users, $days ),
 			$cache::TTL_WEEK * 2,
 			static function () use ( $dbr, $fname, $userCondition, $timeCondition, $actorQuery ) {
-				return (int)$dbr->selectField(
-					[ 'page', 'revision' ] + $actorQuery['tables'],
-					'COUNT(*)',
-					[
+				return (int)$dbr->newSelectQueryBuilder()
+					->select( 'COUNT(*)' )
+					->from( 'revision' )
+					->join( 'page', null, 'page_id = rev_page' )
+					->tables( $actorQuery['tables'] )
+					->where( [
 						$userCondition,
 						$timeCondition, // in time range
 						'page_namespace' => FlaggedRevs::getReviewNamespaces()
-					],
-					$fname,
-					[],
-					[ 'page' => [ 'JOIN', 'page_id = rev_page' ] ] + $actorQuery['joins']
-				);
+					] )
+					->joinConds( $actorQuery['joins'] )
+					->caller( $fname )
+					->fetchField();
 			}
 		);
 		$mod = max( floor( $edits / $sampleSize ), 1 ); # $mod >= 1
 		# For edits that started off pending, how long do they take to get reviewed?
 		# Edits started off pending if made when a flagged rev of the page already existed.
 		# Get the *first* reviewed rev *after* each edit and get the time difference.
-		$res = $dbr->select(
-			[ 'revision' ] + $actorQuery['tables'],
-			[
+		$res = $dbr->newSelectQueryBuilder()
+			->select( [
 				'rt' => 'rev_timestamp', // time revision was made
-				'nft' => '(' . $dbr->selectSQLText( 'flaggedrevs',
-					'MIN(fr_timestamp)',
-					[
+				'nft' => new SubQuery( $dbr->newSelectQueryBuilder()
+					->select( 'MIN(fr_timestamp)' )
+					->from( 'flaggedrevs' )
+					->where( [
 						'fr_page_id = rev_page',
-						'fr_rev_timestamp >= rev_timestamp' ],
-					__METHOD__
-				) . ')' // time when revision was first reviewed
-			],
-			[
+						'fr_rev_timestamp >= rev_timestamp'
+					] )
+					->caller( __METHOD__ )
+					->getSQL()
+				) // time when revision was first reviewed
+			] )
+			->from( 'revision' )
+			->tables( $actorQuery['tables'] )
+			->where( [
 				$userCondition,
 				$timeCondition,
 				"(rev_id % $mod) = 0",
-				'rev_parent_id > 0', // optimize (exclude new pages)
-				'EXISTS (' . $dbr->selectSQLText( 'flaggedrevs',
-					'*',
-					[ // page was reviewed when this revision was made
+				$dbr->expr( 'rev_parent_id', '>', 0 ), // optimize (exclude new pages)
+				'EXISTS (' . $dbr->newSelectQueryBuilder()
+					->select( '*' )
+					->from( 'flaggedrevs' )
+					->where( [ // page was reviewed when this revision was made
 						'fr_page_id = rev_page',
 						'fr_rev_timestamp < rev_timestamp', // before this revision
 						'fr_rev_id < rev_id', // not imported later
-						'fr_timestamp < rev_timestamp' ], // page reviewed before revision
-					__METHOD__
-				) . ')'
-			],
-			__METHOD__,
-			[],
-			$actorQuery['joins']
-		);
+						'fr_timestamp < rev_timestamp', // page reviewed before revision
+					] )
+					->caller( __METHOD__ )
+					->getSQL() .
+				')'
+			] )
+			->caller( __METHOD__ )
+			->joinConds( $actorQuery['joins'] )
+			->fetchResultSet();
 
 		$secondsR = 0; // total wait seconds for edits later reviewed
 		$secondsP = 0; // total wait seconds for edits still pending
