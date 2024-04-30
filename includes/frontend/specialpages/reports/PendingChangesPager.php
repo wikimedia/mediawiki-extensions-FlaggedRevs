@@ -16,9 +16,6 @@ class PendingChangesPager extends AlphabeticPager {
 	/** @var int|int[] */
 	private $namespace;
 
-	/** @var int */
-	private $level;
-
 	/** @var int|null */
 	private $size;
 
@@ -34,13 +31,12 @@ class PendingChangesPager extends AlphabeticPager {
 	/**
 	 * @param PendingChanges $form
 	 * @param int|null $namespace
-	 * @param int $level
 	 * @param string $category
 	 * @param int|null $size
 	 * @param bool $watched
 	 * @param bool $stable
 	 */
-	public function __construct( $form, $namespace, $level = -1, $category = '',
+	public function __construct( $form, $namespace, $category = '',
 		$size = null, $watched = false, $stable = false
 	) {
 		$this->mForm = $form;
@@ -53,8 +49,6 @@ class PendingChangesPager extends AlphabeticPager {
 			$namespace = FlaggedRevs::getReviewNamespaces();
 		}
 		$this->namespace = $namespace;
-		# Sanity check level: 0 = checked; 1 = quality; 2 = pristine
-		$this->level = ( $level >= 0 && $level <= 2 ) ? $level : -1;
 		$this->category = $category ? str_replace( ' ', '_', $category ) : null;
 		$this->size = ( $size !== null ) ? intval( $size ) : null;
 		$this->watched = (bool)$watched;
@@ -98,52 +92,26 @@ class PendingChangesPager extends AlphabeticPager {
 		$fields = [ 'page_namespace', 'page_title', 'page_len', 'rev_len', 'page_latest' ];
 		$conds = [];
 		# Show outdated "stable" versions
-		if ( $this->level < 0 ) {
-			$tables[] = 'flaggedpages';
-			$fields['stable'] = 'fp_stable';
-			$fields['quality'] = 'fp_quality';
-			$fields['pending_since'] = 'fp_pending_since';
-			$conds[] = 'page_id = fp_page_id';
-			$conds[] = 'rev_id = fp_stable'; // PK
-			$conds[] = 'fp_pending_since IS NOT NULL';
-			# Filter by pages configured to be stable
-			if ( $this->stable ) {
-				$tables[] = 'flaggedpage_config';
-				$conds[] = 'fp_page_id = fpc_page_id';
-				$conds['fpc_override'] = 1;
-			}
-			# Filter by category
-			if ( $this->category != '' ) {
-				$tables[] = 'categorylinks';
-				$conds[] = 'cl_from = fp_page_id';
-				$conds['cl_to'] = $this->category;
-			}
-			$this->mIndexField = 'fp_pending_since';
-		# Show outdated version for a specific review level
-		} else {
-			$tables[] = 'flaggedpage_pending';
-			$fields['stable'] = 'fpp_rev_id';
-			$fields['quality'] = 'fpp_quality';
-			$fields['pending_since'] = 'fpp_pending_since';
-			$conds[] = 'page_id = fpp_page_id';
-			$conds[] = 'rev_id = fpp_rev_id'; // PK
-			$conds[] = 'fpp_pending_since IS NOT NULL';
-			# Filter by review level
-			$conds['fpp_quality'] = $this->level;
-			# Filter by pages configured to be stable
-			if ( $this->stable ) {
-				$tables[] = 'flaggedpage_config';
-				$conds[] = 'fpp_page_id = fpc_page_id';
-				$conds['fpc_override'] = 1;
-			}
-			# Filter by category
-			if ( $this->category != '' ) {
-				$tables[] = 'categorylinks';
-				$conds[] = 'cl_from = fpp_page_id';
-				$conds['cl_to'] = $this->category;
-			}
-			$this->mIndexField = 'fpp_pending_since';
+		$tables[] = 'flaggedpages';
+		$fields['stable'] = 'fp_stable';
+		$fields['quality'] = 'fp_quality';
+		$fields['pending_since'] = 'fp_pending_since';
+		$conds[] = 'page_id = fp_page_id';
+		$conds[] = 'rev_id = fp_stable'; // PK
+		$conds[] = 'fp_pending_since IS NOT NULL';
+		# Filter by pages configured to be stable
+		if ( $this->stable ) {
+			$tables[] = 'flaggedpage_config';
+			$conds[] = 'fp_page_id = fpc_page_id';
+			$conds['fpc_override'] = 1;
 		}
+		# Filter by category
+		if ( $this->category != '' ) {
+			$tables[] = 'categorylinks';
+			$conds[] = 'cl_from = fp_page_id';
+			$conds['cl_to'] = $this->category;
+		}
+		$this->mIndexField = 'fp_pending_since';
 		$fields[] = $this->mIndexField; // Pager needs this
 		# Filter namespace
 		if ( $this->namespace !== null ) {

@@ -15,16 +15,6 @@ CREATE TABLE /*_*/flaggedpages (
 ) /*$wgDBTableOptions*/;
 
 
-CREATE TABLE /*_*/flaggedpage_pending (
-  fpp_page_id INT UNSIGNED NOT NULL,
-  fpp_quality TINYINT(1) NOT NULL,
-  fpp_rev_id INT UNSIGNED NOT NULL,
-  fpp_pending_since BINARY(14) NOT NULL,
-  INDEX fpp_quality_pending (fpp_quality, fpp_pending_since),
-  PRIMARY KEY(fpp_page_id, fpp_quality)
-) /*$wgDBTableOptions*/;
-
-
 CREATE TABLE /*_*/flaggedrevs (
   fr_rev_id INT UNSIGNED NOT NULL,
   fr_rev_timestamp BINARY(14) NOT NULL,

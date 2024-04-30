@@ -474,11 +474,6 @@ class FlaggedRevs {
 			->where( [ 'ftr_from' => $pageId ] )
 			->caller( __METHOD__ )
 			->execute();
-		$dbw->newDeleteQueryBuilder()
-			->deleteFrom( 'flaggedpage_pending' )
-			->where( [ 'fpp_page_id' => $pageId ] )
-			->caller( __METHOD__ )
-			->execute();
 	}
 
 	/**

@@ -46,9 +46,7 @@ $wgFlaggedRevsAutopromote = [
 
 	-- Replace /*_*/ with the proper DB prefix
 	DROP TABLE IF EXISTS /*_*/flaggedpages;
-	DROP TABLE IF EXISTS /*_*/flaggedpage_pending;
 	DROP TABLE IF EXISTS /*_*/flaggedrevs;
-	DROP TABLE IF EXISTS /*_*/flaggedtemplates;
 	DROP TABLE IF EXISTS /*_*/flaggedpage_config;
 	DROP TABLE IF EXISTS /*_*/flaggedrevs_tracking;
 	DROP TABLE IF EXISTS /*_*/flaggedrevs_promote;

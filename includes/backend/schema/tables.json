@@ -54,44 +54,6 @@
 		"pk": [ "fp_page_id" ]
 	},
 	{
-		"name": "flaggedpage_pending",
-		"comment": "Derived table for tracking edits needing review. Contains a row for each page which has a stable version and pending edits. Basically the same as flaggedpages, without the rows where fp_pending_since is NULL. Was more useful in the past when there were multiple quality tiers.",
-		"columns": [
-			{
-				"name": "fpp_page_id",
-				"comment": "Foreign key to page.page_id",
-				"type": "integer",
-				"options": { "notnull": true, "unsigned": true }
-			},
-			{
-				"name": "fpp_quality",
-				"comment": "The quality tier. Not useful anymore as levels other than checked (0) have been removed, so now this is always 0. (Historical values are 1=quality, 2=pristine.)",
-				"type": "mwtinyint",
-				"options": { "notnull": true, "length": 1 }
-			},
-			{
-				"name": "fpp_rev_id",
-				"comment": "The last rev ID with this quality (ie. the revision ID of the stable revision).",
-				"type": "integer",
-				"options": { "notnull": true, "unsigned": true }
-			},
-			{
-				"name": "fpp_pending_since",
-				"comment": "Time of the first edit after the last revision reviewed to this level",
-				"type": "mwtimestamp",
-				"options": { "notnull": true }
-			}
-		],
-		"indexes": [
-			{
-				"name": "fpp_quality_pending",
-				"columns": [ "fpp_quality", "fpp_pending_since" ],
-				"unique": false
-			}
-		],
-		"pk": [ "fpp_page_id", "fpp_quality" ]
-	},
-	{
 		"name": "flaggedrevs",
 		"comment": "Data about reviews of revisions. This is the primary data, most other tables are derived from this.",
 		"columns": [

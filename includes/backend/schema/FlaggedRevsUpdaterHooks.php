@@ -43,11 +43,6 @@ class FlaggedRevsUpdaterHooks implements
 				"$base/patch-flaggedpages-timestamp.sql"
 			);
 			$du->modifyExtensionField(
-				'flaggedpage_pending',
-				'fpp_pending_since',
-				"$base/patch-flaggedpage_pending-timestamp.sql"
-			);
-			$du->modifyExtensionField(
 				'flaggedrevs',
 				'fr_timestamp',
 				"$base/patch-flaggedrevs-timestamps.sql"
@@ -100,18 +95,6 @@ class FlaggedRevsUpdaterHooks implements
 			] );
 			$du->addExtensionUpdate( [
 				'changeField', 'flaggedpages', 'fp_quality', 'SMALLINT', ''
-			] );
-			$du->addExtensionUpdate( [
-				'changeNullableField', 'flaggedpage_pending', 'fpp_pending_since', 'NOT NULL', true
-			] );
-			$du->addExtensionUpdate( [
-				'changeField', 'flaggedpage_pending', 'fpp_page_id', 'INT', ''
-			] );
-			$du->addExtensionUpdate( [
-				'changeField', 'flaggedpage_pending', 'fpp_quality', 'SMALLINT', ''
-			] );
-			$du->addExtensionUpdate( [
-				'changeField', 'flaggedpage_pending', 'fpp_rev_id', 'INT', ''
 			] );
 			$du->addExtensionUpdate( [
 				'dropDefault', 'flaggedrevs', 'fr_rev_id'
@@ -211,5 +194,6 @@ class FlaggedRevsUpdaterHooks implements
 		);
 		// 1.42
 		$du->dropExtensionTable( 'flaggedtemplates' );
+		$du->dropExtensionTable( 'flaggedpage_pending' );
 	}
 }
