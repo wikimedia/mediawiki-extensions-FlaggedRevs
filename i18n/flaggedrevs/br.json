@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Adriendelucca",
 			"Fohanno",
 			"Fulup",
 			"Gwendal",
@@ -66,6 +67,7 @@
 	"revreview-basic-same": "Ar [[{{MediaWiki:Validationpage}}|stumm embannet]] eo, bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gwiriet] d'an <i>$2</i>.",
 	"revreview-basic-source": "Ur [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} stumm gwiriet] eus ar bajenn-mañ, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>, a zo diazezet war ar stumm-mañ.",
 	"revreview-current": "Kemmoù o c'hortoz",
+	"flaggedrevs-action-info-pages-waiting-for-review-none": "Hini ebet",
 	"revreview-draft-title": "Ar c'hemmoù o c'hortoz a zo diskouezet er bajenn-mañ",
 	"revreview-editnotice": "'''Embannet e vo ho kemmoù d'al lennerien pa vint bet aprouet gant un implijer aotreet evit se. ([[{{MediaWiki:Validationpage}}|skoazell]])'''",
 	"revreview-submitedit": "Kinnigit ho kemmoù",
