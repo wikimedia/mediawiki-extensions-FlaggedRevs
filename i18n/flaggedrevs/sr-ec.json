@@ -90,6 +90,7 @@
 	"revreview-basic-same": "Ово је [[{{MediaWiki:Validationpage}}|стабилна верзија]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] дана <i>$2</i>.",
 	"revreview-basic-source": "[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Проверена верзија] ове странице, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] дана <i>$2</i>, заснована је на овој измени.",
 	"revreview-current": "Измене на чекању",
+	"flaggedrevs-action-info-pages-waiting-for-review-none": "ништа",
 	"revreview-draft-title": "На овој страници су приказане промене на чекању",
 	"revreview-editnotice": "'''Ваше измене ће бити видљиве читаоцима након што их овлашћени корисник провери ([[{{MediaWiki:Validationpage}}|детаљније]])'''.",
 	"revreview-submitedit": "Пошаљи промене",
