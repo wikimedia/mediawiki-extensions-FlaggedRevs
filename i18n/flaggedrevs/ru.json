@@ -117,6 +117,7 @@
 	"revreview-basic-same": "Это [[{{MediaWiki:Validationpage}}|стабильная версия]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} досмотренная] <i>$2</i>.",
 	"revreview-basic-source": "[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Досмотренная версия] этой страницы, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} подтверждённая] <i>$2</i>, была основана на этой версии.",
 	"revreview-current": "Непроверенные изменения",
+	"flaggedrevs-action-info-pages-waiting-for-review": "Включённые страницы, ожидающие проверки",
 	"revreview-draft-title": "На этой странице показываются непроверенные изменения",
 	"revreview-editnotice": "'''Сделанные вами изменения будут показаны читателям после того, как их утвердит уполномоченный участник''' ([[{{MediaWiki:Validationpage}}|подробнее]]).",
 	"revreview-submitedit": "Записать изменения",

@@ -45,6 +45,7 @@
 	"revreview-diff-toggle-show": "ती परिवर्तनहरू हेर्ने",
 	"revreview-diff-toggle-hide": "ती परिवर्तनहरू लुकाउने",
 	"reviewer": "समीक्षकहरू",
+	"flaggedrevs-action-info-pages-waiting-for-review-none": "कुनै पनि होइन",
 	"revreview-def-all": "कोहि",
 	"revreview-def-stable": "स्थिर",
 	"revreview-restriction-any": "कोहि",
