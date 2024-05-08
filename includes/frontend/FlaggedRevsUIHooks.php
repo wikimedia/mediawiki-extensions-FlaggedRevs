@@ -1121,6 +1121,9 @@ class FlaggedRevsUIHooks implements
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
 			return; // short-circuit
 		}
+		if ( !$context->getTitle()->exists() ) {
+			return;
+		}
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 		$linksMigration = MediaWikiServices::getInstance()->getLinksMigration();
