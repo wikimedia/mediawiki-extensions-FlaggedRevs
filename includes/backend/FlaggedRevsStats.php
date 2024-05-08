@@ -404,9 +404,9 @@ class FlaggedRevsStats {
 					->from( 'revision' )
 					->join( 'page', null, 'page_id = rev_page' )
 					->tables( $actorQuery['tables'] )
-					->where( [
+					->where( $timeCondition )
+					->andWhere( [
 						$userCondition,
-						$timeCondition, // in time range
 						'page_namespace' => FlaggedRevs::getReviewNamespaces()
 					] )
 					->joinConds( $actorQuery['joins'] )
