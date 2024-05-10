@@ -151,7 +151,6 @@ class Stabilization extends UnlistedSpecialPage {
 		# Add "other time" expiry dropdown option
 		$dropdownOptions[] = [ $this->msg( 'protect-othertime-op' )->text(), 'othertime' ];
 		# Add custom expiry dropdown options (from MediaWiki message)
-		$value = null;
 		foreach ( explode( ',', $scExpiryOptions ) as $option ) {
 			$pair = explode( ':', $option, 2 );
 			$show = $pair[0];
@@ -161,11 +160,10 @@ class Stabilization extends UnlistedSpecialPage {
 
 		# Actually build the options HTML...
 		$expiryFormOptions = '';
-		foreach ( $dropdownOptions as $option ) {
-			$expiryFormOptions .= Xml::option(
-				$option[0],
-				$option[1],
-				$form->getExpirySelection() === $value
+		foreach ( $dropdownOptions as [ $show, $value ] ) {
+			$expiryFormOptions .= Html::element( 'option',
+				[ 'value' => $value, 'selected' => $form->getExpirySelection() === $value ],
+				$show
 			) . "\n";
 		}
 
@@ -193,7 +191,7 @@ class Stabilization extends UnlistedSpecialPage {
 			$s .= "
 				<tr>
 					<td class='mw-label'>" .
-						Xml::label( $this->msg( 'stabilization-expiry' )->text(),
+						Html::label( $this->msg( 'stabilization-expiry' )->text(),
 							'mwStabilizeExpirySelection' ) .
 					"</td>
 					<td class='mw-input'>" .
@@ -209,15 +207,16 @@ class Stabilization extends UnlistedSpecialPage {
 		}
 		# Add custom expiry field to form...
 		$attribs = [ 'id' => "mwStabilizeExpiryOther",
+			'size' => 50,
 			'onkeyup' => 'onFRChangeExpiryField()' ] + $this->disabledAttr();
 		$s .= "
 			<tr>
 				<td class='mw-label'>" .
-					Xml::label( $this->msg( 'stabilization-othertime' )->text(),
+					Html::label( $this->msg( 'stabilization-othertime' )->text(),
 						'mwStabilizeExpiryOther' ) .
 				'</td>
 				<td class="mw-input">' .
-					Xml::input( "mwStabilize-expiry", 50, $form->getExpiryCustom(), $attribs ) .
+					Html::input( 'mwStabilize-expiry', $form->getExpiryCustom(), 'text', $attribs ) .
 				'</td>
 			</tr>';
 		# Add comment input and submit button
@@ -232,7 +231,7 @@ class Stabilization extends UnlistedSpecialPage {
 
 			$s .= ' <tr>
 					<td class="mw-label">' .
-						Xml::label( $this->msg( 'stabilization-comment' )->text(),
+						Html::label( $this->msg( 'stabilization-comment' )->text(),
 							'wpReasonSelection' ) .
 					'</td>
 					<td class="mw-input">' .
@@ -241,11 +240,12 @@ class Stabilization extends UnlistedSpecialPage {
 				</tr>
 				<tr>
 					<td class="mw-label">' .
-						Xml::label( $this->msg( 'stabilization-otherreason' )->text(), 'wpReason' ) .
+						Html::label( $this->msg( 'stabilization-otherreason' )->text(), 'wpReason' ) .
 					'</td>
 					<td class="mw-input">' .
-						Xml::input( 'wpReason', 70, $form->getReasonExtra(), [
+						Html::input( 'wpReason', $form->getReasonExtra(), 'text', [
 							'id' => 'wpReason',
+							'size' => 70,
 							'maxlength' => CommentStore::COMMENT_CHARACTER_LIMIT
 						] ) .
 					'</td>
@@ -253,20 +253,20 @@ class Stabilization extends UnlistedSpecialPage {
 				<tr>
 					<td></td>
 					<td class="mw-input">' .
-						Xml::check( 'wpReviewthis', $form->getReviewThis(),
+						Html::check( 'wpReviewthis', $form->getReviewThis(),
 							[ 'id' => 'wpReviewthis' ] ) .
-						Xml::label( $this->msg( 'stabilization-review' )->text(), 'wpReviewthis' ) .
+						Html::label( $this->msg( 'stabilization-review' )->text(), 'wpReviewthis' ) .
 						'&#160;&#160;&#160;&#160;&#160;' .
-						Xml::check( 'wpWatchthis', $watchChecked, $watchAttribs ) .
+						Html::check( 'wpWatchthis', $watchChecked, $watchAttribs ) .
 						"&#160;" .
-						Xml::label( $this->msg( 'watchthis' )->text(), 'wpWatchthis',
+						Html::label( $this->msg( 'watchthis' )->text(), 'wpWatchthis',
 							[ 'title' => Linker::titleAttrib( 'watch', 'withaccess' ) ] ) .
 					'</td>
 				</tr>
 				<tr>
 					<td></td>
 					<td class="mw-submit">' .
-						Xml::submitButton( $this->msg( 'stabilization-submit' )->text() ) .
+						Html::submitButton( $this->msg( 'stabilization-submit' )->text() ) .
 					'</td>
 				</tr>' . Html::closeElement( 'table' ) .
 				Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBkey() ) .
@@ -325,7 +325,10 @@ class Stabilization extends UnlistedSpecialPage {
 
 		$out = '';
 		foreach ( $allowedLevels as $key ) {
-			$out .= Xml::option( $this->getOptionLabel( $key ), $key, $key == $selected );
+			$out .= Html::element( 'option',
+				[ 'value' => $key, 'selected' => $key == $selected ],
+				$this->getOptionLabel( $key )
+			);
 		}
 		return Html::rawElement( 'select', $attribs, $out );
 	}

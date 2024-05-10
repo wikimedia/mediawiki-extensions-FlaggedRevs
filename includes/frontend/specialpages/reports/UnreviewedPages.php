@@ -97,11 +97,11 @@ class UnreviewedPages extends SpecialPage {
 		}
 		$form .=
 			"<span style='white-space: nowrap;'>" .
-			Xml::label( $this->msg( 'unreviewedpages-category' )->text(), 'category' ) . '&#160;' .
-			Xml::input( 'category', 30, $this->category, [ 'id' => 'category' ] ) .
+			Html::label( $this->msg( 'unreviewedpages-category' )->text(), 'category' ) . '&#160;' .
+			Html::input( 'category', $this->category, 'text', [ 'id' => 'category', 'size' => 30 ] ) .
 			'</span><br />';
 		$form .= $showhideredirs . '&#160;&#160;';
-		$form .= Xml::submitButton( $this->msg( 'allpagessubmit' )->text() );
+		$form .= Html::submitButton( $this->msg( 'allpagessubmit' )->text() );
 		$form .= '</fieldset>';
 		$form .= Html::closeElement( 'form' ) . "\n";
 
