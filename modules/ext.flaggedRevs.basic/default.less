@@ -41,20 +41,35 @@ div.flaggedrevs_notice {
 
 div.flaggedrevs_diffnotice,
 div.flaggedrevs_preview {
-	border: 1px solid #c8ccd1;
-	padding: 5px;
-	text-align: center;
-	clear: both;
+	color: @border-color-base;
+	font-size: 0.8em;
+}
+
+/**
+ * These styles are limited to tablet and desktop screens. On mobile
+ * we have traditionally applied a more compact layout (originally in the
+ * Minerva skin, but now for all skins as Vector 2022 becomes more responsive.
+ * Additional context: T364587
+ */
+@media all and ( min-width: @width-breakpoint-tablet ) {
+	div.flaggedrevs_diffnotice,
+	div.flaggedrevs_preview {
+		border: 1px solid #c8ccd1;
+		padding: 5px;
+		text-align: center;
+		clear: both;
+		font-size: 1em;
+	}
+
+	div.flaggedrevs_preview {
+		background-color: #eaf3ff;
+		color: #000;
+	}
 }
 
 div.flaggedrevs_diffnotice {
 	font-size: 85%;
 	background-color: #f8f9fa;
-}
-
-div.flaggedrevs_preview {
-	background-color: #eaf3ff;
-	color: #000;
 }
 
 span.flaggedrevs_important {
