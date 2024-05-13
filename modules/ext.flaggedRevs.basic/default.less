@@ -8,7 +8,7 @@
 /* Standard User Interface */
 div.flaggedrevs_basic,
 div.flaggedrevs_notice {
-	border: 1px solid var( --border-color-base );
+	border: 1px solid @border-color-base;
 	padding: 5px;
 	font-weight: normal;
 	line-height: 1.5em;
@@ -22,19 +22,29 @@ div.flaggedrevs_short_basic img {
 }
 
 div.flaggedrevs_basic {
-	background-color: var( --background-color-progressive-subtle );
+	background-color: @background-color-progressive-subtle;
+}
+
+html.skin-theme-clientpref-night div.flaggedrevs_preview {
+	background-color: @background-color-base;
+}
+
+@media ( prefers-color-scheme: dark ) {
+	html.skin-theme-clientpref-os div.flaggedrevs_preview {
+		background-color: @background-color-base;
+	}
 }
 
 div.flaggedrevs_notice {
-	background-color: var( --background-color-neutral-subtle );
+	background-color: @background-color-neutral-subtle;
 }
 
 /* Add a frame to our edit notice in wikitext editor, but not in visual editor */
 /* stylelint-disable-next-line selector-max-id */
 #mw-content-text .flaggedrevs_editnotice {
 	padding: 0 0.5em;
-	border: 2px solid var( --border-color-base );
-	background-color: var( --background-color-neutral-subtle );
+	border: 2px solid @border-color-base;
+	background-color: @background-color-neutral-subtle;
 	text-align: left;
 	clear: both;
 }
@@ -54,7 +64,7 @@ div.flaggedrevs_preview {
 @media all and ( min-width: @width-breakpoint-tablet ) {
 	div.flaggedrevs_diffnotice,
 	div.flaggedrevs_preview {
-		border: 1px solid var( --border-color-subtle );
+		border: 1px solid @border-color-subtle;
 		padding: 5px;
 		text-align: center;
 		clear: both;
@@ -62,14 +72,14 @@ div.flaggedrevs_preview {
 	}
 
 	div.flaggedrevs_preview {
-		background-color: var( --background-color-progressive-subtle );
-		color: var( --color-emphasized );
+		background-color: @background-color-progressive-subtle;
+		color: @color-emphasized;
 	}
 }
 
 div.flaggedrevs_diffnotice {
 	font-size: 85%;
-	background-color: var( --background-color-interactive-subtle );
+	background-color: @background-color-interactive-subtle;
 }
 
 span.flaggedrevs_important {
@@ -78,8 +88,8 @@ span.flaggedrevs_important {
 }
 
 div.flaggedrevs_notes {
-	border: 1px solid var( --border-color-base );
-	background-color: var( --background-color-neutral-subtle );
+	border: 1px solid @border-color-base;
+	background-color: @background-color-neutral-subtle;
 	padding: 5px;
 	font-size: 85%;
 	margin-left: 50px;
@@ -103,8 +113,8 @@ div.flaggedrevs_notes {
 
 /* Short User Interface */
 div.flaggedrevs_short {
-	border: 1px solid var( --border-color-interactive );
-	background-color: var( --background-color-base );
+	border: 1px solid @border-color-interactive;
+	background-color: @background-color-base;
 	font-size: 95%;
 	font-weight: normal;
 	margin: 0 0 0 1em;
@@ -136,8 +146,8 @@ div.flaggedrevs_short_basic {
 }
 
 div.flaggedrevs_short_details {
-	border: 1px solid var( --border-color-base );
-	background-color: var( --background-color-base );
+	border: 1px solid @border-color-base;
+	background-color: @background-color-base;
 	padding: 5px;
 	position: absolute;
 	top: 0;
@@ -230,19 +240,19 @@ span.flaggedrevs-icon {
 
 /* Special pages */
 .fr-pending-long {
-	background-color: var( --background-color-disabled-subtle );
+	background-color: @background-color-disabled-subtle;
 }
 
 .fr-pending-long2 {
-	background-color: var( --background-color-destructive-subtle );
+	background-color: @background-color-destructive-subtle;
 }
 
 .fr-pending-long3 {
-	background-color: var( --background-color-disabled);
+	background-color: @background-color-disabled;
 }
 
 .fr-unreviewed-unwatched {
-	background-color: var( --background-color-destructive-subtle );
+	background-color: @background-color-destructive-subtle;
 }
 
 .mw-fr-reviewlink {

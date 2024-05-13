@@ -227,7 +227,7 @@ class FlaggedRevsXML {
 		$encTitle = wfMessage( 'revreview-draft-title' )->text();
 		return ( Html::element( 'span',
 			[
-				'class' => [ 'flaggedrevs-icon', 'flaggedrevs-icon-block' ],
+				'class' => [ 'flaggedrevs-icon', 'flaggedrevs-icon-block', 'skin-invert' ],
 				'title' => $encTitle,
 			],
 			''
