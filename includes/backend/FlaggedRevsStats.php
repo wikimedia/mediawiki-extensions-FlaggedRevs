@@ -4,7 +4,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\User\ActorMigration;
 use Wikimedia\Rdbms\IReadableDatabase;
 use Wikimedia\Rdbms\SelectQueryBuilder;
-use Wikimedia\Rdbms\SubQuery;
+use Wikimedia\Rdbms\Subquery;
 
 /**
  * FlaggedRevs stats functions
@@ -421,7 +421,7 @@ class FlaggedRevsStats {
 		$res = $dbr->newSelectQueryBuilder()
 			->select( [
 				'rt' => 'rev_timestamp', // time revision was made
-				'nft' => new SubQuery( $dbr->newSelectQueryBuilder()
+				'nft' => new Subquery( $dbr->newSelectQueryBuilder()
 					->select( 'MIN(fr_timestamp)' )
 					->from( 'flaggedrevs' )
 					->where( [
