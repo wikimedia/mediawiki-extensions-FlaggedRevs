@@ -436,7 +436,6 @@ class FlaggedRevsStats {
 			->tables( $actorQuery['tables'] )
 			->where( [
 				$userCondition,
-				$timeCondition,
 				"(rev_id % $mod) = 0",
 				$dbr->expr( 'rev_parent_id', '>', 0 ), // optimize (exclude new pages)
 				'EXISTS (' . $dbr->newSelectQueryBuilder()
@@ -452,6 +451,7 @@ class FlaggedRevsStats {
 					->getSQL() .
 				')'
 			] )
+			->andWhere( $timeCondition )
 			->caller( __METHOD__ )
 			->joinConds( $actorQuery['joins'] )
 			->fetchResultSet();
