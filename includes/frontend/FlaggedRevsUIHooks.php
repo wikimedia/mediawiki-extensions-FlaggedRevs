@@ -2,7 +2,6 @@
 // phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
 // phpcs:disable MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic
 
-use MediaWiki\Context\RequestContext;
 use MediaWiki\Diff\Hook\DifferenceEngineViewHeaderHook;
 use MediaWiki\Diff\Hook\NewDifferenceEngineHook;
 use MediaWiki\Hook\ArticleUpdateBeforeRedirectHook;
@@ -621,9 +620,9 @@ class FlaggedRevsUIHooks implements
 	private static function hideReviewedChangesIfNeeded(
 		array &$conds
 	) {
-		if ( RequestContext::getMain()->getRequest()->getBool( 'hideReviewed' ) &&
-			!FlaggedRevs::useOnlyIfProtected()
-		) {
+		global $wgRequest;
+
+		if ( $wgRequest->getBool( 'hideReviewed' ) && !FlaggedRevs::useOnlyIfProtected() ) {
 			self::hideReviewedChangesUnconditionally( $conds );
 		}
 	}
@@ -1043,7 +1042,7 @@ class FlaggedRevsUIHooks implements
 	 * Update stability config from request
 	 */
 	public function onProtectionForm__save( $article, &$errorMsg, $reasonstr ) {
-		global $wgFlaggedRevsProtection;
+		global $wgRequest, $wgFlaggedRevsProtection;
 		$wikiPage = $article->getPage();
 		$title = $wikiPage->getTitle();
 		$user = $article->getContext()->getUser();
@@ -1065,19 +1064,18 @@ class FlaggedRevsUIHooks implements
 		}
 		$form = new PageStabilityProtectForm( $user );
 		$form->setTitle( $title ); // target page
-		$request = RequestContext::getMain()->getRequest();
-		$permission = (string)$request->getVal( 'mwStabilityLevel', '' );
+		$permission = (string)$wgRequest->getVal( 'mwStabilityLevel', '' );
 		if ( $permission == "none" ) {
 			$permission = ''; // 'none' => ''
 		}
 		$form->setAutoreview( $permission ); // protection level (autoreview restriction)
 		$form->setWatchThis( null ); // protection form already has a watch check
-		$form->setReasonExtra( $request->getText( 'mwProtect-reason' ) ); // manual
-		$form->setReasonSelection( $request->getVal( 'wpProtectReasonSelection' ) ); // dropdown
-		$form->setExpiryCustom( $request->getVal( 'mwStabilizeExpiryOther' ) ); // manual
-		$form->setExpirySelection( $request->getVal( 'mwStabilizeExpirySelection' ) ); // dropdown
+		$form->setReasonExtra( $wgRequest->getText( 'mwProtect-reason' ) ); // manual
+		$form->setReasonSelection( $wgRequest->getVal( 'wpProtectReasonSelection' ) ); // dropdown
+		$form->setExpiryCustom( $wgRequest->getVal( 'mwStabilizeExpiryOther' ) ); // manual
+		$form->setExpirySelection( $wgRequest->getVal( 'mwStabilizeExpirySelection' ) ); // dropdown
 		$form->ready(); // params all set
-		if ( $request->wasPosted() && $form->isAllowed() ) {
+		if ( $wgRequest->wasPosted() && $form->isAllowed() ) {
 			$status = $form->submit();
 			if ( $status !== true ) {
 				$errorMsg = wfMessage( $status )->text(); // some error message
