@@ -18,17 +18,6 @@ CREATE INDEX fp_quality_page ON /*_*/flaggedpages (fp_quality, fp_page_id);
 CREATE INDEX fp_pending_since ON /*_*/flaggedpages (fp_pending_since);
 
 
-CREATE TABLE /*_*/flaggedpage_pending (
-  fpp_page_id INTEGER UNSIGNED NOT NULL,
-  fpp_quality SMALLINT NOT NULL,
-  fpp_rev_id INTEGER UNSIGNED NOT NULL,
-  fpp_pending_since BLOB NOT NULL,
-  PRIMARY KEY(fpp_page_id, fpp_quality)
-);
-
-CREATE INDEX fpp_quality_pending ON /*_*/flaggedpage_pending (fpp_quality, fpp_pending_since);
-
-
 CREATE TABLE /*_*/flaggedrevs (
   fr_rev_id INTEGER UNSIGNED NOT NULL,
   fr_rev_timestamp BLOB NOT NULL,

@@ -296,16 +296,15 @@ class FlaggedRevsStats {
 		while ( true ) { // should almost always be ~1 pass
 			# Get the page with the worst pending lag...
 			$row = $dbr->newSelectQueryBuilder()
-				->select( [ 'fpp_page_id', 'fpp_rev_id', 'fpp_pending_since', 'fr_timestamp' ] )
-				->from( 'flaggedpage_pending' )
-				->join( 'flaggedrevs', null, [ 'fr_page_id = fpp_page_id', 'fr_rev_id = fpp_rev_id' ] )
+				->select( [ 'fp_page_id', 'fr_rev_id', 'fp_pending_since', 'fr_timestamp' ] )
+				->from( 'flaggedpages' )
+				->join( 'flaggedrevs', null, [ 'fr_page_id = fp_page_id', 'fr_rev_id = fp_stable' ] )
 				->where( [
-					'fpp_quality' => 0, // "checked"
-					$dbr->expr( 'fpp_pending_since', '>', $lastTS ), // skip failed rows
+					$dbr->expr( 'fp_pending_since', '!=', null ),
+					$dbr->expr( 'fp_pending_since', '>', $lastTS ), // skip failed rows
 				] )
-				->caller( __METHOD__ )
-				->orderBy( 'fpp_pending_since' )
-				->fetchRow();
+				->orderBy( 'fp_pending_since' )
+				->caller( __METHOD__ )->fetchRow();
 			if ( !$row ) {
 				break;
 			}
@@ -315,19 +314,19 @@ class FlaggedRevsStats {
 				->select( 'rev_id' )
 				->from( 'revision' )
 				->where( [
-					'rev_page' => $row->fpp_page_id,
+					'rev_page' => $row->fp_page_id,
 					$dbr->expr( 'rev_timestamp', '<', $row->fr_timestamp ),
 				] )
 				->caller( __METHOD__ )
 				->orderBy( 'rev_timestamp', SelectQueryBuilder::SORT_DESC )
 				->fetchField();
-			if ( $row->fpp_rev_id >= $idealRev ) {
-				$worstLagTS = $row->fpp_pending_since;
+			if ( $row->fr_rev_id >= $idealRev ) {
+				$worstLagTS = $row->fp_pending_since;
 				break; // sane $worstLagTS found
 			# Fudge factor to prevent deliberate reviewing of non-current revisions
 			# from squeezing the range. Shouldn't effect anything otherwise.
 			} else {
-				$lastTS = $row->fpp_pending_since; // next iteration
+				$lastTS = $row->fp_pending_since; // next iteration
 			}
 		}
 		# User condition (anons/users)

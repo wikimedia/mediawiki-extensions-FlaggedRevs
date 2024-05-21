@@ -46,7 +46,6 @@ class PendingChanges extends SpecialPage {
 		$this->currentUnixTS = (int)wfTimestamp();
 
 		$this->namespace = $request->getIntOrNull( 'namespace' );
-		$level = $request->getInt( 'level', -1 );
 		$category = trim( $request->getVal( 'category', '' ) );
 		$catTitle = Title::makeTitleSafe( NS_CATEGORY, $category );
 		$this->category = $catTitle === null ? '' : $catTitle->getText();
@@ -61,7 +60,7 @@ class PendingChanges extends SpecialPage {
 		}
 
 		$this->pager = new PendingChangesPager( $this, $this->namespace,
-			$level, $this->category, $this->size, $this->watched, $this->stable );
+			$this->category, $this->size, $this->watched, $this->stable );
 
 		# Output appropriate format...
 		if ( $feedType != null ) {
@@ -83,7 +82,6 @@ class PendingChanges extends SpecialPage {
 		$request = $this->getRequest();
 		$queryParams = [
 			'namespace' => $request->getIntOrNull( 'namespace' ),
-			'level'     => $request->getIntOrNull( 'level' ),
 			'category'  => $request->getVal( 'category' ),
 		];
 		$this->getOutput()->setSyndicated();
