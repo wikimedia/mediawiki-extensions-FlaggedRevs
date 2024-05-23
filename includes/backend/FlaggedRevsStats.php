@@ -363,7 +363,7 @@ class FlaggedRevsStats {
 		if ( $rows < 500 ) {
 			$days = 30;
 			$minTSUnix = $maxTSUnix - $days * 86400;
-			$dbMinTS = $dbr->addQuotes( $dbr->timestamp( $minTSUnix ) );
+			$dbMinTS = $dbr->timestamp( $minTSUnix );
 			# Approximate rows to scan
 			$rows = $dbr->newSelectQueryBuilder()
 				->select( '1' )
