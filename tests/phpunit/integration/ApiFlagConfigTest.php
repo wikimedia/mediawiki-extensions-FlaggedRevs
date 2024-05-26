@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\FlaggedRevs\Test;
 
-use ApiTestCase;
 use MediaWiki\Config\ConfigException;
+use MediaWiki\Tests\Api\ApiTestCase;
 
 /**
  * Tests for ApiFlagConfig class
