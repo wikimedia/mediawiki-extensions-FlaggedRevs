@@ -1,6 +1,8 @@
 <?php
 
 use MediaWiki\Cache\CacheKeyHelper;
+use MediaWiki\Context\ContextSource;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\HookContainer\HookRunner;
 use MediaWiki\Html\Html;

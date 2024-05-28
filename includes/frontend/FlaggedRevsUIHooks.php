@@ -2,10 +2,10 @@
 // phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
 // phpcs:disable MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic
 
+use MediaWiki\Context\IContextSource;
 use MediaWiki\Diff\Hook\DifferenceEngineViewHeaderHook;
 use MediaWiki\Diff\Hook\NewDifferenceEngineHook;
 use MediaWiki\Hook\ArticleUpdateBeforeRedirectHook;
-use MediaWiki\Hook\BeforePageDisplayHook;
 use MediaWiki\Hook\ChangesListInsertArticleLinkHook;
 use MediaWiki\Hook\ContribsPager__getQueryInfoHook;
 use MediaWiki\Hook\ContributionsLineEndingHook;
@@ -13,7 +13,6 @@ use MediaWiki\Hook\EditPageBeforeEditButtonsHook;
 use MediaWiki\Hook\EditPageGetCheckboxesDefinitionHook;
 use MediaWiki\Hook\EditPageNoSuchSectionHook;
 use MediaWiki\Hook\InitializeArticleMaybeRedirectHook;
-use MediaWiki\Hook\MakeGlobalVariablesScriptHook;
 use MediaWiki\Hook\PageHistoryBeforeListHook;
 use MediaWiki\Hook\PageHistoryLineEndingHook;
 use MediaWiki\Hook\PageHistoryPager__getQueryInfoHook;
@@ -25,7 +24,10 @@ use MediaWiki\Hook\SkinTemplateNavigation__UniversalHook;
 use MediaWiki\Hook\SpecialNewpagesConditionsHook;
 use MediaWiki\Hook\SpecialNewPagesFiltersHook;
 use MediaWiki\Hook\TitleGetEditNoticesHook;
+use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Output\Hook\BeforePageDisplayHook;
+use MediaWiki\Output\Hook\MakeGlobalVariablesScriptHook;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Page\Hook\ArticleViewHeaderHook;
 use MediaWiki\Page\Hook\CategoryPageViewHook;
@@ -38,6 +40,7 @@ use MediaWiki\SpecialPage\Hook\ChangesListSpecialPageStructuredFiltersHook;
 use MediaWiki\SpecialPage\Hook\SpecialPage_initListHook;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
+use MediaWiki\Title\TitleValue;
 
 /**
  * Class containing hooked functions for a FlaggedRevs environment

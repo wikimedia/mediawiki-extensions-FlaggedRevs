@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\CommentStore\CommentStore;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;

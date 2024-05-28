@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\FlaggedRevs\Rest\ReviewHandler;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Rest\RequestData;

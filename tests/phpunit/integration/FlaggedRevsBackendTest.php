@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Revision\RevisionRecord;
 use Wikimedia\TestingAccessWrapper;
 

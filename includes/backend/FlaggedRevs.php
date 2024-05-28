@@ -1,10 +1,12 @@
 <?php
 
 use MediaWiki\Config\ConfigException;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Page\PageReference;
+use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\ParserOutput;
 use MediaWiki\PoolCounter\PoolCounterWorkViaCallback;
 use MediaWiki\Revision\RenderedRevision;

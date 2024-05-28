@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\SpecialPage\IncludableSpecialPage;
 use MediaWiki\SpecialPage\SpecialPage;
