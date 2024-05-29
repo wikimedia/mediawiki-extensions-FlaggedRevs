@@ -12,6 +12,7 @@ use MediaWiki\Hook\ContributionsLineEndingHook;
 use MediaWiki\Hook\EditPageBeforeEditButtonsHook;
 use MediaWiki\Hook\EditPageGetCheckboxesDefinitionHook;
 use MediaWiki\Hook\EditPageNoSuchSectionHook;
+use MediaWiki\Hook\InfoActionHook;
 use MediaWiki\Hook\InitializeArticleMaybeRedirectHook;
 use MediaWiki\Hook\PageHistoryBeforeListHook;
 use MediaWiki\Hook\PageHistoryLineEndingHook;
@@ -60,6 +61,7 @@ class FlaggedRevsUIHooks implements
 	EditPageGetCheckboxesDefinitionHook,
 	EditPageNoSuchSectionHook,
 	GetPreferencesHook,
+	InfoActionHook,
 	InitializeArticleMaybeRedirectHook,
 	MakeGlobalVariablesScriptHook,
 	NewDifferenceEngineHook,
@@ -1159,7 +1161,7 @@ class FlaggedRevsUIHooks implements
 		}
 
 		$pageInfo['header-properties'][] = [
-			$context->msg( 'flaggedrevs-action-info-pages-waiting-for-review' )->parse(),
+			$context->msg( 'flaggedrevs-action-info-pages-waiting-for-review' ),
 			$valueHTML
 		];
 	}
