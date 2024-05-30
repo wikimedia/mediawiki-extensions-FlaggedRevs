@@ -78,7 +78,7 @@ class PurgeReviewablePages extends Maintenance {
 		$end = $db->newSelectQueryBuilder()
 			->select( 'MAX(page_id)' )
 			->from( 'page' )
-			->where( __METHOD__ )
+			->caller( __METHOD__ )
 			->fetchField();
 		if ( $start === null || $end === null ) {
 			$this->output( "... page table seems to be empty.\n" );

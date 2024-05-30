@@ -55,7 +55,7 @@ class ReviewAllPages extends Maintenance {
 		$start = $db->newSelectQueryBuilder()
 			->select( 'MIN(page_id)' )
 			->from( 'page' )
-			->where( __METHOD__ )
+			->caller( __METHOD__ )
 			->fetchField();
 		$end = $db->newSelectQueryBuilder()
 			->select( 'MAX(page_id)' )
