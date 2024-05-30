@@ -86,9 +86,9 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		# Filter by level
 		$conds = [];
 		if ( $this->level == 1 ) {
-			$conds[] = "fp_page_id IS NULL OR fp_quality = 0";
+			$conds[] = $this->mDb->expr( 'fp_page_id', '=', null )->or( 'fp_quality', '=', 0 );
 		} else {
-			$conds[] = 'fp_page_id IS NULL';
+			$conds['fp_page_id'] = null;
 		}
 		# Reviewable pages only
 		$conds['page_namespace'] = $this->namespace;
@@ -143,10 +143,10 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		# the proper cache for this level.
 		if ( $this->level == 1 ) {
 			$conds['qc_type'] = 'fr_unreviewedpages_q';
-			$conds[] = "fp_page_id IS NULL OR fp_quality < 1";
+			$conds[] = $this->mDb->expr( 'fp_page_id', '=', null )->or( 'fp_quality', '<', 1 );
 		} else {
 			$conds['qc_type'] = 'fr_unreviewedpages';
-			$conds[] = 'fp_page_id IS NULL';
+			$conds['fp_page_id'] = null;
 		}
 		# Reviewable pages only
 		$conds['qc_namespace'] = $this->namespace;

@@ -98,7 +98,7 @@ class PendingChangesPager extends AlphabeticPager {
 		$fields['pending_since'] = 'fp_pending_since';
 		$conds[] = 'page_id = fp_page_id';
 		$conds[] = 'rev_id = fp_stable'; // PK
-		$conds[] = 'fp_pending_since IS NOT NULL';
+		$conds[] = $this->mDb->expr( 'fp_pending_since', '!=', null );
 		# Filter by pages configured to be stable
 		if ( $this->stable ) {
 			$tables[] = 'flaggedpage_config';

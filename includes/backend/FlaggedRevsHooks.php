@@ -914,7 +914,7 @@ class FlaggedRevsHooks implements
 		foreach ( $queryData as $k => $data ) {
 			$queryData[$k]['conds'] = [
 				$data['cond'],
-				$data['tsField'] . ' < ' . $dbr->addQuotes( $dbr->timestamp( time() - $seconds ) )
+				$dbr->expr( $data['tsField'], '<', $dbr->timestamp( time() - $seconds ) ),
 			];
 		}
 		// Get the lower cutoff to avoid scanning over many rows.

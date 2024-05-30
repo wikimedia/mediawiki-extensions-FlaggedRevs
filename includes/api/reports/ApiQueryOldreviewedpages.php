@@ -100,7 +100,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 		$this->addWhere( 'page_id=fp_page_id' );
 		$this->addWhere( 'rev_id=fp_stable' );
 		if ( !isset( $params['start'] ) && !isset( $params['end'] ) ) {
-			$this->addWhere( 'fp_pending_since IS NOT NULL' );
+			$this->addWhere( $this->getDB()->expr( 'fp_pending_since', '!=', null ) );
 		}
 
 		if ( $resultPageSet === null ) {

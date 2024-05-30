@@ -80,8 +80,8 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 		$this->addJoinConds(
 			[ 'flaggedpages' => [ 'LEFT JOIN', 'fp_page_id=page_id' ] ]
 		);
-		$this->addWhere( 'fp_page_id IS NULL OR
-			fp_quality < ' . intval( $params['filterlevel'] ) );
+		$this->addWhere( $this->getDB()->expr( 'fp_page_id', '=', null )
+			->or( 'fp_quality', '<', intval( $params['filterlevel'] ) ) );
 
 		$this->addOption(
 			'USE INDEX',

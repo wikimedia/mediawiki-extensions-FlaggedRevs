@@ -491,10 +491,10 @@ class FlaggedRevsUIHooks implements
 					$needReviewCond = 'rc_timestamp >= fp_pending_since OR fp_stable IS NULL';
 					$reviewedCond = '(fp_pending_since IS NULL OR rc_timestamp < fp_pending_since) ' .
 						'AND fp_stable IS NOT NULL';
-					$notReviewableCond = 'rc_namespace NOT IN (' . $dbr->makeList( $namespaces ) .
-						') OR rc_type = ' . $dbr->addQuotes( RC_EXTERNAL );
-					$reviewableCond = 'rc_namespace IN (' . $dbr->makeList( $namespaces ) .
-						') AND rc_type != ' . $dbr->addQuotes( RC_EXTERNAL );
+					$notReviewableCond = $dbr->expr( 'rc_namespace', '!=', $namespaces )
+						->or( 'rc_type', '=', RC_EXTERNAL );
+					$reviewableCond = $dbr->expr( 'rc_namespace', '=', $namespaces )
+						->and( 'rc_type', '!=', RC_EXTERNAL );
 
 					$filters = [];
 					if ( in_array( 'needreview', $selectedValues ) ) {

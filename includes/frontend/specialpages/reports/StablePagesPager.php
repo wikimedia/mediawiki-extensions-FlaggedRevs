@@ -70,7 +70,7 @@ class StablePagesPager extends AlphabeticPager {
 		if ( $this->indef ) {
 			$conds['fpc_expiry'] = $this->mDb->getInfinity();
 		} else {
-			$conds[] = 'fpc_expiry > ' . $this->mDb->addQuotes( $this->mDb->timestamp() );
+			$conds[] = $this->mDb->expr( 'fpc_expiry', '>', $this->mDb->timestamp() );
 		}
 		return [
 			'tables' => [ 'flaggedpage_config', 'page' ],
