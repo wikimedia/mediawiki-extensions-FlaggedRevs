@@ -2,12 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"CoderSI",
+			"Dreamy Jazz",
 			"Sociologist"
 		]
 	},
 	"flaggedrevs-hidereviewed-show": "Koʻrsat",
 	"flaggedrevs-rcfilters-reviewed-label": "Tekshirilganlari",
-	"group-reviewer": "Tekshiruvchilar",
+	"group-reviewer": "Reviewers",
 	"group-reviewer-member": "{{GENDER:$1|tekshiruvchi}}",
 	"grouppage-reviewer": "{{ns:project}}:Tekshiruvchi",
 	"reviewer": "Tekshiruvchi"

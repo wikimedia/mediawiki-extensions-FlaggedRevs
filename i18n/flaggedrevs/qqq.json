@@ -77,7 +77,7 @@
 	"flaggedrevs-contributions-filters-unreviewed-only": "Description for the \"Only pending edits\" checkbox at Special:Contributions",
 	"group-editor": "{{Flagged Revs}}\n{{doc-important|The translation of this message cannot be the same as {{msg-mw|group-reviewer}}}}\n{{doc-group|editor}}\n{{Identical|Editor}}",
 	"group-editor-member": "{{Flagged Revs}}\n{{doc-group|editor|member}}\n{{Identical|Editor}}",
-	"group-reviewer": "{{Flagged Revs}}\n{{doc-important|The translation of this message cannot be the same as {{msg-mw|group-editor}}}}\n{{doc-group|reviewer}}\n{{Identical|Reviewer}}",
+	"group-reviewer": "{{Flagged Revs}}\n{{doc-important|The translation of this message cannot be the same as {{msg-mw|group-editor}} or {{msg-mw|wmf-group-patroller}}}}\n{{doc-group|reviewer}}\n{{Identical|Reviewer}}",
 	"group-reviewer-member": "{{Flagged Revs}}\n{{doc-group|reviewer|member}}\n{{Identical|Reviewer}}",
 	"grouppage-editor": "{{Flagged Revs}}\n{{doc-group|editor|page}}\n{{Identical|Editor}}",
 	"grouppage-reviewer": "{{Flagged Revs}}\n{{doc-group|reviewer|page}}\n{{Identical|Reviewer}}",

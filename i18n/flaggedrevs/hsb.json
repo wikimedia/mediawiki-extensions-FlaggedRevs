@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Dreamy Jazz",
 			"Dundak",
 			"J budissin",
 			"Michawiki"
@@ -49,7 +50,7 @@
 	"review-logentry-id": "wersija: $2",
 	"review-logentry-diff": "změny přepruwowane",
 	"review-logentry-diff2": "změny zaćisnjene",
-	"review-logpage": "Protokol přepruwowanjow",
+	"review-logpage": "Review log",
 	"review-logpagetext": "To je protokol wo tym, kotre wersije wobsahowych strony su  [[{{MediaWiki:Validationpage}}|skontrolowane]].",
 	"reviewer": "přehladowar",
 	"revreview-accuracy": "Dokładnosć",
@@ -59,7 +60,7 @@
 	"revreview-accuracy-3": "Dobre žórła podate",
 	"revreview-accuracy-4": "wuběrna",
 	"revreview-basic": "To je [[{{MediaWiki:Validationpage}}|wozjewjena wersija]],\n[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} skontrolowana] <i>$2</i>. \n{{PLURAL:$3|Je|Stej|Su|Je}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|nječinjena změna|nječinjenej změnje|nječinjene změny|nječinjenych změnow}}], {{PLURAL:$3|kotraž čaka|kotrejž čakatej|kotrež čakaja|kotrež čaka}} na přepruwowanje.",
-	"revreview-basic-i": "To je [[{{MediaWiki:Validationpage}}|wozjewjena wersija]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} skontrolowana] <i>$2</i>.\nSu [{{fullurl:{{FULLPAGENAMEE}}|action=info}} změny předłohow/datajow], kotrež na přepruwowanje čakaja.",
+	"revreview-basic-i": "To je [[{{MediaWiki:Validationpage}}|wozjewjena wersija]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} skontrolowana] <i>$2</i>.\nSu [{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}} změny předłohow/datajow], kotrež na přepruwowanje čakaja.",
 	"revreview-basic-old": "To je [[{{MediaWiki:Validationpage}}|skontrolowana]] wersija ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} wšě nalistować]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schwalena] <i>$2</i>.\nJe móžno, zo su so nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} změny] přewjedli.",
 	"revreview-basic-same": "To je [[{{MediaWiki:Validationpage}}|wozjewjena wersija]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} skontrolowana] <i>$2</i>.",
 	"revreview-basic-source": "[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Skontrolowana wersija] tuteje strony, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schwalena] <i>$2</i>, bazowaše na tutej wersiji.",
@@ -71,7 +72,7 @@
 	"revreview-edited": "'''Změny budu so čitarjam pokazować, tak ruče kaž awtorizowany wužiwar je akceptuje. ([[{{MediaWiki:Validationpage}}|pomoc]])'''\n\n{{PLURAL:$2|Je|Stej|Su|Je}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{PLURAL:$2|njepřepruwowana změna|njepřepruwowanej změnje|njepřepruwowane změny|njepřepruwowanych změnow}}] ''(hlej deleka)'', {{PLURAL:$2|kotrež čaka|kotrejž čakatej|kotrež čakaja|kotrež čaka}} na přepruwowanje.",
 	"revreview-edited-section": "Wróćo k wotrězkej strony z mjenom \"[[#$1|$2]]\".",
 	"revreview-newest-basic": " [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|změna|změnje|změny|změnow}}] w tutej wersiji hišće {{PLURAL:$3|čaka|čakatej|čakaja|čaka}} na [[{{MediaWiki:Validationpage}}|přepruwowanje]].\n[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna wersija] bu <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} skontrolowana].",
-	"revreview-newest-basic-i": "Su [{{fullurl:{{FULLPAGENAMEE}}|action=info}} změny předłohow/datajow] w tutej wersiji, kotrež na [[{{MediaWiki:Validationpage}}|přepruwowanje]] čakaja.\n[{{fullurl:{{FULLPAGENAMEE}}|stable=1}}Stabilna wersija] bu <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} skontrolowana].",
+	"revreview-newest-basic-i": "Su [{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}} změny předłohow/datajow] w tutej wersiji, kotrež na [[{{MediaWiki:Validationpage}}|přepruwowanje]] čakaja.\n[{{fullurl:{{FULLPAGENAMEE}}|stable=1}}Stabilna wersija] bu <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} skontrolowana].",
 	"revreview-pending-basic": "[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Wozjewjena wersija] bu <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} skontrolowana]. {{PLURAL:$3|Je|Stej|Su|Je}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|njepřepruwowana změna|njepřepruwowanej změnje|njepřepruwowane změny|njepřepruwowanych změnow}}], {{PLURAL:$3|kotraž čaka|kotrejž čakatej|kotrež čakaja|kotrež čaka}} na přepruwowanje.",
 	"revreview-pending-nosection": "Spytaj [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} najnowšu wersiju] wobhladać, kotraž [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{PLURAL:$2|njepřepruwowanu změnu|njepřepruwowanej změnje|njepřepruwowane změny|njepřepruwowanych změnow}}], zo by widźał, hač wotrězk bu přesunjeny abo wušmórnjeny.",
 	"revreview-noflagged": "Njejsu [[{{MediaWiki:Validationpage}}|přepruwowane wersije]] tuteje strony, tak zo snano '''nje'''je so za wotpowědnosću skontrolowana.",

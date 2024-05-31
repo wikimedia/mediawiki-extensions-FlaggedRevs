@@ -46,7 +46,7 @@
 	"revreview-accuracy-3": "Источниктардаах",
 	"revreview-accuracy-4": "Талыы-талба",
 	"revreview-basic": "Бу [[{{MediaWiki:Validationpage}}|тахсыбыт барыл]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} тургутуллубут:] <i>$2</i>. \n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|уларытыы|уларытыылар}}] бигэргэтэри {{PLURAL:$3|кэтэһэр|кэтэһэллэр}}.",
-	"revreview-basic-i": "Бу [[{{MediaWiki:Validationpage}}|тахсыбыт барыл]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} тургутуллубут] <i>$2</i>.\nХалыыптарга эбэтэр билэлэргэ тургутуллубатах [{{fullurl:{{FULLPAGENAMEE}}|action=info}} уларытыылар] бааллар.",
+	"revreview-basic-i": "Бу [[{{MediaWiki:Validationpage}}|тахсыбыт барыл]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} тургутуллубут] <i>$2</i>.\nХалыыптарга эбэтэр билэлэргэ тургутуллубатах [{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}} уларытыылар] бааллар.",
 	"revreview-basic-old": "Бу [[{{MediaWiki:Validationpage}}|көрүллүбүт]] барыл ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} барытын тиһигэ]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бигэргэтилибит] <i>$2</i>.\nКэлин саҥа [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} көннөрүүлэр] баар буолуохтарын сөп.",
 	"revreview-basic-same": "Бу [[{{MediaWiki:Validationpage}}|бигэ барыл]],  <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} көрбүт].",
 	"revreview-basic-source": "Бу сирэй [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} бигэргэтиллибит барыла], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} көрүллүбүт] <i>$2</i>, бу барылга олоҕурбут.",
