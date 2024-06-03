@@ -72,7 +72,7 @@
 	"apihelp-stabilize-param-default": "显示的默认修订。",
 	"apihelp-stabilize-param-autoreview": "自动复核限制。",
 	"apihelp-stabilize-param-review": "复核此页面。",
-	"apihelp-stabilize-param-protectlevel": "复核保护级别。",
+	"apihelp-stabilize-param-protectlevel": "复核保护等级。",
 	"apihelp-stabilize-example-general": "设置[[Test]]以显示通过默认的稳定修订",
 	"apihelp-stabilize-example-protect": "从[[Test]]移除复核保护",
 	"apierror-flaggedrevs-notreviewable": "提供的页面不可复核。",

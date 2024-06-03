@@ -8,7 +8,8 @@
 			"Reedy",
 			"Vpovilaitis",
 			"Zygimantus",
-			"Nokeoo"
+			"Nokeoo",
+			"Dreamy Jazz"
 		]
 	},
 	"action-review": "vertinti versijas",
@@ -38,7 +39,7 @@
 	"flaggedrevs-rcfilters-not-reviewable-desc": "Visų tipų pakeitimai, kurių nereikia peržiūrėti.",
 	"group-editor": "Redaktoriai",
 	"group-editor-member": "{{GENDER:$1|redaktorius|redaktorė|redaktorius}}",
-	"group-reviewer": "Redaktoriai",
+	"group-reviewer": "Reviewers",
 	"group-reviewer-member": "{{GENDER:$1|vertintojas|vertintoja|vertintojas}}",
 	"grouppage-editor": "{{ns:project}}:Redaktoriai",
 	"grouppage-reviewer": "{{ns:project}}:Vertintojai",

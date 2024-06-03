@@ -9,7 +9,8 @@
 			"Mywood",
 			"PhiLiP",
 			"Xiplus",
-			"Diskdance"
+			"Diskdance",
+			"LittlePaw365"
 		]
 	},
 	"stabilization-tab": "检查",
@@ -28,7 +29,7 @@
 	"stabilization-notcontent": "不能复审页面“[[:$1|$1]]”，无法进行配置。",
 	"stabilization-comment": "原因：",
 	"stabilization-otherreason": "其他原因：",
-	"stabilization-expiry": "终止时间：",
+	"stabilization-expiry": "期限：",
 	"stabilization-othertime": "其他时间：",
 	"stabilization-def-short": "默认",
 	"stabilization-def-short-0": "当前",
@@ -37,10 +38,10 @@
 	"stabilize_page_notexists": "目标页面不存在。",
 	"stabilize_page_unreviewable": "目标页面不在可复审的命名空间内。",
 	"stabilize_invalid_autoreview": "无效的自动复审限制。",
-	"stabilize_invalid_level": "无效的保护级别。",
-	"stabilize_expiry_invalid": "无效的终止日期。",
-	"stabilize_expiry_old": "该终止时间已经过去。",
+	"stabilize_invalid_level": "保护等级无效。",
+	"stabilize_expiry_invalid": "期限日期无效。",
+	"stabilize_expiry_old": "该期限已经过去。",
 	"stabilize_denied": "权限被拒绝。",
-	"stabilize-expiring": "终止于$1（UTC）",
+	"stabilize-expiring": "期限为$1（UTC）",
 	"stabilization-review": "将当前版本标记为已检查"
 }
