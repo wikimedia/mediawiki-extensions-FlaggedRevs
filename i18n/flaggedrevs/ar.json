@@ -19,7 +19,8 @@
 			"ديفيد",
 			"زكريا",
 			"علاء",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"Dreamy Jazz"
 		]
 	},
 	"action-autoreview": "التعليم على تعديلاته كـ\"مراجعة\" تلقائيا",
@@ -56,7 +57,7 @@
 	"flaggedrevs-contributions-filters-unreviewed-only": "أظهر التعديلات المعلقة فقط",
 	"group-editor": "محررون",
 	"group-editor-member": "{{GENDER:$1|محرر|محررة}}",
-	"group-reviewer": "مراجعون",
+	"group-reviewer": "Reviewers",
 	"group-reviewer-member": "{{GENDER:$1|مراجع|مراجعة}}",
 	"grouppage-editor": "{{ns:project}}:محرر",
 	"grouppage-reviewer": "{{ns:project}}:مراجع",
