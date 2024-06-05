@@ -5,7 +5,8 @@
 			"Ghaly",
 			"Karim185.3",
 			"Meno25",
-			"Ramsis II"
+			"Ramsis II",
+			"Dreamy Jazz"
 		]
 	},
 	"action-review": "راجع المراجعات",
@@ -26,7 +27,7 @@
 	"flaggedrevs-prefs-viewdiffs": "بيّن التغييرات اللى مستنيّه المراجعه لما تشوف مسودّات الصفحه",
 	"group-editor": "محررون",
 	"group-editor-member": "{{GENDER:$1|محرر|محرره}}",
-	"group-reviewer": "مراجعين",
+	"group-reviewer": "مراجعون",
 	"group-reviewer-member": "{{GENDER:$1|مراجع|مراجعه}}",
 	"grouppage-editor": "{{ns:project}}:محرر",
 	"grouppage-reviewer": "{{ns:project}}:مراجع",
