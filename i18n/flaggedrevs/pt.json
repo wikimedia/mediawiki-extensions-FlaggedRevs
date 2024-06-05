@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			555,
 			"Alchimista",
 			"AlvaroMolina",
 			"Athena in Wonderland",
@@ -18,8 +19,7 @@
 			"RmSilva",
 			"Vitorvicentevalente",
 			"Waldir",
-			"Waldyrious",
-			555
+			"Waldyrious"
 		]
 	},
 	"action-autoreview": "ter as edições próprias marcadas automaticamente como \"verificadas\"",

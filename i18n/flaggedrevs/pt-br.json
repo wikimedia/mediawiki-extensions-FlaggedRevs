@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			555,
 			"Cainamarques",
 			"Eduardo Addad de Oliveira",
 			"Eduardo.mps",
@@ -18,8 +19,7 @@
 			"Opraco",
 			"Pedroca cerebral",
 			"Rafael Vargas",
-			"TheEduGobi",
-			555
+			"TheEduGobi"
 		]
 	},
 	"action-autoreview": "ter as próprias edições marcadas como \"verificadas\"",
