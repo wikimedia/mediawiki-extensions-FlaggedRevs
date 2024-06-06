@@ -3,7 +3,8 @@
 		"authors": [
 			"Dundak",
 			"J budissin",
-			"Michawiki"
+			"Michawiki",
+			"Dreamy Jazz"
 		]
 	},
 	"action-review": "wersije přepruwować",
@@ -49,7 +50,7 @@
 	"review-logentry-id": "wersija: $2",
 	"review-logentry-diff": "změny přepruwowane",
 	"review-logentry-diff2": "změny zaćisnjene",
-	"review-logpage": "Protokol přepruwowanjow",
+	"review-logpage": "Review log",
 	"review-logpagetext": "To je protokol wo tym, kotre wersije wobsahowych strony su  [[{{MediaWiki:Validationpage}}|skontrolowane]].",
 	"reviewer": "přehladowar",
 	"revreview-accuracy": "Dokładnosć",
