@@ -39,7 +39,7 @@ class UpdateFRTracking extends Maintenance {
 
 		$BATCH_SIZE = 300;
 
-		$db = $this->getDB( DB_PRIMARY );
+		$db = $this->getPrimaryDB();
 		$revisionStore = $this->getServiceContainer()->getRevisionStore();
 
 		if ( $start === null ) {
