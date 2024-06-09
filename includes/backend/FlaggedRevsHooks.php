@@ -4,6 +4,7 @@
 
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Extension\GoogleNewsSitemap\Specials\GoogleNewsSitemap;
+use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Hook\ArticleMergeCompleteHook;
 use MediaWiki\Hook\ArticleRevisionVisibilitySetHook;
 use MediaWiki\Hook\MagicWordwgVariableIDsHook;
@@ -1367,7 +1368,7 @@ class FlaggedRevsHooks implements
 	 *
 	 * This should go once we can remove all Echo-specific code for reverts,
 	 * see: T153570
-	 * @param EchoEvent $event EchoEvent to get implicitly subscribed users for
+	 * @param Event $event Event to get implicitly subscribed users for
 	 * @param User[] &$users Array to append implicitly subscribed users to.
 	 */
 	public static function onEchoGetDefaultNotifiedUsers( $event, &$users ) {
