@@ -83,7 +83,8 @@ class FlaggedRevsStats {
 	 */
 	public static function updateCache() {
 		$rNamespaces = FlaggedRevs::getReviewNamespaces();
-		$cache = ObjectCache::getLocalClusterInstance();
+		$cache = MediaWikiServices::getInstance()
+			->getObjectCacheFactory()->getLocalClusterInstance();
 		if ( !$rNamespaces ) {
 			return; // no SQL errors please :)
 		}
