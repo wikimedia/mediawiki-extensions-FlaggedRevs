@@ -20,7 +20,8 @@
 			"محمد أحمد عبد الفتاح",
 			"FShbib",
 			"Karim185.3",
-			"Dreamy Jazz"
+			"Dreamy Jazz",
+			"Michel Bakni"
 		]
 	},
 	"action-autoreview": "التعليم على تعديلاته كـ\"مراجعة\" تلقائيا",
@@ -56,7 +57,7 @@
 	"flaggedrevs-rcfilters-not-reviewable-desc": "التغييرات من كل الأنواع التي لا تحتاج للمراجعة.",
 	"group-editor": "محررون",
 	"group-editor-member": "{{GENDER:$1|محرر|محررة}}",
-	"group-reviewer": "Reviewers",
+	"group-reviewer": "مراجعون",
 	"group-reviewer-member": "{{GENDER:$1|مراجع|مراجعة}}",
 	"grouppage-editor": "{{ns:project}}:محرر",
 	"grouppage-reviewer": "{{ns:project}}:مراجع",
