@@ -39,7 +39,13 @@ class ReviewHandler extends SimpleHandler {
 				self::PARAM_SOURCE => 'path',
 				ParamValidator::PARAM_TYPE => 'string',
 				ParamValidator::PARAM_REQUIRED => true,
-			],
+			]
+		];
+	}
+
+	/** @inheritDoc */
+	public function getBodyParamSettings(): array {
+		return [
 			'oldid' => [
 				self::PARAM_SOURCE => 'body',
 				ParamValidator::PARAM_TYPE => 'integer',
