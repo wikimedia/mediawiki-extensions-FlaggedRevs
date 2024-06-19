@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\Title\Title;
-use MediaWiki\User\User;
 
 /**
  * @group Database
@@ -9,29 +8,13 @@ use MediaWiki\User\User;
  */
 class FlaggablePageTest extends MediaWikiIntegrationTestCase {
 
-	/**
-	 * @var User|null
-	 */
-	private $user;
-
-	/**
-	 * Prepares the environment before running a test.
-	 */
-	protected function setUp(): void {
-		parent::setUp();
-		$this->user = new User();
-	}
-
 	public function testPageDataFromTitle() {
 		$title = Title::makeTitle( NS_MAIN, "SomePage" );
 		$article = FlaggableWikiPage::newInstance( $title );
 
-		$user = $this->user;
-		$article->doUserEditContent(
-			ContentHandler::makeContent( "Some text to insert", $title ),
-			$user,
-			"creating a page",
-			EDIT_NEW
+		$this->editPage(
+			$article,
+			'Some text to insert'
 		);
 
 		$data = (array)$article->pageDataFromTitle( $this->getDb(), $title );
