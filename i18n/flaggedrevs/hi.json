@@ -5,7 +5,9 @@
 			"Kaustubh",
 			"NehalDaveND",
 			"Sfic",
-			"Siddhartha Ghai"
+			"Siddhartha Ghai",
+			"Abijeet Patro",
+			"SatyamMishra"
 		]
 	},
 	"action-review": "अवतरणों को पुनरीक्षित करने",
@@ -137,6 +139,6 @@
 	"revreview-unlocked-title": "इस पृष्ठ में सम्पादनों को पुनरीक्षण की आवश्यकता नहीं है।",
 	"revreview-locked": "'''नोट:''' इस पृष्ठ पर सम्पादनों को पाठकों को दिखाए जाने से पहले [[{{MediaWiki:Validationpage}}|पुनरीक्षित]] करना पड़ता है।",
 	"revreview-unlocked": "'''नोट:''' इस पृष्ठ पर सम्पादनों को पाठकों को दिखाए जाने से पहले [[{{MediaWiki:Validationpage}}|पुनरीक्षित]] नहीं करना पड़ता।",
-	"validationpage": "{{ns:help}}:पृष्ठ प्रमाणिकरण",
+	"validationpage": "{{ns:help}}:पृष्ठ प्रमाणीकरण",
 	"log-action-filter-review": "पुनरीक्षण के प्रकार:"
 }
