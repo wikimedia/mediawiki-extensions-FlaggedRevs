@@ -39,7 +39,7 @@
 	"revreview-hist-basic-user": "cuntrullata 'a [[User:$3|$3]]",
 	"revreview-hist-basic-auto": "cuntrullata automaticamente",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3}} revisiune pendente]]'''",
-	"review-edit-diff": "'''Vedite buono: \"Cocche\" cagnamiento pendente tenessero a che ffà c' 'o piezz' 'e paggena ca state a cagnà.'''",
+	"review-edit-diff": "'''Vedite bbuono: \"Quacche\" cagnamiento pendente stann' 'a cagnà 'a paggena ca state scrivenno.'''",
 	"revreview-diff-toggle-show": "ffa vedé sti cagnamiente",
 	"revreview-diff-toggle-hide": "annascunne sti cagnamiente",
 	"revreview-diff-toggle-title": "Appiccia/stuta 'a visualizazziona 'e cagnamiente pendente â verziona stabbele",
