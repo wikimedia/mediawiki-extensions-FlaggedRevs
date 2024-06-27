@@ -38,6 +38,7 @@
 	"flaggedrevs-rcfilters-reviewed-desc": "შემოწმებული რედაქტირებები.",
 	"flaggedrevs-rcfilters-not-reviewable-label": "გადახედვას არ საჭიროებს",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "ყველა ტიპის ცვლილება, რომელიც გადახედვას არ საჭიროებს.",
+	"flaggedrevs-contributions-filters-unreviewed-only": "მხოლოდ გადახედვის მომლოდინე რედაქტირებების ჩვენება",
 	"group-editor": "შემმოწმებელი",
 	"group-editor-member": "{{GENDER:$1|შემმოწმებელი}}",
 	"group-reviewer": "შემმოწმებლები",
