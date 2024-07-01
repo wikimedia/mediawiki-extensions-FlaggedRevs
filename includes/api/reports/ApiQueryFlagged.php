@@ -35,7 +35,7 @@ class ApiQueryFlagged extends ApiQueryBase {
 	 */
 	public function execute() {
 		$pageSet = $this->getPageSet();
-		$pageids = array_keys( $pageSet->getGoodTitles() );
+		$pageids = array_keys( $pageSet->getGoodPages() );
 		if ( !$pageids ) {
 			return;
 		}
