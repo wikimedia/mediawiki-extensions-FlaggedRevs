@@ -45,15 +45,22 @@ class ReviewHandler extends SimpleHandler {
 
 	/** @inheritDoc */
 	public function getBodyParamSettings(): array {
+		// NOTE: All parameters are received as strings, because review.js
+		//       takes the values from HTML form elements without understanding
+		//       their types.
+		//       This is not a problem since we pass the request body to
+		//       RevisionReview::doReview(), which is designed to handle submit
+		//       data from an HTML form, which is all strings anyway.
+
 		return [
 			'oldid' => [
 				self::PARAM_SOURCE => 'body',
-				ParamValidator::PARAM_TYPE => 'integer',
+				ParamValidator::PARAM_TYPE => 'string',
 				ParamValidator::PARAM_REQUIRED => false,
 			],
 			'refid' => [
 				self::PARAM_SOURCE => 'body',
-				ParamValidator::PARAM_TYPE => 'integer',
+				ParamValidator::PARAM_TYPE => 'string',
 				ParamValidator::PARAM_REQUIRED => false,
 			],
 			'validatedParams' => [
@@ -68,17 +75,17 @@ class ReviewHandler extends SimpleHandler {
 			],
 			'wpApprove' => [
 				self::PARAM_SOURCE => 'body',
-				ParamValidator::PARAM_TYPE => 'boolean',
+				ParamValidator::PARAM_TYPE => 'string',
 				ParamValidator::PARAM_REQUIRED => false,
 			],
 			'wpUnapprove' => [
 				self::PARAM_SOURCE => 'body',
-				ParamValidator::PARAM_TYPE => 'boolean',
+				ParamValidator::PARAM_TYPE => 'string',
 				ParamValidator::PARAM_REQUIRED => false,
 			],
 			'wpReject' => [
 				self::PARAM_SOURCE => 'body',
-				ParamValidator::PARAM_TYPE => 'boolean',
+				ParamValidator::PARAM_TYPE => 'string',
 				ParamValidator::PARAM_REQUIRED => false,
 			],
 			'wpReason' => [
@@ -98,7 +105,7 @@ class ReviewHandler extends SimpleHandler {
 			],
 			'wp' . FlaggedRevs::getTagName() => [
 				self::PARAM_SOURCE => 'body',
-				ParamValidator::PARAM_TYPE => 'integer',
+				ParamValidator::PARAM_TYPE => 'string',
 				ParamValidator::PARAM_REQUIRED => false,
 			],
 		];
