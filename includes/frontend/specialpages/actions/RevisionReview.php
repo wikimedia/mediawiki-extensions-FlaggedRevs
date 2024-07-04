@@ -229,7 +229,9 @@ class RevisionReview extends UnlistedSpecialPage {
 	}
 
 	/**
-	 * @param array $argsMap
+	 * @param array $argsMap Typical params are oldid, refid, validatedParams,
+	 * templateParams, wpApprove, wpUnapprove, wpReject, wpReason, changetime, wpEditToken,
+	 * wpaccuracy, and target.
 	 * @return array
 	 */
 	public static function doReview( $argsMap ) {
