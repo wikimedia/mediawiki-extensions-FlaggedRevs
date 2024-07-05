@@ -9,9 +9,9 @@ use MediaWiki\Title\TitleValue;
 class FlaggedRevisionTest extends MediaWikiIntegrationTestCase {
 
 	protected function setUp(): void {
-		$this->setMwGlobals( [
-			'wgFlaggedRevsProtection' => false,
-			'wgFlaggedRevsTags' => [ 'example' => [ 'levels' => 3 ] ],
+		$this->overrideConfigValues( [
+			'FlaggedRevsProtection' => false,
+			'FlaggedRevsTags' => [ 'example' => [ 'levels' => 3 ] ],
 		] );
 		parent::setUp();
 	}

@@ -18,11 +18,11 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 		$this->setUserLang( 'qqx' );
-		$this->setMwGlobals( [
-			'wgFlaggedRevsAutoReview' => 0,
-			'wgFlaggedRevsNamespaces' => [ NS_MAIN ],
-			'wgFlaggedRevsProtection' => false,
-			'wgFlaggedRevsTags' => [ 'accuracy' => [ 'levels' => 3 ] ],
+		$this->overrideConfigValues( [
+			'FlaggedRevsAutoReview' => 0,
+			'FlaggedRevsNamespaces' => [ NS_MAIN ],
+			'FlaggedRevsProtection' => false,
+			'FlaggedRevsTags' => [ 'accuracy' => [ 'levels' => 3 ] ],
 		] );
 	}
 

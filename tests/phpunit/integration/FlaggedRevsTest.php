@@ -8,7 +8,7 @@ use MediaWiki\Page\PageReference;
 class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 
 	public function testReviewNamespaces() {
-		$this->setMwGlobals( 'wgFlaggedRevsNamespaces', [ NS_FILE ] );
+		$this->overrideConfigValue( 'FlaggedRevsNamespaces', [ NS_FILE ] );
 
 		$article = $this->createMock( PageReference::class );
 		$media = $this->createMock( PageReference::class );
@@ -30,7 +30,7 @@ class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 			],
 			'two levels (binary)' => [
 				'config' => [
-					'wgFlaggedRevsTags' => [ 'default' => [ 'levels' => 1 ] ],
+					'FlaggedRevsTags' => [ 'default' => [ 'levels' => 1 ] ],
 				],
 				'expected' => [
 					'binaryFlagging' => true,
@@ -39,7 +39,7 @@ class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 			],
 			'more than two levels (non-binary)' => [
 				'config' => [
-					'wgFlaggedRevsTags' => [ 'default' => [ 'levels' => 2 ] ],
+					'FlaggedRevsTags' => [ 'default' => [ 'levels' => 2 ] ],
 				],
 				'expected' => [
 					'binaryFlagging' => false,
@@ -49,7 +49,7 @@ class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 
 			'autoreview changes' => [
 				'config' => [
-					'wgFlaggedRevsAutoReview' => FR_AUTOREVIEW_CHANGES,
+					'FlaggedRevsAutoReview' => FR_AUTOREVIEW_CHANGES,
 				],
 				'expected' => [
 					'autoReviewEdits' => true,
@@ -58,7 +58,7 @@ class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 			],
 			'autoreview creation' => [
 				'config' => [
-					'wgFlaggedRevsAutoReview' => FR_AUTOREVIEW_CREATION,
+					'FlaggedRevsAutoReview' => FR_AUTOREVIEW_CREATION,
 				],
 				'expected' => [
 					'autoReviewEnabled' => true,
@@ -67,7 +67,7 @@ class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 			],
 			'autoreview creation and changes' => [
 				'config' => [
-					'wgFlaggedRevsAutoReview' => FR_AUTOREVIEW_CREATION_AND_CHANGES,
+					'FlaggedRevsAutoReview' => FR_AUTOREVIEW_CREATION_AND_CHANGES,
 				],
 				'expected' => [
 					'autoReviewEdits' => true,
@@ -78,7 +78,7 @@ class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 
 			'stable revision shown instead of latest revision' => [
 				'config' => [
-					'wgFlaggedRevsOverride' => true,
+					'FlaggedRevsOverride' => true,
 				],
 				'expected' => [
 					'isStableShownByDefault' => true,
@@ -86,7 +86,7 @@ class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 			],
 			'template stabilization mode' => [
 				'config' => [
-					'wgFlaggedRevsHandleIncludes' => FR_INCLUDES_STABLE,
+					'FlaggedRevsHandleIncludes' => FR_INCLUDES_STABLE,
 				],
 				'expected' => [
 					'inclusionSetting' => FR_INCLUDES_STABLE,
@@ -94,7 +94,7 @@ class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 			],
 			'trusted user groups' => [
 				'config' => [
-					'wgFlaggedRevsRestrictionLevels' => [ 'user-with-power' ],
+					'FlaggedRevsRestrictionLevels' => [ 'user-with-power' ],
 				],
 				'expected' => [
 					'getRestrictionLevels' => [ 'user-with-power' ],
@@ -102,7 +102,7 @@ class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 			],
 
 			'only protection flag with minimum configuration' => [
-				'config' => [ 'wgFlaggedRevsProtection' => true ],
+				'config' => [ 'FlaggedRevsProtection' => true ],
 				'expected' => [
 					'binaryFlagging' => true,
 					'quickTag' => null,
@@ -112,8 +112,8 @@ class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 			],
 			'only protection flag with trusted user groups configured' => [
 				'config' => [
-					'wgFlaggedRevsProtection' => true,
-					'wgFlaggedRevsRestrictionLevels' => [ 'user-with-power' ],
+					'FlaggedRevsProtection' => true,
+					'FlaggedRevsRestrictionLevels' => [ 'user-with-power' ],
 				],
 				'expected' => [
 					'getRestrictionLevels' => [ 'user-with-power' ],
@@ -125,8 +125,8 @@ class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 			],
 			'only protection flag disables page stabilization' => [
 				'config' => [
-					'wgFlaggedRevsOverride' => true,
-					'wgFlaggedRevsProtection' => true,
+					'FlaggedRevsOverride' => true,
+					'FlaggedRevsProtection' => true,
 				],
 				'expected' => [
 					'isStableShownByDefault' => false,
@@ -137,8 +137,8 @@ class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 			],
 			'only protection flag (mostly) disables non-binary flagging' => [
 				'config' => [
-					'wgFlaggedRevsProtection' => true,
-					'wgFlaggedRevsTags' => [ 'default' => [ 'levels' => 2 ] ]
+					'FlaggedRevsProtection' => true,
+					'FlaggedRevsTags' => [ 'default' => [ 'levels' => 2 ] ]
 				],
 				'expected' => [
 					'binaryFlagging' => true,
@@ -155,15 +155,15 @@ class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 	 * @dataProvider provideConfiguration
 	 */
 	public function testBasicConfiguration( array $config, array $expected ) {
-		$this->setMwGlobals( $config + [
+		$this->overrideConfigValues( $config + [
 			// Most minimal default configuration
-			'wgFlaggedRevsAutoReview' => FR_AUTOREVIEW_NONE,
-			'wgFlaggedRevsHandleIncludes' => FR_INCLUDES_CURRENT,
-			'wgFlaggedRevsNamespaces' => [],
-			'wgFlaggedRevsOverride' => false,
-			'wgFlaggedRevsProtection' => false,
-			'wgFlaggedRevsRestrictionLevels' => [],
-			'wgFlaggedRevsTags' => [ 'default' => [ 'levels' => 0 ] ],
+			'FlaggedRevsAutoReview' => FR_AUTOREVIEW_NONE,
+			'FlaggedRevsHandleIncludes' => FR_INCLUDES_CURRENT,
+			'FlaggedRevsNamespaces' => [],
+			'FlaggedRevsOverride' => false,
+			'FlaggedRevsProtection' => false,
+			'FlaggedRevsRestrictionLevels' => [],
+			'FlaggedRevsTags' => [ 'default' => [ 'levels' => 0 ] ],
 		] );
 
 		// Methods to test with the most trivial return value that's true for most test cases

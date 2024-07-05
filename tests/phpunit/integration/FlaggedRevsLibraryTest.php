@@ -8,7 +8,7 @@ if ( !class_exists( 'Scribunto_LuaEngineTestBase' ) ) {
 }
 
 /**
- * @covers FlaggedRevsScribuntoLuaLibrary
+ * @covers \FlaggedRevsScribuntoLuaLibrary
  */
 class FlaggedRevsLibraryTest extends LuaEngineTestBase {
 
