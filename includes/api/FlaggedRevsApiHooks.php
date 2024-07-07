@@ -57,8 +57,7 @@ class FlaggedRevsApiHooks implements
 		}
 
 		// Construct SQL Query
-		$db = MediaWikiServices::getInstance()
-			->getDBLoadBalancerFactory()
+		$db = MediaWikiServices::getInstance()->getConnectionProvider()
 			->getReplicaDatabase( false, 'api' );
 
 		$qb = $db->newSelectQueryBuilder()
