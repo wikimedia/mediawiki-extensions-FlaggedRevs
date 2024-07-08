@@ -32,7 +32,9 @@
 			"Xqt",
 			"✓",
 			"Brettchenweber",
-			"Wnme"
+			"Wnme",
+			"Inkowik",
+			"Justman10000"
 		]
 	},
 	"action-autoreview": "eigene Bearbeitungen automatisch als gesichtet zu markieren",
@@ -44,7 +46,7 @@
 	"action-unreviewedpages": "die Liste ungesichteter Seiten anzusehen",
 	"editor": "Sichter",
 	"flaggedrevs": "Gesichtete Versionen",
-	"flaggedrevs-watched-pending": "Es gibt momentan [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ungesichtete Bearbeitungen] gesichteter Seiten, die sich auf deiner Beobachtungsliste befinden. '''Deine Aufmerksamkeit wird daher benötigt!'''",
+	"flaggedrevs-watched-pending": "Es existieren momentan [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ungesichtete Bearbeitungen] gesichteter Seiten, die sich auf deiner Beobachtungsliste befinden. '''Deine Aufmerksamkeit wird daher benötigt!'''",
 	"flaggedrevs-desc": "Ermöglicht es, Seitenversionen zu markieren sowie eine stabile Seitenversion festzulegen",
 	"flaggedrevs-pref-UI": "Einfache Benutzeroberfläche:",
 	"flaggedrevs-pref-UI-0": "Verwende die detaillierte Übersicht, um den Markierungsstatus von Seiten anzuzeigen",
@@ -127,7 +129,7 @@
 	"revreview-newest-basic-i": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Vorlagen- und Dateiänderungen] dieser Version sind [[{{MediaWiki:Validationpage}}|noch nicht markiert]].\nDie [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gesichtete Version] wurde am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} markiert].",
 	"revreview-pending-basic": "Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gesichtete Version] wurde am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} markiert]. Momentan {{PLURAL:$3|gibt}} es [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|Änderung|Änderungen}}], die noch gesichtet werden {{PLURAL:$3|muss|müssen}}.",
 	"revreview-pending-nosection": "Versuche die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} neueste Version], die [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 unmarkierte {{PLURAL:$2|Änderung|Änderungen}}] enthält, anzusehen, um festzustellen, ob der Abschnitt verschoben oder gelöscht wurde.",
-	"revreview-noflagged": "Von dieser Seite gibt es keine [[{{MediaWiki:Validationpage}}|markierten Versionen]]. Sie wurde möglicherweise noch '''nicht''' bezüglich ihren Qualitätsstandards bestätigt.",
+	"revreview-noflagged": "Von dieser Seite existieren keine [[{{MediaWiki:Validationpage}}|markierten Versionen]]. Sie wurde möglicherweise noch '''nicht''' bezüglich ihren Qualitätsstandards bestätigt.",
 	"revreview-oldrating": "Bisherige Einstufung:",
 	"revreview-quick-basic": "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Markiere weitere Änderungen]]",
 	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]'''",
