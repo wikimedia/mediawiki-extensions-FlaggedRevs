@@ -60,14 +60,14 @@ class RevisionReview extends UnlistedSpecialPage {
 		$this->setHeaders();
 
 		# Basic page permission checks...
-		$permErrors = $this->permissionManager->getPermissionErrors(
+		$permStatus = $this->permissionManager->getPermissionStatus(
 			'review',
 			$user,
 			$this->title,
 			PermissionManager::RIGOR_QUICK
 		);
-		if ( $permErrors ) {
-			$out->showPermissionsErrorPage( $permErrors, 'review' );
+		if ( !$permStatus->isGood() ) {
+			$out->showPermissionStatus( $permStatus, 'review' );
 			return;
 		}
 
@@ -310,11 +310,11 @@ class RevisionReview extends UnlistedSpecialPage {
 			return [ 'error-html' => wfMessage( 'sessionfailure' )->parse() ];
 		}
 		# Basic permission checks...
-		$permErrors = MediaWikiServices::getInstance()->getPermissionManager()
-			->getPermissionErrors( 'review', $user, $title, PermissionManager::RIGOR_QUICK );
-		if ( $permErrors ) {
+		$permStatus = MediaWikiServices::getInstance()->getPermissionManager()
+			->getPermissionStatus( 'review', $user, $title, PermissionManager::RIGOR_QUICK );
+		if ( !$permStatus->isGood() ) {
 			return [ 'error-html' => $out->parseAsInterface(
-				$out->formatPermissionsErrorMessage( $permErrors, 'review' )
+				$out->formatPermissionStatus( $permStatus, 'review' )
 			) ];
 		}
 		# Try submission...

@@ -46,10 +46,10 @@ abstract class ApiStabilize extends ApiBase {
 			);
 		}
 
-		$errors = $this->getPermissionManager()
-			->getPermissionErrors( 'stablesettings', $user, $this->title );
-		if ( $errors ) {
-			$this->dieStatus( $this->errorArrayToStatus( $errors, $user ) );
+		$status = $this->getPermissionManager()
+			->getPermissionStatus( 'stablesettings', $user, $this->title );
+		if ( !$status->isGood() ) {
+			$this->dieStatus( $status );
 		}
 
 		$this->doExecute(); // child class
