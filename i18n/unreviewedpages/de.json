@@ -6,7 +6,8 @@
 			"Merlissimo",
 			"Metalhead64",
 			"Raimond Spekking",
-			"Umherirrender"
+			"Umherirrender",
+			"Justman10000"
 		]
 	},
 	"unreviewedpages": "Ungesichtete Seiten",
@@ -17,7 +18,7 @@
 	"unreviewedpages-unwatched": "(unbeobachtet)",
 	"unreviewedpages-watched": "(von {{PLURAL:$1|einem aktiven Benutzer|$1 aktiven Benutzern}} beobachtet)",
 	"unreviewedpages-list": "Diese Spezialseite zeigt Seiten, die bisher noch nicht in der angegebenen Stufe [[{{MediaWiki:Validationpage}}|markiert]] wurden.",
-	"unreviewedpages-none": "Es gibt keine Seiten, die den eingegebenen Kriterien entsprechen.",
+	"unreviewedpages-none": "Es existieren keine Seiten, die den eingegebenen Kriterien entsprechen.",
 	"unreviewedpages-viewing": "(wird gesichtet)",
 	"unreviewedpages-hours": "($1 {{PLURAL:$1|Stunde|Stunden}})",
 	"unreviewedpages-days": "($1 {{PLURAL:$1|Tag|Tage}})",
