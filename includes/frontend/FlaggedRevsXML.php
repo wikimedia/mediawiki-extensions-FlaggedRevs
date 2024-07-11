@@ -17,10 +17,19 @@ class FlaggedRevsXML {
 	 * @param string|null $all Value of an item denoting all namespaces, or null to omit
 	 */
 	public static function getNamespaceMenu( ?int $selected = null, ?string $all = null ): string {
-		$s = "<label for='namespace'>" . wfMessage( 'namespace' )->escaped() . "</label>";
+		$s = Html::rawElement( 'div', [ 'class' => 'cdx-field__item' ],
+			Html::rawElement( 'div', [ 'class' => 'cdx-label' ],
+				Html::label(
+					wfMessage( 'namespace' )->text(),
+					'namespace',
+					[ 'class' => 'cdx-label__label' ]
+				)
+			)
+		);
+
 		# No namespace selected; let exact match work without hitting Main
 		$selected ??= '';
-		$s .= "\n<select id='namespace' name='namespace' class='namespaceselector'>\n";
+		$s .= "\n<select id='namespace' name='namespace' class='cdx-select namespaceselector'>\n";
 		$arr = MediaWikiServices::getInstance()->getContentLanguage()->getFormattedNamespaces();
 		if ( $all !== null ) {
 			$arr = [ $all => wfMessage( 'namespacesall' )->text() ] + $arr; // should be first
@@ -33,7 +42,7 @@ class FlaggedRevsXML {
 			$name = $index !== 0 ? $name : wfMessage( 'blanknamespace' )->text();
 			if ( $index === $selected ) {
 				$s .= "\t" . Html::element( 'option', [ 'value' => $index,
-					"selected" => "selected" ], $name ) . "\n";
+						"selected" => "selected" ], $name ) . "\n";
 			} else {
 				$s .= "\t" . Html::element( 'option', [ 'value' => $index ], $name ) . "\n";
 			}
@@ -47,14 +56,30 @@ class FlaggedRevsXML {
 	 * @param int|null $selected (0=draft, 1=stable, null=either )
 	 */
 	public static function getDefaultFilterMenu( ?int $selected = null ): string {
-		$s = Html::element( 'option', [ 'value' => '', 'selected' => $selected === null ],
+		$s = Html::rawElement( 'div', [ 'class' => 'cdx-field__item' ],
+			Html::rawElement( 'div', [ 'class' => 'cdx-label' ],
+				Html::label(
+					wfMessage( 'revreview-defaultfilter' )->text(),
+					'wpStable',
+					[ 'class' => 'cdx-label__label' ]
+				)
+			)
+		);
+
+		$selectOptions = Html::element( 'option', [ 'value' => '', 'selected' => $selected === null ],
 			wfMessage( 'revreview-def-all' )->text() );
-		$s .= Html::element( 'option', [ 'value' => '1', 'selected' => $selected === 1 ],
+		$selectOptions .= Html::element( 'option', [ 'value' => '1', 'selected' => $selected === 1 ],
 			wfMessage( 'revreview-def-stable' )->text() );
-		$s .= Html::element( 'option', [ 'value' => '0', 'selected' => $selected === 0 ],
+		$selectOptions .= Html::element( 'option', [ 'value' => '0', 'selected' => $selected === 0 ],
 			wfMessage( 'revreview-def-draft' )->text() );
-		return Html::label( wfMessage( 'revreview-defaultfilter' )->text(), 'wpStable' ) . "\n" .
-			Html::rawElement( 'select', [ 'name' => 'stable', 'id' => 'wpStable' ], $s ) . "\n";
+
+		$s .= Html::rawElement( 'select', [
+			'name' => 'stable',
+			'id' => 'wpStable',
+			'class' => 'cdx-select filterselector'
+		], $selectOptions );
+
+		return $s;
 	}
 
 	/**
@@ -62,31 +87,46 @@ class FlaggedRevsXML {
 	 * @param string|null $selected (null or empty string for "any", 'none' for none)
 	 */
 	public static function getRestrictionFilterMenu( ?string $selected = '' ): string {
-		$s = Html::label( wfMessage( 'revreview-restrictfilter' )->text(), 'wpRestriction' ) . "\n";
-		$s .= Html::openElement( 'select',
-			[ 'name' => 'restriction', 'id' => 'wpRestriction' ] );
-		$s .= Html::element( 'option',
+		$s = Html::rawElement( 'div', [ 'class' => 'cdx-field__item' ],
+			Html::rawElement( 'div', [ 'class' => 'cdx-label' ],
+				Html::label(
+					wfMessage( 'revreview-restrictfilter' )->text(),
+					'wpRestriction',
+					[ 'class' => 'cdx-label__label' ]
+				)
+			)
+		);
+
+		$selectOptions = Html::element( 'option',
 			[ 'value' => '', 'selected' => ( $selected ?? '' ) === '' ],
 			wfMessage( 'revreview-restriction-any' )->text()
 		);
+
 		if ( !FlaggedRevs::useProtectionLevels() ) {
 			# All "protected" pages have a protection level, not "none"
-			$s .= Html::element( 'option',
+			$selectOptions .= Html::element( 'option',
 				[ 'value' => 'none', 'selected' => $selected === 'none' ],
 				wfMessage( 'revreview-restriction-none' )->text()
 			);
 		}
+
 		foreach ( FlaggedRevs::getRestrictionLevels() as $perm ) {
 			// Give grep a chance to find the usages:
 			// revreview-restriction-any, revreview-restriction-none
 			$key = "revreview-restriction-$perm";
 			$msg = wfMessage( $key )->isDisabled() ? $perm : wfMessage( $key )->text();
-			$s .= Html::element( 'option',
+			$selectOptions .= Html::element( 'option',
 				[ 'value' => $perm, 'selected' => $selected == $perm ],
 				$msg
 			);
 		}
-		$s .= Html::closeElement( 'select' ) . "\n";
+
+		$s .= Html::rawElement( 'select', [
+			'name' => 'restriction',
+			'id' => 'wpRestriction',
+			'class' => 'cdx-select restrictionselector'
+		], $selectOptions );
+
 		return $s;
 	}
 
