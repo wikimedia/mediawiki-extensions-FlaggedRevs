@@ -8,7 +8,8 @@
 			"Purodha",
 			"Steef389",
 			"The Evil IP address",
-			"Umherirrender"
+			"Umherirrender",
+			"Justman10000"
 		]
 	},
 	"stabilization-tab": "Konfig.",
@@ -23,7 +24,7 @@
 	"stabilization-restrict": "Einschränkungen bezüglich des Markierens/des automatischen Markierens",
 	"stabilization-restrict-none": "Keine zusätzlichen Einschränkungen",
 	"stabilization-submit": "Bestätigen",
-	"stabilization-notexists": "Es gibt keine Seite „[[:$1|$1]]“. Keine Einstellungen möglich.",
+	"stabilization-notexists": "Es existiert keine Seite „[[:$1|$1]]“. Keine Einstellungen möglich.",
 	"stabilization-notcontent": "Die Seite „[[:$1|$1]]“ kann nicht markiert werden. Konfiguration ist nicht möglich.",
 	"stabilization-comment": "Grund:",
 	"stabilization-otherreason": "Anderer Grund:",
