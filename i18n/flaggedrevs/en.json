@@ -109,7 +109,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Checked]]'''",
 	"revreview-quick-invalid": "'''Invalid revision ID'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Unchecked]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} review pending changes]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} review pending changes]",
 	"revreview-basic-title": "This is a checked version of this page",
 	"revreview-toggle-title": "show/hide details",
 	"revreview-visibility-synced": "'''This page has an updated [[{{MediaWiki:Validationpage}}|stable version]]; page stability settings can be [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configured].'''",
