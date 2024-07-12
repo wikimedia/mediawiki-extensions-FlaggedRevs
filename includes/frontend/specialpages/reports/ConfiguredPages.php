@@ -48,28 +48,62 @@ class ConfiguredPages extends SpecialPage {
 		$this->getOutput()->addWikiMsg( 'configuredpages-list',
 			$this->getLanguage()->formatNum( $this->pager->getNumRows() ) );
 
-		$fields = [];
+		$form = Html::openElement( 'form', [
+				'name' => 'configuredpages',
+				'action' => $this->getConfig()->get( MainConfigNames::Script ),
+				'method' => 'get',
+				'class' => 'mw-fr-form-container'
+			] ) . "\n";
+
+		$form .= Html::openElement( 'fieldset', [ 'class' => 'cdx-field' ] ) . "\n";
+
+		$form .= Html::openElement( 'legend', [ 'class' => 'cdx-label' ] ) . "\n";
+		$form .= Html::rawElement( 'span', [ 'class' => 'cdx-label__label' ],
+			Html::element( 'span', [ 'class' => 'cdx-label__label__text' ],
+				$this->msg( 'configuredpages' )->text() )
+		);
+		$form .= Html::closeElement( 'legend' ) . "\n";
+
+		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBkey() ) . "\n";
+
+		$form .= Html::openElement( 'div', [ 'class' => 'cdx-field__control' ] ) . "\n";
+
 		# Namespace selector
 		if ( count( FlaggedRevs::getReviewNamespaces() ) > 1 ) {
-			$fields[] = FlaggedRevsXML::getNamespaceMenu( $this->namespace, '' );
-		}
-		# Default version selector
-		$fields[] = FlaggedRevsXML::getDefaultFilterMenu( $this->override );
-		# Restriction level selector
-		if ( FlaggedRevs::getRestrictionLevels() ) {
-			$fields[] = FlaggedRevsXML::getRestrictionFilterMenu( $this->autoreview );
+			$form .= Html::rawElement(
+				'div',
+				[ 'class' => 'cdx-field__item' ],
+				FlaggedRevsXML::getNamespaceMenu( $this->namespace, '' )
+			);
 		}
 
-		$form = Html::openElement( 'form', [
-			'name' => 'configuredpages',
-			'action' => $this->getConfig()->get( MainConfigNames::Script ),
-			'method' => 'get',
-		] );
-		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBkey() );
-		$form .= "<fieldset><legend>" . $this->msg( 'configuredpages' )->escaped() . "</legend>\n";
-		$form .= implode( '&#160;', $fields ) . '<br/>';
-		$form .= Html::submitButton( $this->msg( 'go' )->text() );
-		$form .= "</fieldset>\n";
+		# Default version selector
+		$form .= Html::rawElement(
+			'div',
+			[ 'class' => 'cdx-field__item' ],
+			FlaggedRevsXML::getDefaultFilterMenu( $this->override )
+		);
+
+		# Restriction level selector
+		if ( FlaggedRevs::getRestrictionLevels() ) {
+			$form .= Html::rawElement(
+				'div',
+				[ 'class' => 'cdx-field__item' ],
+				FlaggedRevsXML::getRestrictionFilterMenu( $this->autoreview )
+			);
+		}
+
+		$form .= Html::closeElement( 'div' ) . "\n";
+
+		$form .= Html::rawElement(
+				'div',
+				[ 'class' => 'cdx-field__control' ],
+				Html::submitButton( $this->msg( 'go' )->text(), [
+					'class' => 'cdx-button cdx-button--action-progressive'
+				] )
+			) . "\n";
+
+		$form .= Html::closeElement( 'fieldset' ) . "\n";
 		$form .= Html::closeElement( 'form' ) . "\n";
 
 		$this->getOutput()->addHTML( $form );
@@ -112,11 +146,11 @@ class ConfiguredPages extends SpecialPage {
 		# When these configuration settings expire
 		if ( $row->fpc_expiry != 'infinity' && strlen( $row->fpc_expiry ) ) {
 			$expiry_description = " (" . $this->msg(
-				'protect-expiring',
-				$this->getLanguage()->timeanddate( $row->fpc_expiry ),
-				$this->getLanguage()->date( $row->fpc_expiry ),
-				$this->getLanguage()->time( $row->fpc_expiry )
-			)->inContentLanguage()->text() . ")";
+					'protect-expiring',
+					$this->getLanguage()->timeanddate( $row->fpc_expiry ),
+					$this->getLanguage()->date( $row->fpc_expiry ),
+					$this->getLanguage()->time( $row->fpc_expiry )
+				)->inContentLanguage()->text() . ")";
 		} else {
 			$expiry_description = "";
 		}
