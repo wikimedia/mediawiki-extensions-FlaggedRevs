@@ -94,41 +94,84 @@ class PendingChanges extends SpecialPage {
 			$this->getLanguage()->formatNum( $this->pager->getNumRows() ) );
 
 		$form = Html::openElement( 'form', [
-			'name' => 'pendingchanges',
-			'action' => $this->getConfig()->get( MainConfigNames::Script ),
-			'method' => 'get',
-		] ) . "\n";
-		$form .= "<fieldset><legend>" . $this->msg( 'pendingchanges-legend' )->escaped() . "</legend>\n";
+				'name' => 'pendingchanges',
+				'action' => $this->getConfig()->get( MainConfigNames::Script ),
+				'method' => 'get',
+				'class' => 'mw-fr-form-container'
+			] ) . "\n";
+
+		$form .= Html::openElement( 'fieldset', [ 'class' => 'cdx-field' ] ) . "\n";
+
+		$form .= Html::openElement( 'legend', [ 'class' => 'cdx-label' ] ) . "\n";
+		$form .= Html::rawElement( 'span', [ 'class' => 'cdx-label__label' ],
+			Html::element( 'span', [ 'class' => 'cdx-label__label__text' ],
+				$this->msg( 'pendingchanges-legend' )->text() )
+		);
+		$form .= Html::closeElement( 'legend' ) . "\n";
+
 		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBkey() ) . "\n";
 
-		$items = [];
+		$form .= Html::openElement( 'div', [ 'class' => 'cdx-field__control cdx-align-right' ] ) . "\n";
+
 		if ( count( FlaggedRevs::getReviewNamespaces() ) > 1 ) {
-			$items[] = "<span style='white-space: nowrap;'>" .
-				FlaggedRevsXML::getNamespaceMenu( $this->namespace, '' ) . '</span>';
-		}
-		if ( !FlaggedRevs::isStableShownByDefault() && !FlaggedRevs::useOnlyIfProtected() ) {
-			$items[] = "<span style='white-space: nowrap;'>" .
-				Html::check( 'stable', $this->stable, [ 'id' => 'wpStable' ] ) .
-				Html::label( $this->msg( 'pendingchanges-stable' )->text(), 'wpStable' ) . '</span>';
-		}
-		if ( $items ) {
-			$form .= implode( ' ', $items ) . '<br />';
+			$form .= Html::rawElement(
+				'div',
+				[ 'class' => 'cdx-field__item' ],
+				FlaggedRevsXML::getNamespaceMenu( $this->namespace, '' )
+			);
 		}
 
-		$items = [];
-		$items[] =
-			Html::label( $this->msg( "pendingchanges-category" )->text(), 'wpCategory' ) . '&#160;' .
-			Html::input( 'category', $this->category, 'text', [ 'id' => 'wpCategory', 'size' => 30 ] );
-		if ( $this->getUser()->getId() ) {
-			$items[] = Html::check( 'watched', $this->watched, [ 'id' => 'wpWatched' ] ) .
-				Html::label( $this->msg( 'pendingchanges-onwatchlist' )->text(), 'wpWatched' );
-		}
-		$form .= implode( ' ', $items ) . '<br />';
-		$form .=
-			Html::label( $this->msg( 'pendingchanges-size' )->text(), 'wpSize' ) .
-			Html::input( 'size', (string)$this->size, 'text', [ 'id' => 'wpSize', 'size' => 4 ] ) . ' ' .
-			Html::submitButton( $this->msg( 'allpagessubmit' )->text() ) . "\n";
-		$form .= "</fieldset>";
+		$form .= Html::rawElement(
+				'div',
+				[ 'class' => 'cdx-field__item' ],
+				Html::label( $this->msg( 'pendingchanges-category' )->text(), 'wpCategory',
+					[ 'class' => 'cdx-label__label' ] ) .
+				Html::input( 'category', $this->category, 'text', [
+					'id' => 'wpCategory',
+					'class' => 'cdx-text-input__input'
+				] )
+			) . "\n";
+
+		$form .= Html::rawElement(
+				'div',
+				[ 'class' => 'cdx-field__item' ],
+				Html::label( $this->msg( 'pendingchanges-size' )->text(), 'wpSize',
+					[ 'class' => 'cdx-label__label' ] ) .
+				Html::input( 'size', (string)$this->size, 'text', [
+					'id' => 'wpSize',
+					'class' => 'cdx-text-input__input'
+				] )
+			) . "\n";
+
+		$form .= Html::closeElement( 'div' ) . "\n";
+
+		$form .= Html::rawElement(
+				'div',
+				[ 'class' => 'cdx-field__control' ],
+				Html::rawElement( 'span', [ 'class' => 'cdx-checkbox cdx-checkbox--inline' ],
+					Html::check( 'watched', $this->watched, [
+						'id' => 'wpWatched',
+						'class' => 'cdx-checkbox__input'
+					] ) .
+					Html::rawElement( 'span', [ 'class' => 'cdx-checkbox__icon' ], '' ) .
+					Html::rawElement(
+						'div',
+						[ 'class' => 'cdx-checkbox__label cdx-label' ],
+						Html::label( $this->msg( 'pendingchanges-onwatchlist' )->text(), 'wpWatched',
+							[ 'class' => 'cdx-label__label' ] )
+					)
+				)
+			) . "\n";
+
+		$form .= Html::rawElement(
+				'div',
+				[ 'class' => 'cdx-field__control' ],
+				Html::submitButton( $this->msg( 'allpagessubmit' )->text(), [
+					'class' => 'cdx-button cdx-button--action-progressive'
+				] )
+			) . "\n";
+
+		$form .= Html::closeElement( 'fieldset' ) . "\n";
 		$form .= Html::closeElement( 'form' ) . "\n";
 
 		$this->getOutput()->addHTML( $form );
