@@ -74,7 +74,7 @@ class UnreviewedPages extends SpecialPage {
 		$link = $this->getLinkRenderer()->makeLink(
 			$this->getPageTitle(),
 			$this->msg( $this->hideRedirs ? 'show' : 'hide' )->text(),
-			[],
+			[ 'class' => 'cdx-docs-link' ],
 			[
 				'hideredirs' => $this->hideRedirs ? '0' : '1',
 				'category' => $this->category,
@@ -85,24 +85,63 @@ class UnreviewedPages extends SpecialPage {
 
 		# Add form...
 		$form = Html::openElement( 'form', [
-			'name' => 'unreviewedpages',
-			'action' => $this->getConfig()->get( MainConfigNames::Script ),
-			'method' => 'get',
-		] ) . "\n";
-		$form .= "<fieldset><legend>" . $this->msg( 'unreviewedpages-legend' )->escaped() . "</legend>\n";
+				'name' => 'unreviewedpages',
+				'action' => $this->getConfig()->get( MainConfigNames::Script ),
+				'method' => 'get',
+				'class' => 'cdx-form mw-fr-form-container'
+			] ) . "\n";
+
+		$form .= Html::openElement( 'fieldset', [ 'class' => 'cdx-field' ] ) . "\n";
+
+		$form .= Html::openElement( 'legend', [ 'class' => 'cdx-label' ] ) . "\n";
+		$form .= Html::rawElement( 'span', [ 'class' => 'cdx-label__label' ],
+			Html::element( 'span', [ 'class' => 'cdx-label__label__text' ],
+				$this->msg( 'unreviewedpages-legend' )->text() )
+		);
+		$form .= Html::closeElement( 'legend' ) . "\n";
+
 		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBkey() ) . "\n";
-		# Add dropdowns as needed
+
+		$form .= Html::openElement( 'div', [ 'class' => 'cdx-field__control cdx-align-right' ] ) . "\n";
+
+		# Namespace selector
 		if ( count( FlaggedRevs::getReviewNamespaces() ) > 1 ) {
-			$form .= FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&#160;';
+			$form .= Html::rawElement(
+				'div',
+				[ 'class' => 'cdx-field__item' ],
+				FlaggedRevsXML::getNamespaceMenu( $this->namespace )
+			);
 		}
-		$form .=
-			"<span style='white-space: nowrap;'>" .
-			Html::label( $this->msg( 'unreviewedpages-category' )->text(), 'category' ) . '&#160;' .
-			Html::input( 'category', $this->category, 'text', [ 'id' => 'category', 'size' => 30 ] ) .
-			'</span><br />';
-		$form .= $showhideredirs . '&#160;&#160;';
-		$form .= Html::submitButton( $this->msg( 'allpagessubmit' )->text() );
-		$form .= '</fieldset>';
+
+		$form .= Html::rawElement(
+				'div',
+				[ 'class' => 'cdx-field__item' ],
+				Html::label( $this->msg( 'unreviewedpages-category' )->text(), 'category',
+					[ 'class' => 'cdx-label__label' ] ) .
+				Html::input( 'category', $this->category, 'text', [
+					'id' => 'category',
+					'class' => 'cdx-text-input__input',
+					'size' => 30
+				] )
+			) . "\n";
+
+		$form .= Html::rawElement(
+				'div',
+				[ 'class' => 'cdx-field__item' ],
+				$showhideredirs
+			) . "\n";
+
+		$form .= Html::closeElement( 'div' ) . "\n";
+
+		$form .= Html::rawElement(
+				'div',
+				[ 'class' => 'cdx-field__control' ],
+				Html::submitButton( $this->msg( 'allpagessubmit' )->text(), [
+					'class' => 'cdx-button cdx-button--action-progressive'
+				] )
+			) . "\n";
+
+		$form .= Html::closeElement( 'fieldset' ) . "\n";
 		$form .= Html::closeElement( 'form' ) . "\n";
 
 		# Query may get too slow to be live...
