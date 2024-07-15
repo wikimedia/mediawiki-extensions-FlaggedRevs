@@ -264,6 +264,9 @@
 			"scripts": [
 				"advanced.js"
 			],
+			"styles": [
+				"shared.less"
+			],
 			"messages": [
 				"brackets",
 				"diff-empty",

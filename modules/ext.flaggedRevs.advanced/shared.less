@@ -1,0 +1,90 @@
+@import 'mediawiki.skin.variables.less';
+
+/**
+ * FlaggedRevs Advanced Stylesheet
+ * @author Doğu Abaris
+ */
+
+/* Special:PendingChanges */
+.mw-fr-form-container {
+	padding: @spacing-75;
+	border: @border-base;
+
+	.cdx-field {
+		display: grid;
+	}
+
+	.cdx-label {
+		display: initial;
+
+		.cdx-label__description {
+			display: block;
+		}
+	}
+
+	.cdx-field__control {
+		padding-top: @spacing-50;
+		display: flex;
+		justify-content: left;
+		gap: 10px;
+		width: @size-full;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+
+	.cdx-field__item {
+		padding-bottom: @spacing-30;
+		min-width: @size-75;
+	}
+
+	.cdx-field__item select {
+		padding-bottom: @spacing-30;
+		min-width: @size-75;
+	}
+
+	.cdx-field__item .cdx-text-input__input {
+		margin-top: @spacing-30;
+	}
+}
+
+.mw-fr-pending-changes-table {
+	margin-top: @spacing-75;
+
+	.fr-cdx-icon-sort-vertical::before {
+		.cdx-mixin-css-icon(@cdx-icon-sort-vertical);
+		transform: rotate( 0deg );
+		content: '';
+	}
+
+	.fr-icon-asc::before {
+		.cdx-mixin-css-icon(@cdx-icon-down-triangle);
+		transform: rotate( 0deg );
+		content: '';
+	}
+
+	.fr-icon-desc::before {
+		.cdx-mixin-css-icon(@cdx-icon-down-triangle);
+		transform: rotate( 180deg );
+		content: '';
+	}
+
+	.fr-cdx-icon-eye {
+		.cdx-mixin-css-icon(@cdx-icon-eye);
+		width: 1em;
+		height: 1em;
+	}
+
+	.fr-cdx-icon-clock {
+		.cdx-mixin-css-icon(@cdx-icon-clock);
+		width: 1em;
+		height: 1em;
+	}
+
+	.cdx-table__table .cdx-table__table__cell--has-sort a {
+		text-decoration: none;
+	}
+
+	table tbody tr:hover {
+		background-color: @background-color-neutral;
+	}
+}

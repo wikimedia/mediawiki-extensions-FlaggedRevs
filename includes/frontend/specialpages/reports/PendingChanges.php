@@ -9,26 +9,14 @@ use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
 
 class PendingChanges extends SpecialPage {
-	/** @var PendingChangesPager|null */
-	private $pager = null;
 
-	/** @var int */
-	private $currentUnixTS;
-
-	/** @var int|null */
-	private $namespace;
-
-	/** @var string */
-	private $category;
-
-	/** @var int|null */
-	private $size;
-
-	/** @var bool */
-	private $watched;
-
-	/** @var bool */
-	private $stable;
+	private ?PendingChangesPager $pager = null;
+	private int $currentUnixTS;
+	private ?int $namespace;
+	private string $category;
+	private ?string $tagFilter;
+	private ?int $size;
+	private bool $watched;
 
 	public function __construct() {
 		parent::__construct( 'PendingChanges' );
@@ -37,8 +25,9 @@ class PendingChanges extends SpecialPage {
 
 	/**
 	 * @inheritDoc
+	 * @throws MWException
 	 */
-	public function execute( $par ) {
+	public function execute( $subPage ) {
 		$request = $this->getRequest();
 
 		$this->setHeaders();
@@ -46,21 +35,24 @@ class PendingChanges extends SpecialPage {
 		$this->currentUnixTS = (int)wfTimestamp();
 
 		$this->namespace = $request->getIntOrNull( 'namespace' );
+		$this->tagFilter = $request->getVal( 'tagFilter' );
 		$category = trim( $request->getVal( 'category', '' ) );
 		$catTitle = Title::makeTitleSafe( NS_CATEGORY, $category );
 		$this->category = $catTitle === null ? '' : $catTitle->getText();
 		$this->size = $request->getIntOrNull( 'size' );
 		$this->watched = $request->getCheck( 'watched' );
-		$this->stable = $request->getCheck( 'stable' );
+		$stable = $request->getCheck( 'stable' );
 		$feedType = $request->getVal( 'feed' );
+		$limit = $request->getInt( 'limit', 50 );
 
 		$incLimit = 0;
 		if ( $this->including() ) {
-			$incLimit = $this->parseParams( $par ); // apply non-URL params
+			$incLimit = $this->parseParams( $subPage ); // apply non-URL params
 		}
 
 		$this->pager = new PendingChangesPager( $this, $this->namespace,
-			$this->category, $this->size, $this->watched, $this->stable );
+			$this->category, $this->size, $this->watched, $stable, $this->tagFilter );
+		$this->pager->setLimit( $limit );
 
 		# Output appropriate format...
 		if ( $feedType != null ) {
@@ -89,10 +81,6 @@ class PendingChanges extends SpecialPage {
 	}
 
 	private function showForm() {
-		# Explanatory text
-		$this->getOutput()->addWikiMsg( 'pendingchanges-list',
-			$this->getLanguage()->formatNum( $this->pager->getNumRows() ) );
-
 		$form = Html::openElement( 'form', [
 				'name' => 'pendingchanges',
 				'action' => $this->getConfig()->get( MainConfigNames::Script ),
@@ -107,11 +95,19 @@ class PendingChanges extends SpecialPage {
 			Html::element( 'span', [ 'class' => 'cdx-label__label__text' ],
 				$this->msg( 'pendingchanges-legend' )->text() )
 		);
+
+		# Explanatory text
+		$form .= Html::rawElement( 'span', [ 'class' => 'cdx-label__description' ],
+			$this->msg( 'pendingchanges-list' )->params(
+				$this->getLanguage()->formatNum( $this->pager->getNumRows() )
+			)->parse()
+		);
+
 		$form .= Html::closeElement( 'legend' ) . "\n";
 
 		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBkey() ) . "\n";
 
-		$form .= Html::openElement( 'div', [ 'class' => 'cdx-field__control cdx-align-right' ] ) . "\n";
+		$form .= Html::openElement( 'div', [ 'class' => 'cdx-field__control' ] ) . "\n";
 
 		if ( count( FlaggedRevs::getReviewNamespaces() ) > 1 ) {
 			$form .= Html::rawElement(
@@ -120,6 +116,18 @@ class PendingChanges extends SpecialPage {
 				FlaggedRevsXML::getNamespaceMenu( $this->namespace, '' )
 			);
 		}
+
+		$form .= Html::rawElement(
+			'div',
+			[ 'class' => 'cdx-field__item' ],
+			FlaggedRevsXML::getEditTagFilterMenu( $this->tagFilter )
+		);
+
+		$form .= Html::rawElement(
+			'div',
+			[ 'class' => 'cdx-field__item' ],
+			FlaggedRevsXML::getLimitSelector( $this->pager->mLimit )
+		);
 
 		$form .= Html::rawElement(
 				'div',
@@ -137,7 +145,7 @@ class PendingChanges extends SpecialPage {
 				[ 'class' => 'cdx-field__item' ],
 				Html::label( $this->msg( 'pendingchanges-size' )->text(), 'wpSize',
 					[ 'class' => 'cdx-label__label' ] ) .
-				Html::input( 'size', (string)$this->size, 'text', [
+				Html::input( 'size', (string)$this->size, 'number', [
 					'id' => 'wpSize',
 					'class' => 'cdx-text-input__input'
 				] )
@@ -153,7 +161,7 @@ class PendingChanges extends SpecialPage {
 						'id' => 'wpWatched',
 						'class' => 'cdx-checkbox__input'
 					] ) .
-					Html::rawElement( 'span', [ 'class' => 'cdx-checkbox__icon' ], '' ) .
+					Html::rawElement( 'span', [ 'class' => 'cdx-checkbox__icon' ] ) .
 					Html::rawElement(
 						'div',
 						[ 'class' => 'cdx-checkbox__label cdx-label' ],
@@ -166,7 +174,7 @@ class PendingChanges extends SpecialPage {
 		$form .= Html::rawElement(
 				'div',
 				[ 'class' => 'cdx-field__control' ],
-				Html::submitButton( $this->msg( 'allpagessubmit' )->text(), [
+				Html::submitButton( $this->msg( 'pendingchanges-filter-submit-button-text' )->text(), [
 					'class' => 'cdx-button cdx-button--action-progressive'
 				] )
 			) . "\n";
@@ -202,12 +210,12 @@ class PendingChanges extends SpecialPage {
 	}
 
 	/**
-	 * Set pager parameters from $par, return pager limit
-	 * @param string $par
+	 * Set pager parameters from $subPage, return pager limit
+	 * @param string $subPage
 	 * @return bool|int
 	 */
-	private function parseParams( $par ) {
-		$bits = preg_split( '/\s*,\s*/', trim( $par ) );
+	private function parseParams( string $subPage ) {
+		$bits = preg_split( '/\s*,\s*/', trim( $subPage ) );
 		$limit = false;
 		foreach ( $bits as $bit ) {
 			if ( is_numeric( $bit ) ) {
@@ -233,8 +241,9 @@ class PendingChanges extends SpecialPage {
 	/**
 	 * Output a subscription feed listing recent edits to this page.
 	 * @param string $type
+	 * @throws MWException
 	 */
-	private function feed( $type ) {
+	private function feed( string $type ) {
 		if ( !$this->getConfig()->get( MainConfigNames::Feed ) ) {
 			$this->getOutput()->addWikiMsg( 'feed-unavailable' );
 			return;
@@ -262,7 +271,7 @@ class PendingChanges extends SpecialPage {
 		$feed->outFooter();
 	}
 
-	private function feedTitle() {
+	private function feedTitle(): string {
 		$languageCode = $this->getConfig()->get( MainConfigNames::LanguageCode );
 		$sitename = $this->getConfig()->get( MainConfigNames::Sitename );
 
@@ -275,27 +284,23 @@ class PendingChanges extends SpecialPage {
 	/**
 	 * @param stdClass $row
 	 * @return FeedItem|null
+	 * @throws MWException
 	 */
-	private function feedItem( $row ) {
+	private function feedItem( stdClass $row ): ?FeedItem {
 		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
 		if ( !$title ) {
 			return null;
 		}
 
 		$date = $row->pending_since;
-		$comments = $title->getTalkPage()->getFullURL();
-		$curRevRecord = MediaWikiServices::getInstance()
-			->getRevisionLookup()
-			->getRevisionByTitle( $title );
-		$currentComment = $curRevRecord->getComment() ?
-			$curRevRecord->getComment()->text :
-			'';
-		$currentUserText = $curRevRecord->getUser() ?
-			$curRevRecord->getUser()->getName() :
-			'';
+		$services = MediaWikiServices::getInstance();
+		$comments = $services->getNamespaceInfo()->getTalkPage( $title );
+		$curRevRecord = $services->getRevisionLookup()->getRevisionByTitle( $title );
+		$currentComment = $curRevRecord->getComment() ? $curRevRecord->getComment()->text : '';
+		$currentUserText = $curRevRecord->getUser() ? $curRevRecord->getUser()->getName() : '';
 		return new FeedItem(
 			$title->getPrefixedText(),
-			FeedUtils::formatDiffRow(
+			FeedUtils::formatDiffRow2(
 				$title,
 				$row->stable,
 				$curRevRecord->getId(),
@@ -309,29 +314,53 @@ class PendingChanges extends SpecialPage {
 		);
 	}
 
-	/**
-	 * @param stdClass $row
-	 * @return string HTML
-	 */
-	public function formatRow( $row ) {
+	public function formatRow( stdClass $row ): string {
 		$css = '';
-		$quality = '';
 		$title = Title::newFromRow( $row );
 		$stxt = ChangesList::showCharacterDifference( $row->rev_len, $row->page_len );
 		# Page links...
 		$linkRenderer = $this->getLinkRenderer();
-		$link = $linkRenderer->makeLink( $title );
-		$hist = $linkRenderer->makeKnownLink(
+
+		$query = $title->isRedirect() ? [ 'redirect' => 'no' ] : [];
+
+		$link = $linkRenderer->makeKnownLink(
+			$title,
+			null,
+			[ 'class' => 'mw-fr-pending-changes-page-title' ],
+			$query
+		);
+		$linkArr = [];
+		$linkArr[] = $linkRenderer->makeKnownLink(
 			$title,
 			$this->msg( 'hist' )->text(),
-			[],
+			[ 'class' => 'mw-fr-pending-changes-page-history' ],
 			[ 'action' => 'history' ]
 		);
-		$review = $linkRenderer->makeKnownLink(
-			$title,
-			$this->msg( 'pendingchanges-diff' )->text(),
-			[],
-			[ 'diff' => 'cur', 'oldid' => $row->stable ]
+		if ( $this->getUser()->isAllowed( 'edit' ) ) {
+			$linkArr[] = $linkRenderer->makeKnownLink(
+				$title,
+				$this->msg( 'editlink' )->text(),
+				[ 'class' => 'mw-fr-pending-changes-page-edit' ],
+				[ 'action' => 'edit' ]
+			);
+		}
+		if ( $this->getUser()->isAllowed( 'delete' ) ) {
+			$linkArr[] = $linkRenderer->makeKnownLink(
+				$title,
+				$this->msg( 'tags-delete' )->text(),
+				[ 'class' => 'mw-fr-pending-changes-page-delete' ],
+				[ 'action' => 'delete' ]
+			);
+		}
+		$links = $this->msg( 'parentheses' )->rawParams( $this->getLanguage()
+			->pipeList( $linkArr ) )->escaped();
+		$review = Html::rawElement(
+			'a',
+			[
+				'class' => 'cdx-docs-link',
+				'href' => $title->getFullURL( [ 'diff' => 'cur', 'oldid' => $row->stable ] )
+			],
+			$this->msg( 'pendingchanges-diff' )->text()
 		);
 		# Is anybody watching?
 		// Only show information to users with the `unwatchedpages` who could find this
@@ -342,7 +371,7 @@ class PendingChanges extends SpecialPage {
 			$uw = FRUserActivity::numUsersWatchingPage( $title );
 			$watching = ' ';
 			$watching .= $uw
-				? $this->msg( 'pendingchanges-watched' )->numParams( $uw )->escaped()
+				? $this->getWatchingFormatted( $uw )
 				: $this->msg( 'pendingchanges-unwatched' )->escaped();
 		} else {
 			$uw = -1;
@@ -354,35 +383,60 @@ class PendingChanges extends SpecialPage {
 			$hours = ( $this->currentUnixTS - $firstPendingTime ) / 3600;
 			$days = round( $hours / 24 );
 			if ( $days >= 3 ) {
-				$age = $this->msg( 'pendingchanges-days' )->numParams( $days )->escaped();
+				$age = $this->msg( 'pendingchanges-days' )->numParams( $days )->text();
 			} elseif ( $hours >= 1 ) {
-				$age = $this->msg( 'pendingchanges-hours' )->numParams( round( $hours ) )->escaped();
+				$age = $this->msg( 'pendingchanges-hours' )->numParams( round( $hours ) )->text();
 			} else {
-				$age = $this->msg( 'pendingchanges-recent' )->escaped(); // hot off the press :)
+				$age = $this->msg( 'pendingchanges-recent' )->text(); // hot off the press :)
 			}
+			$age = Html::element( 'span', [], $age );
 			// Oh-noes!
 			$class = $this->getLineClass( $uw );
-			$css = $class ? " class='$class'" : "";
+			$css = $class ? " $class" : "";
 		} else {
-			$age = ""; // wtf?
+			$age = "";
 		}
 
-		return ( "<li{$css}>{$link} ({$hist}) {$stxt} ({$review}) <i>{$age}</i>" .
-			"{$quality}{$watching}</li>" );
+		return ( "<tr class='$css'>
+        <td>$link $links</td>
+        <td>$stxt</td>
+        <td>$age</td>
+        <td>$watching</td>
+        <td class='cdx-table__table__cell--align-center'>$review</td>
+     </tr>" );
 	}
 
 	/**
 	 * @param int $numUsersWatching Number of users or -1 when not allowed to see the number
 	 * @return string
 	 */
-	private function getLineClass( $numUsersWatching ) {
+	private function getLineClass( int $numUsersWatching ): string {
 		return $numUsersWatching == 0 ? 'fr-unreviewed-unwatched' : '';
 	}
 
 	/**
 	 * @return string
 	 */
-	protected function getGroupName() {
+	protected function getGroupName(): string {
 		return 'quality';
+	}
+
+	/**
+	 * Get formatted text for the watching value
+	 *
+	 * @param int $watching
+	 * @return string
+	 * @since 1.43
+	 */
+	public function getWatchingFormatted( int $watching ): string {
+		return $watching > 0
+			? Html::element( 'span', [],
+				$this->msg( 'pendingchanges-watched' )->numParams( $watching )->text() )
+			: Html::rawElement(
+				'div',
+				[ 'class' => 'cdx-info-chip' ],
+				Html::element( 'span', [ 'class' => 'cdx-info-chip--text' ],
+					$this->msg( 'pendingchanges-unwatched' )->text() )
+			);
 	}
 }

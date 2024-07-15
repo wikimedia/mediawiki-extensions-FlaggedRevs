@@ -9,7 +9,8 @@
 			"SPQRobin",
 			"Shirayuki",
 			"Umherirrender",
-			"Yekrats"
+			"Yekrats",
+			"Doğu"
 		]
 	},
 	"pendingchanges": "{{Flagged Revs}}\nTitle of Special:OldReviewedPages.",
@@ -20,11 +21,25 @@
 	"pendingchanges-days": "{{Flagged Revs}}\nUsed on [[Special:OldReviewedPages]] to denote the age of the last unreviewed change to a listed page.\n\nParameters:\n* $1 - number of days\n{{Related|Pendingchanges}}",
 	"pendingchanges-recent": "{{Flagged Revs}}\nUsed on [[Special:OldReviewedPages]] to denote the age of the last unreviewed change to a listed page.\n{{Related|Pendingchanges}}",
 	"pendingchanges-category": "{{Flagged Revs}}\nUsed on Special:OldReviewedPages as a label for an input field in the form.\n{{Identical|Category}}",
+	"pendingchanges-limit": "{{Flagged Revs}}\nUsed on Special:OldReviewedPages as a label for an input field in the form.\n{{Identical|Limit}}",
+	"pendingchanges-edit-tag": "{{Flagged Revs}}\nUsed on Special:OldReviewedPages as a label for an input field in the form.\n{{Identical|Edit Tag}}",
+	"pendingchanges-edit-tag-any": "{{Flagged Revs}}\nUsed on Special:OldReviewedPages as a label for an input field in the form.\n{{Identical|Edit Tag}}",
 	"pendingchanges-onwatchlist": "{{Flagged Revs}}",
 	"pendingchanges-stable": "{{Flagged Revs}}",
 	"pendingchanges-diff": "{{Flagged Revs}}\nUsed as link text in [[Special:PendingChanges]]. The link points to the diff page (the diff between the latest revision and the pending revision).\n\nSee example: [[mw:Special:PendingChanges]].\n{{Identical|Review}}",
 	"pendingchanges-size": "{{Flagged Revs}}\n\nUsed on Special:OldReviewedPages as a label for an input field in the form.",
 	"pendingchanges-unwatched": "{{Flagged Revs-small}}\nUsed on [[Special:OldReviewedPages]] when nobody is watching the page.\n\nSee also:\n* {{msg-mw|Pendingchanges-watched}}",
 	"pendingchanges-watched": "{{Flagged Revs-small}}\nUsed on [[Special:OldReviewedPages]] when active users are watching the page.\n\nParameters:\n* $1 - number of users watching page\nSee also:\n* {{msg-mw|Pendingchanges-unwatched}}",
-	"pendingchanges-viewing": "{{Flagged Revs-small}}\nUsed on Special:OldReviewedPages when someone has recently requested the sighting page for a listed page."
+	"pendingchanges-viewing": "{{Flagged Revs-small}}\nUsed on Special:OldReviewedPages when someone has recently requested the sighting page for a listed page.",
+	"pendingchanges-table-caption": "{{Flagged Revs}}\nCaption for the table displaying pending changes.",
+	"pendingchanges-table-page": "{{Flagged Revs}}\nHeader for the column displaying the page title in the table of pending changes.",
+	"pendingchanges-table-size": "{{Flagged Revs}}\nHeader for the column displaying the size in the table of pending changes.",
+	"pendingchanges-table-pending-since": "{{Flagged Revs}}\nHeader for the column displaying how long the changes have been pending in the table of pending changes.",
+	"pendingchanges-table-quality": "{{Flagged Revs}}\nHeader for the column displaying the quality of the page in the table of pending changes.",
+	"pendingchanges-table-watching": "{{Flagged Revs}}\nHeader for the column displaying the number of users watching the page in the table of pending changes.",
+	"pendingchanges-table-history": "{{Flagged Revs}}\nHeader for the column displaying the history of the page in the table of pending changes.",
+	"pendingchanges-table-review": "{{Flagged Revs}}\nHeader for the column displaying the review link in the table of pending changes.",
+	"pendingchanges-table-revision-history": "{{Flagged Revs}}\nHeader for the column displaying the revision history link in the table of pending changes.",
+	"pendingchanges-table-footer": "{{Flagged Revs}}\nDisplayed at the bottom of the table in Special:PendingChanges to show the number of pending changes.\n\nParameters:\n* $1 - number of pending changes, used with PLURAL to determine singular or plural form.",
+	"pendingchanges-filter-submit-button-text": "Label for the submit button in the filter form on Special:OldReviewedPages, allowing users to apply the selected filters."
 }
