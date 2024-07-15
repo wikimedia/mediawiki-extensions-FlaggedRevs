@@ -440,7 +440,7 @@ class FlaggedRevsUIHooks implements
 						'cssClassSuffix' => 'need-review',
 						'isRowApplicableCallable' => static function ( $ctx, $rc ) {
 							return ( FlaggedRevs::isReviewNamespace( $rc->getAttribute( 'rc_namespace' ) ) &&
-								$rc->getAttribute( 'rc_type' ) !== RC_EXTERNAL ) &&
+									$rc->getAttribute( 'rc_type' ) !== RC_EXTERNAL ) &&
 								(
 									!$rc->getAttribute( 'fp_stable' ) ||
 									(
@@ -461,7 +461,7 @@ class FlaggedRevsUIHooks implements
 						'cssClassSuffix' => 'reviewed',
 						'isRowApplicableCallable' => static function ( $ctx, $rc ) {
 							return ( FlaggedRevs::isReviewNamespace( $rc->getAttribute( 'rc_namespace' ) ) &&
-								$rc->getAttribute( 'rc_type' ) !== RC_EXTERNAL ) &&
+									$rc->getAttribute( 'rc_type' ) !== RC_EXTERNAL ) &&
 								$rc->getAttribute( 'fp_stable' ) &&
 								(
 									!$rc->getAttribute( 'fp_pending_since' ) ||
@@ -889,11 +889,18 @@ class FlaggedRevsUIHooks implements
 				->fetchField();
 			# Give a notice if pages on the users's wachlist have pending edits
 			if ( $watchedOutdated ) {
-				$css = 'plainlinks fr-watchlist-pending-notice mw-message-box mw-message-box-warning';
-				// @todo: Use Html::warningBox. We can't use it here because warningBox cannot have an id.
-				// Thus we must either remove the need of the id attribute or use two <div>s.
-				$out->prependHTML( "<div id='mw-fr-watchlist-pending-notice' class='$css'>" .
-					wfMessage( 'flaggedrevs-watched-pending' )->parse() . "</div>" );
+				$out->prependHTML(
+					Html::openElement( 'div', [
+						'id' => 'mw-fr-watchlist-pending-notice',
+						'class' => 'cdx-message cdx-message--block cdx-message--warning',
+						'aria-live' => 'polite'
+					] ) .
+					Html::element( 'span', [ 'class' => 'cdx-message__icon' ] ) .
+					Html::openElement( 'div', [ 'class' => 'cdx-message__content' ] ) .
+					wfMessage( 'flaggedrevs-watched-pending' )->parse() .
+					Html::closeElement( 'div' ) .
+					Html::closeElement( 'div' )
+				);
 			}
 		}
 	}
