@@ -263,7 +263,9 @@ class FlaggablePageView extends ContextSource {
 		$tag = ''; // review tag box/bar message
 		$old = false;
 		$stable = false;
-		# Check the newest stable version.
+		// Initialize $tagTypeClass
+		$tagTypeClass = '';
+		// Check the newest stable version.
 		$srev = $this->article->getStableRev();
 		$stableId = $srev ? $srev->getRevId() : 0;
 		$frev = $srev; // $frev is the revision we are looking at
@@ -309,22 +311,22 @@ class FlaggablePageView extends ContextSource {
 				$outputDone = $this->showOldReviewedVersion( $frev, $tag, $prot );
 				$useParserCache = false;
 				$tagTypeClass = 'flaggedrevs_oldstable';
-			// Stable version requested by ID or relevant conditions met to
-			// to override page view with the stable version.
 			} elseif ( $stable || ( $this->isPageView() && $this->showingStable() ) ) {
-				# Tell MW that parser output is done by setting $outputDone
-				// @phan-suppress-next-line PhanTypeMismatchArgumentNullable FIXME, this should be unreachable with null
-				$outputDone = $this->showStableVersion( $srev, $tag, $prot );
-				$useParserCache = false;
-				$tagTypeClass = ( $this->article->stableVersionIsSynced() ) ?
-					'flaggedrevs_stable_synced' : 'flaggedrevs_stable_notsynced';
-			// Looking at some specific old revision (&oldid=x) or if FlaggedRevs is not
-			// set to override given the relevant conditions (like &stable=0).
+				// Check if $srev is not null before calling showStableVersion
+				if ( $srev !== null ) {
+					# Tell MW that parser output is done by setting $outputDone
+					$outputDone = $this->showStableVersion( $srev, $tag, $prot );
+					$useParserCache = false;
+					$tagTypeClass = ( $this->article->stableVersionIsSynced() ) ?
+						'flaggedrevs_stable_synced' : 'flaggedrevs_stable_notsynced';
+				}
 			} else {
-				// @phan-suppress-next-line PhanTypeMismatchArgumentNullable FIXME, this should be unreachable with null
-				$this->showDraftVersion( $srev, $tag, $prot );
-				$tagTypeClass = ( $this->article->stableVersionIsSynced() ) ?
-					'flaggedrevs_draft_synced' : 'flaggedrevs_draft_notsynced';
+				// Check if $srev is not null before calling showDraftVersion
+				if ( $srev !== null ) {
+					$this->showDraftVersion( $srev, $tag, $prot );
+					$tagTypeClass = ( $this->article->stableVersionIsSynced() ) ?
+						'flaggedrevs_draft_synced' : 'flaggedrevs_draft_notsynced';
+				}
 			}
 		} else {
 			// Looking at a page with no stable version; add "no reviewed version" tag.
@@ -335,18 +337,20 @@ class FlaggablePageView extends ContextSource {
 			}
 			$tagTypeClass = 'flaggedrevs_unreviewed';
 		}
-		# Some checks for which tag CSS to use
+		// Some checks for which tag CSS to use
 		if ( $this->useSimpleUI() ) {
 			$tagClass = 'flaggedrevs_short';
 		} else {
 			// As it is the only message for non-simple UI, it must be displayed
 			$tagClass = $frev ? 'flaggedrevs_basic' : 'flaggedrevs_notice';
 		}
-		# Wrap tag contents in a div, with class indicating sync status and
-		# whether stable version is shown (for customization of the notice)
+		// Wrap tag contents in a div, with class indicating sync status and
+		// whether stable version is shown (for customization of the notice)
 		if ( $tag != '' ) {
-			$css = "{$tagClass} {$tagTypeClass} plainlinks noprint";
-			$notice = "<div id=\"mw-fr-revisiontag\" class=\"{$css}\">{$tag}</div>\n";
+			$cssClasses = "{$tagClass} {$tagTypeClass} plainlinks noprint cdx-info-chip";
+			$notice = Html::openElement( 'div', [ 'id' => 'mw-fr-revisiontag', 'class' => $cssClasses ] ) .
+				$tag .
+				Html::closeElement( 'div' );
 			$this->reviewNotice .= $notice;
 		}
 	}
@@ -427,9 +431,9 @@ class FlaggablePageView extends ContextSource {
 				$pending .= $this->msg( 'revreview-edited-section', $anchor, $section )
 					->parseAsBlock();
 			}
-			# Notice should always use subtitle
+		# Notice should always use subtitle
 			$this->reviewNotice = "<div id='mw-fr-reviewnotice' " .
-				"class='flaggedrevs_preview plainlinks noprint'>$pending</div>";
+			"class='flaggedrevs_preview plainlinks noprint'>$pending</div>";
 		# Otherwise, construct some tagging info for non-printable outputs.
 		# Also, if low profile UI is enabled and the page is synced, skip the tag.
 		# Note: the "your edit is pending" notice has all this info, so we never add both.
@@ -805,7 +809,7 @@ class FlaggablePageView extends ContextSource {
 		if ( $frev && $this->article->onlyTemplatesPending() &&
 			$this->article->getPendingRevCount() == 0
 		) {
-			$this->setPendingNotice( $frev, '', false );
+			$this->setPendingNotice( $frev, '' );
 			$lines[] = $this->reviewNotice;
 		}
 
@@ -1125,25 +1129,30 @@ class FlaggablePageView extends ContextSource {
 
 	/**
 	 * Adds a notice saying that this revision is pending review
+	 *
 	 * @param FlaggedRevision $srev The stable version
 	 * @param string $diffToggle either "" or " <diff toggle><diff div>"
-	 * @param bool $background Whether to add the 'flaggedrevs_preview' CSS class (the blue background)
-	 *   (the blue background)
 	 */
 	private function setPendingNotice(
-		FlaggedRevision $srev, $diffToggle = '', bool $background = true
+		FlaggedRevision $srev, $diffToggle = ''
 	): void {
 		$time = $this->getLanguage()->date( $srev->getTimestamp(), true );
 		$revsSince = $this->article->getPendingRevCount();
 		$msg = !$revsSince ? 'revreview-newest-basic-i' : 'revreview-newest-basic';
 		# Add bar msg to the top of the page...
-		$css = 'plainlinks';
-		if ( $background ) {
-			$css .= ' flaggedrevs_preview';
-		}
 		$msgHTML = $this->msg( $msg, $srev->getRevId(), $time )->numParams( $revsSince )->parse();
-		$this->reviewNotice .= "<div id='mw-fr-reviewnotice' class='$css'>" .
-			"$msgHTML$diffToggle</div>";
+
+		$htmlParts = [];
+		$htmlParts[] = Html::openElement( 'div', [
+			'class' => 'cdx-message cdx-message--block cdx-message--notice',
+			'aria-live' => 'polite'
+		] );
+		$htmlParts[] = Html::element( 'span', [ 'class' => 'cdx-message__icon' ] );
+		$htmlParts[] = Html::openElement( 'div', [ 'class' => 'cdx-message__content' ] );
+		$htmlParts[] = $msgHTML . $diffToggle;
+		$htmlParts[] = Html::closeElement( 'div' ) . Html::closeElement( 'div' );
+
+		$this->reviewNotice .= implode( '', $htmlParts );
 	}
 
 	/**
