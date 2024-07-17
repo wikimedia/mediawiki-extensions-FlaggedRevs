@@ -106,7 +106,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Preverjeno]]'''",
 	"revreview-quick-invalid": "'''Neveljavni ID redakcije'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Nepreverjeno]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} preglej čakajoče spremembe]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} preglej čakajoče spremembe]",
 	"revreview-basic-title": "To je preverjena redakcija te strani",
 	"revreview-toggle-title": "prikaži/skrij podrobnosti",
 	"revreview-visibility-synced": "'''Stran ima posodobljeno [[{{MediaWiki:Validationpage}}|stabilno redakcijo]]; nastavitve stabilnosti strani je mogoče [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfigurirati].'''",

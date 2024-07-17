@@ -80,7 +80,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Pśekontrolěrowany]]'''",
 	"revreview-quick-invalid": "'''Njepłaśiwy wersijowy ID'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Njepśekontrolěrowany]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} njepśeglědane změny pśeglědaś]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} njepśeglědane změny pśeglědaś]",
 	"revreview-basic-title": "To jo pśekontrolěrowana wersija toś togo boka",
 	"revreview-toggle-title": "drobnostki pokazaś/schowaś",
 	"revreview-visibility-synced": "'''Toś ten bok ma zaktualizěrowanu [[{{MediaWiki:Validationpage}}|wózjawjonu wersiju]]; nastajenja wó stabilnosći boka daju se [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfigurěrowaś].'''",

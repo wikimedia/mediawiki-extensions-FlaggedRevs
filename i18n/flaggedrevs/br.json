@@ -85,7 +85,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Gwiriet]]'''",
 	"revreview-quick-invalid": "'''Niverenn stumm direizh'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Nann-gwiriet]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} adlenn ar c'hemmoù o c'hortoz]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} adlenn ar c'hemmoù o c'hortoz]",
 	"revreview-basic-title": "Ur stumm gwiriet eus ar bajenn-mañ eo",
 	"revreview-toggle-title": "diskouez/kuzhat munudoù",
 	"revreview-visibility-synced": "Er bajenn-mañ ez eus ur [[{{MediaWiki:Validationpage}}|stumm embannet]]. Posupl eo [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}}kefluniañ] arventennoù ar stabilded.'''",

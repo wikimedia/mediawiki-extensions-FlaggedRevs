@@ -93,7 +93,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Теллина йу]]'''",
 	"revreview-quick-invalid": "'''АгӀонан версин гӀалате идентификатор'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Талланза]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} гайта талланза хийцамаш]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} гайта талланза хийцамаш]",
 	"revreview-basic-title": "ХӀара агӀонан хьаьжжина верси йу",
 	"revreview-toggle-title": "гайта/къайладаккха мадарра дерг",
 	"revreview-visibility-synced": "'''ХӀокху агӀонан йу карлайаккхар [[{{MediaWiki:Validationpage}}|гуш йолу верси]]; гаран версена гӀирс [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} хийца мега].'''",

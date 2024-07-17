@@ -72,7 +72,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|పరిశీలించబడింది]]'''",
 	"revreview-quick-invalid": "'''తప్పుడు కూర్పు ID'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|పరిశీలించనివి]]'''",
-	"revreview-quick-see-basic": "'''[[{{MediaWiki:Validationpage}}|చిత్తు  ప్రతి]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} పేజీని చూడండి]] \n[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} తేడాలు చూడు]]",
+	"revreview-quick-see-basic": "'''[{{MediaWiki:Validationpage}}|చిత్తు  ప్రతి]''' [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} పేజీని చూడండి] \n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} తేడాలు చూడు]",
 	"revreview-basic-title": "ఇది ఈ పేజీ యొక్క పరిశీలించబడిన కూర్పు",
 	"revreview-toggle-title": "వివరాలను చూపించు/దాచు",
 	"revreview-visibility-synced": "'''ఈ పేజీకి ఒక క్రొత్త [[{{MediaWiki:Validationpage}}|సుస్థిర కూర్పు]] ఉంది, దాని స్థిరత్వ సెట్టింగులను [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} మార్చవచ్చు].'''",

@@ -80,7 +80,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|പരിശോധിച്ച താൾ]]'''",
 	"revreview-quick-invalid": "'''അസാധുവായ പതിപ്പ് ഐ.ഡി.'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|പരിശോധിക്കാത്ത താൾ]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} അവശേഷിക്കുന്ന മാറ്റങ്ങൾ സംശോധനം ചെയ്യുക]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} അവശേഷിക്കുന്ന മാറ്റങ്ങൾ സംശോധനം ചെയ്യുക]",
 	"revreview-basic-title": "ഈ താളിന്റെ പരിശോധിക്കപ്പെട്ട പതിപ്പാണിത്",
 	"revreview-toggle-title": "വിവരങ്ങൾ കാണിക്കുക/മറയ്ക്കുക",
 	"revreview-visibility-synced": "'''ഈ താളിനു പുതുക്കപ്പെട്ട [[{{MediaWiki:Validationpage}}|പ്രസിദ്ധീകരിച്ച പതിപ്പ്]] ഉണ്ട്; താളിന്റെ സ്ഥിരതാ സജ്ജീകരണങ്ങൾ [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} ക്രമീകരിക്കാവുന്നതാണ്].'''",

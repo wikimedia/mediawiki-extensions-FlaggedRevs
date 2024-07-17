@@ -76,7 +76,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Перевірена верзія]]'''",
 	"revreview-quick-invalid": "'''Неправилный ідентіфікатор ревізії'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Неревірена верзія]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} перевірити нерецензованы зміны]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} перевірити нерецензованы зміны]",
 	"revreview-basic-title": "Тото перевірена верзія той сторінкы",
 	"revreview-toggle-title": "вказати/сховати детайлы",
 	"revreview-visibility-synced": "'''Тота сторінка мать обновену [[{{MediaWiki:Validationpage}}|опубліковану верзію]]; наставлїня стабілізації сторінкы можуть быти [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} змінены].'''",

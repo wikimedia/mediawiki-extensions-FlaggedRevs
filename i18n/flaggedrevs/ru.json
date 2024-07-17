@@ -135,7 +135,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Проверенная]]'''",
 	"revreview-quick-invalid": "'''Ошибочный идентификатор версии страницы'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Непроверенная]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} показать непроверенные изменения]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} показать непроверенные изменения]",
 	"revreview-basic-title": "Это досмотренная версия страницы",
 	"revreview-toggle-title": "показать/скрыть подробности",
 	"revreview-visibility-synced": "'''У этой страницы имеется обновлённая [[{{MediaWiki:Validationpage}}|опубликованная версия]]; настройки отображения опубликованных версий можно [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} изменить].'''",

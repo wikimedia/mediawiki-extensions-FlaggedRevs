@@ -114,7 +114,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Ellenőrzött lap]]'''",
 	"revreview-quick-invalid": "'''A változat azonosítója érvénytelen'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Ellenőrizetlen változat]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} ellenőrzésre váró változtatások]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} ellenőrzésre váró változtatások]",
 	"revreview-basic-title": "Ez a lap egy ellenőrzött változata",
 	"revreview-toggle-title": "részletek megjelenítése/elrejtése",
 	"revreview-visibility-synced": "'''A lapnak van frissített [[{{MediaWiki:Validationpage}}|közzétett változata]]. A lap közzétételének beállításait [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} itt módosíthatod].'''",

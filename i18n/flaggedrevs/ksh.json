@@ -85,7 +85,7 @@
 	"revreview-quick-basic-same": "<strong>[[{{MediaWiki:Validationpage}}|{{int:revreview-basic-title}}]]<7strong>",
 	"revreview-quick-invalid": "'''Onjöltijje Versions-Nommer'''",
 	"revreview-quick-none": "De <strong>[[{{MediaWiki:Validationpage}}|Aktoälle Version]]</strong> (nit nohjekik)",
-	"revreview-quick-see-basic": "'''[[{{MediaWiki:Validationpage}}|Äntworf]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} {{int:stablepages-stable}}]]\n[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} verjliische]]",
+	"revreview-quick-see-basic": "'''[{{MediaWiki:Validationpage}}|Äntworf]''' [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} {{int:stablepages-stable}}]\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} verjliische]",
 	"revreview-basic-title": "Heh dat ess_en {{lcfirst:{{int:revreview-accuracy-1}}}} Sigg",
 	"revreview-toggle-title": "Eijnzelheijte aanzeije udder vershteische",
 	"revreview-visibility-synced": "'''Hee di Sigg hät en jeänderte [[{{MediaWiki:Validationpage}}|{{int:stablepages-stable}}]].\nDe {{int:stabilization}} kam_mer [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} ändere].'''",

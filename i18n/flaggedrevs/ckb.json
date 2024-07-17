@@ -89,7 +89,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|تاوتوێکراو]]'''",
 	"revreview-quick-invalid": "'''پێناسەی پێداچوونەوەی نادروست'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|تاوتوێ نەکراو]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} بەسەر گۆڕانکارییە ھەڵواسراوەکاندا بچۆوە]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} بەسەر گۆڕانکارییە ھەڵواسراوەکاندا بچۆوە]",
 	"revreview-basic-title": "ئەمە وەشانێکی تاوتوێ‌کراوی ئەم پەڕەیەیە",
 	"revreview-toggle-title": "نیشاندان/شاردنەوەی وردەکاری",
 	"revreview-visibility-synced": "'''ئەم پەڕەیە [[{{MediaWiki:Validationpage}}|وەشانێکی جێگرتووی]] نوێکراوی ھەیە؛ ڕێکخستنەکانی جێگرتوویی پەڕە دەکرێ [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} دابنرێ].'''",

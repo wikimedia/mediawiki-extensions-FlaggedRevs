@@ -79,7 +79,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Controlà]]'''",
 	"revreview-quick-invalid": "'''ID dla revision pa bon'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Pa revisionà]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} vardé le modìfiche ch'a speto]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} vardé le modìfiche ch'a speto]",
 	"revreview-basic-title": "Costa a l'é na version controlà dë sta pàgina-sì",
 	"revreview-toggle-title": "smon-e/stërmé ij detaj",
 	"revreview-visibility-synced": "'''Sta pàgina-sì a l'ha na [[{{MediaWiki:Validationpage}}|version publicà]]; j'ampostassion dë stabilità dla pàgina a peulo esse [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurà].'''",

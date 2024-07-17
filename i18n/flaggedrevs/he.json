@@ -114,7 +114,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|דף בדוק]]'''",
 	"revreview-quick-invalid": "'''מספר גרסה בלתי־תקין'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|לא בדוק]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} סקירת השינויים הממתינים]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} סקירת השינויים הממתינים]",
 	"revreview-basic-title": "זוהי גרסה בדוקה של הדף הזה",
 	"revreview-toggle-title": "הצגה או הסתרה של פרטים",
 	"revreview-visibility-synced": "'''לדף הזה יש [[{{MediaWiki:Validationpage}}|גרסה יציבה]] מעודכנת; ניתן [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} לשנות] את הגדרות היציבות של הדף.'''",

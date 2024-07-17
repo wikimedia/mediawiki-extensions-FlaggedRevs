@@ -49,7 +49,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|視察過嘅文章]]'''",
 	"revreview-quick-invalid": "'''無效嘅修訂ID'''",
 	"revreview-quick-none": "'''現時嘅'''。無已複審嘅修訂。",
-	"revreview-quick-see-basic": "'''草稿'''。[[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 睇文]] [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} 比較]]",
+	"revreview-quick-see-basic": "'''草稿'''。[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 睇文] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} 比較]",
 	"revreview-basic-title": "視察過嘅文",
 	"revreview-toggle-title": "顯示/隱藏細節",
 	"revreview-visibility-synced": "'''呢一版有一個[[{{MediaWiki:Validationpage}}|穩定版]]；佢嘅設定可以[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 較]。'''",

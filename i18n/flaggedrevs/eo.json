@@ -106,7 +106,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Kontrolita]]'''",
 	"revreview-quick-invalid": "'''Nevalida identigo de versio'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Nekontrolita]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} kontroli kontrolendajn ŝanĝojn]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} kontroli kontrolendajn ŝanĝojn]",
 	"revreview-basic-title": "Ĉi tiu estas kontrolita versio de ĉi tiu paĝo",
 	"revreview-toggle-title": "montri/kaŝi detalojn",
 	"revreview-visibility-synced": "'''Ĉi tiu paĝo havas [[{{MediaWiki:Validationpage}}|publikigitan version]]; agordoj pri stabileco estas [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfiguritaj].'''",

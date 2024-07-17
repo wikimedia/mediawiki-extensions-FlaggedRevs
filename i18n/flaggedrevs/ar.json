@@ -124,7 +124,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|مفحوصة]]'''",
 	"revreview-quick-invalid": "'''رقم مراجعة غير صحيح'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}| غير مفحوصة]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}}راجع التغييرات المعلقة]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}}راجع التغييرات المعلقة]",
 	"revreview-basic-title": "هذه نسخة متحقق منها من هذه الصفحة",
 	"revreview-toggle-title": "عرض/إخفاء التفاصيل",
 	"revreview-visibility-synced": "'''هذه الصفحة بها [[{{MediaWiki:Validationpage}}|نسخة منشورة]] محدثة؛ إعدادات استقرار الصفحة يمكن [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} ضبطها].'''",

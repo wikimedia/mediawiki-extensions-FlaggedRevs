@@ -35,7 +35,7 @@
 	"revreview-quick-basic": "'''[[{{MediaWiki:Validationpage}}|Sieuwed.]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Sjuch ju aktuelle Version]]",
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Sieuwed]]''' (neen Annerengen do der nit wröiged sunt)",
 	"revreview-quick-none": "'''Aktuell.''' Der wuude noch neen Version wröiged.",
-	"revreview-quick-see-basic": "'''Aktuell.''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Sjuch ju lääste wröigede Version]]\n\t($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{PLURAL:$2|Annerenge|Annerengen}}]]",
+	"revreview-quick-see-basic": "'''Aktuell.''' [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Sjuch ju lääste wröigede Version]\n\t($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{PLURAL:$2|Annerenge|Annerengen}}]",
 	"revreview-visibility-synced": "Disse Siede häd ne [[{{MediaWiki:Validationpage}}|stoabile Version]], ju der\n\t[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfigurierd] wäide kon.",
 	"revreview-revnotfound": "Ju soachte Version fon dissen Artikkel kuude nit fuunen wäide. Uurpröiwe jädden ju URL fon disse Siede.",
 	"rights-editor-revoke": "äntlook dät Sieuwer-Gjucht fon [[$1]]",

@@ -70,7 +70,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|صفحه متشيّك عليها]]'''",
 	"revreview-quick-invalid": "'''رقم مراجعه غير صحيح'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|صفحه مسودّه]]''' (مش متراجعه)",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}}شوف التغييرات المتعلقه]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}}شوف التغييرات المتعلقه]",
 	"revreview-basic-title": "دى نسخه متراجع عليها من الصفحه دى",
 	"revreview-toggle-title": "عرض/إخفاء التفاصيل",
 	"revreview-visibility-synced": "'''الصفحه دى عندها [[{{MediaWiki:Validationpage}}|نسخه منشوره]] متجدده; ظبطات استقرار الصفحه ممكن [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} تتظبط].'''",

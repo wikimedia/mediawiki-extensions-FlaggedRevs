@@ -109,7 +109,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Проверена]]'''",
 	"revreview-quick-invalid": "'''Погрешна назнака на верзијата'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Непроверена]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} промени во исчекување]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} промени во исчекување]",
 	"revreview-basic-title": "Ова е проверена верзија на страницава",
 	"revreview-toggle-title": "прикажи/скриј подробности",
 	"revreview-visibility-synced": "'''Оваа страница има понова [[{{MediaWiki:Validationpage}}|објавена верзија]]; нагодувањата на стабилноста на страницата може да се [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} прилагодат].'''",

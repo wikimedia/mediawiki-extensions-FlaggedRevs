@@ -41,7 +41,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|رویت بیتگ مقاله]]'''",
 	"revreview-quick-invalid": "'''نامعتبر شناسه بازبینی'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|هنوکین بازبینی]]''' (بی بازبینی)",
-	"revreview-quick-see-basic": "'''پیش نویس''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}}دیستن مقالهء]]\n[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}}مقایسه]]",
+	"revreview-quick-see-basic": "'''پیش نویس''' [{{fullurl:{{FULLPAGENAMEE}}|stable=1}}دیستن مقالهء]\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}}مقایسه]",
 	"revreview-basic-title": "رویت بیتگ مقاله",
 	"revreview-toggle-title": "پیش دار/پناه کن جزییاتء",
 	"revreview-revnotfound": "کدیمی بازبینی چه ای صفحه که شما لوٹیت ودیگ نه بوت. لطفا URL که شما په رستن په ای صفحه استفاده کنیت کنترلی کنیت.",

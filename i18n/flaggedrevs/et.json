@@ -88,7 +88,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Kord vaadatud]]'''",
 	"revreview-quick-invalid": "'''Vigane redaktsiooni ID'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Kord vaatamata]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} vaata ootel muudatused üle]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} vaata ootel muudatused üle]",
 	"revreview-basic-title": "See versioon leheküljest on kord vaadatud",
 	"revreview-toggle-title": "Näita või peida üksikasjad",
 	"revreview-visibility-synced": "'''Sellel lehekülje on uuendatud [[{{MediaWiki:Validationpage}}|püsiv versioon]]. Lehekülje püsivussätteid saab [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} muuta].'''",

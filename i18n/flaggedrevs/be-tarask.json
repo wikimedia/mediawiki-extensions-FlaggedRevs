@@ -93,7 +93,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Прарэцэнзаваная]]'''",
 	"revreview-quick-invalid": "'''Няслушны ідэнтыфікатар вэрсіі'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Нерэцэнзаваная вэрсія]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} рэцэнзаваць чакаючыя зьмены]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} рэцэнзаваць чакаючыя зьмены]",
 	"revreview-basic-title": "Правераная вэрсія гэтай старонкі",
 	"revreview-toggle-title": "паказаць/схаваць падрабязнасьці",
 	"revreview-visibility-synced": "'''Гэтая старонка мае новую [[{{MediaWiki:Validationpage}}|апублікаваную вэрсію]]; можна [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} зьмяніць] налады апублікаванай вэрсіі.'''",

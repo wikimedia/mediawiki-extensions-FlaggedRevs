@@ -62,7 +62,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Vurdert artikkel]]'''",
 	"revreview-quick-invalid": "'''Ugyldig versjons-ID'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Siste versjon]]''' (ikkje vurdert)",
-	"revreview-quick-see-basic": "'''[[{{MediaWiki:Validationpage}}|Utkast]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} syn vurdert artikkel]]\n[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} jamfør]]",
+	"revreview-quick-see-basic": "'''[{{MediaWiki:Validationpage}}|Utkast]''' [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} syn vurdert artikkel]\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} jamfør]",
 	"revreview-basic-title": "Vurdert artikkel",
 	"revreview-toggle-title": "syn/løyn detaljar",
 	"revreview-visibility-synced": "'''Denne sida har ein oppdatert [[{{MediaWiki:Validationpage}}|stabil versjon]]; innstillingar for stabile sider kan ein [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} endra].'''",

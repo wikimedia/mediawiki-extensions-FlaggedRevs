@@ -28,7 +28,7 @@
 	"revreview-oldrating": "Pädadilädon as:",
 	"revreview-quick-basic": "'''[[{{MediaWiki:Validationpage}}|Pelogon]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} logön rigeti]]",
 	"revreview-quick-none": "'''Anuik''' (nen fomams pekrütöl)",
-	"revreview-quick-see-basic": "'''Riget''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} logön yegedi]]\n[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} leigodön]]",
+	"revreview-quick-see-basic": "'''Riget''' [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} logön yegedi]\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} leigodön]",
 	"revreview-visibility-synced": "Pad at labon [[{{MediaWiki:Validationpage}}|fomami fümöfik]], kela parametem kanon [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} pafümetön].",
 	"revreview-revnotfound": "Padafomam büik fa ol peflagöl no petuvon. Kontrololös, begö! ladeti-URL, keli egebol ad logön padi at.",
 	"rights-editor-revoke": "emoükon redakanastadi gebana: [[$1]]",

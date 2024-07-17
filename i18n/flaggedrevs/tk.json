@@ -71,7 +71,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Äňedilen sahypa]]'''",
 	"revreview-quick-invalid": "'''Nädogry wersiýa ID-si'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Häzirki wersiýa]]''' (gözden geçirilmedik)",
-	"revreview-quick-see-basic": "'''[[{{MediaWiki:Validationpage}}|Garalama]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} durnukly wersiýa]]\n[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} deňeşdir]]",
+	"revreview-quick-see-basic": "'''[{{MediaWiki:Validationpage}}|Garalama]''' [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} durnukly wersiýa]\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} deňeşdir]",
 	"revreview-basic-title": "Bu äňedilen sahypadyr",
 	"revreview-toggle-title": "jikme-jiklikleri görkez/gizle",
 	"revreview-visibility-synced": "'''Bu sahypanyň täzelenen bir [[{{MediaWiki:Validationpage}}|durnukly wersiýasy]] bar; sahypanyň durnuklylyk sazlamalaryny [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfigurirläp bolýar].'''",

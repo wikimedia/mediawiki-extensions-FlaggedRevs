@@ -106,7 +106,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Təsdiqlənmiş]]'''",
 	"revreview-quick-invalid": "Etibarsız revizyon nömrəsi",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Təsdiqlənməmiş]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} gözləyən dəyişikliklərə nəzər yetir]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} gözləyən dəyişikliklərə nəzər yetir]",
 	"revreview-basic-title": "Bu səhifənin yoxlanılmış versiyası",
 	"revreview-toggle-title": "Detalları göstər/gizlə",
 	"revreview-visibility-synced": "'''Bu səhifənin yenilənmiş [[{{MediaWiki:Validationpage}}|stabil versiyası]] var; səhifənin stabillik parametrləri [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfiqurasiya] edilə bilər.'''",

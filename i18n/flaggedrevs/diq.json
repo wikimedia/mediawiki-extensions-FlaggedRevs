@@ -107,7 +107,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Qontrol bi]]'''",
 	"revreview-quick-invalid": "'''IDyê revizyoni yo nemeqbul'''",
 	"revreview-quick-none": "!'[[{{MediaWiki:Validationpage}}|testiq nibiya]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} vurnayışanê vınderdan bıvine]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} vurnayışanê vınderdan bıvine]",
 	"revreview-basic-title": "Ena yew versiyone qaliteya pele ya",
 	"revreview-toggle-title": "detayan bımocne/bınımne",
 	"revreview-visibility-synced": "Ena pel [[{{MediaWiki:Validationpage}}|versiyonê stableyî]] rocaniye biyo; stabiliteyê pelî ti eşkeno [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfigure bike].'''",

@@ -96,7 +96,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Ελέγχθηκε]]'''",
 	"revreview-quick-invalid": "'''Άκυρος κωδικός αναθεώρησης'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Δεν ελέγχθηκε]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} επιθεώρηση εκκρεμών αλλαγών]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} επιθεώρηση εκκρεμών αλλαγών]",
 	"revreview-basic-title": "Αυτή είναι μια ελεγμένη έκδοση αυτής της σελίδας",
 	"revreview-toggle-title": "εμφάνιση/απόκρυψη λεπτομερειών",
 	"revreview-visibility-synced": "Η σελίδα αυτή έχει μια ενημερωμένη [[{{MediaWiki:Validationpage}}|σταθερή έκδοση]]; η σταθερότητα των ρυθμίσεων της σελίδας μπορεί να [{{fullurl: {{#Special:Stabilization}} |page = {{FULLPAGENAMEE}}}} διαμορφωθεί].'' '",

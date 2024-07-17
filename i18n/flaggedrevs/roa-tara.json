@@ -98,7 +98,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Verificate]]'''",
 	"revreview-quick-invalid": "'''ID d'a revisione invalide'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|None verificate]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} revide le cangiaminde pendende]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} revide le cangiaminde pendende]",
 	"revreview-basic-title": "Queste jè 'na versiona verificate de sta pàgene",
 	"revreview-toggle-title": "fa vedè/scunne le dettaglie",
 	"revreview-visibility-synced": "'''Sta pàgene tène 'na [[{{MediaWiki:Validationpage}}|versiona pubblecate]] aggiornate; le 'mbostaziune de'a stabbilità d'a pàgene ponne essere [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurate].'''",

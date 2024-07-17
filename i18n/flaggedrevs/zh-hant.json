@@ -119,7 +119,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|已檢查]]'''",
 	"revreview-quick-invalid": "'''無效的修訂 ID'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|現時的]]'''。沒有已複審的修訂。",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} 審查待審核的變更]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} 審查待審核的變更]",
 	"revreview-basic-title": "此為此頁面已檢查的版本",
 	"revreview-toggle-title": "顯示/隱藏詳細資料",
 	"revreview-visibility-synced": "'''此頁面的[[{{MediaWiki:Validationpage}}|穩定版本]]已更新，您可[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 設定]頁面的穩定性設定。'''",

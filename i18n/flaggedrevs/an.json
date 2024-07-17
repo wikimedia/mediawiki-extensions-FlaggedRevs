@@ -49,7 +49,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Articlo supervisato]]'''",
 	"revreview-quick-invalid": "'''ID de revisión no conforme'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Versión no revisata]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} revisar os cambios pendients]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} revisar os cambios pendients]",
 	"revreview-basic-title": "Ista ye una versión verificata d'ista pachina",
 	"revreview-toggle-title": "amostrar/amagar detalles",
 	"revreview-visibility-synced": "'''Ista pachina tiene una [[{{MediaWiki:Validationpage}}|versión acceptada]]; Os achustes d'estabilidat d'a pachina se pueden [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} cambiar aquí].'''",

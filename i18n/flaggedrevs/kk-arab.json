@@ -29,7 +29,7 @@
 	"revreview-oldrating": "بۇل مىنا باعا الدى:",
 	"revreview-quick-basic": "'''[[{{MediaWiki:Validationpage}}|شولىنعان]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} جوبا جازباسىن قاراۋ]]",
 	"revreview-quick-none": "'''اعىمدىق''' (cىن بەرىلگەن نۇسقالار جوق)",
-	"revreview-quick-see-basic": "'''جوبا جازبا''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} تىياناقتى ماقالانى قاراۋ]]\n($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{PLURAL:$2|وزگەرىس|وزگەرىس}}]]",
+	"revreview-quick-see-basic": "'''جوبا جازبا''' [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} تىياناقتى ماقالانى قاراۋ]\n($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{PLURAL:$2|وزگەرىس|وزگەرىس}}]",
 	"revreview-visibility-synced": "وسى بەتتىڭ [[{{MediaWiki:Validationpage}}|تىياناقتى نۇسقاسى]] بار, بۇل\n[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} باپتالاۋى] مۇمكىن.",
 	"revreview-revnotfound": "بۇل بەتتىڭ سۇرالعان ەسكى تۇزەتۋى تابىلعان جوق. وسى بەت قاتىناۋىنا پايدالانعان URL تەكسەرىپ شىعىڭىز.",
 	"stable-logentry-config": "$1 ٴۇشىن تىياناقتى نۇسقا باپتالىمى رەتتەلدى",

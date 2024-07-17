@@ -135,7 +135,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|已复核]]'''",
 	"revreview-quick-invalid": "'''无效版本ID'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|未复核]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} 复核待定更改]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} 复核待定更改]",
 	"revreview-basic-title": "这是该页面的已复核版本",
 	"revreview-toggle-title": "显示/隐藏详情",
 	"revreview-visibility-synced": "'''该页面有最新的[[{{MediaWiki:Validationpage}}|稳定版本]]。你可以[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 配置]页面固定设置。'''",

@@ -125,7 +125,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|確認済み]]'''",
 	"revreview-quick-invalid": "'''無効な版指定'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|未確認]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} 保留中の変更を査読]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} 保留中の変更を査読]",
 	"revreview-basic-title": "これはこのページの確認済みの版です",
 	"revreview-toggle-title": "詳細を表示または非表示",
 	"revreview-visibility-synced": "'''このページにはより新しい[[{{MediaWiki:Validationpage}}|公開版]]があります。ページの公開版設定は[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 変更できます]。'''",

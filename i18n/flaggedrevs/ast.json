@@ -106,7 +106,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Comprobada]]'''",
 	"revreview-quick-invalid": "'''ID de revisión inválidu'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Ensin comprobar]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} revisar los cambeos pendientes]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} revisar los cambeos pendientes]",
 	"revreview-basic-title": "Esta ye una versión comprobada d'esta páxina",
 	"revreview-toggle-title": "amosar/anubrir detalles",
 	"revreview-visibility-synced": "'''Esta páxina tien una [[{{MediaWiki:Validationpage}}|versión estable]] nueva; les preferencies d'estabilidá de la páxina puen [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurase].'''",

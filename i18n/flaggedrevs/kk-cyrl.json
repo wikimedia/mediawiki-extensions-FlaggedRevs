@@ -56,7 +56,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Тексерілген]]'''",
 	"revreview-quick-invalid": "'''Жарамсыз нұсқа сәйкестендіргіші'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Тексерілмеген]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} тексерілмеген өзгеріс көрсету]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} тексерілмеген өзгеріс көрсету]",
 	"revreview-basic-title": "Бұл беттің тексерілген нұсқасы",
 	"revreview-toggle-title": "Егжей тегжейін көрсету/жасыру",
 	"revreview-visibility-synced": "Осы беттің [[{{MediaWiki:Validationpage}}|тиянақты нұсқасы]] бар, бұл\n[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} бапталауы] мүмкін.",

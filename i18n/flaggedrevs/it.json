@@ -101,7 +101,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Controllata]]'''",
 	"revreview-quick-invalid": "'''ID versione non valido'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Non controllata]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} revisiona modifiche in sospeso]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} revisiona modifiche in sospeso]",
 	"revreview-basic-title": "Questa è una versione verificata della pagina",
 	"revreview-toggle-title": "mostra/nascondi dettagli",
 	"revreview-visibility-synced": "'''Questa pagina ha una [[{{MediaWiki:Validationpage}}|versione stabile]] aggiornata; le impostazioni della stabilità della pagina possono essere [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurate].'''",

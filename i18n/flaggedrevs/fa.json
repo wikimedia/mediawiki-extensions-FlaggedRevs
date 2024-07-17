@@ -112,7 +112,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|بررسی‌شده]]'''",
 	"revreview-quick-invalid": "'''شناسهٔ نسخهٔ نامعتبر'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|بررسی نشده]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} بازبینی تغییرات در حال انتظار]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} بازبینی تغییرات در حال انتظار]",
 	"revreview-basic-title": "این یک نسخهٔ بررسی‌شده از صفحه است",
 	"revreview-toggle-title": "نمایش/پنهان کردن جزئیات",
 	"revreview-visibility-synced": "'''این صفحه دارای [[{{MediaWiki:Validationpage}}|نسخهٔ پایدار]] به‌روز‌شده‌ای است؛ می‌توان تنظیمات پایداری صفحه را [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} پیکربندی کرد].'''",

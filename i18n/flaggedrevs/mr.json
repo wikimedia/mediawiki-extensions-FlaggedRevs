@@ -64,7 +64,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|निवडलेला लेख]]'''",
 	"revreview-quick-invalid": "'''चुकीचा आवृत्ती क्रमांक'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|सध्याची आवृत्ती]]''' (तपासलेली नाही)",
-	"revreview-quick-see-basic": "'''कच्ची प्रत''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} लेख पहा]]\n[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} फरक तपासा]]",
+	"revreview-quick-see-basic": "'''कच्ची प्रत''' [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} लेख पहा]\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} फरक तपासा]",
 	"revreview-basic-title": "निवडलेला लेख",
 	"revreview-toggle-title": "जास्तीची माहिती दाखवा/लपवा",
 	"revreview-visibility-synced": "'''या पानाला एक [[{{MediaWiki:Validationpage}}|स्थिर आवृत्ती]] आहे, जी [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} बदलली] जाऊ शकते.'''",

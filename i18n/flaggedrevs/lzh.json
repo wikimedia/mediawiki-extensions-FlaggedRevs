@@ -44,7 +44,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|初定本]]'''",
 	"revreview-quick-invalid": "查無此錄",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|今本]]'''（此為底本，未經審校）",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} 修纂新稿]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} 修纂新稿]",
 	"revreview-basic-title": "初定本",
 	"revreview-revnotfound": "查無舊審，惠核網址。",
 	"revreview-reviewlink": "待審",

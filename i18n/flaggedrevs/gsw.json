@@ -81,7 +81,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Aagluegt]]'''",
 	"revreview-quick-invalid": "'''Nit giltigi Versions-ID'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Entwurfssyte]]''' (nonig aagluegt)",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Hängigi Änderige aaluege]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Hängigi Änderige aaluege]",
 	"revreview-basic-title": "Des isch e priefti Version vu däre Syte",
 	"revreview-toggle-title": "zeig/versteck Detail",
 	"revreview-visibility-synced": "'''Die Syte het e aktualisierti [[{{MediaWiki:Validationpage}}|vereffetligti Version]]; d Yystellige, wie si aazeigt wird, chenne [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfiguriert] wäre.'''",

@@ -123,7 +123,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Kontrol edilmiş]]'''",
 	"revreview-quick-invalid": "'''Geçersiz revizyon no'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Kontrol edilmemiş]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} bekleyen değişiklikleri incele]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} bekleyen değişiklikleri incele]",
 	"revreview-basic-title": "Bu, bu sayfanın kontrol edilmiş bir sürümüdür",
 	"revreview-toggle-title": "ayrıntıları göster/gizle",
 	"revreview-visibility-synced": "'''Bu sayfanın güncellenmiş bir [[{{MediaWiki:Validationpage}}|kararlı sürümü]] mevcut. Sayfa kararlılık ayarları [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} yapılandırılabilir].'''",

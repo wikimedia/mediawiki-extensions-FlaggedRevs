@@ -78,7 +78,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Verificada]]'''",
 	"revreview-quick-invalid": "'''Numèro de version incorrèct'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Pas verificada]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} repassar las modificacions en espèra]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} repassar las modificacions en espèra]",
 	"revreview-basic-title": "Aquò's una version verificada d'aquesta pagina",
 	"revreview-toggle-title": "far veire/amagar los detalhs",
 	"revreview-visibility-synced": "Aquesta pagina conten una [[{{MediaWiki:Validationpage}}|version publicada]]. Los paramètres d'estabilitat pòdon èsser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurats].",

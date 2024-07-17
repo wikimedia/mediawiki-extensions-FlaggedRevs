@@ -11,7 +11,7 @@
 	"flaggedrevs-hidereviewed-hide": "Яшерү",
 	"flaggedrevs-hidereviewed-show": "Күрсәтү",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Тикшерелмәгән]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} тикшерелмәгән үзгәрешләрне карарга]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} тикшерелмәгән үзгәрешләрне карарга]",
 	"revreview-basic-title": "Бу битнең каралган юрамасы",
 	"tooltip-ca-current": "Тикшерелмәгән төзәтмәләр булган әлеге сәхифәне карап чыгу",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Тикшерелмәгән битләр]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Тикшерүне көтүче төзәтмәләр]",

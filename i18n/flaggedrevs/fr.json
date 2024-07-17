@@ -129,7 +129,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Vérifiée]]'''",
 	"revreview-quick-invalid": "'''Identifiant de révision incorrect'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Non vérifiée]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} relire les modifications en attente]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} relire les modifications en attente]",
 	"revreview-basic-title": "Ceci est une version vérifiée de cette page.",
 	"revreview-toggle-title": "montrer / masquer les détails",
 	"revreview-visibility-synced": "Cette page comporte une [[{{MediaWiki:Validationpage}}|version publiée]]. Les paramètres de stabilité peuvent être [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurés].'''",

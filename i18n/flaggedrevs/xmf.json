@@ -94,7 +94,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|გინოჯინელი]]'''",
 	"revreview-quick-invalid": "'''ხასჷლაშ ვერსიაშ ჩილათერი იდენტიფიკატორი'''",
 	"revreview-quick-none": "'''სტატიაშ [[{{MediaWiki:Validationpage}}|უგნუჯინუ]] ვერსია'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} უგნუჯინუ თირუეფიშ ძირაფა]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} უგნუჯინუ თირუეფიშ ძირაფა]",
 	"revreview-basic-title": "თენა რე ხასჷლაშ გინოძინელი ვერსია",
 	"revreview-toggle-title": "გეძინელი ინფორმაციაშ ძირაფა/ტყობინაფა",
 	"revreview-visibility-synced": "'''ათე ხასჷლას უღჷ მოახალაფირი [[{{MediaWiki:Validationpage}}|გუმობჟინაფილი ვერსიეფი]]; გუმობჟინაფილი ვერსიეფიშ კონფიგურაცია შეილებჷნა [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} გოთირუათჷნ].'''",

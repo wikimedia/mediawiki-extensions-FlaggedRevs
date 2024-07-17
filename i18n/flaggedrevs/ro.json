@@ -64,7 +64,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Verificat]]'''",
 	"revreview-quick-invalid": "'''ID-ul versiunii invalid'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Neverificat]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} verificați modificări în așteptare]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} verificați modificări în așteptare]",
 	"revreview-basic-title": "Aceasta este o versiune verificată a paginii",
 	"revreview-toggle-title": "arată/ascunde detalii",
 	"revreview-revnotfound": "Versiunea mai veche a paginii pe care ați cerut-o nu a fost găsită. Vă rugăm să verificați legătura pe care ați folosit-o pentru a accesa această pagină.",

@@ -36,7 +36,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Баррасишуда]]''' (фақат тағйироти баррасишуда)",
 	"revreview-quick-invalid": "'''Нишонаи номӯътабари нусха'''",
 	"revreview-quick-none": "Нусхаҳои вуруднашудаи '''Феълӣ'''' (на нусхаҳои муруршуда)",
-	"revreview-quick-see-basic": "'''Феълӣ''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} мушоҳидаи нусхаи пойдор]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{PLURAL:$2|тағйир|тағйирот}}]]",
+	"revreview-quick-see-basic": "'''Феълӣ''' [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} мушоҳидаи нусхаи пойдор] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{PLURAL:$2|тағйир|тағйирот}}]",
 	"revreview-visibility-synced": "'''Ин саҳифа дорои як  [[{{MediaWiki:Validationpage}}|нусхаи пойдор]] аст, танзимот барои он метавонад   [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} пайкарбандӣ] шавад.'''",
 	"revreview-revnotfound": "Нусхаи кӯҳнаи саҳифае, ки дархоста будед, ёфт нашуд. Лутфан нишонаи URL-ро, ки аз он ба ин саҳифа дастрасӣ карда будед, барассӣ кунед.",
 	"rights-editor-revoke": "Ихтиёроти виростор аз [[$1]] гирифта шуд",

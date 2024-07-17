@@ -94,7 +94,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Gecontroleerd]]'''",
 	"revreview-quick-invalid": "'''Ongeldig versienummer'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Ongecontroleerd]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} ongecontroleerde wieziginge controlere]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} ongecontroleerde wieziginge controlere]",
 	"revreview-basic-title": "Dit is 'n gecontroleerde versie van dees pagina",
 	"revreview-toggle-title": "tuin/verberg details",
 	"revreview-visibility-synced": "!Dees pazjena haet een [[{{MediaWiki:Validationpage}}|stabiele versie]]. Die [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} aangepas] kan waere.",

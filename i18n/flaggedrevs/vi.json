@@ -108,7 +108,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Đã xem qua]]'''",
 	"revreview-quick-invalid": "'''ID phiên bản không hợp lệ'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Chưa xem qua]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} duyệt thay đổi đang chờ]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} duyệt thay đổi đang chờ]",
 	"revreview-basic-title": "Đây là một phiên bản đã xem qua của trang này",
 	"revreview-toggle-title": "hiện/ẩn chi tiết",
 	"revreview-visibility-synced": "'''Trang này có một [[{{MediaWiki:Validationpage}}|phiên bản ổn định]] đã được cập nhật; bạn có thể [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} cấu hình] thiết lập độ ổn định cho trang.'''",

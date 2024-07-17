@@ -82,7 +82,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Skontrolowany]]'''",
 	"revreview-quick-invalid": "'''Njepłaćiwy wersijowy ID'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Njeskontrolowany]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} změny přepruwować]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} změny přepruwować]",
 	"revreview-basic-title": "To je skontrolowana wersija tuteje strony",
 	"revreview-toggle-title": "Podrobnosće pokazać/schować",
 	"revreview-visibility-synced": "'''Tuta strona ma zaktualizowanu [[{{MediaWiki:Validationpage}}|wozjewjenu wersiju]]; nastajenja za stabilnosć strony dadźa so [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfigurować].'''",

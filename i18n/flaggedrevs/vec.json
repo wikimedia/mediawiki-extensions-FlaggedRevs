@@ -91,7 +91,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Pagina verificà]]'''",
 	"revreview-quick-invalid": "'''Nùmaro de revision mìa valido'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Pagina non riesaminà]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} revisiona i canbiamenti pendenti]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} revisiona i canbiamenti pendenti]",
 	"revreview-basic-title": "Sta qua la xe na version verificà de sta pagina",
 	"revreview-toggle-title": "mostra/scondi detagli",
 	"revreview-visibility-synced": "'''Sta pagina la gà na [[{{MediaWiki:Validationpage}}|version publicà]] ajornà; le inpostassion de stabilità de la pagina le pol èssar [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configuràe].'''",

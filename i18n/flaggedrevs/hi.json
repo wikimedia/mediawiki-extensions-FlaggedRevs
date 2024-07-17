@@ -92,7 +92,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|देखा हुआ]]'''",
 	"revreview-quick-invalid": "'''अमान्य अवतरण आइडी'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|अनिरीक्षित]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} नए बदलाव पुनरीक्षित करें]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} नए बदलाव पुनरीक्षित करें]",
 	"revreview-basic-title": "यह इस पृष्ठ का \"देखा हुआ\" स्तर तक पुनरीक्षित अवतरण है",
 	"revreview-toggle-title": "अधिक जानकारी दिखाएँ/छुपाएँ",
 	"revreview-visibility-synced": "'''इस पृष्ठ का एक अद्यतित [[{{MediaWiki:Validationpage}}|स्थिर अवतरण]] है; पृष्ठ स्थिरता विकल्प [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} बदले] जा सकते हैं।'''",

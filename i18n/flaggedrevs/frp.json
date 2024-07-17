@@ -77,7 +77,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Controlâ]]'''",
 	"revreview-quick-invalid": "'''Numerô de la vèrsion fôx'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Pas controlâ]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} revêre los changements en atenta]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} revêre los changements en atenta]",
 	"revreview-basic-title": "O est una vèrsion controlâ de ceta pâge",
 	"revreview-toggle-title": "fâre vêre / cachiér los dètalys",
 	"revreview-visibility-synced": "'''Ceta pâge at una [[{{MediaWiki:Validationpage}}|vèrsion stâbla]] ; sos paramètres de stabilitât pôvont étre [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurâs].'''",

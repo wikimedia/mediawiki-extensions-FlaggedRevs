@@ -85,7 +85,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Nasuri na]]'''",
 	"revreview-quick-invalid": "'''Hindi tanggap na ID na pagbabago'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Hindi pa nasusuri]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} muling suriin ang nakabinbing mga pagbabago]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} muling suriin ang nakabinbing mga pagbabago]",
 	"revreview-basic-title": "Mayroong isang nasuring bersyon ng pahinang ito",
 	"revreview-toggle-title": "ipakita/itago ang mga detalye",
 	"revreview-visibility-synced": "'''Ang pahinang ito ay may isang naisapanahon nang [[{{MediaWiki:Validationpage}}|matatag na bersyon]]; ang katakdaang pangkatatagan ay maaaring [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} iayos].'''",

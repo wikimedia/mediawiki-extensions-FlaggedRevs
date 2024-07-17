@@ -109,7 +109,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Terperiksa]]'''",
 	"revreview-quick-invalid": "'''Nomor ID revisi tidak sah'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Belum Diperiksa]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} perubahan menunggu tinjauan]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} perubahan menunggu tinjauan]",
 	"revreview-basic-title": "Ini adalah versi yang telah diperiksa dari halaman ini",
 	"revreview-toggle-title": "tampilkan/sembunyikan detail",
 	"revreview-visibility-synced": "Halaman ini memiliki [[{{MediaWiki:Validationpage}}|versi stabil]] yang telah dimutakhirkan; pengaturan versi stabil dapat [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} diubah].'''",

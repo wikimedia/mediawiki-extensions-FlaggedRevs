@@ -105,7 +105,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Kontrollerad]]'''",
 	"revreview-quick-invalid": "'''Ogiltigt versions-ID'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Okontrollerad]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} granska väntande ändringar]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} granska väntande ändringar]",
 	"revreview-basic-title": "Detta är en kontrollerad version av denna sida",
 	"revreview-toggle-title": "visa/dölj detaljer",
 	"revreview-visibility-synced": "'''Denna sida har en uppdaterad [[{{MediaWiki:Validationpage}}|accepterad version]]; sidstabilitetsinställningarna kan [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfigureras].'''",

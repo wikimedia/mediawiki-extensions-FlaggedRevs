@@ -97,7 +97,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Comprovada]]'''",
 	"revreview-quick-invalid": "'''ID de versió invàlida'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|No comprovada]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} comprovar els canvis en curs]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} comprovar els canvis en curs]",
 	"revreview-basic-title": "Això és una versió comprovada d'aquesta pàgina",
 	"revreview-toggle-title": "Mostra/amaga detalls",
 	"revreview-visibility-synced": "'''Aquesta pàgina té una [[{{MediaWiki:Validationpage}}|versió estable]] posada al dia; els paràmetres d'estabilitat de la pàgina poden ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurats].'''",

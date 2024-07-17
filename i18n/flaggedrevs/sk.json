@@ -86,7 +86,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Skontrolované]]'''",
 	"revreview-quick-invalid": "'''Neplatný ID revízie'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Neskontrolované]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} posúdiť navrhnuté zmeny]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} posúdiť navrhnuté zmeny]",
 	"revreview-basic-title": "Toto je videná verzia tejto stránky",
 	"revreview-toggle-title": "zobraziť/skryť podrobnosti",
 	"revreview-visibility-synced": "'''Táto stránka má aktualizovanú [[{{MediaWiki:Validationpage}}|stabilnú verziu]]; nastavenia stability stránky je možné [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} upraviť].'''",

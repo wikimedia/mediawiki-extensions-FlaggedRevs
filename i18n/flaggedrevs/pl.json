@@ -120,7 +120,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Przejrzana]]'''",
 	"revreview-quick-invalid": "'''Nieprawidłowy ID wersji'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Brak wersji przejrzanej]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} przejrzyj oczekujące zmiany]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} przejrzyj oczekujące zmiany]",
 	"revreview-basic-title": "To jest wersja przejrzana tej strony",
 	"revreview-toggle-title": "pokaż lub ukryj szczegóły",
 	"revreview-visibility-synced": "'''Ta strona ma aktualną [[{{MediaWiki:Validationpage}}|wersję oznaczoną]]. Sposób wyświetlania wersji na tej stronie może zostać [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} skonfigurowany].'''",

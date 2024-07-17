@@ -103,7 +103,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Provjereno]]'''",
 	"revreview-quick-invalid": "'''Nevažeći ID izmjene'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Neprovjereno]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} pregled izmjena na čekanju]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} pregled izmjena na čekanju]",
 	"revreview-basic-title": "Ovo je pregledana inačica stranice",
 	"revreview-toggle-title": "prikaži/sakrij detalje",
 	"revreview-visibility-synced": "'''Ova stranica ima ažuriranu [[{{MediaWiki:Validationpage}}|važeću inačicu]]; postavke stabilnosti stranice mogu biti [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} namještene].'''",

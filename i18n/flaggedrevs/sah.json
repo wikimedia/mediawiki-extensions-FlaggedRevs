@@ -63,7 +63,7 @@
 	"revreview-quick-basic-same": "[[{{MediaWiki:Validationpage}}|Көрүллүбүт сирэй]]'''",
 	"revreview-quick-invalid": "'''Сирэй барылын идентификатора алҕастаах'''",
 	"revreview-quick-none": "[[{{MediaWiki:Validationpage}}|Көрүллүбэтэх сирэй]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} бэрэбиэркэлэммэтэх уларытыылары көрдөр]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} бэрэбиэркэлэммэтэх уларытыылары көрдөр]",
 	"revreview-basic-title": "Бу сирэй көрүллүбүт барыла",
 	"revreview-toggle-title": "сиһилиитин көрдөр/кистээ",
 	"revreview-visibility-synced": "Бу сирэй [[{{MediaWiki:Validationpage}}|чистовой торумнаах]], которая может быть  \n[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} настроена].",

@@ -82,7 +82,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Patvirtintas]]'''",
 	"revreview-quick-invalid": "'''Blogas versijos ID'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Nepatvirtintas]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} patvirtinimo laukiantys pakeitimai]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} patvirtinimo laukiantys pakeitimai]",
 	"revreview-basic-title": "Tai šio puslapio patvirtinta versija",
 	"revreview-toggle-title": "Rodyti/slėpti detales",
 	"revreview-revnotfound": "Norima puslapio versija nerasta. Patikrinkite URL, kuriuo patekote į šį puslapį.",

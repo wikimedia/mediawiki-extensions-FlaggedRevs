@@ -77,7 +77,7 @@
 	"revreview-quick-basic-same": "[[{{MediaWiki:Validationpage}}|Kodvdud]]'''",
 	"revreview-quick-invalid": "'''Vär lehtpolen versijan identifikator'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Kodvmatoi]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} ozutada kodvmatomad toižetused]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} ozutada kodvmatomad toižetused]",
 	"revreview-basic-title": "Nece om lehtpolen arvosteldud versii",
 	"revreview-toggle-title": "ozutada/peitta detalid",
 	"revreview-visibility-synced": "Necil lehtpolel om udištadud [[{{MediaWiki:Validationpage}}|publikuidud versii]]; sab toižetada [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} publikuidud versijoiden ozutamižen järgendused].'''",

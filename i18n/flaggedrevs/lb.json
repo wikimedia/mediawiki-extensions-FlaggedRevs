@@ -90,7 +90,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Nogekuckt]]'''",
 	"revreview-quick-invalid": "'''Ongëlteg Versiounsnummer'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Net nogekuckt]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Ännerungen am Suspens nokucken]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Ännerungen am Suspens nokucken]",
 	"revreview-basic-title": "Dëst ass eng nogekuckte Versioun vun dëser Säit",
 	"revreview-toggle-title": "Detailer weisen/verstoppen",
 	"revreview-visibility-synced": "'''Dës Säit huet eng aktualiséiert [[{{MediaWiki:Validationpage}}|publizéiert Versioun]]; d'Astellunge vun der Stabilitéit kënnen op [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} agestallt ginn].'''",

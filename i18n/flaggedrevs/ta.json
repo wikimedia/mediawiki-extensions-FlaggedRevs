@@ -61,7 +61,7 @@
 	"revreview-edited-section": "\"[[#$1|$2]]\" பிரிவின் பக்கத்திற்குத் திரும்புக.",
 	"revreview-oldrating": "இது கணிக்கப்பட்டது:",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|சரிபார்க்கப்படவில்லை]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} நிலுவையில் உள்ள மாற்றங்களை மதிப்பிடுக]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} நிலுவையில் உள்ள மாற்றங்களை மதிப்பிடுக]",
 	"revreview-basic-title": "இது இந்தப் பக்கத்தின் சரிபார்க்கப்பட்ட பதிப்பு",
 	"revreview-toggle-title": "விவரங்களைக் காட்டு/மறை",
 	"revreview-revnotfound": "இப் பக்கத்துக்குரிய, நீங்கள் கோரிய பழைய திருத்தம் காணப்படவில்லை. இந்தப் பக்கத்தை அணுகுவதற்கு நீங்கள் பயன்படுத்திய இணைய முகவரியை அருள் கூர்ந்து சரி பார்க்கவும்.",

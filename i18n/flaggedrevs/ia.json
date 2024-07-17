@@ -106,7 +106,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Revidite]]'''",
 	"revreview-quick-invalid": "'''ID de version invalide'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Non revidite]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} revider modificationes pendente]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} revider modificationes pendente]",
 	"revreview-basic-title": "Isto es un version revidite de iste pagina",
 	"revreview-toggle-title": "revelar/celar detalios",
 	"revreview-visibility-synced": "'''Iste pagina ha un [[{{MediaWiki:Validationpage}}|version stabile]] actualisate; le parametros del stabilitate de paginas pote esser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurate].'''",

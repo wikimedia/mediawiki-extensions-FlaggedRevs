@@ -100,7 +100,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Provereno]]'''",
 	"revreview-quick-invalid": "'''Nevažeći ID izmene'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Neprovereno]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} proveri promene na čekanju]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} proveri promene na čekanju]",
 	"revreview-basic-title": "Ovo je proverena verzija ove stranice",
 	"revreview-toggle-title": "prikaži/sakrij detalje",
 	"revreview-visibility-synced": "'''Ova stranica ima ažuriranu [[{{MediaWiki:Validationpage}}|stabilnu izmenu]]; možete [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} promeniti] podešavanja stabilnosti stranica.'''",

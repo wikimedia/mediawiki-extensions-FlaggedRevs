@@ -54,7 +54,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|පරික්ෂා කරන ලදී]]'''",
 	"revreview-quick-invalid": "'''වලංගු නොවන සංශෝධන හැඳුනුම'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|පරික්ෂා නොකරන ලදී]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} බලාපොරොත්තුවන වෙනස්කම් නිරීක්ෂණය කරන්න]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} බලාපොරොත්තුවන වෙනස්කම් නිරීක්ෂණය කරන්න]",
 	"revreview-basic-title": "මෙය මෙම පිටුවේ පරීක්ෂක අනුවාදයයි",
 	"revreview-toggle-title": "තොරතුරු පෙන්වන්න/සඟවන්න",
 	"right-movestable": "ස්ථාවර අනුවාද සහිත පිටු ගෙනයන්න",

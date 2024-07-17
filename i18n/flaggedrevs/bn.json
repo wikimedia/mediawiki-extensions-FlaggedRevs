@@ -101,7 +101,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|পরীক্ষিত]]'''",
 	"revreview-quick-invalid": "'''ভুল সংশোধন আইডি'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|অপরীক্ষিত]]'''",
-	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} অমীমাংসিত পরিবর্তন পর্যালোচনা]]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} অমীমাংসিত পরিবর্তন পর্যালোচনা]",
 	"revreview-basic-title": "এটি এই পাতার একটি পরীক্ষিত সংস্করণ",
 	"revreview-toggle-title": "বিস্তারিত দেখাও/আড়াল করো",
 	"revreview-revnotfound": "আপনির পাতাটির যে পুরনো সংস্করণটি অনুরোধ করেছেন, তা খুঁজে পাওয়া যায়নি। পাতাটিতে যাবার জন্য আপনি যে URL-টি ব্যবহার করেছিলেন, অনুগ্রহ করে সেটি পরীক্ষা করে দেখুন।",

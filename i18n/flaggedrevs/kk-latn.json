@@ -29,7 +29,7 @@
 	"revreview-oldrating": "Bul mına bağa aldı:",
 	"revreview-quick-basic": "'''[[{{MediaWiki:Validationpage}}|Şolınğan]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} joba jazbasın qaraw]]",
 	"revreview-quick-none": "'''Ağımdıq''' (cın berilgen nusqalar joq)",
-	"revreview-quick-see-basic": "'''Joba jazba''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} tïyanaqtı maqalanı qaraw]]\n($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{PLURAL:$2|özgeris|özgeris}}]]",
+	"revreview-quick-see-basic": "'''Joba jazba''' [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} tïyanaqtı maqalanı qaraw]\n($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{PLURAL:$2|özgeris|özgeris}}]",
 	"revreview-visibility-synced": "Osı bettiñ [[{{MediaWiki:Validationpage}}|tïyanaqtı nusqası]] bar, bul\n[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} baptalawı] mümkin.",
 	"revreview-revnotfound": "Bul bettiñ suralğan eski tüzetwi tabılğan joq. Osı bet qatınawına paýdalanğan URL tekserip şığıñız.",
 	"stable-logentry-config": "$1 üşin tïyanaqtı nusqa baptalımı retteldi",
