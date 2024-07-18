@@ -64,7 +64,7 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 				'wpApprove' => (string)$wpApprove,
 				'wpReason' => (string)$wpReason,
 				'changetime' => (string)$changetime,
-				$wpDimName => FlaggedRevs::getMaxLevel(),
+				$wpDimName => (string)FlaggedRevs::getMaxLevel(),
 			] ),
 			'headers' => [
 				'Content-Type' => 'application/json',
@@ -96,11 +96,11 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 			'method' => 'POST',
 			'pathParams' => [ 'target' => $target ],
 			'bodyContents' => json_encode( [
-				'oldid' => $oldid,
+				'oldid' => (string)$oldid,
 				'wpEditToken' => $wpEditToken,
 				'validatedParams' => $validatedParams,
-				'wpApprove' => $wpApprove,
-				$wpDimName => FlaggedRevs::getMaxLevel(),
+				'wpApprove' => (string)$wpApprove,
+				$wpDimName => (string)FlaggedRevs::getMaxLevel(),
 			] ),
 			'headers' => [
 				'Content-Type' => 'application/json',
@@ -127,7 +127,7 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 			'pathParams' => [ 'target' => $target ],
 			'bodyContents' => json_encode( [
 				'wpEditToken' => $wpEditToken,
-				$wpDimName => FlaggedRevs::getMaxLevel(),
+				$wpDimName => (string)FlaggedRevs::getMaxLevel(),
 			] ),
 			'headers' => [
 				'Content-Type' => 'application/json',
@@ -162,14 +162,14 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 			'method' => 'POST',
 			'pathParams' => [ 'target' => $target ],
 			'bodyContents' => json_encode( [
-				'oldid' => $oldid,
+				'oldid' => (string)$oldid,
 				'wpEditToken' => $wpEditToken,
-				'refid' => $refid,
+				'refid' => (string)$refid,
 				'validatedParams' => $validatedParams,
-				'wpApprove' => $wpApprove,
+				'wpApprove' => (string)$wpApprove,
 				'wpReason' => $wpReason,
 				'changetime' => $changetime,
-				$wpDimName => FlaggedRevs::getMaxLevel(),
+				$wpDimName => (string)FlaggedRevs::getMaxLevel(),
 			] ),
 			'headers' => [
 				'Content-Type' => 'application/json',
