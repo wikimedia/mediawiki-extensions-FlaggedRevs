@@ -6,6 +6,7 @@ namespace MediaWiki\Extension\FlaggedRevs\Backend;
 
 use MediaWiki\Hook\ContribsPager__getQueryInfoHook;
 use MediaWiki\Hook\SpecialContributions__getForm__filtersHook;
+use Wikimedia\Rdbms\RawSQLExpression;
 
 class FlaggedRevsContributionsHooks implements
 	SpecialContributions__getForm__filtersHook,
@@ -39,9 +40,12 @@ class FlaggedRevsContributionsHooks implements
 				$queryInfo['join_conds']['flaggedpages'] = [ 'LEFT JOIN', "fp_page_id = rev_page" ];
 			}
 
+			$dbr = $pager->getDatabase();
 			// filter down to pending changes only
-			$queryInfo['conds'][] = '(fp_stable < rev_id AND fp_pending_since IS NOT NULL)' .
-				' OR (fp_stable IS NULL)';
+			$queryInfo['conds'][] = $dbr->orExpr( [
+				$dbr->expr( 'fp_pending_since', '!=', null )->andExpr( new RawSQLExpression( 'fp_stable < rev_id' ) ),
+				'fp_stable' => null,
+			] );
 		}
 	}
 }
