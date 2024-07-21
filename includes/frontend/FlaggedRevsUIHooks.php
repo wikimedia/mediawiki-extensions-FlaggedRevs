@@ -510,10 +510,10 @@ class FlaggedRevsUIHooks implements
 
 					if ( in_array( 'notreviewable', $selectedValues ) ) {
 						$filters[] = $notReviewableCond;
-						$conds[] = $dbr->makeList( $filters, LIST_OR );
+						$conds[] = $dbr->orExpr( $filters );
 					} else {
 						$filters[] = $reviewableCond;
-						$conds[] = $dbr->makeList( $filters, LIST_AND );
+						$conds[] = $dbr->andExpr( $filters );
 					}
 				}
 			]

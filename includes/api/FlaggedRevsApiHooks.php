@@ -75,10 +75,12 @@ class FlaggedRevsApiHooks implements
 		// Construct WHERE-clause to avoid multiplying the number of scanned rows
 		// as flaggedrevs table has composite primary key (fr_page_id,fr_rev_id)
 		foreach ( $pageids as $pageid => $revids ) {
-			$where[] = $db->makeList( [ 'fr_page_id' => $pageid,
-				'fr_rev_id' => array_keys( $revids ) ], LIST_AND );
+			$where[] = $db->andExpr( [
+				'fr_page_id' => $pageid,
+				'fr_rev_id' => array_keys( $revids ),
+			] );
 		}
-		$qb->where( $db->makeList( $where, LIST_OR ) );
+		$qb->where( $db->orExpr( $where ) );
 
 		$res = $qb->caller( __METHOD__ )->fetchResultSet();
 
