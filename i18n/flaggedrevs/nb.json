@@ -101,6 +101,8 @@
 	"revreview-basic-same": "Dette er den [[{{MediaWiki:Validationpage}}|stabile versjonen]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrollert] <i>$2</i>.",
 	"revreview-basic-source": "En [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} kontrollert versjon] av denne siden, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjent] <i>$2</i>, ble basert på denne sideversjonen.",
 	"revreview-current": "Ventende endringer",
+	"flaggedrevs-action-info-pages-waiting-for-review": "Transkluderte sider som venter på gjennomgang",
+	"flaggedrevs-action-info-pages-waiting-for-review-none": "Ingen",
 	"revreview-draft-title": "Ventende endringer vises på denne siden",
 	"revreview-editnotice": "'''Endringene dine vil bli vist til leserne straks en autorisert bruker har godkjent dem. ([[{{MediaWiki:Validationpage}}|hjelp]])'''",
 	"revreview-submitedit": "Send endringer",

@@ -7,6 +7,7 @@
 			"Nedergard",
 			"Olli",
 			"Pxos",
+			"Samoasambia",
 			"Silvonen",
 			"Str4nd",
 			"Vililikku",
@@ -14,7 +15,7 @@
 		]
 	},
 	"validationstatistics": "Sivujen arviointitilastot",
-	"validationstatistics-users": "Sivustolla '''{{SITENAME}}''' on tällä hetkellä '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|käyttäjä, jolla|käyttäjää, joilla}} on [[{{MediaWiki:Validationpage}}|seulojan]] oikeudet.\n\nSeulojat ovat luotettavia käyttäjiä, jotka voivat arvioida sivuille tehtyjä muutoksia ja merkitä ne hyväksytyiksi.",
+	"validationstatistics-users": "'''{{GRAMMAR:inessive|{{SITENAME}}}}''' on tällä hetkellä '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|käyttäjä, jolla|käyttäjää, joilla}} on [[{{MediaWiki:Validationpage}}|seulojan]] oikeudet.\n\nSeulojat ovat luotettavia käyttäjiä, jotka voivat arvioida sivuille tehtyjä muutoksia ja merkitä ne hyväksytyiksi.",
 	"validationstatistics-lastupdate": "''Seuraavat tiedot päivitettiin viimeksi $1 kello $2.''",
 	"validationstatistics-pndtime": "Oikeutettujen käyttäjien (seulojien) katsomat muokkaukset ovat ''arvioituja''.\n\nKeskimääräinen arviointiaika [[Special:OldReviewedPages|sivuilla, joilla on odottavia muutoksia]] on '''$1'''. Viive mittaa sitä, kuinka kauan sivulla oleva vanhin odottava muutos on edelleen arvioimatta.",
 	"validationstatistics-revtime": "Keskimääräinen odotusaika ''sisäänkirjautumattomien käyttäjien'' muokkausten arviointiin on '''$1'''; mediaani on '''$2'''.\n$3",
