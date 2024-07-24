@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"BadDog",
 			"Winston Sung"
 		]
 	},
@@ -125,5 +126,5 @@
 	"revreview-reviewlink": "izmjene na čekanju",
 	"tooltip-ca-current": "Pogledajte ovu stranicu sa izmjenama na čekanju",
 	"flaggedrevs-protect-none": "Dozvoli svim korisnicima",
-	"flaggedrevs-protect-sysop": "Dopušteno samo administratorima"
+	"flaggedrevs-protect-sysop": "dopušteno samo administratorima"
 }
