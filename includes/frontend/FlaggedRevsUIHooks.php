@@ -890,7 +890,8 @@ class FlaggedRevsUIHooks implements
 			# Give a notice if pages on the users's wachlist have pending edits
 			if ( $watchedOutdated ) {
 				$out->prependHTML(
-					Html::warningBox( $out->msg( 'flaggedrevs-watched-pending' )->parse() )
+					Html::warningBox( $out->msg( 'flaggedrevs-watched-pending' )->parse(),
+						'mw-fr-watchlist-pending-notice' )
 				);
 			}
 		}
