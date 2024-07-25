@@ -337,20 +337,28 @@ class FlaggablePageView extends ContextSource {
 			}
 			$tagTypeClass = 'flaggedrevs_unreviewed';
 		}
-		// Some checks for which tag CSS to use
-		if ( $this->useSimpleUI() ) {
-			$tagClass = 'flaggedrevs_short';
-		} else {
-			// As it is the only message for non-simple UI, it must be displayed
-			$tagClass = $frev ? 'flaggedrevs_basic' : 'flaggedrevs_notice';
-		}
-		// Wrap tag contents in a div, with class indicating sync status and
-		// whether stable version is shown (for customization of the notice)
+
 		if ( $tag != '' ) {
-			$cssClasses = "{$tagClass} {$tagTypeClass} plainlinks noprint cdx-info-chip";
-			$notice = Html::openElement( 'div', [ 'id' => 'mw-fr-revisiontag', 'class' => $cssClasses ] ) .
-				$tag .
-				Html::closeElement( 'div' );
+			if ( $this->useSimpleUI() ) {
+				$tagClass = 'flaggedrevs_short';
+				$cssClasses = "{$tagClass} {$tagTypeClass} plainlinks noprint cdx-info-chip";
+				$notice = Html::openElement( 'div', [ 'id' => 'mw-fr-revisiontag' ] ) .
+					Html::openElement( 'div', [ 'class' => $cssClasses ] ) .
+					$tag .
+					Html::closeElement( 'div' );
+			} else {
+				$tagClass = 'flaggedrevs_basic';
+				$cssClasses = "{$tagClass} {$tagTypeClass} plainlinks noprint";
+				$notice = Html::openElement( 'div', [
+					'class' => 'cdx-message cdx-message--block cdx-message--notice ' . $cssClasses,
+					'aria-live' => 'polite'
+				] );
+				$notice .= Html::element( 'span', [ 'class' => 'cdx-message__icon' ] );
+				$notice .= Html::openElement( 'div', [ 'class' => 'cdx-message__content' ] );
+				$notice .= $tag;
+				$notice .= Html::closeElement( 'div' );
+			}
+			$notice .= Html::closeElement( 'div' );
 			$this->reviewNotice .= $notice;
 		}
 	}
@@ -469,10 +477,7 @@ class FlaggablePageView extends ContextSource {
 				$msgHTML = $this->msg( $msg, $srev->getRevId(), $time )
 					->numParams( $revsSince )->parse();
 				$this->enableIcons();
-				$icon = $synced ?
-					FlaggedRevsXML::stableStatusIcon() :
-					FlaggedRevsXML::draftStatusIcon();
-				$tag .= $prot . $icon . $msgHTML . $diffToggle;
+				$tag .= $prot . $msgHTML . $diffToggle;
 			}
 		}
 	}
@@ -529,7 +534,7 @@ class FlaggablePageView extends ContextSource {
 				}
 				$msgHTML = $prot . $icon . $msgHTML;
 				$tag = FlaggedRevsXML::prettyRatingBox( $frev, $msgHTML, $revsSince );
-			// Standard UI
+				// Standard UI
 			} else {
 				$icon = FlaggedRevsXML::stableStatusIcon();
 				$msg = 'revreview-basic-old';
@@ -593,14 +598,13 @@ class FlaggablePageView extends ContextSource {
 					$revsSince, 'stable', $synced );
 			// Standard UI
 			} else {
-				$icon = FlaggedRevsXML::stableStatusIcon();
 				$this->enableIcons();
 				if ( $synced ) {
 					$msg = 'revreview-basic-same';
 				} else {
 					$msg = !$revsSince ? 'revreview-basic-i' : 'revreview-basic';
 				}
-				$tag = $prot . $icon;
+				$tag = $prot;
 				$tag .= $this->msg( $msg, $srev->getRevId(), $time )
 					->numParams( $revsSince )->parse();
 			}
