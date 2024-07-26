@@ -42,6 +42,8 @@ use MediaWiki\SpecialPage\Hook\SpecialPage_initListHook;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
 use MediaWiki\Title\TitleValue;
+use Wikimedia\Rdbms\IReadableDatabase;
+use Wikimedia\Rdbms\RawSQLExpression;
 
 /**
  * Class containing hooked functions for a FlaggedRevs environment
@@ -415,7 +417,7 @@ class FlaggedRevsUIHooks implements
 							&$fields, &$conds, &$query_options, &$join_conds
 						) {
 							self::hideReviewedChangesUnconditionally(
-								$conds
+								$conds, $dbr
 							);
 						},
 					],
@@ -488,9 +490,13 @@ class FlaggedRevsUIHooks implements
 					}
 
 					$namespaces = FlaggedRevs::getReviewNamespaces();
-					$needReviewCond = 'rc_timestamp >= fp_pending_since OR fp_stable IS NULL';
-					$reviewedCond = '(fp_pending_since IS NULL OR rc_timestamp < fp_pending_since) ' .
-						'AND fp_stable IS NOT NULL';
+					$needReviewCond = $dbr->expr( 'fp_stable', '=', null )
+						->orExpr( new RawSQLExpression( 'rc_timestamp >= fp_pending_since' ) );
+					$reviewedCond = $dbr->expr( 'fp_stable', '!=', null )
+						->andExpr(
+							$dbr->expr( 'fp_pending_since', '=', null )
+								->orExpr( new RawSQLExpression( 'rc_timestamp < fp_pending_since' ) )
+						);
 					$notReviewableCond = $dbr->expr( 'rc_namespace', '!=', $namespaces )
 						->or( 'rc_type', '=', RC_EXTERNAL );
 					$reviewableCond = $dbr->expr( 'rc_namespace', '=', $namespaces )
@@ -571,7 +577,8 @@ class FlaggedRevsUIHooks implements
 	public function onSpecialNewpagesConditions(
 		$specialPage, $opts, &$conds, &$tables, &$fields, &$join_conds
 	) {
-		self::makeAllQueryChanges( $conds, $tables, $join_conds, $fields );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+		self::makeAllQueryChanges( $conds, $tables, $join_conds, $fields, $dbr );
 	}
 
 	/**
@@ -591,12 +598,13 @@ class FlaggedRevsUIHooks implements
 	 * @param array &$tables Tables to query
 	 * @param array &$join_conds Query join conditions
 	 * @param string[] &$fields Fields to query
+	 * @param IReadableDatabase $dbr
 	 */
 	private static function makeAllQueryChanges(
-		array &$conds, array &$tables, array &$join_conds, array &$fields
+		array &$conds, array &$tables, array &$join_conds, array &$fields, IReadableDatabase $dbr
 	) {
 		self::addMetadataQueryJoins( $tables, $join_conds, $fields );
-		self::hideReviewedChangesIfNeeded( $conds );
+		self::hideReviewedChangesIfNeeded( $conds, $dbr );
 	}
 
 	/**
@@ -621,14 +629,15 @@ class FlaggedRevsUIHooks implements
 	 * Must already be joined into the FlaggedRevs tables.
 	 *
 	 * @param array &$conds Query conditions
+	 * @param IReadableDatabase $dbr
 	 */
 	private static function hideReviewedChangesIfNeeded(
-		array &$conds
+		array &$conds, IReadableDatabase $dbr
 	) {
 		global $wgRequest;
 
 		if ( $wgRequest->getBool( 'hideReviewed' ) && !FlaggedRevs::useOnlyIfProtected() ) {
-			self::hideReviewedChangesUnconditionally( $conds );
+			self::hideReviewedChangesUnconditionally( $conds, $dbr );
 		}
 	}
 
@@ -639,12 +648,17 @@ class FlaggedRevsUIHooks implements
 	 * Must already be joined into the FlaggedRevs tables.
 	 *
 	 * @param array &$conds Query conditions
+	 * @param IReadableDatabase $dbr
 	 */
 	private static function hideReviewedChangesUnconditionally(
-		array &$conds
+		array &$conds, IReadableDatabase $dbr
 	) {
 		// Don't filter external changes as FlaggedRevisions doesn't apply to those
-		$conds[] = 'rc_timestamp >= fp_pending_since OR fp_stable IS NULL OR rc_type = ' . RC_EXTERNAL;
+		$conds[] = $dbr->orExpr( [
+			new RawSQLExpression( 'rc_timestamp >= fp_pending_since' ),
+			'fp_stable' => null,
+			'rc_type' => RC_EXTERNAL,
+		] );
 	}
 
 	/**

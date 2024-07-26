@@ -35,6 +35,7 @@ use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
 use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\IReadableDatabase;
+use Wikimedia\Rdbms\RawSQLValue;
 use Wikimedia\Rdbms\SelectQueryBuilder;
 
 /**
@@ -949,7 +950,8 @@ class FlaggedRevsHooks implements
 				->where( $data['conds'] )
 				->andWhere( [
 						// bug 15515
-						'fp_pending_since IS NULL OR fp_pending_since > ' . $data['tsField'],
+						$dbr->expr( 'fp_pending_since', '=', null )
+							->or( 'fp_pending_since', '>', new RawSQLValue( $data['tsField'] ) ),
 						// Avoid too much scanning
 						$dbr->expr( $data['tsField'], '>', $dbr->timestamp( $lowCutoff ) )
 				] )
@@ -1320,7 +1322,7 @@ class FlaggedRevsHooks implements
 				[ 'page_id = fp_page_id', 'page_namespace' => $namespaces ]
 			];
 			$join['revision'] = [ 'INNER JOIN',
-				'rev_page = fp_page_id AND rev_id = fp_stable' ];
+				[ 'rev_page = fp_page_id', 'rev_id = fp_stable' ] ];
 		}
 	}
 
@@ -1344,9 +1346,10 @@ class FlaggedRevsHooks implements
 			$joins['flaggedpages'] = [ 'LEFT JOIN', 'page_id = fp_page_id' ];
 		}
 
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		switch ( $params['stable'] ) {
 			case GoogleNewsSitemap::OPT_ONLY:
-				$conditions[] = 'fp_stable IS NOT NULL ';
+				$conditions[] = $dbr->expr( 'fp_stable', '!=', null );
 				break;
 			case GoogleNewsSitemap::OPT_EXCLUDE:
 				$conditions['fp_stable'] = null;
@@ -1355,10 +1358,10 @@ class FlaggedRevsHooks implements
 
 		switch ( $params['quality'] ) {
 			case GoogleNewsSitemap::OPT_ONLY:
-				$conditions[] = 'fp_quality >= 1';
+				$conditions[] = $dbr->expr( 'fp_quality', '>=', 1 );
 				break;
 			case GoogleNewsSitemap::OPT_EXCLUDE:
-				$conditions[] = 'fp_quality = 0 OR fp_quality IS NULL';
+				$conditions[] = $dbr->expr( 'fp_quality', '=', 0 )->or( 'fp_quality', '=', null );
 				break;
 		}
 	}
