@@ -209,8 +209,8 @@
 		}
 
 		// Simple UI: Show the box on mouseOver
-		$( '.fr-toggle-arrow#mw-fr-revisiontoggle' ).on( 'mouseover', onBoxMouseOver );
-		$( '.flaggedrevs_short#mw-fr-revisiontag' ).on( 'mouseout', onBoxMouseOut );
+		$( '#mw-fr-revisiontoggle' ).on( 'mouseover', onBoxMouseOver );
+		$( '#mw-fr-revisiontag' ).on( 'mouseout', onBoxMouseOut );
 
 		// Enables diff detail box and toggle
 		$toggle = $( '#mw-fr-difftoggle' );
