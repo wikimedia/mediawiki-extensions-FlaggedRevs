@@ -98,17 +98,6 @@ div.flaggedrevs_notes {
 }
 
 /* Short User Interface */
-div.flaggedrevs_short {
-	border: 1px solid @border-color-interactive;
-	background-color: @background-color-base;
-	font-size: 95%;
-	font-weight: normal;
-	margin: 0 0 0 1em;
-	line-height: 16px;
-	padding: 2px;
-	float: right;
-}
-
 div.flaggedrevs_short,
 div.flaggedrevs_short_basic {
 	display: flex;
@@ -140,6 +129,10 @@ div.flaggedrevs_short_details {
 	right: -2px;
 	width: 25em;
 	z-index: @z-index-above-content;
+}
+
+div.flaggedrevs_short.flaggedrevs_unreviewed a {
+	padding-right: @spacing-75;
 }
 
 /* @noflip */
@@ -206,11 +199,11 @@ span.flaggedrevs-icon {
 	margin-right: 0.2em;
 	margin-left: 0.2em;
 	opacity: 0.87;
-	min-width: 20px;
-	min-height: 20px;
-	width: 1.25rem;
-	height: 1.25rem;
-	display: inline-block;
+	min-width: 1em;
+	min-height: 1em;
+	width: 1em;
+	height: 1em;
+	background-size: cover;
 }
 
 .fr-diff-ratings {

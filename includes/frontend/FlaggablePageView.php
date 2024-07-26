@@ -337,7 +337,8 @@ class FlaggablePageView extends ContextSource {
 			if ( !$this->out->isPrintable() ) {
 				$this->enableIcons();
 				$msg = $this->useSimpleUI() ? 'revreview-quick-none' : 'revreview-noflagged';
-				$tag .= $prot . $this->msg( $msg )->parse();
+				$tag .= $prot . ( $this->useSimpleUI() ? FlaggedRevsXML::draftStatusIcon() : '' ) .
+					$this->msg( $msg )->parse();
 			}
 			$tagTypeClass = 'flaggedrevs_unreviewed';
 		}
