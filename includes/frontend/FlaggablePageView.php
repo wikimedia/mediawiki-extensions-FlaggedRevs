@@ -234,14 +234,18 @@ class FlaggablePageView extends ContextSource {
 
 		# Give a notice if this rev ID corresponds to a reviewed version...
 		$time = $this->getLanguage()->date( $frev->getTimestamp(), true );
-		$this->out->addHTML( Html::rawElement(
-			'div',
-			[
+		$this->out->addHTML(
+			Html::rawElement( 'div', [
 				'id' => 'mw-fr-revisiontag-old',
-				'class' => 'flaggedrevs_notice plainlinks noprint',
+				'class' => 'cdx-message cdx-message--block cdx-message--notice flaggedrevs_notice plainlinks noprint',
+				'aria-live' => 'polite'
 			],
-			$this->msg( 'revreview-basic-source', $frev->getRevId(), $time )->parse()
-		) );
+				Html::element( 'span', [ 'class' => 'cdx-message__icon' ] ) .
+				Html::rawElement( 'div', [ 'class' => 'cdx-message__content' ],
+					$this->msg( 'revreview-basic-source', $frev->getRevId(), $time )->parse()
+				)
+			)
+		);
 	}
 
 	/**
