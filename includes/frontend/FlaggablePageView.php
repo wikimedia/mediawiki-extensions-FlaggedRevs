@@ -428,10 +428,6 @@ class FlaggablePageView extends ContextSource {
 		) {
 			$revsSince = $this->article->getPendingRevCount();
 			$pending = $prot;
-			if ( $this->showRatingIcon() ) {
-				$this->enableIcons();
-				$pending .= FlaggedRevsXML::draftStatusIcon();
-			}
 			$pending .= $this->msg( 'revreview-edited', $srev->getRevId() )
 				->numParams( $revsSince )->parse();
 			$anchor = $request->getVal( 'fromsection' );
@@ -445,8 +441,15 @@ class FlaggablePageView extends ContextSource {
 					->parseAsBlock();
 			}
 		# Notice should always use subtitle
-			$this->reviewNotice = "<div id='mw-fr-reviewnotice' " .
-			"class='flaggedrevs_preview plainlinks noprint'>$pending</div>";
+			$this->reviewNotice = Html::openElement( 'div', [
+					'id' => 'mw-fr-reviewnotice',
+					'class' => 'cdx-message cdx-message--block cdx-message--notice
+					flaggedrevs_preview plainlinks noprint',
+					'aria-live' => 'polite'
+				] )
+				. Html::element( 'span', [ 'class' => 'cdx-message__icon' ] )
+				. Html::rawElement( 'div', [ 'class' => 'cdx-message__content' ], $pending )
+				. Html::closeElement( 'div' );
 		# Otherwise, construct some tagging info for non-printable outputs.
 		# Also, if low profile UI is enabled and the page is synced, skip the tag.
 		# Note: the "your edit is pending" notice has all this info, so we never add both.
@@ -801,8 +804,7 @@ class FlaggablePageView extends ContextSource {
 			$pendingMsg = FlaggedRevsXML::pendingEditNoticeMessage(
 				$frev, $revsSince
 			);
-			$lines[] = '<div class="plainlinks">'
-				. $pendingMsg->setContext( $this->getContext() )->parseAsBlock() . '</div>';
+			$lines[] = $pendingMsg->setContext( $this->getContext() )->parseAsBlock();
 		}
 		$latestId = $this->article->getLatest();
 		$revId  = $oldid ?: $latestId;
@@ -823,8 +825,20 @@ class FlaggablePageView extends ContextSource {
 		}
 
 		if ( $lines ) {
-			$notices['flaggedrevs_editnotice'] =
-				Html::rawElement( 'div', [ 'class' => 'flaggedrevs_editnotice' ], implode( '', $lines ) );
+			$lineMessages = '';
+			foreach ( $lines as $line ) {
+				$lineMessages .= Html::rawElement( 'div', [
+					'class' => 'cdx-message cdx-message--inline cdx-message--notice',
+					'aria-live' => 'polite'
+				],
+					Html::element( 'span', [ 'class' => 'cdx-message__icon' ] ) .
+					Html::rawElement( 'div', [ 'class' => 'cdx-message__content' ], $line )
+				);
+			}
+
+			$notices['flaggedrevs_editnotice'] = Html::rawElement( 'div', [
+				'class' => 'mw-fr-edit-messages',
+			], $lineMessages );
 		}
 	}
 
