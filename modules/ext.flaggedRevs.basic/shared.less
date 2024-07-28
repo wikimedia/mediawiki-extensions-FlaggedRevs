@@ -1,0 +1,79 @@
+@import 'mediawiki.skin.variables.less';
+
+/* Highlight colors in light mode */
+@flagged-revs-highlight-unreviewed: #fef6e7;
+@flagged-revs-highlight-pending: #fff2cc; /* equals WikimediaUI's Yellow50 `#fc3` at 0.25 opacity */
+@flagged-revs-highlight-reviewed: #eaf3ff;
+@flagged-revs-highlight-unreviewed-diff: #f8f9fa;
+
+/* Highlight colors in dark mode */
+@flagged-revs-highlight-unreviewed-dark: #431f00;
+@flagged-revs-highlight-pending-dark: #3f320d;
+@flagged-revs-highlight-reviewed-dark: #1e2c3e;
+@flagged-revs-highlight-unreviewed-diff-dark: #282828;
+
+/* Both User Interfaces */
+.flaggedrevs-color-0 {
+	background-color: @flagged-revs-highlight-unreviewed-diff;
+}
+
+.flaggedrevs-color-1 {
+	background-color: @flagged-revs-highlight-reviewed;
+}
+
+.flaggedrevs-pending {
+	background-color: @flagged-revs-highlight-pending;
+}
+
+.flaggedrevs-unreviewed {
+	background-color: @flagged-revs-highlight-unreviewed;
+}
+
+/* Diff items */
+/* stylelint-disable-next-line selector-max-id */
+#mw-fr-diff-headeritems {
+	direction: ltr;
+}
+
+/* stylelint-disable-next-line selector-max-id */
+#mw-fr-stablediff {
+	background-color: @background-color-base;
+	text-align: left; /* bug 35202 */
+}
+
+/* Highlights in dark mode */
+@media screen {
+	html.skin-theme-clientpref-night .flaggedrevs-color-0 {
+		background-color: @flagged-revs-highlight-unreviewed-diff-dark;
+	}
+
+	html.skin-theme-clientpref-night .flaggedrevs-color-1 {
+		background-color: @flagged-revs-highlight-reviewed-dark;
+	}
+
+	html.skin-theme-clientpref-night .flaggedrevs-pending {
+		background-color: @flagged-revs-highlight-pending-dark;
+	}
+
+	html.skin-theme-clientpref-night .flaggedrevs-unreviewed {
+		background-color: @flagged-revs-highlight-unreviewed-dark;
+	}
+}
+
+@media screen and ( prefers-color-scheme: dark ) {
+	html.skin-theme-clientpref-os .flaggedrevs-color-0 {
+		background-color: @flagged-revs-highlight-unreviewed-diff-dark;
+	}
+
+	html.skin-theme-clientpref-os .flaggedrevs-color-1 {
+		background-color: @flagged-revs-highlight-reviewed-dark;
+	}
+
+	html.skin-theme-clientpref-os .flaggedrevs-pending {
+		background-color: @flagged-revs-highlight-pending-dark;
+	}
+
+	html.skin-theme-clientpref-os .flaggedrevs-unreviewed {
+		background-color: @flagged-revs-highlight-unreviewed-dark;
+	}
+}

@@ -252,7 +252,7 @@
 			"localBasePath": "modules/ext.flaggedRevs.basic",
 			"remoteExtPath": "FlaggedRevs/modules/ext.flaggedRevs.basic",
 			"styles": [
-				"shared.css"
+				"shared.less"
 			],
 			"skinStyles": {
 				"default": "default.less"
