@@ -266,6 +266,7 @@
 			],
 			"messages": [
 				"brackets",
+				"diff-empty",
 				"revreview-hist-basic",
 				"revreview-hist-pending",
 				"revreview-diff-toggle-show",
