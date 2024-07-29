@@ -3,7 +3,8 @@
 	"private": true,
 	"scripts": {
 		"api-testing": "mocha --timeout 0 --recursive tests/api-testing",
-		"test": "grunt test"
+		"test": "grunt test",
+		"lint:fix": "eslint --fix . && stylelint --fix '**/*.less'"
 	},
 	"devDependencies": {
 		"@wdio/mocha-framework": "7.13.2",
