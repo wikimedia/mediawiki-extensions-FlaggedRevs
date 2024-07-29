@@ -72,7 +72,7 @@
 	"revreview-hist-basic-user": "נבדקה על־ידי [[User:$3|$3]]",
 	"revreview-hist-basic-auto": "נבדקה אוטומטית",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} ממתינה לסקירה]]'''",
-	"review-edit-diff": "'''שימו לב: ''חלק'' מהשינויים הממתינים משנים את האזור בדף שאתם עורכים.'''",
+	"review-edit-diff": "'''שימו לב: ''חלק'' מהשינויים הממתינים משנים את האזור בדף {{GENDER:|שאתה עורך|שאת עורכת}}.'''",
 	"revreview-diff-toggle-show": "הצגת השינויים האלה",
 	"revreview-diff-toggle-hide": "הסתרת השינויים האלה",
 	"revreview-diff-toggle-title": "להציג את השינויים שנעשו לגרסה היציבה וממתינים לסקירה",

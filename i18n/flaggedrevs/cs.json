@@ -17,7 +17,7 @@
 		]
 	},
 	"action-review": "posoudit revize",
-	"action-unreviewedpages": "zobrazit [[Special:UnreviewedPages|seznam neposouzených stránek]]",
+	"action-unreviewedpages": "zobrazit seznam neposouzených stránek",
 	"editor": "Editor",
 	"flaggedrevs": "Označování verzí",
 	"flaggedrevs-watched-pending": "Momentálně existují [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} neprověřené úpravy] posouzených stránek, které jsou na vašem seznamu sledovaných stránek. '''Vyžaduje se vaše pozornost!'''",
