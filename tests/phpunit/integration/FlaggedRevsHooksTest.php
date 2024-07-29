@@ -23,9 +23,9 @@ class FlaggedRevsHooksTest extends MediaWikiIntegrationTestCase {
 	public function testAutoReviewedPageStaysReviewedAfterMove() {
 		// configure
 		global $wgFlaggedRevsOverride, $wgFlaggedRevsProtection;
-		$this->setMwGlobals( [
-			'wgFlaggedRevsOverride' => true,
-			'wgFlaggedRevsProtection' => false
+		$this->overrideConfigValues( [
+			'FlaggedRevsOverride' => true,
+			'FlaggedRevsProtection' => false,
 		] );
 		$this->assertTrue( $wgFlaggedRevsOverride, 'Setting should be configured' );
 		$this->assertFalse( $wgFlaggedRevsProtection, 'Setting should be configured' );
