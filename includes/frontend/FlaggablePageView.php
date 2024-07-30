@@ -305,7 +305,8 @@ class FlaggablePageView extends ContextSource {
 		$this->enableIcons();
 		$prot = FlaggedRevsXML::lockStatusIcon( $this->article );
 
-		if ( $frev ) { // has stable version?
+		if ( $frev ) {
+			// has stable version?
 			// Looking at some specific old stable revision ("&stableid=x")
 			// set to override given the relevant conditions. If the user is
 			// requesting the stable revision ("&stableid=x"), defer to override
@@ -324,13 +325,11 @@ class FlaggablePageView extends ContextSource {
 					$tagTypeClass = ( $this->article->stableVersionIsSynced() ) ?
 						'flaggedrevs_stable_synced' : 'flaggedrevs_stable_notsynced';
 				}
-			} else {
+			} elseif ( $srev !== null ) {
 				// Check if $srev is not null before calling showDraftVersion
-				if ( $srev !== null ) {
-					$this->showDraftVersion( $srev, $tag, $prot );
-					$tagTypeClass = ( $this->article->stableVersionIsSynced() ) ?
-						'flaggedrevs_draft_synced' : 'flaggedrevs_draft_notsynced';
-				}
+				$this->showDraftVersion( $srev, $tag, $prot );
+				$tagTypeClass = ( $this->article->stableVersionIsSynced() ) ?
+					'flaggedrevs_draft_synced' : 'flaggedrevs_draft_notsynced';
 			}
 		} else {
 			// Looking at a page with no stable version; add "no reviewed version" tag.
@@ -344,17 +343,16 @@ class FlaggablePageView extends ContextSource {
 		}
 
 		if ( $tag != '' ) {
+			$notice = Html::openElement( 'div', [ 'id' => 'mw-fr-revisiontag' ] );
 			if ( $this->useSimpleUI() ) {
 				$tagClass = 'flaggedrevs_short';
 				$cssClasses = "{$tagClass} {$tagTypeClass} plainlinks noprint cdx-info-chip";
-				$notice = Html::openElement( 'div', [ 'id' => 'mw-fr-revisiontag' ] ) .
-					Html::openElement( 'div', [ 'class' => $cssClasses ] ) .
-					$tag .
-					Html::closeElement( 'div' );
+				$notice .= Html::openElement( 'div', [ 'class' => $cssClasses ] );
+				$notice .= $tag;
 			} else {
 				$tagClass = 'flaggedrevs_basic';
 				$cssClasses = "{$tagClass} {$tagTypeClass} plainlinks noprint";
-				$notice = Html::openElement( 'div', [
+				$notice .= Html::openElement( 'div', [
 					'class' => 'cdx-message cdx-message--block cdx-message--notice ' . $cssClasses,
 					'aria-live' => 'polite'
 				] );
@@ -1156,26 +1154,26 @@ class FlaggablePageView extends ContextSource {
 	 * @param FlaggedRevision $srev The stable version
 	 * @param string $diffToggle either "" or " <diff toggle><diff div>"
 	 */
-	private function setPendingNotice(
-		FlaggedRevision $srev, $diffToggle = ''
-	): void {
+	private function setPendingNotice( FlaggedRevision $srev, $diffToggle = '' ): void {
 		$time = $this->getLanguage()->date( $srev->getTimestamp(), true );
 		$revsSince = $this->article->getPendingRevCount();
 		$msg = !$revsSince ? 'revreview-newest-basic-i' : 'revreview-newest-basic';
 		# Add bar msg to the top of the page...
 		$msgHTML = $this->msg( $msg, $srev->getRevId(), $time )->numParams( $revsSince )->parse();
 
-		$htmlParts = [];
-		$htmlParts[] = Html::openElement( 'div', [
-			'class' => 'cdx-message cdx-message--block cdx-message--notice',
-			'aria-live' => 'polite'
-		] );
-		$htmlParts[] = Html::element( 'span', [ 'class' => 'cdx-message__icon' ] );
-		$htmlParts[] = Html::openElement( 'div', [ 'class' => 'cdx-message__content' ] );
-		$htmlParts[] = $msgHTML . $diffToggle;
-		$htmlParts[] = Html::closeElement( 'div' ) . Html::closeElement( 'div' );
+		if ( !$this->useSimpleUI() ) {
+			$htmlParts = [];
+			$htmlParts[] = Html::openElement( 'div', [
+				'class' => 'cdx-message cdx-message--block cdx-message--notice',
+				'aria-live' => 'polite'
+			] );
+			$htmlParts[] = Html::element( 'span', [ 'class' => 'cdx-message__icon' ] );
+			$htmlParts[] = Html::openElement( 'div', [ 'class' => 'cdx-message__content' ] );
+			$htmlParts[] = $msgHTML . $diffToggle;
+			$htmlParts[] = Html::closeElement( 'div' ) . Html::closeElement( 'div' );
 
-		$this->reviewNotice .= implode( '', $htmlParts );
+			$this->reviewNotice .= implode( '', $htmlParts );
+		}
 	}
 
 	/**
