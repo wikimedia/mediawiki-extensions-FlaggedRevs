@@ -46,7 +46,7 @@
 	"flaggedrevs-rcfilters-reviewed-desc": "Bewerkingen die zijn beoordeeld.",
 	"flaggedrevs-rcfilters-not-reviewable-label": "Niet onderworpen aan beoordeling",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "Alle soorten wijzigingen waarvoor geen beoordeling vereist is.",
-	"flaggedrevs-contributions-filters-unreviewed-only": "Alleen bewerkingen tonen die in afwachting zijn van beoordeling",
+	"flaggedrevs-contributions-filters-unreviewed-only": "Alleen bewerkingen weergeven die in afwachting zijn van beoordeling",
 	"group-editor": "redacteuren",
 	"group-editor-member": "{{GENDER:$1|redacteur|redactrice}}",
 	"group-reviewer": "eindredacteuren",
