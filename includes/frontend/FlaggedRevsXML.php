@@ -166,6 +166,81 @@ class FlaggedRevsXML {
 	}
 
 	/**
+	 * Generates a dropdown menu for edit tag filters
+	 *
+	 * @param string|null $selected (null or empty string for "any")
+	 * @since 1.43
+	 */
+	public static function getEditTagFilterMenu( ?string $selected = '' ): string {
+		$s = Html::rawElement( 'div', [ 'class' => 'cdx-field__item' ],
+			Html::rawElement( 'div', [ 'class' => 'cdx-label' ],
+				Html::label(
+					wfMessage( 'pendingchanges-edit-tag' )->text(),
+					'wpTagFilter',
+					[ 'class' => 'cdx-label__label' ]
+				)
+			)
+		);
+
+		$selectOptions = Html::element( 'option',
+			[ 'value' => '', 'selected' => ( $selected ?? '' ) === '' ],
+			wfMessage( 'pendingchanges-edit-tag-any' )->text()
+		);
+
+		$tagDefs = ChangeTags::getChangeTagList( RequestContext::getMain(), RequestContext::getMain()->getLanguage() );
+		foreach ( $tagDefs as $tagInfo ) {
+			$tagName = $tagInfo['name'];
+			$selectOptions .= Html::element( 'option',
+				[ 'value' => $tagName, 'selected' => $selected == $tagName ],
+				$tagName
+			);
+		}
+
+		$s .= Html::rawElement( 'select', [
+			'name' => 'tagFilter',
+			'id' => 'wpTagFilter',
+			'class' => 'cdx-select'
+		], $selectOptions );
+
+		return $s;
+	}
+
+	/**
+	 * Get a selector for limit options
+	 *
+	 * @param int $selected The currently selected limit
+	 * @since 1.43
+	 */
+	public static function getLimitSelector( int $selected = 20 ): string {
+		$s = Html::rawElement( 'div', [ 'class' => 'cdx-field__item' ],
+			Html::rawElement( 'div', [ 'class' => 'cdx-label' ],
+				Html::label(
+					wfMessage( 'pendingchanges-limit' )->text(),
+					'wpLimit',
+					[ 'class' => 'cdx-label__label' ]
+				)
+			)
+		);
+
+		$options = [ 20, 50, 100 ];
+		$selectOptions = '';
+		foreach ( $options as $option ) {
+			$selectOptions .= Html::element( 'option', [
+				'value' => $option,
+				'selected' => $selected == $option
+			], (string)$option );
+		}
+
+		$s .= Html::rawElement( 'select', [
+			'name' => 'limit',
+			'id' => 'wpLimit',
+			'class' => 'cdx-select'
+		], $selectOptions );
+
+		return $s;
+	}
+
+	/**
 	 * Generates a review box using a table using FlaggedRevsXML::addTagRatings()
 	 * @param FlaggedRevision $frev the reviewed version
 	 * @param string $shtml Short message HTML

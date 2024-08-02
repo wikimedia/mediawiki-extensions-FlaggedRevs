@@ -1,32 +1,33 @@
 <?php
 
+use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Pager\AlphabeticPager;
+use MediaWiki\Pager\TablePager;
+use Wikimedia\Rdbms\RawSQLExpression;
 
 /**
  * Query to list out outdated reviewed pages
  */
-class PendingChangesPager extends AlphabeticPager {
-	/** @var PendingChanges */
-	private $mForm;
+class PendingChangesPager extends TablePager {
 
-	/** @var string|null */
-	private $category;
-
+	private PendingChanges $mForm;
+	private ?string $category;
 	/** @var int|int[] */
 	private $namespace;
-
-	/** @var int|null */
-	private $size;
-
-	/** @var bool */
-	private $watched;
-
-	/** @var bool */
-	private $stable;
-
+	private ?string $size;
+	private bool $watched;
+	private bool $stable;
+	private ?string $tagFilter;
 	// Don't get too expensive
 	private const PAGE_LIMIT = 100;
+
+	/**
+	 * The unique sort fields for the sort options for unique paginate
+	 */
+	private const INDEX_FIELDS = [
+		'fp_pending_since' => [ 'fp_pending_since' ],
+		'rev_len' => [ 'rev_len' ],
+	];
 
 	/**
 	 * @param PendingChanges $form
@@ -35,9 +36,10 @@ class PendingChangesPager extends AlphabeticPager {
 	 * @param int|null $size
 	 * @param bool $watched
 	 * @param bool $stable
+	 * @param ?string $tagFilter
 	 */
-	public function __construct( $form, $namespace, $category = '',
-		$size = null, $watched = false, $stable = false
+	public function __construct( $form, $namespace, string $category = '',
+		int $size = null, bool $watched = false, bool $stable = false, ?string $tagFilter = ''
 	) {
 		$this->mForm = $form;
 		# Must be a content page...
@@ -50,8 +52,9 @@ class PendingChangesPager extends AlphabeticPager {
 		}
 		$this->namespace = $namespace;
 		$this->category = $category ? str_replace( ' ', '_', $category ) : null;
-		$this->size = ( $size !== null ) ? intval( $size ) : null;
-		$this->watched = (bool)$watched;
+		$this->tagFilter = $tagFilter ? str_replace( ' ', '_', $tagFilter ) : null;
+		$this->size = $size;
+		$this->watched = $watched;
 		$this->stable = $stable && !FlaggedRevs::isStableShownByDefault()
 			&& !FlaggedRevs::useOnlyIfProtected();
 
@@ -71,34 +74,41 @@ class PendingChangesPager extends AlphabeticPager {
 	/**
 	 * @inheritDoc
 	 */
-	public function formatRow( $row ) {
+	public function formatRow( $row ): string {
 		return $this->mForm->formatRow( $row );
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getDefaultQuery() {
+	public function getDefaultQuery(): array {
 		$query = parent::getDefaultQuery();
 		$query['category'] = $this->category;
+		$query['tagFilter'] = $this->tagFilter;
 		return $query;
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getQueryInfo() {
-		$tables = [ 'page', 'revision' ];
-		$fields = [ 'page_namespace', 'page_title', 'page_len', 'rev_len', 'page_latest' ];
-		$conds = [];
-		# Show outdated "stable" versions
-		$tables[] = 'flaggedpages';
-		$fields['stable'] = 'fp_stable';
-		$fields['quality'] = 'fp_quality';
-		$fields['pending_since'] = 'fp_pending_since';
-		$conds[] = 'page_id = fp_page_id';
-		$conds[] = 'rev_id = fp_stable'; // PK
-		$conds[] = $this->mDb->expr( 'fp_pending_since', '!=', null );
+	public function getQueryInfo(): array {
+		$tables = [ 'page', 'revision', 'flaggedpages' ];
+		$fields = [
+			'page_namespace',
+			'page_title',
+			'page_len',
+			'rev_len',
+			'page_latest',
+			'stable' => 'fp_stable',
+			'quality' => 'fp_quality',
+			'pending_since' => 'fp_pending_since'
+		];
+		$conds = [
+			'page_id = fp_page_id',
+			'rev_id = fp_stable',
+			$this->mDb->expr( 'fp_pending_since', '!=', null )
+		];
+
 		# Filter by pages configured to be stable
 		if ( $this->stable ) {
 			$tables[] = 'flaggedpage_config';
@@ -111,6 +121,7 @@ class PendingChangesPager extends AlphabeticPager {
 			$conds[] = 'cl_from = fp_page_id';
 			$conds['cl_to'] = $this->category;
 		}
+		# Index field for sorting
 		$this->mIndexField = 'fp_pending_since';
 		$fields[] = $this->mIndexField; // Pager needs this
 		# Filter namespace
@@ -129,21 +140,36 @@ class PendingChangesPager extends AlphabeticPager {
 		}
 		# Filter by bytes changed
 		if ( $this->size !== null && $this->size >= 0 ) {
-			# Note: ABS(x-y) is broken due to mysql unsigned int design.
-			$conds[] = 'GREATEST(page_len,rev_len)-LEAST(page_len,rev_len) <= ' .
-				intval( $this->size );
+			$conds[] = new RawSQLExpression(
+				"(GREATEST(page_len, rev_len) - LEAST(page_len, rev_len)) <= " . intval( $this->size )
+			);
+		}
+		# Filter by tag
+		if ( $this->tagFilter !== null && $this->tagFilter !== '' ) {
+			$tables[] = 'change_tag';
+			$tables[] = 'change_tag_def';
+			$conds[] = 'ct_tag_id = ctd_id';
+			$conds[] = 'ct_rev_id = rev_id';
+			$conds['ctd_name'] = $this->tagFilter;
 		}
 		# Don't display pages with expired protection (T350527)
 		if ( FlaggedRevs::useOnlyIfProtected() ) {
 			$tables[] = 'flaggedpage_config';
 			$conds[] = 'fpc_page_id = fp_page_id';
-			$conds[] = $this->mDb->expr( 'fpc_expiry', '=', 'infinity' )
-				->or( 'fpc_expiry', '>', $this->mDb->timestamp() );
+			$conds[] = new RawSQLExpression( $this->mDb->buildComparison( '>',
+					[ 'fpc_expiry' => $this->mDb->timestamp() ] ) . ' OR fpc_expiry = "infinity"'
+			);
 		}
+		# Set sorting options
+		$sortField = $this->getRequest()->getVal( 'sort', 'fp_pending_since' );
+		$sortOrder = $this->getRequest()->getVal( 'asc' ) ? 'ASC' : 'DESC';
+		$options = [ 'ORDER BY' => "$sortField $sortOrder" ];
+		# Return query information
 		return [
-			'tables'  => $tables,
-			'fields'  => $fields,
-			'conds'   => $conds
+			'tables' => $tables,
+			'fields' => $fields,
+			'conds' => $conds,
+			'options' => $options,
 		];
 	}
 
@@ -158,24 +184,279 @@ class PendingChangesPager extends AlphabeticPager {
 	 * @inheritDoc
 	 */
 	protected function doBatchLookups() {
-		$lb = MediaWikiServices::getInstance()->getLinkBatchFactory()->newLinkBatch();
+		$this->mResult->seek( 0 );
+		$lb = MediaWikiServices::getInstance()->getLinkBatchFactory();
+		$batch = $lb->newLinkBatch();
 		foreach ( $this->mResult as $row ) {
-			$lb->add( $row->page_namespace, $row->page_title );
+			$batch->add( $row->page_namespace, $row->page_title );
 		}
-		$lb->execute();
+		$batch->execute();
 	}
 
 	/**
-	 * @return string HTML
+	 * @inheritDoc
+	 * @since 1.43
 	 */
-	protected function getStartBody() {
-		return '<ul>';
+	public function getDefaultSort(): string {
+		return 'fp_pending_since';
 	}
 
 	/**
-	 * @return string HTML
+	 * @inheritDoc
+	 * @since 1.43
 	 */
-	protected function getEndBody() {
-		return '</ul>';
+	protected function getFieldNames(): array {
+		return [
+			'page_title' => 'pendingchanges-table-page',
+			'rev_len' => 'pendingchanges-table-size',
+			'fp_pending_since' => 'pendingchanges-table-pending-since',
+			'watching' => 'pendingchanges-table-watching',
+			'review' => 'pendingchanges-table-review'
+		];
+	}
+
+	/**
+	 * @inheritDoc
+	 * @since 1.43
+	 */
+	public function formatValue( $name, $value ): ?string {
+		return htmlspecialchars( $value );
+	}
+
+	/**
+	 * @inheritDoc
+	 * @since 1.43
+	 */
+	protected function isFieldSortable( $field ): bool {
+		return isset( self::INDEX_FIELDS[$field] );
+	}
+
+	/**
+	 * Builds and returns the start body HTML for the table.
+	 *
+	 * @return string HTML
+	 * @since 1.43
+	 */
+	protected function getStartBody(): string {
+		return Html::openElement( 'div', [ 'class' => 'cdx-table mw-fr-pending-changes-table' ] ) .
+			$this->buildTableHeader() .
+			Html::openElement( 'div', [ 'class' => 'cdx-table__table-wrapper' ] ) .
+			$this->buildTableElement();
+	}
+
+	/**
+	 * Builds and returns the table header HTML.
+	 *
+	 * @return string HTML
+	 * @since 1.43
+	 */
+	private function buildTableHeader(): string {
+		$headerCaption = $this->buildHeaderCaption();
+		$headerContent = $this->buildHeaderContent();
+
+		return Html::rawElement(
+			'div',
+			[ 'class' => 'cdx-table__header' ],
+			$headerCaption . $headerContent
+		);
+	}
+
+	/**
+	 * Builds and returns the header caption HTML.
+	 *
+	 * @return string HTML
+	 * @since 1.43
+	 */
+	private function buildHeaderCaption(): string {
+		return Html::rawElement(
+			'div',
+			[ 'class' => 'cdx-table__header__caption', 'aria-hidden' => 'true' ],
+			$this->msg( 'pendingchanges-table-caption' )->text()
+		);
+	}
+
+	/**
+	 * Builds and returns the header content HTML.
+	 *
+	 * @return string HTML
+	 * @since 1.43
+	 */
+	private function buildHeaderContent(): string {
+		$pendingCount = $this->getPendingCount();
+		$formattedCount = Html::element( 'strong', [ 'class' => 'cdx-info-chip' ], (string)$pendingCount );
+
+		return Html::rawElement(
+			'div',
+			[ 'class' => 'cdx-table__header__header-content' ],
+			$this->msg( 'pendingchanges-table-footer', $formattedCount )->numParams( $pendingCount )->text()
+		);
+	}
+
+	/**
+	 * Retrieves the count of pending pages.
+	 *
+	 * @return int The count of pending pages.
+	 * @since 1.43
+	 */
+	private function getPendingCount(): int {
+		return $this->mDb->selectRowCount(
+			'flaggedpages', '*', [ $this->mDb->expr( 'fp_pending_since', '!=', null ) ]
+		);
+	}
+
+	/**
+	 * Builds and returns the table element HTML.
+	 *
+	 * @return string HTML
+	 * @since 1.43
+	 */
+	private function buildTableElement(): string {
+		$caption = Html::element( 'caption', [], $this->msg( 'pendingchanges-table-caption' )->text() );
+		$thead = $this->buildTableHeaderCells();
+
+		return Html::openElement( 'table', [ 'class' => 'cdx-table__table cdx-table__table--borders-vertical' ] ) .
+			$caption .
+			$thead .
+			Html::openElement( 'tbody' );
+	}
+
+	/**
+	 * Builds and returns the table header cells HTML.
+	 *
+	 * @return string HTML
+	 * @since 1.43
+	 */
+	private function buildTableHeaderCells(): string {
+		$fields = $this->getFieldNames();
+		$headerCells = '';
+
+		foreach ( $fields as $field => $labelKey ) {
+			$class = ( $field === 'review' || $field === 'history' ) ? 'cdx-table__table__cell--align-center' : '';
+
+			if ( $field === 'review' ) {
+				$headerCells .= Html::rawElement(
+					'th',
+					[ 'scope' => 'col', 'class' => $class ],
+					Html::rawElement(
+						'span',
+						[ 'class' => 'fr-cdx-icon-eye', 'aria-hidden' => 'true' ]
+					)
+				);
+			} elseif ( $field === 'history' ) {
+				$headerCells .= Html::rawElement(
+					'th',
+					[ 'scope' => 'col', 'class' => $class ],
+					Html::rawElement(
+						'span',
+						[ 'class' => 'fr-cdx-icon-clock', 'aria-hidden' => 'true' ]
+					)
+				);
+			} elseif ( $this->isFieldSortable( $field ) ) {
+				$isCurrentSortField = ( $this->mSort === $field );
+				$currentAsc = $this->getRequest()->getVal( 'asc', '1' );
+
+				$newSortAsc = $isCurrentSortField && $currentAsc === '1' ? '' : '1';
+				$newSortDesc = $isCurrentSortField && $currentAsc === '1' ? '1' : '';
+
+				$ariaSort = 'none';
+				if ( $isCurrentSortField ) {
+					$ariaSort = $currentAsc === '1' ? 'ascending' : 'descending';
+				}
+
+				$iconClass = 'fr-cdx-icon-sort-vertical';
+				if ( $isCurrentSortField ) {
+					$iconClass = $currentAsc === '1' ? 'fr-icon-asc' : 'fr-icon-desc';
+				}
+
+				$currentParams = $this->getRequest()->getValues();
+				unset( $currentParams['title'], $currentParams['sort'], $currentParams['asc'], $currentParams['desc'] );
+				$currentParams['sort'] = $field;
+				$currentParams['asc'] = $newSortAsc;
+				$currentParams['desc'] = $newSortDesc;
+
+				$href = $this->getTitle()->getLocalURL( $currentParams );
+
+				$headerCells .= Html::rawElement(
+					'th',
+					[
+						'scope' => 'col',
+						'class' => 'cdx-table__table__cell--has-sort ' . $class,
+						'aria-sort' => $ariaSort,
+					],
+					Html::rawElement(
+						'a',
+						[ 'href' => $href ],
+						Html::rawElement(
+							'button',
+							[
+								'class' => 'cdx-table__table__sort-button',
+								'aria-selected' => $isCurrentSortField ? 'true' : 'false'
+							],
+							$this->msg( $labelKey )->text() . ' ' .
+							Html::rawElement(
+								'span',
+								[ 'class' => 'cdx-icon cdx-icon--small cdx-table__table__sort-icon ' .
+									$iconClass, 'aria-hidden' => 'true' ]
+							)
+						)
+					)
+				);
+			} else {
+				$headerCells .= Html::rawElement(
+					'th',
+					[ 'scope' => 'col', 'class' => $class ],
+					Html::rawElement(
+						'span',
+						[ 'class' => 'cdx-table__th-content' ],
+						$this->msg( $labelKey )->text()
+					)
+				);
+			}
+		}
+
+		return Html::rawElement(
+			'thead',
+			[],
+			Html::rawElement(
+				'tr',
+				[],
+				$headerCells
+			)
+		);
+	}
+
+	/**
+	 * Builds and returns the end body HTML for the table.
+	 *
+	 * @return string HTML
+	 * @since 1.43
+	 */
+	protected function getEndBody(): string {
+		$pendingCount = $this->getPendingCount();
+		$formattedCount = Html::element( 'strong', [ 'class' => 'cdx-info-chip' ], (string)$pendingCount );
+
+		return Html::closeElement( 'tbody' ) .
+			Html::closeElement( 'table' ) .
+			Html::closeElement( 'div' ) .
+			$this->buildTableFooter( $formattedCount, $pendingCount ) .
+			Html::closeElement( 'div' );
+	}
+
+	/**
+	 * Builds and returns the table footer HTML.
+	 *
+	 * @param string $formattedCount The formatted count of pending pages.
+	 * @param int $pendingCount The count of pending pages.
+	 * @return string HTML
+	 * @since 1.43
+	 */
+	private function buildTableFooter( string $formattedCount, int $pendingCount ): string {
+		return Html::rawElement(
+			'div',
+			[ 'class' => 'cdx-table__footer' ],
+			Html::rawElement( 'span', [], $this->msg( 'pendingchanges-table-footer',
+				$formattedCount )->numParams( $pendingCount )->text()
+			)
+		);
 	}
 }

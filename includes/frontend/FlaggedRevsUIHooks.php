@@ -132,17 +132,24 @@ class FlaggedRevsUIHooks implements
 	}
 
 	/**
-	 * Add FlaggedRevs css for relevant special pages.
+	 * Add FlaggedRevs CSS for relevant special pages.
+	 *
 	 * @param OutputPage $out
 	 */
-	private static function injectStyleForSpecial( $out ) {
+	private static function injectStyleForSpecial( OutputPage $out ) {
 		$title = $out->getTitle();
-		$spPages = [ 'UnreviewedPages', 'PendingChanges', 'Watchlist',
-			'Recentchanges', 'Contributions', 'Recentchangeslinked' ];
-		foreach ( $spPages as $key ) {
+		$specialPagesWithAdvanced = [ 'PendingChanges', 'ConfiguredPages', 'UnreviewedPages' ];
+		$specialPages = array_merge( $specialPagesWithAdvanced,
+			[ 'Watchlist', 'Recentchanges', 'Contributions', 'Recentchangeslinked' ] );
+
+		foreach ( $specialPages as $key ) {
 			if ( $title->isSpecial( $key ) ) {
 				$out->addModuleStyles( 'ext.flaggedRevs.basic' ); // CSS only
 				$out->addModuleStyles( 'codex-styles' );
+
+				if ( in_array( $key, $specialPagesWithAdvanced ) ) {
+					$out->addModules( 'ext.flaggedRevs.advanced' );
+				}
 				break;
 			}
 		}
