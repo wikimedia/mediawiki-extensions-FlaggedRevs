@@ -815,11 +815,13 @@ class FlaggablePageView extends ContextSource {
 				FlaggedRevsXML::diffToggle( $this->article->getTitle(), $frev->getRevId(), $revId ) . '</p>';
 		}
 
-		if ( $frev && $this->article->onlyTemplatesPending() &&
-			$this->article->getPendingRevCount() == 0
-		) {
-			$this->setPendingNotice( $frev, '' );
-			$lines[] = $this->reviewNotice;
+		$srev = $this->article->getStableRev();
+		$revsSince = $this->article->getPendingRevCount();
+
+		if ( $frev && $this->article->onlyTemplatesPending() && $revsSince === 0 && $srev ) {
+			$time = $this->getLanguage()->userTimeAndDate( $srev->getTimestamp(), $this->getUser() );
+			$lines[] = '<p>' . $this->msg( 'revreview-newest-basic-i',
+					$srev->getRevId(), $time )->numParams( $revsSince )->parse() . '</p>';
 		}
 
 		if ( $lines ) {
