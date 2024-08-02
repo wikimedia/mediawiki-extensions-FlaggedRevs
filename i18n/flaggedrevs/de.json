@@ -133,7 +133,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]'''",
 	"revreview-quick-invalid": "'''Ungültige Versionsnummer'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Nicht markiert]]'''",
-	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} weitere Änderungen sichten]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Weitere Änderungen sichten]",
 	"revreview-basic-title": "Dies ist eine gesichtete Version dieser Seite",
 	"revreview-toggle-title": "Details zeigen/verstecken",
 	"revreview-visibility-synced": "'''Diese Seite hat eine aktuellere [[{{MediaWiki:Validationpage}}|stabile Version]]. Die Einstellungen bezüglich der stabilen Version können [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfiguriert werden].'''",
