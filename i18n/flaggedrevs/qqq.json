@@ -200,5 +200,13 @@
 	"log-action-filter-stable-config": "{{doc-log-action-filter-action|stable|config}}\n{{Related|Log-action-filter}}",
 	"log-action-filter-stable-modify": "{{doc-log-action-filter-action|stable|modify}}\n{{Related|Log-action-filter}}",
 	"log-action-filter-stable-reset": "{{doc-log-action-filter-action|stable|reset}}\n{{Related|Log-action-filter}}",
-	"log-action-filter-stable-move_stable": "{{doc-log-action-filter-action|stable|move_stable}}"
+	"log-action-filter-stable-move_stable": "{{doc-log-action-filter-action|stable|move_stable}}",
+	"revreview-draft-indicator-title": "This message represents the indicator title for pages with pending changes. It will link to the [[{{MediaWiki:Validationpage}}|Pending]] page.",
+	"revreview-unchecked-title": "Tooltip or title attribute shown when a page has not been reviewed yet.",
+	"revreview-dialog-title": "Title of the dialog that displays the review status of a page.",
+	"revreview-quick-basic-same-title": "Message used in a flag box when viewing a 'checked' page with no pending changes. It includes a link to the [[{{MediaWiki:Validationpage}}|Checked]] page.",
+	"fr-revision-info-dialog": "This message is shown to inform readers about the current status of the page's content, typically provided within an information dialog.",
+	"fr-revision-info-dialog-review-button": "Label for the button to review the page's current revision in the information dialog.",
+	"fr-revision-info-dialog-cancel-button": "Label for the button to cancel the review action in the information dialog.",
+	"fr-revision-info-dialog-close-aria-label": "ARIA label for the button to close the information dialog. This label is used for accessibility purposes."
 }

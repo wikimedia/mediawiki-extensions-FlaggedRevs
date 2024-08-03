@@ -45,7 +45,7 @@ function postSubmitRevisionReview( form, respObj ) {
 	var rsubmit = document.querySelector( '#mw-fr-submit-reject' ); // REJECT
 	var $diffNotice = $( '#mw-fr-difftostable' );
 	// FlaggedRevs rating box
-	var $tagBox = $( '#mw-fr-revisiontag' );
+	var $tagBox = $( '#mw-fr-revision-tag' );
 	// Diff parameters
 	var $diffUIParams = $( '#mw-fr-diff-dataform' );
 

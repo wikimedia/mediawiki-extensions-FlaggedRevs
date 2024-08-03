@@ -131,38 +131,41 @@ class FlaggedRevsXML {
 	}
 
 	/**
-	 * Generates a review box/tag
-	 * @param array<string,int> $flags
+	 * Generates a review box/tag displaying the quality level based on flags.
+	 *
+	 * This method creates a simple HTML table with two cells: one for the quality label
+	 * and the other for the corresponding rating. The table is only generated if the page
+	 * is not protected by FlaggedRevs settings.
+	 *
+	 * @param array $flags An associative array containing the flag ratings.
+	 *
+	 * @return string The generated HTML string for the review box/tag.
 	 */
 	public static function addTagRatings( array $flags ): string {
-		$tag = Html::openElement(
-			'table',
-			[
-				'id' => 'mw-fr-revisionratings-box',
-				'style' => 'margin: auto;',
-				'class' => 'flaggedrevs-color-1',
-				'cellpadding' => '0',
-			]
-		);
-		$quality = FlaggedRevs::getTagName();
-
-		if ( !FlaggedRevs::useOnlyIfProtected() ) {
-			// Give grep a chance to find the usages:
-			// revreview-accuracy-0, revreview-accuracy-1, revreview-accuracy-2,
-			// revreview-accuracy-3, revreview-accuracy-4
-			$level = $flags[$quality] ?? 0;
-			$encValueText = wfMessage( "revreview-$quality-$level" )->escaped();
-
-			$levelmarker = $level * 20 + 20;
-			// Give grep a chance to find the usages:
-			// revreview-accuracy
-			$tag .= "<tr><td class='fr-text' style='vertical-align: middle;'>" .
-				wfMessage( "revreview-$quality" )->escaped() .
-				"</td><td class='fr-value$levelmarker' style='vertical-align: middle;'>" .
-				$encValueText . "</td></tr>\n";
-			$tag .= Html::closeElement( 'table' );
+		if ( FlaggedRevs::useOnlyIfProtected() ) {
+			return '';
 		}
-		return $tag;
+
+		$quality = FlaggedRevs::getTagName();
+		$level = $flags[$quality] ?? 0;
+		$encValueText = wfMessage( "revreview-$quality-$level" )->text();
+		$levelClass = 'fr-value' . ( $level * 20 + 20 );
+
+		return Html::rawElement( 'table', [
+			'id' => 'mw-fr-revisionratings-box',
+			'class' => 'flaggedrevs-color-1',
+			'style' => 'margin: auto;',
+			'cellpadding' => '0',
+		],
+			Html::rawElement( 'tr', [],
+				Html::element( 'td', [ 'class' => 'fr-text', 'style' => 'vertical-align: middle;' ],
+					wfMessage( "revreview-$quality" )->text()
+				) .
+				Html::element( 'td', [ 'class' => $levelClass, 'style' => 'vertical-align: middle;' ],
+					$encValueText
+				)
+			)
+		);
 	}
 
 	/**
@@ -242,82 +245,195 @@ class FlaggedRevsXML {
 
 	/**
 	 * Generates a review box using a table using FlaggedRevsXML::addTagRatings()
-	 * @param FlaggedRevision $frev the reviewed version
-	 * @param string $shtml Short message HTML
+	 *
+	 * @param FlaggedRevision|null $frev the reviewed version
+	 * @param int $revisionId the revision ID
 	 * @param int $revsSince revisions since review
 	 * @param string $type (stable/draft/oldstable)
 	 * @param bool $synced does stable=current and this is one of them?
+	 *
+	 * @return string
 	 */
-	public static function prettyRatingBox(
-		FlaggedRevision $frev,
-		string $shtml,
+	public static function reviewDialog(
+		?FlaggedRevision $frev,
+		int $revisionId,
 		int $revsSince,
 		string $type = 'oldstable',
 		bool $synced = false
 	): string {
 		global $wgLang;
-		$flags = $frev->getTags();
-		$time = $wgLang->date( $frev->getTimestamp(), true );
-		# Construct some tagging
-		if ( $synced && ( $type == 'stable' || $type == 'draft' ) ) {
-			$msg = 'revreview-basic-same';
-			$html = wfMessage( $msg, $frev->getRevId(), $time )->numParams( $revsSince )->parse();
-		} elseif ( $type == 'oldstable' ) {
-			$msg = 'revreview-basic-old';
-			$html = wfMessage( $msg, $frev->getRevId(), $time )->parse();
+		$href = '';
+		$context = RequestContext::getMain();
+		$user = $context->getAuthority();
+		$skin = $context->getSkin();
+
+		// If $frev is null, show a dialog with a "no flagged revision" message
+		if ( $frev === null ) {
+			$subtitleMessageKey = 'revreview-unchecked-title';
+			$msg = 'revreview-noflagged';
+			$subtitle = wfMessage( $subtitleMessageKey )->text();
+			$html = wfMessage( $msg )->parse();
 		} else {
-			$msg = $type === 'stable' ? 'revreview-basic' : 'revreview-newest-basic';
-			# For searching: uses messages 'revreview-basic-i', 'revreview-newest-basic-i'
-			$msg .= !$revsSince ? '-i' : '';
-			$html = wfMessage( $msg, $frev->getRevId(), $time )->numParams( $revsSince )->parse();
-		}
-		# Make fancy box...
-		$box = '<div class="flaggedrevs_short_basic">';
-		$box .= $shtml . self::ratingArrow();
-		$box .= "</div>\n";
-		// For rel-absolute child div (the fly-out)
-		$box .= '<div id="mw-fr-revisiondetails-wrapper" style="position:relative;">';
-		$box .= Html::openElement(
-			'div',
-			[
-				'id'    => 'mw-fr-revisiondetails',
-				'class' => 'flaggedrevs_short_details',
-				'style' => 'display:none'
-			]
-		);
-		$box .= $html; // details text
-		# Add any rating tags as needed...
-		if ( $flags && !FlaggedRevs::binaryFlagging() ) {
-			# Don't show the ratings on draft views
-			if ( $type == 'stable' || $type == 'oldstable' ) {
-				$box .= '<p>' . self::addTagRatings( $flags ) . '</p>';
+			// Regular case when $frev is not null
+			$flags = $frev->getTags();
+			$time = $wgLang->date( $frev->getTimestamp(), true );
+
+			$subtitleMessageKey = ( $type === 'stable' || $synced )
+				? 'revreview-basic-title' // This is a checked version of this page
+				: 'revreview-draft-title'; // Pending changes are displayed on this page
+
+			$subtitle = wfMessage( $subtitleMessageKey )->text();
+
+			// Construct some tagging
+			if ( $synced && ( $type == 'stable' || $type == 'draft' ) ) {
+				$msg = 'revreview-basic-same';
+				$html = wfMessage( $msg, $frev->getRevId(), $time )->numParams( $revsSince )->parse();
+			} elseif ( $type == 'oldstable' ) {
+				$msg = 'revreview-basic-old';
+				$html = wfMessage( $msg, $frev->getRevId(), $time )->parse();
+			} else {
+				$msg = $type === 'stable' ? 'revreview-basic' : 'revreview-newest-basic';
+				$msg .= !$revsSince ? '-i' : '';
+				$html = wfMessage( $msg, $frev->getRevId(), $time )->numParams( $revsSince )->parse();
 			}
+
+			// Add any rating tags as needed...
+			if ( $flags && !FlaggedRevs::binaryFlagging() ) {
+				if ( $skin->getSkinName() !== 'minerva' ) {
+					// Don't show the ratings on draft views
+					if ( $type == 'stable' || $type == 'oldstable' ) {
+						$html .= '<p>' . self::addTagRatings( $flags ) . '</p>';
+					}
+				}
+			}
+
+			$title = $frev->getTitle();
+			$href = $title->getFullURL( [ 'diff' => 'cur', 'oldid' => $revisionId ] );
 		}
-		$box .= Html::closeElement( 'div' ) . "\n";
-		$box .= "</div>\n";
-		return $box;
+
+		if ( $skin && $skin->getSkinName() === 'minerva' ) {
+			return self::addMessageBox( 'inline', $html, [
+				'class' => 'mw-fr-mobile-message-inline',
+			] );
+		} else {
+			return Html::rawElement(
+				'div',
+				[
+					'id' => 'mw-fr-revision-details',
+					'class' => 'mw-fr-revision-details-dialog',
+					'style' => 'display:none;'
+				],
+				Html::rawElement( 'div', [ 'tabindex' => '0' ] ) .
+				Html::rawElement(
+					'div',
+					[ 'class' => 'cdx-dialog cdx-dialog--horizontal-actions' ],
+					Html::rawElement(
+						'header',
+						[ 'class' => 'cdx-dialog__header cdx-dialog__header--default' ],
+						Html::rawElement(
+							'div',
+							[ 'class' => 'cdx-dialog__header__title-group' ],
+							Html::element( 'h2', [ 'class' => 'cdx-dialog__header__title' ],
+								wfMessage( 'revreview-dialog-title' ) ) .
+							Html::element( 'p', [ 'class' => 'cdx-dialog__header__subtitle' ], $subtitle )
+						) .
+						Html::rawElement( 'button', [
+							'class' => 'cdx-button cdx-button--action-default cdx-button--weight-quiet
+							cdx-button--size-medium cdx-button--icon-only cdx-dialog__header__close-button',
+							'aria-label' => wfMessage( 'fr-revision-info-dialog-close-aria-label' ),
+							'onclick' => 'document.getElementById("mw-fr-revision-details").style.display = "none";'
+						],
+							Html::rawElement( 'span', [ 'class' => 'cdx-icon cdx-icon--medium
+							cdx-fr-css-icon--close' ] )
+						)
+					) .
+					Html::rawElement(
+						'div',
+						[ 'class' => 'cdx-dialog__body' ],
+						$html
+					) .
+					Html::rawElement(
+						'footer',
+						[ 'class' => 'cdx-dialog__footer cdx-dialog__footer--default' ],
+						Html::rawElement( 'div', [ 'class' => 'cdx-dialog__footer__actions' ],
+							( $frev !== null && $user->isAllowed( 'review' ) ?
+								Html::element(
+									'button',
+									[
+										'class' =>
+											'cdx-button cdx-button--action-progressive cdx-button--weight-primary 
+										cdx-button--size-medium cdx-dialog__footer__primary-action',
+										'onclick' => "window.open(' $href ');"
+									],
+									wfMessage( 'fr-revision-info-dialog-review-button' )
+								) : '' ) .
+							Html::element(
+								'button',
+								[
+									'class' => 'cdx-dialog__footer__default-action cdx-button cdx-button--default',
+									'onclick' =>
+										'document.getElementById("mw-fr-revision-details").style.display = "none";'
+								],
+								wfMessage( 'fr-revision-info-dialog-cancel-button' )
+							)
+						)
+					)
+				) .
+				Html::rawElement( 'div', [ 'tabindex' => '0' ] )
+			);
+		}
 	}
 
 	/**
-	 * Generates JS toggle arrow icon
+	 * Generates a custom message box using the `cdx-message` class.
+	 *
+	 * This method creates a message box with the `cdx-message` class, which can be configured
+	 * as either `inline` or `block`. The method allows for additional attributes to be passed
+	 * to further customize the appearance and behavior of the message box.
+	 *
+	 * The message box will include:
+	 * - An outer `div` element with the appropriate `cdx-message` classes and any additional
+	 *   classes or attributes specified in the `$attrs` parameter.
+	 * - A `span` element for the message icon, using the `cdx-message__icon` class.
+	 * - A nested `div` element to contain the message content, using the `cdx-message__content` class.
+	 *
+	 * This method is useful for creating consistent, styled message boxes across the application.
+	 *
+	 * @param string $type The type of message box to create, either 'inline' or 'block'.
+	 *                     This determines the overall structure and style of the message box.
+	 * @param string $message The content to display inside the message box. This can include
+	 *                        HTML or plain text, depending on the context.
+	 * @param array $attrs Optional. An associative array of additional HTML attributes to
+	 *                     apply to the outer `div` element of the message box. The `class`
+	 *                     attribute can be extended by passing additional classes in this array.
+	 * @return string The generated HTML string for the complete message box, ready to be
+	 *                rendered in the output.
 	 */
-	private static function ratingArrow(): string {
-		return ( Html::element( 'span',
-			[
-				'class' => [ 'fr-toggle-arrow flaggedrevs-icon flaggedrevs-icon-expand' ],
-				'id' => 'mw-fr-revisiontoggle',
-				'title' => wfMessage( 'revreview-toggle-title' )->text(),
-			],
-			''
-		) );
+	public static function addMessageBox( string $type, string $message, array $attrs = [] ): string {
+		// Base classes for the message box, including type and notice class
+		$baseClass = 'cdx-message mw-fr-message-box cdx-message--' . $type . ' cdx-message--notice';
+
+		// Merge custom attributes with the default class
+		$attrs['class'] = isset( $attrs['class'] ) ? $baseClass . ' ' . $attrs['class'] : $baseClass;
+
+		// Generate and return the complete HTML for the message box
+		return Html::rawElement(
+			'div',
+			$attrs,
+			Html::element( 'span', [ 'class' => 'cdx-message__icon' ] ) .
+			Html::rawElement( 'div', [ 'class' => 'cdx-message__content' ], $message )
+		);
 	}
 
 	/**
 	 * Generates the "(show/hide)" diff toggle. With JS disabled, it functions as a link to the diff.
+	 *
 	 * @param Title $title
 	 * @param int $fromrev
 	 * @param int $torev
 	 * @param string|null $multiNotice Message about intermediate revisions
+	 *
+	 * @return string
 	 */
 	public static function diffToggle( Title $title, int $fromrev, int $torev, string $multiNotice = null ): string {
 		// Construct a link to the diff
@@ -332,58 +448,8 @@ class FlaggedRevsXML {
 			'data-mw-multinotice' => $multiNotice,
 		], wfMessage( 'revreview-diff-toggle-show' )->text() );
 
-		return '<span id="mw-fr-difftoggle">' .
+		return '<span id="mw-fr-diff-toggle">' .
 			wfMessage( 'parentheses' )->rawParams( $toggle )->escaped() . '</span>';
-	}
-
-	/**
-	 * Creates CSS draft page icon
-	 */
-	public static function draftStatusIcon(): string {
-		$encTitle = wfMessage( 'revreview-draft-title' )->text();
-		return ( Html::element( 'span',
-			[
-				'class' => [ 'flaggedrevs-icon', 'flaggedrevs-icon-block', 'skin-invert' ],
-				'title' => $encTitle,
-			],
-			''
-		) );
-	}
-
-	/**
-	 * Creates CSS stable page icon
-	 */
-	public static function stableStatusIcon(): string {
-		$encTitle = wfMessage( 'revreview-basic-title' )->text();
-		return ( Html::element( 'span',
-			[
-				'class' => [ 'flaggedrevs-icon', 'flaggedrevs-icon-eye', 'skin-invert' ],
-				'title' => $encTitle,
-			],
-			''
-		) );
-	}
-
-	/**
-	 * Creates CSS lock icon if page is locked/unlocked
-	 */
-	public static function lockStatusIcon( FlaggableWikiPage $flaggedArticle ): string {
-		if ( $flaggedArticle->isPageLocked() ) {
-			$encTitle = wfMessage( 'revreview-locked-title' )->text();
-			$icon = 'articleSearch';
-		} elseif ( $flaggedArticle->isPageUnlocked() ) {
-			$encTitle = wfMessage( 'revreview-unlocked-title' )->text();
-			$icon = 'articleCheck';
-		} else {
-			return '';
-		}
-		return ( Html::element( 'span',
-			[
-				'class' => [ 'flaggedrevs-icon', 'flaggedrevs-icon-' . $icon ],
-				'title' => $encTitle,
-			],
-			''
-		) );
 	}
 
 	/**

@@ -15,6 +15,7 @@ use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
+use OOUI\ButtonInputWidget;
 
 /**
  * Class representing a web view of a MediaWiki page
@@ -33,6 +34,15 @@ class FlaggablePageView extends ContextSource {
 	private string $diffNoticeBox = '';
 	private string $diffIncChangeBox = '';
 	private ?RevisionRecord $reviewFormRevRecord = null;
+	/**
+	 * The stable revision.
+	 */
+	private ?FlaggedRevision $srev = null;
+
+	/**
+	 * The flagged revision being viewed.
+	 */
+	private ?FlaggedRevision $frev = null;
 
 	/**
 	 * @return MapCacheLRU
@@ -46,6 +56,8 @@ class FlaggablePageView extends ContextSource {
 
 	/**
 	 * Get a FlaggableWikiPage for a given title
+	 *
+	 * @param PageIdentity $title
 	 *
 	 * @return self
 	 */
@@ -98,20 +110,6 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	 * Get the FlaggableWikiPage instance associated with the current page title,
-	 * or null if there isn't such a title
-	 *
-	 * @deprecated Use FlaggableWikiPage::getTitleInstance() instead
-	 */
-	public static function globalArticleInstance(): ?FlaggableWikiPage {
-		$title = RequestContext::getMain()->getTitle();
-		if ( $title && $title->canExist() ) {
-			return FlaggableWikiPage::getTitleInstance( $title );
-		}
-		return null;
-	}
-
-	/**
 	 * Check if the old and new diff revs are set for this page view
 	 */
 	public function diffRevRecordsAreSet(): bool {
@@ -144,7 +142,7 @@ class FlaggablePageView extends ContextSource {
 		// Otherwise follow site/page config and user preferences.
 		$reqUser = $this->getUser();
 		$defaultForUser = $this->getPageViewStabilityModeForUser( $reqUser );
-		$stableDefault = (
+		return (
 			// User is not configured to prefer current versions
 			$defaultForUser !== FR_SHOW_STABLE_NEVER &&
 			// User explicitly prefers stable versions of pages
@@ -154,7 +152,6 @@ class FlaggablePageView extends ContextSource {
 				$this->article->getStabilitySettings()['override']
 			)
 		);
-		return $stableDefault;
 	}
 
 	/**
@@ -234,133 +231,212 @@ class FlaggablePageView extends ContextSource {
 
 		# Give a notice if this rev ID corresponds to a reviewed version...
 		$time = $this->getLanguage()->date( $frev->getTimestamp(), true );
-		$this->out->addHTML(
-			Html::rawElement( 'div', [
-				'id' => 'mw-fr-revisiontag-old',
-				'class' => 'cdx-message cdx-message--block cdx-message--notice flaggedrevs_notice plainlinks noprint',
-				'aria-live' => 'polite'
-			],
-				Html::element( 'span', [ 'class' => 'cdx-message__icon' ] ) .
-				Html::rawElement( 'div', [ 'class' => 'cdx-message__content' ],
-					$this->msg( 'revreview-basic-source', $frev->getRevId(), $time )->parse()
-				)
-			)
-		);
+		$message = $this->msg( 'revreview-basic-source', $frev->getRevId(), $time )->parse();
+		$html = FlaggedRevsXML::addMessageBox( 'block', $message, [
+			'id' => 'mw-fr-revision-tag-old',
+			'class' => 'flaggedrevs_notice plainlinks noprint'
+		] );
+		$this->out->addHTML( $html );
 	}
 
 	/**
-	 * Replaces a page with the last stable version if possible
-	 * Adds stable version status/info tags and notes
-	 * Adds a quick review form on the bottom if needed
-	 * @param bool|ParserOutput|null &$outputDone
-	 * @param bool &$useParserCache
+	 * Adds a visual indicator to the page view based on the review status of the current page revision.
+	 *
+	 * This indicator helps users quickly identify whether the current revision is stable, a draft,
+	 * or unchecked. The indicator is displayed using an appropriate icon and message at the top
+	 * of the page, near the title.
+	 *
+	 * @return void
+	 */
+	public function addStatusIndicator(): void {
+		if ( $this->getSkin()->getSkinName() === 'minerva' ) {
+			return;
+		}
+
+		if ( !$this->article->isReviewable() ) {
+			return;
+		}
+
+		// Determine the requested revision type
+		$requestedRevision = $this->determineRequestedRevision();
+
+		// Determine the message key, icon class, and indicator ID based on the requested revision type
+		$statusMessageKey = '';
+		$iconClass = '';
+		$indicatorId = 'mw-fr-revision-toggle'; // Default ID for the indicator
+
+		switch ( $requestedRevision ) {
+			case 'stable':
+				$statusMessageKey = 'revreview-quick-basic-same-title';
+				$iconClass = 'cdx-fr-css-icon-review--status--stable';
+				break;
+			case 'draft':
+				$statusMessageKey = 'revreview-draft-indicator-title';
+				$iconClass = 'cdx-fr-css-icon-review--status--pending';
+				break;
+			case 'unreviewed':
+				if ( !$this->out->isPrintable() ) {
+					$statusMessageKey = $this->useSimpleUI() ? 'revreview-quick-none' : 'revreview-noflagged';
+					$iconClass = 'cdx-fr-css-icon-review--status--unchecked';
+				}
+				break;
+			case 'invalid':
+			case 'old':
+				break;
+		}
+
+		// Only proceed if a valid status message key was determined
+		if ( $statusMessageKey ) {
+			// Prepare the attributes for the indicator element
+			$attributes = [
+				'name' => 'fr-review-status',
+				'class' => 'mw-fr-review-status-indicator',
+				'id' => $indicatorId,
+			];
+
+			// Generate the HTML for the indicator
+			$indicatorHtml = Html::rawElement(
+				'indicator',
+				$attributes,
+				Html::element( 'span', [ 'class' => $iconClass ] ) . $this->msg( $statusMessageKey )->parse()
+			);
+
+			// Add the indicator to the output page
+			$this->out->setIndicators( [ 'indicator-fr-review-status' => $indicatorHtml ] );
+		}
+	}
+
+	/**
+	 * Handles the display of the page content, prioritizing the last stable version if possible.
+	 *
+	 * This method replaces the current page view with the last stable version if conditions allow.
+	 * It determines the type of revision requested by the user (e.g., 'stable', 'draft', 'unreviewed'),
+	 * and adjusts the page content accordingly. Depending on the revision type, it may display tags,
+	 * notices, and a review form.
+	 *
+	 * The method also controls whether the parser cache should be used and whether the parser output
+	 * is completed.
+	 *
+	 * @param bool|ParserOutput|null &$outputDone Indicates whether the parser output is completed.
+	 * @param bool &$useParserCache Controls whether the parser cache should be used for this page view.
+	 *
+	 * @return void
 	 */
 	public function setPageContent( &$outputDone, &$useParserCache ): void {
 		$request = $this->getRequest();
-		# Only trigger on page views with no oldid=x param
-		if ( !$this->isPageView() || $request->getVal( 'oldid' ) ) {
-			return;
-		# Only trigger for reviewable pages that exist
-		} elseif ( !$this->article->exists() || !$this->article->isReviewable() ) {
+
+		// Only proceed if this is a page view without an oldid parameter, and the page exists and is reviewable
+		if ( !$this->isPageView() || $request->getVal( 'oldid' ) || !$this->article->exists() ||
+			!$this->article->isReviewable() ) {
 			return;
 		}
-		$tag = ''; // review tag box/bar message
-		$old = false;
-		$stable = false;
-		// Initialize $tagTypeClass
-		$tagTypeClass = '';
-		// Check the newest stable version.
-		$srev = $this->article->getStableRev();
-		$stableId = $srev ? $srev->getRevId() : 0;
-		$frev = $srev; // $frev is the revision we are looking at
-		# Check for any explicitly requested reviewed version (stableid=X)...
-		$reqId = $this->getRequest()->getVal( 'stableid' );
+
+		// Initialize $tag as an empty string
+		$tag = '';
+
+		// Determine the requested revision type
+		$requestedRevision = $this->determineRequestedRevision();
+
+		switch ( $requestedRevision ) {
+			case 'invalid':
+				$this->out->addWikiMsg( 'revreview-invalid' );
+				$this->out->returnToMain( false, $this->article->getTitle() );
+				$outputDone = true;
+				$useParserCache = false;
+				return;
+
+			case 'old':
+				$outputDone = $this->showOldReviewedVersion( $this->frev, $tag );
+				$tagTypeClass = 'mw-fr-old-stable';
+				$useParserCache = false;
+				break;
+
+			case 'stable':
+				$outputDone = $this->showStableVersion( $this->srev, $tag );
+				$tagTypeClass = $this->article->stableVersionIsSynced() ? 'mw-fr-stable-synced' :
+					'mw-fr-stable-not-synced';
+				$useParserCache = false;
+				break;
+
+			case 'draft':
+				$this->showDraftVersion( $this->srev, $tag );
+				$tagTypeClass = $this->article->stableVersionIsSynced() ? 'mw-fr-draft-synced' :
+					'mw-fr-draft-not-synced';
+				break;
+
+			case 'unreviewed':
+			default:
+				$outputDone = $this->showUnreviewedVersion( $tag );
+				$tagTypeClass = $this->article->stableVersionIsSynced() ? 'mw-fr-stable-unreviewed' :
+					'mw-fr-stable-not-unreviewed';
+				break;
+		}
+
+		$this->addTagNoticeIfApplicable( $tag, $tagTypeClass );
+	}
+
+	/**
+	 * Add the tag notice if applicable.
+	 *
+	 * @param string $tag The tag message.
+	 * @param string $tagTypeClass The CSS class for the tag type.
+	 */
+	private function addTagNoticeIfApplicable( string $tag, string $tagTypeClass ): void {
+		if ( $tag !== '' ) {
+			$notice = Html::openElement( 'div', [ 'id' => 'mw-fr-revision-messages' ] );
+			if ( $this->useSimpleUI() ) {
+				$this->addStatusIndicator();
+				$notice .= $tag;
+			} else {
+				$cssClasses = "mw-fr-basic $tagTypeClass plainlinks noprint";
+				$notice .= FlaggedRevsXML::addMessageBox( 'block', $tag, [
+					'class' => $cssClasses,
+					'aria-live' => 'polite'
+				] );
+			}
+			$notice .= Html::closeElement( 'div' );
+			$this->reviewNotice .= $notice;
+		}
+	}
+
+	/**
+	 * Determines the type of revision requested based on the current request.
+	 *
+	 * This method examines the request parameters to identify whether the user has requested a specific
+	 * revision (e.g., via 'stableid'). It determines whether to show a stable, old reviewed, draft,
+	 * or unreviewed version of the page. If no specific revision is requested, it falls back on the
+	 * user's preferences and site configuration to decide which version to show.
+	 *
+	 * The method updates the stable and flagged revision properties (`$srev` and `$frev`) accordingly.
+	 *
+	 * @return string The type of revision requested: 'invalid', 'old', 'stable', 'draft', or 'unreviewed'.
+	 */
+	private function determineRequestedRevision(): string {
+		$request = $this->getRequest();
+		$this->srev = $this->article->getStableRev();
+		$this->frev = $this->srev;
+		$stableId = $this->srev ? $this->srev->getRevId() : 0;
+
+		$reqId = $request->getVal( 'stableid' );
 		if ( $reqId === "best" ) {
 			$reqId = $this->article->getBestFlaggedRevId();
 		}
 		if ( $reqId ) {
 			if ( !$stableId ) {
-				$reqId = false; // must be invalid
-			# Treat requesting the stable version by ID as &stable=1
+				return 'invalid'; // Invalid ID
 			} elseif ( $stableId == $reqId ) {
-				$stable = true; // stable version requested by ID
+				return 'stable'; // Stable version requested
 			} else {
-				$old = true; // old reviewed version requested by ID
-				$frev = FlaggedRevision::newFromTitle( $this->article->getTitle(), $reqId );
-				if ( !$frev ) {
-					$reqId = false; // invalid ID given
-				}
+				$this->frev = FlaggedRevision::newFromTitle( $this->article->getTitle(), $reqId );
+				return $this->frev ? 'old' : 'invalid'; // Old reviewed version requested, or invalid ID
 			}
 		}
-		// $reqId is null if nothing requested, false if invalid
-		if ( $reqId === false ) {
-			$this->out->addWikiMsg( 'revreview-invalid' );
-			$this->out->returnToMain( false, $this->article->getTitle() );
-			# Tell MW that parser output is done
-			$outputDone = true;
-			$useParserCache = false;
-			return;
-		}
-		// Is the page config altered?
-		$this->enableIcons();
-		$prot = FlaggedRevsXML::lockStatusIcon( $this->article );
 
-		if ( $frev ) {
-			// has stable version?
-			// Looking at some specific old stable revision ("&stableid=x")
-			// set to override given the relevant conditions. If the user is
-			// requesting the stable revision ("&stableid=x"), defer to override
-			// behavior below, since it is the same as ("&stable=1").
-			if ( $old ) {
-				# Tell MW that parser output is done by setting $outputDone
-				$outputDone = $this->showOldReviewedVersion( $frev, $tag, $prot );
-				$useParserCache = false;
-				$tagTypeClass = 'flaggedrevs_oldstable';
-			} elseif ( $stable || ( $this->isPageView() && $this->showingStable() ) ) {
-				// Check if $srev is not null before calling showStableVersion
-				if ( $srev !== null ) {
-					# Tell MW that parser output is done by setting $outputDone
-					$outputDone = $this->showStableVersion( $srev, $tag, $prot );
-					$useParserCache = false;
-					$tagTypeClass = ( $this->article->stableVersionIsSynced() ) ?
-						'flaggedrevs_stable_synced' : 'flaggedrevs_stable_notsynced';
-				}
-			} elseif ( $srev !== null ) {
-				// Check if $srev is not null before calling showDraftVersion
-				$this->showDraftVersion( $srev, $tag, $prot );
-				$tagTypeClass = ( $this->article->stableVersionIsSynced() ) ?
-					'flaggedrevs_draft_synced' : 'flaggedrevs_draft_notsynced';
-			}
+		// If no specific revision is requested, determine whether to show the draft or unreviewed version
+		if ( $this->frev ) {
+			return $this->showingStable() ? 'stable' : 'draft';
 		} else {
-			// Looking at a page with no stable version; add "no reviewed version" tag.
-			if ( !$this->out->isPrintable() ) {
-				$this->enableIcons();
-				$msg = $this->useSimpleUI() ? 'revreview-quick-none' : 'revreview-noflagged';
-				$tag .= $prot . ( $this->useSimpleUI() ? FlaggedRevsXML::draftStatusIcon() : '' ) .
-					$this->msg( $msg )->parse();
-			}
-			$tagTypeClass = 'flaggedrevs_unreviewed';
-		}
-
-		if ( $tag != '' ) {
-			$notice = Html::openElement( 'div', [ 'id' => 'mw-fr-revisiontag' ] );
-			if ( $this->useSimpleUI() ) {
-				$tagClass = 'flaggedrevs_short';
-				$cssClasses = "{$tagClass} {$tagTypeClass} plainlinks noprint cdx-info-chip";
-				$notice .= Html::rawElement( 'div', [ 'class' => $cssClasses ], $tag );
-			} else {
-				$tagClass = 'flaggedrevs_basic';
-				$cssClasses = "{$tagClass} {$tagTypeClass} plainlinks noprint";
-				$notice .= Html::openElement( 'div', [
-					'class' => 'cdx-message cdx-message--block cdx-message--notice ' . $cssClasses,
-					'aria-live' => 'polite'
-				] );
-				$notice .= Html::element( 'span', [ 'class' => 'cdx-message__icon' ] );
-				$notice .= Html::rawElement( 'div', [ 'class' => 'cdx-message__content' ], $tag );
-				$notice .= Html::closeElement( 'div' );
-			}
-			$notice .= Html::closeElement( 'div' );
-			$this->reviewNotice .= $notice;
+			return 'unreviewed';
 		}
 	}
 
@@ -386,13 +462,40 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	 * Tag output function must be called by caller
-	 * Parser cache control deferred to caller
-	 * @param FlaggedRevision $srev stable version
-	 * @param string &$tag review box/bar info
-	 * @param string $prot protection notice icon
+	 * @param User $reqUser
+	 * @return ParserOptions
 	 */
-	private function showDraftVersion( FlaggedRevision $srev, string &$tag, string $prot ): void {
+	private function makeParserOptions( User $reqUser ): ParserOptions {
+		$parserOptions = $this->article->makeParserOptions( $reqUser );
+		# T349037: The ArticleParserOptions hook should be broadened to take
+		# a WikiPage (aka $this->article) instead of an Article.  But for now
+		# fake the Article.
+		$article = Article::newFromWikiPage( $this->article, RequestContext::getMain() );
+		# Allow extensions to vary parser options used for article rendering,
+		# in the same way Article does
+		( new HookRunner( MediaWikiServices::getInstance()->getHookContainer() ) )
+			->onArticleParserOptions( $article, $parserOptions );
+
+		return $parserOptions;
+	}
+
+	/**
+	 * Displays the draft version of a page.
+	 *
+	 * This method outputs the draft version of a page, which may differ from the stable version.
+	 * It adds a notice indicating that the page is pending review and optionally displays a diff
+	 * between the stable and draft versions. If the stable and draft versions are synchronized,
+	 * the method does not display a diff. It also adds a "your edit will pending" notice for users
+	 * who have made unreviewed edits, especially if the user lacks review rights.
+	 *
+	 * The method also adjusts the tag that is used for the review box/bar info.
+	 *
+	 * @param FlaggedRevision $srev The stable revision.
+	 * @param string &$tag Reference to the variable holding the review box/bar info.
+	 *
+	 * @return void
+	 */
+	private function showDraftVersion( FlaggedRevision $srev, string &$tag ): void {
 		$request = $this->getRequest();
 		$reqUser = $this->getUser();
 		if ( $this->out->isPrintable() ) {
@@ -423,8 +526,7 @@ class FlaggablePageView extends ContextSource {
 			&& !$pm->userHasRight( $reqUser, 'review' )
 		) {
 			$revsSince = $this->article->getPendingRevCount();
-			$pending = $prot;
-			$pending .= $this->msg( 'revreview-edited', $srev->getRevId() )
+			$pending = $this->msg( 'revreview-edited', $srev->getRevId() )
 				->numParams( $revsSince )->parse();
 			$anchor = $request->getVal( 'fromsection' );
 			if ( $anchor != null ) {
@@ -453,24 +555,8 @@ class FlaggablePageView extends ContextSource {
 			$revsSince = $this->article->getPendingRevCount();
 			// Simple icon-based UI
 			if ( $this->useSimpleUI() ) {
-				if ( !$reqUser->isRegistered() ) {
-					$msgHTML = ''; // Anons just see simple icons
-				} else {
-					$msg = $synced ? 'revreview-quick-basic-same' : 'revreview-quick-see-basic';
-					$msgHTML = $this->msg( $msg, $srev->getRevId() )
-						->numParams( $revsSince )->parse();
-				}
-				$icon = '';
-				# For protection based configs, show lock only if it's not redundant.
-				if ( $this->showRatingIcon() ) {
-					$this->enableIcons();
-					$icon = $synced ?
-						FlaggedRevsXML::stableStatusIcon() :
-						FlaggedRevsXML::draftStatusIcon();
-				}
-				$msgHTML = $prot . $icon . $msgHTML;
-				$tag .= FlaggedRevsXML::prettyRatingBox( $srev, $msgHTML,
-					$revsSince, 'draft', $synced );
+				$revisionId = $srev->getRevId();
+				$tag .= FlaggedRevsXML::reviewDialog( $srev, $revisionId, $revsSince, 'draft', $synced );
 			// Standard UI
 			} else {
 				if ( $synced ) {
@@ -480,38 +566,26 @@ class FlaggablePageView extends ContextSource {
 				}
 				$msgHTML = $this->msg( $msg, $srev->getRevId(), $time )
 					->numParams( $revsSince )->parse();
-				$this->enableIcons();
-				$tag .= $prot . $msgHTML . $diffToggle;
+				$tag .= $msgHTML . $diffToggle;
 			}
 		}
 	}
 
 	/**
-	 * @param User $reqUser
-	 * @return ParserOptions
+	 * Displays an old reviewed version of a page.
+	 *
+	 * This method outputs an older reviewed version of the page. It sets the revision ID for display
+	 * and generates the appropriate tags and notices, including handling the case where the page has
+	 * pending revisions. It creates a `ParserOutput` for this version and adds it to the output page.
+	 *
+	 * The method is primarily used when viewing a specific old version of a page.
+	 *
+	 * @param FlaggedRevision $frev The selected flagged revision.
+	 * @param string &$tag Reference to the variable holding the review box/bar info.
+	 *
+	 * @return ?ParserOutput The generated ParserOutput for the old reviewed version, or null if generation fails.
 	 */
-	private function makeParserOptions( User $reqUser ): ParserOptions {
-		$parserOptions = $this->article->makeParserOptions( $reqUser );
-		# T349037: The ArticleParserOptions hook should be broadened to take
-		# a WikiPage (aka $this->article) instead of an Article.  But for now
-		# fake the Article.
-		$article = Article::newFromWikiPage( $this->article, RequestContext::getMain() );
-		# Allow extensions to vary parser options used for article rendering,
-		# in the same way Article does
-		( new HookRunner( MediaWikiServices::getInstance()->getHookContainer() ) )
-			->onArticleParserOptions( $article, $parserOptions );
-
-		return $parserOptions;
-	}
-
-	/**
-	 * Tag output function must be called by caller
-	 * Parser cache control deferred to caller
-	 * @param FlaggedRevision $frev selected flagged revision
-	 * @param string &$tag review box/bar info
-	 * @param string $prot protection notice icon
-	 */
-	private function showOldReviewedVersion( FlaggedRevision $frev, string &$tag, string $prot ): ?ParserOutput {
+	private function showOldReviewedVersion( FlaggedRevision $frev, string &$tag ): ?ParserOutput {
 		$reqUser = $this->getUser();
 		$time = $this->getLanguage()->date( $frev->getTimestamp(), true );
 		# Set display revision ID
@@ -520,30 +594,17 @@ class FlaggablePageView extends ContextSource {
 		# Construct some tagging for non-printable outputs. Note that the pending
 		# notice has all this info already, so don't do this if we added that already.
 		if ( !$this->out->isPrintable() ) {
-			$this->enableIcons();
 			// Simple icon-based UI
 			if ( $this->useSimpleUI() ) {
-				$icon = '';
 				# For protection based configs, show lock only if it's not redundant.
-				if ( $this->showRatingIcon() ) {
-					$icon = FlaggedRevsXML::stableStatusIcon();
-				}
 				$revsSince = $this->article->getPendingRevCount();
-				if ( !$reqUser->isRegistered() ) {
-					$msgHTML = ''; // Anons just see simple icons
-				} else {
-					$msg = 'revreview-quick-basic-old';
-					$msgHTML = $this->msg( $msg, $frev->getRevId() )
-						->numParams( $revsSince )->parse();
-				}
-				$msgHTML = $prot . $icon . $msgHTML;
-				$tag = FlaggedRevsXML::prettyRatingBox( $frev, $msgHTML, $revsSince );
+				$srev = $this->article->getStableRev();
+				$revisionId = $srev->getRevId();
+				$tag = FlaggedRevsXML::reviewDialog( $frev, $revisionId, $revsSince );
 				// Standard UI
 			} else {
-				$icon = FlaggedRevsXML::stableStatusIcon();
 				$msg = 'revreview-basic-old';
-				$tag = $prot . $icon;
-				$tag .= $this->msg( $msg, $frev->getRevId(), $time )->parse();
+				$tag = $this->msg( $msg, $frev->getRevId(), $time )->parse();
 			}
 		}
 
@@ -564,13 +625,21 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	 * Tag output function must be called by caller
-	 * Parser cache control deferred to caller
-	 * @param FlaggedRevision $srev stable version
-	 * @param string &$tag review box/bar info
-	 * @param string $prot protection notice
+	 * Displays the stable version of a page.
+	 *
+	 * This method outputs the stable version of a page, which is the version that has been flagged as reviewed.
+	 * It generates and caches the `ParserOutput` for the stable version, if not already cached. If the stable
+	 * version is synchronized with the current draft, it skips the diff display. The method also adds relevant
+	 * tags and notices based on the stability and synchronization status.
+	 *
+	 * The method ensures that only the stable version or a synced draft is indexed by search engines.
+	 *
+	 * @param FlaggedRevision $srev The stable revision.
+	 * @param string &$tag Reference to the variable holding the review box/bar info.
+	 *
+	 * @return ?ParserOutput The generated ParserOutput for the stable version, or null if generation fails.
 	 */
-	private function showStableVersion( FlaggedRevision $srev, string &$tag, string $prot ): ?ParserOutput {
+	private function showStableVersion( FlaggedRevision $srev, string &$tag ): ?ParserOutput {
 		$reqUser = $this->getUser();
 		$time = $this->getLanguage()->date( $srev->getTimestamp(), true );
 		# Set display revision ID
@@ -584,32 +653,23 @@ class FlaggablePageView extends ContextSource {
 			$revsSince = $this->article->getPendingRevCount();
 			// Simple icon-based UI
 			if ( $this->useSimpleUI() ) {
-				$icon = '';
 				# For protection based configs, show lock only if it's not redundant.
-				if ( $this->showRatingIcon() ) {
-					$icon = FlaggedRevsXML::stableStatusIcon();
-					$this->enableIcons();
-				}
-				if ( !$reqUser->isRegistered() ) {
-					$msgHTML = ''; // Anons just see simple icons
-				} else {
-					$msg = $synced ? 'revreview-quick-basic-same' : 'revreview-quick-basic';
-					$msgHTML = $this->msg( $msg, $srev->getRevId() )
-						->numParams( $revsSince )->parse();
-				}
-				$msgHTML = $prot . $icon . $msgHTML;
-				$tag = FlaggedRevsXML::prettyRatingBox( $srev, $msgHTML,
-					$revsSince, 'stable', $synced );
+				$revisionId = $srev->getRevId();
+				$tag = FlaggedRevsXML::reviewDialog(
+					$srev,
+					$revisionId,
+					$revsSince,
+					'stable',
+					$synced
+				);
 			// Standard UI
 			} else {
-				$this->enableIcons();
 				if ( $synced ) {
 					$msg = 'revreview-basic-same';
 				} else {
 					$msg = !$revsSince ? 'revreview-basic-i' : 'revreview-basic';
 				}
-				$tag = $prot;
-				$tag .= $this->msg( $msg, $srev->getRevId(), $time )
+				$tag = $this->msg( $msg, $srev->getRevId(), $time )
 					->numParams( $revsSince )->parse();
 			}
 		}
@@ -633,10 +693,11 @@ class FlaggablePageView extends ContextSource {
 				if ( !$status->isGood() ) {
 					$this->out->disableClientCache();
 					$this->out->setRobotPolicy( 'noindex,nofollow' );
-
-					$errortext = $status->getWikiText( false, 'view-pool-error' );
+					$statusFormatter = MediaWikiServices::getInstance()->getFormatterFactory()->getStatusFormatter(
+						$this->getContext() );
+					$errorText = $statusFormatter->getMessage( $status );
 					$this->out->addHTML(
-						Html::errorBox( $this->out->parseAsContent( $errortext ) )
+						Html::errorBox( $this->out->parseAsContent( $errorText ) )
 					);
 					return null;
 				}
@@ -686,17 +747,40 @@ class FlaggablePageView extends ContextSource {
 		return $parserOut;
 	}
 
-	private function enableIcons(): void {
-		$this->out->addModuleStyles( 'ext.flaggedRevs.icons' );
-	}
-
 	/**
-	 * Show icons for draft/stable/old reviewed versions
+	 * Displays an unreviewed version of a page.
+	 *
+	 * This method handles the display of an unreviewed version of the page, showing the appropriate
+	 * UI elements based on user preferences (simple or detailed). It sets the appropriate tag and
+	 * tag type class to indicate the page's unreviewed status. The method generates a `ParserOutput`
+	 * for the unreviewed version and adds it to the output page.
+	 *
+	 * The method is used when there is no stable version or when a draft needs to be displayed.
+	 *
+	 * @param string &$tag Reference to the variable holding the review box/bar info.
+	 *
+	 * @return ?ParserOutput The generated ParserOutput for the unreviewed version, or null if none is available.
 	 */
-	private function showRatingIcon(): bool {
-		// If there is only one quality level and we have tabs to know which version we are looking
-		// at, then just use the lock icon...
-		return !FlaggedRevs::useOnlyIfProtected();
+	private function showUnreviewedVersion( string &$tag ): ?ParserOutput {
+		$reqUser = $this->getUser();
+
+		if ( $this->useSimpleUI() ) {
+			$this->addStatusIndicator();
+			$this->out->addHTML( FlaggedRevsXML::reviewDialog( null, 0, 0, 'unreviewed' ) );
+		} else {
+			$tag = $this->msg( 'revreview-noflagged' )->parse();
+		}
+
+		// Generate the ParserOutput for the unreviewed version
+		$parserOptions = $this->makeParserOptions( $reqUser );
+		$parserOut = $this->article->getParserOutput( $parserOptions );
+
+		// Add the ParserOutput to the output page
+		if ( $parserOut ) {
+			$this->out->addParserOutput( $parserOut );
+		}
+
+		return $parserOut;
 	}
 
 	/**
@@ -764,10 +848,11 @@ class FlaggablePageView extends ContextSource {
 		$srev = $this->article->getStableRev();
 		if ( $srev && $this->article->revsArePending() ) {
 			$revsSince = $this->article->getPendingRevCount();
-			$this->enableIcons();
-			$tag = "<div id='mw-fr-revisiontag-edit' class='flaggedrevs_notice plainlinks'>" .
-				FlaggedRevsXML::lockStatusIcon( $this->article ) . # flag protection icon as needed
-				FlaggedRevsXML::pendingEditNotice( $srev, $revsSince ) . "</div>";
+			$noticeContent = FlaggedRevsXML::pendingEditNotice( $srev, $revsSince );
+			$tag = FlaggedRevsXML::addMessageBox( 'block', $noticeContent, [
+				'id' => 'mw-fr-revision-tag-edit',
+				'class' => 'flaggedrevs_notice plainlinks'
+			] );
 			$this->out->addHTML( $tag );
 		}
 	}
@@ -825,13 +910,7 @@ class FlaggablePageView extends ContextSource {
 		if ( $lines ) {
 			$lineMessages = '';
 			foreach ( $lines as $line ) {
-				$lineMessages .= Html::rawElement( 'div', [
-					'class' => 'cdx-message cdx-message--inline cdx-message--notice',
-					'aria-live' => 'polite'
-				],
-					Html::element( 'span', [ 'class' => 'cdx-message__icon' ] ) .
-					Html::rawElement( 'div', [ 'class' => 'cdx-message__content' ], $line )
-				);
+				$lineMessages .= FlaggedRevsXML::addMessageBox( 'inline', $line );
 			}
 
 			$notices['flaggedrevs_editnotice'] = Html::rawElement( 'div', [
@@ -984,7 +1063,10 @@ class FlaggablePageView extends ContextSource {
 
 	/**
 	 * Modify an array of action links, as used by SkinTemplateNavigation and
-	 * SkinTemplateTabs, to inlude flagged revs UI elements
+	 * SkinTemplateTabs, to include flagged revs UI elements
+	 *
+	 * @param array &$actions
+	 * @throws MWException
 	 */
 	public function setActionTabs( array &$actions ): void {
 		$reqUser = $this->getUser();
@@ -993,7 +1075,18 @@ class FlaggablePageView extends ContextSource {
 			return; // simple custom levels set for action=protect
 		}
 
-		$title = $this->article->getTitle()->getSubjectPage();
+		$namespaceInfo = MediaWikiServices::getInstance()->getNamespaceInfo();
+		$currentTitle = $this->article->getTitle();
+
+		$title = $currentTitle->isTalkPage() ?
+			$namespaceInfo->getSubjectPage( $currentTitle ) :
+			$namespaceInfo->getTalkPage( $currentTitle );
+
+		// Convert TitleValue to Title if necessary
+		if ( $title instanceof TitleValue ) {
+			$title = Title::newFromLinkTarget( $title );
+		}
+
 		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
 			return; // Only reviewable pages need these tabs
 		}
@@ -1154,7 +1247,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param FlaggedRevision $srev The stable version
 	 * @param string $diffToggle either "" or " <diff toggle><diff div>"
 	 */
-	private function setPendingNotice( FlaggedRevision $srev, $diffToggle = '' ): void {
+	private function setPendingNotice( FlaggedRevision $srev, string $diffToggle = '' ): void {
 		$time = $this->getLanguage()->date( $srev->getTimestamp(), true );
 		$revsSince = $this->article->getPendingRevCount();
 		$msg = !$revsSince ? 'revreview-newest-basic-i' : 'revreview-newest-basic';
@@ -1162,17 +1255,7 @@ class FlaggablePageView extends ContextSource {
 		$msgHTML = $this->msg( $msg, $srev->getRevId(), $time )->numParams( $revsSince )->parse();
 
 		if ( !$this->useSimpleUI() ) {
-			$htmlParts = [];
-			$htmlParts[] = Html::openElement( 'div', [
-				'class' => 'cdx-message cdx-message--block cdx-message--notice',
-				'aria-live' => 'polite'
-			] );
-			$htmlParts[] = Html::element( 'span', [ 'class' => 'cdx-message__icon' ] );
-			$htmlParts[] = Html::openElement( 'div', [ 'class' => 'cdx-message__content' ] );
-			$htmlParts[] = $msgHTML . $diffToggle;
-			$htmlParts[] = Html::closeElement( 'div' ) . Html::closeElement( 'div' );
-
-			$this->reviewNotice .= implode( '', $htmlParts );
+			$this->reviewNotice .= FlaggedRevsXML::addMessageBox( 'block', $msgHTML . $diffToggle );
 		}
 	}
 
@@ -1503,7 +1586,7 @@ class FlaggablePageView extends ContextSource {
 	 * If submitting the edit will leave it pending, then change the button text
 	 * Note: interacts with 'review pending changes' checkbox
 	 * @param EditPage $editPage
-	 * @param \OOUI\ButtonInputWidget[] $buttons
+	 * @param ButtonInputWidget[] $buttons
 	 */
 	public function changeSaveButton( EditPage $editPage, array $buttons ): void {
 		if ( !$this->editWillRequireReview( $editPage ) ) {
@@ -1590,10 +1673,8 @@ class FlaggablePageView extends ContextSource {
 			# Note: check not shown when editing old revisions, which is confusing.
 			$name = 'wpReviewEdit';
 			$options = [
-				'label-message' => null,
 				'id' => $name,
 				'default' => $request->getCheck( $name ),
-				'title-message' => null,
 				'legacy-name' => 'reviewed',
 			];
 			// For reviewed pages...
@@ -1631,15 +1712,13 @@ class FlaggablePageView extends ContextSource {
 		# Undoing edits...
 		if ( $request->getIntOrNull( 'wpUndidRevision' ) ?? $request->getIntOrNull( 'undo' ) ) {
 			$revId = $latestId; // current rev is the base rev
-		# Other edits...
+			# Other edits...
 		} else {
 			# If we are editing via oldid=X, then use that rev ID.
 			$revId = $article->getOldID();
 		}
 		# Zero oldid => draft revision
-		$baseRevId = $revId ?: $latestId;
-
-		return $baseRevId;
+		return $revId ?: $latestId;
 	}
 
 	/**

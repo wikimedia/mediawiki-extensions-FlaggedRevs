@@ -12,12 +12,17 @@
 
 	/* Expands flag info box details */
 	function showBoxDetails() {
-		$( '#mw-fr-revisiondetails' ).css( 'display', 'block' );
+		var $revisionDetailDialog = $( '#mw-fr-revision-details' );
+		return mw.loader.using( [
+			'codex-styles'
+		] ).then( function () {
+			$revisionDetailDialog.css( 'display', 'block' );
+		} );
 	}
 
 	/* Collapses flag info box details */
 	function hideBoxDetails() {
-		$( '#mw-fr-revisiondetails' ).css( 'display', 'none' );
+		$( '#mw-fr-revision-details' ).css( 'display', 'none' );
 	}
 
 	/**
@@ -63,7 +68,7 @@
 	 * @param {jQuery.Event} e
 	 */
 	function onBoxMouseOut( e ) {
-		if ( !isMouseOutBubble( e, 'mw-fr-revisiontag' ) ) {
+		if ( !isMouseOutBubble( e, 'mw-fr-revision-details' ) ) {
 			boxCollapseTimer = window.setTimeout( hideBoxDetails, 150 );
 		}
 	}
@@ -75,8 +80,8 @@
 	 * @return {boolean}
 	 */
 	function toggleDiff() {
-		var $diff = $( '#mw-fr-stablediff' ),
-			$toggle = $( '#mw-fr-difftoggle' );
+		var $diff = $( '#mw-fr-stable-diff' ),
+			$toggle = $( '#mw-fr-diff-toggle' );
 
 		if ( !$diff.length ) {
 			var alignStart, rtlDir;
@@ -84,7 +89,7 @@
 			alignStart = rtlDir ? 'right' : 'left';
 			$diff = $( '<div>' )
 				.hide()
-				.attr( 'id', 'mw-fr-stablediff' )
+				.attr( 'id', 'mw-fr-stable-diff' )
 				// The following classes are used here:
 				// * diff-editfont-monospace
 				// * diff-editfont-sans-serif
@@ -202,19 +207,29 @@
 	 */
 	function init() {
 		// Enables rating detail box
-		var $toggle = $( '#mw-fr-revisiontoggle' );
+		var $toggle = $( '#mw-fr-revision-toggle' );
 
 		if ( $toggle.length ) {
 			hideBoxDetails(); // hide the initially displayed ratings
 		}
 
 		// Simple UI: Show the box on mouseOver
-		$( '#mw-fr-revisiontoggle' ).on( 'mouseover', onBoxMouseOver );
-		$( '#mw-fr-revisiontag' ).on( 'mouseout', onBoxMouseOut );
+		$toggle.on( 'mouseover', onBoxMouseOver );
+		$( '#mw-fr-revision-details' ).on( 'mouseout', onBoxMouseOut );
 
 		// Enables diff detail box and toggle
-		$toggle = $( '#mw-fr-difftoggle' );
+		$toggle = $( '#mw-fr-diff-toggle' );
 		$toggle.children( 'a' ).on( 'click', toggleDiff );
+
+		// Close the mw-fr-revision-details dialog on ESC key press
+		document.addEventListener( 'keydown', function ( event ) {
+			if ( event.key === 'Escape' ) {
+				var dialog = document.getElementById( 'mw-fr-revision-details' );
+				if ( dialog && dialog.style.display !== 'none' ) {
+					dialog.style.display = 'none';
+				}
+			}
+		} );
 	}
 
 	// Perform some onload events:
