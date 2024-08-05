@@ -4,5 +4,12 @@
 			"Saraiki"
 		]
 	},
-	"pendingchanges-category": "ونکی:"
+	"pendingchanges-days": "$1 {{PLURAL:$1|ݙینہ}}",
+	"pendingchanges-category": "ونکی:",
+	"pendingchanges-limit": "حد",
+	"pendingchanges-table-page": "ورقہ",
+	"pendingchanges-table-size": "سائز",
+	"pendingchanges-table-pending-since": "کنوں",
+	"pendingchanges-table-history": "تاریخچہ",
+	"pendingchanges-table-revision-history": "تاریخچہ"
 }

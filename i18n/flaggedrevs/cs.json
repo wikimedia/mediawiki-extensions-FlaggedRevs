@@ -99,7 +99,7 @@
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Prohlédnuto]]'''",
 	"revreview-quick-invalid": "'''Neplatná identifikace verze'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Neprohlédnuto]]'''",
-	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} posoudit navržené změny]",
+	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Posoudit navržené změny]",
 	"revreview-basic-title": "Toto je prohlédnutá verze této stránky",
 	"revreview-toggle-title": "skrýt/zobrazit detaily",
 	"revreview-visibility-synced": "'''Tato stránka má aktualizovanou [[{{MediaWiki:Validationpage}}|stabilní verzi]]; nastavení stability stránek lze [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} změnit].'''",
