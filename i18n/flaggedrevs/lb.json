@@ -13,7 +13,7 @@
 	"editor": "Editeur",
 	"flaggedrevs": "Markéiert Versiounen",
 	"flaggedrevs-watched-pending": "Et sinn elo [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} net nogekuckt Ännerunge] vun nogekuckte Säiten op Ärer Iwwerwaachungslëscht. '''Är Opmierksamkeet gëtt gebraucht!'''",
-	"flaggedrevs-desc": "Gëtt Editeuren a Benotzer déi Säiten nokucken d'Méiglechkeet fir Versiounen nozekucken a Säiten ze stabiliséieren",
+	"flaggedrevs-desc": "Gëtt Editeuren a Benotzer, déi Säiten nokucken, d'Méiglechkeet fir Versiounen nozekucken a Säiten ze stabiliséieren",
 	"flaggedrevs-pref-UI": "Standard-Interface:",
 	"flaggedrevs-pref-UI-0": "Bentzt déi detailéiert Këschte fir de Status vum Nokucke vun der Säit ze weisen",
 	"flaggedrevs-pref-UI-1": "Benotzt kleng Iconen a minimalen Text fir de Status vum Nokucke vun der Säit ze weisen",
