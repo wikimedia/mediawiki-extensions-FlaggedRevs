@@ -46,7 +46,7 @@ class PendingChanges extends SpecialPage {
 		$limit = $request->getInt( 'limit', 50 );
 
 		$incLimit = 0;
-		if ( $this->including() ) {
+		if ( $this->including() && $subPage !== null ) {
 			$incLimit = $this->parseParams( $subPage ); // apply non-URL params
 		}
 
