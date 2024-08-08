@@ -29,7 +29,6 @@
 	"pendingchanges-diff": "{{Flagged Revs}}\nUsed as link text in [[Special:PendingChanges]]. The link points to the diff page (the diff between the latest revision and the pending revision).\n\nSee example: [[mw:Special:PendingChanges]].\n{{Identical|Review}}",
 	"pendingchanges-size": "{{Flagged Revs}}\n\nUsed on Special:OldReviewedPages as a label for an input field in the form.",
 	"pendingchanges-unwatched": "{{Flagged Revs-small}}\nUsed on [[Special:OldReviewedPages]] when nobody is watching the page.\n\nSee also:\n* {{msg-mw|Pendingchanges-watched}}",
-	"pendingchanges-viewing": "{{Flagged Revs-small}}\nUsed on Special:OldReviewedPages when someone has recently requested the sighting page for a listed page.",
 	"pendingchanges-table-caption": "{{Flagged Revs}}\nCaption for the table displaying pending changes.",
 	"pendingchanges-table-page": "{{Flagged Revs}}\nHeader for the column displaying the page title in the table of pending changes.",
 	"pendingchanges-table-size": "{{Flagged Revs}}\nHeader for the column displaying the size in the table of pending changes.",
