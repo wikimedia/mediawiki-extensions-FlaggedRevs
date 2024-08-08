@@ -441,7 +441,7 @@ class FlaggedRevsHooks implements
 		# Is the page manually checked off to be reviewed?
 		if ( $editTimestamp
 			&& $wgRequest->getCheck( 'wpReviewEdit' )
-			&& $pm->getPermissionErrors( 'review', $user, $title ) === []
+			&& $pm->userCan( 'review', $user, $title )
 			&& self::editCheckReview( $fa, $revRecord, $user, $editTimestamp )
 		) {
 			// Reviewed... done!
@@ -480,7 +480,7 @@ class FlaggedRevsHooks implements
 		# Case A: this user can auto-review edits. Check if either:
 		# (a) this new revision creates a new page and new page autoreview is enabled
 		# (b) this new revision is based on an old, reviewed, revision
-		if ( $pm->getPermissionErrors( 'autoreview', $user, $title ) === [] ) {
+		if ( $pm->userCan( 'autoreview', $user, $title ) ) {
 			# For rollback/null edits, use the previous ID as the alternate base ID.
 			# Otherwise, use the 'altBaseRevId' parameter passed in by the request.
 			$altBaseRevId = $isOldRevCopy ? $prevRevId : $wgRequest->getInt( 'altBaseRevId' );
@@ -529,7 +529,7 @@ class FlaggedRevsHooks implements
 				$isOldRevCopy && // rollback or null edit
 				$baseRevId != $prevRevId && // not a null edit
 				$baseRevId == $srev->getRevId() && // restored stable rev
-				$pm->getPermissionErrors( 'autoreviewrestore', $user, $title ) === []
+				$pm->userCan( 'autoreviewrestore', $user, $title )
 			);
 			# Check for self-reversions (checks text hashes)...
 			if ( !$reviewableChange ) {
