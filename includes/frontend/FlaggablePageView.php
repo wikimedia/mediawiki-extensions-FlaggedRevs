@@ -347,8 +347,7 @@ class FlaggablePageView extends ContextSource {
 			if ( $this->useSimpleUI() ) {
 				$tagClass = 'flaggedrevs_short';
 				$cssClasses = "{$tagClass} {$tagTypeClass} plainlinks noprint cdx-info-chip";
-				$notice .= Html::openElement( 'div', [ 'class' => $cssClasses ] );
-				$notice .= $tag;
+				$notice .= Html::rawElement( 'div', [ 'class' => $cssClasses ], $tag );
 			} else {
 				$tagClass = 'flaggedrevs_basic';
 				$cssClasses = "{$tagClass} {$tagTypeClass} plainlinks noprint";
@@ -357,8 +356,7 @@ class FlaggablePageView extends ContextSource {
 					'aria-live' => 'polite'
 				] );
 				$notice .= Html::element( 'span', [ 'class' => 'cdx-message__icon' ] );
-				$notice .= Html::openElement( 'div', [ 'class' => 'cdx-message__content' ] );
-				$notice .= $tag;
+				$notice .= Html::rawElement( 'div', [ 'class' => 'cdx-message__content' ], $tag );
 				$notice .= Html::closeElement( 'div' );
 			}
 			$notice .= Html::closeElement( 'div' );
