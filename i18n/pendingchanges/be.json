@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Dirruw'o",
 			"Maksim L.",
 			"ZlyiLev",
 			"Хомелка",
@@ -15,11 +16,17 @@
 	"pendingchanges-days": "($1 {{PLURAL:$1|дзень|дня|дзён}})",
 	"pendingchanges-recent": "(Менш 1 гадзіны)",
 	"pendingchanges-category": "Катэгорыя:",
+	"pendingchanges-limit": "Ліміт:",
+	"pendingchanges-edit-tag": "Праіць Тэг:",
+	"pendingchanges-edit-tag-any": "Любы тэг:",
 	"pendingchanges-onwatchlist": "Старонкі з майго спіса назірання",
 	"pendingchanges-stable": "Прадвызначаная стабільная версія",
 	"pendingchanges-diff": "праверыць",
 	"pendingchanges-size": "Найбольшае змяненне ў байтах:",
 	"pendingchanges-unwatched": "(не сочаць)",
 	"pendingchanges-watched": "({{PLURAL:$1|сочыць $1 актыўны ўдзельнік|сочаць $1 актыўныя ўдзельнікі|сочаць $1 актыўных удзельнікаў}})",
-	"pendingchanges-viewing": "(правяраюцца)"
+	"pendingchanges-viewing": "(правяраюцца)",
+	"pendingchanges-table-history": "Гісторыя",
+	"pendingchanges-table-review": "Вычытка",
+	"pendingchanges-table-revision-history": "Гісторыя"
 }
