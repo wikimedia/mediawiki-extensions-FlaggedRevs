@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Facenapalm",
 			"Ferrer",
 			"JenVan",
 			"Kaganer",
@@ -11,18 +12,32 @@
 		]
 	},
 	"pendingchanges": "Страницы с непроверенными изменениями",
-	"pendingchanges-legend": "Список проверенных страниц с непроверенными версиями",
+	"pendingchanges-legend": "Список проверенных страниц с непроверенными правками",
 	"pendingchanges-list": "На этой странице перечислены  [[{{MediaWiki:Validationpage}}|проверенные]] страницы с правками, ожидающими проверки.",
 	"pendingchanges-none": "В настоящее время нет страниц, удовлетворяющих этим условиям",
-	"pendingchanges-hours": "($1 {{PLURAL:$1|час|часа|часов}})",
-	"pendingchanges-days": "($1 {{PLURAL:$1|день|дня|дней}})",
-	"pendingchanges-recent": "(менее 1 часа)",
+	"pendingchanges-hours": "$1 {{PLURAL:$1|час|часа|часов}}",
+	"pendingchanges-days": "$1 {{PLURAL:$1|день|дня|дней}}",
+	"pendingchanges-recent": "менее 1 часа",
 	"pendingchanges-category": "Категория:",
+	"pendingchanges-limit": "Лимит:",
+	"pendingchanges-edit-tag": "Метка правки:",
+	"pendingchanges-edit-tag-any": "Любая метка:",
 	"pendingchanges-onwatchlist": "Страницы из моего списка наблюдения",
 	"pendingchanges-stable": "Стабильная версия по умолчанию",
-	"pendingchanges-diff": "проверить",
+	"pendingchanges-diff": "Проверить",
 	"pendingchanges-size": "Наибольшее изменение в байтах:",
-	"pendingchanges-unwatched": "(не следят)",
-	"pendingchanges-watched": "({{PLURAL:$1|следит $1 активный участник|следят $1 активных участника|следят $1 активных участников}})",
-	"pendingchanges-viewing": "(проверяются)"
+	"pendingchanges-unwatched": "не следят",
+	"pendingchanges-watched": "{{PLURAL:$1|следит $1 активный участник|следят $1 активных участника|следят $1 активных участников}}",
+	"pendingchanges-viewing": "проверяется",
+	"pendingchanges-table-caption": "Непроверенные правки",
+	"pendingchanges-table-page": "Страница",
+	"pendingchanges-table-size": "Размер",
+	"pendingchanges-table-pending-since": "Непроверено с",
+	"pendingchanges-table-quality": "Качество",
+	"pendingchanges-table-watching": "Следящих",
+	"pendingchanges-table-history": "История",
+	"pendingchanges-table-review": "Проверить",
+	"pendingchanges-table-revision-history": "История",
+	"pendingchanges-table-footer": "На данный момент непроверено {{PLURAL:$1|$1 правка|$1 правки|$1 правок}}",
+	"pendingchanges-filter-submit-button-text": "Отфильтровать непроверенные правки"
 }

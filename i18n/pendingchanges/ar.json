@@ -3,6 +3,7 @@
 		"authors": [
 			";Hiba;1",
 			"Ciphers",
+			"Gerges",
 			"Meno25",
 			"OsamaK",
 			"Ouda",
@@ -38,5 +39,6 @@
 	"pendingchanges-table-history": "تاريخ",
 	"pendingchanges-table-review": "راجع",
 	"pendingchanges-table-revision-history": "تاريخ",
+	"pendingchanges-table-footer": "يوجد الآن {{PLURAL:$1|$1 تعديل مُعلَّق|$1 تعديلات مُعلَّقة}}",
 	"pendingchanges-filter-submit-button-text": "منقي قيد الانتظار في التغييرات"
 }

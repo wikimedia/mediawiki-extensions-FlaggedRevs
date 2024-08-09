@@ -20,5 +20,8 @@
 	"pendingchanges-size": "Maximal Ännerung (Bytes):",
 	"pendingchanges-unwatched": "(net iwwerwaacht)",
 	"pendingchanges-watched": "(Vu(n) $1 {{PLURAL:$1|Benotzer|Benotzer}} iwwerwaacht)",
-	"pendingchanges-viewing": "(gëtt nogekuckt)"
+	"pendingchanges-viewing": "(gëtt nogekuckt)",
+	"pendingchanges-table-page": "Säit",
+	"pendingchanges-table-pending-since": "Zanter",
+	"pendingchanges-table-quality": "Qualitéit"
 }

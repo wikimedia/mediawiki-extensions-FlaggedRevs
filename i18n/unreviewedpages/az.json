@@ -13,6 +13,7 @@
 	"unreviewedpages": "İncələnməmiş səhifələr",
 	"unreviewedpages-legend": "Baxılmamış məzmun səhifələrinin siyahısını göstər",
 	"unreviewedpages-category": "Kateqoriya:",
+	"unreviewedpages-showhide-redirect": "$1 yönləndirmə",
 	"unreviewedpages-diff": "yoxlama",
 	"unreviewedpages-unwatched": "(izlənmir)",
 	"unreviewedpages-watched": "($1 aktiv {{PLURAL:$1|istifadəçi}} izləyir)",

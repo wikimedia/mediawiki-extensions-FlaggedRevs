@@ -25,5 +25,10 @@
 	"pendingchanges-unwatched": "ненадгледано",
 	"pendingchanges-watched": "$1 {{PLURAL:$1|активан корисник|активна корисника|активних корисника}} прати",
 	"pendingchanges-viewing": "под провером",
-	"pendingchanges-table-caption": "Измене на чекању"
+	"pendingchanges-table-caption": "Измене на чекању",
+	"pendingchanges-table-page": "Страница",
+	"pendingchanges-table-size": "Величина",
+	"pendingchanges-table-history": "Историја",
+	"pendingchanges-table-review": "Прегледај",
+	"pendingchanges-table-footer": "Тренутно, има {{PLURAL:$1|$1 измена|$1 измене}} на чекању"
 }
