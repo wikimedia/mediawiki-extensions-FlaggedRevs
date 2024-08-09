@@ -336,7 +336,7 @@ class PendingChanges extends SpecialPage {
 			[ 'class' => 'mw-fr-pending-changes-page-history' ],
 			[ 'action' => 'history' ]
 		);
-		if ( $this->getUser()->isAllowed( 'edit' ) ) {
+		if ( $this->getAuthority()->isAllowed( 'edit' ) ) {
 			$linkArr[] = $linkRenderer->makeKnownLink(
 				$title,
 				$this->msg( 'editlink' )->text(),
@@ -344,7 +344,7 @@ class PendingChanges extends SpecialPage {
 				[ 'action' => 'edit' ]
 			);
 		}
-		if ( $this->getUser()->isAllowed( 'delete' ) ) {
+		if ( $this->getAuthority()->isAllowed( 'delete' ) ) {
 			$linkArr[] = $linkRenderer->makeKnownLink(
 				$title,
 				$this->msg( 'tags-delete' )->text(),
@@ -365,9 +365,7 @@ class PendingChanges extends SpecialPage {
 		# Is anybody watching?
 		// Only show information to users with the `unwatchedpages` who could find this
 		// information elsewhere anyway, T281065
-		if ( !$this->including() && MediaWikiServices::getInstance()->getPermissionManager()
-				->userHasRight( $this->getUser(), 'unwatchedpages' )
-		) {
+		if ( !$this->including() && $this->getAuthority()->isAllowed( 'unwatchedpages' ) ) {
 			$uw = FRUserActivity::numUsersWatchingPage( $title );
 			$watching = ' ';
 			$watching .= $uw
@@ -396,12 +394,12 @@ class PendingChanges extends SpecialPage {
 		} else {
 			$age = "";
 		}
-
+		$watchingColumn = $watching ? "<td>$watching</td>" : '';
 		return ( "<tr class='$css'>
         <td>$link $links</td>
         <td>$stxt</td>
         <td>$age</td>
-        <td>$watching</td>
+        $watchingColumn
         <td class='cdx-table__table__cell--align-center'>$review</td>
      </tr>" );
 	}
