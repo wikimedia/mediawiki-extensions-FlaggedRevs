@@ -206,13 +206,19 @@ class PendingChangesPager extends TablePager {
 	 * @since 1.43
 	 */
 	protected function getFieldNames(): array {
-		return [
+		$fields = [
 			'page_title' => 'pendingchanges-table-page',
 			'rev_len' => 'pendingchanges-table-size',
 			'fp_pending_since' => 'pendingchanges-table-pending-since',
-			'watching' => 'pendingchanges-table-watching',
-			'review' => 'pendingchanges-table-review'
 		];
+
+		if ( $this->getAuthority()->isAllowed( 'unwatchedpages' ) ) {
+			$fields['watching'] = 'pendingchanges-table-watching';
+		}
+
+		$fields['review'] = 'pendingchanges-table-review';
+
+		return $fields;
 	}
 
 	/**
