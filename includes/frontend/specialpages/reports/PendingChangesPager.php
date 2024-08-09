@@ -26,7 +26,6 @@ class PendingChangesPager extends TablePager {
 	 */
 	private const INDEX_FIELDS = [
 		'fp_pending_since' => [ 'fp_pending_since' ],
-		'rev_len' => [ 'rev_len' ],
 	];
 
 	/**
