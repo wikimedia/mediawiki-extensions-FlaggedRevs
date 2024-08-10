@@ -395,13 +395,15 @@ class PendingChanges extends SpecialPage {
 			$age = "";
 		}
 		$watchingColumn = $watching ? "<td>$watching</td>" : '';
-		return ( "<tr class='$css'>
-        <td>$link $links</td>
-        <td>$stxt</td>
-        <td>$age</td>
-        $watchingColumn
-        <td class='cdx-table__table__cell--align-center'>$review</td>
-     </tr>" );
+		return (
+			"<tr class='$css'>
+				<td>$link $links</td>
+				<td class='cdx-table__table__cell--align-center'>$review</td>
+				<td>$stxt</td>
+				<td>$age</td>
+				$watchingColumn
+			</tr>"
+		);
 	}
 
 	/**
