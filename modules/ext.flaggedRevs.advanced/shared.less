@@ -6,6 +6,7 @@
  */
 
 /* Special:PendingChanges */
+
 .mw-fr-form-container {
 	padding: @spacing-75;
 	border: @border-base;
@@ -86,5 +87,10 @@
 
 	table tbody tr:hover {
 		background-color: @background-color-neutral;
+	}
+
+	.mw-diff-bytes::before,
+	.mw-diff-bytes::after {
+		content: '';
 	}
 }

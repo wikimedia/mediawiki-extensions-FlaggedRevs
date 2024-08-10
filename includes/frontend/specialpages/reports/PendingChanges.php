@@ -317,7 +317,7 @@ class PendingChanges extends SpecialPage {
 	public function formatRow( stdClass $row ): string {
 		$css = '';
 		$title = Title::newFromRow( $row );
-		$stxt = ChangesList::showCharacterDifference( $row->rev_len, $row->page_len );
+		$size = ChangesList::showCharacterDifference( $row->rev_len, $row->page_len );
 		# Page links...
 		$linkRenderer = $this->getLinkRenderer();
 
@@ -399,7 +399,7 @@ class PendingChanges extends SpecialPage {
 			"<tr class='$css'>
 				<td>$link $links</td>
 				<td class='cdx-table__table__cell--align-center'>$review</td>
-				<td>$stxt</td>
+				<td>$size</td>
 				<td>$age</td>
 				$watchingColumn
 			</tr>"
