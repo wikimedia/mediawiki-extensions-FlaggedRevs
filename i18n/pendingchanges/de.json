@@ -3,6 +3,7 @@
 		"authors": [
 			"Brettchenweber",
 			"FriedhelmW",
+			"Inkowik",
 			"Justman10000",
 			"Kghbln",
 			"Melancholie",
@@ -21,8 +22,8 @@
 	"pendingchanges-recent": "weniger als 1 Stunde",
 	"pendingchanges-category": "Kategorie:",
 	"pendingchanges-limit": "Limit:",
-	"pendingchanges-edit-tag": "Tag bearbeiten:",
-	"pendingchanges-edit-tag-any": "Jedes Tag:",
+	"pendingchanges-edit-tag": "Änderungsmarkierung:",
+	"pendingchanges-edit-tag-any": "Jede Markierung:",
 	"pendingchanges-onwatchlist": "nur Seiten auf meiner Beobachtungsliste",
 	"pendingchanges-stable": "Die stabile Version ist Standard",
 	"pendingchanges-diff": "Sichten",

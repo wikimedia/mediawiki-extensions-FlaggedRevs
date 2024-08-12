@@ -3,6 +3,7 @@
 		"authors": [
 			"Leinad",
 			"McMonster",
+			"Msz2001",
 			"Sp5uhe",
 			"Woytecr"
 		]
@@ -20,7 +21,7 @@
 	"pendingchanges-edit-tag-any": "Dowolny znacznik",
 	"pendingchanges-onwatchlist": "Strony z mojej listy obserwowanych",
 	"pendingchanges-stable": "Domyślnie wersja przejrzana",
-	"pendingchanges-diff": "Przejrzyj",
+	"pendingchanges-diff": "Zobacz zmiany",
 	"pendingchanges-size": "Maksymalna liczba dodanych lub usuniętych bajtów",
 	"pendingchanges-unwatched": "nieobserwowana",
 	"pendingchanges-watched": "obserwowana przez $1 {{PLURAL:$1|aktywnego użytkownika|aktywnych użytkowników}}",
