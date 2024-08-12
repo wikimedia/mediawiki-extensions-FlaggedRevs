@@ -6,7 +6,8 @@
 			"Neriman2003",
 			"Serkanland",
 			"Vugar 1981",
-			"Wertuose"
+			"Wertuose",
+			"Nemoralis"
 		]
 	},
 	"revisionreview": "Redaktələri yoxlayar",
@@ -48,7 +49,7 @@
 	"revreview-submit-reject": "Dəyişiklikləri rədd et",
 	"revreview-submit-reviewed": "Hazırdır. Qəbul edildi!",
 	"revreview-submit-unreviewed": "Hazırdır. Qəbul edilmə ləğv edildi!",
-	"revreview-successful": "'''[[:$1|$1]] adlı səhifənin təftişi yoxlanılıb. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} baxılmış versiyaları göstər])'''",
+	"revreview-successful": "'''[[:$1|$1]] səhifəsinin versiyası yoxlandı'''",
 	"revreview-successful2": "'''[[:$1|$1]] adlı səhifənin təftişi yoxlanılmayıb.'''",
 	"revreview-toolow": "'''Siz yoxlanılmanın keçirilmiş olduğunu göstərmək üçün simvolların hər birini \"qeyri-kafi\"dən daha artıq dəyərləndirməlisiniz.'''\n\nYoxlamanın baxış statusunu silmək üçün, klikləyin: \"{{int:revreview-submit-unreview}}\".\n\nBrauzerinizdəki \"geriyə\" düyməsinə basın və yenidən yoxlayın.",
 	"revreview-update": "'''Lütfən, sabit versiyadan sonra hazırlanan hər hansı gözlənilən dəyişiklikləri (aşağıda göstərilən)[[{{MediaWiki:Validationpage}}|nəzərdən keçirin.]]'''",
