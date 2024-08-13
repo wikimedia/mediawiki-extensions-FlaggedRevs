@@ -7,6 +7,7 @@
 			"Kaganer",
 			"Lockal",
 			"MaxSem",
+			"Pacha Tchernof",
 			"Putnik",
 			"Александр Сигачёв"
 		]
@@ -26,18 +27,18 @@
 	"pendingchanges-stable": "Стабильная версия по умолчанию",
 	"pendingchanges-diff": "Проверить",
 	"pendingchanges-size": "Наибольшее изменение в байтах:",
-	"pendingchanges-unwatched": "не следят",
+	"pendingchanges-unwatched": "не отслеживается",
 	"pendingchanges-watched": "{{PLURAL:$1|следит $1 активный участник|следят $1 активных участника|следят $1 активных участников}}",
-	"pendingchanges-viewing": "проверяется",
+	"pendingchanges-viewing": "на проверке",
 	"pendingchanges-table-caption": "Непроверенные правки",
 	"pendingchanges-table-page": "Страница",
 	"pendingchanges-table-size": "Размер",
-	"pendingchanges-table-pending-since": "Непроверено с",
+	"pendingchanges-table-pending-since": "Не проверялось",
 	"pendingchanges-table-quality": "Качество",
 	"pendingchanges-table-watching": "Следящих",
 	"pendingchanges-table-history": "История",
 	"pendingchanges-table-review": "Проверить",
 	"pendingchanges-table-revision-history": "История",
-	"pendingchanges-table-footer": "На данный момент непроверено {{PLURAL:$1|$1 правка|$1 правки|$1 правок}}",
+	"pendingchanges-table-footer": "На данный момент {{PLURAL:$1|$1 правка ожидает|$1 правки ожидают|$1 правок ожидают}} проверки",
 	"pendingchanges-filter-submit-button-text": "Отфильтровать непроверенные правки"
 }
