@@ -59,7 +59,7 @@
 	"revreview-successful": "'''Wersja [[:$1|$1]] została oznaczona.",
 	"revreview-successful2": "'''Wersja [[:$1|$1]] została odznaczona.'''",
 	"revreview-toolow": "'''Musisz ocenić każdy z atrybutów wyżej niż „nieakceptowalny”, aby oznaczyć wersję jako zweryfikowaną.'''\n\nAby wycofać zweryfikowanie kliknij na „Cofnij akceptację wersji”.\n\nKliknij przycisk „Wstecz” w przeglądarce i spróbuj ponownie.",
-	"revreview-update": "[[{{MediaWiki:Validationpage}}|Przejrzyj]] zmiany ''(patrz niżej)'' dokonane od momentu ostatniego oznaczenia wersji.",
+	"revreview-update": "[[{{MediaWiki:Validationpage}}|Przejrzyj]] poniższe zmiany dokonane od momentu ostatniego oznaczenia wersji.",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Wykonane przez Ciebie zmiany nie są widoczne w wersji oznaczonej.</span>\n\nPrzejrzyj wszystkie poniższe zmiany, a Twoje edycje zostaną zamieszczone w wersji oznaczonej.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Wykonane przez Ciebie zmiany nie są widoczne w wersji oznaczonej, ponieważ inne wcześniejsze zmiany oczekują na przejrzenie.</span>\n\nPrzejrzyj wszystkie poniższe zmiany, a Twoje edycje zostaną zamieszczone w wersji oznaczonej.",
 	"revreview-update-includes": "Niektóre szablony lub pliki zostały uaktualnione (nieprzejrzane strony są wytłuszczone):",
