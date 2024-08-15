@@ -10,7 +10,7 @@
 	},
 	"pendingchanges": "অমীমাংসিত পরিবর্তনসহ পাতাসমূহ",
 	"pendingchanges-legend": "অমীমাংসিত পরিবর্তনসহ পর্যালোচিত পাতার তালিকা",
-	"pendingchanges-list": "এটি [[{{MediaWiki:Validationpage}}|পর্যালোচনাকৃত]] পাতায় এক বা একাধিক সম্পাদনা পর্যালোচনার জন্য অপেক্ষা করছে এমন পাতার তালিকা।",
+	"pendingchanges-list": "এটি [[{{MediaWiki:Validationpage}}|পর্যালোচনাকৃত]] পাতার একটি তালিকা যেখানে বর্তমানে এক বা একাধিক সম্পাদনা পর্যালোচনার জন্য অপেক্ষা করছে।",
 	"pendingchanges-none": "এই মানদণ্ড পূরণের মত কোনো পাতা বর্তমানে নেই",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|ঘণ্টা}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|দিন|দিন}})",

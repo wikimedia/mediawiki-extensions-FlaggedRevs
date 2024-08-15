@@ -10,11 +10,12 @@
 			"Nike",
 			"Olli",
 			"Pxos",
-			"ZeiP"
+			"ZeiP",
+			"Samoasambia"
 		]
 	},
-	"pendingchanges": "Sivut, joilla on arviointia odottavia muutoksia",
-	"pendingchanges-legend": "Luettele arvioidut sivut, joissa on arviointia odottavia muutoksia.",
+	"pendingchanges": "Sivut, joissa on arviointia odottavia muutoksia",
+	"pendingchanges-legend": "Luettelo arvioiduista sivuista, joissa on arviointia odottavia muutoksia.",
 	"pendingchanges-list": "Tämä sivu näyttää [[{{MediaWiki:Validationpage}}|arvioidut]] sivut, joilla on odottavia muutoksia.",
 	"pendingchanges-none": "Näitä hakuehtoja täyttäviä sivuja ei ole yhtään tällä hetkellä.",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|tunti|tuntia}})",

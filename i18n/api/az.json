@@ -5,11 +5,12 @@
 			"Cekli829",
 			"NMW03",
 			"Neriman2003",
-			"Wertuose"
+			"Wertuose",
+			"Nemoralis"
 		]
 	},
 	"apihelp-flagconfig-summary": "Bu sayt üçün nəzərdən keçirilmiş bayraq konfiqurasiyası haqqında əsas məlumatı əldə edin.",
-	"apihelp-flagconfig-extended-description": "Hər bir tag üçün aşağıdakı parametrlər qaytarılır:\nadı: Bu etiketin əsas adı.\n; səviyyələr: Etiketin səviyyələrinin sayı (\"tagged deyil\" yuxarıda).\n;2-ci səviyyə: Etiketin düzəldilməsi 2-ci dərəcəli səviyyədə olması üçün keyfiyyətə çatmalıdır.\n;3-cü səviyyə: Etiketin düzəldilməsi 3-cü dərəcəli (prisitine) bir revizyona çatmalıdır.\nBayraqlı versiyalar hər bir tag üçün təyin edilmiş səviyyəyə malikdir. Bütün etiketlərin ən yüksək səviyyədə olması bütün təftişin nəzərdən keçirilməsidir.",
+	"apihelp-flagconfig-extended-description": "Hər bir tag üçün aşağıdakı parametrlər qaytarılır:\nadı: Bu etiketin əsas adı.\n; səviyyələr: Etiketin səviyyələrinin sayı (\"tagged deyil\" yuxarıda).\nBayraqlı versiyalar hər bir tag üçün təyin edilmiş səviyyəyə malikdir. Bütün etiketlərin ən yüksək səviyyədə olması bütün təftişin nəzərdən keçirilməsidir.",
 	"apihelp-flagconfig-example-1": "Bayraq konfiqurasiyasını seçin",
 	"apihelp-query+configuredpages-summary": "Xüsusi baxış konfiqurasiyalarına malik olan bütün səhifələri qeyd edin.",
 	"apihelp-query+configuredpages-param-start": "Bu səhifədə ID siyahısına başlayın.",
