@@ -252,7 +252,6 @@ class PendingChangesPager extends TablePager {
 	 * Builds and returns the table header HTML.
 	 *
 	 * @return string HTML
-	 * @since 1.43
 	 */
 	private function buildTableHeader(): string {
 		$headerCaption = $this->buildHeaderCaption();
@@ -269,7 +268,6 @@ class PendingChangesPager extends TablePager {
 	 * Builds and returns the header caption HTML.
 	 *
 	 * @return string HTML
-	 * @since 1.43
 	 */
 	private function buildHeaderCaption(): string {
 		return Html::rawElement(
@@ -283,7 +281,6 @@ class PendingChangesPager extends TablePager {
 	 * Builds and returns the header content HTML.
 	 *
 	 * @return string HTML
-	 * @since 1.43
 	 */
 	private function buildHeaderContent(): string {
 		$pendingCount = $this->getPendingCount();
@@ -301,7 +298,6 @@ class PendingChangesPager extends TablePager {
 	 * Retrieves the count of pending pages.
 	 *
 	 * @return int The count of pending pages.
-	 * @since 1.43
 	 */
 	private function getPendingCount(): int {
 		return $this->mDb->selectRowCount(
@@ -313,7 +309,6 @@ class PendingChangesPager extends TablePager {
 	 * Builds and returns the table element HTML.
 	 *
 	 * @return string HTML
-	 * @since 1.43
 	 */
 	private function buildTableElement(): string {
 		$caption = Html::element( 'caption', [], $this->msg( 'pendingchanges-table-caption' )->text() );
@@ -329,7 +324,6 @@ class PendingChangesPager extends TablePager {
 	 * Builds and returns the table header cells HTML.
 	 *
 	 * @return string HTML
-	 * @since 1.43
 	 */
 	private function buildTableHeaderCells(): string {
 		$fields = $this->getFieldNames();
@@ -454,7 +448,6 @@ class PendingChangesPager extends TablePager {
 	 * @param string $formattedCount The formatted count of pending pages.
 	 * @param int $pendingCount The count of pending pages.
 	 * @return string HTML
-	 * @since 1.43
 	 */
 	private function buildTableFooter( string $formattedCount, int $pendingCount ): string {
 		return Html::rawElement(
