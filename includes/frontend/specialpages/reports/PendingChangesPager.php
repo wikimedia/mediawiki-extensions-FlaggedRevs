@@ -255,7 +255,7 @@ class PendingChangesPager extends TablePager {
 	 */
 	private function buildTableHeader(): string {
 		$headerCaption = $this->buildHeaderCaption();
-		$headerContent = $this->buildHeaderContent();
+		$headerContent = $this->buildTableFooter( 'cdx-table__header__header-content' );
 
 		return Html::rawElement(
 			'div',
@@ -274,23 +274,6 @@ class PendingChangesPager extends TablePager {
 			'div',
 			[ 'class' => 'cdx-table__header__caption', 'aria-hidden' => 'true' ],
 			$this->msg( 'pendingchanges-table-caption' )->text()
-		);
-	}
-
-	/**
-	 * Builds and returns the header content HTML.
-	 *
-	 * @return string HTML
-	 */
-	private function buildHeaderContent(): string {
-		$pendingCount = $this->getPendingCount();
-		$formattedCount = Html::element( 'strong', [ 'class' => 'cdx-info-chip' ],
-			$this->getLanguage()->formatNum( $pendingCount ) );
-
-		return Html::rawElement(
-			'div',
-			[ 'class' => 'cdx-table__header__header-content' ],
-			$this->msg( 'pendingchanges-table-footer', $formattedCount )->numParams( $pendingCount )->text()
 		);
 	}
 
@@ -431,31 +414,29 @@ class PendingChangesPager extends TablePager {
 	 * @since 1.43
 	 */
 	protected function getEndBody(): string {
-		$pendingCount = $this->getPendingCount();
-		$formattedCount = Html::element( 'strong', [ 'class' => 'cdx-info-chip' ],
-			$this->getLanguage()->formatNum( $pendingCount ) );
-
 		return Html::closeElement( 'tbody' ) .
 			Html::closeElement( 'table' ) .
 			Html::closeElement( 'div' ) .
-			$this->buildTableFooter( $formattedCount, $pendingCount ) .
+			$this->buildTableFooter( 'cdx-table__footer' ) .
 			Html::closeElement( 'div' );
 	}
 
 	/**
 	 * Builds and returns the table footer HTML.
 	 *
-	 * @param string $formattedCount The formatted count of pending pages.
-	 * @param int $pendingCount The count of pending pages.
+	 * @param string $class The class to use for the returning element
 	 * @return string HTML
 	 */
-	private function buildTableFooter( string $formattedCount, int $pendingCount ): string {
+	private function buildTableFooter( string $class ): string {
+		$pendingCount = $this->getPendingCount();
+		$formattedCount = $this->getLanguage()->formatNum( $pendingCount );
+		$chip = Html::element( 'strong', [ 'class' => 'cdx-info-chip' ], $formattedCount );
+		$message = $this->msg( 'pendingchanges-table-footer', $chip )
+			->numParams( $pendingCount )->text();
 		return Html::rawElement(
 			'div',
-			[ 'class' => 'cdx-table__footer' ],
-			Html::rawElement( 'span', [], $this->msg( 'pendingchanges-table-footer',
-				$formattedCount )->numParams( $pendingCount )->text()
-			)
+			[ 'class' => $class ],
+			Html::rawElement( 'span', [], $message )
 		);
 	}
 }
