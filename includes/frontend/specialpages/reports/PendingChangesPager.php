@@ -287,7 +287,8 @@ class PendingChangesPager extends TablePager {
 	 */
 	private function buildHeaderContent(): string {
 		$pendingCount = $this->getPendingCount();
-		$formattedCount = Html::element( 'strong', [ 'class' => 'cdx-info-chip' ], (string)$pendingCount );
+		$formattedCount = Html::element( 'strong', [ 'class' => 'cdx-info-chip' ],
+			$this->getLanguage()->formatNum( $pendingCount ) );
 
 		return Html::rawElement(
 			'div',
@@ -437,7 +438,8 @@ class PendingChangesPager extends TablePager {
 	 */
 	protected function getEndBody(): string {
 		$pendingCount = $this->getPendingCount();
-		$formattedCount = Html::element( 'strong', [ 'class' => 'cdx-info-chip' ], (string)$pendingCount );
+		$formattedCount = Html::element( 'strong', [ 'class' => 'cdx-info-chip' ],
+			$this->getLanguage()->formatNum( $pendingCount ) );
 
 		return Html::closeElement( 'tbody' ) .
 			Html::closeElement( 'table' ) .

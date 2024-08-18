@@ -206,41 +206,6 @@ class FlaggedRevsXML {
 	}
 
 	/**
-	 * Get a selector for limit options
-	 *
-	 * @param int $selected The currently selected limit
-	 * @since 1.43
-	 */
-	public static function getLimitSelector( int $selected = 20 ): string {
-		$s = Html::rawElement( 'div', [ 'class' => 'cdx-field__item' ],
-			Html::rawElement( 'div', [ 'class' => 'cdx-label' ],
-				Html::label(
-					wfMessage( 'pendingchanges-limit' )->text(),
-					'wpLimit',
-					[ 'class' => 'cdx-label__label' ]
-				)
-			)
-		);
-
-		$options = [ 20, 50, 100 ];
-		$selectOptions = '';
-		foreach ( $options as $option ) {
-			$selectOptions .= Html::element( 'option', [
-				'value' => $option,
-				'selected' => $selected == $option
-			], (string)$option );
-		}
-
-		$s .= Html::rawElement( 'select', [
-			'name' => 'limit',
-			'id' => 'wpLimit',
-			'class' => 'cdx-select'
-		], $selectOptions );
-
-		return $s;
-	}
-
-	/**
 	 * Generates a review box using a table using FlaggedRevsXML::addTagRatings()
 	 * @param FlaggedRevision $frev the reviewed version
 	 * @param string $shtml Short message HTML

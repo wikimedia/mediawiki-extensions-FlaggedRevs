@@ -126,7 +126,7 @@ class PendingChanges extends SpecialPage {
 		$form .= Html::rawElement(
 			'div',
 			[ 'class' => 'cdx-field__item' ],
-			FlaggedRevsXML::getLimitSelector( $this->pager->mLimit )
+			$this->getLimitSelector( $this->pager->mLimit )
 		);
 
 		$form .= Html::rawElement(
@@ -183,6 +183,40 @@ class PendingChanges extends SpecialPage {
 		$form .= Html::closeElement( 'form' ) . "\n";
 
 		$this->getOutput()->addHTML( $form );
+	}
+
+	/**
+	 * Get a selector for limit options
+	 *
+	 * @param int $selected The currently selected limit
+	 */
+	private function getLimitSelector( int $selected = 20 ): string {
+		$s = Html::rawElement( 'div', [ 'class' => 'cdx-field__item' ],
+			Html::rawElement( 'div', [ 'class' => 'cdx-label' ],
+				Html::label(
+					$this->msg( 'pendingchanges-limit' )->text(),
+					'wpLimit',
+					[ 'class' => 'cdx-label__label' ]
+				)
+			)
+		);
+
+		$options = [ 20, 50, 100 ];
+		$selectOptions = '';
+		foreach ( $options as $option ) {
+			$selectOptions .= Html::element( 'option', [
+				'value' => $option,
+				'selected' => $selected == $option
+			], $this->getLanguage()->formatNum( $option ) );
+		}
+
+		$s .= Html::rawElement( 'select', [
+			'name' => 'limit',
+			'id' => 'wpLimit',
+			'class' => 'cdx-select'
+		], $selectOptions );
+
+		return $s;
 	}
 
 	private function showPageList() {
