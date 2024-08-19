@@ -255,7 +255,7 @@ class PendingChangesPager extends TablePager {
 	 */
 	private function buildTableHeader(): string {
 		$headerCaption = $this->buildHeaderCaption();
-		$headerContent = $this->buildTableFooter( 'cdx-table__header__header-content' );
+		$headerContent = $this->buildTableCaption( 'cdx-table__header__header-content' );
 
 		return Html::rawElement(
 			'div',
@@ -417,22 +417,24 @@ class PendingChangesPager extends TablePager {
 		return Html::closeElement( 'tbody' ) .
 			Html::closeElement( 'table' ) .
 			Html::closeElement( 'div' ) .
-			$this->buildTableFooter( 'cdx-table__footer' ) .
+			$this->buildTableCaption( 'cdx-table__footer' ) .
 			Html::closeElement( 'div' );
 	}
 
 	/**
-	 * Builds and returns the table footer HTML.
+	 * Builds and returns the table caption, currently used both in
+	 * the header and the footer.
 	 *
 	 * @param string $class The class to use for the returning element
 	 * @return string HTML
 	 */
-	private function buildTableFooter( string $class ): string {
+	private function buildTableCaption( string $class ): string {
 		$pendingCount = $this->getPendingCount();
 		$formattedCount = $this->getLanguage()->formatNum( $pendingCount );
 		$chip = Html::element( 'strong', [ 'class' => 'cdx-info-chip' ], $formattedCount );
 		$message = $this->msg( 'pendingchanges-table-footer', $chip )
 			->numParams( $pendingCount )->text();
+
 		return Html::rawElement(
 			'div',
 			[ 'class' => $class ],
