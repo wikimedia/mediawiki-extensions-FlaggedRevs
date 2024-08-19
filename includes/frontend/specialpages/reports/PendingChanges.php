@@ -464,8 +464,7 @@ class PendingChanges extends SpecialPage {
 	 */
 	public function getWatchingFormatted( int $watching ): string {
 		return $watching > 0
-			? Html::element( 'span', [],
-				$this->msg( 'pendingchanges-watched' )->numParams( $watching )->text() )
+			? Html::element( 'span', [], $this->getLanguage()->formatNum( $watching ) )
 			: Html::rawElement(
 				'div',
 				[ 'class' => 'cdx-info-chip' ],
