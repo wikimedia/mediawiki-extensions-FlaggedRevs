@@ -28,13 +28,16 @@
 			"Wpedzich",
 			"Žekřil71pl",
 			"Nux",
-			"Peter Bowman"
+			"Peter Bowman",
+			"Msz2001"
 		]
 	},
 	"action-autoreview": "automatycznego oznaczania własnych edycji jako „przejrzane”",
 	"action-autoreviewrestore": "automatycznego oznaczania wycofań zmian jako przejrzane",
 	"action-movestable": "przenoszenia stron ze stabilnymi wersjami",
 	"action-review": "przeglądania wersji",
+	"action-stablesettings": "określania sposobów wybierania i wyświetlania wersji opublikowanej",
+	"action-validate": "oznaczania wersji jako „sprawdzone”",
 	"action-unreviewedpages": "podglądu listy nieprzejrzanych stron",
 	"editor": "Redaktor",
 	"flaggedrevs": "Wersje oznaczone",

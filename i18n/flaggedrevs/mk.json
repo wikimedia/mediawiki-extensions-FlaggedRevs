@@ -114,7 +114,7 @@
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Непроверена]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} промени во исчекување]]",
 	"revreview-basic-title": "Ова е проверена верзија на страницава",
-	"revreview-toggle-title": "прикажи/скриј подробности",
+	"revreview-toggle-title": "прикажи/скриј поединости",
 	"revreview-visibility-synced": "'''Оваа страница има понова [[{{MediaWiki:Validationpage}}|објавена верзија]]; нагодувањата на стабилноста на страницата може да се [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} прилагодат].'''",
 	"revreview-visibility-outdated": "'''Оваа страница има застарена [[{{MediaWiki:Validationpage}}|објавена верзија]]; нагодувањата на стабилноста на страницата може да се [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} прилагодат].'''",
 	"revreview-visibility-nostable": "'''Оваа страница нема [[{{MediaWiki:Validationpage}}|објавена верзија]]; нагодувањата за стабилноста на страницата може да се [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} прилагодат].'''",
