@@ -18,6 +18,5 @@
 	"pendingchanges-diff": "revision-a",
 	"pendingchanges-size": "Màssim cambi (byte):",
 	"pendingchanges-unwatched": "(pa tnùa sot euj)",
-	"pendingchanges-watched": "($1 {{PLURAL:$1|utent|utent}} ativ ch'a ten-o sot euj)",
 	"pendingchanges-viewing": "(sota revision)"
 }

@@ -17,6 +17,5 @@
 	"pendingchanges-category": "تهر:",
 	"pendingchanges-stable": "رویت بیتگ",
 	"pendingchanges-diff": "بازبینی",
-	"pendingchanges-unwatched": "(نچارِتگ)",
-	"pendingchanges-watched": "($1 {{PLURAL:$1|کاربر|کابران}} چارگنت)"
+	"pendingchanges-unwatched": "(نچارِتگ)"
 }

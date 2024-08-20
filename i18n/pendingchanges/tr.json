@@ -28,7 +28,6 @@
 	"pendingchanges-diff": "gözden geçir",
 	"pendingchanges-size": "Azami değişiklik (bayt):",
 	"pendingchanges-unwatched": "(izlenmiyor)",
-	"pendingchanges-watched": "($1 etkin {{PLURAL:$1|kullanıcı|kullanıcı}} izliyor)",
 	"pendingchanges-viewing": "(gözden geçiriliyor)",
 	"pendingchanges-table-caption": "Bekleyen değişiklikler",
 	"pendingchanges-table-page": "Sayfa",

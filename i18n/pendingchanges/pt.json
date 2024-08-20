@@ -22,6 +22,5 @@
 	"pendingchanges-diff": "rever",
 	"pendingchanges-size": "Alteração máx. (bytes):",
 	"pendingchanges-unwatched": "(não vigiada)",
-	"pendingchanges-watched": "(vigiada por $1 {{PLURAL:$1|utilizador ativo|utilizadores ativos}})",
 	"pendingchanges-viewing": "(em revisão)"
 }

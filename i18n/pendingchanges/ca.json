@@ -21,6 +21,5 @@
 	"pendingchanges-diff": "revisió",
 	"pendingchanges-size": "Diferència màxima de mida (bytes):",
 	"pendingchanges-unwatched": "(no vigilat)",
-	"pendingchanges-watched": "({{PLURAL:$1|un usari|$1 usuaris}} actius en vigilen)",
 	"pendingchanges-viewing": "(sota revisió)"
 }

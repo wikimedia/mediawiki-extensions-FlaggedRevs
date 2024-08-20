@@ -21,6 +21,5 @@
 	"pendingchanges-diff": "gjennomgå",
 	"pendingchanges-size": "Maks størrelsesendring (bytes):",
 	"pendingchanges-unwatched": "(ikke overvåket)",
-	"pendingchanges-watched": "({{PLURAL:$1|én aktiv bruker|$1 aktive brukere}} overvåker)",
 	"pendingchanges-viewing": "(venter på gjennomgang)"
 }

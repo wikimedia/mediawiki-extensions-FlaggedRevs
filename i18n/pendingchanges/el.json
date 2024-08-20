@@ -21,6 +21,5 @@
 	"pendingchanges-diff": "επιθεώρηση",
 	"pendingchanges-size": "Μέγιστη αλλαγή (μπάιτς):",
 	"pendingchanges-unwatched": "(δεν παρακολουθείται)",
-	"pendingchanges-watched": "($1 {{PLURAL:$1|χρήστης|χρήστες}} παρακολουθούν)",
 	"pendingchanges-viewing": "(υπό επιθεώρηση)"
 }

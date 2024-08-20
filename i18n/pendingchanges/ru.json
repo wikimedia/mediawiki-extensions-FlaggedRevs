@@ -28,7 +28,6 @@
 	"pendingchanges-diff": "Проверить",
 	"pendingchanges-size": "Наибольшее изменение в байтах:",
 	"pendingchanges-unwatched": "не отслеживается",
-	"pendingchanges-watched": "{{PLURAL:$1|следит $1 активный участник|следят $1 активных участника|следят $1 активных участников}}",
 	"pendingchanges-viewing": "на проверке",
 	"pendingchanges-table-caption": "Непроверенные правки",
 	"pendingchanges-table-page": "Страница",

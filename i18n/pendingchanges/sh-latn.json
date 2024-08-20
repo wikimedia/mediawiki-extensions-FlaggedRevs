@@ -17,6 +17,5 @@
 	"pendingchanges-diff": "pregled",
 	"pendingchanges-size": "Najv. promjena (bajta):",
 	"pendingchanges-unwatched": "(nepraćen)",
-	"pendingchanges-watched": "($1 {{PLURAL:$1|aktivni korisnik prati|aktivna korisnika prate|aktivnih korisnika prati}})",
 	"pendingchanges-viewing": "(pod provjerom)"
 }

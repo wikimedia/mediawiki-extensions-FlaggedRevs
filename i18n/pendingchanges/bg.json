@@ -20,6 +20,5 @@
 	"pendingchanges-diff": "проверка",
 	"pendingchanges-size": "Макс. промяна (в байтове):",
 	"pendingchanges-unwatched": "(ненаблюдавана)",
-	"pendingchanges-watched": "($1 {{PLURAL:$1|активен наблюдаващ потребител|активни наблюдаващи потребители}})",
 	"pendingchanges-viewing": "(в процес на проверка)"
 }

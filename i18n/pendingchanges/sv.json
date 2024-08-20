@@ -24,6 +24,5 @@
 	"pendingchanges-diff": "granska",
 	"pendingchanges-size": "Maximal storleksändring i byte:",
 	"pendingchanges-unwatched": "(obevakad)",
-	"pendingchanges-watched": "($1 {{PLURAL:$1|aktiv användare|aktiva användare}} bevakar)",
 	"pendingchanges-viewing": "(granskas)"
 }

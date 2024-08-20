@@ -22,6 +22,5 @@
 	"pendingchanges-diff": "ellenőriz",
 	"pendingchanges-size": "Változás legfeljebb (bájtban):",
 	"pendingchanges-unwatched": "(nem figyelt)",
-	"pendingchanges-watched": "({{PLURAL:$1|egy|$1}} aktív szerkesztő figyeli)",
 	"pendingchanges-viewing": "(ellenőrzés alatt)"
 }

@@ -19,7 +19,6 @@
 	"pendingchanges-diff": "Controleren",
 	"pendingchanges-size": "Maximale wijziging in aantal bytes:",
 	"pendingchanges-unwatched": "niet gevolgd",
-	"pendingchanges-watched": "wordt gevolgd door $1 actieve gebruiker{{PLURAL:$1||s}}",
 	"pendingchanges-viewing": "wordt gecontroleerd",
 	"pendingchanges-table-history": "Geschiedenis",
 	"pendingchanges-table-revision-history": "Geschiedenis"

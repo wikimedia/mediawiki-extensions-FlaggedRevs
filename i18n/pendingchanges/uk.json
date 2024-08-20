@@ -23,6 +23,5 @@
 	"pendingchanges-diff": "перевірити",
 	"pendingchanges-size": "Максимальна зміна розміру в байтах:",
 	"pendingchanges-unwatched": "(не спостерігають)",
-	"pendingchanges-watched": "({{PLURAL:$1|спостерігає $1 активний користувач|спостерігають $1 активні користувачі|спостерігають $1 активних користувачів}})",
 	"pendingchanges-viewing": "(перевіряється)"
 }

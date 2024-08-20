@@ -22,6 +22,5 @@
 	"pendingchanges-diff": "posoudit",
 	"pendingchanges-size": "Maximální velikost změny (v bajtech):",
 	"pendingchanges-unwatched": "(nesledované)",
-	"pendingchanges-watched": "{{PLURAL:$1|sleduje $1 aktivní uživatel|sledují $1 aktivní uživatelé|sleduje $1 aktivních uživatelů}}",
 	"pendingchanges-viewing": "posuzuje se"
 }

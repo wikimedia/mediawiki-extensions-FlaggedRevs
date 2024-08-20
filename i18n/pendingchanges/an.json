@@ -14,6 +14,5 @@
 	"pendingchanges-category": "Categoría:",
 	"pendingchanges-stable": "A versión estable s'amuestra por defecto",
 	"pendingchanges-diff": "revisión",
-	"pendingchanges-unwatched": "(no cosirata)",
-	"pendingchanges-watched": "($1 {{PLURAL:$1|usuario|usuarios}} activos cosirando)"
+	"pendingchanges-unwatched": "(no cosirata)"
 }

@@ -26,7 +26,6 @@
 	"pendingchanges-diff": "Tinjau",
 	"pendingchanges-size": "Perubahan maks. (byte):",
 	"pendingchanges-unwatched": "(tidak dipantau)",
-	"pendingchanges-watched": "(dipantau $1 {{PLURAL:$1|pengguna|pengguna}} aktif)",
 	"pendingchanges-viewing": "Sedang dinilai",
 	"pendingchanges-table-caption": "Perubahan tertunda",
 	"pendingchanges-table-page": "Halaman",

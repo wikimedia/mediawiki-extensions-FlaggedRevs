@@ -21,7 +21,6 @@
 	"pendingchanges-diff": "Преглед",
 	"pendingchanges-size": "Најг. промена (во бајти):",
 	"pendingchanges-unwatched": "ненабљудувана",
-	"pendingchanges-watched": "({{PLURAL:$1|набљудува $1 активен корисник|набљудуваат $1 активни корисници}})",
 	"pendingchanges-viewing": "се проверува",
 	"pendingchanges-table-caption": "Промени во исчекување",
 	"pendingchanges-table-page": "Страница",

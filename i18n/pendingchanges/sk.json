@@ -18,6 +18,5 @@
 	"pendingchanges-diff": "skontrolovať",
 	"pendingchanges-size": "Max. veľkosť zmeny v bajtoch:",
 	"pendingchanges-unwatched": "(nesledovaná)",
-	"pendingchanges-watched": "({{PLURAL:$1|sleduje $1 aktívny používateľ|sledujú $1 aktívni používatelia|sleduje $1 aktívnych používateľov}})",
 	"pendingchanges-viewing": "(kontroluje sa)"
 }

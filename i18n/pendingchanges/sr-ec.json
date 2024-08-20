@@ -23,7 +23,6 @@
 	"pendingchanges-diff": "провера",
 	"pendingchanges-size": "Највећа промена (у бајтовима):",
 	"pendingchanges-unwatched": "ненадгледано",
-	"pendingchanges-watched": "$1 {{PLURAL:$1|активан корисник|активна корисника|активних корисника}} прати",
 	"pendingchanges-viewing": "под провером",
 	"pendingchanges-table-caption": "Измене на чекању",
 	"pendingchanges-table-page": "Страница",

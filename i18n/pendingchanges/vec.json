@@ -20,6 +20,5 @@
 	"pendingchanges-diff": "riesamina",
 	"pendingchanges-size": "Canbiamento massimo (in byte):",
 	"pendingchanges-unwatched": "(non osservà)",
-	"pendingchanges-watched": "($1 {{PLURAL:$1|utente el|utenti i}} tien d'ocio sta pagina)",
 	"pendingchanges-viewing": "(in corso de revision)"
 }

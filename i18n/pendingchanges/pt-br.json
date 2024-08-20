@@ -20,6 +20,5 @@
 	"pendingchanges-diff": "analisar",
 	"pendingchanges-size": "Tamanho máximo da alteração (em bytes):",
 	"pendingchanges-unwatched": "(não-vigiada)",
-	"pendingchanges-watched": "(vigiada por $1 {{PLURAL:$1|usuários ativo|usuários ativos}})",
 	"pendingchanges-viewing": "(sob análise)"
 }

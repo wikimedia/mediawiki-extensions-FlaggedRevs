@@ -19,6 +19,5 @@
 	"pendingchanges-diff": "provera",
 	"pendingchanges-size": "Najveća promena (u bajtovima):",
 	"pendingchanges-unwatched": "(nenadgledano)",
-	"pendingchanges-watched": "($1 {{PLURAL:$1|aktivan korisnik|aktivna korisnika|aktivna korisnika|aktivna korisnika|aktivnih korisnika}} gleda)",
 	"pendingchanges-viewing": "(pod proverom)"
 }

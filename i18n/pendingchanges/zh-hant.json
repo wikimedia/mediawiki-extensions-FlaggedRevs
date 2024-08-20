@@ -32,7 +32,6 @@
 	"pendingchanges-diff": "審核",
 	"pendingchanges-size": "最大變更 (位元組)：",
 	"pendingchanges-unwatched": "未監視",
-	"pendingchanges-watched": "有 $1 位活躍的{{PLURAL:$1|使用者}}監視中",
 	"pendingchanges-viewing": "正在審查",
 	"pendingchanges-table-caption": "待審核變更",
 	"pendingchanges-table-page": "頁面",

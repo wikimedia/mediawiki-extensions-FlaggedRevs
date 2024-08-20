@@ -16,6 +16,5 @@
 	"pendingchanges-diff": "relectura",
 	"pendingchanges-size": "Cambiament maximal de la talha (en octets) :",
 	"pendingchanges-unwatched": "(pas observat)",
-	"pendingchanges-watched": "($1 {{PLURAL:$1|utilizaire actiu|utilizaires actius}} a observar)",
 	"pendingchanges-viewing": "(en revision)"
 }

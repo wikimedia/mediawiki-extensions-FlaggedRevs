@@ -18,6 +18,5 @@
 	"pendingchanges-diff": "revisar",
 	"pendingchanges-size": "Cambiu máximu (bytes):",
 	"pendingchanges-unwatched": "(non vixilada)",
-	"pendingchanges-watched": "($1 {{PLURAL:$1|usuariu activu|usuarios activos}} vixilando)",
 	"pendingchanges-viewing": "(en revisión)"
 }

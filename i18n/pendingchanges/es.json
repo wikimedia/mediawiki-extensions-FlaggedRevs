@@ -25,6 +25,5 @@
 	"pendingchanges-diff": "revisar",
 	"pendingchanges-size": "Cambio máximo (bytes):",
 	"pendingchanges-unwatched": "(no vigilado)",
-	"pendingchanges-watched": "($1 {{PLURAL:$1|usuario activo|usuarios activos}} vigilando)",
 	"pendingchanges-viewing": "(en revisión)"
 }

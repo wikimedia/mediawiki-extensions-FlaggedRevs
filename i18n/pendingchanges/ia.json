@@ -18,6 +18,5 @@
 	"pendingchanges-diff": "revision",
 	"pendingchanges-size": "Cambio maxime (bytes):",
 	"pendingchanges-unwatched": "(non observate)",
-	"pendingchanges-watched": "(observate per $1 {{PLURAL:$1|usator|usatores}} active)",
 	"pendingchanges-viewing": "(sub revision)"
 }

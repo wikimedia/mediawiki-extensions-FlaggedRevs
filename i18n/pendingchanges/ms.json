@@ -19,6 +19,5 @@
 	"pendingchanges-diff": "periksa",
 	"pendingchanges-size": "Perubahan maks. (bait):",
 	"pendingchanges-unwatched": "(tidak dipantau)",
-	"pendingchanges-watched": "(dipantau {{PLURAL:$1|seorang|$1 orang}} pengguna aktif)",
 	"pendingchanges-viewing": "(sedang dikaji semula)"
 }

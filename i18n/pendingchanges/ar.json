@@ -29,7 +29,6 @@
 	"pendingchanges-diff": "مراجعة",
 	"pendingchanges-size": "أقصى تغيير (بايت):",
 	"pendingchanges-unwatched": "(غير مراقبة)",
-	"pendingchanges-watched": "({{PLURAL:$1|لا مستخدمون نشطون يراقبون|مستخدم واحد نشط يراقب|مستخدمان نشطان يراقبان|$1 مستخدمين نشطين يراقبون|$1 مستخدمًا نشطًا يراقبون|$1 مستخدم نشط يراقبون}})",
 	"pendingchanges-viewing": "قيد المراجعة",
 	"pendingchanges-table-caption": "تعديلات معلقة",
 	"pendingchanges-table-page": "صفحة",

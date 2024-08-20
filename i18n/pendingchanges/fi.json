@@ -30,7 +30,6 @@
 	"pendingchanges-diff": "Arvioi",
 	"pendingchanges-size": "Enimmäismuutos (merkkiä):",
 	"pendingchanges-unwatched": "tarkkailematon",
-	"pendingchanges-watched": "$1 aktiivisen {{PLURAL:$1|käyttäjän}} tarkkailema",
 	"pendingchanges-viewing": "arvioitavana",
 	"pendingchanges-table-caption": "Odottavat muutokset",
 	"pendingchanges-table-page": "Sivu",

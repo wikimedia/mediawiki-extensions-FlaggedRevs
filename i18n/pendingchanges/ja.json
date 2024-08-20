@@ -24,6 +24,5 @@
 	"pendingchanges-diff": "査読",
 	"pendingchanges-size": "変更量の上限 (バイト):",
 	"pendingchanges-unwatched": "未ウォッチ",
-	"pendingchanges-watched": "$1 人の活動中の{{PLURAL:$1|利用者}}がウォッチ",
 	"pendingchanges-viewing": "査読中"
 }

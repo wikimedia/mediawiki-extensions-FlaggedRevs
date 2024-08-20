@@ -17,6 +17,5 @@
 	"pendingchanges-diff": "перевірити",
 	"pendingchanges-size": "Максімална зміна розміру в байтах:",
 	"pendingchanges-unwatched": "(неслїдованы)",
-	"pendingchanges-watched": "({{PLURAL:$1|слїдує $1 актівный хоснователь|слїдують $1 актівны хоснователї|слїдує $1 актівных хоснователїв}})",
 	"pendingchanges-viewing": "(перевірює ся)"
 }

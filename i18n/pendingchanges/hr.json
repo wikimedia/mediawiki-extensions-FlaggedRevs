@@ -19,6 +19,5 @@
 	"pendingchanges-diff": "ocijeni",
 	"pendingchanges-size": "Najveća promjena (bajtovi):",
 	"pendingchanges-unwatched": "(nepraćeno)",
-	"pendingchanges-watched": "($1 {{PLURAL:$1|aktivni suradnik prati|aktivnih suradnika prate}})",
 	"pendingchanges-viewing": "(u ocjenjivanju)"
 }

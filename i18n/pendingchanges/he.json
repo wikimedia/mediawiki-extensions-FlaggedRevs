@@ -24,7 +24,6 @@
 	"pendingchanges-diff": "לסקור",
 	"pendingchanges-size": "השינוי המרבי בגודל (בבתים):",
 	"pendingchanges-unwatched": "לא במעקב",
-	"pendingchanges-watched": "{{PLURAL:$1|משתמש פעיל אחד עוקב|$1 משתמשים פעילים עוקבים}}",
 	"pendingchanges-viewing": "בתהליך סקירה",
 	"pendingchanges-table-caption": "שינויים ממתינים",
 	"pendingchanges-table-page": "דף",

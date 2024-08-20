@@ -30,7 +30,6 @@
 	"pendingchanges-diff": "revoir",
 	"pendingchanges-size": "Différence de taille maximale (en octets) :",
 	"pendingchanges-unwatched": "non suivie",
-	"pendingchanges-watched": "$1 actif {{PLURAL:$1|user|users}} en tran d'observer",
 	"pendingchanges-viewing": "(en relecture)examiner",
 	"pendingchanges-table-caption": "Changements en attente",
 	"pendingchanges-table-page": "Page",
