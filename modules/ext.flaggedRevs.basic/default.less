@@ -185,3 +185,37 @@ span.flaggedrevs-icon {
 .mw-fr-hist-difflink {
 	font-size: 85%;
 }
+
+.cdx-fr-css-icon-review--status {
+	&--stable {
+		.cdx-mixin-css-icon( @cdx-icon-article-check );
+	}
+
+	&--pending {
+		.cdx-mixin-css-icon( @cdx-icon-eye-closed );
+	}
+
+	&--unchecked {
+		.cdx-mixin-css-icon( @cdx-icon-info-filled );
+	}
+}
+
+.cdx-fr-css-icon--close {
+	.cdx-mixin-css-icon( @cdx-icon-close, @param-is-button-icon: true );
+	background-color: @background-color-backdrop-dark;
+}
+
+.mw-fr-review-notice-button {
+	float: right;
+}
+
+.mw-fr-revision-details-dialog {
+	position: absolute;
+	right: -32px;
+	z-index: @z-index-above-content;
+}
+
+.mw-fr-review-status-indicator {
+	display: flex;
+	gap: 5px;
+}
