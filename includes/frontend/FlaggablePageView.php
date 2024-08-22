@@ -759,9 +759,9 @@ class FlaggablePageView extends ContextSource {
 	 *
 	 * @param string &$tag Reference to the variable holding the review box/bar info.
 	 *
-	 * @return ?ParserOutput The generated ParserOutput for the unreviewed version, or null if none is available.
+	 * @return ParserOutput|bool The generated ParserOutput for the unreviewed version, or null if none is available.
 	 */
-	private function showUnreviewedVersion( string &$tag ): ?ParserOutput {
+	private function showUnreviewedVersion( string &$tag ) {
 		$reqUser = $this->getUser();
 
 		if ( $this->useSimpleUI() ) {
