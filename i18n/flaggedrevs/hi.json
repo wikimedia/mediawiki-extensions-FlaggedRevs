@@ -135,5 +135,7 @@
 	"revreview-locked": "'''नोट:''' इस पृष्ठ पर सम्पादनों को पाठकों को दिखाए जाने से पहले [[{{MediaWiki:Validationpage}}|पुनरीक्षित]] करना पड़ता है।",
 	"revreview-unlocked": "'''नोट:''' इस पृष्ठ पर सम्पादनों को पाठकों को दिखाए जाने से पहले [[{{MediaWiki:Validationpage}}|पुनरीक्षित]] नहीं करना पड़ता।",
 	"validationpage": "{{ns:help}}:पृष्ठ प्रमाणीकरण",
-	"log-action-filter-review": "पुनरीक्षण के प्रकार:"
+	"log-action-filter-review": "पुनरीक्षण के प्रकार:",
+	"fr-revision-info-dialog-cancel-button": "रद्द करें",
+	"fr-revision-info-dialog-close-aria-label": "बंद करें"
 }

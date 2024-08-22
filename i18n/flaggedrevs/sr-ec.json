@@ -91,6 +91,7 @@
 	"revreview-basic-source": "[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Проверена верзија] ове странице, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] дана <i>$2</i>, заснована је на овој измени.",
 	"revreview-current": "Измене на чекању",
 	"flaggedrevs-action-info-pages-waiting-for-review-none": "ништа",
+	"revreview-draft-indicator-title": "'''На чекању'''",
 	"revreview-draft-title": "На овој страници су приказане промене на чекању",
 	"revreview-editnotice": "'''Ваше измене ће бити видљиве читаоцима након што их овлашћени корисник провери ([[{{MediaWiki:Validationpage}}|детаљније]])'''.",
 	"revreview-submitedit": "Пошаљи промене",
@@ -107,9 +108,11 @@
 	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|Проверено]]'''",
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Проверено]]'''",
 	"revreview-quick-invalid": "'''Неважећи ID измене'''",
-	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Непроверено]]'''",
+	"revreview-quick-none": "'''Непроверено'''",
 	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Провери промене на чекању]",
 	"revreview-basic-title": "Ово је проверена верзија ове странице",
+	"revreview-unchecked-title": "Ова страница није проверена",
+	"revreview-quick-basic-same-title": "'''Проверено'''",
 	"revreview-toggle-title": "прикажи/сакриј детаље",
 	"revreview-visibility-synced": "'''Ова страница има ажурирану [[{{MediaWiki:Validationpage}}|стабилну измену]]; можете [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} променити] подешавања стабилности страница.'''",
 	"revreview-visibility-outdated": "'''Ова страница има застарелу [[{{MediaWiki:Validationpage}}|стабилну измену]]; можете [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} променити] подешавања стабилности страница.'''",
@@ -159,5 +162,7 @@
 	"log-action-filter-stable-config": "Нова конфигурација",
 	"log-action-filter-stable-modify": "Измењена конфигурација",
 	"log-action-filter-stable-reset": "Ресетовање конфигурације",
-	"log-action-filter-stable-move_stable": "Премештена конфигурација"
+	"log-action-filter-stable-move_stable": "Премештена конфигурација",
+	"fr-revision-info-dialog-cancel-button": "Откажи",
+	"fr-revision-info-dialog-close-aria-label": "Затвори"
 }

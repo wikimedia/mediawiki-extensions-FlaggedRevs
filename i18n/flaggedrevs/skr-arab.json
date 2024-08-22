@@ -12,5 +12,7 @@
 	"revreview-def-draft": "تازہ ترین",
 	"revreview-restriction-any": "کوئی وی",
 	"revreview-restriction-none": "کوئی وی کائنی",
-	"tooltip-ca-current": "ورقے کوں رکیاں ہویاں تبدیلیاں نال ݙیکھو"
+	"tooltip-ca-current": "ورقے کوں رکیاں ہویاں تبدیلیاں نال ݙیکھو",
+	"fr-revision-info-dialog-cancel-button": "منسوخ",
+	"fr-revision-info-dialog-close-aria-label": "بند کرو"
 }
