@@ -101,7 +101,7 @@
 	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|পরীক্ষিত]]'''",
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|পরীক্ষিত]]'''",
 	"revreview-quick-invalid": "'''ভুল সংশোধন আইডি'''",
-	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|অপরীক্ষিত]]'''",
+	"revreview-quick-none": "'''অপরীক্ষিত'''",
 	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} অমীমাংসিত পরিবর্তন পর্যালোচনা]",
 	"revreview-basic-title": "এটি এই পাতার একটি পরীক্ষিত সংস্করণ",
 	"revreview-toggle-title": "বিস্তারিত দেখাও/আড়াল করো",
@@ -148,5 +148,6 @@
 	"log-action-filter-stable-config": "নতুন কনফিগারেশন",
 	"log-action-filter-stable-modify": "সম্পাদিত কনফিগারেশন",
 	"log-action-filter-stable-reset": "কনফিগারেশন পুনঃনির্ধারণ",
-	"log-action-filter-stable-move_stable": "স্থানান্তরিত কনফিগারেশন"
+	"log-action-filter-stable-move_stable": "স্থানান্তরিত কনফিগারেশন",
+	"fr-revision-info-dialog-close-aria-label": "বন্ধ করুন"
 }

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Constraque",
 			"Gazeb"
 		]
 	},
@@ -11,7 +12,7 @@
 	"flaggedrevs-desc": "Уможнює едіторам оцїнёвати ревізії і стабілізовати сторінкы",
 	"flaggedrevs-pref-UI": "Основный інтерфейс:",
 	"flaggedrevs-pref-UI-0": "Хосновати детайлны боксы про указаня статусу схвалїня сторінок",
-	"flaggedrevs-pref-UI-1": "Хосновати маленькы іконкы і мінімалный текст про указаня статусу схвалїня сторінок",
+	"flaggedrevs-pref-UI-1": "Хоснуйте індікаторы жебы зображити стан перегляду сторінок",
 	"prefs-flaggedrevs-ui": "Перевірка едітовань",
 	"flaggedrevs-prefs-stable": "Коли указати стабілну верзію обсягу сторінкы",
 	"flaggedrevs-pref-stable-0": "Хосновати штандартны параметры про кажду сторінку",
@@ -75,7 +76,7 @@
 	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|Перевірена верзія]]'''",
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Перевірена верзія]]'''",
 	"revreview-quick-invalid": "'''Неправилный ідентіфікатор ревізії'''",
-	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Неревірена верзія]]'''",
+	"revreview-quick-none": "'''Неконтролёвано'''",
 	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} перевірити нерецензованы зміны]",
 	"revreview-basic-title": "Тото перевірена верзія той сторінкы",
 	"revreview-toggle-title": "вказати/сховати детайлы",
@@ -118,5 +119,6 @@
 	"revreview-unlocked-title": "Зміны той сторінкы не потребують рецензованя.",
 	"revreview-locked": "'''Позначка:''' Едітованя повинны быти [[{{MediaWiki:Validationpage}}|перевірены]] перед тым, як будуть указаны чітателям на тій сторінцї.",
 	"revreview-unlocked": "'''Позначка:''' Едітованя не потребують быти [[{{MediaWiki:Validationpage}}|перевірены]] перед тым, як будуть указаны чітателям на тій сторінцї.",
-	"validationpage": "{{ns:help}}:Перевірка сторінкы"
+	"validationpage": "{{ns:help}}:Перевірка сторінкы",
+	"fr-revision-info-dialog-cancel-button": "Зрушыти"
 }

@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"ChiK",
 			"Kiranpoojary",
 			"Vishwanatha Badikana"
 		]
 	},
-	"tooltip-ca-current": "ಬಾಕಿ ಇತ್ತಿನ ಬದಲಾವಣೆಲೆನ್ ಸೇರ್‌ದ್ ಈ ಪುಟೊನು ತೂಲೆ"
+	"tooltip-ca-current": "ಬಾಕಿ ಇತ್ತಿನ ಬದಲಾವಣೆಲೆನ್ ಸೇರ್‌ದ್ ಈ ಪುಟೊನು ತೂಲೆ",
+	"fr-revision-info-dialog-close-aria-label": "ಮುಚ್ಚಿಲೆ"
 }

@@ -23,7 +23,7 @@
 	"flaggedrevs-desc": "Дае рэдактарам магчымасьць рэцэнзаваньня вэрсіяў і стабілізацыі старонак",
 	"flaggedrevs-pref-UI": "Асноўны інтэрфэйс:",
 	"flaggedrevs-pref-UI-0": "Выкарыстоўваць падрабязны інтэрфэйс для паказу статусу старонак",
-	"flaggedrevs-pref-UI-1": "Выкарыстоўваць мініятуры і мінімум тэксту для паказу статусу зацьверджаньня старонак",
+	"flaggedrevs-pref-UI-1": "Выкарыстоўваць індыкатары для паказу статусу зацьверджаньня старонак.",
 	"prefs-flaggedrevs-ui": "Зацьверджаньне рэдагаваньняў",
 	"flaggedrevs-prefs-stable": "Калі паказваць стабільную вэрсію старонак са зьместам па змоўчваньні",
 	"flaggedrevs-pref-stable-0": "Выкарыстоўваць налады па змоўчваньні для ўсіх старонак",
@@ -92,9 +92,11 @@
 	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|Прарэцэнзаваная вэрсія]]'''",
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Прарэцэнзаваная]]'''",
 	"revreview-quick-invalid": "'''Няслушны ідэнтыфікатар вэрсіі'''",
-	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Нерэцэнзаваная вэрсія]]'''",
+	"revreview-quick-none": "'''Неправераная'''",
 	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} рэцэнзаваць чакаючыя зьмены]",
 	"revreview-basic-title": "Правераная вэрсія гэтай старонкі",
+	"revreview-unchecked-title": "Старонка не правераная",
+	"revreview-dialog-title": "Статус вэрсіі старонкі",
 	"revreview-toggle-title": "паказаць/схаваць падрабязнасьці",
 	"revreview-visibility-synced": "'''Гэтая старонка мае новую [[{{MediaWiki:Validationpage}}|апублікаваную вэрсію]]; можна [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} зьмяніць] налады апублікаванай вэрсіі.'''",
 	"revreview-visibility-outdated": "'''Гэтая старонка мае састарэлую [[{{MediaWiki:Validationpage}}|апублікаваную вэрсію]]; можна [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} зьмяніць] налады апублікаванай вэрсіі.'''",
@@ -143,5 +145,7 @@
 	"log-action-filter-stable-config": "Новая канфігурацыя",
 	"log-action-filter-stable-modify": "Зьмененая канфігурацыя",
 	"log-action-filter-stable-reset": "Скід канфігурацыі",
-	"log-action-filter-stable-move_stable": "Перанос канфігурацыі"
+	"log-action-filter-stable-move_stable": "Перанос канфігурацыі",
+	"fr-revision-info-dialog-cancel-button": "Скасаваць",
+	"fr-revision-info-dialog-close-aria-label": "Закрыць"
 }
