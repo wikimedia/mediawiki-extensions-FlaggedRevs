@@ -317,32 +317,32 @@ class FlaggedRevsXML {
 						[ 'class' => 'cdx-dialog__body' ],
 						$html
 					) .
+					( $frev !== null && $user->isAllowed( 'review' ) ?
 					Html::rawElement(
 						'footer',
 						[ 'class' => 'cdx-dialog__footer cdx-dialog__footer--default' ],
 						Html::rawElement( 'div', [ 'class' => 'cdx-dialog__footer__actions' ],
-							( $frev !== null && $user->isAllowed( 'review' ) ?
 								Html::element(
 									'button',
 									[
 										'class' =>
-											'cdx-button cdx-button--action-progressive cdx-button--weight-primary 
+											'cdx-button cdx-button--action-progressive cdx-button--weight-primary
 										cdx-button--size-medium cdx-dialog__footer__primary-action',
 										'onclick' => "window.open(' $href ');"
 									],
 									wfMessage( 'fr-revision-info-dialog-review-button' )
-								) : '' ) .
-							Html::element(
-								'button',
-								[
-									'class' => 'cdx-dialog__footer__default-action cdx-button cdx-button--default',
-									'onclick' =>
-										'document.getElementById("mw-fr-revision-details").style.display = "none";'
-								],
-								wfMessage( 'fr-revision-info-dialog-cancel-button' )
-							)
+								) .
+								Html::element(
+									'button',
+									[
+										'class' => 'cdx-dialog__footer__default-action cdx-button cdx-button--default',
+										'onclick' =>
+											'document.getElementById("mw-fr-revision-details").style.display = "none";'
+									],
+									wfMessage( 'fr-revision-info-dialog-cancel-button' )
+								)
 						)
-					)
+					) : '' )
 				) .
 				Html::rawElement( 'div', [ 'tabindex' => '0' ] )
 			);
