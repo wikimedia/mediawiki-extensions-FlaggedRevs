@@ -50,11 +50,11 @@ class StablePages extends SpecialPage {
 		$fields = [];
 		// Namespace selector
 		if ( count( FlaggedRevs::getReviewNamespaces() ) > 1 ) {
-			$fields[] = FlaggedRevsXML::getNamespaceMenu( $this->namespace, '' );
+			$fields[] = FlaggedRevsHTML::getNamespaceMenu( $this->namespace, '' );
 		}
 		// Restriction level selector
 		if ( FlaggedRevs::getRestrictionLevels() ) {
-			$fields[] = FlaggedRevsXML::getRestrictionFilterMenu( $this->autoreview );
+			$fields[] = FlaggedRevsHTML::getRestrictionFilterMenu( $this->autoreview );
 		}
 		$fields[] = Html::element( 'input', [
 			'type' => 'checkbox', 'name' => 'indef', 'value' => '1',

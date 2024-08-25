@@ -6,10 +6,10 @@ use MediaWiki\Message\Message;
 use MediaWiki\Title\Title;
 
 /**
- * Class containing utility XML functions for a FlaggedRevs.
+ * Class containing utility HTML functions for a FlaggedRevs.
  * Includes functions for selectors, icons, notices, CSS, and form aspects.
  */
-class FlaggedRevsXML {
+class FlaggedRevsHTML {
 
 	/**
 	 * Get a selector of reviewable namespaces
@@ -209,7 +209,7 @@ class FlaggedRevsXML {
 	}
 
 	/**
-	 * Generates a review box using a table using FlaggedRevsXML::addTagRatings()
+	 * Generates a review box using a table using FlaggedRevsHTML::addTagRatings()
 	 *
 	 * @param FlaggedRevision|null $frev the reviewed version
 	 * @param int $revisionId the revision ID

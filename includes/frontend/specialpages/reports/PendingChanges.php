@@ -113,14 +113,14 @@ class PendingChanges extends SpecialPage {
 			$form .= Html::rawElement(
 				'div',
 				[ 'class' => 'cdx-field__item' ],
-				FlaggedRevsXML::getNamespaceMenu( $this->namespace, '' )
+				FlaggedRevsHTML::getNamespaceMenu( $this->namespace, '' )
 			);
 		}
 
 		$form .= Html::rawElement(
 			'div',
 			[ 'class' => 'cdx-field__item' ],
-			FlaggedRevsXML::getEditTagFilterMenu( $this->tagFilter )
+			FlaggedRevsHTML::getEditTagFilterMenu( $this->tagFilter )
 		);
 
 		$form .= Html::rawElement(

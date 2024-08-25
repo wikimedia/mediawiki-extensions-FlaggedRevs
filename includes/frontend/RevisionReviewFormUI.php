@@ -167,7 +167,7 @@ class RevisionReviewFormUI {
 
 		# Show stability log if there is anything interesting...
 		if ( $article->isPageLocked() ) {
-			$form .= FlaggedRevsXML::stabilityLogExcerpt( $article->getTitle() );
+			$form .= FlaggedRevsHTML::stabilityLogExcerpt( $article->getTitle() );
 		}
 
 		# End rating controls

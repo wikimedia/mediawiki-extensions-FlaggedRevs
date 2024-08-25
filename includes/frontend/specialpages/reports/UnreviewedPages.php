@@ -109,7 +109,7 @@ class UnreviewedPages extends SpecialPage {
 			$form .= Html::rawElement(
 				'div',
 				[ 'class' => 'cdx-field__item' ],
-				FlaggedRevsXML::getNamespaceMenu( $this->namespace )
+				FlaggedRevsHTML::getNamespaceMenu( $this->namespace )
 			);
 		}
 

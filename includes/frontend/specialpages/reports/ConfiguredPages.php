@@ -73,7 +73,7 @@ class ConfiguredPages extends SpecialPage {
 			$form .= Html::rawElement(
 				'div',
 				[ 'class' => 'cdx-field__item' ],
-				FlaggedRevsXML::getNamespaceMenu( $this->namespace, '' )
+				FlaggedRevsHTML::getNamespaceMenu( $this->namespace, '' )
 			);
 		}
 
@@ -81,7 +81,7 @@ class ConfiguredPages extends SpecialPage {
 		$form .= Html::rawElement(
 			'div',
 			[ 'class' => 'cdx-field__item' ],
-			FlaggedRevsXML::getDefaultFilterMenu( $this->override )
+			FlaggedRevsHTML::getDefaultFilterMenu( $this->override )
 		);
 
 		# Restriction level selector
@@ -89,7 +89,7 @@ class ConfiguredPages extends SpecialPage {
 			$form .= Html::rawElement(
 				'div',
 				[ 'class' => 'cdx-field__item' ],
-				FlaggedRevsXML::getRestrictionFilterMenu( $this->autoreview )
+				FlaggedRevsHTML::getRestrictionFilterMenu( $this->autoreview )
 			);
 		}
 

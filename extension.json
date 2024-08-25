@@ -214,7 +214,7 @@
 		"FlaggedRevsRevisionReviewFormAfterDoSubmitHook": "includes/backend/hook/FlaggedRevsRevisionReviewFormAfterDoSubmitHook.php",
 		"FlaggedRevsReviewLogFormatter": "includes/frontend/FlaggedRevsReviewLogFormatter.php",
 		"FlaggedRevsStableLogFormatter": "includes/frontend/FlaggedRevsStableLogFormatter.php",
-		"FlaggedRevsXML": "includes/frontend/FlaggedRevsXML.php",
+		"FlaggedRevsHTML": "includes/frontend/FlaggedRevsHTML.php",
 		"RevisionReviewFormUI": "includes/frontend/RevisionReviewFormUI.php",
 		"RejectConfirmationFormUI": "includes/frontend/RejectConfirmationFormUI.php",
 		"RevisionReview": "includes/frontend/specialpages/actions/RevisionReview.php",

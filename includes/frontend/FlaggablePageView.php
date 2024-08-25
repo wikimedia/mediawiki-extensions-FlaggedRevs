@@ -232,7 +232,7 @@ class FlaggablePageView extends ContextSource {
 		# Give a notice if this rev ID corresponds to a reviewed version...
 		$time = $this->getLanguage()->date( $frev->getTimestamp(), true );
 		$message = $this->msg( 'revreview-basic-source', $frev->getRevId(), $time )->parse();
-		$html = FlaggedRevsXML::addMessageBox( 'block', $message, [
+		$html = FlaggedRevsHTML::addMessageBox( 'block', $message, [
 			'id' => 'mw-fr-revision-tag-old',
 			'class' => 'flaggedrevs_notice plainlinks noprint'
 		] );
@@ -389,7 +389,7 @@ class FlaggablePageView extends ContextSource {
 				$notice .= $tag;
 			} else {
 				$cssClasses = "mw-fr-basic $tagTypeClass plainlinks noprint";
-				$notice .= FlaggedRevsXML::addMessageBox( 'block', $tag, [
+				$notice .= FlaggedRevsHTML::addMessageBox( 'block', $tag, [
 					'class' => $cssClasses,
 					'aria-live' => 'polite'
 				] );
@@ -556,7 +556,7 @@ class FlaggablePageView extends ContextSource {
 			// Simple icon-based UI
 			if ( $this->useSimpleUI() ) {
 				$revisionId = $srev->getRevId();
-				$tag .= FlaggedRevsXML::reviewDialog( $srev, $revisionId, $revsSince, 'draft', $synced );
+				$tag .= FlaggedRevsHTML::reviewDialog( $srev, $revisionId, $revsSince, 'draft', $synced );
 			// Standard UI
 			} else {
 				if ( $synced ) {
@@ -600,7 +600,7 @@ class FlaggablePageView extends ContextSource {
 				$revsSince = $this->article->getPendingRevCount();
 				$srev = $this->article->getStableRev();
 				$revisionId = $srev->getRevId();
-				$tag = FlaggedRevsXML::reviewDialog( $frev, $revisionId, $revsSince );
+				$tag = FlaggedRevsHTML::reviewDialog( $frev, $revisionId, $revsSince );
 				// Standard UI
 			} else {
 				$msg = 'revreview-basic-old';
@@ -655,7 +655,7 @@ class FlaggablePageView extends ContextSource {
 			if ( $this->useSimpleUI() ) {
 				# For protection based configs, show lock only if it's not redundant.
 				$revisionId = $srev->getRevId();
-				$tag = FlaggedRevsXML::reviewDialog(
+				$tag = FlaggedRevsHTML::reviewDialog(
 					$srev,
 					$revisionId,
 					$revsSince,
@@ -766,7 +766,7 @@ class FlaggablePageView extends ContextSource {
 
 		if ( $this->useSimpleUI() ) {
 			$this->addStatusIndicator();
-			$this->out->addHTML( FlaggedRevsXML::reviewDialog( null, 0, 0, 'unreviewed' ) );
+			$this->out->addHTML( FlaggedRevsHTML::reviewDialog( null, 0, 0, 'unreviewed' ) );
 		} else {
 			$tag = $this->msg( 'revreview-noflagged' )->parse();
 		}
@@ -834,7 +834,7 @@ class FlaggablePageView extends ContextSource {
 			}
 			$this->isDiffFromStable = true; // alter default review form tags
 			// @phan-suppress-next-line SecurityCheck-DoubleEscaped multiNotice is used in a-tag
-			return FlaggedRevsXML::diffToggle( $title, $srev->getRevId(), $latest, $multiNotice );
+			return FlaggedRevsHTML::diffToggle( $title, $srev->getRevId(), $latest, $multiNotice );
 		}
 
 		return '';
@@ -848,8 +848,8 @@ class FlaggablePageView extends ContextSource {
 		$srev = $this->article->getStableRev();
 		if ( $srev && $this->article->revsArePending() ) {
 			$revsSince = $this->article->getPendingRevCount();
-			$noticeContent = FlaggedRevsXML::pendingEditNotice( $srev, $revsSince );
-			$tag = FlaggedRevsXML::addMessageBox( 'block', $noticeContent, [
+			$noticeContent = FlaggedRevsHTML::pendingEditNotice( $srev, $revsSince );
+			$tag = FlaggedRevsHTML::addMessageBox( 'block', $noticeContent, [
 				'id' => 'mw-fr-revision-tag-edit',
 				'class' => 'flaggedrevs_notice plainlinks'
 			] );
@@ -882,7 +882,7 @@ class FlaggablePageView extends ContextSource {
 		$frev = $this->article->getStableRev();
 		if ( $frev && $this->article->revsArePending() ) {
 			$revsSince = $this->article->getPendingRevCount();
-			$pendingMsg = FlaggedRevsXML::pendingEditNoticeMessage(
+			$pendingMsg = FlaggedRevsHTML::pendingEditNoticeMessage(
 				$frev, $revsSince
 			);
 			$lines[] = $pendingMsg->setContext( $this->getContext() )->parseAsBlock();
@@ -895,7 +895,7 @@ class FlaggablePageView extends ContextSource {
 			&& $revId === $latestId // only for current rev
 		) {
 			$lines[] = '<p>' . $this->msg( 'review-edit-diff' )->parse() . ' ' .
-				FlaggedRevsXML::diffToggle( $this->article->getTitle(), $frev->getRevId(), $revId ) . '</p>';
+				FlaggedRevsHTML::diffToggle( $this->article->getTitle(), $frev->getRevId(), $revId ) . '</p>';
 		}
 
 		$srev = $this->article->getStableRev();
@@ -910,7 +910,7 @@ class FlaggablePageView extends ContextSource {
 		if ( $lines ) {
 			$lineMessages = '';
 			foreach ( $lines as $line ) {
-				$lineMessages .= FlaggedRevsXML::addMessageBox( 'inline', $line );
+				$lineMessages .= FlaggedRevsHTML::addMessageBox( 'inline', $line );
 			}
 
 			$notices['flaggedrevs_editnotice'] = Html::rawElement( 'div', [
@@ -928,7 +928,7 @@ class FlaggablePageView extends ContextSource {
 			return '';
 		}
 		$s = $this->msg( $msg )->parseAsBlock();
-		return $s . FlaggedRevsXML::stabilityLogExcerpt( $this->article->getTitle() );
+		return $s . FlaggedRevsHTML::stabilityLogExcerpt( $this->article->getTitle() );
 	}
 
 	public function addToNoSuchSection( string &$s ): void {
@@ -1255,7 +1255,7 @@ class FlaggablePageView extends ContextSource {
 		$msgHTML = $this->msg( $msg, $srev->getRevId(), $time )->numParams( $revsSince )->parse();
 
 		if ( !$this->useSimpleUI() ) {
-			$this->reviewNotice .= FlaggedRevsXML::addMessageBox( 'block', $msgHTML . $diffToggle );
+			$this->reviewNotice .= FlaggedRevsHTML::addMessageBox( 'block', $msgHTML . $diffToggle );
 		}
 	}
 
