@@ -52,7 +52,7 @@
 	"revreview-update-includes": "Карлайаьхна кепаш йа файлаш (талланзарш Ӏаьржо билгалйина йу):",
 	"revreview-reject-summary": "Цунах лаьцна:",
 	"revreview-reject-confirm": "Йуха баха иза хийцамаш",
-	"revreview-reject-cancel": "Цаоьшу",
+	"revreview-reject-cancel": "ДӀадаккхар",
 	"revreview-reject-summary-cur": "{{PLURAL:$1|Юхабаьккхина $1 хийцам}} ($2) $3 $4 верси меттахӀоттина",
 	"revreview-reject-summary-old": "{{PLURAL:$1|1=Йуха баькхина дуьхьаралера $1 хийцам|Йуха баькхина дуьхьаралера $1 хийцамаш}} ($2), {{PLURAL:$1|1=тlехьа богlаш|тlехьа богlаш}} болу оцу варсийн $3 $4",
 	"revreview-reject-summary-cur-short": "{{PLURAL:$1|Юхабаьккхина $1 хийцам}} $2 $3 верси меттахӀоттина",
