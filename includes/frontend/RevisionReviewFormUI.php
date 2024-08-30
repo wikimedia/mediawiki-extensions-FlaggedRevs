@@ -334,7 +334,7 @@ class RevisionReviewFormUI {
 			[
 				'name'      => 'wpApprove',
 				'id'        => 'mw-fr-submit-accept',
-				'class' => 'cdx-button cdx-button--action-progressive',
+				'class'     => 'cdx-button cdx-button--action-progressive',
 				'accesskey' => wfMessage( 'revreview-ak-review' )->text(),
 				'title'     => wfMessage( 'revreview-tt-flag' )->text() . ' [' .
 					wfMessage( 'revreview-ak-review' )->text() . ']'
@@ -352,7 +352,7 @@ class RevisionReviewFormUI {
 				] + ( $disabled ? $disAttrib : [] )
 			);
 		}
-		# UNACCEPT BUTTON: revoke a revisions acceptance
+		# UNACCEPT BUTTON: revoke a revision's acceptance
 		# Hide if revision is not flagged
 		$s .= ' ';
 		$s .= Html::submitButton( wfMessage( 'revreview-submit-unreview' )->text(),
