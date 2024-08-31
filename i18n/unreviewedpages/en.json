@@ -10,7 +10,7 @@
 	"unreviewedpages-unwatched": "(unwatched)",
 	"unreviewedpages-watched": "($1 active {{PLURAL:$1|user|users}} watching)",
 	"unreviewedpages-list": "This page lists content pages that have ''not'' yet been [[{{MediaWiki:Validationpage}}|reviewed]] to the specified level.",
-	"unreviewedpages-none": "There are currently no pages meeting these criteria",
+	"unreviewedpages-none": "There are currently no pages meeting these criteria.",
 	"unreviewedpages-viewing": "(under review)",
 	"unreviewedpages-hours": "($1 {{PLURAL:$1|hour|hours}})",
 	"unreviewedpages-days": "($1 {{PLURAL:$1|day|days}})",
