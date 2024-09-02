@@ -995,15 +995,13 @@ class FlaggablePageView extends ContextSource {
 		if ( !$this->isPageViewOrDiff() ) {
 			return;
 		}
-		# Get the revision being displayed
-		$revRecord = false;
-		if ( $this->reviewFormRevRecord ) { // diff
-			$revRecord = $this->reviewFormRevRecord; // $newRev for diffs stored here
-		} elseif ( $this->out->getRevisionId() ) { // page view
-			$revRecord = MediaWikiServices::getInstance()
-				->getRevisionLookup()
-				->getRevisionById( $this->out->getRevisionId() );
-		}
+		// Determine the revision to be reviewed, either from the current output or fallback to
+		// the latest revision for unchecked pages
+		$revisionId = $this->out->getRevisionId() ?: $this->article->getLatest();
+		$revRecord = $this->reviewFormRevRecord ?: MediaWikiServices::getInstance()
+			->getRevisionLookup()
+			->getRevisionById( $revisionId );
+
 		# Build the review form as needed
 		if ( $revRecord && ( !$this->diffRevRecords || $this->isReviewableDiff ) ) {
 			$form = new RevisionReviewFormUI(
