@@ -117,6 +117,8 @@
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Ellenőrizetlen változat]]'''",
 	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} ellenőrzésre váró változtatások]",
 	"revreview-basic-title": "Ez a lap egy ellenőrzött változata",
+	"revreview-unchecked-title": "A lapot nem ellenőrizték",
+	"revreview-dialog-title": "Változat állapota",
 	"revreview-quick-basic-same-title": "'''Ellenőrzött'''",
 	"revreview-toggle-title": "részletek megjelenítése/elrejtése",
 	"revreview-visibility-synced": "'''A lapnak van frissített [[{{MediaWiki:Validationpage}}|közzétett változata]]. A lap közzétételének beállításait [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} itt módosíthatod].'''",
@@ -167,5 +169,7 @@
 	"log-action-filter-stable-config": "Új konfiguráció",
 	"log-action-filter-stable-modify": "Konfiguráció módosítása",
 	"log-action-filter-stable-reset": "Konfiguráció visszaállítása",
-	"log-action-filter-stable-move_stable": "Konfiguráció mozgatása"
+	"log-action-filter-stable-move_stable": "Konfiguráció mozgatása",
+	"fr-revision-info-dialog-review-button": "Ellenőrzés...",
+	"fr-revision-info-dialog-cancel-button": "Mégse"
 }

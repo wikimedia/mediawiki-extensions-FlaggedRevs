@@ -107,6 +107,8 @@
 	"revreview-basic-same": "<i>$2</i> tarihinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrol edilmiş] [[{{MediaWiki:Validationpage}}|kararlı sürüm]] gösterilmektedir.",
 	"revreview-basic-source": "Sayfanın <i>$2</i> tarihinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} onaylanmış] olan  [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} kontrol edilmiş bir sürümü], bu revizyonu temel almıştır.",
 	"revreview-current": "Bekleyen değişiklikler",
+	"flaggedrevs-action-info-pages-waiting-for-review": "İncelenmeyi bekleyen dahil edilmiş sayfalar",
+	"revreview-draft-indicator-title": "'''Beklemede'''",
 	"revreview-draft-title": "Bekleyen değişiklikler bu sayfada görüntülenmektedir",
 	"revreview-editnotice": "'''Değişiklikleriniz, yetkili bir kullanıcı kabul ettikten sonra okuyucular tarafından görüntülenecektir. ([[{{MediaWiki:Validationpage}}|yardım]])'''",
 	"revreview-submitedit": "Değişiklikleri gönder",
@@ -126,6 +128,7 @@
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Kontrol edilmemiş]]'''",
 	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} bekleyen değişiklikleri incele]",
 	"revreview-basic-title": "Bu, bu sayfanın kontrol edilmiş bir sürümüdür",
+	"revreview-dialog-title": "Sayfa sürüm durumu",
 	"revreview-quick-basic-same-title": "'''Kontrol edilmiş'''",
 	"revreview-toggle-title": "ayrıntıları göster/gizle",
 	"revreview-visibility-synced": "'''Bu sayfanın güncellenmiş bir [[{{MediaWiki:Validationpage}}|kararlı sürümü]] mevcut. Sayfa kararlılık ayarları [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} yapılandırılabilir].'''",
@@ -177,5 +180,7 @@
 	"log-action-filter-stable-config": "Yeni yapılandırma",
 	"log-action-filter-stable-modify": "Değiştirilmiş yapılandırma",
 	"log-action-filter-stable-reset": "Yapılandırma sıfırlama",
-	"log-action-filter-stable-move_stable": "Taşınan yapılandırma"
+	"log-action-filter-stable-move_stable": "Taşınan yapılandırma",
+	"fr-revision-info-dialog-review-button": "İncele...",
+	"fr-revision-info-dialog-cancel-button": "Geri"
 }

@@ -31,6 +31,7 @@
 			"McDutchie",
 			"MetalBrasil",
 			"Muro de Aguas",
+			"No se",
 			"Pertile",
 			"Sanbec",
 			"Tiberius1701",
@@ -191,5 +192,6 @@
 	"log-action-filter-stable-config": "Configuración nueva",
 	"log-action-filter-stable-modify": "Configuración modificada",
 	"log-action-filter-stable-reset": "Restablecimiento de configuración",
-	"log-action-filter-stable-move_stable": "Configuración movida"
+	"log-action-filter-stable-move_stable": "Configuración movida",
+	"fr-revision-info-dialog": "La información anterior se proporciona para que nuestros lectores se mantengan informados sobre el estado actual del contenido de esta página."
 }

@@ -13,7 +13,7 @@
 	"pendingchanges": "Странице са променама на чекању",
 	"pendingchanges-legend": "Списак проверених страница са променама које чекају проверу",
 	"pendingchanges-list": "Ова страница приказује [[{{MediaWiki:Validationpage}}|проверене]] странице које имају једну или више измена на чекању.",
-	"pendingchanges-none": "Тренутно нема страница које испуњавају ове критеријуме",
+	"pendingchanges-none": "Тренутно нема страница које испуњавају ове критеријуме.",
 	"pendingchanges-hours": "$1 {{PLURAL:$1|сат|сати}}",
 	"pendingchanges-days": "$1 {{PLURAL:$1|дан|дана}}",
 	"pendingchanges-recent": "мање од једног сата",

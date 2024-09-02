@@ -18,6 +18,7 @@
 			"McDutchie",
 			"Mihai",
 			"Méthodes Bulebe Hangi",
+			"No se",
 			"Od1n",
 			"Omnipaedista",
 			"Peter17",
@@ -184,5 +185,6 @@
 	"log-action-filter-stable-config": "Nouvelle configuration",
 	"log-action-filter-stable-modify": "Configuration modifiée",
 	"log-action-filter-stable-reset": "Réinitialisation de la configuration",
-	"log-action-filter-stable-move_stable": "Configuration modifiée"
+	"log-action-filter-stable-move_stable": "Configuration modifiée",
+	"fr-revision-info-dialog": "Les informations ci-dessus sont fournies à nos lecteurs pour rester informés de l'état actuel du contenu de cette page."
 }

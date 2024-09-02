@@ -95,6 +95,7 @@
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Талланза]]'''",
 	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} гайта талланза хийцамаш]",
 	"revreview-basic-title": "ХӀара агӀонан хьаьжжина верси йу",
+	"revreview-dialog-title": "АгӀонан версин статус",
 	"revreview-toggle-title": "гайта/къайладаккха мадарра дерг",
 	"revreview-visibility-synced": "'''ХӀокху агӀонан йу карлайаккхар [[{{MediaWiki:Validationpage}}|гуш йолу верси]]; гаран версена гӀирс [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} хийца мега].'''",
 	"revreview-visibility-outdated": "'''ХӀокху агӀонан йу ширйелла [[{{MediaWiki:Validationpage}}|гуш йолу верси]]; гаран версена гӀирс [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} хийца мега].'''",
