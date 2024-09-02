@@ -72,6 +72,8 @@
 	"group-autoreview": "Automatycznie przeglądający",
 	"group-autoreview-member": "{{GENDER:$1|automatycznie przeglądający|automatycznie przeglądająca}}",
 	"grouppage-autoreview": "{{ns:project}}:Automatycznie przeglądający",
+	"group-editor.css": "/* CSS tutaj umieszczony będzie stosowany tylko dla redaktorów */",
+	"group-editor.js": "/* JS tutaj umieszczony będzie stosowany tylko dla redaktorów */",
 	"logentry-review-approve": "$1 {{GENDER:$2|przejrzał|przejrzała|przejrzał(a)}} wersję strony $3",
 	"logentry-review-approve-auto": "$1 automatycznie {{GENDER:$2|przejrzał|przejrzała|przejrzał(a)}} wersję strony $3",
 	"logentry-review-unapprove": "$1 {{GENDER:$2|wycofał|wycofała|wycofał(a)}} akceptację wersji strony $3",
