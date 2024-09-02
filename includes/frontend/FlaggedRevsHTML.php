@@ -318,17 +318,17 @@ class FlaggedRevsHTML {
 						$html
 					) .
 					( $frev !== null && $user->isAllowed( 'review' ) ?
-					Html::rawElement(
-						'footer',
-						[ 'class' => 'cdx-dialog__footer cdx-dialog__footer--default' ],
-						Html::rawElement( 'div', [ 'class' => 'cdx-dialog__footer__actions' ],
+						Html::rawElement(
+							'footer',
+							[ 'class' => 'cdx-dialog__footer cdx-dialog__footer--default' ],
+							Html::rawElement( 'div', [ 'class' => 'cdx-dialog__footer__actions' ],
 								Html::element(
 									'button',
 									[
 										'class' =>
 											'cdx-button cdx-button--action-progressive cdx-button--weight-primary
-										cdx-button--size-medium cdx-dialog__footer__primary-action',
-										'onclick' => "window.open(' $href ');"
+											cdx-button--size-medium cdx-dialog__footer__primary-action',
+										'onclick' => "window.location.href = '$href';"
 									],
 									wfMessage( 'fr-revision-info-dialog-review-button' )
 								) .
@@ -341,8 +341,8 @@ class FlaggedRevsHTML {
 									],
 									wfMessage( 'fr-revision-info-dialog-cancel-button' )
 								)
-						)
-					) : '' )
+							)
+						) : '' )
 				) .
 				Html::rawElement( 'div', [ 'tabindex' => '0' ] )
 			);
