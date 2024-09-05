@@ -391,7 +391,6 @@ class FlaggablePageView extends ContextSource {
 				$cssClasses = "mw-fr-basic $tagTypeClass plainlinks noprint";
 				$notice .= FlaggedRevsHTML::addMessageBox( 'block', $tag, [
 					'class' => $cssClasses,
-					'aria-live' => 'polite'
 				] );
 			}
 			$notice .= Html::closeElement( 'div' );
@@ -543,7 +542,6 @@ class FlaggablePageView extends ContextSource {
 					'id' => 'mw-fr-reviewnotice',
 					'class' => 'cdx-message cdx-message--block cdx-message--notice
 					flaggedrevs_preview plainlinks noprint',
-					'aria-live' => 'polite'
 				] )
 				. Html::element( 'span', [ 'class' => 'cdx-message__icon' ] )
 				. Html::rawElement( 'div', [ 'class' => 'cdx-message__content' ], $pending )
