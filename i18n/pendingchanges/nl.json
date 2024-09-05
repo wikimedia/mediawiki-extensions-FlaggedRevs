@@ -9,7 +9,7 @@
 	"pendingchanges": "Pagina's met te controleren wijzigingen",
 	"pendingchanges-legend": "Lijst met gecontroleerde pagina's met ongecontroleerde versies",
 	"pendingchanges-list": "Op deze pagina worden de [[{{MediaWiki:Validationpage}}|gecontroleerde]] pagina's weergegeven waarvoor nog te controleren versies zijn.",
-	"pendingchanges-none": "Er zijn geen pagina's die aan de criteria voldoen",
+	"pendingchanges-none": "Er zijn momenteel geen pagina’s die aan deze criteria voldoen.",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|uur}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|dag|dagen}})",
 	"pendingchanges-recent": "minder dan één uur",

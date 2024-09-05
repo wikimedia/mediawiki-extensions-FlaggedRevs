@@ -34,6 +34,7 @@
 			"Siebrand",
 			"Srdjan m",
 			"Srđan",
+			"Stjn",
 			"Tgr",
 			"The Evil IP address",
 			"Umherirrender",
@@ -207,6 +208,6 @@
 	"log-action-filter-stable-move_stable": "{{doc-log-action-filter-action|stable|move_stable}}",
 	"fr-revision-info-dialog": "This message is shown to inform readers about the current status of the page's content, typically provided within an information dialog.",
 	"fr-revision-info-dialog-review-button": "Label for the button to review the page's current revision in the information dialog.",
-	"fr-revision-info-dialog-cancel-button": "Label for the button to cancel the review action in the information dialog.",
-	"fr-revision-info-dialog-close-aria-label": "ARIA label for the button to close the information dialog. This label is used for accessibility purposes."
+	"fr-revision-info-dialog-cancel-button": "Label for the button to cancel the review action in the information dialog.\n\n{{Identical|Cancel}}",
+	"fr-revision-info-dialog-close-aria-label": "ARIA label for the button to close the information dialog. This label is used for accessibility purposes.\n\n{{identical|Close}}"
 }
