@@ -193,5 +193,8 @@
 	"log-action-filter-stable-modify": "Configuración modificada",
 	"log-action-filter-stable-reset": "Restablecimiento de configuración",
 	"log-action-filter-stable-move_stable": "Configuración movida",
-	"fr-revision-info-dialog": "La información anterior se proporciona para que nuestros lectores se mantengan informados sobre el estado actual del contenido de esta página."
+	"fr-revision-info-dialog": "La información anterior se proporciona para que nuestros lectores se mantengan informados sobre el estado actual del contenido de esta página.",
+	"fr-revision-info-dialog-review-button": "Revisar...",
+	"fr-revision-info-dialog-cancel-button": "Cancelar",
+	"fr-revision-info-dialog-close-aria-label": "Cerrar"
 }

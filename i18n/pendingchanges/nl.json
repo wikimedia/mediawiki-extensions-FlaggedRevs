@@ -14,6 +14,7 @@
 	"pendingchanges-days": "($1 {{PLURAL:$1|dag|dagen}})",
 	"pendingchanges-recent": "minder dan één uur",
 	"pendingchanges-category": "Categorie:",
+	"pendingchanges-limit": "Limiet:",
 	"pendingchanges-onwatchlist": "Pagina's op mijn volglijst",
 	"pendingchanges-stable": "Stabiele versie is standaard",
 	"pendingchanges-diff": "Controleren",

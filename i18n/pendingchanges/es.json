@@ -8,6 +8,7 @@
 			"Locos epraix",
 			"Macofe",
 			"MarcoAurelio",
+			"No se",
 			"Sanbec",
 			"Translationista"
 		]
@@ -20,6 +21,7 @@
 	"pendingchanges-days": "($1 {{PLURAL:$1|día|días}})",
 	"pendingchanges-recent": "(menos de 1 hora)",
 	"pendingchanges-category": "Categoría:",
+	"pendingchanges-limit": "Límite:",
 	"pendingchanges-onwatchlist": "Páginas en mi lista de seguimiento",
 	"pendingchanges-stable": "La versión estable es la predeterminada",
 	"pendingchanges-diff": "revisar",
