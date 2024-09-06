@@ -323,12 +323,13 @@ class FlaggedRevsHTML {
 							[ 'class' => 'cdx-dialog__footer cdx-dialog__footer--default' ],
 							Html::rawElement( 'div', [ 'class' => 'cdx-dialog__footer__actions' ],
 								Html::element(
-									'button',
+									'a',
 									[
+										'href' => $href,
 										'class' =>
 											'cdx-button cdx-button--action-progressive cdx-button--weight-primary
-											cdx-button--size-medium cdx-dialog__footer__primary-action',
-										'onclick' => "window.location.href = '$href';"
+											cdx-button--size-medium cdx-dialog__footer__primary-action
+											cdx-button--fake-button cdx-button--fake-button--enabled'
 									],
 									wfMessage( 'fr-revision-info-dialog-review-button' )
 								) .
