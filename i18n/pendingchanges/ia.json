@@ -8,15 +8,15 @@
 	"pendingchanges": "Paginas con modificationes pendente",
 	"pendingchanges-legend": "Listar le paginas revidite con modificationes pendente",
 	"pendingchanges-list": "Iste pagina lista le paginas [[{{MediaWiki:Validationpage}}|revidite]] que ha un o plus modificationes attendente revision.",
-	"pendingchanges-none": "Al momento non existe paginas que satisface iste criterios",
-	"pendingchanges-hours": "($1 {{PLURAL:$1|hora|horas}})",
-	"pendingchanges-days": "($1 {{PLURAL:$1|die|dies}})",
-	"pendingchanges-recent": "(minus de 1 hora)",
+	"pendingchanges-none": "Al momento non existe paginas que satisface iste criterios.",
+	"pendingchanges-hours": "$1 {{PLURAL:$1|hora|horas}}",
+	"pendingchanges-days": "$1 {{PLURAL:$1|die|dies}}",
+	"pendingchanges-recent": "minus de 1 hora",
 	"pendingchanges-category": "Categoria:",
 	"pendingchanges-onwatchlist": "Paginas in mi observatorio",
 	"pendingchanges-stable": "Le version stabile es le option predeterminate",
-	"pendingchanges-diff": "revision",
+	"pendingchanges-diff": "Revision",
 	"pendingchanges-size": "Cambio maxime (bytes):",
-	"pendingchanges-unwatched": "(non observate)",
-	"pendingchanges-viewing": "(sub revision)"
+	"pendingchanges-unwatched": "Non observate",
+	"pendingchanges-viewing": "Sub revision"
 }
