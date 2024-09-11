@@ -1,0 +1,14 @@
+[
+	{
+		"resourceModule": "mediawiki.codex.messagebox.styles",
+		"maxSize": "3.2 kB"
+	},
+	{
+		"resourceModule": "ext.flaggedRevs.basic",
+		"maxSize": "2.3 kB"
+	},
+	{
+		"resourceModule": "ext.flaggedRevs.advanced",
+		"maxSize": "2.6 kB"
+	}
+]
