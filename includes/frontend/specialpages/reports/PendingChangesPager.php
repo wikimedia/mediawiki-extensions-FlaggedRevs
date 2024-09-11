@@ -284,7 +284,7 @@ class PendingChangesPager extends TablePager {
 	 */
 	private function getPendingCount(): int {
 		return $this->mDb->selectRowCount(
-			'flaggedpages', '*', [ $this->mDb->expr( 'fp_pending_since', '!=', null ) ]
+			'flaggedpages', '*', [ $this->mDb->expr( 'fp_pending_since', '!=', null ) ], __METHOD__
 		);
 	}
 
