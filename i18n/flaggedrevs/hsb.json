@@ -66,7 +66,7 @@
 	"revreview-basic-source": "[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Skontrolowana wersija] tuteje strony, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schwalena] <i>$2</i>, bazowaše na tutej wersiji.",
 	"revreview-current": "Nječinjene změny",
 	"revreview-draft-title": "Nječinjene změny so na tutej stronje zwobraznjeja",
-	"revreview-editnotice": "'''Twoje změny budu so čitarjam pokazować, tak ruče kaž awtorizowany wužiwar je akceptuje ([[{{MediaWiki:Validationpage}}|pomoc]])'''",
+	"revreview-editnotice": "'''Twoje změny budu so čitarjam pokazować, ručež je awtorizowany wužiwar akceptuje ([[{{MediaWiki:Validationpage}}|pomoc]])'''",
 	"revreview-submitedit": "Změny wotpósłać",
 	"revreview-submitedit-title": "Twoje změny za přepruwowanje wotpósłać",
 	"revreview-edited": "'''Změny budu so čitarjam pokazować, tak ruče kaž awtorizowany wužiwar je akceptuje. ([[{{MediaWiki:Validationpage}}|pomoc]])'''\n\n{{PLURAL:$2|Je|Stej|Su|Je}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{PLURAL:$2|njepřepruwowana změna|njepřepruwowanej změnje|njepřepruwowane změny|njepřepruwowanych změnow}}] ''(hlej deleka)'', {{PLURAL:$2|kotrež čaka|kotrejž čakatej|kotrež čakaja|kotrež čaka}} na přepruwowanje.",
