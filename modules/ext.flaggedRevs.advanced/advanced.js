@@ -7,6 +7,9 @@
 ( function () {
 	'use strict';
 
+	/* Dropdown collapse timer */
+	var boxCollapseTimer = null;
+
 	/* Expands flag info box details */
 	function showBoxDetails() {
 		var $revisionDetailDialog = $( '#mw-fr-revision-details' );
@@ -20,6 +23,54 @@
 	/* Collapses flag info box details */
 	function hideBoxDetails() {
 		$( '#mw-fr-revision-details' ).css( 'display', 'none' );
+	}
+
+	/**
+	 * Checks if mouseOut event is for a child of parentId
+	 *
+	 * @param {jQuery.Event} e
+	 * @param {string} parentId
+	 * @return {boolean} True if given event object originated from a (direct or indirect)
+	 * child element of an element with an id of parentId.
+	 */
+	function isMouseOutBubble( e, parentId ) {
+		var nextParent,
+			toNode = e.relatedTarget;
+
+		if ( toNode ) {
+			nextParent = toNode.parentNode;
+			while ( nextParent ) {
+				if ( nextParent.id === parentId ) {
+					return true;
+				}
+				// next up
+				nextParent = nextParent.parentNode;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Expands flag info box details on mouseOver
+	 *
+	 * @this {jQuery}
+	 */
+	function onBoxMouseOver() {
+		window.clearTimeout( boxCollapseTimer );
+		boxCollapseTimer = null;
+		showBoxDetails();
+	}
+
+	/**
+	 * Hides flag info box details on mouseOut *except* for event bubbling
+	 *
+	 * @this {jQuery}
+	 * @param {jQuery.Event} e
+	 */
+	function onBoxMouseOut( e ) {
+		if ( !isMouseOutBubble( e, 'mw-fr-revision-details' ) ) {
+			boxCollapseTimer = window.setTimeout( hideBoxDetails, 150 );
+		}
 	}
 
 	/**
@@ -163,7 +214,8 @@
 		}
 
 		// Simple UI: Show the box on mouseOver
-		$toggle.on( 'mouseover', showBoxDetails );
+		$toggle.on( 'mouseover', onBoxMouseOver );
+		$( '#mw-fr-revision-details' ).on( 'mouseout', onBoxMouseOut );
 
 		// Enables diff detail box and toggle
 		$toggle = $( '#mw-fr-diff-toggle' );
