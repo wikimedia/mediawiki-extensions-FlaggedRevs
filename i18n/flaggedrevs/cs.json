@@ -13,6 +13,7 @@
 			"Matěj Suchánek",
 			"Mormegil",
 			"MrJaroslavik",
+			"Spotter",
 			"Vks"
 		]
 	},
@@ -24,7 +25,7 @@
 	"flaggedrevs-desc": "Umožňuje editorům posuzovat verze a potvrzovat stránky",
 	"flaggedrevs-pref-UI": "Základní rozhraní:",
 	"flaggedrevs-pref-UI-0": "Zobrazovat podrobné informace o stavu posouzení stránek",
-	"flaggedrevs-pref-UI-1": "Zobrazovat malé ikony a minimum texu o stavu posouzení stránek",
+	"flaggedrevs-pref-UI-1": "Pomocí indikátorů zobrazte stav kontroly stránek.",
 	"prefs-flaggedrevs-ui": "Posuzování editací",
 	"flaggedrevs-prefs-stable": "Zobrazení potvrzené verze stránky",
 	"flaggedrevs-pref-stable-0": "Použít výchozí nastavení pro každou stránku",
@@ -98,7 +99,7 @@
 	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|Prohlédnuto]]'''",
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Prohlédnuto]]'''",
 	"revreview-quick-invalid": "'''Neplatná identifikace verze'''",
-	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Neprohlédnuto]]'''",
+	"revreview-quick-none": "'''Nezkontrolováno'''",
 	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Posoudit navržené změny]",
 	"revreview-basic-title": "Toto je prohlédnutá verze této stránky",
 	"revreview-toggle-title": "skrýt/zobrazit detaily",

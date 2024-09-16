@@ -3,6 +3,7 @@
 		"authors": [
 			"Acamicamacaraca",
 			"BadDog",
+			"Kizule",
 			"Milicevic01",
 			"Millosh",
 			"Rancher",
@@ -18,6 +19,9 @@
 	"pendingchanges-days": "$1 {{PLURAL:$1|дан|дана}}",
 	"pendingchanges-recent": "мање од једног сата",
 	"pendingchanges-category": "Категорија:",
+	"pendingchanges-limit": "Лимит:",
+	"pendingchanges-edit-tag": "Измени ознаку:",
+	"pendingchanges-edit-tag-any": "Било која ознака:",
 	"pendingchanges-onwatchlist": "Странице на мом списку надгледања",
 	"pendingchanges-stable": "Стабилна верзија је подразумевана",
 	"pendingchanges-diff": "провера",
@@ -27,7 +31,12 @@
 	"pendingchanges-table-caption": "Измене на чекању",
 	"pendingchanges-table-page": "Страница",
 	"pendingchanges-table-size": "Величина",
+	"pendingchanges-table-pending-since": "Од",
+	"pendingchanges-table-quality": "Квалитет",
+	"pendingchanges-table-watching": "Активни надгледачи",
 	"pendingchanges-table-history": "Историја",
 	"pendingchanges-table-review": "Прегледај",
-	"pendingchanges-table-footer": "Тренутно, има {{PLURAL:$1|$1 измена|$1 измене}} на чекању"
+	"pendingchanges-table-revision-history": "Историја",
+	"pendingchanges-table-footer": "Тренутно, има {{PLURAL:$1|$1 измена|$1 измене}} на чекању",
+	"pendingchanges-filter-submit-button-text": "Филтрирај странице на чекању"
 }

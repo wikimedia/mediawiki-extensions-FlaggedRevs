@@ -3,6 +3,7 @@
 		"authors": [
 			"Acamicamacaraca",
 			"BadDog",
+			"Kizule",
 			"Milicevic01",
 			"Millosh",
 			"Rancher",
@@ -14,6 +15,7 @@
 	"unreviewedpages": "Непроверене странице",
 	"unreviewedpages-legend": "Списак непроверених садржајних страница",
 	"unreviewedpages-category": "Категорија:",
+	"unreviewedpages-showhide-redirect": "$1 преусмерења",
 	"unreviewedpages-diff": "провери",
 	"unreviewedpages-unwatched": "(ненадзирано)",
 	"unreviewedpages-watched": "($1 {{PLURAL:$1|активан корисник надгледа|активних корисника надгледају}})",
