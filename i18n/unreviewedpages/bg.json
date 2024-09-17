@@ -15,7 +15,7 @@
 	"unreviewedpages-unwatched": "(ненаблюдавана)",
 	"unreviewedpages-watched": "($1 {{PLURAL:$1|активен наблюдаващ потребител|активни наблюдаващи потребители}})",
 	"unreviewedpages-list": "На тази страница са посочени статии които все още ''не'' са [[{{MediaWiki:Validationpage}}|проверени]] на указаното ниво.",
-	"unreviewedpages-none": "В момента не съществуват страници, отговарящи на зададенит критерии",
+	"unreviewedpages-none": "В момента не съществуват страници, отговарящи на зададените критерии.",
 	"unreviewedpages-hours": "($1 {{PLURAL:$1|час|часа}})",
 	"unreviewedpages-days": "($1 {{PLURAL:$1|ден|дни}})",
 	"unreviewedpages-recent": "(по-малко от час)"

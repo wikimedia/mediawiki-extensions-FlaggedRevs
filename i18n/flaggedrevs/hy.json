@@ -10,5 +10,6 @@
 	"flaggedrevs-rcfilters-reviewed-label": "Վերանայված",
 	"revreview-revnotfound": "Էջի որոնված հին տարբերակը չի գտնվել։ Խնդրում ենք ստուգել այն հղումը, որով անցել եք այս էջին։",
 	"tooltip-ca-current": "Դիտել այս էջը չստուգված փոփոխություններով",
+	"fr-revision-info-dialog-cancel-button": "Չեղարկել",
 	"fr-revision-info-dialog-close-aria-label": "Փակել"
 }

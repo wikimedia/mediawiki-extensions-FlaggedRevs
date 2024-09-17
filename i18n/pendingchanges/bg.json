@@ -11,7 +11,7 @@
 	"pendingchanges": "Страници с промени, очакващи проверка",
 	"pendingchanges-list": "Тази страница показва [[{{MediaWiki:Validationpage}}|проверени]] страници, имащи една или повече редакции, очакващи проверка.",
 	"pendingchanges-none": "В момента не съществуват страници, които да отговарят на зададените критерии",
-	"pendingchanges-hours": "($1 {{PLURAL:$1|час|часа}})",
+	"pendingchanges-hours": "$1 {{PLURAL:$1|час|часа}}",
 	"pendingchanges-days": "$1 {{PLURAL:$1|ден|дни}}",
 	"pendingchanges-recent": "по-малко от 1 час",
 	"pendingchanges-category": "Категория:",
