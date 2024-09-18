@@ -26,7 +26,12 @@
 			"Verdy p",
 			"Wladek92",
 			"Zetud",
-			"Dreamy Jazz"
+			"Dreamy Jazz",
+			"Alien333",
+			"Goombiis",
+			"Méthodes Bulebe Hangi",
+			"No se",
+			"SleaY"
 		]
 	},
 	"action-autoreview": "avoir ses propres modifications marquées automatiquement comme « vérifiées »",
@@ -100,7 +105,7 @@
 	"review-logpage": "Journal des révisions de l'article",
 	"review-logpagetext": "Voici le journal montrant quelles versions de pages de contenu ont été [[{{MediaWiki:Validationpage}}|vérifiées]].",
 	"reviewer": "Relecteur",
-	"revreview-accuracy": "Justesse",
+	"revreview-accuracy": "État",
 	"revreview-accuracy-0": "Insuffisant",
 	"revreview-accuracy-1": "Point vérifié",
 	"revreview-accuracy-2": "Précise",
