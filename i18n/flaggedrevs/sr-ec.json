@@ -144,6 +144,7 @@
 	"tooltip-ca-default": "Подешавања за контролу квалитета",
 	"flaggedrevs-protect-legend": "Аутоматска провера измена",
 	"flaggedrevs-protect-none": "Дозволи свим корисницима",
+	"flaggedrevs-protect-sysop": "Дозвољено само администраторима",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Непроверене странице]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Промене на чекању]",
 	"revreview-locked-title": "Измене на овој страници захтевају проверу.",
 	"revreview-unlocked-title": "Измене на овој страници не захтевају проверу.",
