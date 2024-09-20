@@ -103,6 +103,8 @@ class FlaggedRevsUIHooks implements
 		) {
 			$out->addModuleStyles( 'codex-styles' );
 			$out->addModules( 'ext.flaggedRevs.review' );
+		} else {
+			$out->addModuleStyles( 'mediawiki.codex.messagebox.styles' );
 		}
 	}
 
