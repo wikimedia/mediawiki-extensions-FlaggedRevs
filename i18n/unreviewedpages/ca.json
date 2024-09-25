@@ -4,6 +4,7 @@
 			"Aleator",
 			"Grondin",
 			"Jordi Roqué",
+			"Lluis Cat",
 			"Qllach",
 			"SMP",
 			"Toniher"
@@ -16,7 +17,7 @@
 	"unreviewedpages-unwatched": "(no vigilat)",
 	"unreviewedpages-watched": "($1 {{PLURAL:$1|usuari|usuaris}} actius vigilant)",
 	"unreviewedpages-list": "Aquesta pàgina llista les pàgines de contingut que '''no''' han estat [[{{MediaWiki:Validationpage}}|revisades]] al nivell indicat.",
-	"unreviewedpages-none": "En aquest moment no hi ha pàgines que compleixin aquests criteris",
+	"unreviewedpages-none": "En aquest moment no hi ha pàgines que compleixin els criteris",
 	"unreviewedpages-viewing": "(sota revisió)",
 	"unreviewedpages-hours": "($1 {{PLURAL:$1|hora|hores}})",
 	"unreviewedpages-days": "($1 {{PLURAL:$1|dia|dies}})",

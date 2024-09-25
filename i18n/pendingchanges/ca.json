@@ -4,6 +4,7 @@
 			"Aleator",
 			"Grondin",
 			"Jordi Roqué",
+			"Lluis Cat",
 			"Martorell",
 			"Paucabot"
 		]
@@ -14,12 +15,12 @@
 	"pendingchanges-none": "Actualment no hi ha cap pàgina que compleixi aquests criteris.",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|hora|hores}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|dia|dies}})",
-	"pendingchanges-recent": "(menys d'una hora)",
+	"pendingchanges-recent": "menys d'una hora",
 	"pendingchanges-category": "Categoria:",
 	"pendingchanges-onwatchlist": "Pàgines a la meva llista de seguiment",
 	"pendingchanges-stable": "La versió estable està posada per defecte",
-	"pendingchanges-diff": "revisió",
+	"pendingchanges-diff": "Revisió",
 	"pendingchanges-size": "Diferència màxima de mida (bytes):",
-	"pendingchanges-unwatched": "(no vigilat)",
-	"pendingchanges-viewing": "(sota revisió)"
+	"pendingchanges-unwatched": "no vigilat",
+	"pendingchanges-viewing": "en revisió"
 }
