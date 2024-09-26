@@ -3,7 +3,7 @@
 use MediaWiki\Extension\Scribunto\Tests\Engines\LuaCommon\LuaEngineTestBase;
 use MediaWiki\Title\Title;
 
-if ( !class_exists( 'Scribunto_LuaEngineTestBase' ) ) {
+if ( !class_exists( LuaEngineTestBase::class ) ) {
 	class_alias( MediaWikiIntegrationTestCase::class, LuaEngineTestBase::class );
 }
 
