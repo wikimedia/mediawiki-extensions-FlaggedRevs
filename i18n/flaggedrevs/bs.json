@@ -82,6 +82,7 @@
 	"revreview-basic-same": "Ovo je [[{{MediaWiki:Validationpage}}|stabilna verzija]] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} pregledana] dana <i>$2</i>.",
 	"revreview-basic-source": "[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Pregledana verzija] ove stranice, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>, zasnovana je na ovoj izmjeni.",
 	"revreview-current": "Izmjene na čekanju",
+	"revreview-draft-indicator-title": "'''Na čekanju'''",
 	"revreview-draft-title": "Na ovoj stranici prikazane su izmjene na čekanju",
 	"revreview-editnotice": "'''Vaše izmjene bit će prikazane čitaocima nakon što ih prihvati ovlašteni korisnik. ([[{{MediaWiki:Validationpage}}|pomoć]])'''",
 	"revreview-submitedit": "Pošalji izmjene",
@@ -98,9 +99,12 @@
 	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|Pregledano]]'''",
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Pregledano]]'''",
 	"revreview-quick-invalid": "'''Neispravan ID verzije'''",
-	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Nepregledano]]'''",
+	"revreview-quick-none": "'''Nepregledano'''",
 	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} pregledaj izmjene na čekanju]",
 	"revreview-basic-title": "Ovo je pregledana verzija ove stranice",
+	"revreview-unchecked-title": "Stranica nije pregledana",
+	"revreview-dialog-title": "Stanje verzije stranice",
+	"revreview-quick-basic-same-title": "'''Pregledano'''",
 	"revreview-toggle-title": "prikaži/sakrij detalje",
 	"revreview-visibility-synced": "'''Ova stranica ima ažuriranu [[{{MediaWiki:Validationpage}}|stabilnu verziju]]; možete [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} podesiti] postavke stabilnosti stranice.'''",
 	"revreview-visibility-outdated": "'''Ova stranica ima zastarjelu [[{{MediaWiki:Validationpage}}|stabilnu verziju]]; možete [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} podesiti] postavke stabilnosti stranice.'''",
@@ -149,5 +153,7 @@
 	"log-action-filter-stable": "Vrsta izmjene postavki:",
 	"log-action-filter-stable-config": "Nove postavke",
 	"log-action-filter-stable-modify": "Izmjena postavki",
-	"log-action-filter-stable-reset": "Vraćanje postavki na predodređeno"
+	"log-action-filter-stable-reset": "Vraćanje postavki na predodređeno",
+	"fr-revision-info-dialog-review-button": "Pregledaj...",
+	"fr-revision-info-dialog-cancel-button": "Otkaži"
 }
