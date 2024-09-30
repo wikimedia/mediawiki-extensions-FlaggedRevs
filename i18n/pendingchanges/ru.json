@@ -16,7 +16,7 @@
 	"pendingchanges": "Страницы с непроверенными изменениями",
 	"pendingchanges-legend": "Список проверенных страниц с непроверенными правками",
 	"pendingchanges-list": "На этой странице перечислены  [[{{MediaWiki:Validationpage}}|проверенные]] страницы с правками, ожидающими проверки.",
-	"pendingchanges-none": "В настоящее время нет страниц, удовлетворяющих этим условиям",
+	"pendingchanges-none": "В настоящее время нет страниц, удовлетворяющих этим условиям.",
 	"pendingchanges-hours": "$1 {{PLURAL:$1|час|часа|часов}}",
 	"pendingchanges-days": "$1 {{PLURAL:$1|день|дня|дней}}",
 	"pendingchanges-recent": "менее 1 часа",
