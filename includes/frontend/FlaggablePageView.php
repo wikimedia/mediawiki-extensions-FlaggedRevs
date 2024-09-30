@@ -433,7 +433,10 @@ class FlaggablePageView extends ContextSource {
 
 		// If no specific revision is requested, determine whether to show the draft or unreviewed version
 		if ( $this->frev ) {
-			return $this->showingStable() ? 'stable' : 'draft';
+			if ( $this->showingStable() || $this->article->stableVersionIsSynced() ) {
+				return 'stable';
+			}
+			return 'draft';
 		} else {
 			return 'unreviewed';
 		}
