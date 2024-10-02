@@ -12,7 +12,7 @@
 	"pendingchanges": "Gözləyən dəyişiklikləri olan səhifələr",
 	"pendingchanges-legend": "Gözlənilən dəyişiklikləri nəzərdən keçirən səhifələr siyahısı",
 	"pendingchanges-list": "Bu səhifə [[{{MediaWiki:Validationpage}}|nəzərdən keçirilmiş]] səhifələri nəzərdən keçirmək üçün bir və ya bir neçə redaktəyə malikdir.",
-	"pendingchanges-none": "Bu kriteriyalara müvafiq olan bir səhifə mövcud deyil",
+	"pendingchanges-none": "Bu kriteriyalara müvafiq olan bir səhifə mövcud deyil.",
 	"pendingchanges-hours": "$1 {{PLURAL:$1|saat}}",
 	"pendingchanges-days": "$1 {{PLURAL:$1|gün}}",
 	"pendingchanges-recent": "1 saatdan az",
