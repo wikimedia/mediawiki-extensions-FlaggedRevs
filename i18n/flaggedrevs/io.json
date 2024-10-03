@@ -39,5 +39,12 @@
 	"revreview-restriction-any": "irga",
 	"revreview-restriction-none": "nula",
 	"tooltip-ca-current": "Vidar ica pagino kun la chanji qui bezonas aprobo",
-	"revreview-locked": "'''Noto:''' Redakturi mustos [[{{MediaWiki:Validationpage}}|revizesar]] ante esar montrata a lekteri en ca pagino."
+	"revreview-locked": "'''Noto:''' Redakturi mustos [[{{MediaWiki:Validationpage}}|revizesar]] ante esar montrata a lekteri en ca pagino.",
+	"log-action-filter-review": "Tipo di revizo:",
+	"log-action-filter-review-accept": "Manual acepto",
+	"log-action-filter-review-unaccept": "Manuala refuzo",
+	"log-action-filter-stable": "Tipo di modifikuro en l'ajusti:",
+	"log-action-filter-stable-config": "Nova ajusti",
+	"log-action-filter-stable-modify": "Ajusti modifikita",
+	"log-action-filter-stable-reset": "Riestabliso di ajusti ''default''"
 }
