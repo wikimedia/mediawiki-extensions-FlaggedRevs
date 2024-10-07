@@ -24,6 +24,7 @@
 	"review-logentry-id": "revizuro: $2",
 	"revreview-accuracy": "Exakteso",
 	"revreview-accuracy-2": "Exakta",
+	"revreview-draft-title": "Modifikuri ankore ne aceptita montresas en ca pagino",
 	"revreview-editnotice": "'''Vua redakturi esos videbla por lektanti kande ul administrero aceptos li. ([[{{MediaWiki:Validationpage}}|Helpo]])'''",
 	"revreview-edited": "'''Vua redakturi esos videbla por lektanti kande ul administrero aceptos li. ([[{{MediaWiki:Validationpage}}|Helpo]])'''\n\n{{PLURAL:$2|Existas|Existas}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{PLURAL:$2|modifikuro|modifikuri}}] ''(montrata adinfre)'' vartanta revizo.",
 	"revreview-newest-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|modifikuro|modifikuri}}] en ca versiono {{PLURAL:$3|dependas}} de [[{{MediaWiki:Validationpage}}|revizo]].\nLa [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versiono stabila] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verifikesis] ye <i>$2</i>.",

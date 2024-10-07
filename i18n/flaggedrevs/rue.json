@@ -120,5 +120,5 @@
 	"revreview-locked": "'''Позначка:''' Едітованя повинны быти [[{{MediaWiki:Validationpage}}|перевірены]] перед тым, як будуть указаны чітателям на тій сторінцї.",
 	"revreview-unlocked": "'''Позначка:''' Едітованя не потребують быти [[{{MediaWiki:Validationpage}}|перевірены]] перед тым, як будуть указаны чітателям на тій сторінцї.",
 	"validationpage": "{{ns:help}}:Перевірка сторінкы",
-	"fr-revision-info-dialog-cancel-button": "Зрушыти"
+	"fr-revision-info-dialog-cancel-button": "Зрушити"
 }
