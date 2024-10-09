@@ -2,14 +2,17 @@
 
 namespace MediaWiki\Extension\FlaggedRevs\Test;
 
+use Closure;
 use FRUserCounters;
 use MediaWiki\CommentStore\CommentStoreComment;
 use MediaWiki\Page\PageIdentity;
+use MediaWiki\Request\FauxRequest;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Storage\EditResult;
 use MediaWiki\Tests\User\TempUser\TempUserTestTrait;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
 use MediaWikiIntegrationTestCase;
 
@@ -121,15 +124,18 @@ class FlaggedRevsHooksTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
+	 * @dataProvider provideAnonymousOrTemporaryUsers
 	 * @covers FlaggedRevsHooks::onPageSaveComplete
 	 * @covers FlaggedRevsHooks::maybeIncrementReverts
 	 */
-	public function testShouldNotUpdateCountersOnContentPageEditForAnonymousUser(): void {
+	public function testShouldNotUpdateCountersOnContentPageEditForAnonymousUser(
+		Closure $userProvider
+	): void {
 		$this->overrideConfigValue( 'FlaggedRevsAutoconfirm', true );
 		$this->disableAutoCreateTempUser();
 
 		$page = $this->getNonexistingTestPage();
-		$editor = $this->getServiceContainer()->getUserFactory()->newAnonymous( '127.0.0.1' );
+		$editor = $userProvider->call( $this );
 
 		$this->editPage( $page, 'test', '', NS_MAIN, $editor );
 
@@ -290,15 +296,17 @@ class FlaggedRevsHooksTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
+	 * @dataProvider provideAnonymousOrTemporaryUsers
 	 * @covers FlaggedRevsHooks::onPageSaveComplete
 	 * @covers FlaggedRevsHooks::maybeIncrementReverts
 	 */
-	public function testShouldNotUpdateRevertCountForAnonymousUserOnUndo(): void {
+	public function testShouldNotUpdateRevertCountForAnonymousOrTemporaryUserOnUndo(
+		Closure $userProvider
+	): void {
 		$this->overrideConfigValue( 'FlaggedRevsAutoconfirm', true );
-		$this->disableAutoCreateTempUser();
 
 		$page = $this->getExistingTestPage();
-		$editor = $this->getServiceContainer()->getUserFactory()->newAnonymous( '127.0.0.1' );
+		$editor = $userProvider->call( $this );
 		$reverter = $this->getTestSysop()->getUserIdentity();
 
 		$this->editPage( $page, 'test', '', NS_MAIN, $editor );
@@ -318,15 +326,17 @@ class FlaggedRevsHooksTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
+	 * @dataProvider provideAnonymousOrTemporaryUsers
 	 * @covers FlaggedRevsHooks::onPageSaveComplete
 	 * @covers FlaggedRevsHooks::maybeIncrementReverts
 	 */
-	public function testShouldNotUpdateRevertCountForAnonymousUserOnRollback(): void {
+	public function testShouldNotUpdateRevertCountForAnonymousOrTemporaryUserOnRollback(
+		Closure $userProvider
+	): void {
 		$this->overrideConfigValue( 'FlaggedRevsAutoconfirm', true );
-		$this->disableAutoCreateTempUser();
 
 		$page = $this->getExistingTestPage();
-		$editor = $this->getServiceContainer()->getUserFactory()->newAnonymous( '127.0.0.1' );
+		$editor = $userProvider->call( $this );
 		$reverter = $this->getTestSysop()->getAuthority();
 
 		$this->editPage( $page, 'test', '', NS_MAIN, $editor );
@@ -348,6 +358,32 @@ class FlaggedRevsHooksTest extends MediaWikiIntegrationTestCase {
 			],
 			$params
 		);
+	}
+
+	public static function provideAnonymousOrTemporaryUsers(): iterable {
+		// phpcs:disable Squiz.Scope.StaticThisUsage.Found
+		yield 'anonymous user' => [
+			function (): User {
+				$this->disableAutoCreateTempUser();
+
+				return $this->getServiceContainer()->getUserFactory()->newAnonymous( '127.0.0.1' );
+			}
+		];
+
+		yield 'temporary user' => [
+			function (): User {
+				$this->enableAutoCreateTempUser();
+
+				$req = new FauxRequest();
+
+				return $this->getServiceContainer()
+					->getTempUserCreator()
+					->create( null, $req )
+					->getUser();
+			}
+		];
+
+		// phpcs:enable
 	}
 
 	/**

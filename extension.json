@@ -408,7 +408,8 @@
 				"MainConfig",
 				"PermissionManager",
 				"RevisionLookup",
-				"UserNameUtils"
+				"UserNameUtils",
+				"UserIdentityUtils"
 			]
 		},
 		"services": {
