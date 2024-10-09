@@ -2,7 +2,15 @@
 
 namespace MediaWiki\Extension\FlaggedRevs\Test;
 
+use FRUserCounters;
+use MediaWiki\CommentStore\CommentStoreComment;
+use MediaWiki\Page\PageIdentity;
+use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Revision\SlotRecord;
+use MediaWiki\Storage\EditResult;
+use MediaWiki\Tests\User\TempUser\TempUserTestTrait;
 use MediaWiki\Title\Title;
+use MediaWiki\User\UserIdentity;
 use MediaWikiIntegrationTestCase;
 
 /**
@@ -16,6 +24,7 @@ use MediaWikiIntegrationTestCase;
  * @group Database
  */
 class FlaggedRevsHooksTest extends MediaWikiIntegrationTestCase {
+	use TempUserTestTrait;
 
 	/**
 	 * @covers FlaggedRevsHooks::onPageMoveComplete()
@@ -59,5 +68,311 @@ class FlaggedRevsHooksTest extends MediaWikiIntegrationTestCase {
 			->where( [ 'fp_page_id' => $pageId ] )
 			->caller( __METHOD__ )->fetchRow();
 		$this->assertTrue( $row->fp_reviewed === "1", 'Page should be reviewed' );
+	}
+
+	/**
+	 * @covers FlaggedRevsHooks::onPageSaveComplete
+	 * @covers FlaggedRevsHooks::maybeIncrementReverts
+	 */
+	public function testShouldNotUpdateCountersOnContentPageEditForNamedUserIfNoAutopromote(): void {
+		$this->overrideConfigValue( 'FlaggedRevsAutoconfirm', false );
+
+		$page = $this->getNonexistingTestPage();
+		$editor = $this->getTestUser()->getAuthority();
+
+		$this->editPage( $page, 'test', '', NS_MAIN, $editor );
+
+		$params = FRUserCounters::getParams( $editor->getUser() );
+
+		$this->assertSame(
+			[
+				'uniqueContentPages' => [],
+				'totalContentEdits' => 0,
+				'editComments' => 0,
+				'revertedEdits' => 0,
+			],
+			$params
+		);
+	}
+
+	/**
+	 * @covers FlaggedRevsHooks::onPageSaveComplete
+	 * @covers FlaggedRevsHooks::maybeIncrementReverts
+	 */
+	public function testShouldUpdateCountersOnContentPageEditForNamedUser(): void {
+		$this->overrideConfigValue( 'FlaggedRevsAutoconfirm', true );
+
+		$page = $this->getNonexistingTestPage();
+		$editor = $this->getTestUser()->getAuthority();
+
+		$this->editPage( $page, 'test', '', NS_MAIN, $editor );
+
+		$params = FRUserCounters::getParams( $editor->getUser() );
+
+		$this->assertSame(
+			[
+				'uniqueContentPages' => [ $page->getId() ],
+				'totalContentEdits' => 1,
+				'editComments' => 1,
+				'revertedEdits' => 0,
+			],
+			$params
+		);
+	}
+
+	/**
+	 * @covers FlaggedRevsHooks::onPageSaveComplete
+	 * @covers FlaggedRevsHooks::maybeIncrementReverts
+	 */
+	public function testShouldNotUpdateCountersOnContentPageEditForAnonymousUser(): void {
+		$this->overrideConfigValue( 'FlaggedRevsAutoconfirm', true );
+		$this->disableAutoCreateTempUser();
+
+		$page = $this->getNonexistingTestPage();
+		$editor = $this->getServiceContainer()->getUserFactory()->newAnonymous( '127.0.0.1' );
+
+		$this->editPage( $page, 'test', '', NS_MAIN, $editor );
+
+		$params = FRUserCounters::getUserParams( $editor->getId() );
+
+		$this->assertSame(
+			[
+				'uniqueContentPages' => [],
+				'totalContentEdits' => 0,
+				'editComments' => 0,
+				'revertedEdits' => 0,
+			],
+			$params
+		);
+	}
+
+	/**
+	 * @covers FlaggedRevsHooks::onPageSaveComplete
+	 * @covers FlaggedRevsHooks::maybeIncrementReverts
+	 */
+	public function testShouldNotUpdateCountersOnNonContentPageEdit(): void {
+		$this->overrideConfigValue( 'FlaggedRevsAutoconfirm', true );
+
+		$page = Title::makeTitle( NS_USER, 'Test' );
+		$editor = $this->getTestUser()->getAuthority();
+
+		$this->editPage( $page, 'test', '', NS_MAIN, $editor );
+
+		$params = FRUserCounters::getParams( $editor->getUser() );
+
+		$this->assertSame(
+			[
+				'uniqueContentPages' => [],
+				'totalContentEdits' => 0,
+				'editComments' => 1,
+				'revertedEdits' => 0,
+			],
+			$params
+		);
+	}
+
+	/**
+	 * @covers FlaggedRevsHooks::onPageSaveComplete
+	 * @covers FlaggedRevsHooks::maybeIncrementReverts
+	 */
+	public function testShouldUpdateRevertCountForNamedUserOnUndoIfNoAutopromote(): void {
+		$this->overrideConfigValue( 'FlaggedRevsAutoconfirm', false );
+
+		$page = $this->getExistingTestPage();
+		$editor = $this->getTestUser()->getAuthority();
+		$reverter = $this->getTestSysop()->getUserIdentity();
+
+		$this->editPage( $page, 'test', '', NS_MAIN, $editor );
+		$this->doRevertPage( $page, $page->getRevisionRecord(), $reverter );
+
+		$params = FRUserCounters::getParams( $editor->getUser() );
+
+		$this->assertSame(
+			[
+				'uniqueContentPages' => [],
+				'totalContentEdits' => 0,
+				'editComments' => 0,
+				'revertedEdits' => 1,
+			],
+			$params
+		);
+	}
+
+	/**
+	 * @covers FlaggedRevsHooks::onPageSaveComplete
+	 * @covers FlaggedRevsHooks::maybeIncrementReverts
+	 */
+	public function testShouldUpdateRevertCountForNamedUserOnUndo(): void {
+		$this->overrideConfigValue( 'FlaggedRevsAutoconfirm', true );
+
+		$page = $this->getExistingTestPage();
+		$editor = $this->getTestUser()->getAuthority();
+		$reverter = $this->getTestSysop()->getUserIdentity();
+
+		$this->editPage( $page, 'test', '', NS_MAIN, $editor );
+		$this->doRevertPage( $page, $page->getRevisionRecord(), $reverter );
+
+		$params = FRUserCounters::getParams( $editor->getUser() );
+
+		$this->assertSame(
+			[
+				'uniqueContentPages' => [ $page->getId() ],
+				'totalContentEdits' => 1,
+				'editComments' => 1,
+				'revertedEdits' => 1,
+			],
+			$params
+		);
+	}
+
+	/**
+	 * @covers FlaggedRevsHooks::onPageSaveComplete
+	 * @covers FlaggedRevsHooks::maybeIncrementReverts
+	 */
+	public function testShouldUpdateRevertCountForNamedUserOnRollbackIfNoAutopromote(): void {
+		$this->overrideConfigValue( 'FlaggedRevsAutoconfirm', false );
+
+		$page = $this->getExistingTestPage();
+		$editor = $this->getTestUser()->getAuthority();
+		$reverter = $this->getTestSysop()->getAuthority();
+
+		$this->editPage( $page, 'test', '', NS_MAIN, $editor );
+
+		$rollbackStatus = $this->getServiceContainer()
+			->getRollbackPageFactory()
+			->newRollbackPage( $page, $reverter, $editor->getUser() )
+			->rollback();
+
+		$params = FRUserCounters::getParams( $editor->getUser() );
+
+		$this->assertStatusGood( $rollbackStatus );
+		$this->assertSame(
+			[
+				'uniqueContentPages' => [],
+				'totalContentEdits' => 0,
+				'editComments' => 0,
+				'revertedEdits' => 1,
+			],
+			$params
+		);
+	}
+
+	/**
+	 * @covers FlaggedRevsHooks::onPageSaveComplete
+	 * @covers FlaggedRevsHooks::maybeIncrementReverts
+	 */
+	public function testShouldUpdateRevertCountForNamedUserOnRollback(): void {
+		$this->overrideConfigValue( 'FlaggedRevsAutoconfirm', true );
+
+		$page = $this->getExistingTestPage();
+		$editor = $this->getTestUser()->getAuthority();
+		$reverter = $this->getTestSysop()->getAuthority();
+
+		$this->editPage( $page, 'test', '', NS_MAIN, $editor );
+
+		$rollbackStatus = $this->getServiceContainer()
+			->getRollbackPageFactory()
+			->newRollbackPage( $page, $reverter, $editor->getUser() )
+			->rollback();
+
+		$params = FRUserCounters::getParams( $editor->getUser() );
+
+		$this->assertStatusGood( $rollbackStatus );
+		$this->assertSame(
+			[
+				'uniqueContentPages' => [ $page->getId() ],
+				'totalContentEdits' => 1,
+				'editComments' => 1,
+				'revertedEdits' => 1,
+			],
+			$params
+		);
+	}
+
+	/**
+	 * @covers FlaggedRevsHooks::onPageSaveComplete
+	 * @covers FlaggedRevsHooks::maybeIncrementReverts
+	 */
+	public function testShouldNotUpdateRevertCountForAnonymousUserOnUndo(): void {
+		$this->overrideConfigValue( 'FlaggedRevsAutoconfirm', true );
+		$this->disableAutoCreateTempUser();
+
+		$page = $this->getExistingTestPage();
+		$editor = $this->getServiceContainer()->getUserFactory()->newAnonymous( '127.0.0.1' );
+		$reverter = $this->getTestSysop()->getUserIdentity();
+
+		$this->editPage( $page, 'test', '', NS_MAIN, $editor );
+		$this->doRevertPage( $page, $page->getRevisionRecord(), $reverter );
+
+		$params = FRUserCounters::getUserParams( $editor->getId() );
+
+		$this->assertSame(
+			[
+				'uniqueContentPages' => [],
+				'totalContentEdits' => 0,
+				'editComments' => 0,
+				'revertedEdits' => 0,
+			],
+			$params
+		);
+	}
+
+	/**
+	 * @covers FlaggedRevsHooks::onPageSaveComplete
+	 * @covers FlaggedRevsHooks::maybeIncrementReverts
+	 */
+	public function testShouldNotUpdateRevertCountForAnonymousUserOnRollback(): void {
+		$this->overrideConfigValue( 'FlaggedRevsAutoconfirm', true );
+		$this->disableAutoCreateTempUser();
+
+		$page = $this->getExistingTestPage();
+		$editor = $this->getServiceContainer()->getUserFactory()->newAnonymous( '127.0.0.1' );
+		$reverter = $this->getTestSysop()->getAuthority();
+
+		$this->editPage( $page, 'test', '', NS_MAIN, $editor );
+
+		$rollbackStatus = $this->getServiceContainer()
+			->getRollbackPageFactory()
+			->newRollbackPage( $page, $reverter, $editor->getUser() )
+			->rollback();
+
+		$params = FRUserCounters::getUserParams( $editor->getId() );
+
+		$this->assertStatusGood( $rollbackStatus );
+		$this->assertSame(
+			[
+				'uniqueContentPages' => [],
+				'totalContentEdits' => 0,
+				'editComments' => 0,
+				'revertedEdits' => 0,
+			],
+			$params
+		);
+	}
+
+	/**
+	 * Convenience function to revert a single edit.
+	 *
+	 * @param PageIdentity $page The page to perform the revert on.
+	 * @param RevisionRecord $revertRev The revision to revert.
+	 * @param UserIdentity $performer The user that will be performing the revert.
+	 * @return void
+	 */
+	private function doRevertPage( PageIdentity $page, RevisionRecord $revertRev, UserIdentity $performer ): void {
+		$prevRev = $this->getServiceContainer()
+			->getRevisionLookup()
+			->getPreviousRevision( $revertRev );
+
+		$this->assertNotNull( $prevRev, 'Cannot revert if no previous revision exists.' );
+
+		$pageUpdater = $this->getServiceContainer()
+			->getPageUpdaterFactory()
+			->newPageUpdater( $page, $performer )
+			->setContent( SlotRecord::MAIN, $prevRev->getContent( SlotRecord::MAIN ) )
+			->markAsRevert( EditResult::REVERT_UNDO, $revertRev->getId(), $prevRev->getId() );
+
+		$pageUpdater->saveRevision( CommentStoreComment::newUnsavedComment( 'test' ) );
+
+		$this->assertStatusGood( $pageUpdater->getStatus() );
 	}
 }

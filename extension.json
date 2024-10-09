@@ -363,7 +363,7 @@
 		"LoadExtensionSchemaUpdates": "updater",
 		"MagicWordwgVariableIDs": "main",
 		"MakeGlobalVariablesScript": "ui",
-		"MediaWikiServices": "main",
+		"MediaWikiServices": "services",
 		"MergeAccountFromTo": "FlaggedRevsHooks::onMergeAccountFromTo",
 		"NewDifferenceEngine": "ui",
 		"RevisionFromEditComplete": "main",
@@ -404,7 +404,15 @@
 		},
 		"main": {
 			"class": "FlaggedRevsHooks",
-			"services": []
+			"services": [
+				"MainConfig",
+				"PermissionManager",
+				"RevisionLookup",
+				"UserNameUtils"
+			]
+		},
+		"services": {
+			"class": "\\MediaWiki\\Extension\\FlaggedRevs\\Backend\\FlaggedRevsMediaWikiServicesHooks"
 		},
 		"updater": {
 			"class": "FlaggedRevsUpdaterHooks",

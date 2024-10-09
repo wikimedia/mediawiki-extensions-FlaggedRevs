@@ -2,13 +2,13 @@
 // phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
 // phpcs:disable MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic
 
+use MediaWiki\Config\Config;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Extension\GoogleNewsSitemap\Specials\GoogleNewsSitemap;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Hook\ArticleMergeCompleteHook;
 use MediaWiki\Hook\ArticleRevisionVisibilitySetHook;
 use MediaWiki\Hook\MagicWordwgVariableIDsHook;
-use MediaWiki\Hook\MediaWikiServicesHook;
 use MediaWiki\Hook\PageMoveCompleteHook;
 use MediaWiki\Hook\ParserFirstCallInitHook;
 use MediaWiki\Hook\ParserGetVariableValueSwitchHook;
@@ -22,6 +22,8 @@ use MediaWiki\Page\Hook\RevisionUndeletedHook;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Permissions\Hook\GetUserPermissionsErrorsHook;
 use MediaWiki\Permissions\Hook\UserGetRightsHook;
+use MediaWiki\Permissions\PermissionManager;
+use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Storage\EditResult;
 use MediaWiki\Storage\Hook\BeforeRevertedTagUpdateHook;
@@ -33,6 +35,7 @@ use MediaWiki\User\Hook\AutopromoteConditionHook;
 use MediaWiki\User\Hook\UserLoadAfterLoadFromSessionHook;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
+use MediaWiki\User\UserNameUtils;
 use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\IReadableDatabase;
 use Wikimedia\Rdbms\RawSQLValue;
@@ -50,7 +53,6 @@ class FlaggedRevsHooks implements
 	BeforeRevertedTagUpdateHook,
 	getUserPermissionsErrorsHook,
 	MagicWordwgVariableIDsHook,
-	MediaWikiServicesHook,
 	RevisionFromEditCompleteHook,
 	PageSaveCompleteHook,
 	PageMoveCompleteHook,
@@ -63,6 +65,23 @@ class FlaggedRevsHooks implements
 	UserLoadAfterLoadFromSessionHook,
 	WikiExporter__dumpStableQueryHook
 {
+
+	private Config $config;
+	private PermissionManager $permissionManager;
+	private RevisionLookup $revisionLookup;
+	private UserNameUtils $userNameUtils;
+
+	public function __construct(
+		Config $config,
+		PermissionManager $permissionManager,
+		RevisionLookup $revisionLookup,
+		UserNameUtils $userNameUtils
+	) {
+		$this->config = $config;
+		$this->permissionManager = $permissionManager;
+		$this->revisionLookup = $revisionLookup;
+		$this->userNameUtils = $userNameUtils;
+	}
 
 	/**
 	 * @see https://www.mediawiki.org/wiki/Manual:Extension_registration#Customizing_registration
@@ -100,13 +119,6 @@ class FlaggedRevsHooks implements
 		define( 'APCOND_FR_CHECKEDEDITCOUNT', 70828 );
 		define( 'APCOND_FR_MAXREVERTEDEDITRATIO', 70829 );
 		define( 'APCOND_FR_NEVERDEMOTED', 70830 );
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function onMediaWikiServices( $services ) {
-		( new FlaggedRevsSetup( $services->getMainConfig() ) )->doSetup();
 	}
 
 	/**
@@ -777,16 +789,12 @@ class FlaggedRevsHooks implements
 		$undid = $editResult->getOldestRevertedRevisionId();
 
 		# Was this an edit by an auto-sighter that undid another edit?
-		if ( !( $undid && MediaWikiServices::getInstance()
-			->getPermissionManager()
-			->userHasRight( $user, 'autoreview' ) ) ) {
+		if ( !( $undid && $this->permissionManager->userHasRight( $user, 'autoreview' ) ) ) {
 			return;
 		}
 
 		// Note: $rev->getTitle() might be undefined (no rev id?)
-		$badRevRecord = MediaWikiServices::getInstance()
-			->getRevisionLookup()
-			->getRevisionByTitle( $wikiPage->getTitle(), $undid );
+		$badRevRecord = $this->revisionLookup->getRevisionByTitle( $wikiPage->getTitle(), $undid );
 		if ( !( $badRevRecord && $badRevRecord->getUser( RevisionRecord::RAW ) ) ) {
 			return;
 		}
@@ -1103,21 +1111,20 @@ class FlaggedRevsHooks implements
 		$revisionRecord,
 		$editResult
 	) {
-		global $wgFlaggedRevsAutopromote, $wgFlaggedRevsAutoconfirm;
-
 		self::maybeIncrementReverts( $wikiPage, $revisionRecord, $editResult, $userIdentity );
 
 		self::maybeNullEditReview( $wikiPage, $userIdentity, $summary, $flags, $revisionRecord, $editResult );
 
-		$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
 		# Ignore null edits edits by anon users, and MW role account edits
 		if ( $editResult->isNullEdit() ||
 			!$userIdentity->getId() ||
-			!$userNameUtils->isUsable( $userIdentity->getName() )
+			!$this->userNameUtils->isUsable( $userIdentity->getName() )
 		) {
 			return;
+		}
+
 		# No sense in running counters if nothing uses them
-		} elseif ( !$wgFlaggedRevsAutopromote && !$wgFlaggedRevsAutoconfirm ) {
+		if ( !( $this->config->get( 'FlaggedRevsAutopromote' ) || $this->config->get( 'FlaggedRevsAutoconfirm' ) ) ) {
 			return;
 		}
 
