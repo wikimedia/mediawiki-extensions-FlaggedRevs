@@ -15,9 +15,11 @@ class FlaggablePageViewTest extends MediaWikiIntegrationTestCase {
 
 	private static WikiPage $testPage;
 	private static RevisionRecord $unstableRev;
+	private static User $tempUser;
 
 	public function addDBDataOnce() {
 		$this->overrideConfigValue( 'FlaggedRevsProtection', false );
+		$this->enableAutoCreateTempUser();
 
 		self::$testPage = $this->getExistingTestPage();
 		$stableRev = self::$testPage->getRevisionRecord();
@@ -30,6 +32,14 @@ class FlaggablePageViewTest extends MediaWikiIntegrationTestCase {
 
 		$pageUpdateStatus = $this->editPage( self::$testPage, 'unreviewed revision' );
 		self::$unstableRev = $pageUpdateStatus->getNewRevision();
+
+		$this->enableAutoCreateTempUser();
+
+		$req = new FauxRequest();
+		self::$tempUser = $this->getServiceContainer()
+			->getTempUserCreator()
+			->create( null, $req )
+			->getUser();
 	}
 
 	/**
@@ -61,6 +71,15 @@ class FlaggablePageViewTest extends MediaWikiIntegrationTestCase {
 			function (): User {
 				$this->disableAutoCreateTempUser();
 				return $this->getServiceContainer()->getUserFactory()->newAnonymous( '127.0.0.1' );
+			},
+			[],
+			[]
+		];
+
+		yield 'temporary user' => [
+			function (): User {
+				$this->enableAutoCreateTempUser();
+				return self::$tempUser;
 			},
 			[],
 			[]
@@ -140,6 +159,15 @@ class FlaggablePageViewTest extends MediaWikiIntegrationTestCase {
 	public static function provideUnstableVersionOptions(): iterable {
 		// phpcs:disable Squiz.Scope.StaticThisUsage.Found
 		$registeredUserProvider = fn (): User => $this->getTestUser()->getUser();
+		$anonUserProvider = function (): User {
+			$this->disableAutoCreateTempUser();
+			return $this->getServiceContainer()->getUserFactory()->newAnonymous( '127.0.0.1' );
+		};
+
+		$tempUserProvider = function (): User {
+			$this->enableAutoCreateTempUser();
+			return self::$tempUser;
+		};
 		// phpcs:enable
 
 		yield 'registered user requesting unstable version via preferences' => [
@@ -156,6 +184,30 @@ class FlaggablePageViewTest extends MediaWikiIntegrationTestCase {
 
 		yield 'registered user requesting unstable version via oldid param' => [
 			$registeredUserProvider,
+			[ 'flaggedrevsstable' => FR_SHOW_STABLE_ALWAYS ],
+			static fn () => [ 'oldid' => self::$unstableRev->getId() ]
+		];
+
+		yield 'anonymous user requesting unstable version via stable param' => [
+			$anonUserProvider,
+			[ 'flaggedrevsstable' => FR_SHOW_STABLE_ALWAYS ],
+			static fn () => [ 'stable' => '0' ]
+		];
+
+		yield 'anonymous user requesting unstable version via oldid param' => [
+			$anonUserProvider,
+			[ 'flaggedrevsstable' => FR_SHOW_STABLE_ALWAYS ],
+			static fn () => [ 'oldid' => self::$unstableRev->getId() ]
+		];
+
+		yield 'temporary user requesting unstable version via stable param' => [
+			$tempUserProvider,
+			[ 'flaggedrevsstable' => FR_SHOW_STABLE_ALWAYS ],
+			static fn () => [ 'stable' => '0' ]
+		];
+
+		yield 'temporary user requesting unstable version via oldid param' => [
+			$tempUserProvider,
 			[ 'flaggedrevsstable' => FR_SHOW_STABLE_ALWAYS ],
 			static fn () => [ 'oldid' => self::$unstableRev->getId() ]
 		];

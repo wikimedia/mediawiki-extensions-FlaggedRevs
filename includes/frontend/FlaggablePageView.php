@@ -15,6 +15,7 @@ use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
+use MediaWiki\User\UserIdentity;
 use OOUI\ButtonInputWidget;
 
 /**
@@ -170,16 +171,23 @@ class FlaggablePageView extends ContextSource {
 
 	/**
 	 * What version of pages should this user see by default?
+	 *
+	 * @param UserIdentity $user The user to get the stability mode for.
 	 * @return int One of the FR_SHOW_STABLE_* constants
 	 */
-	private function getPageViewStabilityModeForUser( User $user ): int {
+	private function getPageViewStabilityModeForUser( UserIdentity $user ): int {
+		$services = MediaWikiServices::getInstance();
+
 		# Check user preferences (e.g. "show stable version by default?")
-		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+		$userOptionsLookup = $services->getUserOptionsLookup();
 		$preference = (int)$userOptionsLookup->getOption( $user, 'flaggedrevsstable' );
 		if ( $preference === FR_SHOW_STABLE_ALWAYS || $preference === FR_SHOW_STABLE_NEVER ) {
 			return $preference;
 		}
-		return $user->isRegistered() ? FR_SHOW_STABLE_NEVER : FR_SHOW_STABLE_DEFAULT;
+
+		$userIdentityUtils = $services->getUserIdentityUtils();
+
+		return $userIdentityUtils->isNamed( $user ) ? FR_SHOW_STABLE_NEVER : FR_SHOW_STABLE_DEFAULT;
 	}
 
 	/**
