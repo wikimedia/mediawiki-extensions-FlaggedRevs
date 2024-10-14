@@ -50,7 +50,7 @@
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Хьан хийцамаш хӀинца ца латийна цхьан эшара йолу версийн.</span>\n\nДехар до, хьовсийша массо лахахьа гойтуш болучу хийцамашка, цхьан эшар йолу версийца хилийта шу хийцамаш.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Хьан хийцамаш хӀинца чӀагӀйелла версин йукъатоьхна йац. Кхий хьалхара хийцамаш бу, хьажа дезаш.</span>\n\nШу хийцамаш чӀагӀйелла версин йукъатоха, дехар до, хьовсийша массо хийцамашка, гойтуш болу лахахьа.",
 	"revreview-update-includes": "Карлайаьхна кепаш йа файлаш (талланзарш Ӏаьржо билгалйина йу):",
-	"revreview-reject-summary": "Цунах лаьцна:",
+	"revreview-reject-summary": "Цуьнах лаьцна:",
 	"revreview-reject-confirm": "Йуха баха иза хийцамаш",
 	"revreview-reject-cancel": "ДӀадаккхар",
 	"revreview-reject-summary-cur": "{{PLURAL:$1|Юхабаьккхина $1 хийцам}} ($2) $3 $4 верси меттахӀоттина",
