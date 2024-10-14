@@ -35,6 +35,7 @@ use MediaWiki\User\Hook\AutopromoteConditionHook;
 use MediaWiki\User\Hook\UserLoadAfterLoadFromSessionHook;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
+use MediaWiki\User\UserIdentityUtils;
 use MediaWiki\User\UserNameUtils;
 use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\IReadableDatabase;
@@ -70,17 +71,20 @@ class FlaggedRevsHooks implements
 	private PermissionManager $permissionManager;
 	private RevisionLookup $revisionLookup;
 	private UserNameUtils $userNameUtils;
+	private UserIdentityUtils $userIdentityUtils;
 
 	public function __construct(
 		Config $config,
 		PermissionManager $permissionManager,
 		RevisionLookup $revisionLookup,
-		UserNameUtils $userNameUtils
+		UserNameUtils $userNameUtils,
+		UserIdentityUtils $userIdentityUtils
 	) {
 		$this->config = $config;
 		$this->permissionManager = $permissionManager;
 		$this->revisionLookup = $revisionLookup;
 		$this->userNameUtils = $userNameUtils;
+		$this->userIdentityUtils = $userIdentityUtils;
 	}
 
 	/**
@@ -801,7 +805,7 @@ class FlaggedRevsHooks implements
 
 		$revRecordUser = $revRecord->getUser( RevisionRecord::RAW );
 		$badRevRecordUser = $badRevRecord->getUser( RevisionRecord::RAW );
-		if ( $badRevRecordUser->isRegistered() // by logged-in user
+		if ( $this->userIdentityUtils->isNamed( $badRevRecordUser )
 			&& !$badRevRecordUser->equals( $revRecordUser ) // no self-reverts
 		) {
 			FRUserCounters::incCount( $badRevRecordUser->getId(), 'revertedEdits' );
@@ -1115,9 +1119,9 @@ class FlaggedRevsHooks implements
 
 		self::maybeNullEditReview( $wikiPage, $userIdentity, $summary, $flags, $revisionRecord, $editResult );
 
-		# Ignore null edits edits by anon users, and MW role account edits
+		# Ignore null edits, edits by IP users or temporary users, and MW role account edits
 		if ( $editResult->isNullEdit() ||
-			!$userIdentity->getId() ||
+			!$this->userIdentityUtils->isNamed( $userIdentity ) ||
 			!$this->userNameUtils->isUsable( $userIdentity->getName() )
 		) {
 			return;
