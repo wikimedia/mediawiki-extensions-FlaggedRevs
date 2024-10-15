@@ -97,7 +97,9 @@ class FlaggedRevsStatsTest extends MediaWikiIntegrationTestCase {
 		$this->assertTrue( $form->submit() );
 	}
 
-	public function testShouldComputeStatistics(): void {
+	public function testShouldComputeStatisticsWhenTempUsersDisabled(): void {
+		$this->disableAutoCreateTempUser();
+
 		FlaggedRevsStats::updateCache();
 
 		$stats = FlaggedRevsStats::getStats();
@@ -110,5 +112,22 @@ class FlaggedRevsStatsTest extends MediaWikiIntegrationTestCase {
 
 		$this->assertSame( 900, $stats['reviewLag-anon-average'] );
 		$this->assertSame( 2250, $stats['reviewLag-user-average'] );
+	}
+
+	public function testShouldComputeStatisticsWhenTempUsersEnabled(): void {
+		$this->enableAutoCreateTempUser();
+
+		FlaggedRevsStats::updateCache();
+
+		$stats = FlaggedRevsStats::getStats();
+
+		$this->assertSame( 2, $stats['reviewLag-anon-sampleSize'] );
+		$this->assertSame( 1, $stats['reviewLag-user-sampleSize'] );
+
+		$this->assertSame( 2700, $stats['reviewLag-anon-median'] );
+		$this->assertSame( 1800, $stats['reviewLag-user-median'] );
+
+		$this->assertSame( 1800, $stats['reviewLag-anon-average'] );
+		$this->assertSame( 1800, $stats['reviewLag-user-average'] );
 	}
 }

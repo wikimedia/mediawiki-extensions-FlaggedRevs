@@ -1,8 +1,9 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\User\ActorMigration;
+use Wikimedia\Rdbms\IExpression;
 use Wikimedia\Rdbms\IReadableDatabase;
+use Wikimedia\Rdbms\RawSQLExpression;
 use Wikimedia\Rdbms\SelectQueryBuilder;
 use Wikimedia\Rdbms\Subquery;
 
@@ -274,9 +275,6 @@ class FlaggedRevsStats {
 			return $result; // disabled
 		}
 
-		$actorMigration = ActorMigration::newMigration();
-		$actorQuery = $actorMigration->getJoin( 'rev_user' );
-
 		$rPerTable = []; // review wait percentiles
 		# Only go so far back...otherwise we will get garbage values due to
 		# the fact that FlaggedRevs wasn't enabled until after a while.
@@ -330,11 +328,24 @@ class FlaggedRevsStats {
 				$lastTS = $row->fp_pending_since; // next iteration
 			}
 		}
+
+		$tempUserConfig = MediaWikiServices::getInstance()->getTempUserConfig();
+
 		# User condition (anons/users)
 		if ( $users === 'anons' ) {
-			$userCondition = $actorMigration->isAnon( $actorQuery['fields']['rev_user'] );
+			$anonConds = [ new RawSQLExpression( 'actor_user IS NULL' ) ];
+			if ( $tempUserConfig->isKnown() ) {
+				$anonConds[] = $tempUserConfig->getMatchCondition( $dbr, 'actor_name', IExpression::LIKE );
+			}
+
+			$userCondition = $dbr->orExpr( $anonConds );
 		} elseif ( $users === 'users' ) {
-			$userCondition = $actorMigration->isNotAnon( $actorQuery['fields']['rev_user'] );
+			$userConds = [ new RawSQLExpression( 'actor_user IS NOT NULL' ) ];
+			if ( $tempUserConfig->isKnown() ) {
+				$userConds[] = $tempUserConfig->getMatchCondition( $dbr, 'actor_name', IExpression::NOT_LIKE );
+			}
+
+			$userCondition = $dbr->andExpr( $userConds );
 		} else {
 			throw new InvalidArgumentException( 'Invalid $users param given.' );
 		}
@@ -346,44 +357,18 @@ class FlaggedRevsStats {
 		# Use a one week time range
 		$days = 7;
 		$minTSUnix = $maxTSUnix - $days * 86400;
-		$dbMinTS = $dbr->timestamp( $minTSUnix );
 		# Approximate the number rows to scan
-		$rows = $dbr->newSelectQueryBuilder()
-			->select( '1' )
-			->from( 'revision' )
-			->tables( $actorQuery['tables'] )
-			->where( $userCondition )
-			->andWhere( [
-				$dbr->expr( 'rev_timestamp', '>=', $dbMinTS ),
-				$dbr->expr( 'rev_timestamp', '<=', $dbMaxTS ),
-			] )
-			->joinConds( $actorQuery['joins'] )
-			->caller( __METHOD__ )
-			->estimateRowCount();
+		$rows = self::estimateRevisionRowCount( $dbr, $maxTSUnix, 7, $userCondition );
 		# If the range doesn't have many rows (like on small wikis), use 30 days
 		if ( $rows < 500 ) {
-			$days = 30;
-			$minTSUnix = $maxTSUnix - $days * 86400;
-			$dbMinTS = $dbr->timestamp( $minTSUnix );
-			# Approximate rows to scan
-			$rows = $dbr->newSelectQueryBuilder()
-				->select( '1' )
-				->from( 'revision' )
-				->tables( $actorQuery['tables'] )
-				->where( $userCondition )
-				->andWhere( [
-					$dbr->expr( 'rev_timestamp', '>=', $dbMinTS ),
-					$dbr->expr( 'rev_timestamp', '<=', $dbMaxTS ),
-				] )
-				->joinConds( $actorQuery['joins'] )
-				->caller( __METHOD__ )
-				->estimateRowCount();
+			$rows = self::estimateRevisionRowCount( $dbr, $maxTSUnix, 30, $userCondition );
 			# If the range doesn't have many rows (like on really tiny wikis), use 90 days
 			if ( $rows < 500 ) {
 				$days = 90;
 				$minTSUnix = $maxTSUnix - $days * 86400;
 			}
 		}
+
 		$sampleSize = 1500; // sample size
 		# Sanity check the starting timestamp
 		$minTSUnix = max( $minTSUnix, $installedUnix );
@@ -398,18 +383,17 @@ class FlaggedRevsStats {
 		$edits = $cache->getWithSetCallback(
 			$cache->makeKey( 'flaggedrevs', 'rcEditCount', $users, $days ),
 			$cache::TTL_WEEK * 2,
-			static function () use ( $dbr, $fname, $userCondition, $timeCondition, $actorQuery ) {
+			static function () use ( $dbr, $fname, $userCondition, $timeCondition ) {
 				return (int)$dbr->newSelectQueryBuilder()
 					->select( 'COUNT(*)' )
 					->from( 'revision' )
 					->join( 'page', null, 'page_id = rev_page' )
-					->tables( $actorQuery['tables'] )
+					->join( 'actor', null, 'rev_actor = actor_id' )
 					->where( $timeCondition )
 					->andWhere( [
 						$userCondition,
 						'page_namespace' => FlaggedRevs::getReviewNamespaces()
 					] )
-					->joinConds( $actorQuery['joins'] )
 					->caller( $fname )
 					->fetchField();
 			}
@@ -433,7 +417,7 @@ class FlaggedRevsStats {
 				) // time when revision was first reviewed
 			] )
 			->from( 'revision' )
-			->tables( $actorQuery['tables'] )
+			->join( 'actor', null, 'rev_actor = actor_id' )
 			->where( [
 				$userCondition,
 				"(rev_id % $mod) = 0",
@@ -453,7 +437,6 @@ class FlaggedRevsStats {
 			] )
 			->andWhere( $timeCondition )
 			->caller( __METHOD__ )
-			->joinConds( $actorQuery['joins'] )
 			->fetchResultSet();
 
 		$secondsR = 0; // total wait seconds for edits later reviewed
@@ -488,5 +471,39 @@ class FlaggedRevsStats {
 		}
 
 		return $result;
+	}
+
+	/**
+	 * Convenience function to estimate the number of revisions authored by a given user type
+	 * within a given timeframe.
+	 *
+	 * @param IReadableDatabase $dbr Replica DB connection handle.
+	 * @param int $maxTSUnix Only consider revisions created before this UNIX timestamp.
+	 * @param int $days Only consider revisions created at most this many days before $maxTSUnix.
+	 * @param IExpression|string $userCondition SQL condition to filter revisions by user type.
+	 *
+	 * @return int The estimated number of revisions matching the given time and user constraints.
+	 */
+	private static function estimateRevisionRowCount(
+		IReadableDatabase $dbr,
+		int $maxTSUnix,
+		int $days,
+		$userCondition
+	): int {
+		$minTSUnix = $maxTSUnix - $days * 86400;
+		$dbMinTS = $dbr->timestamp( $minTSUnix );
+		$dbMaxTS = $dbr->timestamp( $maxTSUnix );
+
+		return $dbr->newSelectQueryBuilder()
+			->select( '1' )
+			->from( 'revision' )
+			->join( 'actor', null, 'rev_actor = actor_id' )
+			->where( $userCondition )
+			->andWhere( [
+				$dbr->expr( 'rev_timestamp', '>=', $dbMinTS ),
+				$dbr->expr( 'rev_timestamp', '<=', $dbMaxTS ),
+			] )
+			->caller( __METHOD__ )
+			->estimateRowCount();
 	}
 }
