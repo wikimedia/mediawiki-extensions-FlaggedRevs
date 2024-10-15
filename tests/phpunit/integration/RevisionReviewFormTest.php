@@ -3,6 +3,7 @@ namespace MediaWiki\Extension\FlaggedRevs\Tests\Integration;
 
 use Closure;
 use FRUserCounters;
+use MediaWiki\Request\FauxRequest;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Tests\User\TempUser\TempUserTestTrait;
 use MediaWiki\Title\Title;
@@ -143,6 +144,8 @@ class RevisionReviewFormTest extends MediaWikiIntegrationTestCase {
 
 		if ( !$author->isRegistered() ) {
 			$this->assertNull( $params );
+		} elseif ( $author->isTemp() ) {
+			$this->assertSame( 0, $params['revertedEdits'] ?? null );
 		} else {
 			// NOTE: this double-counts (T377263)
 			$this->assertSame( 2, $params['revertedEdits'] ?? null );
@@ -155,6 +158,20 @@ class RevisionReviewFormTest extends MediaWikiIntegrationTestCase {
 			function (): User {
 				$this->disableAutoCreateTempUser();
 				return $this->getServiceContainer()->getUserFactory()->newAnonymous( '127.0.0.1' );
+			},
+			[],
+			[]
+		];
+
+		yield 'temporary user' => [
+			function (): User {
+				$this->enableAutoCreateTempUser();
+
+				$req = new FauxRequest();
+				return $this->getServiceContainer()
+					->getTempUserCreator()
+					->create( null, $req )
+					->getUser();
 			},
 			[],
 			[]
