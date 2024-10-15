@@ -147,8 +147,7 @@ class RevisionReviewFormTest extends MediaWikiIntegrationTestCase {
 		} elseif ( $author->isTemp() ) {
 			$this->assertSame( 0, $params['revertedEdits'] ?? null );
 		} else {
-			// NOTE: this double-counts (T377263)
-			$this->assertSame( 2, $params['revertedEdits'] ?? null );
+			$this->assertSame( 1, $params['revertedEdits'] ?? null );
 		}
 	}
 
