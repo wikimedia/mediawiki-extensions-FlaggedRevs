@@ -48,7 +48,12 @@
 		]
 	},
 	"APIListModules": {
-		"oldreviewedpages": "ApiQueryOldreviewedpages"
+		"oldreviewedpages": {
+			"class": "ApiQueryOldreviewedpages",
+			"services": [
+				"UserIdentityUtils"
+			]
+		}
 	},
 	"APIModules": {
 		"review": "ApiReview",

@@ -21,7 +21,9 @@
  * http://www.gnu.org/copyleft/gpl.html
  */
 
+use MediaWiki\Api\ApiQueryGeneratorBase;
 use MediaWiki\Title\Title;
+use MediaWiki\User\UserIdentityUtils;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
@@ -31,13 +33,20 @@ use Wikimedia\ParamValidator\TypeDef\IntegerDef;
  * @ingroup FlaggedRevs
  */
 class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
+	private UserIdentityUtils $userIdentityUtils;
 
 	/**
 	 * @param ApiQuery $query
 	 * @param string $moduleName
+	 * @param UserIdentityUtils $userIdentityUtils
 	 */
-	public function __construct( ApiQuery $query, $moduleName ) {
+	public function __construct(
+		ApiQuery $query,
+		$moduleName,
+		UserIdentityUtils $userIdentityUtils
+	) {
 		parent::__construct( $query, $moduleName, 'or' );
+		$this->userIdentityUtils = $userIdentityUtils;
 	}
 
 	/**
@@ -76,12 +85,21 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 				intval( $params['maxsize'] ) );
 		}
 		if ( $params['filterwatched'] == 'watched' ) {
-			$uid = $this->getUser()->getId();
-			if ( !$uid ) {
+			$performer = $this->getAuthority();
+			if (
+				!$performer->isRegistered() ||
+				(
+					$this->userIdentityUtils->isTemp( $performer->getUser() ) &&
+					!$performer->isAllowed( 'viewmywatchlist' )
+				)
+			) {
 				$this->dieWithError( 'watchlistanontext', 'notloggedin' );
 			}
+
+			$this->checkUserRightsAny( 'viewmywatchlist' );
+
 			$this->addTables( 'watchlist' );
-			$this->addWhereFld( 'wl_user', $uid );
+			$this->addWhereFld( 'wl_user', $performer->getUser()->getId() );
 			$this->addWhere( 'page_namespace = wl_namespace' );
 			$this->addWhere( 'page_title = wl_title' );
 		}
