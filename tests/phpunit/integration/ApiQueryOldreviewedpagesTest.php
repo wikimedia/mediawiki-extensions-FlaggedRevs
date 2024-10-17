@@ -3,9 +3,9 @@ namespace MediaWiki\Extension\FlaggedRevs\Tests\Integration;
 
 use Closure;
 use MediaWiki\Page\PageIdentity;
-use MediaWiki\Permissions\Authority;
+use MediaWiki\Request\FauxRequest;
 use MediaWiki\Tests\Api\ApiTestCase;
-use MediaWiki\Tests\User\TempUser\TempUserTestTrait;
+use MediaWiki\User\User;
 use RevisionReviewForm;
 use Wikimedia\Timestamp\ConvertibleTimestamp;
 use WikiPage;
@@ -15,12 +15,19 @@ use WikiPage;
  * @group Database
  */
 class ApiQueryOldreviewedpagesTest extends ApiTestCase {
-	use TempUserTestTrait;
-
-	private static Authority $user;
+	private static User $user;
+	private static User $tempUser;
 
 	private static PageIdentity $watchedPage;
 	private static PageIdentity $unwatchedPage;
+
+	protected function setUp(): void {
+		parent::setUp();
+
+		// Avoid holding onto stale service references
+		self::$user->clearInstanceCache();
+		self::$tempUser->clearInstanceCache();
+	}
 
 	public function addDBDataOnce() {
 		$this->overrideConfigValues( [
@@ -45,11 +52,21 @@ class ApiQueryOldreviewedpagesTest extends ApiTestCase {
 		$this->editPage( $watchedPage, __METHOD__ . '-unreviewed' );
 		$this->editPage( $unwatchedPage, __METHOD__ . '-unreviewed' );
 
+		$req = new FauxRequest();
+
 		self::$user = $this->getTestUser()->getUser();
+		self::$tempUser = $this->getServiceContainer()
+			->getTempUserCreator()
+			->create( null, $req )
+			->getUser();
 
 		$this->getServiceContainer()
 			->getWatchedItemStore()
 			->addWatch( self::$user, $watchedPage );
+
+		$this->getServiceContainer()
+			->getWatchedItemStore()
+			->addWatch( self::$tempUser, $watchedPage );
 
 		self::$watchedPage = $watchedPage;
 		self::$unwatchedPage = $unwatchedPage;
@@ -73,10 +90,16 @@ class ApiQueryOldreviewedpagesTest extends ApiTestCase {
 		$this->assertTrue( $form->submit() );
 	}
 
-	public function testShouldRejectIPUserWhenRequestingWatchedPages(): void {
-		$this->expectApiErrorCode( 'notloggedin' );
+	/**
+	 * @dataProvider provideUsersWithoutWatchlistAccess
+	 */
+	public function testShouldRejectUserWhenRequestingWatchedPages(
+		Closure $userProvider,
+		string $expectedCode
+	): void {
+		$this->expectApiErrorCode( $expectedCode );
+		$performer = $userProvider->call( $this );
 
-		$performer = $this->getServiceContainer()->getUserFactory()->newAnonymous( '127.0.0.1' );
 		$this->doApiRequest( [
 			'action' => 'query',
 			'list' => 'oldreviewedpages',
@@ -84,19 +107,73 @@ class ApiQueryOldreviewedpagesTest extends ApiTestCase {
 		], null, false, $performer );
 	}
 
-	public function testShouldReturnWatchedPagesForRegisteredUserWhenRequestingWatchedPages(): void {
+	public static function provideUsersWithoutWatchlistAccess(): iterable {
+		// phpcs:disable Squiz.Scope.StaticThisUsage.Found
+		yield 'IP user' => [
+			fn () => $this->getServiceContainer()->getUserFactory()->newAnonymous( '127.0.0.1' ),
+			'notloggedin'
+		];
+		yield 'temporary account without "viewmywatchlist"' => [
+			function (): User {
+				$this->setGroupPermissions( [
+					'*' => [ 'viewmywatchlist' => false ],
+					'user' => [ 'viewmywatchlist' => true ]
+				] );
+
+				return self::$tempUser;
+			},
+			'notloggedin'
+		];
+		yield 'named user without "viewmywatchlist"' => [
+			function (): User {
+				$this->setGroupPermissions( [
+					'*' => [ 'viewmywatchlist' => false ],
+					'user' => [ 'viewmywatchlist' => false ]
+				] );
+
+				return self::$user;
+			},
+			'permissiondenied'
+		];
+		// phpcs:enable
+	}
+
+	/**
+	 * @dataProvider provideUsersWithWatchlistAccess
+	 */
+	public function testShouldReturnWatchedPagesForRegisteredUserWhenRequestingWatchedPages(
+		Closure $userProvider
+	): void {
+		$this->setGroupPermissions( [
+			'*' => [ 'viewmywatchlist' => true ],
+			'user' => [ 'viewmywatchlist' => true ]
+		] );
+
 		[ $res ] = $this->doApiRequest( [
 			'action' => 'query',
 			'list' => 'oldreviewedpages',
 			'orfilterwatched' => 'watched'
-		], null, false, self::$user );
+		], null, false, $userProvider->call( $this ) );
 
 		$pageIds = array_map( fn ( array $page ) => $page['pageid'], $res['query']['oldreviewedpages'] );
+		sort( $pageIds );
 
 		$this->assertSame(
 			[ self::$watchedPage->getId() ],
 			$pageIds
 		);
+	}
+
+	public static function provideUsersWithWatchlistAccess(): iterable {
+		// phpcs:disable Squiz.Scope.StaticThisUsage.Found
+		yield 'named user' => [
+			fn () => self::$user,
+		];
+
+		yield 'temporary account' => [
+			fn () => self::$tempUser,
+		];
+		// phpcs:enable
 	}
 
 	/**
@@ -119,12 +196,16 @@ class ApiQueryOldreviewedpagesTest extends ApiTestCase {
 
 	public static function provideUsers(): iterable {
 		// phpcs:disable Squiz.Scope.StaticThisUsage.Found
-		yield 'registered user' => [
+		yield 'named user' => [
 			fn () => self::$user,
 		];
 
 		yield 'IP user' => [
 			fn () => $this->getServiceContainer()->getUserFactory()->newAnonymous( '127.0.0.1' )
+		];
+
+		yield 'temporary account' => [
+			fn () => self::$tempUser,
 		];
 		// phpcs:enable
 	}
