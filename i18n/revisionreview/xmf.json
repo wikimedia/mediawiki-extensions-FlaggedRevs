@@ -6,6 +6,7 @@
 	},
 	"revisionreview": "ვერსიეფიშ გინოჯინა",
 	"revreview-failed": "'''ატე ვერსიაშ გინოჯინა ვეშილებე.'''",
+	"revreview-submission-invalid": "გინოჩამა უთებუ რდჷ ვარ-და ჩილათერი.",
 	"review_page_invalid": "ხასჷლაშ საბოლა ჯოხო ჩილათერი რე.",
 	"review_page_notexists": "ოღანკე ხასჷლა ვა რე.",
 	"review_page_unreviewable": "ოღანკე ხასჷლა გინოჯინაფონი ვა რე.",
@@ -32,5 +33,11 @@
 	"revreview-submitting": "იმოწმებუ...",
 	"revreview-submit-review": "ვერსიაშ გინოჯინა",
 	"revreview-submit-unreview": "გინოჯინაშ ვარება",
-	"revreview-submit-reject": "თირუეფიშ გოუქვაფა"
+	"revreview-submit-reject": "თირუეფიშ გოუქვაფა",
+	"revreview-submit-reviewed": "ზათი რე. დადასურებული რე!",
+	"revreview-submit-unreviewed": "ზათი რე. დადასურებული რე!",
+	"revreview-successful": "'''[[:$1|$1]]-შ ვერსია მოღანკილი რე.'''",
+	"revreview-reject-summary": "რეზიუმე:",
+	"revreview-reject-confirm": "თე თირუეფიშ გოუქვაფა",
+	"revreview-reject-cancel": "გოუქვაფა"
 }
