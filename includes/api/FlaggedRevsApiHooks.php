@@ -2,6 +2,8 @@
 // phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
 // phpcs:disable MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic
 
+use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiQueryRevisions;
 use MediaWiki\Api\Hook\APIGetAllowedParamsHook;
 use MediaWiki\Api\Hook\APIQueryAfterExecuteHook;
 use MediaWiki\MediaWikiServices;

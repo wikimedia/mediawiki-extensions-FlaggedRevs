@@ -2,6 +2,7 @@
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
+use Wikimedia\Rdbms\IDBAccessObject;
 
 /**
  * Page stability configuration functions

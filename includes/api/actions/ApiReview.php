@@ -21,6 +21,7 @@
  * http://www.gnu.org/copyleft/gpl.html
  */
 
+use MediaWiki\Api\ApiBase;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use Wikimedia\ParamValidator\ParamValidator;

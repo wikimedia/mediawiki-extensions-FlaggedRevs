@@ -21,6 +21,8 @@
  * http://www.gnu.org/copyleft/gpl.html
  */
 
+use MediaWiki\Api\ApiBase;
+
 /**
  * API module to get flag config info
  *

@@ -20,6 +20,7 @@
  * http://www.gnu.org/copyleft/gpl.html
  */
 
+use MediaWiki\Api\ApiBase;
 use MediaWiki\Title\Title;
 
 /**

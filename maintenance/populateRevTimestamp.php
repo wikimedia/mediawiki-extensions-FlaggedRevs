@@ -3,6 +3,7 @@
  * @ingroup Maintenance
  */
 
+use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\WikiMap\WikiMap;
 
 if ( getenv( 'MW_INSTALL_PATH' ) ) {

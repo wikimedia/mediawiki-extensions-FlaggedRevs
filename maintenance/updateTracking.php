@@ -3,7 +3,9 @@
  * @ingroup Maintenance
  */
 
+use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\Title\Title;
+use Wikimedia\Rdbms\IDBAccessObject;
 use Wikimedia\Rdbms\SelectQueryBuilder;
 
 if ( getenv( 'MW_INSTALL_PATH' ) ) {

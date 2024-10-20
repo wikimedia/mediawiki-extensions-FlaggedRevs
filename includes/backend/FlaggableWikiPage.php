@@ -8,6 +8,7 @@ use MediaWiki\Storage\PreparedUpdate;
 use Wikimedia\Assert\PreconditionException;
 use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IDBAccessObject;
 use Wikimedia\Rdbms\IReadableDatabase;
 use Wikimedia\Rdbms\SelectQueryBuilder;
 

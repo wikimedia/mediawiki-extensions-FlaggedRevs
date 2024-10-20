@@ -7,6 +7,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Page\PageReference;
 use MediaWiki\Parser\Parser;
+use MediaWiki\Parser\ParserOptions;
 use MediaWiki\Parser\ParserOutput;
 use MediaWiki\PoolCounter\PoolCounterWorkViaCallback;
 use MediaWiki\Revision\RenderedRevision;
@@ -17,6 +18,7 @@ use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
 use Wikimedia\Assert\PreconditionException;
+use Wikimedia\Rdbms\IDBAccessObject;
 
 /**
  * Class containing utility functions for a FlaggedRevs environment

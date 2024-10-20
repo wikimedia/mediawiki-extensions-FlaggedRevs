@@ -6,6 +6,7 @@ use MediaWiki\Linker\Linker;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\SpecialPage\UnlistedSpecialPage;
 use MediaWiki\Title\Title;
+use MediaWiki\Xml\Xml;
 
 /** Assumes $wgFlaggedRevsProtection is off */
 class Stabilization extends UnlistedSpecialPage {

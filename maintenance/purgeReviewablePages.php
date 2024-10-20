@@ -4,6 +4,7 @@
  */
 
 use MediaWiki\MainConfigNames;
+use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\Title\Title;
 
 if ( getenv( 'MW_INSTALL_PATH' ) ) {

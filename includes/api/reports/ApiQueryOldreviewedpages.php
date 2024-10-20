@@ -21,6 +21,9 @@
  * http://www.gnu.org/copyleft/gpl.html
  */
 
+use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiPageSet;
+use MediaWiki\Api\ApiQuery;
 use MediaWiki\Api\ApiQueryGeneratorBase;
 use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentityUtils;

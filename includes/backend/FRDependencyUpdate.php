@@ -3,6 +3,7 @@
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Title\Title;
+use Wikimedia\Rdbms\IDBAccessObject;
 use Wikimedia\Rdbms\Platform\ISQLPlatform;
 
 /**

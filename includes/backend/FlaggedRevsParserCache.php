@@ -1,6 +1,8 @@
 <?php
 
 use MediaWiki\Page\PageRecord;
+use MediaWiki\Parser\ParserCache;
+use MediaWiki\Parser\ParserOptions;
 use MediaWiki\Parser\ParserOutput;
 
 /**

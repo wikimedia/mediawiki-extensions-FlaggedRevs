@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Content\TextContent;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Title\TitleValue;
 

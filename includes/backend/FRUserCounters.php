@@ -3,6 +3,7 @@
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
+use Wikimedia\Rdbms\IDBAccessObject;
 
 /**
  * Class containing utility functions for per-user stats
