@@ -81,6 +81,7 @@
 	"revreview-submitedit": "თირუეფიშ ჩუალა",
 	"revreview-submitedit-title": "ქუმომიჯღონით თქვანი თირუეფი ოსხუნალო",
 	"revreview-edited-section": "დორთა სტატიაშ სექციაშა ჯოხოთ „[[#$1|$2]]“.",
+	"revreview-noflagged": "თე ხასჷლას ვა უღჷ [[{{MediaWiki:Validationpage}}|გინოჯინელი ვერსია]], საეგებიოთ თიში ხარისხი '''ვა უხუჯანდჷ''' პროექტიშ სტანდარტეფს.",
 	"revreview-oldrating": "ფასებული რე:",
 	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|გინოჯინელი ხასჷლა]]'''",
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|გინოჯინელი]]'''",
