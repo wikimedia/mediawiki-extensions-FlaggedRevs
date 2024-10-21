@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Cabal",
 			"Satdeep gill"
 		]
 	},
+	"revreview-def-all": "ਕੋਈ ਵੀ",
+	"revreview-restriction-any": "ਕੋਈ ਵੀ",
 	"tooltip-ca-current": "ਇਸ ਸਫ਼ੇ ਨੂੰ ਹਾਲੇ ਤੱਕ ਨਾਮਨਜ਼ੂਰ ਤਬਦੀਲੀਆਂ ਸਮੇਤ ਦੇਖੋ"
 }
