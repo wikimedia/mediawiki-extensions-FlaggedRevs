@@ -7,5 +7,6 @@
 		]
 	},
 	"validationstatistics": "Бетлени сынауну статистикасы",
-	"validationstatistics-users": "{{SITENAME}}''' сайтда бусагъатда [[{{MediaWiki:Validationpage}}|Редактор]] хакълагъа ие '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|$1}} хайырланыучу барды.\n\nРедакторла —  бетлени белгили версияларын сайлама сынау бардырыргъа эркин хайырланыучуладыла."
+	"validationstatistics-users": "{{SITENAME}}''' сайтда бусагъатда [[{{MediaWiki:Validationpage}}|Редактор]] хакълагъа ие '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|$1}} хайырланыучу барды.\n\nРедакторла —  бетлени белгили версияларын сайлама сынау бардырыргъа эркин хайырланыучуладыла.",
+	"validationstatistics-old": "Эскиленнген"
 }
