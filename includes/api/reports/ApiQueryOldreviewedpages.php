@@ -38,14 +38,9 @@ use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 	private UserIdentityUtils $userIdentityUtils;
 
-	/**
-	 * @param ApiQuery $query
-	 * @param string $moduleName
-	 * @param UserIdentityUtils $userIdentityUtils
-	 */
 	public function __construct(
 		ApiQuery $query,
-		$moduleName,
+		string $moduleName,
 		UserIdentityUtils $userIdentityUtils
 	) {
 		parent::__construct( $query, $moduleName, 'or' );
