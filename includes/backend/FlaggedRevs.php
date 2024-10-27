@@ -663,7 +663,7 @@ class FlaggedRevs {
 		WikiPage $article,
 		$user,
 		RevisionRecord $revRecord,
-		array $flags = null,
+		?array $flags = null,
 		$auto = true,
 		$approveRevertedTagUpdate = false
 	) {
