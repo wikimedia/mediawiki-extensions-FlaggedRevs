@@ -38,7 +38,7 @@ class PendingChangesPager extends TablePager {
 	 * @param ?string $tagFilter
 	 */
 	public function __construct( $form, $namespace, string $category = '',
-		int $size = null, bool $watched = false, bool $stable = false, ?string $tagFilter = ''
+		?int $size = null, bool $watched = false, bool $stable = false, ?string $tagFilter = ''
 	) {
 		$this->mForm = $form;
 		# Must be a content page...

@@ -402,7 +402,7 @@ class FlaggedRevsHTML {
 	 *
 	 * @return string
 	 */
-	public static function diffToggle( Title $title, int $fromrev, int $torev, string $multiNotice = null ): string {
+	public static function diffToggle( Title $title, int $fromrev, int $torev, ?string $multiNotice = null ): string {
 		// Construct a link to the diff
 		$href = $title->getFullURL( [ 'diff' => $torev, 'oldid' => $fromrev ] );
 
