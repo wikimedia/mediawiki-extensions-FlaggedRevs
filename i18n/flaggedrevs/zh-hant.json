@@ -21,7 +21,8 @@
 			"Xiplus",
 			"Zhxy 519",
 			"一個正常人",
-			"捍粵者"
+			"捍粵者",
+			"沈澄心"
 		]
 	},
 	"action-autoreview": "將自己的編輯自動標記為「已檢查」",
@@ -180,7 +181,7 @@
 	"log-action-filter-stable-reset": "重設組態設定",
 	"log-action-filter-stable-move_stable": "移動組態設定",
 	"fr-revision-info-dialog": "提供上述資訊，是為了讓我們的讀者能隨時了解此頁面內容的目前狀態。",
-	"fr-revision-info-dialog-review-button": "審查…",
+	"fr-revision-info-dialog-review-button": "審查……",
 	"fr-revision-info-dialog-cancel-button": "取消",
 	"fr-revision-info-dialog-close-aria-label": "關閉"
 }

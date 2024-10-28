@@ -30,6 +30,7 @@
 			"Xiaomingyan",
 			"Xiplus",
 			"列维劳德",
+			"沈澄心",
 			"阿pp",
 			"飞舞回堂前"
 		]
@@ -140,6 +141,7 @@
 	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} 复核待定更改]",
 	"revreview-basic-title": "这是该页面的已复核版本",
 	"revreview-unchecked-title": "页面尚未经过复核",
+	"revreview-dialog-title": "页面版本状态",
 	"revreview-quick-basic-same-title": "'''已复核'''",
 	"revreview-toggle-title": "显示/隐藏详情",
 	"revreview-visibility-synced": "'''该页面有最新的[[{{MediaWiki:Validationpage}}|稳定版本]]。你可以[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 配置]页面固定设置。'''",
@@ -191,5 +193,9 @@
 	"log-action-filter-stable-config": "新配置",
 	"log-action-filter-stable-modify": "已修改的配置",
 	"log-action-filter-stable-reset": "配置重置",
-	"log-action-filter-stable-move_stable": "已移动配置"
+	"log-action-filter-stable-move_stable": "已移动配置",
+	"fr-revision-info-dialog": "提供上述信息是为了让我们的读者能随时了解本页内容的当前状态。",
+	"fr-revision-info-dialog-review-button": "审查……",
+	"fr-revision-info-dialog-cancel-button": "取消",
+	"fr-revision-info-dialog-close-aria-label": "关闭"
 }
