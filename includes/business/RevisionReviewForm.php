@@ -474,7 +474,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 */
 	private function approveRevision(
 		RevisionRecord $revRecord,
-		FlaggedRevision $oldFrev = null
+		?FlaggedRevision $oldFrev = null
 	) {
 		# Revision rating flags
 		$flags = $this->getTags();
