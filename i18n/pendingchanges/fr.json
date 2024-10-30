@@ -3,6 +3,7 @@
 		"authors": [
 			"Aadri",
 			"Crochet.david",
+			"Eihel",
 			"Grondin",
 			"IAlex",
 			"Mahabarata",
@@ -22,7 +23,7 @@
 	"pendingchanges-list": "Cette page liste des [[{{MediaWiki:Validationpage}}|pages relues]] ayant une ou plusieurs modifications en attente d’examen.",
 	"pendingchanges-none": "Il n’y a actuellement aucune page remplissant ces critères.",
 	"pendingchanges-hours": "($1 heure{{PLURAL:$1|heures|s}})",
-	"pendingchanges-days": "($1 jour{{PLURAL:$1|jour|jours}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|jour|jours}})",
 	"pendingchanges-recent": "moins d’une heure",
 	"pendingchanges-category": "Catégorie :",
 	"pendingchanges-limit": "Limite",
