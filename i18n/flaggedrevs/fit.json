@@ -20,6 +20,5 @@
 	"revreview-current": "Uusin versuuni",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} näytä venttaavat muutokset]]",
 	"revreview-basic-title": "Tämä oon katottu versuuni tästä sivusta",
-	"revreview-reviewlink": "venttaavat muutokset",
-	"tooltip-ca-current": "Näytä arviointia venttaavat muutokset"
+	"revreview-reviewlink": "venttaavat muutokset"
 }
