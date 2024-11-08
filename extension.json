@@ -217,6 +217,7 @@
 		"FlaggablePageView": "includes/frontend/FlaggablePageView.php",
 		"FlaggedRevsHookRunner": "includes/backend/hook/FlaggedRevsHookRunner.php",
 		"FlaggedRevsRevisionReviewFormAfterDoSubmitHook": "includes/backend/hook/FlaggedRevsRevisionReviewFormAfterDoSubmitHook.php",
+		"MediaWiki\\Extension\\FlaggedRevs\\Backend\\Hook\\FlaggedRevsStabilitySettingsChangedHook": "includes/backend/hook/FlaggedRevsStabilitySettingsChangedHook.php",
 		"FlaggedRevsReviewLogFormatter": "includes/frontend/FlaggedRevsReviewLogFormatter.php",
 		"FlaggedRevsStableLogFormatter": "includes/frontend/FlaggedRevsStableLogFormatter.php",
 		"FlaggedRevsHTML": "includes/frontend/FlaggedRevsHTML.php",

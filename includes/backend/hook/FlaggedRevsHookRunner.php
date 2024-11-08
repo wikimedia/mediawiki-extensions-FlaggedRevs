@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\FlaggedRevs\Backend\Hook\FlaggedRevsStabilitySettingsChangedHook;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Page\Hook\RevisionFromEditCompleteHook;
 use MediaWiki\Revision\RevisionRecord;
@@ -11,7 +12,8 @@ use MediaWiki\User\UserIdentity;
  */
 class FlaggedRevsHookRunner implements
 	RevisionFromEditCompleteHook,
-	FlaggedRevsRevisionReviewFormAfterDoSubmitHook
+	FlaggedRevsRevisionReviewFormAfterDoSubmitHook,
+	FlaggedRevsStabilitySettingsChangedHook
 {
 
 	/** @var HookContainer */
@@ -56,4 +58,11 @@ class FlaggedRevsHookRunner implements
 		);
 	}
 
+	/** @inheritDoc */
+	public function onFlaggedRevsStabilitySettingsChanged( $title, $newStabilitySettings, $userIdentity, $reason ) {
+		$this->hookContainer->run(
+			'FlaggedRevsStabilitySettingsChanged',
+			[ $title, $newStabilitySettings, $userIdentity, $reason ]
+		);
+	}
 }
