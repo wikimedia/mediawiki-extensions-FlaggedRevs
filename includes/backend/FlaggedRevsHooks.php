@@ -217,18 +217,14 @@ class FlaggedRevsHooks implements
 					$services->getPermissionManager()->userCan( 'autoreview', $user, $ntitle )
 				) {
 					// Auto-review such edits like new pages...
-					$revRecord = $services->getRevisionLookup()
-						->getRevisionByTitle( $ntitle, 0, IDBAccessObject::READ_LATEST );
-					if ( $revRecord ) { // sanity
-						FlaggedRevs::autoReviewEdit(
-							$fa,
-							$user,
-							$revRecord,
-							null,
-							true,
-							true // approve the reverted tag update
-						);
-					}
+					FlaggedRevs::autoReviewEdit(
+						$fa,
+						$user,
+						$revision,
+						null,
+						true,
+						true // approve the reverted tag update
+					);
 				}
 			}
 		}
