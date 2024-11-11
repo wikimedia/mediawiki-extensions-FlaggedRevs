@@ -315,16 +315,7 @@ class PendingChangesPager extends TablePager {
 		foreach ( $fields as $field => $labelKey ) {
 			$class = ( $field === 'review' || $field === 'history' ) ? 'cdx-table__table__cell--align-center' : '';
 
-			if ( $field === 'review' ) {
-				$headerCells .= Html::rawElement(
-					'th',
-					[ 'scope' => 'col', 'class' => $class ],
-					Html::rawElement(
-						'span',
-						[ 'class' => 'fr-cdx-icon-eye', 'aria-hidden' => 'true' ]
-					)
-				);
-			} elseif ( $field === 'history' ) {
+			if ( $field === 'history' ) {
 				$headerCells .= Html::rawElement(
 					'th',
 					[ 'scope' => 'col', 'class' => $class ],
