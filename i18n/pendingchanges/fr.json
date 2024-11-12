@@ -13,7 +13,9 @@
 			"SleaY",
 			"Verdy p",
 			"Yekrats",
-			"Yumeki"
+			"Yumeki",
+			"Eihel",
+			"Mahabarata"
 		]
 	},
 	"pendingchanges": "Pages ayant des modifications en attente",
@@ -21,7 +23,7 @@
 	"pendingchanges-list": "Cette page liste des [[{{MediaWiki:Validationpage}}|pages relues]] ayant une ou plusieurs modifications en attente d’examen.",
 	"pendingchanges-none": "Il n’y a actuellement aucune page remplissant ces critères.",
 	"pendingchanges-hours": "($1 heure{{PLURAL:$1|heures|s}})",
-	"pendingchanges-days": "($1 jour{{PLURAL:$1|jour|jours}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|jour|jours}})",
 	"pendingchanges-recent": "moins d’une heure",
 	"pendingchanges-category": "Catégorie :",
 	"pendingchanges-limit": "Limite",
@@ -38,7 +40,7 @@
 	"pendingchanges-table-size": "Taille",
 	"pendingchanges-table-pending-since": "Depuis",
 	"pendingchanges-table-quality": "Qualité",
-	"pendingchanges-table-watching": "En train d'assister",
+	"pendingchanges-table-watching": "Observateurs actifs",
 	"pendingchanges-table-history": "Historique",
 	"pendingchanges-table-review": "Révision",
 	"pendingchanges-table-revision-history": "Historique",

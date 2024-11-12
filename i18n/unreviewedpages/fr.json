@@ -19,7 +19,7 @@
 	"unreviewedpages-unwatched": "(non suivie)",
 	"unreviewedpages-watched": "($1 utilisateur{{PLURAL:$1||s}} actif{{PLURAL:$1||s}} sui{{PLURAL:$1||ven}}t cette page)",
 	"unreviewedpages-list": "Cette page liste les pages de contenu qui n’ont ''pas'' été [[{{MediaWiki:Validationpage}}|relues]] au niveau spécifié.",
-	"unreviewedpages-none": "Aucune page correspondant à ces critères n’a été trouvée",
+	"unreviewedpages-none": "Il n’y a actuellement aucune page satisfaisant ces critères.",
 	"unreviewedpages-viewing": "(en relecture)",
 	"unreviewedpages-hours": "($1 heure{{PLURAL:$1||s}})",
 	"unreviewedpages-days": "($1 jour{{PLURAL:$1||s}})",

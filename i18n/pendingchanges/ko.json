@@ -5,7 +5,8 @@
 			"Gapo",
 			"Kwj2772",
 			"렌즈",
-			"아라"
+			"아라",
+			"Ykhwong"
 		]
 	},
 	"pendingchanges": "보류 중인 편집을 가지고 있는 문서",
@@ -20,6 +21,6 @@
 	"pendingchanges-stable": "배포판이 기본값입니다",
 	"pendingchanges-diff": "검토",
 	"pendingchanges-size": "최대 변화량 (바이트):",
-	"pendingchanges-unwatched": "(주시되지 않음)",
-	"pendingchanges-viewing": "(확인 중)"
+	"pendingchanges-unwatched": "주시되지 않음",
+	"pendingchanges-viewing": "검토 중"
 }

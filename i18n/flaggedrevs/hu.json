@@ -97,6 +97,7 @@
 	"revreview-basic-same": "Ez a [[{{MediaWiki:Validationpage}}|közzétett változat]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ellenőrizve]: <i>$2</i>",
 	"revreview-basic-source": "A lap [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} ellenőrzött változata] ([{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ellenőrizve]: <i>$2</i>) ezen a változaton alapul.",
 	"revreview-current": "Nem ellenőrzött változat",
+	"flaggedrevs-action-info-pages-waiting-for-review": "Nem ellenőrzött beillesztett lapok",
 	"revreview-draft-indicator-title": "'''Nem ellenőrzött'''",
 	"revreview-draft-title": "Az ellenőrzésre váró változtatások is láthatóak az oldalon",
 	"revreview-editnotice": "A változtatásaid akkor lesznek közzétéve, ha egy erre jogosult felhasználó jóváhagyta őket. [[{{MediaWiki:Validationpage}}|(?)]]'''",

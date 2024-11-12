@@ -8,7 +8,8 @@
 			"Toghrul Rahimli",
 			"Vago",
 			"Vugar 1981",
-			"Wertuose"
+			"Wertuose",
+			"Əkrəm Cəfər"
 		]
 	},
 	"stabilization-tab": "vet",
@@ -29,7 +30,7 @@
 	"stabilization-otherreason": "Digər səbəb:",
 	"stabilization-expiry": "Bitmə vaxtı:",
 	"stabilization-othertime": "Başqa vaxt:",
-	"stabilization-def-short": "Susmaya görə",
+	"stabilization-def-short": "Defolt",
 	"stabilization-def-short-0": "Hazırkı",
 	"stabilization-def-short-1": "Stabil",
 	"stabilize_page_invalid": "Seçilmiş səhifə adı etibarsızdır.",
