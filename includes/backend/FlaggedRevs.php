@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\Config\ConfigException;
-use MediaWiki\Context\RequestContext;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageIdentity;
@@ -17,7 +16,6 @@ use MediaWiki\Status\Status;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
-use Wikimedia\Assert\PreconditionException;
 use Wikimedia\Rdbms\IDBAccessObject;
 
 /**
@@ -695,28 +693,6 @@ class FlaggedRevs {
 					return false; // can't auto-review this revision
 				}
 			}
-		}
-
-		try {
-			$updater = $article->getCurrentUpdate();
-			$poutput = $updater->getParserOutputForMetaData();
-		} catch ( PreconditionException | LogicException $exception ) {
-			// If there is no ongoing edit, we still need to get the
-			// parsed page somehow. This happens when the RevisionFromEditComplete hook
-			// is triggered during page moves, imports, null revisions for page protection,
-			// etc.
-			// It would be nice if we could get a PreparedUpdate in these situations as
-			// well. See FlaggableWikiPage::preloadPreparedEdit() and its callers.
-			$services = MediaWikiServices::getInstance();
-			$poutputAccess = $services->getParserOutputAccess();
-			$poutput = $poutputAccess->getParserOutput(
-				$article,
-				ParserOptions::newFromContext( RequestContext::getMain() )
-			)->getValue();
-		}
-
-		if ( !$poutput ) {
-			return false;
 		}
 
 		# Our review entry
