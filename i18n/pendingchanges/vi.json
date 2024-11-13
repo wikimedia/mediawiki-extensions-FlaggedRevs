@@ -17,6 +17,5 @@
 	"pendingchanges-stable": "Phiên bản ổn định là mặc định",
 	"pendingchanges-diff": "duyệt",
 	"pendingchanges-size": "Thay đổi lớn nhất (byte):",
-	"pendingchanges-unwatched": "(chưa theo dõi)",
-	"pendingchanges-viewing": "(đang duyệt)"
+	"pendingchanges-unwatched": "(chưa theo dõi)"
 }

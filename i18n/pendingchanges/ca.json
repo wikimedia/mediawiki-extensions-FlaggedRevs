@@ -21,6 +21,5 @@
 	"pendingchanges-stable": "La versió estable està posada per defecte",
 	"pendingchanges-diff": "Revisió",
 	"pendingchanges-size": "Diferència màxima de mida (bytes):",
-	"pendingchanges-unwatched": "no vigilat",
-	"pendingchanges-viewing": "en revisió"
+	"pendingchanges-unwatched": "no vigilat"
 }

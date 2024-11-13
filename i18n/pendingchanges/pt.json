@@ -21,6 +21,5 @@
 	"pendingchanges-stable": "Por omissão, mostrar a versão publicada",
 	"pendingchanges-diff": "rever",
 	"pendingchanges-size": "Alteração máx. (bytes):",
-	"pendingchanges-unwatched": "(não vigiada)",
-	"pendingchanges-viewing": "(em revisão)"
+	"pendingchanges-unwatched": "(não vigiada)"
 }

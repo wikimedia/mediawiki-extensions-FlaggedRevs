@@ -16,6 +16,5 @@
 	"pendingchanges-stable": "Stabilna verzija je podrazumijevana",
 	"pendingchanges-diff": "pregled",
 	"pendingchanges-size": "Najv. promjena (bajta):",
-	"pendingchanges-unwatched": "(nepraćen)",
-	"pendingchanges-viewing": "(pod provjerom)"
+	"pendingchanges-unwatched": "(nepraćen)"
 }

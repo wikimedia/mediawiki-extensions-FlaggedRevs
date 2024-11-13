@@ -15,6 +15,5 @@
 	"pendingchanges-stable": "La version establa es la per defaut",
 	"pendingchanges-diff": "relectura",
 	"pendingchanges-size": "Cambiament maximal de la talha (en octets) :",
-	"pendingchanges-unwatched": "(pas observat)",
-	"pendingchanges-viewing": "(en revision)"
+	"pendingchanges-unwatched": "(pas observat)"
 }

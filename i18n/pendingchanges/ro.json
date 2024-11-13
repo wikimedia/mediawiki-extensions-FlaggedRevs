@@ -23,6 +23,5 @@
 	"pendingchanges-stable": "Versiunea stabilă este cea implicită",
 	"pendingchanges-diff": "revizuire",
 	"pendingchanges-size": "Schimbare maximă (octeți):",
-	"pendingchanges-unwatched": "(neurmărite)",
-	"pendingchanges-viewing": "(în curs de revizuire)"
+	"pendingchanges-unwatched": "(neurmărite)"
 }

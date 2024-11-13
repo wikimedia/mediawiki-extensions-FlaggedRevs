@@ -19,6 +19,5 @@
 	"pendingchanges-stable": "Стабилната версия е версията по подразбиране",
 	"pendingchanges-diff": "Проверка",
 	"pendingchanges-size": "Макс. промяна (в байтове):",
-	"pendingchanges-unwatched": "ненаблюдавана",
-	"pendingchanges-viewing": "в процес на проверка"
+	"pendingchanges-unwatched": "ненаблюдавана"
 }

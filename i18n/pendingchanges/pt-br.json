@@ -19,6 +19,5 @@
 	"pendingchanges-stable": "Versão publicada por padrão",
 	"pendingchanges-diff": "analisar",
 	"pendingchanges-size": "Tamanho máximo da alteração (em bytes):",
-	"pendingchanges-unwatched": "(não-vigiada)",
-	"pendingchanges-viewing": "(sob análise)"
+	"pendingchanges-unwatched": "(não-vigiada)"
 }

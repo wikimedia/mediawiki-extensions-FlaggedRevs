@@ -17,10 +17,10 @@
 	"pendingchanges-days": "($1{{PLURAL:$1|일}})",
 	"pendingchanges-recent": "(1시간 미만)",
 	"pendingchanges-category": "분류:",
+	"pendingchanges-edit-tag-any": "모든 태그",
 	"pendingchanges-onwatchlist": "내 주시문서 목록에 있는 문서",
 	"pendingchanges-stable": "배포판이 기본값입니다",
 	"pendingchanges-diff": "검토",
 	"pendingchanges-size": "최대 변화량 (바이트):",
-	"pendingchanges-unwatched": "주시되지 않음",
-	"pendingchanges-viewing": "검토 중"
+	"pendingchanges-unwatched": "주시되지 않음"
 }

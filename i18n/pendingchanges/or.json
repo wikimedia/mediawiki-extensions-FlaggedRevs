@@ -6,6 +6,5 @@
 	},
 	"pendingchanges-hours": "($1 {{PLURAL:$1|ଘଣ୍ଟା|ଘଣ୍ଟା}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|ଦିନ|ଦିନ}})",
-	"pendingchanges-category": "ଶ୍ରେଣୀ:",
-	"pendingchanges-viewing": "(ସମୀକ୍ଷା ଚାଲିଛି)"
+	"pendingchanges-category": "ଶ୍ରେଣୀ:"
 }

@@ -16,6 +16,5 @@
 	"pendingchanges-stable": "Стабілна верзія є імпліцітна",
 	"pendingchanges-diff": "перевірити",
 	"pendingchanges-size": "Максімална зміна розміру в байтах:",
-	"pendingchanges-unwatched": "(неслїдованы)",
-	"pendingchanges-viewing": "(перевірює ся)"
+	"pendingchanges-unwatched": "(неслїдованы)"
 }

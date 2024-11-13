@@ -23,6 +23,5 @@
 	"pendingchanges-stable": "公開版が既定に設定されています",
 	"pendingchanges-diff": "査読",
 	"pendingchanges-size": "変更量の上限 (バイト):",
-	"pendingchanges-unwatched": "未ウォッチ",
-	"pendingchanges-viewing": "査読中"
+	"pendingchanges-unwatched": "未ウォッチ"
 }

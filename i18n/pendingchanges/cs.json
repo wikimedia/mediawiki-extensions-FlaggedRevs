@@ -22,6 +22,5 @@
 	"pendingchanges-stable": "prohlédnuto",
 	"pendingchanges-diff": "posoudit",
 	"pendingchanges-size": "Maximální velikost změny (v bajtech):",
-	"pendingchanges-unwatched": "(nesledované)",
-	"pendingchanges-viewing": "posuzuje se"
+	"pendingchanges-unwatched": "(nesledované)"
 }

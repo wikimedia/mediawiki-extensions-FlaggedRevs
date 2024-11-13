@@ -23,6 +23,5 @@
 	"pendingchanges-stable": "Stabil version är standard",
 	"pendingchanges-diff": "granska",
 	"pendingchanges-size": "Maximal storleksändring i byte:",
-	"pendingchanges-unwatched": "(obevakad)",
-	"pendingchanges-viewing": "(granskas)"
+	"pendingchanges-unwatched": "(obevakad)"
 }

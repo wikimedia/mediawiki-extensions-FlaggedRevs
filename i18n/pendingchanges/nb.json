@@ -20,6 +20,5 @@
 	"pendingchanges-stable": "Stabil versjon er standard",
 	"pendingchanges-diff": "gjennomgå",
 	"pendingchanges-size": "Maks størrelsesendring (bytes):",
-	"pendingchanges-unwatched": "(ikke overvåket)",
-	"pendingchanges-viewing": "(venter på gjennomgang)"
+	"pendingchanges-unwatched": "(ikke overvåket)"
 }

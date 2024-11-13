@@ -17,6 +17,5 @@
 	"pendingchanges-stable": "Stabilná verzia je predvolená",
 	"pendingchanges-diff": "skontrolovať",
 	"pendingchanges-size": "Max. veľkosť zmeny v bajtoch:",
-	"pendingchanges-unwatched": "(nesledovaná)",
-	"pendingchanges-viewing": "(kontroluje sa)"
+	"pendingchanges-unwatched": "(nesledovaná)"
 }

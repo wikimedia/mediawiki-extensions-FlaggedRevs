@@ -26,6 +26,5 @@
 	"pendingchanges-stable": "La versión estable es la predeterminada",
 	"pendingchanges-diff": "revisar",
 	"pendingchanges-size": "Cambio máximo (bytes):",
-	"pendingchanges-unwatched": "(no vigilado)",
-	"pendingchanges-viewing": "(en revisión)"
+	"pendingchanges-unwatched": "(no vigilado)"
 }
