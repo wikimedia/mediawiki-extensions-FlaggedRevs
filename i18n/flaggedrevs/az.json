@@ -10,7 +10,8 @@
 			"Vugar 1981",
 			"Wertuose",
 			"Şeyx Şamil",
-			"Nemoralis"
+			"Nemoralis",
+			"Əkrəm Cəfər"
 		]
 	},
 	"action-autoreview": "öz redaktələrinin avtomatik olaraq \"yoxlanılması\"",
@@ -134,7 +135,7 @@
 	"stable-log-restriction": "Avtomatik baxış: \"$1\" icazə tələb edir",
 	"stable-logpage": "Təsdiqləmə gündəliyi",
 	"stable-logpagetext": "Bu, [[{{MediaWiki:Validationpage}}|sabit versiya]] məzmun səhifələrinin konfiqurasiyasında dəyişikliklərin bir tarixçəsidir.",
-	"revreview-defaultfilter": "Susmaya görə versiyası:",
+	"revreview-defaultfilter": "Defolt versiya:",
 	"revreview-def-all": "hər hansı",
 	"revreview-def-draft": "Ən sonuncu",
 	"revreview-def-stable": "qərarlı",
