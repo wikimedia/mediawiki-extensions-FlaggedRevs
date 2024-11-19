@@ -20,13 +20,20 @@
 	"pendingchanges-days": "$1 {{PLURAL:$1|giorno|giorni}}",
 	"pendingchanges-recent": "meno di un'ora",
 	"pendingchanges-category": "Categoria:",
+	"pendingchanges-limit": "Limite:",
 	"pendingchanges-onwatchlist": "Pagine nei miei osservati speciali",
 	"pendingchanges-stable": "La versione stabile è di default",
 	"pendingchanges-diff": "Revisiona",
 	"pendingchanges-size": "Cambiamento massimo (byte):",
 	"pendingchanges-unwatched": "non osservata",
+	"pendingchanges-table-caption": "Modifiche non revisionate",
 	"pendingchanges-table-page": "Pagina",
 	"pendingchanges-table-size": "Dimensione",
 	"pendingchanges-table-pending-since": "Da",
-	"pendingchanges-table-quality": "Qualità"
+	"pendingchanges-table-quality": "Qualità",
+	"pendingchanges-table-history": "Cronologia",
+	"pendingchanges-table-review": "Revisiona",
+	"pendingchanges-table-revision-history": "Cronologia",
+	"pendingchanges-table-footer": "Attualmente, {{PLURAL:$1|c'è $1 modifica non revisionata|ci sono $1 modifiche non revisionate}}",
+	"pendingchanges-filter-submit-button-text": "Filtra le modifiche non revisionate"
 }

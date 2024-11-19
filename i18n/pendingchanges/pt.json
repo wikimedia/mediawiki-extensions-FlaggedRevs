@@ -6,6 +6,7 @@
 			"Hamilton Abreu",
 			"Luckas",
 			"Malafaya",
+			"Mbs262",
 			"Waldir"
 		]
 	},
@@ -15,7 +16,7 @@
 	"pendingchanges-none": "De momento, não há páginas que satisfaçam estes critérios",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|hora|horas}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|dia|dias}})",
-	"pendingchanges-recent": "(menos de 1 hora)",
+	"pendingchanges-recent": "menos de 1 hora",
 	"pendingchanges-category": "Categoria:",
 	"pendingchanges-onwatchlist": "Páginas na minha lista de páginas vigiadas",
 	"pendingchanges-stable": "Por omissão, mostrar a versão publicada",
