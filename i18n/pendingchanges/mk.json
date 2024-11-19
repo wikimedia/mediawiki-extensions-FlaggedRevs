@@ -8,7 +8,7 @@
 	"pendingchanges": "Страници со промени во исчекување",
 	"pendingchanges-legend": "Список на оценети страници со уредувања во исчекување за проверка",
 	"pendingchanges-list": "Оваа страница наведува [[{{MediaWiki:Validationpage}}|прегледани]] страници со едно или повеќе уредувања во исчекување на проверка.",
-	"pendingchanges-none": "Моментално нема страници кои ги задоволуваат овие критериуми",
+	"pendingchanges-none": "Моментално нема страници кои ги задоволуваат овие критериуми.",
 	"pendingchanges-hours": "$1 {{PLURAL:$1|час|часа}}",
 	"pendingchanges-days": "$1 {{PLURAL:$1|ден|дена}}",
 	"pendingchanges-recent": "помалку од еден час",

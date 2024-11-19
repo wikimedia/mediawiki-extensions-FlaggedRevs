@@ -7,7 +7,7 @@
 	"pendingchanges": "Páxinas con cambios pendentes",
 	"pendingchanges-legend": "Listar as páxinas revisadas con revisións sen revisar",
 	"pendingchanges-list": "Esta páxina lista as páxinas [[{{MediaWiki:Validationpage}}|revisadas]] que teñen edicións pendentes.",
-	"pendingchanges-none": "Actualmente non hai páxinas que reúnan eses criterios",
+	"pendingchanges-none": "Actualmente non hai páxinas que reúnan eses criterios.",
 	"pendingchanges-hours": "$1 {{PLURAL:$1|hora|horas}}",
 	"pendingchanges-days": "$1 {{PLURAL:$1|día|días}}",
 	"pendingchanges-recent": "menos dunha hora",
