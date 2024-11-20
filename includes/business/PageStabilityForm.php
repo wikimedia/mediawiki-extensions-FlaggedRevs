@@ -5,6 +5,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Title\Title;
 use Wikimedia\Rdbms\IDBAccessObject;
+use Wikimedia\Timestamp\ConvertibleTimestamp;
 
 /**
  * Class containing stability settings form business logic
@@ -149,7 +150,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		if ( $value == 'infinite' || $value == 'indefinite' || $value == 'infinity' ) {
 			$time = 'infinity';
 		} else {
-			$unix = strtotime( $value );
+			$unix = strtotime( $value, ConvertibleTimestamp::time() );
 			# On error returns -1 for PHP <5.1 and false for PHP >=5.1
 			if ( !$unix || $unix === -1 ) {
 				return false;
@@ -282,6 +283,12 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		$changed = FRPageConfig::setStabilitySettings( $this->title, $this->getNewConfig() );
 		# Log if this actually changed anything...
 		if ( $changed ) {
+			// Inform other code that the stabilisation settings for a page have changed.
+			$services = MediaWikiServices::getInstance();
+			( new FlaggedRevsHookRunner( $services->getHookContainer() ) )->onFlaggedRevsStabilitySettingsChanged(
+				$this->getTitle(), $this->getNewConfig(), $this->getUser(), $this->getReason()
+			);
+
 			$article = FlaggableWikiPage::newInstance( $this->title );
 			if ( FlaggedRevs::useOnlyIfProtected() ) {
 				# Config may have changed to allow stable versions, so refresh
