@@ -94,6 +94,7 @@
 	"revreview-basic-same": "이 판은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 검토]된 [[{{MediaWiki:Validationpage}}|배포판]]입니다.",
 	"revreview-basic-source": "<i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 승인]된 이 문서의 [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} 검토된 판]은 이 판을 기반으로 합니다.",
 	"revreview-current": "검토를 기다리고 있는 판",
+	"flaggedrevs-action-info-pages-waiting-for-review-none": "없음",
 	"revreview-draft-title": "이 페이지에서 검토를 기다리고 있는 판이 표시되고 있습니다",
 	"revreview-editnotice": "'''당신의 편집은 권한이 있는 사용자가 승인한 후에 배포될 것입니다. ([[{{MediaWiki:Validationpage}}|도움말]])'''",
 	"revreview-submitedit": "바뀐 내용 제출",
@@ -160,5 +161,6 @@
 	"log-action-filter-stable": "구성 변경 종류:",
 	"log-action-filter-stable-config": "새 구성",
 	"log-action-filter-stable-reset": "구성 초기화",
-	"log-action-filter-stable-move_stable": "구성을 이동했습니다"
+	"log-action-filter-stable-move_stable": "구성을 이동했습니다",
+	"fr-revision-info-dialog-cancel-button": "취소"
 }
