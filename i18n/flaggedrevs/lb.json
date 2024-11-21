@@ -42,7 +42,7 @@
 	"grouppage-reviewer": "{{ns:project}}:Reviseur",
 	"group-autoreview": "Benotzer deenen hir Ännerungen automatesch nogekuckt sinn",
 	"group-autoreview-member": "{{GENDER:$1|Benotzer den automatesch nokuckt}}",
-	"grouppage-autoreview": "{{ns:project}}:Benotzer déi automatesch iwwerliesen",
+	"grouppage-autoreview": "{{ns:project}}:Benotzer, déi automatesch iwwerliesen",
 	"logentry-review-approve": "$1 huet eng nei Versioun vu(n) $3 {{GENDER:$2|nogekuckt}}",
 	"revreview-hist-draft": "net nogekuckte Versioun",
 	"revreview-hist-pending": "muss nach nogekuckt ginn",
