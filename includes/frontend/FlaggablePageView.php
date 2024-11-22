@@ -860,7 +860,7 @@ class FlaggablePageView extends ContextSource {
 		$srev = $this->article->getStableRev();
 		if ( $srev && $this->article->revsArePending() ) {
 			$revsSince = $this->article->getPendingRevCount();
-			$noticeContent = FlaggedRevsHTML::pendingEditNotice( $srev, $revsSince );
+			$noticeContent = $this->pendingEditNoticeMessage( $srev, $revsSince )->parse();
 			$tag = FlaggedRevsHTML::addMessageBox( 'block', $noticeContent, [
 				'id' => 'mw-fr-revision-tag-edit',
 				'class' => 'flaggedrevs_notice plainlinks'
@@ -894,10 +894,8 @@ class FlaggablePageView extends ContextSource {
 		$frev = $this->article->getStableRev();
 		if ( $frev && $this->article->revsArePending() ) {
 			$revsSince = $this->article->getPendingRevCount();
-			$pendingMsg = FlaggedRevsHTML::pendingEditNoticeMessage(
-				$frev, $revsSince
-			);
-			$lines[] = $pendingMsg->setContext( $this->getContext() )->parseAsBlock();
+			$pendingMsg = $this->pendingEditNoticeMessage( $frev, $revsSince );
+			$lines[] = $pendingMsg->parseAsBlock();
 		}
 		$latestId = $this->article->getLatest();
 		$revId  = $oldid ?: $latestId;
@@ -929,6 +927,15 @@ class FlaggablePageView extends ContextSource {
 				'class' => 'mw-fr-edit-messages',
 			], $lineMessages );
 		}
+	}
+
+	/**
+	 * Creates "stable rev reviewed on"/"x pending edits" message
+	 */
+	private function pendingEditNoticeMessage( FlaggedRevision $frev, int $revsSince ): Message {
+		$time = $this->getLanguage()->date( $frev->getTimestamp(), true );
+		# Add message text for pending edits
+		return $this->msg( 'revreview-pending-basic', $frev->getRevId(), $time )->numParams( $revsSince );
 	}
 
 	private function stabilityLogNotice(): string {
