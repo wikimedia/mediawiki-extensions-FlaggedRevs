@@ -10,6 +10,7 @@
 			"MaxSem",
 			"Pacha Tchernof",
 			"Putnik",
+			"Stjn",
 			"Александр Сигачёв"
 		]
 	},
@@ -23,7 +24,7 @@
 	"pendingchanges-category": "Категория:",
 	"pendingchanges-limit": "Лимит:",
 	"pendingchanges-edit-tag": "Метка правки:",
-	"pendingchanges-edit-tag-any": "Любая метка:",
+	"pendingchanges-edit-tag-any": "Любая метка",
 	"pendingchanges-onwatchlist": "Страницы из моего списка наблюдения",
 	"pendingchanges-stable": "Стабильная версия по умолчанию",
 	"pendingchanges-diff": "Проверить",
