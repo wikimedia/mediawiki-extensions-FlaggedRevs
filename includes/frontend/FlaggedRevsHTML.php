@@ -3,7 +3,6 @@
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Message\Message;
 use MediaWiki\Title\Title;
 
 /**
@@ -417,24 +416,6 @@ class FlaggedRevsHTML {
 
 		return '<span id="mw-fr-diff-toggle">' .
 			wfMessage( 'parentheses' )->rawParams( $toggle )->escaped() . '</span>';
-	}
-
-	/**
-	 * Creates "stable rev reviewed on"/"x pending edits" message
-	 */
-	public static function pendingEditNotice( FlaggedRevision $frev, int $revsSince ): string {
-		$msg = self::pendingEditNoticeMessage( $frev, $revsSince );
-		return $msg->parse();
-	}
-
-	/**
-	 * Same as pendingEditNotice(), but returns a Message object.
-	 */
-	public static function pendingEditNoticeMessage( FlaggedRevision $frev, int $revsSince ): Message {
-		global $wgLang;
-		$time = $wgLang->date( $frev->getTimestamp(), true );
-		# Add message text for pending edits
-		return wfMessage( 'revreview-pending-basic', $frev->getRevId(), $time )->numParams( $revsSince );
 	}
 
 	/**
