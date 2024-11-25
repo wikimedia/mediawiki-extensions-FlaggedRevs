@@ -432,20 +432,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 					'agent' => $user,
 				] );
 			}
-
-			// If this undid one edit by another named user, update user tallies
-			$newRevAuthor = $newRevRecord->getUser( RevisionRecord::RAW );
-			if ( $status === true
-				&& $newRevRecord->getParentId() == $oldRevRecord->getId()
-				&& $newRevAuthor
-				&& $services->getUserIdentityUtils()->isNamed( $newRevAuthor )
-				&& !$newRevRecord->getUser( RevisionRecord::RAW )->equals( $user ) // no self-reverts
-			) {
-				FRUserCounters::incCount(
-					$newRevRecord->getUser( RevisionRecord::RAW )->getId(),
-					'revertedEdits'
-				);
-			}
 		} else {
 			return 'review_param_missing';
 		}
