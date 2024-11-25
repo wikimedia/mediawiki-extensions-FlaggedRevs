@@ -236,8 +236,8 @@ class FlaggedRevsHTML {
 		if ( $frev === null ) {
 			$subtitleMessageKey = 'revreview-unchecked-title';
 			$msg = 'revreview-noflagged';
-			$subtitle = wfMessage( $subtitleMessageKey )->text();
-			$html = wfMessage( $msg )->parse();
+			$subtitle = $context->msg( $subtitleMessageKey )->text();
+			$html = $context->msg( $msg )->parse();
 		} else {
 			// Regular case when $frev is not null
 			$flags = $frev->getTags();
@@ -247,19 +247,19 @@ class FlaggedRevsHTML {
 				? 'revreview-basic-title' // This is a checked version of this page
 				: 'revreview-draft-title'; // Pending changes are displayed on this page
 
-			$subtitle = wfMessage( $subtitleMessageKey )->text();
+			$subtitle = $context->msg( $subtitleMessageKey )->text();
 
 			// Construct some tagging
 			if ( $synced && ( $type == 'stable' || $type == 'draft' ) ) {
 				$msg = 'revreview-basic-same';
-				$html = wfMessage( $msg, $frev->getRevId(), $time )->numParams( $revsSince )->parse();
+				$html = $context->msg( $msg, $frev->getRevId(), $time )->numParams( $revsSince )->parse();
 			} elseif ( $type == 'oldstable' ) {
 				$msg = 'revreview-basic-old';
-				$html = wfMessage( $msg, $frev->getRevId(), $time )->parse();
+				$html = $context->msg( $msg, $frev->getRevId(), $time )->parse();
 			} else {
 				$msg = $type === 'stable' ? 'revreview-basic' : 'revreview-newest-basic';
 				$msg .= !$revsSince ? '-i' : '';
-				$html = wfMessage( $msg, $frev->getRevId(), $time )->numParams( $revsSince )->parse();
+				$html = $context->msg( $msg, $frev->getRevId(), $time )->numParams( $revsSince )->parse();
 			}
 
 			// Add any rating tags as needed...
