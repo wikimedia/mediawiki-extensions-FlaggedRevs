@@ -18,6 +18,7 @@
 			"Ximo17"
 		]
 	},
+	"action-autoreview": "avere le proprie modifiche automaticamente contrassegnate come \"controllate\"",
 	"action-review": "revisionare versioni",
 	"action-unreviewedpages": "vedere l'elenco delle pagine non revisionate",
 	"editor": "Redattore",
@@ -53,6 +54,13 @@
 	"group-autoreview": "Autocontrollati",
 	"group-autoreview-member": "{{GENDER:$1|autocontrollato}}",
 	"grouppage-autoreview": "{{ns:project}}:Autocontrollati",
+	"logentry-review-approve": "$1 {{GENDER:$2|ha revisionato}} una versione di $3",
+	"logentry-review-approve-auto": "$1 {{GENDER:$2|ha revisionato}} automaticamente una versione di $3",
+	"logentry-review-unapprove": "$1 {{GENDER:$2|ha deprecato}} una versione di $3",
+	"logentry-stable-config": "$1 {{GENDER:$2|ha impostato}} una versione stabile per $3 $4",
+	"logentry-stable-modify": "$1 {{GENDER:$2|ha modificato}} le impostazioni della versione stabile per $3 $4",
+	"logentry-stable-reset": "$1 {{GENDER:$2|ha ripristinato}} le impostazioni della versione stabile per $3 $4",
+	"logentry-stable-move_stable": "$1 {{GENDER:$2|ha spostato}} le impostazioni della versione stabile da $4 a $3",
 	"revreview-hist-draft": "versione bozza",
 	"revreview-hist-pending": "versione in sospeso",
 	"revreview-hist-basic": "versione verificata",
@@ -148,8 +156,14 @@
 	"revreview-unlocked-title": "Le modifiche a questa pagina non hanno bisogno di essere revisionate.",
 	"revreview-locked": "'''Nota:''' le modifiche a questa pagina devono essere [[{{MediaWiki:Validationpage}}|revisionate]] prima di essere mostrate ai lettori.",
 	"revreview-unlocked": "'''Nota:''' le modifiche a questa pagina non richiedono di essere [[{{MediaWiki:Validationpage}}|revisionate]] prima di essere mostrate ai lettori.",
+	"logeventslist-review-log": "Registro delle verifiche",
 	"validationpage": "{{ns:help}}:Validazione delle pagine",
+	"log-action-filter-review": "Tipo di revisione:",
+	"log-action-filter-review-accept": "Manualmente accettato",
+	"log-action-filter-review-unaccept": "Manualmente non accettato",
 	"log-action-filter-stable": "Tipo di modifica alla configurazione:",
 	"log-action-filter-stable-config": "Nuova configurazione",
-	"log-action-filter-stable-modify": "Configurazione modificata"
+	"log-action-filter-stable-modify": "Configurazione modificata",
+	"log-action-filter-stable-reset": "Ripristino della configurazione",
+	"log-action-filter-stable-move_stable": "Configurazione spostata"
 }
