@@ -13,13 +13,14 @@
 			"Waihorace",
 			"Winston Sung",
 			"Wrightbus",
-			"捍粵者"
+			"捍粵者",
+			"列维劳德"
 		]
 	},
 	"pendingchanges": "有待審查變更的頁面",
 	"pendingchanges-legend": "有待審查變更的已審查頁面清單",
 	"pendingchanges-list": "此頁面列出有一筆或多筆編輯等待審查的[[{{MediaWiki:Validationpage}}|已審查]]頁面。",
-	"pendingchanges-none": "目前沒有頁面符合這些條件",
+	"pendingchanges-none": "目前尚無符合這些條件的頁面。",
 	"pendingchanges-hours": "$1 {{PLURAL:$1|小時}}",
 	"pendingchanges-days": "$1 {{PLURAL:$1|日}}",
 	"pendingchanges-recent": "不到 1 小時",
