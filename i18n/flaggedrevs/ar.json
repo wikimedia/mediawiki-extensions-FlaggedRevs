@@ -25,7 +25,8 @@
 			"FiberAhmed",
 			"Mohanad Kh",
 			"بهتين شوكت",
-			"Mohanad"
+			"Mohanad",
+			"Matma Rex"
 		]
 	},
 	"action-autoreview": "التعليم على تعديلاته كـ\"مراجعة\" تلقائيا",
@@ -119,7 +120,7 @@
 	"revreview-edited-section": "العودة إلى القسم المسمى \"[[#$1|$2]]\".",
 	"revreview-newest-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{PLURAL:$3||تغيير واحد|تغييران|$3 تغييرات|$3 تغيرا|$3 تغيير}}] في هذه النسخة [[{{MediaWiki:Validationpage}}|{{PLURAL:$3||معلق|معلقان|معلقة|معلق}} للمراجعة]].\n[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} فحصت] [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} النسخة المستقرة] في <i>$2</i>.",
 	"revreview-newest-basic-i": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} تغييرات لقوالب/ملفات] في هذه النسخة [[{{MediaWiki:Validationpage}}|معلقة للمراجعة]].\n[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} فحصت] [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} النسخة المستقرة] في <i>$2</i>.",
-	"revreview-pending-basic": "[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} فحصت] [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} النسخة المستقرة] في <i>$2</i>. {{PLURAL:$3||يوجد|يوجد|توجد}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3||تغيير واحد معلّق|تغييران معلّقان|$3 تغييرات معلقة|$3 تغييرًا معلقًا|$3 تغيير معلّق}}] بانتظار المراجعة.",
+	"revreview-pending-basic": "[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} فحصت] [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} النسخة المستقرة] في <i>$2</i>. {{PLURAL:$3||يوجد|يوجد|توجد}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{PLURAL:$3||تغيير واحد معلّق|تغييران معلّقان|$3 تغييرات معلقة|$3 تغييرًا معلقًا|$3 تغيير معلّق}}] بانتظار المراجعة.",
 	"revreview-pending-nosection": "جرب مشاهدة [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} آخر مراجعة] والتي تتضمن [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{PLURAL:$2||تغيير واحد معلق|تغييران معلقان|$2 تغييرات معلقة|$2 تغييرا معلقا|$2 تغيير معلق}}] لترى إن كان القسم قد نقل أو حذف.",
 	"revreview-noflagged": "لا توجد نسخ [[{{MediaWiki:Validationpage}}|مراجعة]] من هذه الصفحة، لذا، قد '''لا''' يكون التزامها بالمعايير متحققًا منه.",
 	"revreview-oldrating": "تم تقييمها ك:",
