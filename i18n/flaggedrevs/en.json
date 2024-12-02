@@ -19,7 +19,7 @@
 	"flaggedrevs-desc": "Gives Editors the ability to review revisions and stabilize pages",
 	"flaggedrevs-pref-UI": "Basic interface:",
 	"flaggedrevs-pref-UI-0": "Use detailed boxes to show review status of pages",
-	"flaggedrevs-pref-UI-1": "Use indicators to display the review status of pages.",
+	"flaggedrevs-pref-UI-1": "Use indicators to display the review status of pages",
 	"flaggedrevs-stable-categories": "",
 	"prefs-flaggedrevs-ui": "Edit review",
 	"flaggedrevs-prefs-stable": "When to show the stable version of content pages by default",
