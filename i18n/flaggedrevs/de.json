@@ -50,7 +50,7 @@
 	"flaggedrevs-desc": "Ermöglicht es, Seitenversionen zu markieren sowie eine stabile Seitenversion festzulegen",
 	"flaggedrevs-pref-UI": "Einfache Benutzeroberfläche:",
 	"flaggedrevs-pref-UI-0": "Verwende die detaillierte Übersicht, um den Markierungsstatus von Seiten anzuzeigen",
-	"flaggedrevs-pref-UI-1": "Indikatoren verwenden, um den Sichtungsstatus von Seiten anzuzeigen.",
+	"flaggedrevs-pref-UI-1": "Indikatoren verwenden, um den Sichtungsstatus von Seiten anzuzeigen",
 	"prefs-flaggedrevs-ui": "Seitenanzeige",
 	"flaggedrevs-prefs-stable": "Welche Version einer Seite soll standardmäßig angezeigt werden?",
 	"flaggedrevs-pref-stable-0": "Stets die Standardeinstellungen für jede Seite verwenden",
