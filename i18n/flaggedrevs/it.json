@@ -27,7 +27,7 @@
 	"flaggedrevs-desc": "Dà ai redattori la possibilità di validare le versioni e stabilizzare le pagine",
 	"flaggedrevs-pref-UI": "Interfaccia base:",
 	"flaggedrevs-pref-UI-0": "Usa un'interfaccia dettagliata per mostrare lo stato di verifica delle pagine",
-	"flaggedrevs-pref-UI-1": "Utilizza indicatori per visualizzare lo stato di verifica delle pagine.",
+	"flaggedrevs-pref-UI-1": "Utilizza indicatori per visualizzare lo stato di verifica delle pagine",
 	"prefs-flaggedrevs-ui": "Modifica recensione",
 	"flaggedrevs-prefs-stable": "Quando mostrare la versione stabile delle pagine di contenuto",
 	"flaggedrevs-pref-stable-0": "Utilizza le impostazioni di default per ogni pagina",
