@@ -16,7 +16,6 @@ use MediaWiki\Request\WebRequest;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
-use MediaWiki\Title\TitleValue;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
 use OOUI\ButtonInputWidget;
@@ -1093,19 +1092,7 @@ class FlaggablePageView extends ContextSource {
 			return; // simple custom levels set for action=protect
 		}
 
-		$namespaceInfo = MediaWikiServices::getInstance()->getNamespaceInfo();
-		$currentTitle = $this->article->getTitle();
-
-		$title = $currentTitle->isTalkPage() ?
-			$namespaceInfo->getSubjectPage( $currentTitle ) :
-			$namespaceInfo->getTalkPage( $currentTitle );
-
-		// Convert TitleValue to Title if necessary
-		if ( $title instanceof TitleValue ) {
-			$title = Title::newFromLinkTarget( $title );
-		}
-
-		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
+		if ( !FlaggedRevs::inReviewNamespace( $this->article ) ) {
 			return; // Only reviewable pages need these tabs
 		}
 
@@ -1116,14 +1103,14 @@ class FlaggablePageView extends ContextSource {
 			!isset( $actions['protect'] ) &&
 			!isset( $actions['unprotect'] ) &&
 			$pm->userHasRight( $reqUser, 'stablesettings' ) &&
-			$title->exists()
+			$this->article->exists()
 		) {
 			$stableTitle = SpecialPage::getTitleFor( 'Stabilization' );
 			// Add the tab
 			$actions['default'] = [
 				'class' => false,
 				'text' => $this->msg( 'stabilization-tab' )->text(),
-				'href' => $stableTitle->getLocalURL( 'page=' . $title->getPrefixedURL() )
+				'href' => $stableTitle->getLocalURL( 'page=' . $this->article->getTitle()->getPrefixedURL() )
 			];
 		}
 	}
