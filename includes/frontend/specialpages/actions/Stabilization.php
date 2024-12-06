@@ -116,7 +116,7 @@ class Stabilization extends UnlistedSpecialPage {
 
 		$s = ''; // form HTML string
 		# Add any error messages
-		if ( $err !== '' ) {
+		if ( $err ) {
 			$out->setSubtitle( $this->msg( 'formerror' ) );
 			$out->addHTML( "<p class='error'>{$err}</p>\n" );
 		}
