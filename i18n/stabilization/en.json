@@ -2,7 +2,7 @@
 	"@metadata": {
 		"authors": []
 	},
-	"stabilization-tab": "vet",
+	"stabilization-tab": "Vet",
 	"stabilization": "Page stabilization",
 	"stabilization-text": "'''Change the settings below to adjust how the stable version of [[:$1|$1]] is selected and displayed.'''",
 	"stabilization-perm": "Your account does not have permission to change the stable version configuration.\nHere are the current settings for [[:$1|$1]]:",

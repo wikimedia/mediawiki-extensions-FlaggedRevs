@@ -16,7 +16,7 @@
 			"Umherirrender"
 		]
 	},
-	"stabilization-tab": "{{Flagged Revs-small}}\n\nSome skins (e.g. standard/classic) display an additional tab to control visibility of the page revisions, e.g. whether last revision should be included or perhaps the last checked or published version. Links to [[Special:Stabilization]].\n\nIn Flagged Revisions, \"vet\" stands for \"stabilize\".",
+	"stabilization-tab": "{{Flagged Revs-small}}\n\nSome skins (e.g. standard/classic) display an additional tab to control visibility of the page revisions, e.g. whether last revision should be included or perhaps the last checked or published version. Links to [[Special:Stabilization]].\n\nIn Flagged Revisions, \"vet\" is a synonym for \"stabilize\".",
 	"stabilization": "{{Flagged Revs}}\nPage title of Special:Stabilization, which lets admins change how the stable version is used for a page and who can review it.",
 	"stabilization-text": "{{Flagged Revs-small}}\nInformation displayed on [[Special:Stabilization]]. Parameters:\n* $1 - the page name\nSee also:\n* {{msg-mw|Stabilization-perm}}",
 	"stabilization-perm": "{{Flagged Revs-small}}\nUsed on [[Special:Stabilization]] when the user has not the permission to change the settings.\n\nParameters:\n* $1 - the page name\nSee also:\n* {{msg-mw|Stabilization-text}}",
