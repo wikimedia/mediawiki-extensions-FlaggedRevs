@@ -48,7 +48,7 @@
 	"flaggedrevs-desc": "Donne la possibilité aux contributeurs de relire les versions et de stabiliser les pages",
 	"flaggedrevs-pref-UI": "Interface de base :",
 	"flaggedrevs-pref-UI-0": "Utiliser l’interface détaillée pour afficher l’état d’approbation des pages",
-	"flaggedrevs-pref-UI-1": "Utiliser des indicateurs pour afficher l’état de révision des pages.",
+	"flaggedrevs-pref-UI-1": "Utiliser des indicateurs pour afficher l’état de relecture des pages",
 	"prefs-flaggedrevs-ui": "Approbation des modifications",
 	"flaggedrevs-prefs-stable": "Quand afficher par défaut la version stable des pages de contenu",
 	"flaggedrevs-pref-stable-0": "Utiliser les paramètres par défaut pour chaque page",

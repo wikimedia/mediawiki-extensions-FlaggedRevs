@@ -38,7 +38,7 @@
 	"flaggedrevs-desc": "讓編輯者可以審查修訂並穩定化頁面",
 	"flaggedrevs-pref-UI": "基礎介面：",
 	"flaggedrevs-pref-UI-0": "使用詳細的審批狀態框來顯示此頁面的審查狀態",
-	"flaggedrevs-pref-UI-1": "使用指示器來顯示頁面的審查狀態。",
+	"flaggedrevs-pref-UI-1": "使用指示器來顯示頁面的審查狀態",
 	"prefs-flaggedrevs-ui": "編輯審查",
 	"flaggedrevs-prefs-stable": "預設情況下顯示內容頁的穩定版本",
 	"flaggedrevs-pref-stable-0": "為每個頁面使用預設設定",
