@@ -13,7 +13,7 @@
 			"Sakretsu"
 		]
 	},
-	"stabilization-tab": "ver",
+	"stabilization-tab": "Ver",
 	"stabilization": "Stabilizzazione pagina",
 	"stabilization-text": "'''Modifica le impostazioni sottostanti per regolare come la versione stabile di [[:$1|$1]] è selezionata e visualizzata.'''",
 	"stabilization-perm": "L'utente non dispone dei permessi necessari a cambiare la configurazione della versione stabile.\nQui ci sono le impostazioni attuali per [[:$1|$1]]:",
