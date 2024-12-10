@@ -20,7 +20,7 @@
 	"unreviewedpages-unwatched": "(nem figyelt)",
 	"unreviewedpages-watched": "({{PLURAL:$1|egy|$1}} aktív szerkesztő figyeli)",
 	"unreviewedpages-list": "Azon lapok, amelyek még ''nem'' lettek [[{{MediaWiki:Validationpage}}| ellenőrizve]] a megadott szinten.",
-	"unreviewedpages-none": "Jelenleg nincs ezeknek a feltételeknek megfelelő oldal.",
+	"unreviewedpages-none": "Jelenleg nincs a feltételeknek megfelelő lap.",
 	"unreviewedpages-viewing": "(ellenőrzés alatt)",
 	"unreviewedpages-hours": "({{PLURAL:$1|egy|$1}} óra)",
 	"unreviewedpages-days": "({{PLURAL:$1|egy|$1}} nap)",
