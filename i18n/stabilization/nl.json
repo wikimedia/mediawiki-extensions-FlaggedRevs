@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Annabel",
+			"McDutchie",
 			"SPQRobin",
 			"Siebrand"
 		]
 	},
-	"stabilization-tab": "(er)",
+	"stabilization-tab": "Doorlichten",
 	"stabilization": "Paginastabilisatie",
 	"stabilization-text": "'''Wijzig de onderstaande instellingen om aan te passen hoe de gepubliceerde versie van [[:$1|$1]] geselecteerd en weergegeven wordt.'''",
 	"stabilization-perm": "U hebt geen rechten om de instellingen voor de gepubliceerde versie te wijzigen.\nDit zijn de huidige instellingen voor [[:$1|$1]]:",

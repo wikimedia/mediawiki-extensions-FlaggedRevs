@@ -7,6 +7,7 @@
 			"Grondin",
 			"IAlex",
 			"Juanpabl",
+			"Mahabarata",
 			"Peter17",
 			"PieRRoMaN",
 			"Purodha",
@@ -14,7 +15,7 @@
 			"Verdy p"
 		]
 	},
-	"stabilization-tab": "(acq.)",
+	"stabilization-tab": "Stabiliser",
 	"stabilization": "Stabilisation de page",
 	"stabilization-text": "'''Modifiez les paramètres ci-dessous pour définir la façon dont la version stable de [[:$1|$1]] est sélectionnée et affichée.'''",
 	"stabilization-perm": "Votre compte n’a pas le droit de changer la configuration de la version stable publiée.\nVoici les paramètres actuels de [[:$1|$1]] :",
