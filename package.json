@@ -6,7 +6,7 @@
 		"test": "grunt test"
 	},
 	"devDependencies": {
-		"@wdio/mocha-framework": "7.13.2",
+		"@wdio/mocha-framework": "7.33.0",
 		"api-testing": "1.5.0",
 		"eslint-config-wikimedia": "0.22.1",
 		"grunt": "1.5.3",
