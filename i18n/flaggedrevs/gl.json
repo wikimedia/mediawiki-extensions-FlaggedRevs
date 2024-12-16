@@ -25,7 +25,7 @@
 	"flaggedrevs-desc": "Dálles aos editores a capacidade de confirmar revisións e estabilizar páxinas",
 	"flaggedrevs-pref-UI": "Interface básica:",
 	"flaggedrevs-pref-UI-0": "Usar caixas detalladas para amosar o estado de aprobación das páxinas",
-	"flaggedrevs-pref-UI-1": "Usar indicadores para amosar o estado de aprobación das páxinas.",
+	"flaggedrevs-pref-UI-1": "Usar indicadores para amosar o estado de aprobación das páxinas",
 	"prefs-flaggedrevs-ui": "Aprobación de edicións",
 	"flaggedrevs-prefs-stable": "Cando amosar a versión estable das páxinas de contido por defecto",
 	"flaggedrevs-pref-stable-0": "Usar a configuración por defecto para cada páxina",
