@@ -95,7 +95,7 @@
 	"flaggedrevs-action-info-pages-waiting-for-review-none": "Heç biri",
 	"revreview-draft-indicator-title": "'''Gözləyir'''",
 	"revreview-draft-title": "Gözlənilən dəyişikliklər bu səhifədə göstərilir.",
-	"revreview-editnotice": "Səlahiyyətli istifadəçi onları qəbul etdikdən sonra '' 'dəyişikliklər oxuculara göstəriləcək. ([[{{MediaWiki:Validationpage}}|yardım]])'''",
+	"revreview-editnotice": "'''Səlahiyyətli istifadəçi onları qəbul etdikdən sonra dəyişikliklər oxuculara göstəriləcək. ([[{{MediaWiki:Validationpage}}|yardım]])'''",
 	"revreview-submitedit": "Dəyişiklikləri təsdiq et",
 	"revreview-submitedit-title": "Yenidən baxılması üçün dəyişiklikləri təsdiq etmək",
 	"revreview-edited": "'''Səlahiyyətli istifadəçi onları qəbul etdikdən sonra dəyişikliklər oxuculara göstəriləcək. ([[{{MediaWiki:Validationpage}}|kömək]])'''\n\n{{PLURAL:$2|Bu|Bunlar}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{PLURAL:$2|dəyişikliklər}}] ''(aşağıda göstərilən)'' nəzərdən keçirilir.",
