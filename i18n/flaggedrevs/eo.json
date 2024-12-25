@@ -10,7 +10,8 @@
 			"Robin van der Vliet",
 			"Tlustulimu",
 			"Yekrats",
-			"YvesNevelsteen"
+			"YvesNevelsteen",
+			"Matma Rex"
 		]
 	},
 	"action-autoreview": "aŭtomate marki siajn redaktojn kiel \"kontrolitajn\"",
@@ -44,13 +45,13 @@
 	"flaggedrevs-rcfilters-reviewed-desc": "Reviziitaj redaktoj",
 	"flaggedrevs-rcfilters-not-reviewable-label": "Ne revizienda",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "Ĉiaspecaj ŝanĝoj ne reviziindaj.",
-	"group-editor": "Patrolantoj",
+	"group-editor": "Editors",
 	"group-editor-member": "{{GENDER:$1|patrolanto}}",
 	"group-reviewer": "Kontrolantoj",
 	"group-reviewer-member": "{{GENDER:$1|kontrolanto}}",
 	"grouppage-editor": "{{ns:project}}:Revizianto",
 	"grouppage-reviewer": "{{ns:project}}:Kontrolanto",
-	"group-autoreview": "Mempatrolatoj",
+	"group-autoreview": "Autochecked users",
 	"group-autoreview-member": "{{GENDER:$1|mempatrolato}}",
 	"grouppage-autoreview": "{{ns:project}}:Aŭtomata kontrolanto",
 	"logentry-review-approve": "$1 {{GENDER:$2|reviziis}} version de $3",
