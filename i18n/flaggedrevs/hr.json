@@ -105,6 +105,9 @@
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Neprovjereno]]'''",
 	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} pregled izmjena na čekanju]",
 	"revreview-basic-title": "Ovo je pregledana inačica stranice",
+	"revreview-unchecked-title": "Stranica nije provjerena.",
+	"revreview-dialog-title": "Status inačice stranice",
+	"revreview-quick-basic-same-title": "'''Provjereno'''",
 	"revreview-toggle-title": "prikaži/sakrij detalje",
 	"revreview-visibility-synced": "'''Ova stranica ima ažuriranu [[{{MediaWiki:Validationpage}}|važeću inačicu]]; postavke stabilnosti stranice mogu biti [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} namještene].'''",
 	"revreview-visibility-outdated": "'''Ova stranica ima zastarjelu [[{{MediaWiki:Validationpage}}|važeću inačicu]]; postavke stabilnosti stranice mogu biti [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} namještene].'''",
@@ -154,5 +157,7 @@
 	"log-action-filter-stable-config": "Nova postavka",
 	"log-action-filter-stable-modify": "Promjena postavki",
 	"log-action-filter-stable-reset": "Vraćanje postavki na predodređeno",
-	"log-action-filter-stable-move_stable": "Premještena konfiguracija"
+	"log-action-filter-stable-move_stable": "Premještena konfiguracija",
+	"fr-revision-info-dialog-cancel-button": "Odustani",
+	"fr-revision-info-dialog-close-aria-label": "Zatvori"
 }
