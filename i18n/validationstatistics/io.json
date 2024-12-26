@@ -7,9 +7,11 @@
 		]
 	},
 	"validationstatistics-users": "'''{{SITENAME}}''' nun havas '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|uzero|uzeri}} kun [[{{MediaWiki:Validationpage}}|editera yuri]].\n\nEditeri esas redakteri qui povas revizar la pagini.",
+	"validationstatistics-table": "Statistiki pri revizo di pagini montresa adinfre, ''ecepte'' pagini di ridirektado.\nPagini traktesas kom ''{{int:validationstatistics-old}}'' se li havas redakturi qui demandas revizo;\npagini judikesas kom ''{{int:validationstatistics-latest}}'' se ne existas redakturi por revizar.",
 	"validationstatistics-ns": "Nomaro",
 	"validationstatistics-total": "Pagini",
 	"validationstatistics-stable": "Revizita",
+	"validationstatistics-latest": "Sinkronigita",
 	"validationstatistics-old": "Sen aktualigi",
 	"validationstatistics-unreviewed": "Sen revizo",
 	"validationstatistics-user": "Uzero"
