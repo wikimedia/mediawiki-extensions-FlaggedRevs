@@ -67,7 +67,7 @@
 	"group-reviewer-member": "{{GENDER:$1|مراجع|مراجعة}}",
 	"grouppage-editor": "{{ns:project}}:محرر",
 	"grouppage-reviewer": "{{ns:project}}:مراجع",
-	"group-autoreview": "مراجعون تلقائيًّا",
+	"group-autoreview": "المستخدمون المتحقق منهم تلقائيا",
 	"group-autoreview-member": "{{GENDER:$1|مراجع تلقائيًّا|مراجعة تلقائيًّا}}",
 	"grouppage-autoreview": "{{ns:project}}:مراجع تلقائيا",
 	"group-editor.css": "/* الأنماط المتراصة CSS المعروضة هنا ستؤثر على المحررين فقط */",

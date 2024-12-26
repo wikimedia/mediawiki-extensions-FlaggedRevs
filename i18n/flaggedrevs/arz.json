@@ -43,7 +43,7 @@
 	"review-logentry-id": "مراجعة: $2",
 	"review-logentry-diff": "التغييرات تمت مراجعتها",
 	"review-logentry-diff2": "التغييرات مرفوضه",
-	"review-logpage": "سجل المراجعة",
+	"review-logpage": "سجل المراجعه",
 	"review-logpagetext": "هذا سجل بالتغييرات فى حاله [[{{MediaWiki:Validationpage}}|الموافقة]] لصفحات المحتوى.",
 	"reviewer": "مراجع",
 	"revreview-accuracy": "الدقة",

@@ -92,7 +92,7 @@
 	"revreview-basic-source": "Bu səhifənin [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} yoxlanılmış versiyası], <i>$2</i> tarixində [{{fullurl:{{#Special: Log}}|type=review&page={{FULLPAGENAMEE}}}} təsdiqləndi], bu versiyaya əsaslandı.",
 	"revreview-current": "Yoxlanmamış dəyişikliklər",
 	"revreview-draft-title": "Gözlənilən dəyişikliklər bu səhifədə göstərilir.",
-	"revreview-editnotice": "Səlahiyyətli istifadəçi onları qəbul etdikdən sonra '' 'dəyişikliklər oxuculara göstəriləcək. ([[{{MediaWiki:Validationpage}}|yardım]])'''",
+	"revreview-editnotice": "'''Səlahiyyətli istifadəçi onları qəbul etdikdən sonra dəyişikliklər oxuculara göstəriləcək. ([[{{MediaWiki:Validationpage}}|yardım]])'''",
 	"revreview-submitedit": "Dəyişiklikləri təsdiq et",
 	"revreview-submitedit-title": "Yenidən baxılması üçün dəyişiklikləri təsdiq etmək",
 	"revreview-edited": "'''Səlahiyyətli istifadəçi onları qəbul etdikdən sonra dəyişikliklər oxuculara göstəriləcək. ([[{{MediaWiki:Validationpage}}|kömək]])'''\n\n{{PLURAL:$2|Bu|Bunlar}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{PLURAL:$2|dəyişikliklər}}] ''(aşağıda göstərilən)'' nəzərdən keçirilir.",
