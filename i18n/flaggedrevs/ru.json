@@ -72,7 +72,7 @@
 	"flaggedrevs-rcfilters-reviewed-desc": "Правки, которые уже проверены.",
 	"flaggedrevs-rcfilters-not-reviewable-label": "Не требующие проверки",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "Правки всех типов, которые не требуют проверки.",
-	"group-editor": "Патрулирующие",
+	"group-editor": "Досматривающие",
 	"group-editor-member": "{{GENDER:$1|досматривающий|досматривающая}}",
 	"group-reviewer": "Выверяющие",
 	"group-reviewer-member": "{{GENDER:$1|выверяющий|выверяющая}}",
