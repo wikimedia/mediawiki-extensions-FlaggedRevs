@@ -11,7 +11,8 @@
 			"إزبيكييل",
 			"بهتين شوكت",
 			"علاء",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"Hubaishan"
 		]
 	},
 	"pendingchanges": "صفحات بها تعديلات معلقة",
@@ -40,6 +41,6 @@
 	"pendingchanges-table-history": "تاريخ",
 	"pendingchanges-table-review": "راجع",
 	"pendingchanges-table-revision-history": "تاريخ",
-	"pendingchanges-table-footer": "يوجد الآن {{PLURAL:$1|$1 تعديل مُعلَّق|$1 تعديلات مُعلَّقة}}",
+	"pendingchanges-table-footer": "يوجد الآن {{PLURAL:$1|لا تعديل معلقًا|تعديل معلق واحد|تعديلان معلقان| $1 تعديلات معلقة|$1 تعديلًا معلقًا|$1 تعديل مُعلَّق}}",
 	"pendingchanges-filter-submit-button-text": "تصفية التعديلات المعلقة"
 }
