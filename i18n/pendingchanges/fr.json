@@ -22,7 +22,7 @@
 	"pendingchanges-legend": "Lister les pages relues avec des modifications en attente",
 	"pendingchanges-list": "Cette page liste des [[{{MediaWiki:Validationpage}}|pages relues]] ayant une ou plusieurs modifications en attente d’examen.",
 	"pendingchanges-none": "Il n’y a actuellement aucune page remplissant ces critères.",
-	"pendingchanges-hours": "($1 heure{{PLURAL:$1|heures|s}})",
+	"pendingchanges-hours": "($1 {{PLURAL:$1|heure|heures}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|jour|jours}})",
 	"pendingchanges-recent": "moins d’une heure",
 	"pendingchanges-category": "Catégorie :",
@@ -43,6 +43,6 @@
 	"pendingchanges-table-history": "Historique",
 	"pendingchanges-table-review": "Révision",
 	"pendingchanges-table-revision-history": "Historique",
-	"pendingchanges-table-footer": "Actuellement, il y a {{PLURAL:$1|$1 modification| $1 modifications}} en attente.",
+	"pendingchanges-table-footer": "Actuellement, il y a {{PLURAL:$1|$1 modification|$1 modifications}} en attente.",
 	"pendingchanges-filter-submit-button-text": "Filtrer les modifications en attente"
 }

@@ -4,5 +4,13 @@
 			"Cabal"
 		]
 	},
+	"pendingchanges": "ਬਕਾਇਆ ਤਬਦੀਲੀਆਂ ਵਾਲੇ ਸਫ਼ੇ",
+	"pendingchanges-hours": "$1 {{PLURAL:$1|ਘੰਟਾ |ਘੰਟੇ }}",
+	"pendingchanges-days": "$1 {{PLURAL:$1|ਦਿਨ}}",
+	"pendingchanges-recent": "1 ਘੰਟੇ ਤੋਂ ਘੱਟ",
+	"pendingchanges-category": "ਸ਼੍ਰੇਣੀ:",
+	"pendingchanges-edit-tag": "ਟੈਗ ਸੋਧੋ:",
+	"pendingchanges-edit-tag-any": "ਕੋਈ ਵੀ ਟੈਗ",
+	"pendingchanges-onwatchlist": "ਮੇਰੀ ਨਿਗਰਾਨ-ਸੂਚੀ 'ਤੇ ਵਰਕੇ",
 	"pendingchanges-diff": "ਪਰਖੋ"
 }

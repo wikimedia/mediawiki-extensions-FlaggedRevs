@@ -4,7 +4,7 @@
 			"McDutchie"
 		]
 	},
-	"stabilization-tab": "rev.",
+	"stabilization-tab": "Stabilisar",
 	"stabilization": "Stabilisation de paginas",
 	"stabilization-text": "'''Cambia le configurationes hic infra pro adjustar como le version stabile de [[:$1|$1]] es seligite e monstrate.'''",
 	"stabilization-perm": "Tu conto non ha le permission de cambiar le configuration del version stabile.\nEcce le configurationes actual pro [[:$1|$1]]:",
