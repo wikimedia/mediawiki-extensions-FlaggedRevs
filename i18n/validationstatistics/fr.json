@@ -15,7 +15,7 @@
 		]
 	},
 	"validationstatistics": "Statistiques de relecture des pages",
-	"validationstatistics-users": "'''{{SITENAME}}''' compte actuellement '''[[Special:ListUsers/editor|$1]]''' utilisateur{{PLURAL:$1||s}} avec les droits de [[{{MediaWiki:Validationpage}}|validation]].\n\nLes contributeurs et relecteurs sont des utilisateurs établis qui peuvent vérifier point par point les révisions des pages.",
+	"validationstatistics-users": "'''{{SITENAME}}''' compte actuellement '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilisateur|utilisateurs}} avec les droits de [[{{MediaWiki:Validationpage}}|validation]].\n\nLes contributeurs et relecteurs sont des utilisateurs établis qui peuvent vérifier point par point les révisions des pages.",
 	"validationstatistics-lastupdate": "''Les données suivantes ont été mises à jour le $1 sur $2.''",
 	"validationstatistics-pndtime": "Les modifications vérifiées par les utilisateurs confirmés sont considérées comme ''{{int:validationstatistics-stable}}''.\n\nLe retard de relecture moyen des [[Special:OldReviewedPages|pages contenant des modifications actuellement à relire]] est '''$1''', le retard mesure combien de temps les modifications les plus anciennes en attente sont restées non relues.",
 	"validationstatistics-revtime": "Le délai d’attente moyen pour la relecture des modifications faites par les ''utilisateurs non enregistrés'' est '''$1''' ; le délai médian est '''$2'''.\n$3",
@@ -27,7 +27,7 @@
 	"validationstatistics-synced": "Synchronisée ou relue",
 	"validationstatistics-old": "Périmée",
 	"validationstatistics-unreviewed": "Non relue",
-	"validationstatistics-utable": "Ci-dessous figure {{PLURAL:$1|le|la liste des $1}} relecteur{{PLURAL:$1||s}} le{{PLURAL:$1||s}} plus actif{{PLURAL:$1||s}} durant l{{PLURAL:$2|a|es $2}} dernière{{PLURAL:$2||s}} heure{{PLURAL:$2||s}}.",
+	"validationstatistics-utable": "Ci-dessous figure {{PLURAL:$1|le relecteur le plus actif|la liste des $1 relecteurs les plus actifs}} durant {{PLURAL:$2|la dernière heure|les $2 dernières heures}}.",
 	"validationstatistics-user": "Utilisateur",
 	"validationstatistics-reviews": "Relectures"
 }
