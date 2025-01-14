@@ -17,7 +17,7 @@
 	"unreviewedpages-showhide-redirect": "$1 redirections(s)",
 	"unreviewedpages-diff": "relecture",
 	"unreviewedpages-unwatched": "(non suivie)",
-	"unreviewedpages-watched": "($1 {{PLURAL:$1|utilisateur|utilisateurs}} {{PLURAL:$1|actif|actifs}} {{PLURAL:$1|suit|suivent}} cette page)",
+	"unreviewedpages-watched": "($1 {{PLURAL:$1|utilisateur actif suit|utilisateurs actifs suivent}} cette page)",
 	"unreviewedpages-list": "Cette page liste les pages de contenu qui n’ont ''pas'' été [[{{MediaWiki:Validationpage}}|relues]] au niveau spécifié.",
 	"unreviewedpages-none": "Il n’y a actuellement aucune page satisfaisant ces critères.",
 	"unreviewedpages-viewing": "(en relecture)",
