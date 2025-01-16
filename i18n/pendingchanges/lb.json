@@ -17,7 +17,7 @@
 	"pendingchanges-onwatchlist": "Säiten op menger Iwwerwaachungslëscht",
 	"pendingchanges-stable": "Déi stabil Versioun ass d'Standard-Versioun",
 	"pendingchanges-diff": "iwwerkucken",
-	"pendingchanges-size": "Maximal Ännerung (Bytes):",
+	"pendingchanges-size": "Maximal Ännerung (Byte):",
 	"pendingchanges-unwatched": "(net iwwerwaacht)",
 	"pendingchanges-watched": "(Vu(n) $1 {{PLURAL:$1|Benotzer|Benotzer}} iwwerwaacht)",
 	"pendingchanges-viewing": "(gëtt nogekuckt)"
