@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is run hourly by the following cron job:
+ * This file is run daily by the following cron job:
  * https://gerrit.wikimedia.org/g/operations/puppet/+/production/modules/profile/manifests/mediawiki/maintenance/update_flaggedrev_stats.pp
  * Do not rename this file without also fixing the file path in Puppet.
  *
@@ -17,6 +17,9 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 
 require_once "$IP/maintenance/Maintenance.php";
 
+/**
+ * This maintenance script generates the statistics for the page [[Special:ValidationStatistics]].
+ */
 class UpdateFlaggedRevsStats extends Maintenance {
 
 	public function __construct() {
