@@ -341,15 +341,15 @@ class FlaggedRevs {
 			function ( $title, $parser = null ) use ( &$oldCurrentRevisionRecordCallback, $incManager ) {
 				if ( !( $parser instanceof Parser ) ) {
 					// nothing to do
-					return call_user_func( $oldCurrentRevisionRecordCallback, $title, $parser );
+					return $oldCurrentRevisionRecordCallback( $title, $parser );
 				}
 				if ( $title->getNamespace() < 0 || $title->getNamespace() === NS_MEDIAWIKI ) {
 					// nothing to do (bug 29579 for NS_MEDIAWIKI)
-					return call_user_func( $oldCurrentRevisionRecordCallback, $title, $parser );
+					return $oldCurrentRevisionRecordCallback( $title, $parser );
 				}
 				if ( !$incManager->parserOutputIsStabilized() ) {
 					// nothing to do
-					return call_user_func( $oldCurrentRevisionRecordCallback, $title, $parser );
+					return $oldCurrentRevisionRecordCallback( $title, $parser );
 				}
 				$id = false; // current version
 				# Check for the version of this template used when reviewed...
@@ -376,7 +376,7 @@ class FlaggedRevs {
 						->getRevisionById( $id );
 				}
 				# Otherwise, fall back to default behavior (load latest revision)
-				return call_user_func( $oldCurrentRevisionRecordCallback, $title, $parser );
+				return $oldCurrentRevisionRecordCallback( $title, $parser );
 			}
 		);
 		$contentRenderer = MediaWikiServices::getInstance()->getContentRenderer();
