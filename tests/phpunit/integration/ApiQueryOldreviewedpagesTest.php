@@ -155,7 +155,7 @@ class ApiQueryOldreviewedpagesTest extends ApiTestCase {
 			'orfilterwatched' => 'watched'
 		], null, false, $userProvider->call( $this ) );
 
-		$pageIds = array_map( fn ( array $page ) => $page['pageid'], $res['query']['oldreviewedpages'] );
+		$pageIds = array_map( static fn ( array $page ) => $page['pageid'], $res['query']['oldreviewedpages'] );
 		sort( $pageIds );
 
 		$this->assertSame(
@@ -165,7 +165,7 @@ class ApiQueryOldreviewedpagesTest extends ApiTestCase {
 	}
 
 	public static function provideUsersWithWatchlistAccess(): iterable {
-		// phpcs:disable Squiz.Scope.StaticThisUsage.Found
+		// phpcs:disable Squiz.Scope.StaticThisUsage.Found,MediaWiki.Usage.StaticClosure.StaticClosure
 		yield 'named user' => [
 			fn () => self::$user,
 		];
@@ -185,7 +185,7 @@ class ApiQueryOldreviewedpagesTest extends ApiTestCase {
 			'list' => 'oldreviewedpages',
 		], null, false, $userProvider->call( $this ) );
 
-		$pageIds = array_map( fn ( array $page ) => $page['pageid'], $res['query']['oldreviewedpages'] );
+		$pageIds = array_map( static fn ( array $page ) => $page['pageid'], $res['query']['oldreviewedpages'] );
 		sort( $pageIds );
 
 		$this->assertSame(
@@ -195,7 +195,7 @@ class ApiQueryOldreviewedpagesTest extends ApiTestCase {
 	}
 
 	public static function provideUsers(): iterable {
-		// phpcs:disable Squiz.Scope.StaticThisUsage.Found
+		// phpcs:disable Squiz.Scope.StaticThisUsage.Found,MediaWiki.Usage.StaticClosure.StaticClosure
 		yield 'named user' => [
 			fn () => self::$user,
 		];
