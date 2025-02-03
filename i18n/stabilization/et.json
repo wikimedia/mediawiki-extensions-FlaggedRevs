@@ -6,7 +6,7 @@
 			"Pikne"
 		]
 	},
-	"stabilization-tab": "sätted",
+	"stabilization-tab": "Sätted",
 	"stabilization": "Lehekülje kindlustamine",
 	"stabilization-text": "'''Muuda järgmisi sätteid, et reguleerida, kuidas lehekülje \"[[:$1|$1]]\" püsiv versioon valitakse ja kuvatakse.'''",
 	"stabilization-perm": "Su kontol pole püsiva versiooni sätete muutmise luba.\nSiin on lehekülje \"[[:$1|$1]]\" praegused sätted:",
