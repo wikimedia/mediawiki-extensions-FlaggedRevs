@@ -1344,20 +1344,15 @@ class FlaggablePageView extends ContextSource {
 	/**
 	 * get new diff header items for in-place page review
 	 */
-	public static function buildDiffHeaderItems(): string {
-		$args = func_get_args(); // <oldid, newid>
-		if ( count( $args ) >= 2 ) {
-			$oldid = (int)$args[0];
-			$newid = (int)$args[1];
-			$revLookup = MediaWikiServices::getInstance()->getRevisionLookup();
-			$newRevRecord = $revLookup->getRevisionById( $newid );
-			if ( $newRevRecord && $newRevRecord->getPageAsLinkTarget() ) {
-				$oldRevRecord = $revLookup->getRevisionById( $oldid );
-				$fa = FlaggableWikiPage::getTitleInstance(
-					Title::newFromLinkTarget( $newRevRecord->getPageAsLinkTarget() )
-				);
-				return self::diffLinkAndMarkers( $fa, $oldRevRecord, $newRevRecord );
-			}
+	public static function buildDiffHeaderItems( int $oldid, int $newid ): string {
+		$revLookup = MediaWikiServices::getInstance()->getRevisionLookup();
+		$newRevRecord = $revLookup->getRevisionById( $newid );
+		if ( $newRevRecord && $newRevRecord->getPageAsLinkTarget() ) {
+			$oldRevRecord = $revLookup->getRevisionById( $oldid );
+			$fa = FlaggableWikiPage::getTitleInstance(
+				Title::newFromLinkTarget( $newRevRecord->getPageAsLinkTarget() )
+			);
+			return self::diffLinkAndMarkers( $fa, $oldRevRecord, $newRevRecord );
 		}
 		return '';
 	}
