@@ -26,6 +26,7 @@
 	"pendingchanges-table-page": "Lehekülg",
 	"pendingchanges-table-size": "Suurus",
 	"pendingchanges-table-pending-since": "Alates",
+	"pendingchanges-table-review": "Ülevaatus",
 	"pendingchanges-table-footer": "Praegu on {{PLURAL:$1|üks muudatus|$1 muudatust}} ootel.",
 	"pendingchanges-filter-submit-button-text": "Filtreeri ootel muudatusi"
 }
