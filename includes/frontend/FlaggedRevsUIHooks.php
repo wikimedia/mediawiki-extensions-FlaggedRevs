@@ -1,6 +1,5 @@
 <?php
 // phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
-// phpcs:disable MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic
 
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Diff\Hook\DifferenceEngineViewHeaderHook;

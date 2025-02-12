@@ -1,6 +1,5 @@
 <?php
 // phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
-// phpcs:disable MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic
 
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiQueryRevisions;
