@@ -3,10 +3,11 @@
 		"authors": [
 			"Fohanno",
 			"Fulup",
+			"Huñvreüs",
 			"Y-M D"
 		]
 	},
-	"stabilization-tab": "argas",
+	"stabilization-tab": "Stabiliañ",
 	"stabilization": "Stabiladur ar bajenn",
 	"stabilization-text": "'''Cheñch ar c'hefluniadur dindan da spisaat an doare ma vez diuzet ha diskwelet stumm embannet [[:$1|$1]].'''",
 	"stabilization-perm": "N'eo ket aotreet ho kont da gemmañ arventennoù ar stumm embannet.\nSetu an arventennoù red eus [[:$1|$1]] :",
