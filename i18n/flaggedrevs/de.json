@@ -34,7 +34,8 @@
 			"Brettchenweber",
 			"Wnme",
 			"Inkowik",
-			"Justman10000"
+			"Justman10000",
+			"Vhoesl"
 		]
 	},
 	"action-autoreview": "eigene Bearbeitungen automatisch als gesichtet zu markieren",
@@ -68,9 +69,9 @@
 	"flaggedrevs-rcfilters-reviewed-desc": "Bearbeitungen, die bereits gesichtet sind.",
 	"flaggedrevs-rcfilters-not-reviewable-label": "Kein Sichten nötig",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "Logbuchaktionen und Änderungen in Namensräumen, die keine Sichtung benötigen.",
-	"group-editor": "Sichter",
+	"group-editor": "Bearbeiter",
 	"group-editor-member": "{{GENDER:$1|Sichter|Sichterin}}",
-	"group-reviewer": "Prüfer",
+	"group-reviewer": "Begutachter",
 	"group-reviewer-member": "{{GENDER:$1|Prüfer|Prüferin}}",
 	"grouppage-editor": "{{ns:project}}:Sichter",
 	"grouppage-reviewer": "{{ns:project}}:Prüfer",
