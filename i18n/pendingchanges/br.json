@@ -3,6 +3,7 @@
 		"authors": [
 			"Fulup",
 			"Gwendal",
+			"Huñvreüs",
 			"Y-M D"
 		]
 	},
@@ -16,7 +17,7 @@
 	"pendingchanges-category": "Rummad :",
 	"pendingchanges-onwatchlist": "Pajenn en ma roll evezhiañ",
 	"pendingchanges-stable": "Dre ziouer emañ ar stumm stabil",
-	"pendingchanges-diff": "adlenn",
+	"pendingchanges-diff": "Adlenn",
 	"pendingchanges-size": "Kemm brasañ (en oktedoù)",
-	"pendingchanges-unwatched": "(anheuliet)"
+	"pendingchanges-unwatched": "anevezhiet"
 }
