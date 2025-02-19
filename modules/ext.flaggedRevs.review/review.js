@@ -21,8 +21,8 @@ function lockReviewForm( form ) {
  * @param {HTMLFormElement} form
  */
 function unlockReviewForm( form ) {
-	var inputs = form.getElementsByTagName( 'input' );
-	for ( var i = 0; i < inputs.length; i++ ) {
+	const inputs = form.getElementsByTagName( 'input' );
+	for ( let i = 0; i < inputs.length; i++ ) {
 		if ( inputs[ i ].type !== 'submit' ) { // not all buttons can be enabled
 			inputs[ i ].disabled = false;
 		} else {
@@ -40,14 +40,14 @@ function unlockReviewForm( form ) {
  */
 function postSubmitRevisionReview( form, respObj ) {
 	// Review form elements
-	var asubmit = document.querySelector( '#mw-fr-submit-accept' ); // ACCEPT
-	var usubmit = document.querySelector( '#mw-fr-submit-unaccept' ); // UNACCEPT
-	var rsubmit = document.querySelector( '#mw-fr-submit-reject' ); // REJECT
-	var $diffNotice = $( '#mw-fr-difftostable' );
+	const asubmit = document.querySelector( '#mw-fr-submit-accept' ); // ACCEPT
+	const usubmit = document.querySelector( '#mw-fr-submit-unaccept' ); // UNACCEPT
+	const rsubmit = document.querySelector( '#mw-fr-submit-reject' ); // REJECT
+	const $diffNotice = $( '#mw-fr-difftostable' );
 	// FlaggedRevs rating box
-	var $tagBox = $( '#mw-fr-revision-tag' );
+	const $tagBox = $( '#mw-fr-revision-tag' );
 	// Diff parameters
-	var $diffUIParams = $( '#mw-fr-diff-dataform' );
+	const $diffUIParams = $( '#mw-fr-diff-dataform' );
 
 	// On success... (change-time can be an empty string for 'unapproved')
 	if ( respObj && Object.prototype.hasOwnProperty.call( respObj, 'change-time' ) ) {
@@ -89,10 +89,10 @@ function postSubmitRevisionReview( form, respObj ) {
 			// Hide "review this" box on diffs
 			$diffNotice.hide();
 			// Update the contents of the mw-fr-diff-headeritems div
-			var oldId = $diffUIParams.find( 'input' ).eq( 0 ).val();
-			var newId = $diffUIParams.find( 'input' ).eq( 1 ).val();
+			const oldId = $diffUIParams.find( 'input' ).eq( 0 ).val();
+			const newId = $diffUIParams.find( 'input' ).eq( 1 ).val();
 
-			var restPath = '/flaggedrevs/internal/diffheader/' +
+			const restPath = '/flaggedrevs/internal/diffheader/' +
 				encodeURIComponent( oldId ) + '/' +
 				encodeURIComponent( newId );
 			$.ajax( {
@@ -141,11 +141,11 @@ function submitRevisionReview( button, form ) {
 	lockReviewForm( form ); // disallow submissions
 
 	// Build up API call, and update submit button text...
-	var postData = {};
-	var inputs = form.getElementsByTagName( 'input' );
-	var target;
-	for ( var i = 0; i < inputs.length; i++ ) {
-		var input = inputs[ i ];
+	const postData = {};
+	const inputs = form.getElementsByTagName( 'input' );
+	let target;
+	for ( let i = 0; i < inputs.length; i++ ) {
+		const input = inputs[ i ];
 		if ( input.name === 'target' ) {
 			target = input.value;
 			continue;
@@ -172,7 +172,7 @@ function submitRevisionReview( button, form ) {
 		}
 	}
 
-	var restPath = '/flaggedrevs/internal/review/' + encodeURIComponent( target );
+	const restPath = '/flaggedrevs/internal/review/' + encodeURIComponent( target );
 	$.ajax( {
 		url: mw.util.wikiScript( 'rest' ) + restPath,
 		type: 'POST',
@@ -195,7 +195,7 @@ function submitRevisionReview( button, form ) {
  * @this {jQuery}
  */
 function updateSaveButton() {
-	var $save = $( '#wpSave' ),
+	const $save = $( '#wpSave' ),
 		$checkbox = $( '#wpReviewEdit' );
 
 	if ( $save.length && $checkbox.length ) {
@@ -227,7 +227,7 @@ function updateSaveButton() {
 }
 
 function init() {
-	var form = document.getElementById( 'mw-fr-reviewform' );
+	const form = document.getElementById( 'mw-fr-reviewform' );
 	if ( form ) {
 		// Enable submit functionality to the review form on this page
 		$( '#mw-fr-submit-accept, #mw-fr-submit-unaccept' ).on( 'click', function () {
@@ -236,20 +236,20 @@ function init() {
 		} );
 
 		// Hide review form in VE (T344091)
-		mw.hook( 've.activationComplete' ).add( function () {
+		mw.hook( 've.activationComplete' ).add( () => {
 			form.style.display = 'none';
 		} );
 
 		// Disable 'accept' button if the revision was already reviewed.
 		// This is used so that they can be re-enabled if a rating changes.
 		// FIXME the button should be re-disabled if the user re-selects the status quo option
-		var acceptButton = document.getElementById( 'mw-fr-submit-accept' );
+		const acceptButton = document.getElementById( 'mw-fr-submit-accept' );
 		if ( 'mwFrReviewNeedsChange' in acceptButton.dataset ) {
 			acceptButton.disabled = true;
 		}
 
 		// Update review form on change
-		$( 'input', form ).on( 'change', function () {
+		$( 'input', form ).on( 'change', () => {
 			acceptButton.disabled = false;
 			acceptButton.value = mw.msg( 'revreview-submit-review' ); // reset to "Accept"
 		} );

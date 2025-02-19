@@ -8,14 +8,14 @@
 	'use strict';
 
 	/* Dropdown collapse timer */
-	var boxCollapseTimer = null;
+	let boxCollapseTimer = null;
 
 	/* Expands flag info box details */
 	function showBoxDetails() {
-		var $revisionDetailDialog = $( '#mw-fr-revision-details' );
+		const $revisionDetailDialog = $( '#mw-fr-revision-details' );
 		return mw.loader.using( [
 			'codex-styles'
-		] ).then( function () {
+		] ).then( () => {
 			$revisionDetailDialog.css( 'display', 'block' );
 		} );
 	}
@@ -34,7 +34,7 @@
 	 * child element of an element with an id of parentId.
 	 */
 	function isMouseOutBubble( e, parentId ) {
-		var nextParent,
+		let nextParent,
 			toNode = e.relatedTarget;
 
 		if ( toNode ) {
@@ -80,11 +80,11 @@
 	 * @return {boolean}
 	 */
 	function toggleDiff() {
-		var $diff = $( '#mw-fr-stable-diff' ),
+		let $diff = $( '#mw-fr-stable-diff' ),
 			$toggle = $( '#mw-fr-diff-toggle' );
 
 		if ( !$diff.length ) {
-			var alignStart, rtlDir;
+			let alignStart, rtlDir;
 			rtlDir = $( '#mw-content-text' ).attr( 'dir' ) === 'rtl';
 			alignStart = rtlDir ? 'right' : 'left';
 			$diff = $( '<div>' )
@@ -132,7 +132,7 @@
 					)
 				);
 
-			var multiNotice = $toggle.find( 'a' ).data( 'mw-multinotice' );
+			const multiNotice = $toggle.find( 'a' ).data( 'mw-multinotice' );
 			if ( multiNotice ) {
 				$diff.find( 'thead' ).append(
 					$( '<tr>' ).append(
@@ -146,7 +146,7 @@
 
 			$toggle.after( $diff );
 
-			var diffPar = {
+			const diffPar = {
 				action: 'compare',
 				fromrev: $toggle.find( 'a' ).data( 'mw-fromrev' ),
 				torev: $toggle.find( 'a' ).data( 'mw-torev' ),
@@ -157,17 +157,17 @@
 				diffPar.variant = mw.config.get( 'wgUserVariant' );
 			}
 
-			new mw.Api().post( diffPar ).then( function handleDiffResponse( response ) {
-				var $table = $diff.find( 'table.diff' );
+			new mw.Api().post( diffPar ).then( ( response ) => {
+				const $table = $diff.find( 'table.diff' );
 
 				if ( response.compare.bodies.main ) {
-					var diff = response.compare.bodies;
+					const diff = response.compare.bodies;
 
 					$table.find( 'tbody' ).html( diff.main );
 					mw.hook( 'wikipage.diff' ).fire( $table );
 				} else {
 					// The diff is empty.
-					var $tableCell = $( '<td>' )
+					const $tableCell = $( '<td>' )
 						.attr( 'colspan', 4 )
 						.addClass( 'diff-notice' )
 						.append(
@@ -207,7 +207,7 @@
 	 */
 	function init() {
 		// Enables rating detail box
-		var $toggle = $( '#mw-fr-revision-toggle' );
+		let $toggle = $( '#mw-fr-revision-toggle' );
 
 		if ( $toggle.length ) {
 			hideBoxDetails(); // hide the initially displayed ratings
@@ -222,9 +222,9 @@
 		$toggle.children( 'a' ).on( 'click', toggleDiff );
 
 		// Close the mw-fr-revision-details dialog on ESC key press
-		document.addEventListener( 'keydown', function ( event ) {
+		document.addEventListener( 'keydown', ( event ) => {
 			if ( event.key === 'Escape' ) {
-				var dialog = document.getElementById( 'mw-fr-revision-details' );
+				const dialog = document.getElementById( 'mw-fr-revision-details' );
 				if ( dialog && dialog.style.display !== 'none' ) {
 					dialog.style.display = 'none';
 				}
