@@ -34,8 +34,8 @@
 	 * child element of an element with an id of parentId.
 	 */
 	function isMouseOutBubble( e, parentId ) {
-		let nextParent,
-			toNode = e.relatedTarget;
+		let nextParent;
+		const toNode = e.relatedTarget;
 
 		if ( toNode ) {
 			nextParent = toNode.parentNode;
@@ -80,13 +80,12 @@
 	 * @return {boolean}
 	 */
 	function toggleDiff() {
-		let $diff = $( '#mw-fr-stable-diff' ),
-			$toggle = $( '#mw-fr-diff-toggle' );
+		let $diff = $( '#mw-fr-stable-diff' );
+		const $toggle = $( '#mw-fr-diff-toggle' );
 
 		if ( !$diff.length ) {
-			let alignStart, rtlDir;
-			rtlDir = $( '#mw-content-text' ).attr( 'dir' ) === 'rtl';
-			alignStart = rtlDir ? 'right' : 'left';
+			const rtlDir = $( '#mw-content-text' ).attr( 'dir' ) === 'rtl';
+			const alignStart = rtlDir ? 'right' : 'left';
 			$diff = $( '<div>' )
 				.hide()
 				.attr( 'id', 'mw-fr-stable-diff' )
