@@ -4,7 +4,8 @@
 			"Fohanno",
 			"Fulup",
 			"Gwendal",
-			"Y-M D"
+			"Y-M D",
+			"Huñvreüs"
 		]
 	},
 	"revisionreview": "Adwelet ar reizhadennoù",
@@ -45,8 +46,8 @@
 	"revreview-submit-reject": "Disteurel ar c'hemmoù",
 	"revreview-submit-reviewed": "Graet. Aprouet !",
 	"revreview-submit-unreviewed": "Graet. Diaprouet !",
-	"revreview-successful": "'''An adweladenn eus [[:$1|$1]] a zo bet merket ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} gwelet ar stummoù stabil])'''",
-	"revreview-successful2": "'''Stumm eus [[:$1|$1]] diwiriekaat.'''",
+	"revreview-successful": "'''Stumm eus [[:$1|$1]] merket evel stabil.'''",
+	"revreview-successful2": "'''Stumm eus [[:$1|$1]] n’eo ket merket ken evel stabil.'''",
 	"revreview-toolow": "'''Rankout a rit reiñ ur briziadenn uheloc'h eget \"ket aprouet\" evit ma 'vefe dalc'het kont eus an adweladenn.'''\n\nEvit tennañ kuit statud adlenn ur stumm, klikit war \"diaprouiñ\".\n\nImplijit bouton \"distreiñ\" ho merdeer ha klaskit en-dro.",
 	"revreview-update": "'''Mar plij [[{{MediaWiki:Validationpage}}|adlennit]] an holl gemmoù ''(diskouezet a-is)'' bet graet d'ar stumm degemeret.'''",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">N'emañ ket ho kemmoù er stumm stabil c'hoazh.</span>\n\nAdlennit an holl gemmoù diskouezet a-is evit ma teufe war wel ho kemmoù er stumm stabil.",
