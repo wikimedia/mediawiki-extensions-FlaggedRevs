@@ -3,7 +3,8 @@
 		"authors": [
 			"Fulup",
 			"Gwendal",
-			"Y-M D"
+			"Y-M D",
+			"Huñvreüs"
 		]
 	},
 	"pendingchanges": "Pajennoù gant kemmoù o c'hortoz",
@@ -16,8 +17,8 @@
 	"pendingchanges-category": "Rummad :",
 	"pendingchanges-onwatchlist": "Pajenn en ma roll evezhiañ",
 	"pendingchanges-stable": "Dre ziouer emañ ar stumm stabil",
-	"pendingchanges-diff": "adlenn",
+	"pendingchanges-diff": "Adlenn",
 	"pendingchanges-size": "Kemm brasañ (en oktedoù)",
-	"pendingchanges-unwatched": "(anheuliet)",
+	"pendingchanges-unwatched": "anevezhiet",
 	"pendingchanges-viewing": "(o vezañ adwelet)"
 }
