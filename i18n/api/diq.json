@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"1917 Ekim Devrimi",
+			"GolyatGeri",
 			"Gırd",
 			"Kumkumuk",
 			"Mirzali",
@@ -9,7 +10,7 @@
 		]
 	},
 	"apihelp-flagconfig-summary": "Serva ena site heqê desmala tetqiqi melumati bıgêrê",
-	"apihelp-flagconfig-extended-description": "Bu sayt üçün bildiriş konfiqurasiyasına yenidən baxmaq haqqında sadə məlumatları əldə edin. \n\nHər bir işarələmə üçün aşağıdakı parametrlər təyin edilir. \n;ad:Bu işarələmənin əsas adı\n;səviyyələr:İşarələmə səviyyələrinin sayı (yuxarıda \"işarələnməmiş\") \n;2-ci dərəcə:yenidən baxılma üçün səviyyənin işarələnməsi 2-ci səviyyəyə (keyfiyyət) çatdırılmalıdır.\n;3-cü dərəcə:yenidən baxılma üçün səviyyənin işarələnməsi 3-cü səviyyəyə (yeni) çatdırılmalıdır.\nBildirişli versiyada hər bir bildiriş üçün müəyyən səviyyə təyin edilmişdir. Bütün işarələnmələrin toplandığı ən yüksək səviyyə ümumi təkrar baxış üçün təkrar səviyyə hesab olunur.",
+	"apihelp-flagconfig-extended-description": "Serey herg etiketi parametrey ceri veciyeno:\n;name: kılit namey ena etiket .\n;level:amar ê levelê her etiketi (cor \"etiket niyo\") Nısanyaye revizyon her etiketi rê tayin biyo.Ek etiketi pêro berz level de etiket bıbê se teftiş ra ravêrenê.",
 	"apihelp-flagconfig-example-1": "Veynd desmal vıraşten",
 	"apihelp-query+configuredpages-summary": "Hısusiy çım eşten vıraştena peran hemın numre kerdış",
 	"apihelp-query+configuredpages-param-start": "Kamiya perrer ra lista sergend nê.",
