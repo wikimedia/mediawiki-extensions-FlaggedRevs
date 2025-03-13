@@ -5,11 +5,12 @@
 			"Aushulz",
 			"Pippinu",
 			"Sarvaturi",
-			"Tonyfroio"
+			"Tonyfroio",
+			"GianAntonucci"
 		]
 	},
 	"flaggedrevs-hidereviewed-hide": "Ammuccia",
-	"flaggedrevs-hidereviewed-show": "Ammustra",
+	"flaggedrevs-hidereviewed-show": "Fai vìdiri",
 	"revreview-diff-toggle-show": "ammustra sti canciamenti",
 	"revreview-diff-toggle-hide": "ammuccia sti canciamenti",
 	"review-logentry-id": "virsioni: $2",
