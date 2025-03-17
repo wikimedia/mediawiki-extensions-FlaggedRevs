@@ -47,6 +47,7 @@
 	"group-autoreview": "Аўтаматычныя рэцэнзэнты",
 	"group-autoreview-member": "{{GENDER:$1|аўтаматычны рэцэнзэнт|аўтаматычная рэцэнзэнтка}}",
 	"grouppage-autoreview": "{{ns:project}}:Аўтаматычны рэцэнзэнт",
+	"group-reviewer.css": "/* разьмешчаны тут CSS будзе ўплываць толькі на рэцэнзэнтаў */",
 	"revreview-hist-draft": "неправераная вэрсія",
 	"revreview-hist-pending": "чакае праверкі",
 	"revreview-hist-basic": "правераная вэрсія",
