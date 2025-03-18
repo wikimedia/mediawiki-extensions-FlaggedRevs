@@ -1,15 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"Calak"
+			"Calak",
+			"Aram"
 		]
 	},
 	"pendingchanges": "پەڕەکان بە گۆڕانکارییە ھەڵواسراوەکان",
 	"pendingchanges-legend": "پەڕە بەسەرداچووەکان بە گۆڕانکارییە ھەڵواسراوەکان پێرست بکە",
 	"pendingchanges-list": "ئەم پەڕەیە پەڕە [[{{MediaWiki:Validationpage}}|بەسەرداچووەکان]] بە یەک یان چەند دەستکاریی چاوەڕێی بەسەرداچوونەوە پێرست دەکات.",
 	"pendingchanges-none": "ھەر ئێستا ھیچ پەڕەیەک ئەم پێوەرانە ناگرێتەوە",
-	"pendingchanges-hours": "($1 {{PLURAL:$1|ساعەت}})",
-	"pendingchanges-days": "($1 {{PLURAL:$1|ڕۆژ}})",
+	"pendingchanges-hours": "$1 {{PLURAL:$1|سەعات}}",
+	"pendingchanges-days": "$1 {{PLURAL:$1|ڕۆژ}}",
 	"pendingchanges-recent": "(کەمتر لە ساعەتێک)",
 	"pendingchanges-category": "پۆل:",
 	"pendingchanges-onwatchlist": "پەڕەکانی ناو پێرستی چاودێریم",
