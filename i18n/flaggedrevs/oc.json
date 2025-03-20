@@ -3,7 +3,8 @@
 		"authors": [
 			"Cedric31",
 			"Jeeputer",
-			"Jfblanc"
+			"Jfblanc",
+			"Lhanars"
 		]
 	},
 	"action-review": "Repassar las versions",
@@ -67,7 +68,7 @@
 	"revreview-editnotice": "'''Vòstras modificacions seràn afichadas als lectors un còp qu’un utilizaire que dispausa dels dreits necessaris las aurà acceptadas.\n([[{{MediaWiki:Validationpage}}|ajuda]])'''",
 	"revreview-submitedit": "Sometètz vòstras modificacions",
 	"revreview-submitedit-title": "Sometètz vòstras modificacions per relectura",
-	"revreview-edited": "'''Las modificacions seràn afichadas als lectors tre qu'un utilizaire que dispausa dels dreits sufisents las aurà acceptadas.\n([[{{MediaWiki:Validationpage}}|ajuda]])'''\n\nI a actualament [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{PLURAL:$2|modification|modificacions}} en espèra de relectura], afichadas çaijós.",
+	"revreview-edited": "'''Las modificacions seràn afichadas als lectors tre qu'un utilizator que dispausa dels dreits sufisents las aurà acceptadas.\n([[{{MediaWiki:Validationpage}}|ajuda]])'''\n\nI a actualament [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{PLURAL:$2|modification|modificacions}} en espèra de relectura], afichadas çaijós.",
 	"revreview-edited-section": "Tornar a la seccion de la pagina nomenada « [[#$1|$2]] ».",
 	"revreview-newest-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|modificacion|modificacions}}] dins aquesta version {{PLURAL:$3|es|son}} [[{{MediaWiki:Validationpage}}|en espèra de relectura]].\nLa [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version establa] es estada [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] lo <i>$2</i>.",
 	"revreview-newest-basic-i": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} De modificacions dins los modèls o los fichièrs] d'aquesta version son [[{{MediaWiki:Validationpage}}|en espèra de relectura]].\nLa [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version establa] es estada [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] lo <i>$2</i>.",
