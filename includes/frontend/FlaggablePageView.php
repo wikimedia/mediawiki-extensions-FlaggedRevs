@@ -918,10 +918,7 @@ class FlaggablePageView extends ContextSource {
 		}
 
 		if ( $lines ) {
-			$lineMessages = '';
-			foreach ( $lines as $line ) {
-				$lineMessages .= FlaggedRevsHTML::addMessageBox( 'inline', $line );
-			}
+			$lineMessages = FlaggedRevsHTML::addMessageBox( 'block', implode( "\n", $lines ) );
 
 			$notices['flaggedrevs_editnotice'] = Html::rawElement( 'div', [
 				'class' => 'mw-fr-edit-messages',
