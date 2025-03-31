@@ -24,7 +24,7 @@
 	"stabilization-submit": "Onayla",
 	"stabilization-notexists": "\"[[:$1|$1]]\" adında bir sayfa yok.\nYapılandırma mümkün değil.",
 	"stabilization-notcontent": "\"[[:$1|$1]]\" sayfası gözden geçirilemiyor.\nYapılandırma mümkün değil.",
-	"stabilization-comment": "Sebep:",
+	"stabilization-comment": "Gerekçe:",
 	"stabilization-otherreason": "Diğer sebep:",
 	"stabilization-expiry": "Süresi bitiyor:",
 	"stabilization-othertime": "Diğer zaman:",
