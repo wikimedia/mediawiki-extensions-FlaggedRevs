@@ -28,6 +28,7 @@ class ReviewHandler extends SimpleHandler {
 		return $response;
 	}
 
+	/** @inheritDoc */
 	public function needsWriteAccess() {
 		return true;
 	}

@@ -56,6 +56,7 @@ abstract class ApiStabilize extends ApiBase {
 		$this->doExecute(); // child class
 	}
 
+	/** Execution is implemented in child class */
 	abstract public function doExecute();
 
 	/**

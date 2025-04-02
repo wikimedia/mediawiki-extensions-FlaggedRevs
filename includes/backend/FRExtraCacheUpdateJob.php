@@ -64,7 +64,7 @@ class FRExtraCacheUpdateJob extends Job {
 		return true;
 	}
 
-	private function doUpdateLinks() {
+	private function doUpdateLinks(): bool {
 		$fpage = FlaggableWikiPage::getTitleInstance( $this->title );
 		$srev = $fpage->getStableRev();
 		if ( $srev ) {
@@ -85,7 +85,7 @@ class FRExtraCacheUpdateJob extends Job {
 		return true;
 	}
 
-	private function doUpdateSyncState() {
+	private function doUpdateSyncState(): bool {
 		$fpage = FlaggableWikiPage::getTitleInstance( $this->title );
 		if ( !$fpage->getId() || !$fpage->getStable() ) {
 			return true;

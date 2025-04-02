@@ -4,6 +4,7 @@ use MediaWiki\Extension\Scribunto\Engines\LuaCommon\LibraryBase;
 use MediaWiki\Title\Title;
 
 class FlaggedRevsScribuntoLuaLibrary extends LibraryBase {
+	/** @inheritDoc */
 	public function register() {
 		$lib = [
 			'getStabilitySettings' => [ $this, 'getStabilitySettings' ],

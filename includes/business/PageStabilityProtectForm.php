@@ -11,6 +11,7 @@ class PageStabilityProtectForm extends PageStabilityForm {
 			->isWatched( $this->getUser(), $this->title );
 	}
 
+	/** @return string|true */
 	protected function reallyDoCheckParameters() {
 		$oldConfig = $this->getOldConfig();
 		# Autoreview only when protecting currently unprotected pages

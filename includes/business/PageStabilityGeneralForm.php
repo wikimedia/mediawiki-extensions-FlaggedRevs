@@ -41,6 +41,7 @@ class PageStabilityGeneralForm extends PageStabilityForm {
 			->isWatched( $this->getUser(), $this->title );
 	}
 
+	/** @return string|true */
 	protected function reallyDoCheckParameters() {
 		$this->override = $this->override ? 1 : 0; // default version settings is 0 or 1
 		// Check autoreview restriction setting
