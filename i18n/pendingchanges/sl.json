@@ -13,7 +13,7 @@
 	"pendingchanges-days": "($1 {{PLURAL:$1|dan|dneva|dnevi|dni}})",
 	"pendingchanges-recent": "(manj kot 1 ura)",
 	"pendingchanges-category": "Kategorija:",
-	"pendingchanges-onwatchlist": "Strani na mojem spisku nadzorov",
+	"pendingchanges-onwatchlist": "Strani na mojem nadzornem seznamu",
 	"pendingchanges-stable": "Stabilna redakcija je privzeta",
 	"pendingchanges-diff": "preglej",
 	"pendingchanges-size": "Največja sprememba (zlogov):",

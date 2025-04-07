@@ -9,7 +9,8 @@
 			"Prima klasy4na",
 			"Vlad5250",
 			"Ата",
-			"Тест"
+			"Тест",
+			"Mike.Khoroshun"
 		]
 	},
 	"unreviewedpages": "Неперевірені сторінки",
@@ -19,7 +20,7 @@
 	"unreviewedpages-diff": "перевірити",
 	"unreviewedpages-unwatched": "(не спостерігають)",
 	"unreviewedpages-watched": "({{PLURAL:$1|спостерігає $1 активний користувач|спостерігають $1 активні користувачі|спостерігають $1 активних користувачів}})",
-	"unreviewedpages-list": "На цій сторінці перераховані статті, що ще ''не'' були [[{{MediaWiki:Validationpage}}|перевірені]] на зазначений рівень.",
+	"unreviewedpages-list": "На цій сторінці перераховані статті, що ще ''не'' були [[{{MediaWiki:Validationpage}}|перевірені]].",
 	"unreviewedpages-none": "Зараз нема сторінок, що відповідають зазначеним критеріям",
 	"unreviewedpages-viewing": "(перевіряється)",
 	"unreviewedpages-hours": "($1 {{PLURAL:$1|година|години|годин}})",
