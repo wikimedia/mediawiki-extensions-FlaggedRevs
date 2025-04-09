@@ -4,5 +4,7 @@
 			"Don Alessandro"
 		]
 	},
-	"revreview-revnotfound": "Saifeniñ eski versiyası tapılmadı. Lütfen, bu saifege kirmek içün qullanğan bağlantıñıznıñ doğrulığını teşkeriñiz."
+	"revreview-basic-same": "<i>$2</i> tarihında [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} teşkerilgen] [[{{MediaWiki:Validationpage}}|turğun versiya]] kösterile.",
+	"revreview-revnotfound": "Saifeniñ eski versiyası tapılmadı. Lütfen, bu saifege kirmek içün qullanğan bağlantıñıznıñ doğrulığını teşkeriñiz.",
+	"logeventslist-review-log": "İnceleme jurnalı"
 }
