@@ -29,7 +29,7 @@
 	"validationstatistics-synced": "Повторно перевірені",
 	"validationstatistics-old": "Застарілі",
 	"validationstatistics-unreviewed": "Неперевірені",
-	"validationstatistics-utable": "Нижче представлено {{PLURAL:$1|1=найбільш активного редактора|список $1 найбільш активних редакторів}} за {{PLURAL:$2|останню $2 годину|останні $2 години|останніх $2 годин}}.",
+	"validationstatistics-utable": "Нижче представлено {{PLURAL:$1|1=найбільш активного патрульного|список $1 найбільш активних патрульних}} за {{PLURAL:$2|останню $2 годину|останні $2 години|останніх $2 годин}}.",
 	"validationstatistics-user": "Користувач",
 	"validationstatistics-reviews": "Перевірок"
 }
