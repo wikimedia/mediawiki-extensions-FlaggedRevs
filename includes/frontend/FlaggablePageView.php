@@ -631,7 +631,11 @@ class FlaggablePageView extends ContextSource {
 		$this->out->addParserOutput(
 			$parserOut,
 			$parserOptions,
-			[ 'enableSectionEditLinks' => false, ]
+			[
+				'enableSectionEditLinks' => false,
+				// (T391788) This should always be used for full page views
+				'includeDebugInfo' => true,
+			]
 		);
 
 		return $parserOut;
@@ -743,12 +747,16 @@ class FlaggablePageView extends ContextSource {
 
 		# Add the parser output to the page view
 		$pm = MediaWikiServices::getInstance()->getPermissionManager();
-		$poOptions = [];
+		$poOptions = [
+			// (T391788) This should always be used for full page views
+			'includeDebugInfo' => true,
+		];
 		if ( $this->out->isPrintable() ||
 			!$pm->quickUserCan( 'edit', $reqUser, $this->article->getTitle() )
 		) {
 			$poOptions['enableSectionEditLinks'] = false;
 		}
+
 		$this->out->addParserOutput( $parserOut, $parserOptions, $poOptions );
 
 		# Update page sync status for tracking purposes.
@@ -790,7 +798,10 @@ class FlaggablePageView extends ContextSource {
 
 		// Add the ParserOutput to the output page
 		if ( $parserOut ) {
-			$this->out->addParserOutput( $parserOut, $parserOptions );
+			$this->out->addParserOutput( $parserOut, $parserOptions, [
+				// (T391788) This should always be used for full page views
+				'includeDebugInfo' => true,
+			] );
 		}
 
 		return $parserOut;
