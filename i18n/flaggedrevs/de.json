@@ -36,7 +36,8 @@
 			"Inkowik",
 			"Justman10000",
 			"Vhoesl",
-			"XenonX3"
+			"XenonX3",
+			"Doc Taxon"
 		]
 	},
 	"action-autoreview": "eigene Bearbeitungen automatisch als gesichtet zu markieren",
@@ -170,7 +171,7 @@
 	"revreview-reviewlink": "markieren",
 	"revreview-reviewlink-title": "Betrachte den Unterschied aller unmarkierten Änderungen",
 	"revreview-unreviewedpage": "ungesichtete Seite",
-	"tooltip-ca-current": "Die unmarkieren Änderungen dieser Seite ansehen",
+	"tooltip-ca-current": "Die unmarkierten Änderungen dieser Seite anzeigen",
 	"tooltip-ca-stable": "Die stabile Version dieser Seite ansehen",
 	"tooltip-ca-default": "Einstellungen markierte Versionen",
 	"flaggedrevs-protect-legend": "Automatisches markieren von Bearbeitungen",
