@@ -5,10 +5,11 @@
 			"Felipe L. Ewald",
 			"Giro720",
 			"Luckas",
-			"Luckas Blade"
+			"Luckas Blade",
+			"TheEduGobi"
 		]
 	},
-	"stabilization-tab": "vet",
+	"stabilization-tab": "Vet",
 	"stabilization": "Configurações da Garantia de Qualidade",
 	"stabilization-text": "'''Altere os parâmetros abaixo para ajustar a forma como a versão publicada de [[:$1|$1]] é selecionada e apresentada.'''",
 	"stabilization-perm": "A sua conta não tem permissão para alterar a configuração da versão publicada.\nOs parâmetros atuais da página [[:$1|$1]] são:",
