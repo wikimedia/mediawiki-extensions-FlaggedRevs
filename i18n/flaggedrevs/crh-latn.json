@@ -10,6 +10,7 @@
 	"revreview-hist-basic-user": "[[User:$3|$3]] tarafından teşkerildi",
 	"revreview-hist-basic-auto": "avtomatik olaraq teşkerildi",
 	"revreview-basic-same": "<i>$2</i> tarihında [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} teşkerilgen] [[{{MediaWiki:Validationpage}}|turğun versiya]] kösterile.",
+	"revreview-basic-source": "Bu saifeniñ [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} teşkerilgen versiyası], <i>$2</i> tarihında [{{fullurl:{{#Special: Log}}|type=review&page={{FULLPAGENAMEE}}}} tasdıqlandı], bu versiyağa esaslandı.",
 	"revreview-revnotfound": "Saifeniñ eski versiyası tapılmadı. Lütfen, bu saifege kirmek içün qullanğan bağlantıñıznıñ doğrulığını teşkeriñiz.",
 	"logeventslist-review-log": "İnceleme jurnalı"
 }

@@ -29,7 +29,7 @@
 	"apihelp-query+oldreviewedpages-param-start": "Comezar listado neste selo de tempo.",
 	"apihelp-query+oldreviewedpages-param-end": "Rematar listado neste selo de tempo.",
 	"apihelp-query+oldreviewedpages-param-maxsize": "Cantidade máxima dunha modificación en número de caracteres.",
-	"apihelp-query+oldreviewedpages-param-filterwatched": "Como filtrar as páxinas da súa páxina de vixiancia.",
+	"apihelp-query+oldreviewedpages-param-filterwatched": "Como filtrar as páxinas da súa lista de vixilancia.",
 	"apihelp-query+oldreviewedpages-param-namespace": "Espazo de nomes a enumerar.",
 	"apihelp-query+oldreviewedpages-param-category": "Amosar só páxinas pertencentes á categoría indicada.",
 	"apihelp-query+oldreviewedpages-param-filterredir": "Como filtrar as redireccións.",
