@@ -6,7 +6,8 @@
 			"Eduardo.mps",
 			"Felipe L. Ewald",
 			"Giro720",
-			"Raylton P. Sousa"
+			"Raylton P. Sousa",
+			"TheEduGobi"
 		]
 	},
 	"unreviewedpages": "Páginas não analisadas",
@@ -17,7 +18,7 @@
 	"unreviewedpages-unwatched": "(não-vigiada)",
 	"unreviewedpages-watched": "(vigiada por $1 {{PLURAL:$1|usuários ativo|usuários ativos}})",
 	"unreviewedpages-list": "Esta página lista as páginas de conteúdo que ''ainda'' não foram [[{{MediaWiki:Validationpage}}|revisadas]] até ao nível escolhido.",
-	"unreviewedpages-none": "Atualmente não existem páginas que satisfaçam estes critérios",
+	"unreviewedpages-none": "No momento, não existem páginas que satisfaçam esse critério.",
 	"unreviewedpages-viewing": "(sob análise)",
 	"unreviewedpages-hours": "($1 {{PLURAL:$1|hora|horas}})",
 	"unreviewedpages-days": "($1 {{PLURAL:$1|dia|dias}})",

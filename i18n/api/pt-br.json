@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Felipe L. Ewald"
+			"Felipe L. Ewald",
+			"TheEduGobi"
 		]
 	},
 	"apihelp-flagconfig-summary": "Obtenha informações básicas sobre a configuração da bandeira de revisão para este site.",
-	"apihelp-flagconfig-extended-description": "Os seguintes parâmetros são retornados para cada tag:\n;name:O nome da chave desta tag.\n;níveis:Número de níveis que a tag possui (acima \"não Etiquetado \").\n;tier2: Nível que a etiqueta deve alcançar em uma revisão para ser nível 2 (qualidade).\n;tier3: Nível que a etiqueta deve alcançar em uma revisão para ser tier 3 (pristine).\nNotas detalhadas têm um nível atribuído para cada tag. O nível mais alto que todas as tags atendem é o nível de revisão de toda a revisão.",
+	"apihelp-flagconfig-extended-description": "Os seguintes parâmetros são retornados para cada marcação (''tag''):\n;name:O nome da chave dessa marcação.\n;níveis:Número de níveis que a marcação possui (“Não marcados” acima).\nRevisões sinalizadas possuem um nível de atribuição para cada marcação. O nível mais alto que satisfaça todas as marcações é “reviewer”.",
 	"apihelp-flagconfig-example-1": "Obter etiqueta de configuração",
 	"apihelp-query+configuredpages-summary": "Enumerar todas as páginas que tenham configurações de revisão personalizada.",
 	"apihelp-query+configuredpages-param-start": "Começar listando desse ID de página.",
