@@ -1,6 +1,5 @@
 <?php
 
-use MediaWiki\CommentStore\CommentStoreComment;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Title\Title;
@@ -372,28 +371,9 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		}
 
 		# Insert a null revision...
-		$revStore = $services->getRevisionStore();
-		$dbw = $services->getConnectionProvider()->getPrimaryDatabase();
-		$nullRevRecord = $revStore->newNullRevision(
-			$dbw,
-			$article->getTitle(),
-			CommentStoreComment::newUnsavedComment( $comment ),
-			true, // minor
-			$this->user
-		);
-		$insertedRevRecord = $revStore->insertRevisionOn( $nullRevRecord, $dbw );
-		# Update page record and touch page
-		$oldLatest = $insertedRevRecord->getParentId();
-
-		$article->updateRevisionOn( $dbw, $insertedRevRecord, $oldLatest );
-
-		$tags = []; // passed by reference
-		$hookContainer = $services->getHookContainer();
-
-		$hookRunner = new FlaggedRevsHookRunner( $hookContainer );
-		$hookRunner->onRevisionFromEditComplete(
-			$article, $insertedRevRecord, $oldLatest, $this->user, $tags
-		);
+		$insertedRevRecord = $services->getPageUpdaterFactory()
+			->newPageUpdater( $article->getTitle(), $this->user )
+			->saveDummyRevision( $comment, EDIT_MINOR );
 
 		# Return null RevisionRecord object for autoreview check
 		return $insertedRevRecord;
