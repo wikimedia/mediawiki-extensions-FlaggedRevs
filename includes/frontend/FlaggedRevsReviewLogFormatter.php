@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Logging\LogEntry;
+use MediaWiki\Logging\LogFormatter;
 use MediaWiki\Revision\RevisionLookup;
 
 class FlaggedRevsReviewLogFormatter extends LogFormatter {

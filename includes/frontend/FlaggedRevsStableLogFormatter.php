@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Logging\LogFormatter;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\Title\Title;

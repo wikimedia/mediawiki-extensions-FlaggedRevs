@@ -3,12 +3,12 @@ namespace MediaWiki\Extension\FlaggedRevs\Tests\Integration;
 
 use Closure;
 use MediaWiki\Page\PageIdentity;
+use MediaWiki\Page\WikiPage;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\Tests\Api\ApiTestCase;
 use MediaWiki\User\User;
 use RevisionReviewForm;
 use Wikimedia\Timestamp\ConvertibleTimestamp;
-use WikiPage;
 
 /**
  * @covers ApiQueryOldreviewedpages

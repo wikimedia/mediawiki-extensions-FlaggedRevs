@@ -2,9 +2,11 @@
 
 use MediaWiki\Config\ConfigException;
 use MediaWiki\Deferred\DeferredUpdates;
+use MediaWiki\JobQueue\Jobs\HTMLCacheUpdateJob;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Page\PageReference;
+use MediaWiki\Page\WikiPage;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\ParserOptions;
 use MediaWiki\Parser\ParserOutput;

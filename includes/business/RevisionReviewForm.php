@@ -2,6 +2,8 @@
 
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Page\WikiPage;
+use MediaWiki\RecentChanges\RecentChange;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;

@@ -1,6 +1,8 @@
 <?php
 
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Exception\PermissionsError;
+use MediaWiki\Exception\UserBlockedError;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Session\CsrfTokenSet;

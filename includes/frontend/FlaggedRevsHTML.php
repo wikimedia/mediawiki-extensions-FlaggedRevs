@@ -1,7 +1,9 @@
 <?php
 
+use MediaWiki\ChangeTags\ChangeTags;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Html\Html;
+use MediaWiki\Logging\LogEventsList;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 

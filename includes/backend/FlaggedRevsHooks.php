@@ -18,6 +18,7 @@ use MediaWiki\Page\Hook\ArticleDeleteCompleteHook;
 use MediaWiki\Page\Hook\ArticleUndeleteHook;
 use MediaWiki\Page\Hook\RevisionFromEditCompleteHook;
 use MediaWiki\Page\Hook\RevisionUndeletedHook;
+use MediaWiki\Page\WikiPage;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Permissions\Hook\GetUserPermissionsErrorsHook;
 use MediaWiki\Permissions\Hook\UserGetRightsHook;

@@ -1,10 +1,12 @@
 <?php
 
+use MediaWiki\Exception\MWException;
 use MediaWiki\Feed\FeedItem;
 use MediaWiki\Feed\FeedUtils;
 use MediaWiki\Html\Html;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\RecentChanges\ChangesList;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
 

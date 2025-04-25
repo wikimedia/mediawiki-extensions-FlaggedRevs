@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\JobQueue\Job;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 

@@ -2,12 +2,12 @@
 namespace MediaWiki\Extension\FlaggedRevs\Tests\Integration;
 
 use FlaggedRevsStats;
+use MediaWiki\Page\WikiPage;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\Tests\User\TempUser\TempUserTestTrait;
 use MediaWikiIntegrationTestCase;
 use RevisionReviewForm;
 use Wikimedia\Timestamp\ConvertibleTimestamp;
-use WikiPage;
 
 /**
  * @covers FlaggedRevsStats

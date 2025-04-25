@@ -3,6 +3,7 @@
 use MediaWiki\Extension\FlaggedRevs\Backend\Hook\FlaggedRevsStabilitySettingsChangedHook;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Page\Hook\RevisionFromEditCompleteHook;
+use MediaWiki\Page\WikiPage;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\User\UserIdentity;
 

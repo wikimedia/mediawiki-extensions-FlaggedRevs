@@ -3,6 +3,7 @@
 use MediaWiki\Cache\CacheKeyHelper;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageIdentity;
+use MediaWiki\Page\WikiPage;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Storage\PreparedUpdate;
 use Wikimedia\Assert\PreconditionException;
