@@ -22,7 +22,7 @@ class FlaggedRevsTest extends MediaWikiIntegrationTestCase {
 		$this->assertTrue( FlaggedRevs::inReviewNamespace( $media ) );
 	}
 
-	public function provideConfiguration() {
+	public static function provideConfiguration() {
 		return [
 			'everything disabled' => [
 				'config' => [],
