@@ -8,23 +8,24 @@
 			"MuratTheTurkish",
 			"Srhat",
 			"Szoszv",
-			"Vito Genovese"
+			"Vito Genovese",
+			"Sadrettin"
 		]
 	},
 	"validationstatistics": "Sayfa inceleme istatistikleri",
 	"validationstatistics-users": "'''{{SITENAME}}''' sitesinde şuanda [[{{MediaWiki:Validationpage}}|Editör]] yetkisine sahip '''[[Special:ListUsers/editor|$1]]''' kullanıcı bulunmaktadır.\n\nEditörler, sayfalara kontrol revizyonu atayabilen belirli kullanıcılardır.",
 	"validationstatistics-lastupdate": "\"Aşağıdaki veri en son $1, $2 tarihinde güncellendi\"",
-	"validationstatistics-pndtime": "Belirlenmiş kullanıcılar tarafından kontrol edilmiş değişiklikler ''{{int:validationstatistics-stable}}'' olarak kabul edilir.\n\n[[Special:OldReviewedPages|Şu anda incelemeyi bekleyen değişikliğe sahip sayfalar]] için ortalama gecikme süresi: '''$1'''; gecikme en eski bekleyen değişikliğin ne kadardır gözden geçirilmediğini ölçer.",
-	"validationstatistics-revtime": "''Oturum açmamış kullanıcılar'' tarafından yapılan incelenecek değişiklikler için ortalama bekleme süresi '''$1'''; medyan değer ise '''$2''' biçimindedir.\n$3",
-	"validationstatistics-table": "Ad alanları için sayfa inceleme istatistikleri, yönlendirme sayfaları ''dâhil olmadan''  aşağıda gösterilmiştir.\nİnceleme bekleyen değişiklik içeren sayfalar ''{{int:validationstatistics-old}}'', içermeyen sayfalar ise ''{{int:validationstatistics-latest}}'' kabul edilir.",
+	"validationstatistics-pndtime": "Deneyimli kullanıcılar tarafından incelenmiş değişiklikler ''{{int:validationstatistics-stable}}'' (kararlı) kabul edilir.\n\nŞu anda incelenmeyi bekleyen değişiklikler bulunan [[Special:OldReviewedPages|sayfalar]] için ortalama inceleme gecikmesi '''$1''' süredir; bu gecikme, en eski bekleyen değişikliğin ne kadar süredir incelenmeden kaldığını ölçmektedir.",
+	"validationstatistics-revtime": "''Oturum açmamış kullanıcılar'' tarafından yapılan değişikliklerin incelenmesi için ortalama bekleme süresi '''$1'''; medyan bekleme süresi ise '''$2'''dir.\n$3",
+	"validationstatistics-table": "Her ad alanına ait sayfa inceleme istatistikleri aşağıda gösterilmiştir; yönlendirme sayfaları ''hariç tutulmuştur''.\nBir sayfada incelenmeyi bekleyen değişiklikler varsa, bu sayfa ''{{int:validationstatistics-old}}'' (güncelliğini yitirmiş) olarak kabul edilir;\nincelenmeyi bekleyen bir değişiklik yoksa, sayfa ''{{int:validationstatistics-latest}}'' (senkronize) kabul edilir.",
 	"validationstatistics-ns": "Ad alanı",
 	"validationstatistics-total": "Sayfalar",
 	"validationstatistics-stable": "İncelenmiş",
-	"validationstatistics-latest": "Senkronize edildi",
-	"validationstatistics-synced": "Eşitlenmiş/İncelenmiş",
-	"validationstatistics-old": "Eski",
+	"validationstatistics-latest": "Senkronize",
+	"validationstatistics-synced": "Senkronize/İncelenmiş",
+	"validationstatistics-old": "Güncelliğini yitirmiş",
 	"validationstatistics-unreviewed": "İncelenmemiş",
-	"validationstatistics-utable": "Aşağıda son $2 saatteki en etkin $1 inceleyicinin listesi bulunmaktadır.",
+	"validationstatistics-utable": "Aşağıda, son {{PLURAL:$2|saatte|$2 saatte}} {{PLURAL:$1|en aktif inceleyici|$1 en aktif inceleyici}} listelenmiştir.",
 	"validationstatistics-user": "Kullanıcı",
 	"validationstatistics-reviews": "İncelemeler"
 }

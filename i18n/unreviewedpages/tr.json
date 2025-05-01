@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"Joseph",
 			"Karduelis",
 			"MuratTheTurkish",
@@ -19,7 +18,7 @@
 	"unreviewedpages-list": "Bu sayfa, belirlenen seviyeye göre [[{{MediaWiki:Validationpage}}|incelenmemiş]] içerik sayfalarını listeler.",
 	"unreviewedpages-none": "Şu anda bu kriterleri karşılayan bir sayfa bulunmamaktadır",
 	"unreviewedpages-viewing": "(inceleme aşamasında)",
-	"unreviewedpages-hours": "($1 {{PLURAL:$1|saat}})",
-	"unreviewedpages-days": "($1 gün)",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|saat|saat}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|gün|gün}})",
 	"unreviewedpages-recent": "(1 saatten az)"
 }
