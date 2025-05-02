@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Better"
+			"Better",
+			"HackerPunki"
 		]
 	},
 	"editor": "Eitol",
 	"group-editor": "Eitoris",
-	"group-editor-member": "Eitol",
+	"group-editor-member": "{{Gender:$1|ditol|ditora}}",
 	"grouppage-editor": "{{ns:project}}:Eitol",
 	"revreview-revnotfound": "La revisión antigua qu´estás landeandu nu se puei alcuentral. Pol favol, compreba la URL que gastasti pa dil a esta páhina."
 }
