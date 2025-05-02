@@ -111,19 +111,19 @@ class FlaggedRevsStats {
 		// Data range for samples...
 		$dataSet[] = [
 			'frs_stat_key'  => 'reviewLag-anon-sampleStartTimestamp',
-			'frs_stat_val'  => $reviewDataAnon['sampleStartTS'], // unix
+			'frs_stat_val'  => $reviewDataAnon['sampleStartTS'] ?? 0, // unix
 			'frs_timestamp' => $encDataTimestamp ];
 		$dataSet[] = [
 			'frs_stat_key'  => 'reviewLag-user-sampleStartTimestamp',
-			'frs_stat_val'  => $reviewDataUser['sampleStartTS'], // unix
+			'frs_stat_val'  => $reviewDataUser['sampleStartTS'] ?? 0, // unix
 			'frs_timestamp' => $encDataTimestamp ];
 		$dataSet[] = [
 			'frs_stat_key'  => 'reviewLag-anon-sampleEndTimestamp',
-			'frs_stat_val'  => $reviewDataAnon['sampleEndTS'], // unix
+			'frs_stat_val'  => $reviewDataAnon['sampleEndTS'] ?? 0, // unix
 			'frs_timestamp' => $encDataTimestamp ];
 		$dataSet[] = [
 			'frs_stat_key'  => 'reviewLag-user-sampleEndTimestamp',
-			'frs_stat_val'  => $reviewDataUser['sampleEndTS'], // unix
+			'frs_stat_val'  => $reviewDataUser['sampleEndTS'] ?? 0, // unix
 			'frs_timestamp' => $encDataTimestamp ];
 		// All-namespace percentiles...
 		foreach ( $reviewDataAnon['percTable'] as $percentile => $seconds ) {
