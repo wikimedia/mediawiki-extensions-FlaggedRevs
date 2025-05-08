@@ -9,7 +9,8 @@
 			"Raimond Spekking",
 			"The Evil IP address",
 			"Umherirrender",
-			"Justman10000"
+			"Justman10000",
+			"Inkowik"
 		]
 	},
 	"pendingchanges": "Seiten mit unmarkierten Änderungen",
@@ -20,7 +21,7 @@
 	"pendingchanges-days": "($1 {{PLURAL:$1|Tag|Tage}})",
 	"pendingchanges-recent": "(weniger als 1 Stunde)",
 	"pendingchanges-category": "Kategorie:",
-	"pendingchanges-onwatchlist": "nur Seiten auf meiner Beobachtungsliste",
+	"pendingchanges-onwatchlist": "Seiten auf meiner Beobachtungsliste",
 	"pendingchanges-stable": "Die stabile Version ist Standard",
 	"pendingchanges-diff": "sichten",
 	"pendingchanges-size": "Maximale Änderungsgröße in Byte:",
