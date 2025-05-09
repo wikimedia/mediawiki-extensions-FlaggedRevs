@@ -7,7 +7,7 @@ use MediaWiki\Extension\GoogleNewsSitemap\Specials\GoogleNewsSitemap;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Hook\ArticleMergeCompleteHook;
 use MediaWiki\Hook\ArticleRevisionVisibilitySetHook;
-use MediaWiki\Hook\MagicWordwgVariableIDsHook;
+use MediaWiki\Hook\GetMagicVariableIDsHook;
 use MediaWiki\Hook\PageMoveCompleteHook;
 use MediaWiki\Hook\ParserFirstCallInitHook;
 use MediaWiki\Hook\ParserGetVariableValueSwitchHook;
@@ -54,7 +54,7 @@ class FlaggedRevsHooks implements
 	AutopromoteConditionHook,
 	BeforeRevertedTagUpdateHook,
 	getUserPermissionsErrorsHook,
-	MagicWordwgVariableIDsHook,
+	GetMagicVariableIDsHook,
 	RevisionFromEditCompleteHook,
 	PageSaveCompleteHook,
 	PageMoveCompleteHook,
@@ -310,14 +310,14 @@ class FlaggedRevsHooks implements
 	/**
 	 * @inheritDoc
 	 */
-	public function onMagicWordwgVariableIDs( &$words ) {
+	public function onGetMagicVariableIDs( &$variableIDs ): void {
 		global $wgFlaggedRevsProtection;
 
 		if ( !$wgFlaggedRevsProtection ) {
 			return;
 		}
 
-		$words[] = 'pendingchangelevel';
+		$variableIDs[] = 'pendingchangelevel';
 	}
 
 	/**

@@ -367,7 +367,7 @@
 		"InfoAction": "ui",
 		"InitializeArticleMaybeRedirect": "ui",
 		"LoadExtensionSchemaUpdates": "updater",
-		"MagicWordwgVariableIDs": "main",
+		"GetMagicVariableIDs": "main",
 		"MakeGlobalVariablesScript": "ui",
 		"MediaWikiServices": "services",
 		"MergeAccountFromTo": "FlaggedRevsHooks::onMergeAccountFromTo",
