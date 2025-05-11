@@ -50,7 +50,6 @@
 	"revreview-check-flag-y-title": "{{Flagged Revs}}\n{{Gender}}",
 	"revreview-flag": "{{Flagged Revs-small}}\n* Title of the review box shown below a page (when you have the permission to review pages). This is used for un-accepted revisions.",
 	"revreview-reflag": "{{Flagged Revs-small}}\n* Title of the review box shown below a page (when you have the permission to review pages). This is used for already accepted revisions.",
-	"revreview-invalid": "{{Flagged Revs}}\nUsed when viewing a page with a bad <code>?stableid=x</code> parameter (similar to <code>?oldid=</code> parameter).\n\nRefers to {{msg-mw|Validationpage}}.",
 	"revreview-log": "{{Flagged Revs}}\nShown on review form.\n{{Identical|Comment}}",
 	"revreview-main": "{{Flagged Revs}}\nShown on Special:RevisionReview.\n{{Identical|Content page}}",
 	"revreview-stable1": "{{Flagged Revs}}\nShown after accepting a revision of a page. Parameters:\n* $1 - the page title\n* $2 - revision ID just reviewed",

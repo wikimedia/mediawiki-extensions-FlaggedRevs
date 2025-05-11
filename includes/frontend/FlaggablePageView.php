@@ -134,7 +134,7 @@ class FlaggablePageView extends ContextSource {
 			// Page is reviewable and has a stable version
 			$this->article->getStableRev() &&
 			// No parameters requesting a different version of the page
-			!$request->getCheck( 'oldid' ) && !$request->getCheck( 'stableid' )
+			!$request->getCheck( 'oldid' )
 		);
 		if ( !$canShowStable ) {
 			return false;
@@ -221,36 +221,6 @@ class FlaggablePageView extends ContextSource {
 		if ( $this->article->isReviewable() && $this->reviewNotice ) {
 			$this->out->addSubtitle( $this->reviewNotice );
 		}
-	}
-
-	/**
-	 * Add a stable link when viewing old versions of an article that
-	 * have been reviewed. (e.g. for &oldid=x urls)
-	 */
-	public function addStableLink(): void {
-		$request = $this->getRequest();
-		if ( !$this->article->isReviewable() ||
-			!$request->getVal( 'oldid' ) ||
-			$this->out->isPrintable()
-		) {
-			return;
-		}
-
-		# We may have nav links like "direction=prev&oldid=x"
-		$revID = $this->getOldIDFromRequest();
-		$frev = FlaggedRevision::newFromTitle( $this->article->getTitle(), $revID );
-		if ( !$frev ) {
-			return;
-		}
-
-		# Give a notice if this rev ID corresponds to a reviewed version...
-		$time = $this->getLanguage()->date( $frev->getTimestamp(), true );
-		$message = $this->msg( 'revreview-basic-source', $frev->getRevId(), $time )->parse();
-		$html = FlaggedRevsHTML::addMessageBox( 'block', $message, [
-			'id' => 'mw-fr-revision-tag-old',
-			'class' => 'flaggedrevs_notice plainlinks noprint'
-		] );
-		$this->out->addHTML( $html );
 	}
 
 	/**
@@ -355,29 +325,6 @@ class FlaggablePageView extends ContextSource {
 		$requestedRevision = $this->determineRequestedRevision();
 
 		switch ( $requestedRevision ) {
-			// Called when visiting index.php?title=[Title]&stableid=[Revision ID]. This kind of link
-			// is provided to the user when viewing oldids. There is a message that says "a checked
-			// version of this page...", and this link is what is visited when you click on "checked
-			// version". The "invalid" state occurs when Revision ID  is not a stable, reviewed
-			// revision. Shows an error message.
-			case 'invalid':
-				$this->out->addWikiMsg( 'revreview-invalid' );
-				$this->out->returnToMain( false, $this->article->getTitle() );
-				$outputDone = true;
-				$useParserCache = false;
-				return;
-
-			// Called when visiting index.php?title=[Title]&stableid=[Revision ID]. This kind of link
-			// is provided to the user when viewing oldids. There is a message that says "a checked
-			// version of this page...", and this link is what is visited when you click on "checked
-			// version". The "old" state occurs when Revision ID is a stable, reviewed revision.
-			// Shows that revision.
-			case 'old':
-				$outputDone = $this->showOldReviewedVersion( $this->frev, $tag );
-				$tagTypeClass = 'mw-fr-old-stable';
-				$useParserCache = false;
-				break;
-
 			// "Stable" means that a reviewed version of the page is being displayed. This can happen
 			// if the top revision has been marked reviewed, or if $wgFlaggedRevsOverride is set to
 			// true and a non-reviewer is viewing a page with unreviewed edits. In the latter case,
@@ -438,37 +385,19 @@ class FlaggablePageView extends ContextSource {
 	/**
 	 * Determines the type of revision requested based on the current request.
 	 *
-	 * This method examines the request parameters to identify whether the user has requested a specific
-	 * revision (e.g., via 'stableid'). It determines whether to show a stable, old reviewed, draft,
-	 * or unreviewed version of the page. If no specific revision is requested, it falls back on the
-	 * user's preferences and site configuration to decide which version to show.
+	 * This method determines whether to show a stable, old reviewed, draft, or unreviewed version of
+	 * the page. If no specific revision is requested, it falls back on the user's preferences and
+	 * site configuration to decide which version to show.
 	 *
 	 * The method updates the stable and flagged revision properties (`$srev` and `$frev`) accordingly.
 	 *
 	 * @return string The type of revision requested: 'invalid', 'old', 'stable', 'draft', or 'unreviewed'.
 	 */
 	private function determineRequestedRevision(): string {
-		$request = $this->getRequest();
 		$this->srev = $this->article->getStableRev();
 		$this->frev = $this->srev;
-		$stableId = $this->srev ? $this->srev->getRevId() : 0;
 
-		$reqId = $request->getVal( 'stableid' );
-		if ( $reqId === "best" ) {
-			$reqId = $this->article->getBestFlaggedRevId();
-		}
-		if ( $reqId ) {
-			if ( !$stableId ) {
-				return 'invalid'; // Invalid ID
-			} elseif ( $stableId == $reqId ) {
-				return 'stable'; // Stable version requested
-			} else {
-				$this->frev = FlaggedRevision::newFromTitle( $this->article->getTitle(), $reqId );
-				return $this->frev ? 'old' : 'invalid'; // Old reviewed version requested, or invalid ID
-			}
-		}
-
-		// If no specific revision is requested, determine whether to show the draft or unreviewed version
+		// Determine whether to show the draft or unreviewed version
 		if ( $this->frev ) {
 			if ( $this->showingStable() || $this->article->stableVersionIsSynced() ) {
 				return 'stable';
@@ -483,15 +412,13 @@ class FlaggablePageView extends ContextSource {
 	 * If the page has a stable version and it shows by default,
 	 * tell search crawlers to index only that version of the page.
 	 * Also index the draft as well if they are synced (bug 27173).
-	 * However, any URL with ?stableid=x should not be indexed (as with ?oldid=x).
 	 */
 	public function setRobotPolicy(): void {
 		$request = $this->getRequest();
 		if ( $this->article->getStableRev() && $this->article->isStableShownByDefault() ) {
 			if ( $this->isPageView() && $this->showingStable() ) {
 				return; // stable version - index this
-			} elseif ( !$request->getVal( 'stableid' )
-				&& $this->out->getRevisionId() == $this->article->getStable()
+			} elseif ( $this->out->getRevisionId() == $this->article->getStable()
 				&& $this->article->stableVersionIsSynced()
 			) {
 				return; // draft that is synced with the stable version - index this
@@ -607,69 +534,6 @@ class FlaggablePageView extends ContextSource {
 				$tag .= $msgHTML . $diffToggle;
 			}
 		}
-	}
-
-	/**
-	 * Displays an old reviewed version of a page.
-	 *
-	 * Called when visiting index.php?title=[Title]&stableid=[Revision ID]. This kind of link
-	 * is provided to the user when viewing oldids. There is a message that says "a checked
-	 * version of this page...", and this link is what is visited when you click on "checked
-	 * version".
-	 *
-	 * This method outputs an older reviewed version of the page. It sets the revision ID for display
-	 * and generates the appropriate tags and notices, including handling the case where the page has
-	 * pending revisions. It creates a `ParserOutput` for this version and adds it to the output page.
-	 *
-	 * The method is primarily used when viewing a specific old version of a page.
-	 *
-	 * @param FlaggedRevision $frev The selected flagged revision.
-	 * @param string &$tag Reference to the variable holding the review box/bar info.
-	 *
-	 * @return ?ParserOutput The generated ParserOutput for the old reviewed version, or null if generation fails.
-	 */
-	private function showOldReviewedVersion( FlaggedRevision $frev, string &$tag ): ?ParserOutput {
-		$reqUser = $this->getUser();
-		$time = $this->getLanguage()->date( $frev->getTimestamp(), true );
-		# Set display revision ID
-		$this->out->setRevisionId( $frev->getRevId() );
-
-		# Construct some tagging for non-printable outputs. Note that the pending
-		# notice has all this info already, so don't do this if we added that already.
-		if ( !$this->out->isPrintable() ) {
-			// Simple icon-based UI
-			if ( $this->useSimpleUI() ) {
-				# For protection based configs, show lock only if it's not redundant.
-				$revsSince = $this->article->getPendingRevCount();
-				$srev = $this->article->getStableRev();
-				$revisionId = $srev->getRevId();
-				$tag = FlaggedRevsHTML::reviewDialog( $frev, $revisionId, $revsSince );
-				// Standard UI
-			} else {
-				$msg = 'revreview-basic-old';
-				$tag = $this->msg( $msg, $frev->getRevId(), $time )->parse();
-			}
-		}
-
-		# Generate the uncached parser output for this old reviewed version
-		$parserOptions = $this->makeParserOptions( $reqUser );
-		$parserOut = FlaggedRevs::parseStableRevision( $frev, $parserOptions );
-		if ( !$parserOut ) {
-			return null;
-		}
-
-		# Add the parser output to the page view
-		$this->out->addParserOutput(
-			$parserOut,
-			$parserOptions,
-			[
-				'enableSectionEditLinks' => false,
-				// (T391788) This should always be used for full page views
-				'includeDebugInfo' => true,
-			]
-		);
-
-		return $parserOut;
 	}
 
 	/**
