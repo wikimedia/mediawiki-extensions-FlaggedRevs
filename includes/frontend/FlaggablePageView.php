@@ -321,7 +321,10 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	 * Handles the display of the page content, prioritizing the last stable version if possible.
+	 * Determines what page content to display, prioritizing the most recent stable version if
+	 * $wgFlaggedRevsOverride is set to true.
+	 *
+	 * Handles regular page views (?action=view) only. Does not handle oldids or diffs.
 	 *
 	 * This method replaces the current page view with the last stable version if conditions allow.
 	 * It determines the type of revision requested by the user (e.g., 'stable', 'draft', 'unreviewed'),
@@ -352,6 +355,11 @@ class FlaggablePageView extends ContextSource {
 		$requestedRevision = $this->determineRequestedRevision();
 
 		switch ( $requestedRevision ) {
+			// Called when visiting index.php?title=[Title]&stableid=[Revision ID]. This kind of link
+			// is provided to the user when viewing oldids. There is a message that says "a checked
+			// version of this page...", and this link is what is visited when you click on "checked
+			// version". The "invalid" state occurs when Revision ID  is not a stable, reviewed
+			// revision. Shows an error message.
 			case 'invalid':
 				$this->out->addWikiMsg( 'revreview-invalid' );
 				$this->out->returnToMain( false, $this->article->getTitle() );
@@ -359,12 +367,21 @@ class FlaggablePageView extends ContextSource {
 				$useParserCache = false;
 				return;
 
+			// Called when visiting index.php?title=[Title]&stableid=[Revision ID]. This kind of link
+			// is provided to the user when viewing oldids. There is a message that says "a checked
+			// version of this page...", and this link is what is visited when you click on "checked
+			// version". The "old" state occurs when Revision ID is a stable, reviewed revision.
+			// Shows that revision.
 			case 'old':
 				$outputDone = $this->showOldReviewedVersion( $this->frev, $tag );
 				$tagTypeClass = 'mw-fr-old-stable';
 				$useParserCache = false;
 				break;
 
+			// "Stable" means that a reviewed version of the page is being displayed. This can happen
+			// if the top revision has been marked reviewed, or if $wgFlaggedRevsOverride is set to
+			// true and a non-reviewer is viewing a page with unreviewed edits. In the latter case,
+			// the unreviewed edits will be hidden and replaced with the "stable", reviewed version.
 			case 'stable':
 				$outputDone = $this->showStableVersion( $this->srev, $tag );
 				$tagTypeClass = $this->article->stableVersionIsSynced() ? 'mw-fr-stable-synced' :
@@ -372,12 +389,18 @@ class FlaggablePageView extends ContextSource {
 				$useParserCache = false;
 				break;
 
+			// "Draft" means that a reviewer is viewing a page with some unreviewed edits. Unreviewed
+			// edits are being displayed. If $wgFlaggedRevsOverride is set to true, unreviewed edits
+			// are only displayed to reviewers.
 			case 'draft':
 				$this->showDraftVersion( $this->srev, $tag );
 				$tagTypeClass = $this->article->stableVersionIsSynced() ? 'mw-fr-draft-synced' :
 					'mw-fr-draft-not-synced';
 				break;
 
+			// A new article that has never been reviewed. No revisions will be hidden regardless of
+			// settings. We don't have a "stable", reviewed revision yet, so we have to show an
+			// unreviewed revision.
 			case 'unreviewed':
 			default:
 				$outputDone = $this->showUnreviewedVersion( $tag );
@@ -589,6 +612,11 @@ class FlaggablePageView extends ContextSource {
 	/**
 	 * Displays an old reviewed version of a page.
 	 *
+	 * Called when visiting index.php?title=[Title]&stableid=[Revision ID]. This kind of link
+	 * is provided to the user when viewing oldids. There is a message that says "a checked
+	 * version of this page...", and this link is what is visited when you click on "checked
+	 * version".
+	 *
 	 * This method outputs an older reviewed version of the page. It sets the revision ID for display
 	 * and generates the appropriate tags and notices, including handling the case where the page has
 	 * pending revisions. It creates a `ParserOutput` for this version and adds it to the output page.
@@ -772,14 +800,15 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	 * Displays an unreviewed version of a page.
+	 * Displays a page with no reviewed revisions. Will display the most recent revision.
 	 *
 	 * This method handles the display of an unreviewed version of the page, showing the appropriate
 	 * UI elements based on user preferences (simple or detailed). It sets the appropriate tag and
 	 * tag type class to indicate the page's unreviewed status. The method generates a `ParserOutput`
 	 * for the unreviewed version and adds it to the output page.
 	 *
-	 * The method is used when there is no stable version or when a draft needs to be displayed.
+	 * The method is used when a page has no reviewed revisions in its history. In other words, it
+	 * is used for newly created pages by non-reviewers.
 	 *
 	 * @param string &$tag Reference to the variable holding the review box/bar info.
 	 *
@@ -798,6 +827,9 @@ class FlaggablePageView extends ContextSource {
 		// Generate the ParserOutput for the unreviewed version
 		$parserOptions = $this->makeParserOptions( $reqUser );
 		$parserOut = $this->article->getParserOutput( $parserOptions );
+
+		// Set the output revision ID so that the "Permanent link" link works. T384778
+		$this->out->setRevisionId( $this->article->getRevisionRecord()->getId() );
 
 		// Add the ParserOutput to the output page
 		if ( $parserOut ) {
