@@ -829,7 +829,10 @@ class FlaggablePageView extends ContextSource {
 		$parserOut = $this->article->getParserOutput( $parserOptions );
 
 		// Set the output revision ID so that the "Permanent link" link works. T384778
-		$this->out->setRevisionId( $this->article->getRevisionRecord()->getId() );
+		$rev = $this->article->getRevisionRecord();
+		if ( $rev ) {
+			$this->out->setRevisionId( $rev->getId() );
+		}
 
 		// Add the ParserOutput to the output page
 		if ( $parserOut ) {
