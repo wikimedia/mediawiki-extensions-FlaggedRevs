@@ -175,21 +175,35 @@ class Stabilization extends UnlistedSpecialPage {
 		# Build up the form...
 		$s .= Html::openElement( 'form', [ 'name' => 'stabilization',
 			'action' => $this->getPageTitle()->getLocalURL(), 'method' => 'post' ] );
-		# Add stable version override and selection options
+		# Add "Revision displayed on default page view"
 		$s .=
-			Xml::fieldset( $this->msg( 'stabilization-def' )->text() ) . "\n" .
-			Xml::radioLabel( $this->msg( 'stabilization-def1' )->text(), 'wpStableconfig-override', '1',
-				'default-stable', $form->getOverride() == 1, $this->disabledAttr() ) .
-				'<br />' . "\n" .
-			Xml::radioLabel( $this->msg( 'stabilization-def2' )->text(), 'wpStableconfig-override', '0',
-				'default-current', $form->getOverride() == 0, $this->disabledAttr() ) . "\n" .
+			Html::openElement( 'fieldset' ) .
+			Html::element( 'legend', [], $this->msg( 'stabilization-def' )->text() ) . "\n" .
+			Html::radio( 'wpStableconfig-override', $form->getOverride() == 1, array_merge(
+				[
+					'id' => 'default-stable',
+					'value' => '1',
+				],
+				$this->disabledAttr()
+			) ) . '&nbsp;' .
+			Html::label( $this->msg( 'stabilization-def1' )->text(), 'default-stable' ) . '<br>' . "\n" .
+			Html::radio( 'wpStableconfig-override', $form->getOverride() == 0, array_merge(
+				[
+					'id' => 'default-current',
+					'value' => '0',
+				],
+				$this->disabledAttr()
+			) ) . '&nbsp;' .
+			Html::label( $this->msg( 'stabilization-def2' )->text(), 'default-current' ) . "\n" .
 			Html::closeElement( 'fieldset' );
-		# Add autoreview restriction select
-		$s .= Xml::fieldset( $this->msg( 'stabilization-restrict' )->text() ) .
+		# Add "Review/auto-review restrictions"
+		$s .= Html::openElement( 'fieldset' ) .
+			Html::element( 'legend', [], $this->msg( 'stabilization-restrict' )->text() ) .
 			$this->buildSelector( $form->getAutoreview() ) .
-			Html::closeElement( 'fieldset' ) .
-
-			Xml::fieldset( $this->msg( 'stabilization-leg' )->text() ) .
+			Html::closeElement( 'fieldset' );
+		# Add "Confirm stable version settings"
+		$s .= Html::openElement( 'fieldset' ) .
+			Html::element( 'legend', [], $this->msg( 'stabilization-leg' )->text() ) .
 			Html::openElement( 'table' );
 		# Add expiry dropdown to form...
 		if ( $showProtectOptions && $form->isAllowed() ) {
