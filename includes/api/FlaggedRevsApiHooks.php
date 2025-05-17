@@ -5,12 +5,20 @@ use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiQueryRevisions;
 use MediaWiki\Api\Hook\APIGetAllowedParamsHook;
 use MediaWiki\Api\Hook\APIQueryAfterExecuteHook;
-use MediaWiki\MediaWikiServices;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 class FlaggedRevsApiHooks implements
 	APIGetAllowedParamsHook,
 	APIQueryAfterExecuteHook
 {
+
+	private IConnectionProvider $dbProvider;
+
+	public function __construct(
+		IConnectionProvider $dbProvider
+	) {
+		$this->dbProvider = $dbProvider;
+	}
 
 	/**
 	 * @inheritDoc
@@ -58,8 +66,7 @@ class FlaggedRevsApiHooks implements
 		}
 
 		// Construct SQL Query
-		$db = MediaWikiServices::getInstance()->getConnectionProvider()
-			->getReplicaDatabase( false, 'api' );
+		$db = $this->dbProvider->getReplicaDatabase( false, 'api' );
 
 		$qb = $db->newSelectQueryBuilder()
 			->select( [
