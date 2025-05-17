@@ -357,7 +357,7 @@
 		"ContributionsLineEnding": "ui",
 		"DeleteAccount": "FlaggedRevsHooks::onDeleteAccount",
 		"DifferenceEngineViewHeader": "ui",
-		"EchoGetDefaultNotifiedUsers": "FlaggedRevsHooks::onEchoGetDefaultNotifiedUsers",
+		"BeforeCreateEchoEvent": "FlaggedRevsHooks::onBeforeCreateEchoEvent",
 		"EditPageBeforeEditButtons": "ui",
 		"EditPageGetCheckboxesDefinition": "ui",
 		"EditPageNoSuchSection": "ui",

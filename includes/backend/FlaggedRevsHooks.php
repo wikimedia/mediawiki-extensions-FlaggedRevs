@@ -4,7 +4,8 @@
 use MediaWiki\Config\Config;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Extension\GoogleNewsSitemap\Specials\GoogleNewsSitemap;
-use MediaWiki\Extension\Notifications\Model\Event;
+use MediaWiki\Extension\Notifications\AttributeManager;
+use MediaWiki\Extension\Notifications\UserLocator;
 use MediaWiki\Hook\ArticleMergeCompleteHook;
 use MediaWiki\Hook\ArticleRevisionVisibilitySetHook;
 use MediaWiki\Hook\GetMagicVariableIDsHook;
@@ -1375,20 +1376,24 @@ class FlaggedRevsHooks implements
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/EchoGetDefaultNotifiedUsers
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforeCreateEchoEvent
 	 *
 	 * This should go once we can remove all Echo-specific code for reverts,
 	 * see: T153570
-	 * @param Event $event Event to get implicitly subscribed users for
-	 * @param User[] &$users Array to append implicitly subscribed users to.
+	 *
+	 * @inheritDoc
 	 */
-	public static function onEchoGetDefaultNotifiedUsers( $event, &$users ) {
-		$extra = $event->getExtra();
-		if ( $event->getType() == 'reverted' && $extra['method'] == 'flaggedrevs-reject' ) {
-			foreach ( $extra['reverted-users-ids'] as $userId ) {
-				$users[$userId] = User::newFromId( intval( $userId ) );
-			}
-		}
+	public static function onBeforeCreateEchoEvent(
+		array &$notifications,
+		array &$notificationCategories,
+		array &$notificationIcons
+	) {
+		// Override default handlers
+		// FlaggedRevs uses a different 'extra' property to pass multiple reverted users
+		$notifications['reverted'][AttributeManager::ATTR_LOCATORS][] = [
+			[ UserLocator::class, 'locateFromEventExtra' ],
+			[ 'reverted-users-ids' ]
+		];
 	}
 
 	/**
