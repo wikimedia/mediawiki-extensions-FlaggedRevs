@@ -4,14 +4,12 @@ use MediaWiki\Cache\CacheKeyHelper;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Page\WikiPage;
-use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Storage\PreparedUpdate;
 use Wikimedia\Assert\PreconditionException;
 use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IDBAccessObject;
 use Wikimedia\Rdbms\IReadableDatabase;
-use Wikimedia\Rdbms\SelectQueryBuilder;
 
 /**
  * Class representing a MediaWiki article and history
@@ -366,30 +364,6 @@ class FlaggableWikiPage extends WikiPage {
 			$this->loadPageData();
 		}
 		return $this->syncedInTracking;
-	}
-
-	/**
-	 * Get the newest of the highest rated flagged revisions of this page
-	 * Note: will not return deleted revisions
-	 * @return int
-	 */
-	public function getBestFlaggedRevId() {
-		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
-
-		# Get the highest quality revision (not necessarily this one).
-		$oldid = $dbr->newSelectQueryBuilder()
-			->select( 'fr_rev_id' )
-			->from( 'flaggedrevs' )
-			->join( 'revision', null, 'rev_id = fr_rev_id' )
-			->where( [
-				'fr_page_id' => $this->getId(),
-				'rev_page = fr_page_id', // sanity
-				$dbr->bitAnd( 'rev_deleted', RevisionRecord::DELETED_TEXT ) . ' = 0'
-			] )
-			->orderBy( [ 'fr_rev_timestamp', 'fr_rev_id' ], SelectQueryBuilder::SORT_DESC )
-			->caller( __METHOD__ )
-			->fetchField();
-		return (int)$oldid;
 	}
 
 	/**

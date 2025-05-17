@@ -33,7 +33,6 @@
 	"revreview-check-flag-y-title": "Accept all the changes that you have made here.",
 	"revreview-flag": "Review this revision",
 	"revreview-reflag": "Re-review this revision",
-	"revreview-invalid": "'''Invalid target:''' no [[{{MediaWiki:Validationpage}}|reviewed]] revision corresponds to the given ID.",
 	"revreview-log": "Comment:",
 	"revreview-main": "You must select a particular revision of a content page in order to review.\n\nSee the [[Special:Unreviewedpages|list of unreviewed pages]].",
 	"revreview-stable1": "You may want to view [{{fullurl:$1|stableid=$2}} this flagged version] and see if it is now the [{{fullurl:$1|stable=1}} stable version] of this page.",

@@ -259,7 +259,6 @@ class FlaggedRevsUIHooks implements
 	public function onArticleViewHeader( $article, &$outputDone, &$useParserCache ) {
 		if ( $article->getTitle()->canExist() ) {
 			$view = FlaggablePageView::newFromTitle( $article->getTitle() );
-			$view->addStableLink();
 			$view->setPageContent( $outputDone, $useParserCache );
 		}
 	}
@@ -274,6 +273,14 @@ class FlaggedRevsUIHooks implements
 		&$target,
 		&$article
 	) {
+		// Are we viewing a page with a ?stableid= URI? If so, redirect it to ?oldid=.
+		// This is to keep backwards compatibility for a feature that was deleted (T393846).
+		$stableId = $request->getInt( 'stableid' );
+		if ( $stableId ) {
+			$target = $title->getFullURL( [ 'oldid' => $stableId ] );
+			return;
+		}
+
 		global $wgParserCacheExpireTime;
 		$wikiPage = $article->getPage();
 
@@ -281,11 +288,7 @@ class FlaggedRevsUIHooks implements
 		if ( !$fa->isReviewable() ) {
 			return;
 		}
-		# Viewing an old reviewed version...
-		if ( $request->getVal( 'stableid' ) ) {
-			$ignoreRedirect = true; // don't redirect (same as ?oldid=x)
-			return;
-		}
+
 		$srev = $fa->getStableRev();
 		$view = FlaggablePageView::newFromTitle( $title );
 		# Check if we are viewing an unsynced stable version...
