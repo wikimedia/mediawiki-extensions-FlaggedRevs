@@ -80,9 +80,6 @@ class ApiStabilizeProtect extends ApiStabilize {
 				ApiBase::PARAM_HELP_MSG => 'apihelp-stabilize-param-expiry-protect',
 			],
 			'reason' => '',
-		];
-
-		$params += [
 			'title' => [
 				ParamValidator::PARAM_REQUIRED => true,
 				ApiBase::PARAM_HELP_MSG => 'apihelp-stabilize-param-title-protect',
