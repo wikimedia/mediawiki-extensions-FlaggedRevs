@@ -22,7 +22,8 @@
  */
 
 use MediaWiki\Api\ApiBase;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Api\ApiMain;
+use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Title\Title;
 use Wikimedia\ParamValidator\ParamValidator;
 
@@ -32,6 +33,17 @@ use Wikimedia\ParamValidator\ParamValidator;
  * @ingroup FlaggedRevs
  */
 class ApiReview extends ApiBase {
+
+	private RevisionLookup $revisionLookup;
+
+	public function __construct(
+		ApiMain $main,
+		string $action,
+		RevisionLookup $revisionLookup
+	) {
+		parent::__construct( $main, $action );
+		$this->revisionLookup = $revisionLookup;
+	}
 
 	/**
 	 * The method checks basic permissions of the user to interact
@@ -46,9 +58,7 @@ class ApiReview extends ApiBase {
 
 		// Get target rev and title
 		$revid = (int)$params['revid'];
-		$revRecord = MediaWikiServices::getInstance()
-			->getRevisionLookup()
-			->getRevisionById( $revid );
+		$revRecord = $this->revisionLookup->getRevisionById( $revid );
 		if ( !$revRecord ) {
 			$this->dieWithError( [ 'apierror-nosuchrevid', $revid ], 'notarget' );
 		}

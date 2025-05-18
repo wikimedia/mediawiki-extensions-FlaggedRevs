@@ -56,7 +56,12 @@
 		}
 	},
 	"APIModules": {
-		"review": "ApiReview",
+		"review": {
+			"class": "ApiReview",
+			"services": [
+				"RevisionLookup"
+			]
+		},
 		"flagconfig": "ApiFlagConfig"
 	},
 	"APIPropModules": {
