@@ -5,9 +5,11 @@ use MediaWiki\Feed\FeedItem;
 use MediaWiki\Feed\FeedUtils;
 use MediaWiki\Html\Html;
 use MediaWiki\MainConfigNames;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\RecentChanges\ChangesList;
+use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\SpecialPage\SpecialPageFactory;
+use MediaWiki\Title\NamespaceInfo;
 use MediaWiki\Title\Title;
 
 class PendingChanges extends SpecialPage {
@@ -20,9 +22,20 @@ class PendingChanges extends SpecialPage {
 	private ?int $size;
 	private bool $watched;
 
-	public function __construct() {
+	private NamespaceInfo $namespaceInfo;
+	private RevisionLookup $revisionLookup;
+	private SpecialPageFactory $specialPageFactory;
+
+	public function __construct(
+		NamespaceInfo $namespaceInfo,
+		RevisionLookup $revisionLookup,
+		SpecialPageFactory $specialPageFactory
+	) {
 		parent::__construct( 'PendingChanges' );
 		$this->mIncludable = true;
+		$this->namespaceInfo = $namespaceInfo;
+		$this->revisionLookup = $revisionLookup;
+		$this->specialPageFactory = $specialPageFactory;
 	}
 
 	/**
@@ -311,8 +324,7 @@ class PendingChanges extends SpecialPage {
 		$languageCode = $this->getConfig()->get( MainConfigNames::LanguageCode );
 		$sitename = $this->getConfig()->get( MainConfigNames::Sitename );
 
-		$page = MediaWikiServices::getInstance()->getSpecialPageFactory()
-			->getPage( 'PendingChanges' );
+		$page = $this->specialPageFactory->getPage( 'PendingChanges' );
 		$desc = $page->getDescription();
 		return "$sitename - $desc [$languageCode]";
 	}
@@ -329,9 +341,8 @@ class PendingChanges extends SpecialPage {
 		}
 
 		$date = $row->pending_since;
-		$services = MediaWikiServices::getInstance();
-		$comments = $services->getNamespaceInfo()->getTalkPage( $title );
-		$curRevRecord = $services->getRevisionLookup()->getRevisionByTitle( $title );
+		$comments = $this->namespaceInfo->getTalkPage( $title );
+		$curRevRecord = $this->revisionLookup->getRevisionByTitle( $title );
 		$currentComment = $curRevRecord->getComment() ? $curRevRecord->getComment()->text : '';
 		$currentUserText = $curRevRecord->getUser() ? $curRevRecord->getUser()->getName() : '';
 		return new FeedItem(
