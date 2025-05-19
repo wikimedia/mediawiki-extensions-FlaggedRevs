@@ -22,7 +22,7 @@
  */
 
 use MediaWiki\Api\ApiQueryBase;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Api\ApiResult;
 
 /**
  * Query module to get flagging information about pages via 'prop=flagged'
@@ -68,7 +68,6 @@ class ApiQueryFlagged extends ApiQueryBase {
 		$this->addFields( [ 'fpc_page_id', 'fpc_level', 'fpc_expiry' ] );
 		$this->addWhereFld( 'fpc_page_id', $pageids );
 
-		$contLang = MediaWikiServices::getInstance()->getContentLanguage();
 		foreach ( $this->select( __METHOD__ ) as $row ) {
 			$result->addValue(
 				[ 'query', 'pages', $row->fpc_page_id, 'flagged' ],
@@ -78,7 +77,7 @@ class ApiQueryFlagged extends ApiQueryBase {
 			$result->addValue(
 				[ 'query', 'pages', $row->fpc_page_id, 'flagged' ],
 				'protection_expiry',
-				$contLang->formatExpiry( $row->fpc_expiry, TS_ISO_8601 )
+				ApiResult::formatExpiry( $row->fpc_expiry )
 			);
 		}
 	}

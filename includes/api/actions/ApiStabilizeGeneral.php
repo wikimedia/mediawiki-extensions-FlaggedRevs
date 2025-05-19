@@ -21,7 +21,7 @@
  */
 
 use MediaWiki\Api\ApiBase;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Api\ApiResult;
 use Wikimedia\ParamValidator\ParamValidator;
 
 /**
@@ -65,8 +65,7 @@ class ApiStabilizeGeneral extends ApiStabilize {
 		$res['title'] = $this->title->getPrefixedText();
 		$res['default'] = $params['default'];
 		$res['autoreview'] = $params['autoreview'];
-		$res['expiry'] = MediaWikiServices::getInstance()->getContentLanguage()
-			->formatExpiry( $form->getExpiry(), TS_ISO_8601 );
+		$res['expiry'] = ApiResult::formatExpiry( $form->getExpiry() );
 		$this->getResult()->addValue( null, $this->getModuleName(), $res );
 	}
 
