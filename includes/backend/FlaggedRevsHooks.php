@@ -293,7 +293,7 @@ class FlaggedRevsHooks implements
 		}
 
 		$parser->setFunctionHook( 'pendingchangelevel',
-			[ __CLASS__, 'parserPendingChangeLevel' ], Parser::SFH_NO_HASH );
+			[ self::class, 'parserPendingChangeLevel' ], Parser::SFH_NO_HASH );
 	}
 
 	/**
