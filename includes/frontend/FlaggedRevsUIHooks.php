@@ -1130,7 +1130,14 @@ class FlaggedRevsUIHooks implements
 		// Show special pages only if FlaggedRevs is enabled on some namespaces
 		if ( $wgFlaggedRevsNamespaces ) {
 			$list['RevisionReview'] = RevisionReview::class; // unlisted
-			$list['PendingChanges'] = PendingChanges::class;
+			$list['PendingChanges'] = [
+				'class' => PendingChanges::class,
+				'services' => [
+					'NamespaceInfo',
+					'RevisionLookup',
+					'SpecialPageFactory',
+				]
+			];
 			$list['ValidationStatistics'] = ValidationStatistics::class;
 			// Protect levels define allowed stability settings
 			if ( $wgFlaggedRevsProtection ) {
