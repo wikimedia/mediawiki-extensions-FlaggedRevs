@@ -4,8 +4,10 @@ use MediaWiki\Exception\PermissionsError;
 use MediaWiki\Html\Html;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 class UnreviewedPages extends SpecialPage {
 	/** @var UnreviewedPagesPager */
@@ -29,8 +31,16 @@ class UnreviewedPages extends SpecialPage {
 	/** How many entries are at most stored in the cache */
 	private const CACHE_SIZE = 5000;
 
-	public function __construct() {
+	private IConnectionProvider $dbProvider;
+	private PermissionManager $permissionManager;
+
+	public function __construct(
+		IConnectionProvider $dbProvider,
+		PermissionManager $permissionManager
+	) {
 		parent::__construct( 'UnreviewedPages', 'unreviewedpages' );
+		$this->dbProvider = $dbProvider;
+		$this->permissionManager = $permissionManager;
 	}
 
 	/**
@@ -43,9 +53,7 @@ class UnreviewedPages extends SpecialPage {
 
 		$this->setHeaders();
 		$this->addHelpLink( 'Help:Extension:FlaggedRevs' );
-		if ( !MediaWikiServices::getInstance()->getPermissionManager()
-			->userHasRight( $this->getUser(), 'unreviewedpages' )
-		) {
+		if ( !$this->permissionManager->userHasRight( $this->getUser(), 'unreviewedpages' ) ) {
 			throw new PermissionsError( 'unreviewedpages' );
 		}
 
@@ -147,7 +155,7 @@ class UnreviewedPages extends SpecialPage {
 
 		# Query may get too slow to be live...
 		if ( $this->isMiser ) {
-			$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+			$dbr = $this->dbProvider->getReplicaDatabase();
 
 			$ts = $dbr->newSelectQueryBuilder()
 				->select( 'qci_timestamp' )
@@ -215,9 +223,7 @@ class UnreviewedPages extends SpecialPage {
 		} else {
 			$age = ' ' . $this->msg( 'unreviewedpages-recent' )->escaped(); // hot off the press :)
 		}
-		if ( MediaWikiServices::getInstance()->getPermissionManager()
-			->userHasRight( $this->getUser(), 'unwatchedpages' )
-		) {
+		if ( $this->permissionManager->userHasRight( $this->getUser(), 'unwatchedpages' ) ) {
 			$uw = FRUserActivity::numUsersWatchingPage( $title );
 			$watching = ' ';
 			$watching .= $uw
