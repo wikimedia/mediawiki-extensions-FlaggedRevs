@@ -78,7 +78,6 @@
 	"revreview-basic-i": "Això és la [[{{MediaWiki:Validationpage}}|versió estable]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} comprovada] el <i>$2</i>.\n[{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}} Canvis a la plantilla o al fitxer] atenen una revista.",
 	"revreview-basic-old": "Això és una versió [[{{MediaWiki:Validationpage}}|comprovada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] el <i>$2</i>.\nPotser va haver-hi nous [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} canvis].",
 	"revreview-basic-same": "Això ès la [[{{MediaWiki:Validationpage}}|versió estable]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} comprovada] el <i>$2</i>.",
-	"revreview-basic-source": "Una [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} versió comprovada] d'aquesta pàgina, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] el <i>$2</i>, va ser feta fora d'aquesta revisió.",
 	"revreview-current": "Canvis en curs",
 	"revreview-draft-title": "S'han afixat els canvis en curs en aquesta pàgina",
 	"revreview-editnotice": "'''Es mostraran els vostres canvis als lectors un cop que un usuari autoritzat els accepti. ([[{{MediaWiki:Validationpage}}|ajuda]])'''",

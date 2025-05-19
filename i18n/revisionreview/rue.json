@@ -33,7 +33,6 @@
 	"revreview-check-flag-y-title": "Прияти вшыткы зміны вашого едітованя.",
 	"revreview-flag": "Перевірити тоту ревізію",
 	"revreview-reflag": "Перевірити тоту ревізію",
-	"revreview-invalid": "'''Неправилный ціль:''' жадна [[{{MediaWiki:Validationpage}}|посуджена]] ревізія не одповідать заданому ID.",
 	"revreview-log": "Коментарь:",
 	"revreview-main": "Про посуджіня мусите выбрати єдну із верзій сторінкы.\nВідь [[Special:Unreviewedpages|список неперевіреных сторінок]].",
 	"revreview-stable1": "Може хочете відїти [{{fullurl:$1|stableid=$2}} тоту позначену верзію] і дізнати ся, ці она є теперь [{{fullurl:$1|stable=1}} опублікованов верзіёв] той сторінкы.",

@@ -29,7 +29,6 @@
 	"revreview-check-flag-y-title": "Kiida kõik enda tehtud muudatused selles redaktsioonis heaks.",
 	"revreview-flag": "Redaktsiooni ülevaatamine",
 	"revreview-reflag": "Redaktsiooni veelkord ülevaatamine",
-	"revreview-invalid": "'''Vigane sihtkoht:''' antud ID-le ei vasta ükski [[{{MediaWiki:Validationpage}}|ülevaadatud]] redaktsioon.",
 	"revreview-log": "Kommentaar:",
 	"revreview-main": "Selleks üle vaadata, pead valima sisulehekülje kindla redaktsiooni.\n\nVaata [[Special:Unreviewedpages|ülevaatamata lehekülgede loendit]].",
 	"revreview-stable1": "Ehk tahad vaadata, kas [{{fullurl:$1|stableid=$2}} see vaadatud versioon] on praegu selle lehekülje [{{fullurl:$1|stable=1}} püsiv versioon]?",

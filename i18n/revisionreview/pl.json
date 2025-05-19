@@ -44,7 +44,6 @@
 	"revreview-check-flag-y-title": "Zostaną zaakceptowane wszystkie zmiany, które tutaj wykonałeś.",
 	"revreview-flag": "Oznacz tę wersję",
 	"revreview-reflag": "Ponownie przejrzyj tę wersję",
-	"revreview-invalid": "'''Niewłaściwy obiekt:''' brak [[{{MediaWiki:Validationpage}}|wersji przejrzanej]] odpowiadającej podanemu ID.",
 	"revreview-log": "Komentarz:",
 	"revreview-main": "Musisz wybrać konkretną wersję strony w celu przejrzenia.\n\nZobacz [[Special:Unreviewedpages|listę nieprzejrzanych stron]].",
 	"revreview-stable1": "Możesz zobaczyć [{{fullurl:$1|stableid=$2}} wersję oznaczoną] i sprawdzić, czy jest ona [{{fullurl:$1|stable=1}} wersją zweryfikowaną] tej strony.",

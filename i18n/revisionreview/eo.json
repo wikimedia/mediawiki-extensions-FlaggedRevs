@@ -37,7 +37,6 @@
 	"revreview-check-flag-y-title": "Aprobi ĉiujn ŝanĝoj tiujn vi faris ĉi tie.",
 	"revreview-flag": "Marki ĉi tiun version",
 	"revreview-reflag": "Rekontroli ĉi tiun redakton",
-	"revreview-invalid": "'''Nevalida celo:''' neniu [[{{MediaWiki:Validationpage}}|kontrolita]] versio kongruas la enigitan identigon.",
 	"revreview-log": "Komento:",
 	"revreview-main": "Vi devas elekti apartan version de enhava paĝo por revizii.\n\nVidu la [[Special:Unreviewedpages|liston de nereviziitaj paĝoj]] .",
 	"revreview-stable1": "Eble vi volas rigardi [{{fullurl:$1|stableid=$2}} la ĵus markitan version] por vidi, ĉu ĝi nun estas la [{{fullurl:$1|stable=1}} publikigita versio] de ĉi tiu paĝo.",

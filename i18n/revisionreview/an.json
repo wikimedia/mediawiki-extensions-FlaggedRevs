@@ -6,7 +6,6 @@
 	},
 	"revisionreview": "Revisar versions",
 	"revreview-flag": "Revisar ista versión",
-	"revreview-invalid": "'''Destín no conforme:''' no bi ha garra [[{{MediaWiki:Validationpage}}|versión revisata]] que corresponda con ixe ID.",
 	"revreview-log": "Comentario:",
 	"revreview-main": "Ha de trigar una versión particular d'una pachina de conteniu ta poder revisar-la.\n\nMire-se a [[Special:Unreviewedpages|lista de pachinas sin revisar]].",
 	"revreview-stable1": "Si quiere puede veyer [{{fullurl:$1|stableid=$2}} ista versión marcada] ta mirar si ye agora a [{{fullurl:$1|stable=1}} versión acceptata] d'ista pachina.",

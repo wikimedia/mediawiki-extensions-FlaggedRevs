@@ -80,7 +80,6 @@
 	"revreview-basic-i": "Ovo je [[{{MediaWiki:Validationpage}}|ocijenjena verzija]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} provjerena] dana <i>$2</i>.\nPostoje [{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}} izmjene šablona/datoteke] koje čekaju provjeru.",
 	"revreview-basic-old": "Ovo je [[{{MediaWiki:Validationpage}}|pregledana]] verzija, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.\nMožda su napravljene nove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} izmjene].",
 	"revreview-basic-same": "Ovo je [[{{MediaWiki:Validationpage}}|ocijenjena verzija]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} provjerena] dana <i>$2</i>.",
-	"revreview-basic-source": "[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Pregledana verzija] ove stranice, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>, zasnovana je na ovoj izmjeni.",
 	"revreview-current": "Izmjene na čekanju",
 	"revreview-draft-title": "Na ovoj stranici su prikazane izmjene na čekanju",
 	"revreview-editnotice": "'''Vaše izmjene bit će prikazane čitaocima nakon što ih prihvati ovlašteni korisnik. ([[{{MediaWiki:Validationpage}}|pomoć]])'''",

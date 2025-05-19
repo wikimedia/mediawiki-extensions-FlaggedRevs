@@ -81,7 +81,6 @@
 	"revreview-basic-i": "Toto je [[{{MediaWiki:Validationpage}}|potvrzená verze]], byla [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>.\n[{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}} Změny šablony] čekají na posouzení.",
 	"revreview-basic-old": "Toto je [[{{MediaWiki:Validationpage}}|prohlédnutá]] verze, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>.\nMožná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} změny].",
 	"revreview-basic-same": "Toto je [[{{MediaWiki:Validationpage}}|potvrzená verze]], byla [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>.",
-	"revreview-basic-source": "[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Prohlédnutá verze] této stránky, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>, vychází z této verze.",
 	"revreview-current": "Změny čekající na kontrolu",
 	"revreview-draft-title": "Na této stránce jsou zobrazeny změny čekající na kontrolu",
 	"revreview-editnotice": "'''Až autorizovaný uživatel [[{{MediaWiki:Validationpage}}|posoudí]] vaše změny, budou [[{{MediaWiki:Validationpage}}|zveřejněny]].'''",

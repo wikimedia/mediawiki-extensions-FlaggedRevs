@@ -106,7 +106,6 @@
 	"revreview-basic-i": "これは[[{{MediaWiki:Validationpage}}|公開版]]で<i>$2</i>に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 確認されました]。\n査読待ちの[{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}}テンプレートまたはファイルの変更]があります。",
 	"revreview-basic-old": "この[[{{MediaWiki:Validationpage}}|チェック]]バージョンは、<i>$2</i>時点に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}}承認済み]です。新規に[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}}の変更]された可能性があります。",
 	"revreview-basic-same": "これは[[{{MediaWiki:Validationpage}}|公開版]]です。<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 確認されました]。",
-	"revreview-basic-source": "<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認された]このページの[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} 確認済み版]は、この版に基づいています。",
 	"revreview-current": "査読待ちの変更",
 	"revreview-draft-title": "このページでは査読待ちの変更を表示しています",
 	"revreview-editnotice": "'''今回の変更は、承認された利用者が受理した後に公開されます。 ([[{{MediaWiki:Validationpage}}|ヘルプ]])'''",

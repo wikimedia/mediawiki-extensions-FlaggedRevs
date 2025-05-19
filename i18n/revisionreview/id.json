@@ -40,7 +40,6 @@
 	"revreview-check-flag-y-title": "Setujui semua perubahan yang Anda buat dalam suntingan ini.",
 	"revreview-flag": "Tinjau revisi ini",
 	"revreview-reflag": "Tinjau kembali revisi ini",
-	"revreview-invalid": "'''Tujuan tidak ditemukan:''' tidak ada revisi [[{{MediaWiki:Validationpage}}|tertinjau]] yang cocok dengan nomor revisi yang diminta.",
 	"revreview-log": "Komentar:",
 	"revreview-main": "Anda harus memilih suatu revisi tertentu dari halaman isi untuk ditinjau.\n\nLihat [[Special:Unreviewedpages]] untuk daftar halaman yang belum ditinjau.",
 	"revreview-stable1": "Anda mungkin ingin melihat [{{fullurl:$1|stableid=$2}} versi yang ditandai ini] untuk melihat apakah sudah ada [{{fullurl:$1|stable=1}} versi stabil] dari halaman ini.",

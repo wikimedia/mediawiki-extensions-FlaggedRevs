@@ -40,7 +40,6 @@
 	"revreview-check-flag-y-title": "Hyväksy kaikki muutokset, jotka teit tässä muokkauksessa.",
 	"revreview-flag": "Arvioi tämä versio",
 	"revreview-reflag": "Arvioi uudelleen tämä versio",
-	"revreview-invalid": "'''Kelpaamaton kohde:''' mikään [[{{MediaWiki:Validationpage}}|arvioitu]] versio ei vastaa annettua tunnistenumeroa.",
 	"revreview-log": "Kommentti:",
 	"revreview-main": "Sinun täytyy valita tietty versio sivusta, jotta voit arvioida sen.\n\nKatso [[Special:Unreviewedpages|lista sivuista, joita ei ole arvioitu]].",
 	"revreview-stable1": "Haluat ehkä nähdä [{{fullurl:$1|stableid=$2}} tämän merkityn version] ja katsoa, onko se nyt [{{fullurl:$1|stable=1}} vakaa versio] tästä sivusta.",

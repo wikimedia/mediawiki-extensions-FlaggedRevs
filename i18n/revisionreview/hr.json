@@ -35,7 +35,6 @@
 	"revreview-check-flag-y-title": "Prihvati sve izmjene koje ste napravili u ovom uređivanju.",
 	"revreview-flag": "Ocijeni izmjenu",
 	"revreview-reflag": "Ponovo ocijeni ovu inačicu",
-	"revreview-invalid": "'''Nevaljani cilj:''' nema [[{{MediaWiki:Validationpage}}|ocijenjene]] izmjene koja odgovara danom ID-u.",
 	"revreview-log": "Komentar:",
 	"revreview-main": "Morate odabrati neku izmjenu stranice sa sadržajem za ocjenjivanje.\n\nPogledajte [[Special:Unreviewedpages|popis neocijenjenih stranica]].",
 	"revreview-stable1": "Možda želite vidjeti [{{fullurl:$1|stableid=$2}} ovu označenu inačicu] i vidjeti da li je ovo [{{fullurl:$1|stable=1}} važeća inačica] ove stranice.",

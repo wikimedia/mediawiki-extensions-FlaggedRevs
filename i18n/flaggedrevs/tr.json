@@ -105,7 +105,6 @@
 	"revreview-basic-i": "Bu, [[{{MediaWiki:Validationpage}}|kararlı sürüm]]dür; <i>$2</i> tarihinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrol edilmiştir].\n[{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}} Şablon değişiklikleri] inceleme beklemektedir.",
 	"revreview-basic-old": "Bu, [[{{MediaWiki:Validationpage}}|kontrol edilmiş]] bir sürümdür; <i>$2</i> tarihinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} onaylanmıştır].\nYeni [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} değişiklikler] yapılmış olabilir.",
 	"revreview-basic-same": "Bu, [[{{MediaWiki:Validationpage}}|kararlı sürüm]]dür; <i>$2</i> tarihinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrol edilmiştir].",
-	"revreview-basic-source": "Bu sayfanın, <i>$2</i> tarihinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} onaylanmış] bir [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} kontrol edilmiş sürümü] bu revizyona dayanıyordu.",
 	"revreview-current": "Bekleyen değişiklikler",
 	"flaggedrevs-action-info-pages-waiting-for-review": "İncelenmeyi bekleyen dahil edilmiş sayfalar",
 	"revreview-draft-indicator-title": "'''Beklemede'''",

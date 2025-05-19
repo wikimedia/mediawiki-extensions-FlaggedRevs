@@ -93,7 +93,6 @@
 	"revreview-basic-i": "این [[{{MediaWiki:Validationpage}}|نسخهٔ پایداری]] است که در <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} بازبینی شد].\n[{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}} تغییراتی از الگو/پروندهٔ] در انتظار بازبینی، وجود دارند.",
 	"revreview-basic-old": "این یک نسخهٔ [[{{MediaWiki:Validationpage}}|بررسی‌شده]] است که در تاریخ <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تأیید شده است].\nممکن است [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} تغییرات] جدیدی صورت گرفته باشد.",
 	"revreview-basic-same": "این [[{{MediaWiki:Validationpage}}|نسخهٔ پایداری]] است که در <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} بررسی شده است].",
-	"revreview-basic-source": "یک [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} نسخهٔ بررسی‌شده] از این صفحه، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تأییدشده] در <i>$2</i>، بر پایهٔ این نسخه قرار گرفت.",
 	"revreview-current": "پیش‌نویس تغییرات",
 	"revreview-draft-indicator-title": "'''در انتظار'''",
 	"revreview-draft-title": "تغییرات در حال انتظار در این صفحه نمایش داده می‌شوند",

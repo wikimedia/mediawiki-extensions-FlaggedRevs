@@ -7,7 +7,6 @@
 	},
 	"revisionreview": "ٹگلانءِ پدچاری",
 	"revreview-flag": "ای بازبینی اصلاح کن",
-	"revreview-invalid": "'''نامعتبراین هدف:''' هچ [[{{MediaWiki:Validationpage}}|بازبینی بوتگین]] نسخه مطابق انت گون داتگین شناسگ.",
 	"revreview-log": "نظر:",
 	"revreview-stable2": "شما شاید بلوٹیت بگندیت [{{fullurl:$1|stable=1}} نسخه ثابتی]چه ای صفحه (اگر که هستن).",
 	"revreview-submit": "بازبینی دیم دی",

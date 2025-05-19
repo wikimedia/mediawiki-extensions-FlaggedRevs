@@ -31,7 +31,6 @@
 	"revreview-check-flag-y-title": "Donn all de Änderonge aannämme, di De heh jemaat häs.",
 	"revreview-flag": "Donn heh di Väsjohn nohkike!",
 	"revreview-reflag": "Donn heh di Version norr_ens nohkike",
-	"revreview-invalid": "Dat es e '''onjöltesch Ziihl:''' kei [[{{MediaWiki:Validationpage}}|nohjekik]] Version paß met dä aanjejovve Kännong zesamme.",
 	"revreview-log": "Koot zosamme jefaß:",
 	"revreview-main": "Do moß en beschtemmpte Version vun en Enhalts_Sigg ußsöhke, öm se ze\nnohzekike.\n\nLooer noh de [[Special:Unreviewedpages|Leß met de nit nohjekikte Sigge]].",
 	"revreview-stable1": "Velleisch wells De joh [{{fullurl:$1|stableid=$2}} heh di nohjekik Version] aankike un looere of se jäz de [{{fullurl:$1|stable=1}} neuste {{int:stablepages-stable}}] vun dä Sigg es?",

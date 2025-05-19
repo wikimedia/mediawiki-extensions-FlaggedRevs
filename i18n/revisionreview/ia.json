@@ -31,7 +31,6 @@
 	"revreview-check-flag-y-title": "Acceptar tote le alterationes que tu ha facite in iste modification.",
 	"revreview-flag": "Revider iste version",
 	"revreview-reflag": "Re-revider iste version",
-	"revreview-invalid": "'''Destination invalide:''' nulle version [[{{MediaWiki:Validationpage}}|revidite]] corresponde al ID specificate.",
 	"revreview-log": "Commento:",
 	"revreview-main": "Tu debe seliger un version particular de un pagina de contento pro poter revider lo.\n\nVide le [[Special:Unreviewedpages|lista de paginas non revidite]].",
 	"revreview-stable1": "Es suggerite vider [{{fullurl:$1|stableid=$2}} iste version marcate] pro determinar si illo es ora le [{{fullurl:$1|stable=1}} version stabile] de iste pagina.",

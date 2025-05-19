@@ -42,7 +42,6 @@
 	"revreview-check-flag-y-title": "Accepter tous les changements que vous avez effectués ici.",
 	"revreview-flag": "Relire cette version",
 	"revreview-reflag": "Relire cette version à nouveau",
-	"revreview-invalid": "'''Cible incorrecte :''' aucune version [[{{MediaWiki:Validationpage}}|relue]] ne correspond à l’identifiant indiqué.",
 	"revreview-log": "Commentaire :",
 	"revreview-main": "Vous devez choisir une version précise d’une page pour effectuer une relecture.\n\nVoir la [[Special:Unreviewedpages|liste des pages non relues]].",
 	"revreview-stable1": "Vous souhaitez peut-être consulter [{{fullurl:$1|stableid=$2}} cette version signalée] pour voir si c’est maintenant la [{{fullurl:$1|stable=1}} version publiée] de cette page.",

@@ -18,7 +18,6 @@
 	"revreview-check-flag-p": "Kodvda nece versii ($1 {{PLURAL:$1|kodvmatoi toižetuz|$1 kodvmatont toižetust}})",
 	"revreview-flag": "Kodvda nece versii",
 	"revreview-reflag": "Kodvda nece versii udes",
-	"revreview-invalid": "'''Petuzline met:''' ei ole lehtpolen [[{{MediaWiki:Validationpage}}|kodvdud]] versijad, kudamb sättub ozutadud identifikatoranke.",
 	"revreview-log": "Homaičend:",
 	"revreview-main": "Pidab valita lehtpolen versii arvostelendan täht.\n\nKc. [[Special:Unreviewedpages|kodvmatomiden lehtpoliden nimikirjutez]].",
 	"revreview-stable1": "Voib olda, teil linneb taht lugeda necen lehtpolen [{{fullurl:$1|stableid=$2}} znamoitud versijad] vai [{{fullurl:$1|stable=1}} publikoitud versijad], ku se om wikiš.",

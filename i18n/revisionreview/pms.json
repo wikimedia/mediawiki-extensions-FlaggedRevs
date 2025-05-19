@@ -33,7 +33,6 @@
 	"revreview-check-flag-y-title": "Aceta tùit ij cambi ch'it l'has fàit an sta modìfica-sì.",
 	"revreview-flag": "Revisioné sta version",
 	"revreview-reflag": "Revision-a torna sta revision-sì",
-	"revreview-invalid": "'''Obietiv pa bon:000 pa gnun-e revision [[{{MediaWiki:Validationpage}}|revisionà]] a corispondo a l'ID dàit.",
 	"revreview-log": "Coment për ël registr:",
 	"revreview-main": "A deuv selessioné na revision particolar ëd na pàgina ëd contnù për revisionela.\n\nVardé la [[Special:Unreviewedpages|lista dle pàgine pa revisionà]].",
 	"revreview-stable1": "Peul desse a veul vardé [{{fullurl:$1|stableid=$2}} sta version signalà-sì] e vëdde s'a l'é adess la [{{fullurl:$1|stable=1}} version publicà] ëd costa pàgina.",

@@ -42,7 +42,6 @@
 	"revreview-check-flag-y-title": "قبول كل التغييرات التي قمت بها في هذا التعديل",
 	"revreview-flag": "راجع هذه المراجعة",
 	"revreview-reflag": "أعد مراجعة هذه المراجعة",
-	"revreview-invalid": "'''هدف غير صحيح:''' لا مراجعة [[{{MediaWiki:Validationpage}}|مراجعة]] تتطابق مع الرقم المعطى.",
 	"revreview-log": "تعليق:",
 	"revreview-main": "يجب أن تختار مراجعة معينة من صفحة محتوى لمراجعتها.\n\nانظر [[Special:Unreviewedpages|قائمة الصفحات غير المراجعة]].",
 	"revreview-stable1": "ربما ترغب في رؤية [{{fullurl:$1|stableid=$2}} هذه النسخة المعلمة] لترى ما إذا كانت [{{fullurl:$1|stable=1}} النسخة المنشورة] لهذه الصفحة.",

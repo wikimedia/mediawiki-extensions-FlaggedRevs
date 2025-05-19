@@ -33,7 +33,6 @@
 	"revreview-check-flag-y-title": "Wšě změny akceptować, kotrež sće při tutym wobdźěłanju činił.",
 	"revreview-flag": "Tutu wersiju přepruwować",
 	"revreview-reflag": "Tutu wersiju znowa přepruwować",
-	"revreview-invalid": "'''Njepłaćiwy cil:''' žana [[{{MediaWiki:Validationpage}}|skontrolowana]] wersija podatemu ID njewotpowěduje.",
 	"revreview-log": "Protokolowy zapisk:",
 	"revreview-main": "Dyrbiš wěstu wersiju nastawka za přepruwowanje wubrać.\n\nHlej [[Special:Unreviewedpages|za lisćinu njepřepruwowanych stronow]].",
 	"revreview-stable1": "Snano chceš sej [{{fullurl:$1|stableid=$2}} tutu woznamjenjenu wersiju] wobhladać a widźeć, hač je wona nětko [{{fullurl:$1|stable=1}} wozjewjena wersija] tuteje strony.",

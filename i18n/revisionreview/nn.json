@@ -11,7 +11,6 @@
 	"review_page_invalid": "Målsidetittelen er ugyldig.",
 	"review_page_notexists": "Målsida finst ikkje.",
 	"revreview-flag": "Vurder denne versjonen",
-	"revreview-invalid": "'''Ugyldig mål:''' ingen [[{{MediaWiki:Validationpage}}|vurderte]] versjonar svarer til den oppgjevne ID-en.",
 	"revreview-log": "Kommentar:",
 	"revreview-main": "Du lyt velja ein viss versjon av ei innhaldssida for å kunna gjera ei vurdering.\n\nSjå [[Special:Unreviewedpages|lista over sider som manglar vurdering]].",
 	"revreview-stable1": "Du ynskjer kanskje å sjå [{{fullurl:$1|stableid=$2}} denne merkte versjonen] og sjå om han er den [{{fullurl:$1|stable=1}} stabile versjonen] av denne sida.",

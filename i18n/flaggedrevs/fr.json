@@ -116,7 +116,6 @@
 	"revreview-basic-i": "Ceci est la [[{{MediaWiki:Validationpage}}|version stable]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} vérifiée] le <i>$2</i>.\nIl y a [{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}} des modifications de modèles] en attente de relecture.",
 	"revreview-basic-old": "Voici une version [[{{MediaWiki:Validationpage}}|vérifiée]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approuvée] le <i>$2</i>.\nDe nouvelles [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} modifications] peuvent avoir été effectuées.",
 	"revreview-basic-same": "Ceci est la [[{{MediaWiki:Validationpage}}|version publiée]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} vérifiée] le <i>$2</i>.",
-	"revreview-basic-source": "Une [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} version vérifiée] de cette page, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approuvée] le <i>$2</i>, est basée sur cette version.",
 	"revreview-current": "Modifications en attente",
 	"flaggedrevs-action-info-pages-waiting-for-review": "Pages en attente de révision",
 	"flaggedrevs-action-info-pages-waiting-for-review-none": "Aucune",

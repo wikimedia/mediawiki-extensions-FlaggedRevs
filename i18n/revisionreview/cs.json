@@ -39,7 +39,6 @@
 	"revreview-check-flag-y-title": "Akceptovat všechny změny vaší editace.",
 	"revreview-flag": "Posoudit tuto verzi",
 	"revreview-reflag": "Znovu posoudit tuto revizi",
-	"revreview-invalid": "'''Neplatný cíl:''' žádná [[{{MediaWiki:Validationpage}}|posouzená]] verze neodpovídá zadanému ID.",
 	"revreview-log": "Komentář:",
 	"revreview-main": "Pro posouzení musíte vybrat určitou verzi stránky. \n\nViz [[Special:Unreviewedpages|seznam neposouzených stránek]].",
 	"revreview-stable1": "Můžete zobrazit [{{fullurl:$1|stableid=$2}} tuto označenou verzi] nebo se podívat, jestli je to teď [{{fullurl:$1|stable=1}} stabilní verze] této stránky.",

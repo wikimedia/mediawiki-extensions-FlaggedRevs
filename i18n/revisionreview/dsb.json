@@ -31,7 +31,6 @@
 	"revreview-check-flag-y-title": "Wšykne změny akceptěrowaś, kótarež sy cynił pśi toś tom wobźěłanju.",
 	"revreview-flag": "Toś tu wersiju pśespytowaś",
 	"revreview-reflag": "Toś tu wersiju znowego pśeglědaś",
-	"revreview-invalid": "'''Njepłaśiwy cel:''' žedna [[{{MediaWiki:Validationpage}}|pśeglědana]] wersija njewótpowědujo danemu ID.",
 	"revreview-log": "Komentar:",
 	"revreview-main": "Musyš jadnotliwu wersiju wopśimjeśowego boka za pśeglědanje wubraś.\n\nGlědaj [[Special:Unreviewedpages|lisćinu njepśeglědanych bokow]].",
 	"revreview-stable1": "Snaź coš se [{{fullurl:$1|stableid=$2}} toś tu markěrowanu wersiju] woglědaś a wiźeś, lěc jo něnto [{{fullurl:$1|stable=1}} wózjawjona wersija] toś togo boka.",

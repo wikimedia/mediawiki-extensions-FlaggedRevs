@@ -39,7 +39,6 @@
 	"revreview-check-flag-y-title": "Vurnayişê hemi ke ti ena nuşte de kerde inan qebul bike.",
 	"revreview-flag": "nop revizyon ser çım bıçarn",
 	"revreview-reflag": "Enê çımraviyarnayışi qontrol ke",
-	"revreview-invalid": "'''hedefo nemeqbul:''' yew revizyono [[{{MediaWiki:Validationpage}}|konrol biyaye]] zi ID de pê nêgıneni.",
 	"revreview-log": "Mışewre:",
 	"revreview-main": "Seba etudkerdene ra şıma gani yew çımraviyarnayışê pela zerrekiyê kıfşkerdeyi weçinê.\n\n[[Special:Unreviewedpages|Lista pelanê kontrolnêbiyayeyan]] bıvênên.",
 	"revreview-stable1": "[{{fullurl:$1|stableid=$2}} Ena versiyanê nişan biye] bivini, ena pele [{{fullurl:$1|stable=1}} versiyonşê sebiti] eka este ya zi cino bivini.",

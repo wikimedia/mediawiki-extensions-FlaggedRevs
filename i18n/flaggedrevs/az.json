@@ -90,7 +90,6 @@
 	"revreview-basic-i": "Bu [[{{MediaWiki:Validationpage}}|sabit versiyadır]] və <i>$2</i> tarixində [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} yoxlanılıb].\n[{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}} Şablon dəyişiklikləri] yoxlanılmağı gözləyir.",
 	"revreview-basic-old": "Bu [[{{MediaWiki:Validationpage}}|yoxlanılmış versiyadır]] və <i>$2</i> tarixində [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} təsdiqlənib].\nYeni [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} dəyişikliklər] edilmiş ola bilər.",
 	"revreview-basic-same": "Bu, [[{{MediaWiki:Validationpage}}|sabit versiya]], [{{fullurl: {{Special:Log}}|type=baxış&səhifə={{FULLPAGENAMEE}}}} yoxlanıldı] <i>$2</i>.",
-	"revreview-basic-source": "Bu səhifənin [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} yoxlanılmış versiyası], <i>$2</i> tarixində [{{fullurl:{{#Special: Log}}|type=review&page={{FULLPAGENAMEE}}}} təsdiqləndi], bu versiyaya əsaslandı.",
 	"revreview-current": "Yoxlanmamış dəyişikliklər",
 	"flaggedrevs-action-info-pages-waiting-for-review": "Yoxlanılmağı gözləyən daxil edilmiş səhifələr",
 	"flaggedrevs-action-info-pages-waiting-for-review-none": "Heç biri",

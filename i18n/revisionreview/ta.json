@@ -25,7 +25,6 @@
 	"revreview-check-flag-y-title": "நீங்கள் தொகுத்த எல்லா மாற்றங்களையும் ஏற்றுக்கொள்க.",
 	"revreview-flag": "இந்த மறுபதிப்பை மதிப்பிடுக",
 	"revreview-reflag": "இந்த மறுபதிப்பை மீண்டும் மதிப்பிடுக",
-	"revreview-invalid": "'''தவறான இலக்கு:''' no [[{{MediaWiki:Validationpage}}|reviewed]] revision corresponds to the given ID.",
 	"revreview-log": "கருத்து:",
 	"revreview-submit": "சமர்ப்பி",
 	"revreview-submitting": "சமர்பிக்கப்படுகிறது ...",

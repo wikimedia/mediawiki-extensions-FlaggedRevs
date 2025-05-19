@@ -25,7 +25,6 @@
 	"revreview-check-flag-y-title": "Aanvaarde alle bewirkingsverangeringe.",
 	"revreview-flag": "Deze versie beoordeile",
 	"revreview-reflag": "Hèrcontroleer dees versie",
-	"revreview-invalid": "'''Óngeljig bestömming:''' d'r is gein [[{{MediaWiki:Validationpage}}|gecontroleerde]] versie die euvereinkump mit 't ópgegaeve nómmer.",
 	"revreview-log": "Opmerking:",
 	"revreview-main": "De mós 'n specifieke versie van 'n pagina keze die se wils controlere.\n\nZuuch de [[Special:Unreviewedpages|lies mit ongecontroleerde pagina's]].",
 	"revreview-submit": "Slaon óp",

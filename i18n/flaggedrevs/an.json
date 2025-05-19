@@ -36,7 +36,6 @@
 	"revreview-basic-i": "Ista ye a zaguera versión [[{{MediaWiki:Validationpage}}|acceptata]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprebata] o <i>$2</i>.\nBi ha [{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}} cambios en plantillas/fichers] aguardando una revisión.",
 	"revreview-basic-old": "Ista ye una versión [[{{MediaWiki:Validationpage}}|verificata]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} amostrat todas]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprebata] o <i>$2</i>.\nTalment s'haiga feito [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} nuevos cambios].",
 	"revreview-basic-same": "Ista ye a zaguera versión [[{{MediaWiki:Validationpage}}|acceptata]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificata] o <i>$2</i>.",
-	"revreview-basic-source": "Una [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} versión verificata] d'ista pachina, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprebata] o <i>$2</i>, s'ha basato en esta versión.",
 	"revreview-current": "Cambios pendients",
 	"revreview-draft-title": "Os cambios pendients s'amuestran en ista pachina",
 	"revreview-edited": "'''As edicions suyas s'amostrarán a os lectors malas que un usuario autorizato las revise. ([[{{MediaWiki:Validationpage}}|aduya]])\n\nBi ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{PLURAL:$2|cambio pendient|cambios pendients}}] ''(s'amuestran más t'abaixo)'' aguardando revisión.",

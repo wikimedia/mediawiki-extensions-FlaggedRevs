@@ -31,7 +31,6 @@
 	"revreview-check-flag-y-title": "Accette tutte le cangiaminde ca tu è fatte aqquà.",
 	"revreview-flag": "Revide sta revisione",
 	"revreview-reflag": "Revide arrete sta revisione",
-	"revreview-invalid": "'''Destinazione invalide:''' nisciuna revisiona  [[{{MediaWiki:Validationpage}}|reviste]] corresponne a 'u codece (ID) inzerite.",
 	"revreview-log": "Commende:",
 	"revreview-main": "Tu a selezionà ìna particolera revisione da 'na vosce pe fà 'na revisitazione.\n\nVide 'a [[Special:Unreviewedpages|liste de le pàggene ca non g'onne state rivisitete]].",
 	"revreview-stable1": "Tu puè vulè vedè [{{fullurl:$1|stableid=$2}} sta versiona marcate] e vide ce ijedde ète 'a [{{fullurl:$1|stable=1}} versiona pubblecate] de sta pàgene.",

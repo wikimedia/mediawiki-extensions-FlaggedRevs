@@ -33,7 +33,6 @@
 	"revreview-check-flag-y-title": "Terima segala perubahan yang anda telah buat di sini.",
 	"revreview-flag": "Kaji semula semakan ini",
 	"revreview-reflag": "Kaji semula semakan ini sekali lagi",
-	"revreview-invalid": "'''Sasaran tidak sah:''' tiada semakan [[{{MediaWiki:Validationpage}}|dikaji semula]] yang berpadan dengan ID yang diberikan.",
 	"revreview-log": "Komen:",
 	"revreview-main": "Anda hendaklah memilih sebuah semakan tertentu daripada sesebuah laman kandungan untuk diperiksa.\n\nSila lihat [[Special:Unreviewedpages|senarai laman yang belum diperiksa]].",
 	"revreview-stable1": "Anda boleh melihat [{{fullurl:$1|stableid=$2}} versi bertanda ini] dan melihat sama ada ia sekarang [{{fullurl:$1|stable=1}} versi stabil] bagi laman ini.",

@@ -65,7 +65,6 @@
 	"revreview-basic-i": "Ar [[{{MediaWiki:Validationpage}}|stumm embannet]] eo, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gwiriet] d'an <i>$2</i>. Bez ez eus [{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}} kemmoù patromoù//restroù] o c'hortoz bezañ adlennet.",
 	"revreview-basic-old": "Hemañ zo ur stumm bet [[{{MediaWiki:Validationpage}}|gwiriet]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} gwelet an holl]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>.\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Kemmoù] nevez a c'hell bezañ bet graet.",
 	"revreview-basic-same": "Ar [[{{MediaWiki:Validationpage}}|stumm embannet]] eo, bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gwiriet] d'an <i>$2</i>.",
-	"revreview-basic-source": "Ur [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} stumm gwiriet] eus ar bajenn-mañ, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>, a zo diazezet war ar stumm-mañ.",
 	"revreview-current": "Kemmoù o c'hortoz",
 	"flaggedrevs-action-info-pages-waiting-for-review-none": "Hini ebet",
 	"revreview-draft-title": "Ar c'hemmoù o c'hortoz a zo diskouezet er bajenn-mañ",
