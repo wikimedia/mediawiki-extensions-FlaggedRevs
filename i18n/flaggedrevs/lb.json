@@ -94,7 +94,7 @@
 	"revreview-quick-basic": "'''[[{{MediaWiki:Validationpage}}|Nogekuckt]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Ännerungen am Suspens nokucken]]",
 	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|Nogekuckt]]'''",
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Nogekuckt]]'''",
-	"revreview-quick-invalid": "'''Ongëlteg Versiounsnummer'''",
+	"revreview-quick-invalid": "'''Ongülteg Versiounsnummer'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Net nogekuckt]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Ännerungen am Suspens nokucken]]",
 	"revreview-basic-title": "Dëst ass eng nogekuckte Versioun vun dëser Säit",
