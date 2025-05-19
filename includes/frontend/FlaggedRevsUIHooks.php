@@ -1166,7 +1166,16 @@ class FlaggedRevsUIHooks implements
 					'SpecialPageFactory',
 				]
 			];
-			$list['ValidationStatistics'] = ValidationStatistics::class;
+			$list['ValidationStatistics'] = [
+				'class' => ValidationStatistics::class,
+				'services' => [
+					'ActorStore',
+					'ConnectionProvider',
+					'ContentLanguage',
+					'DBLoadBalancer',
+					'MainWANObjectCache',
+				],
+			];
 			// Protect levels define allowed stability settings
 			if ( $wgFlaggedRevsProtection ) {
 				$list['StablePages'] = StablePages::class;

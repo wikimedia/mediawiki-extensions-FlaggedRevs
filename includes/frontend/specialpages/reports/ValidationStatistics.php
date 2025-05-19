@@ -1,17 +1,38 @@
 <?php
 
 use MediaWiki\Html\Html;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Language\Language;
 use MediaWiki\SpecialPage\IncludableSpecialPage;
 use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\User\ActorStore;
+use Wikimedia\ObjectCache\WANObjectCache;
+use Wikimedia\Rdbms\IConnectionProvider;
+use Wikimedia\Rdbms\ILoadBalancer;
 use Wikimedia\Rdbms\SelectQueryBuilder;
 
 class ValidationStatistics extends IncludableSpecialPage {
 	/** @var array|null */
 	private $latestData = null;
 
-	public function __construct() {
+	private ActorStore $actorStore;
+	private IConnectionProvider $dbProvider;
+	private Language $contLang;
+	private ILoadBalancer $loadBalancer;
+	private WANObjectCache $cache;
+
+	public function __construct(
+		ActorStore $actorStore,
+		IConnectionProvider $dbProvider,
+		Language $contLang,
+		ILoadBalancer $loadBalancer,
+		WANObjectCache $cache
+	) {
 		parent::__construct( 'ValidationStatistics' );
+		$this->actorStore = $actorStore;
+		$this->dbProvider = $dbProvider;
+		$this->contLang = $contLang;
+		$this->loadBalancer = $loadBalancer;
+		$this->cache = $cache;
 	}
 
 	/**
@@ -99,7 +120,6 @@ class ValidationStatistics extends IncludableSpecialPage {
 		}
 		$out->addHTML( "</tr>\n" );
 		$namespaces = FlaggedRevs::getReviewNamespaces();
-		$contLang = MediaWikiServices::getInstance()->getContentLanguage();
 		foreach ( $namespaces as $namespace ) {
 			$total = $this->getTotalPages( $namespace );
 			$reviewed = $this->getReviewedPages( $namespace );
@@ -108,7 +128,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 				continue; // NS added to config recently?
 			}
 
-			$NsText = $contLang->getFormattedNsText( $namespace );
+			$NsText = $this->contLang->getFormattedNsText( $namespace );
 			$NsText = $NsText ?: $this->msg( 'blanknamespace' )->text();
 
 			$percRev = intval( $total ) == 0
@@ -148,11 +168,11 @@ class ValidationStatistics extends IncludableSpecialPage {
 					"</td>
 					<td>" .
 						htmlspecialchars( $lang->formatNum( $reviewed ) .
-							$contLang->getDirMark() ) . " <i>$percRev</i>
+							$this->contLang->getDirMark() ) . " <i>$percRev</i>
 					</td>
 					<td>" .
 						htmlspecialchars( $lang->formatNum( $synced ) .
-							$contLang->getDirMark() ) . " <i>$percLatest</i>
+							$this->contLang->getDirMark() ) . " <i>$percLatest</i>
 					</td>
 					<td>" .
 						$percSynced .
@@ -207,9 +227,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 	 * @return bool
 	 */
 	private function readyForQuery() {
-		$dbr = MediaWikiServices::getInstance()
-				->getDBLoadBalancer()
-				->getMaintenanceConnectionRef( DB_REPLICA, [], false );
+		$dbr = $this->loadBalancer->getMaintenanceConnectionRef( DB_REPLICA, [], false );
 
 		return $dbr->tableExists( 'flaggedrevs_statistics', __METHOD__ ) &&
 			$dbr->newSelectQueryBuilder()
@@ -223,7 +241,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 	 * @return int
 	 */
 	private function getEditorCount() {
-		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+		$dbr = $this->dbProvider->getReplicaDatabase();
 
 		return (int)$dbr->newSelectQueryBuilder()
 			->select( 'COUNT(*)' )
@@ -240,7 +258,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 	 * @return int
 	 */
 	private function getReviewerCount() {
-		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+		$dbr = $this->dbProvider->getReplicaDatabase();
 
 		return (int)$dbr->newSelectQueryBuilder()
 			->select( 'COUNT(*)' )
@@ -335,16 +353,13 @@ class ValidationStatistics extends IncludableSpecialPage {
 	 * @return array[] array of tuples ( UserIdentity $user, int $reviews )
 	 */
 	private function getTopReviewers() {
-		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		$fname = __METHOD__;
 
-		return $cache->getWithSetCallback(
-			$cache->makeKey( 'flaggedrevs', 'reviewTopUsers' ),
-			$cache::TTL_HOUR,
-			static function () use ( $fname ) {
-				$dbr = MediaWikiServices::getInstance()
-					->getDBLoadBalancer()
-					->getMaintenanceConnectionRef( DB_REPLICA, 'vslow', false );
+		return $this->cache->getWithSetCallback(
+			$this->cache->makeKey( 'flaggedrevs', 'reviewTopUsers' ),
+			WANObjectCache::TTL_HOUR,
+			function () use ( $fname ) {
+				$dbr = $this->loadBalancer->getMaintenanceConnectionRef( DB_REPLICA, 'vslow', false );
 
 				$limit = 5;
 				$seconds = 3600;
@@ -365,16 +380,15 @@ class ValidationStatistics extends IncludableSpecialPage {
 					->caller( $fname )
 					->fetchResultSet();
 
-				$actorStore = MediaWikiServices::getInstance()->getActorStore();
 				$data = [];
 				foreach ( $res as $row ) {
-					$data[] = [ $actorStore->newActorFromRow( $row ), (int)$row->reviews ];
+					$data[] = [ $this->actorStore->newActorFromRow( $row ), (int)$row->reviews ];
 				}
 				return $data;
 			},
 			[
 				'lockTSE' => 300,
-				'staleTTL' => $cache::TTL_MINUTE,
+				'staleTTL' => WANObjectCache::TTL_MINUTE,
 				'version' => 2,
 			]
 		);
