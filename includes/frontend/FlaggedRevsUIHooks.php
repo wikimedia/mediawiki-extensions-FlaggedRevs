@@ -25,14 +25,16 @@ use MediaWiki\Hook\SpecialNewpagesConditionsHook;
 use MediaWiki\Hook\SpecialNewPagesFiltersHook;
 use MediaWiki\Hook\TitleGetEditNoticesHook;
 use MediaWiki\Html\Html;
+use MediaWiki\Linker\LinkRenderer;
+use MediaWiki\Linker\LinksMigration;
 use MediaWiki\Logging\LogEventsList;
 use MediaWiki\Logging\LogPage;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Output\Hook\MakeGlobalVariablesScriptHook;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Page\Hook\ArticleViewHeaderHook;
 use MediaWiki\Page\Hook\CategoryPageViewHook;
+use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\RecentChanges\ChangesListBooleanFilterGroup;
 use MediaWiki\RecentChanges\ChangesListStringOptionsFilterGroup;
@@ -45,9 +47,13 @@ use MediaWiki\SpecialPage\Hook\SpecialPage_initListHook;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
 use MediaWiki\Title\TitleValue;
+use MediaWiki\User\ActorStore;
+use Wikimedia\ObjectCache\WANObjectCache;
+use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\IDBAccessObject;
 use Wikimedia\Rdbms\IReadableDatabase;
 use Wikimedia\Rdbms\RawSQLExpression;
+use Wikimedia\Rdbms\ReadOnlyMode;
 
 /**
  * Class containing hooked functions for a FlaggedRevs environment
@@ -84,12 +90,38 @@ class FlaggedRevsUIHooks implements
 	SpecialPage_initListHook,
 	TitleGetEditNoticesHook
 {
+	private ActorStore $actorStore;
+	private IConnectionProvider $dbProvider;
+	private LinkRenderer $linkRenderer;
+	private LinksMigration $linksMigration;
+	private WANObjectCache $cache;
+	private PermissionManager $permissionManager;
+	private ReadOnlyMode $readOnlyMode;
+
+	public function __construct(
+		ActorStore $actorStore,
+		IConnectionProvider $dbProvider,
+		LinkRenderer $linkRenderer,
+		LinksMigration $linksMigration,
+		WANObjectCache $cache,
+		PermissionManager $permissionManager,
+		ReadOnlyMode $readOnlyMode
+	) {
+		$this->actorStore = $actorStore;
+		$this->dbProvider = $dbProvider;
+		$this->linkRenderer = $linkRenderer;
+		$this->linksMigration = $linksMigration;
+		$this->cache = $cache;
+		$this->permissionManager = $permissionManager;
+		$this->readOnlyMode = $readOnlyMode;
+	}
+
 	/**
 	 * Add FlaggedRevs css/js.
 	 *
 	 * @param OutputPage $out
 	 */
-	private static function injectStyleAndJS( OutputPage $out ) {
+	private function injectStyleAndJS( OutputPage $out ) {
 		if ( !$out->getTitle()->canExist() ) {
 			return;
 		}
@@ -102,9 +134,7 @@ class FlaggedRevsUIHooks implements
 		$out->addModuleStyles( 'ext.flaggedRevs.basic' );
 		$out->addModules( 'ext.flaggedRevs.advanced' );
 		// Add review form and edit page CSS and JS for reviewers
-		if ( MediaWikiServices::getInstance()->getPermissionManager()
-			->userHasRight( $out->getUser(), 'review' )
-		) {
+		if ( $this->permissionManager->userHasRight( $out->getUser(), 'review' ) ) {
 			$out->addModuleStyles( 'codex-styles' );
 			$out->addModules( 'ext.flaggedRevs.review' );
 		} else {
@@ -167,7 +197,7 @@ class FlaggedRevsUIHooks implements
 	 */
 	public function onBeforePageDisplay( $out, $skin ): void {
 		if ( $out->getTitle()->getNamespace() === NS_SPECIAL ) {
-			self::maybeAddBacklogNotice( $out ); // RC/Watchlist notice
+			$this->maybeAddBacklogNotice( $out ); // RC/Watchlist notice
 			self::injectStyleForSpecial( $out ); // try special page CSS
 		} elseif ( $out->getTitle()->canExist() ) {
 			$view = FlaggablePageView::newFromTitle( $out->getTitle() );
@@ -181,7 +211,7 @@ class FlaggedRevsUIHooks implements
 				}
 			}
 			$view->setRobotPolicy(); // set indexing policy
-			self::injectStyleAndJS( $out ); // full CSS/JS
+			$this->injectStyleAndJS( $out ); // full CSS/JS
 		}
 	}
 
@@ -214,9 +244,7 @@ class FlaggedRevsUIHooks implements
 				],
 			];
 		// Review-related rights...
-		if ( MediaWikiServices::getInstance()->getPermissionManager()
-			->userHasRight( $user, 'review' )
-		) {
+		if ( $this->permissionManager->userHasRight( $user, 'review' ) ) {
 			// Watching reviewed pages
 			$preferences['flaggedrevswatch'] =
 				[
@@ -295,9 +323,8 @@ class FlaggedRevsUIHooks implements
 		# (Make sure that nothing in this code calls WebRequest::getActionName(): T323254)
 		if ( $srev && $view->showingStable() && $srev->getRevId() != $wikiPage->getLatest() ) {
 			# Check the stable redirect properties from the cache...
-			$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
-			$stableRedirect = $cache->getWithSetCallback(
-				$cache->makeKey( 'flaggedrevs-stable-redirect', $wikiPage->getId() ),
+			$stableRedirect = $this->cache->getWithSetCallback(
+				$this->cache->makeKey( 'flaggedrevs-stable-redirect', $wikiPage->getId() ),
 				$wgParserCacheExpireTime,
 				static function () use ( $fa, $srev ) {
 					$content = $srev->getRevisionRecord()
@@ -593,7 +620,7 @@ class FlaggedRevsUIHooks implements
 	public function onSpecialNewpagesConditions(
 		$specialPage, $opts, &$conds, &$tables, &$fields, &$join_conds
 	) {
-		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+		$dbr = $this->dbProvider->getReplicaDatabase();
 		self::makeAllQueryChanges( $conds, $tables, $join_conds, $fields, $dbr );
 	}
 
@@ -715,7 +742,7 @@ class FlaggedRevsUIHooks implements
 				&& !( $row->rev_deleted & RevisionRecord::DELETED_USER )
 			) {
 				# Add link to stable version of *this* rev, if any
-				[ $link, $class ] = self::markHistoryRow( $history, $title, $row );
+				[ $link, $class ] = $this->markHistoryRow( $history, $title, $row );
 				# Space out and demark the stable revision
 				if ( $revId == $history->fr_stableRevId && $history->fr_pendingRevs ) {
 					$liClasses[] = 'fr-hist-stable-margin';
@@ -739,7 +766,7 @@ class FlaggedRevsUIHooks implements
 	 * @param stdClass $row from history page
 	 * @return string[]
 	 */
-	private static function markHistoryRow( IContextSource $ctx, Title $title, $row ) {
+	private function markHistoryRow( IContextSource $ctx, Title $title, $row ) {
 		if ( !isset( $row->fr_rev_id ) ) {
 			return [ "", "" ]; // not reviewed
 		}
@@ -754,9 +781,7 @@ class FlaggedRevsUIHooks implements
 		if ( isset( $row->reviewer ) ) {
 			$name = $row->reviewer;
 		} else {
-			$reviewer = MediaWikiServices::getInstance()
-				->getActorStore()
-				->getUserIdentityByUserId( $row->fr_user );
+			$reviewer = $this->actorStore->getUserIdentityByUserId( $row->fr_user );
 			$name = $reviewer ? $reviewer->getName() : false;
 		}
 		$link = $ctx->msg( $msg, $title->getPrefixedDBkey(), $row->rev_id, $name )->parse();
@@ -812,9 +837,9 @@ class FlaggedRevsUIHooks implements
 		if ( $rc->getAttribute( 'fp_stable' ) == null ) {
 			// Is this a config were pages start off reviewable?
 			// Hide notice from non-reviewers due to vandalism concerns (bug 24002).
-			if ( !FlaggedRevs::useOnlyIfProtected() && MediaWikiServices::getInstance()
-					->getPermissionManager()
-					->userHasRight( $list->getUser(), 'review' )
+			if (
+				!FlaggedRevs::useOnlyIfProtected() &&
+				$this->permissionManager->userHasRight( $list->getUser(), 'review' )
 			) {
 				$rlink = $list->msg( 'revreview-unreviewedpage' )->escaped();
 				$css = 'flaggedrevs-unreviewed';
@@ -823,8 +848,7 @@ class FlaggedRevsUIHooks implements
 		} elseif ( $rc->getAttribute( 'fp_pending_since' ) !== null &&
 			$rc->getAttribute( 'rc_timestamp' ) >= $rc->getAttribute( 'fp_pending_since' )
 		) {
-			$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
-			$rlink = $linkRenderer->makeLink(
+			$rlink = $this->linkRenderer->makeLink(
 				$page,
 				$list->msg( 'revreview-reviewlink' )->text(),
 				[ 'title' => $list->msg( 'revreview-reviewlink-title' )->text() ],
@@ -865,7 +889,7 @@ class FlaggedRevsUIHooks implements
 	 * @inheritDoc
 	 */
 	public function onDifferenceEngineViewHeader( $diff ) {
-		self::injectStyleAndJS( $diff->getOutput() );
+		$this->injectStyleAndJS( $diff->getOutput() );
 
 		if ( $diff->getTitle()->canExist() ) {
 			$view = FlaggablePageView::newFromTitle( $diff->getTitle() );
@@ -890,9 +914,8 @@ class FlaggedRevsUIHooks implements
 	/**
 	 * @param OutputPage $out
 	 */
-	private static function maybeAddBacklogNotice( OutputPage $out ) {
-		if ( !MediaWikiServices::getInstance()->getPermissionManager()
-			->userHasRight( $out->getUser(), 'review' ) ) {
+	private function maybeAddBacklogNotice( OutputPage $out ) {
+		if ( !$this->permissionManager->userHasRight( $out->getUser(), 'review' ) ) {
 			// Not relevant to user
 			return;
 		}
@@ -900,7 +923,7 @@ class FlaggedRevsUIHooks implements
 		$watchlist = SpecialPage::getTitleFor( 'Watchlist' );
 		# Add notice to watchlist about pending changes...
 		if ( $out->getTitle()->equals( $watchlist ) && $namespaces ) {
-			$dbr = MediaWikiServices::getInstance()->getConnectionProvider()
+			$dbr = $this->dbProvider
 				->getReplicaDatabase( false, 'watchlist' ); // consistency with watchlist
 			$watchedOutdated = (bool)$dbr->newSelectQueryBuilder()
 				->select( '1' ) // existence
@@ -1093,9 +1116,9 @@ class FlaggedRevsUIHooks implements
 			return;
 		}
 
-		$services = MediaWikiServices::getInstance();
-		if ( $services->getReadOnlyMode()->isReadOnly() || !$services->getPermissionManager()
-				->userHasRight( $user, 'stablesettings' )
+		if (
+			$this->readOnlyMode->isReadOnly() ||
+			!$this->permissionManager->userHasRight( $user, 'stablesettings' )
 		) {
 			// User cannot change anything
 			return;
@@ -1156,11 +1179,10 @@ class FlaggedRevsUIHooks implements
 		if ( !$context->getTitle()->exists() ) {
 			return;
 		}
-		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+		$dbr = $this->dbProvider->getReplicaDatabase();
 
-		$linksMigration = MediaWikiServices::getInstance()->getLinksMigration();
-		[ $nsField, $titleField ] = $linksMigration->getTitleFields( 'templatelinks' );
-		$queryInfo = $linksMigration->getQueryInfo( 'templatelinks' );
+		[ $nsField, $titleField ] = $this->linksMigration->getTitleFields( 'templatelinks' );
+		$queryInfo = $this->linksMigration->getQueryInfo( 'templatelinks' );
 		// Keep it in sync with FlaggedRevision::findPendingTemplateChanges()
 		$ret = $dbr->newSelectQueryBuilder()
 			->select( [ $nsField, $titleField ] )
@@ -1177,7 +1199,7 @@ class FlaggedRevsUIHooks implements
 		$titles = [];
 		foreach ( $ret as $row ) {
 			$titleValue = new TitleValue( (int)$row->$nsField, $row->$titleField );
-			$titles[] = MediaWikiServices::getInstance()->getLinkRenderer()->makeLink( $titleValue );
+			$titles[] = $this->linkRenderer->makeLink( $titleValue );
 		}
 		if ( $titles ) {
 			$valueHTML = Html::openElement( 'ul' );
