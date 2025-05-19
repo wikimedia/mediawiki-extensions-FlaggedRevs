@@ -7,9 +7,11 @@ use MediaWiki\Html\Html;
 use MediaWiki\Linker\Linker;
 use MediaWiki\Logging\LogEventsList;
 use MediaWiki\Logging\LogPage;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\SpecialPage\UnlistedSpecialPage;
 use MediaWiki\Title\Title;
+use MediaWiki\User\Options\UserOptionsLookup;
+use MediaWiki\Watchlist\WatchlistManager;
 use MediaWiki\Xml\Xml;
 
 /** Assumes $wgFlaggedRevsProtection is off */
@@ -17,8 +19,19 @@ class Stabilization extends UnlistedSpecialPage {
 	/** @var PageStabilityGeneralForm|null */
 	private $form = null;
 
-	public function __construct() {
+	private PermissionManager $permissionManager;
+	private UserOptionsLookup $userOptionsLookup;
+	private WatchlistManager $watchlistManager;
+
+	public function __construct(
+		PermissionManager $permissionManager,
+		UserOptionsLookup $userOptionsLookup,
+		WatchlistManager $watchlistManager
+	) {
 		parent::__construct( 'Stabilization', 'stablesettings' );
+		$this->permissionManager = $permissionManager;
+		$this->userOptionsLookup = $userOptionsLookup;
+		$this->watchlistManager = $watchlistManager;
 	}
 
 	/**
@@ -47,11 +60,10 @@ class Stabilization extends UnlistedSpecialPage {
 
 		# Let anyone view, but not submit...
 		if ( $request->wasPosted() ) {
-			$pm = MediaWikiServices::getInstance()->getPermissionManager();
-			if ( !$pm->userHasRight( $user, 'stablesettings' ) ) {
+			if ( !$this->permissionManager->userHasRight( $user, 'stablesettings' ) ) {
 				throw new PermissionsError( 'stablesettings' );
 			}
-			if ( $pm->isBlockedFrom( $user, $title, !$confirmed ) ) {
+			if ( $this->permissionManager->isBlockedFrom( $user, $title, !$confirmed ) ) {
 				// @phan-suppress-next-line PhanTypeMismatchArgumentNullable Guaranteed via isBlockedFrom() above
 				throw new UserBlockedError( $user->getBlock( !$confirmed ) );
 			}
@@ -242,11 +254,8 @@ class Stabilization extends UnlistedSpecialPage {
 		if ( $form->isAllowed() ) {
 			$watchAttribs = [ 'accesskey' => $this->msg( 'accesskey-watch' )->text(),
 				'id' => 'wpWatchthis' ];
-			$services = MediaWikiServices::getInstance();
-			$userOptionsLookup = $services->getUserOptionsLookup();
-			$watchlistManager = $services->getWatchlistManager();
-			$watchChecked = ( $userOptionsLookup->getOption( $user, 'watchdefault' )
-				|| $watchlistManager->isWatched( $user, $title ) );
+			$watchChecked = ( $this->userOptionsLookup->getOption( $user, 'watchdefault' )
+				|| $this->watchlistManager->isWatched( $user, $title ) );
 
 			$s .= ' <tr>
 					<td class="mw-label">' .
