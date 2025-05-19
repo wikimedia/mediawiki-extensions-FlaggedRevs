@@ -77,7 +77,6 @@
 	"revreview-basic-i": "ეს არის [[{{MediaWiki:Validationpage}}|გამოქვეყნებული ვერსია]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} შემოწმებული] <i>$2</i>.\nარსებობს შემოუწმებელი [{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}} რედაქტირება ფაილებში ან თარგებში].",
 	"revreview-basic-old": "ეს არის [[{{MediaWiki:Validationpage}}|შემოწმებული]] ვერსია ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} ყველა ვერსიის სია]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} გადამოწმებულია] <i>$2</i>.\nშესაძლოა, განხორციელდა დამატებითი [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} რედაქტირებები].",
 	"revreview-basic-same": "ეს არის [[{{MediaWiki:Validationpage}}|გამოქვეყნებული ვერსია]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} შემოწმებული] <i>$2</i>.",
-	"revreview-basic-source": "[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} გვერდის შემოწმებული ვერსია], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} რეცენზირებული] <i>$2</i>, იყო დაფუძნებული ამ ვერსიაზე.",
 	"revreview-current": "შეუმოწმებელი ვერსია",
 	"revreview-draft-title": "ამ სტატიის უკანასკნელი ვერსია შეუმოწმებელია",
 	"revreview-editnotice": "'''თქვენ მიერ განხორციელებული ცვლილებები გამოქვეყნდება უფლებამოსილი მომხმარებლის მიერ შემოწმების შემდეგ. ([[{{MediaWiki:Validationpage}}|დახმარება]])'''",

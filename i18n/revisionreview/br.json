@@ -34,7 +34,6 @@
 	"revreview-check-flag-y-title": "Degemer an holl gemmoù hoc'h eus graet er c'hemm-mañ.",
 	"revreview-flag": "Adwelet an adweladenn",
 	"revreview-reflag": "Adlenn adarre an adweladenn-mañ",
-	"revreview-invalid": "'''Pal direizh :''' n'eus [[{{MediaWiki:Validationpage}}|stumm adwelet ebet]] o klotañ gant an niverenn merket.",
 	"revreview-log": "Notenn :",
 	"revreview-main": "Rankout a rit diuzañ ur stumm resis eus ar bajenn evit ober un adlenn.\nGwelet [[Special:Unreviewedpages|roll ar pajennoù nann-adlennet]].",
 	"revreview-stable1": "Marteze hoc'h eus c'hoant gwelet [{{fullurl:$1|stableid=$2}} ar stumm merket] a-benn gouzout ma 'z eo bremañ [{{fullurl:$1|stable=1}} ar stumm embannet] eus ar bajenn-mañ.",

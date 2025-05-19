@@ -33,7 +33,6 @@
 	"revreview-check-flag-y-title": "All Ännerungen akzeptéieren déi Dir bei dëser Ännerung gemaach hutt.",
 	"revreview-flag": "Dës Versioun nokucken",
 	"revreview-reflag": "Dës Versioun nach emol nokucken oder als net nogekuckt markéieren",
-	"revreview-invalid": "'''Zil ass net valabel:''' keng [[{{MediaWiki:Validationpage}}|nogekuckte]] Versioun entsprécht der ID déi Dir uginn hutt.",
 	"revreview-log": "Bemierkung:",
 	"revreview-main": "Dir musst eng prezis Versioun vun enger Inhaltssäit eraussichen fir se nokucken ze kënnen.\n\nKuckt d'[[Special:Unreviewedpages|Lëscht vun den net nogekuckte Sàiten]].",
 	"revreview-stable1": "Dir wëllt eventuel [{{fullurl:$1|stableid=$2}} dës markéiert Versioun] gesinn a kucken ob et elo déi [{{fullurl:$1|stable=1}} publizéiert Versioun] vun dëser Säit ass.",

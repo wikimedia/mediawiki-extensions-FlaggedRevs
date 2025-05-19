@@ -88,7 +88,6 @@
 	"revreview-basic-i": "Jen la [[{{MediaWiki:Validationpage}}|publikigita versio]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrolita] je <i>$2</i>.\nEkzistas [{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}} kontrolendaj ŝanĝoj de ŝablonoj/dosieroj].",
 	"revreview-basic-old": "Jen [[{{MediaWiki:Validationpage}}|kontrolita]] versio ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} montri ĉiujn]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.\nNovaj [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} ŝanĝoj] eble estis faritaj.",
 	"revreview-basic-same": "Jen la [[{{MediaWiki:Validationpage}}|publikigita versio]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrolita] je <i>$2</i>.",
-	"revreview-basic-source": "[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Kontrolita versio] de ĉi tiu paĝo, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>, estis bazita de ĉi tiu revizio.",
 	"revreview-current": "Kontrolendaj ŝanĝoj",
 	"revreview-draft-title": "Kontrolendaj ŝanĝoj estas montritaj en ĉi tiu paĝo",
 	"revreview-editnotice": "'''Viaj ŝanĝoj estos publikigataj al legantoj kiam aŭtoritata uzanto akceptas ilin. ([[{{MediaWiki:Validationpage}}|helpo]])'''",

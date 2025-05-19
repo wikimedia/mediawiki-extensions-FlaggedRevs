@@ -26,7 +26,6 @@
 	"revreview-check-flag-y-title": "Prijať všetky zmeny, ktoré ste vykonali v tejto úprave.",
 	"revreview-flag": "Skontrolovať túto verziu",
 	"revreview-reflag": "Znova skontrolovať túto revíziu",
-	"revreview-invalid": "'''Neplatný cieľ:''' zadanému ID nezodpovedá žiadna [[{{MediaWiki:Validationpage}}|skontrolovaná]] revízia.",
 	"revreview-log": "Komentár záznamu:",
 	"revreview-main": "Musíte vybrať konkrétnu verziu stránky s obsahom, aby ste ju mohli skontrolovať. \n\nPozri zoznam [[Special:Unreviewedpages|neskontrolovaných stránok]].",
 	"revreview-stable1": "Môžete zobraziť [{{fullurl:$1|stableid=$2}} túto označenú verziu] a pozrieť sa, či je mometálne [{{fullurl:$1|stable=1}} stabilnou verziou] tejto stránky.",

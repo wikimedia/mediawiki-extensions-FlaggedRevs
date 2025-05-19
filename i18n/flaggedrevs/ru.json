@@ -116,7 +116,6 @@
 	"revreview-basic-i": "Это [[{{MediaWiki:Validationpage}}|стабильная версия]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверенная] <i>$2</i>.\nЕсть ожидающие проверки [{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}} изменения в шаблонах].",
 	"revreview-basic-old": "Это [[{{MediaWiki:Validationpage}}|досмотренная]] версия, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} подтверждённая] <i>$2</i>.\nМогли быть сделаны новые [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} правки].",
 	"revreview-basic-same": "Это [[{{MediaWiki:Validationpage}}|стабильная версия]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} досмотренная] <i>$2</i>.",
-	"revreview-basic-source": "[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Досмотренная версия] этой страницы, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} подтверждённая] <i>$2</i>, была основана на этой версии.",
 	"revreview-current": "Непроверенные изменения",
 	"flaggedrevs-action-info-pages-waiting-for-review": "Включённые страницы, ожидающие проверки",
 	"flaggedrevs-action-info-pages-waiting-for-review-none": "Нет",

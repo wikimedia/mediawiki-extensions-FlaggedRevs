@@ -33,7 +33,6 @@
 	"revreview-check-flag-y-title": "Alle wijzigingen uit deze bewerking accepteren.",
 	"revreview-flag": "Versie controleren",
 	"revreview-reflag": "Versie opnieuw controleren",
-	"revreview-invalid": "'''Ongeldige bestemming:''' er is geen [[{{MediaWiki:Validationpage}}|gecontroleerde]] versie die overeenkomt met het opgegeven nummer.",
 	"revreview-log": "Opmerking:",
 	"revreview-main": "U moet een specifieke versie van een pagina kiezen die u wilt controleren.\n\nZie de [[Special:Unreviewedpages|lijst met ongecontroleerde pagina's]].",
 	"revreview-stable1": "U kunt van deze pagina [{{fullurl:$1|stableid=$2}} deze gecontroleerde versie] bekijken om te beoordelen of dit nu de [{{fullurl:$1|stable=1}} gepubliceerde versie] is.",

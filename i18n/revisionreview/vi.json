@@ -35,7 +35,6 @@
 	"revreview-check-flag-y-title": "Chấp nhận tất cả những thay đổi của bạn trong sửa đổi này.",
 	"revreview-flag": "Duyệt phiên bản này",
 	"revreview-reflag": "Duyệt lại phiên bản này",
-	"revreview-invalid": "'''Không hợp lệ:''' không có bản [[{{MediaWiki:Validationpage}}|đã duyệt]] tương ứng với ID được cung cấp.",
 	"revreview-log": "Nhận xét:",
 	"revreview-main": "Bạn phải chọn một phiên bản cụ thể từ một trang nội dung để duyệt.\n\nMời xem [[Special:Unreviewedpages|danh sách các trang chưa được duyệt]].",
 	"revreview-stable1": "Bạn có thể muốn xem [{{fullurl:$1|stableid=$2}} phiên bản có cờ này] để xem nó mới có phải là [{{fullurl:$1|stable=1}} phiên bản ổn định] của trang này hay chưa.",

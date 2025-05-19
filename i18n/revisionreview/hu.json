@@ -40,7 +40,6 @@
 	"revreview-check-flag-y-title": "Az összes olyan változtatás megtekintettnek jelölése, amit ebben a szerkesztésben végeztél.",
 	"revreview-flag": "Változat ellenőrzése",
 	"revreview-reflag": "Változat újraellenőrzése",
-	"revreview-invalid": "'''Érvénytelen cél:''' a megadott azonosító nem egy [[{{MediaWiki:Validationpage}}|ellenőrzött]] változat.",
 	"revreview-log": "Megjegyzés:",
 	"revreview-main": "Ki kell választanod egy lap adott változatát az ellenőrzéshez.\n\nLásd az [[Special:Unreviewedpages|ellenőrizetlen lapok listáját]].",
 	"revreview-stable1": "Megnézheted [{{fullurl:$1|stableid=$2}} ezt a jelölt változatot], vagy a lap [{{fullurl:$1|stable=1}} közzétett változatát].",

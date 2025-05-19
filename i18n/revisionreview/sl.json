@@ -32,7 +32,6 @@
 	"revreview-check-flag-y-title": "Sprejmi vse spremembe, ki sem jih naredil_a tu.",
 	"revreview-flag": "Pregled redakcije",
 	"revreview-reflag": "Ponovni pregled redakcije",
-	"revreview-invalid": "'''Neveljaven cilj:''' Danemu ID-ju ne ustreza nobena [[{{MediaWiki:Validationpage}}|pregledana]] redakcija.",
 	"revreview-log": "Komentar:",
 	"revreview-main": "Za pregled morate izbrati neko redakcijo vsebinske strani.\n\nOglejte si [[Special:Unreviewedpages|seznam nepregledanih strani]].",
 	"revreview-stable1": "Morda si boste želeli ogledati [{{fullurl:$1|stableid=$2}} to označeno redakcijo], da vidite, ali je zdaj to [{{fullurl:$1|stable=1}} stabilna redakcija] te strani.",

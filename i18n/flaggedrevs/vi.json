@@ -89,7 +89,6 @@
 	"revreview-basic-i": "Dây là [[{{MediaWiki:Validationpage}}|phiên bản ổn định]] được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} xem qua] vào <i>$2</i>.\nHiện có [{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}} thay đổi bản mẫu/tập tin] đang chờ được duyệt.",
 	"revreview-basic-old": "Đây là một [[{{MediaWiki:Validationpage}}|phiên bản đã xem qua]] đã được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} chấp nhận] vào <i>$2</i>.\nCó thể đã có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} những thay đổi mới].",
 	"revreview-basic-same": "Đây là [[{{MediaWiki:Validationpage}}|phiên bản ổn định]] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} được xem qua] vào <i>$2</i>.",
-	"revreview-basic-source": "Một [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} phiên bản đã xem qua] của trang này, được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} chấp nhận] vào <i>$2</i>, bắt nguồn từ phiên bản này.",
 	"revreview-current": "Thay đổi đang chờ",
 	"revreview-draft-title": "Trang này có các thay đổi đang chờ",
 	"revreview-editnotice": "'''Các thay đổi của bạn sẽ được trình bày cho độc giả sau khi một thành viên được quyền chấp nhận chúng nó. ([[{{MediaWiki:Validationpage}}|Trợ giúp]])'''",

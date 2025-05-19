@@ -49,7 +49,6 @@
 	"revreview-check-flag-y-title": "Aceptar todos los cambios que has realizado aquí.",
 	"revreview-flag": "Verificar esta revisión",
 	"revreview-reflag": "Volver a verificar esta revisión",
-	"revreview-invalid": "'''Destino inválido:''' no hay  [[{{MediaWiki:Validationpage}}|versión revisada]] que corresponda a tal ID.",
 	"revreview-log": "Comentario:",
 	"revreview-main": "Debes seleccionar una revisión particular de una página de contenido para verificar.\n\nMira la [[Special:Unreviewedpages|lista de páginas no revisadas]].",
 	"revreview-stable1": "Puedes desear ver [{{fullurl:$1|stableid=$2}} esta versión verificada] y comprobar si ahora es la [{{fullurl:$1|stable=1}} versión estable] de esta página.",

@@ -6,7 +6,6 @@
 	},
 	"revisionreview": "複審修訂",
 	"revreview-flag": "複審呢次修訂",
-	"revreview-invalid": "'''無效嘅目標:''' 無[[{{MediaWiki:Validationpage}}|複審過]]嘅修訂跟仕已經畀咗嘅ID。",
 	"revreview-log": "記錄註解:",
 	"revreview-main": "你一定要響一版內容頁度揀一個個別嘅修訂去複審。\n\n\t睇[[Special:Unreviewedpages]]去拎未複審嘅版。",
 	"revreview-stable1": "你可能想去睇[{{fullurl:$1|stableid=$2}} 呢個加咗旗嘅版本]去睇呢一版而家係唔係[{{fullurl:$1|stable=1}} 穩定版]。",

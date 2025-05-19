@@ -61,7 +61,6 @@
 	"revreview-basic-i": "To jo [[{{MediaWiki:Validationpage}}|wózjawjona wersija]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} pśekontrolěrowana] <i>$2</i>.\nSu [{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}} změny pśedłogow/datajow], kótarež cakaju na pśeglědanje.",
 	"revreview-basic-old": "To jo [[{{MediaWiki:Validationpage}}|pśekontrolěrowana]] wersija ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} wšykne nalicyś]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schwalona] <i>$2</i>.\nJo móžno, až nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} změny] su se pśewjadli.",
 	"revreview-basic-same": "To jo [[{{MediaWiki:Validationpage}}|wózjawjona]] wersija [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} pśekontrolěrowana] <i>$2</i>.",
-	"revreview-basic-source": "[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Pśekontrolěrowana wersija] toś togo boka, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schwalona] <i>$2</i>, bazěrujo na toś tej wersiji.",
 	"revreview-current": "Njepśeglědane změny",
 	"revreview-draft-title": "Njepśeglědane změny zwobraznjuju se na toś tom boku",
 	"revreview-editnotice": "'''Twóje změny budu se cytarjam pokazowaś, gaž awtorizěrowany wužywaŕ je akceptěrujo.  ([[{{MediaWiki:Validationpage}}|pomoc]]).'''",

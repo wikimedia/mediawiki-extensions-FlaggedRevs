@@ -35,7 +35,6 @@
 	"revreview-check-flag-y-title": "Aceta tuti i cambiamenti che te ghè fato in sta modifica.",
 	"revreview-flag": "Riesamina sta version",
 	"revreview-reflag": "Ricontroła da novo sta revixion",
-	"revreview-invalid": "'''Destinassion mìa valida:''' el nùmaro fornìo no'l corisponde a nissuna version [[{{MediaWiki:Validationpage}}|riesaminà]].",
 	"revreview-log": "Comento:",
 	"revreview-main": "Ti gà da selessionar na version in particolare de la pagina par esaminarla.\n\nVarda la [[Special:Unreviewedpages|lista de pagine da riesaminar]].",
 	"revreview-stable1": "Ti pol vardar sta [{{fullurl:$1|stableid=$2}} version marcàda] par védar se desso la xe la [{{fullurl:$1|stable=1}} version publicà] de sta pagina.",

@@ -90,7 +90,6 @@
 	"revreview-basic-i": "Dit is de [[{{MediaWiki:Validationpage}}|gepubliceerde versie]] die is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gecontroleerd] op <i>$2</i>.\nEr zijn ongecontroleerde [{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}} wijzigingen in gebruikte sjablonen en bestanden].",
 	"revreview-basic-old": "Dit is een [[{{MediaWiki:Validationpage}}|gepubliceerde versie]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} allemaal bekijken]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goedgekeurd] op <i>$2</i>.\nEr kunnen nieuwe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} wijzigingen] gemaakt zijn.",
 	"revreview-basic-same": "Dit is de [[{{MediaWiki:Validationpage}}|gepubliceerde versie]] die is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gecontroleerd] op <i>$2</i>.",
-	"revreview-basic-source": "Een [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} gecontroleerde versie] van deze pagina, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goedgekeurd] op <i>$2</i>, is gebaseerd op deze versie.",
 	"revreview-current": "Ongecontroleerde wijzigingen",
 	"flaggedrevs-action-info-pages-waiting-for-review": "Getranscludeerde pagina’s die wachten op beoordeling",
 	"flaggedrevs-action-info-pages-waiting-for-review-none": "Geen",

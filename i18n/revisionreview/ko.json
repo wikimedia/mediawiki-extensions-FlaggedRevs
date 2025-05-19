@@ -37,7 +37,6 @@
 	"revreview-check-flag-y-title": "여기에서 행한 모든 변경사항을 승인합니다.",
 	"revreview-flag": "이 판을 검토하기",
 	"revreview-reflag": "이 판을 다시 검토하기",
-	"revreview-invalid": "'''대상이 잘못됨:''' 주어진 ID와 대응되는 [[{{MediaWiki:Validationpage}}|검토된 판]]이 없습니다.",
 	"revreview-log": "의견:",
 	"revreview-main": "검토하려면 문서의 특정 판을 선택해야 합니다.\n\n[[Special:Unreviewedpages|검토되지 않은 문서 목록]]을 참조하십시오.",
 	"revreview-stable1": "[{{fullurl:$1|stableid=$2}} 검토된 판]을 읽어보고 지금 이 문서의 [{{fullurl:$1|stable=1}} 배포판]인 지 확인해볼 수 있습니다.",

@@ -36,7 +36,6 @@
 	"revreview-check-flag-y-title": "לקבל את כל השינויים שעשית בעריכה זו.",
 	"revreview-flag": "סקירה של גרסה זו",
 	"revreview-reflag": "סקירה חוזרת של גרסה זו",
-	"revreview-invalid": "'''יעד בלתי־תקין:''' מספר הגרסה שניתן אינו מתאים לגרסה [[{{MediaWiki:Validationpage}}|שנסקרה]].",
 	"revreview-log": "הערה:",
 	"revreview-main": "כדי לסקור, יש לבחור גרסה מסוימת של דף תוכן.\n\nראו את [[Special:Unreviewedpages|רשימת הדפים שלא נסקרו]].",
 	"revreview-stable1": "ייתכן שברצונך לצפות ב[{{fullurl:$1|stableid=$2}} גרסה מסומנת זו] ולראות האם היא עכשיו [{{fullurl:$1|stable=1}} הגרסה היציבה] של הדף הזה.",

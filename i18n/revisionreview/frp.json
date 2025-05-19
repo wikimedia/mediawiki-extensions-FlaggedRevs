@@ -31,7 +31,6 @@
 	"revreview-check-flag-y-title": "Accèptar tôs los changements que vos éd fêts dens ceti changement.",
 	"revreview-flag": "Revêre ceta vèrsion",
 	"revreview-reflag": "Tornar revêre ceta vèrsion",
-	"revreview-invalid": "'''Ciba fôssa :''' niona vèrsion [[{{MediaWiki:Validationpage}}|revua]] corrèspond u numerô balyê.",
 	"revreview-log": "Comentèro :",
 	"revreview-main": "Vos dête chouèsir una vèrsion spècefica d’una pâge de contegnu por fâre una rèvision.\n\nVêde la [[Special:Unreviewedpages|lista de les pâges pas revues]].",
 	"revreview-stable1": "Pôt-étre vos souhètâd vêre ceta [{{fullurl:$1|stableid=$2}} vèrsion signalâye] por vêre s’o est ora la [{{fullurl:$1|stable=1}} vèrsion stâbla] de cela pâge.",

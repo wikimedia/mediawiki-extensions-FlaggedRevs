@@ -60,7 +60,6 @@
 	"revreview-basic-i": "Costa a l'é la [[{{MediaWiki:Validationpage}}|version publicà]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controlà] dël <i>$2</i>.\nA-i son [{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}} stamp/cangiament d'archivi] ch'a speto na revision.",
 	"revreview-basic-old": "Costa a l'é na [[{{MediaWiki:Validationpage}}|revision]] controlà ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} lista tut]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] dël <i>$2</i>.\nDle neuve [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} modìfiche] a peulo esse stàite fàite.",
 	"revreview-basic-same": "Costa-sì a l'é la [[{{MediaWiki:Validationpage}}|version publicà]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controlà] dël <i>$2</i>.",
-	"revreview-basic-source": "Na [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} version controlà] ëd costa pàgina, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] dël <i>$2</i>, a l'é stàita basà su sta revision-sì.",
 	"revreview-current": "Cangiament ch'a speto",
 	"revreview-draft-title": "Ij cangiament ch'a speto a son ësmonù su sta pàgina-sì",
 	"revreview-editnotice": "''Soe modìfiche a saran ësmonùe ai letor na vira che n'utent autorisà a j'aceta. ([[{{MediaWiki:Validationpage}}|agiut]])'''",

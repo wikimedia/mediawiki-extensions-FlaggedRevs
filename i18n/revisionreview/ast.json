@@ -34,7 +34,6 @@
 	"revreview-check-flag-y-title": "Aceutar tolos cambios que vienes de facer equí.",
 	"revreview-flag": "Revisar esta revisión",
 	"revreview-reflag": "Revisar esta revisión otra vuelta",
-	"revreview-invalid": "'''Destín inválidu:''' nenguna versión [[{{MediaWiki:Validationpage}}|revisada]] correspuende cola ID que se dió.",
 	"revreview-log": "Comentariu:",
 	"revreview-main": "Tienes que seleicionar una revisión concreta d'una páxina de conteníos pa revisala.\n\nVete a la [[Special:Unreviewedpages|llista de páxines ensin revisar]].",
 	"revreview-stable1": "Seique quiera ver [{{fullurl:$1|stableid=$2}} esta versión marcada] pa comprobar si agora ye la [{{fullurl:$1|stable=1}} versión estable] d'esta páxina.",

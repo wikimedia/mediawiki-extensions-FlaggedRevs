@@ -109,7 +109,6 @@
 	"revreview-basic-i": "To jest [[{{MediaWiki:Validationpage}}|wersja przejrzana]], która została [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} oznaczona] <i>$2</i>.\nNa przejrzenie oczekują [{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}} zmiany w szablonach lub plikach], które są zawarte na tej stronie.",
 	"revreview-basic-old": "To jest [[{{MediaWiki:Validationpage}}|wersja przejrzana]], która została [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} oznaczona] <i>$2</i>.\nPóźniej mogły zostać wykonane następne [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} zmiany].",
 	"revreview-basic-same": "To jest [[{{MediaWiki:Validationpage}}|wersja przejrzana]], która została [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} oznaczona] <i>$2</i>.",
-	"revreview-basic-source": "Następująca [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} wersja przejrzana] tej strony, którą [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} oznaczono] <i>$2</i>, była oparta na tej wersji.",
 	"revreview-current": "Oczekuje na przejrzenie",
 	"flaggedrevs-action-info-pages-waiting-for-review": "Dołączone strony oczekujące na przejrzenie",
 	"flaggedrevs-action-info-pages-waiting-for-review-none": "Brak",

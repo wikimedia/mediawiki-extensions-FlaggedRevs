@@ -35,7 +35,6 @@
 	"revreview-check-flag-y-title": "Prihvati sve izmjene koje ste ovdje napravili.",
 	"revreview-flag": "Pregled ove verzije",
 	"revreview-reflag": "Ponovo pregledaj ovu verziju",
-	"revreview-invalid": "'''Neispravan cilj:''' nijedna [[{{MediaWiki:Validationpage}}|pregledana]] verzija ne odgovara navedenom ID-u.",
 	"revreview-log": "Komentar:",
 	"revreview-main": "Morate izabrati određenu verziju stranice da biste je pregledali.\n\nPogledajte [[Special:Unreviewedpages|spisak nepregledanih stranica]].",
 	"revreview-stable1": "Možda želite pogledati [{{fullurl:$1|stableid=$2}} ovu označenu verziju] i provjeriti je li ona sad [{{fullurl:$1|stable=1}} stabilna verzija] ove stranice.",

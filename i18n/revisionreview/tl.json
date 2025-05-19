@@ -31,7 +31,6 @@
 	"revreview-check-flag-y-title": "Tanggapin ang lahat ng mga pagbabagong ginawa mo sa pamamatnugot na ito.",
 	"revreview-flag": "Suriing muli ang pagbabagong ito",
 	"revreview-reflag": "Muling suriin ang rebisyong ito.",
-	"revreview-invalid": "'''Hindi tanggap na puntirya:''' walang [[{{MediaWiki:Validationpage}}|muling nasuring]] pagbabagong tumutugma sa ibinigay na ID.",
 	"revreview-log": "Kumento/puna:",
 	"revreview-main": "Dapat kang pumili ng isang partikular na pagbabago mula sa isang pahinan ng nilalaman upang makapagsuri.\n\nTingnan ang [[Special:Unreviewedpages|talaan ng mga pahina hindi pa nasusuring muli]].",
 	"revreview-stable1": "Maaaring naisin mong tingnan ang [{{fullurl:$1|stableid=$2}} ibinandilang bersyong ito] at tingnan kung ito na ngayon ang [{{fullurl:$1|stable=1}} tanggap na bersyon] ng pahinang ito.",

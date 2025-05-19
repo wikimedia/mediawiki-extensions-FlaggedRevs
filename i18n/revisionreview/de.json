@@ -41,7 +41,6 @@
 	"revreview-check-flag-y-title": "Markieren aller Änderungen, die du mit dieser Bearbeitung gemacht hast.",
 	"revreview-flag": "Markiere Version",
 	"revreview-reflag": "Diese Version erneut markieren",
-	"revreview-invalid": "'''Ungültiges Ziel:''' keine [[{{MediaWiki:Validationpage}}|markierte]] Version zur angegebenen Versionsnummer gefunden.",
 	"revreview-log": "Kommentar:",
 	"revreview-main": "Du musst eine Version zur Markierung auswählen.\n\nSiehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].",
 	"revreview-stable1": "Vielleicht möchtest du [{{fullurl:$1|stableid=$2}} die markierte Version] aufrufen, um zu sehen, ob es nunmehr die [{{fullurl:$1|stable=1}} stabile Version] dieser Seite ist?",

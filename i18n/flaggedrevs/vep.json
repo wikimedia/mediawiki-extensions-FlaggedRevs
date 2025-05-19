@@ -58,7 +58,6 @@
 	"revreview-basic-i": "Nece om [[{{MediaWiki:Validationpage}}|publikuidud]] versii; [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kudamban kodvii] om <i>$2</i>.\nTäs om kodvmatomid [{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}} toižetusid šablonoihe vai failoihe].",
 	"revreview-basic-old": "Nece om [[{{MediaWiki:Validationpage}}|kactud]] versii ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} ühthine nimikirjutez]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kudamban om vahvištoitnu] <i>$2</i>.\nTäs voib olda uzid [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} redakcijoid].",
 	"revreview-basic-same": "Nece om [[{{MediaWiki:Validationpage}}|stabiline versii]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kudamb om kodvdud] <i>$2</i>.",
-	"revreview-basic-source": "Necen lehtpolen [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} kactud versii,] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kodvii] <i>$2</i>, om tehtud necen versijan alusel.",
 	"revreview-current": "Kodvmatomad toižetused",
 	"revreview-draft-title": "Necil lehtpolel ozutadas kovmatomad toižetused",
 	"revreview-editnotice": "'''Teil tehtud toižetused ozutadas lugijoile siloi, konz niid vahvištoitab avtorizuidud ühtnii. ([[{{MediaWiki:Validationpage}}|ližainformacii]])'''",

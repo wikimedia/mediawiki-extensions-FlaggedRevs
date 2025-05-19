@@ -41,7 +41,6 @@
 	"revreview-check-flag-y-title": "Burada yaptığın tüm değişiklikleri kabul et.",
 	"revreview-flag": "Bu revizyonu incele",
 	"revreview-reflag": "Bu revizyonu tekrar incele",
-	"revreview-invalid": "'''Geçersiz hedef:''' hiçbir [[{{MediaWiki:Validationpage}}|incelenmiş]] revizyon verilen no.ya uymuyor.",
 	"revreview-log": "Yorum:",
 	"revreview-main": "İncelemek için içerik sayfasından belirli bir revizyon seçmelisiniz.\n\n[[Special:Unreviewedpages|İncelenmemiş sayfalar listesine]] göz atın.",
 	"revreview-stable1": "[{{fullurl:$1|stableid=$2}} Bu bayraklanmış sürümü] görerek bu sayfanın [{{fullurl:$1|stable=1}} kararlı sürümü] olup olmadığını görmek isteyebilirsiniz.",

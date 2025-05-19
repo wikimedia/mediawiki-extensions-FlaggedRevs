@@ -21,7 +21,6 @@
 	"revreview-check-flag-y-title": "Bu özgerdişde eden ähli üýtgeşmeleriňizi kabul ediň.",
 	"revreview-flag": "Bu wersiýany gözden geçir",
 	"revreview-reflag": "Bu wersiýany gaýtadan gözden geçir/gözden geçirme",
-	"revreview-invalid": "'''Nädogry niýetlenilýän:''' hiç bir [[{{MediaWiki:Validationpage}}|gözden geçirilen]] wersiýa berlen ID-ä laýyk gelmeýär.",
 	"revreview-log": "Teswir:",
 	"revreview-main": "Gözden geçirmek üçin, mazmunly sahypanyň belli bir wersiýasyny saýlamaly.\n\n[[Special:Unreviewedpages|Gözden geçirilmedik sahyplaryň sanawyna]] serediň.",
 	"revreview-stable1": "[{{fullurl:$1|stableid=$2}} Bu baýdakly wersiýany] görüp, belkem bu sahypanyň [{{fullurl:$1|stable=1}} durnukly wersiýadygyny] ýa-da däldigini görmek isleýänsiňiz.",

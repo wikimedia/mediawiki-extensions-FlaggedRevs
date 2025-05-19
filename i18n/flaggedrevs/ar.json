@@ -110,7 +110,6 @@
 	"revreview-basic-i": "هذه هي [[{{MediaWiki:Validationpage}}|النسخة المستقرة]]، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} المفحوصة] في <i>$2</i>.\n[{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}} تغييرات قوالب] تنتظر المراجعة.",
 	"revreview-basic-old": "هذا إصدار [[{{MediaWiki:Validationpage}}|محدد]] ، [{{fullurl: {{# Special: Log}} | type = review & page = {{FULLPAGENAMEE}}}} موافق عليه] بتاريخ <i>$2</i> ! N ! ربما تم إجراء [{{fullurl: {{FULLPAGENAMEE}} | oldid = $1 & diff = cur }} تغييرات].",
 	"revreview-basic-same": "هذه هي [[{{MediaWiki:Validationpage}}|النسخة المنشورة]]، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} المفحوصة] في <i>$2</i>.",
-	"revreview-basic-source": "[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} نسخة مفحوصة] من هذه الصفحة [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} أعتمدت] في <i>$2</i> مبنية على هذه المراجعة.",
 	"revreview-current": "تعديلات معلقة",
 	"flaggedrevs-action-info-pages-waiting-for-review": "الصفحات المضمّنة التي تتنظر المراجعة",
 	"flaggedrevs-action-info-pages-waiting-for-review-none": "لا يوجد",

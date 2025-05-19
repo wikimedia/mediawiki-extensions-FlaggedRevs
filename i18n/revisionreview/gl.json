@@ -35,7 +35,6 @@
 	"revreview-check-flag-y-title": "Aceptar todos os cambios que fixo nesta edición.",
 	"revreview-flag": "Revisar esta revisión",
 	"revreview-reflag": "Volver revisar esta revisión",
-	"revreview-invalid": "'''Obxectivo inválido:''' ningunha revisión [[{{MediaWiki:Validationpage}}|revisada]] se corresponde co ID dado.",
 	"revreview-log": "Comentario:",
 	"revreview-main": "Debe seleccionar unha revisión particular dunha páxina de contido de cara á revisión.\n\nVexa a [[Special:Unreviewedpages|lista de páxinas sen revisar]].",
 	"revreview-stable1": "Pode que queira ver [{{fullurl:$1|stableid=$2}} esta versión analizada] para comprobar se agora é [{{fullurl:$1|stable=1}} a versión publicada] desta páxina.",

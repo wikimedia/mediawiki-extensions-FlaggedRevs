@@ -33,7 +33,6 @@
 	"revreview-check-flag-y-title": "Alli Änderige akzäptiere, wu Du mit däre Bearbeitig gmacht hesch.",
 	"revreview-flag": "Die Version priefe",
 	"revreview-reflag": "Die Version nomol priefe",
-	"revreview-invalid": "'''Nit giltig Ziil:''' kei [[{{MediaWiki:Validationpage}}|gsichteti]] Artikelversion vu dr Versions-ID wu aagee isch.",
 	"revreview-log": "Kommentar:",
 	"revreview-main": "Du muesch e Artikelversion uswehle go si markiere.\n\nLueg au d [[Special:Unreviewedpages|Lischt vu nit markierte Versione]].",
 	"revreview-stable1": "Villicht mechtsch [{{fullurl:$1|stableid=$2}} die markiert Version] aaluege un luege, eb s jetz di [{{fullurl:$1|stable=1}} vereffetligt Version] vu däre Syten isch.",

@@ -79,7 +79,6 @@
 	"revreview-basic-i": "Queste jè 'a [[{{MediaWiki:Validationpage}}|versiona secure]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificate] 'u <i>$2</i>.\nStonne [{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}} cangiaminde a template/file] ca aspettane 'a revisione.",
 	"revreview-basic-old": "Queste jè 'na revisiona [[{{MediaWiki:Validationpage}}|verificate]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.\nNuève [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} cangiaminde] ponne essere state fatte.",
 	"revreview-basic-same": "Queste jè l'urtema [[{{MediaWiki:Validationpage}}|versione pubblecate]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificate] 'u <i>$2</i>.",
-	"revreview-basic-source": "'Na [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} versiona verificate] de sta pàgene, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] sus 'u <i>$2</i>, ere basate sus 'a sta revisione.",
 	"revreview-current": "Cangiaminde pendende",
 	"revreview-draft-title": "Le cangiaminde pendende avènene fatte vedè sus a sta pàgene",
 	"revreview-editnotice": "'''Le cangiaminde tune avènene fatte vedè a le letture 'na vote ca 'n'utende autorizzate l'ave accettate. ([[{{MediaWiki:Validationpage}}|ajute]])'''",

@@ -61,7 +61,6 @@
 	"revreview-basic-i": "ഇത് [[{{MediaWiki:Validationpage}}|പ്രസിദ്ധീകരിച്ച പതിപ്പ്]] ആണ്. <i>$2</i>-നു ഇത് [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} പരിശോധിച്ചിരിക്കുന്നു]. ഇതിൽ [{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}} ഫലക/പ്രമാണ മാറ്റങ്ങൾ] സംശോധനം പ്രതീക്ഷിക്കുന്നു.",
 	"revreview-basic-old": "ഇതൊരു [[{{MediaWiki:Validationpage}}|പരിശോധിക്കപ്പെട്ട]] പതിപ്പ് ആണ് ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} എല്ലാം കാണുക]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ''$2'' നു അംഗീകരിച്ചതാണ്]. പുതിയ [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} മാറ്റങ്ങൾ] വന്നിരിക്കാൻ സാദ്ധ്യതയുണ്ട്.",
 	"revreview-basic-same": "ഇത് [[{{MediaWiki:Validationpage}}|പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പ്]] ആണ്, <i>$2</i>ന് [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} പരിശോധിച്ചിരിക്കുന്നു].",
-	"revreview-basic-source": "ഈ താളിന്റെ [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}}  ഒരു പരിശോധിക്കപ്പെട്ട പതിപ്പ്], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ''$2'' നു അംഗീകരിച്ചത്] ഈ പതിപ്പിനെ അടിസ്ഥാനമാക്കിയാണ്‌.",
 	"revreview-current": "അവശേഷിക്കുന്ന മാറ്റങ്ങൾ",
 	"revreview-draft-title": "ഈ താളിൽ അവശേഷിക്കുന്ന മാറ്റങ്ങൾ കാണാം",
 	"revreview-editnotice": "'''താങ്കളുടെ നടത്തിയ തിരുത്തലുകൾ അംഗീകരിക്കപ്പെട്ട ഒരുപയോക്താവ് സ്വീകരിച്ച ചെയ്ത ശേഷം എല്ലാവർക്കും കാണാനാവുന്നതാണ്. ([[{{MediaWiki:Validationpage}}|സഹായം]])'''",

@@ -44,7 +44,6 @@
 	"revreview-check-flag-y-title": "Acceptera alla ändringarna som du har gjort i denna redigering.",
 	"revreview-flag": "Granska denna version",
 	"revreview-reflag": "Återgranska denna version",
-	"revreview-invalid": "'''Ogiltigt mål:''' inga [[{{MediaWiki:Validationpage}}|granskade]] versioner motsvarar den angivna IDn.",
 	"revreview-log": "Kommentar:",
 	"revreview-main": "Du måste välja en viss version av en innehållssida för att kunna granska den.\n\nSe [[Special:Unreviewedpages|listan över ogranskade sidor]].",
 	"revreview-stable1": "Du kanske vill se [{{fullurl:$1|stableid=$2}} den här flaggade versionen] för att se om den nu är den [{{fullurl:$1|stable=1}} accepterade versionen] av den här sidan.",

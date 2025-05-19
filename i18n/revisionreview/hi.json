@@ -34,7 +34,6 @@
 	"revreview-check-flag-y-title": "सारे बदलाव स्वीकार करें जो आपने यहाँ किये हैं।",
 	"revreview-flag": "यह अवतरण पुनरीक्षित करें",
 	"revreview-reflag": "इस अवतरण को पुनः पुनरीक्षित करें",
-	"revreview-invalid": "'''अमान्य लक्ष्य:''' निर्दिष्ट आइडी से कोई भी [[{{MediaWiki:Validationpage}}|पुनरीक्षित]] अवतरण नहीं मिलता।",
 	"revreview-log": "टिप्पणी:",
 	"revreview-main": "पुनरीक्षण करने के लिये एक अवतरण चुनना अनिवार्य है।\n\n[[Special:Unreviewedpages|अनिरीक्षित अवतरणों की सूची]] देखें।",
 	"revreview-stable1": "आप इस पृष्ठ का [{{fullurl:$1|stableid=$2}} यह पुनरीक्षित अवतरण] देख सकते हैं यह देखने के लिए कि यह [{{fullurl:$1|stable=1}} स्थिर अवतरण] बना है या नहीं।",

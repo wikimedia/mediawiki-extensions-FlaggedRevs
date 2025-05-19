@@ -75,7 +75,6 @@
 	"revreview-basic-i": "Dit is de [[{{MediaWiki:Validationpage}}|gepubliceerde versie]] die is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gecontroleerd] op <i>$2</i>.\nd'r Zeen ongecontroleerde [{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}} wieziginge in gebroekde sjablone en bestenj].",
 	"revreview-basic-old": "Dit is 'n [[{{MediaWiki:Validationpage}}|gepubliceerde versie]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} bekiek alle]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goodgekeurd] op <i>$2</i>.\nd'r Kinne nuuj [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} wieziginge] gemaak zeen.",
 	"revreview-basic-same": "Dit is de lets [[{{MediaWiki:Validationpage}}|beoordeelde]] versie, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goodgekeurdj] op <i>$2</i>.",
-	"revreview-basic-source": "'n [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} gecontroleerde versie] van dees pagina, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goodgekeurd] op <i>$2</i>, is gebaseerd op dees versie.",
 	"revreview-current": "Ongecontroleerde wieziginge",
 	"revreview-draft-title": "Dees pagina bevat óngecontroleerde wieziginge",
 	"revreview-editnotice": "'''Dien wieziginge waere waergaeve naodet 'ne gebroeker dees haet gecontroleerd. ([[{{MediaWiki:Validationpage}}|?]])'''",
