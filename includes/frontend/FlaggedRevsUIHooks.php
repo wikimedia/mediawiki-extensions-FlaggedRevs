@@ -679,7 +679,6 @@ class FlaggedRevsUIHooks implements
 
 	/**
 	 * @inheritDoc
-	 * @suppress PhanUndeclaredProperty For HistoryPager->fr_*
 	 */
 	public function onPageHistoryLineEnding( $history, &$row, &$s, &$liClasses, &$attribs ) {
 		$fa = FlaggableWikiPage::getTitleInstance( $history->getTitle() );
