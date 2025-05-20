@@ -434,7 +434,15 @@
 		},
 		"ui": {
 			"class": "FlaggedRevsUIHooks",
-			"services": []
+			"services": [
+				"ActorStore",
+				"ConnectionProvider",
+				"LinkRenderer",
+				"LinksMigration",
+				"MainWANObjectCache",
+				"PermissionManager",
+				"ReadOnlyMode"
+			]
 		},
 		"scribunto": {
 			"class": "\\MediaWiki\\Extension\\FlaggedRevs\\Backend\\ScribuntoHooks",
