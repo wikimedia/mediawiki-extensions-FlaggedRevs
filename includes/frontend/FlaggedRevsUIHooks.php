@@ -1172,7 +1172,13 @@ class FlaggedRevsUIHooks implements
 				$list['StablePages'] = StablePages::class;
 			} else {
 				$list['ConfiguredPages'] = ConfiguredPages::class;
-				$list['UnreviewedPages'] = UnreviewedPages::class;
+				$list['UnreviewedPages'] = [
+					'class' => UnreviewedPages::class,
+					'services' => [
+						'ConnectionProvider',
+						'PermissionManager',
+					],
+				];
 				// unlisted
 				$list['Stabilization'] = [
 					'class' => Stabilization::class,
