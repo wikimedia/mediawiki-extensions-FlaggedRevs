@@ -112,6 +112,7 @@
 	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} паказаць недагледжаныя змены]",
 	"revreview-basic-title": "Гэта дагледжаная версія старонкі",
 	"revreview-dialog-title": "Статус версіі старонкі",
+	"revreview-quick-basic-same-title": "'''Праверана'''",
 	"revreview-toggle-title": "паказаць/схаваць падрабязнасці",
 	"revreview-visibility-synced": "'''Гэта старонка мае абноўленую [[{{MediaWiki:Validationpage}}|стабільную версію]]; налады стабільнасці старонак могуць быць [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} сканфігураваны].'''",
 	"revreview-visibility-outdated": "'''Гэта старонка мае састарэлую [[{{MediaWiki:Validationpage}}|стабільную версію]]; налады стабільнасці старонак могуць быць [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} сканфігураваны].'''",
