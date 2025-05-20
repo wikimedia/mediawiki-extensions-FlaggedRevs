@@ -294,7 +294,8 @@ class FlaggablePageView extends ContextSource {
 	 * Determines what page content to display, prioritizing the most recent stable version if
 	 * $wgFlaggedRevsOverride is set to true.
 	 *
-	 * Handles regular page views (?action=view) only. Does not handle oldids or diffs.
+	 * Handles regular page views (?action=view) only. Does not handle oldids or diffs. VisualEditor
+	 * publishes also trigger this behaviour.
 	 *
 	 * This method replaces the current page view with the last stable version if conditions allow.
 	 * It determines the type of revision requested by the user (e.g., 'stable', 'draft', 'unreviewed'),
@@ -693,6 +694,9 @@ class FlaggablePageView extends ContextSource {
 		$parserOut = $this->article->getParserOutput( $parserOptions );
 
 		// Set the output revision ID so that the "Permanent link" link works. T384778
+		// (T394381) Note that there is a tiny delay between publishing in VisualEditor
+		// and a Revision ID being available, which affects the page reload right after
+		// VisualEditor saves an edit; if so, skip.
 		$rev = $this->article->getRevisionRecord();
 		if ( $rev ) {
 			$this->out->setRevisionId( $rev->getId() );
