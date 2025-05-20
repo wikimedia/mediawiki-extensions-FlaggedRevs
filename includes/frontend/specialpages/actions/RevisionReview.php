@@ -16,14 +16,13 @@ class RevisionReview extends UnlistedSpecialPage {
 	/** @var Title|null */
 	private $title;
 
-	/** @var PermissionManager */
-	private $permissionManager;
+	private PermissionManager $permissionManager;
 
-	public function __construct() {
+	public function __construct(
+		PermissionManager $permissionManager
+	) {
 		parent::__construct( 'RevisionReview', 'review' );
-
-		// TODO use dependency injection
-		$this->permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
+		$this->permissionManager = $permissionManager;
 	}
 
 	/**
