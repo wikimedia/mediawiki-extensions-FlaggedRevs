@@ -8,6 +8,7 @@
 	"unreviewedpages": "Neproverene stranice",
 	"unreviewedpages-legend": "Spisak neproverenih sadržajnih stranica",
 	"unreviewedpages-category": "Kategorija:",
+	"unreviewedpages-showhide-redirect": "$1 preusmerenja",
 	"unreviewedpages-diff": "proveri",
 	"unreviewedpages-unwatched": "(nenadzirano)",
 	"unreviewedpages-watched": "($1 {{PLURAL:$1|aktivan korisnik nadgleda|aktivnih korisnika nadgledaju}})",

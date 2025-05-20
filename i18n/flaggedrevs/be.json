@@ -12,7 +12,8 @@
 			"Дзяніс Тутэйшы",
 			"Хомелка",
 			"Чаховіч Уладзіслаў",
-			"MocnyDuham"
+			"MocnyDuham",
+			"Mitte27"
 		]
 	},
 	"action-autoreview": "аўтаматычна пазначаць уласныя праўкі як дагледжаныя",
@@ -91,6 +92,7 @@
 	"revreview-basic-same": "Гэта [[{{MediaWiki:Validationpage}}|апублікаваная версія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} дагледжаная] <i>$2</i>.",
 	"revreview-basic-source": "[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Дагледжаная версія] гэтай старонкі, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} зацверджаная] <i>$2</i>, была заснавана на гэтай версіі.",
 	"revreview-current": "Недагледжаныя змены",
+	"revreview-draft-indicator-title": "'''Чакае праверкі'''",
 	"revreview-draft-title": "На гэтай старонцы паказваюцца недагледжаныя змены",
 	"revreview-editnotice": "'''Зробленыя вамі змены будуць паказаны чытачам пасля таго, як іх пазначыць дагледжанымі ўпаўнаважаны ўдзельнік''' ([[{{MediaWiki:Validationpage}}|падрабязней]]).",
 	"revreview-submitedit": "Пацвердзіць змены",
