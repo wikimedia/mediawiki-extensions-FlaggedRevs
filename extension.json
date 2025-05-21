@@ -412,7 +412,7 @@
 			]
 		},
 		"contributions": {
-			"class": "\\MediaWiki\\Extension\\FlaggedRevs\\Backend\\FlaggedRevsContributionsHooks",
+			"class": "MediaWiki\\Extension\\FlaggedRevs\\Backend\\FlaggedRevsContributionsHooks",
 			"services": []
 		},
 		"main": {
@@ -426,7 +426,7 @@
 			]
 		},
 		"services": {
-			"class": "\\MediaWiki\\Extension\\FlaggedRevs\\Backend\\FlaggedRevsMediaWikiServicesHooks"
+			"class": "MediaWiki\\Extension\\FlaggedRevs\\Backend\\FlaggedRevsMediaWikiServicesHooks"
 		},
 		"updater": {
 			"class": "FlaggedRevsUpdaterHooks",
@@ -445,7 +445,7 @@
 			]
 		},
 		"scribunto": {
-			"class": "\\MediaWiki\\Extension\\FlaggedRevs\\Backend\\ScribuntoHooks",
+			"class": "MediaWiki\\Extension\\FlaggedRevs\\Backend\\ScribuntoHooks",
 			"services": []
 		}
 	},
