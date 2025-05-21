@@ -5,7 +5,8 @@
 			"Maksim L.",
 			"ZlyiLev",
 			"Хомелка",
-			"Чаховіч Уладзіслаў"
+			"Чаховіч Уладзіслаў",
+			"Mitte27"
 		]
 	},
 	"pendingchanges": "Старонкі з недагледжанымі зменамі",
@@ -24,6 +25,7 @@
 	"pendingchanges-diff": "праверыць",
 	"pendingchanges-size": "Найбольшае змяненне ў байтах:",
 	"pendingchanges-unwatched": "(не сочаць)",
+	"pendingchanges-table-pending-since": "Чакае праверкі",
 	"pendingchanges-table-history": "Гісторыя",
 	"pendingchanges-table-review": "Вычытка",
 	"pendingchanges-table-revision-history": "Гісторыя"

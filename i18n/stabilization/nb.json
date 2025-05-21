@@ -8,7 +8,7 @@
 			"Nghtwlkr"
 		]
 	},
-	"stabilization-tab": "kvalitet",
+	"stabilization-tab": "Stabiliser",
 	"stabilization": "Sidestabilisering",
 	"stabilization-text": "'''Endre innstillingene nedenfor for å bestemme hvordan den stabile versjonen av [[:$1|$1]] skal velges og vises.'''",
 	"stabilization-perm": "Din brukerkonto har ikke tillatelse til å endre innstillinger for stabile versjoner.\nHer er de nåværende innstillingene for [[:$1|$1]]:",

@@ -16,7 +16,7 @@
 	"unreviewedpages-unwatched": "(uovervåket)",
 	"unreviewedpages-watched": "({{PLURAL:$1|én aktiv bruker|$1 aktive brukere}} overvåker)",
 	"unreviewedpages-list": "Denne siden lister opp innholdssider som ''ikke'' har blitt [[{{MediaWiki:Validationpage}}|revidert]] til det spesifiserte nivået.",
-	"unreviewedpages-none": "Det er ingen sider som passer med disse kriteriene",
+	"unreviewedpages-none": "Ingen sider oppfyller disse kriteriene for tiden.",
 	"unreviewedpages-viewing": "(under revidering)",
 	"unreviewedpages-hours": "({{PLURAL:$1|én time|$1 timer}})",
 	"unreviewedpages-days": "({{PLURAL:$1|én dag|$1 dager}})",
