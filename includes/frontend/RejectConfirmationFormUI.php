@@ -9,7 +9,6 @@ use MediaWiki\Revision\RevisionStore;
 use MediaWiki\RevisionList\RevisionList;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
-use MediaWiki\Xml\Xml;
 
 /**
  * Reject confirmation review form UI
@@ -199,13 +198,13 @@ class RejectConfirmationFormUI {
 		$formHTML .= Html::hidden( 'target', $oldTitle->getPrefixedDBkey() );
 		$formHTML .= Html::hidden( 'wpEditToken', $this->form->getUser()->getEditToken() );
 		$formHTML .= Html::hidden( 'changetime', $newRevRecord->getTimestamp() );
-		$formHTML .= Xml::inputLabel(
-			wfMessage( 'revreview-reject-summary' )->text(),
+		$formHTML .= Html::label( wfMessage( 'revreview-reject-summary' )->text(), 'wpReason' );
+		$formHTML .= "\u{00A0}";
+		$formHTML .= Html::input(
 			'wpReason',
-			'wpReason',
-			120,
 			$defaultSummary,
-			[ 'maxlength' => CommentStore::COMMENT_CHARACTER_LIMIT ]
+			'text',
+			[ 'id' => 'wpReason', 'maxlength' => CommentStore::COMMENT_CHARACTER_LIMIT, 'size' => 120 ]
 		);
 		$formHTML .= "<br />";
 		$formHTML .= Html::input( 'wpSubmit', wfMessage( 'revreview-reject-confirm' )->text(), 'submit' );
