@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ahmed-Najib-Biabani-Ibrahimkhel"
+			"Ahmed-Najib-Biabani-Ibrahimkhel",
+			"شاه زمان پټان"
 		]
 	},
-	"pendingchanges-hours": "$1 {{PLURAL:$1|گړۍ|گړۍ}}",
-	"pendingchanges-days": "($1 {{PLURAL:$1|ورځ|ورځې}})",
-	"pendingchanges-recent": "(له 1 گړۍ نه لږ وخت)",
+	"pendingchanges-hours": "$1 {{PLURAL:$1|گړۍ}}",
+	"pendingchanges-days": "$1 {{PLURAL:$1|ورځ|ورځې}}",
+	"pendingchanges-recent": "له 1 گړۍ نه لږ",
 	"pendingchanges-category": "وېشنيزه:",
 	"pendingchanges-onwatchlist": "زما د کتنلړ مخونه",
 	"pendingchanges-diff": "بياکتل"
