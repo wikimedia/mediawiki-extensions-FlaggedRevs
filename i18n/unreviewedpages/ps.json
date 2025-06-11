@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ahmed-Najib-Biabani-Ibrahimkhel"
+			"Ahmed-Najib-Biabani-Ibrahimkhel",
+			"شاه زمان پټان"
 		]
 	},
 	"unreviewedpages-category": "وېشنيزه:",
 	"unreviewedpages-diff": "بياکتل",
 	"unreviewedpages-watched": "($1 فعاله {{PLURAL:$1|کارن|کارنان}} يې ګوري)",
-	"unreviewedpages-hours": "$1 {{PLURAL:$1|گړۍ|گړۍ}}",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|گړۍ}})",
 	"unreviewedpages-days": "($1 {{PLURAL:$1|ورځ|ورځې}})",
 	"unreviewedpages-recent": "(له 1 گړۍ نه لږ وخت)"
 }
