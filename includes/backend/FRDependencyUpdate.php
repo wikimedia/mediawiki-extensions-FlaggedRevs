@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Title\Title;
@@ -254,13 +255,27 @@ class FRDependencyUpdate {
 	 * @return string[] (category => sortkey)
 	 */
 	private function getCurrentVersionCategories() {
-		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
-		$res = $dbr->newSelectQueryBuilder()
-			->select( [ 'cl_to', 'cl_sortkey' ] )
+		$services = MediaWikiServices::getInstance();
+		$dbr = $services->getConnectionProvider()->getReplicaDatabase();
+
+		$migrationStage = $services->getMainConfig()->get(
+			MainConfigNames::CategoryLinksSchemaMigrationStage
+		);
+
+		$qb = $dbr->newSelectQueryBuilder()
 			->from( 'categorylinks' )
 			->where( [ 'cl_from' => $this->title->getArticleID() ] )
-			->caller( __METHOD__ )
-			->fetchResultSet();
+			->caller( __METHOD__ );
+
+		if ( $migrationStage & SCHEMA_COMPAT_READ_OLD ) {
+			$qb->select( [ 'cl_to', 'cl_sortkey' ] );
+		} else {
+			$qb->select( [ 'cl_to' => 'lt_title', 'cl_sortkey' ] );
+			$qb->join( 'linktarget', null, 'lt_id = cl_target_id' );
+		}
+
+		$res = $qb->fetchResultSet();
+
 		$arr = [];
 		foreach ( $res as $row ) {
 			$arr[$row->cl_to] = $row->cl_sortkey;

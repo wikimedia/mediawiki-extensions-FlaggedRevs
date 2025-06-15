@@ -1,7 +1,9 @@
 <?php
 
+use MediaWiki\Linker\LinksMigration;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Pager\AlphabeticPager;
+use MediaWiki\Title\TitleValue;
 
 /**
  * Query to list out unreviewed pages
@@ -27,6 +29,8 @@ class UnreviewedPagesPager extends AlphabeticPager {
 
 	// Don't get too expensive
 	private const PAGE_LIMIT = 50;
+
+	private LinksMigration $linksMigration;
 
 	/**
 	 * @param UnreviewedPages $form
@@ -57,6 +61,8 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		// Don't get too expensive
 		$this->mLimitsShown = [ 20, 50 ];
 		$this->setLimit( $this->mLimit ); // apply max limit
+
+		$this->linksMigration = MediaWikiServices::getInstance()->getLinksMigration();
 	}
 
 	/**
@@ -96,13 +102,21 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		if ( !$this->showredirs ) {
 			$conds['page_is_redirect'] = 0;
 		}
+		$joinConds = [];
 		# Filter by category
 		if ( $this->category != '' ) {
-			$tables = [ 'categorylinks', 'page', 'flaggedpages', 'revision' ];
+			$queryInfo = $this->linksMigration->getQueryInfo( 'categorylinks' );
+
+			$tables = array_merge( [ 'page', 'flaggedpages', 'revision' ], $queryInfo['tables'] );
 			$fields[] = 'cl_sortkey';
 			$groupBy[] = 'cl_sortkey';
-			$conds['cl_to'] = $this->category;
+			$conds[] = $this->linksMigration->getLinksConditions(
+				'categorylinks',
+				new TitleValue( NS_CATEGORY, $this->category )
+			);
 			$conds[] = 'cl_from = page_id';
+			$joinConds = $queryInfo['joins'];
+
 			# Note: single NS always specified
 			if ( $this->namespace === NS_FILE ) {
 				$conds['cl_type'] = 'file';
@@ -124,10 +138,13 @@ class UnreviewedPagesPager extends AlphabeticPager {
 			'fields'  => $fields,
 			'conds'   => $conds,
 			'options' => [ 'USE INDEX' => $useIndex, 'GROUP BY' => $groupBy ],
-			'join_conds' => [
+			'join_conds' => array_merge(
+				[
 				'revision'     => [ 'LEFT JOIN', 'rev_page=page_id' ], // Get creation date
 				'flaggedpages' => [ 'LEFT JOIN', 'fp_page_id=page_id' ]
-			]
+				],
+				$joinConds
+			)
 		];
 	}
 
@@ -155,10 +172,19 @@ class UnreviewedPagesPager extends AlphabeticPager {
 			$conds['page_is_redirect'] = 0;
 		}
 		$this->mIndexField = 'qc_value'; // page_id
+		$joinConds = [];
 		# Filter by category
 		if ( $this->category != '' ) {
-			$tables = [ 'page', 'categorylinks', 'querycache', 'flaggedpages', 'revision' ];
-			$conds['cl_to'] = $this->category;
+			$queryInfo = $this->linksMigration->getQueryInfo( 'categorylinks' );
+			$tables = [ 'page', ...$queryInfo['tables'], 'querycache', 'flaggedpages', 'revision' ];
+
+			$joinConds = $queryInfo['joins'];
+
+			$conds = array_merge( $this->linksMigration->getLinksConditions(
+				'categorylinks',
+				new TitleValue( NS_CATEGORY, $this->category )
+			), $conds );
+
 			$conds[] = 'cl_from = qc_value'; // page_id
 			# Note: single NS always specified
 			if ( $this->namespace === NS_FILE ) {
@@ -173,18 +199,21 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		}
 
 		$useIndex = [ 'querycache' => 'qc_type', 'page' => 'PRIMARY', 'revision' => 'rev_page_timestamp' ];
+
 		return [
 			'tables'  => $tables,
 			'fields'  => $fields,
 			'conds'   => $conds,
 			'options' => [ 'USE INDEX' => $useIndex, 'GROUP BY' => 'qc_value' ],
-			'join_conds' => [
-				'querycache'    => [ 'LEFT JOIN', 'qc_value=page_id' ],
-				'revision'      => [ 'LEFT JOIN', 'rev_page=page_id' ], // Get creation date
-				'flaggedpages'  => [ 'LEFT JOIN', 'fp_page_id=page_id' ],
-				'categorylinks' => [ 'LEFT JOIN',
-					[ 'cl_from=page_id', 'cl_to' => $this->category ] ]
-			]
+			'join_conds' => array_merge(
+				[
+					'querycache'    => [ 'LEFT JOIN', 'qc_value=page_id' ],
+					'revision'      => [ 'LEFT JOIN', 'rev_page=page_id' ], // Get creation date
+					'flaggedpages'  => [ 'LEFT JOIN', 'fp_page_id=page_id' ],
+					'categorylinks' => [ 'LEFT JOIN', [ 'cl_from=page_id' ] ],
+				],
+				$joinConds
+			)
 		];
 	}
 

@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Html\Html;
+use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Pager\TablePager;
 use Wikimedia\Rdbms\RawSQLExpression;
@@ -107,6 +108,7 @@ class PendingChangesPager extends TablePager {
 			'rev_id = fp_stable',
 			$this->mDb->expr( 'fp_pending_since', '!=', null )
 		];
+		$joinConds = [];
 
 		# Filter by pages configured to be stable
 		if ( $this->stable ) {
@@ -118,7 +120,19 @@ class PendingChangesPager extends TablePager {
 		if ( $this->category != '' ) {
 			$tables[] = 'categorylinks';
 			$conds[] = 'cl_from = fp_page_id';
-			$conds['cl_to'] = $this->category;
+
+			$migrationStage = MediaWikiServices::getInstance()->getMainConfig()->get(
+				MainConfigNames::CategoryLinksSchemaMigrationStage
+			);
+
+			if ( $migrationStage & SCHEMA_COMPAT_READ_OLD ) {
+				$conds['cl_to'] = $this->category;
+			} else {
+				$tables[] = 'linktarget';
+				$joinConds[] = [ 'linktarget' => [ 'JOIN', 'lt_id=cl_target_id' ] ];
+				$conds['lt_title'] = $this->category;
+				$conds['lt_namespace'] = NS_CATEGORY;
+			}
 		}
 		# Index field for sorting
 		$this->mIndexField = 'fp_pending_since';
@@ -169,6 +183,7 @@ class PendingChangesPager extends TablePager {
 			'fields' => $fields,
 			'conds' => $conds,
 			'options' => $options,
+			'join_conds' => $joinConds,
 		];
 	}
 
