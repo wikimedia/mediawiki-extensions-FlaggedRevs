@@ -89,7 +89,7 @@
 	"revreview-newest-basic": "ათე ვერსიას [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|1=ოხვილჷ|იხვილჷ}} გინოჯინას]] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|თირუა}}].\n[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} სტაბილური ვერსია] რე [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} გინოჯინელი] <i>$2</i>.",
 	"revreview-pending-basic": "[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} სტაბილური ვერსია]შ [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} გინოჯინაშ] თარიღი: <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|თირუა}}] {{PLURAL:$3|ელჷ}} გინოჯინას.",
 	"revreview-pending-nosection": "ქეგნაჯინით [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ბოლო ვერსიას], სოდე {{PLURAL:$2|1=ოხვილჷ}} გინოჯინას [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{PLURAL:$2|თირუა}}]. შილებე გიმნართი გინოღალირი ვარ-და ლასირი ორდასჷნ.",
-	"revreview-noflagged": "თე ხასჷლას ვა უღჷ [[{{MediaWiki:Validationpage}}|გინოჯინელი ვერსია]], საეგებიოთ თიში ხარისხი '''ვა უხუჯანდჷ''' პროექტიშ სტანდარტეფს.",
+	"revreview-noflagged": "თე ხასჷლას ვა უღჷ [[{{MediaWiki:Validationpage}}|გინოჯინელი ვერსია]], საეგებიოთ თიში ხარისხი '''ვა რე გინოჯინელი''' სტანდარტეფწკჷმა დადარობაშო.",
 	"revreview-oldrating": "ფასებული რე:",
 	"revreview-quick-basic": "'''[[{{MediaWiki:Validationpage}}|გინოჯინელი]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} უგნუჯინუ თირუეფიშ ძირაფა]]",
 	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|გინოჯინელი ხასჷლა]]'''",
