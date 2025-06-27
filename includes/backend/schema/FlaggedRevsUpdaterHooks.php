@@ -147,18 +147,6 @@ class FlaggedRevsUpdaterHooks implements
 				'changeField', 'flaggedpage_config', 'fpc_override', 'SMALLINT', ''
 			] );
 			$du->addExtensionUpdate( [
-				'renameIndex', 'flaggedrevs_tracking', 'namespace_title_from', 'frt_namespace_title_from'
-			] );
-			$du->addExtensionUpdate( [
-				'changeField', 'flaggedrevs_tracking', 'ftr_from', 'INT', 'ftr_from::INT DEFAULT 0'
-			] );
-			$du->addExtensionUpdate( [
-				'changeField', 'flaggedrevs_tracking', 'ftr_namespace', 'INT', 'ftr_namespace::INT DEFAULT 0'
-			] );
-			$du->dropExtensionIndex(
-				'flaggedrevs_tracking', 'flaggedrevs_tracking_pkey', "$base/patch-flaggedrevs_tracking-drop-pk.sql"
-			);
-			$du->addExtensionUpdate( [
 				'dropDefault', 'flaggedrevs_promote', 'frp_user_id'
 			] );
 			$du->addExtensionUpdate( [
@@ -185,14 +173,11 @@ class FlaggedRevsUpdaterHooks implements
 			);
 		}
 
-		// 1.40
-		$du->dropExtensionIndex(
-			'flaggedrevs_tracking',
-			'frt_from_namespace_title',
-			__DIR__ . "/$dbType/patch-flaggedrevs_tracking-unique-to-pk.sql"
-		);
 		// 1.42
 		$du->dropExtensionTable( 'flaggedtemplates' );
 		$du->dropExtensionTable( 'flaggedpage_pending' );
+
+		// 1.45
+		$du->dropExtensionTable( 'flaggedrevs_tracking' );
 	}
 }

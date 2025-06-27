@@ -367,23 +367,6 @@ class FlaggableWikiPage extends WikiPage {
 	}
 
 	/**
-	 * Updates the fp_reviewed field for this article
-	 */
-	public function lazyUpdateSyncStatus() {
-		$services = MediaWikiServices::getInstance();
-		if ( $services->getReadOnlyMode()->isReadOnly() ) {
-			return;
-		}
-
-		$services->getJobQueueGroup()->push(
-			new FRExtraCacheUpdateJob(
-				$this->getTitle(),
-				[ 'type' => 'updatesyncstate' ]
-			)
-		);
-	}
-
-	/**
 	 * Fetch a page record with the given conditions
 	 * @param IReadableDatabase $dbr
 	 * @param array $conditions

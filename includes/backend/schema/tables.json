@@ -174,38 +174,6 @@
 		"pk": [ "fpc_page_id" ]
 	},
 	{
-		"name": "flaggedrevs_tracking",
-		"comment": "Derived table for tracking dependencies for the stable versions. For a given page with a stable version, contains a row for every link, template and category which is present in the stable version but not in the current version (ie. not tracked in pagelinks/templatelinks/categorylinks). Used like the normal dependency tables, to re-render the stable version when a dependency changes.",
-		"columns": [
-			{
-				"name": "ftr_from",
-				"comment": "Page ID of the page with the stable version.",
-				"type": "integer",
-				"options": { "notnull": true, "unsigned": true, "default": 0 }
-			},
-			{
-				"name": "ftr_namespace",
-				"comment": "Namespace of the dependency.",
-				"type": "integer",
-				"options": { "notnull": true, "default": 0 }
-			},
-			{
-				"name": "ftr_title",
-				"comment": "Title (dbkey) of the dependency.",
-				"type": "binary",
-				"options": { "notnull": true, "length": 255, "default": "" }
-			}
-		],
-		"indexes": [
-			{
-				"name": "frt_namespace_title_from",
-				"columns": [ "ftr_namespace", "ftr_title", "ftr_from" ],
-				"unique": false
-			}
-		],
-		"pk": [ "ftr_from", "ftr_namespace", "ftr_title" ]
-	},
-	{
 		"name": "flaggedrevs_promote",
 		"comment": "Stores user statistics for autopromotion/autodemotion (see $wgFlaggedRevsAutoconfirm and $wgFlaggedRevsAutopromote).",
 		"columns": [

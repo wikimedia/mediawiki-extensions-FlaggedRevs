@@ -620,12 +620,6 @@ class FlaggablePageView extends ContextSource {
 			if ( $parserOut instanceof ParserOutput ) {
 				# Update the stable version cache
 				$stableParserCache->save( $parserOut, $this->article, $parserOptions );
-
-				# Enqueue a job to update the "stable version only" dependencies
-				if ( !MediaWikiServices::getInstance()->getReadOnlyMode()->isReadOnly() ) {
-					$update = new FRDependencyUpdate( $this->article->getTitle(), $parserOut );
-					$update->doUpdate( FRDependencyUpdate::DEFERRED );
-				}
 			}
 		}
 
@@ -654,13 +648,6 @@ class FlaggablePageView extends ContextSource {
 		}
 
 		$this->out->addParserOutput( $parserOut, $parserOptions, $poOptions );
-
-		# Update page sync status for tracking purposes.
-		# NOTE: avoids primary hits and doesn't have to be perfect for what it does
-		if ( $this->article->syncedInTracking() != $synced ) {
-			$this->article->lazyUpdateSyncStatus();
-		}
-
 		return $parserOut;
 	}
 
