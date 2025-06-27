@@ -48,7 +48,6 @@ $wgFlaggedRevsAutopromote = [
 	DROP TABLE IF EXISTS /*_*/flaggedpages;
 	DROP TABLE IF EXISTS /*_*/flaggedrevs;
 	DROP TABLE IF EXISTS /*_*/flaggedpage_config;
-	DROP TABLE IF EXISTS /*_*/flaggedrevs_tracking;
 	DROP TABLE IF EXISTS /*_*/flaggedrevs_promote;
 	DROP TABLE IF EXISTS /*_*/flaggedrevs_statistics;
 

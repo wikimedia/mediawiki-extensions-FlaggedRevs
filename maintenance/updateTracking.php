@@ -134,7 +134,6 @@ class UpdateFRTracking extends Maintenance {
 				}
 				if ( $changed ) {
 					# Lazily rebuild dependencies on next parse (we invalidate below)
-					FlaggedRevs::clearStableOnlyDeps( $title->getArticleID() );
 					$title->invalidateCache();
 				}
 				$count++;

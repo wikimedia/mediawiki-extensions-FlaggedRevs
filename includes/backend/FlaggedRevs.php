@@ -2,7 +2,6 @@
 
 use MediaWiki\Config\ConfigException;
 use MediaWiki\Deferred\DeferredUpdates;
-use MediaWiki\JobQueue\Jobs\HTMLCacheUpdateJob;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Page\PageReference;
@@ -449,8 +448,6 @@ class FlaggedRevs {
 				);
 			}
 		}
-		# Lazily rebuild dependencies on next parse (we invalidate below)
-		self::clearStableOnlyDeps( $title->getArticleID() );
 		# Clear page cache unless this is hooked via RevisionDataUpdates, in
 		# which case these updates will happen already with tuned timestamps
 		if ( !$renderedRevision ) {
@@ -471,25 +468,6 @@ class FlaggedRevs {
 		$dbw->newDeleteQueryBuilder()
 			->deleteFrom( 'flaggedpages' )
 			->where( [ 'fp_page_id' => $pageId ] )
-			->caller( __METHOD__ )
-			->execute();
-		$dbw->newDeleteQueryBuilder()
-			->deleteFrom( 'flaggedrevs_tracking' )
-			->where( [ 'ftr_from' => $pageId ] )
-			->caller( __METHOD__ )
-			->execute();
-	}
-
-	/**
-	 * Clear tracking table of stable-only links for this page
-	 * @param int|int[] $pageId (int or array)
-	 */
-	public static function clearStableOnlyDeps( $pageId ) {
-		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
-
-		$dbw->newDeleteQueryBuilder()
-			->deleteFrom( 'flaggedrevs_tracking' )
-			->where( [ 'ftr_from' => $pageId ] )
 			->caller( __METHOD__ )
 			->execute();
 	}
@@ -515,16 +493,6 @@ class FlaggedRevs {
 		$jobs = [];
 		$jobs[] = HTMLCacheUpdateJob::newForBacklinks( $title, 'templatelinks' );
 		MediaWikiServices::getInstance()->getJobQueueGroup()->lazyPush( $jobs );
-
-		DeferredUpdates::addUpdate( new FRExtraCacheUpdate( $title ) );
-	}
-
-	/**
-	 * Invalidates/purges pages where only stable version includes this page.
-	 * @param Title $title
-	 */
-	public static function extraHTMLCacheUpdate( Title $title ) {
-		DeferredUpdates::addUpdate( new FRExtraCacheUpdate( $title ) );
 	}
 
 	# ################ Revision functions #################

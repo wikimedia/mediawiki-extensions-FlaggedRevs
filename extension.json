@@ -145,9 +145,6 @@
 			"autoreview": true
 		}
 	},
-	"JobClasses": {
-		"flaggedrevs_CacheUpdate": "FRExtraCacheUpdateJob"
-	},
 	"LogActions": {
 		"rights/erevoke": "rights-editor-revoke"
 	},
@@ -206,9 +203,6 @@
 		"FRPageConfig": "includes/backend/FRPageConfig.php",
 		"FlaggedRevsLog": "includes/backend/FlaggedRevsLog.php",
 		"FlaggedRevsStats": "includes/backend/FlaggedRevsStats.php",
-		"FRExtraCacheUpdate": "includes/backend/FRExtraCacheUpdate.php",
-		"FRExtraCacheUpdateJob": "includes/backend/FRExtraCacheUpdateJob.php",
-		"FRDependencyUpdate": "includes/backend/FRDependencyUpdate.php",
 		"FRStableVersionUpdate": "includes/backend/FRStableVersionUpdate.php",
 		"FRInclusionManager": "includes/backend/FRInclusionManager.php",
 		"FlaggableWikiPage": "includes/backend/FlaggableWikiPage.php",
