@@ -56,20 +56,6 @@ CREATE TABLE /*_*/flaggedpage_config (
 CREATE INDEX fpc_expiry ON /*_*/flaggedpage_config (fpc_expiry);
 
 
-CREATE TABLE /*_*/flaggedrevs_tracking (
-  ftr_from INTEGER UNSIGNED DEFAULT 0 NOT NULL,
-  ftr_namespace INTEGER DEFAULT 0 NOT NULL,
-  ftr_title BLOB DEFAULT '' NOT NULL,
-  PRIMARY KEY(
-    ftr_from, ftr_namespace, ftr_title
-  )
-);
-
-CREATE INDEX frt_namespace_title_from ON /*_*/flaggedrevs_tracking (
-  ftr_namespace, ftr_title, ftr_from
-);
-
-
 CREATE TABLE /*_*/flaggedrevs_promote (
   frp_user_id INTEGER UNSIGNED NOT NULL,
   frp_user_params BLOB NOT NULL,

@@ -47,19 +47,6 @@ CREATE TABLE /*_*/flaggedpage_config (
 ) /*$wgDBTableOptions*/;
 
 
-CREATE TABLE /*_*/flaggedrevs_tracking (
-  ftr_from INT UNSIGNED DEFAULT 0 NOT NULL,
-  ftr_namespace INT DEFAULT 0 NOT NULL,
-  ftr_title VARBINARY(255) DEFAULT '' NOT NULL,
-  INDEX frt_namespace_title_from (
-    ftr_namespace, ftr_title, ftr_from
-  ),
-  PRIMARY KEY(
-    ftr_from, ftr_namespace, ftr_title
-  )
-) /*$wgDBTableOptions*/;
-
-
 CREATE TABLE /*_*/flaggedrevs_promote (
   frp_user_id INT UNSIGNED NOT NULL,
   frp_user_params MEDIUMBLOB NOT NULL,

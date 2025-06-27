@@ -247,7 +247,6 @@ class FlaggedRevsHooks implements
 		$title, $renderedRevision, &$updates
 	) {
 		$updates[] = new FRStableVersionUpdate( $title, $renderedRevision );
-		$updates[] = new FRExtraCacheUpdate( $title );
 	}
 
 	/**
@@ -258,7 +257,6 @@ class FlaggedRevsHooks implements
 	 */
 	public function onArticleDeleteComplete( $wikiPage, $user, $reason, $id, $content, $logEntry, $count ) {
 		FlaggedRevs::clearTrackingRows( $id );
-		FlaggedRevs::extraHTMLCacheUpdate( $wikiPage->getTitle() );
 	}
 
 	/**
@@ -718,7 +716,6 @@ class FlaggedRevsHooks implements
 				$ok = FlaggedRevs::autoReviewEdit( $wikiPage, $user, $revRecord, $flags );
 				if ( $ok ) {
 					FlaggedRevs::markRevisionPatrolled( $revRecord ); // reviewed -> patrolled
-					FlaggedRevs::extraHTMLCacheUpdate( $title );
 					return;
 				}
 			}
@@ -747,7 +744,6 @@ class FlaggedRevsHooks implements
 			$ok = FlaggedRevs::autoReviewEdit( $wikiPage, $user, $revRecord, $flags, false /* manual */ );
 			if ( $ok ) {
 				FlaggedRevs::markRevisionPatrolled( $revRecord ); // reviewed -> patrolled
-				FlaggedRevs::extraHTMLCacheUpdate( $title );
 			}
 		}
 	}
