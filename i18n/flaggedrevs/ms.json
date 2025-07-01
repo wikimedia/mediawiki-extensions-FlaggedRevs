@@ -4,6 +4,7 @@
 			"Anakmalaysia",
 			"Aurora",
 			"Aviator",
+			"Hakimi97",
 			"Kurniasan",
 			"Tofeiku"
 		]
@@ -88,7 +89,7 @@
 	"revreview-visibility-nostable": "'''Laman ini tiada [[{{MediaWiki:Validationpage}}|versi stabil]]; tetapan kestabilan laman boleh [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} dikonfigurasi].'''",
 	"revreview-revnotfound": "Versi lama laman yang anda mohon itu tidak dapat dijumpai.\nSila semak URL yang anda gunakan untuk mencapai laman ini.",
 	"right-autoreview": "Suntingan sendiri ditandai secara automatik sebagai \"diperiksa\"",
-	"right-autoreviewrestore": "Mengkaji semula secara automatik terhadap gulung balik",
+	"right-autoreviewrestore": "Semak semula secara automatik terhadap pengunduran suntingan",
 	"right-movestable": "Memindahkan laman dengan versi stabil",
 	"right-review": "Menandai semakan sebagai \"diperiksa\"",
 	"right-stablesettings": "Mengkonfigurasi cara versi stabil dipilih dan dipaparkan",
