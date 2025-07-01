@@ -5,10 +5,30 @@
 			"شاه زمان پټان"
 		]
 	},
+	"pendingchanges": "هغه مخونه چې بدلونونه يې په تمه دي",
+	"pendingchanges-legend": "بياکتل‌شوي مخونو لړليک چې بدلونونه يې په تمه دي",
+	"pendingchanges-list": "دا مخلړونه [[{{MediaWiki:Validationpage}}|بياکتل‌شوي]] لري چې يو يا څو سمونونو بياکتنې ته په تمه دي.",
+	"pendingchanges-none": "اوس مهال داسې مخونه نشته چې دغه معیارونه پوره کړي.",
 	"pendingchanges-hours": "$1 {{PLURAL:$1|گړۍ}}",
 	"pendingchanges-days": "$1 {{PLURAL:$1|ورځ|ورځې}}",
 	"pendingchanges-recent": "له 1 گړۍ نه لږ",
 	"pendingchanges-category": "وېشنيزه:",
+	"pendingchanges-limit": "بريد:",
+	"pendingchanges-edit-tag": "نښلن سمول:",
 	"pendingchanges-onwatchlist": "زما د کتنلړ مخونه",
-	"pendingchanges-diff": "بياکتل"
+	"pendingchanges-stable": "ټينگه بلبڼه تلواليزه ده",
+	"pendingchanges-diff": "بياکتل",
+	"pendingchanges-size": "ډېر بدلونونه (بايټه):",
+	"pendingchanges-unwatched": "ناکتلې",
+	"pendingchanges-table-caption": "په تمه بدلونونه",
+	"pendingchanges-table-page": "مخ",
+	"pendingchanges-table-size": "کچه",
+	"pendingchanges-table-pending-since": "له",
+	"pendingchanges-table-quality": "څرنگوالی",
+	"pendingchanges-table-watching": "کارنده ليدونکي",
+	"pendingchanges-table-history": "پېښليک",
+	"pendingchanges-table-review": "بياکتنه",
+	"pendingchanges-table-revision-history": "پېښليک",
+	"pendingchanges-table-footer": "اوسمهال دلته {{PLURAL:$1| $1 بدلون په تمه دی |$1 بدلونونه په تمه دي}}",
+	"pendingchanges-filter-submit-button-text": "په تمه بدلونونه چاڼول"
 }
