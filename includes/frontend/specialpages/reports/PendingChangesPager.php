@@ -273,7 +273,7 @@ class PendingChangesPager extends TablePager {
 		return Html::rawElement(
 			'div',
 			[ 'class' => 'cdx-table__header__caption', 'aria-hidden' => 'true' ],
-			$this->msg( 'pendingchanges-table-caption' )->text()
+			$this->msg( 'pendingchanges-table-caption' )->escaped()
 		);
 	}
 
@@ -365,7 +365,7 @@ class PendingChangesPager extends TablePager {
 								'class' => 'cdx-table__table__sort-button',
 								'aria-selected' => $isCurrentSortField ? 'true' : 'false'
 							],
-							$this->msg( $labelKey )->text() . ' ' .
+							$this->msg( $labelKey )->escaped() . ' ' .
 							Html::rawElement(
 								'span',
 								[ 'class' => 'cdx-icon cdx-icon--small cdx-table__table__sort-icon ' .
@@ -381,7 +381,7 @@ class PendingChangesPager extends TablePager {
 					Html::rawElement(
 						'span',
 						[ 'class' => 'cdx-table__th-content' ],
-						$this->msg( $labelKey )->text()
+						$this->msg( $labelKey )->escaped()
 					)
 				);
 			}
@@ -423,8 +423,10 @@ class PendingChangesPager extends TablePager {
 		$pendingCount = $this->getPendingCount();
 		$formattedCount = $this->getLanguage()->formatNum( $pendingCount );
 		$chip = Html::element( 'strong', [ 'class' => 'cdx-info-chip' ], $formattedCount );
-		$message = $this->msg( 'pendingchanges-table-footer', $chip )
-			->numParams( $pendingCount )->text();
+		$message = $this->msg( 'pendingchanges-table-footer' )
+			->rawParams( $chip )
+			->numParams( $pendingCount )
+			->escaped();
 
 		return Html::rawElement(
 			'div',
