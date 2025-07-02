@@ -30,6 +30,6 @@
 	"pendingchanges-table-history": "History",
 	"pendingchanges-table-review": "Review",
 	"pendingchanges-table-revision-history": "History",
-	"pendingchanges-table-footer": "Currently, there {{PLURAL:$1|is $1 change|are $1 changes}} pending",
+	"pendingchanges-table-footer": "Currently, there {{PLURAL:$2|is $1 change|are $1 changes}} pending",
 	"pendingchanges-filter-submit-button-text": "Filter pending changes"
 }
