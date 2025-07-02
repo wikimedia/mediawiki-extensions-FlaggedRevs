@@ -407,7 +407,7 @@ class PendingChanges extends SpecialPage {
 				'class' => 'cdx-docs-link',
 				'href' => $title->getFullURL( [ 'diff' => 'cur', 'oldid' => $row->stable ] )
 			],
-			$this->msg( 'pendingchanges-diff' )->text()
+			$this->msg( 'pendingchanges-diff' )->escaped()
 		);
 		# Is anybody watching?
 		// Only show information to users with the `unwatchedpages` who could find this
