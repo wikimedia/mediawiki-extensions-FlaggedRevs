@@ -34,7 +34,7 @@
 	"revreview-log": "Билгалдаккхар:",
 	"revreview-main": "Ахьа харжа царех цхьа версийн агӀо, таллархьама.\n\nХьажа. [[Special:Unreviewedpages|талланза агӀонийн могӀам]].",
 	"revreview-stable1": "Хила мега хьо хьажа лууш [{{fullurl:$1|stableid=$2}} хӀокхy къастам биначу башхоне] йа хӀокху агӀонан [{{fullurl:$1|stable=1}} чутоьхначу башхоне], нагахь исанниг йалахь.",
-	"revreview-stable2": "Хьона хьажалур ду [{{fullurl:$1|stable=1}} чутоьхначу башхоне] хӀокху агӀон.",
+	"revreview-stable2": "Хьан аьтто бу хӀокху агӀонан [{{fullurl:$1|stable=1}} дӀайазйина верси] хьажа.",
 	"revreview-submit": "ДӀадахьийта",
 	"revreview-submitting": "ДӀайахьийтар…",
 	"revreview-submit-review": "Верси тӀечӀагӀйан",
