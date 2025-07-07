@@ -5,10 +5,15 @@
 			"شاه زمان پټان"
 		]
 	},
+	"pendingchanges": "هغه مخونه چې بدلونونه يې په تمه دي",
+	"pendingchanges-legend": "بياکتل‌شوي مخونو لړليک چې بدلونونه يې په تمه دي",
+	"pendingchanges-list": "دا مخلړونه [[{{MediaWiki:Validationpage}}|بياکتل‌شوي]] لري چې يو يا څو سمونونو بياکتنې ته په تمه دي.",
 	"pendingchanges-hours": "$1 {{PLURAL:$1|گړۍ|گړۍ}}",
 	"pendingchanges-days": "($1 {{PLURAL:$1|ورځ|ورځې}})",
 	"pendingchanges-recent": "(له 1 گړۍ نه لږ وخت)",
 	"pendingchanges-category": "وېشنيزه:",
 	"pendingchanges-onwatchlist": "زما د کتنلړ مخونه",
-	"pendingchanges-diff": "بياکتل"
+	"pendingchanges-stable": "ټينگه بلبڼه تلواليزه ده",
+	"pendingchanges-diff": "بياکتل",
+	"pendingchanges-size": "ډېر بدلونونه (بايټه):"
 }
