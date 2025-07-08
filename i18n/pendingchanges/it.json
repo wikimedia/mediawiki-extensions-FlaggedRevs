@@ -34,6 +34,6 @@
 	"pendingchanges-table-history": "Cronologia",
 	"pendingchanges-table-review": "Revisiona",
 	"pendingchanges-table-revision-history": "Cronologia",
-	"pendingchanges-table-footer": "Attualmente, {{PLURAL:$1|c'è $1 modifica non revisionata|ci sono $1 modifiche non revisionate}}",
+	"pendingchanges-table-footer": "Attualmente, {{PLURAL:$2|c'è $1 modifica non revisionata|ci sono $1 modifiche non revisionate}}",
 	"pendingchanges-filter-submit-button-text": "Filtra le modifiche non revisionate"
 }
