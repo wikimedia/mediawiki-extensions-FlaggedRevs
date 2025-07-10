@@ -4,6 +4,16 @@
 			"Умар"
 		]
 	},
+	"apihelp-flagconfig-example-1": "Конфигурацин байракх йеха",
+	"apihelp-query+configuredpages-param-limit": "Маса агӀо йухайерзо.",
+	"apihelp-query+oldreviewedpages-param-filterredir": "ДӀасахьажоргашна фильтраци муха йан йеза.",
+	"apihelp-query+oldreviewedpages-param-limit": "Маса агӀо йухайерзо.",
+	"apihelp-query+revisions-paramvalue-prop-flagged": "Верси теллина статус.",
 	"apihelp-query+unreviewedpages-param-dir": "Къепе листар.",
-	"apihelp-stabilize-param-reason": "Бахьана."
+	"apihelp-query+unreviewedpages-param-filterredir": "ДӀасахьажоргашна фильтраци муха йан йеза.",
+	"apihelp-query+unreviewedpages-param-limit": "Маса агӀо йухайерзо.",
+	"apihelp-review-param-revid": "Таллам беш йолчу версин идентификатор.",
+	"apihelp-review-param-comment": "Талларна комментари",
+	"apihelp-stabilize-param-reason": "Бахьана.",
+	"apihelp-stabilize-param-protectlevel": "Талламан ларйаран тӀегӀа."
 }
