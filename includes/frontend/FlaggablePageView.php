@@ -742,7 +742,7 @@ class FlaggablePageView extends ContextSource {
 							$limit
 						);
 					$nUsers = count( $users );
-				} catch ( InvalidArgumentException $e ) {
+				} catch ( InvalidArgumentException ) {
 					$nUsers = 0;
 				}
 				$multiNotice = DifferenceEngine::intermediateEditsMsg( $nEdits, $nUsers, $limit );

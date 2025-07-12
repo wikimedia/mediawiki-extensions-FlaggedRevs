@@ -92,7 +92,7 @@ class FlaggableWikiPage extends WikiPage {
 
 		try {
 			$this->preparedUpdate = $page->getCurrentUpdate();
-		} catch ( PreconditionException | LogicException $ex ) {
+		} catch ( PreconditionException | LogicException ) {
 			// Ignore. getCurrentUpdate() will throw.
 		}
 	}

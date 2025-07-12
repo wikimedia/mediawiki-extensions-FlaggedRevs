@@ -362,7 +362,7 @@ class FlaggedRevision {
 	public function getRevText() {
 		try {
 			$content = $this->mRevRecord->getContent( SlotRecord::MAIN );
-		} catch ( RevisionAccessException $e ) {
+		} catch ( RevisionAccessException ) {
 			return '';
 		}
 		return ( $content instanceof TextContent ) ? $content->getText() : null;
