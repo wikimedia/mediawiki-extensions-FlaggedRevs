@@ -6,6 +6,7 @@
 			"Eihel",
 			"Grondin",
 			"IAlex",
+			"JLTRY",
 			"Mahabarata",
 			"McDutchie",
 			"Méthodes Bulebe Hangi",
@@ -43,6 +44,6 @@
 	"pendingchanges-table-history": "Historique",
 	"pendingchanges-table-review": "Révision",
 	"pendingchanges-table-revision-history": "Historique",
-	"pendingchanges-table-footer": "Actuellement, il y a {{PLURAL:$1|$1 modification|$1 modifications}} en attente.",
+	"pendingchanges-table-footer": "Actuellement, il y a {{PLURAL:$2|$1 modification|$1 modifications}} en attente.",
 	"pendingchanges-filter-submit-button-text": "Filtrer les modifications en attente"
 }
