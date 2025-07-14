@@ -7,6 +7,7 @@ use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 
+// @codeCoverageIgnoreStart
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
@@ -14,6 +15,7 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 }
 
 require_once "$IP/maintenance/Maintenance.php";
+// @codeCoverageIgnoreEnd
 
 class FlagProtectToSemiProtect extends Maintenance {
 
@@ -159,5 +161,7 @@ class FlagProtectToSemiProtect extends Maintenance {
 	}
 }
 
+// @codeCoverageIgnoreStart
 $maintClass = FlagProtectToSemiProtect::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
+// @codeCoverageIgnoreEnd
