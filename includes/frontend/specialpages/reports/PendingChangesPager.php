@@ -129,7 +129,7 @@ class PendingChangesPager extends TablePager {
 				$conds['cl_to'] = $this->category;
 			} else {
 				$tables[] = 'linktarget';
-				$joinConds[] = [ 'linktarget' => [ 'JOIN', 'lt_id=cl_target_id' ] ];
+				$joinConds['linktarget'] = [ 'JOIN', 'lt_id=cl_target_id' ];
 				$conds['lt_title'] = $this->category;
 				$conds['lt_namespace'] = NS_CATEGORY;
 			}
