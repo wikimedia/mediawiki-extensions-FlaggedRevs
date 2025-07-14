@@ -16,5 +16,6 @@
 	"unreviewedpages-none": "ХӀинца йолу ханна иштта агӀонаш йац",
 	"unreviewedpages-viewing": "(талламбеш йу)",
 	"unreviewedpages-hours": "($1 сахьт)",
-	"unreviewedpages-days": "($1 {{PLURAL:$1|де}})"
+	"unreviewedpages-days": "($1 {{PLURAL:$1|де}})",
+	"unreviewedpages-recent": "(1 сахьт ца кхоччуш)"
 }

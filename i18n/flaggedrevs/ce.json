@@ -96,7 +96,7 @@
 	"revreview-current": "Талланза хийцамаш",
 	"revreview-draft-title": "ХӀокху агӀонан тӀехь талланза хийцамаш гойту",
 	"revreview-editnotice": "'''Ахьа бина болу хийцамаш гур бу йоьшучарна, уьш бакъбан бакъо йолу декъашхо хьаьжча. ([[{{MediaWiki:Validationpage}}|кхин дӀа]])'''",
-	"revreview-submitedit": "ДӀаязъбе хийцамаш",
+	"revreview-submitedit": "Хийцамаш дӀайазбан",
 	"revreview-submitedit-title": "ДӀабахьийта хьай хийцамаш хьажаре",
 	"revreview-edited": "'''Хийцамаш гойтур бу йоьшучарна тӀаьхьа, бакъо йолу декъашхочо теллича. ([[{{MediaWiki:Validationpage}}|кхин дӀа]])'''\n\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|хийцам}}] {{PLURAL:$2|хьоьжуш}} бу талларе (гойтуш лахахь).",
 	"revreview-edited-section": "ЙухагӀо агӀонан дакъанчу «[[#$1|$2]]» цӀарца.",
