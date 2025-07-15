@@ -103,23 +103,22 @@ class PendingChangesPager extends TablePager {
 			'quality' => 'fp_quality',
 			'pending_since' => 'fp_pending_since'
 		];
-		$conds = [
-			'page_id = fp_page_id',
-			'rev_id = fp_stable',
-			$this->mDb->expr( 'fp_pending_since', '!=', null )
+		$conds = [ $this->mDb->expr( 'fp_pending_since', '!=', null ) ];
+		$joinConds = [
+			'page' => [ 'JOIN', 'page_id=fp_page_id' ],
+			'revision' => [ 'JOIN', 'rev_id=fp_stable' ],
 		];
-		$joinConds = [];
 
 		# Filter by pages configured to be stable
 		if ( $this->stable ) {
 			$tables[] = 'flaggedpage_config';
-			$conds[] = 'fp_page_id = fpc_page_id';
+			$joinConds['flaggedpage_config'] = [ 'JOIN', 'fpc_page_id=fp_page_id' ];
 			$conds['fpc_override'] = 1;
 		}
 		# Filter by category
 		if ( $this->category != '' ) {
 			$tables[] = 'categorylinks';
-			$conds[] = 'cl_from = fp_page_id';
+			$joinConds['categorylinks'] = [ 'JOIN', 'cl_from=fp_page_id' ];
 
 			$migrationStage = MediaWikiServices::getInstance()->getMainConfig()->get(
 				MainConfigNames::CategoryLinksSchemaMigrationStage
@@ -147,8 +146,10 @@ class PendingChangesPager extends TablePager {
 			if ( $uid ) {
 				$tables[] = 'watchlist';
 				$conds['wl_user'] = $uid;
-				$conds[] = 'page_namespace = wl_namespace';
-				$conds[] = 'page_title = wl_title';
+				$joinConds['watchlist'] = [ 'JOIN', [
+					'wl_namespace=page_namespace',
+					'wl_title=page_title'
+				] ];
 			}
 		}
 		# Filter by bytes changed
@@ -161,14 +162,14 @@ class PendingChangesPager extends TablePager {
 		if ( $this->tagFilter !== null && $this->tagFilter !== '' ) {
 			$tables[] = 'change_tag';
 			$tables[] = 'change_tag_def';
-			$conds[] = 'ct_tag_id = ctd_id';
-			$conds[] = 'ct_rev_id = rev_id';
+			$joinConds['change_tag'] = [ 'JOIN', 'ct_rev_id=rev_id' ];
+			$joinConds['change_tag_def'] = [ 'JOIN', 'ct_tag_id=ctd_id' ];
 			$conds['ctd_name'] = $this->tagFilter;
 		}
 		# Don't display pages with expired protection (T350527)
 		if ( FlaggedRevs::useOnlyIfProtected() ) {
 			$tables[] = 'flaggedpage_config';
-			$conds[] = 'fpc_page_id = fp_page_id';
+			$joinConds['flaggedpage_config'] = [ 'JOIN', 'fpc_page_id=fp_page_id' ];
 			$conds[] = new RawSQLExpression( $this->mDb->buildComparison( '>',
 					[ 'fpc_expiry' => $this->mDb->timestamp() ] ) . ' OR fpc_expiry = "infinity"'
 			);
