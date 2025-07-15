@@ -31,6 +31,6 @@
 	"pendingchanges-table-history": "Historia",
 	"pendingchanges-table-review": "Revider",
 	"pendingchanges-table-revision-history": "Historia",
-	"pendingchanges-table-footer": "Actualmente, il ha $1 cambiamento{{PLURAL:$1||s}} pendente",
+	"pendingchanges-table-footer": "Actualmente, il ha $1 cambiamento{{PLURAL:$2||s}} pendente",
 	"pendingchanges-filter-submit-button-text": "Filtrar cambiamentos pendente"
 }

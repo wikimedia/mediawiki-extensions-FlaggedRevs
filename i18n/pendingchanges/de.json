@@ -39,6 +39,6 @@
 	"pendingchanges-table-history": "Versionsgeschichte",
 	"pendingchanges-table-review": "Überprüfen",
 	"pendingchanges-table-revision-history": "Versionsgeschichte",
-	"pendingchanges-table-footer": "Derzeit {{PLURAL:$1|ist $1 Änderung|sind $1 Änderungen}} ausstehend",
+	"pendingchanges-table-footer": "Derzeit {{PLURAL:$2|ist $1 Änderung|sind $1 Änderungen}} ausstehend",
 	"pendingchanges-filter-submit-button-text": "Ausstehende Änderungen filtern"
 }

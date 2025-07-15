@@ -30,6 +30,6 @@
 	"pendingchanges-table-history": "Historial",
 	"pendingchanges-table-review": "Revisar",
 	"pendingchanges-table-revision-history": "Historial",
-	"pendingchanges-table-footer": "Nestes intres, hai {{PLURAL:$1|$1 cambio pendente|$1 cambios pendentes}}",
+	"pendingchanges-table-footer": "Nestes intres, hai {{PLURAL:$2|$1 cambio pendente|$1 cambios pendentes}}",
 	"pendingchanges-filter-submit-button-text": "Filtrar os cambios pendentes"
 }
