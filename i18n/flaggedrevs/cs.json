@@ -43,6 +43,7 @@
 	"flaggedrevs-rcfilters-reviewed-desc": "Editace, která byly posouzeny.",
 	"flaggedrevs-rcfilters-not-reviewable-label": "Neposuzované",
 	"flaggedrevs-rcfilters-not-reviewable-desc": "Editace, které nevyžadují posouzení.",
+	"flaggedrevs-contributions-filters-unreviewed-only": "Zobrazit jen editace čekající na posouzení",
 	"group-editor": "Editoři",
 	"group-editor-member": "{{GENDER:$1|editor|editorka|editor}}",
 	"group-reviewer": "Posuzovatelé",
