@@ -150,8 +150,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 			$time = 'infinity';
 		} else {
 			$unix = strtotime( $value, ConvertibleTimestamp::time() );
-			# On error returns -1 for PHP <5.1 and false for PHP >=5.1
-			if ( !$unix || $unix === -1 ) {
+			if ( !$unix ) {
 				return false;
 			}
 			// FIXME: non-qualified absolute times are not in users
