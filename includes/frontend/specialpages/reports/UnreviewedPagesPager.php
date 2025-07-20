@@ -86,66 +86,63 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		if ( !$this->live ) {
 			return $this->getQueryCacheInfo();
 		}
-		$fields = [ 'page_namespace', 'page_title', 'page_len', 'page_id',
-			'creation' => 'MIN(rev_timestamp)' ];
+		$qb = $this->mDb->newSelectQueryBuilder()
+			->select( [ 'page_namespace', 'page_title', 'page_len', 'page_id',
+				'creation' => 'MIN(rev_timestamp)' ] )
+			->from( 'page' )
+			->leftJoin( 'revision', null, 'rev_page=page_id' )
+			->leftJoin( 'flaggedpages', null, 'fp_page_id=page_id' )
+			// Reviewable pages only
+			->where( [ 'page_namespace' => $this->namespace ] );
 		$groupBy = [ 'page_namespace', 'page_title', 'page_len', 'page_id' ];
-		# Filter by level
-		$conds = [];
+
+		// Filter by level
 		if ( $this->level == 1 ) {
-			$conds[] = $this->mDb->expr( 'fp_page_id', '=', null )->or( 'fp_quality', '=', 0 );
+			$qb->andWhere(
+				$this->mDb->expr( 'fp_page_id', '=', null )->or( 'fp_quality', '=', 0 )
+			);
 		} else {
-			$conds['fp_page_id'] = null;
+			$qb->andWhere( [ 'fp_page_id' => null ] );
 		}
-		# Reviewable pages only
-		$conds['page_namespace'] = $this->namespace;
-		# No redirects
 		if ( !$this->showredirs ) {
-			$conds['page_is_redirect'] = 0;
+			$qb->andWhere( [ 'page_is_redirect' => 0 ] );
 		}
-		$joinConds = [];
-		# Filter by category
+		// Filter by category
 		if ( $this->category != '' ) {
 			$queryInfo = $this->linksMigration->getQueryInfo( 'categorylinks' );
 
-			$tables = array_merge( [ 'page', 'flaggedpages', 'revision' ], $queryInfo['tables'] );
-			$fields[] = 'cl_sortkey';
 			$groupBy[] = 'cl_sortkey';
-			$conds[] = $this->linksMigration->getLinksConditions(
-				'categorylinks',
-				new TitleValue( NS_CATEGORY, $this->category )
-			);
-			$conds[] = 'cl_from = page_id';
-			$joinConds = $queryInfo['joins'];
 
-			# Note: single NS always specified
+			$qb->tables( $queryInfo['tables'] );
+			$qb->field( 'cl_sortkey' );
+			$qb->andWhere(
+				$this->linksMigration->getLinksConditions(
+					'categorylinks',
+					new TitleValue( NS_CATEGORY, $this->category )
+				)
+			);
+			$qb->andWhere( 'cl_from = page_id' );
+			$qb->joinConds( $queryInfo['joins'] );
+
+			// Note: single NS always specified
 			if ( $this->namespace === NS_FILE ) {
-				$conds['cl_type'] = 'file';
+				$qb->andWhere( [ 'cl_type' => 'file' ] );
 			} elseif ( $this->namespace === NS_CATEGORY ) {
-				$conds['cl_type'] = 'subcat';
+				$qb->andWhere( [ 'cl_type' => 'subcat' ] );
 			} else {
-				$conds['cl_type'] = 'page';
+				$qb->andWhere( [ 'cl_type' => 'page' ] );
 			}
 			$this->mIndexField = 'cl_sortkey';
 			$useIndex = [ 'categorylinks' => 'cl_sortkey' ];
 		} else {
-			$tables = [ 'page', 'flaggedpages', 'revision' ];
 			$this->mIndexField = 'page_title';
 			$useIndex = [ 'page' => 'page_name_title' ];
 		}
 		$useIndex['revision'] = 'rev_page_timestamp';
-		return [
-			'tables'  => $tables,
-			'fields'  => $fields,
-			'conds'   => $conds,
-			'options' => [ 'USE INDEX' => $useIndex, 'GROUP BY' => $groupBy ],
-			'join_conds' => array_merge(
-				[
-				'revision'     => [ 'LEFT JOIN', 'rev_page=page_id' ], // Get creation date
-				'flaggedpages' => [ 'LEFT JOIN', 'fp_page_id=page_id' ]
-				],
-				$joinConds
-			)
-		];
+		$qb->useIndex( $useIndex );
+		$qb->groupBy( $groupBy );
+
+		return $qb->getQueryInfo();
 	}
 
 	/**
