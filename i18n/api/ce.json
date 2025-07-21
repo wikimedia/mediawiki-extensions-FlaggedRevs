@@ -15,5 +15,7 @@
 	"apihelp-review-param-revid": "Таллам беш йолчу версин идентификатор.",
 	"apihelp-review-param-comment": "Талларна комментари",
 	"apihelp-stabilize-param-reason": "Бахьана.",
+	"apihelp-stabilize-param-expiry-general": "Цу нисдар чекхдолу хан.",
+	"apihelp-stabilize-param-review": "ХӀара агӀо таллар.",
 	"apihelp-stabilize-param-protectlevel": "Талламан ларйаран тӀегӀа."
 }
