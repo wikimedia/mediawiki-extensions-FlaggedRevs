@@ -29,6 +29,6 @@
 	"pendingchanges-table-history": "پېښليک",
 	"pendingchanges-table-review": "بياکتنه",
 	"pendingchanges-table-revision-history": "پېښليک",
-	"pendingchanges-table-footer": "اوسمهال دلته {{PLURAL:$1| $1 بدلون په تمه دی |$1 بدلونونه په تمه دي}}",
+	"pendingchanges-table-footer": "وسمهال دلته {{PLURAL:$2|$1 بدلون په تمه دی|$1 بدلونونه په تمه دي}}",
 	"pendingchanges-filter-submit-button-text": "په تمه بدلونونه چاڼول"
 }
