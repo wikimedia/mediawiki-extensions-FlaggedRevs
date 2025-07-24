@@ -26,7 +26,7 @@
 	"validationstatistics-total": "Сторінок",
 	"validationstatistics-stable": "Перевірені",
 	"validationstatistics-latest": "Синхронізовані",
-	"validationstatistics-synced": "Повторно перевірені",
+	"validationstatistics-synced": "Синхронізовані/Перевірені",
 	"validationstatistics-old": "Застарілі",
 	"validationstatistics-unreviewed": "Неперевірені",
 	"validationstatistics-utable": "Нижче представлено {{PLURAL:$1|1=найбільш активного патрульного|список $1 найбільш активних патрульних}} за {{PLURAL:$2|останню $2 годину|останні $2 години|останніх $2 годин}}.",
