@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Linker\LinksMigration;
+use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Pager\AlphabeticPager;
 use MediaWiki\Title\TitleValue;
@@ -31,6 +32,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 	private const PAGE_LIMIT = 50;
 
 	private LinksMigration $linksMigration;
+	private int $migrationStage;
 
 	/**
 	 * @param UnreviewedPages $form
@@ -62,7 +64,11 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		$this->mLimitsShown = [ 20, 50 ];
 		$this->setLimit( $this->mLimit ); // apply max limit
 
-		$this->linksMigration = MediaWikiServices::getInstance()->getLinksMigration();
+		$services = MediaWikiServices::getInstance();
+		$this->linksMigration = $services->getLinksMigration();
+		$this->migrationStage = $services->getMainConfig()->get(
+			MainConfigNames::CategoryLinksSchemaMigrationStage
+		);
 	}
 
 	/**
@@ -132,8 +138,13 @@ class UnreviewedPagesPager extends AlphabeticPager {
 			} else {
 				$qb->andWhere( [ 'cl_type' => 'page' ] );
 			}
-			$this->mIndexField = 'cl_sortkey';
-			$useIndex = [ 'categorylinks' => 'cl_sortkey' ];
+			if ( $this->migrationStage & SCHEMA_COMPAT_READ_OLD ) {
+				$this->mIndexField = 'cl_sortkey';
+				$useIndex = [ 'categorylinks' => 'cl_sortkey' ];
+			} else {
+				$this->mIndexField = 'cl_sortkey_id';
+				$useIndex = [ 'categorylinks' => 'cl_sortkey_id' ];
+			}
 		} else {
 			$this->mIndexField = 'page_title';
 			$useIndex = [ 'page' => 'page_name_title' ];
