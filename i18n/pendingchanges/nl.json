@@ -32,6 +32,6 @@
 	"pendingchanges-table-history": "Geschiedenis",
 	"pendingchanges-table-review": "Beoordelen",
 	"pendingchanges-table-revision-history": "Geschiedenis",
-	"pendingchanges-table-footer": "Momenteel {{PLURAL:$1|is|zijn}} er $1 openstaande wijziging{{PLURAL:$1||en}}",
+	"pendingchanges-table-footer": "Momenteel {{PLURAL:$2|is|zijn}} er $1 openstaande wijziging{{PLURAL:$2||en}}",
 	"pendingchanges-filter-submit-button-text": "Openstaande wijzigingen filteren"
 }
