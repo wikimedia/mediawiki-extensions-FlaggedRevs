@@ -15,7 +15,8 @@
 			"Ykhwong",
 			"Yknok29",
 			"렌즈",
-			"아라"
+			"아라",
+			"YeBoy371"
 		]
 	},
 	"action-autoreviewrestore": "되돌리면서 자동으로 검토하기",
@@ -95,6 +96,7 @@
 	"revreview-basic-source": "<i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 승인]된 이 문서의 [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} 검토된 판]은 이 판을 기반으로 합니다.",
 	"revreview-current": "검토를 기다리고 있는 판",
 	"flaggedrevs-action-info-pages-waiting-for-review-none": "없음",
+	"revreview-draft-indicator-title": "'''검토 중'''",
 	"revreview-draft-title": "이 페이지에서 검토를 기다리고 있는 판이 표시되고 있습니다",
 	"revreview-editnotice": "'''당신의 편집은 권한이 있는 사용자가 승인한 후에 배포될 것입니다. ([[{{MediaWiki:Validationpage}}|도움말]])'''",
 	"revreview-submitedit": "바뀐 내용 제출",
@@ -114,6 +116,7 @@
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|검토되지 않음]]'''",
 	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} 검토 대기 중인 판 검토하기]",
 	"revreview-basic-title": "이 판은 이 문서의 검토된 판입니다",
+	"revreview-quick-basic-same-title": "'''검토됨'''",
 	"revreview-toggle-title": "자세한 내용 보기/숨기기",
 	"revreview-visibility-synced": "'''이 문서에는 업데이트된 [[{{MediaWiki:Validationpage}}|배포판]]이 있습니다; 문서 [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}}  배포 설정]을 할 수 있습니다.'''",
 	"revreview-visibility-outdated": "'''이 문서에는 오래 된 [[{{MediaWiki:Validationpage}}|배포판]]이 있습니다; 문서 [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 배포 설정]을 할 수 있습니다.'''",
@@ -162,5 +165,7 @@
 	"log-action-filter-stable-config": "새 구성",
 	"log-action-filter-stable-reset": "구성 초기화",
 	"log-action-filter-stable-move_stable": "구성을 이동했습니다",
-	"fr-revision-info-dialog-cancel-button": "취소"
+	"fr-revision-info-dialog-review-button": "검토...",
+	"fr-revision-info-dialog-cancel-button": "취소",
+	"fr-revision-info-dialog-close-aria-label": "닫기"
 }
