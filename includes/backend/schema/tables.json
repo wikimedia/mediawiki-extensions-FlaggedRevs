@@ -161,7 +161,7 @@
 				"name": "fpc_expiry",
 				"comment": "Expiry for time-limited settings; configuration reverts to default after this timestamp.",
 				"type": "mwtimestamp",
-				"options": { "notnull": true, "CustomSchemaOptions": { "allowInfinite": true } }
+				"options": { "notnull": true, "PlatformOptions": { "allowInfinite": true } }
 			}
 		],
 		"indexes": [

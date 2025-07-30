@@ -56,7 +56,6 @@ CREATE TABLE flaggedpage_config (
 CREATE INDEX fpc_expiry ON flaggedpage_config (fpc_expiry);
 
 
-
 CREATE TABLE flaggedrevs_promote (
   frp_user_id INT NOT NULL,
   frp_user_params TEXT NOT NULL,

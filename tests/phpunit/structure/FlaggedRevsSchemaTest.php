@@ -10,10 +10,6 @@ use MediaWiki\Tests\Structure\AbstractSchemaTestBase;
  * @coversNothing
  */
 class FlaggedRevsSchemaTest extends AbstractSchemaTestBase {
-	protected function setUp(): void {
-		parent::setUp();
-		$this->markTestSkipped( 'Temporary disabled for gerrit 1174110' );
-	}
 
 	protected static function getSchemasDirectory(): string {
 		return __DIR__ . '/../../../includes/backend/schema';
