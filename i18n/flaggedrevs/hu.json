@@ -102,7 +102,7 @@
 	"revreview-draft-indicator-title": "'''Nem ellenőrzött'''",
 	"revreview-draft-title": "Az ellenőrzésre váró változtatások is láthatóak az oldalon",
 	"revreview-editnotice": "A változtatásaid akkor lesznek közzétéve, ha egy erre jogosult felhasználó jóváhagyta őket. [[{{MediaWiki:Validationpage}}|(?)]]'''",
-	"revreview-submitedit": "Változtatások közzététele",
+	"revreview-submitedit": "Lap mentése",
 	"revreview-submitedit-title": "Változtatásaid elküldése ellenőrzésre",
 	"revreview-edited": "'''A változtatások akkor lesznek közzétéve, ha egy erre jogosult felhasználó jóváhagyta őket ([[{{MediaWiki:Validationpage}}|súgó]]).'''\n\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{PLURAL:$2|változtatás}} vár ellenőrzésre] ''(lásd alább)''.",
 	"revreview-edited-section": "Vissza a(z) „[[#$1|$2]]” című alfejezetre.",
