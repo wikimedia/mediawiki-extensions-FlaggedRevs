@@ -26,6 +26,7 @@
 	"flaggedrevs-hidereviewed": "Ülevaadatud muudatused ($1)",
 	"flaggedrevs-hidereviewed-hide": "peida",
 	"flaggedrevs-hidereviewed-show": "näita",
+	"flaggedrevs-contributions-filters-unreviewed-only": "Näita ainult ülevaatamist ootavaid muudatusi",
 	"group-editor": "Toimetajad",
 	"group-editor-member": "toimetaja",
 	"group-reviewer": "Ülevaatajad",

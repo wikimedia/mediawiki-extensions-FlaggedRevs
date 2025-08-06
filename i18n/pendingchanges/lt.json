@@ -4,7 +4,8 @@
 			"Eitvys200",
 			"Homo",
 			"Nokeoo",
-			"Vpovilaitis"
+			"Vpovilaitis",
+			"Tomasdd"
 		]
 	},
 	"pendingchanges": "Puslapiai su nepatvirtintais pakeitimais",
@@ -17,7 +18,7 @@
 	"pendingchanges-category": "Kategorija:",
 	"pendingchanges-onwatchlist": "Puslapiai mano stebimųjų sąraše",
 	"pendingchanges-stable": "Pagal nutylėjimą yra stabili versija",
-	"pendingchanges-diff": "peržiūrėti",
+	"pendingchanges-diff": "Peržiūrėti",
 	"pendingchanges-size": "Max. keisti (baitais):",
 	"pendingchanges-unwatched": "(nepatikrintas)"
 }
