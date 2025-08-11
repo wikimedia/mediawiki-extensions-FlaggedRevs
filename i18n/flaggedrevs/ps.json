@@ -3,13 +3,19 @@
 		"authors": [
 			"Ahmed-Najib-Biabani-Ibrahimkhel",
 			"Amjad Khan",
-			"Baloch Khan"
+			"Baloch Khan",
+			"شاه زمان پټان"
 		]
 	},
 	"editor": "سمونگر",
 	"flaggedrevs": "رپی لرونکې مخليدنې",
 	"flaggedrevs-pref-UI": "بنسټيز ليدنمخ:",
+	"flaggedrevs-pref-UI-0": "د مخونو د بياکتنې دريځ ښودلو لپاره سپيناوشوي بکسونه کارول.",
+	"flaggedrevs-pref-UI-1": "د مخونو بياکتنې دريځ ښودلو لپاره څرگندوی کارول",
 	"prefs-flaggedrevs-ui": "سمون مخليدنه",
+	"flaggedrevs-pref-stable-0": "هر مخ لپاره تلواليزې اوڼنې وکاروئ",
+	"flaggedrevs-pref-stable-1": "تل پايېدونکې بلبڼه ښکاره کړئ (که چېرې شتون ولري)",
+	"flaggedrevs-pref-stable-2": "تل وروستۍ بلبڼه ښکاره کړئ",
 	"flaggedrevs-hidereviewed-hide": "پټول",
 	"flaggedrevs-hidereviewed-show": "ښکاره کول",
 	"group-editor": "سمونگران",
@@ -17,6 +23,7 @@
 	"group-reviewer": "مخکتونکي",
 	"group-reviewer-member": "{{GENDER:$1|مخکتونکی}}",
 	"grouppage-editor": "{{ns:project}}:سمونگر",
+	"review-logpagetext": "دا د هغه منځپانگيزو مخونو د بلبڼو يو يادښت دی چې [[{{MediaWiki:Validationpage}}|سم‌‌کتل‌شوي دي]].",
 	"reviewer": "مخکتونکی",
 	"revreview-accuracy": "کره توب",
 	"revreview-accuracy-2": "کره",
