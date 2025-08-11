@@ -192,6 +192,7 @@ class FlaggedRevsHTML {
 			wfMessage( 'pendingchanges-edit-tag-any' )->text()
 		);
 
+		// @phan-suppress-next-line PhanTypeMismatchArgument https://github.com/phan/phan/issues/5044
 		$tagDefs = ChangeTags::getChangeTagList( RequestContext::getMain(), RequestContext::getMain()->getLanguage() );
 		foreach ( $tagDefs as $tagInfo ) {
 			$tagName = $tagInfo['name'];

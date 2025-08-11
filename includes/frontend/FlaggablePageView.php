@@ -607,6 +607,7 @@ class FlaggablePageView extends ContextSource {
 					$this->out->disableClientCache();
 					$this->out->setRobotPolicy( 'noindex,nofollow' );
 					$statusFormatter = MediaWikiServices::getInstance()->getFormatterFactory()->getStatusFormatter(
+						// @phan-suppress-next-line PhanTypeMismatchArgument https://github.com/phan/phan/issues/5044
 						$this->getContext() );
 					$errorText = $statusFormatter->getMessage( $status );
 					$this->out->addHTML(
