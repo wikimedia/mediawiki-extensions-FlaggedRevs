@@ -6,16 +6,17 @@
 			"Kwj2772",
 			"렌즈",
 			"아라",
-			"Ykhwong"
+			"Ykhwong",
+			"YeBoy371"
 		]
 	},
 	"pendingchanges": "보류 중인 편집을 가지고 있는 문서",
 	"pendingchanges-legend": "검토 대기 중인 편집이 있는 검토된 문서의 목록",
 	"pendingchanges-list": "이 페이지에서는 [[{{MediaWiki:Validationpage}}|검토]] 대기 중인 편집이 하나 이상 있는 검토된 문서를 나열합니다.",
 	"pendingchanges-none": "조건에 맞는 문서가 없습니다.",
-	"pendingchanges-hours": "($1{{PLURAL:$1|시간}})",
-	"pendingchanges-days": "($1{{PLURAL:$1|일}})",
-	"pendingchanges-recent": "(1시간 미만)",
+	"pendingchanges-hours": "$1{{PLURAL:$1|시간}}",
+	"pendingchanges-days": "$1{{PLURAL:$1|일}}",
+	"pendingchanges-recent": "1시간 미만",
 	"pendingchanges-category": "분류:",
 	"pendingchanges-onwatchlist": "내 주시문서 목록에 있는 문서",
 	"pendingchanges-stable": "배포판이 기본값입니다",

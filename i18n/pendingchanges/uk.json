@@ -37,6 +37,6 @@
 	"pendingchanges-table-history": "Історія",
 	"pendingchanges-table-review": "Затвердити",
 	"pendingchanges-table-revision-history": "Історія",
-	"pendingchanges-table-footer": "Наразі {{PLURAL:$1|$1 редагування очікує|$1 редагування очікують|$1 редагувань очікують}} на перевірку",
+	"pendingchanges-table-footer": "Наразі {{PLURAL:$2|$1 редагування очікує|$1 редагування очікують|$1 редагувань очікують}} на перевірку",
 	"pendingchanges-filter-submit-button-text": "Відфільтрувати неперевірені зміни"
 }

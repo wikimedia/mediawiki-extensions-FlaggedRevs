@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Winston Sung"
+			"Winston Sung",
+			"Yueman"
 		]
 	},
-	"validationstatistics-old": "過咗時"
+	"validationstatistics-old": "過咗時",
+	"validationstatistics-user": "用戶"
 }
