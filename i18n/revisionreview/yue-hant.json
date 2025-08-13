@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Winston Sung"
+			"Winston Sung",
+			"Yueman"
 		]
 	},
 	"revisionreview": "複審修訂",
@@ -16,5 +17,6 @@
 	"revreview-successful2": "'''[[:$1|$1]]所選擇嘅修訂已經成功噉減旗。'''",
 	"revreview-toolow": "你一定要最少將下面每一項嘅屬性評定高過\"未批准\"，去將一個修訂複審。\n\t要捨棄一個修訂，設定全部格做\"未批准\"。",
 	"revreview-update": "請複審自從響呢版嘅穩定版以來嘅任何更改 (響下面度顯示) 。模同圖亦可能同時更改。",
-	"revreview-update-includes": "有啲模/圖更新咗:"
+	"revreview-update-includes": "有啲模/圖更新咗:",
+	"revreview-reject-cancel": "取消"
 }

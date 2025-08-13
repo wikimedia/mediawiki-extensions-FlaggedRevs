@@ -5,7 +5,8 @@
 			"DoviJ",
 			"Guycn2",
 			"Rotemliss",
-			"YaronSh"
+			"YaronSh",
+			"Neriah"
 		]
 	},
 	"pendingchanges": "דפים עם שינויים ממתינים",
@@ -33,6 +34,6 @@
 	"pendingchanges-table-history": "היסטוריה",
 	"pendingchanges-table-review": "סקירה",
 	"pendingchanges-table-revision-history": "היסטוריה",
-	"pendingchanges-table-footer": "כרגע, יש {{PLURAL:$1|שינוי ממתין אחד|$1 שינויים ממתינים}}",
+	"pendingchanges-table-footer": "כרגע, יש {{PLURAL:$2|שינוי ממתין אחד|$1 שינויים ממתינים}}",
 	"pendingchanges-filter-submit-button-text": "סינון שינויים ממתינים"
 }
