@@ -10,7 +10,7 @@
 	"pendingchanges-legend": "列示有未複審修訂之複審過嘅版",
 	"pendingchanges-list": "呢個頁面列出咗[[{{MediaWiki:Validationpage}}|審查過]]有一個或者多個編輯等緊審查嘅頁面。",
 	"pendingchanges-none": "而家冇任何頁面符合呢啲條件。",
-	"pendingchanges-hours": "$1{{PLURAL:$1|鐘頭|個鐘頭}}",
+	"pendingchanges-hours": "$1{{PLURAL:$1|個鐘頭}}",
 	"pendingchanges-days": "$1 {{PLURAL:$1|日}}",
 	"pendingchanges-recent": "唔夠1個鐘",
 	"pendingchanges-category": "類:",
