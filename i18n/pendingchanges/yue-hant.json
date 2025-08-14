@@ -6,7 +6,7 @@
 			"Yueman"
 		]
 	},
-	"pendingchanges": "有待更改嘅版",
+	"pendingchanges": "等緊審查改動嘅版",
 	"pendingchanges-legend": "列示有未複審修訂之複審過嘅版",
 	"pendingchanges-list": "呢個頁面列出咗[[{{MediaWiki:Validationpage}}|審查過]]有一個或者多個編輯等緊審查嘅頁面。",
 	"pendingchanges-none": "而家冇任何頁面符合呢啲條件。",
@@ -22,7 +22,7 @@
 	"pendingchanges-diff": "睇返",
 	"pendingchanges-size": "最大變更（字節）：",
 	"pendingchanges-unwatched": "未睇過",
-	"pendingchanges-table-caption": "等待緊處理嘅變更",
+	"pendingchanges-table-caption": "等緊處理嘅改動",
 	"pendingchanges-table-page": "頁",
 	"pendingchanges-table-size": "大細",
 	"pendingchanges-table-pending-since": "既然",
@@ -31,6 +31,6 @@
 	"pendingchanges-table-history": "歷史",
 	"pendingchanges-table-review": "睇返",
 	"pendingchanges-table-revision-history": "歷史",
-	"pendingchanges-table-footer": "目前，有等待緊處理嘅{{PLURAL:$2|$1變動}}",
-	"pendingchanges-filter-submit-button-text": "過濾啲等待緊處理嘅變更"
+	"pendingchanges-table-footer": "而家有{{PLURAL:$2|$1個等緊審查嘅改動}}",
+	"pendingchanges-filter-submit-button-text": "過濾啲等緊審查嘅改動"
 }
