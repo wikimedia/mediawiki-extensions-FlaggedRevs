@@ -12,6 +12,7 @@
 			"Olsi",
 			"Tëfcí",
 			"Vanished 456321456",
+			"Xhulianoo",
 			"Zoranzoki21"
 		]
 	},
@@ -19,6 +20,7 @@
 	"editor": "Redaktor",
 	"flaggedrevs-desc": "I jep përdoruesve të drejtën e shqyrtimit të redaktimeve dhe stabilizimit të faqeve",
 	"flaggedrevs-pref-UI": "Ndërfaqe e thjeshtë:",
+	"flaggedrevs-contributions-filters-unreviewed-only": "Shfaq vetëm redaktimet në pritje të shqyrtimit",
 	"group-editor": "Redaktorët",
 	"group-editor-member": "{{GENDER:$1|redaktor|redaktore}}",
 	"grouppage-editor": "{{ns:project}}:Redaktor",
