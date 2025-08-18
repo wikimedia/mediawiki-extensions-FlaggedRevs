@@ -18,6 +18,7 @@
 	},
 	"action-review": "redaktimet e shqyrtuara",
 	"editor": "Redaktor",
+	"flaggedrevs-watched-pending": "Ka aktualisht [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ndryshime në pritje] në faqet e shqyrtuara në listën tënde mbikëqyrëse. '''Nevojitet vëmendja jote!'''",
 	"flaggedrevs-desc": "I jep përdoruesve të drejtën e shqyrtimit të redaktimeve dhe stabilizimit të faqeve",
 	"flaggedrevs-pref-UI": "Ndërfaqe e thjeshtë:",
 	"flaggedrevs-contributions-filters-unreviewed-only": "Shfaq vetëm redaktimet në pritje të shqyrtimit",
