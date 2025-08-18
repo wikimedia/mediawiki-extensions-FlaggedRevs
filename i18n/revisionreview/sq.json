@@ -6,7 +6,8 @@
 			"Olsi",
 			"Tëfcí",
 			"Vanished 456321456",
-			"INNERLMNT"
+			"INNERLMNT",
+			"Xhulianoo"
 		]
 	},
 	"revreview-reflag": "Shqyrto sërish këtë ndryshim",
@@ -15,8 +16,8 @@
 	"revreview-submit-unreviewed": "U bë. Refuzuar!",
 	"revreview-successful": "'''Shqyrtimi i faqesë ''[[:$1|$1]]'' u shënua me sukses ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} shiko të gjithë versionet të shqyrtuara]).'''",
 	"revreview-reject-cancel": "Anulo",
-	"revreview-reject-summary-cur": "Refuzoi {{PLURAL:$1|ndryshimin|$1 ndryshimet}} e fundit të tekstit ({{PLURAL:$7|{{GENDER:$5|nga}}}} $2) dhe riktheu rishikimin $3 {{GENDER:$6|nga}} $4",
+	"revreview-reject-summary-cur": "Refuzoi {{PLURAL:$1|ndryshimin|$1 ndryshimet}} e fundit të tekstit ({{PLURAL:$7|{{GENDER:$5|nga}}}} $2) dhe riktheu versionin $3 {{GENDER:$6|nga}} $4",
 	"revreview-reject-summary-old": "Refuzoi {{PLURAL:$1|ndryshimin e parë|$1 ndryshimet e para}} të tekstit ({{PLURAL:$7|{{GENDER:$5|nga}}}} $2) që {{PLURAL:$1|pasohet nga|$1 pasohen nga}} rishikimi $3 {{GENDER:$6|nga}} $4",
-	"revreview-reject-summary-cur-short": "Refuzoi {{PLURAL:$1|ndryshimin|$1 ndryshimet}} e fundit të tekstit dhe riktheu rishikimin $2 {{GENDER:$4|nga}} $3",
+	"revreview-reject-summary-cur-short": "Refuzoi {{PLURAL:$1|ndryshimin|$1 ndryshimet}} e fundit të tekstit dhe riktheu versionin $2 {{GENDER:$4|nga}} $3",
 	"revreview-reject-summary-old-short": "Refuzoi {{PLURAL:$1|ndryshimin e parë|$1 ndryshimet e para}} të tekstit që {{PLURAL:$1|pasohet nga|$1 pasohen nga}} rishikimi $2 {{GENDER:$4|nga}} $3"
 }

@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Winston Sung"
+			"Winston Sung",
+			"Yueman"
 		]
 	},
 	"editor": "編輯",
@@ -67,6 +68,7 @@
 	"stable-logentry-reset": "已重設$1嘅穩定版本",
 	"stable-logpage": "穩定記錄",
 	"stable-logpagetext": "呢個係[[{{MediaWiki:Validationpage}}|穩定版]]設定內容頁嘅更改記錄。",
+	"revreview-restriction-none": "冇",
 	"tooltip-ca-current": "去睇呢一版嘅待批改動",
 	"tooltip-ca-stable": "去睇呢一版嘅穩定版",
 	"tooltip-ca-default": "品質保證設定",

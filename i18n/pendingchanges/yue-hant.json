@@ -1,19 +1,23 @@
 {
 	"@metadata": {
 		"authors": [
-			"Winston Sung"
+			"Winston Sung",
+			"JeffreyKim",
+			"Yueman"
 		]
 	},
-	"pendingchanges": "已過時複審過嘅版",
+	"pendingchanges": "等緊審查改動嘅版",
 	"pendingchanges-legend": "列示有未複審修訂之複審過嘅版",
-	"pendingchanges-list": "呢一版列示咗有等緊編輯嘅評論版。",
+	"pendingchanges-list": "呢個頁面列出咗[[{{MediaWiki:Validationpage}}|審查過]]有一個或者多個編輯等緊審查嘅頁面。",
 	"pendingchanges-none": "呢度現時無版係合乎呢啲條件",
 	"pendingchanges-hours": "（$1粒鐘）",
 	"pendingchanges-days": "($1日)",
 	"pendingchanges-recent": "(少過1個鐘頭)",
 	"pendingchanges-category": "類:",
-	"pendingchanges-stable": "察看",
+	"pendingchanges-onwatchlist": "我嘅觀看清單入面嘅版",
+	"pendingchanges-stable": "穩定版本係預設嘅",
 	"pendingchanges-diff": "複審",
+	"pendingchanges-size": "最大變更（字節）：",
 	"pendingchanges-unwatched": "(未睇)",
 	"pendingchanges-watched": "($1{{PLURAL:$1|位用戶|位用戶}}睇緊)"
 }

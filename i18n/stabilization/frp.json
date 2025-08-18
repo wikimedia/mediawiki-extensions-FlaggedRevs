@@ -30,7 +30,7 @@
 	"stabilize_page_unreviewable": "La pâge ciba est pas dens un èspâço de noms que pôt étre revu.",
 	"stabilize_invalid_autoreview": "Rèstriccion de rèvision ôtomatica envalida.",
 	"stabilize_invalid_level": "Nivél de protèccion envalido.",
-	"stabilize_expiry_invalid": "Dâta d’èxpiracion envalida.",
+	"stabilize_expiry_invalid": "Dâta de fin envalida.",
 	"stabilize_expiry_old": "Cél temps d’èxpiracion est ja passâ.",
 	"stabilize_denied": "Pèrmission refusâ.",
 	"stabilize-expiring": "èxpire lo $1 (UTC)",
