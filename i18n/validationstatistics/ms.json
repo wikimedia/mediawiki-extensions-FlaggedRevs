@@ -4,7 +4,8 @@
 			"Anakmalaysia",
 			"Aviator",
 			"Jeluang Terluang",
-			"Kurniasan"
+			"Kurniasan",
+			"Hakimi97"
 		]
 	},
 	"validationstatistics": "Statistik kajian semula laman",
@@ -20,7 +21,7 @@
 	"validationstatistics-synced": "Diselaras/Dikaji Semula",
 	"validationstatistics-old": "Lapuk",
 	"validationstatistics-unreviewed": "Belum disemak",
-	"validationstatistics-utable": "Berikut ialah {{PLURAL:$1|pengkaji semula paling aktif|senarai $1 pengkaji semula paling aktif}} dalam {{PLURAL:$2|sejam|$2 jam}} yang lalu.",
+	"validationstatistics-utable": "Berikut ialah senarai {{PLURAL:$1|penilai semula paling aktif|$1 penilai semula paling aktif}} dalam {{PLURAL:$2|sejam|$2 jam}} yang lalu.",
 	"validationstatistics-user": "Pengguna",
 	"validationstatistics-reviews": "Kajian semula"
 }
