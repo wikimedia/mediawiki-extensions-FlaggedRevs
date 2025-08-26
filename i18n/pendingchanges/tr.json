@@ -16,9 +16,9 @@
 	"pendingchanges": "İnceleme bekleyen sayfalar",
 	"pendingchanges-legend": "Gözden geçirilme bekleyen revizyonu olan gözden geçirilmiş sayfaları listele",
 	"pendingchanges-list": "Bu sayfa, bir veya daha fazla bekleyen değişikliğe sahip [[{{MediaWiki:Validationpage}}|gözden geçirilmiş]] sayfaları listeler.",
-	"pendingchanges-none": "Şimdilik bu kriterlere uyan sayfa yoktur",
-	"pendingchanges-hours": "$1 {{PLURAL:$1|saat|saat}}",
-	"pendingchanges-days": "$1 {{PLURAL:$1|gün|gün}}",
+	"pendingchanges-none": "Şu anda bu kriterlere uyan sayfa yok.",
+	"pendingchanges-hours": "$1 {{PLURAL:$1|saat}}",
+	"pendingchanges-days": "$1 {{PLURAL:$1|gün}}",
 	"pendingchanges-recent": "1 saatten daha az",
 	"pendingchanges-category": "Kategori:",
 	"pendingchanges-limit": "Sınır:",
@@ -39,6 +39,6 @@
 	"pendingchanges-table-history": "Geçmiş",
 	"pendingchanges-table-review": "İncele",
 	"pendingchanges-table-revision-history": "Geçmiş",
-	"pendingchanges-table-footer": "Şu anda {{PLURAL:$1|$1 değişiklik}} inceleme beklemektedir",
+	"pendingchanges-table-footer": "Şu anda {{PLURAL:$2|$1 sayfa}} inceleme beklemektedir",
 	"pendingchanges-filter-submit-button-text": "Bekleyen değişiklikleri filtrele"
 }

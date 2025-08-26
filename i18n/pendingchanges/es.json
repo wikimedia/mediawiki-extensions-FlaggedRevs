@@ -10,7 +10,8 @@
 			"MarcoAurelio",
 			"No se",
 			"Sanbec",
-			"Translationista"
+			"Translationista",
+			"Yupik"
 		]
 	},
 	"pendingchanges": "Páginas con cambios pendientes",
@@ -27,5 +28,6 @@
 	"pendingchanges-diff": "revisar",
 	"pendingchanges-size": "Cambio máximo (bytes):",
 	"pendingchanges-unwatched": "(no vigilado)",
-	"pendingchanges-viewing": "(en revisión)"
+	"pendingchanges-viewing": "(en revisión)",
+	"pendingchanges-table-size": "Tamaño"
 }

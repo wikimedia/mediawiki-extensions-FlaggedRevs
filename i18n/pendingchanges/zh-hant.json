@@ -43,6 +43,6 @@
 	"pendingchanges-table-history": "歷史",
 	"pendingchanges-table-review": "審核",
 	"pendingchanges-table-revision-history": "歷史",
-	"pendingchanges-table-footer": "目前有 {{PLURAL:$1|$1}} 個待審核的變更",
+	"pendingchanges-table-footer": "目前有 {{PLURAL:$2|$1}} 個待審核的變更",
 	"pendingchanges-filter-submit-button-text": "篩選待審核變更"
 }
