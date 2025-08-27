@@ -8,7 +8,8 @@
 			"Najami",
 			"Per",
 			"Rotsee",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Yupik"
 		]
 	},
 	"pendingchanges": "Sidor med väntande ändringar",
@@ -23,5 +24,6 @@
 	"pendingchanges-stable": "Stabil version är standard",
 	"pendingchanges-diff": "granska",
 	"pendingchanges-size": "Maximal storleksändring i byte:",
-	"pendingchanges-unwatched": "(obevakad)"
+	"pendingchanges-unwatched": "(obevakad)",
+	"pendingchanges-table-size": "Storlek"
 }

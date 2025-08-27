@@ -12,10 +12,11 @@
 			"Shinjiman",
 			"Waihorace",
 			"Xiplus",
-			"捍粵者"
+			"捍粵者",
+			"Kly"
 		]
 	},
-	"stabilization-tab": "診斷",
+	"stabilization-tab": "穩定",
 	"stabilization": "頁面穩定化",
 	"stabilization-text": "'''變更以下設定來調整要如何挑選及顯示 [[:$1|$1]] 的穩定版本。'''",
 	"stabilization-perm": "您的帳號沒有權限變更穩定版本設定。\n以下為 [[:$1|$1]] 目前的設定：",
