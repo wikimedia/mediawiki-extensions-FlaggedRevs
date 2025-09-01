@@ -396,7 +396,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			// This is due to the lack of appropriate EditResult handling in Echo, in the
 			// future, when T153570 is merged, this entire code block should be removed.
 			if ( $status === true &&
-				// @phan-suppress-next-line PhanTypeArraySuspiciousNullable
 				$editStatus->value['revision-record'] &&
 				ExtensionRegistry::getInstance()->isLoaded( 'Echo' )
 			) {
@@ -425,7 +424,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 					'type' => 'reverted',
 					'title' => $this->title,
 					'extra' => [
-						// @phan-suppress-next-line PhanTypeArraySuspiciousNullable
 						'revid' => $editStatus->value['revision-record']->getId(),
 						'reverted-users-ids' => array_values( $affectedRevisions ),
 						'reverted-revision-ids' => array_keys( $affectedRevisions ),
