@@ -19,6 +19,7 @@
 			"YeBoy371"
 		]
 	},
+	"action-autoreview": "자신의 편집을 자동으로 \"검토된 판\"으로 표시",
 	"action-autoreviewrestore": "되돌리면서 자동으로 검토하기",
 	"action-review": "편집 검토",
 	"action-unreviewedpages": "검토되지 않은 문서 목록 보기",
