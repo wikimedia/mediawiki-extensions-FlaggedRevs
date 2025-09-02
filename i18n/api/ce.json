@@ -4,7 +4,11 @@
 			"Умар"
 		]
 	},
+	"apihelp-flagconfig-extended-description": "ХӀора билгалонаш лерина параметраш йухайерзор йу:\n;name: ХӀокху догӀанан билгалонаш.\n;levels: ХӀокху билгалонан йолу тӀегӀанийн дукхалла (лакхахь «билгалдаьккхина дац»).\nБилгалйахна версийн хӀора билгалонан маьӀна ду. Йерриг версин класс уггар лакхара класс йу, массо а версин билгалонаш кхочушйеш йолу.",
 	"apihelp-flagconfig-example-1": "Конфигурацин байракх йеха",
+	"apihelp-query+configuredpages-summary": "Шайн нисдаран конфигураци йолу массо а агӀонаш гайтар.",
+	"apihelp-query+configuredpages-param-start": "ХӀокху агӀонан ID тӀера дӀадоло гайтар.",
+	"apihelp-query+configuredpages-param-end": "ХӀокху агӀонан ID тӀера чекхдоккху гайтар.",
 	"apihelp-query+configuredpages-param-limit": "Маса агӀо йухайерзо.",
 	"apihelp-query+oldreviewedpages-param-filterredir": "ДӀасахьажоргашна фильтраци муха йан йеза.",
 	"apihelp-query+oldreviewedpages-param-limit": "Маса агӀо йухайерзо.",
