@@ -3,9 +3,10 @@
 		"authors": [
 			"Bikarhêner",
 			"George Animal",
-			"Ghybu"
+			"Ghybu",
+			"Guherto"
 		]
 	},
-	"pendingchanges-days": "($1 {{PLURAL:$1|roj}})",
+	"pendingchanges-days": "$1 {{PLURAL:$1|roj}}",
 	"pendingchanges-category": "Kategorî:"
 }

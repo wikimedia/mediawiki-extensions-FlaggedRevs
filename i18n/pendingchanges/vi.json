@@ -2,21 +2,33 @@
 	"@metadata": {
 		"authors": [
 			"Minh Nguyen",
-			"Vinhtantran"
+			"Vinhtantran",
+			"Nvdtn19"
 		]
 	},
 	"pendingchanges": "Các trang có thay đổi chưa duyệt",
 	"pendingchanges-legend": "Liệt kê các trang đã duyệt có các phiên bản chưa duyệt",
 	"pendingchanges-list": "Trang này liệt kê [[{{MediaWiki:Validationpage}}|các trang đã duyệt]] có thêm sửa đổi đang chờ duyệt.",
-	"pendingchanges-none": "Hiện không có trang này thỏa mãn tiêu chí này",
-	"pendingchanges-hours": "($1 giờ)",
-	"pendingchanges-days": "($1 ngày)",
-	"pendingchanges-recent": "(dưới 1 giờ)",
+	"pendingchanges-none": "Hiện tại không có trang nào đáp ứng các tiêu chí này.",
+	"pendingchanges-hours": "($1 {{PLURAL:$1|}}giờ)",
+	"pendingchanges-days": "($1 {{PLURAL:$1|}}ngày)",
+	"pendingchanges-recent": "dưới 1 giờ",
 	"pendingchanges-category": "Thể loại:",
+	"pendingchanges-limit": "Giới hạn:",
+	"pendingchanges-edit-tag": "Sửa đổi thẻ:",
 	"pendingchanges-onwatchlist": "Các trang trong danh sách theo dõi của tôi",
 	"pendingchanges-stable": "Phiên bản ổn định là mặc định",
 	"pendingchanges-diff": "duyệt",
 	"pendingchanges-size": "Thay đổi lớn nhất (byte):",
-	"pendingchanges-unwatched": "(chưa theo dõi)",
-	"pendingchanges-viewing": "(đang duyệt)"
+	"pendingchanges-unwatched": "chưa theo dõi",
+	"pendingchanges-viewing": "(đang duyệt)",
+	"pendingchanges-table-caption": "Thay đổi đang chờ",
+	"pendingchanges-table-page": "Trang",
+	"pendingchanges-table-size": "Kích cỡ",
+	"pendingchanges-table-quality": "Chất lượng",
+	"pendingchanges-table-watching": "Người theo dõi tích cực",
+	"pendingchanges-table-history": "Lịch sử",
+	"pendingchanges-table-revision-history": "Lịch sử",
+	"pendingchanges-table-footer": "Hiện có {{PLURAL:$2|$1 thay đổi}}  đang chờ",
+	"pendingchanges-filter-submit-button-text": "Lọc thay đổi đang chờ"
 }
