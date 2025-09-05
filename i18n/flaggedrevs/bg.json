@@ -101,5 +101,6 @@
 	"log-action-filter-stable-config": "Нова конфигурация",
 	"log-action-filter-stable-modify": "Променена конфигурация",
 	"log-action-filter-stable-reset": "Връщане на конфигурацията по подразбиране",
-	"log-action-filter-stable-move_stable": "Преместена конфигурация"
+	"log-action-filter-stable-move_stable": "Преместена конфигурация",
+	"fr-revision-info-dialog-cancel-button": "Отказ"
 }
