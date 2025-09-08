@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"GilPe",
 			"Les Meloures",
 			"Robby",
 			"Soued031"
@@ -53,7 +54,7 @@
 	"revreview-update-includes": "Schablounen/Fichiere aktualiséiert (net nogekuckte Säite si fettgegréckt):",
 	"revreview-reject-text-list": "Wann Dir dës Aktioun ofschléisst, da '''verwerft''' Dir d'Ännerunge vum Quelltext vun {{PLURAL:$1|der Versioun|de Versioune}} vum [[:$2|$2]]:",
 	"revreview-reject-text-revto": "Dëst setzt d'Säit zréck op d'[{{fullurl:$1|oldid=$2}} Versioun vum $3].",
-	"revreview-reject-summary": "Resumé:",
+	"revreview-reject-summary": "Resümmee:",
 	"revreview-reject-confirm": "Dës Ännerungen rejetéieren",
 	"revreview-reject-cancel": "Ofbriechen",
 	"revreview-reject-summary-cur": "Déi lescht {{PLURAL:$1|Textännerung|$1 Textännerunge}} ({{PLURAL:$7|{{GENDER:$5|vum}}}} $2) {{PLURAL:$1|gouf|goufe}} refuséiert an d'Versioun $3  {{GENDER:$6|vum}} $4 gouf restauréiert",
