@@ -31,6 +31,6 @@
 	"pendingchanges-table-history": "Историја",
 	"pendingchanges-table-review": "Провери",
 	"pendingchanges-table-revision-history": "Историја",
-	"pendingchanges-table-footer": "Моментално има {{PLURAL:$1|$1 промена|$1 промени}} во исчекување",
+	"pendingchanges-table-footer": "Моментално има {{PLURAL:$2|$1 промена|$1 промени}} во исчекување",
 	"pendingchanges-filter-submit-button-text": "Филтрирај промени во исчекување"
 }

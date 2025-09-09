@@ -33,6 +33,6 @@
 	"pendingchanges-table-history": "Historikk",
 	"pendingchanges-table-review": "Gå gjennom",
 	"pendingchanges-table-revision-history": "Historikk",
-	"pendingchanges-table-footer": "Det er for tiden $1 {{PLURAL:$1|endring|endringer}} som venter",
+	"pendingchanges-table-footer": "Det er for tiden $1 {{PLURAL:$2|endring|endringer}} som venter",
 	"pendingchanges-filter-submit-button-text": "Filtrer ventende endringer"
 }
