@@ -16,6 +16,8 @@
 	"apihelp-query+configuredpages-param-limit": "Маса агӀо йухайерзо.",
 	"apihelp-query+configuredpages-example-1": "Гойту агӀонийн могӀам леррина талларан конфигурацешца",
 	"apihelp-query+configuredpages-example-2": "Шайн нисдаран конфигурацеш йолчу агӀонех лаьцна цхьацца хаамаш схьаэца",
+	"apihelp-query+flagged-summary": "Байракхан хьолах лаьцна информаци схьаэца дӀайеллачу агӀонаш тӀехь.",
+	"apihelp-query+flagged-extended-description": "Нагахь санна агӀо тӀечӀагӀйина елахь, хӀара параметраш йухайерзор йу:\n;stable_revid: ТӀаьххьара стабилан версин идентификатор.\n;level\n;level_text: АгӀонан тӀечӀагӀйаран уггар лакхара тӀегӀа.\n;pending_since: Нагахь санна агӀонан тӀехь тӀечӀагӀбина боцу хийцамаш белахь, хьалхарчу агӀонан хенан билгало йу.\nНагахь санна агӀонан ларйаран конфигураци йелахь, хӀара параметраш йухайерзор йу:\n;protection_level: Декъашхочунна агӀо хийца йезаш йолу бакъо.\n;protection_expiry: Ларйаран хан чекхйолу.",
 	"apihelp-query+oldreviewedpages-param-filterredir": "ДӀасахьажоргашна фильтраци муха йан йеза.",
 	"apihelp-query+oldreviewedpages-param-limit": "Маса агӀо йухайерзо.",
 	"apihelp-query+revisions-paramvalue-prop-flagged": "Верси теллина статус.",
