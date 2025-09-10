@@ -11,7 +11,7 @@
 	"unreviewedpages-showhide-redirect": "$1 дIасахьажоргаш",
 	"unreviewedpages-diff": "хьажа",
 	"unreviewedpages-unwatched": "(терго йац)",
-	"unreviewedpages-watched": "({{PLURAL:$1|1=терго йеш $1 жигара декъашхо|терго йеш $1 жигара декъашхой}})",
+	"unreviewedpages-watched": "($1 терго йеш жигара {{PLURAL:$1|декъашхо|декъашхой}})",
 	"unreviewedpages-list": "ХӀокху агӀонгахь гойту [[{{MediaWiki:Validationpage}}|мах ца хадина]] агӀонаш.",
 	"unreviewedpages-none": "Карарчу хенахь оцу билламашна жоп луш агӀонаш йац.",
 	"unreviewedpages-viewing": "(талламбеш йу)",
