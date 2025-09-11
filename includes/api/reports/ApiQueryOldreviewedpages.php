@@ -25,8 +25,6 @@ use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiPageSet;
 use MediaWiki\Api\ApiQuery;
 use MediaWiki\Api\ApiQueryGeneratorBase;
-use MediaWiki\MainConfigNames;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentityUtils;
 use Wikimedia\ParamValidator\ParamValidator;
@@ -104,23 +102,13 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 			$this->addWhere( 'page_title = wl_title' );
 		}
 		if ( $params['category'] != '' ) {
-			$this->addTables( 'categorylinks' );
+			$this->addTables( [ 'categorylinks', 'linktarget' ] );
+			$this->addJoinConds( [
+				'linktarget' => [ 'JOIN', 'lt_id=cl_target_id' ]
+			] );
 			$this->addWhere( 'cl_from = fp_page_id' );
-
-			$migrationStage = MediaWikiServices::getInstance()->getMainConfig()->get(
-				MainConfigNames::CategoryLinksSchemaMigrationStage
-			);
-
-			if ( $migrationStage & SCHEMA_COMPAT_READ_OLD ) {
-				$this->addWhereFld( 'cl_to', $params['category'] );
-			} else {
-				$this->addTables( 'linktarget' );
-				$this->addJoinConds( [
-					'linktarget' => [ 'JOIN', 'lt_id=cl_target_id' ]
-				] );
-				$this->addWhereFld( 'lt_title', $params['category'] );
-				$this->addWhereFld( 'lt_namespace', NS_CATEGORY );
-			}
+			$this->addWhereFld( 'lt_title', $params['category'] );
+			$this->addWhereFld( 'lt_namespace', NS_CATEGORY );
 		}
 
 		$this->addWhereRange(

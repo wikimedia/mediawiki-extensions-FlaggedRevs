@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\Html\Html;
-use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Pager\TablePager;
 use Wikimedia\Rdbms\RawSQLExpression;
@@ -118,20 +117,11 @@ class PendingChangesPager extends TablePager {
 		# Filter by category
 		if ( $this->category != '' ) {
 			$tables[] = 'categorylinks';
+			$tables[] = 'linktarget';
 			$joinConds['categorylinks'] = [ 'JOIN', 'cl_from=fp_page_id' ];
-
-			$migrationStage = MediaWikiServices::getInstance()->getMainConfig()->get(
-				MainConfigNames::CategoryLinksSchemaMigrationStage
-			);
-
-			if ( $migrationStage & SCHEMA_COMPAT_READ_OLD ) {
-				$conds['cl_to'] = $this->category;
-			} else {
-				$tables[] = 'linktarget';
-				$joinConds['linktarget'] = [ 'JOIN', 'lt_id=cl_target_id' ];
-				$conds['lt_title'] = $this->category;
-				$conds['lt_namespace'] = NS_CATEGORY;
-			}
+			$joinConds['linktarget'] = [ 'JOIN', 'lt_id=cl_target_id' ];
+			$conds['lt_title'] = $this->category;
+			$conds['lt_namespace'] = NS_CATEGORY;
 		}
 		# Index field for sorting
 		$this->mIndexField = 'fp_pending_since';
