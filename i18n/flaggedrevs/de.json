@@ -49,7 +49,7 @@
 	"action-unreviewedpages": "die Liste ungesichteter Seiten anzusehen",
 	"editor": "Sichter",
 	"flaggedrevs": "Gesichtete Versionen",
-	"flaggedrevs-watched-pending": "Es existieren momentan [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ungesichtete Bearbeitungen] gesichteter Seiten, die sich auf deiner Beobachtungsliste befinden. '''Deine Aufmerksamkeit wird daher benötigt!'''",
+	"flaggedrevs-watched-pending": "Es existieren momentan [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ungesichtete Bearbeitungen] gesichteter Seiten, die sich auf {{#FORMAL:deiner|Ihrer}} Beobachtungsliste befinden. '''{{#FORMAL:Deine|Ihre}} Aufmerksamkeit wird daher benötigt!'''",
 	"flaggedrevs-desc": "Ermöglicht es, Seitenversionen zu markieren sowie eine stabile Seitenversion festzulegen",
 	"flaggedrevs-pref-UI": "Einfache Benutzeroberfläche:",
 	"flaggedrevs-pref-UI-0": "Detaillierte Übersicht zur Anzeige des Markierungsstatus von Seiten verwenden",

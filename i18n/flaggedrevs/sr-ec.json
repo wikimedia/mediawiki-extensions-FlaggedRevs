@@ -112,7 +112,7 @@
 	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Провери промене на чекању]",
 	"revreview-basic-title": "Ово је проверена верзија ове странице",
 	"revreview-unchecked-title": "Ова страница није проверена",
-	"revreview-dialog-title": "Статус верзије странице",
+	"revreview-dialog-title": "Статус странице",
 	"revreview-quick-basic-same-title": "'''Проверено'''",
 	"revreview-toggle-title": "прикажи/сакриј детаље",
 	"revreview-visibility-synced": "'''Ова страница има ажурирану [[{{MediaWiki:Validationpage}}|стабилну измену]]; можете [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} променити] подешавања стабилности страница.'''",
