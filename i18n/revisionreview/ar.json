@@ -12,7 +12,8 @@
 			"زكريا",
 			"علاء",
 			"Michel Bakni",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"Mohammed Qays"
 		]
 	},
 	"revisionreview": "مراجعة المراجعات",
@@ -53,7 +54,7 @@
 	"revreview-submit-unreview": "لا تقبل المراجعة",
 	"revreview-submit-reject": "ارفض التغييرات",
 	"revreview-submit-reviewed": "تم. قبلت!",
-	"revreview-submit-unreviewed": "تم. لم يتم القبول!",
+	"revreview-submit-unreviewed": "نُفذ. قبلت!",
 	"revreview-successful": "'''تم وضع علامة على مراجعة [[:$1|$1]].'''",
 	"revreview-successful2": "'''مراجعة [[:$1|$1]] تمت إزالة علمها .'''",
 	"revreview-toolow": "'''يجب عليك تقييم كل من المحددات بالأسفل أعلى من \"غير مقبولة\" لكي تعتبر المراجعة مراجعة.'''\n\nلسحب حالة المراجعة لمراجعة، اضغط \"{{int:revreview-submit-unreview}}\".\n\nمن فضلك اضغط زر \"رجوع\" في متصفحك وحاول مجددا.",
