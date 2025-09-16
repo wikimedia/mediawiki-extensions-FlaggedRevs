@@ -7,7 +7,6 @@
 			"Umherirrender"
 		]
 	},
-	"flaggedrevs-watched-pending": "Es gibt momentan [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ungesichtete Bearbeitungen] gesichteter Seiten, die sich auf Ihrer Beobachtungsliste befinden. '''Ihre Aufmerksamkeit wird daher benötigt!'''",
 	"review-edit-diff": "'''Hinweis: Einige der noch nicht überprüften Änderungen betreffen den Abschnitt des Textes, den Sie gerade bearbeiten.'''",
 	"revreview-editnotice": "'''Ihre Änderungen werden veröffentlicht, sobald ein dazu berechtigter Benutzer sie akzeptiert hat. ([[{{MediaWiki:Validationpage}}|Hilfe]])'''",
 	"revreview-submitedit-title": "Ihre Änderungen zum Überprüfen übertragen",
