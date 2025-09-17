@@ -8,7 +8,7 @@
 	"pendingchanges": "Талланза хийцамаш болу агӀонаш",
 	"pendingchanges-legend": "Талланза версеш йолу теллина агӀонийн могӀам",
 	"pendingchanges-list": "ХӀокху агӀонгахь гойту [[{{MediaWiki:Validationpage}}|теллина]] агӀонаш талланза нисдарш долуш.",
-	"pendingchanges-none": "ХӀинца йолу ханна иштта агӀонаш йац",
+	"pendingchanges-none": "Карарчу хенахь оцу билламашна жоп луш агӀонаш йац.",
 	"pendingchanges-hours": "$1 {{PLURAL:$1|сахьт}}",
 	"pendingchanges-days": "$1 {{PLURAL:$1|де}}",
 	"pendingchanges-recent": "1 сахьт ца кхоччуш",
@@ -30,6 +30,6 @@
 	"pendingchanges-table-history": "Истори",
 	"pendingchanges-table-review": "Талла",
 	"pendingchanges-table-revision-history": "Истори",
-	"pendingchanges-table-footer": "Карарчу хенахь талларе хьоьжуш {{PLURAL:$1|$1 нисдар}} ду",
+	"pendingchanges-table-footer": "Карарчу хенахь {{PLURAL:$2|$1 хийцам бу}} талларе хьоьжуш",
 	"pendingchanges-filter-submit-button-text": "Талланза хийцамашна фильтрйе"
 }
