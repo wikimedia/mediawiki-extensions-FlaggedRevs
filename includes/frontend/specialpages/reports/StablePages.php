@@ -5,7 +5,9 @@ use MediaWiki\MainConfigNames;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
 
-// Assumes $wgFlaggedRevsProtection is on
+/**
+ * Assumes $wgFlaggedRevsProtection is on
+ */
 class StablePages extends SpecialPage {
 	/** @var StablePagesPager */
 	private $pager = null;

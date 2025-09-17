@@ -1,5 +1,4 @@
 <?php
-// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
 
 use MediaWiki\Installer\Hook\LoadExtensionSchemaUpdatesHook;
 

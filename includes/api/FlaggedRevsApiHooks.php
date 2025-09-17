@@ -1,5 +1,4 @@
 <?php
-// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
 
 use MediaWiki\Api\ApiQueryRevisions;
 use MediaWiki\Api\Hook\APIGetAllowedParamsHook;

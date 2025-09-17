@@ -2,7 +2,9 @@
 
 use MediaWiki\MediaWikiServices;
 
-// Assumes $wgFlaggedRevsProtection is on
+/**
+ * Assumes $wgFlaggedRevsProtection is on
+ */
 class PageStabilityProtectForm extends PageStabilityForm {
 	protected function reallyDoPreloadParameters() {
 		$oldConfig = $this->getOldConfig();
