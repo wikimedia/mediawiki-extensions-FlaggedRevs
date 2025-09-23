@@ -27,7 +27,8 @@
 			"علاء",
 			"محمد أحمد عبد الفتاح",
 			"Matma Rex",
-			"Mdktb"
+			"Mdktb",
+			"Mohammed Qays"
 		]
 	},
 	"action-autoreview": "التعليم على تعديلاته كـ\"مراجعة\" تلقائيا",
@@ -39,7 +40,7 @@
 	"action-unreviewedpages": "عرض قائمة الصفحات غير المراجعة",
 	"editor": "محرر",
 	"flaggedrevs": "مراجعات معلمة",
-	"flaggedrevs-watched-pending": "توجد حاليا [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} تعديلات في الانتظار] لمراجعة الصفحات في قائمة مراقبتك '''انتباهك مطلوب!'''",
+	"flaggedrevs-watched-pending": "ثمة [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} تعديلات معلقة] لصفحات في قائمة مراقبتك '''تتطلّب انتباهك!'''",
 	"flaggedrevs-desc": "يعطي المحررين القدرة على استعراض المراجعات وتثبيت الصفحات",
 	"flaggedrevs-pref-UI": "الواجهة الأساسية:",
 	"flaggedrevs-pref-UI-0": "استخدم صناديق تفصيلية لعرض حالة الموافقة للصفحات",
