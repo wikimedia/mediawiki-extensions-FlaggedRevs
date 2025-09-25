@@ -11,6 +11,7 @@
 			"Kareyac",
 			"Lockal",
 			"MaxSem",
+			"Mitte27",
 			"Okras",
 			"Ole Yves",
 			"Александр Сигачёв"
@@ -18,7 +19,7 @@
 	},
 	"revisionreview": "Проверка версий",
 	"revreview-failed": "'''Невозможно проверить версию.'''",
-	"revreview-submission-invalid": "Представление было неполным или содержало другой недочёт.",
+	"revreview-submission-invalid": "Отправка данных прошла некорректно или не полностью.",
 	"review_page_invalid": "Недопустимое название целевой страницы.",
 	"review_page_notexists": "Целевой страницы не существует.",
 	"review_page_unreviewable": "Целевая страница не входит в число проверяемых.",
