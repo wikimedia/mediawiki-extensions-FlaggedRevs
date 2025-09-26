@@ -37,6 +37,7 @@ use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\RecentChanges\ChangesListBooleanFilterGroup;
 use MediaWiki\RecentChanges\ChangesListStringOptionsFilterGroup;
+use MediaWiki\RecentChanges\RecentChangeLookup;
 use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
@@ -98,6 +99,7 @@ class FlaggedRevsUIHooks implements
 	private PermissionManager $permissionManager;
 	private ReadOnlyMode $readOnlyMode;
 	private SpecialPageFactory $specialPageFactory;
+	private RecentChangeLookup $recentChangeLookup;
 
 	public function __construct(
 		ActorStore $actorStore,
@@ -107,7 +109,8 @@ class FlaggedRevsUIHooks implements
 		WANObjectCache $cache,
 		PermissionManager $permissionManager,
 		ReadOnlyMode $readOnlyMode,
-		SpecialPageFactory $specialPageFactory
+		SpecialPageFactory $specialPageFactory,
+		RecentChangeLookup $recentChangeLookup
 	) {
 		$this->actorStore = $actorStore;
 		$this->dbProvider = $dbProvider;
@@ -117,6 +120,7 @@ class FlaggedRevsUIHooks implements
 		$this->permissionManager = $permissionManager;
 		$this->readOnlyMode = $readOnlyMode;
 		$this->specialPageFactory = $specialPageFactory;
+		$this->recentChangeLookup = $recentChangeLookup;
 	}
 
 	/**
@@ -472,7 +476,7 @@ class FlaggedRevsUIHooks implements
 						'queryCallable' => function ( $specialClassName, $ctx, $dbr, &$tables,
 							&$fields, &$conds, &$query_options, &$join_conds
 						) {
-							self::hideReviewedChangesUnconditionally(
+							$this->hideReviewedChangesUnconditionally(
 								$conds, $dbr
 							);
 						},
@@ -496,9 +500,9 @@ class FlaggedRevsUIHooks implements
 						'label' => 'flaggedrevs-rcfilters-need-review-label',
 						'description' => 'flaggedrevs-rcfilters-need-review-desc',
 						'cssClassSuffix' => 'need-review',
-						'isRowApplicableCallable' => static function ( $ctx, $rc ) {
+						'isRowApplicableCallable' => function ( $ctx, $rc ) {
 							return ( FlaggedRevs::isReviewNamespace( $rc->getAttribute( 'rc_namespace' ) ) &&
-									$rc->getAttribute( 'rc_type' ) !== RC_EXTERNAL ) &&
+									$this->recentChangeLookup->isFromPrimarySource( $rc ) ) &&
 								(
 									!$rc->getAttribute( 'fp_stable' ) ||
 									(
@@ -517,9 +521,9 @@ class FlaggedRevsUIHooks implements
 						'label' => 'flaggedrevs-rcfilters-reviewed-label',
 						'description' => 'flaggedrevs-rcfilters-reviewed-desc',
 						'cssClassSuffix' => 'reviewed',
-						'isRowApplicableCallable' => static function ( $ctx, $rc ) {
+						'isRowApplicableCallable' => function ( $ctx, $rc ) {
 							return ( FlaggedRevs::isReviewNamespace( $rc->getAttribute( 'rc_namespace' ) ) &&
-									$rc->getAttribute( 'rc_type' ) !== RC_EXTERNAL ) &&
+									$this->recentChangeLookup->isFromPrimarySource( $rc ) ) &&
 								$rc->getAttribute( 'fp_stable' ) &&
 								(
 									!$rc->getAttribute( 'fp_pending_since' ) ||
@@ -537,7 +541,7 @@ class FlaggedRevsUIHooks implements
 						}
 					],
 				],
-				'queryCallable' => static function ( $specialClassName, $ctx, $dbr, &$tables,
+				'queryCallable' => function ( $specialClassName, $ctx, $dbr, &$tables,
 					&$fields, &$conds, &$query_options, &$join_conds, $selectedValues
 				) {
 					if ( !$selectedValues || count( $selectedValues ) > 2 ) {
@@ -554,9 +558,9 @@ class FlaggedRevsUIHooks implements
 								->orExpr( new RawSQLExpression( 'rc_timestamp < fp_pending_since' ) )
 						);
 					$notReviewableCond = $dbr->expr( 'rc_namespace', '!=', $namespaces )
-						->or( 'rc_type', '=', RC_EXTERNAL );
+						->or( 'rc_source', '!=', $this->recentChangeLookup->getPrimarySources() );
 					$reviewableCond = $dbr->expr( 'rc_namespace', '=', $namespaces )
-						->and( 'rc_type', '!=', RC_EXTERNAL );
+						->and( 'rc_source', '=', $this->recentChangeLookup->getPrimarySources() );
 
 					$filters = [];
 					if ( in_array( 'needreview', $selectedValues ) ) {
@@ -634,7 +638,7 @@ class FlaggedRevsUIHooks implements
 		$specialPage, $opts, &$conds, &$tables, &$fields, &$join_conds
 	) {
 		$dbr = $this->dbProvider->getReplicaDatabase();
-		self::makeAllQueryChanges( $conds, $tables, $join_conds, $fields, $dbr );
+		$this->makeAllQueryChanges( $conds, $tables, $join_conds, $fields, $dbr );
 	}
 
 	/**
@@ -656,11 +660,11 @@ class FlaggedRevsUIHooks implements
 	 * @param string[] &$fields Fields to query
 	 * @param IReadableDatabase $dbr
 	 */
-	private static function makeAllQueryChanges(
+	private function makeAllQueryChanges(
 		array &$conds, array &$tables, array &$join_conds, array &$fields, IReadableDatabase $dbr
 	) {
 		self::addMetadataQueryJoins( $tables, $join_conds, $fields );
-		self::hideReviewedChangesIfNeeded( $conds, $dbr );
+		$this->hideReviewedChangesIfNeeded( $conds, $dbr );
 	}
 
 	/**
@@ -687,13 +691,13 @@ class FlaggedRevsUIHooks implements
 	 * @param array &$conds Query conditions
 	 * @param IReadableDatabase $dbr
 	 */
-	private static function hideReviewedChangesIfNeeded(
+	private function hideReviewedChangesIfNeeded(
 		array &$conds, IReadableDatabase $dbr
 	) {
 		global $wgRequest;
 
 		if ( $wgRequest->getBool( 'hideReviewed' ) && !FlaggedRevs::useOnlyIfProtected() ) {
-			self::hideReviewedChangesUnconditionally( $conds, $dbr );
+			$this->hideReviewedChangesUnconditionally( $conds, $dbr );
 		}
 	}
 
@@ -706,14 +710,14 @@ class FlaggedRevsUIHooks implements
 	 * @param array &$conds Query conditions
 	 * @param IReadableDatabase $dbr
 	 */
-	private static function hideReviewedChangesUnconditionally(
+	private function hideReviewedChangesUnconditionally(
 		array &$conds, IReadableDatabase $dbr
 	) {
 		// Don't filter external changes as FlaggedRevisions doesn't apply to those
 		$conds[] = $dbr->orExpr( [
 			new RawSQLExpression( 'rc_timestamp >= fp_pending_since' ),
 			'fp_stable' => null,
-			'rc_type' => RC_EXTERNAL,
+			$dbr->expr( 'rc_source', '!=', $this->recentChangeLookup->getPrimarySources() ),
 		] );
 	}
 

@@ -68,7 +68,8 @@ class FlaggedRevsUIHooksTest extends MediaWikiIntegrationTestCase {
 			$this->getServiceContainer()->getMainWANObjectCache(),
 			$this->getServiceContainer()->getPermissionManager(),
 			$this->getServiceContainer()->getReadOnlyMode(),
-			$mockSpecialPageFactory
+			$mockSpecialPageFactory,
+			$this->getServiceContainer()->getRecentChangeLookup()
 		);
 		$objectUnderTest = TestingAccessWrapper::newFromObject( $objectUnderTest );
 		$mockOutput = $this->createMock( OutputPage::class );
