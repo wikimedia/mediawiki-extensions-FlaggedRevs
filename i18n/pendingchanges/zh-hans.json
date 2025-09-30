@@ -18,7 +18,8 @@
 			"Shirayuki",
 			"Xiaomingyan",
 			"予弦",
-			"神樂坂秀吉"
+			"神樂坂秀吉",
+			"Libamidi"
 		]
 	},
 	"pendingchanges": "有待定更改的页面",
@@ -47,6 +48,6 @@
 	"pendingchanges-table-history": "历史",
 	"pendingchanges-table-review": "复审",
 	"pendingchanges-table-revision-history": "历史",
-	"pendingchanges-table-footer": "当前有{{PLURAL:$1|$1}}个待复审的更改",
+	"pendingchanges-table-footer": "当前有{{PLURAL:$2|$1}}个待复审的更改",
 	"pendingchanges-filter-submit-button-text": "筛选待复审更改"
 }
