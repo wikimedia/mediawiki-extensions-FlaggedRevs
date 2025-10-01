@@ -32,7 +32,8 @@
 			"列维劳德",
 			"沈澄心",
 			"阿pp",
-			"飞舞回堂前"
+			"飞舞回堂前",
+			"Libamidi"
 		]
 	},
 	"action-autoreview": "自动标记自己的编辑为“已复核”",
@@ -48,7 +49,7 @@
 	"flaggedrevs-desc": "给予编者复核版本和固定页面的权限",
 	"flaggedrevs-pref-UI": "基本界面：",
 	"flaggedrevs-pref-UI-0": "使用详情框显示页面的复核状态",
-	"flaggedrevs-pref-UI-1": "使用指示器显示页面的复核状态。",
+	"flaggedrevs-pref-UI-1": "使用指示器显示页面的复核状态",
 	"prefs-flaggedrevs-ui": "编辑复核",
 	"flaggedrevs-prefs-stable": "默认显示内容页面的稳定版本的情形",
 	"flaggedrevs-pref-stable-0": "为每个页面使用默认设置",
