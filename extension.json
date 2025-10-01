@@ -435,7 +435,8 @@
 				"LinksMigration",
 				"MainWANObjectCache",
 				"PermissionManager",
-				"ReadOnlyMode"
+				"ReadOnlyMode",
+				"SpecialPageFactory"
 			]
 		},
 		"scribunto": {

@@ -3,6 +3,8 @@
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\SpecialPage\SpecialPageFactory;
+use MediaWiki\Title\Title;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -46,6 +48,50 @@ class FlaggedRevsUIHooksTest extends MediaWikiIntegrationTestCase {
 			'rcfilters' => [
 				true,
 				[ 'flaggedrevs' => 'needreview' ],
+			],
+		];
+	}
+
+	/**
+	 * @dataProvider injectStyleForSpecial_loadIPContributionsProvider
+	 */
+	public function testInjectStyleForSpecial_loadIPContributions( bool $enabled ) {
+		$mockSpecialPageFactory = $this->createMock( SpecialPageFactory::class );
+		$mockSpecialPageFactory->method( 'exists' )->willReturnMap( [
+				[ 'IPContributions', $enabled ]
+			] );
+		$objectUnderTest = new FlaggedRevsUIHooks(
+			$this->getServiceContainer()->getActorStore(),
+			$this->getServiceContainer()->getConnectionProvider(),
+			$this->getServiceContainer()->getLinkRenderer(),
+			$this->getServiceContainer()->getLinksMigration(),
+			$this->getServiceContainer()->getMainWANObjectCache(),
+			$this->getServiceContainer()->getPermissionManager(),
+			$this->getServiceContainer()->getReadOnlyMode(),
+			$mockSpecialPageFactory
+		);
+		$objectUnderTest = TestingAccessWrapper::newFromObject( $objectUnderTest );
+		$mockOutput = $this->createMock( OutputPage::class );
+		$mockTitle = $this->createMock( Title::class );
+		$mockTitle->method( 'isSpecial' )->willReturnMap( [
+				[ 'IPContributions', true ]
+			] );
+		$mockOutput->method( 'getTitle' )->willReturn( $mockTitle );
+		if ( $enabled ) {
+			$mockOutput->expects( $this->exactly( 2 ) )->method( 'addModuleStyles' );
+		} else {
+			$mockOutput->expects( $this->never() )->method( 'addModuleStyles' );
+		}
+		$objectUnderTest->injectStyleForSpecial( $mockOutput );
+	}
+
+	public static function injectStyleForSpecial_loadIPContributionsProvider() {
+		return [
+			'Special:IPContributions exists' => [
+				'enabled' => true
+			],
+			'Special:IPContributions doesn\'t exist' => [
+				'enabled' => false
 			],
 		];
 	}

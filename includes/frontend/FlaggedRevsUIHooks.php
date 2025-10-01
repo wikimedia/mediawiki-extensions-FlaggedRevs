@@ -44,6 +44,7 @@ use MediaWiki\SpecialPage\Hook\ChangesListSpecialPageQueryHook;
 use MediaWiki\SpecialPage\Hook\ChangesListSpecialPageStructuredFiltersHook;
 use MediaWiki\SpecialPage\Hook\SpecialPage_initListHook;
 use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\SpecialPage\SpecialPageFactory;
 use MediaWiki\Title\Title;
 use MediaWiki\Title\TitleValue;
 use MediaWiki\User\ActorStore;
@@ -96,6 +97,7 @@ class FlaggedRevsUIHooks implements
 	private WANObjectCache $cache;
 	private PermissionManager $permissionManager;
 	private ReadOnlyMode $readOnlyMode;
+	private SpecialPageFactory $specialPageFactory;
 
 	public function __construct(
 		ActorStore $actorStore,
@@ -104,7 +106,8 @@ class FlaggedRevsUIHooks implements
 		LinksMigration $linksMigration,
 		WANObjectCache $cache,
 		PermissionManager $permissionManager,
-		ReadOnlyMode $readOnlyMode
+		ReadOnlyMode $readOnlyMode,
+		SpecialPageFactory $specialPageFactory
 	) {
 		$this->actorStore = $actorStore;
 		$this->dbProvider = $dbProvider;
@@ -113,6 +116,7 @@ class FlaggedRevsUIHooks implements
 		$this->cache = $cache;
 		$this->permissionManager = $permissionManager;
 		$this->readOnlyMode = $readOnlyMode;
+		$this->specialPageFactory = $specialPageFactory;
 	}
 
 	/**
@@ -171,11 +175,21 @@ class FlaggedRevsUIHooks implements
 	 *
 	 * @param OutputPage $out
 	 */
-	private static function injectStyleForSpecial( OutputPage $out ) {
+	private function injectStyleForSpecial( OutputPage $out ) {
 		$title = $out->getTitle();
 		$specialPagesWithAdvanced = [ 'PendingChanges', 'ConfiguredPages', 'UnreviewedPages' ];
 		$specialPages = array_merge( $specialPagesWithAdvanced,
 			[ 'Watchlist', 'Recentchanges', 'Contributions', 'Recentchangeslinked' ] );
+
+		// Special:IPContributions is added by CheckUser conditionally.
+		// Ideally, FlaggedRevs shouldn't know that CheckUser exists or what it's doing. If another
+		// extension needs to enable FlaggedRevs then this should probably be refactored to provide
+		// general support for third-party extensions adding Contributions-extending pages that FlaggedRevs
+		// will support. Possible solutions could be a hook to support adding to $specialPages or
+		// instead to inject styles via a hook that runs on Contributions-extending pages.
+		if ( $this->specialPageFactory->exists( 'IPContributions' ) ) {
+			$specialPages[] = 'IPContributions';
+		}
 
 		foreach ( $specialPages as $key ) {
 			if ( $title->isSpecial( $key ) ) {
@@ -197,7 +211,7 @@ class FlaggedRevsUIHooks implements
 	public function onBeforePageDisplay( $out, $skin ): void {
 		if ( $out->getTitle()->getNamespace() === NS_SPECIAL ) {
 			$this->maybeAddBacklogNotice( $out ); // RC/Watchlist notice
-			self::injectStyleForSpecial( $out ); // try special page CSS
+			$this->injectStyleForSpecial( $out ); // try special page CSS
 		} elseif ( $out->getTitle()->canExist() ) {
 			$view = FlaggablePageView::newFromTitle( $out->getTitle() );
 			$view->addStabilizationLink(); // link on protect form
