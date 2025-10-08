@@ -22,9 +22,7 @@ class FlaggedRevsLibraryTest extends LuaEngineTestBase {
 
 		$class = new ReflectionClass( FlaggableWikiPage::class );
 		$pageConfig = $class->getProperty( 'pageConfig' );
-		$pageConfig->setAccessible( true );
 		$mDataLoaded = $class->getProperty( 'mDataLoaded' );
-		$mDataLoaded->setAccessible( true );
 
 		$title = Title::newFromText( 'Page without FR' );
 		$article = FlaggableWikiPage::getTitleInstance( $title );
