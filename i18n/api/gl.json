@@ -46,7 +46,7 @@
 	"apihelp-review-summary": "Revisar unha revisión aprobándoa ou desaprobándoa.",
 	"apihelp-review-param-revid": "Identificador de revisión para o que fixar as marcas.",
 	"apihelp-review-param-comment": "Comentario para a revisión.",
-	"apihelp-review-param-unapprove": "Se seleccionado, a revisión será desaprobada no canto de aprobada.",
+	"apihelp-review-param-unapprove": "Se se define, a revisión será anulada no canto de ser aprobada.",
 	"apihelp-review-param-flag": "Fixar a marca \"$1\" ó valor especificado.",
 	"apihelp-review-example-1": "Aprobar revisión 12345 co comentario \"Ok\"",
 	"apihelp-stabilize-summary-general": "Cambiar os parámetros de estabilidade da páxina.",
