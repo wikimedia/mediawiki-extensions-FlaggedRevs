@@ -12,7 +12,7 @@ use MediaWiki\SpecialPage\UnlistedSpecialPage;
 use MediaWiki\Title\Title;
 use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\Watchlist\WatchlistManager;
-use MediaWiki\Xml\Xml;
+use MediaWiki\Xml\XmlSelect;
 
 /** Assumes $wgFlaggedRevsProtection is off */
 class Stabilization extends UnlistedSpecialPage {
@@ -146,14 +146,20 @@ class Stabilization extends UnlistedSpecialPage {
 		if ( $defaultReasons->isDisabled() ) {
 			$defaultReasons = $this->msg( 'protect-dropdown' );
 		}
-		$reasonDropdown = Xml::listDropdown(
-			'wpReasonSelection',
+
+		$reasonDropdown = new XmlSelect( 'wpReasonSelection', 'wpReasonSelection' );
+
+		$dropdownOptions = Html::listDropdownOptions(
 			$defaultReasons->inContentLanguage()->text(),
-			$this->msg( 'protect-otherreason-op' )->inContentLanguage()->escaped(),
-			$form->getReasonSelection(),
-			'mwStabilize-reason',
-			4
+			[
+				'other' => $this->msg( 'protect-otherreason-op' )->inContentLanguage()->text()
+			]
 		);
+		$reasonDropdown->addOptions( $dropdownOptions );
+		$reasonDropdown->setDefault( $form->getReasonSelection() );
+		$reasonDropdown->setAttribute( 'class', 'mwStabilize-reason' );
+		$reasonDropdown->setAttribute( 'tabindex', 4 );
+
 		$scExpiryOptions = $this->msg( 'protect-expiry-options' )->inContentLanguage()->text();
 		$showProtectOptions = ( $scExpiryOptions !== '-' && $form->isAllowed() );
 		$dropdownOptions = []; // array of <label,value>
@@ -263,7 +269,7 @@ class Stabilization extends UnlistedSpecialPage {
 							'wpReasonSelection' ) .
 					'</td>
 					<td class="mw-input">' .
-						$reasonDropdown .
+						$reasonDropdown->getHTML() .
 					'</td>
 				</tr>
 				<tr>
