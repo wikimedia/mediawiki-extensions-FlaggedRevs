@@ -2,13 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Minh Nguyen",
+			"Nvdtn19",
 			"Trần Nguyễn Minh Huy"
 		]
 	},
 	"configuredpages": "Các trang có cấu hình duyệt tùy biến",
-	"configuredpages-list": "Đây là danh sách các trang được cấu hình duyệt khác với mặc định của website.\nMột số tùy chọn có thể có ảnh hưởng đến phiên bản được trình bày cho độc giả hoặc hạn chế những người có thể sửa đổi không cần duyệt sau.",
+	"configuredpages-list": "Trang này liệt kê các trang được cấu hình để có cài đặt duyệt khác với cài đặt mặc định của trang web.\nMột số cài đặt có thể thay đổi phiên bản hiển thị cho độc giả hoặc hạn chế hơn nữa những người có thể thực hiện các sửa đổi mà không cần duyệt.",
 	"configuredpages-none": "Danh sách không có trang nào.",
 	"configuredpages-config": "Thiết lập",
 	"configuredpages-def-draft": "phiên bản mới nhất",
-	"configuredpages-def-stable": "phiên bản xuất bản"
+	"configuredpages-def-stable": "phiên bản ổn định"
 }

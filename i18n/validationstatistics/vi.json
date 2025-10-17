@@ -2,15 +2,16 @@
 	"@metadata": {
 		"authors": [
 			"Minh Nguyen",
+			"Nvdtn19",
 			"Vinhtantran"
 		]
 	},
 	"validationstatistics": "Thống kê duyệt trang",
-	"validationstatistics-users": "Hiện nay, có '''[[Special:ListUsers/editor|$1]]''' thành viên tại '''{{SITENAME}}''' có quyền [[{{MediaWiki:Validationpage}}|Biên tập viên]].\n\nBiên tập viên là người dùng có kinh nghiệm có khả năng kiểm tra nhanh các thay đổi tại trang.",
+	"validationstatistics-users": "Hiện nay, có '''[[Special:ListUsers/editor|$1]]''' thành viên tại '''{{SITENAME}}''' có quyền [[{{MediaWiki:Validationpage}}|người rà soát bài]].\n\nNgười rà soát bài là người dùng có kinh nghiệm có khả năng kiểm tra nhanh các thay đổi tại trang.",
 	"validationstatistics-lastupdate": "''Các dữ liệu sau được cập nhật lần cuối vào $1 lúc $2.''",
-	"validationstatistics-pndtime": "Những sửa đổi ''{{int:validationstatistics-stable}}'' khi được người dùng có kinh nghiệm xem qua.\n\n[[Special:OldReviewedPages|Các trang có sửa đổi hiện đang chờ duyệt]] đã chờ đợi '''$1''' trung bình, tính theo sửa đổi cũ nhất đang chờ duyệt.",
-	"validationstatistics-revtime": "Những sửa đổi của ''người dùng vô danh'' phải chờ đợi '''$1''' trung bình; thời gian trung vị là '''$2'''.\n$3",
-	"validationstatistics-table": "Đây có thống kê duyệt trang về các không gian tên, ''trừ'' các trang đổi hướng.\n\nMỗi trang ''{{int:validationstatistics-old}}'' có sửa đổi đang chờ duyệt, còn các trang ''{{int:validationstatistics-latest}}'' đã được duyệt tới sửa đổi gần đây nhất.",
+	"validationstatistics-pndtime": "Các sửa đổi đã được người dùng có kinh nghiệm xem qua được coi là ''{{int:validationstatistics-stable}}''.\n\nĐộ trễ xét duyệt trung bình cho [[Special:OldReviewedPages|trang có sửa đổi đang chờ duyệt]] hiện là '''$1'''; độ trễ này đo lường thời gian sửa đổi cũ nhất chưa được duyệt.",
+	"validationstatistics-revtime": "Thời gian chờ trung bình để các sửa đổi của ''người dùng chưa đăng nhập'' được duyệt là '''$1'''; trung vị là '''$2'''.\n$3",
+	"validationstatistics-table": "Thống kê đánh giá trang cho từng không gian tên được hiển thị bên dưới, ''không bao gồm'' các trang đổi hướng.\nTrang được coi là ''{{int:validationstatistics-old}}'' nếu có sửa đổi đang chờ duyệt; ''{{int:validationstatistics-latest}}'' nếu không có sửa đổi nào đang chờ duyệt.",
 	"validationstatistics-ns": "Không gian tên",
 	"validationstatistics-total": "Số trang",
 	"validationstatistics-stable": "Được duyệt",
@@ -20,5 +21,5 @@
 	"validationstatistics-unreviewed": "Chưa duyệt",
 	"validationstatistics-utable": "Đây là {{PLURAL:$1|người duyệt|danh sách $1 người duyệt}} tích cực nhất trong {{PLURAL:$2|giờ|$2 giờ}} qua.",
 	"validationstatistics-user": "Người dùng",
-	"validationstatistics-reviews": "Bản duyệt"
+	"validationstatistics-reviews": "Lần duyệt"
 }
