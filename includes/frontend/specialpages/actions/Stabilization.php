@@ -158,7 +158,6 @@ class Stabilization extends UnlistedSpecialPage {
 		$reasonDropdown->addOptions( $dropdownOptions );
 		$reasonDropdown->setDefault( $form->getReasonSelection() );
 		$reasonDropdown->setAttribute( 'class', 'mwStabilize-reason' );
-		$reasonDropdown->setAttribute( 'tabindex', 4 );
 
 		$scExpiryOptions = $this->msg( 'protect-expiry-options' )->inContentLanguage()->text();
 		$showProtectOptions = ( $scExpiryOptions !== '-' && $form->isAllowed() );
@@ -245,7 +244,7 @@ class Stabilization extends UnlistedSpecialPage {
 		# Add custom expiry field to form...
 		$attribs = [ 'id' => "mwStabilizeExpiryOther",
 			'size' => 50,
-			'onkeyup' => 'onFRChangeExpiryField()' ] + $this->disabledAttr();
+			'oninput' => 'onFRChangeExpiryField()' ] + $this->disabledAttr();
 		$s .= "
 			<tr>
 				<td class='mw-label'>" .
