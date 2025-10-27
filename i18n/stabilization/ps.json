@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ahmed-Najib-Biabani-Ibrahimkhel"
+			"Ahmed-Najib-Biabani-Ibrahimkhel",
+			"شاه زمان پټان"
 		]
 	},
 	"stabilization-page": "د مخ نوم:",
 	"stabilization-submit": "تاييد",
 	"stabilization-comment": "سبب:",
-	"stabilization-otherreason": "بل سبب:",
+	"stabilization-otherreason": "بل لامل:",
 	"stabilization-expiry": "د پای نېټه:",
 	"stabilization-othertime": "بل وخت:",
 	"stabilization-def-short": "تلواليز",

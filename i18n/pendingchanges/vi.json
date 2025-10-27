@@ -2,18 +2,19 @@
 	"@metadata": {
 		"authors": [
 			"Minh Nguyen",
-			"Vinhtantran"
+			"Vinhtantran",
+			"Nvdtn19"
 		]
 	},
-	"pendingchanges": "Các trang có thay đổi chưa duyệt",
-	"pendingchanges-legend": "Liệt kê các trang đã duyệt có các phiên bản chưa duyệt",
-	"pendingchanges-list": "Trang này liệt kê [[{{MediaWiki:Validationpage}}|các trang đã duyệt]] có thêm sửa đổi đang chờ duyệt.",
+	"pendingchanges": "Trang có thay đổi chưa duyệt",
+	"pendingchanges-legend": "Liệt kê các trang đã duyệt có thay đổi đang chờ",
+	"pendingchanges-list": "Trang này liệt kê các trang [[{{MediaWiki:Validationpage}}|đã duyệt]] có thêm sửa đổi đang chờ duyệt.",
 	"pendingchanges-none": "Hiện không có trang này thỏa mãn tiêu chí này",
 	"pendingchanges-hours": "($1 giờ)",
 	"pendingchanges-days": "($1 ngày)",
 	"pendingchanges-recent": "(dưới 1 giờ)",
 	"pendingchanges-category": "Thể loại:",
-	"pendingchanges-onwatchlist": "Các trang trong danh sách theo dõi của tôi",
+	"pendingchanges-onwatchlist": "Trang trong danh sách theo dõi của tôi",
 	"pendingchanges-stable": "Phiên bản ổn định là mặc định",
 	"pendingchanges-diff": "duyệt",
 	"pendingchanges-size": "Thay đổi lớn nhất (byte):",
