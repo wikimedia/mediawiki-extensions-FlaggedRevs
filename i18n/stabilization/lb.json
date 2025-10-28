@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Volvox"
 		]
 	},
 	"stabilization-tab": "Astellung",
@@ -20,7 +21,7 @@
 	"stabilization-notcontent": "D'Säit \"[[:$1|$1]]\" kann net nogekuckt ginn.\nEt ass keng Konfiguratioun méiglech.",
 	"stabilization-comment": "Grond:",
 	"stabilization-otherreason": "Anere Grond:",
-	"stabilization-expiry": "Valabel bis:",
+	"stabilization-expiry": "Gülteg bis:",
 	"stabilization-othertime": "Aner Zäit:",
 	"stabilization-def-short": "Standard",
 	"stabilization-def-short-0": "Aktuell",
