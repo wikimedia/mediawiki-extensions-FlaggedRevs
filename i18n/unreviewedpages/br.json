@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Fohanno",
-			"Fulup"
+			"Fulup",
+			"Huñvreüs"
 		]
 	},
 	"unreviewedpages": "Pajennoù n'int ket bet adwelet",
@@ -12,7 +13,7 @@
 	"unreviewedpages-unwatched": "(dievezhiet)",
 	"unreviewedpages-watched": "($1 {{PLURAL:$1|implijer|implijer}} oberiant o evezhiañ ar bajenn-mañ)",
 	"unreviewedpages-list": "Rollañ a ra ar bajenn-mañ ar pajennoù zo danvez enno ha n'int ket bet [[{{MediaWiki:Validationpage}}|adwelet]] d'al live rekis c'hoazh.",
-	"unreviewedpages-none": "Evit poent n'eus pajenn ebet a glotfe gant an dezverkoù-mañ",
+	"unreviewedpages-none": "Evit poent n'eus pajenn ebet a glotfe gant an dezverkoù-mañ.",
 	"unreviewedpages-viewing": "(o vezañ adwelet)",
 	"unreviewedpages-hours": "($1 {{PLURAL:$1|eurvezh|eurvezh}})",
 	"unreviewedpages-days": "($1 {{PLURAL:$1|deiz|deiz}})",

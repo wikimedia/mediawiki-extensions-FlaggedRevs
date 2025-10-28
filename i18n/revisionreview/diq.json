@@ -9,7 +9,8 @@
 			"Mirzali",
 			"Orbot707",
 			"Xoser",
-			"GolyatGeri"
+			"GolyatGeri",
+			"SaldırganSincap"
 		]
 	},
 	"revisionreview": "revizyonanê ser çım bıçarn",
@@ -51,7 +52,7 @@
 	"revreview-submit-reject": "Vurnayışa red ke",
 	"revreview-submit-reviewed": "Temam. Tesdiq bi!",
 	"revreview-submit-unreviewed": "Temam. Tesdiq nêbi!",
-	"revreview-successful": "'''Revizyona  [[:$1|$1]] nışanya ya\"",
+	"revreview-successful": "'''Revizyona  [[:$1|$1]] nışanya ya'''",
 	"revreview-successful2": "'''Revizyona  [[:$1|$1]] nênışanya ya\"",
 	"revreview-toolow": "'''Ti gani her nitelikan \"tam niya\" zafyer rate bike ke seba revizyon gani qontrol bibo.'''\n\nSeba weziyetê qontroli wedarnayişi, sazanê \"{{int:revreview-submit-unreview}}\" her ca de \"tam niya\" bike.\n\nMa rica keni \"peyser\" şı ra rayna cerbnayışi pıploxnê.",
 	"revreview-update": "Kerem ke, vurnayışanê teberi pêro ''(cêr mocniyenê)'' [[{{MediaWiki:Validationpage}}|ancina bıvêne]] heta ke verziyono qayım vıraciya.",
