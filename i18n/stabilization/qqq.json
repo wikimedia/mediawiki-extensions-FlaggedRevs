@@ -13,7 +13,8 @@
 			"SPQRobin",
 			"Saper",
 			"Shirayuki",
-			"Umherirrender"
+			"Umherirrender",
+			"SaldırganSincap"
 		]
 	},
 	"stabilization-tab": "{{Flagged Revs-small}}\n\nSome skins (e.g. standard/classic) display an additional tab to control visibility of the page revisions, e.g. whether last revision should be included or perhaps the last checked or published version. Links to [[Special:Stabilization]].\n\nIn Flagged Revisions, \"vet\" is a synonym for \"stabilize\".",
@@ -26,7 +27,7 @@
 	"stabilization-def1": "{{Flagged Revs-small}}\nUsed on Special:Stabilization as an option for \"Revision displayed on default page view\".\n\nThis option has sub-options, see \"How the published version is selected\".",
 	"stabilization-def2": "{{Flagged Revs-small}}\nUsed on [[Special:Stabilization]] as an option for \"Revision displayed on default page view\".",
 	"stabilization-dropdown": "{{notranslate}}\n{{Flagged Revs-small}}\nUsed on [[Special:Stabilization]] as a dropdown list of stabilization reasons. Should be empty by default.",
-	"stabilization-restrict": "{{Flagged Revs}}\nUsed on Special:Stabilization.\nThis means: \"restrictions on automatic reviews\" (''it does not mean: \n\"automatically review the restrictions\")\n\nNote that this restricts not just auto-reviewing, but manual reviewing as well.",
+	"stabilization-restrict": "{{Flagged Revs}}\nUsed on Special:Stabilization.\nThis means: \"restrictions on automatic reviews\" (''it does not mean: \"automatically review the restrictions\"'')\n\nNote that this restricts not just auto-reviewing, but manual reviewing as well.",
 	"stabilization-restrict-none": "{{Flagged Revs}}\nUsed on Special:Stabilization.\nMessage wording is a bit vague due to the fact that wikis can restrict the 'review' and 'autoreview' rights site-wide to any extent. It should *not* say \"allow all users\" or such.",
 	"stabilization-submit": "{{Flagged Revs}}\nUsed on Special:Stabilization.\n{{Identical|Confirm}}",
 	"stabilization-notexists": "{{Flagged Revs}}\nUsed on [[Special:Stabilization]]. Parameters:\n* $1 - the page name\nSee also:\n* {{msg-mw|Stabilization-notcontent}}",
