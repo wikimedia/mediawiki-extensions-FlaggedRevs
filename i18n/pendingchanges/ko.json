@@ -4,6 +4,7 @@
 			"Devunt",
 			"Gapo",
 			"Kwj2772",
+			"Revi",
 			"YeBoy371",
 			"Ykhwong",
 			"렌즈",
@@ -23,5 +24,7 @@
 	"pendingchanges-stable": "배포판이 기본값입니다",
 	"pendingchanges-diff": "검토",
 	"pendingchanges-size": "최대 변화량 (바이트):",
-	"pendingchanges-unwatched": "주시되지 않음"
+	"pendingchanges-unwatched": "주시되지 않음",
+	"pendingchanges-table-page": "문서",
+	"pendingchanges-table-size": "크기"
 }
