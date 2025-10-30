@@ -940,8 +940,7 @@ class FlaggedRevsUIHooks implements
 		$watchlist = SpecialPage::getTitleFor( 'Watchlist' );
 		# Add notice to watchlist about pending changes...
 		if ( $out->getTitle()->equals( $watchlist ) && $namespaces ) {
-			$dbr = $this->dbProvider
-				->getReplicaDatabase( false, 'watchlist' ); // consistency with watchlist
+			$dbr = $this->dbProvider->getReplicaDatabase();
 			$watchedOutdated = (bool)$dbr->newSelectQueryBuilder()
 				->select( '1' ) // existence
 				->from( 'watchlist' )

@@ -71,7 +71,7 @@ class FlaggedRevsApiHooks implements
 		}
 
 		// Construct SQL Query
-		$db = $this->dbProvider->getReplicaDatabase( false, 'api' );
+		$db = $this->dbProvider->getReplicaDatabase();
 
 		$qb = $db->newSelectQueryBuilder()
 			->select( [
