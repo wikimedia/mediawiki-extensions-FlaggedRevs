@@ -30,7 +30,6 @@ class FlaggedRevsBackendTest extends MediaWikiIntegrationTestCase {
 			'rev_timestamp' => $rev->getTimestamp(),
 			'rev_parent_id' => $rev->getParentId(),
 			'rev_len' => $rev->getSize(),
-			'rev_sha1' => $rev->getSha1(),
 			'rev_comment_id' => $comment->id,
 			'rev_comment_text' => $comment->text,
 			'rev_comment_data' => $comment->data,
