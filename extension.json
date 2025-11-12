@@ -342,7 +342,6 @@
 		"ArticleUndelete": "main",
 		"ArticleUpdateBeforeRedirect": "ui",
 		"ArticleViewHeader": "ui",
-		"AutopromoteCondition": "main",
 		"BeforePageDisplay": "ui",
 		"BeforeRevertedTagUpdate": "main",
 		"CategoryPageView": "ui",
@@ -396,6 +395,7 @@
 		"UserGetRights": "main",
 		"UserLoadAfterLoadFromSession": "main",
 		"UserMergeAccountFields": "FlaggedRevsHooks::onUserMergeAccountFields",
+		"UserRequirementsCondition": "main",
 		"WikiExporter::dumpStableQuery": "main"
 	},
 	"HookHandlers": {
@@ -416,7 +416,8 @@
 				"PermissionManager",
 				"RevisionLookup",
 				"UserNameUtils",
-				"UserIdentityUtils"
+				"UserIdentityUtils",
+				"UserFactory"
 			]
 		},
 		"services": {

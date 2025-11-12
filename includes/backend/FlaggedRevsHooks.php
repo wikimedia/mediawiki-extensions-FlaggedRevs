@@ -31,9 +31,10 @@ use MediaWiki\Storage\Hook\PageSaveCompleteHook;
 use MediaWiki\Storage\Hook\RevisionDataUpdatesHook;
 use MediaWiki\Title\Title;
 use MediaWiki\User\ActorMigration;
-use MediaWiki\User\Hook\AutopromoteConditionHook;
 use MediaWiki\User\Hook\UserLoadAfterLoadFromSessionHook;
+use MediaWiki\User\Hook\UserRequirementsConditionHook;
 use MediaWiki\User\User;
+use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserIdentityUtils;
 use MediaWiki\User\UserNameUtils;
@@ -51,7 +52,6 @@ class FlaggedRevsHooks implements
 	ArticleMergeCompleteHook,
 	ArticleRevisionVisibilitySetHook,
 	ArticleUndeleteHook,
-	AutopromoteConditionHook,
 	BeforeRevertedTagUpdateHook,
 	getUserPermissionsErrorsHook,
 	GetMagicVariableIDsHook,
@@ -65,6 +65,7 @@ class FlaggedRevsHooks implements
 	RevisionUndeletedHook,
 	UserGetRightsHook,
 	UserLoadAfterLoadFromSessionHook,
+	UserRequirementsConditionHook,
 	WikiExporter__dumpStableQueryHook
 {
 
@@ -73,19 +74,22 @@ class FlaggedRevsHooks implements
 	private RevisionLookup $revisionLookup;
 	private UserNameUtils $userNameUtils;
 	private UserIdentityUtils $userIdentityUtils;
+	private UserFactory $userFactory;
 
 	public function __construct(
 		Config $config,
 		PermissionManager $permissionManager,
 		RevisionLookup $revisionLookup,
 		UserNameUtils $userNameUtils,
-		UserIdentityUtils $userIdentityUtils
+		UserIdentityUtils $userIdentityUtils,
+		UserFactory $userFactory
 	) {
 		$this->config = $config;
 		$this->permissionManager = $permissionManager;
 		$this->revisionLookup = $revisionLookup;
 		$this->userNameUtils = $userNameUtils;
 		$this->userIdentityUtils = $userIdentityUtils;
+		$this->userFactory = $userFactory;
 	}
 
 	/**
@@ -809,7 +813,7 @@ class FlaggedRevsHooks implements
 	 * Get query data for making efficient queries based on rev_user and
 	 * rev_timestamp in an actor table world.
 	 * @param IReadableDatabase $dbr
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @return array[]
 	 */
 	private static function getQueryData( IReadableDatabase $dbr, $user ) {
@@ -846,12 +850,12 @@ class FlaggedRevsHooks implements
 	 * Check if a user meets the edit spacing requirements.
 	 * If the user does not, return a *lower bound* number of seconds
 	 * that must elapse for it to be possible for the user to meet them.
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @param int $spacingReq days apart (of edit points)
 	 * @param int $pointsReq number of edit points
 	 * @return true|int True if passed, int seconds on failure
 	 */
-	private static function editSpacingCheck( User $user, $spacingReq, $pointsReq ) {
+	private static function editSpacingCheck( UserIdentity $user, $spacingReq, $pointsReq ) {
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 		$queryData = self::getQueryData( $dbr, $user );
@@ -1137,11 +1141,29 @@ class FlaggedRevsHooks implements
 
 	/**
 	 * @inheritDoc
-	 * Check an autopromote condition that is defined by FlaggedRevs
+	 * Check a user requirements condition that is defined by FlaggedRevs
 	 *
 	 * Note: some unobtrusive caching is used to avoid DB hits.
 	 */
-	public function onAutopromoteCondition( $cond, $params, $user, &$result ) {
+	public function onUserRequirementsCondition(
+		$cond,
+		array $params,
+		UserIdentity $user,
+		bool $isPerformingRequest,
+		?bool &$result
+	): void {
+		if (
+			$user->getWikiId() !== UserIdentity::LOCAL
+			&& is_int( $cond )
+			&& $cond >= APCOND_FR_EDITSUMMARYCOUNT
+			&& $cond <= APCOND_FR_NEVERDEMOTED
+		) {
+			// The code below may be unprepared for checking interwiki users
+			// Even if the conditions handlers are updated to evaluate them in the context of a proper wiki,
+			// we can't assume all wikis in the cluster have FR enabled (as in Wikimedia, for example)
+			$result = false;
+			return;
+		}
 		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		switch ( $cond ) {
 			case APCOND_FR_EDITSUMMARYCOUNT:
@@ -1149,14 +1171,15 @@ class FlaggedRevsHooks implements
 				$result = ( $p && $p['editComments'] >= $params[0] );
 				break;
 			case APCOND_FR_NEVERBLOCKED:
-				if ( $user->getBlock() ) {
+				$userObject = $this->userFactory->newFromUserIdentity( $user );
+				if ( $userObject->getBlock() ) {
 					$result = false; // failed
 				} else {
 					// See T262970 for an explanation of this
 					$hasPriorBlock = $cache->getWithSetCallback(
 						$cache->makeKey( 'flaggedrevs-autopromote-notblocked', $user->getId() ),
 						$cache::TTL_SECOND,
-						function ( $oldValue, &$ttl, array &$setOpts, $oldAsOf ) use ( $user ) {
+						function ( $oldValue, &$ttl, array &$setOpts, $oldAsOf ) use ( $userObject ) {
 							// Once the user is blocked once, this condition will always
 							// fail. To avoid running queries again, if the old cached value
 							// is `priorBlock`, just return that immediately.
@@ -1181,7 +1204,7 @@ class FlaggedRevsHooks implements
 							$setOpts += Database::getCacheSetOptions( $dbr );
 
 							$hasPriorBlock = self::wasPreviouslyBlocked(
-								$user,
+								$userObject,
 								$dbr,
 								$startingTimestamp
 							);
@@ -1230,7 +1253,8 @@ class FlaggedRevsHooks implements
 				break;
 			case APCOND_FR_EDITCOUNT:
 				# $maxNew is the *most* edits that can be too recent
-				$maxNew = $user->getEditCount() - $params[0];
+				$userObject = $this->userFactory->newFromUserIdentity( $user );
+				$maxNew = $userObject->getEditCount() - $params[0];
 				if ( $maxNew < 0 ) {
 					$result = false; // doesn't meet count even *with* recent edits
 				} elseif ( $params[1] <= 0 ) {
@@ -1273,7 +1297,8 @@ class FlaggedRevsHooks implements
 					$result = false; // failed
 				} else {
 					# Hit the DB only if the result is not cached...
-					$result = self::reviewedEditsCheck( $user, $params[0], $params[1] );
+					$userObject = $this->userFactory->newFromUserIdentity( $user );
+					$result = self::reviewedEditsCheck( $userObject, $params[0], $params[1] );
 					if ( $result ) {
 						$cache->set( $key, 'true', $cache::TTL_WEEK );
 					} else {
@@ -1282,11 +1307,13 @@ class FlaggedRevsHooks implements
 				}
 				break;
 			case APCOND_FR_USERPAGEBYTES:
-				$result = ( !$params[0] || $user->getUserPage()->getLength() >= $params[0] );
+				$userObject = $this->userFactory->newFromUserIdentity( $user );
+				$result = ( !$params[0] || $userObject->getUserPage()->getLength() >= $params[0] );
 				break;
 			case APCOND_FR_MAXREVERTEDEDITRATIO:
+				$userObject = $this->userFactory->newFromUserIdentity( $user );
 				$p = FRUserCounters::getParams( $user );
-				$result = ( $p && $params[0] * $user->getEditCount() >= $p['revertedEdits'] );
+				$result = ( $p && $params[0] * $userObject->getEditCount() >= $p['revertedEdits'] );
 				break;
 			case APCOND_FR_NEVERDEMOTED: // b/c
 				$p = FRUserCounters::getParams( $user );
