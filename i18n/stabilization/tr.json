@@ -6,11 +6,12 @@
 			"Joseph",
 			"Karduelis",
 			"Manco Capac",
+			"SaldırganSincap",
 			"Srhat",
 			"Vito Genovese"
 		]
 	},
-	"stabilization-tab": "vet",
+	"stabilization-tab": "Vet",
 	"stabilization": "Sayfa kararlılaştırılması",
 	"stabilization-text": "'''[[:$1|$1]] için kararlı sürümün nasıl seçilip görüntüleneceğini ayarlamak için ayarları değiştirin.'''",
 	"stabilization-perm": "Hesabınızın kararlı sürüm yapılandırmasını değiştirmeye izni yok.\n[[:$1|$1]] için şuanki ayarlar:",
