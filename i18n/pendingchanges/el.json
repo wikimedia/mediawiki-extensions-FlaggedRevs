@@ -5,20 +5,21 @@
 			"Crazymadlover",
 			"Glavkos",
 			"Omnipaedista",
-			"ZaDiak"
+			"ZaDiak",
+			"Jimkats"
 		]
 	},
 	"pendingchanges": "Σελίδες με αλλαγές σε εκκρεμότητα",
 	"pendingchanges-legend": "Δημιουργία λίστας σελίδων με αναθεωρήσεις για τις οποίες εκκρεμεί επιθεώρηση",
 	"pendingchanges-list": "Αυτή η σελίδα περιλαμβάνει [[{{MediaWiki:Validationpage}}|επιθεωρημένες]] σελίδες που έχουν μια ή περισσότερες επεξεργασίες  που περιμένουν επιθεώρηση.",
 	"pendingchanges-none": "Προς το παρόν δεν υπάρχουν σελίδες που να πληρούν αυτά τα κριτήρια.",
-	"pendingchanges-hours": "($1 {{PLURAL:$1|ώρα|ώρες}})",
-	"pendingchanges-days": "($1 {{PLURAL:$1|ημέρα|ημέρες}})",
-	"pendingchanges-recent": "(λιγότερο από 1 ώρα)",
+	"pendingchanges-hours": "$1 {{PLURAL:$1|ώρα|ώρες}}",
+	"pendingchanges-days": "$1 {{PLURAL:$1|ημέρα|ημέρες}}",
+	"pendingchanges-recent": "λιγότερο από 1 ώρα",
 	"pendingchanges-category": "Κατηγορία:",
 	"pendingchanges-onwatchlist": "Σελίδες στη λίστα παρακολούθησής μου",
 	"pendingchanges-stable": "Η σταθερή έκδοση είναι η προεπιλεγμένη",
-	"pendingchanges-diff": "επιθεώρηση",
+	"pendingchanges-diff": "Επιθεώρηση",
 	"pendingchanges-size": "Μέγιστη αλλαγή (μπάιτς):",
-	"pendingchanges-unwatched": "(δεν παρακολουθείται)"
+	"pendingchanges-unwatched": "δεν παρακολουθείται"
 }

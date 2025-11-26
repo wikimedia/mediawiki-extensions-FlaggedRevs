@@ -5,7 +5,8 @@
 			"Jim-by",
 			"Red Winged Duck",
 			"Renessaince",
-			"Wizardist"
+			"Wizardist",
+			"Ucukor"
 		]
 	},
 	"revisionreview": "Рэцэнзаваць вэрсіі",
@@ -38,8 +39,8 @@
 	"revreview-invalid": "'''Няслушная мэта:''' няма [[{{MediaWiki:Validationpage}}|рэцэнзаванай]] вэрсіі, якая адпавядае пададзенаму ідэнтыфікатару.",
 	"revreview-log": "Камэнтар:",
 	"revreview-main": "Вам неабходна выбраць адну з вэрсіяў старонкі для рэцэнзаваньня.\n\nГлядзіце [[Special:Unreviewedpages|сьпіс нерэцэнзаваных старонак]].",
-	"revreview-stable1": "Верагодна, Вы жадаеце праглядзець [{{fullurl:$1|stableid=$2}} гэтую пазначаную вэрсію] і праверыць, ці зьяўляецца яна [{{fullurl:$1|stable=1}} апублікаванай вэрсіяй] гэтай старонкі.",
-	"revreview-stable2": "Верагодна, Вы жадаеце праглядзець [{{fullurl:$1|stable=1}} апублікаваную вэрсію] гэтай старонкі.",
+	"revreview-stable1": "Магчыма, Вы жадаеце праглядзець [{{fullurl:$1|stableid=$2}} гэтую пазначаную вэрсію] і праверыць, ці зьяўляецца яна [{{fullurl:$1|stable=1}} апублікаванай вэрсіяй] гэтай старонкі.",
+	"revreview-stable2": "Магчыма, вам варта праглядзець [{{fullurl: $1 |stable=1}} стабільную вэрсію] гэтай старонкі.",
 	"revreview-submit": "Даслаць",
 	"revreview-submitting": "Адпраўка…",
 	"revreview-submit-review": "Зацьвердзіць вэрсію",
