@@ -3,7 +3,8 @@
 		"authors": [
 			"Snævar",
 			"Spacebirdy",
-			"Stefán Örvar Sigmundsson"
+			"Stefán Örvar Sigmundsson",
+			"Sveinn í Felli"
 		]
 	},
 	"pendingchanges": "Síður með fyrirhugaðar breytingar",
@@ -12,12 +13,12 @@
 	"pendingchanges-none": "Eins og er upfyllir engin síða þessi leitarskilyrði.",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|klukkustund|klukkustundir}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|dagur|dagar}})",
-	"pendingchanges-recent": "(minna en einn klukkutími)",
+	"pendingchanges-recent": "minna en 1 klukkustund",
 	"pendingchanges-category": "Flokkur:",
 	"pendingchanges-onwatchlist": "Síður á vaktlistanum mínum",
 	"pendingchanges-stable": "Yfirfarnar síður",
-	"pendingchanges-diff": "yfirfara",
+	"pendingchanges-diff": "Yfirfara",
 	"pendingchanges-size": "Hámarks breyting (bæti):",
-	"pendingchanges-unwatched": "(án eftirlits)",
+	"pendingchanges-unwatched": "án vöktunar",
 	"pendingchanges-viewing": "(í skoðun)"
 }

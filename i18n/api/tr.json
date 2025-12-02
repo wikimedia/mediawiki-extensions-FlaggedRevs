@@ -4,11 +4,12 @@
 			"Arystanbek",
 			"BaRaN6161 TURK",
 			"MuratTheTurkish",
-			"Vito Genovese"
+			"Vito Genovese",
+			"SaldırganSincap"
 		]
 	},
 	"apihelp-flagconfig-summary": "Bu site için inceleme işareti yapılandırması hakkında temel bilgi edinin.",
-	"apihelp-flagconfig-extended-description": "Her etiket için aşağıdaki parametreler döndürülür:\n;name:Bu etiketin anahtar adı.\n;levels:Etiketin sahip olduğu düzey sayısı (\"etiketlenmemiş\" öğesinin üstünde).\n;tier2:Bir revizyonun 2. katman (kalite) olması için etiketin ulaşması gereken düzey.\n;tier3:Bir revizyonun 3. kademe (bozulmamış) olması için etiketin ulaşması gereken düzey.\nİşaretli revizyonların her bir etiket için atanmış bir düzeyi vardır. Tüm etiketlerin karşıladığı en yüksek katman, tüm revizyonun inceleme katmanıdır.",
+	"apihelp-flagconfig-extended-description": "Her etiket için aşağıdaki parametreler döndürülür:\n;name:Bu etiketin anahtar adı.\n;levels:Etiketin sahip olduğu düzey sayısı (\"etiketlenmemiş\" öğesinin üstünde).\nİşaretli revizyonların her bir etiket için atanmış bir düzeyi vardır. Tüm etiketlerin karşıladığı en yüksek katman, tüm revizyonun inceleme katmanıdır.",
 	"apihelp-flagconfig-example-1": "İşaret yapılandırmasını getirin",
 	"apihelp-query+configuredpages-summary": "Özel inceleme yapılandırmalarına sahip tüm sayfaları numaralandırın.",
 	"apihelp-query+configuredpages-param-start": "Bu sayfa kimliğinde listelemeye başlayın.",
