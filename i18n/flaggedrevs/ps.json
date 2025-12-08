@@ -7,6 +7,7 @@
 			"شاه زمان پټان"
 		]
 	},
+	"action-movestable": "له پايداره بلبڼو سره مخونه لېږدول",
 	"editor": "سمونگر",
 	"flaggedrevs": "رپی لرونکې مخليدنې",
 	"flaggedrevs-pref-UI": "بنسټيز ليدنمخ:",
@@ -32,6 +33,7 @@
 	"revreview-submitedit": "بدلونونه ورسپارل",
 	"revreview-oldrating": "دا و ارزېده:",
 	"revreview-toggle-title": "څرگندونې ښکاره کول/پټول",
+	"right-movestable": "له پايداره بلبڼو سره مخونه لېږدول",
 	"specialpages-group-quality": "سمون مخليدنه",
 	"revreview-defaultfilter": "تلواليزه بڼه:",
 	"revreview-def-all": "هر يو",
@@ -41,5 +43,12 @@
 	"revreview-restriction-none": "هېڅ",
 	"revreview-reviewlink": "pending edits",
 	"tooltip-ca-current": "دا مخ د بدلونونو د رامنځ ته کېدو د انتظار په حال کې کتل",
-	"flaggedrevs-protect-none": "ټول کارنان پرېښودل"
+	"flaggedrevs-protect-none": "ټول کارنان پرېښودل",
+	"logeventslist-review-log": "بياکتنې يادښت",
+	"log-action-filter-review": "د بياکتنې ډول:",
+	"log-action-filter-review-accept": "لاسي منل",
+	"log-action-filter-review-unaccept": "لاسي نه‌منل",
+	"fr-revision-info-dialog-review-button": "بياکتل...",
+	"fr-revision-info-dialog-cancel-button": "ناگارل",
+	"fr-revision-info-dialog-close-aria-label": "تړل"
 }
