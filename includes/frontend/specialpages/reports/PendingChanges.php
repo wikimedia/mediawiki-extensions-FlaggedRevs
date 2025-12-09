@@ -22,20 +22,13 @@ class PendingChanges extends SpecialPage {
 	private ?int $size;
 	private bool $watched;
 
-	private NamespaceInfo $namespaceInfo;
-	private RevisionLookup $revisionLookup;
-	private SpecialPageFactory $specialPageFactory;
-
 	public function __construct(
-		NamespaceInfo $namespaceInfo,
-		RevisionLookup $revisionLookup,
-		SpecialPageFactory $specialPageFactory
+		private readonly NamespaceInfo $namespaceInfo,
+		private readonly RevisionLookup $revisionLookup,
+		private readonly SpecialPageFactory $specialPageFactory,
 	) {
 		parent::__construct( 'PendingChanges' );
 		$this->mIncludable = true;
-		$this->namespaceInfo = $namespaceInfo;
-		$this->revisionLookup = $revisionLookup;
-		$this->specialPageFactory = $specialPageFactory;
 	}
 
 	/**

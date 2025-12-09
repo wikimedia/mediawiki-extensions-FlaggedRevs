@@ -9,10 +9,7 @@ use MediaWiki\Config\Config;
  */
 class FlaggedRevsSetup {
 
-	private Config $config;
-
-	public function __construct( Config $config ) {
-		$this->config = $config;
+	public function __construct( private readonly Config $config ) {
 	}
 
 	/**

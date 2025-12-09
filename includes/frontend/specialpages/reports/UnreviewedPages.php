@@ -31,16 +31,11 @@ class UnreviewedPages extends SpecialPage {
 	/** How many entries are at most stored in the cache */
 	private const CACHE_SIZE = 5000;
 
-	private IConnectionProvider $dbProvider;
-	private PermissionManager $permissionManager;
-
 	public function __construct(
-		IConnectionProvider $dbProvider,
-		PermissionManager $permissionManager
+		private readonly IConnectionProvider $dbProvider,
+		private readonly PermissionManager $permissionManager,
 	) {
 		parent::__construct( 'UnreviewedPages', 'unreviewedpages' );
-		$this->dbProvider = $dbProvider;
-		$this->permissionManager = $permissionManager;
 	}
 
 	/**

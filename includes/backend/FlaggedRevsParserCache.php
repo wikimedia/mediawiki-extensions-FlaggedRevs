@@ -10,18 +10,9 @@ use MediaWiki\Parser\ParserOutput;
  */
 class FlaggedRevsParserCache {
 
-	/** @var ParserCache */
-	private $stableParserCache;
-
-	/**
-	 * Instantiate this class using one of:
-	 * * $services->getService( 'FlaggedRevsParserCache' )
-	 * * $services->getService( 'FlaggedRevsParsoidParserCache' )
-	 *
-	 * @param ParserCache $stableParserCache
-	 */
-	public function __construct( ParserCache $stableParserCache ) {
-		$this->stableParserCache = $stableParserCache;
+	public function __construct(
+		private readonly ParserCache $stableParserCache,
+	) {
 	}
 
 	/**

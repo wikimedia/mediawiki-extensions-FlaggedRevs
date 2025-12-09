@@ -19,19 +19,12 @@ class Stabilization extends UnlistedSpecialPage {
 	/** @var PageStabilityGeneralForm|null */
 	private $form = null;
 
-	private PermissionManager $permissionManager;
-	private UserOptionsLookup $userOptionsLookup;
-	private WatchlistManager $watchlistManager;
-
 	public function __construct(
-		PermissionManager $permissionManager,
-		UserOptionsLookup $userOptionsLookup,
-		WatchlistManager $watchlistManager
+		private readonly PermissionManager $permissionManager,
+		private readonly UserOptionsLookup $userOptionsLookup,
+		private readonly WatchlistManager $watchlistManager,
 	) {
 		parent::__construct( 'Stabilization', 'stablesettings' );
-		$this->permissionManager = $permissionManager;
-		$this->userOptionsLookup = $userOptionsLookup;
-		$this->watchlistManager = $watchlistManager;
 	}
 
 	/**

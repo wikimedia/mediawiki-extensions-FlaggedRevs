@@ -6,14 +6,12 @@ use MediaWiki\Revision\RevisionLookup;
 
 class FlaggedRevsReviewLogFormatter extends LogFormatter {
 	private bool $isDeapproval = false;
-	private RevisionLookup $revisionLookup;
 
 	public function __construct(
 		LogEntry $entry,
-		RevisionLookup $revisionLookup
+		private readonly RevisionLookup $revisionLookup,
 	) {
 		parent::__construct( $entry );
-		$this->revisionLookup = $revisionLookup;
 	}
 
 	/**

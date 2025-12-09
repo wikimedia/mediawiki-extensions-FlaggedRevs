@@ -14,25 +14,14 @@ class ValidationStatistics extends IncludableSpecialPage {
 	/** @var array|null */
 	private $latestData = null;
 
-	private ActorStore $actorStore;
-	private IConnectionProvider $dbProvider;
-	private Language $contLang;
-	private ILoadBalancer $loadBalancer;
-	private WANObjectCache $cache;
-
 	public function __construct(
-		ActorStore $actorStore,
-		IConnectionProvider $dbProvider,
-		Language $contLang,
-		ILoadBalancer $loadBalancer,
-		WANObjectCache $cache
+		private readonly ActorStore $actorStore,
+		private readonly IConnectionProvider $dbProvider,
+		private readonly Language $contLang,
+		private readonly ILoadBalancer $loadBalancer,
+		private readonly WANObjectCache $cache,
 	) {
 		parent::__construct( 'ValidationStatistics' );
-		$this->actorStore = $actorStore;
-		$this->dbProvider = $dbProvider;
-		$this->contLang = $contLang;
-		$this->loadBalancer = $loadBalancer;
-		$this->cache = $cache;
 	}
 
 	/**

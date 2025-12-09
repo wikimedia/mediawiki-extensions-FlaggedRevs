@@ -16,13 +16,10 @@ class RevisionReview extends UnlistedSpecialPage {
 	/** @var Title|null */
 	private $title;
 
-	private PermissionManager $permissionManager;
-
 	public function __construct(
-		PermissionManager $permissionManager
+		private readonly PermissionManager $permissionManager,
 	) {
 		parent::__construct( 'RevisionReview', 'review' );
-		$this->permissionManager = $permissionManager;
 	}
 
 	/**

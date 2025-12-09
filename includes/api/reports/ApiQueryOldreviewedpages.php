@@ -36,15 +36,12 @@ use Wikimedia\ParamValidator\TypeDef\IntegerDef;
  * @ingroup FlaggedRevs
  */
 class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
-	private UserIdentityUtils $userIdentityUtils;
-
 	public function __construct(
 		ApiQuery $query,
 		string $moduleName,
-		UserIdentityUtils $userIdentityUtils
+		private readonly UserIdentityUtils $userIdentityUtils,
 	) {
 		parent::__construct( $query, $moduleName, 'or' );
-		$this->userIdentityUtils = $userIdentityUtils;
 	}
 
 	/**

@@ -34,15 +34,12 @@ use Wikimedia\ParamValidator\ParamValidator;
  */
 class ApiReview extends ApiBase {
 
-	private RevisionLookup $revisionLookup;
-
 	public function __construct(
 		ApiMain $main,
 		string $action,
-		RevisionLookup $revisionLookup
+		private readonly RevisionLookup $revisionLookup,
 	) {
 		parent::__construct( $main, $action );
-		$this->revisionLookup = $revisionLookup;
 	}
 
 	/**

@@ -11,12 +11,9 @@ class FlaggedRevsApiHooks implements
 	APIQueryAfterExecuteHook
 {
 
-	private IConnectionProvider $dbProvider;
-
 	public function __construct(
-		IConnectionProvider $dbProvider
+		private readonly IConnectionProvider $dbProvider
 	) {
-		$this->dbProvider = $dbProvider;
 	}
 
 	/**

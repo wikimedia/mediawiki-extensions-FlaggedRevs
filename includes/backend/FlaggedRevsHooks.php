@@ -69,27 +69,14 @@ class FlaggedRevsHooks implements
 	WikiExporter__dumpStableQueryHook
 {
 
-	private Config $config;
-	private PermissionManager $permissionManager;
-	private RevisionLookup $revisionLookup;
-	private UserNameUtils $userNameUtils;
-	private UserIdentityUtils $userIdentityUtils;
-	private UserFactory $userFactory;
-
 	public function __construct(
-		Config $config,
-		PermissionManager $permissionManager,
-		RevisionLookup $revisionLookup,
-		UserNameUtils $userNameUtils,
-		UserIdentityUtils $userIdentityUtils,
-		UserFactory $userFactory
+		private readonly Config $config,
+		private readonly PermissionManager $permissionManager,
+		private readonly RevisionLookup $revisionLookup,
+		private readonly UserNameUtils $userNameUtils,
+		private readonly UserIdentityUtils $userIdentityUtils,
+		private readonly UserFactory $userFactory,
 	) {
-		$this->config = $config;
-		$this->permissionManager = $permissionManager;
-		$this->revisionLookup = $revisionLookup;
-		$this->userNameUtils = $userNameUtils;
-		$this->userIdentityUtils = $userIdentityUtils;
-		$this->userFactory = $userFactory;
 	}
 
 	/**

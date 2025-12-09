@@ -91,36 +91,17 @@ class FlaggedRevsUIHooks implements
 	SpecialPage_initListHook,
 	TitleGetEditNoticesHook
 {
-	private ActorStore $actorStore;
-	private IConnectionProvider $dbProvider;
-	private LinkRenderer $linkRenderer;
-	private LinksMigration $linksMigration;
-	private WANObjectCache $cache;
-	private PermissionManager $permissionManager;
-	private ReadOnlyMode $readOnlyMode;
-	private SpecialPageFactory $specialPageFactory;
-	private RecentChangeLookup $recentChangeLookup;
-
 	public function __construct(
-		ActorStore $actorStore,
-		IConnectionProvider $dbProvider,
-		LinkRenderer $linkRenderer,
-		LinksMigration $linksMigration,
-		WANObjectCache $cache,
-		PermissionManager $permissionManager,
-		ReadOnlyMode $readOnlyMode,
-		SpecialPageFactory $specialPageFactory,
-		RecentChangeLookup $recentChangeLookup
+		private readonly ActorStore $actorStore,
+		private readonly IConnectionProvider $dbProvider,
+		private readonly LinkRenderer $linkRenderer,
+		private readonly LinksMigration $linksMigration,
+		private readonly WANObjectCache $cache,
+		private readonly PermissionManager $permissionManager,
+		private readonly ReadOnlyMode $readOnlyMode,
+		private readonly SpecialPageFactory $specialPageFactory,
+		private readonly RecentChangeLookup $recentChangeLookup,
 	) {
-		$this->actorStore = $actorStore;
-		$this->dbProvider = $dbProvider;
-		$this->linkRenderer = $linkRenderer;
-		$this->linksMigration = $linksMigration;
-		$this->cache = $cache;
-		$this->permissionManager = $permissionManager;
-		$this->readOnlyMode = $readOnlyMode;
-		$this->specialPageFactory = $specialPageFactory;
-		$this->recentChangeLookup = $recentChangeLookup;
 	}
 
 	/**
