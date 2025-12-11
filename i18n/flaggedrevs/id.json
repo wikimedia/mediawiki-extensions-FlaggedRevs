@@ -13,6 +13,7 @@
 			"IvanLanin",
 			"Iwan Novirion",
 			"Kenrick95",
+			"Penyuwangi",
 			"Rachmat04",
 			"Rex"
 		]
@@ -73,7 +74,7 @@
 	"review-edit-diff": "'''PERINGATAN: Beberapa perubahan tertunda mengubah bagian halaman yang sedang Anda sunting.'''",
 	"revreview-diff-toggle-show": "tampilkan perubahan",
 	"revreview-diff-toggle-hide": "sembunyikan perubahan",
-	"revreview-diff-toggle-title": "Aktifkan tampilan perubahan tertunda ke versi stabil",
+	"revreview-diff-toggle-title": "Nyalakan tampilan perubahan tertunda ke versi stabil",
 	"review-diff2stable": "Lihat semua perubahan tertunda",
 	"review-logentry-id": "revisi: $2",
 	"review-logentry-diff": "perubahan telah ditinjau",
