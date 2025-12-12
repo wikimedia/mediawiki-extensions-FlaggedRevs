@@ -3,7 +3,6 @@
 use MediaWiki\Context\ContextSource;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\EditPage\EditPage;
-use MediaWiki\Exception\MWException;
 use MediaWiki\HookContainer\HookRunner;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
@@ -986,7 +985,6 @@ class FlaggablePageView extends ContextSource {
 	 * SkinTemplateTabs, to include flagged revs UI elements
 	 *
 	 * @param array &$actions
-	 * @throws MWException
 	 */
 	public function setActionTabs( array &$actions ): void {
 		$reqUser = $this->getUser();

@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Config\ConfigException;
 use MediaWiki\Exception\MWException;
 use MediaWiki\Feed\FeedItem;
 use MediaWiki\Feed\FeedUtils;
@@ -33,7 +34,7 @@ class PendingChanges extends SpecialPage {
 
 	/**
 	 * @inheritDoc
-	 * @throws MWException
+	 * @throws ConfigException
 	 */
 	public function execute( $subPage ) {
 		$request = $this->getRequest();
@@ -283,7 +284,7 @@ class PendingChanges extends SpecialPage {
 	/**
 	 * Output a subscription feed listing recent edits to this page.
 	 * @param string $type
-	 * @throws MWException
+	 * @throws ConfigException
 	 */
 	private function feed( string $type ) {
 		if ( !$this->getConfig()->get( MainConfigNames::Feed ) ) {
