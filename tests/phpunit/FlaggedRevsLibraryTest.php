@@ -1,7 +1,7 @@
 <?php
 
 if ( !class_exists( 'Scribunto_LuaEngineTestBase' ) ) {
-	class_alias( MediaWikiIntegrationTestCase::class, Scribunto_LuaEngineTestBase::class );
+	return;
 }
 
 class FlaggedRevsLibraryTest extends Scribunto_LuaEngineTestBase {
