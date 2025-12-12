@@ -1,7 +1,7 @@
 <?php
 
-use MediaWiki\Cache\CacheKeyHelper;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Page\CacheKeyHelper;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Page\WikiPage;
 use MediaWiki\Storage\PreparedUpdate;
