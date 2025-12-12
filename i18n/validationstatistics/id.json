@@ -8,13 +8,14 @@
 			"IvanLanin",
 			"Iwan Novirion",
 			"Kenrick95",
+			"Penyuwangi",
 			"Rex"
 		]
 	},
 	"validationstatistics": "Statistik validasi / tinjauan halaman",
-	"validationstatistics-users": "'''{{SITENAME}}''' saat ini memiliki '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|pengguna}} dengan hak akses [[{{MediaWiki:Validationpage}}|Editor]].\n\nEditor adalah para pengguna tetap yang dapat melakukan pemeriksaan perbaikan di setiap halaman.",
+	"validationstatistics-users": "'''{{SITENAME}}''' saat ini memiliki '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|pengguna}} dengan hak akses [[{{MediaWiki:Validationpage}}|Penyunting]].\n\nPenyunting adalah para pengguna tetap yang dapat melakukan pemeriksaan perbaikan di setiap halaman.",
 	"validationstatistics-lastupdate": "''Data berikut terakhir dimutakhirkan pada tanggal $1 pukul $2.''",
-	"validationstatistics-pndtime": "Suntingan yang telah diperiksa oleh Editor dianggap ''{{int:validationstatistics-stable}}''.\n\nLama penundaan tinjauan rata-rata untuk [[Special:OldReviewedPages|halaman dengan penundaan tinjauan suntingan]] adalah '''$1'''; penundaan menunjukkan lama waktu suntingan tunda terlama belum ditinjau.",
+	"validationstatistics-pndtime": "Suntingan yang telah diperiksa oleh Penyunting dianggap ''{{int:validationstatistics-stable}}''.\n\nLama penundaan tinjauan rata-rata untuk [[Special:OldReviewedPages|halaman dengan penundaan tinjauan suntingan]] adalah '''$1'''; penundaan menunjukkan lama waktu suntingan tunda terlama belum ditinjau.",
 	"validationstatistics-revtime": "Lama waktu rata-rata untuk suntingan oleh ''pengguna yang tidak masuk log'' agar ditinjau adalah '''$1'''; mediannya adalah '''$2'''.\n$3",
 	"validationstatistics-table": "Statistik tinjauan halaman untuk setiap ruang nama ditampilkan di bawah ini, ''kecuali'' halaman pengalihan. Halaman dianggap ''{{int:validationstatistics-old}}'' jika memiliki tinjauan suntingan tertunda; halaman dianggap ''{{int:validationstatistics-latest}}'' jika tidak memiliki tinjauan suntingan tertunda.",
 	"validationstatistics-ns": "Ruang nama",
