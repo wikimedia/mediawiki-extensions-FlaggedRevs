@@ -7,7 +7,8 @@
 			"Irwangatot",
 			"IvanLanin",
 			"Kenrick95",
-			"Rex"
+			"Rex",
+			"Penyuwangi"
 		]
 	},
 	"stabilization-tab": "cek",
@@ -28,7 +29,7 @@
 	"stabilization-otherreason": "Alasan lain:",
 	"stabilization-expiry": "Kedaluwarsa:",
 	"stabilization-othertime": "Waktu lain:",
-	"stabilization-def-short": "Baku",
+	"stabilization-def-short": "Bawaan",
 	"stabilization-def-short-0": "Terkini",
 	"stabilization-def-short-1": "Stabil",
 	"stabilize_page_invalid": "Judul halaman tujuan tidak sah.",
