@@ -119,7 +119,7 @@
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Belum Diperiksa]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} perubahan menunggu tinjauan]]",
 	"revreview-basic-title": "Ini adalah versi yang telah diperiksa dari halaman ini",
-	"revreview-toggle-title": "tampilkan/sembunyikan detail",
+	"revreview-toggle-title": "tampilkan/sembunyikan rincian",
 	"revreview-visibility-synced": "Halaman ini memiliki [[{{MediaWiki:Validationpage}}|versi stabil]] yang telah dimutakhirkan; pengaturan versi stabil dapat [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} diubah].'''",
 	"revreview-visibility-outdated": "'''[[{{MediaWiki:Validationpage}}|Versi stabil]] halaman ini telah kedaluwarsa; pengaturan stabilitas halaman dapat [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} diubah].'''",
 	"revreview-visibility-nostable": "Halaman ini tidak memiliki [[{{MediaWiki:Validationpage}}|versi stabil]]; pengaturan versi stabil dapat [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} diubah].'''",
