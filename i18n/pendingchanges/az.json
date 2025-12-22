@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"A smart kitten",
 			"Cekli829",
 			"NMW03",
 			"Nemoralis",
@@ -34,6 +35,6 @@
 	"pendingchanges-table-history": "Tarixçə",
 	"pendingchanges-table-review": "Yoxla",
 	"pendingchanges-table-revision-history": "Tarixçə",
-	"pendingchanges-table-footer": "Hazırda {{PLURAL:$1|$1 dəyişiklik}} gözləyir",
+	"pendingchanges-table-footer": "Hazırda {{PLURAL:$2|$1 dəyişiklik}} gözləyir",
 	"pendingchanges-filter-submit-button-text": "Gözləyən dəyişiklikləri filtrlə"
 }

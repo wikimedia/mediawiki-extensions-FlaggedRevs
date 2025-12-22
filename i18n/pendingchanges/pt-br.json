@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"A smart kitten",
 			"EGobi",
 			"Eduardo.mps",
 			"Felipe L. Ewald",
@@ -34,6 +35,6 @@
 	"pendingchanges-table-history": "Histórico",
 	"pendingchanges-table-review": "Revisão",
 	"pendingchanges-table-revision-history": "Histórico",
-	"pendingchanges-table-footer": "No momento, há $1 {{PLURAL:$1|mudança|mudanças}} pendentes",
+	"pendingchanges-table-footer": "No momento, há $1 {{PLURAL:$2|mudança|mudanças}} pendentes",
 	"pendingchanges-filter-submit-button-text": "Filtrar mudanças pendentes"
 }

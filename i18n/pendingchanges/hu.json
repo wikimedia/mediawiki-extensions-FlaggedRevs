@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"A smart kitten",
 			"Adam78",
 			"Bean49",
 			"Dani",
@@ -30,6 +31,6 @@
 	"pendingchanges-table-page": "Lap",
 	"pendingchanges-table-size": "Méret",
 	"pendingchanges-table-pending-since": "Mióta",
-	"pendingchanges-table-footer": "$1 nem ellenőrzött {{PLURAL:$1|szerkesztés}}",
+	"pendingchanges-table-footer": "$1 nem ellenőrzött {{PLURAL:$2|szerkesztés}}",
 	"pendingchanges-filter-submit-button-text": "Lapok szűrése"
 }

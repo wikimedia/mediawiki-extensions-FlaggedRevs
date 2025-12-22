@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"A smart kitten",
 			"Leinad",
 			"McMonster",
 			"Msz2001",
@@ -33,6 +34,6 @@
 	"pendingchanges-table-history": "Historia",
 	"pendingchanges-table-review": "Przejrzyj",
 	"pendingchanges-table-revision-history": "Historia",
-	"pendingchanges-table-footer": "Obecnie na przejrzenie {{PLURAL:$1|oczekuje $1 zmiana|oczekuje $1 zmian|oczekują $1 zmiany}}",
+	"pendingchanges-table-footer": "Obecnie na przejrzenie {{PLURAL:$2|oczekuje $1 zmiana|oczekuje $1 zmian|oczekują $1 zmiany}}",
 	"pendingchanges-filter-submit-button-text": "Filtruj listę oczekujących zmian"
 }
