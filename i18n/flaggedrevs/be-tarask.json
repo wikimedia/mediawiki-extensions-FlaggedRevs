@@ -118,7 +118,7 @@
 	"stable-log-restriction": "Аўтаматычнае рэцэнзаваньне: патрабуецца дазвол «$1»",
 	"stable-logpage": "Журнал стабілізацыі",
 	"stable-logpagetext": "Гэты журнал зьменаў канфігурацыі [[{{MediaWiki:Validationpage}}|стабільных вэрсіяў]] старонак.",
-	"revreview-defaultfilter": "Вэрсія па змоўчваньні:",
+	"revreview-defaultfilter": "Перадвызначаная вэрсія:",
 	"revreview-def-all": "любая",
 	"revreview-def-draft": "найнавейшая",
 	"revreview-def-stable": "апублікаваная",
