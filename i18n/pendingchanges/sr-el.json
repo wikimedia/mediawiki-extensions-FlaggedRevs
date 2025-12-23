@@ -3,7 +3,8 @@
 		"authors": [
 			"Michaello",
 			"Milicevic01",
-			"Жељко Тодоровић"
+			"Жељко Тодоровић",
+			"A smart kitten"
 		]
 	},
 	"pendingchanges": "Stranice sa promenama na čekanju",
@@ -31,6 +32,6 @@
 	"pendingchanges-table-history": "Istorija",
 	"pendingchanges-table-review": "Pregledaj",
 	"pendingchanges-table-revision-history": "Istorija",
-	"pendingchanges-table-footer": "Trenutno, ima {{PLURAL:$1|$1 izmena|$1 izmene}} na čekanju",
+	"pendingchanges-table-footer": "Trenutno, ima {{PLURAL:$2|$1 izmena|$1 izmene}} na čekanju",
 	"pendingchanges-filter-submit-button-text": "Filtriraj stranice na čekanju"
 }

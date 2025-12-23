@@ -10,7 +10,8 @@
 			"Ladsgroup",
 			"Mardetanha",
 			"Mjbmr",
-			"Wayiran"
+			"Wayiran",
+			"A smart kitten"
 		]
 	},
 	"pendingchanges": "صفحه‌های دارای تغییرات در حال انتظار",
@@ -39,6 +40,6 @@
 	"pendingchanges-table-history": "تاریخچه",
 	"pendingchanges-table-review": "بازبینی",
 	"pendingchanges-table-revision-history": "تاریخچه",
-	"pendingchanges-table-footer": "در حال حاضر {{PLURAL:$1|$1 تغییر}} در انتظار بازبینی {{PLURAL:$1|است|هستند}}",
+	"pendingchanges-table-footer": "در حال حاضر {{PLURAL:$2|$1 تغییر}} در انتظار بازبینی {{PLURAL:$2|است|هستند}}",
 	"pendingchanges-filter-submit-button-text": "پالایش تغییرات در انتظار بازبینی"
 }

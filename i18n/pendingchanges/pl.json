@@ -5,7 +5,8 @@
 			"McMonster",
 			"Msz2001",
 			"Sp5uhe",
-			"Woytecr"
+			"Woytecr",
+			"A smart kitten"
 		]
 	},
 	"pendingchanges": "Strony ze zmianami oczekującymi na przejrzenie",
@@ -34,6 +35,6 @@
 	"pendingchanges-table-history": "Historia",
 	"pendingchanges-table-review": "Przejrzyj",
 	"pendingchanges-table-revision-history": "Historia",
-	"pendingchanges-table-footer": "Obecnie na przejrzenie {{PLURAL:$1|oczekuje $1 zmiana|oczekuje $1 zmian|oczekują $1 zmiany}}",
+	"pendingchanges-table-footer": "Obecnie na przejrzenie {{PLURAL:$2|oczekuje $1 zmiana|oczekuje $1 zmian|oczekują $1 zmiany}}",
 	"pendingchanges-filter-submit-button-text": "Filtruj listę oczekujących zmian"
 }

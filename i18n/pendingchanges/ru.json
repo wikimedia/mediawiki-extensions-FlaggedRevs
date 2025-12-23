@@ -10,7 +10,9 @@
 			"MaxSem",
 			"Pacha Tchernof",
 			"Putnik",
-			"Александр Сигачёв"
+			"Александр Сигачёв",
+			"A smart kitten",
+			"Stjn"
 		]
 	},
 	"pendingchanges": "Страницы с непроверенными изменениями",
@@ -39,6 +41,6 @@
 	"pendingchanges-table-history": "История",
 	"pendingchanges-table-review": "Проверить",
 	"pendingchanges-table-revision-history": "История",
-	"pendingchanges-table-footer": "На данный момент {{PLURAL:$1|$1 правка ожидает|$1 правки ожидают|$1 правок ожидают}} проверки",
+	"pendingchanges-table-footer": "На данный момент {{PLURAL:$2|$1 правка ожидает|$1 правки ожидают|$1 правок ожидают}} проверки",
 	"pendingchanges-filter-submit-button-text": "Отфильтровать непроверенные правки"
 }

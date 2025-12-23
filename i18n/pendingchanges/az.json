@@ -6,7 +6,8 @@
 			"Nemoralis",
 			"Neriman2003",
 			"Wertuose",
-			"Şeyx Şamil"
+			"Şeyx Şamil",
+			"A smart kitten"
 		]
 	},
 	"pendingchanges": "Gözləyən dəyişiklikləri olan səhifələr",
@@ -35,6 +36,6 @@
 	"pendingchanges-table-history": "Tarixçə",
 	"pendingchanges-table-review": "Yoxla",
 	"pendingchanges-table-revision-history": "Tarixçə",
-	"pendingchanges-table-footer": "Hazırda {{PLURAL:$1|$1 dəyişiklik}} gözləyir",
+	"pendingchanges-table-footer": "Hazırda {{PLURAL:$2|$1 dəyişiklik}} gözləyir",
 	"pendingchanges-filter-submit-button-text": "Gözləyən dəyişiklikləri filtrlə"
 }

@@ -5,7 +5,9 @@
 			"Felipe L. Ewald",
 			"Giro720",
 			"Luckas",
-			"TheEduGobi"
+			"TheEduGobi",
+			"A smart kitten",
+			"EGobi"
 		]
 	},
 	"pendingchanges": "Páginas com alterações pendentes",
@@ -33,6 +35,6 @@
 	"pendingchanges-table-history": "Histórico",
 	"pendingchanges-table-review": "Revisão",
 	"pendingchanges-table-revision-history": "Histórico",
-	"pendingchanges-table-footer": "No momento, há $1 {{PLURAL:$1|mudança|mudanças}} pendentes",
+	"pendingchanges-table-footer": "No momento, há $1 {{PLURAL:$2|mudança|mudanças}} pendentes",
 	"pendingchanges-filter-submit-button-text": "Filtrar mudanças pendentes"
 }
