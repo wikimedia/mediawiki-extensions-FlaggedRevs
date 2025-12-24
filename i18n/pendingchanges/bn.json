@@ -5,7 +5,8 @@
 			"Aftabuzzaman",
 			"Aishik Rehman",
 			"Bellayet",
-			"আফতাবুজ্জামান"
+			"আফতাবুজ্জামান",
+			"A smart kitten"
 		]
 	},
 	"pendingchanges": "অমীমাংসিত পরিবর্তনসহ পাতাসমূহ",
@@ -33,6 +34,6 @@
 	"pendingchanges-table-history": "ইতিহাস",
 	"pendingchanges-table-review": "পর্যালোচনা করুন",
 	"pendingchanges-table-revision-history": "ইতিহাস",
-	"pendingchanges-table-footer": "বর্তমানে {{PLURAL:$1|$1টি পরিবর্তন}} অমীমাংসিত রয়েছে",
+	"pendingchanges-table-footer": "বর্তমানে {{PLURAL:$2|$1টি পরিবর্তন}} অমীমাংসিত রয়েছে",
 	"pendingchanges-filter-submit-button-text": "অমীমাংসিত পরিবর্তন ছাঁকুন"
 }

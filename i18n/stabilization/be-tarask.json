@@ -4,7 +4,8 @@
 			"EugeneZelenko",
 			"Jim-by",
 			"Renessaince",
-			"Zedlik"
+			"Zedlik",
+			"Red Winged Duck"
 		]
 	},
 	"stabilization-tab": "Стаб.",
@@ -25,7 +26,7 @@
 	"stabilization-otherreason": "Іншая прычына:",
 	"stabilization-expiry": "Тэрмін:",
 	"stabilization-othertime": "Іншы час:",
-	"stabilization-def-short": "Дапомна",
+	"stabilization-def-short": "Перадвызначана",
 	"stabilization-def-short-0": "Цяперашняя",
 	"stabilization-def-short-1": "Апублікаваная",
 	"stabilize_page_invalid": "Няслушная назва мэтавай старонкі.",
