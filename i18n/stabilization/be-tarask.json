@@ -4,7 +4,8 @@
 			"EugeneZelenko",
 			"Jim-by",
 			"Renessaince",
-			"Zedlik"
+			"Zedlik",
+			"Red Winged Duck"
 		]
 	},
 	"stabilization-tab": "Стаб.",
@@ -13,7 +14,7 @@
 	"stabilization-perm": "Ваш рахунак ня мае правоў для зьмены канфігурацыі апублікаванай вэрсіі.\nТут пададзеныя цяперашнія налады для [[:$1|$1]]:",
 	"stabilization-page": "Назва старонкі:",
 	"stabilization-leg": "Пацьвердзіць налады апублікаванай вэрсіі",
-	"stabilization-def": "Вэрсія, якая паказваецца па змоўчваньні",
+	"stabilization-def": "Вэрсія, якая паказваецца перадвызначана",
 	"stabilization-def1": "Стабільная вэрсія; калі яе не існуе, то апошняя вэрсія",
 	"stabilization-def2": "Апошняя вэрсія",
 	"stabilization-restrict": "Абмежаваньні праверкі/аўтаматычнай праверкі",
@@ -25,7 +26,7 @@
 	"stabilization-otherreason": "Іншая прычына:",
 	"stabilization-expiry": "Тэрмін:",
 	"stabilization-othertime": "Іншы час:",
-	"stabilization-def-short": "Дапомна",
+	"stabilization-def-short": "Перадвызначана",
 	"stabilization-def-short-0": "Цяперашняя",
 	"stabilization-def-short-1": "Апублікаваная",
 	"stabilize_page_invalid": "Няслушная назва мэтавай старонкі.",

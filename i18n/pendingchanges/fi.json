@@ -11,7 +11,8 @@
 			"Olli",
 			"Pxos",
 			"Samoasambia",
-			"ZeiP"
+			"ZeiP",
+			"A smart kitten"
 		]
 	},
 	"pendingchanges": "Sivut, joissa on arviointia odottavia muutoksia",
@@ -39,6 +40,6 @@
 	"pendingchanges-table-history": "Historia",
 	"pendingchanges-table-review": "Arvioi",
 	"pendingchanges-table-revision-history": "Historia",
-	"pendingchanges-table-footer": "Tällä hetkellä on {{PLURAL:$1|$1 odottava muutos|$1 odottavaa muutosta}}",
+	"pendingchanges-table-footer": "Tällä hetkellä on {{PLURAL:$2|$1 odottava muutos|$1 odottavaa muutosta}}",
 	"pendingchanges-filter-submit-button-text": "Suodata odottavia muutoksia"
 }
