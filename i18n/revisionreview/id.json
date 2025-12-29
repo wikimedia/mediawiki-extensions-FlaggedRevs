@@ -8,6 +8,7 @@
 			"IvanLanin",
 			"Iwan Novirion",
 			"Kenrick95",
+			"Penyuwangi",
 			"Rachmat04",
 			"Rex",
 			"Sumbukompor"
@@ -25,7 +26,7 @@
 	"review_not_flagged": "Revisi yang dituju saat ini tidak ditandai sebagai tertinjau.",
 	"review_too_low": "Revisi tidak dapat ditinjau bila sejumlah kotak bertuliskan \"tidak mencukupi\".",
 	"review_bad_key": "Kunci parameter masukan tidak sah.",
-	"review_bad_tags": "Beberapa nilai tag yang diberikan tidak sah.",
+	"review_bad_tags": "Beberapa nilai tanda yang diberikan tidak sah.",
 	"review_denied": "Izin ditolak.",
 	"review_param_missing": "Sebuah parameter hilang atau tidak sah.",
 	"review_cannot_undo": "Tidak dapat membatalkan perubahan ini karena suntingan tunda selanjutnya mengubah daerah yang sama.",
