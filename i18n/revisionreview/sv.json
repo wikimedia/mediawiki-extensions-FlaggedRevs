@@ -14,7 +14,8 @@
 			"Rotsee",
 			"Sabelöga",
 			"Tobulos1",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Stefan2255"
 		]
 	},
 	"revisionreview": "Granska sidversioner",
@@ -56,7 +57,7 @@
 	"revreview-submit-reject": "Avvisa ändringar",
 	"revreview-submit-reviewed": "Klar. Godkänd!",
 	"revreview-submit-unreviewed": "Klar. Inte accepterad!",
-	"revreview-successful": "'''Sidversionen av [[:$1|$1]] har flaggats. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} visa alla stabila sidversioner])'''",
+	"revreview-successful": "'''Revision av [[:$1|$1]] flaggad.'''",
 	"revreview-successful2": "'''Sidversionen av [[:$1|$1]] har avflaggats.'''",
 	"revreview-toolow": "'''Du måste bedöma varje attribut högre än \"otillräcklig\" för att en sidversion ska anses som granskad.'''\n\nFör att ta bort granskningsstatusen för en version, klicka på \"{{int:revreview-submit-unreview}}\".\n\nKlicka på \"tillbaka\"-knappen i din webbläsare och försök igen.",
 	"revreview-update": "'''Vänligen [[{{MediaWiki:Validationpage}}|granska]] några väntande ändringar ''(visas nedan)'' på den accepterade versionen.'''",
