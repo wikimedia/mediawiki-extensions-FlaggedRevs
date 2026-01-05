@@ -356,9 +356,9 @@
 			"contributions"
 		],
 		"ContributionsLineEnding": "ui",
-		"DeleteAccount": "FlaggedRevsHooks::onDeleteAccount",
+		"DeleteAccount": "usermerge",
 		"DifferenceEngineViewHeader": "ui",
-		"BeforeCreateEchoEvent": "FlaggedRevsHooks::onBeforeCreateEchoEvent",
+		"BeforeCreateEchoEvent": "echo",
 		"EditPageBeforeEditButtons": "ui",
 		"EditPageGetCheckboxesDefinition": "ui",
 		"EditPageNoSuchSection": "ui",
@@ -370,7 +370,7 @@
 		"GetMagicVariableIDs": "main",
 		"MakeGlobalVariablesScript": "ui",
 		"MediaWikiServices": "services",
-		"MergeAccountFromTo": "FlaggedRevsHooks::onMergeAccountFromTo",
+		"MergeAccountFromTo": "usermerge",
 		"NewDifferenceEngine": "ui",
 		"RevisionFromEditComplete": "main",
 		"PageSaveComplete": "main",
@@ -396,7 +396,7 @@
 		"TitleGetEditNotices": "ui",
 		"UserGetRights": "main",
 		"UserLoadAfterLoadFromSession": "main",
-		"UserMergeAccountFields": "FlaggedRevsHooks::onUserMergeAccountFields",
+		"UserMergeAccountFields": "usermerge",
 		"UserRequirementsCondition": "main",
 		"UserRequirementsConditionDisplay": "main",
 		"WikiExporter::dumpStableQuery": "main"
@@ -411,6 +411,9 @@
 		"contributions": {
 			"class": "MediaWiki\\Extension\\FlaggedRevs\\Backend\\FlaggedRevsContributionsHooks",
 			"services": []
+		},
+		"echo": {
+			"class": "MediaWiki\\Extension\\FlaggedRevs\\Backend\\EchoHooks"
 		},
 		"main": {
 			"class": "FlaggedRevsHooks",
@@ -432,6 +435,9 @@
 		"updater": {
 			"class": "FlaggedRevsUpdaterHooks",
 			"services": []
+		},
+		"usermerge": {
+			"class": "MediaWiki\\Extension\\FlaggedRevs\\Backend\\UserMergeHooks"
 		},
 		"ui": {
 			"class": "FlaggedRevsUIHooks",

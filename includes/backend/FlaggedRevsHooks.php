@@ -4,8 +4,6 @@ use MediaWiki\Config\Config;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Export\Hook\WikiExporter__dumpStableQueryHook;
-use MediaWiki\Extension\Notifications\AttributeManager;
-use MediaWiki\Extension\Notifications\UserLocator;
 use MediaWiki\Hook\ArticleMergeCompleteHook;
 use MediaWiki\Hook\PageMoveCompleteHook;
 use MediaWiki\MediaWikiServices;
@@ -1347,57 +1345,6 @@ class FlaggedRevsHooks implements
 			$join['revision'] = [ 'INNER JOIN',
 				[ 'rev_page = fp_page_id', 'rev_id = fp_stable' ] ];
 		}
-	}
-
-	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforeCreateEchoEvent
-	 *
-	 * This should go once we can remove all Echo-specific code for reverts,
-	 * see: T153570
-	 *
-	 * @inheritDoc
-	 */
-	public static function onBeforeCreateEchoEvent(
-		array &$notifications,
-		array &$notificationCategories,
-		array &$notificationIcons
-	) {
-		// Override default handlers
-		// FlaggedRevs uses a different 'extra' property to pass multiple reverted users
-		$notifications['reverted'][AttributeManager::ATTR_LOCATORS][] = [
-			[ UserLocator::class, 'locateFromEventExtra' ],
-			[ 'reverted-users-ids' ]
-		];
-	}
-
-	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UserMergeAccountFields
-	 *
-	 * @param array &$updateFields
-	 */
-	public static function onUserMergeAccountFields( array &$updateFields ) {
-		$updateFields[] = [ 'flaggedrevs', 'fr_user' ];
-	}
-
-	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/MergeAccountFromTo
-	 *
-	 * @param User $oldUser
-	 * @param User $newUser
-	 */
-	public static function onMergeAccountFromTo( User $oldUser, User $newUser ) {
-		if ( $newUser->isRegistered() ) {
-			FRUserCounters::mergeUserParams( $oldUser, $newUser );
-		}
-	}
-
-	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/DeleteAccount
-	 *
-	 * @param User $oldUser
-	 */
-	public static function onDeleteAccount( User $oldUser ) {
-		FRUserCounters::deleteUserParams( $oldUser );
 	}
 
 	/**

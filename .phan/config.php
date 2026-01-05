@@ -9,6 +9,7 @@ $cfg['directory_list'] = array_merge(
 		'../../extensions/Echo',
 		'../../extensions/MobileFrontend',
 		'../../extensions/Scribunto',
+		'../../extensions/UserMerge',
 	]
 );
 
@@ -19,6 +20,7 @@ $cfg['exclude_analysis_directory_list'] = array_merge(
 		'../../extensions/Echo',
 		'../../extensions/MobileFrontend',
 		'../../extensions/Scribunto',
+		'../../extensions/UserMerge',
 	]
 );
 
