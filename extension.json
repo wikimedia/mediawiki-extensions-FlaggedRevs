@@ -413,11 +413,14 @@
 			"class": "FlaggedRevsHooks",
 			"services": [
 				"MainConfig",
+				"ConnectionProvider",
 				"PermissionManager",
+				"RestrictionStore",
 				"RevisionLookup",
 				"UserNameUtils",
 				"UserIdentityUtils",
-				"UserFactory"
+				"UserFactory",
+				"MainWANObjectCache"
 			]
 		},
 		"services": {

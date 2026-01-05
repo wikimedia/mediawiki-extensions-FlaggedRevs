@@ -23,6 +23,7 @@ use MediaWiki\Parser\Parser;
 use MediaWiki\Permissions\Hook\GetUserPermissionsErrorsHook;
 use MediaWiki\Permissions\Hook\UserGetRightsHook;
 use MediaWiki\Permissions\PermissionManager;
+use MediaWiki\Permissions\RestrictionStore;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Storage\EditResult;
@@ -38,7 +39,9 @@ use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserIdentityUtils;
 use MediaWiki\User\UserNameUtils;
+use Wikimedia\ObjectCache\WANObjectCache;
 use Wikimedia\Rdbms\Database;
+use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\IDBAccessObject;
 use Wikimedia\Rdbms\IReadableDatabase;
 use Wikimedia\Rdbms\RawSQLValue;
@@ -71,11 +74,14 @@ class FlaggedRevsHooks implements
 
 	public function __construct(
 		private readonly Config $config,
+		private readonly IConnectionProvider $connectionProvider,
 		private readonly PermissionManager $permissionManager,
+		private readonly RestrictionStore $restrictionStore,
 		private readonly RevisionLookup $revisionLookup,
 		private readonly UserNameUtils $userNameUtils,
 		private readonly UserIdentityUtils $userIdentityUtils,
 		private readonly UserFactory $userFactory,
+		private readonly WANObjectCache $cache,
 	) {
 	}
 
@@ -123,7 +129,7 @@ class FlaggedRevsHooks implements
 	 * Update flaggedrevs table on revision restore
 	 */
 	public function onRevisionUndeleted( $revision, $oldPageID ) {
-		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+		$dbw = $this->connectionProvider->getPrimaryDatabase();
 
 		# Some revisions may have had null rev_id values stored when deleted.
 		# This hook is called after insertOn() however, in which case it is set
@@ -143,7 +149,7 @@ class FlaggedRevsHooks implements
 		$oldPageID = $sourceTitle->getArticleID();
 		$newPageID = $destTitle->getArticleID();
 		# Get flagged revisions from old page id that point to destination page
-		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+		$dbw = $this->connectionProvider->getPrimaryDatabase();
 
 		$revIDs = $dbw->newSelectQueryBuilder()
 			->select( 'fr_rev_id' )
@@ -185,8 +191,6 @@ class FlaggedRevsHooks implements
 		$reason,
 		$revision
 	) {
-		$services = MediaWikiServices::getInstance();
-
 		$ntitle = Title::newFromLinkTarget( $nLinkTarget );
 		$otitle = Title::newFromLinkTarget( $oLinkTarget );
 		if ( FlaggedRevs::inReviewNamespace( $ntitle ) ) {
@@ -205,7 +209,7 @@ class FlaggedRevsHooks implements
 				$fa->loadPageData( IDBAccessObject::READ_LATEST );
 				// Re-validate NS/config (new title may not be reviewable)
 				if ( $fa->isReviewable() &&
-					$services->getPermissionManager()->userCan( 'autoreview', $user, $ntitle )
+					$this->permissionManager->userCan( 'autoreview', $user, $ntitle )
 				) {
 					// Auto-review such edits like new pages...
 					FlaggedRevs::autoReviewEdit(
@@ -340,8 +344,6 @@ class FlaggedRevsHooks implements
 		if ( $result === false ) {
 			return true; // nothing to do
 		}
-		$services = MediaWikiServices::getInstance();
-		$pm = $services->getPermissionManager();
 		# Don't let users vandalize pages by moving them...
 		if ( $action === 'move' ) {
 			if ( !FlaggedRevs::inReviewNamespace( $title ) || !$title->exists() ) {
@@ -353,8 +355,8 @@ class FlaggedRevsHooks implements
 				return true;
 			}
 			$frev = $flaggedArticle->getStableRev();
-			if ( $frev && !$pm->userHasRight( $user, 'review' ) &&
-				!$pm->userHasRight( $user, 'movestable' )
+			if ( $frev && !$this->permissionManager->userHasRight( $user, 'review' ) &&
+				!$this->permissionManager->userHasRight( $user, 'movestable' )
 			) {
 				# Allow for only editors/reviewers to move this page
 				$result = false;
@@ -376,14 +378,14 @@ class FlaggedRevsHooks implements
 				$right = 'editsemiprotected';
 			}
 			# Check if the user has the required right, if any
-			if ( $right != '' && !$pm->userHasRight( $user, $right ) ) {
+			if ( $right != '' && !$this->permissionManager->userHasRight( $user, $right ) ) {
 				$result = false;
 				return false;
 			}
 			# Respect page protection to handle cases of "review wars".
 			# If a page is restricted from editing such that a user cannot
 			# edit it, then said user should not be able to review it.
-			foreach ( $services->getRestrictionStore()->getRestrictions( $title, 'edit' ) as $right ) {
+			foreach ( $this->restrictionStore->getRestrictions( $title, 'edit' ) as $right ) {
 				if ( $right === 'sysop' ) {
 					// Backwards compatibility, rewrite sysop -> editprotected
 					$right = 'editprotected';
@@ -392,7 +394,7 @@ class FlaggedRevsHooks implements
 					// Backwards compatibility, rewrite autoconfirmed -> editsemiprotected
 					$right = 'editsemiprotected';
 				}
-				if ( $right != '' && !$pm->userHasRight( $user, $right ) ) {
+				if ( $right != '' && !$this->permissionManager->userHasRight( $user, $right ) ) {
 					$result = false;
 					return false;
 				}
@@ -1151,7 +1153,6 @@ class FlaggedRevsHooks implements
 			$result = false;
 			return;
 		}
-		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		switch ( $cond ) {
 			case APCOND_FR_EDITSUMMARYCOUNT:
 				$p = FRUserCounters::getParams( $user );
@@ -1163,9 +1164,9 @@ class FlaggedRevsHooks implements
 					$result = false; // failed
 				} else {
 					// See T262970 for an explanation of this
-					$hasPriorBlock = $cache->getWithSetCallback(
-						$cache->makeKey( 'flaggedrevs-autopromote-notblocked', $user->getId() ),
-						$cache::TTL_SECOND,
+					$hasPriorBlock = $this->cache->getWithSetCallback(
+						$this->cache->makeKey( 'flaggedrevs-autopromote-notblocked', $user->getId() ),
+						$this->cache::TTL_SECOND,
 						function ( $oldValue, &$ttl, array &$setOpts, $oldAsOf ) use ( $userObject ) {
 							// Once the user is blocked once, this condition will always
 							// fail. To avoid running queries again, if the old cached value
@@ -1205,7 +1206,7 @@ class FlaggedRevsHooks implements
 							// checks don't query everything
 							return $newTimestamp;
 						},
-						[ 'staleTTL' => $cache::TTL_WEEK ]
+						[ 'staleTTL' => $this->cache::TTL_WEEK ]
 					);
 					$result = ( $hasPriorBlock !== 'priorBlock' );
 				}
@@ -1215,13 +1216,13 @@ class FlaggedRevsHooks implements
 				$result = ( $p && count( $p['uniqueContentPages'] ) >= $params[0] );
 				break;
 			case APCOND_FR_EDITSPACING:
-				$key = $cache->makeKey(
+				$key = $this->cache->makeKey(
 					'flaggedrevs-autopromote-editspacing',
 					$user->getId(),
 					$params[0],
 					$params[1]
 				);
-				$val = $cache->get( $key );
+				$val = $this->cache->get( $key );
 				if ( $val === 'true' ) {
 					$result = true; // passed
 				} elseif ( $val === 'false' ) {
@@ -1231,9 +1232,9 @@ class FlaggedRevsHooks implements
 					$pass = self::editSpacingCheck( $user, $params[0], $params[1] );
 					# Make a key to store the results
 					if ( $pass === true ) {
-						$cache->set( $key, 'true', 2 * $cache::TTL_WEEK );
+						$this->cache->set( $key, 'true', 2 * $this->cache::TTL_WEEK );
 					} else {
-						$cache->set( $key, 'false', $pass /* wait time */ );
+						$this->cache->set( $key, 'false', $pass /* wait time */ );
 					}
 					$result = ( $pass === true );
 				}
@@ -1271,13 +1272,13 @@ class FlaggedRevsHooks implements
 				}
 				break;
 			case APCOND_FR_CHECKEDEDITCOUNT:
-				$key = $cache->makeKey(
+				$key = $this->cache->makeKey(
 					'flaggedrevs-autopromote-reviewededits',
 					$user->getId(),
 					$params[0],
 					$params[1]
 				);
-				$val = $cache->get( $key );
+				$val = $this->cache->get( $key );
 				if ( $val === 'true' ) {
 					$result = true; // passed
 				} elseif ( $val === 'false' ) {
@@ -1287,9 +1288,9 @@ class FlaggedRevsHooks implements
 					$userObject = $this->userFactory->newFromUserIdentity( $user );
 					$result = self::reviewedEditsCheck( $userObject, $params[0], $params[1] );
 					if ( $result ) {
-						$cache->set( $key, 'true', $cache::TTL_WEEK );
+						$this->cache->set( $key, 'true', $this->cache::TTL_WEEK );
 					} else {
-						$cache->set( $key, 'false', $cache::TTL_HOUR ); // briefly cache
+						$this->cache->set( $key, 'false', $this->cache::TTL_HOUR ); // briefly cache
 					}
 				}
 				break;
@@ -1315,8 +1316,7 @@ class FlaggedRevsHooks implements
 	 */
 	public function onUserLoadAfterLoadFromSession( $user ) {
 		global $wgRequest;
-		if ( $user->isRegistered() && MediaWikiServices::getInstance()->getPermissionManager()
-				->userHasRight( $user, 'review' )
+		if ( $user->isRegistered() && $this->permissionManager->userHasRight( $user, 'review' )
 		) {
 			$key = $wgRequest->getSessionData( 'wsFlaggedRevsKey' );
 			if ( $key === null ) { // should catch login
