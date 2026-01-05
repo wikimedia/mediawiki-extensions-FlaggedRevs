@@ -2,6 +2,7 @@
 
 use MediaWiki\MediaWikiServices;
 
+/** @phpcs-require-sorted-array */
 return [
 
 	'FlaggedRevsParserCache' => static function ( MediaWikiServices $services ): FlaggedRevsParserCache {

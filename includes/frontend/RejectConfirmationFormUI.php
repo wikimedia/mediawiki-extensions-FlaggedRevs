@@ -16,14 +16,13 @@ use MediaWiki\Title\Title;
  * TODO inject dependencies
  */
 class RejectConfirmationFormUI {
-	private RevisionReviewForm $form;
-	private ?RevisionRecord $oldRevRecord;
-	private ?RevisionRecord $newRevRecord;
-	private RevisionStore $revisionStore;
+	private readonly ?RevisionRecord $oldRevRecord;
+	private readonly ?RevisionRecord $newRevRecord;
+	private readonly RevisionStore $revisionStore;
 
-	public function __construct( RevisionReviewForm $form ) {
-		$this->form = $form;
-
+	public function __construct(
+		private readonly RevisionReviewForm $form,
+	) {
 		$revisionStore = MediaWikiServices::getInstance()->getRevisionStore();
 		$title = $form->getTitle();
 		$this->newRevRecord = $revisionStore->getRevisionByTitle( $title, $form->getOldId() );

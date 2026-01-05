@@ -27,14 +27,12 @@ abstract class FRGenericSubmitForm {
 	/** @var int Form state (disallows bad operations) */
 	private $state = self::FORM_UNREADY;
 
-	/** @var User User performing the action */
-	protected $user;
-
 	/**
-	 * @param User $user
+	 * @param User $user User performing the action
 	 */
-	final public function __construct( User $user ) {
-		$this->user = $user;
+	final public function __construct(
+		protected readonly User $user,
+	) {
 		$this->initialize();
 	}
 

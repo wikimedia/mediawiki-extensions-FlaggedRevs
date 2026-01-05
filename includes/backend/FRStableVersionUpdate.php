@@ -23,18 +23,10 @@ use MediaWiki\Revision\RenderedRevision;
 use MediaWiki\Title\Title;
 
 class FRStableVersionUpdate implements DeferrableUpdate {
-	/** @var Title */
-	private $title;
-	/** @var RenderedRevision */
-	private $renderedRevision;
-
-	/**
-	 * @param Title $title
-	 * @param RenderedRevision $renderedRevision
-	 */
-	public function __construct( Title $title, RenderedRevision $renderedRevision ) {
-		$this->title = $title;
-		$this->renderedRevision = $renderedRevision;
+	public function __construct(
+		private readonly Title $title,
+		private readonly RenderedRevision $renderedRevision,
+	) {
 	}
 
 	/**
