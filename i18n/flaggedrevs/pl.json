@@ -45,7 +45,7 @@
 	"flaggedrevs-desc": "Umożliwia redaktorom oznaczania wersji stron i ich konfigurowanie",
 	"flaggedrevs-pref-UI": "Interfejs podstawowy:",
 	"flaggedrevs-pref-UI-0": "Do prezentacji statusu przeglądania używaj szczegółowego opisu w ramkach",
-	"flaggedrevs-pref-UI-1": "Użyj wskaźników do prezentacji statusu przeglądania.",
+	"flaggedrevs-pref-UI-1": "Użyj wskaźników do prezentacji statusu przeglądania",
 	"prefs-flaggedrevs-ui": "Oznaczanie edycji",
 	"flaggedrevs-prefs-stable": "Kiedy domyślnie prezentować stabilną wersję stron",
 	"flaggedrevs-pref-stable-0": "Używaj ustawień domyślnych dla każdej strony",

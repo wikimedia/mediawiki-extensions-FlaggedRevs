@@ -8,10 +8,11 @@
 			"McMonster",
 			"Saper",
 			"Sp5uhe",
-			"ToSter"
+			"ToSter",
+			"Woytecr"
 		]
 	},
-	"stabilization-tab": "Widoczne wersje strony",
+	"stabilization-tab": "Wybór rodzaju publikowanej wersji",
 	"stabilization": "Widoczna wersja strony",
 	"stabilization-text": "'''Ustaw poniżej, w jaki sposób ma być wybierana i wyświetlana opublikowana wersja strony [[:$1|$1]].'''",
 	"stabilization-perm": "Nie masz wystarczających uprawnień, aby zmienić konfigurację wersji oznaczonych.\nPoniżej znajdują się aktualne ustawienia dla strony [[:$1|$1]].",

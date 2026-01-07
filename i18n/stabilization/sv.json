@@ -6,10 +6,11 @@
 			"Lejonel",
 			"M.M.S.",
 			"Najami",
-			"Per"
+			"Per",
+			"Stefan2255"
 		]
 	},
-	"stabilization-tab": "kvalitet",
+	"stabilization-tab": "Säkra",
 	"stabilization": "Sidstabilisering",
 	"stabilization-text": "'''Ändra inställningarna nedan för att bestämma hur den publicerade versionen av [[:$1|$1]] väljs och visas.'''",
 	"stabilization-perm": "Ditt konto har inte behörighet att ändra inställningen för publicerade sidversioner.\nHär visas de nuvarande inställningarna för [[:$1|$1]]:",

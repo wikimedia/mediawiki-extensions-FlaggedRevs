@@ -14,7 +14,8 @@
 			"Rotsee",
 			"Sabelöga",
 			"Tobulos1",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Stefan2255"
 		]
 	},
 	"revisionreview": "Granska sidversioner",
@@ -56,10 +57,10 @@
 	"revreview-submit-reject": "Avvisa ändringar",
 	"revreview-submit-reviewed": "Klar. Godkänd!",
 	"revreview-submit-unreviewed": "Klar. Inte accepterad!",
-	"revreview-successful": "'''Sidversionen av [[:$1|$1]] har flaggats. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} visa alla stabila sidversioner])'''",
+	"revreview-successful": "'''Revision av [[:$1|$1]] flaggad.'''",
 	"revreview-successful2": "'''Sidversionen av [[:$1|$1]] har avflaggats.'''",
 	"revreview-toolow": "'''Du måste bedöma varje attribut högre än \"otillräcklig\" för att en sidversion ska anses som granskad.'''\n\nFör att ta bort granskningsstatusen för en version, klicka på \"{{int:revreview-submit-unreview}}\".\n\nKlicka på \"tillbaka\"-knappen i din webbläsare och försök igen.",
-	"revreview-update": "Vänligen [[{{MediaWiki:Validationpage}}|granska]] några väntande ändringar ''(visas nedan)'' på den accepterade versionen.",
+	"revreview-update": "Vänligen [[{{MediaWiki:Validationpage}}|granska]] alla väntande ändringar ''(visas nedan)'' som gjorts sedan den stabila versionen.",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Dina ändringar är ännu inte i den stabila versionen.</span>\n\nVänligen granska alla ändringar som visas nedan för att göra så att dina redigeringar visas i den stabila versionen.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Dina ändringar är ännu inte i den stabila versionen. Det finns tidigare ändringar som väntar på granskning</span>\n\nVänligen granska alla ändringar som visas nedan för att göra så att dina redigeringar visas i den stabila versionen.",
 	"revreview-update-includes": "Mallar/filer har uppdaterats (ogranskade sidor i fet text):",
