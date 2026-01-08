@@ -10,7 +10,8 @@
 			"Per",
 			"Rotsee",
 			"Sabelöga",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Stefan2255"
 		]
 	},
 	"unreviewedpages": "Ogranskade sidor",
@@ -21,7 +22,7 @@
 	"unreviewedpages-unwatched": "(obevakad)",
 	"unreviewedpages-watched": "($1 {{PLURAL:$1|aktiv användare|aktiva användare}} bevakar)",
 	"unreviewedpages-list": "Den här sidan listar innehållssidor som ''inte'' har [[{{MediaWiki:Validationpage}}|granskats]] till den angivna nivån.",
-	"unreviewedpages-none": "Det finns just nu inga sidor som matchar dessa kriterier",
+	"unreviewedpages-none": "Det finns för närvarande inga sidor som uppfyller dessa kriterier.",
 	"unreviewedpages-viewing": "(granskas)",
 	"unreviewedpages-hours": "($1 {{PLURAL:$1|timme|timmar}})",
 	"unreviewedpages-days": "($1 {{PLURAL:$1|dygn|dygn}})",
