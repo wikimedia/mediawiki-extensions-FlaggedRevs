@@ -739,7 +739,6 @@ class FlaggedRevsUIHooks implements
 				&& !( $row->rev_deleted & RevisionRecord::DELETED_USER )
 			) {
 				# Add link to stable version of *this* rev, if any
-				// @phan-suppress-next-line PhanTypeMismatchArgument https://github.com/phan/phan/issues/5044
 				[ $link, $class ] = $this->markHistoryRow( $history, $title, $row );
 				# Space out and demark the stable revision
 				if ( $revId == $history->fr_stableRevId && $history->fr_pendingRevs ) {
