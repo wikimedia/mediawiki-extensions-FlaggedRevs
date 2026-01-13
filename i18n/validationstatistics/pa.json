@@ -4,5 +4,20 @@
 			"Cabal"
 		]
 	},
-	"validationstatistics-total": "ਸਫ਼ੇ"
+	"validationstatistics": "ਵਰਕਾ ਪੜਚੋਲ ਅੰਕੜੇ",
+	"validationstatistics-users": "'''{{SITENAME}}''' ਕੋਲ ਇਸ ਵੇਲੇ ''''[[Special:ListUsers/editor| $1 ]]''' {{PLURAL:$1| ਵਰਤੋਂਕਾਰ}} ਹਨ ਜਿਨ੍ਹਾਂ ਕੋਲ [[{{MediaWiki:Validationpage}}|ਸੋਧਕ]] ਹੱਕ ਨੇ।\n\nਸੋਧਕ ਉਹ ਪੱਕੇ ਵਰਤੋਂਕਾਰ ਹੁੰਦੇ ਨੇ ਜੋ ਵਰਕਿਆਂ ਦੀਆਂ ਸੋਧਾਂ ਦੀ ਪੜਚੋਲ ਕਰ ਸਕਦੇ ਨੇ।",
+	"validationstatistics-lastupdate": "''ਹੇਠਲਾ ਵੇਰਵਾ ਆਖਿਰਲੀ ਵਾਰ $1 ਨੂੰ $2 ਵਜੇ ਨਵਿਆਈਆ ਗਿਆ ਸੀ।''",
+	"validationstatistics-pndtime": "ਪੱਕੇ ਵਰਤੋਂਕਾਰਾਂ ਵੱਲੋਂ ਪਰਖੀਆਂ ਗਈਆਂ ਸੋਧਾਂ ਨੂੰ ''{{int:validationstatistics-stable}}'' ਮੰਨਿਆ ਜਾਂਦਾ ਏ।\n\n[[Special:OldReviewedPages|ਬਕਾਇਆ ਪੜਚੋਲਾਂ ਵਾਲੇ ਵਰਕਿਆਂ]] ਲਈ ਇਸ ਵੇਲੇ ਦੇਰੀ '''$1''' ਏ; ਇਹ ਦੇਰੀ ਮਾਪਦੀ ਏ ਕਿ ਸਭ ਤੋਂ ਪੁਰਾਣੀ ਅਣ-ਪੜਚੋਲੀ ਸੋਧ ਨੂੰ ਕਿੰਨਾ ਵਕਤ ਹੋ ਗਿਆ ਏ।",
+	"validationstatistics-revtime": "\"ਬਿਨਾਂ ਦਾਖ਼ਲ ਹੋਏ ਵਰਤੋਂਕਾਰਾਂ ਦੀਆਂ ਸੋਧਾਂ ਦੀ ਪੜਚੋਲ ਲਈ ਇਸ ਵੇਲੇ ਉਡੀਕ '''$1''' ਏ; ਜਦਕਿ ਦਰਮਿਆਨੀ ਉਡੀਕ '''$2''' ਏ।\n $3",
+	"validationstatistics-table": "ਮੋੜਵੇਂ ਵਰਕਿਆਂ ਨੂੰ ਛੱਡ ਕੇ, ਹਰੇਕ ਨਾਂ-ਥਾਂ ਲਈ ਪੜਚੋਲ ਦੇ ਵੇਰਵੇ ਹੇਠਾਂ ਦਿੱਤੇ ਗਏ ਨੇ। \nਜਿਨ੍ਹਾਂ ਵਰਕਿਆਂ ਦੀਆਂ ਸੋਧਾਂ ਅਜੇ ਪੜਚੋਲ ਲਈ ਬਾਕੀ ਹਨ, ਉਨ੍ਹਾਂ ਨੂੰ ''{{int:validationstatistics-old}}'' ਮੰਨਿਆ ਜਾਂਦਾ ਏ; \nਅਤੇ ਜਿਨ੍ਹਾਂ ਦੀ ਕੋਈ ਵੀ ਸੋਧ ਬਾਕੀ ਨਹੀਂ, ਉਨ੍ਹਾਂ ਨੂੰ ''{{int:validationstatistics-latest}}'' ਮੰਨਿਆ ਜਾਂਦਾ ਏ।",
+	"validationstatistics-ns": "ਨਾਂ-ਥਾਂ",
+	"validationstatistics-total": "ਸਫ਼ੇ",
+	"validationstatistics-stable": "ਪੜਚੋਲਿਆ ਹੋਇਆ",
+	"validationstatistics-latest": "ਇੱਕ-ਸਾਰ",
+	"validationstatistics-synced": "ਇੱਕ-ਸਾਰ/ਪੜਚੋਲਿਆ",
+	"validationstatistics-old": "ਪੁਰਾਣੇ",
+	"validationstatistics-unreviewed": "ਅਣ-ਪੜਚੋਲਿਆ",
+	"validationstatistics-utable": "ਹੇਠਾਂ ਪਿਛਲੇ {{PLURAL:$2|ਘੰਟੇ|$2 ਘੰਟਿਆਂ}} ਵਿੱਚ ਸਭ ਤੋਂ ਵੱਧ ਸਰਗਰਮ {{PLURAL:$1|ਪੜਚੋਲੀਏ|$1 ਪੜਚੋਲੀਆਂ}} ਦੀ ਸੂਚੀ ਏ।",
+	"validationstatistics-user": "ਵਰਤੋਂਕਾਰ",
+	"validationstatistics-reviews": "ਪੜਚੋਲ"
 }

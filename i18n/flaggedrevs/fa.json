@@ -160,7 +160,7 @@
 	"revreview-locked": "'''توجه:''' ویرایش‌ها باید پیش از نمایش دادە شدن به خوانندگان در این صفحه، [[{{MediaWiki:Validationpage}}|بازبینی]] شوند.",
 	"revreview-unlocked": "'''توجه:''' .ویرایش‌ها بایذ قبل از اینکه نمایش یابند در آن صفحه  [[{{MediaWiki:Validationpage}}|بازبینی]] شوند.",
 	"logeventslist-review-log": "سیاههٔ بازبینی",
-	"validationpage": "{{ns:help}}:اعتبار صفحه",
+	"validationpage": "{{ns:help}}:اعتبارسنجی صفحه",
 	"log-action-filter-review": "نوع بازبینی:",
 	"log-action-filter-review-accept": "تائید دستی",
 	"log-action-filter-review-unaccept": "عدم تأیید دستی",
