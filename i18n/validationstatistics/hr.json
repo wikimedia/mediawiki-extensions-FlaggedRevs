@@ -6,12 +6,13 @@
 			"Ex13",
 			"Herr Mlinka",
 			"MaGa",
-			"SpeedyGonsales"
+			"SpeedyGonsales",
+			"Ponor"
 		]
 	},
 	"validationstatistics": "Statistike pregledavanja stranice",
 	"validationstatistics-users": "'''{{SITENAME}}''' trenutačno broji '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|suradnika}} s [[{{MediaWiki:Validationpage}}|uređivačkim]] pravima.\n\nUređivači su dokazani suradnici koji mogu provjeriti inačice stranica.",
-	"validationstatistics-lastupdate": "''Sljedeći podaci su posljednji put osvježeni $1 u $2.''",
+	"validationstatistics-lastupdate": "''Sljedeći podaci posljednji su put osvježeni $1 u $2.''",
 	"validationstatistics-pndtime": "Izmjene koje su pregledali potvrđeni suradnici smatraju se ''pregledanima''.\n\nProsječno čekanje za pregled [[Special:OldReviewedPages|stranica s nepregledanim izmjenama]] je '''$1'''. Navedeno čekanje označava koliko je dugo najstarija izmjena koja čeka pregled ostala nepregledanom.",
 	"validationstatistics-revtime": "Prosječno čekanje izmjena od strane ''suradnika koji nisu prijavljeni'' za pregled je '''$1'''; medijan je '''$2'''.\n$3",
 	"validationstatistics-table": "Statistike pregledavanja za svaki imenski prostor prikazane su u nastavku, ''ne uključujući'' stranice za preusmjeravanje. Stranice se smatraju ''neažurnim'' ako imaju izmjene koje čekaju pregled, odnosno ''sinkroniziranima'' ako nema izmjena koje čekaju pregled.",
