@@ -2,7 +2,7 @@
 
 declare( strict_types=1 );
 
-namespace MediaWiki\Extensions\FlaggedRevs\Tests\Structure;
+namespace MediaWiki\Extension\FlaggedRevs\Tests\Structure;
 
 use MediaWiki\Tests\Structure\AbstractSchemaTestBase;
 
