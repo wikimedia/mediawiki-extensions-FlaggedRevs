@@ -17,7 +17,7 @@
 	"flaggedrevs": "Označene izmjene",
 	"flaggedrevs-watched-pending": "Na Vašem spisku praćenja [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ima izmjene] što čekaju pregled. '''Obratite pažnju!'''",
 	"flaggedrevs-desc": "Daje uređivačima mogućnost ocjenjivanja izmjena i stabiliziranja stranica",
-	"flaggedrevs-pref-UI": "Osnovno sučelje:",
+	"flaggedrevs-pref-UI": "Osnovni interfejs:",
 	"flaggedrevs-pref-UI-0": "Koristi podrobne kutije za prikaz odobriteljnog statusa stranica",
 	"flaggedrevs-pref-UI-1": "Koristi male ikone i što pomalo teksta za prikaz stanja odobrenosti stranica",
 	"prefs-flaggedrevs-ui": "Odobrivanje izmjena",
