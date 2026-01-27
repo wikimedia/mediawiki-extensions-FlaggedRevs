@@ -7,5 +7,6 @@
 	},
 	"revreview-def-all": "ਕੋਈ ਵੀ",
 	"revreview-restriction-any": "ਕੋਈ ਵੀ",
-	"tooltip-ca-current": "ਇਸ ਸਫ਼ੇ ਨੂੰ ਹਾਲੇ ਤੱਕ ਨਾਮਨਜ਼ੂਰ ਤਬਦੀਲੀਆਂ ਸਮੇਤ ਦੇਖੋ"
+	"tooltip-ca-current": "ਇਸ ਸਫ਼ੇ ਨੂੰ ਹਾਲੇ ਤੱਕ ਨਾਮਨਜ਼ੂਰ ਤਬਦੀਲੀਆਂ ਸਮੇਤ ਦੇਖੋ",
+	"fr-revision-info-dialog-close-aria-label": "ਬੰਦ ਕਰੋ"
 }
