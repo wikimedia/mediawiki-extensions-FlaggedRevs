@@ -8,12 +8,12 @@ use MediaWiki\Html\Html;
 use MediaWiki\MainConfigNames;
 use MediaWiki\RecentChanges\ChangesList;
 use MediaWiki\Revision\RevisionLookup;
-use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\SpecialPage\IncludableSpecialPage;
 use MediaWiki\SpecialPage\SpecialPageFactory;
 use MediaWiki\Title\NamespaceInfo;
 use MediaWiki\Title\Title;
 
-class PendingChanges extends SpecialPage {
+class PendingChanges extends IncludableSpecialPage {
 
 	private ?PendingChangesPager $pager = null;
 	private int $currentUnixTS;
@@ -29,7 +29,6 @@ class PendingChanges extends SpecialPage {
 		private readonly SpecialPageFactory $specialPageFactory,
 	) {
 		parent::__construct( 'PendingChanges' );
-		$this->mIncludable = true;
 	}
 
 	/**
