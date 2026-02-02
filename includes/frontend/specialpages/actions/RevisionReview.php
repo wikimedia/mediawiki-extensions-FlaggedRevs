@@ -252,10 +252,10 @@ class RevisionReview extends UnlistedSpecialPage {
 					$title = Title::newFromURL( $val );
 					break;
 				case "oldid":
-					$form->setOldId( $val );
+					$form->setOldId( (int)$val );
 					break;
 				case "refid":
-					$form->setRefId( $val );
+					$form->setRefId( (int)$val );
 					break;
 				case "validatedParams":
 					$form->setValidatedParams( $val );
@@ -288,7 +288,7 @@ class RevisionReview extends UnlistedSpecialPage {
 					$editToken = $val;
 					break;
 				case 'wp' . FlaggedRevs::getTagName():
-					$form->setTag( $val );
+					$form->setTag( (int)$val );
 					break;
 			}
 		}
