@@ -9,6 +9,7 @@
 			"No Sleep till Krupki",
 			"Plaga med",
 			"Tomato Cream",
+			"Ucukor",
 			"Vlad5250",
 			"ZlyiLev",
 			"Дзяніс Тутэйшы",
@@ -163,5 +164,6 @@
 	"log-action-filter-stable-config": "Новая канфігурацыя",
 	"log-action-filter-stable-modify": "Змененая канфігурацыя",
 	"log-action-filter-stable-reset": "Скід канфігурацыі",
-	"log-action-filter-stable-move_stable": "Перамяшчэнне канфігурацыі"
+	"log-action-filter-stable-move_stable": "Перамяшчэнне канфігурацыі",
+	"fr-revision-info-dialog-cancel-button": "Скасаваць"
 }
