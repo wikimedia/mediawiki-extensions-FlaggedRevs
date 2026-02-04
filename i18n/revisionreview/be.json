@@ -5,13 +5,14 @@
 			"Chadyka",
 			"Maksim L.",
 			"No Sleep till Krupki",
+			"Ucukor",
 			"ZlyiLev",
 			"Хомелка"
 		]
 	},
 	"revisionreview": "Догляд версій",
 	"revreview-failed": "'''Немагчыма даглядзець версію.'''",
-	"revreview-submission-invalid": "Прадстаўленне было няпоўным або змяшчала іншы недахоп.",
+	"revreview-submission-invalid": "Прадстаўленне было няпоўным або змяшчала іншую хібу.",
 	"review_page_invalid": "Недапушчальная назва мэтавай старонкі.",
 	"review_page_notexists": "Мэтавая старонкі няма.",
 	"review_page_unreviewable": "Мэтавая старонка не падлягае догляду.",
