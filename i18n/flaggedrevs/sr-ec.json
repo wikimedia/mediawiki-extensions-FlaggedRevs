@@ -54,7 +54,7 @@
 	"grouppage-editor": "{{ns:project}}:Уредник",
 	"grouppage-reviewer": "{{ns:project}}:Прегледачи",
 	"group-autoreview": "Аутоматски проверени корисници",
-	"group-autoreview-member": "{{GENDER:$1|аутоматски проверен корисник|аутоматски проверена корисница|аутоматски проверен корисник}}",
+	"group-autoreview-member": "{{GENDER:$1|аутоматски проверен корисник|аутоматски проверена корисница}}",
 	"grouppage-autoreview": "{{ns:project}}:Аутоматски проверени корисници",
 	"logentry-review-approve": "$1 је {{GENDER:$2|проверио|проверила}} верзију странице $3",
 	"logentry-review-approve-auto": "$1 је аутоматски {{GENDER:$2|проверио|проверила}} верзију странице $3",
