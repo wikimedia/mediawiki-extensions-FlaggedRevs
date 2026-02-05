@@ -3,15 +3,16 @@
 		"authors": [
 			"EugeneZelenko",
 			"Jim-by",
-			"Red Winged Duck"
+			"Red Winged Duck",
+			"Ucukor"
 		]
 	},
 	"validationstatistics": "Статыстыка рэцэнзаваньня старонак",
 	"validationstatistics-users": "'''{{SITENAME}}''' цяпер налічвае '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|удзельніка|удзельнікаў|удзельнікаў}} з правамі «[[{{MediaWiki:Validationpage}}|рэдактара]]».\n\nРэдактары — асобныя удзельнікі, якія могуць правяраць вэрсіі старонак.",
 	"validationstatistics-lastupdate": "''Наступныя зьвесткі былі абноўленыя $1 у $2.''",
-	"validationstatistics-pndtime": "Рэдагаваньні, правераныя ўпаўнаважанымі ўдзельнікамі, лічацца як ''{{int:validationstatistics-stable}}''.\n\nСярэдняя затрымка для [[Special:OldReviewedPages|старонак, якія цяпер чакаюць рэцэнзаваньня]] складае '''$1''' і вымярае, як доўга рэдагаваньне застаецца нерэцэнзаваным.",
+	"validationstatistics-pndtime": "Рэдагаваньні, правераныя ўпаўнаважанымі ўдзельнікамі, уважаюцца як ''{{int:validationstatistics-stable}}''.\n\nСярэдняя затрымка для [[Special:OldReviewedPages|старонак, якія цяпер чакаюць рэцэнзаваньня]] складае '''$1''' і вымярае, як доўга рэдагаваньне застаецца нерэцэнзаваным.",
 	"validationstatistics-revtime": "Сярэдняя затрымка для рэдагаваньняў для ''ананімных удзельнікаў'', якія чакаюць рэцэнзаваньня, складае '''$1'''; мэдыяна — '''$2'''.\n$3",
-	"validationstatistics-table": "Статыстыка рэцэнзаваньняў старонак для кожнай прасторы назваў пададзеная ніжэй, ''за выключэньнем'' старонак-перанакіраваньняў. Старонкі лічацца як ''{{int:validationstatistics-old}}'', калі яны маюць нерэцэнзаваныя рэдагаваньні; старонкі лічацца як ''{{int:validationstatistics-latest}}'', калі яны ня маюць нерэцэнзаваных рэдагаваньняў.",
+	"validationstatistics-table": "Статыстыка рэцэнзаваньняў старонак для кожнай прасторы назваў пададзеная ніжэй, ''за выняткам'' старонак-перанакіраваньняў. Старонкі ўважаюцца як ''{{int:validationstatistics-old}}'', калі яны маюць нерэцэнзаваныя рэдагаваньні; старонкі ўважаюцца як ''{{int:validationstatistics-latest}}'', калі яны ня маюць нерэцэнзаваных рэдагаваньняў.",
 	"validationstatistics-ns": "Прастора назваў",
 	"validationstatistics-total": "Старонак",
 	"validationstatistics-stable": "Правераных",
