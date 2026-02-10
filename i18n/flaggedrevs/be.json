@@ -13,7 +13,8 @@
 			"Хомелка",
 			"Чаховіч Уладзіслаў",
 			"MocnyDuham",
-			"Mitte27"
+			"Mitte27",
+			"Ucukor"
 		]
 	},
 	"action-autoreview": "аўтаматычна пазначаць уласныя праўкі як дагледжаныя",
@@ -164,5 +165,6 @@
 	"log-action-filter-stable-config": "Новая канфігурацыя",
 	"log-action-filter-stable-modify": "Змененая канфігурацыя",
 	"log-action-filter-stable-reset": "Скід канфігурацыі",
-	"log-action-filter-stable-move_stable": "Перамяшчэнне канфігурацыі"
+	"log-action-filter-stable-move_stable": "Перамяшчэнне канфігурацыі",
+	"fr-revision-info-dialog-cancel-button": "Скасаваць"
 }

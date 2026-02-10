@@ -69,7 +69,7 @@
 	"revreview-reject-confirm": "Wycofaj te zmiany",
 	"revreview-reject-cancel": "Anuluj",
 	"revreview-reject-summary-cur": "Wycofano {{PLURAL:$1|ostatnią zmianę|ostatnie $1 zmiany|ostatnich $1 zmian}} treści ({{PLURAL:$1|wprowadzoną|wprowadzone|wprowadzonych}} {{PLURAL:$7|{{GENDER:$5|przez}}}} $2) i przywrócono wersję $3 autorstwa {{GENDER:$6|$4}}",
-	"revreview-reject-summary-old": "Wycofano {{PLURAL:$1|pierwszą zmianę|pierwsze $1 zmiany|pierwszych $1 zmian}} treści ({{PLURAL:$1|zrobioną|zrobione|zrobionych}} {{PLURAL:$7|{{GENDER:$5|przez}}}} $2), {{PLURAL:$1|którą wykonano|które wykonano}} po wersji $3 {{GENDER:$6|autorstwa}} $4",
+	"revreview-reject-summary-old": "Wycofano {{PLURAL:$1|pierwszą zmianę|pierwsze $1 zmiany|pierwszych $1 zmian}} treści ({{PLURAL:$1|wprowadzoną|wprowadzone|wprowadzonych}} przez {{PLURAL:$7|{{GENDER:$5|użytkownika|użytkowniczkę}}|użytkowników}} $2), {{PLURAL:$1|którą wykonano|które wykonano}} po wersji $3 {{GENDER:$6|autorstwa}} $4",
 	"revreview-reject-summary-cur-short": "Wycofano {{PLURAL:$1|ostatnią zmianę|ostatnie $1 zmiany|ostatnich $1 zmian}} treści i przywrócono wersję $2 {{GENDER:$4|autorstwa}} $3",
 	"revreview-reject-summary-old-short": "Wycofano {{PLURAL:$1|pierwszą zmianę|pierwsze $1 zmiany|pierwszych $1 zmian}} treści, {{PLURAL:$1|którą wykonano|które wykonano}} po wersji $2 {{GENDER:$4|autorstwa}} $3",
 	"revreview-tt-flag": "Zaakceptuj tę wersję poprzez oznaczenie jej jako „przejrzaną”",
