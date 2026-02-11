@@ -8,5 +8,7 @@
 	"pendingchanges-days": "{{PLURAL:$1|$1 peiʹvved|1=peiʹvv|2=2 peeiʹv|3=3 peeiʹv|4=4 peeiʹv|5=5 peeiʹv|6=6 peeiʹv}}",
 	"pendingchanges-category": "Kategoria:",
 	"pendingchanges-onwatchlist": "Seeid, kook lie muu valvvâmliistâst",
-	"pendingchanges-table-size": "Šorradvuõtt"
+	"pendingchanges-table-size": "Šorradvuõtt",
+	"pendingchanges-table-history": "Historia",
+	"pendingchanges-table-revision-history": "Historia"
 }
