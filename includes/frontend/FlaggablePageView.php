@@ -272,14 +272,13 @@ class FlaggablePageView extends ContextSource {
 		if ( $statusMessageKey ) {
 			// Prepare the attributes for the indicator element
 			$attributes = [
-				'name' => 'fr-review-status',
 				'class' => 'mw-fr-review-status-indicator',
 				'id' => $indicatorId,
 			];
 
 			// Generate the HTML for the indicator
 			$indicatorHtml = Html::rawElement(
-				'indicator',
+				'div',
 				$attributes,
 				Html::element( 'span', [ 'class' => $iconClass ] ) . $this->msg( $statusMessageKey )->parse()
 			);
