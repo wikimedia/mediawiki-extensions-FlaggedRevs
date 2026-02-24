@@ -6,6 +6,7 @@
 			"Jaakonam",
 			"Kyykaarme",
 			"Mies",
+			"Minilammas",
 			"Nedergard",
 			"Nike",
 			"Nwme",
@@ -21,7 +22,7 @@
 			"ZeiP"
 		]
 	},
-	"action-autoreview": "merkitä automaattisesti omia muokkauksia ”katsoituiksi”",
+	"action-autoreview": "merkitä automaattisesti omia muokkauksia ”katsotuiksi”",
 	"action-autoreviewrestore": "automaattisesti arvioida pikapalautuksen yhteydessä",
 	"action-movestable": "siirtää sivuja, joista on olemassa vakaa versio",
 	"action-review": "arvioida versioita",
@@ -127,7 +128,7 @@
 	"revreview-visibility-outdated": "'''Tällä sivulla on vanhentunut [[{{MediaWiki:Validationpage}}|vakaa versio]] – sivun vakausasetuksia on mahdollista [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} muuttaa].'''",
 	"revreview-visibility-nostable": "'''Tällä sivulla ei ole [[{{MediaWiki:Validationpage}}|vakaata versiota]] – sivun vakausasetuksia on mahdollista [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} muuttaa].'''",
 	"revreview-revnotfound": "Pyytämääsi versiota ei löydy.\nTarkista URL-osoite, jolla hait tätä sivua.",
-	"right-autoreview": "Merkitä automaattisesti omia muokkauksia ”katsoituiksi”",
+	"right-autoreview": "Merkitä automaattisesti omia muokkauksia ”katsotuiksi”",
 	"right-autoreviewrestore": "Palauttaessa automaattinen arviointi",
 	"right-movestable": "Siirtää sivuja, joista on olemassa vakaa versio",
 	"right-review": "Merkitä versioita ”katsotuiksi”",
