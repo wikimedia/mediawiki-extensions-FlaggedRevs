@@ -60,7 +60,7 @@
 	"revreview-reject-text-revto": "Вяртае старонку назад да [{{fullurl:$1|oldid=$2}} версіі ад $3].",
 	"revreview-reject-summary": "Тлумачэнне:",
 	"revreview-reject-confirm": "Адхіліць гэтыя змены",
-	"revreview-reject-cancel": "Адмена",
+	"revreview-reject-cancel": "Скасаваць",
 	"revreview-reject-summary-cur": "{{PLURAL:$1|Адхілена апошняя змена|Адхілены $1 апошнія змены|Адхілена $1 апошніх змен}} ({{PLURAL:$1|зробленая|зробленыя|зробленых}} {{PLURAL:$7|{{GENDER:$5|$2}}}}) і адноўлена версія $3, {{GENDER:$6|зробленая}} $4",
 	"revreview-reject-summary-old": "{{PLURAL:$1|Адхілена $1 першая змена|Адхілены $1 першыя змены|Адхілены $1 першых змен}}  ({{PLURAL:$1|зробленая|зробленыя|зробленых}} {{PLURAL:$7|{{GENDER:$5|$2}}}}) {{PLURAL:$1|наступная|наступныя|наступных}} пасля версіі $3, {{GENDER:$6|зробленай}} $4",
 	"revreview-reject-summary-cur-short": "{{PLURAL:$1|Адхілена апошняя змена|Адхілены апошнія $1 змены|Адхілены апошнія $1 змен|}} і адноўлена версія $2 {{GENDER:$4|$3}}",
