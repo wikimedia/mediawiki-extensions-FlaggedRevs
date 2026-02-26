@@ -6,6 +6,7 @@ use FlaggablePageView;
 use FlaggableWikiPage;
 use FlaggedRevs;
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Page\WikiPage;
 use MediaWiki\Parser\ParserCache;
 use MediaWiki\Parser\ParserCacheFactory;
 use MediaWiki\Tests\Parser\ParserCacheTestBase;
@@ -19,12 +20,19 @@ use MediaWiki\Tests\Parser\TrackingParserCache;
 class FlaggedRevsCacheTest extends ParserCacheTestBase {
 
 	private TrackerWrapper $trackerWrapper;
+	private WikiPage $testPage;
 
 	public function setUp(): void {
 		parent::setUp();
 		$parserCacheFactory = $this->createMock( ParserCacheFactory::class );
-		$this->setService( 'ParserCacheFactory', $parserCacheFactory );
+		$this->overrideMwServices( null, [ 'ParserCacheFactory' => static fn () => $parserCacheFactory ] );
 
+		$this->setTemporaryHook(
+			'ParserOptionsRegister',
+			static function ( &$defaults, &$inCacheKey, &$lazyLoad ) {
+				$defaults['useParsoid'] = true;
+			}
+		);
 		$this->trackerWrapper = new TrackerWrapper();
 		$caches = [];
 
@@ -34,6 +42,18 @@ class FlaggedRevsCacheTest extends ParserCacheTestBase {
 				return $caches[$cacheName];
 			}
 		);
+
+		$this->testPage = $this->getExistingTestPage();
+		$this->editPage( $this->testPage, 'hello' );
+		$stableRev = $this->testPage->getRevisionRecord();
+
+		FlaggedRevs::autoReviewEdit(
+			$this->testPage,
+			$this->getTestSysop()->getUser(),
+			$stableRev
+		);
+		// clear local cache to update stable version in there
+		FlaggableWikiPage::getTitleInstance( $this->testPage->getTitle() )->clear();
 	}
 
 	protected function createParserCache( ...$args ): ParserCache {
@@ -41,6 +61,7 @@ class FlaggedRevsCacheTest extends ParserCacheTestBase {
 	}
 
 	public function testCache() {
+		$this->overrideConfigValue( 'UsePostprocCacheParsoid', true );
 		$this->setTemporaryHook(
 			'ParserOptionsRegister',
 			static function ( &$defaults, &$inCacheKey, &$lazyLoad ) {
@@ -48,28 +69,44 @@ class FlaggedRevsCacheTest extends ParserCacheTestBase {
 			}
 		);
 
-		$testPage = $this->getExistingTestPage();
-		$this->editPage( $testPage, 'hello' );
-		$stableRev = $testPage->getRevisionRecord();
-
-		FlaggedRevs::autoReviewEdit(
-			$testPage,
-			$this->getTestSysop()->getUser(),
-			$stableRev
-		);
-
-		// clear local cache to update stable version in there
-		FlaggableWikiPage::getTitleInstance( $testPage->getTitle() )->clear();
-
-		RequestContext::getMain()->setTitle( $testPage->getTitle() );
-		$flaggablePageView = FlaggablePageView::newFromTitle( $testPage );
+		RequestContext::getMain()->setTitle( $this->testPage->getTitle() );
+		$flaggablePageView = FlaggablePageView::newFromTitle( $this->testPage );
 		$flaggablePageView->getRequest()->appendQueryValue( 'stable', 1 );
 
 		// first call: nothing in cache
 		$parserOutput = null;
 		$useCache = true;
 		$flaggablePageView->setPageContent( $parserOutput, $useCache );
-		$this->assertArrayEquals( [ [ 'stable-parsoid-pcache', false ] ], $this->trackerWrapper->calls );
+
+		$this->assertArrayEquals( [
+				[ 'stable-parsoid-pcache-postproc', false ],
+				[ 'stable-parsoid-pcache', false ]
+			],
+			$this->trackerWrapper->calls );
+
+		// second call: find it in the cache
+		$this->trackerWrapper->calls = [];
+		$parserOutput = null;
+		$useCache = true;
+		$flaggablePageView->setPageContent( $parserOutput, $useCache );
+		$this->assertArrayEquals( [ [ 'stable-parsoid-pcache-postproc', true ] ], $this->trackerWrapper->calls );
+	}
+
+	public function testCacheDisabled() {
+		$this->overrideConfigValue( 'UsePostprocCacheParsoid', false );
+
+		RequestContext::getMain()->setTitle( $this->testPage->getTitle() );
+		$flaggablePageView = FlaggablePageView::newFromTitle( $this->testPage );
+		$flaggablePageView->getRequest()->appendQueryValue( 'stable', 1 );
+
+		// first call: nothing in cache
+		$parserOutput = null;
+		$useCache = true;
+		$flaggablePageView->setPageContent( $parserOutput, $useCache );
+		$this->assertArrayEquals( [
+			[ 'stable-parsoid-pcache', false ]
+		],
+			$this->trackerWrapper->calls );
 
 		// second call: find it in the cache
 		$this->trackerWrapper->calls = [];

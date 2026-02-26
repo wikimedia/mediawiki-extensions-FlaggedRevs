@@ -591,9 +591,47 @@ class FlaggablePageView extends ContextSource {
 
 		// TODO: Rewrite to use ParserOutputAccess
 		$parserOptions = $this->makeParserOptions( $reqUser );
-		$stableParserCache = $this->flaggedRevsParserCacheFactory->getParserCache( $parserOptions );
+
 		// Check the stable version cache for the parser output
+		$skin = $this->getSkin();
+		$poOptions = [
+			// (T391788) This should always be used for full page views
+			'includeDebugInfo' => true,
+			'skin' => $skin,
+			'injectTOC' => $skin->getOptions()['toc'],
+		];
+		// Copy these to the parser options as well
+		$parserOptions->setOption( 'includeDebugInfo', true );
+		$parserOptions->setOption( 'skin', $skin );
+		$parserOptions->setOption( 'injectTOC', $skin->getOptions()['toc'] );
+
+		// TODO when refactoring this to get rid of $poOptions, check on the discrepancy between $pm->quickUserCan and
+		// $authority->probablyCan in Article::view, as well as check whether the behaviour of these need to be aligned
+		// (printable flag, additional deprecation warning box), and if so move that aligned behaviour to core
+		$pm = MediaWikiServices::getInstance()->getPermissionManager();
+		if ( $this->out->isPrintable() ||
+			!$pm->quickUserCan( 'edit', $reqUser, $this->article->getTitle() )
+		) {
+			$poOptions['enableSectionEditLinks'] = false;
+			$parserOptions->setOption( 'enableSectionEditLinks', false );
+		}
+
+		$postprocEnabled = $this->flaggedRevsParserCacheFactory->postProcessingCacheEnabled( $parserOptions );
+		$shouldPostProcess = !$postprocEnabled;
+
+		if ( $postprocEnabled ) {
+			$parserOptions->enablePostproc();
+		}
+
+		$stableParserCache = $this->flaggedRevsParserCacheFactory->getParserCache( $parserOptions );
+
 		$parserOut = $stableParserCache->get( $this->article, $parserOptions );
+		if ( !$parserOut && $postprocEnabled ) {
+			$parserOptions = $parserOptions->clearPostproc();
+			$stableParserCache = $this->flaggedRevsParserCacheFactory->getParserCache( $parserOptions );
+			$parserOut = $stableParserCache->get( $this->article, $parserOptions );
+			$shouldPostProcess = true;
+		}
 
 		if ( !$parserOut ) {
 			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT && $synced ) {
@@ -638,23 +676,17 @@ class FlaggablePageView extends ContextSource {
 			return null;
 		}
 
-		# Add the parser output to the page view
-		$pm = MediaWikiServices::getInstance()->getPermissionManager();
-		$skin = $this->getSkin();
-		$poOptions = [
-			// (T391788) This should always be used for full page views
-			'includeDebugInfo' => true,
-			'skin' => $skin,
-			'injectTOC' => $skin->getOptions()['toc'],
-		];
-		if ( $this->out->isPrintable() ||
-			!$pm->quickUserCan( 'edit', $reqUser, $this->article->getTitle() )
-		) {
-			$poOptions['enableSectionEditLinks'] = false;
+		if ( $shouldPostProcess ) {
+			$pipeline = MediaWikiServices::getInstance()->getDefaultOutputPipeline();
+			$parserOut = $pipeline->run( $parserOut, $parserOptions, $poOptions );
+			if ( $postprocEnabled ) {
+				$parserOptions->enablePostproc();
+				$stableParserCache = $this->flaggedRevsParserCacheFactory->getParserCache( $parserOptions );
+				$stableParserCache->save( $parserOut, $this->article, $parserOptions );
+			}
 		}
 
-		$pipeline = MediaWikiServices::getInstance()->getDefaultOutputPipeline();
-		$parserOut = $pipeline->run( $parserOut, $parserOptions, $poOptions );
+		# Add the parser output to the page view
 		$this->out->addPostProcessedParserOutput( $parserOut );
 		return $parserOut;
 	}

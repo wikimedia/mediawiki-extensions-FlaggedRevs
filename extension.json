@@ -207,7 +207,6 @@
 		"FRInclusionManager": "includes/backend/FRInclusionManager.php",
 		"FlaggableWikiPage": "includes/backend/FlaggableWikiPage.php",
 		"FlaggedRevision": "includes/backend/FlaggedRevision.php",
-		"FlaggedRevsParserCache": "includes/backend/FlaggedRevsParserCache.php",
 		"FRGenericSubmitForm": "includes/business/FRGenericSubmitForm.php",
 		"RevisionReviewForm": "includes/business/RevisionReviewForm.php",
 		"PageStabilityForm": "includes/business/PageStabilityForm.php",
