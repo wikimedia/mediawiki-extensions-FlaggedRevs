@@ -22,7 +22,8 @@
 			"Zhxy 519",
 			"一個正常人",
 			"捍粵者",
-			"沈澄心"
+			"沈澄心",
+			"臺灣象象"
 		]
 	},
 	"action-autoreview": "將自己的編輯自動標記為「已檢查」",
@@ -139,7 +140,7 @@
 	"right-review": "標記修訂為「已檢查」",
 	"right-stablesettings": "設定如何選擇及顯示穩定版本",
 	"right-validate": "標記修訂為「優質」",
-	"right-unreviewedpages": "檢視[[Special:UnreviewedPages|未審查的頁面清單]]",
+	"right-unreviewedpages": "檢視[[Special:UnreviewedPages|未檢查頁面列表]]",
 	"rights-editor-revoke": "已移除 [[$1]] 的編輯狀態",
 	"specialpages-group-quality": "編輯審查",
 	"stable-logentry-config": "設定 $1 的穩定版本設定",

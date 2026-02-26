@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Winston Sung",
-			"Yueman"
+			"Yueman",
+			"臺灣象象"
 		]
 	},
 	"editor": "編輯",
@@ -61,7 +62,7 @@
 	"right-review": "標示修訂做已視察嘅",
 	"right-stablesettings": "設定如何將穩定版選擇同顯示",
 	"right-validate": "標示修訂做已確認嘅",
-	"right-unreviewedpages": "去睇未複審版嘅表",
+	"right-unreviewedpages": "去睇[[Special:UnreviewedPages|未複審版嘅表]]",
 	"rights-editor-revoke": "由[[$1]]拎走編者狀態",
 	"specialpages-group-quality": "品質保證",
 	"stable-logentry-config": "設定咗$1嘅穩定版本",
