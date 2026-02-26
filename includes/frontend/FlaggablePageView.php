@@ -3,6 +3,7 @@
 use MediaWiki\Context\ContextSource;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\EditPage\EditPage;
+use MediaWiki\Extension\FlaggedRevs\Backend\FlaggedRevsParserCacheFactory;
 use MediaWiki\HookContainer\HookRunner;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
@@ -49,6 +50,7 @@ class FlaggablePageView extends ContextSource {
 	 * The flagged revision being viewed.
 	 */
 	private ?FlaggedRevision $frev = null;
+	private FlaggedRevsParserCacheFactory $flaggedRevsParserCacheFactory;
 
 	/**
 	 * @return MapCacheLRU
@@ -102,6 +104,8 @@ class FlaggablePageView extends ContextSource {
 		}
 		$this->article = FlaggableWikiPage::getTitleInstance( $title );
 		$this->out = $this->getOutput(); // convenience
+		$this->flaggedRevsParserCacheFactory =
+			MediaWikiServices::getInstance()->getService( FlaggedRevsParserCacheFactory::SERVICE_NAME );
 	}
 
 	private function __clone() {
@@ -587,7 +591,7 @@ class FlaggablePageView extends ContextSource {
 
 		// TODO: Rewrite to use ParserOutputAccess
 		$parserOptions = $this->makeParserOptions( $reqUser );
-		$stableParserCache = FlaggedRevs::getParserCacheInstance( $parserOptions );
+		$stableParserCache = $this->flaggedRevsParserCacheFactory->getParserCache( $parserOptions );
 		// Check the stable version cache for the parser output
 		$parserOut = $stableParserCache->get( $this->article, $parserOptions );
 

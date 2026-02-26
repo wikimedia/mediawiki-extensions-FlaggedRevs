@@ -2,6 +2,7 @@
 
 use MediaWiki\Config\ConfigException;
 use MediaWiki\Deferred\DeferredUpdates;
+use MediaWiki\Extension\FlaggedRevs\Backend\FlaggedRevsParserCacheFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Page\PageReference;
@@ -25,18 +26,6 @@ use Wikimedia\Rdbms\IDBAccessObject;
  * Class is lazily-initialized, calling load() as needed
  */
 class FlaggedRevs {
-	/**
-	 * The name of the ParserCache to use for stable revisions caching.
-	 *
-	 * @note This name is used as a part of the ParserCache key, so
-	 * changing it will invalidate the parser cache for stable revisions.
-	 *
-	 * TODO: Extract constant to FlaggedRevsParserCache
-	 *
-	 * @deprecated 1.39
-	 */
-	public const PARSER_CACHE_NAME = 'stable-pcache';
-	public const PARSOID_PARSER_CACHE_NAME = 'stable-parsoid-pcache';
 
 	# ################ Basic config accessors #################
 
@@ -260,17 +249,6 @@ class FlaggedRevs {
 	# ################ Parsing functions #################
 
 	/**
-	 * @param ParserOptions $pOpts
-	 * @return FlaggedRevsParserCache
-	 */
-	public static function getParserCacheInstance( ParserOptions $pOpts ): FlaggedRevsParserCache {
-		$cacheName = $pOpts->getUseParsoid() ? 'FlaggedRevsParsoidParserCache' : 'FlaggedRevsParserCache';
-		/** @var FlaggedRevsParserCache $cache */
-		$cache = MediaWikiServices::getInstance()->getService( $cacheName );
-		return $cache;
-	}
-
-	/**
 	 * Get the HTML output of a revision, using PoolCounter in the process
 	 *
 	 * @param FlaggedRevision $frev
@@ -283,8 +261,14 @@ class FlaggedRevs {
 	) {
 		$services = MediaWikiServices::getInstance();
 		$page = $services->getWikiPageFactory()->newFromTitle( $frev->getTitle() );
-		$stableParserCache = self::getParserCacheInstance( $pOpts );
-		$keyPrefix = $stableParserCache->makeKey( $page, $pOpts );
+		$stableParserCache = $services->getService( FlaggedRevsParserCacheFactory::SERVICE_NAME )
+			->getParserCache( $pOpts );
+
+		$keyPrefix = $stableParserCache->makeParserOutputKey(
+			$page,
+			$pOpts,
+			$stableParserCache->getMetadata( $page )?->getUsedOptions()
+		);
 
 		$work = new PoolCounterWorkViaCallback(
 			'ArticleView', // use standard parse PoolCounter config
