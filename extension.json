@@ -396,6 +396,7 @@
 		"UserLoadAfterLoadFromSession": "main",
 		"UserMergeAccountFields": "FlaggedRevsHooks::onUserMergeAccountFields",
 		"UserRequirementsCondition": "main",
+		"UserRequirementsConditionDisplay": "main",
 		"WikiExporter::dumpStableQuery": "main"
 	},
 	"HookHandlers": {

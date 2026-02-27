@@ -171,5 +171,15 @@
 	"fr-revision-info-dialog": "The information above is provided for our readers to stay informed about the current status of the content on this page.",
 	"fr-revision-info-dialog-review-button": "Review...",
 	"fr-revision-info-dialog-cancel-button": "Cancel",
-	"fr-revision-info-dialog-close-aria-label": "Close"
+	"fr-revision-info-dialog-close-aria-label": "Close",
+	"listgrouprights-restrictedgroups-cond-fr-editsummarycount": "User has filled in at least $1 edit {{PLURAL:$1|summary|summaries}}",
+	"listgrouprights-restrictedgroups-cond-fr-neverblocked": "User has never been blocked",
+	"listgrouprights-restrictedgroups-cond-fr-uniquepagecount": "User has edited at least $1 unique content {{PLURAL:$1|page|pages}}",
+	"listgrouprights-restrictedgroups-cond-fr-contenteditcount": "User has made at least $1 {{PLURAL:$1|edit|edits}} to content pages (except for edits in last $2)",
+	"listgrouprights-restrictedgroups-cond-fr-userpagebytes": "User's page has size of at least $1 {{PLURAL:$1|byte|bytes}}",
+	"listgrouprights-restrictedgroups-cond-fr-editcount": "User has made at least $1 {{PLURAL:$1|edit|edits}} (except for edits in last $2)",
+	"listgrouprights-restrictedgroups-cond-fr-editspacing": "User has made at least $1 {{PLURAL:$1|edit|edits}}, such that each is separated by at least $2",
+	"listgrouprights-restrictedgroups-cond-fr-checkededitcount": "User has made at least $1 {{PLURAL:$1|edit|edits}}, which were later reviewed (except for edits in last $2)",
+	"listgrouprights-restrictedgroups-cond-fr-maxrevertededitratio": "No more than $1% of the user's edits were reverted",
+	"listgrouprights-restrictedgroups-cond-fr-neverdemoted": "User has never been demoted"
 }

@@ -33,12 +33,14 @@ use MediaWiki\Storage\Hook\RevisionDataUpdatesHook;
 use MediaWiki\Title\Title;
 use MediaWiki\User\ActorMigration;
 use MediaWiki\User\Hook\UserLoadAfterLoadFromSessionHook;
+use MediaWiki\User\Hook\UserRequirementsConditionDisplayHook;
 use MediaWiki\User\Hook\UserRequirementsConditionHook;
 use MediaWiki\User\User;
 use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserIdentityUtils;
 use MediaWiki\User\UserNameUtils;
+use Wikimedia\Message\MessageValue;
 use Wikimedia\ObjectCache\WANObjectCache;
 use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\IConnectionProvider;
@@ -69,6 +71,7 @@ class FlaggedRevsHooks implements
 	UserGetRightsHook,
 	UserLoadAfterLoadFromSessionHook,
 	UserRequirementsConditionHook,
+	UserRequirementsConditionDisplayHook,
 	WikiExporter__dumpStableQueryHook
 {
 
@@ -1467,5 +1470,54 @@ class FlaggedRevsHooks implements
 		// FlaggedRevision object exists if and only if for each of the defined review tags,
 		// the edit has at least a "minimum" review level.
 		$approved = $flaggedRev !== null;
+	}
+
+	/** @inheritDoc */
+	public function onUserRequirementsConditionDisplay(
+		$type,
+		array $args,
+		IContextSource $context,
+		?MessageSpecifier &$message
+	): void {
+		$msgKey = match ( $type ) {
+			APCOND_FR_EDITSUMMARYCOUNT => 'listgrouprights-restrictedgroups-cond-fr-editsummarycount',
+			APCOND_FR_NEVERBLOCKED => 'listgrouprights-restrictedgroups-cond-fr-neverblocked',
+			APCOND_FR_UNIQUEPAGECOUNT => 'listgrouprights-restrictedgroups-cond-fr-uniquepagecount',
+			APCOND_FR_CONTENTEDITCOUNT => 'listgrouprights-restrictedgroups-cond-fr-contenteditcount',
+			APCOND_FR_USERPAGEBYTES => 'listgrouprights-restrictedgroups-cond-fr-userpagebytes',
+			APCOND_FR_EDITCOUNT => 'listgrouprights-restrictedgroups-cond-fr-editcount',
+			APCOND_FR_EDITSPACING => 'listgrouprights-restrictedgroups-cond-fr-editspacing',
+			APCOND_FR_CHECKEDEDITCOUNT => 'listgrouprights-restrictedgroups-cond-fr-checkededitcount',
+			APCOND_FR_MAXREVERTEDEDITRATIO => 'listgrouprights-restrictedgroups-cond-fr-maxrevertededitratio',
+			APCOND_FR_NEVERDEMOTED => 'listgrouprights-restrictedgroups-cond-fr-neverdemoted',
+			default => null,
+		};
+
+		if ( $msgKey === null ) {
+			return;
+		}
+
+		$message = MessageValue::new( $msgKey );
+		switch ( $type ) {
+			case APCOND_FR_CONTENTEDITCOUNT:
+			case APCOND_FR_EDITCOUNT:
+			case APCOND_FR_CHECKEDEDITCOUNT:
+				$message->numParams( $args[0] )->longDurationParams( $args[1] );
+				break;
+			case APCOND_FR_EDITSPACING:
+				$message->numParams( $args[1] )->longDurationParams( $args[0] * 86400 );
+				break;
+			case APCOND_FR_EDITSUMMARYCOUNT:
+			case APCOND_FR_UNIQUEPAGECOUNT:
+			case APCOND_FR_USERPAGEBYTES:
+				$message->numParams( $args[0] );
+				break;
+			case APCOND_FR_MAXREVERTEDEDITRATIO:
+				$message->numParams( $args[0] * 100 );
+				break;
+			default:
+				$message->params( ...$args );
+				break;
+		}
 	}
 }
