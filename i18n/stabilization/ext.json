@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Better"
+			"Better",
+			"HackerPunki"
 		]
 	},
-	"stabilization-page": "Nombri la páhina:",
+	"stabilization-page": "Nombri la página:",
 	"stabilization-submit": "Confirmal",
 	"stabilization-def-short": "Defeutu",
 	"stabilization-def-short-0": "Atual"
