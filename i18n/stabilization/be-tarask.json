@@ -5,7 +5,8 @@
 			"Jim-by",
 			"Renessaince",
 			"Zedlik",
-			"Red Winged Duck"
+			"Red Winged Duck",
+			"Ucukor"
 		]
 	},
 	"stabilization-tab": "Стаб.",
@@ -33,7 +34,7 @@
 	"stabilize_page_notexists": "Мэтавая старонка не існуе.",
 	"stabilize_page_unreviewable": "Мэтавай старонкі няма ў прасторы назваў, якую можна рэцэнзаваць.",
 	"stabilize_invalid_autoreview": "Няслушнае абмежаваньне аўтаматычнага рэцэнзаваньня.",
-	"stabilize_invalid_level": "Няслушны ўзровень абароны.",
+	"stabilize_invalid_level": "Няслушны ровень абароны.",
 	"stabilize_expiry_invalid": "Няслушны тэрмін.",
 	"stabilize_expiry_old": "Час сканчэньня ўжо прайшоў.",
 	"stabilize_denied": "Доступ забаронены.",
