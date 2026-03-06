@@ -301,13 +301,13 @@ class FlaggedRevsHTML {
 							'div',
 							[ 'class' => 'cdx-dialog__header__title-group' ],
 							Html::element( 'h2', [ 'class' => 'cdx-dialog__header__title' ],
-								wfMessage( 'revreview-dialog-title' ) ) .
+								$context->msg( 'revreview-dialog-title' )->text() ) .
 							Html::element( 'p', [ 'class' => 'cdx-dialog__header__subtitle' ], $subtitle )
 						) .
 						Html::rawElement( 'button', [
 							'class' => 'cdx-button cdx-button--action-default cdx-button--weight-quiet
 							cdx-button--size-medium cdx-button--icon-only cdx-dialog__header__close-button',
-							'aria-label' => wfMessage( 'fr-revision-info-dialog-close-aria-label' ),
+							'aria-label' => $context->msg( 'fr-revision-info-dialog-close-aria-label' )->text(),
 							'onclick' => 'document.getElementById("mw-fr-revision-details").style.display = "none";'
 						],
 							Html::rawElement( 'span', [ 'class' => 'cdx-icon cdx-icon--medium
@@ -333,7 +333,7 @@ class FlaggedRevsHTML {
 											cdx-button--size-medium cdx-dialog__footer__primary-action
 											cdx-button--fake-button cdx-button--fake-button--enabled'
 									],
-									wfMessage( 'fr-revision-info-dialog-review-button' )
+									$context->msg( 'fr-revision-info-dialog-review-button' )->text()
 								) .
 								Html::element(
 									'button',
@@ -342,7 +342,7 @@ class FlaggedRevsHTML {
 										'onclick' =>
 											'document.getElementById("mw-fr-revision-details").style.display = "none";'
 									],
-									wfMessage( 'fr-revision-info-dialog-cancel-button' )
+									$context->msg( 'fr-revision-info-dialog-cancel-button' )->text()
 								)
 							)
 						) : '' )

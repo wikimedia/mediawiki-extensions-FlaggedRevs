@@ -651,7 +651,7 @@ class FlaggablePageView extends ContextSource {
 						->getStatusFormatter( $this->getContext() );
 					$errorText = $statusFormatter->getMessage( $status );
 					$this->out->addHTML(
-						Html::errorBox( $this->out->parseAsContent( $errorText ) )
+						Html::errorBox( $this->out->parseAsContent( $errorText->text() ) )
 					);
 					return null;
 				}
