@@ -138,5 +138,12 @@
 	"log-action-filter-stable-config": "Nei Astellung",
 	"log-action-filter-stable-reset": "Zerécksetze vun der Konfiguratioun",
 	"fr-revision-info-dialog-cancel-button": "Ofbriechen",
-	"fr-revision-info-dialog-close-aria-label": "Zoumaachen"
+	"fr-revision-info-dialog-close-aria-label": "Zoumaachen",
+	"listgrouprights-restrictedgroups-cond-fr-neverblocked": "De Benotzer gouf nach ni gespaart",
+	"listgrouprights-restrictedgroups-cond-fr-uniquepagecount": "De Benotzer huet op d'mannst $1 verschidden {{PLURAL:$1|Inhaltssäit|Inhaltssäite}} geännert",
+	"listgrouprights-restrictedgroups-cond-fr-contenteditcount": "De Benotzer huet op d'mannst $1 {{PLURAL:$1|Ännerung|Ännerungen}} op Inhaltssäite gemaach (woubäi déi lescht $2 net berécksiichtegt ginn)",
+	"listgrouprights-restrictedgroups-cond-fr-userpagebytes": "D'Säit vun dësem Benotzer huet op d'mannst $1 {{PLURAL:$1|Byte}}",
+	"listgrouprights-restrictedgroups-cond-fr-editcount": "De Benotzer huet op d'mannst $1 {{PLURAL:$1|Ännerung|Ännerungen}} gemaach (woubäi déi lescht $2 net berécksiichtegt ginn)",
+	"listgrouprights-restrictedgroups-cond-fr-editspacing": "De Benotzer huet op d'mannst $1 {{PLURAL:$1|Ännerung|Ännerunge}} gemaach, tëscht deenen op d'mannst $2 loungen",
+	"listgrouprights-restrictedgroups-cond-fr-maxrevertededitratio": "Et goufen net méi wéi $1 % vun den Ännerungen vum Benotzer zeréckgesat"
 }

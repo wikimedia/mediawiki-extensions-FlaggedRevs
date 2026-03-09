@@ -195,5 +195,15 @@
 	"fr-revision-info-dialog": "Die oben stehenden Informationen dienen dazu, unseren Lesern den aktuellen Stand der Inhalte auf dieser Seite mitzuteilen.",
 	"fr-revision-info-dialog-review-button": "Überprüfen ...",
 	"fr-revision-info-dialog-cancel-button": "Abbrechen",
-	"fr-revision-info-dialog-close-aria-label": "Schließen"
+	"fr-revision-info-dialog-close-aria-label": "Schließen",
+	"listgrouprights-restrictedgroups-cond-fr-editsummarycount": "Der Benutzer hat mindestens $1 {{PLURAL:$1|Bearbeitungszusammenfassung|Bearbeitungszusammenfassungen}} ausgefüllt",
+	"listgrouprights-restrictedgroups-cond-fr-neverblocked": "Der Nutzer wurde noch nie gesperrt.",
+	"listgrouprights-restrictedgroups-cond-fr-uniquepagecount": "Der Benutzer hat mindestens $1 unterschiedliche {{PLURAL:$1|Seite|Seiten}} bearbeitet",
+	"listgrouprights-restrictedgroups-cond-fr-contenteditcount": "Der Benutzer hat mindestens $1 {{PLURAL:$1|Bearbeitung|Bearbeitungen}} an Inhaltsseiten vorgenommen (ausgenommen Bearbeitungen in den letzten $2).",
+	"listgrouprights-restrictedgroups-cond-fr-userpagebytes": "Die Benutzerseite hat eine Größe von mindestens $1 {{PLURAL:$1|Byte|Bytes}}",
+	"listgrouprights-restrictedgroups-cond-fr-editcount": "Der Benutzer hat mindestens $1 {{PLURAL:$1|Bearbeitung|Bearbeitungen}} vorgenommen (ausgenommen Bearbeitungen in den letzten $2).",
+	"listgrouprights-restrictedgroups-cond-fr-editspacing": "Der Benutzer hat mindestens $1 {{PLURAL:$1|Bearbeitung|\nBearbeitungen}} vorgenommen, wobei zwischen den einzelnen Bearbeitungen mindestens $2 liegen.",
+	"listgrouprights-restrictedgroups-cond-fr-checkededitcount": "Der Benutzer hat mindestens $1 {{PLURAL:$1|Bearbeitung|Bearbeitungen}} vorgenommen, die anschließend gesichtet {{PLURAL:$1|wurde|wurden}} (mit Ausnahme der Bearbeitungen in den letzten $2).",
+	"listgrouprights-restrictedgroups-cond-fr-maxrevertededitratio": "Nicht mehr als $1 % der Änderungen des Benutzers wurden rückgängig gemacht.",
+	"listgrouprights-restrictedgroups-cond-fr-neverdemoted": "Dem Benutzerkonto wurden niemals erweiterte Rechte entzogen"
 }

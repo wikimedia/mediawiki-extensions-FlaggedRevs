@@ -173,5 +173,15 @@
 	"fr-revision-info-dialog": "A información anterior ofrécese para que os nosos lectores se manteñan informados sobre o estado actual do contido desta páxina.",
 	"fr-revision-info-dialog-review-button": "Revisar...",
 	"fr-revision-info-dialog-cancel-button": "Cancelar",
-	"fr-revision-info-dialog-close-aria-label": "Pechar"
+	"fr-revision-info-dialog-close-aria-label": "Pechar",
+	"listgrouprights-restrictedgroups-cond-fr-editsummarycount": "O usuario completou polo menos {{PLURAL:$1|un resumo|$1 resumos}} de edición",
+	"listgrouprights-restrictedgroups-cond-fr-neverblocked": "O usuario nunca foi bloqueado",
+	"listgrouprights-restrictedgroups-cond-fr-uniquepagecount": "O usuario editou polo menos {{PLURAL:$1|unha páxina|$1 páxinas}} de contido {{PLURAL:$1|única|únicas}}",
+	"listgrouprights-restrictedgroups-cond-fr-contenteditcount": "O usuario fixo polo menos {{PLURAL:$1|unha edición|$1 edicións}} en páxinas de contido (agás as edicións das últimas $2)",
+	"listgrouprights-restrictedgroups-cond-fr-userpagebytes": "A páxina do usuario ten un tamaño de polo menos {{PLURAL:$1|un byte|$1 bytes}}",
+	"listgrouprights-restrictedgroups-cond-fr-editcount": "O usuario fixo polo menos {{PLURAL:$1|unha edición|$1 edicións}} (agás as edicións das últimas $2)",
+	"listgrouprights-restrictedgroups-cond-fr-editspacing": "O usuario fixo polo menos {{PLURAL:$1|unha edición|$1 edicións}}, de xeito que cada unha está separada por polo menos $2",
+	"listgrouprights-restrictedgroups-cond-fr-checkededitcount": "O usuario fixo polo menos {{PLURAL:$1|unha edición|$1 edicións}}, que {{PLURAL:$1|foi revisada|foron revisadas}} posteriormente (agás as edicións das últimas $2)",
+	"listgrouprights-restrictedgroups-cond-fr-maxrevertededitratio": "Non se revertiron máis do $1 % das edicións do usuario",
+	"listgrouprights-restrictedgroups-cond-fr-neverdemoted": "O usuario nunca foi degradado"
 }
