@@ -8,7 +8,6 @@ use FlaggedRevs;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Parser\ParserCache;
 use MediaWiki\Parser\ParserCacheFactory;
-use MediaWiki\Request\FauxRequest;
 use MediaWiki\Tests\Parser\ParserCacheTestBase;
 use MediaWiki\Tests\Parser\TrackerWrapper;
 use MediaWiki\Tests\Parser\TrackingParserCache;
@@ -59,15 +58,12 @@ class FlaggedRevsCacheTest extends ParserCacheTestBase {
 			$stableRev
 		);
 
-		$request = new FauxRequest( [ 'stable' => 1 ] );
-		$context = new RequestContext();
-		$context->setRequest( $request );
-
 		// clear local cache to update stable version in there
 		FlaggableWikiPage::getTitleInstance( $testPage->getTitle() )->clear();
 
+		RequestContext::getMain()->setTitle( $testPage->getTitle() );
 		$flaggablePageView = FlaggablePageView::newFromTitle( $testPage );
-		$flaggablePageView->setContext( $context );
+		$flaggablePageView->getRequest()->appendQueryValue( 'stable', 1 );
 
 		// first call: nothing in cache
 		$parserOutput = null;
