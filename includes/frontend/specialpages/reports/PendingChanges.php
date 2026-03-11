@@ -350,7 +350,7 @@ class PendingChanges extends IncludableSpecialPage {
 			$title->getFullURL(),
 			$date,
 			$currentUserText,
-			$comments
+			Title::newFromLinkTarget( $comments )->getPrefixedText()
 		);
 	}
 

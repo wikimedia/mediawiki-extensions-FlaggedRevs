@@ -1681,7 +1681,7 @@ class FlaggablePageView extends ContextSource {
 			$revision = $revisionLookup->getRevisionById( $latestId );
 			$previousRevision = $revision ? $revisionLookup->getPreviousRevision( $revision ) : null;
 			$altBaseRevId = $request->getInt( 'wpUndoAfter', $request->getInt( 'undoafter',
-				$previousRevision ? $previousRevision->getId() : null
+				$previousRevision ? $previousRevision->getId() : 0
 			) );
 		} else {
 			$altBaseRevId = 0;

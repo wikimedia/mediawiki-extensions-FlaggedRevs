@@ -157,6 +157,7 @@ class RejectConfirmationFormUI {
 			$contLang->listToText( $rejectAuthors ),
 			$oldRevRecord->getId(),
 			$oldRevAuthor,
+			// @phan-suppress-next-line PhanTypeMismatchArgumentNullable last author not null iff there are authors
 			count( $rejectAuthors ) === 1 ? $lastRejectAuthor : '.',
 			$oldRevAuthorUsername
 		)->numParams( count( $rejectAuthors ) )->inContentLanguage()->text();
