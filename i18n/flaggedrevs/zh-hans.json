@@ -197,5 +197,15 @@
 	"fr-revision-info-dialog": "提供上述信息是为了让我们的读者能随时了解本页内容的当前状态。",
 	"fr-revision-info-dialog-review-button": "审查……",
 	"fr-revision-info-dialog-cancel-button": "取消",
-	"fr-revision-info-dialog-close-aria-label": "关闭"
+	"fr-revision-info-dialog-close-aria-label": "关闭",
+	"listgrouprights-restrictedgroups-cond-fr-editsummarycount": "用户已至少填写$1次编辑{{PLURAL:$1|摘要}}",
+	"listgrouprights-restrictedgroups-cond-fr-neverblocked": "用户从未被封禁",
+	"listgrouprights-restrictedgroups-cond-fr-uniquepagecount": "用户已至少编辑$1次独特内容{{PLURAL:$1|页面}}",
+	"listgrouprights-restrictedgroups-cond-fr-contenteditcount": "用户已至少对内容页面做出$1次{{PLURAL:$1|编辑}}（不包括最近$2内的编辑）",
+	"listgrouprights-restrictedgroups-cond-fr-userpagebytes": "用户页面大小至少为$1{{PLURAL:$1|字节}}",
+	"listgrouprights-restrictedgroups-cond-fr-editcount": "用户已至少做出$1次{{PLURAL:$1|编辑}}（不包括最近$2内的编辑）",
+	"listgrouprights-restrictedgroups-cond-fr-editspacing": "用户已至少做出$1次{{PLURAL:$1|编辑}}，每次编辑之间至少间隔$2",
+	"listgrouprights-restrictedgroups-cond-fr-checkededitcount": "用户已至少做出$1次后续经复核的{{PLURAL:$1|编辑}}（不包括最近$2内的编辑）",
+	"listgrouprights-restrictedgroups-cond-fr-maxrevertededitratio": "用户被回退的编辑不超过$1%",
+	"listgrouprights-restrictedgroups-cond-fr-neverdemoted": "用户从未被降级"
 }
