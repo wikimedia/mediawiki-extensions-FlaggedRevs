@@ -650,9 +650,7 @@ class FlaggablePageView extends ContextSource {
 			$poOptions['enableSectionEditLinks'] = false;
 		}
 
-		$pipeline = MediaWikiServices::getInstance()->getDefaultOutputPipeline();
-		$parserOut = $pipeline->run( $parserOut, $parserOptions, $poOptions );
-		$this->out->addPostProcessedParserOutput( $parserOut );
+		$this->out->addParserOutput( $parserOut, $parserOptions, $poOptions );
 		return $parserOut;
 	}
 
