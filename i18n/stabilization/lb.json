@@ -30,7 +30,7 @@
 	"stabilize_page_notexists": "D'Zilsäit gëtt et net",
 	"stabilize_page_unreviewable": "D'Zilsäit ass net an engem Nummraum wou Säite kënnen nogekuckt ginn.",
 	"stabilize_invalid_autoreview": "Net valabel Limitatioun beim automateschen Nokucken.",
-	"stabilize_invalid_level": "Ne valabelen Niveau vun der Spär.",
+	"stabilize_invalid_level": "Ongültege Protektiounsniveau.",
 	"stabilize_expiry_invalid": "Ongültege Schlussdatum.",
 	"stabilize_expiry_old": "Den Oflafdatum ass schonn eriwwer.",
 	"stabilize_denied": "Autorisatioun refuséiert",
