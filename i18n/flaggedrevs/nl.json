@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Annabel",
+			"Catrope",
 			"Mainframe98",
 			"Mar(c)",
 			"McDutchie",
@@ -170,5 +171,15 @@
 	"fr-revision-info-dialog": "De bovenstaande informatie is bedoeld om onze lezers op de hoogte te houden van de actuele status van de inhoud op deze pagina.",
 	"fr-revision-info-dialog-review-button": "Beoordelen…",
 	"fr-revision-info-dialog-cancel-button": "Annuleren",
-	"fr-revision-info-dialog-close-aria-label": "Sluiten"
+	"fr-revision-info-dialog-close-aria-label": "Sluiten",
+	"listgrouprights-restrictedgroups-cond-fr-editsummarycount": "De gebruiker heeft minstens $1 {{PLURAL:$1|bewerkingssamenvatting|bewerkingssamenvattingen}} ingevuld",
+	"listgrouprights-restrictedgroups-cond-fr-neverblocked": "De gebruiker is nooit geblokkeerd",
+	"listgrouprights-restrictedgroups-cond-fr-uniquepagecount": "De gebruiker heeft minstens $1 verschillende inhoudelijke {{PLURAL:$1|pagina|pagina's}} bewerkt",
+	"listgrouprights-restrictedgroups-cond-fr-contenteditcount": "De gebruiker heeft minstens $1 {{PLURAL:$1|bewerking|bewerkingen}} aan inhoudelijke pagina's gemaakt (met uitzondering van bewerkingen in de laatste $2)",
+	"listgrouprights-restrictedgroups-cond-fr-userpagebytes": "De gebruikerspagina van de gebruiker heeft een grootte van minstens {{PLURAL:$1|byte|bytes}}",
+	"listgrouprights-restrictedgroups-cond-fr-editcount": "De gebruiker heeft minstens $1 {{PLURAL:$1|bewerking|bewerkingen}} gemaakt (met uitzondering van bewerkingen in de laatste $2)",
+	"listgrouprights-restrictedgroups-cond-fr-editspacing": "De gebruiker heeft minstens $1 {{PLURAL:$1|bewerking|bewerkingen}} gemaakt, met minstens $2 tussen elke bewerking",
+	"listgrouprights-restrictedgroups-cond-fr-checkededitcount": "De gebruiker heeft minstens $1 {{PLURAL:$1|bewerking|bewerkingen}} gemaakt die later gecontroleerd zijn (met uitzondering van bewerkingen in de laatste $2)",
+	"listgrouprights-restrictedgroups-cond-fr-maxrevertededitratio": "Niet meer dan $1% van de bewerkingen van de gebruiker zijn teruggedraaid",
+	"listgrouprights-restrictedgroups-cond-fr-neverdemoted": "De gebruiker is nooit uit een groep gezet"
 }
