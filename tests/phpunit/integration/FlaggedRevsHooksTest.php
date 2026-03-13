@@ -19,7 +19,7 @@ use MediaWikiIntegrationTestCase;
 /**
  * Tests the Hooks class.
  *
- * @covers FlaggedRevsHooks
+ * @covers \FlaggedRevsHooks
  *
  * @group FlaggedRevs
  * @group extensions
@@ -30,7 +30,7 @@ class FlaggedRevsHooksTest extends MediaWikiIntegrationTestCase {
 	use TempUserTestTrait;
 
 	/**
-	 * @covers FlaggedRevsHooks::onPageMoveComplete()
+	 * @covers \FlaggedRevsHooks::onPageMoveComplete()
 	 */
 	public function testAutoReviewedPageStaysReviewedAfterMove() {
 		// configure
@@ -74,8 +74,8 @@ class FlaggedRevsHooksTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers FlaggedRevsHooks::onPageSaveComplete
-	 * @covers FlaggedRevsHooks::maybeIncrementReverts
+	 * @covers \FlaggedRevsHooks::onPageSaveComplete
+	 * @covers \FlaggedRevsHooks::maybeIncrementReverts
 	 */
 	public function testShouldNotUpdateCountersOnContentPageEditForNamedUserIfNoAutopromote(): void {
 		$this->overrideConfigValue( 'FlaggedRevsAutoconfirm', false );
@@ -99,8 +99,8 @@ class FlaggedRevsHooksTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers FlaggedRevsHooks::onPageSaveComplete
-	 * @covers FlaggedRevsHooks::maybeIncrementReverts
+	 * @covers \FlaggedRevsHooks::onPageSaveComplete
+	 * @covers \FlaggedRevsHooks::maybeIncrementReverts
 	 */
 	public function testShouldUpdateCountersOnContentPageEditForNamedUser(): void {
 		$this->overrideConfigValue( 'FlaggedRevsAutoconfirm', true );
@@ -125,8 +125,8 @@ class FlaggedRevsHooksTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @dataProvider provideAnonymousOrTemporaryUsers
-	 * @covers FlaggedRevsHooks::onPageSaveComplete
-	 * @covers FlaggedRevsHooks::maybeIncrementReverts
+	 * @covers \FlaggedRevsHooks::onPageSaveComplete
+	 * @covers \FlaggedRevsHooks::maybeIncrementReverts
 	 */
 	public function testShouldNotUpdateCountersOnContentPageEditForAnonymousUser(
 		Closure $userProvider
@@ -153,8 +153,8 @@ class FlaggedRevsHooksTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers FlaggedRevsHooks::onPageSaveComplete
-	 * @covers FlaggedRevsHooks::maybeIncrementReverts
+	 * @covers \FlaggedRevsHooks::onPageSaveComplete
+	 * @covers \FlaggedRevsHooks::maybeIncrementReverts
 	 */
 	public function testShouldNotUpdateCountersOnNonContentPageEdit(): void {
 		$this->overrideConfigValue( 'FlaggedRevsAutoconfirm', true );
@@ -178,8 +178,8 @@ class FlaggedRevsHooksTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers FlaggedRevsHooks::onPageSaveComplete
-	 * @covers FlaggedRevsHooks::maybeIncrementReverts
+	 * @covers \FlaggedRevsHooks::onPageSaveComplete
+	 * @covers \FlaggedRevsHooks::maybeIncrementReverts
 	 */
 	public function testShouldUpdateRevertCountForNamedUserOnUndoIfNoAutopromote(): void {
 		$this->overrideConfigValue( 'FlaggedRevsAutoconfirm', false );
@@ -205,8 +205,8 @@ class FlaggedRevsHooksTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers FlaggedRevsHooks::onPageSaveComplete
-	 * @covers FlaggedRevsHooks::maybeIncrementReverts
+	 * @covers \FlaggedRevsHooks::onPageSaveComplete
+	 * @covers \FlaggedRevsHooks::maybeIncrementReverts
 	 */
 	public function testShouldUpdateRevertCountForNamedUserOnUndo(): void {
 		$this->overrideConfigValue( 'FlaggedRevsAutoconfirm', true );
@@ -232,8 +232,8 @@ class FlaggedRevsHooksTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers FlaggedRevsHooks::onPageSaveComplete
-	 * @covers FlaggedRevsHooks::maybeIncrementReverts
+	 * @covers \FlaggedRevsHooks::onPageSaveComplete
+	 * @covers \FlaggedRevsHooks::maybeIncrementReverts
 	 */
 	public function testShouldUpdateRevertCountForNamedUserOnRollbackIfNoAutopromote(): void {
 		$this->overrideConfigValue( 'FlaggedRevsAutoconfirm', false );
@@ -264,8 +264,8 @@ class FlaggedRevsHooksTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers FlaggedRevsHooks::onPageSaveComplete
-	 * @covers FlaggedRevsHooks::maybeIncrementReverts
+	 * @covers \FlaggedRevsHooks::onPageSaveComplete
+	 * @covers \FlaggedRevsHooks::maybeIncrementReverts
 	 */
 	public function testShouldUpdateRevertCountForNamedUserOnRollback(): void {
 		$this->overrideConfigValue( 'FlaggedRevsAutoconfirm', true );
@@ -297,8 +297,8 @@ class FlaggedRevsHooksTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @dataProvider provideAnonymousOrTemporaryUsers
-	 * @covers FlaggedRevsHooks::onPageSaveComplete
-	 * @covers FlaggedRevsHooks::maybeIncrementReverts
+	 * @covers \FlaggedRevsHooks::onPageSaveComplete
+	 * @covers \FlaggedRevsHooks::maybeIncrementReverts
 	 */
 	public function testShouldNotUpdateRevertCountForAnonymousOrTemporaryUserOnUndo(
 		Closure $userProvider
@@ -327,8 +327,8 @@ class FlaggedRevsHooksTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @dataProvider provideAnonymousOrTemporaryUsers
-	 * @covers FlaggedRevsHooks::onPageSaveComplete
-	 * @covers FlaggedRevsHooks::maybeIncrementReverts
+	 * @covers \FlaggedRevsHooks::onPageSaveComplete
+	 * @covers \FlaggedRevsHooks::maybeIncrementReverts
 	 */
 	public function testShouldNotUpdateRevertCountForAnonymousOrTemporaryUserOnRollback(
 		Closure $userProvider

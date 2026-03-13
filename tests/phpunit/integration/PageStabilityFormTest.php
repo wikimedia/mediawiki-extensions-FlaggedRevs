@@ -11,8 +11,8 @@ use PageStabilityProtectForm;
 use Wikimedia\Timestamp\ConvertibleTimestamp;
 
 /**
- * @covers PageStabilityForm
- * @covers PageStabilityProtectForm
+ * @covers \PageStabilityForm
+ * @covers \PageStabilityProtectForm
  * @group Database
  */
 class PageStabilityFormTest extends MediaWikiIntegrationTestCase {

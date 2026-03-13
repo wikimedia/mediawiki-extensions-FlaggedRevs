@@ -11,7 +11,7 @@ use RevisionReviewForm;
 use Wikimedia\Timestamp\ConvertibleTimestamp;
 
 /**
- * @covers ApiQueryOldreviewedpages
+ * @covers \ApiQueryOldreviewedpages
  * @group Database
  */
 class ApiQueryOldreviewedpagesTest extends ApiTestCase {

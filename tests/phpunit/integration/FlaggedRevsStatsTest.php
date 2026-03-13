@@ -10,7 +10,7 @@ use RevisionReviewForm;
 use Wikimedia\Timestamp\ConvertibleTimestamp;
 
 /**
- * @covers FlaggedRevsStats
+ * @covers \FlaggedRevsStats
  * @group Database
  */
 class FlaggedRevsStatsTest extends MediaWikiIntegrationTestCase {

@@ -12,7 +12,7 @@ use MediaWikiIntegrationTestCase;
 use RevisionReviewForm;
 
 /**
- * @covers RevisionReviewForm
+ * @covers \RevisionReviewForm
  * @group Database
  */
 class RevisionReviewFormTest extends MediaWikiIntegrationTestCase {

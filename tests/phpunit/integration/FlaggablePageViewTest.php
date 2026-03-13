@@ -9,7 +9,7 @@ use MediaWiki\User\User;
 
 /**
  * @group Database
- * @covers FlaggablePageView
+ * @covers \FlaggablePageView
  */
 class FlaggablePageViewTest extends MediaWikiIntegrationTestCase {
 	use TempUserTestTrait;
