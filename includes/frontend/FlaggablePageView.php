@@ -786,9 +786,7 @@ class FlaggablePageView extends ContextSource {
 		if ( !$this->article->isReviewable() ) {
 			return;
 		}
-		// HACK fake EditPage
-		$editPage = new EditPage( new Article( $title, $oldid ) );
-		$editPage->oldid = $oldid;
+		$article = new Article( $title, $oldid );
 		$reqUser = $this->getUser();
 
 		$lines = [];
@@ -796,7 +794,7 @@ class FlaggablePageView extends ContextSource {
 		$log = $this->stabilityLogNotice();
 		if ( $log ) {
 			$lines[] = $log;
-		} elseif ( $this->editWillRequireReview( $editPage ) ) {
+		} elseif ( $this->editWillRequireReview( $article, false ) ) {
 			$lines[] = $this->msg( 'revreview-editnotice' )->parseAsBlock();
 		}
 		$frev = $this->article->getStableRev();
@@ -1493,7 +1491,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param ButtonInputWidget[] $buttons
 	 */
 	public function changeSaveButton( EditPage $editPage, array $buttons ): void {
-		if ( !$this->editWillRequireReview( $editPage ) ) {
+		if ( !$this->editWillRequireReview( $editPage->getArticle(), $editPage->isConflict ) ) {
 			// Edit will go live or be reviewed on save
 			return;
 		}
@@ -1508,10 +1506,10 @@ class FlaggablePageView extends ContextSource {
 	/**
 	 * If this edit will not go live on submit (accounting for wpReviewEdit)
 	 */
-	private function editWillRequireReview( EditPage $editPage ): bool {
+	private function editWillRequireReview( Article $article, bool $isConflict ): bool {
 		$request = $this->getRequest(); // convenience
 		$title = $this->article->getTitle(); // convenience
-		if ( !$this->article->editsRequireReview() || $this->editWillBeAutoreviewed( $editPage ) ) {
+		if ( !$this->article->editsRequireReview() || $this->editWillBeAutoreviewed( $article, $isConflict ) ) {
 			return false; // edit will go live immediately
 		} elseif ( $request->getCheck( 'wpReviewEdit' ) &&
 			MediaWikiServices::getInstance()->getPermissionManager()
@@ -1526,7 +1524,7 @@ class FlaggablePageView extends ContextSource {
 	 * If this edit will be auto-reviewed on submit
 	 * Note: checking wpReviewEdit does not count as auto-reviewed
 	 */
-	private function editWillBeAutoreviewed( EditPage $editPage ): bool {
+	private function editWillBeAutoreviewed( Article $article, bool $isConflict ): bool {
 		$title = $this->article->getTitle(); // convenience
 		if ( !$this->article->isReviewable() ) {
 			return false;
@@ -1538,8 +1536,8 @@ class FlaggablePageView extends ContextSource {
 				return true; // edit will be autoreviewed
 			}
 
-			$baseRevId = self::getBaseRevId( $editPage, $this->getRequest() );
-			$baseRevId2 = self::getAltBaseRevId( $editPage, $this->getRequest() );
+			$baseRevId = self::getBaseRevId( $article, $isConflict, $this->getRequest() );
+			$baseRevId2 = self::getAltBaseRevId( $article, $isConflict, $this->getRequest() );
 			$baseFRev = FlaggedRevision::newFromTitle( $title, $baseRevId );
 			if ( !$baseFRev && $baseRevId2 ) {
 				$baseFRev = FlaggedRevision::newFromTitle( $title, $baseRevId2 );
@@ -1566,11 +1564,12 @@ class FlaggablePageView extends ContextSource {
 		) {
 			// Not needed
 			return;
-		} elseif ( $this->editWillBeAutoreviewed( $editPage ) ) {
+		} elseif ( $this->editWillBeAutoreviewed( $editPage->getArticle(), $editPage->isConflict ) ) {
 			// Edit will be auto-reviewed
 			return;
 		}
-		if ( self::getBaseRevId( $editPage, $request ) == $this->article->getLatest() ) {
+		if ( self::getBaseRevId( $editPage->getArticle(), $editPage->isConflict, $request ) ==
+			$this->article->getLatest() ) {
 			# For pages with either no stable version, or an outdated one, let
 			# the user decide if he/she wants it reviewed on the spot. One might
 			# do this if he/she just saw the diff-to-stable and *then* decided to edit.
@@ -1606,12 +1605,11 @@ class FlaggablePageView extends ContextSource {
 	/**
 	 * Guess the rev ID the text of this form is based off
 	 */
-	private static function getBaseRevId( EditPage $editPage, WebRequest $request ): int {
-		if ( $editPage->isConflict ) {
+	private static function getBaseRevId( Article $article, bool $isConflict, WebRequest $request ): int {
+		if ( $isConflict ) {
 			return 0; // throw away these values (bug 33481)
 		}
 
-		$article = $editPage->getArticle(); // convenience
 		$latestId = $article->getPage()->getLatest(); // current rev
 		# Undoing edits...
 		if ( $request->getIntOrNull( 'wpUndidRevision' ) ?? $request->getIntOrNull( 'undo' ) ) {
@@ -1630,12 +1628,11 @@ class FlaggablePageView extends ContextSource {
 	 * When undoing the top X edits, the base can be though of as either
 	 * the current or the edit X edits prior to the latest.
 	 */
-	private static function getAltBaseRevId( EditPage $editPage, WebRequest $request ): int {
-		if ( $editPage->isConflict ) {
+	private static function getAltBaseRevId( Article $article, bool $isConflict, WebRequest $request ): int {
+		if ( $isConflict ) {
 			return 0; // throw away these values (bug 33481)
 		}
 
-		$article = $editPage->getArticle(); // convenience
 		$latestId = $article->getPage()->getLatest(); // current rev
 		$undo = $request->getIntOrNull( 'wpUndidRevision' ) ?? $request->getIntOrNull( 'undo' );
 		# Undoing consecutive top edits...
