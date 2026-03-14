@@ -463,7 +463,7 @@ class FlaggedRevs {
 	 */
 	public static function purgeMediaWikiHtmlCdn( Title $title ) {
 		DeferredUpdates::addCallableUpdate( static function () use ( $title ) {
-			$htmlCache = MediaWikiServices::getInstance()->getHtmlCacheUpdater();
+			$htmlCache = MediaWikiServices::getInstance()->getHTMLCacheUpdater();
 			$htmlCache->purgeTitleUrls( $title, $htmlCache::PURGE_INTENT_TXROUND_REFLECTED );
 		} );
 	}

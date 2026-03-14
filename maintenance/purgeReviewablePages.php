@@ -134,7 +134,7 @@ class PurgeReviewablePages extends Maintenance {
 		}
 
 		$services = $this->getServiceContainer();
-		$htmlCache = $services->getHtmlCacheUpdater();
+		$htmlCache = $services->getHTMLCacheUpdater();
 
 		$count = 0;
 		while ( !feof( $fileHandle ) ) {
