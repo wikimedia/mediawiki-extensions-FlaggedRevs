@@ -640,9 +640,12 @@ class FlaggablePageView extends ContextSource {
 
 		# Add the parser output to the page view
 		$pm = MediaWikiServices::getInstance()->getPermissionManager();
+		$skin = $this->getSkin();
 		$poOptions = [
 			// (T391788) This should always be used for full page views
 			'includeDebugInfo' => true,
+			'skin' => $skin,
+			'injectTOC' => $skin->getOptions()['toc'],
 		];
 		if ( $this->out->isPrintable() ||
 			!$pm->quickUserCan( 'edit', $reqUser, $this->article->getTitle() )
@@ -650,7 +653,9 @@ class FlaggablePageView extends ContextSource {
 			$poOptions['enableSectionEditLinks'] = false;
 		}
 
-		$this->out->addParserOutput( $parserOut, $parserOptions, $poOptions );
+		$pipeline = MediaWikiServices::getInstance()->getDefaultOutputPipeline();
+		$parserOut = $pipeline->run( $parserOut, $parserOptions, $poOptions );
+		$this->out->addPostProcessedParserOutput( $parserOut );
 		return $parserOut;
 	}
 
