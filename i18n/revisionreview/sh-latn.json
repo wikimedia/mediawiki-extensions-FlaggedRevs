@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Aca",
 			"Winston Sung"
 		]
 	},
@@ -13,7 +14,7 @@
 	"review_no_oldid": "Nema naznačeno naznaku inačice.",
 	"review_bad_oldid": "Nema takve odredišne inačice.",
 	"review_conflict_oldid": "Netko drugi je prihvatio/otprihvatio ovu reviziju dok ste je vi pregledavali.",
-	"review_not_flagged": "Odredišna izmjena nije označena kao provjerena.",
+	"review_not_flagged": "Odredišna verzija trenutno nije označena kao pregledana.",
 	"review_too_low": "Izmjena ne može biti provjerena ako su neka polja ostavljena s ocjenom \"ne zadovoljava\".",
 	"revreview-reject-summary": "Sažetak:",
 	"revreview-reject-confirm": "Odbij ove izmjene",

@@ -165,5 +165,15 @@
 	"fr-revision-info-dialog": "Le information supra es fornite pro mantener nostre lectores informate sur le stato actual del contento de iste pagina.",
 	"fr-revision-info-dialog-review-button": "Revider…",
 	"fr-revision-info-dialog-cancel-button": "Cancellar",
-	"fr-revision-info-dialog-close-aria-label": "Clauder"
+	"fr-revision-info-dialog-close-aria-label": "Clauder",
+	"listgrouprights-restrictedgroups-cond-fr-editsummarycount": "Le usator ha completate al minus $1 summario{{PLURAL:$1||s}} de modification",
+	"listgrouprights-restrictedgroups-cond-fr-neverblocked": "Le usator non ha jammais essite blocate",
+	"listgrouprights-restrictedgroups-cond-fr-uniquepagecount": "Le usator ha modificate al minus $1 pagina{{PLURAL:$1||s}} de contento distincte",
+	"listgrouprights-restrictedgroups-cond-fr-contenteditcount": "Le usator ha apportate al minus $1 modification{{PLURAL:$1||es}} a paginas de contento (excepte modificationes in le ultime $2)",
+	"listgrouprights-restrictedgroups-cond-fr-userpagebytes": "Le pagina del usator ha un dimension de al minus $1 byte{{PLURAL:$1||s}}",
+	"listgrouprights-restrictedgroups-cond-fr-editcount": "Le usator ha apportate al minus $1 modification{{PLURAL:$1||es}} (excepte modificationes in le ultime $2)",
+	"listgrouprights-restrictedgroups-cond-fr-editspacing": "Le usator ha apportate al minus $1 modification{{PLURAL:$1||es}} con al minus $2 inter cata modification",
+	"listgrouprights-restrictedgroups-cond-fr-checkededitcount": "Le usator ha apportate al minus $1 modification{{PLURAL:$1||es}} que ha essite revidite postea (excepte modificationes in le ultime $2)",
+	"listgrouprights-restrictedgroups-cond-fr-maxrevertededitratio": "Non plus de $1% del modificationes del usator ha essite revertite",
+	"listgrouprights-restrictedgroups-cond-fr-neverdemoted": "Le usator non ha jammais essite degradate"
 }
