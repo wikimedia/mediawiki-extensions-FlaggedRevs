@@ -2,6 +2,7 @@
 
 use MediaWiki\Config\ConfigException;
 use MediaWiki\Exception\MWException;
+use MediaWiki\Feed\ChannelFeed;
 use MediaWiki\Feed\FeedItem;
 use MediaWiki\Feed\FeedUtils;
 use MediaWiki\Html\Html;
@@ -302,15 +303,16 @@ class PendingChanges extends IncludableSpecialPage {
 			$this->msg( 'tagline' )->text(),
 			$this->getPageTitle()->getFullURL()
 		);
+		/** @var ChannelFeed $feed */
 		$this->pager->mLimit = min( $this->getConfig()->get( MainConfigNames::FeedLimit ), $this->pager->mLimit );
 
-		$feed->outHeader();
+		$feed->outputHeader( $this->getOutput() );
 		if ( $this->pager->getNumRows() > 0 ) {
 			foreach ( $this->pager->mResult as $row ) {
-				$feed->outItem( $this->feedItem( $row ) );
+				$feed->outputItem( $this->feedItem( $row ), $this->getOutput() );
 			}
 		}
-		$feed->outFooter();
+		$feed->outputFooter( $this->getOutput() );
 	}
 
 	private function feedTitle(): string {
