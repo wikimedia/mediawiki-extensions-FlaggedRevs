@@ -15,7 +15,7 @@
 	"action-unreviewedpages": "pregled spiska neprovjerenih stranica",
 	"editor": "Urednik",
 	"flaggedrevs": "Označene izmjene",
-	"flaggedrevs-watched-pending": "Na Vašem spisku praćenja [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ima izmjene] što čekaju pregled. '''Obratite pažnju!'''",
+	"flaggedrevs-watched-pending": "Na Vašoj listi praćenja trenutno ima [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} izmjena] koje čekaju pregled. '''Obratite pažnju!'''",
 	"flaggedrevs-desc": "Daje uređivačima mogućnost ocjenjivanja izmjena i stabiliziranja stranica",
 	"flaggedrevs-pref-UI": "Osnovni interfejs:",
 	"flaggedrevs-pref-UI-0": "Koristi podrobne kutije za prikaz odobriteljnog statusa stranica",
