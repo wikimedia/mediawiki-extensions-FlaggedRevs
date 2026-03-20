@@ -171,5 +171,15 @@
 	"fr-revision-info-dialog": "Thông tin trên được cung cấp để độc giả nắm được tình trạng hiện tại của nội dung trên trang này.",
 	"fr-revision-info-dialog-review-button": "Duyệt…",
 	"fr-revision-info-dialog-cancel-button": "Hủy bỏ",
-	"fr-revision-info-dialog-close-aria-label": "Đóng"
+	"fr-revision-info-dialog-close-aria-label": "Đóng",
+	"listgrouprights-restrictedgroups-cond-fr-editsummarycount": "Người dùng đã điền ít nhất $1 {{PLURAL:$1|tóm lược sửa đổi}}",
+	"listgrouprights-restrictedgroups-cond-fr-neverblocked": "Người dùng chưa bao giờ bị cấm",
+	"listgrouprights-restrictedgroups-cond-fr-uniquepagecount": "Người dùng đã sửa đổi ít nhất $1 {{PLURAL:$1|trang}} nội dung khác nhau",
+	"listgrouprights-restrictedgroups-cond-fr-contenteditcount": "Người dùng đã thực hiện ít nhất $1 {{PLURAL:$1|sửa đổi}} tại các trang nội dung (ngoại trừ các sửa đổi trong $2 vừa qua)",
+	"listgrouprights-restrictedgroups-cond-fr-userpagebytes": "Trang của người dùng có kích thước tối thiểu $1 {{PLURAL:$1|byte}}",
+	"listgrouprights-restrictedgroups-cond-fr-editcount": "Người dùng đã thực hiện ít nhất $1 {{PLURAL:$1|sửa đổi}} (ngoại trừ các sửa đổi trong $2 vừa qua)",
+	"listgrouprights-restrictedgroups-cond-fr-editspacing": "Người dùng đã thực hiện ít nhất $1 {{PLURAL:$1|sửa đổi}}, với khoảng cách giữa mỗi lần ít nhất là $2",
+	"listgrouprights-restrictedgroups-cond-fr-checkededitcount": "Người dùng đã thực hiện ít nhất $1 {{PLURAL:$1|sửa đổi}} và đã được duyệt sau đó (ngoại trừ các sửa đổi trong $2 vừa qua).",
+	"listgrouprights-restrictedgroups-cond-fr-maxrevertededitratio": "Không quá $1% số sửa đổi của người dùng bị lùi lại",
+	"listgrouprights-restrictedgroups-cond-fr-neverdemoted": "Người dùng chưa bao giờ bị giáng cấp"
 }

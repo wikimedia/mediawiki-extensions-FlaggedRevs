@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Aca",
 			"Winston Sung"
 		]
 	},
 	"stabilization-tab": "konfig.",
 	"stabilization": "Stabilizacija stranice",
-	"stabilization-text": "'''Promijenite postavke kako biste prilagodili kako će biti odabrana i prikazana objavljena inačica članka [[:$1|$1]].'''",
+	"stabilization-text": "'''Promijenite postavke kako biste prilagodili kako će biti izabrana i prikazana objavljena inačica članka [[:$1|$1]].'''",
 	"stabilization-perm": "Vaš račun nema dopuštenje da mijenja postavku objavljene verzije.\nOvdje su trenutne postavke za [[:$1|$1]]:",
 	"stabilization-page": "Naslov stranice:",
 	"stabilization-leg": "Potvrdi podešavanja za objavljenu verziju",
