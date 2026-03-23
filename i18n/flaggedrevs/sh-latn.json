@@ -92,7 +92,7 @@
 	"revreview-quick-basic": "'''[[{{MediaWiki:Validationpage}}|Pregledano]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} izmjene na čekanju]]",
 	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|Provjereno]]'''",
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Provjereno]]'''",
-	"revreview-quick-invalid": "'''Nevažeća naznaka izmjene'''",
+	"revreview-quick-invalid": "'''Neispravan ID izmjene'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Neprovjereno]]'''",
 	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} izmjene na čekanju]",
 	"revreview-basic-title": "Ovo je provjerena verzija ove stranice",

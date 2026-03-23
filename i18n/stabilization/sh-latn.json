@@ -18,7 +18,7 @@
 	"stabilization-restrict-none": "Bez dodatnih ograničenja",
 	"stabilization-submit": "Potvrdi",
 	"stabilization-notexists": "Nema stranice pod nazivom \"[[:$1|$1]]\".\nNije moguće podešavanje.",
-	"stabilization-notcontent": "Stranica \"[[:$1|$1]]\" ne može se provjerevati.\nNije moguće podešavanje.",
+	"stabilization-notcontent": "Stranica \"[[:$1|$1]]\" ne može biti pregledana.\nPodešavanje nije moguće.",
 	"stabilization-comment": "Razlog:",
 	"stabilization-otherreason": "Ostali razlog:",
 	"stabilization-expiry": "Ističe:",
