@@ -719,7 +719,7 @@ class FlaggablePageView extends ContextSource {
 
 		if ( $this->useSimpleUI() ) {
 			$this->addStatusIndicator();
-			$this->out->addHTML( FlaggedRevsHTML::reviewDialog( null, 0, 0, 'unreviewed' ) );
+			$tag = FlaggedRevsHTML::reviewDialog( null, 0, 0, 'unreviewed' );
 		} else {
 			$tag = $this->msg( 'revreview-noflagged' )->parse();
 		}
