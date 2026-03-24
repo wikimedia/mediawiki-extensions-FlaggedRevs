@@ -343,6 +343,8 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		$newConfig = $this->getNewConfig();
 		$oldConfig = $this->getOldConfig();
 		$reason = $this->getReason();
+		$services = MediaWikiServices::getInstance();
+		$contLang = $services->getContentLanguage();
 
 		# Insert stability log entry...
 		FlaggedRevsLog::updateStabilityLog( $this->title, $newConfig, $oldConfig, $reason, $this->user );
@@ -355,11 +357,10 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 			$type = "stable-logentry-config";
 			// Settings message in text form (e.g. [x=a,y=b,z])
 			$params = FlaggedRevsLog::stabilityLogParams( $newConfig );
-			$settings = FlaggedRevsStableLogFormatter::stabilitySettings( $params, true /*content*/ );
+			$settings = FlaggedRevsStableLogFormatter::stabilitySettings( $params, $contLang );
 		}
 		// action
-		$services = MediaWikiServices::getInstance();
-		$comment = $services->getContentLanguage()->ucfirst(
+		$comment = $contLang->ucfirst(
 			wfMessage( $type, $this->title->getPrefixedText() )->inContentLanguage()->text()
 		);
 		if ( $reason != '' ) {

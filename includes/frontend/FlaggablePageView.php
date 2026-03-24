@@ -527,7 +527,14 @@ class FlaggablePageView extends ContextSource {
 			// Simple icon-based UI
 			if ( $this->useSimpleUI() ) {
 				$revisionId = $srev->getRevId();
-				$tag .= FlaggedRevsHTML::reviewDialog( $srev, $revisionId, $revsSince, 'draft', $synced );
+				$tag .= FlaggedRevsHTML::reviewDialog(
+					$this,
+					$srev,
+					$revisionId,
+					$revsSince,
+					'draft',
+					$synced,
+				);
 			// Standard UI
 			} else {
 				if ( $synced ) {
@@ -574,11 +581,12 @@ class FlaggablePageView extends ContextSource {
 				# For protection based configs, show lock only if it's not redundant.
 				$revisionId = $srev->getRevId();
 				$tag = FlaggedRevsHTML::reviewDialog(
+					$this,
 					$srev,
 					$revisionId,
 					$revsSince,
 					'stable',
-					$synced
+					$synced,
 				);
 			// Standard UI
 			} else {
@@ -721,7 +729,7 @@ class FlaggablePageView extends ContextSource {
 
 		if ( $this->useSimpleUI() ) {
 			$this->addStatusIndicator();
-			$tag = FlaggedRevsHTML::reviewDialog( null, 0, 0, 'unreviewed' );
+			$tag = FlaggedRevsHTML::reviewDialog( $this, null, 0, 0, 'unreviewed' );
 		} else {
 			$tag = $this->msg( 'revreview-noflagged' )->parse();
 		}

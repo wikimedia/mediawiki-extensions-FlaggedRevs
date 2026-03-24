@@ -115,7 +115,7 @@ class RevisionReview extends UnlistedSpecialPage {
 
 		// Use confirmation screen for reject...
 		if ( $form->getAction() == RevisionReviewForm::ACTION_REJECT && !$request->getBool( 'wpRejectConfirm' ) ) {
-			$rejectForm = new RejectConfirmationFormUI( $form );
+			$rejectForm = new RejectConfirmationFormUI( $form, $this->getContext() );
 			[ $html, $status ] = $rejectForm->getHtml();
 			if ( $status === true ) {
 				// Success...

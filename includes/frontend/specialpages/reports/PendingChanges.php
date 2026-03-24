@@ -129,7 +129,7 @@ class PendingChanges extends IncludableSpecialPage {
 		$form .= Html::rawElement(
 			'div',
 			[ 'class' => 'cdx-field__item' ],
-			FlaggedRevsHTML::getEditTagFilterMenu( $this->tagFilter )
+			FlaggedRevsHTML::getEditTagFilterMenu( $this->getContext(), $this->tagFilter )
 		);
 
 		$form .= Html::rawElement(

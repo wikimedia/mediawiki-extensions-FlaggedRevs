@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\Logging\LogFormatter;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\Title\Title;
 
@@ -24,7 +23,7 @@ class FlaggedRevsStableLogFormatter extends LogFormatter {
 			# Add setting change description as a param
 			$settings = $this->entry->getParameters();
 			$settings = $this->entry->isLegacy() ? FlaggedRevsLog::expandParams( $settings ) : $settings;
-			$params[3] = self::stabilitySettings( $settings, false );
+			$params[3] = self::stabilitySettings( $settings, $this->context->getLanguage() );
 		} else {
 			$oldName = $this->makePageLink( Title::newFromText( $params[3] ), [ 'redirect' => 'no' ] );
 			$params[3] = Message::rawParam( $oldName );
@@ -51,13 +50,11 @@ class FlaggedRevsStableLogFormatter extends LogFormatter {
 	 * Also used for null edit summary
 	 *
 	 * @param array $pars assoc array
-	 * @param bool $forContent
+	 * @param Language $langObj Language object (UI language for log display, content language for edit summary)
 	 */
-	public static function stabilitySettings( array $pars, bool $forContent ): string {
-		global $wgLang;
+	public static function stabilitySettings( array $pars, Language $langObj ): string {
 		$set = [];
 		$settings = '';
-		$langObj = $forContent ? MediaWikiServices::getInstance()->getContentLanguage() : $wgLang;
 		// Protection-based or deferral-based configs (precedence never changed)...
 		if ( !isset( $pars['precedence'] ) ) {
 			if ( isset( $pars['autoreview'] ) && strlen( $pars['autoreview'] ) ) {

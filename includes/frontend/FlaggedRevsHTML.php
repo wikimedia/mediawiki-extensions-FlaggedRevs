@@ -1,7 +1,7 @@
 <?php
 
 use MediaWiki\ChangeTags\ChangeTags;
-use MediaWiki\Context\RequestContext;
+use MediaWiki\Context\IContextSource;
 use MediaWiki\Html\Html;
 use MediaWiki\Logging\LogEventsList;
 use MediaWiki\MediaWikiServices;
@@ -173,14 +173,15 @@ class FlaggedRevsHTML {
 	/**
 	 * Generates a dropdown menu for edit tag filters
 	 *
+	 * @param IContextSource $context
 	 * @param string|null $selected (null or empty string for "any")
 	 * @since 1.43
 	 */
-	public static function getEditTagFilterMenu( ?string $selected = '' ): string {
+	public static function getEditTagFilterMenu( IContextSource $context, ?string $selected = '' ): string {
 		$s = Html::rawElement( 'div', [ 'class' => 'cdx-field__item' ],
 			Html::rawElement( 'div', [ 'class' => 'cdx-label' ],
 				Html::label(
-					wfMessage( 'pendingchanges-edit-tag' )->text(),
+					$context->msg( 'pendingchanges-edit-tag' )->text(),
 					'wpTagFilter',
 					[ 'class' => 'cdx-label__label' ]
 				)
@@ -189,10 +190,10 @@ class FlaggedRevsHTML {
 
 		$selectOptions = Html::element( 'option',
 			[ 'value' => '', 'selected' => ( $selected ?? '' ) === '' ],
-			wfMessage( 'pendingchanges-edit-tag-any' )->text()
+			$context->msg( 'pendingchanges-edit-tag-any' )->text()
 		);
 
-		$tagDefs = ChangeTags::getChangeTagList( RequestContext::getMain(), RequestContext::getMain()->getLanguage() );
+		$tagDefs = ChangeTags::getChangeTagList( $context, $context->getLanguage() );
 		foreach ( $tagDefs as $tagInfo ) {
 			$tagName = $tagInfo['name'];
 			$selectOptions .= Html::element( 'option',
@@ -213,6 +214,7 @@ class FlaggedRevsHTML {
 	/**
 	 * Generates a review box using a table using FlaggedRevsHTML::addTagRatings()
 	 *
+	 * @param IContextSource $context
 	 * @param FlaggedRevision|null $frev the reviewed version
 	 * @param int $revisionId the revision ID
 	 * @param int $revsSince revisions since review
@@ -222,17 +224,17 @@ class FlaggedRevsHTML {
 	 * @return string
 	 */
 	public static function reviewDialog(
+		IContextSource $context,
 		?FlaggedRevision $frev,
 		int $revisionId,
 		int $revsSince,
 		string $type = 'oldstable',
 		bool $synced = false
 	): string {
-		global $wgLang;
 		$href = '';
-		$context = RequestContext::getMain();
 		$user = $context->getAuthority();
 		$skin = $context->getSkin();
+		$lang = $context->getLanguage();
 
 		// If $frev is null, show a dialog with a "no flagged revision" message
 		if ( $frev === null ) {
@@ -243,7 +245,7 @@ class FlaggedRevsHTML {
 		} else {
 			// Regular case when $frev is not null
 			$flags = $frev->getTags();
-			$time = $wgLang->date( $frev->getTimestamp(), true );
+			$time = $lang->date( $frev->getTimestamp(), true );
 
 			$subtitleMessageKey = ( $type === 'stable' || $synced )
 				? 'revreview-basic-title' // This is a checked version of this page

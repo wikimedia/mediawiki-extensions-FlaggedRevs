@@ -1,7 +1,7 @@
 <?php
 
 use MediaWiki\CommentStore\CommentStore;
-use MediaWiki\Context\RequestContext;
+use MediaWiki\Context\IContextSource;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
@@ -22,6 +22,7 @@ class RejectConfirmationFormUI {
 
 	public function __construct(
 		private readonly RevisionReviewForm $form,
+		private readonly IContextSource $context,
 	) {
 		$revisionStore = MediaWikiServices::getInstance()->getRevisionStore();
 		$title = $form->getTitle();
@@ -35,8 +36,6 @@ class RejectConfirmationFormUI {
 	 * @return array (html string, error string or true)
 	 */
 	public function getHtml(): array {
-		global $wgLang;
-
 		$status = $this->form->checkTarget();
 		if ( $status !== true ) {
 			return [ '', $status ]; // not a reviewable existing page
@@ -92,7 +91,7 @@ class RejectConfirmationFormUI {
 				$userText = $user ? $user->getName() : '';
 
 				$rejectAuthors[] = $revRecord->isDeleted( RevisionRecord::DELETED_USER )
-					? wfMessage( 'rev-deleted-user' )->text()
+					? $this->context->msg( 'rev-deleted-user' )->text()
 					: "[[{$contribs}/{$userText}|{$userText}]]";
 				// Used for GENDER support for revreview-reject-summary-*
 				$lastRejectAuthor = $userText;
@@ -109,12 +108,12 @@ class RejectConfirmationFormUI {
 		$oldTitle = Title::newFromLinkTarget( $oldRevRecord->getPageAsLinkTarget() );
 
 		$formHTML = '<div class="plainlinks">';
-		$formHTML .= wfMessage( 'revreview-reject-text-list' )
+		$formHTML .= $this->context->msg( 'revreview-reject-text-list' )
 			->numParams( count( $rejectIds ) )
 			->params( $oldTitle->getPrefixedText() )->parse();
 		$formHTML .= '<ul>';
 
-		$list = new RevisionList( RequestContext::getMain(), $oldTitle );
+		$list = new RevisionList( $this->context, $oldTitle );
 		$list->filterByIds( $rejectIds );
 
 		for ( $list->reset(); $list->current(); $list->next() ) {
@@ -126,18 +125,20 @@ class RejectConfirmationFormUI {
 		$formHTML .= '</ul>';
 
 		if ( $newRevRecord->isCurrent() ) {
-			// Revision this will revert to (when reverting the top X revs)...
-			$formHTML .= wfMessage( 'revreview-reject-text-revto',
+			// Revision this will revert to (when reverting the top X revs).
+			$message = $this->context->msg( 'revreview-reject-text-revto' );
+			$message->params(
 				$oldTitle->getPrefixedDBkey(),
 				$oldRevRecord->getId(),
-				$wgLang->timeanddate( $oldRevRecord->getTimestamp(), true )
-			)->parse();
+				$message->getLanguage()->timeanddate( $oldRevRecord->getTimestamp(), true )
+			);
+			$formHTML .= $message->parse();
 		}
 
 		$comment = $this->form->getComment(); // convenience
 		// Determine the default edit summary...
 		if ( $oldRevRecord->isDeleted( RevisionRecord::DELETED_USER ) ) {
-			$oldRevAuthor = wfMessage( 'rev-deleted-user' )->text();
+			$oldRevAuthor = $this->context->msg( 'rev-deleted-user' )->text();
 			$oldRevAuthorUsername = '.';
 		} else {
 			$oldRevAuthor = $oldRevRecord->getUser() ?
@@ -151,7 +152,7 @@ class RejectConfirmationFormUI {
 			: 'revreview-reject-summary-old';
 		$contLang = MediaWikiServices::getInstance()->getContentLanguage();
 		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
-		$defaultSummary = wfMessage(
+		$defaultSummary = $this->context->msg(
 			$msg,
 			$contLang->formatNum( count( $rejectIds ) ),
 			$contLang->listToText( $rejectAuthors ),
@@ -162,13 +163,13 @@ class RejectConfirmationFormUI {
 			$oldRevAuthorUsername
 		)->numParams( count( $rejectAuthors ) )->inContentLanguage()->text();
 		// If the message is too big, then fallback to the shorter one
-		$colonSeparator = wfMessage( 'colon-separator' )->text();
+		$colonSeparator = $this->context->msg( 'colon-separator' )->text();
 		$maxLen = CommentStore::COMMENT_CHARACTER_LIMIT - strlen( $colonSeparator ) - strlen( $comment );
 		if ( strlen( $defaultSummary ) > $maxLen ) {
 			$msg = $newRevRecord->isCurrent()
 				? 'revreview-reject-summary-cur-short'
 				: 'revreview-reject-summary-old-short';
-			$defaultSummary = wfMessage( $msg,
+			$defaultSummary = $this->context->msg( $msg,
 				$contLang->formatNum( count( $rejectIds ) ),
 				$oldRevRecord->getId(),
 				$oldRevAuthor,
@@ -198,7 +199,10 @@ class RejectConfirmationFormUI {
 		$formHTML .= Html::hidden( 'target', $oldTitle->getPrefixedDBkey() );
 		$formHTML .= Html::hidden( 'wpEditToken', $this->form->getUser()->getEditToken() );
 		$formHTML .= Html::hidden( 'changetime', $newRevRecord->getTimestamp() );
-		$formHTML .= Html::label( wfMessage( 'revreview-reject-summary' )->text(), 'wpReason' );
+		$formHTML .= Html::label(
+			$this->context->msg( 'revreview-reject-summary' )->text(),
+			'wpReason'
+		);
 		$formHTML .= "\u{00A0}";
 		$formHTML .= Html::input(
 			'wpReason',
@@ -207,11 +211,15 @@ class RejectConfirmationFormUI {
 			[ 'id' => 'wpReason', 'maxlength' => CommentStore::COMMENT_CHARACTER_LIMIT, 'size' => 120 ]
 		);
 		$formHTML .= "<br />";
-		$formHTML .= Html::input( 'wpSubmit', wfMessage( 'revreview-reject-confirm' )->text(), 'submit' );
+		$formHTML .= Html::input(
+			'wpSubmit',
+			$this->context->msg( 'revreview-reject-confirm' )->text(),
+			'submit'
+		);
 		$formHTML .= ' ';
 		$formHTML .= $linkRenderer->makeLink(
 			$this->form->getTitle(),
-			wfMessage( 'revreview-reject-cancel' )->text(),
+			$this->context->msg( 'revreview-reject-cancel' )->text(),
 			[ 'onClick' => 'history.back(); return history.length <= 1;' ],
 			[ 'oldid' => $this->form->getRefId(), 'diff' => $this->form->getOldId() ]
 		);
