@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Winston Sung"
+			"Winston Sung",
+			"Aca"
 		]
 	},
 	"stabilization-tab": "konfig.",
 	"stabilization": "Stabilizacija stranice",
-	"stabilization-text": "'''Promijenite postavke kako biste prilagodili kako će biti odabrana i prikazana objavljena inačica članka [[:$1|$1]].'''",
+	"stabilization-text": "'''Promijenite postavke kako biste prilagodili kako će biti izabrana i prikazana objavljena inačica članka [[:$1|$1]].'''",
 	"stabilization-perm": "Vaš račun nema dopuštenje da mijenja postavku objavljene verzije.\nOvdje su trenutne postavke za [[:$1|$1]]:",
 	"stabilization-page": "Naslov stranice:",
 	"stabilization-leg": "Potvrdi podešavanja za objavljenu verziju",
@@ -17,7 +18,7 @@
 	"stabilization-restrict-none": "Bez dodatnih ograničenja",
 	"stabilization-submit": "Potvrdi",
 	"stabilization-notexists": "Nema stranice pod nazivom \"[[:$1|$1]]\".\nNije moguće podešavanje.",
-	"stabilization-notcontent": "Stranica \"[[:$1|$1]]\" ne može se provjerevati.\nNije moguće podešavanje.",
+	"stabilization-notcontent": "Stranica \"[[:$1|$1]]\" ne može biti pregledana.\nPodešavanje nije moguće.",
 	"stabilization-comment": "Razlog:",
 	"stabilization-otherreason": "Ostali razlog:",
 	"stabilization-expiry": "Ističe:",
