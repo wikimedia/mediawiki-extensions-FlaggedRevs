@@ -18,7 +18,7 @@
 	"validationstatistics-synced": "Sinhronizirani/Ocijenjeni",
 	"validationstatistics-old": "Zastarjeli",
 	"validationstatistics-unreviewed": "Neprovjereni",
-	"validationstatistics-utable": "Ispod je spisak {{PLURAL:$1|najaktivnijeg pregledavača|$1 najaktivnija pregledavača|$1 najaktivnijih pregledavača}} {{PLURAL:$2|u posljednji sat|u posljednja $2 sata|u posljednjih $2 sati}}.",
+	"validationstatistics-utable": "Ispod je lista {{PLURAL:$1|najaktivnijeg pregledavača|$1 najaktivnija pregledavača|$1 najaktivnijih pregledavača}} {{PLURAL:$2|u posljednji sat|u posljednja $2 sata|u posljednjih $2 sati}}.",
 	"validationstatistics-user": "Korisnik",
 	"validationstatistics-reviews": "Ocjene"
 }

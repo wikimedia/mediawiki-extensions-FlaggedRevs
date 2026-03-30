@@ -3,7 +3,8 @@
 		"authors": [
 			"Anakmalaysia",
 			"Aviator",
-			"Kurniasan"
+			"Kurniasan",
+			"Tofeiku"
 		]
 	},
 	"pendingchanges": "Laman yang mempunyai perubahan tergantung",
@@ -12,7 +13,7 @@
 	"pendingchanges-none": "Tiada laman yang memenuhi kriteria ini",
 	"pendingchanges-hours": "($1 jam)",
 	"pendingchanges-days": "($1 hari)",
-	"pendingchanges-recent": "(kurang dari sejam)",
+	"pendingchanges-recent": "kurang daripada 1 jam",
 	"pendingchanges-category": "Kategori:",
 	"pendingchanges-onwatchlist": "Laman-laman dalam senarai pantau saya",
 	"pendingchanges-stable": "Versi stabil adalah asali",

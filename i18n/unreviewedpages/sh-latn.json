@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Aca",
 			"Winston Sung"
 		]
 	},
 	"unreviewedpages": "Neprovjerene stranice",
-	"unreviewedpages-legend": "Spisak neprovjerenih stranica sa sadržajem",
+	"unreviewedpages-legend": "Lista neprovjerenih stranica sadržaja",
 	"unreviewedpages-category": "Kategorija:",
 	"unreviewedpages-showhide-redirect": "$1 preusmjerenja",
 	"unreviewedpages-diff": "pregled",
