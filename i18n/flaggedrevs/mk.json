@@ -168,5 +168,15 @@
 	"fr-revision-info-dialog": "Горенаведените информации се се поставени за нашите читатели да бидат во тек со тековниот статус на содржината на страницава.",
 	"fr-revision-info-dialog-review-button": "Прегледај...",
 	"fr-revision-info-dialog-cancel-button": "Откажи",
-	"fr-revision-info-dialog-close-aria-label": "Затвори"
+	"fr-revision-info-dialog-close-aria-label": "Затвори",
+	"listgrouprights-restrictedgroups-cond-fr-editsummarycount": "Корисникот пополнил барем $1 {{PLURAL:$1|опис на уредување|описи на уредувања}}",
+	"listgrouprights-restrictedgroups-cond-fr-neverblocked": "Корисникот никогаш не бил блокиран",
+	"listgrouprights-restrictedgroups-cond-fr-uniquepagecount": "Корисникот уредил барем $1 {{PLURAL:$1|поединечна содржинска страница|поединечни содржински страници}}",
+	"listgrouprights-restrictedgroups-cond-fr-contenteditcount": "Корисникот направил барем $1 {{PLURAL:$1|уредување|уредувања}} на содржински страници (освен во последните $2)",
+	"listgrouprights-restrictedgroups-cond-fr-userpagebytes": "Корисничката има големина од барем $1 {{PLURAL:$1|бајт|бајти}}",
+	"listgrouprights-restrictedgroups-cond-fr-editcount": "Корисникот направил барем $1 {{PLURAL:$1|уредување|уредувања}} (освен во последните $2)",
+	"listgrouprights-restrictedgroups-cond-fr-editspacing": "Корисникот направил барем $1 {{PLURAL:$1|уредување|уредувања}}, секое од нив на растојание од $2",
+	"listgrouprights-restrictedgroups-cond-fr-checkededitcount": "Корисникот направил барем $1 {{PLURAL:$1|уредување|уредувања}}, кои подоцна се оживеани (освен во последните $2)",
+	"listgrouprights-restrictedgroups-cond-fr-maxrevertededitratio": "Корисникот нема повеќе од $1 % вратени уредувања",
+	"listgrouprights-restrictedgroups-cond-fr-neverdemoted": "Корисникот никогаш не бил расчинет"
 }
