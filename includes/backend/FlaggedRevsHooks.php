@@ -1138,7 +1138,7 @@ class FlaggedRevsHooks implements
 	 * Note: some unobtrusive caching is used to avoid DB hits.
 	 */
 	public function onUserRequirementsCondition(
-		$cond,
+		string|int $cond,
 		array $params,
 		UserIdentity $user,
 		bool $isPerformingRequest,
@@ -1474,7 +1474,7 @@ class FlaggedRevsHooks implements
 
 	/** @inheritDoc */
 	public function onUserRequirementsConditionDisplay(
-		$type,
+		string|int $type,
 		array $args,
 		IContextSource $context,
 		?MessageSpecifier &$message
