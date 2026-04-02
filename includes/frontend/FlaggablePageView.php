@@ -12,6 +12,7 @@ use MediaWiki\Output\OutputPage;
 use MediaWiki\Page\Article;
 use MediaWiki\Page\CacheKeyHelper;
 use MediaWiki\Page\PageIdentity;
+use MediaWiki\Page\ParserOutputAccess;
 use MediaWiki\Parser\ParserOptions;
 use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Request\WebRequest;
@@ -593,7 +594,7 @@ class FlaggablePageView extends ContextSource {
 		$parserOptions = $this->makeParserOptions( $reqUser );
 
 		// Check the stable version cache for the parser output
-		$skin = $this->getSkin();
+		$skin = $this->out->getSkin();
 		$poOptions = [
 			// (T391788) This should always be used for full page views
 			'includeDebugInfo' => true,
@@ -678,11 +679,18 @@ class FlaggablePageView extends ContextSource {
 
 		if ( $shouldPostProcess ) {
 			$pipeline = MediaWikiServices::getInstance()->getDefaultOutputPipeline();
-			$parserOut = $pipeline->run( $parserOut, $parserOptions, $poOptions );
-			if ( $postprocEnabled ) {
-				$parserOptions->enablePostproc();
-				$stableParserCache = $this->flaggedRevsParserCacheFactory->getParserCache( $parserOptions );
-				$stableParserCache->save( $parserOut, $this->article, $parserOptions );
+			$parserOptions->enablePostproc();
+			$postprocStableParserCache = $postprocEnabled ?
+				$this->flaggedRevsParserCacheFactory->getParserCache( $parserOptions ) :
+				null;
+			$parserOut = ParserOutputAccess::postprocessInPipeline(
+				$pipeline, $parserOut, $parserOptions, $this->article,
+				fn ( $used ) =>
+					$postprocStableParserCache
+						?->makeParserOutputKey( $this->article, $parserOptions, $used )
+			);
+			if ( $postprocStableParserCache !== null ) {
+				$postprocStableParserCache->save( $parserOut, $this->article, $parserOptions );
 			}
 		}
 
