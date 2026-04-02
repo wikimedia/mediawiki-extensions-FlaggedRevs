@@ -617,17 +617,17 @@ class FlaggablePageView extends ContextSource {
 			$parserOptions->setOption( 'enableSectionEditLinks', false );
 		}
 
-		$postprocEnabled = $this->flaggedRevsParserCacheFactory->postProcessingCacheEnabled( $parserOptions );
-		$shouldPostProcess = !$postprocEnabled;
+		$postprocCacheEnabled = $this->flaggedRevsParserCacheFactory->postProcessingCacheEnabled( $parserOptions );
+		$shouldPostProcess = !$postprocCacheEnabled;
 
-		if ( $postprocEnabled ) {
+		if ( $postprocCacheEnabled ) {
 			$parserOptions->enablePostproc();
 		}
 
 		$stableParserCache = $this->flaggedRevsParserCacheFactory->getParserCache( $parserOptions );
 
 		$parserOut = $stableParserCache->get( $this->article, $parserOptions );
-		if ( !$parserOut && $postprocEnabled ) {
+		if ( !$parserOut && $postprocCacheEnabled ) {
 			$parserOptions = $parserOptions->clearPostproc();
 			$stableParserCache = $this->flaggedRevsParserCacheFactory->getParserCache( $parserOptions );
 			$parserOut = $stableParserCache->get( $this->article, $parserOptions );
@@ -680,7 +680,7 @@ class FlaggablePageView extends ContextSource {
 		if ( $shouldPostProcess ) {
 			$pipeline = MediaWikiServices::getInstance()->getDefaultOutputPipeline();
 			$parserOptions->enablePostproc();
-			$postprocStableParserCache = $postprocEnabled ?
+			$postprocStableParserCache = $postprocCacheEnabled ?
 				$this->flaggedRevsParserCacheFactory->getParserCache( $parserOptions ) :
 				null;
 			$parserOut = ParserOutputAccess::postprocessInPipeline(
