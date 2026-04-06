@@ -359,7 +359,9 @@ class PendingChanges extends IncludableSpecialPage {
 	public function formatRow( stdClass $row ): string {
 		$css = '';
 		$title = Title::newFromRow( $row );
-		$size = ChangesList::showCharacterDifference( $row->rev_len, $row->page_len );
+		$size = ChangesList::showCharacterDifference(
+			$row->rev_len, $row->page_len, $this->getContext()
+		);
 		# Page links...
 		$linkRenderer = $this->getLinkRenderer();
 
