@@ -25,6 +25,7 @@
 			"Jurock",
 			"Lin linao",
 			"Locos epraix",
+			"Luigi Nakano",
 			"Macofe",
 			"Manuelt15",
 			"MarcoAurelio",
@@ -195,5 +196,15 @@
 	"fr-revision-info-dialog": "La información anterior se proporciona para que nuestros lectores se mantengan informados sobre el estado actual del contenido de esta página.",
 	"fr-revision-info-dialog-review-button": "Revisar...",
 	"fr-revision-info-dialog-cancel-button": "Cancelar",
-	"fr-revision-info-dialog-close-aria-label": "Cerrar"
+	"fr-revision-info-dialog-close-aria-label": "Cerrar",
+	"listgrouprights-restrictedgroups-cond-fr-editsummarycount": "El usuario ha llenado al menos $1 {{PLURAL:$1|resumen|resúmenes}} de edición",
+	"listgrouprights-restrictedgroups-cond-fr-neverblocked": "El usuario nunca ha sido bloqueado",
+	"listgrouprights-restrictedgroups-cond-fr-uniquepagecount": "El usuario ha editado al menos $1 {{PLURAL:$1|página|páginas}} de contenido únicas",
+	"listgrouprights-restrictedgroups-cond-fr-contenteditcount": "El usuario ha realizado al menos $1 {{PLURAL:$1|edición|ediciones}} en páginas de contenido (excepto por las ediciones en los últimos $2)",
+	"listgrouprights-restrictedgroups-cond-fr-userpagebytes": "La página del usuario tiene un tamaño de al menos $1 {{PLURAL:$1|byte|bytes}}",
+	"listgrouprights-restrictedgroups-cond-fr-editcount": "El usuario ha realizado al menos $1 {{PLURAL:$1|edición|ediciones}} (excepto por las ediciones en los últimos $2)",
+	"listgrouprights-restrictedgroups-cond-fr-editspacing": "El usuario ha realizado al menos $1 {{PLURAL:$1|edición|ediciones}}, de modo que cada una esté separada por al menos $2",
+	"listgrouprights-restrictedgroups-cond-fr-checkededitcount": "El usuario ha realizado al menos $1 {{PLURAL:$1|edición|ediciones}}, que fueron revisadas posteriormente (excepto por las ediciones en los últimos $2)",
+	"listgrouprights-restrictedgroups-cond-fr-maxrevertededitratio": "No han sido revertidas más del $1% de las ediciones del usuario",
+	"listgrouprights-restrictedgroups-cond-fr-neverdemoted": "El usuario nunca ha sido degradado"
 }
