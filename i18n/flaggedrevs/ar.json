@@ -192,5 +192,10 @@
 	"fr-revision-info-dialog": "يجري توفير المعلومات المعروضة أعلاه لإبقاء قرائنا مطلعين على الحالة الحالية للمحتوى على هذه الصفحة.",
 	"fr-revision-info-dialog-review-button": "راجع...",
 	"fr-revision-info-dialog-cancel-button": "إلغاء",
-	"fr-revision-info-dialog-close-aria-label": "أغلق"
+	"fr-revision-info-dialog-close-aria-label": "أغلق",
+	"listgrouprights-restrictedgroups-cond-fr-editsummarycount": "قام المستخدم بملء ما لا يقل عن $1 تعديل {{PLURAL:$1| ملخص|ملخصات}}",
+	"listgrouprights-restrictedgroups-cond-fr-neverblocked": "لم يتم حظر المستخدم مطلقًا",
+	"listgrouprights-restrictedgroups-cond-fr-uniquepagecount": "قام المستخدم بتعديل محتوى فريد بقيمة $1 على الأقل {{PLURAL:$1| صفحة|صفحات}}",
+	"listgrouprights-restrictedgroups-cond-fr-maxrevertededitratio": "لم يتم التراجع عن أكثر من $1 % من تعديلات المستخدم.",
+	"listgrouprights-restrictedgroups-cond-fr-neverdemoted": "لم يتم تخفيض رتبة المستخدم مطلقًا"
 }
