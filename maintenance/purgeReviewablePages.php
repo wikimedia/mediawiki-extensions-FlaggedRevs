@@ -3,6 +3,7 @@
  * @ingroup Maintenance
  */
 
+use MediaWiki\Cache\HTMLFileCache;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\Title\Title;

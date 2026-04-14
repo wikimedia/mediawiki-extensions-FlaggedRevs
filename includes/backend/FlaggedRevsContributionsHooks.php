@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\FlaggedRevs\Backend;
 
-use MediaWiki\Hook\ContribsPager__getQueryInfoHook;
-use MediaWiki\Hook\SpecialContributions__getForm__filtersHook;
+use MediaWiki\Specials\Hook\ContribsPager__getQueryInfoHook;
+use MediaWiki\Specials\Hook\SpecialContributions__getForm__filtersHook;
 use Wikimedia\Rdbms\RawSQLExpression;
 
 class FlaggedRevsContributionsHooks implements

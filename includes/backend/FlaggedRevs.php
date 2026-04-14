@@ -3,6 +3,7 @@
 use MediaWiki\Config\ConfigException;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Extension\FlaggedRevs\Backend\FlaggedRevsParserCacheFactory;
+use MediaWiki\JobQueue\Jobs\HTMLCacheUpdateJob;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Page\PageReference;
