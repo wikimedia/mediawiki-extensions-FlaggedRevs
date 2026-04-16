@@ -48,7 +48,7 @@
 	"revreview-stable1": "Можда желите погледати [{{fullurl:$1|stableid=$2}} ову означену верзију] и проверити да ли сада постоји [{{fullurl:$1|stable=1}} стабилна верзија] ове странице.",
 	"revreview-stable2": "Можда желите да погледате [{{fullurl:$1|stable=1}} стабилну верзију] ове странице.",
 	"revreview-submit": "Пошаљи",
-	"revreview-submitting": "Шаљем…",
+	"revreview-submitting": "Прослеђивање...",
 	"revreview-submit-review": "Прихвати измену",
 	"revreview-submit-unreview": "Одбиј измену",
 	"revreview-submit-reject": "Одбиј промене",
