@@ -109,7 +109,7 @@
 	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|Правераная]]'''",
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Правераная]]'''",
 	"revreview-quick-invalid": "'''Памылковы ідэнтыфікатар версіі старонкі'''",
-	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Неправераная]]'''",
+	"revreview-quick-none": "'''Неправераная'''",
 	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} паказаць недагледжаныя змены]",
 	"revreview-basic-title": "Гэта дагледжаная версія старонкі",
 	"revreview-dialog-title": "Статус версіі старонкі",
