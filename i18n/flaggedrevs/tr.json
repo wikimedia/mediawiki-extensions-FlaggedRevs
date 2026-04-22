@@ -27,7 +27,8 @@
 			"TmY e12",
 			"ToprakM",
 			"Victor Trevor",
-			"Vito Genovese"
+			"Vito Genovese",
+			"Leo"
 		]
 	},
 	"action-autoreview": "kendi düzenlemelerinin otomatik olarak \"kontrol edildi\" olarak işaretlenmesini sağlayın",
@@ -128,6 +129,7 @@
 	"revreview-quick-none": "'''Kontrol edilmemiş'''",
 	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Bekleyen değişiklikleri incele]",
 	"revreview-basic-title": "Bu, bu sayfanın kontrol edilmiş bir sürümüdür",
+	"revreview-unchecked-title": "Sayfa henüz kontrol edilmedi",
 	"revreview-dialog-title": "Sayfa sürüm durumu",
 	"revreview-quick-basic-same-title": "'''Kontrol edilmiş'''",
 	"revreview-toggle-title": "ayrıntıları göster/gizle",

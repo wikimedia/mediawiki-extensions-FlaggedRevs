@@ -16,7 +16,8 @@
 			"Yknok29",
 			"렌즈",
 			"아라",
-			"YeBoy371"
+			"YeBoy371",
+			"Tensama0415"
 		]
 	},
 	"action-autoreview": "자신의 편집을 자동으로 \"검토된 판\"으로 표시",
@@ -164,8 +165,11 @@
 	"logeventslist-review-log": "검토 기록",
 	"validationpage": "{{ns:help}}:문서 검토",
 	"log-action-filter-review": "검토 종류:",
+	"log-action-filter-review-accept": "수동 수락",
+	"log-action-filter-review-unaccept": "수동 거부",
 	"log-action-filter-stable": "구성 변경 종류:",
 	"log-action-filter-stable-config": "새 구성",
+	"log-action-filter-stable-modify": "변경된 설정",
 	"log-action-filter-stable-reset": "구성 초기화",
 	"log-action-filter-stable-move_stable": "구성을 이동했습니다",
 	"fr-revision-info-dialog-review-button": "검토...",
