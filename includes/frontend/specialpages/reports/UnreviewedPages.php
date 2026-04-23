@@ -35,7 +35,12 @@ class UnreviewedPages extends SpecialPage {
 		private readonly IConnectionProvider $dbProvider,
 		private readonly PermissionManager $permissionManager,
 	) {
-		parent::__construct( 'UnreviewedPages', 'unreviewedpages' );
+		parent::__construct( 'UnreviewedPages' );
+	}
+
+	/** @inheritDoc */
+	public function getRestriction(): string {
+		return 'unreviewedpages';
 	}
 
 	/**

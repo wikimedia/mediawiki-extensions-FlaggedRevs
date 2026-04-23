@@ -19,7 +19,12 @@ class RevisionReview extends UnlistedSpecialPage {
 	public function __construct(
 		private readonly PermissionManager $permissionManager,
 	) {
-		parent::__construct( 'RevisionReview', 'review' );
+		parent::__construct( 'RevisionReview' );
+	}
+
+	/** @inheritDoc */
+	public function getRestriction(): string {
+		return 'review';
 	}
 
 	/**

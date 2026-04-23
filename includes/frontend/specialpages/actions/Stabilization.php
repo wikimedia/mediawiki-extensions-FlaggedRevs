@@ -24,7 +24,12 @@ class Stabilization extends UnlistedSpecialPage {
 		private readonly UserOptionsLookup $userOptionsLookup,
 		private readonly WatchlistManager $watchlistManager,
 	) {
-		parent::__construct( 'Stabilization', 'stablesettings' );
+		parent::__construct( 'Stabilization' );
+	}
+
+	/** @inheritDoc */
+	public function getRestriction(): string {
+		return 'stablesettings';
 	}
 
 	/**
