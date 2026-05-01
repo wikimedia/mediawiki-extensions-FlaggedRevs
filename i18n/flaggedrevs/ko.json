@@ -30,7 +30,7 @@
 	"flaggedrevs-desc": "편집자가 판을 검토하고 문서를 안정화할 수 있도록 합니다",
 	"flaggedrevs-pref-UI": "기본 인터페이스:",
 	"flaggedrevs-pref-UI-0": "문서의 검토 상태를 보일 때 자세한 알림 상자를 쓰기",
-	"flaggedrevs-pref-UI-1": "문서의 검토 상태를 나타낼 때 작은 아이콘과 최소한의 글만 쓰기",
+	"flaggedrevs-pref-UI-1": "문서의 검토 상태를 나타내는 표시 사용하기",
 	"prefs-flaggedrevs-ui": "편집 검토",
 	"flaggedrevs-prefs-stable": "기본적으로 페이지의 배포판 보이기 설정",
 	"flaggedrevs-pref-stable-0": "개별 문서의 기본 설정을 따름",
