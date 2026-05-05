@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Ykhwong",
-			"Yunbj"
+			"Yunbj",
+			"Tensama0415"
 		]
 	},
 	"apihelp-query+configuredpages-param-namespace": "열거할 이름공간입니다.",
@@ -10,6 +11,8 @@
 	"apihelp-query+oldreviewedpages-param-limit": "반환할 총 문서 수입니다.",
 	"apihelp-query+unreviewedpages-param-dir": "정렬 방향입니다.",
 	"apihelp-query+unreviewedpages-param-namespace": "열거할 이름공간입니다.",
+	"apihelp-query+unreviewedpages-param-limit": "반환할 총 문서 수입니다.",
+	"apihelp-query+unreviewedpages-example-1": "검토되지 않은 문서 목록 표시",
 	"apihelp-stabilize-summary-general": "문서 안정성 설정을 변경합니다.",
 	"apihelp-stabilize-param-reason": "이유입니다.",
 	"apihelp-stabilize-param-default": "표시할 기본 판입니다.",
