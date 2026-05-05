@@ -3,6 +3,7 @@
 		"authors": [
 			"Hide on Rosé",
 			"Minh Nguyen",
+			"NguoiDungKhongDinhDanh",
 			"Nvdtn19",
 			"Phjtieudoc",
 			"Tryvix1509",
@@ -126,7 +127,7 @@
 	"right-autoreviewrestore": "Tự động duyệt khi lùi tất cả",
 	"right-movestable": "Di chuyển trang có phiên bản ổn định",
 	"right-review": "Đánh dấu các phiên bản là “đã xem qua”",
-	"right-stablesettings": "Cấu hình cho phiên bản ổn định được lựa chọn và hiển thị như thế nào",
+	"right-stablesettings": "Thiết lập cách lựa chọn và hiển thị phiên bản ổn định",
 	"right-validate": "Đánh dấu các phiên bản là “chất lượng cao”",
 	"right-unreviewedpages": "Xem [[Special:UnreviewedPages|danh sách các trang chưa duyệt]]",
 	"rights-editor-revoke": "đưa [[$1]] ra khỏi nhóm người rà soát bài",
