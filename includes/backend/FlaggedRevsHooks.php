@@ -4,7 +4,6 @@ use MediaWiki\Config\Config;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Export\Hook\WikiExporter__dumpStableQueryHook;
-use MediaWiki\Extension\GoogleNewsSitemap\Specials\GoogleNewsSitemap;
 use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\UserLocator;
 use MediaWiki\Hook\ArticleMergeCompleteHook;
@@ -1347,46 +1346,6 @@ class FlaggedRevsHooks implements
 			];
 			$join['revision'] = [ 'INNER JOIN',
 				[ 'rev_page = fp_page_id', 'rev_id = fp_stable' ] ];
-		}
-	}
-
-	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/GoogleNewsSitemap::Query
-	 *
-	 * @param array $params
-	 * @param array &$joins
-	 * @param array &$conditions
-	 * @param array &$tables
-	 */
-	public static function gnsmQueryModifier(
-		array $params, array &$joins, array &$conditions, array &$tables
-	) {
-		$filterSet = [ GoogleNewsSitemap::OPT_ONLY => true,
-			GoogleNewsSitemap::OPT_EXCLUDE => true
-		];
-		# Either involves the same JOIN here...
-		if ( isset( $filterSet[ $params['stable'] ] ) || isset( $filterSet[ $params['quality'] ] ) ) {
-			$tables[] = 'flaggedpages';
-			$joins['flaggedpages'] = [ 'LEFT JOIN', 'page_id = fp_page_id' ];
-		}
-
-		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
-		switch ( $params['stable'] ) {
-			case GoogleNewsSitemap::OPT_ONLY:
-				$conditions[] = $dbr->expr( 'fp_stable', '!=', null );
-				break;
-			case GoogleNewsSitemap::OPT_EXCLUDE:
-				$conditions['fp_stable'] = null;
-				break;
-		}
-
-		switch ( $params['quality'] ) {
-			case GoogleNewsSitemap::OPT_ONLY:
-				$conditions[] = $dbr->expr( 'fp_quality', '>=', 1 );
-				break;
-			case GoogleNewsSitemap::OPT_EXCLUDE:
-				$conditions[] = $dbr->expr( 'fp_quality', '=', 0 )->or( 'fp_quality', '=', null );
-				break;
 		}
 	}
 
