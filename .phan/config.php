@@ -7,7 +7,6 @@ $cfg['directory_list'] = array_merge(
 	[
 		'../../skins/Vector',
 		'../../extensions/Echo',
-		'../../extensions/GoogleNewsSitemap',
 		'../../extensions/MobileFrontend',
 		'../../extensions/Scribunto',
 	]
@@ -18,7 +17,6 @@ $cfg['exclude_analysis_directory_list'] = array_merge(
 	[
 		'../../skins/Vector',
 		'../../extensions/Echo',
-		'../../extensions/GoogleNewsSitemap',
 		'../../extensions/MobileFrontend',
 		'../../extensions/Scribunto',
 	]
