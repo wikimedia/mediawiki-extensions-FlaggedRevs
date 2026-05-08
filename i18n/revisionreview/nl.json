@@ -9,7 +9,7 @@
 	"revisionreview": "Versies controleren",
 	"revreview-failed": "'''Het was niet mogelijk deze versie te controleren.'''",
 	"revreview-submission-invalid": "De ingezonden gegevens waren incompleet of op een andere manier ongeldig.",
-	"review_page_invalid": "De doelpaginanaam is ongeldig.",
+	"review_page_invalid": "De doelpaginanaam is onjuist.",
 	"review_page_notexists": "De doelpagina bestaat niet.",
 	"review_page_unreviewable": "De doelpagina kan niet gecontroleerd worden.",
 	"review_no_oldid": "Er is geen versienummer opgegeven.",
