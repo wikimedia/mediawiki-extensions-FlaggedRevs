@@ -18,7 +18,7 @@
 	"review_not_flagged": "De doelversie is niet gemarkeerd als gecontroleerd.",
 	"review_too_low": "De versie kan niet als gecontroleerd worden gemarkeerd als niet alle velden een andere waarde dan {{int:Revreview-accuracy-0}} hebben.",
 	"review_bad_key": "Ongeldige parametersleutel.",
-	"review_bad_tags": "Een aantal van de opgegeven labels zijn ongeldig.",
+	"review_bad_tags": "Een aantal van de opgegeven labels zijn onjuist.",
 	"review_denied": "Geen toegang.",
 	"review_param_missing": "Er ontbreekt een parameter of de opgegeven parameter is ongeldig.",
 	"review_cannot_undo": "Het is niet mogelijk deze wijzigingen ongedaan te maken omdat andere wijzigingen invloed hebben op dezelfde plaatsen.",
