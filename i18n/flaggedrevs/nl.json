@@ -111,7 +111,7 @@
 	"revreview-quick-basic": "'''[[{{MediaWiki:Validationpage}}|Gecontroleerd]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Ongecontroleerde wijzigingen controleren]]",
 	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|Gecontroleerd]]'''",
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Gecontroleerd]]'''",
-	"revreview-quick-invalid": "'''Ongeldig versienummer'''",
+	"revreview-quick-invalid": "'''Onjuist versienummer'''",
 	"revreview-quick-none": "'''Ongecontroleerd'''",
 	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Ongecontroleerde wijzigingen controleren]",
 	"revreview-basic-title": "Dit is een gecontroleerde versie van deze pagina",
