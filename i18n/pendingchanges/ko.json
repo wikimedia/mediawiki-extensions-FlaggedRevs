@@ -8,7 +8,8 @@
 			"Ykhwong",
 			"렌즈",
 			"아라",
-			"Revi"
+			"Revi",
+			"Tensama0415"
 		]
 	},
 	"pendingchanges": "보류 중인 편집을 가지고 있는 문서",
@@ -19,12 +20,23 @@
 	"pendingchanges-days": "$1{{PLURAL:$1|일}}",
 	"pendingchanges-recent": "1시간 미만",
 	"pendingchanges-category": "분류:",
+	"pendingchanges-limit": "제한:",
+	"pendingchanges-edit-tag": "태그 편집:",
 	"pendingchanges-edit-tag-any": "모든 태그",
 	"pendingchanges-onwatchlist": "내 주시문서 목록에 있는 문서",
 	"pendingchanges-stable": "배포판이 기본값입니다",
 	"pendingchanges-diff": "검토",
 	"pendingchanges-size": "최대 변화량 (바이트):",
 	"pendingchanges-unwatched": "주시되지 않음",
+	"pendingchanges-table-caption": "보류 중인 편집",
 	"pendingchanges-table-page": "문서",
-	"pendingchanges-table-size": "크기"
+	"pendingchanges-table-size": "크기",
+	"pendingchanges-table-pending-since": "이 때부터",
+	"pendingchanges-table-quality": "품질",
+	"pendingchanges-table-watching": "활동중인 주시자",
+	"pendingchanges-table-history": "역사",
+	"pendingchanges-table-review": "검토",
+	"pendingchanges-table-revision-history": "역사",
+	"pendingchanges-table-footer": "현재 {{PLURAL:$2|$1개 편집이}} 보류중입니다",
+	"pendingchanges-filter-submit-button-text": "보류 중인 편집을 필터링"
 }
