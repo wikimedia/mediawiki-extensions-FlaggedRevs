@@ -7,5 +7,6 @@
 	},
 	"pendingchanges-legend": "Liis garee bogagga la eegay ee leh isbeddello sugaya",
 	"pendingchanges-category": "Qeybta:",
-	"pendingchanges-edit-tag-any": "Calaamad kasta"
+	"pendingchanges-edit-tag-any": "Calaamad kasta",
+	"pendingchanges-table-footer": "Hadda waxaa jira {{PLURAL:$2|$1 isbeddel sugaya|$1 isbeddello sugaya}}"
 }
