@@ -6,7 +6,6 @@ use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Export\Hook\WikiExporter__dumpStableQueryHook;
 use MediaWiki\Hook\ArticleMergeCompleteHook;
 use MediaWiki\Hook\PageMoveCompleteHook;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\Hook\ArticleDeleteCompleteHook;
 use MediaWiki\Page\Hook\ArticleUndeleteHook;
 use MediaWiki\Page\Hook\RevisionFromEditCompleteHook;
@@ -28,6 +27,7 @@ use MediaWiki\Storage\EditResult;
 use MediaWiki\Storage\Hook\BeforeRevertedTagUpdateHook;
 use MediaWiki\Storage\Hook\PageSaveCompleteHook;
 use MediaWiki\Storage\Hook\RevisionDataUpdatesHook;
+use MediaWiki\Title\NamespaceInfo;
 use MediaWiki\Title\Title;
 use MediaWiki\User\ActorMigration;
 use MediaWiki\User\Hook\UserLoadAfterLoadFromSessionHook;
@@ -77,6 +77,7 @@ class FlaggedRevsHooks implements
 	public function __construct(
 		private readonly Config $config,
 		private readonly IConnectionProvider $connectionProvider,
+		private readonly NamespaceInfo $namespaceInfo,
 		private readonly PermissionManager $permissionManager,
 		private readonly RestrictionStore $restrictionStore,
 		private readonly RevisionLookup $revisionLookup,
@@ -422,7 +423,7 @@ class FlaggedRevsHooks implements
 	 * @param int|false $baseRevId
 	 * @param UserIdentity $user
 	 */
-	public static function maybeMakeEditReviewed(
+	private function maybeMakeEditReviewed(
 		WikiPage $wikiPage, RevisionRecord $revRecord, $baseRevId, UserIdentity $user
 	) {
 		global $wgRequest;
@@ -443,12 +444,11 @@ class FlaggedRevsHooks implements
 		$prevRevId = $revRecord->getParentId();
 		# Get edit timestamp. Existance already validated by \MediaWiki\EditPage\EditPage
 		$editTimestamp = $wgRequest->getVal( 'wpEdittime' );
-		$pm = MediaWikiServices::getInstance()->getPermissionManager();
 		# Is the page manually checked off to be reviewed?
 		if ( $editTimestamp
 			&& $wgRequest->getCheck( 'wpReviewEdit' )
-			&& $pm->userCan( 'review', $user, $title )
-			&& self::editCheckReview( $fa, $revRecord, $user, $editTimestamp )
+			&& $this->permissionManager->userCan( 'review', $user, $title )
+			&& $this->editCheckReview( $fa, $revRecord, $user, $editTimestamp )
 		) {
 			// Reviewed... done!
 			return;
@@ -461,9 +461,8 @@ class FlaggedRevsHooks implements
 		# If a $baseRevId is passed in, the edit is using an old revision's text
 		$isOldRevCopy = (bool)$baseRevId; // null edit or rollback
 		# Get the revision ID the incoming one was based off...
-		$revisionLookup = MediaWikiServices::getInstance()->getRevisionLookup();
 		if ( !$baseRevId && $prevRevId ) {
-			$prevTimestamp = $revisionLookup->getTimestampFromId(
+			$prevTimestamp = $this->revisionLookup->getTimestampFromId(
 				$prevRevId,
 				IDBAccessObject::READ_LATEST
 			);
@@ -486,7 +485,7 @@ class FlaggedRevsHooks implements
 		# Case A: this user can auto-review edits. Check if either:
 		# (a) this new revision creates a new page and new page autoreview is enabled
 		# (b) this new revision is based on an old, reviewed, revision
-		if ( $pm->userCan( 'autoreview', $user, $title ) ) {
+		if ( $this->permissionManager->userCan( 'autoreview', $user, $title ) ) {
 			# For rollback/null edits, use the previous ID as the alternate base ID.
 			# Otherwise, use the 'altBaseRevId' parameter passed in by the request.
 			$altBaseRevId = $isOldRevCopy ? $prevRevId : $wgRequest->getInt( 'altBaseRevId' );
@@ -497,7 +496,7 @@ class FlaggedRevsHooks implements
 				$reviewableNewPage = false; // had previous rev
 				# If a edit was automatically merged, do not trust 'baseRevId' (bug 33481).
 				# Do this by verifying the user-provided edittime against the prior revision.
-				$prevRevTimestamp = $revisionLookup->getTimestampFromId(
+				$prevRevTimestamp = $this->revisionLookup->getTimestampFromId(
 					$prevRevId,
 					IDBAccessObject::READ_LATEST
 				);
@@ -535,11 +534,11 @@ class FlaggedRevsHooks implements
 				$isOldRevCopy && // rollback or null edit
 				$baseRevId != $prevRevId && // not a null edit
 				$baseRevId == $srev->getRevId() && // restored stable rev
-				$pm->userCan( 'autoreviewrestore', $user, $title )
+				$this->permissionManager->userCan( 'autoreviewrestore', $user, $title )
 			);
 			# Check for self-reversions (checks text hashes)...
 			if ( !$reviewableChange ) {
-				$reviewableChange = self::isSelfRevertToStable( $revRecord, $srev, $baseRevId, $user );
+				$reviewableChange = $this->isSelfRevertToStable( $revRecord, $srev, $baseRevId, $user );
 			}
 			# Is this a rollback or self-reversion to the stable rev?
 			if ( $reviewableChange ) {
@@ -559,15 +558,14 @@ class FlaggedRevsHooks implements
 	 * @param string $editTimestamp
 	 * @return bool
 	 */
-	private static function editCheckReview(
+	private function editCheckReview(
 		WikiPage $wikiPage, $revRecord, $user, $editTimestamp
 	) {
 		$prevTimestamp = null;
 		$prevRevId = $revRecord->getParentId(); // id for revision before $revRecord
 		# Check wpEdittime against the former current rev for verification
 		if ( $prevRevId ) {
-			$prevTimestamp = MediaWikiServices::getInstance()
-				->getRevisionLookup()
+			$prevTimestamp = $this->revisionLookup
 				->getTimestampFromId( $prevRevId, IDBAccessObject::READ_LATEST );
 		}
 		# Was $revRecord an edit to an existing page?
@@ -595,7 +593,7 @@ class FlaggedRevsHooks implements
 	 * @param User $user
 	 * @return bool
 	 */
-	private static function isSelfRevertToStable(
+	private function isSelfRevertToStable(
 		RevisionRecord $revRecord,
 		$srev,
 		$baseRevId,
@@ -604,7 +602,7 @@ class FlaggedRevsHooks implements
 		if ( !$srev || $baseRevId != $srev->getRevId() ) {
 			return false; // user reports they are not the same
 		}
-		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+		$dbw = $this->connectionProvider->getPrimaryDatabase();
 
 		# Such a revert requires 1+ revs between it and the stable
 		$revWhere = ActorMigration::newMigration()->getWhere( $dbw, 'rev_user', $user );
@@ -654,17 +652,11 @@ class FlaggedRevsHooks implements
 	 *
 	 * @param WikiPage $wikiPage
 	 * @param UserIdentity $userIdentity
-	 * @param string $summary
-	 * @param int $flags
-	 * @param RevisionRecord $revisionRecord
 	 * @param EditResult $editResult
 	 */
-	public static function maybeNullEditReview(
+	private function maybeNullEditReview(
 		WikiPage $wikiPage,
 		UserIdentity $userIdentity,
-		string $summary,
-		int $flags,
-		RevisionRecord $revisionRecord,
 		EditResult $editResult
 	) {
 		global $wgRequest;
@@ -690,8 +682,7 @@ class FlaggedRevsHooks implements
 			return;
 		}
 		# Get the current revision ID
-		$revLookup = MediaWikiServices::getInstance()->getRevisionLookup();
-		$revRecord = $revLookup->getRevisionByTitle( $title, 0, IDBAccessObject::READ_LATEST );
+		$revRecord = $this->revisionLookup->getRevisionByTitle( $title, 0, IDBAccessObject::READ_LATEST );
 		if ( !$revRecord ) {
 			return;
 		}
@@ -701,7 +692,7 @@ class FlaggedRevsHooks implements
 		# Is this a rollback/undo that didn't change anything?
 		if ( $baseId > 0 ) {
 			$frev = FlaggedRevision::newFromTitle( $title, $baseId ); // base rev of null edit
-			$pRevRecord = $revLookup->getRevisionById( $revRecord->getParentId() ); // current rev parent
+			$pRevRecord = $this->revisionLookup->getRevisionById( $revRecord->getParentId() ); // current rev parent
 			$revIsNull = ( $pRevRecord && $pRevRecord->hasSameContent( $revRecord ) );
 			# Was the edit that we tried to revert to reviewed?
 			# We avoid auto-reviewing null edits to avoid confusion (bug 28476).
@@ -717,14 +708,14 @@ class FlaggedRevsHooks implements
 		# Get edit timestamp, it must exist.
 		$editTimestamp = $wgRequest->getVal( 'wpEdittime' );
 		# Is the page checked off to be reviewed?
-		if ( $editTimestamp && $reviewEdit && MediaWikiServices::getInstance()
-				->getPermissionManager()->userCan( 'review', $user, $title )
+		if ( $editTimestamp && $reviewEdit &&
+			$this->permissionManager->userCan( 'review', $user, $title )
 		) {
 			# Check wpEdittime against current revision's time.
 			# If an edit was auto-merged in between, review only up to what
 			# was the current rev when this user started editing the page.
 			if ( $revRecord->getTimestamp() != $editTimestamp ) {
-				$revRecord = $revLookup->getRevisionByTimestamp(
+				$revRecord = $this->revisionLookup->getRevisionByTimestamp(
 					$title,
 					$editTimestamp,
 					IDBAccessObject::READ_LATEST
@@ -846,8 +837,8 @@ class FlaggedRevsHooks implements
 	 * @param int $pointsReq number of edit points
 	 * @return true|int True if passed, int seconds on failure
 	 */
-	private static function editSpacingCheck( UserIdentity $user, $spacingReq, $pointsReq ) {
-		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+	private function editSpacingCheck( UserIdentity $user, $spacingReq, $pointsReq ) {
+		$dbr = $this->connectionProvider->getReplicaDatabase();
 
 		$queryData = self::getQueryData( $dbr, $user );
 
@@ -908,8 +899,8 @@ class FlaggedRevsHooks implements
 	 * @param int $seconds
 	 * @return bool
 	 */
-	private static function reviewedEditsCheck( User $user, $editsReq, $seconds = 0 ) {
-		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+	private function reviewedEditsCheck( User $user, $editsReq, $seconds = 0 ) {
+		$dbr = $this->connectionProvider->getReplicaDatabase();
 
 		$queryData = self::getQueryData( $dbr, $user );
 		// Get cutoff timestamp (excludes edits that are too recent)
@@ -973,7 +964,7 @@ class FlaggedRevsHooks implements
 		$wasBlocked = $this->cache->getWithSetCallback(
 			$this->cache->makeKey( 'flaggedrevs-autopromote-wasblocked', $user->getId() ),
 			WANObjectCache::TTL_WEEK,
-			static function ( $oldValue, &$ttl ) use ( $user, $fname ) {
+			function ( $oldValue, &$ttl ) use ( $user, $fname ) {
 				if ( $oldValue === 1 ) {
 					// Once a prior block is found, it will always be found in the logs.
 					// Allow this cache value to be renewed indefinitely without
@@ -984,7 +975,7 @@ class FlaggedRevsHooks implements
 					return 1;
 				}
 
-				$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+				$dbr = $this->connectionProvider->getReplicaDatabase();
 				$foundBlock = (bool)$dbr->newSelectQueryBuilder()
 					->select( '1' )
 					->from( 'logging' )
@@ -1038,8 +1029,8 @@ class FlaggedRevsHooks implements
 	 * @param int $limit
 	 * @return int
 	 */
-	private static function recentEditCount( $userId, $seconds, $limit ) {
-		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+	private function recentEditCount( $userId, $seconds, $limit ) {
+		$dbr = $this->connectionProvider->getReplicaDatabase();
 
 		$queryData = self::getQueryData( $dbr, User::newFromId( $userId ) );
 		# Get cutoff timestamp (edits that are too recent)
@@ -1070,17 +1061,15 @@ class FlaggedRevsHooks implements
 	 * @param int $limit
 	 * @return int
 	 */
-	private static function recentContentEditCount( $userId, $seconds, $limit ) {
-		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+	private function recentContentEditCount( $userId, $seconds, $limit ) {
+		$dbr = $this->connectionProvider->getReplicaDatabase();
 
 		$queryData = self::getQueryData( $dbr, User::newFromId( $userId ) );
 		# Get cutoff timestamp (edits that are too recent)
 		$cutoff = $dbr->timestamp( time() - $seconds );
 		# Check all recent content edits...
 		$ct = 0;
-		$contentNamespaces = MediaWikiServices::getInstance()
-			->getNamespaceInfo()
-			->getContentNamespaces();
+		$contentNamespaces = $this->namespaceInfo->getContentNamespaces();
 		foreach ( $queryData as $data ) {
 			if ( $ct > $limit ) {
 				break;
@@ -1125,7 +1114,7 @@ class FlaggedRevsHooks implements
 	public function onRevisionFromEditComplete(
 		$wikiPage, $revRecord, $baseRevId, $user, &$tags
 	) {
-		self::maybeMakeEditReviewed( $wikiPage, $revRecord, $baseRevId, $user );
+		$this->maybeMakeEditReviewed( $wikiPage, $revRecord, $baseRevId, $user );
 	}
 
 	/**
@@ -1143,7 +1132,7 @@ class FlaggedRevsHooks implements
 	) {
 		self::maybeIncrementReverts( $wikiPage, $revisionRecord, $editResult, $userIdentity );
 
-		self::maybeNullEditReview( $wikiPage, $userIdentity, $summary, $flags, $revisionRecord, $editResult );
+		$this->maybeNullEditReview( $wikiPage, $userIdentity, $editResult );
 
 		# Ignore null edits, edits by IP users or temporary users, and MW role account edits
 		if ( $editResult->isNullEdit() ||
@@ -1221,7 +1210,7 @@ class FlaggedRevsHooks implements
 					$result = false; // failed
 				} else {
 					# Hit the DB only if the result is not cached...
-					$pass = self::editSpacingCheck( $user, $params[0], $params[1] );
+					$pass = $this->editSpacingCheck( $user, $params[0], $params[1] );
 					# Make a key to store the results
 					if ( $pass === true ) {
 						$this->cache->set( $key, 'true', 2 * $this->cache::TTL_WEEK );
@@ -1241,7 +1230,7 @@ class FlaggedRevsHooks implements
 					$result = true; // passed; we aren't excluding any recent edits
 				} else {
 					# Check all recent edits...
-					$n = self::recentEditCount( $user->getId(), $params[1], $maxNew );
+					$n = $this->recentEditCount( $user->getId(), $params[1], $maxNew );
 					$result = ( $n <= $maxNew );
 				}
 				break;
@@ -1258,7 +1247,7 @@ class FlaggedRevsHooks implements
 						$result = true; // passed; we aren't excluding any recent edits
 					} else {
 						# Check all recent content edits...
-						$n = self::recentContentEditCount( $user->getId(), $params[1], $maxNew );
+						$n = $this->recentContentEditCount( $user->getId(), $params[1], $maxNew );
 						$result = ( $n <= $maxNew );
 					}
 				}
@@ -1278,7 +1267,7 @@ class FlaggedRevsHooks implements
 				} else {
 					# Hit the DB only if the result is not cached...
 					$userObject = $this->userFactory->newFromUserIdentity( $user );
-					$result = self::reviewedEditsCheck( $userObject, $params[0], $params[1] );
+					$result = $this->reviewedEditsCheck( $userObject, $params[0], $params[1] );
 					if ( $result ) {
 						$this->cache->set( $key, 'true', $this->cache::TTL_WEEK );
 					} else {

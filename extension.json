@@ -404,6 +404,7 @@
 			"services": [
 				"MainConfig",
 				"ConnectionProvider",
+				"NamespaceInfo",
 				"PermissionManager",
 				"RestrictionStore",
 				"RevisionLookup",
