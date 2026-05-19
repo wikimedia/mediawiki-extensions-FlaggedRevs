@@ -5,7 +5,7 @@
 
 use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\Title\Title;
-use MediaWiki\User\User;
+use MediaWiki\User\UserIdentity;
 
 // @codeCoverageIgnoreStart
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
@@ -37,8 +37,9 @@ class FlagProtectToSemiProtect extends Maintenance {
 			return;
 		}
 
-		$user = User::newFromName( $this->getOption( 'user' ) );
-		if ( !$user || !$user->isRegistered() ) {
+		$user = $this->getServiceContainer()->getUserIdentityLookup()
+			->getUserIdentityByName( $this->getOption( 'user' ) );
+		if ( !$user ) {
 			$this->fatalError( "Invalid user specified!" );
 		}
 		$reason = $this->getOption( 'reason',
@@ -51,11 +52,7 @@ class FlagProtectToSemiProtect extends Maintenance {
 		$this->flagToSemiProtect( $user, $reason );
 	}
 
-	/**
-	 * @param User $user
-	 * @param string $reason
-	 */
-	private function flagToSemiProtect( User $user, $reason ) {
+	private function flagToSemiProtect( UserIdentity $user, string $reason ) {
 		$this->output( "Semi-protecting all flag-protected pages...\n" );
 		$reviewNamespaces = $this->getConfig()->get( 'FlaggedRevsNamespaces' );
 		if ( !$reviewNamespaces ) {

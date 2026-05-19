@@ -197,7 +197,7 @@ class FlaggedRevsHooks implements
 		$ntitle = Title::newFromLinkTarget( $nLinkTarget );
 		$otitle = Title::newFromLinkTarget( $oLinkTarget );
 		if ( FlaggedRevs::inReviewNamespace( $ntitle ) ) {
-			$user = User::newFromIdentity( $userIdentity );
+			$user = $this->userFactory->newFromUserIdentity( $userIdentity );
 
 			if ( FlaggedRevs::inReviewNamespace( $otitle ) ) {
 				$fa = FlaggableWikiPage::getTitleInstance( $ntitle );
@@ -436,7 +436,7 @@ class FlaggedRevsHooks implements
 			return;
 		}
 
-		$user = User::newFromIdentity( $user );
+		$user = $this->userFactory->newFromUserIdentity( $user );
 
 		$fa->preloadPreparedEdit( $wikiPage ); // avoid double parse
 		$title->resetArticleID( $revRecord->getPageId() ); // Avoid extra DB hit and lag issues
@@ -688,7 +688,7 @@ class FlaggedRevsHooks implements
 		}
 
 		$flags = null;
-		$user = User::newFromIdentity( $userIdentity );
+		$user = $this->userFactory->newFromUserIdentity( $userIdentity );
 		# Is this a rollback/undo that didn't change anything?
 		if ( $baseId > 0 ) {
 			$frev = FlaggedRevision::newFromTitle( $title, $baseId ); // base rev of null edit
@@ -1032,7 +1032,7 @@ class FlaggedRevsHooks implements
 	private function recentEditCount( $userId, $seconds, $limit ) {
 		$dbr = $this->connectionProvider->getReplicaDatabase();
 
-		$queryData = self::getQueryData( $dbr, User::newFromId( $userId ) );
+		$queryData = self::getQueryData( $dbr, $this->userFactory->newFromId( $userId ) );
 		# Get cutoff timestamp (edits that are too recent)
 		$cutoff = $dbr->timestamp( time() - $seconds );
 		# Check all recent edits...
@@ -1064,7 +1064,7 @@ class FlaggedRevsHooks implements
 	private function recentContentEditCount( $userId, $seconds, $limit ) {
 		$dbr = $this->connectionProvider->getReplicaDatabase();
 
-		$queryData = self::getQueryData( $dbr, User::newFromId( $userId ) );
+		$queryData = self::getQueryData( $dbr, $this->userFactory->newFromId( $userId ) );
 		# Get cutoff timestamp (edits that are too recent)
 		$cutoff = $dbr->timestamp( time() - $seconds );
 		# Check all recent content edits...

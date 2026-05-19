@@ -34,17 +34,15 @@ class ReviewAllPages extends Maintenance {
 	 * @inheritDoc
 	 */
 	public function execute() {
-		$user = User::newFromName( $this->getOption( 'username' ) );
+		$user = $this->getServiceContainer()->getUserFactory()
+			->newFromName( $this->getOption( 'username' ) );
 		$this->autoReviewCurrent( $user );
 	}
 
-	/**
-	 * @param User $user
-	 */
-	private function autoReviewCurrent( User $user ) {
+	private function autoReviewCurrent( ?User $user ) {
 		$services = $this->getServiceContainer();
 		$this->output( "Auto-reviewing all current page versions...\n" );
-		if ( !$user->isRegistered() ) {
+		if ( !$user || !$user->isRegistered() ) {
 			$this->output( "Invalid user specified.\n" );
 			return;
 		} elseif ( !$services->getPermissionManager()->userHasRight( $user, 'review' ) ) {

@@ -5,7 +5,6 @@
 
 use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\User\ActorMigration;
-use MediaWiki\User\User;
 use Wikimedia\Rdbms\IDBAccessObject;
 use Wikimedia\Rdbms\IExpression;
 use Wikimedia\Rdbms\LikeValue;
@@ -36,6 +35,7 @@ class UpdateFRAutoPromote extends Maintenance {
 		$this->output( "Populating and updating flaggedrevs_promote table\n" );
 
 		$services = $this->getServiceContainer();
+		$userFactory = $services->getUserFactory();
 		$commentQuery = $services->getCommentStore()->getJoin( 'rev_comment' );
 		$revisionStore = $services->getRevisionStore();
 		$revQuery = $revisionStore->getQueryInfo();
@@ -74,7 +74,7 @@ class UpdateFRAutoPromote extends Maintenance {
 			# Go through and clean up missing items
 			foreach ( $res as $row ) {
 				$this->beginTransaction( $dbw, __METHOD__ );
-				$user = User::newFromRow( $row );
+				$user = $userFactory->newFromRow( $row );
 				$p = FRUserCounters::getUserParams( $user->getId(), IDBAccessObject::READ_EXCLUSIVE );
 				$oldp = $p;
 				# Get edit comments used
