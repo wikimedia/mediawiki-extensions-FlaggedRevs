@@ -428,7 +428,7 @@ class FlaggedRevsHooks implements
 	public static function maybeMakeEditReviewed(
 		WikiPage $wikiPage, RevisionRecord $revRecord, $baseRevId, UserIdentity $user
 	) {
-		$request = RequestContext::getMain()->getRequest();
+		global $wgRequest;
 
 		$title = $wikiPage->getTitle(); // convenience
 		# Edit must be non-null, to a reviewable page, with $user set
@@ -445,11 +445,11 @@ class FlaggedRevsHooks implements
 		# Get what was just the current revision ID
 		$prevRevId = $revRecord->getParentId();
 		# Get edit timestamp. Existance already validated by \MediaWiki\EditPage\EditPage
-		$editTimestamp = $request->getVal( 'wpEdittime' );
+		$editTimestamp = $wgRequest->getVal( 'wpEdittime' );
 		$pm = MediaWikiServices::getInstance()->getPermissionManager();
 		# Is the page manually checked off to be reviewed?
 		if ( $editTimestamp
-			&& $request->getCheck( 'wpReviewEdit' )
+			&& $wgRequest->getCheck( 'wpReviewEdit' )
 			&& $pm->userCan( 'review', $user, $title )
 			&& self::editCheckReview( $fa, $revRecord, $user, $editTimestamp )
 		) {
@@ -475,7 +475,7 @@ class FlaggedRevsHooks implements
 			# edit may have been auto-merged in between, in that case, discard
 			# the baseRevId given from the client.
 			if ( $editTimestamp && $prevTimestamp === $editTimestamp ) {
-				$baseRevId = $request->getInt( 'baseRevId' );
+				$baseRevId = $wgRequest->getInt( 'baseRevId' );
 			}
 			# If baseRevId not given, assume the previous revision ID (for bots).
 			# For auto-merges, this also occurs since the given ID is ignored.
@@ -492,7 +492,7 @@ class FlaggedRevsHooks implements
 		if ( $pm->userCan( 'autoreview', $user, $title ) ) {
 			# For rollback/null edits, use the previous ID as the alternate base ID.
 			# Otherwise, use the 'altBaseRevId' parameter passed in by the request.
-			$altBaseRevId = $isOldRevCopy ? $prevRevId : $request->getInt( 'altBaseRevId' );
+			$altBaseRevId = $isOldRevCopy ? $prevRevId : $wgRequest->getInt( 'altBaseRevId' );
 			if ( !$prevRevId ) { // New pages
 				$reviewableNewPage = FlaggedRevs::autoReviewNewPages();
 				$reviewableChange = false;
@@ -670,16 +670,16 @@ class FlaggedRevsHooks implements
 		RevisionRecord $revisionRecord,
 		EditResult $editResult
 	) {
+		global $wgRequest;
 		if ( !$editResult->isNullEdit() ) {
 			// Not a null edit
 			return;
 		}
-		$request = RequestContext::getMain()->getRequest();
 
 		$baseId = $editResult->getOriginalRevisionId();
 
 		# Rollback/undo or box checked
-		$reviewEdit = $request->getCheck( 'wpReviewEdit' );
+		$reviewEdit = $wgRequest->getCheck( 'wpReviewEdit' );
 		if ( !$baseId && !$reviewEdit ) {
 			// Short-circuit
 			return;
@@ -718,7 +718,7 @@ class FlaggedRevsHooks implements
 			}
 		}
 		# Get edit timestamp, it must exist.
-		$editTimestamp = $request->getVal( 'wpEdittime' );
+		$editTimestamp = $wgRequest->getVal( 'wpEdittime' );
 		# Is the page checked off to be reviewed?
 		if ( $editTimestamp && $reviewEdit && MediaWikiServices::getInstance()
 				->getPermissionManager()->userCan( 'review', $user, $title )
@@ -1320,14 +1320,14 @@ class FlaggedRevsHooks implements
 	 * Set session key.
 	 */
 	public function onUserLoadAfterLoadFromSession( $user ) {
+		global $wgRequest;
 		if ( $user->isRegistered() && $this->permissionManager->userHasRight( $user, 'review' )
 		) {
-			$request = RequestContext::getMain()->getRequest();
-			$key = $request->getSessionData( 'wsFlaggedRevsKey' );
+			$key = $wgRequest->getSessionData( 'wsFlaggedRevsKey' );
 			if ( $key === null ) { // should catch login
 				$key = MWCryptRand::generateHex( 32 );
 				// Temporary secret key attached to this session
-				$request->setSessionData( 'wsFlaggedRevsKey', $key );
+				$wgRequest->setSessionData( 'wsFlaggedRevsKey', $key );
 			}
 		}
 	}

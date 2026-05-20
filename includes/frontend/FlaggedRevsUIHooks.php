@@ -616,10 +616,10 @@ class FlaggedRevsUIHooks implements
 	 * @inheritDoc
 	 */
 	public function onSpecialNewpagesConditions(
-		$special, $opts, &$conds, &$tables, &$fields, &$join_conds
+		$specialPage, $opts, &$conds, &$tables, &$fields, &$join_conds
 	) {
 		$dbr = $this->dbProvider->getReplicaDatabase();
-		$this->makeAllQueryChanges( $conds, $tables, $join_conds, $fields, $dbr, $special->getContext() );
+		$this->makeAllQueryChanges( $conds, $tables, $join_conds, $fields, $dbr );
 	}
 
 	/**
@@ -640,18 +640,12 @@ class FlaggedRevsUIHooks implements
 	 * @param array &$join_conds Query join conditions
 	 * @param string[] &$fields Fields to query
 	 * @param IReadableDatabase $dbr
-	 * @param IContextSource $context
 	 */
 	private function makeAllQueryChanges(
-		array &$conds,
-		array &$tables,
-		array &$join_conds,
-		array &$fields,
-		IReadableDatabase $dbr,
-		IContextSource $context
+		array &$conds, array &$tables, array &$join_conds, array &$fields, IReadableDatabase $dbr
 	) {
 		self::addMetadataQueryJoins( $tables, $join_conds, $fields );
-		$this->hideReviewedChangesIfNeeded( $conds, $dbr, $context );
+		$this->hideReviewedChangesIfNeeded( $conds, $dbr );
 	}
 
 	/**
@@ -677,12 +671,13 @@ class FlaggedRevsUIHooks implements
 	 *
 	 * @param array &$conds Query conditions
 	 * @param IReadableDatabase $dbr
-	 * @param IContextSource $context
 	 */
 	private function hideReviewedChangesIfNeeded(
-		array &$conds, IReadableDatabase $dbr, IContextSource $context
+		array &$conds, IReadableDatabase $dbr
 	) {
-		if ( $context->getRequest()->getBool( 'hideReviewed' ) && !FlaggedRevs::useOnlyIfProtected() ) {
+		global $wgRequest;
+
+		if ( $wgRequest->getBool( 'hideReviewed' ) && !FlaggedRevs::useOnlyIfProtected() ) {
 			$this->hideReviewedChangesUnconditionally( $conds, $dbr );
 		}
 	}
@@ -1104,7 +1099,7 @@ class FlaggedRevsUIHooks implements
 	 * Update stability config from request
 	 */
 	public function onProtectionForm__save( $article, &$errorMsg, $reasonstr ) {
-		global $wgFlaggedRevsProtection;
+		global $wgRequest, $wgFlaggedRevsProtection;
 		$wikiPage = $article->getPage();
 		$title = $wikiPage->getTitle();
 		$user = $article->getContext()->getUser();
@@ -1124,21 +1119,20 @@ class FlaggedRevsUIHooks implements
 			// User cannot change anything
 			return;
 		}
-		$request = $article->getContext()->getRequest();
 		$form = new PageStabilityProtectForm( $user );
 		$form->setTitle( $title ); // target page
-		$permission = (string)$request->getVal( 'mwStabilityLevel', '' );
+		$permission = (string)$wgRequest->getVal( 'mwStabilityLevel', '' );
 		if ( $permission == "none" ) {
 			$permission = ''; // 'none' => ''
 		}
 		$form->setAutoreview( $permission ); // protection level (autoreview restriction)
 		$form->setWatchThis( null ); // protection form already has a watch check
-		$form->setReasonExtra( $request->getText( 'mwProtect-reason' ) ); // manual
-		$form->setReasonSelection( $request->getVal( 'wpProtectReasonSelection' ) ); // dropdown
-		$form->setExpiryCustom( $request->getVal( 'mwStabilizeExpiryOther' ) ); // manual
-		$form->setExpirySelection( $request->getVal( 'mwStabilizeExpirySelection' ) ); // dropdown
+		$form->setReasonExtra( $wgRequest->getText( 'mwProtect-reason' ) ); // manual
+		$form->setReasonSelection( $wgRequest->getVal( 'wpProtectReasonSelection' ) ); // dropdown
+		$form->setExpiryCustom( $wgRequest->getVal( 'mwStabilizeExpiryOther' ) ); // manual
+		$form->setExpirySelection( $wgRequest->getVal( 'mwStabilizeExpirySelection' ) ); // dropdown
 		$form->ready(); // params all set
-		if ( $request->wasPosted() && $form->isAllowed() ) {
+		if ( $wgRequest->wasPosted() && $form->isAllowed() ) {
 			$status = $form->submit();
 			if ( $status !== true ) {
 				$errorMsg = wfMessage( $status )->text(); // some error message
