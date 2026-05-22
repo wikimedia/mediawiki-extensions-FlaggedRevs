@@ -28,9 +28,12 @@ class FlaggedRevsCacheTest extends ParserCacheTestBase {
 		$this->overrideMwServices( null, [ 'ParserCacheFactory' => static fn () => $parserCacheFactory ] );
 
 		$this->setTemporaryHook(
-			'ParserOptionsRegister',
-			static function ( &$defaults, &$inCacheKey, &$lazyLoad ) {
+			'ParserOptionsDefaults',
+			static function ( &$defaults, &$inCacheKey, &$lazyLoad, &$postprocOpts = [] ) {
 				$defaults['useParsoid'] = true;
+				$defaults['visibleLinks'] = 'both';
+				$inCacheKey['visibleLinks'] = true;
+				$postprocOpts[] = 'visibleLinks';
 			}
 		);
 		$this->trackerWrapper = new TrackerWrapper();
@@ -63,8 +66,8 @@ class FlaggedRevsCacheTest extends ParserCacheTestBase {
 	public function testCache() {
 		$this->overrideConfigValue( 'UsePostprocCacheParsoid', true );
 		$this->setTemporaryHook(
-			'ParserOptionsRegister',
-			static function ( &$defaults, &$inCacheKey, &$lazyLoad ) {
+			'ParserOptionsDefaults',
+			static function ( &$defaults, &$inCacheKey, &$lazyLoad, &$postprocOpts = [] ) {
 				$defaults['useParsoid'] = true;
 			}
 		);
