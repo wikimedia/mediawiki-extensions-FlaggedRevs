@@ -1,8 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Abshirdheere"
+			"Abshirdheere",
+			"AhmedG612"
 		]
 	},
-	"revreview-hist-basic": "Hubin dibu eegis"
+	"revreview-hist-basic": "Hubin dibu eegis",
+	"revreview-diff-toggle-show": "Muuji isbeddelladaas",
+	"revreview-diff-toggle-hide": "Qari isbeddelladaas",
+	"revreview-reviewlink": "Isbeddellada sugaya"
 }

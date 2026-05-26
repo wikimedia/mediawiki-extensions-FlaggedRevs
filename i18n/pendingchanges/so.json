@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Maax"
+			"Maax",
+			"AhmedG612"
 		]
 	},
-	"pendingchanges-category": "Qeybta:"
+	"pendingchanges-legend": "Liis garee bogagga la eegay ee leh isbeddello sugaya",
+	"pendingchanges-category": "Qeybta:",
+	"pendingchanges-table-footer": "Hadda waxaa jira {{PLURAL:$2|$1 isbeddel sugaya|$1 isbeddello sugaya}}"
 }
