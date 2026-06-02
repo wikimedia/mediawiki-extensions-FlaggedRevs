@@ -7,7 +7,7 @@
 		]
 	},
 	"validationstatistics": "Paginacontrolestatistieken",
-	"validationstatistics-users": "'''{{SITENAME}}''' heeft op het moment '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|gebruiker|gebruikers}} in de rol van [[{{MediaWiki:Validationpage}}|Redacteur]].\n\nRedacteuren zijn gebruikers die zich bewezen hebben en versies van pagina's als gecontroleerd mogen markeren.",
+	"validationstatistics-users": "'''{{SITENAME}}''' heeft op het moment '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|gebruiker|gebruikers}} in de rol van [[{{MediaWiki:Validationpage}}|Bewerker]].\n\nBewerkers zijn gebruikers die zich bewezen hebben en versies van pagina's als gecontroleerd mogen markeren.",
 	"validationstatistics-lastupdate": "''Deze gegevens zijn bijgewerkt op $1 om $2.''",
 	"validationstatistics-pndtime": "Van bewerkingen die zijn ''{{int:validationstatistics-stable}}'' door gebruikers wordt aangenomen dat die in orde zijn.\n\nDe gemiddelde vertraging voor de [[Special:OldReviewedPages|pagina's met ongecontroleerde bewerkingen]] is '''$1'''.\nDe vertraging geeft aan hoe lang het duurt voor een bewerking wordt gecontroleerd.",
 	"validationstatistics-revtime": "De gemiddelde wachttijd voor controle van bewerkingen door ''gebruikers die niet aangemeld zijn' is '''$1'''. De mediaan is '''$2'''.\n$3",
