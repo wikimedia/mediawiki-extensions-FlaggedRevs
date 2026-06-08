@@ -61,7 +61,7 @@
 	"logentry-review-approve-auto": "$1 {{GENDER:$2|heeft}} automatisch een versie van $3 goedgekeurd",
 	"logentry-review-unapprove": "$1 {{GENDER:$2|heeft}} de goedkeuring van een versie van $3 ingetrokken",
 	"logentry-stable-config": "$1 {{GENDER:$2|heeft}} een stabiele versie ingesteld voor $3 $4",
-	"logentry-stable-modify": "$1 {{GENDER:$2|heeft}} de instellingen veranderd voor de stabiele versie van $3 $4",
+	"logentry-stable-modify": "$1 {{GENDER:$2|heeft}} de instellingen gewijzigd voor de stabiele versie van $3 $4",
 	"logentry-stable-reset": "$1 {{GENDER:$2|heeft}} de stabiele versie voor $3 opnieuw ingesteld $4",
 	"logentry-stable-move_stable": "$1 {{GENDER:$2|heeft}} de stabiele-versie-instellingen verplaatst van $4 naar $3",
 	"revreview-hist-draft": "ongecontroleerde versie",

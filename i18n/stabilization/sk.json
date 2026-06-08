@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Helix84",
-			"Luky001"
+			"Luky001",
+			"Wizzard"
 		]
 	},
-	"stabilization-tab": "(kk)",
+	"stabilization-tab": "Preveriť",
 	"stabilization": "Stabilizácia stránky",
 	"stabilization-text": "'''Zmeňte nastavenia nižšie na ich prispôsobenie tomu, ako je stabilná verzia [[:$1|$1]] vyberaná a zobrazovaná.'''",
 	"stabilization-perm": "Váš účet nemá oprávnenie meniť nastavenia stabilnej verzie. Tu sú súčasné nastavenia pre [[:$1|$1]]:",
