@@ -22,7 +22,8 @@
 			"Whym",
 			"しぃ",
 			"春春眠眠",
-			"青子守歌"
+			"青子守歌",
+			"Tensama0415"
 		]
 	},
 	"action-autoreview": "自分の編集を自動的に「確認済み」にする",
@@ -112,7 +113,7 @@
 	"revreview-editnotice": "'''今回の変更は、承認された利用者が受理した後に公開されます。 ([[{{MediaWiki:Validationpage}}|ヘルプ]])'''",
 	"revreview-submitedit": "変更を送信",
 	"revreview-submitedit-title": "変更を査読に送信",
-	"revreview-edited": "'''今回の変更は、承認された利用者が受理した後に公開されます。([[{{MediaWiki:Validationpage}}|ヘルプ]])'''\n\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2件の保留中の変更] ''(下記参照)'' が査読待ちです。",
+	"revreview-edited": "'''今回の変更は、承認された利用者が受理した後に公開されます。([[{{MediaWiki:Validationpage}}|ヘルプ]])'''\n\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2件の保留中の変更] ''(下記参照)'' {{PLURAL:$2|が}}査読待ちです。",
 	"revreview-edited-section": "節「[[#$1|$2]]」に戻る。",
 	"revreview-newest-basic": "この版における [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|件の変更}}]が、[[{{MediaWiki:Validationpage}}|査読待ち]]の状態に{{PLURAL:$3|あります}}。\n[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は <i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 確認されました]。",
 	"revreview-newest-basic-i": "この版における[{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}} テンプレートまたはファイルの変更]が[[{{MediaWiki:Validationpage}}|査読待ち]]の状態にあります。\n[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は <i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 確認されました]。",
@@ -124,7 +125,7 @@
 	"revreview-quick-basic-old": "[[{{MediaWiki:Validationpage}}|確認済み]]'''",
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|確認済み]]'''",
 	"revreview-quick-invalid": "'''無効な版指定'''",
-	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|未確認]]'''",
+	"revreview-quick-none": "'''未確認'''",
 	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} 保留中の変更を査読]",
 	"revreview-basic-title": "これはこのページの確認済みの版です",
 	"revreview-toggle-title": "詳細を表示または非表示",
