@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Helix84",
-			"Luky001"
+			"Luky001",
+			"Wizzard"
 		]
 	},
 	"unreviewedpages": "Neskontrolované stránky",
@@ -12,7 +13,7 @@
 	"unreviewedpages-unwatched": "(nesledovaná)",
 	"unreviewedpages-watched": "({{PLURAL:$1|sleduje $1 aktívny používateľ|sleduú $1 aktívni používatelia|sleduje $1 aktívnych používateľov}})",
 	"unreviewedpages-list": "Táto stránka obsahuje zoznam článkov s obsahom, ktoré zatiaľ ''neboli'' [[{{MediaWiki:Validationpage}}|skontrolované]] do určenej úrovne.",
-	"unreviewedpages-none": "Momentálne žiadne stránky nespĺňajú tieto kritériá",
+	"unreviewedpages-none": "Momentálne žiadne stránky nespĺňajú tieto kritériá.",
 	"unreviewedpages-viewing": "(kontroluje sa)",
 	"unreviewedpages-hours": "($1 {{PLURAL:$1|hodina|hodiny|hodín}})",
 	"unreviewedpages-days": "($1 {{PLURAL:$1|deň|dni|dní}})",
