@@ -24,7 +24,7 @@ class FlaggedRevsLibraryTest extends LuaEngineTestBase {
 		$pageConfig = $class->getProperty( 'pageConfig' );
 		$mDataLoaded = $class->getProperty( 'mDataLoaded' );
 
-		$title = Title::newFromText( 'Page without FR' );
+		$title = Title::makeTitle( NS_MAIN, 'Page without FR' );
 		$article = FlaggableWikiPage::getTitleInstance( $title );
 		$pageConfig->setValue( $article, [
 			'override'   => 0,
@@ -33,7 +33,7 @@ class FlaggedRevsLibraryTest extends LuaEngineTestBase {
 		] );
 		$mDataLoaded->setValue( $article, true );
 
-		$title = Title::newFromText( 'Page with FR' );
+		$title = Title::makeTitle( NS_MAIN, 'Page with FR' );
 		$article = FlaggableWikiPage::getTitleInstance( $title );
 		$pageConfig->setValue( $article, [
 			'override'   => 1,

@@ -61,7 +61,7 @@ class PageStabilityFormTest extends MediaWikiIntegrationTestCase {
 	public function testShouldNotAllowStabilitySettingsChangeIfPageNotInReviewNamespace() {
 		$this->overrideConfigValue( 'FlaggedRevsNamespaces', [ 0 ] );
 
-		$page = $this->getExistingTestPage( Title::newFromText( 'Test', NS_TALK ) );
+		$page = $this->getExistingTestPage( Title::makeTitle( NS_TALK, 'Test' ) );
 		$user = $this->getTestSysop()->getUser();
 		$title = $page->getTitle();
 
