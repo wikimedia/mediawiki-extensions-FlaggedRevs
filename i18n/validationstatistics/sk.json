@@ -3,7 +3,8 @@
 		"authors": [
 			"Helix84",
 			"Luky001",
-			"Teslaton"
+			"Teslaton",
+			"Wizzard"
 		]
 	},
 	"validationstatistics": "Štatistiky overenia stránok",
@@ -18,6 +19,7 @@
 	"validationstatistics-latest": "Synchronizovaná",
 	"validationstatistics-synced": "Synchronizované/skontrolované",
 	"validationstatistics-old": "Zastarané",
+	"validationstatistics-unreviewed": "Neskontrolované",
 	"validationstatistics-utable": "Nižšie {{PLURAL:$1|je uvedený $1 najaktívnejší posudzovateľ|sú uvedení $1 najaktívnejší posudzovatelia|je uvedených $1 najaktívnejších posudzovateľov}} za {{PLURAL:$2|poslednú hodinu|posledné $2 hodiny|posledných $2 hodín}}.",
 	"validationstatistics-user": "Používateľ",
 	"validationstatistics-reviews": "Kontroly"
