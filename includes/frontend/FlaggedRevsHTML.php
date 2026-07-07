@@ -1,6 +1,5 @@
 <?php
 
-use MediaWiki\ChangeTags\ChangeTags;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Html\Html;
 use MediaWiki\Logging\LogEventsList;
@@ -193,7 +192,10 @@ class FlaggedRevsHTML {
 			$context->msg( 'pendingchanges-edit-tag-any' )->text()
 		);
 
-		$tagDefs = ChangeTags::getChangeTagList( $context, $context->getLanguage() );
+		$tagDefs = MediaWikiServices::getInstance()->getChangeTagsFormatter()->getChangeTagList(
+			$context,
+			$context->getAuthority()
+		);
 		foreach ( $tagDefs as $tagInfo ) {
 			$tagName = $tagInfo['name'];
 			$selectOptions .= Html::element( 'option',
