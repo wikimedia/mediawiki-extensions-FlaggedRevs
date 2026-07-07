@@ -7,7 +7,7 @@
 		]
 	},
 	"apihelp-flagconfig-summary": "이 사이트의 검토 플래그 설정에 대한 기본 정보를 가져옵니다.",
-	"apihelp-flagconfig-extended-description": "각 태그에 대해 다음 매개변수가 반환됩니다:\n;name:이 태그의 키 이름입니다.\n;levels:태그가 가진 등급 수(\"태그 없음\" 이상)입니다.\nFlagged revisions은 각 태그에 대해 등급이 할당됩니다. 모든 태그가 충족하는 가장 높은 등급은 전체 리비전의 검토 등급입니다.",
+	"apihelp-flagconfig-extended-description": "각 태그에 대해 다음 매개변수가 반환됩니다:\n;name:이 태그의 키 이름입니다.\n;levels:태그가 가진 등급 수(\"태그 없음\" 이상)입니다.\nFlagged revisions은 각 태그에 대해 등급이 할당됩니다. 모든 태그가 충족하는 가장 높은 등급은 전체 판의 검토 등급입니다.",
 	"apihelp-flagconfig-example-1": "플래그 구성을 가져옵니다",
 	"apihelp-query+configuredpages-summary": "사용자 지정 검토 구성이 있는 모든 문서를 나열합니다.",
 	"apihelp-query+configuredpages-param-start": "이 문서 ID부터 나열합니다.",
@@ -54,7 +54,7 @@
 	"apihelp-stabilize-summary-protect": "문서에 대한 검토 보호 설정을 구성합니다.",
 	"apihelp-stabilize-param-reason": "이유입니다.",
 	"apihelp-stabilize-param-expiry-general": "이 설정의 만료일입니다.",
-	"apihelp-stabilize-param-expiry-protect": "리뷰 보호 기간 만료일입니다.",
+	"apihelp-stabilize-param-expiry-protect": "검토 보호 기간 만료일입니다.",
 	"apihelp-stabilize-param-title-general": "안정화할 문서의 제목입니다.",
 	"apihelp-stabilize-param-title-protect": "검토용으로 보호될 문서의 제목입니다.",
 	"apihelp-stabilize-param-default": "표시할 기본 판입니다.",
