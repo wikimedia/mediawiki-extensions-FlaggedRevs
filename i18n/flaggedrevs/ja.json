@@ -39,7 +39,7 @@
 	"flaggedrevs-desc": "版の査読やページの採択を、編集者ができるようにする",
 	"flaggedrevs-pref-UI": "基本インターフェイス:",
 	"flaggedrevs-pref-UI-0": "ページの承認状態を示すのに詳細な情報ボックスを使用",
-	"flaggedrevs-pref-UI-1": "ページの承認状態を示すのに小さなアイコンと最小限のテキストを使用",
+	"flaggedrevs-pref-UI-1": "ページの承認状態を示すのにインジケータを使用",
 	"prefs-flaggedrevs-ui": "編集の査読",
 	"flaggedrevs-prefs-stable": "公開版表示の既定設定",
 	"flaggedrevs-pref-stable-0": "各ページの既定の設定を使用",
