@@ -76,7 +76,11 @@
 		{
 			"path": "/flaggedrevs/internal/review/{target}",
 			"method": "POST",
-			"class": "MediaWiki\\Extension\\FlaggedRevs\\Rest\\ReviewHandler"
+			"class": "MediaWiki\\Extension\\FlaggedRevs\\Rest\\ReviewHandler",
+			"services": [
+				"PermissionManager",
+				"ReadOnlyMode"
+			]
 		}
 	],
 	"AvailableRights": [

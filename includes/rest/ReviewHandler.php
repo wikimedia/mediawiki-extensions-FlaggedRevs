@@ -4,7 +4,6 @@ namespace MediaWiki\Extension\FlaggedRevs\Rest;
 
 use FlaggedRevs;
 use MediaWiki\Context\RequestContext;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Rest\Response;
 use MediaWiki\Rest\SimpleHandler;
@@ -12,11 +11,18 @@ use MediaWiki\Session\CsrfTokenSet;
 use MediaWiki\Title\Title;
 use RevisionReviewForm;
 use Wikimedia\ParamValidator\ParamValidator;
+use Wikimedia\Rdbms\ReadOnlyMode;
 
 /**
  * Handler class for REST API endpoint that updates revision review items
  */
 class ReviewHandler extends SimpleHandler {
+
+	public function __construct(
+		private readonly PermissionManager $permissionManager,
+		private readonly ReadOnlyMode $readOnlyMode,
+	) {
+	}
 
 	/**
 	 * @param string $target
@@ -25,7 +31,7 @@ class ReviewHandler extends SimpleHandler {
 	public function run( $target ) {
 		$body = $this->getValidatedBody();
 		$body[ 'target' ] = $target;
-		$result = self::doReview( $body );
+		$result = $this->doReview( $body );
 		$response = $this->getResponseFactory()->createJson( $result );
 		if ( isset( $result[ 'error-html' ] ) ) {
 			$response->setStatus( 400 );
@@ -55,7 +61,7 @@ class ReviewHandler extends SimpleHandler {
 		//       takes the values from HTML form elements without understanding
 		//       their types.
 		//       This is not a problem since we pass the request body to
-		//       self::doReview(), which is designed to handle submit
+		//       $this->doReview(), which is designed to handle submit
 		//       data from an HTML form, which is all strings anyway.
 
 		return [
@@ -123,12 +129,12 @@ class ReviewHandler extends SimpleHandler {
 	 * wpaccuracy, and target.
 	 * @return array
 	 */
-	private static function doReview( $argsMap ) {
+	private function doReview( $argsMap ) {
 		$context = RequestContext::getMain();
 		$user = $context->getUser();
 		$out = $context->getOutput();
 		$request = $context->getRequest();
-		if ( MediaWikiServices::getInstance()->getReadOnlyMode()->isReadOnly() ) {
+		if ( $this->readOnlyMode->isReadOnly() ) {
 			return [ 'error-html' => wfMessage( 'revreview-failed' )->parse() .
 				wfMessage( 'revreview-submission-invalid' )->parse() ];
 		}
@@ -199,7 +205,7 @@ class ReviewHandler extends SimpleHandler {
 			return [ 'error-html' => wfMessage( 'sessionfailure' )->parse() ];
 		}
 		# Basic permission checks...
-		$permStatus = MediaWikiServices::getInstance()->getPermissionManager()
+		$permStatus = $this->permissionManager
 			->getPermissionStatus( 'review', $user, $title, PermissionManager::RIGOR_QUICK );
 		if ( !$permStatus->isGood() ) {
 			return [ 'error-html' => $out->parseAsInterface(

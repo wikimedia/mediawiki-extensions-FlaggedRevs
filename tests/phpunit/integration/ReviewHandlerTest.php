@@ -15,6 +15,14 @@ use MediaWiki\Tests\Rest\Handler\HandlerTestTrait;
 class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 	use HandlerTestTrait;
 
+	private function newReviewHandler() {
+		$services = $this->getServiceContainer();
+		return new ReviewHandler(
+			$services->getPermissionManager(),
+			$services->getReadOnlyMode()
+		);
+	}
+
 	protected function setUp(): void {
 		parent::setUp();
 		$this->setUserLang( 'qqx' );
@@ -70,7 +78,7 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 				'Content-Type' => 'application/json',
 			],
 		] );
-		$handler = new ReviewHandler();
+		$handler = $this->newReviewHandler();
 		$response = $this->executeHandler( $handler, $request );
 
 		$this->assertStringStartsWith( '{"change-time":"', $response->getBody()->getContents() );
@@ -106,7 +114,7 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 				'Content-Type' => 'application/json',
 			],
 		] );
-		$handler = new ReviewHandler();
+		$handler = $this->newReviewHandler();
 		$response = $this->executeHandler( $handler, $request );
 
 		$this->assertStringStartsWith( '{"change-time":"', $response->getBody()->getContents() );
@@ -133,7 +141,7 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 				'Content-Type' => 'application/json',
 			],
 		] );
-		$handler = new ReviewHandler();
+		$handler = $this->newReviewHandler();
 		$response = $this->executeHandler( $handler, $request );
 
 		$this->assertStringContainsString( 'The target page does not exist.', $response->getBody()->getContents() );
@@ -175,7 +183,7 @@ class ReviewHandlerTest extends MediaWikiIntegrationTestCase {
 				'Content-Type' => 'application/json',
 			],
 		] );
-		$handler = new ReviewHandler();
+		$handler = $this->newReviewHandler();
 		$response = $this->executeHandler( $handler, $request );
 
 		$this->assertStringStartsWith( '{"change-time":"', $response->getBody()->getContents() );
