@@ -3,9 +3,14 @@
 namespace MediaWiki\Extension\FlaggedRevs\Rest;
 
 use FlaggedRevs;
+use MediaWiki\Context\RequestContext;
+use MediaWiki\MediaWikiServices;
+use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Rest\Response;
 use MediaWiki\Rest\SimpleHandler;
-use RevisionReview;
+use MediaWiki\Session\CsrfTokenSet;
+use MediaWiki\Title\Title;
+use RevisionReviewForm;
 use Wikimedia\ParamValidator\ParamValidator;
 
 /**
@@ -20,7 +25,7 @@ class ReviewHandler extends SimpleHandler {
 	public function run( $target ) {
 		$body = $this->getValidatedBody();
 		$body[ 'target' ] = $target;
-		$result = RevisionReview::doReview( $body );
+		$result = self::doReview( $body );
 		$response = $this->getResponseFactory()->createJson( $result );
 		if ( isset( $result[ 'error-html' ] ) ) {
 			$response->setStatus( 400 );
@@ -50,7 +55,7 @@ class ReviewHandler extends SimpleHandler {
 		//       takes the values from HTML form elements without understanding
 		//       their types.
 		//       This is not a problem since we pass the request body to
-		//       RevisionReview::doReview(), which is designed to handle submit
+		//       self::doReview(), which is designed to handle submit
 		//       data from an HTML form, which is all strings anyway.
 
 		return [
@@ -110,5 +115,108 @@ class ReviewHandler extends SimpleHandler {
 				ParamValidator::PARAM_REQUIRED => false,
 			],
 		];
+	}
+
+	/**
+	 * @param array $argsMap Typical params are oldid, refid, validatedParams,
+	 * templateParams, wpApprove, wpUnapprove, wpReject, wpReason, changetime, wpEditToken,
+	 * wpaccuracy, and target.
+	 * @return array
+	 */
+	private static function doReview( $argsMap ) {
+		$context = RequestContext::getMain();
+		$user = $context->getUser();
+		$out = $context->getOutput();
+		$request = $context->getRequest();
+		if ( MediaWikiServices::getInstance()->getReadOnlyMode()->isReadOnly() ) {
+			return [ 'error-html' => wfMessage( 'revreview-failed' )->parse() .
+				wfMessage( 'revreview-submission-invalid' )->parse() ];
+		}
+		// Make review interface object
+		$form = new RevisionReviewForm( $user );
+		$title = null; // target page
+		$editToken = ''; // edit token
+
+		foreach ( $argsMap as $par => $val ) {
+			switch ( $par ) {
+				case "target":
+					$title = Title::newFromURL( $val );
+					break;
+				case "oldid":
+					$form->setOldId( (int)$val );
+					break;
+				case "refid":
+					$form->setRefId( (int)$val );
+					break;
+				case "validatedParams":
+					$form->setValidatedParams( $val );
+					break;
+				case "templateParams":
+					$form->setTemplateParams( $val );
+					break;
+				case "wpApprove":
+					if ( $val ) {
+						$form->setAction( RevisionReviewForm::ACTION_APPROVE );
+					}
+					break;
+				case "wpUnapprove":
+					if ( $val ) {
+						$form->setAction( RevisionReviewForm::ACTION_UNAPPROVE );
+					}
+					break;
+				case "wpReject":
+					if ( $val ) {
+						$form->setAction( RevisionReviewForm::ACTION_REJECT );
+					}
+					break;
+				case "wpReason":
+					$form->setComment( $val ?? '' );
+					break;
+				case "changetime":
+					$form->setLastChangeTime( $val );
+					break;
+				case "wpEditToken":
+					$editToken = $val;
+					break;
+				case 'wp' . FlaggedRevs::getTagName():
+					$form->setTag( (int)$val );
+					break;
+			}
+		}
+
+		# Valid target title?
+		if ( !$title ) {
+			return [ 'error-html' => wfMessage( 'notargettext' )->parse() ];
+		}
+
+		$form->setTitle( $title );
+		$form->setSessionKey( $request->getSessionData( 'wsFlaggedRevsKey' ) );
+
+		$form->ready(); // all params loaded
+		# Check session via user token
+		$userToken = new CsrfTokenSet( $request );
+		if ( !$userToken->matchToken( $editToken ) ) {
+			return [ 'error-html' => wfMessage( 'sessionfailure' )->parse() ];
+		}
+		# Basic permission checks...
+		$permStatus = MediaWikiServices::getInstance()->getPermissionManager()
+			->getPermissionStatus( 'review', $user, $title, PermissionManager::RIGOR_QUICK );
+		if ( !$permStatus->isGood() ) {
+			return [ 'error-html' => $out->parseAsInterface(
+				$out->formatPermissionStatus( $permStatus, 'review' )
+			) ];
+		}
+		# Try submission...
+		$status = $form->submit();
+		# Failure...
+		if ( $status !== true ) {
+			return [ 'error-html' => wfMessage( 'revreview-failed' )->parseAsBlock() .
+				'<p>' . wfMessage( $status )->escaped() . '</p>' ];
+		} elseif ( !$form->getAction() ) {
+			return [ 'error-html' => wfMessage( 'revreview-failed' )->parse() ];
+		}
+
+		# Sent new lastChangeTime TS to client for later submissions...
+		return [ 'change-time' => $form->getNewLastChangeTime() ];
 	}
 }
