@@ -131,7 +131,7 @@ class RevisionReviewFormTest extends MediaWikiIntegrationTestCase {
 
 		$curContent = $this->getServiceContainer()
 			->getRevisionLookup()
-			->getKnownCurrentRevision( $page )
+			->getKnownLatestRevision( $page )
 			->getContent( SlotRecord::MAIN );
 
 		$currentText = $this->getServiceContainer()
