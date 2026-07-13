@@ -9,6 +9,7 @@ if ( !class_exists( LuaEngineTestBase::class ) ) {
 
 /**
  * @covers \FlaggedRevsScribuntoLuaLibrary
+ * @group Database
  */
 class FlaggedRevsLibraryTest extends LuaEngineTestBase {
 
