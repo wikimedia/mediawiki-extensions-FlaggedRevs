@@ -150,11 +150,16 @@ class PendingChangesPager extends TablePager {
 		}
 		# Filter by tag
 		if ( $this->tagFilter !== null && $this->tagFilter !== '' ) {
-			$tables[] = 'change_tag';
-			$tables[] = 'change_tag_def';
-			$joinConds['change_tag'] = [ 'JOIN', 'ct_rev_id=rev_id' ];
-			$joinConds['change_tag_def'] = [ 'JOIN', 'ct_tag_id=ctd_id' ];
-			$conds['ctd_name'] = $this->tagFilter;
+			$changeTagsStore = MediaWikiServices::getInstance()->getChangeTagsStore();
+			if ( !$changeTagsStore->canViewTag( $this->tagFilter, $this->getAuthority() ) ) {
+				$conds[] = '1=0';
+			} else {
+				$tables[] = 'change_tag';
+				$tables[] = 'change_tag_def';
+				$joinConds['change_tag'] = [ 'JOIN', 'ct_rev_id=rev_id' ];
+				$joinConds['change_tag_def'] = [ 'JOIN', 'ct_tag_id=ctd_id' ];
+				$conds['ctd_name'] = $this->tagFilter;
+			}
 		}
 		# Don't display pages with expired protection (T350527)
 		if ( FlaggedRevs::useOnlyIfProtected() ) {
