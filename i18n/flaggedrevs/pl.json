@@ -29,7 +29,8 @@
 			"ToSter",
 			"Woytecr",
 			"Wpedzich",
-			"Žekřil71pl"
+			"Žekřil71pl",
+			"PanWor"
 		]
 	},
 	"action-autoreview": "automatycznego oznaczania własnych edycji jako „przejrzane”",
@@ -187,7 +188,7 @@
 	"log-action-filter-stable-reset": "Reset konfiguracji",
 	"log-action-filter-stable-move_stable": "Przeniesienie konfiguracji",
 	"fr-revision-info-dialog": "Powyższe informacje są pokazywane czytelnikom, aby byli poinformowani o bieżącym stanie treści tej strony.",
-	"fr-revision-info-dialog-review-button": "Przejrzyj...",
+	"fr-revision-info-dialog-review-button": "Przejrzyj…",
 	"fr-revision-info-dialog-cancel-button": "Anuluj",
 	"fr-revision-info-dialog-close-aria-label": "Zamknij"
 }
