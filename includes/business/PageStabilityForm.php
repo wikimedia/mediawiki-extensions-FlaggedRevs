@@ -147,7 +147,9 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 			$value = $this->expirySelection;
 		}
 		if ( $value == 'infinite' || $value == 'indefinite' || $value == 'infinity' ) {
-			$time = 'infinity';
+			return 'infinity';
+		} elseif ( $value === null || $value === '' ) {
+			return false;
 		} else {
 			$unix = strtotime( $value, ConvertibleTimestamp::time() );
 			if ( !$unix ) {
@@ -155,9 +157,8 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 			}
 			// FIXME: non-qualified absolute times are not in users
 			// specified timezone and there isn't notice about it in the ui
-			$time = wfTimestamp( TS_MW, $unix );
+			return wfTimestamp( TS_MW, $unix );
 		}
-		return $time;
 	}
 
 	/**
