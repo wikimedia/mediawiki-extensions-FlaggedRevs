@@ -1,8 +1,21 @@
 {
 	"@metadata": {
 		"authors": [
+			"AhmedG612",
 			"Maax"
 		]
 	},
-	"unreviewedpages-category": "Qeybta:"
+	"unreviewedpages": "Bogagga aan dib loo eegin",
+	"unreviewedpages-legend": "Liiska bogagga nuxurka ee aan dib loo eegin",
+	"unreviewedpages-category": "Qeybta:",
+	"unreviewedpages-showhide-redirect": "$1 sii toosino",
+	"unreviewedpages-diff": "Dib u eeg",
+	"unreviewedpages-unwatched": "(aan la socon)",
+	"unreviewedpages-watched": "($1  kuwa firfircoon {{PLURAL:$1|isticmaale|isticmaalayaasha}} la socda)",
+	"unreviewedpages-list": "Boggan wuxuu taxayaa bogagga nuxurka ee ''aan'' weli [[{{MediaWiki:Validationpage}}|dib loo eegin]] heerka la cayimay.",
+	"unreviewedpages-none": "Hadda ma jiraan bogag buuxinaya shuruudahan.",
+	"unreviewedpages-viewing": "(ku jira dib u eegis)",
+	"unreviewedpages-hours": "$1 {{PLURAL:$1|saacad|saacadood}}",
+	"unreviewedpages-days": "$1 {{PLURAL:$1|maalin|maalmo}}",
+	"unreviewedpages-recent": "(in ka yar 1 saac)"
 }

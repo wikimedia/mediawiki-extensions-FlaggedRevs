@@ -5,8 +5,31 @@
 			"Maax"
 		]
 	},
+	"pendingchanges": "Bogagga leh isbeddello sugaya",
 	"pendingchanges-legend": "Liis garee bogagga la eegay ee leh isbeddello sugaya",
+	"pendingchanges-list": "Boggan wuxuu taxayaa bogagga [[{{MediaWiki:Validationpage}}|dib loo eegay]] ee leh hal ama in ka badan oo tafatirro ah oo sugaya dib u eegis.",
+	"pendingchanges-none": "Hadda ma jiraan bogag buuxinaya shuruudahan.",
+	"pendingchanges-hours": "$1 {{PLURAL:$1|saacad|saacadood}}",
+	"pendingchanges-days": "$1 {{PLURAL:$1|maalin|maalmo}}",
+	"pendingchanges-recent": "In ka yar 1 saac",
 	"pendingchanges-category": "Qeybta:",
+	"pendingchanges-limit": "Xadka:",
+	"pendingchanges-edit-tag": "Calaamadda tafatirka:",
 	"pendingchanges-edit-tag-any": "Calaamad kasta",
-	"pendingchanges-table-footer": "Hadda waxaa jira {{PLURAL:$2|$1 isbeddel sugaya|$1 isbeddello sugaya}}"
+	"pendingchanges-onwatchlist": "Bogagga ku jira liiskayga la socodka",
+	"pendingchanges-stable": "Nooca xasilloon ayaa ah kan caadiga ah",
+	"pendingchanges-diff": "Dib u eeg",
+	"pendingchanges-size": "Isbeddelka ugu badan (baytyada):",
+	"pendingchanges-unwatched": "(aan la socon)",
+	"pendingchanges-table-caption": "Isbeddello sugaya",
+	"pendingchanges-table-page": "Bog",
+	"pendingchanges-table-size": "Cabbirka",
+	"pendingchanges-table-pending-since": "Tan iyo",
+	"pendingchanges-table-quality": "Tayada",
+	"pendingchanges-table-watching": "Ilaaliyayaasha firfircoon",
+	"pendingchanges-table-history": "Taariikh",
+	"pendingchanges-table-review": "Dib u eeg",
+	"pendingchanges-table-revision-history": "Taariikh",
+	"pendingchanges-table-footer": "Hadda waxaa jira {{PLURAL:$2|$1 isbeddel sugaya|$1 isbeddello sugaya}}",
+	"pendingchanges-filter-submit-button-text": "Shaandhee isbeddellada sugaya"
 }
