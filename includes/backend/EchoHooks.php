@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaWiki\Extension\FlaggedRevs\Backend\EchoHooks;
+namespace MediaWiki\Extension\FlaggedRevs\Backend;
 
 use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\Hooks\BeforeCreateEchoEventHook;
