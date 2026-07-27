@@ -42,7 +42,6 @@ use MediaWiki\Utils\MWCryptRand;
 use Wikimedia\Message\MessageSpecifier;
 use Wikimedia\Message\MessageValue;
 use Wikimedia\ObjectCache\WANObjectCache;
-use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\IDBAccessObject;
 use Wikimedia\Rdbms\IReadableDatabase;
@@ -1170,7 +1169,7 @@ class FlaggedRevsHooks implements
 					$hasPriorBlock = $this->cache->getWithSetCallback(
 						$this->cache->makeKey( 'flaggedrevs-autopromote-notblocked', $user->getId() ),
 						$this->cache::TTL_SECOND,
-						function ( $oldValue, &$ttl, array &$setOpts, $oldAsOf ) use ( $userObject ) {
+						function ( $oldValue ) use ( $userObject ) {
 							// Once the user is blocked once, this condition will always
 							// fail. To avoid running queries again, if the old cached value
 							// is `priorBlock`, just return that immediately.
@@ -1191,9 +1190,6 @@ class FlaggedRevsHooks implements
 							$newTimestamp = time();
 
 							$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
-
-							$setOpts += Database::getCacheSetOptions( $dbr );
-
 							$hasPriorBlock = self::wasPreviouslyBlocked(
 								$userObject,
 								$dbr,

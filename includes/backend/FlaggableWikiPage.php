@@ -7,7 +7,6 @@ use MediaWiki\Page\WikiPage;
 use MediaWiki\Storage\PreparedUpdate;
 use Wikimedia\Assert\PreconditionException;
 use Wikimedia\ObjectCache\MapCacheLRU;
-use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IDBAccessObject;
 use Wikimedia\Rdbms\IReadableDatabase;
@@ -193,12 +192,8 @@ class FlaggableWikiPage extends WikiPage {
 			# cache expiry time (which is three weeks in Wikimedia production!).
 			$cache->makeKey( 'flaggedrevs-pending-count', $this->getLatest(), $sRevId ),
 			$wgParserCacheExpireTime,
-			function (
-				$oldValue = null, &$ttl = null, array &$setOpts = []
-			) use ( $srev, $fname ) {
+			function () use ( $srev, $fname ) {
 				$db = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
-				$setOpts += Database::getCacheSetOptions( $db );
-
 				return (int)$db->newSelectQueryBuilder()
 					->select( 'COUNT(*)' )
 					->from( 'revision' )

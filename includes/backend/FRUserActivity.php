@@ -2,7 +2,6 @@
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
-use Wikimedia\Rdbms\Database;
 
 /**
  * Class of utility functions for getting/tracking user activity
@@ -20,12 +19,10 @@ class FRUserActivity {
 		return $cache->getWithSetCallback(
 			$cache->makeKey( 'flaggedrevs-users-watching', $title->getArticleID() ),
 			$cache::TTL_MINUTE * 5,
-			static function ( $oldValue, &$ttl, array &$setOpts ) use ( $cache, $title, $fname ) {
+			static function ( $oldValue, &$ttl ) use ( $cache, $title, $fname ) {
 				global $wgActiveUserDays;
 
 				$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
-
-				$setOpts += Database::getCacheSetOptions( $dbr );
 				// Get number of active editors watching this page...
 				$count = (int)$dbr->newSelectQueryBuilder()
 					->select( 'COUNT(*)' )
