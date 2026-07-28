@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"AhmedG612"
+		]
+	},
+	"validationstatistics": "Tirakoobka dib u eegista bogga",
+	"validationstatistics-users": "'''{{SITENAME}}''' hadda wuxuu leeyahay '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|isticmaale|isticmaaleyaal}} leh xuquuqda [[{{MediaWiki:Validationpage}}|Tafatire]].\n\nTafatirayaashu waa isticmaaleyaal la aasaasay oo hubin kara dib u eegisyo bogagga ah.",
+	"validationstatistics-lastupdate": "''Xogta soo socota waxaa markii ugu dambeysay la cusboonaysiiyay $1 saacadda $2.''",
+	"validationstatistics-pndtime": "Tafatirrada ay hubiyeen isticmaaleyaasha la aasaasay waxaa loo tixgeliyaa ''{{int:validationstatistics-stable}}''.\n\nCelceliska dib u dhaca dib u eegista ee [[Special:OldReviewedPages|bogagga leh tafatirro hadda sugaya dib u eegis]] waa '''$1'''; dib u dhacu wuxuu cabbirayaa muddada tafatirka ugu da'da weyn ee sugaya dib u eegis aan weli la samayn.",
+	"validationstatistics-revtime": "Celceliska sugitaanka dib u eegista tafatirrada ay sameeyeen ''isticmaaleyaasha aan gelin'' waa '''$1'''; dhex-dhexaadkuna waa '''$2'''.\n$3",
+	"validationstatistics-table": "Tirakoobka dib u eegista bogagga ee meel kasta oo magac ah ayaa hoos lagu muujiyay, ''iyadoo laga reebay'' bogagga leexinta.\nBogagga waxaa loo tixgeliyaa ''{{int:validationstatistics-old}}'' haddii ay leeyihiin tafatirro sugaya dib-u-eegis;\nbogagga waxaa loo tigeliyaa ''{{int:validationstatistics-latest}}'' haddii aysan jirin tafatirro sugaya dib u eegis.",
+	"validationstatistics-ns": "Magac meel",
+	"validationstatistics-total": "Bogagga",
+	"validationstatistics-stable": "La eegay",
+	"validationstatistics-latest": "La waafajiyay",
+	"validationstatistics-synced": "La waafajiyay/La dib u eegay",
+	"validationstatistics-old": "Hore u dhacay",
+	"validationstatistics-unreviewed": "Aan dib loo eegin",
+	"validationstatistics-utable": "Hoos waxaa ku yaal liiska {{PLURAL:$1|dib u eegaha ugu firfircoon|$1 dib u eegayaal ugu firfircoon}} ugu dambeysay {{PLURAL:$2|sacaad|$2 saacadood}}.",
+	"validationstatistics-user": "Isticmaale",
+	"validationstatistics-reviews": "Dib u eegisyo"
+}

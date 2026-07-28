@@ -20,7 +20,8 @@
 			"Pedroca cerebral",
 			"Rafael Vargas",
 			"TheEduGobi",
-			"EGobi"
+			"EGobi",
+			"NenhumaFênix"
 		]
 	},
 	"action-autoreview": "ter as próprias edições marcadas como \"verificadas\"",
@@ -58,7 +59,7 @@
 	"group-editor": "Editores",
 	"group-editor-member": "{{GENDER:$1|editor|editora|editor(a)}}",
 	"group-reviewer": "Revisores",
-	"group-reviewer-member": "{{GENDER:$1|revisor|revisora}}",
+	"group-reviewer-member": "{{GENDER:$1|revisor|revisora|revisor(a)}}",
 	"grouppage-editor": "{{ns:project}}:Editor",
 	"grouppage-reviewer": "{{ns:project}}:Revisor",
 	"group-autoreview": "Autorrevisores",

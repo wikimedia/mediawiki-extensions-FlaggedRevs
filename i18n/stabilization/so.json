@@ -1,0 +1,37 @@
+{
+	"@metadata": {
+		"authors": [
+			"AhmedG612"
+		]
+	},
+	"stabilization": "Xasilinta bogga",
+	"stabilization-text": "'''Beddel dejimaha hoose si aad u hagaajiso sida nooca xasilloon ee [[:$1|$1]] loo doorto loona muujiyo.'''",
+	"stabilization-perm": "Koontadaadu ma laha oggolaansho ay ku beddesho habaynta nooca xasilloon.\nKuwani waa dejimaha hadda jira ee [[:$1|$1]]:",
+	"stabilization-page": "Magaca bogga:",
+	"stabilization-leg": "Xaqiiji dejinta nooca xasilloon",
+	"stabilization-def": "Dib u eegista lagu muujiyay muuqaalka caadiga ah ee bogga",
+	"stabilization-def1": "Nooca xasilloon; haddii uusan jirin, markaas dib u eegista ugu dambeysay",
+	"stabilization-def2": "Dib u eegista ugu dambeysay",
+	"stabilization-restrict": "Xaddidaadaha dib u eegista/dib u eegista otomaatig ah",
+	"stabilization-restrict-none": "Ma jiraan xaddidaado dheeraad ah",
+	"stabilization-submit": "Xaqiiji",
+	"stabilization-notexists": "Ma jiro bog la yiraahdo \"[[:$1|$1]]\".\nMa jiro wax habayn ah oo suurtagal ah.",
+	"stabilization-notcontent": "Bogga \"[[:$1|$1]]\" lama dib u eegi karo.\nMa jiro wax habayn ah oo suurtagal ah.",
+	"stabilization-comment": "Sababta:",
+	"stabilization-otherreason": "Sabab kale:",
+	"stabilization-expiry": "Wuxuu dhacaa:",
+	"stabilization-othertime": "Waqti kale:",
+	"stabilization-def-short": "Caadi",
+	"stabilization-def-short-0": "Hadda",
+	"stabilization-def-short-1": "Xasilloon",
+	"stabilize_page_invalid": "Cinwaanka bogga la beegsanayo waa khalad.",
+	"stabilize_page_notexists": "Bogga la beegsanayo ma jiro.",
+	"stabilize_page_unreviewable": "Bogga la beegsanayo kuma jiro meel magac oo dib u eegis lagu samayn karo.",
+	"stabilize_invalid_autoreview": "Xaddidaadda dib u eegista otomaatig ah waa khalad.",
+	"stabilize_invalid_level": "Heerka ilaalinta waa khalad.",
+	"stabilize_expiry_invalid": "Taariikhda dhicitaanka waa khalad.",
+	"stabilize_expiry_old": "Waqtigan dhicitaanku hore ayuu u dhacay.",
+	"stabilize_denied": "Ogolaanshaha waa la diiday.",
+	"stabilize-expiring": "wuxuu dhacaa  $1 (UTC)",
+	"stabilization-review": "Ku calaamadee dib u eegista hadda jirta inay tahay \"la hubiyay\""
+}
