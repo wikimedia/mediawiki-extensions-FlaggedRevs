@@ -137,7 +137,9 @@
 	"validationpage": "{{ns:help}}:Validatioun vun der Säit",
 	"log-action-filter-review-accept": "Manuell akzeptéieren",
 	"log-action-filter-stable-config": "Nei Astellung",
+	"log-action-filter-stable-modify": "Konfiguratioun geännert",
 	"log-action-filter-stable-reset": "Zerécksetze vun der Konfiguratioun",
+	"log-action-filter-stable-move_stable": "Konfiguratioun geréckelt",
 	"fr-revision-info-dialog-cancel-button": "Ofbriechen",
 	"fr-revision-info-dialog-close-aria-label": "Zoumaachen"
 }

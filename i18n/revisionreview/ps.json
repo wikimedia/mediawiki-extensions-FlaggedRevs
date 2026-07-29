@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ahmed-Najib-Biabani-Ibrahimkhel"
+			"Ahmed-Najib-Biabani-Ibrahimkhel",
+			"شاه زمان پټان"
 		]
 	},
 	"revreview-check-flag-y": "زما بدلونونه دې ومنل شي",
-	"revreview-log": "تبصره:",
+	"revreview-log": "څرگندونه:",
 	"revreview-submit": "سپارل",
 	"revreview-submitting": "د سپارلو په حال کې ...",
 	"revreview-submit-review": "مخکتنه منل",
