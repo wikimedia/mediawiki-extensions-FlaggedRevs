@@ -195,34 +195,28 @@ function submitRevisionReview( button, form ) {
  * @this {jQuery}
  */
 function updateSaveButton() {
-	const $save = $( '#wpSave' ),
+	const $saveButton = $( '#wpSaveWidget' ),
 		$checkbox = $( '#wpReviewEdit' );
 
-	if ( $save.length && $checkbox.length ) {
+	if ( $saveButton.length && $checkbox.length ) {
+		const saveWidget = OO.ui.infuse( $saveButton );
 		// Review pending changes
 		if ( $checkbox.prop( 'checked' ) ) {
 			if ( mw.config.get( 'wgEditSubmitButtonLabelPublish' ) ) {
-				$save
-					.val( mw.msg( 'publishchanges' ) )
-					.attr( 'title',
-						mw.msg( 'tooltip-publish' )
-					);
+				saveWidget
+					.setLabel( mw.msg( 'publishchanges' ) )
+					.setTitle( mw.msg( 'tooltip-publish' ) );
 			} else {
-				$save
-					.val( mw.msg( 'savearticle' ) )
-					.attr( 'title',
-						mw.msg( 'tooltip-save' )
-					);
+				saveWidget
+					.setLabel( mw.msg( 'savearticle' ) )
+					.setTitle( mw.msg( 'tooltip-save' ) );
 			}
 			// Submit for review
 		} else {
-			$save
-				.val( mw.msg( 'revreview-submitedit' ) )
-				.attr( 'title',
-					mw.msg( 'revreview-submitedit-title' )
-				);
+			saveWidget
+				.setLabel( mw.msg( 'revreview-submitedit' ) )
+				.setTitle( mw.msg( 'revreview-submitedit-title' ) );
 		}
-		$save.updateTooltipAccessKeys();
 	}
 }
 
