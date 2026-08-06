@@ -595,6 +595,18 @@ class FlaggedRevsUIHooks implements
 				$queryInfo['fields']['reviewer'] = 'user_name';
 				$queryInfo['join_conds']['user'] = [ 'LEFT JOIN', "user_id = fr_user" ];
 			}
+			# See T433020: is the actor of a matching review log entry hidden?
+			# CAST rev_id (not ls_value) so the log_search(ls_field, ls_value)
+			# index stays usable on production-scale wikis.
+			$dbr = $this->dbProvider->getReplicaDatabase();
+			$logging = $dbr->tableName( 'logging' );
+			$logSearch = $dbr->tableName( 'log_search' );
+			$revIdAsString = $dbr->buildStringCast( 'rev_id' );
+			$bit = LogPage::DELETED_USER;
+			$queryInfo['fields']['fr_review_suppressed'] =
+				"EXISTS (SELECT 1 FROM $logging JOIN $logSearch ON ls_log_id = log_id " .
+				"WHERE log_type = 'review' AND ls_field = 'rev_id' " .
+				"AND ls_value = $revIdAsString AND (log_deleted & $bit) != 0)";
 		}
 	}
 
@@ -744,6 +756,7 @@ class FlaggedRevsUIHooks implements
 			if (
 				!( $row->rev_deleted & RevisionRecord::DELETED_TEXT )
 				&& !( $row->rev_deleted & RevisionRecord::DELETED_USER )
+				&& !$row->fr_review_suppressed
 			) {
 				# Add link to stable version of *this* rev, if any
 				[ $link, $class ] = $this->markHistoryRow( $history, $title, $row );
