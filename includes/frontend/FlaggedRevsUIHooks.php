@@ -134,14 +134,21 @@ class FlaggedRevsUIHooks implements
 	 * @inheritDoc
 	 */
 	public function onMakeGlobalVariablesScript( &$vars, $out ): void {
+		$params = [];
 		// Get the review tags on this wiki
 		$levels = FlaggedRevs::getMaxLevel();
 		if ( $levels > 0 ) {
-			$vars['wgFlaggedRevsParams'] = [
-				'tags' => [
-					FlaggedRevs::getTagName() => [ 'levels' => $levels ]
-				],
+			$params['tags'] = [
+				FlaggedRevs::getTagName() => [ 'levels' => $levels ]
 			];
+		}
+		// Get namespaces where review is enabled
+		$namespaces = FlaggedRevs::getReviewNamespaces();
+		if ( $namespaces ) {
+			$params['namespaces'] = $namespaces;
+		}
+		if ( count( $params ) ) {
+			$vars['wgFlaggedRevsParams'] = $params;
 		}
 
 		// Get page-specific meta-data
