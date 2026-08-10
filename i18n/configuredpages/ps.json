@@ -1,8 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ahmed-Najib-Biabani-Ibrahimkhel"
+			"Ahmed-Najib-Biabani-Ibrahimkhel",
+			"شاه زمان پټان"
 		]
 	},
-	"configuredpages-none": "په همدې لړليک کې هېڅ کوم مخ نشته"
+	"configuredpages": "هغه مخونه چې د بياکتنې ترتيبات لري",
+	"configuredpages-list": "دا مخ هغه مخونه لړليکوي چې د وېبځي تلواله په پرتله د بېلابېلو منل شويو اوڼنو درلودلو لپاره ترتيب شوې دي.\nځينې اوڼنې ښايي بدلون ومومي چې کومه بلبڼه لوستونکو ته ښودل کېږي يا نور محدود کړي چې څوک کولی شي هغه سمونونه ترسره کړي چې بياکتنې ته اړتيا نلري.",
+	"configuredpages-none": "په همدې لړليک کې هېڅ کوم مخ نشته",
+	"configuredpages-config": "ترتیب",
+	"configuredpages-def-draft": "اوسنۍ بل‌بڼه",
+	"configuredpages-def-stable": "دوامداره بلبڼه"
 }

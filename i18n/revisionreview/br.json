@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ar choler",
 			"Fohanno",
 			"Fulup",
 			"Gwendal",
@@ -48,7 +49,7 @@
 	"revreview-successful": "'''Stumm eus [[:$1|$1]] merket evel stabil.'''",
 	"revreview-successful2": "'''Stumm eus [[:$1|$1]] n’eo ket merket ken evel stabil.'''",
 	"revreview-toolow": "'''Rankout a rit reiñ ur briziadenn uheloc'h eget \"ket aprouet\" evit ma 'vefe dalc'het kont eus an adweladenn.'''\n\nEvit tennañ kuit statud adlenn ur stumm, klikit war \"{{int:revreview-submit-unreview}}\".\n\nImplijit bouton \"distreiñ\" ho merdeer ha klaskit en-dro.",
-	"revreview-update": "Mar plij [[{{MediaWiki:Validationpage}}|adlennit]] an holl gemmoù ''(diskouezet a-is)'' bet graet d'ar stumm degemeret.",
+	"revreview-update": "Mar plij [[{{MediaWiki:Validationpage}}|adlennit]] an holl gemmoù ''(diskouezet a-is)'' a zo bet graet abaoe ar gentel stabil.",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">N'emañ ket ho kemmoù er stumm stabil c'hoazh.</span>\n\nAdlennit an holl gemmoù diskouezet a-is evit ma teufe war wel ho kemmoù er stumm stabil.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">N'emañ ket ho kemmoù er stumm stabil c'hoazh. Kemmoù all a c'hortoz bezañ aprouet.</span>\n\nAdlennit an holl gemmoù diskouezet a-is evit ma teufe war wel ho kemmoù er stumm stabil.",
 	"revreview-update-includes": "patromoù/restroù bet hizivaet (e tev ar pajennoù n'int ket bet adwelet) :",
@@ -57,10 +58,10 @@
 	"revreview-reject-summary": "Diverrañ :",
 	"revreview-reject-confirm": "Disteuler ar c'hemmoù-mañ",
 	"revreview-reject-cancel": "Nullañ",
-	"revreview-reject-summary-cur": "Distaolet {{PLURAL:$1|ar c'hemm testenn|an $1 kemm testenn}} diwezhañ (gant $2) hag assavet ar stumm $3 gant $4",
-	"revreview-reject-summary-old": "Distaolet {{PLURAL:$1|ar c'hemm testenn|an $1 kemm testenn}} kentañ (gant $2) a heulie ar stumm adwelet $3 gant $4",
-	"revreview-reject-summary-cur-short": "Distaolet {{PLURAL:$1|ar c'hemm testenn|an $1 kemm testenn}} diwezhañ (gant $2) hag assavet ar stumm $2 gant $3",
-	"revreview-reject-summary-old-short": "Distaolet {{PLURAL:$1|ar c'hemm testenn|an $1 kemm testenn}} kentañ a heulie ar stumm adwelet $2 gant $3",
+	"revreview-reject-summary-cur": "Distaolet ar {{PLURAL:$1|kemm}} diwezhañ ({{PLURAL:$7|{{GENDER:$5|gant}}}} $2) hag adembannet an adlennadenn $3 {{GENDER:$6|gant}} $4",
+	"revreview-reject-summary-old": "Distaolet ar {{PLURAL:$1|kemm}} kentañ ({{PLURAL:$7|{{GENDER:$5|gant}}}} $2) da heul an adlennadenn $3 {{GENDER:$6|gant}} $4",
+	"revreview-reject-summary-cur-short": "Distaolet ar {{PLURAL:$1|kemm}} diwezhañ hag adembannet an adlennadenn $2 {{GENDER:$4|gant}} $3",
+	"revreview-reject-summary-old-short": "Distaolet ar {{PLURAL:$1|kemm}} kentañ da heul an adlennadenn $2 {{GENDER:$4|gant}} $3",
 	"revreview-tt-flag": "Aprouiñ ar stumm-mañ en ur merkañ anezhañ evel gwiriekaet",
 	"revreview-tt-unflag": "Diaprouiñ ar stumm-mañ en ur merkañ anezhañ evel \"nann-gwiriekaet\"",
 	"revreview-tt-reject": "Dizober ar c'hemmoù-se en destenn orin en ur zisteurel anezho"
