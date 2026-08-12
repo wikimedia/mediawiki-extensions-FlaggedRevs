@@ -29,6 +29,9 @@
 		justify-content: left;
 		gap: 10px;
 		width: @size-full;
+		// Enable flex elements to shrink past their content width
+		// to prevent overflow (T434697)
+		min-width: 0;
 		align-items: center;
 		flex-wrap: wrap;
 	}
