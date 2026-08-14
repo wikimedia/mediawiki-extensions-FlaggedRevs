@@ -1,11 +1,24 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ahmed-Najib-Biabani-Ibrahimkhel"
+			"Ahmed-Najib-Biabani-Ibrahimkhel",
+			"شاه زمان پټان"
 		]
 	},
+	"validationstatistics": "د مخ د بياکتنې شمارنې",
+	"validationstatistics-users": "'''{{SITENAME}}''' وسمهال '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|کارن|کارنان}} لري چې د [[{{MediaWiki:Validationpage}}|سمونگر]] رښتې لري.\n\nسمونگران هغه بنسټيز کارنان دي چې کولی شي د مخونو بياکتنې په نښه کړي.",
+	"validationstatistics-lastupdate": "''لاندې اومتوکي وروستی ځل په $1 نېټه $2 بجو هم‌مهاله شوي وو.''",
+	"validationstatistics-pndtime": "هغه سمونونه چې بنسټيزو کارنانو له‌خوا په سم‌کتل‌شوې وي ''{{int:validationstatistics-stable}}'' گڼل کېږي.\n\nد [[Special:OldReviewedPages|هغه مخونو لپاره چې سمونونه يې وسمهال د بيآکتنې په تمه دي]] د بياکتنې منځالی ځنډ '''$1''' دی؛ ځنډ دا اندازه کوي چې تر ټولو ډېر په تمه پاتې سمون څومره وخت کېږي چې بياکتنه يې نه ده شوې.",
+	"validationstatistics-revtime": "د ''ناننوتلو کارنانو'' د سمونونو د بياکتنې لپاره منځالی ځنډ '''$1''' دی؛ منځگوړی يې '''$2''' دی.\n$3",
+	"validationstatistics-table": "''پرته له مخگرځو'' د هر نوم‌تشيال د مخ د بياکتنو شمارنې لاندې ښودل شوې دي.\nکه چېرې دوی د سمونونو بياکتنې ته په تمه وي؛ نو مخونه د ''{{int:validationstatistics-old}}'' په توگه گڼل کېږي؛\nکه چېرې هېڅ سمونونه د بياکتنې په تمه نه وي؛ نو مخونه د ''{{int:validationstatistics-latest}}'' په توگه گڼل کېږي.",
 	"validationstatistics-ns": "نوم‌تشيال",
 	"validationstatistics-total": "مخونه",
+	"validationstatistics-stable": "بياکتل‌شوی",
+	"validationstatistics-latest": "همغږي‌شوی",
+	"validationstatistics-synced": "همغږي‌شوی/بياکتل‌شوی",
+	"validationstatistics-old": "نېټه اوښتی",
 	"validationstatistics-unreviewed": "نامخکتلي",
-	"validationstatistics-user": "کارن"
+	"validationstatistics-utable": "لاندې په {{PLURAL:$2|تېره گړۍ|$2 تېرو گړيو}} کې د {{PLURAL:$1|تر ټولو کارنده بياکتونکي|تر ټولو کارنده بياکتونکو}} نوملړ دی.",
+	"validationstatistics-user": "کارن",
+	"validationstatistics-reviews": "بياکتنې"
 }
