@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"A2093064",
+			"Above mountain",
 			"Itsmine",
 			"Jason924tw",
 			"LaMagiaaa",
@@ -10,6 +11,10 @@
 			"逆襲的天邪鬼"
 		]
 	},
+	"action-autoreview": "自校己纂",
+	"action-autoreviewrestore": "於返纂之時自校",
+	"action-movestable": "遷有定本之頁",
+	"action-review": "校繕本",
 	"editor": "分校官",
 	"flaggedrevs": "校勘本",
 	"flaggedrevs-hidereviewed": "$1 已校勘者",
@@ -30,6 +35,8 @@
 	"revreview-hist-basic-user": "經[[User:$3|$3]]校",
 	"revreview-hist-basic-auto": "經校",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3}} 待審]]'''",
+	"reviewer": "總校官",
+	"revreview-accuracy": "質素",
 	"revreview-accuracy-1": "過目",
 	"revreview-accuracy-4": "卓著",
 	"revreview-basic-old": "此[[{{MediaWiki:Validationpage}}|初定本]]也 ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} 一覽])， [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 見審]於<i>$2</i>。\n\t注︰今或已有 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} 更易]。",
@@ -39,7 +46,7 @@
 	"revreview-newest-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3易]於此[[{{MediaWiki:Validationpage}}|待審]]。今[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 初定本][{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 辨]於$2。",
 	"revreview-noflagged": "此為底本，未經[[{{MediaWiki:Validationpage}}|審校]]。",
 	"revreview-quick-basic": "'''[[{{MediaWiki:Validationpage}}|初定本]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} 修纂新稿]]",
-	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|初定本]]''' [ 修纂新稿]]",
+	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|初定本]]'''",
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|初定本]]'''",
 	"revreview-quick-invalid": "查無此錄",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|今本]]'''（此為底本，未經審校）",
