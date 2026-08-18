@@ -7,7 +7,6 @@ use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\User\ActorStore;
 use Wikimedia\ObjectCache\WANObjectCache;
 use Wikimedia\Rdbms\IConnectionProvider;
-use Wikimedia\Rdbms\ILoadBalancer;
 use Wikimedia\Rdbms\SelectQueryBuilder;
 
 class ValidationStatistics extends IncludableSpecialPage {
@@ -18,7 +17,6 @@ class ValidationStatistics extends IncludableSpecialPage {
 		private readonly ActorStore $actorStore,
 		private readonly IConnectionProvider $dbProvider,
 		private readonly Language $contLang,
-		private readonly ILoadBalancer $loadBalancer,
 		private readonly WANObjectCache $cache,
 	) {
 		parent::__construct( 'ValidationStatistics' );
@@ -216,10 +214,8 @@ class ValidationStatistics extends IncludableSpecialPage {
 	 * @return bool
 	 */
 	private function readyForQuery() {
-		$dbr = $this->loadBalancer->getMaintenanceConnectionRef( DB_REPLICA, [], false );
-
-		return $dbr->tableExists( 'flaggedrevs_statistics', __METHOD__ ) &&
-			$dbr->newSelectQueryBuilder()
+		$dbr = $this->dbProvider->getReplicaDatabase( false, 'vslow' );
+		return $dbr->newSelectQueryBuilder()
 				->select( '1' )
 				->from( 'flaggedrevs_statistics' )
 				->caller( __METHOD__ )
@@ -348,8 +344,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 			$this->cache->makeKey( 'flaggedrevs', 'reviewTopUsers' ),
 			WANObjectCache::TTL_HOUR,
 			function () use ( $fname ) {
-				$dbr = $this->loadBalancer->getMaintenanceConnectionRef( DB_REPLICA, 'vslow', false );
-
+				$dbr = $this->dbProvider->getReplicaDatabase( false, 'vslow' );
 				$limit = 5;
 				$seconds = 3600;
 				$cutoff = $dbr->timestamp( time() - $seconds );

@@ -1176,7 +1176,6 @@ class FlaggedRevsUIHooks implements
 					'ActorStore',
 					'ConnectionProvider',
 					'ContentLanguage',
-					'DBLoadBalancer',
 					'MainWANObjectCache',
 				],
 			];
