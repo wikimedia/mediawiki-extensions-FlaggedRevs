@@ -33,7 +33,7 @@
 	"flaggedrevs-contributions-filters-unreviewed-only": "يوازې هغه سمونونه ښودل چې د بياکتنې په تمه دي",
 	"group-editor": "سمونگران",
 	"group-editor-member": "{{GENDER:$1|سمونگر}}",
-	"group-reviewer": "مخکتونکي",
+	"group-reviewer": "بياکتونکي",
 	"group-reviewer-member": "{{GENDER:$1|مخکتونکی}}",
 	"grouppage-editor": "{{ns:project}}:سمونگر",
 	"grouppage-reviewer": "{{ns:project}}:بياکتونکی",
