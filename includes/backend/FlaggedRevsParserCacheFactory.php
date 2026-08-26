@@ -31,7 +31,10 @@ class FlaggedRevsParserCacheFactory {
 	}
 
 	public function getParserCache( ParserOptions $pOpts ): ParserCache {
-		$cacheName = $pOpts->getUseParsoid() ? self::STABLE_PARSOID_PARSER_CACHE_NAME : self::STABLE_PARSER_CACHE_NAME;
+		$cacheName = $pOpts->getUseParsoid() &&
+			$this->config->get( MainConfigNames::SplitParsoidParserCache ) ?
+			self::STABLE_PARSOID_PARSER_CACHE_NAME :
+			self::STABLE_PARSER_CACHE_NAME;
 		if ( $pOpts->getPostproc() && self::postProcessingCacheEnabled( $pOpts ) ) {
 			$cacheName .= '-postproc';
 		}
