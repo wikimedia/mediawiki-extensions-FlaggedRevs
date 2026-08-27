@@ -667,11 +667,6 @@ class FlaggablePageView extends ContextSource {
 				}
 				$parserOut = $status->getValue();
 			}
-
-			if ( $parserOut instanceof ParserOutput ) {
-				# Update the stable version cache
-				$stableParserCache->save( $parserOut, $this->article, $parserOptions );
-			}
 		}
 
 		if ( !$parserOut ) {
@@ -699,6 +694,8 @@ class FlaggablePageView extends ContextSource {
 						?->makeParserOutputKey( $this->article, $parserOptions, $used )
 			);
 			if ( $postprocStableParserCache !== null ) {
+				// XXX These writes are not protected by PoolCounter; to be
+				// fixed in follow-up I8ead1b52c1fe6567e56bac753b761838fe53c0cf
 				$postprocStableParserCache->save( $parserOut, $this->article, $parserOptions );
 			}
 		}

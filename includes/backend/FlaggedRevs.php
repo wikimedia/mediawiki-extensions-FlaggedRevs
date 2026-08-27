@@ -236,7 +236,8 @@ class FlaggedRevs {
 	# ################ Parsing functions #################
 
 	/**
-	 * Get the HTML output of a revision, using PoolCounter in the process
+	 * Get the HTML output of a revision, using PoolCounter in the process.
+	 * The result will be written back to the stable parser cache.
 	 *
 	 * @return Status<?ParserOutput> Fatal if the pool is full. Otherwise good with a ParserOutput.
 	 */
@@ -258,12 +259,15 @@ class FlaggedRevs {
 			'ArticleView', // use standard parse PoolCounter config
 			$keyPrefix . ':revid:' . $frev->getRevId(),
 			[
-				'doWork' => function () use ( $frev, $pOpts ) {
-					return Status::newGood( self::parseStableRevision( $frev, $pOpts ) );
+				'doWork' => function () use ( $frev, $page, $pOpts, $stableParserCache ) {
+					$parserOutput = self::parseStableRevision( $frev, $pOpts );
+					$stableParserCache->save( $parserOutput, $page, $pOpts );
+					return Status::newGood( $parserOutput );
 				},
 				'doCachedWork' => static function () use ( $page, $pOpts, $stableParserCache ) {
 					// Use new cache value from other thread
-					return Status::newGood( $stableParserCache->get( $page, $pOpts ) ?: null );
+					$parserOutput = $stableParserCache->get( $page, $pOpts );
+					return $parserOutput ? Status::newGood( $parserOutput ) : false;
 				},
 				'fallback' => static function () use ( $page, $pOpts, $stableParserCache ) {
 					// Use stale cache if possible
