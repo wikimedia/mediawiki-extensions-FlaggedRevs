@@ -626,28 +626,23 @@ class FlaggablePageView extends ContextSource {
 			$parserOptions->setOption( 'enableSectionEditLinks', false );
 		}
 
-		$postprocCacheEnabled = $this->flaggedRevsParserCacheFactory->postProcessingCacheEnabled( $parserOptions );
-		$shouldPostProcess = !$postprocCacheEnabled;
-
-		if ( $postprocCacheEnabled ) {
-			$parserOptions->enablePostproc();
-		}
-
+		$parserOptions->enablePostproc();
 		$stableParserCache = $this->flaggedRevsParserCacheFactory->getParserCache( $parserOptions );
 
 		$parserOut = $stableParserCache->get( $this->article, $parserOptions );
-		if ( !$parserOut && $postprocCacheEnabled ) {
-			$parserOptions = $parserOptions->clearPostproc();
-			$stableParserCache = $this->flaggedRevsParserCacheFactory->getParserCache( $parserOptions );
-			$parserOut = $stableParserCache->get( $this->article, $parserOptions );
-			$shouldPostProcess = true;
-		}
-
 		if ( !$parserOut ) {
 			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT && $synced ) {
 				# Stable and draft version are identical; check the draft version cache
-				$draftParserCache = MediaWikiServices::getInstance()->getParserCache();
-				$parserOut = $draftParserCache->get( $this->article, $parserOptions );
+				$draftParserOutputAccess = MediaWikiServices::getInstance()->getParserOutputAccess();
+				$parserOut = $draftParserOutputAccess->getParserOutput(
+					$this->article, $parserOptions, $srev->getRevisionRecord(),
+					[
+						ParserOutputAccess::OPT_NO_AUDIENCE_CHECK => true,
+						ParserOutputAccess::OPT_POOL_COUNTER =>
+							ParserOutputAccess::POOL_COUNTER_ARTICLE_VIEW,
+						ParserOutputAccess::OPT_POOL_COUNTER_FALLBACK => true
+					],
+				);
 			}
 
 			if ( !$parserOut ) {
@@ -679,25 +674,6 @@ class FlaggablePageView extends ContextSource {
 				$this->msg( 'missingarticle-rev', $srev->getRevId() )->plain()
 			);
 			return null;
-		}
-
-		if ( $shouldPostProcess ) {
-			$pipeline = MediaWikiServices::getInstance()->getDefaultOutputPipeline();
-			$parserOptions->enablePostproc();
-			$postprocStableParserCache = $postprocCacheEnabled ?
-				$this->flaggedRevsParserCacheFactory->getParserCache( $parserOptions ) :
-				null;
-			$parserOut = ParserOutputAccess::postprocessInPipeline(
-				$pipeline, $parserOut, $parserOptions, $this->article,
-				fn ( $used ) =>
-					$postprocStableParserCache
-						?->makeParserOutputKey( $this->article, $parserOptions, $used )
-			);
-			if ( $postprocStableParserCache !== null ) {
-				// XXX These writes are not protected by PoolCounter; to be
-				// fixed in follow-up I8ead1b52c1fe6567e56bac753b761838fe53c0cf
-				$postprocStableParserCache->save( $parserOut, $this->article, $parserOptions );
-			}
 		}
 
 		# Add the parser output to the page view

@@ -64,7 +64,6 @@ class FlaggedRevsCacheTest extends ParserCacheTestBase {
 	}
 
 	public function testCache() {
-		$this->overrideConfigValue( 'UsePostprocCacheParsoid', true );
 		$this->setTemporaryHook(
 			'ParserOptionsDefaults',
 			static function ( &$defaults, &$inCacheKey, &$lazyLoad, &$postprocOpts = [] ) {
@@ -93,29 +92,5 @@ class FlaggedRevsCacheTest extends ParserCacheTestBase {
 		$useCache = true;
 		$flaggablePageView->setPageContent( $parserOutput, $useCache );
 		$this->assertArrayEquals( [ [ 'stable-parsoid-pcache-postproc', true ] ], $this->trackerWrapper->calls );
-	}
-
-	public function testCacheDisabled() {
-		$this->overrideConfigValue( 'UsePostprocCacheParsoid', false );
-
-		RequestContext::getMain()->setTitle( $this->testPage->getTitle() );
-		$flaggablePageView = FlaggablePageView::newFromTitle( $this->testPage );
-		$flaggablePageView->getRequest()->appendQueryValue( 'stable', 1 );
-
-		// first call: nothing in cache
-		$parserOutput = null;
-		$useCache = true;
-		$flaggablePageView->setPageContent( $parserOutput, $useCache );
-		$this->assertArrayEquals( [
-			[ 'stable-parsoid-pcache', false ]
-		],
-			$this->trackerWrapper->calls );
-
-		// second call: find it in the cache
-		$this->trackerWrapper->calls = [];
-		$parserOutput = null;
-		$useCache = true;
-		$flaggablePageView->setPageContent( $parserOutput, $useCache );
-		$this->assertArrayEquals( [ [ 'stable-parsoid-pcache', true ] ], $this->trackerWrapper->calls );
 	}
 }

@@ -6,7 +6,9 @@ use MediaWiki\Extension\FlaggedRevs\Backend\FlaggedRevsParserCacheFactory;
 use MediaWiki\JobQueue\Jobs\HTMLCacheUpdateJob;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageIdentity;
+use MediaWiki\Page\PageRecord;
 use MediaWiki\Page\PageReference;
+use MediaWiki\Page\ParserOutputAccess;
 use MediaWiki\Page\WikiPage;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\ParserOptions;
@@ -245,6 +247,7 @@ class FlaggedRevs {
 		FlaggedRevision $frev, ParserOptions $pOpts,
 	): Status {
 		$services = MediaWikiServices::getInstance();
+		$pipeline = $services->getDefaultOutputPipeline();
 		$page = $services->getWikiPageFactory()->newFromTitle( $frev->getTitle() );
 		$stableParserCache = $services->getService( FlaggedRevsParserCacheFactory::SERVICE_NAME )
 			->getParserCache( $pOpts );
@@ -259,8 +262,20 @@ class FlaggedRevs {
 			'ArticleView', // use standard parse PoolCounter config
 			$keyPrefix . ':revid:' . $frev->getRevId(),
 			[
-				'doWork' => function () use ( $frev, $page, $pOpts, $stableParserCache ) {
-					$parserOutput = self::parseStableRevision( $frev, $pOpts );
+				'doWork' => function () use ( $frev, $page, $pOpts, $stableParserCache, $pipeline ) {
+					if ( $pOpts->getPostproc() ) {
+						$preParserOptions = $pOpts->clearPostproc();
+						// Don't attempt to re-enter PoolCounter for canonical
+						// parse; that leads to deadlocks.
+						$parserOutput = self::parseStableRevisionCached( $frev, $page, $preParserOptions );
+						$parserOutput = ParserOutputAccess::postprocessInPipeline(
+							$pipeline, $parserOutput, $pOpts, $page,
+							static fn ( $used ) => $stableParserCache
+								->makeParserOutputKey( $page, $pOpts, $used )
+						);
+					} else {
+						$parserOutput = self::parseStableRevision( $frev, $pOpts );
+					}
 					$stableParserCache->save( $parserOutput, $page, $pOpts );
 					return Status::newGood( $parserOutput );
 				},
@@ -356,6 +371,25 @@ class FlaggedRevs {
 		}
 		$pOpts->setCurrentRevisionRecordCallback( $oldCurrentRevisionRecordCallback );
 		return $parserOut;
+	}
+
+	/**
+	 * Get the HTML output of a revision from the cache, recomputing it if
+	 * needed.
+	 */
+	private static function parseStableRevisionCached(
+		FlaggedRevision $frev, PageRecord $page, ParserOptions $pOpts,
+	): ParserOutput {
+		$services = MediaWikiServices::getInstance();
+		$stableParserCache = $services->getService(
+			FlaggedRevsParserCacheFactory::SERVICE_NAME
+		)->getParserCache( $pOpts );
+		$parserOutput = $stableParserCache->get( $page, $pOpts );
+		if ( !$parserOutput ) {
+			$parserOutput = self::parseStableRevision( $frev, $pOpts );
+			$stableParserCache->save( $parserOutput, $page, $pOpts );
+		}
+		return $parserOutput;
 	}
 
 	# ################ Tracking/cache update update functions #################
