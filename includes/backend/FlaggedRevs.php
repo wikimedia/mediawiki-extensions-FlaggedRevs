@@ -14,7 +14,6 @@ use MediaWiki\Parser\ParserOutput;
 use MediaWiki\PoolCounter\PoolCounterWorkViaCallback;
 use MediaWiki\Revision\RenderedRevision;
 use MediaWiki\Revision\RevisionRecord;
-use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Status\Status;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
@@ -239,14 +238,11 @@ class FlaggedRevs {
 	/**
 	 * Get the HTML output of a revision, using PoolCounter in the process
 	 *
-	 * @param FlaggedRevision $frev
-	 * @param ParserOptions $pOpts
-	 * @return Status Fatal if the pool is full. Otherwise good with an optional ParserOutput, or
-	 *  null if the revision is missing.
+	 * @return Status<?ParserOutput> Fatal if the pool is full. Otherwise good with a ParserOutput.
 	 */
 	public static function parseStableRevisionPooled(
-		FlaggedRevision $frev, ParserOptions $pOpts
-	) {
+		FlaggedRevision $frev, ParserOptions $pOpts,
+	): Status {
 		$services = MediaWikiServices::getInstance();
 		$page = $services->getWikiPageFactory()->newFromTitle( $frev->getTitle() );
 		$stableParserCache = $services->getService( FlaggedRevsParserCacheFactory::SERVICE_NAME )
@@ -287,11 +283,8 @@ class FlaggedRevs {
 
 	/**
 	 * Get the HTML output of a revision.
-	 * @param FlaggedRevision $frev
-	 * @param ParserOptions $pOpts
-	 * @return ParserOutput|null
 	 */
-	public static function parseStableRevision( FlaggedRevision $frev, ParserOptions $pOpts ) {
+	public static function parseStableRevision( FlaggedRevision $frev, ParserOptions $pOpts ): ParserOutput {
 		# Notify Parser if includes should be stabilized
 		$resetManager = false;
 		$incManager = FRInclusionManager::singleton();
@@ -304,10 +297,6 @@ class FlaggedRevs {
 			}
 		}
 		# Parse the new body
-		$content = $frev->getRevisionRecord()->getContent( SlotRecord::MAIN );
-		if ( $content === null ) {
-			return null; // missing revision
-		}
 
 		// Make this parse use reviewed/stable versions of templates
 		$oldCurrentRevisionRecordCallback = $pOpts->setCurrentRevisionRecordCallback(
@@ -347,9 +336,16 @@ class FlaggedRevs {
 				return $oldCurrentRevisionRecordCallback( $title, $parser );
 			}
 		);
-		$contentRenderer = MediaWikiServices::getInstance()->getContentRenderer();
-		$parserOut = $contentRenderer->getParserOutput(
-			$content, $frev->getTitle(), $frev->getRevisionRecord(), $pOpts );
+		// This should match ParserOutputAccess::renderRevision(), although
+		// the audience is FOR_PUBLIC which matches the check done in
+		// ParserOutputAccess::checkPreconditions().
+		$revisionRenderer = MediaWikiServices::getInstance()->getRevisionRenderer();
+		$renderedRev = $revisionRenderer->getRenderedRevision(
+			$frev->getRevisionRecord(), $pOpts, null, [
+				'audience' => RevisionRecord::FOR_PUBLIC,
+				// XXX should pass 'previous-output' here for selective update
+			] );
+		$parserOut = $renderedRev->getRevisionParserOutput();
 		# Stable parse done!
 		if ( $resetManager ) {
 			$incManager->clear(); // reset the FRInclusionManager as needed
