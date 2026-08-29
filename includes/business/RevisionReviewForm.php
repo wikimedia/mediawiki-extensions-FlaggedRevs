@@ -147,14 +147,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		$this->trySet( $this->comment, $value );
 	}
 
-	/**
-	 * @param int $value
-	 * @deprecated Use setTag() instead.
-	 */
-	public function setDim( $value ) {
-		$this->setTag( (int)$value );
-	}
-
 	public function setTag( ?int $value ): void {
 		if ( !FlaggedRevs::useOnlyIfProtected() ) {
 			$this->trySet( $this->tag, $value );
