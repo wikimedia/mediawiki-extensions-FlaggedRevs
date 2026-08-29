@@ -22,8 +22,6 @@ class RevisionReviewFormUI {
 	private string $topNotice = '';
 	/** A notice inside the review box at the bottom (HTML) */
 	private string $bottomNotice = '';
-	/** @var array<int,array<string,int>>|null */
-	private ?array $templateIds = null;
 	private ?RevisionRecord $refRevRecord = null;
 
 	/**
@@ -62,14 +60,6 @@ class RevisionReviewFormUI {
 	 */
 	public function setBottomNotice( string $notice ): void {
 		$this->bottomNotice = $notice;
-	}
-
-	/**
-	 * Set the template version parameters of what the user is viewing
-	 * @param array<int,array<string,int>> $templateIds
-	 */
-	public function setIncludeVersions( array $templateIds ): void {
-		$this->templateIds = $templateIds;
 	}
 
 	/**
