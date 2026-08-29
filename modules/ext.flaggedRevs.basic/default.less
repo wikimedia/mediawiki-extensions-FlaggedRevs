@@ -10,82 +10,9 @@ div.mw-fr-edit-messages {
 	margin-bottom: @spacing-50;
 }
 
-div.flaggedrevs_short_basic img {
-	vertical-align: text-bottom;
-}
-
-div.flaggedrevs_diffnotice {
-	font-size: 85%;
-	background-color: @background-color-interactive-subtle;
-}
-
 span.flaggedrevs_important {
 	font-size: 115%;
 	font-weight: bold;
-}
-
-.fr-text-value {
-	width: 100px;
-}
-
-.fr-marker-20,
-.fr-marker-40,
-.fr-marker-60,
-.fr-marker-80,
-.fr-marker-100 {
-	background-position: bottom left;
-	background-repeat: no-repeat;
-	padding-bottom: 3px;
-}
-
-/* Short User Interface */
-div.flaggedrevs_short,
-div.flaggedrevs_short_basic {
-	display: flex;
-	align-items: center;
-}
-
-/* @noflip */
-.sitedir-ltr div.flaggedrevs_short {
-	float: right;
-	margin: 0 0 0 1em;
-}
-
-/* @noflip */
-.sitedir-rtl div.flaggedrevs_short {
-	float: left;
-	margin: 0 1em 0 0;
-}
-
-div.flaggedrevs_short_basic {
-	white-space: nowrap;
-}
-
-div.flaggedrevs_short_details {
-	border: 1px solid @border-color-base;
-	background-color: @background-color-base;
-	padding: 5px;
-	position: absolute;
-	top: 0;
-	right: -2px;
-	width: 25em;
-	z-index: @z-index-above-content;
-}
-
-div.flaggedrevs_short.flaggedrevs_unreviewed a {
-	padding-right: @spacing-75;
-}
-
-/* @noflip */
-.sitedir-ltr div.flaggedrevs_short_details {
-	right: -2px;
-	left: auto;
-}
-
-/* @noflip */
-.sitedir-rtl div.flaggedrevs_short_details {
-	left: -2px;
-	right: auto;
 }
 
 .fr-text {
@@ -111,40 +38,13 @@ div.flaggedrevs_short.flaggedrevs_unreviewed a {
 	text-align: center;
 }
 
-a.fr-toggle-symbol {
-	white-space: nowrap;
-	font-family: monospace;
-	font-weight: bold;
-	cursor: pointer;
-	margin: 0 0.3em;
-}
-
 a.fr-toggle-text {
 	font-weight: bold;
 	cursor: pointer;
 }
 
-span.fr-toggle-arrow.flaggedrevs-icon {
-	cursor: pointer;
-	opacity: 0.87;
-	background-size: 12px auto;
-	background-repeat: no-repeat;
-	background-position: center;
-}
-
 li.fr-hist-stable-margin {
 	margin-top: 2em;
-}
-
-span.flaggedrevs-icon {
-	margin-right: 0.2em;
-	margin-left: 0.2em;
-	opacity: 0.87;
-	min-width: 16px;
-	min-height: 16px;
-	width: 1em;
-	height: 1em;
-	background-size: cover;
 }
 
 .fr-diff-ratings {
@@ -165,10 +65,6 @@ span.flaggedrevs-icon {
 
 .fr-pending-long2 {
 	background-color: @background-color-destructive-subtle;
-}
-
-.fr-pending-long3 {
-	background-color: @background-color-disabled;
 }
 
 .fr-unreviewed-unwatched {
@@ -203,10 +99,6 @@ span.flaggedrevs-icon {
 .cdx-fr-css-icon--close {
 	.cdx-mixin-css-icon( @cdx-icon-close, @param-is-button-icon: true );
 	background-color: @background-color-backdrop-dark;
-}
-
-.mw-fr-review-notice-button {
-	float: right;
 }
 
 .mw-fr-revision-details-dialog {
