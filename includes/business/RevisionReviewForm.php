@@ -29,8 +29,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	private $oldid = 0;
 	/** @var int Old, "last good", ID (used for rejection) */
 	private $refid = 0;
-	/** @var string Included template versions (flat string) */
-	private $templateParams = '';
 	/** @var string Parameter key */
 	private $validatedParams = '';
 	/** @var string Review comments */
@@ -117,13 +115,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 */
 	public function setOldId( $value ) {
 		$this->trySet( $this->oldid, (int)$value );
-	}
-
-	/**
-	 * @param string $value
-	 */
-	public function setTemplateParams( $value ) {
-		$this->trySet( $this->templateParams, $value );
 	}
 
 	/**

@@ -80,11 +80,6 @@ class ReviewHandler extends SimpleHandler {
 				ParamValidator::PARAM_TYPE => 'string',
 				ParamValidator::PARAM_REQUIRED => false,
 			],
-			'templateParams' => [
-				self::PARAM_SOURCE => 'body',
-				ParamValidator::PARAM_TYPE => 'string',
-				ParamValidator::PARAM_REQUIRED => false,
-			],
 			'wpApprove' => [
 				self::PARAM_SOURCE => 'body',
 				ParamValidator::PARAM_TYPE => 'string',
@@ -125,7 +120,7 @@ class ReviewHandler extends SimpleHandler {
 
 	/**
 	 * @param array $argsMap Typical params are oldid, refid, validatedParams,
-	 * templateParams, wpApprove, wpUnapprove, wpReject, wpReason, changetime, wpEditToken,
+	 * wpApprove, wpUnapprove, wpReject, wpReason, changetime, wpEditToken,
 	 * wpaccuracy, and target.
 	 * @return array
 	 */
@@ -156,9 +151,6 @@ class ReviewHandler extends SimpleHandler {
 					break;
 				case "validatedParams":
 					$form->setValidatedParams( $val );
-					break;
-				case "templateParams":
-					$form->setTemplateParams( $val );
 					break;
 				case "wpApprove":
 					if ( $val ) {

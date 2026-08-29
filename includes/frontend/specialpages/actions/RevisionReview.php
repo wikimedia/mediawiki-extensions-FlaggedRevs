@@ -86,8 +86,6 @@ class RevisionReview extends UnlistedSpecialPage {
 		# Rev ID
 		$form->setOldId( $request->getInt( 'oldid' ) );
 		$form->setRefId( $request->getInt( 'refid' ) );
-		# Special parameter mapping
-		$form->setTemplateParams( $request->getVal( 'templateParams' ) );
 		# Special token to discourage fiddling...
 		$form->setValidatedParams( $request->getVal( 'validatedParams' ) );
 		# Conflict handling
