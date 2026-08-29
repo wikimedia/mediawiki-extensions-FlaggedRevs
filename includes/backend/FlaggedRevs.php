@@ -77,19 +77,6 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * Get the maximum level that can be autoreviewed
-	 * @return int
-	 */
-	private static function maxAutoReviewLevel() {
-		global $wgFlaggedRevsTagsAuto;
-		if ( !self::autoReviewEnabled() ) {
-			return 0; // shouldn't happen
-		}
-		// B/C (before $wgFlaggedRevsTagsAuto)
-		return (int)( $wgFlaggedRevsTagsAuto[self::getTagName()] ?? 1 );
-	}
-
-	/**
 	 * Is a "stable version" used as the default display
 	 * version for all pages in reviewable namespaces?
 	 * @return bool
@@ -539,9 +526,9 @@ class FlaggedRevs {
 			return [];
 		}
 		$tag = self::getTagName();
-		# Try to keep this tag val the same as the stable rev's
-		$val = $oldFlags[$tag] ?? 1;
-		$val = min( $val, self::maxAutoReviewLevel() );
+		# Try to keep this tag val the same as the stable rev's,
+		# but auto-review can never rate above the lowest level
+		$val = min( $oldFlags[$tag] ?? 1, 1 );
 		# Dial down the level to one the user has permission to set
 		while ( !self::userCanSetValue( $user, $val ) ) {
 			$val--;
