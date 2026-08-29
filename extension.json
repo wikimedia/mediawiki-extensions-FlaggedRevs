@@ -308,9 +308,7 @@
 				"revreview-submit-unreview",
 				"revreview-submit-reviewed",
 				"revreview-submit-unreviewed",
-				"revreview-submitting",
-				"actioncomplete",
-				"actionfailed"
+				"revreview-submitting"
 			],
 			"dependencies": [
 				"mediawiki.util",
