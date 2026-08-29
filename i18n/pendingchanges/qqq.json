@@ -33,11 +33,8 @@
 	"pendingchanges-table-page": "{{Flagged Revs}}\nHeader for the column displaying the page title in the table of pending changes.",
 	"pendingchanges-table-size": "{{Flagged Revs}}\nHeader for the column displaying the size in the table of pending changes.",
 	"pendingchanges-table-pending-since": "{{Flagged Revs}}\nHeader for the column displaying how long the changes have been pending in the table of pending changes.",
-	"pendingchanges-table-quality": "{{Flagged Revs}}\nHeader for the column displaying the quality of the page in the table of pending changes.",
 	"pendingchanges-table-watching": "{{Flagged Revs}}\nHeader for the column displaying the number of users watching the page in the table of pending changes.",
-	"pendingchanges-table-history": "{{Flagged Revs}}\nHeader for the column displaying the history of the page in the table of pending changes.",
 	"pendingchanges-table-review": "{{Flagged Revs}}\nHeader for the column displaying the review link in the table of pending changes.",
-	"pendingchanges-table-revision-history": "{{Flagged Revs}}\nHeader for the column displaying the revision history link in the table of pending changes.",
 	"pendingchanges-table-footer": "{{Flagged Revs}}\nDisplayed at the bottom of the table in Special:PendingChanges to show the number of pending changes.\n\nParameters:\n* $1 - raw HTML that displays the number of pending changes\n* $2 - number of pending changes, used with PLURAL to determine singular or plural form.",
 	"pendingchanges-filter-submit-button-text": "Label for the submit button in the filter form on Special:OldReviewedPages, allowing users to apply the selected filters."
 }

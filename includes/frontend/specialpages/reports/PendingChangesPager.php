@@ -329,18 +329,9 @@ class PendingChangesPager extends TablePager {
 		$headerCells = '';
 
 		foreach ( $fields as $field => $labelKey ) {
-			$class = ( $field === 'review' || $field === 'history' ) ? 'cdx-table__table__cell--align-center' : '';
+			$class = $field === 'review' ? 'cdx-table__table__cell--align-center' : '';
 
-			if ( $field === 'history' ) {
-				$headerCells .= Html::rawElement(
-					'th',
-					[ 'scope' => 'col', 'class' => $class ],
-					Html::rawElement(
-						'span',
-						[ 'class' => 'fr-cdx-icon-clock', 'aria-hidden' => 'true' ]
-					)
-				);
-			} elseif ( $this->isFieldSortable( $field ) ) {
+			if ( $this->isFieldSortable( $field ) ) {
 				$isCurrentSortField = ( $this->mSort === $field );
 				$currentAsc = $this->getRequest()->getVal( 'asc', '1' );
 
