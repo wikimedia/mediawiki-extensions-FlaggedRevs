@@ -50,10 +50,6 @@
 	"revreview-draft-title": "Veranderinge wat nog nie goedgekeur is nie word op hierdie bladsy vertoon",
 	"revreview-submitedit": "Stoor wysigings",
 	"revreview-submitedit-title": "Stuur jou veranderinge vir hersiening",
-	"revreview-oldrating": "Word gewaardeer as:",
-	"revreview-quick-invalid": "'''Ongeldige weergawenommer'''",
-	"revreview-quick-see-basic": "'''[{{MediaWiki:Validationpage}}|Werkweergawe]''' [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gepubliseerde weergawe]\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} vergelyk]",
-	"revreview-toggle-title": "wys/versteek details",
 	"revreview-revnotfound": "Die ou weergawe wat jy aangevra het kon nie gevind word nie. Gaan asseblief die URL na wat jy gebruik het.",
 	"right-movestable": "Skuif gepubliseerde bladsye",
 	"specialpages-group-quality": "Gehaltebeheer",
@@ -67,11 +63,8 @@
 	"revreview-reviewlink": "hangende wysigings",
 	"revreview-unreviewedpage": "ongemerk bladsy",
 	"tooltip-ca-current": "Sien hierdie bladsy met die hangende veranderinge",
-	"tooltip-ca-stable": "Kyk na die stabiele weergawe van hierdie bladsy",
 	"tooltip-ca-default": "Instellings vir kwaliteitsbeheer",
 	"flaggedrevs-protect-legend": "Publiseer wysigings",
 	"flaggedrevs-protect-none": "Alle gebruikers toelaat",
-	"revreview-locked-title": "Wysigings op hierdie bladsy moet word nagegaan.",
-	"revreview-unlocked-title": "Wysigings aan hierdie bladsy nie hersiening nodig het nie.",
 	"validationpage": "{{ns:help}}:Bladsyredaksie"
 }

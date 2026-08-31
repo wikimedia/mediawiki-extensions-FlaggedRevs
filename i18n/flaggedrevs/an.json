@@ -42,15 +42,10 @@
 	"revreview-newest-basic": "A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión acceptata] se [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificó] o <i>$2</i>. Bi ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|cambio pendient|cambios pendients}}] aguardando una revisión.",
 	"revreview-newest-basic-i": "A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión acceptata] se [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificó] o <i>$2</i>. Bi ha [{{fullurl:{{FULLPAGENAMEE}}|action=info#mw-flaggedrevs-action-info-pages-waiting-for-review}} cambios en as plantillas/fichers] aguardando una revisión.",
 	"revreview-noflagged": "No bi ha garra versión revisata d'ista pachina, asinas que '''no''' s'ha comprebato a suya qualidat.",
-	"revreview-oldrating": "A calificación ye:",
 	"revreview-quick-basic": "'''[[{{MediaWiki:Validationpage}}|Articlo verificato]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} revisar cambios pendients]]",
-	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|Articlo supervisato]]'''",
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|Articlo supervisato]]'''",
-	"revreview-quick-invalid": "'''ID de revisión no conforme'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Versión no revisata]]'''",
-	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} revisar os cambios pendients]",
 	"revreview-basic-title": "Ista ye una versión verificata d'ista pachina",
-	"revreview-toggle-title": "amostrar/amagar detalles",
 	"revreview-visibility-synced": "'''Ista pachina tiene una [[{{MediaWiki:Validationpage}}|versión acceptada]]; Os achustes d'estabilidat d'a pachina se pueden [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} cambiar aquí].'''",
 	"revreview-revnotfound": "No se pudo trobar a versión antiga d'a pachina demandata.\nPor favor, revise l'adreza que fació servir t'acceder a ista pachina.",
 	"right-autoreview": "Marcar automaticament as edicions propias como \"verificadas\"",
@@ -66,7 +61,6 @@
 	"stable-logpage": "Rechistro de versions estables",
 	"stable-logpagetext": "Iste ye un rechistro de cambeos d'a confeguración de [[{{MediaWiki:Validationpage}}|versions estables]] d'as pachinas de conteniu.",
 	"tooltip-ca-current": "Amostrar ista pachina con os cambios pendients",
-	"tooltip-ca-stable": "Amostrar a versión acceptata d'ista pachina",
 	"tooltip-ca-default": "Opcions d'aseguranza d'a calidat",
 	"validationpage": "{{ns:help}}:Validación d'a pachina"
 }

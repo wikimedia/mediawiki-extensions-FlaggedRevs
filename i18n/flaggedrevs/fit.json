@@ -15,7 +15,6 @@
 	"revreview-basic-old": "Tämä oon [[{{MediaWiki:Validationpage}}|katsottu]] versuuni ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} näytä kaikki]), joka [{{fullurl:{{#Special:Log}}|\ntype=review&page={{FULLPAGENAMEE}}}} arvioitiin] <i>$2</i>.\nUusia [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} muutoksia] oon voitu tehdä.",
 	"revreview-basic-same": "Tämä on [[{{MediaWiki:Validationpage}}|vakaa versuuni]], joka oon [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} katottu] <i>$2</i>.",
 	"revreview-current": "Uusin versuuni",
-	"revreview-quick-see-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} näytä venttaavat muutokset]",
 	"revreview-basic-title": "Tämä oon katottu versuuni tästä sivusta",
 	"revreview-reviewlink": "venttaavat muutokset"
 }

@@ -35,15 +35,10 @@
 	"revreview-accuracy-4": "نمایان",
 	"revreview-current": "پیش نویس",
 	"revreview-draft-title": "مقاله پیش نویس",
-	"revreview-oldrating": "شی درجه بندی بوتت:",
 	"revreview-quick-basic": "'''[[{{MediaWiki:Validationpage}}|رویت بیتگ مقاله]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}}به گند پیش نویس]]",
-	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|رویت بیتگرویت بیتگ مقاله]]''' [ به گند پیش نویس]]",
 	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|رویت بیتگ مقاله]]'''",
-	"revreview-quick-invalid": "'''نامعتبر شناسه بازبینی'''",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|هنوکین بازبینی]]''' (بی بازبینی)",
-	"revreview-quick-see-basic": "'''پیش نویس''' [{{fullurl:{{FULLPAGENAMEE}}|stable=1}}دیستن مقالهء]\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}}مقایسه]",
 	"revreview-basic-title": "رویت بیتگ مقاله",
-	"revreview-toggle-title": "پیش دار/پناه کن جزییاتء",
 	"revreview-revnotfound": "کدیمی بازبینی چه ای صفحه که شما لوٹیت ودیگ نه بوت. لطفا URL که شما په رستن په ای صفحه استفاده کنیت کنترلی کنیت.",
 	"right-autoreview": "اتوماتیکی نشان کن بازبینیء په عنوان رویت بیتگین",
 	"right-movestable": "صفحات ثابت جاه په جاه کن",
@@ -57,7 +52,6 @@
 	"stable-logentry-reset": "پد ترین نسخه ثابت په $1",
 	"stable-logpage": "اۏشتکءِ آمار",
 	"tooltip-ca-current": "به گند هنوکین پیش نویس ای صفحهء",
-	"tooltip-ca-stable": "به گند نسخه ثابت ای صفحهء",
 	"tooltip-ca-default": "تنضیمات اطمینان کیفیت",
 	"validationpage": "{{ns:help}}: اعتبار مقاله"
 }

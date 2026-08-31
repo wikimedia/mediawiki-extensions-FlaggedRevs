@@ -38,9 +38,6 @@
 	"revreview-restriction-none": "کوئی بھی نہیں",
 	"revreview-reviewlink": "زیر التواء گئی تدوین",
 	"tooltip-ca-current": "زیر التواء تبدیلیوں کے ساتھ اس صفحے کو دیکھیں",
-	"tooltip-ca-stable": "اس صفحے کے مستحکم ورژن دیکھنے",
 	"tooltip-ca-default": "کوالٹی اشورینس کی ترتیبات",
-	"flaggedrevs-protect-none": "سب صارفین کی اجازت دیں",
-	"revreview-locked-title": "اس صفحے کو کرنے کے لئے گئی تدوین کا جائزہ لینے کی ضرورت ہوتی ہے.",
-	"revreview-unlocked-title": "اس صفحے کو کرنے کے لئے گئی تدوین نہیں کی ضرورت کا جائزہ لیں."
+	"flaggedrevs-protect-none": "سب صارفین کی اجازت دیں"
 }

@@ -61,7 +61,6 @@
 	"revreview-editnotice": "'''Owahan panjenengan bakal ditampilaké nèng pamaca yèn naraguna sing nduwèni otoritas nyepakati. ([[{{MediaWiki:Validationpage}}|pitulung]])'''",
 	"revreview-submitedit": "Kirim owahan",
 	"revreview-submitedit-title": "Kirim owahan panjenengan kanggo diulas",
-	"revreview-oldrating": "Nduwèni biji:",
 	"revreview-revnotfound": "Révisi lawas kaca sing panjenengan suwun ora bisa ditemokaké. Mangga priksanen URL sing digunakaké kanggo ngaksès kaca iki.",
 	"revreview-defaultfilter": "Vèrsi gawan:",
 	"revreview-def-all": "apa waè",
@@ -73,12 +72,9 @@
 	"revreview-reviewlink": "besutan kalawasan",
 	"revreview-unreviewedpage": "kaca durung kapriksa",
 	"tooltip-ca-current": "Deleng kaca iki mawa owahan kaundur",
-	"tooltip-ca-stable": "Deleng vèrsi stabil kaca iki",
 	"tooltip-ca-default": "Setèlan jaminan mutu",
 	"flaggedrevs-protect-legend": "Pamriksa besutan otomatis ([[{{MediaWiki:Validationpage}}|pitulung]])",
 	"flaggedrevs-protect-none": "Idinaké kabèh naraguna",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} Kaca kang durung kapriksa]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Owah-owahan kang kasumenèkaké]",
-	"revreview-locked-title": "Kabèh besutaning kaca iki kang kudu kapriksa.",
-	"revreview-unlocked-title": "Kabèh besutan ing kaca iki ora prelu kapriksa.",
 	"validationpage": "{{ns:help}}:Validation kaca"
 }
