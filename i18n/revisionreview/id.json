@@ -63,7 +63,7 @@
 	"revreview-reject-text-revto": "Ini akan mengembalikan halaman kepada [{{fullurl:$1|oldid=$2}} versi per $3].",
 	"revreview-reject-summary": "Ringkasan:",
 	"revreview-reject-confirm": "Tolak perubahan ini",
-	"revreview-reject-cancel": "Batalkan",
+	"revreview-reject-cancel": "Batal",
 	"revreview-reject-summary-cur": "Menolak {{PLURAL:$1|perubahan teks|$1 perubahan teks}} terakhir ({{PLURAL:$7|{{GENDER:$5|oleh}}}} $2) dan mengembalikan revisi $3 {{GENDER:$6|oleh}} $4",
 	"revreview-reject-summary-old": "Menolak {{PLURAL:$1|perubahan teks|$1 perubahan teks}} pertama ({{PLURAL:$7|{{GENDER:$5|oleh}}}} $2) setelah revisi $3 {{GENDER:$6|oleh}} $4",
 	"revreview-reject-summary-cur-short": "Menolak {{PLURAL:$1|perubahan teks|$1 perubahan teks}} terakhir dan mengembalikan revisi $2 {{GENDER:$4|oleh}} $3",
