@@ -1,13 +1,16 @@
 <?php
 
-use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Notification\RecipientSet;
+use MediaWiki\Notification\Types\WikiNotification;
 use MediaWiki\Page\WikiPage;
 use MediaWiki\RecentChanges\RecentChange;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Title\Title;
+use MediaWiki\User\UserIdentity;
+use MediaWiki\User\UserIdentityValue;
 use Wikimedia\Rdbms\IDBAccessObject;
 
 /**
@@ -375,19 +378,25 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 			$status = $editStatus->isOK() ? true : 'review_cannot_undo';
 
-			// Notify Echo about the revert.
+			// Notify about the revert (e.g. via Echo, if installed).
 			// This is due to the lack of appropriate EditResult handling in Echo, in the
 			// future, when T153570 is merged, this entire code block should be removed.
 			if ( $status === true &&
 				$editStatus->value['revision-record'] &&
-				ExtensionRegistry::getInstance()->isLoaded( 'Echo' )
+				// Skip the DB query below if nothing is registered to consume the notification
+				ExtensionRegistry::getInstance()->getAttribute( 'NotificationHandlers' )
 			) {
-				$affectedRevisions = []; // revid -> userid
+				/** @var array<int,UserIdentity> revid -> identity */
+				$affectedRevisions = [];
 				$revQuery = $revStore->getQueryInfo();
 				$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 				$revisions = $dbr->newSelectQueryBuilder()
-					->select( [ 'rev_id', 'rev_user' => $revQuery['fields']['rev_user'] ] )
+					->select( [
+						'rev_id',
+						'rev_user' => $revQuery['fields']['rev_user'],
+						'rev_user_text' => $revQuery['fields']['rev_user_text'],
+					] )
 					->tables( $revQuery['tables'] )
 					->where( [
 						$dbr->expr( 'rev_id', '<=', $newRevRecord->getId() ),
@@ -400,20 +409,21 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 					->caller( __METHOD__ )
 					->fetchResultSet();
 				foreach ( $revisions as $row ) {
-					$affectedRevisions[$row->rev_id] = $row->rev_user;
+					$affectedRevisions[$row->rev_id] = new UserIdentityValue( $row->rev_user, $row->rev_user_text );
 				}
 
-				Event::create( [
-					'type' => 'reverted',
-					'title' => $this->title,
-					'extra' => [
+				$services->getNotificationService()->notify(
+					new WikiNotification( 'reverted', $this->title, $user, [
 						'revid' => $editStatus->value['revision-record']->getId(),
-						'reverted-users-ids' => array_values( $affectedRevisions ),
+						'reverted-users-ids' => array_map(
+							static fn ( UserIdentity $u ) => $u->getId(),
+							array_values( $affectedRevisions )
+						),
 						'reverted-revision-ids' => array_keys( $affectedRevisions ),
 						'method' => 'flaggedrevs-reject',
-					],
-					'agent' => $user,
-				] );
+					] ),
+					new RecipientSet( $affectedRevisions )
+				);
 			}
 		} else {
 			return 'review_param_missing';
