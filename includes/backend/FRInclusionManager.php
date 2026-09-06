@@ -10,10 +10,9 @@ use MediaWiki\Title\Title;
  * If no requirements are set, the page is parsed as normal.
  */
 class FRInclusionManager {
-	/** @var array[]|null templates at review time */
-	private $reviewedVersions = null;
-	/** @var array[] Stable versions of templates */
-	private $stableVersions = [];
+	private bool $parserOutputIsStabilized = false;
+	/** Stable versions of templates */
+	private array $stableTemplates = [];
 
 	/** @var self|null */
 	private static $instance = null;
@@ -32,7 +31,7 @@ class FRInclusionManager {
 	}
 
 	private function __construct() {
-		$this->stableVersions['templates'] = [];
+		$this->stableTemplates = [];
 	}
 
 	/**
@@ -40,26 +39,8 @@ class FRInclusionManager {
 	 * @return void
 	 */
 	public function clear() {
-		$this->reviewedVersions = null;
-		$this->stableVersions['templates'] = [];
-	}
-
-	/**
-	 * (a) Stabilize inclusions in Parser output
-	 * (b) Set the template versions used in the flagged version of a revision
-	 * @param int[][] $tmpParams (ns => dbKey => revId )
-	 */
-	private function setReviewedVersions( array $tmpParams ) {
-		$this->reviewedVersions = [];
-		$this->reviewedVersions['templates'] = self::formatTemplateArray( $tmpParams );
-	}
-
-	/**
-	 * Set the stable versions of some template
-	 * @param int[][] $tmpParams (ns => dbKey => revId )
-	 */
-	private function setStableVersionCache( array $tmpParams ) {
-		$this->stableVersions['templates'] = self::formatTemplateArray( $tmpParams );
+		$this->parserOutputIsStabilized = false;
+		$this->stableTemplates = [];
 	}
 
 	/**
@@ -93,9 +74,8 @@ class FRInclusionManager {
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
 			$tStbVersions = $frev->getStableTemplateVersions();
 		}
-		$this->reviewedVersions = [];
-		$this->reviewedVersions['templates'] = [];
-		$this->setStableVersionCache( $tStbVersions );
+		$this->parserOutputIsStabilized = true;
+		$this->stableTemplates = self::formatTemplateArray( $tStbVersions );
 	}
 
 	/**
@@ -103,21 +83,7 @@ class FRInclusionManager {
 	 * @return bool
 	 */
 	public function parserOutputIsStabilized() {
-		return is_array( $this->reviewedVersions );
-	}
-
-	/**
-	 * Get the "review time" template version for parser
-	 * @param Title $title
-	 * @return int|null
-	 */
-	public function getReviewedTemplateVersion( Title $title ) {
-		if ( !is_array( $this->reviewedVersions ) ) {
-			throw new LogicException( "prepareForParse() nor setReviewedVersions() called yet" );
-		}
-		$dbKey = $title->getDBkey();
-		$namespace = $title->getNamespace();
-		return $this->reviewedVersions['templates'][$namespace][$dbKey] ?? null;
+		return $this->parserOutputIsStabilized;
 	}
 
 	/**
@@ -128,9 +94,9 @@ class FRInclusionManager {
 	public function getStableTemplateVersion( Title $title ) {
 		$dbKey = $title->getDBkey();
 		$namespace = $title->getNamespace();
-		$id = $this->stableVersions['templates'][$namespace][$dbKey] ??
+		$id = $this->stableTemplates[$namespace][$dbKey] ??
 			FlaggedRevision::getStableRevId( $title );
-		$this->stableVersions['templates'][$namespace][$dbKey] = $id; // cache
+		$this->stableTemplates[$namespace][$dbKey] = $id; // cache
 		return $id;
 	}
 }

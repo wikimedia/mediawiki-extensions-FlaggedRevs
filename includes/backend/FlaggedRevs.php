@@ -325,11 +325,6 @@ class FlaggedRevs {
 					return $oldCurrentRevisionRecordCallback( $title, $parser );
 				}
 				$id = false; // current version
-				# Check for the version of this template used when reviewed...
-				$maybeId = $incManager->getReviewedTemplateVersion( $title );
-				if ( $maybeId !== null ) {
-					$id = (int)$maybeId; // use if specified (even 0)
-				}
 				# Check for stable version of template if this feature is enabled...
 				if ( self::inclusionSetting() == FR_INCLUDES_STABLE ) {
 					$maybeId = $incManager->getStableTemplateVersion( $title );
