@@ -420,7 +420,6 @@ class FlaggablePageView extends ContextSource {
 	 * Also index the draft as well if they are synced (bug 27173).
 	 */
 	public function setRobotPolicy(): void {
-		$request = $this->getRequest();
 		if ( $this->article->getStableRev() && $this->article->isStableShownByDefault() ) {
 			if ( $this->isPageView() && $this->showingStable() ) {
 				return; // stable version - index this

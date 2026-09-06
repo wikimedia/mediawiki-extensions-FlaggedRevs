@@ -27,8 +27,6 @@ class FlaggableWikiPage extends WikiPage {
 	private $pendingRevCount = null;
 	/** @var array|null */
 	private $pageConfig = null;
-	/** @var bool|null */
-	private $syncedInTracking = null;
 	/** @var PreparedUpdate|null */
 	private $preparedUpdate = null;
 	/** @var MapCacheLRU|null */
@@ -115,7 +113,6 @@ class FlaggableWikiPage extends WikiPage {
 		$this->revsArePending = null;
 		$this->pendingRevCount = null;
 		$this->pageConfig = null;
-		$this->syncedInTracking = null;
 		parent::clear(); // call super!
 	}
 
@@ -352,17 +349,6 @@ class FlaggableWikiPage extends WikiPage {
 	}
 
 	/**
-	 * Get the fp_reviewed value for this page
-	 * @return bool
-	 */
-	public function syncedInTracking() {
-		if ( !$this->mDataLoaded ) {
-			$this->loadPageData();
-		}
-		return $this->syncedInTracking;
-	}
-
-	/**
 	 * Fetch a page record with the given conditions
 	 * @param IReadableDatabase $dbr
 	 * @param array $conditions
@@ -416,7 +402,6 @@ class FlaggableWikiPage extends WikiPage {
 		$this->revsArePending = false; // false => "found nothing" or "none pending"
 		$this->pendingRevCount = null; // defer this one...
 		$this->pageConfig = FRPageConfig::getDefaultVisibilitySettings(); // default
-		$this->syncedInTracking = true; // false => "unreviewed" or "synced"
 
 		# Fetch data from DB as needed...
 		$from = WikiPage::convertSelectType( $data );
@@ -438,7 +423,6 @@ class FlaggableWikiPage extends WikiPage {
 			if ( $data->fp_stable !== null ) { // stable rev found
 				$this->stable = (int)$data->fp_stable;
 				$this->revsArePending = ( $data->fp_pending_since !== null ); // revs await review
-				$this->syncedInTracking = (bool)$data->fp_reviewed;
 			}
 		}
 	}
