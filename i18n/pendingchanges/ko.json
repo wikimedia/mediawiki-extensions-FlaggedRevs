@@ -32,11 +32,8 @@
 	"pendingchanges-table-page": "문서",
 	"pendingchanges-table-size": "크기",
 	"pendingchanges-table-pending-since": "이 때부터",
-	"pendingchanges-table-quality": "품질",
 	"pendingchanges-table-watching": "활동중인 주시자",
-	"pendingchanges-table-history": "역사",
 	"pendingchanges-table-review": "검토",
-	"pendingchanges-table-revision-history": "역사",
 	"pendingchanges-table-footer": "현재 {{PLURAL:$2|$1개 편집이}} 대기 중입니다",
 	"pendingchanges-filter-submit-button-text": "대기 중인 편집을 필터링"
 }

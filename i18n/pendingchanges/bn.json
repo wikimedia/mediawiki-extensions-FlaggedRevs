@@ -29,11 +29,8 @@
 	"pendingchanges-table-page": "পাতা",
 	"pendingchanges-table-size": "আকার",
 	"pendingchanges-table-pending-since": "এ থেকে",
-	"pendingchanges-table-quality": "গুণমান",
 	"pendingchanges-table-watching": "সক্রিয় নজরকারী",
-	"pendingchanges-table-history": "ইতিহাস",
 	"pendingchanges-table-review": "পর্যালোচনা করুন",
-	"pendingchanges-table-revision-history": "ইতিহাস",
 	"pendingchanges-table-footer": "বর্তমানে {{PLURAL:$2|$1টি পরিবর্তন}} অমীমাংসিত রয়েছে",
 	"pendingchanges-filter-submit-button-text": "অমীমাংসিত পরিবর্তন ছাঁকুন"
 }

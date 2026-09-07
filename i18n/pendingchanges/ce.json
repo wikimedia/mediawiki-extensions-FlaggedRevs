@@ -25,11 +25,8 @@
 	"pendingchanges-table-page": "АгӀо",
 	"pendingchanges-table-size": "Барам",
 	"pendingchanges-table-pending-since": "Талланза",
-	"pendingchanges-table-quality": "Дикалла",
 	"pendingchanges-table-watching": "Жигара тергамхой",
-	"pendingchanges-table-history": "Истори",
 	"pendingchanges-table-review": "Талла",
-	"pendingchanges-table-revision-history": "Истори",
 	"pendingchanges-table-footer": "Карарчу хенахь {{PLURAL:$2|$1 хийцам бу}} талларе хьоьжуш",
 	"pendingchanges-filter-submit-button-text": "Талланза хийцамашна фильтрйе"
 }

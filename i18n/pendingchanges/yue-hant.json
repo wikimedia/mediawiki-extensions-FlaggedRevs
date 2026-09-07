@@ -26,11 +26,8 @@
 	"pendingchanges-table-page": "頁",
 	"pendingchanges-table-size": "大細",
 	"pendingchanges-table-pending-since": "既然",
-	"pendingchanges-table-quality": "素質",
 	"pendingchanges-table-watching": "活躍啲嘅觀察者",
-	"pendingchanges-table-history": "歷史",
 	"pendingchanges-table-review": "睇返",
-	"pendingchanges-table-revision-history": "歷史",
 	"pendingchanges-table-footer": "而家有{{PLURAL:$2|$1個等緊審查嘅改動}}",
 	"pendingchanges-filter-submit-button-text": "過濾等緊審查嘅改動"
 }

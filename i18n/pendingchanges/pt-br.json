@@ -30,11 +30,8 @@
 	"pendingchanges-table-page": "Página",
 	"pendingchanges-table-size": "Tamanho",
 	"pendingchanges-table-pending-since": "Desde",
-	"pendingchanges-table-quality": "Qualidade",
 	"pendingchanges-table-watching": "Usuários vigiando a página",
-	"pendingchanges-table-history": "Histórico",
 	"pendingchanges-table-review": "Revisão",
-	"pendingchanges-table-revision-history": "Histórico",
 	"pendingchanges-table-footer": "No momento, há $1 {{PLURAL:$2|mudança|mudanças}} pendentes",
 	"pendingchanges-filter-submit-button-text": "Filtrar mudanças pendentes"
 }

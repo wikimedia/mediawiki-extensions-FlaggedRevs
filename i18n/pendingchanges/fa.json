@@ -34,11 +34,8 @@
 	"pendingchanges-table-page": "صفحه",
 	"pendingchanges-table-size": "اندازه",
 	"pendingchanges-table-pending-since": "از",
-	"pendingchanges-table-quality": "کیفیت",
 	"pendingchanges-table-watching": "پی‌گیری‌کنندکان فعال",
-	"pendingchanges-table-history": "تاریخچه",
 	"pendingchanges-table-review": "بازبینی",
-	"pendingchanges-table-revision-history": "تاریخچه",
 	"pendingchanges-table-footer": "در حال حاضر {{PLURAL:$2|$1 تغییر}} در انتظار بازبینی {{PLURAL:$2|است|هستند}}",
 	"pendingchanges-filter-submit-button-text": "پالایش تغییرات در انتظار بازبینی"
 }

@@ -30,11 +30,8 @@
 	"pendingchanges-table-page": "Strona",
 	"pendingchanges-table-size": "Rozmiar",
 	"pendingchanges-table-pending-since": "Od",
-	"pendingchanges-table-quality": "Poziom jakości",
 	"pendingchanges-table-watching": "Aktywnych obserwujących",
-	"pendingchanges-table-history": "Historia",
 	"pendingchanges-table-review": "Przejrzyj",
-	"pendingchanges-table-revision-history": "Historia",
 	"pendingchanges-table-footer": "Obecnie na przejrzenie {{PLURAL:$2|oczekuje $1 zmiana|oczekują $1 zmiany|oczekuje $1 zmian}}",
 	"pendingchanges-filter-submit-button-text": "Filtruj listę oczekujących zmian"
 }

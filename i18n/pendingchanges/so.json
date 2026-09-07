@@ -25,11 +25,8 @@
 	"pendingchanges-table-page": "Bog",
 	"pendingchanges-table-size": "Cabbirka",
 	"pendingchanges-table-pending-since": "Tan iyo",
-	"pendingchanges-table-quality": "Tayada",
 	"pendingchanges-table-watching": "Ilaaliyayaasha firfircoon",
-	"pendingchanges-table-history": "Taariikh",
 	"pendingchanges-table-review": "Dib u eeg",
-	"pendingchanges-table-revision-history": "Taariikh",
 	"pendingchanges-table-footer": "Hadda waxaa jira {{PLURAL:$2|$1 isbeddel sugaya|$1 isbeddello sugaya}}",
 	"pendingchanges-filter-submit-button-text": "Shaandhee isbeddellada sugaya"
 }

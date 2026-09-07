@@ -29,11 +29,8 @@
 	"pendingchanges-table-page": "דף",
 	"pendingchanges-table-size": "גודל",
 	"pendingchanges-table-pending-since": "מאז",
-	"pendingchanges-table-quality": "איכות",
 	"pendingchanges-table-watching": "עוקבים פעילים",
-	"pendingchanges-table-history": "היסטוריה",
 	"pendingchanges-table-review": "סקירה",
-	"pendingchanges-table-revision-history": "היסטוריה",
 	"pendingchanges-table-footer": "כרגע, יש {{PLURAL:$2|שינוי ממתין אחד|$1 שינויים ממתינים}}",
 	"pendingchanges-filter-submit-button-text": "סינון שינויים ממתינים"
 }

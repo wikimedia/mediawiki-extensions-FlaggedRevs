@@ -33,11 +33,8 @@
 	"pendingchanges-table-page": "Sida",
 	"pendingchanges-table-size": "Storlek",
 	"pendingchanges-table-pending-since": "Sedan",
-	"pendingchanges-table-quality": "Kvalitet",
 	"pendingchanges-table-watching": "Aktiva tittare",
-	"pendingchanges-table-history": "Historik",
 	"pendingchanges-table-review": "Granska",
-	"pendingchanges-table-revision-history": "Historia",
 	"pendingchanges-table-footer": "För närvarande finns det {{PLURAL:$2|$1 ändring|$1 ändringar}} som väntar",
 	"pendingchanges-filter-submit-button-text": "Filtrera väntande ändringar"
 }

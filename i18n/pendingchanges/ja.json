@@ -30,8 +30,5 @@
 	"pendingchanges-table-caption": "査読待ちの変更",
 	"pendingchanges-table-page": "ページ",
 	"pendingchanges-table-size": "サイズ",
-	"pendingchanges-table-quality": "品質",
-	"pendingchanges-table-history": "履歴",
-	"pendingchanges-table-review": "査読",
-	"pendingchanges-table-revision-history": "履歴"
+	"pendingchanges-table-review": "査読"
 }

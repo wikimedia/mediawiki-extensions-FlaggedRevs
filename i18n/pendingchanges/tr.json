@@ -33,11 +33,8 @@
 	"pendingchanges-table-page": "Sayfa",
 	"pendingchanges-table-size": "Boyut",
 	"pendingchanges-table-pending-since": "Beri",
-	"pendingchanges-table-quality": "Nitelik",
 	"pendingchanges-table-watching": "Sayfayı izleyen kullanıcılar",
-	"pendingchanges-table-history": "Geçmiş",
 	"pendingchanges-table-review": "İncele",
-	"pendingchanges-table-revision-history": "Geçmiş",
 	"pendingchanges-table-footer": "Şu anda {{PLURAL:$2|$1 sayfa}} inceleme beklemektedir",
 	"pendingchanges-filter-submit-button-text": "Bekleyen değişiklikleri filtrele"
 }

@@ -26,11 +26,8 @@
 	"pendingchanges-table-page": "Stran",
 	"pendingchanges-table-size": "Velikost",
 	"pendingchanges-table-pending-since": "Od",
-	"pendingchanges-table-quality": "Kakovost",
 	"pendingchanges-table-watching": "Aktivni opazovalci",
-	"pendingchanges-table-history": "Zgodovina",
 	"pendingchanges-table-review": "Pregled",
-	"pendingchanges-table-revision-history": "Zgodovina",
 	"pendingchanges-table-footer": "Trenutno na pregled {{PLURAL:$2|čaka $1 sprememba|čakata $1 spremembi|čakajo $1 spremembe|čaka $1 sprememb}}",
 	"pendingchanges-filter-submit-button-text": "Filtriraj čakajoče spremembe"
 }

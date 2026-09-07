@@ -25,11 +25,8 @@
 	"pendingchanges-table-page": "مخ",
 	"pendingchanges-table-size": "کچه",
 	"pendingchanges-table-pending-since": "له",
-	"pendingchanges-table-quality": "څرنگوالی",
 	"pendingchanges-table-watching": "کارنده ليدونکي",
-	"pendingchanges-table-history": "پېښليک",
 	"pendingchanges-table-review": "بياکتنه",
-	"pendingchanges-table-revision-history": "پېښليک",
 	"pendingchanges-table-footer": "وسمهال دلته {{PLURAL:$2|$1 بدلون په تمه دی|$1 بدلونونه په تمه دي}}",
 	"pendingchanges-filter-submit-button-text": "په تمه بدلونونه چاڼول"
 }
