@@ -14,7 +14,8 @@
 			"Sp5uhe",
 			"Tsca",
 			"WTM",
-			"Woytecr"
+			"Woytecr",
+			"Msz2001"
 		]
 	},
 	"revisionreview": "Oznaczenie wersji",
@@ -63,7 +64,7 @@
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Wykonane przez Ciebie zmiany nie są widoczne w wersji oznaczonej.</span>\n\nPrzejrzyj wszystkie poniższe zmiany, a Twoje edycje zostaną zamieszczone w wersji oznaczonej.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Wykonane przez Ciebie zmiany nie są widoczne w wersji oznaczonej, ponieważ inne wcześniejsze zmiany oczekują na przejrzenie.</span>\n\nPrzejrzyj wszystkie poniższe zmiany, a Twoje edycje zostaną zamieszczone w wersji oznaczonej.",
 	"revreview-update-includes": "Niektóre szablony lub pliki zostały uaktualnione (nieprzejrzane strony są wytłuszczone):",
-	"revreview-reject-text-list": "Zatwierdzając tę akcję '''wycofasz''' zmiany zrobione w {{PLURAL:$1|wersji|wersjach}} [[:$2|$2]]:",
+	"revreview-reject-text-list": "Zatwierdzając tę akcję, '''wycofasz''' zmiany zrobione w {{PLURAL:$1|wersji|wersjach}} [[:$2|$2]]:",
 	"revreview-reject-text-revto": "Ta akcja spowoduje przywrócenie strony do [{{fullurl:$1|oldid=$2}} wersji z $3].",
 	"revreview-reject-summary": "Podsumowanie",
 	"revreview-reject-confirm": "Wycofaj te zmiany",
