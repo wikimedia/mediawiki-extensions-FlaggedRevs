@@ -4,7 +4,6 @@
 		"stylelint-config-wikimedia/mediawiki"
 	],
 	"rules": {
-		"declaration-property-unit-disallowed-list": null,
-		"selector-class-pattern": "^((ext|mw|oo-ui|cdx|client|skin|fr|sitedir|flaggedrevs)-|flaggedrevs_)"
+		"selector-class-pattern": "^((ext|mw|oo-ui|cdx|client|skin|fr|flaggedrevs)-|flaggedrevs_)"
 	}
 }
