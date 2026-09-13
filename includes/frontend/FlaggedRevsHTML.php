@@ -198,9 +198,10 @@ class FlaggedRevsHTML {
 		);
 		foreach ( $tagDefs as $tagInfo ) {
 			$tagName = $tagInfo['name'];
+			$tagLabel = $tagInfo['label'];
 			$selectOptions .= Html::element( 'option',
 				[ 'value' => $tagName, 'selected' => $selected == $tagName ],
-				$tagName
+				$tagLabel
 			);
 		}
 
