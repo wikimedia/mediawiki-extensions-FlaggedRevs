@@ -227,7 +227,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			if ( $this->tag === 0 ) {
 				return 'review_too_low';
 			}
-			# Special token to discourage fiddling with templates...
+			# Special token to discourage fiddling...
 			if ( !$this->skipValidationKey ) {
 				$k = self::validationKey( $this->oldid, $this->sessionKey );
 				if ( $this->validatedParams !== $k ) {
@@ -530,7 +530,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	}
 
 	/**
-	 * Get a validation key from template versioning metadata
+	 * Get a validation key for a revision and user session
 	 * @param int $revisionId
 	 * @param string $sessKey Session key
 	 * @return string
