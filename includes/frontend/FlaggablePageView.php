@@ -634,7 +634,7 @@ class FlaggablePageView extends ContextSource {
 			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT && $synced ) {
 				# Stable and draft version are identical; check the draft version cache
 				$draftParserOutputAccess = MediaWikiServices::getInstance()->getParserOutputAccess();
-				$parserOut = $draftParserOutputAccess->getParserOutput(
+				$draftStatus = $draftParserOutputAccess->getParserOutput(
 					$this->article, $parserOptions, $srev->getRevisionRecord(),
 					[
 						ParserOutputAccess::OPT_NO_AUDIENCE_CHECK => true,
@@ -643,6 +643,7 @@ class FlaggablePageView extends ContextSource {
 						ParserOutputAccess::OPT_POOL_COUNTER_FALLBACK => true
 					],
 				);
+				$parserOut = $draftStatus->isOK() ? $draftStatus->getValue() : null;
 			}
 
 			if ( !$parserOut ) {
