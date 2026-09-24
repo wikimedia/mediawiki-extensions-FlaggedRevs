@@ -6,6 +6,9 @@
 		]
 	},
 	"stabilization-page": "د مخ نوم:",
+	"stabilization-def2": "وروستۍ بياليدنه",
+	"stabilization-restrict": "د بياکتنې/خپلکاره بياکتنې محدوديتونه",
+	"stabilization-restrict-none": "هېڅ زياتي محدوديتونه نشته",
 	"stabilization-submit": "تاييد",
 	"stabilization-comment": "لامل:",
 	"stabilization-otherreason": "بل لامل:",
@@ -14,5 +17,12 @@
 	"stabilization-def-short": "تلواليز",
 	"stabilization-def-short-0": "اوسنی",
 	"stabilization-def-short-1": "ثابت",
+	"stabilize_page_invalid": "د موخې وړ مخ سرليک ناسم دی.",
+	"stabilize_page_notexists": "د موخې وړ مخ شتون نلري.",
+	"stabilize_page_unreviewable": "د موخې‌وړ مخ په نوم‌تشيال کې د بياکتنې‌وړ نه دی.",
+	"stabilize_invalid_autoreview": "د خپلکاره‌بياکتنې محدوديت ناسم دی.",
+	"stabilize_invalid_level": "ناسم ژغورکچه",
+	"stabilize_expiry_invalid": "ناسمه پای‌نېټه.",
+	"stabilize_denied": "اجازه رد شوه.",
 	"stabilize-expiring": "په $1 (UTC) پای ته رسېږي"
 }

@@ -22,7 +22,7 @@
 	"validationstatistics-stable": "Revisionate",
 	"validationstatistics-latest": "Sincronizzate",
 	"validationstatistics-synced": "Sincronizzate/Revisionate",
-	"validationstatistics-old": "Non aggiornate",
+	"validationstatistics-old": "Da aggiornare",
 	"validationstatistics-unreviewed": "Non revisionati",
 	"validationstatistics-utable": "Di seguito è riportato l'elenco {{PLURAL:$1|del revisore più attivo|dei $1 revisori più attivi}} {{PLURAL:$2|nell'ultima ora|nelle ultime $2 ore}}.",
 	"validationstatistics-user": "Utente",

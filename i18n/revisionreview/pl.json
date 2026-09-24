@@ -15,7 +15,8 @@
 			"Tsca",
 			"WTM",
 			"Woytecr",
-			"Msz2001"
+			"Msz2001",
+			"PanWor"
 		]
 	},
 	"revisionreview": "Oznaczenie wersji",
@@ -42,7 +43,7 @@
 	"revreview-check-flag-u": "Zaakceptuj tę nieprzejrzaną stronę",
 	"revreview-check-flag-u-title": "Zostanie zaakceptowana strona, którą właśnie edytujesz. Użyj tej opcji tylko w przypadku, gdy zapoznano się z całą zawartością strony.",
 	"revreview-check-flag-y": "Zaakceptuj moje zmiany",
-	"revreview-check-flag-y-title": "Zostaną zaakceptowane wszystkie zmiany, które tutaj wykonałeś.",
+	"revreview-check-flag-y-title": "Zostaną zaakceptowane wszystkie wykonane przez Ciebie tutaj zmiany.",
 	"revreview-flag": "Oznacz tę wersję",
 	"revreview-reflag": "Ponownie przejrzyj tę wersję",
 	"revreview-log": "Komentarz:",
