@@ -5,9 +5,13 @@
 			"شاه زمان پټان"
 		]
 	},
+	"unreviewedpages": "نابياکتل‌شوي مخونه",
 	"unreviewedpages-category": "وېشنيزه:",
+	"unreviewedpages-showhide-redirect": "$1 مخگرځونې",
 	"unreviewedpages-diff": "بياکتل",
+	"unreviewedpages-unwatched": "(ناڅارل‌شوی)",
 	"unreviewedpages-watched": "($1 فعاله {{PLURAL:$1|کارن|کارنان}} يې ګوري)",
+	"unreviewedpages-viewing": "(بياکتنې لاندې)",
 	"unreviewedpages-hours": "($1 {{PLURAL:$1|گړۍ}})",
 	"unreviewedpages-days": "($1 {{PLURAL:$1|ورځ|ورځې}})",
 	"unreviewedpages-recent": "(له 1 گړۍ نه لږ وخت)"
