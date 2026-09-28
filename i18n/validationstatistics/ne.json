@@ -2,13 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"NehalDaveND",
-			"पर्वत सुबेदी"
+			"पर्वत सुबेदी",
+			"बडा काजी"
 		]
 	},
 	"validationstatistics-ns": "नामपद",
 	"validationstatistics-total": "पृष्ठहरू",
 	"validationstatistics-stable": "समीक्षा",
-	"validationstatistics-old": "पुराना (काम नलाग्ने)",
+	"validationstatistics-old": "पुरानो",
 	"validationstatistics-user": "प्रयोगकर्ता",
 	"validationstatistics-reviews": "समीक्षा"
 }

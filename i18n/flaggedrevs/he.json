@@ -164,5 +164,15 @@
 	"fr-revision-info-dialog": "המידע לעיל מסופק כדי שהקוראים שלנו יוכלו להישאר מעודכנים לגבי המצב הנוכחי של התוכן בדף הזה.",
 	"fr-revision-info-dialog-review-button": "סקירה...",
 	"fr-revision-info-dialog-cancel-button": "ביטול",
-	"fr-revision-info-dialog-close-aria-label": "סגירה"
+	"fr-revision-info-dialog-close-aria-label": "סגירה",
+	"listgrouprights-restrictedgroups-cond-fr-editsummarycount": "המשתמש מילא לפחות {{PLURAL:$1|תקציר עריכה אחד|$1 תקצירי עריכה}}",
+	"listgrouprights-restrictedgroups-cond-fr-neverblocked": "המשתמש מעולם לא נחסם",
+	"listgrouprights-restrictedgroups-cond-fr-uniquepagecount": "המשתמש ערך לפחות {{PLURAL:$1|דף תוכן ייחודי אחד|$1 דפי תוכן ייחודיים}}",
+	"listgrouprights-restrictedgroups-cond-fr-contenteditcount": "המשתמש עשה לפחות {{PLURAL:$1|עריכה אחת|$1 עריכות}} לדפי תוכן (לא כולל עריכות ב־$2 האחרונות)",
+	"listgrouprights-restrictedgroups-cond-fr-userpagebytes": "אורך דף המשתמש הוא לפחות {{PLURAL:$1|בית אחד|$1 בתים}}",
+	"listgrouprights-restrictedgroups-cond-fr-editcount": "המשתמש עשה לפחות {{PLURAL:$1|עריכה אחת|$1 עריכות}} (למעט עריכות ב־$2 האחרונות)",
+	"listgrouprights-restrictedgroups-cond-fr-editspacing": "המשתמש עשה לפחות {{PLURAL:$1|עריכה אחת|$1 עריכות}}, כך שכל אחת מופרדת לפחות ב־$2",
+	"listgrouprights-restrictedgroups-cond-fr-checkededitcount": "המשתמש עשה לפחות {{PLURAL:$1|עריכה אחת|$1 עריכות}} שנסקרו אחר־כך (לא כולל עריכות ב־$2 האחרונות)",
+	"listgrouprights-restrictedgroups-cond-fr-maxrevertededitratio": "לא יותר מ־$1% מהעריכות של המשתמש שוחזרו",
+	"listgrouprights-restrictedgroups-cond-fr-neverdemoted": "המשתמש מעולם לא איבד הרשאות"
 }
