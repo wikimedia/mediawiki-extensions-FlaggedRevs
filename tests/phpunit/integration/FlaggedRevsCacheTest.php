@@ -6,6 +6,7 @@ use FlaggablePageView;
 use FlaggableWikiPage;
 use FlaggedRevs;
 use MediaWiki\Context\RequestContext;
+use MediaWiki\MainConfigNames;
 use MediaWiki\Page\WikiPage;
 use MediaWiki\Parser\ParserCache;
 use MediaWiki\Parser\ParserCacheFactory;
@@ -24,13 +25,17 @@ class FlaggedRevsCacheTest extends ParserCacheTestBase {
 
 	public function setUp(): void {
 		parent::setUp();
+		// The expected cache names need Parsoid and a separate Parsoid parser cache
+		$this->overrideConfigValues( [
+			MainConfigNames::UseParsoidParser => true,
+			MainConfigNames::SplitParsoidParserCache => true,
+		] );
 		$parserCacheFactory = $this->createMock( ParserCacheFactory::class );
 		$this->overrideMwServices( null, [ 'ParserCacheFactory' => static fn () => $parserCacheFactory ] );
 
 		$this->setTemporaryHook(
 			'ParserOptionsDefaults',
 			static function ( &$defaults, &$inCacheKey, &$lazyLoad, &$postprocOpts = [] ) {
-				$defaults['useParsoid'] = true;
 				$defaults['visibleLinks'] = 'both';
 				$inCacheKey['visibleLinks'] = true;
 				$postprocOpts[] = 'visibleLinks';
@@ -64,12 +69,7 @@ class FlaggedRevsCacheTest extends ParserCacheTestBase {
 	}
 
 	public function testCache() {
-		$this->setTemporaryHook(
-			'ParserOptionsDefaults',
-			static function ( &$defaults, &$inCacheKey, &$lazyLoad, &$postprocOpts = [] ) {
-				$defaults['useParsoid'] = true;
-			}
-		);
+		$this->clearHook( 'ParserOptionsDefaults' );
 
 		RequestContext::getMain()->setTitle( $this->testPage->getTitle() );
 		$flaggablePageView = FlaggablePageView::newFromTitle( $this->testPage );
