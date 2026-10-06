@@ -265,10 +265,8 @@ class FlaggablePageView extends ContextSource {
 				$iconClass = 'cdx-fr-css-icon-review--status--pending';
 				break;
 			case 'unreviewed':
-				if ( !$this->out->isPrintable() ) {
-					$statusMessageKey = $this->useSimpleUI() ? 'revreview-quick-none' : 'revreview-noflagged';
-					$iconClass = 'cdx-fr-css-icon-review--status--unchecked';
-				}
+				$statusMessageKey = $this->useSimpleUI() ? 'revreview-quick-none' : 'revreview-noflagged';
+				$iconClass = 'cdx-fr-css-icon-review--status--unchecked';
 				break;
 			case 'invalid':
 			case 'old':
@@ -469,9 +467,6 @@ class FlaggablePageView extends ContextSource {
 	private function showDraftVersion( FlaggedRevision $srev, string &$tag ): void {
 		$request = $this->getRequest();
 		$reqUser = $this->getUser();
-		if ( $this->out->isPrintable() ) {
-			return; // all this function does is add notices; don't show them
-		}
 		$time = $this->getLanguage()->date( $srev->getTimestamp(), true );
 		# Get stable version sync status
 		$synced = $this->article->stableVersionIsSynced();
@@ -571,7 +566,6 @@ class FlaggablePageView extends ContextSource {
 		$synced = $this->article->stableVersionIsSynced();
 		# Construct some tagging
 		if (
-			!$this->out->isPrintable() &&
 			!( $this->article->lowProfileUI() && $synced )
 		) {
 			$revsSince = $this->article->getPendingRevCount();
@@ -617,9 +611,9 @@ class FlaggablePageView extends ContextSource {
 
 		// TODO when refactoring this to get rid of $poOptions, check on the discrepancy between $pm->quickUserCan and
 		// $authority->probablyCan in Article::view, as well as check whether the behaviour of these need to be aligned
-		// (printable flag, additional deprecation warning box), and if so move that aligned behaviour to core
+		// (additional deprecation warning box), and if so move that aligned behaviour to core
 		$pm = MediaWikiServices::getInstance()->getPermissionManager();
-		if ( $this->out->isPrintable() ||
+		if (
 			!$pm->quickUserCan( 'edit', $reqUser, $this->article->getTitle() )
 		) {
 			$poOptions['enableSectionEditLinks'] = false;
@@ -925,11 +919,6 @@ class FlaggablePageView extends ContextSource {
 	 * @param string|OutputPage &$output
 	 */
 	public function addReviewForm( &$output ): void {
-		if ( $this->out->isPrintable() ) {
-			// Must be on non-printable output
-			return;
-		}
-
 		# User must have review rights
 		$reqUser = $this->getUser();
 		if ( !MediaWikiServices::getInstance()->getPermissionManager()
@@ -1205,11 +1194,8 @@ class FlaggablePageView extends ContextSource {
 		$pm = MediaWikiServices::getInstance()->getPermissionManager();
 		$request = $this->getRequest();
 		$reqUser = $this->getUser();
-		# Exempt printer-friendly output
-		if ( $this->out->isPrintable() ) {
-			return;
 		# Multi-page diffs are useless and misbehave (bug 19327). Sanity check $newRevRecord.
-		} elseif ( $this->isMultiPageDiff || !$newRevRecord ) {
+		if ( $this->isMultiPageDiff || !$newRevRecord ) {
 			return;
 		# Page must be reviewable.
 		} elseif ( !$this->article->isReviewable() ) {
