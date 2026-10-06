@@ -32,15 +32,6 @@ class FlaggedRevsCacheTest extends ParserCacheTestBase {
 		] );
 		$parserCacheFactory = $this->createMock( ParserCacheFactory::class );
 		$this->overrideMwServices( null, [ 'ParserCacheFactory' => static fn () => $parserCacheFactory ] );
-
-		$this->setTemporaryHook(
-			'ParserOptionsDefaults',
-			static function ( &$defaults, &$inCacheKey, &$lazyLoad, &$postprocOpts = [] ) {
-				$defaults['visibleLinks'] = 'both';
-				$inCacheKey['visibleLinks'] = true;
-				$postprocOpts[] = 'visibleLinks';
-			}
-		);
 		$this->trackerWrapper = new TrackerWrapper();
 		$caches = [];
 
@@ -69,8 +60,6 @@ class FlaggedRevsCacheTest extends ParserCacheTestBase {
 	}
 
 	public function testCache() {
-		$this->clearHook( 'ParserOptionsDefaults' );
-
 		RequestContext::getMain()->setTitle( $this->testPage->getTitle() );
 		$flaggablePageView = FlaggablePageView::newFromTitle( $this->testPage );
 		$flaggablePageView->getRequest()->appendQueryValue( 'stable', 1 );
