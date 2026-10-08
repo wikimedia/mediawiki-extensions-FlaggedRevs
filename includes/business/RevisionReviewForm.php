@@ -409,7 +409,9 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 					->caller( __METHOD__ )
 					->fetchResultSet();
 				foreach ( $revisions as $row ) {
-					$affectedRevisions[$row->rev_id] = new UserIdentityValue( $row->rev_user, $row->rev_user_text );
+					$affectedRevisions[$row->rev_id] = $row->rev_user === null
+						? UserIdentityValue::newAnonymous( $row->rev_user_text )
+						: UserIdentityValue::newRegistered( (int)$row->rev_user, $row->rev_user_text );
 				}
 
 				$services->getNotificationService()->notify(
