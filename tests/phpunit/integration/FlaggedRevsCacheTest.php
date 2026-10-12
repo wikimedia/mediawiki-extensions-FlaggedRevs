@@ -53,6 +53,8 @@ class FlaggedRevsCacheTest extends ParserCacheTestBase {
 		);
 		// clear local cache to update stable version in there
 		FlaggableWikiPage::getTitleInstance( $this->testPage->getTitle() )->clear();
+		// Other extensions can read the parser cache during the edit. Ignore those reads.
+		$this->trackerWrapper->reset();
 	}
 
 	protected function createParserCache( ...$args ): ParserCache {
