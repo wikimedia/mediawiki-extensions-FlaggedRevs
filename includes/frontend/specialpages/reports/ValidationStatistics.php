@@ -372,7 +372,6 @@ class ValidationStatistics extends IncludableSpecialPage {
 			},
 			[
 				'lockTSE' => 300,
-				'staleTTL' => WANObjectCache::TTL_MINUTE,
 				'version' => 2,
 			]
 		);
