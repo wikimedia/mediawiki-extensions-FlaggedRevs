@@ -66,6 +66,7 @@ class FlaggedRevsSetup {
 			if ( $autoconfirm['email'] ) {
 				$criteria[] = [ APCOND_EMAILCONFIRMED ];
 			}
+			// Optimization: Evaluate this last to avoid slow FlaggedRevsHooks::wasPreviouslyBlocked query
 			if ( $autoconfirm['neverBlocked'] ) {
 				$criteria[] = [ APCOND_FR_NEVERBLOCKED ];
 			}
@@ -107,6 +108,7 @@ class FlaggedRevsSetup {
 				[ APCOND_FR_MAXREVERTEDEDITRATIO, $autopromote['maxRevertedEditRatio'] ],
 				[ '!', APCOND_ISBOT ]
 			];
+			// Optimization: Evaluate this last to avoid slow FlaggedRevsHooks::wasPreviouslyBlocked query
 			if ( $autopromote['neverBlocked'] ) {
 				$criteria[] = [ APCOND_FR_NEVERBLOCKED ];
 			}

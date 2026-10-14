@@ -965,33 +965,71 @@ class FlaggedRevsHooks implements
 	}
 
 	/**
-	 * Checks if $user was previously blocked since $cutoff_unixtime
-	 * @param User $user
-	 * @param IReadableDatabase $db
-	 * @param int $cutoff_unixtime = 0
-	 * @return bool
+	 * Checks if $user was previously blocked
 	 */
-	private static function wasPreviouslyBlocked(
-		User $user,
-		IReadableDatabase $db,
-		$cutoff_unixtime = 0
-	) {
-		$conds = [
-			'log_namespace' => NS_USER,
-			'log_title'     => $user->getUserPage()->getDBkey(),
-			'log_type'      => 'block',
-			'log_action'    => 'block'
-		];
-		if ( $cutoff_unixtime > 0 ) {
-			# Hint to improve NS,title,timestamp INDEX use
-			$conds[] = $db->expr( 'log_timestamp', '>=', $db->timestamp( $cutoff_unixtime ) );
-		}
-		return (bool)$db->newSelectQueryBuilder()
-			->select( '1' )
-			->from( 'logging' )
-			->where( $conds )
-			->caller( __METHOD__ )
-			->fetchField();
+	private function wasPreviouslyBlocked( User $user ): bool {
+		$fname = __METHOD__;
+		// See T262970 and https://gerrit.wikimedia.org/r/1355178 for an explanation of this
+		$wasBlocked = $this->cache->getWithSetCallback(
+			$this->cache->makeKey( 'flaggedrevs-autopromote-wasblocked', $user->getId() ),
+			WANObjectCache::TTL_WEEK,
+			static function ( $oldValue, &$ttl ) use ( $user, $fname ) {
+				if ( $oldValue === 1 ) {
+					// Once a prior block is found, it will always be found in the logs.
+					// Allow this cache value to be renewed indefinitely without
+					// re-running the database query.
+					//
+					// Active editors that for some reason had a block in their past,
+					// likely meet all other criteria and re-eval this on each edit.
+					return 1;
+				}
+
+				$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+				$foundBlock = (bool)$dbr->newSelectQueryBuilder()
+					->select( '1' )
+					->from( 'logging' )
+					// NOTE: This query is cached because it may be slow.
+					// If a user page received many log actions, this query has no good index
+					// (closest is log_page_time with log_namespace/log_title/log_timestamp) which
+					// can scan many rows without a match. See https://gerrit.wikimedia.org/r/1355178.
+					->where( [
+						'log_namespace' => NS_USER,
+						'log_title'     => $user->getUserPage()->getDBkey(),
+						'log_type'      => 'block',
+						'log_action'    => 'block'
+					] )
+					->caller( $fname )
+					->fetchField();
+				if ( $foundBlock ) {
+					return 1;
+				}
+
+				// Cache a 0 only for a short time, to avoid unintended promotions:
+				//
+				// 1. You meet most criteria and make an edit. We eval this condition and find
+				//    no blocks. We cache this. No promotion yet.
+				// 2. You get blocked.
+				// 3. The block expires.
+				// 4. You make another edit, and now meet all other criteria.
+				//    If the old "0" was still in cache now, the APCOND_FR_NEVERBLOCKED condition
+				//    would wrongly promote a previously blocked account.
+				//
+				// One minute is short enough that any block lasting that short are not serious.
+				//
+				// In theory this does not matter, because the APCOND_FR_NEVERBLOCKED condition
+				// is last in FlaggedRevsSetup::setAutopromoteConfig, so either the user has a
+				// prior block and we cache/renew "1" from now on and deny the promotion,
+				// or they were not blocked and got promoted the first time we evaluate this
+				// condition. Autopromote checks don't run for a group you're already in.
+				// So while this is a short cache for a potentially slow query, it should be
+				// unreachable.
+				$ttl = WANObjectCache::TTL_MINUTE;
+				return 0;
+			},
+			[ 'lockTSE' => WANObjectCache::TTL_WEEK ]
+		);
+
+		return $wasBlocked === 1;
 	}
 
 	/**
@@ -1162,53 +1200,8 @@ class FlaggedRevsHooks implements
 				break;
 			case APCOND_FR_NEVERBLOCKED:
 				$userObject = $this->userFactory->newFromUserIdentity( $user );
-				if ( $userObject->getBlock() ) {
-					$result = false; // failed
-				} else {
-					// See T262970 for an explanation of this
-					$hasPriorBlock = $this->cache->getWithSetCallback(
-						$this->cache->makeKey( 'flaggedrevs-autopromote-notblocked', $user->getId() ),
-						$this->cache::TTL_SECOND,
-						function ( $oldValue ) use ( $userObject ) {
-							// Once the user is blocked once, this condition will always
-							// fail. To avoid running queries again, if the old cached value
-							// is `priorBlock`, just return that immediately.
-							if ( $oldValue === 'priorBlock' ) {
-								return 'priorBlock';
-							}
-
-							// Since the user had no block prior to the last time
-							// the value was cached, we only need to check for
-							// blocks since then. If there was no prior cached
-							// value, check for all time (since time 0).
-							// The time of the last check is itself the cached
-							// value.
-							$startingTimestamp = is_int( $oldValue ) ? $oldValue : 0;
-
-							// If the user still hasn't been blocked, we will
-							// update the cached value to be the current timestamp
-							$newTimestamp = time();
-
-							$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
-							$hasPriorBlock = self::wasPreviouslyBlocked(
-								$userObject,
-								$dbr,
-								$startingTimestamp
-							);
-							if ( $hasPriorBlock ) {
-								// Store 'priorBlock' so that we can
-								// skip everything in the future
-								return 'priorBlock';
-							}
-
-							// Store the current time, so that future
-							// checks don't query everything
-							return $newTimestamp;
-						},
-						[ 'staleTTL' => $this->cache::TTL_WEEK ]
-					);
-					$result = ( $hasPriorBlock !== 'priorBlock' );
-				}
+				// See T262970 for an explanation of this
+				$result = !$userObject->getBlock() && !$this->wasPreviouslyBlocked( $userObject );
 				break;
 			case APCOND_FR_UNIQUEPAGECOUNT:
 				$p = FRUserCounters::getParams( $user );
