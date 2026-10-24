@@ -402,6 +402,7 @@
 		"main": {
 			"class": "FlaggedRevsHooks",
 			"services": [
+				"ActorNormalization",
 				"MainConfig",
 				"ConnectionProvider",
 				"NamespaceInfo",

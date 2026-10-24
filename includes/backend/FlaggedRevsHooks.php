@@ -30,7 +30,7 @@ use MediaWiki\Storage\Hook\PageSaveCompleteHook;
 use MediaWiki\Storage\Hook\RevisionDataUpdatesHook;
 use MediaWiki\Title\NamespaceInfo;
 use MediaWiki\Title\Title;
-use MediaWiki\User\ActorMigration;
+use MediaWiki\User\ActorNormalization;
 use MediaWiki\User\Hook\UserLoadAfterLoadFromSessionHook;
 use MediaWiki\User\Hook\UserRequirementsConditionDisplayHook;
 use MediaWiki\User\Hook\UserRequirementsConditionHook;
@@ -46,7 +46,6 @@ use Wikimedia\Message\MessageValue;
 use Wikimedia\ObjectCache\WANObjectCache;
 use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\IDBAccessObject;
-use Wikimedia\Rdbms\IReadableDatabase;
 use Wikimedia\Rdbms\RawSQLValue;
 use Wikimedia\Rdbms\SelectQueryBuilder;
 
@@ -77,6 +76,7 @@ class FlaggedRevsHooks implements
 {
 
 	public function __construct(
+		private readonly ActorNormalization $actorNormalization,
 		private readonly Config $config,
 		private readonly IConnectionProvider $connectionProvider,
 		private readonly NamespaceInfo $namespaceInfo,
@@ -607,19 +607,21 @@ class FlaggedRevsHooks implements
 		}
 		$dbw = $this->connectionProvider->getPrimaryDatabase();
 
+		$actorId = $this->actorNormalization->findActorId( $user, $dbw );
+		if ( !$actorId ) {
+			return false;
+		}
+
 		# Such a revert requires 1+ revs between it and the stable
-		$revWhere = ActorMigration::newMigration()->getWhere( $dbw, 'rev_user', $user );
 		$revertedRevs = (bool)$dbw->newSelectQueryBuilder()
 			->select( '1' )
 			->from( 'revision' )
-			->tables( $revWhere['tables'] )
 			->where( [
 				'rev_page' => $revRecord->getPageId(),
 				$dbw->expr( 'rev_id', '>', intval( $baseRevId ) ), // stable rev
 				$dbw->expr( 'rev_id', '<', intval( $revRecord->getId() ) ), // this rev
-				$revWhere['conds']
+				'rev_actor' => $actorId,
 			] )
-			->joinConds( $revWhere['joins'] )
 			->caller( __METHOD__ )
 			->fetchField();
 		if ( !$revertedRevs ) {
@@ -629,13 +631,11 @@ class FlaggedRevsHooks implements
 		$otherUsers = (bool)$dbw->newSelectQueryBuilder()
 			->select( '1' )
 			->from( 'revision' )
-			->tables( $revWhere['tables'] )
 			->where( [
 				'rev_page' => $revRecord->getPageId(),
 				$dbw->expr( 'rev_id', '>', intval( $baseRevId ) ),
-				'NOT( ' . $revWhere['conds'] . ' )'
+				$dbw->expr( 'rev_actor', '!=', $actorId ),
 			] )
-			->joinConds( $revWhere['joins'] )
 			->caller( __METHOD__ )
 			->fetchField();
 		if ( $otherUsers ) {
@@ -795,43 +795,6 @@ class FlaggedRevsHooks implements
 	}
 
 	/**
-	 * Get query data for making efficient queries based on rev_user and
-	 * rev_timestamp in an actor table world.
-	 * @param IReadableDatabase $dbr
-	 * @param UserIdentity $user
-	 * @return array[]
-	 */
-	private static function getQueryData( IReadableDatabase $dbr, $user ) {
-		$revWhere = ActorMigration::newMigration()->getWhere( $dbr, 'rev_user', $user );
-		$queryData = [];
-		foreach ( $revWhere['orconds'] as $key => $cond ) {
-			if ( $key === 'actor' ) {
-				$data = [
-					'tables' => [ 'revision' ] + $revWhere['tables'],
-					'tsField' => 'revactor_timestamp',
-					'cond' => $cond,
-					'joins' => $revWhere['joins'],
-					'useIndex' => [ 'temp_rev_user' => 'actor_timestamp' ],
-				];
-				$data['joins']['temp_rev_user'][0] = 'JOIN';
-			} elseif ( $key === 'username' ) {
-				// Ignore this, shouldn't happen
-				continue;
-			} else { // future migration from revision_actor_temp to rev_actor
-				$data = [
-					'tables' => [ 'revision' ],
-					'tsField' => 'rev_timestamp',
-					'cond' => $cond,
-					'joins' => [],
-					'useIndex' => [ 'revision' => 'rev_actor_timestamp' ],
-				];
-			}
-			$queryData[] = $data;
-		}
-		return $queryData;
-	}
-
-	/**
 	 * Check if a user meets the edit spacing requirements.
 	 * If the user does not, return a *lower bound* number of seconds
 	 * that must elapse for it to be possible for the user to meet them.
@@ -842,45 +805,39 @@ class FlaggedRevsHooks implements
 	 */
 	private function editSpacingCheck( UserIdentity $user, $spacingReq, $pointsReq ) {
 		$dbr = $this->connectionProvider->getReplicaDatabase();
-
-		$queryData = self::getQueryData( $dbr, $user );
+		$actorId = $this->actorNormalization->findActorId( $user, $dbr );
 
 		$benchmarks = 0; // actual edit points
 		# Convert days to seconds...
 		$spacingReq = $spacingReq * 24 * 3600;
 		# Check the oldest edit
 		$lower = false;
-		foreach ( $queryData as $data ) {
-			$ts = $dbr->newSelectQueryBuilder()
-				->tables( $data['tables'] )
-				->field( $data['tsField'] )
-				->where( $data['cond'] )
-				->orderby( $data['tsField'] )
-				->useIndex( $data['useIndex'] )
-				->joinConds( $data['joins'] )
+		if ( $actorId ) {
+			$lower = $dbr->newSelectQueryBuilder()
+				->select( 'rev_timestamp' )
+				->from( 'revision' )
+				->where( [ 'rev_actor' => $actorId ] )
+				->orderBy( 'rev_timestamp' )
+				->useIndex( [ 'revision' => 'rev_actor_timestamp' ] )
 				->caller( __METHOD__ )
 				->fetchField();
-			$lower = $lower && $ts ? min( $lower, $ts ) : ( $lower ?: $ts );
 		}
 		# Recursively check for an edit $spacingReq seconds later, until we are done.
 		if ( $lower ) {
 			$benchmarks++; // the first edit above counts
 			while ( $lower && $benchmarks < $pointsReq ) {
 				$next = (int)wfTimestamp( TS_UNIX, $lower ) + $spacingReq;
-				$lower = false;
-				foreach ( $queryData as $data ) {
-					$ts = $dbr->newSelectQueryBuilder()
-						->tables( $data['tables'] )
-						->field( $data['tsField'] )
-						->where( $data['cond'] )
-						->andWhere( $dbr->expr( $data['tsField'], '>', $dbr->timestamp( $next ) ) )
-						->orderBy( $data['tsField'] )
-						->useIndex( $data['useIndex'] )
-						->joinConds( $data['joins'] )
-						->caller( __METHOD__ )
-						->fetchField();
-					$lower = $lower && $ts ? min( $lower, $ts ) : ( $lower ?: $ts );
-				}
+				$lower = $dbr->newSelectQueryBuilder()
+					->select( 'rev_timestamp' )
+					->from( 'revision' )
+					->where( [
+						'rev_actor' => $actorId,
+						$dbr->expr( 'rev_timestamp', '>', $dbr->timestamp( $next ) ),
+					] )
+					->orderBy( 'rev_timestamp' )
+					->useIndex( [ 'revision' => 'rev_actor_timestamp' ] )
+					->caller( __METHOD__ )
+					->fetchField();
 				if ( $lower !== false ) {
 					$benchmarks++;
 				}
@@ -903,59 +860,51 @@ class FlaggedRevsHooks implements
 	 * @return bool
 	 */
 	private function reviewedEditsCheck( User $user, $editsReq, $seconds = 0 ) {
-		$dbr = $this->connectionProvider->getReplicaDatabase();
-
-		$queryData = self::getQueryData( $dbr, $user );
-		// Get cutoff timestamp (excludes edits that are too recent)
-		foreach ( $queryData as $k => $data ) {
-			$queryData[$k]['conds'] = [
-				$data['cond'],
-				$dbr->expr( $data['tsField'], '<', $dbr->timestamp( time() - $seconds ) ),
-			];
+		if ( $editsReq <= 0 ) {
+			return true;
 		}
+		$dbr = $this->connectionProvider->getReplicaDatabase();
+		$actorId = $this->actorNormalization->findActorId( $user, $dbr );
+		if ( !$actorId ) {
+			return false;
+		}
+
+		$conds = [
+			'rev_actor' => $actorId,
+			// Get cutoff timestamp (excludes edits that are too recent)
+			$dbr->expr( 'rev_timestamp', '<', $dbr->timestamp( time() - $seconds ) ),
+		];
 		// Get the lower cutoff to avoid scanning over many rows.
 		// Users with many revisions will only have the last 10k inspected.
 		$lowCutoff = false;
 		if ( $user->getEditCount() > 10000 ) {
-			foreach ( $queryData as $data ) {
-				$lowCutoff = max( $lowCutoff, $dbr->newSelectQueryBuilder()
-					->tables( $data['tables'] )
-					->field( $data['tsField'] )
-					->where( $data['conds'] )
-					->orderBy( $data['tsField'], SelectQueryBuilder::SORT_DESC )
-					->offset( 9999 )
-					->joinConds( $data['joins'] )
-					->caller( __METHOD__ )
-					->fetchField()
-				);
-			}
+			$lowCutoff = $dbr->newSelectQueryBuilder()
+				->select( 'rev_timestamp' )
+				->from( 'revision' )
+				->where( $conds )
+				->orderBy( 'rev_timestamp', SelectQueryBuilder::SORT_DESC )
+				->offset( 9999 )
+				->caller( __METHOD__ )
+				->fetchField();
 		}
 		$lowCutoff = $lowCutoff ?: 1; // default to UNIX 1970
 		// Get revs from pages that have a reviewed rev of equal or higher timestamp
-		$ct = 0;
-		foreach ( $queryData as $data ) {
-			if ( $ct >= $editsReq ) {
-				break;
-			}
-			$res = $dbr->newSelectQueryBuilder()
-				->select( '1' )
-				->tables( $data['tables'] )
-				->join( 'flaggedpages', null, 'fp_page_id = rev_page' )
-				->where( $data['conds'] )
-				->andWhere( [
-						// bug 15515
-						$dbr->expr( 'fp_pending_since', '=', null )
-							->or( 'fp_pending_since', '>', new RawSQLValue( $data['tsField'] ) ),
-						// Avoid too much scanning
-						$dbr->expr( $data['tsField'], '>', $dbr->timestamp( $lowCutoff ) )
-				] )
-				->limit( $editsReq - $ct )
-				->joinConds( $data['joins'] )
-				->caller( __METHOD__ )
-				->fetchResultSet();
-			$ct += $res->numRows();
-		}
-		return ( $ct >= $editsReq );
+		$res = $dbr->newSelectQueryBuilder()
+			->select( '1' )
+			->from( 'revision' )
+			->join( 'flaggedpages', null, 'fp_page_id = rev_page' )
+			->where( $conds )
+			->andWhere( [
+				// bug 15515
+				$dbr->expr( 'fp_pending_since', '=', null )
+					->or( 'fp_pending_since', '>', new RawSQLValue( 'rev_timestamp' ) ),
+				// Avoid too much scanning
+				$dbr->expr( 'rev_timestamp', '>', $dbr->timestamp( $lowCutoff ) )
+			] )
+			->limit( $editsReq )
+			->caller( __METHOD__ )
+			->fetchResultSet();
+		return ( $res->numRows() >= $editsReq );
 	}
 
 	/**
@@ -1035,27 +984,24 @@ class FlaggedRevsHooks implements
 	private function recentEditCount( $userId, $seconds, $limit ) {
 		$dbr = $this->connectionProvider->getReplicaDatabase();
 
-		$queryData = self::getQueryData( $dbr, $this->userFactory->newFromId( $userId ) );
+		$actorId = $this->actorNormalization->findActorId( $this->userFactory->newFromId( $userId ), $dbr );
+		if ( !$actorId ) {
+			return 0;
+		}
 		# Get cutoff timestamp (edits that are too recent)
 		$cutoff = $dbr->timestamp( time() - $seconds );
 		# Check all recent edits...
-		$ct = 0;
-		foreach ( $queryData as $data ) {
-			if ( $ct > $limit ) {
-				break;
-			}
-			$res = $dbr->newSelectQueryBuilder()
-				->select( '1' )
-				->tables( $data['tables'] )
-				->where( $data['cond'] )
-				->andWhere( $dbr->expr( $data['tsField'], '>', $cutoff ) )
-				->limit( $limit + 1 - $ct )
-				->joinConds( $data['joins'] )
-				->caller( __METHOD__ )
-				->fetchResultSet();
-			$ct += $res->numRows();
-		}
-		return $ct;
+		return $dbr->newSelectQueryBuilder()
+			->select( '1' )
+			->from( 'revision' )
+			->where( [
+				'rev_actor' => $actorId,
+				$dbr->expr( 'rev_timestamp', '>', $cutoff ),
+			] )
+			->limit( $limit + 1 )
+			->caller( __METHOD__ )
+			->fetchResultSet()
+			->numRows();
 	}
 
 	/**
@@ -1067,33 +1013,27 @@ class FlaggedRevsHooks implements
 	private function recentContentEditCount( $userId, $seconds, $limit ) {
 		$dbr = $this->connectionProvider->getReplicaDatabase();
 
-		$queryData = self::getQueryData( $dbr, $this->userFactory->newFromId( $userId ) );
+		$actorId = $this->actorNormalization->findActorId( $this->userFactory->newFromId( $userId ), $dbr );
+		if ( !$actorId ) {
+			return 0;
+		}
 		# Get cutoff timestamp (edits that are too recent)
 		$cutoff = $dbr->timestamp( time() - $seconds );
 		# Check all recent content edits...
-		$ct = 0;
-		$contentNamespaces = $this->namespaceInfo->getContentNamespaces();
-		foreach ( $queryData as $data ) {
-			if ( $ct > $limit ) {
-				break;
-			}
-			$res = $dbr->newSelectQueryBuilder()
-				->select( '1' )
-				->tables( $data['tables'] )
-				->join( 'page', null, 'rev_page = page_id' )
-				->where( [
-					$data['cond'],
-					$dbr->expr( $data['tsField'], '>', $cutoff ),
-					'page_namespace' => $contentNamespaces
-				] )
-				->limit( $limit + 1 - $ct )
-				->useIndex( $data['useIndex'] )
-				->joinConds( $data['joins'] )
-				->caller( __METHOD__ )
-				->fetchResultSet();
-			$ct += $res->numRows();
-		}
-		return $ct;
+		return $dbr->newSelectQueryBuilder()
+			->select( '1' )
+			->from( 'revision' )
+			->join( 'page', null, 'rev_page = page_id' )
+			->where( [
+				'rev_actor' => $actorId,
+				$dbr->expr( 'rev_timestamp', '>', $cutoff ),
+				'page_namespace' => $this->namespaceInfo->getContentNamespaces(),
+			] )
+			->limit( $limit + 1 )
+			->useIndex( [ 'revision' => 'rev_actor_timestamp' ] )
+			->caller( __METHOD__ )
+			->fetchResultSet()
+			->numRows();
 	}
 
 	/**
