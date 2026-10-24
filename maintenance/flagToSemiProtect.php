@@ -150,8 +150,8 @@ class FlagProtectToSemiProtect extends Maintenance {
 				}
 				$db->commit( __METHOD__ );
 			}
-			$blockStart += $this->mBatchSize - 1;
-			$blockEnd += $this->mBatchSize - 1;
+			$blockStart += $this->mBatchSize;
+			$blockEnd += $this->mBatchSize;
 			$this->waitForReplication();
 		}
 		$this->output( "Protection of all flag-protected pages complete ... {$count} pages\n" );

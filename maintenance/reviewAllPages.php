@@ -116,8 +116,8 @@ class ReviewAllPages extends Maintenance {
 				}
 				$count++;
 			}
-			$blockStart += $this->mBatchSize - 1;
-			$blockEnd += $this->mBatchSize - 1;
+			$blockStart += $this->mBatchSize;
+			$blockEnd += $this->mBatchSize;
 
 			$this->waitForReplication();
 		}

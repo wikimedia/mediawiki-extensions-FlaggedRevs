@@ -100,7 +100,7 @@ class PurgeReviewablePages extends Maintenance {
 				->select( '*' )
 				->from( 'page' )
 				->where( [
-					$db->expr( 'page_id', '>=', $blockEnd ),
+					$db->expr( 'page_id', '>=', $blockStart ),
 					$db->expr( 'page_id', '<=', $blockEnd ),
 					'page_namespace' => $reviewNamespaces,
 				] )
@@ -116,8 +116,8 @@ class PurgeReviewablePages extends Maintenance {
 					$count++;
 				}
 			}
-			$blockStart += $this->mBatchSize - 1;
-			$blockEnd += $this->mBatchSize - 1;
+			$blockStart += $this->mBatchSize;
+			$blockEnd += $this->mBatchSize;
 			$this->waitForReplication();
 		}
 		$this->output( "List of reviewable pages to purge complete ... {$count} pages\n" );
