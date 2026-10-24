@@ -38,7 +38,6 @@ class UpdateFRAutoPromote extends Maintenance {
 		$userFactory = $services->getUserFactory();
 		$commentQuery = $services->getCommentStore()->getJoin( 'rev_comment' );
 		$revisionStore = $services->getRevisionStore();
-		$revQuery = $revisionStore->getQueryInfo();
 		$revPageQuery = $revisionStore->getQueryInfo( [ 'page' ] );
 		$dbr = $this->getReplicaDB();
 		$dbw = $this->getPrimaryDB();
@@ -81,7 +80,7 @@ class UpdateFRAutoPromote extends Maintenance {
 				$revWhere = ActorMigration::newMigration()->getWhere( $dbr, 'rev_user', $user );
 				$sres = $dbr->newSelectQueryBuilder()
 					->select( '1' )
-					->tables( $revQuery['tables'] )
+					->from( 'revision' )
 					->tables( $commentQuery['tables'] )
 					->where( [
 						$revWhere['conds'],
