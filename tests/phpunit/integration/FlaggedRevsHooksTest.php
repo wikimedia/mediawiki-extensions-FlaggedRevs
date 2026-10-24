@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\FlaggedRevs\Test;
 
 use Closure;
+use FlaggedRevsSetup;
 use FRUserCounters;
 use MediaWiki\CommentStore\CommentStoreComment;
 use MediaWiki\Page\PageIdentity;
@@ -103,7 +104,22 @@ class FlaggedRevsHooksTest extends MediaWikiIntegrationTestCase {
 	 * @covers \FlaggedRevsHooks::maybeIncrementReverts
 	 */
 	public function testShouldUpdateCountersOnContentPageEditForNamedUser(): void {
-		$this->overrideConfigValue( 'FlaggedRevsAutoconfirm', true );
+		$this->overrideConfigValue( 'FlaggedRevsAutoconfirm', [
+			'days' => 30,
+			'edits' => 50,
+			'spacing' => 3,
+			'benchmarks' => 7,
+			'excludeLastDays' => 2,
+			'totalContentEdits' => 150,
+			'totalCheckedEdits' => 50,
+			'uniqueContentPages' => 8,
+			'editComments' => 20,
+			'email' => false,
+			'neverBlocked' => true,
+		] );
+		// Call FlaggedRevsSetup::doSetup() manually so it applies the new value for $wgFlaggedRevsAutoconfirm
+		$setup = new FlaggedRevsSetup( $this->getServiceContainer()->getMainConfig() );
+		$setup->doSetup();
 
 		$page = $this->getNonexistingTestPage();
 		$editor = $this->getTestUser()->getAuthority();

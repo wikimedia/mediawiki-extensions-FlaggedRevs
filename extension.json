@@ -411,7 +411,8 @@
 				"UserNameUtils",
 				"UserIdentityUtils",
 				"UserFactory",
-				"MainWANObjectCache"
+				"MainWANObjectCache",
+				"UserGroupManager"
 			]
 		},
 		"services": {

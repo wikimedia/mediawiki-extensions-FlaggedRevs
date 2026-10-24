@@ -6,6 +6,7 @@ use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Export\Hook\WikiExporter__dumpStableQueryHook;
 use MediaWiki\Hook\ArticleMergeCompleteHook;
 use MediaWiki\Hook\PageMoveCompleteHook;
+use MediaWiki\MainConfigNames;
 use MediaWiki\Page\Hook\ArticleDeleteCompleteHook;
 use MediaWiki\Page\Hook\ArticleUndeleteHook;
 use MediaWiki\Page\Hook\RevisionFromEditCompleteHook;
@@ -35,6 +36,7 @@ use MediaWiki\User\Hook\UserRequirementsConditionDisplayHook;
 use MediaWiki\User\Hook\UserRequirementsConditionHook;
 use MediaWiki\User\User;
 use MediaWiki\User\UserFactory;
+use MediaWiki\User\UserGroupManager;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserIdentityUtils;
 use MediaWiki\User\UserNameUtils;
@@ -85,6 +87,7 @@ class FlaggedRevsHooks implements
 		private readonly UserIdentityUtils $userIdentityUtils,
 		private readonly UserFactory $userFactory,
 		private readonly WANObjectCache $cache,
+		private readonly UserGroupManager $userGroupManager,
 	) {
 	}
 
@@ -1144,6 +1147,14 @@ class FlaggedRevsHooks implements
 
 		# No sense in running counters if nothing uses them
 		if ( !( $this->config->get( 'FlaggedRevsAutopromote' ) || $this->config->get( 'FlaggedRevsAutoconfirm' ) ) ) {
+			return;
+		}
+
+		// Don't increment counters if the user is or was in all relevant autopromotion groups
+		$effectiveGroups = $this->userGroupManager->getUserEffectiveGroups( $userIdentity );
+		$formerGroups = $this->userGroupManager->getUserFormerGroups( $userIdentity );
+		$autopromoteOnceGroups = array_keys( $this->config->get( MainConfigNames::AutopromoteOnce )['onEdit'] ?? [] );
+		if ( !array_diff( $autopromoteOnceGroups, $effectiveGroups, $formerGroups ) ) {
 			return;
 		}
 
