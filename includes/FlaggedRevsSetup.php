@@ -79,6 +79,7 @@ class FlaggedRevsSetup {
 		if ( is_array( $autopromote ) ) {
 			$criteria = [ '&', // AND
 				[ APCOND_AGE, $autopromote['days'] * 86400 ],
+				[ '!', APCOND_ISBOT ],
 				[
 					APCOND_FR_EDITCOUNT,
 					$autopromote['edits'],
@@ -105,8 +106,7 @@ class FlaggedRevsSetup {
 						$autopromote['excludeLastDays'] * 86400
 					]
 				],
-				[ APCOND_FR_MAXREVERTEDEDITRATIO, $autopromote['maxRevertedEditRatio'] ],
-				[ '!', APCOND_ISBOT ]
+				[ APCOND_FR_MAXREVERTEDEDITRATIO, $autopromote['maxRevertedEditRatio'] ]
 			];
 			// Optimization: Evaluate this last to avoid slow FlaggedRevsHooks::wasPreviouslyBlocked query
 			if ( $autopromote['neverBlocked'] ) {
