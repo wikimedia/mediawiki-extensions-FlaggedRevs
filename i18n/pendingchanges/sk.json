@@ -14,9 +14,20 @@
 	"pendingchanges-days": "$1 {{PLURAL:$1|deň|dni|dní}}",
 	"pendingchanges-recent": "menej ako 1 hodina",
 	"pendingchanges-category": "Kategória:",
+	"pendingchanges-limit": "Limit:",
+	"pendingchanges-edit-tag": "Značka úpravy:",
+	"pendingchanges-edit-tag-any": "Akákoľvek značka",
 	"pendingchanges-onwatchlist": "Stránky v mojom zozname sledovaných",
 	"pendingchanges-stable": "Stabilná verzia je predvolená",
 	"pendingchanges-diff": "Posúdiť",
 	"pendingchanges-size": "Max. veľkosť zmeny v bajtoch:",
-	"pendingchanges-unwatched": "nesledovaná"
+	"pendingchanges-unwatched": "nesledovaná",
+	"pendingchanges-table-caption": "Čakajúce zmeny",
+	"pendingchanges-table-page": "Stránka",
+	"pendingchanges-table-size": "Veľkosť",
+	"pendingchanges-table-pending-since": "Od",
+	"pendingchanges-table-watching": "Aktívni sledujúci",
+	"pendingchanges-table-review": "Kontrola",
+	"pendingchanges-table-footer": "Momentálne {{PLURAL:$2|čaká $1 zmena|čakajú $1 zmeny|čaká $1 zmien}}",
+	"pendingchanges-filter-submit-button-text": "Filtrovať čakajúce zmeny"
 }
