@@ -42,7 +42,6 @@ class FlaggablePageView extends ContextSource {
 	private bool $isMultiPageDiff = false;
 	private string $reviewNotice = '';
 	private string $diffNoticeBox = '';
-	private string $diffIncChangeBox = '';
 	private ?RevisionRecord $reviewFormRevRecord = null;
 	/**
 	 * The stable revision.
@@ -955,7 +954,6 @@ class FlaggablePageView extends ContextSource {
 			}
 			# Review notice box goes in top of form
 			$form->setTopNotice( $this->diffNoticeBox );
-			$form->setBottomNotice( $this->diffIncChangeBox );
 
 			[ $html, ] = $form->getHtml();
 			# Diff action: place the form at the top of the page
