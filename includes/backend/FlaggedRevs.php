@@ -280,7 +280,9 @@ class FlaggedRevs {
 					return Status::newGood( $parserOutput );
 				},
 				'doCachedWork' => static function () use ( $page, $pOpts, $stableParserCache ) {
-					// Use new cache value from other thread
+					// T443065: Be careful about stale metadata in our local cache
+					$stableParserCache->clearProcessCache( $page );
+					// Use new cache value from other thread.
 					$parserOutput = $stableParserCache->get( $page, $pOpts );
 					return $parserOutput ? Status::newGood( $parserOutput ) : false;
 				},
@@ -384,6 +386,10 @@ class FlaggedRevs {
 		$stableParserCache = $services->getService(
 			FlaggedRevsParserCacheFactory::SERVICE_NAME
 		)->getParserCache( $pOpts );
+		// T443065: Be careful about stale metadata in our local cache --
+		// another process may have saved output while we waited for the
+		// PoolCounter lock.
+		$stableParserCache->clearProcessCache( $page );
 		$parserOutput = $stableParserCache->get( $page, $pOpts );
 		if ( !$parserOutput ) {
 			$parserOutput = self::parseStableRevision( $frev, $pOpts );
