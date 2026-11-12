@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\Config\ConfigException;
-use MediaWiki\Exception\MWException;
 use MediaWiki\Feed\ChannelFeed;
 use MediaWiki\Feed\FeedItem;
 use MediaWiki\Feed\FeedUtils;
@@ -293,6 +292,7 @@ class PendingChanges extends IncludableSpecialPage {
 		}
 
 		$feedClasses = $this->getConfig()->get( MainConfigNames::FeedClasses );
+		'@phan-var array<string,class-string<ChannelFeed>> $feedClasses';
 		if ( !isset( $feedClasses[$type] ) ) {
 			$this->getOutput()->addWikiMsg( 'feed-invalid' );
 			return;
@@ -324,17 +324,8 @@ class PendingChanges extends IncludableSpecialPage {
 		return "$sitename - $desc [$languageCode]";
 	}
 
-	/**
-	 * @param stdClass $row
-	 * @return FeedItem|null
-	 * @throws MWException
-	 */
-	private function feedItem( stdClass $row ): ?FeedItem {
+	private function feedItem( stdClass $row ): FeedItem {
 		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
-		if ( !$title ) {
-			return null;
-		}
-
 		$date = $row->pending_since;
 		$comments = $this->namespaceInfo->getTalkPage( $title );
 		$curRevRecord = $this->revisionLookup->getRevisionByTitle( $title );
