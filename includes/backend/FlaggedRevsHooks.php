@@ -58,7 +58,7 @@ class FlaggedRevsHooks implements
 	ArticleRevisionVisibilitySetHook,
 	ArticleUndeleteHook,
 	BeforeRevertedTagUpdateHook,
-	getUserPermissionsErrorsHook,
+	GetUserPermissionsErrorsHook,
 	GetMagicVariableIDsHook,
 	RevisionFromEditCompleteHook,
 	PageSaveCompleteHook,
