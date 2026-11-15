@@ -79,6 +79,7 @@ class FlaggedRevsStatsTest extends MediaWikiIntegrationTestCase {
 		$this->approveRevision( $namedUserPage );
 		ConvertibleTimestamp::setFakeTime( $referenceTime + 3600 );
 		$this->approveRevision( $tempUserPage );
+		ConvertibleTimestamp::setFakeTime( false );
 	}
 
 	/**
