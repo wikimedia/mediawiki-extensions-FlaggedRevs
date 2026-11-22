@@ -10,6 +10,7 @@ use Wikimedia\ObjectCache\MapCacheLRU;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IDBAccessObject;
 use Wikimedia\Rdbms\IReadableDatabase;
+use Wikimedia\Timestamp\TimestampFormat;
 
 /**
  * Class representing a MediaWiki article and history
@@ -248,7 +249,7 @@ class FlaggableWikiPage extends WikiPage {
 			},
 			[
 				'touchedCallback' => function () {
-					return $this->getTouched();
+					return wfTimestampOrNull( TimestampFormat::UNIX, $this->getTouched() );
 				}
 			]
 		);
