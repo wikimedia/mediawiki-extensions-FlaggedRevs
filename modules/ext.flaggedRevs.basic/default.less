@@ -104,7 +104,8 @@ li.fr-hist-stable-margin {
 
 .mw-fr-revision-details-dialog {
 	position: absolute;
-	right: -32px;
+	// (T408074) A negative offset pushes the dialog past the page edge and adds a scrollbar.
+	right: 0;
 	z-index: @z-index-above-content;
 }
 

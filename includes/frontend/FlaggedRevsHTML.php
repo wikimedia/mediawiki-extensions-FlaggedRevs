@@ -287,74 +287,80 @@ class FlaggedRevsHTML {
 			return self::addMessageBox( 'inline', $html, [
 				'class' => 'mw-fr-mobile-message-inline',
 			] );
-		} else {
-			return Html::rawElement(
-				'div',
-				[
-					'id' => 'mw-fr-revision-details',
-					'class' => 'mw-fr-revision-details-dialog',
-					'style' => 'display:none;'
-				],
-				Html::rawElement( 'div', [ 'tabindex' => '0' ] ) .
-				Html::rawElement(
-					'div',
-					[ 'class' => 'cdx-dialog cdx-dialog--horizontal-actions' ],
-					Html::rawElement(
-						'header',
-						[ 'class' => 'cdx-dialog__header cdx-dialog__header--default' ],
-						Html::rawElement(
-							'div',
-							[ 'class' => 'cdx-dialog__header__title-group' ],
-							Html::element( 'h2', [ 'class' => 'cdx-dialog__header__title' ],
-								$context->msg( 'revreview-dialog-title' )->text() ) .
-							Html::element( 'p', [ 'class' => 'cdx-dialog__header__subtitle' ], $subtitle )
-						) .
-						Html::rawElement( 'button', [
-							'class' => 'cdx-button cdx-button--action-default cdx-button--weight-quiet
-							cdx-button--size-medium cdx-button--icon-only cdx-dialog__header__close-button',
-							'aria-label' => $context->msg( 'fr-revision-info-dialog-close-aria-label' )->text(),
-							'onclick' => 'document.getElementById("mw-fr-revision-details").style.display = "none";'
+		}
+
+		// T408172: Omit review footer when the stable rev is the current one (synced)
+		$footer = '';
+		if ( $frev !== null && !$synced && $user->isAllowed( 'review' ) ) {
+			$footer = Html::rawElement(
+				'footer',
+				[ 'class' => 'cdx-dialog__footer cdx-dialog__footer--default' ],
+				Html::rawElement( 'div', [ 'class' => 'cdx-dialog__footer__actions' ],
+					Html::element(
+						'a',
+						[
+							'href' => $href,
+							'class' =>
+								'cdx-button cdx-button--action-progressive cdx-button--weight-primary
+								cdx-button--size-medium cdx-dialog__footer__primary-action
+								cdx-button--fake-button cdx-button--fake-button--enabled'
 						],
-							Html::rawElement( 'span', [ 'class' => 'cdx-icon cdx-icon--medium
-							cdx-fr-css-icon--close' ] )
-						)
+						$context->msg( 'fr-revision-info-dialog-review-button' )->text()
 					) .
-					Html::rawElement(
-						'div',
-						[ 'class' => 'cdx-dialog__body' ],
-						$html
-					) .
-					( $frev !== null && $user->isAllowed( 'review' ) ?
-						Html::rawElement(
-							'footer',
-							[ 'class' => 'cdx-dialog__footer cdx-dialog__footer--default' ],
-							Html::rawElement( 'div', [ 'class' => 'cdx-dialog__footer__actions' ],
-								Html::element(
-									'a',
-									[
-										'href' => $href,
-										'class' =>
-											'cdx-button cdx-button--action-progressive cdx-button--weight-primary
-											cdx-button--size-medium cdx-dialog__footer__primary-action
-											cdx-button--fake-button cdx-button--fake-button--enabled'
-									],
-									$context->msg( 'fr-revision-info-dialog-review-button' )->text()
-								) .
-								Html::element(
-									'button',
-									[
-										'class' => 'cdx-dialog__footer__default-action cdx-button cdx-button--default',
-										'onclick' =>
-											'document.getElementById("mw-fr-revision-details").style.display = "none";'
-									],
-									$context->msg( 'fr-revision-info-dialog-cancel-button' )->text()
-								)
-							)
-						) : '' )
-				) .
-				Html::rawElement( 'div', [ 'tabindex' => '0' ] )
+					Html::element(
+						'button',
+						[
+							'type' => 'button',
+							'class' => 'cdx-dialog__footer__default-action cdx-button cdx-button--default
+								mw-fr-revision-details-close',
+						],
+						$context->msg( 'fr-revision-info-dialog-cancel-button' )->text()
+					)
+				)
 			);
 		}
+
+		return Html::rawElement(
+			'div',
+			[
+				'id' => 'mw-fr-revision-details',
+				'class' => 'mw-fr-revision-details-dialog',
+				'style' => 'display:none;'
+			],
+			Html::rawElement( 'div', [ 'tabindex' => '0' ] ) .
+			Html::rawElement(
+				'div',
+				[ 'class' => 'cdx-dialog cdx-dialog--horizontal-actions' ],
+				Html::rawElement(
+					'header',
+					[ 'class' => 'cdx-dialog__header cdx-dialog__header--default' ],
+					Html::rawElement(
+						'div',
+						[ 'class' => 'cdx-dialog__header__title-group' ],
+						Html::element( 'h2', [ 'class' => 'cdx-dialog__header__title' ],
+							$context->msg( 'revreview-dialog-title' )->text() ) .
+						Html::element( 'p', [ 'class' => 'cdx-dialog__header__subtitle' ], $subtitle )
+					) .
+					Html::rawElement( 'button', [
+						'type' => 'button',
+						'class' => 'cdx-button cdx-button--action-default cdx-button--weight-quiet
+						cdx-button--size-medium cdx-button--icon-only cdx-dialog__header__close-button
+						mw-fr-revision-details-close',
+						'aria-label' => $context->msg( 'fr-revision-info-dialog-close-aria-label' )->text(),
+					],
+						Html::rawElement( 'span', [ 'class' => 'cdx-icon cdx-icon--medium
+						cdx-fr-css-icon--close' ] )
+					)
+				) .
+				Html::rawElement(
+					'div',
+					[ 'class' => [ 'cdx-dialog__body', 'cdx-dialog__body--no-footer' => $footer === '' ] ],
+					$html
+				) .
+				$footer
+			) .
+			Html::rawElement( 'div', [ 'tabindex' => '0' ] )
+		);
 	}
 
 	/**

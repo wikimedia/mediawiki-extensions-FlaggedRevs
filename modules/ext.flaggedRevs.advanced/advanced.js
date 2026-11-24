@@ -214,7 +214,9 @@
 
 		// Simple UI: Show the box on mouseOver
 		$toggle.on( 'mouseover', onBoxMouseOver );
-		$( '#mw-fr-revision-details' ).on( 'mouseout', onBoxMouseOut );
+		$( '#mw-fr-revision-details' )
+			.on( 'mouseout', onBoxMouseOut )
+			.on( 'click', '.mw-fr-revision-details-close', hideBoxDetails );
 
 		// Enables diff detail box and toggle
 		$toggle = $( '#mw-fr-diff-toggle' );
