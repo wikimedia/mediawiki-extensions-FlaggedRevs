@@ -11,7 +11,6 @@ use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IDBAccessObject;
 use Wikimedia\Rdbms\IReadableDatabase;
 use Wikimedia\Rdbms\SelectQueryBuilder;
-use Wikimedia\Timestamp\TimestampFormat;
 
 /**
  * Class representing a MediaWiki article and history
@@ -257,7 +256,7 @@ class FlaggableWikiPage extends WikiPage {
 			},
 			[
 				'touchedCallback' => function () {
-					return wfTimestampOrNull( TimestampFormat::UNIX, $this->getTouched() );
+					return wfTimestampOrNull( TS_UNIX, $this->getTouched() );
 				}
 			]
 		);
